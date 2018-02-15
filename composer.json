@@ -63,7 +63,7 @@
     },
     "degov-theme": {
       "type": "git",
-      "url": "https://github.com/deGov/degov_base_theme.git"
+      "url": "git@bitbucket.org:publicplan/degov_base_theme.git"
     }
   },
   "scripts": {
