@@ -55,7 +55,7 @@
     },
     "degov-modules": {
       "type": "git",
-      "url": "https://github.com/DerH4NNES/modules.git"
+      "url": "git@bitbucket.org:publicplan/modules.git"
     },
     "bowser-assets": {
       "type": "composer",
