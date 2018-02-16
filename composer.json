@@ -51,7 +51,7 @@
     "drupal/lightning_workflow": "1.x-dev",
     "drupal/paragraphs": "^1.2",
     "drupal/features":"^3.5",
-    "drupal/scheduled_updates":"*",
+    "drupal/scheduled_updates":"^1.0",
     "degov/degov_base_theme": "dev-release/1.x",
     "degov/modules": "dev-release/2.x"
   },
