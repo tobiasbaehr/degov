@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-php ./phpunit-4.8.36.phar
+php ./ci/phpunit-4.8.36.phar
