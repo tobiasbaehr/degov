@@ -16,5 +16,5 @@ pipelines:
         script:
           - apt-get update && apt-get install -y unzip git
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - bash ./ci/pipelines-composer.sh
-          - bash ./ci/pipelines-test.sh
+          - bash ./pipelines-composer.sh
+          - bash ./pipelines-test.sh
