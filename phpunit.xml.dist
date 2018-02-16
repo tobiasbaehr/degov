@@ -21,9 +21,8 @@
   </php>
 
   <testsuites>
-    <testsuite name="deGov modules test suite">
-      <directory>./../tests</directory>
-      <directory>./../docroot/modules/degov</directory>
+    <testsuite name="deGov">
+      <directory>./docroot/modules/degov</directory>
     </testsuite>
   </testsuites>
 
