@@ -19,7 +19,7 @@ Sounds interesting? Then go for it and install the first Drupal 8 distribution f
 ## Prerequisites
 
 - Webserver (Apache2, Nginx, Hiawatha, Microsoft IIS)
-- PHP >= 5.5.9+ | Memory >= 64MB
+- PHP >= 7.1+ | Memory >= 64MB
 - RDMS (MySQL => 5.5.3, MariaDB => 5.5.20, Percona Server => 5.5.8)
 - Mailserver (Postfix, exim, etc.)
 - [Composer](https://getcomposer.org/download/ "https://getcomposer.org/download/")
@@ -54,6 +54,15 @@ Visit the following page to log into your deGov Installation with your previousl
 ```
 http://[YOUR_SITE]/user/login/
 ``` 
+
+## Testing
+Drupal 8 needs PHPUnit 4.8. Therefor it is recommended to download the [PHP phar archive](https://phar.phpunit.de/) in the
+appropriate version. Copy the `phpunit.xml.dist` file to `phpunit.xml` for fitting your needs. Afterwards you can execute the
+tests via
+```
+php ./phpunit-4.8.9.phar
+```
+Learn more about [testing in Drupal 8](https://www.drupal.org/docs/8/testing).
 
 ## License
 [**GNU GENERAL PUBLIC LICENSE v2**](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html "visit GPLv2 website")
