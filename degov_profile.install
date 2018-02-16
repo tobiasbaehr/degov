@@ -9,3 +9,14 @@
  */
 function degov_profile_install() {
 }
+
+function degov_update_8440() {
+  // Read the configuration.
+  $module_data = \Drupal::config('core.extension')->get('module');
+
+  // Remove lightning
+  unset($module_data['lightning']);
+
+  // Write the configuration.
+  \Drupal::configFactory()->getEditable('core.extension')->set('module', $module_data)->save();
+}

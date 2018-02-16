@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.x]
+- Removed lightning profile from deGov
+
 ## [1.12.1] - 2017-12-05
 - Removed defect patch from composer.json
 

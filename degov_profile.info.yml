@@ -12,7 +12,7 @@ dependencies:
   - automated_cron
   - config_rewrite
   - entity_browser
-  - entity_reference_revisions
+  - entity_ref*deerence_revisions
   - features
   - filter
   - open_readspeaker
@@ -30,13 +30,3 @@ dependencies:
 themes:
   - degov_base_theme
   - seven
-
-base profile:
-  name: lightning
-  excluded_dependencies:
-    - lightning_landing_page
-    - lightning_layout
-    - lightning_page
-    - lightning_contact_form
-    - lightning_roles
-    - lightning_search
