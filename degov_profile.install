@@ -9,6 +9,7 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\lightning_core\ConfigHelper as Config;
 use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
+
 /**
  * Implements hook_install().
  */
