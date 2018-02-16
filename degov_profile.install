@@ -9,7 +9,7 @@
  */
 function degov_profile_install() {
   // Assign user 1 the "administrator" role.
-  $user = User::load(1);
+  $user = \Drupal\user\Entity\User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
 
