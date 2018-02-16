@@ -2,7 +2,7 @@
   "name": "degov/degov",
   "description": "Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)",
   "type": "drupal-profile",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require-dev": {
@@ -44,7 +44,7 @@
     "drupal/webform": "^5.0@beta",
     "drupal/entity_reference_display": "^1.0",
     "drupal/search_api_solr": "^1.0",
-    "degov/base_theme": "^1.11",
+    "degov/base_theme": "dev-release/1.x",
     "degov/modules": "dev-release/2.x",
     "drupal/paragraphs": "^1.2"
   },
