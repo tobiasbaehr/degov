@@ -14,6 +14,8 @@ pipelines:
         caches:
           - composer
         script:
+          - wget https://phar.phpunit.de/phpunit-4.8.9.phar
+          - chmod +x phpunit-4.8.9.phar
           - apt-get update && apt-get install -y unzip git
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - bash ./pipelines-composer.sh
