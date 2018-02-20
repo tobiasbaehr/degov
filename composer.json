@@ -63,6 +63,70 @@
         "bowser-assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "dropzone": {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "4.2.0",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/enyo/dropzone",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        },
+        "shariff": {
+            "type": "package",
+            "package": {
+                "name": "heiseonline/shariff",
+                "version": "master",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/heiseonline/shariff/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "slick": {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.7.1",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/kenwheeler/slick",
+                    "reference": "master"
+                }
+            }
+        },
+        "doubletaptogo": {
+            "type": "package",
+            "package": {
+                "name": "zenopopovici/DoubleTapToGo",
+                "version": "0.3",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/zenopopovici/DoubleTapToGo",
+                    "reference": "master"
+                }
+            }
+        },
+        "leaflet": {
+            "type": "package",
+            "package": {
+                "name": "leaflet/leaflet",
+                "version": "1.1.0",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/Leaflet/Leaflet",
+                    "reference": "a3a7e04"
+                }
+            }
         }
     },
     "scripts": {
