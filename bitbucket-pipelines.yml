@@ -23,7 +23,7 @@ pipelines:
           - wget https://phar.phpunit.de/phpunit-4.8.9.phar
           - chmod +x phpunit-4.8.9.phar
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - php /usr/local/bin/composer create-project degov/degov-project degov-project:dev-release/1.x
+          - php /usr/local/bin/composer create-project degov/degov-project degov-project:dev-release/1.x degov-project
           - cd degov-project
           - rm composer.lock && rm -rf vendor/
           - composer require drupal/drupal-extension:^3.2 behat/mink:~1.7 behat/mink-goutte-driver:~1.2 behat/behat:^3.0
