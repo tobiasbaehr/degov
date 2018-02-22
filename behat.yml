@@ -8,7 +8,7 @@ default:
         - Drupal\DrupalExtension\Context\DrushContext
         - Drupal\Tests\Behat\Context\FeatureContext
       paths:
-        features: '%paths.base%/testing/behat/features'
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
     Behat\MinkExtension:
       javascript_session: 'selenium2'
