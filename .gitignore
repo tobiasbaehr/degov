@@ -1,3 +1,24 @@
-# IDE
+# IDE and editor specific files #
+#################################
+nbproject
 .idea
-.nbproject
+.buildpath
+.project
+.settings
+.vagrant
+.tags
+.tags1
+tags
+!.gitkeep
+playbook.retry
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
