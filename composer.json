@@ -173,10 +173,5 @@
         "enable-patching": true,
         "patches": {
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Drupal\\Tests\\Behat\\Context\\": "testing/behat/context"
-        }
     }
 }
