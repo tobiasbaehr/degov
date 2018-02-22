@@ -63,6 +63,70 @@
         "bowser-assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "dropzone": {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "4.2.0",
+                "type": "drupal-library",
+                "source": {
+                    "url": "https://github.com/enyo/dropzone",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
+            }
+        },
+        "shariff": {
+            "type": "package",
+            "package": {
+                "name": "heiseonline/shariff",
+                "version": "master",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/heiseonline/shariff/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "slick": {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "1.7.1",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/kenwheeler/slick",
+                    "reference": "master"
+                }
+            }
+        },
+        "doubletaptogo": {
+            "type": "package",
+            "package": {
+                "name": "zenopopovici/DoubleTapToGo",
+                "version": "0.3",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/zenopopovici/DoubleTapToGo",
+                    "reference": "master"
+                }
+            }
+        },
+        "leaflet": {
+            "type": "package",
+            "package": {
+                "name": "leaflet/leaflet",
+                "version": "1.1.0",
+                "type": "drupal-library",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/Leaflet/Leaflet",
+                    "reference": "a3a7e04"
+                }
+            }
         }
     },
     "scripts": {
@@ -108,65 +172,11 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/core": {
-                "2893029 - StringTranslationTrait consumers cannot be reliably serialized without DependencySerializationTrait": "https://www.drupal.org/files/issues/2893029-full-fix-test-from-3.patch",
-                "2652542 - Add .install file abilities for Themes": "https://www.drupal.org/files/issues/core-add_install_file-2652542-32.patch",
-                "2849674 - Complex job in ViewExecutable::unserialize() causes data corruption": "https://www.drupal.org/files/issues/2849674-88.patch"
-            },
-            "drupal/config_rewrite": {
-                "2903629 - Allow optional config rewrite": "https://www.drupal.org/files/issues/empty_config.patch"
-            },
-            "drupal/paragraphs": {
-                "2868155 - Add new hooks to allow easier editing of paragraph forms": "https://www.drupal.org/files/issues/2868155-16.patch"
-            },
-            "drupal/workbench_moderation": {
-                "2668006 - Provide logical access control for when IPE should be applied to moderated nodes": "https://www.drupal.org/files/issues/2668006-2.patch",
-                "2847078 - Revision tracker's dynamic table creation can break Views": "https://www.drupal.org/files/issues/2847078-6.patch",
-                "2749503 - Add basic support for Quick Edit": "https://www.drupal.org/files/issues/workbench_moderation-quickedit-support-2749503-6.patch"
-            },
-            "drupal/core": {
-                "1356276 - Allow profiles to provide a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/1356276-408--8.4.4.patch",
-                "2880374 - Experimental modules should not have warnings after being installed": "https://www.drupal.org/files/issues/2880374-remove-experimental-warnings-6.patch",
-                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
-                "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
-                "2883813 - Move File/Image media type into Standard once Media is stable": "https://www.drupal.org/files/issues/2883813-27.patch",
-                "2877383 - Add action support to Media module": "https://www.drupal.org/files/issues/2877383-23.patch",
-                "2862041 - Provide useful Views filters for Content Moderation State fields": "https://www.drupal.org/files/issues/2862041-229.patch",
-                "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2815221-69-8.4.x.patch"
-            },
-            "drupal/entity_embed": {
-                "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
-            },
-            "drupal/entity_block": {
-                "2844068 - Create derivatives for any viewable entity.": "https://www.drupal.org/files/issues/entity_block-view-builder-class.patch",
-                "2846004 - Entity Block does not perform any access control": "https://www.drupal.org/files/issues/2846004-2.patch"
-            },
-            "drupal/entity_browser": {
-                "2865928 - The View widget should filter based on field settings": "https://www.drupal.org/files/issues/entity-browser-view-context-2865928-14.patch",
-                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2877751-17.patch"
-            },
-            "drupal/panels": {
-                "2878684 - Use String.match to correlate regions when switching Layouts in Panels IPE": "https://www.drupal.org/files/issues/panels-ipe-2878684-3.patch",
-                "2825034 - Form error messages do not appear in IPE": "https://www.drupal.org/files/issues/panels-ipe-propogate-errors-2825034-5.patch",
-                "2908897 - CategoryView leaves AJAX request marked active": "https://www.drupal.org/files/issues/2908897-2.patch",
-                "2913353 - IPE attaches behaviors a bit too quickly": "https://www.drupal.org/files/issues/2913353-2.patch",
-                "2825028 - AJAX error creating and placing blocks with date fields in IPE": "https://www.drupal.org/files/issues/panels-ipe-date-field-2825028-10.patch"
-            },
-            "drupal/panelizer": {
-                "2908917 - SaveTabView blindly assumes a Revert tab exists": "https://www.drupal.org/files/issues/2908917-2.patch"
-            },
-            "drupal/media_entity": {
-                "2918172 - Media Entity upgrade -> core fails on absent column revision_uid": "https://www.drupal.org/files/issues/2918172-5.patch"
-            },
-            "drupal/media_entity_instagram": {
-                "2917454 - Field formatter test is broken": "https://www.drupal.org/files/issues/2917454-2.patch"
-            },
-            "drupal/crop": {
-                "Make Crop API compatible with core Media": "https://www.drupal.org/files/issues/2918441-beta1-packaged-info-file.patch"
-            },
-            "drupal/simple_oauth": {
-                "2925369 - TokenAuthUser does not fulfill RevisionableInterface, causes fatals": "https://www.drupal.org/files/issues/2925369-2.patch"
-            }
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Drupal\\Tests\\Behat\\Context\\": "testing/behat/context"
         }
     }
 }
