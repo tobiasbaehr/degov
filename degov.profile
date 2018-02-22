@@ -9,7 +9,7 @@
  *
  * Defines additional tasks to be performed by the deGov installation profile.
  */
-function degov_profile_install_tasks($install_state) {
+function degov_install_tasks($install_state) {
   $tasks = array(
     'degov_theme_setup' => array(
       'display_name' => t('Install deGov theme'),
