@@ -4,8 +4,9 @@ distribution:
   name: deGov
   langcode: de
 description: 'Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)'
-version: 8.x-dev
+version: 8.2.x-dev
 core: '8.x'
+project: 'deGov'
 dependencies:
   - block_content
   - breakpoint
@@ -40,14 +41,8 @@ dependencies:
   - metatag
   - lightning_core
   - lightning_api
-  - lightning_layout
   - lightning_media
   - lightning_workflow
-  - lightning_contact_form
-  - lightning_page
-  - lightning_roles
-  - lightning_search
-  - lightning_landing_page
   - lightning_media_bulk_upload
   - lightning_media_document
   - lightning_media_image
