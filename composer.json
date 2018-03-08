@@ -46,7 +46,7 @@
         "drupal/core": "~8.5",
         "drupal/lightning_api": "2.x-dev",
         "drupal/lightning_core": "2.x-dev",
-        "drupal/lightning_layout": "2.x-dev",
+        "drupal/lightning_layout": "1.x-dev",
         "drupal/lightning_media": "2.x-dev",
         "drupal/lightning_workflow": "1.x-dev",
         "drupal/paragraphs": "^1.2",
