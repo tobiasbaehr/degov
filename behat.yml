@@ -1,0 +1,32 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - Drupal\Tests\Behat\Context\FeatureContext
+      paths:
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+  extensions:
+    Behat\MinkExtension:
+      javascript_session: 'selenium2'
+      browser_name: 'chrome'
+      show_cmd: "open %s"
+      selenium2:
+        wd_host: 'http://localhost:4444/wd/hub'
+      base_url: http://localhost:8000
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            browser: phantomjs
+    Drupal\DrupalExtension:
+      blackbox: ~
+      drupal:
+        drupal_root: '%paths.base%/docroot'
+      api_driver: 'drupal'
+      drush:
+        alias: 'local'
