@@ -81,11 +81,14 @@
             "type": "package",
             "package": {
                 "name": "heiseonline/shariff",
-                "version": "master",
+                "version": "2.0.4",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/heiseonline/shariff/archive/master.zip",
+                    "url": "https://github.com/heiseonline/shariff/releases/download/2.0.4/shariff-2.0.4.zip",
                     "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "^1.2.0"
                 }
             }
         },
