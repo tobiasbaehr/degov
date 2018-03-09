@@ -43,11 +43,11 @@
         "drupal/webform": "^5.0@beta",
         "drupal/entity_reference_display": "^1.0",
         "drupal/search_api_solr": "^1.0",
-        "drupal/core": "~8.4.4",
-        "drupal/lightning_api": "1.x-dev",
-        "drupal/lightning_core": "1.x-dev",
+        "drupal/core": "~8.5",
+        "drupal/lightning_api": "2.x-dev",
+        "drupal/lightning_core": "2.x-dev",
         "drupal/lightning_layout": "1.x-dev",
-        "drupal/lightning_media": "1.x-dev",
+        "drupal/lightning_media": "2.x-dev",
         "drupal/lightning_workflow": "1.x-dev",
         "drupal/paragraphs": "^1.2",
         "drupal/features": "^3.5",
@@ -81,11 +81,14 @@
             "type": "package",
             "package": {
                 "name": "heiseonline/shariff",
-                "version": "master",
+                "version": "2.0.4",
                 "type": "drupal-library",
                 "dist": {
-                    "url": "https://github.com/heiseonline/shariff/archive/master.zip",
+                    "url": "https://github.com/heiseonline/shariff/releases/download/2.0.4/shariff-2.0.4.zip",
                     "type": "zip"
+                },
+                "require": {
+                    "composer/installers": "^1.2.0"
                 }
             }
         },
