@@ -1,0 +1,20 @@
+name: 'deGov - Media Contact'
+description: 'Dient der Erstellung einer Kontaktperson/-stelle.'
+type: module
+core: 8.x
+package: deGov
+dependencies:
+  - degov_common
+  - degov_content_types_shared_fields
+  - degov_taxonomy_term_tags
+  - entity_browser
+  - field
+  - field_group
+  - image
+  - language
+  - media
+  - media_entity_generic
+  - path
+  - taxonomy
+  - user
+  - workbench_moderation

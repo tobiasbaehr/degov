@@ -1,0 +1,14 @@
+langcode: de
+status: true
+dependencies:
+  enforced:
+    module:
+      - degov_media_gallery
+id: gallery
+label: Bildergalerie
+description: 'Ein Media-Bundle zur Erstellung einer Bildergalerie'
+source: generic
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration: {  }
+field_map: {  }
