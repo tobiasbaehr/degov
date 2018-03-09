@@ -27,6 +27,10 @@ pipelines:
           - composer require drupal/drupal-extension:^3.2 behat/mink:~1.7 behat/mink-goutte-driver:~1.2 behat/behat:^3.0
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
+          - mkdir docroot/profiles
+          - mkdir docroot/profiles/degov
+          - find . -maxdepth 1 -type f -exec mv {} docroot/profiles/degov \;
+          - cd docroot
           - cd docroot
           - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - php -S localhost:8000 &
