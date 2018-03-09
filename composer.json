@@ -226,6 +226,6 @@
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             }
-        },
+        }
     }
 }
