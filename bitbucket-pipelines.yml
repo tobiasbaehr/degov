@@ -23,8 +23,7 @@ pipelines:
           - wget https://phar.phpunit.de/phpunit-4.8.9.phar
           - chmod +x phpunit-4.8.9.phar
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - rm composer.lock
-          - composer require drupal/drupal-extension:^3.2 behat/mink:~1.7 behat/mink-goutte-driver:~1.2 behat/behat:^3.0
+          - composer install
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
           - mkdir docroot/profiles
