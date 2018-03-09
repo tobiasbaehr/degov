@@ -22,3 +22,8 @@ playbook.retry
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# deGov
+/docroot
+/vendor
+/bin

@@ -14,7 +14,6 @@ pipelines:
         caches:
           - composer
         script:
-          - ls
           - apt-get update
           - apt-get install -y wget bzip2
           - wget -qO- https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar jx
@@ -24,11 +23,8 @@ pipelines:
           - wget https://phar.phpunit.de/phpunit-4.8.9.phar
           - chmod +x phpunit-4.8.9.phar
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - php /usr/local/bin/composer create-project degov/degov-project:dev-release/1.x degov-project
-          - cd degov-project
-          - rm composer.lock && rm -rf vendor/
+          - rm composer.lock
           - composer require drupal/drupal-extension:^3.2 behat/mink:~1.7 behat/mink-goutte-driver:~1.2 behat/behat:^3.0
-          - composer dump-autoload
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
           - cd docroot
