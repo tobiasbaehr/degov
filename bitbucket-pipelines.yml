@@ -24,6 +24,7 @@ pipelines:
           - chmod +x phpunit-4.8.9.phar
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
+          - composer dumpautoload
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
           - mkdir docroot/profiles
