@@ -1,0 +1,36 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_teaser_text
+    - paragraphs.paragraphs_type.external_teaser
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    weight: '0'
+    method: none
+    geocode_field: parent_id
+    reverse_geocode_field: {  }
+    hidden: 0
+    disabled: 0
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.external_teaser.field_teaser_text
+field_name: field_teaser_text
+entity_type: paragraph
+bundle: external_teaser
+label: 'Teaser Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
