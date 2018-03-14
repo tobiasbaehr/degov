@@ -1,4 +1,4 @@
-<phpunit bootstrap="./degov-project/docroot/core/tests/bootstrap.php" colors="true"
+<phpunit bootstrap="./docroot/core/tests/bootstrap.php" colors="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true"
