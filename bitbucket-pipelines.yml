@@ -26,19 +26,19 @@ pipelines:
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
           - mkdir docroot/profiles
-          - mkdir docroot/profiles/degov
-          - find . -maxdepth 1 -type f -exec mv {} docroot/profiles/degov \;
-          - mv docroot/profiles/degov/composer.* .
-          - mv modules docroot/profiles/degov
+          - mkdir docroot/profiles/contrib
+          - mkdir docroot/profiles/contrib/degov
+          - find . -maxdepth 1 -type f -exec mv {} docroot/profiles/contrib/degov \;
+          - mv docroot/profiles/contrib/degov/composer.* .
+          - mv modules docroot/profiles/contrib/degov
           - cd docroot
           - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - php -S localhost:8000 &
           - cd ../../
           - wget https://phar.phpunit.de/phpunit-4.8.9.phar
           - chmod +x phpunit-4.8.9.phar
-          - php ./phpunit-4.8.9.phar
-          - cd degov-project
+          - (cd docroot/profiles/contrib/degov && php ./phpunit-4.8.9.phar)
           - rm -rf docroot/modules/contrib/lightning_layout/tests/contexts
           - rm -rf docroot/modules/contrib/lightning_media/tests/contexts
-          - cp ../behat.yml .
+          - cp docroot/profiles/contrib/degov/behat.yml .
           - bin/behat

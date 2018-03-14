@@ -22,7 +22,7 @@
 
   <testsuites>
     <testsuite name="deGov">
-      <directory>./docroot/modules/degov</directory>
+      <directory>./docroot/profiles/contrib/degov/modules</directory>
     </testsuite>
   </testsuites>
 
