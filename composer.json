@@ -230,7 +230,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\Behat\\Context\\": "testing/behat/context"
+            "Drupal\\Tests\\Behat\\Context\\": "docroot/profiles/contrib/degov/testing/behat/context"
         }
     }
 }
