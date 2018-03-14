@@ -1,4 +1,4 @@
-<phpunit bootstrap="./degov-project/docroot/core/tests/bootstrap.php" colors="true"
+<phpunit bootstrap="../../../core/tests/bootstrap.php" colors="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutChangesToGlobalState="true"
@@ -22,7 +22,7 @@
 
   <testsuites>
     <testsuite name="deGov">
-      <directory>./docroot/modules/degov</directory>
+      <directory>modules</directory>
     </testsuite>
   </testsuites>
 
