@@ -1,5 +1,0 @@
-<?php
-
-function degov_paragraph_external_teaser_preprocess_page(&$variables) {
-  $variables['#attached']['library'][] =  'degov_paragraph_external_teaser/external_teaser';
-}
