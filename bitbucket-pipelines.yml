@@ -20,8 +20,6 @@ pipelines:
           - chmod +x phantomjs-2.1.1-linux-x86_64 && ./phantomjs-2.1.1-linux-x86_64 --webdriver=4444 &
           - apt-get install -y unzip git curl php php-cli php-gd php-curl php7.1-sqlite
           - apt-get install -y php-dom php-json php-common php-mbstring
-          - wget https://phar.phpunit.de/phpunit-4.8.9.phar
-          - chmod +x phpunit-4.8.9.phar
           - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
           - composer install
           - composer dumpautoload
@@ -36,6 +34,8 @@ pipelines:
           - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - php -S localhost:8000 &
           - cd ../../
+          - wget https://phar.phpunit.de/phpunit-4.8.9.phar
+          - chmod +x phpunit-4.8.9.phar
           - php ./phpunit-4.8.9.phar
           - cd degov-project
           - rm -rf docroot/modules/contrib/lightning_layout/tests/contexts
