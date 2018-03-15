@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains instagram_feed_block.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function instagram_feed_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the instagram_feed_block module.
+    case 'help.page.instagram_feed_block':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allows you to show you the newest posts from a user') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function instagram_feed_block_theme() {
+  return [
+    'instagram_feed_block' => [
+      'render element' => 'elements',
+      'variables' => [
+        'imageUrl' => NULL,
+        'type' => NULL,
+        'link' => NULL,
+        'caption' => NULL,
+      ]
+    ],
+    'block' => [
+      'render element' => 'elements',
+    ]
+  ];
+}

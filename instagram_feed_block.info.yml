@@ -1,0 +1,6 @@
+name: 'Instagram-feed block'
+type: module
+description: 'This module allows you to show you the newest posts of a user'
+core: 8.x
+package: 'MHKBG'
+configure: instagram_feed_block.admin_settings
