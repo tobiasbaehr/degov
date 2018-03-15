@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Contains youtube_feed_block.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the youtube_feed_block module.
+    case 'help.page.youtube_feed_block':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allows you to show you the newest videos of one youtube channel') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function youtube_feed_block_theme() {
+  return [
+    'youtube_feed_block' => [
+      'render element' => 'elements',
+      'variables' => [
+        'title' => NULL,
+        'videoID' => NULL,
+        'thumbnail' => NULL,
+      ]
+    ],
+    'block' => [
+      'render element' => 'elements',
+    ]
+  ];
+}

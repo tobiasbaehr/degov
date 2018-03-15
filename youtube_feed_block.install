@@ -1,0 +1,8 @@
+<?php
+
+function youtube_feed_block_install() {
+  $config = \Drupal::service('config.factory')->getEditable('youtube_feed_block.settings');
+  $config->set('api_key', "")->save();
+  $config->set('channel', "")->save();
+  $config->set('number_of_videos', "5")->save();
+}

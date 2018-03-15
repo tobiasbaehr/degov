@@ -1,0 +1,6 @@
+name: 'Youtube-feed block'
+type: module
+description: 'This module allows you to show you the newest videos of one youtube channel'
+core: 8.x
+package: 'MHKBG'
+configure: youtube_feed_block.admin_settings

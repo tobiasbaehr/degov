@@ -1,0 +1,16 @@
+{
+  "name": "drupal/youtube_feed_block",
+  "type": "drupal-module",
+  "description": "This module allows you to show you the newest videos of one youtube channel",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/youtube_feed_block",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/youtube_feed_block",
+    "source": "http://cgit.drupalcode.org/youtube_feed_block"
+  },
+  "require": {
+      "madcoda/php-youtube-api": "^1.2"
+  }
+}
