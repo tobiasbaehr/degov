@@ -25,6 +25,11 @@ class InstagramFeedBlock extends BlockBase {
       ->get('instagram_feed_block.settings');
     $user = $config->get('user');
     $max = $config->get('number_of_posts');
+    $maxLenth = $config->get('number_of_characters');
+
+    if (is_numeric($max)) {
+      $max = intval($max);
+    }
 
     $instagram = new Instagram();
     $nonPrivateAccountMedias = $instagram->getMedias($user, $max);
@@ -32,15 +37,30 @@ class InstagramFeedBlock extends BlockBase {
     foreach ($nonPrivateAccountMedias as $media) {
       $build['instagram_feed_block'][] = [
         '#theme' => 'instagram_feed_block',
-        '#imageUrl' => $media->getImageLowResolutionUrl(),
+        '#imageUrl' => $media->getImageThumbnailUrl(),
         '#link' => $media->getLink(),
+        '#link_display' => $this->_shortDescription($media->getLink(),32,'...'),
         '#type' => $media->getType(),
-        '#caption' => $media->getCaption(),
+        '#caption' => $this->_shortDescription($media->getCaption(), $maxLenth, "..."),
+        '#views' => $media->getVideoViews(),
+        '#likes' => $media->getLikesCount(),
+        '#comments' => $media->getCommentsCount(),
+        '#date' => \Drupal::service('date.formatter')
+        ->formatTimeDiffSince($media->getCreatedTime()),
         '#cache' => ['max-age' => (60 * 5)],
       ];
     }
 
     return $build;
+  }
+
+  function _shortDescription($string, $maxLenth, $replacement) {
+    if (strlen($string) > $maxLenth) {
+      return substr($string, 0, $maxLenth) . $replacement;
+    }
+    else {
+      return $string;
+    }
   }
 
 }

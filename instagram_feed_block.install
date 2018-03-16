@@ -5,4 +5,5 @@ function instagram_feed_block_install() {
   $config->set('api_key', "")->save();
   $config->set('user', "")->save();
   $config->set('number_of_posts', "5")->save();
+  $config->set('number_of_characters', "100")->save();
 }

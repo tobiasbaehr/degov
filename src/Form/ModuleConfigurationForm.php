@@ -46,6 +46,11 @@ class ModuleConfigurationForm extends ConfigFormBase {
       '#title' => $this->t('Number of listed posts'),
       '#default_value' => $config->get('number_of_posts'),
     ];
+    $form['number_of_characters'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Number of characters post\'s caption'),
+      '#default_value' => $config->get('number_of_characters'),
+    ];
     return parent::buildForm($form, $form_state);
   }
 
@@ -58,6 +63,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
     $config->set('api_key', $values['api_key'])->save();
     $config->set('user', $values['user'])->save();
     $config->set('number_of_posts', $values['number_of_posts'])->save();
+    $config->set('number_of_characters', $values['number_of_characters'])->save();
   }
 
 }

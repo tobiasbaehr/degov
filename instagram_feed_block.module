@@ -23,6 +23,10 @@ function instagram_feed_block_help($route_name, RouteMatchInterface $route_match
   }
 }
 
+function instagram_feed_block_preprocess_block(&$variables) {
+  $variables['#attached']['library'][] = 'instagram_feed_block/instagram_slider';
+}
+
 /**
  * Implements hook_theme().
  */
@@ -35,6 +39,11 @@ function instagram_feed_block_theme() {
         'type' => NULL,
         'link' => NULL,
         'caption' => NULL,
+        'date' => NULL,
+        'views' => NULL,
+        'comments' => NULL,
+        'likes' => NULL,
+        'link_display' => NULL,
       ]
     ],
     'block' => [
