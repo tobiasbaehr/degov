@@ -1,0 +1,4 @@
+youtube_feed_block.admin_settings:
+  route_name: youtube_feed_block.admin_settings
+  base_route: youtube_feed_block.admin_settings
+  title: 'Youtube Settings'

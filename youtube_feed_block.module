@@ -24,6 +24,13 @@ function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) 
 }
 
 /**
+ * @param $variables
+ */
+function youtube_feed_block_preprocess_block(&$variables) {
+  $variables['#attached']['library'][] = 'youtube_feed_block/youtube_slider';
+}
+
+/**
  * Implements hook_theme().
  */
 function youtube_feed_block_theme() {
@@ -34,6 +41,12 @@ function youtube_feed_block_theme() {
         'title' => NULL,
         'videoID' => NULL,
         'thumbnail' => NULL,
+        'link_display' => NULL,
+        'caption' => NULL,
+        'date' => NULL,
+        'views' => NULL,
+        'comments' => NULL,
+        'likes' => NULL,
       ]
     ],
     'block' => [

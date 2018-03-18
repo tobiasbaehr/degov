@@ -33,16 +33,30 @@ class YoutubeFeedBlock extends BlockBase {
     $videos = $youtube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
 
     foreach ($videos as $video) {
+      $info = $youtube->getVideoInfo($video->id->videoId);
       $build['youtube_feed_block'][] = [
         '#theme' => 'youtube_feed_block',
         '#title' => $video->snippet->title,
+        '#likes' => $info->statistics->likeCount,
+        '#views' => $info->statistics->viewCount,
+        '#comments' => $info->statistics->commentCount,
         '#videoID' => $video->id->videoId,
         '#thumbnail' =>$video->snippet->thumbnails->default->url,
-        '#cache' => ['max-age' => (60*60)]
+        '#cache' => ['max-age' => (60*60)],
+        '#link_display' => $this->_shortDescription("https://youtube.com/watch?q=".$video->id->videoId,32,'...'),
       ];
     }
 
     return $build;
   }
 
+  function _shortDescription($string, $maxLenth, $replacement) {
+    if (strlen($string) > $maxLenth) {
+      return substr($string, 0, $maxLenth) . $replacement;
+    }
+    else {
+      return $string;
+    }
+  }
 }
+

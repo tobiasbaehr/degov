@@ -1,0 +1,6 @@
+youtube_feed_block.admin_settings:
+  title: 'Youtube feed settings'
+  route_name: 'youtube_feed_block.admin_settings'
+  parent: 'degov.default'
+  description: 'Administer deGov Instagram feed.'
+  weight: -9
