@@ -19,7 +19,7 @@
         autoplay: true,
         responsive: [
           {
-            breakpoint: 720,
+            breakpoint: 1319,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1

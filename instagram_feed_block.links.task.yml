@@ -1,0 +1,4 @@
+instagram_feed_block.admin_settings:
+  route_name: instagram_feed_block.admin_settings
+  base_route: instagram_feed_block.admin_settings
+  title: 'Instagram Settings'

@@ -31,11 +31,6 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('instagram_feed_block.settings');
-    $form['api_key'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Your API key'),
-      '#default_value' => $config->get('api_key'),
-    ];
     $form['user'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your user name'),
@@ -60,7 +55,6 @@ class ModuleConfigurationForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
     $config = \Drupal::service('config.factory')->getEditable('instagram_feed_block.settings');
-    $config->set('api_key', $values['api_key'])->save();
     $config->set('user', $values['user'])->save();
     $config->set('number_of_posts', $values['number_of_posts'])->save();
     $config->set('number_of_characters', $values['number_of_characters'])->save();
