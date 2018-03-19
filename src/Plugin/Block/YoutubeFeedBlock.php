@@ -3,6 +3,7 @@
 namespace Drupal\youtube_feed_block\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\facets\Exception\Exception;
 use Madcoda\Youtube\Youtube;
 
 /**
@@ -28,23 +29,33 @@ class YoutubeFeedBlock extends BlockBase {
     $channelName = $config->get('channel');
     $numberOfVideos = $config->get('number_of_videos');
 
-    $youtube = new Youtube(['key' => $apiKey]);
-    $channelID = $youtube->getChannelByName($channelName)->id;
-    $videos = $youtube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
 
-    foreach ($videos as $video) {
-      $info = $youtube->getVideoInfo($video->id->videoId);
-      $build['youtube_feed_block'][] = [
-        '#theme' => 'youtube_feed_block',
-        '#title' => $video->snippet->title,
-        '#likes' => $info->statistics->likeCount,
-        '#views' => $info->statistics->viewCount,
-        '#comments' => $info->statistics->commentCount,
-        '#videoID' => $video->id->videoId,
-        '#thumbnail' =>$video->snippet->thumbnails->default->url,
-        '#cache' => ['max-age' => (60*60)],
-        '#link_display' => $this->_shortDescription("https://youtube.com/watch?q=".$video->id->videoId,32,'...'),
-      ];
+    try {
+      $youtube = new Youtube(['key' => $apiKey]);
+      $channelID = $youtube->getChannelByName($channelName)->id;
+      if(!$channelID) $channelID = $channelName;
+      $videos = $youtube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
+      $test="";
+
+
+      foreach ($videos as $video) {
+        $info = $youtube->getVideoInfo($video->id->videoId);
+        $build['youtube_feed_block'][] = [
+          '#theme' => 'youtube_feed_block',
+          '#title' => $video->snippet->title,
+          '#likes' => $info->statistics->likeCount,
+          '#views' => $info->statistics->viewCount,
+          '#comments' => $info->statistics->commentCount,
+          '#videoID' => $video->id->videoId,
+          '#thumbnail' => $video->snippet->thumbnails->default->url,
+          '#cache' => ['max-age' => (60 * 60)],
+          '#link_display' => $this->_shortDescription("https://youtube.com/watch?v=" . $video->id->videoId, 32, '...'),
+        ];
+      }
+    }
+    catch(Exception $e) {
+      $build['#markup'] = '<span class="error">'.$e."</span>";
+
     }
 
     return $build;
