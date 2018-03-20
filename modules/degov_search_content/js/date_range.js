@@ -32,7 +32,7 @@
    */
   Drupal.facets.dateInputRange = function (context, settings) {
     // Initialize the datepicker.
-    $('input[type="date"]').datepicker({ dateFormat: 'yy-mm-dd' }).attr('type','text');
+    $('input[type="date"]').datepicker({ dateFormat: 'dd.mm.yy' }).attr('type','text');
     // Check for default values.
     if (typeof settings.dateFilter != 'undefined') {
       $('.date-filter-wrapper .date-from').val(settings.dateFilter.min);
