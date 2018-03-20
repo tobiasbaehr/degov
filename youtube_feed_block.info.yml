@@ -1,4 +1,4 @@
-name: 'Youtube-feed block'
+name: 'YouTube-feed block'
 type: module
 description: 'This module allows you to show you the newest videos of one youtube channel'
 core: 8.x
