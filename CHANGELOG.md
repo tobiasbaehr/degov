@@ -5,12 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- Implemented external teaser content type
 
 ## [2.x]
+
+## [2.0.0-beta2] - 2018-3-22
 - Updated Changelogs
 - Removed duplicated files
 - Fixed date format in calendar to be in German by default
-- Implemented external teaser content type
 
 ## [2.0.0-beta1] - 2018-3-09
 - Removed lightning profile from deGov
