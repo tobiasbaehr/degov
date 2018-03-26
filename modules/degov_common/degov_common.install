@@ -21,6 +21,17 @@ function degov_common_update_8016() {
   $query->condition('name', 'degov_paragraph_webformular');
   $query->execute();
 
+  \Drupal::configFactory()->getEditable('core.entity_form_display.paragraph.webformular.default')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.webformular.default')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.webformular.preview')->delete();
+  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_sub_title')->delete();
+  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_title')->delete();
+  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_webform_form')->delete();
+  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webformular')->delete();
+  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webform')->delete();
+  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webform_form')->delete();
+  \Drupal::configFactory()->getEditable('field.storage.paragraph.field_webform_form')->delete();
+
   \Drupal::service('module_installer')->install(['degov_paragraph_webform']);
 }
 

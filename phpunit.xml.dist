@@ -22,7 +22,7 @@
 
   <testsuites>
     <testsuite name="deGov">
-      <file>./modules/degov_paragraph_webformular/tests/src/Kernel/WebformTest.php</file>
+      <directory>./modules/</directory>
     </testsuite>
   </testsuites>
 
