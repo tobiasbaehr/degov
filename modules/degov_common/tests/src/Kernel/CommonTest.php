@@ -42,7 +42,7 @@ class CommonTest extends KernelTestBase {
     $this->nodeService = \Drupal::service('degov_common.node');
   }
 
-  public function testRemoveContent() {
+  public function testRemoveNode() {
     $node = Node::create([
       'title' => 'An article node',
       'type' => 'article',
@@ -62,7 +62,6 @@ class CommonTest extends KernelTestBase {
       'title' => 'An article node'
     ]);
     $this->assertEquals($nodeLoaded, NULL);
-
   }
 
 }
