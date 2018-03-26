@@ -3,16 +3,16 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title_link
-    - paragraphs.paragraphs_type.webformular
+    - paragraphs.paragraphs_type.webform
   enforced:
     module:
-      - degov_paragraph_webformular
+      - degov_paragraph_webform
   module:
     - link
-id: paragraph.webformular.field_title_link
+id: paragraph.webform.field_title_link
 field_name: field_title_link
 entity_type: paragraph
-bundle: webformular
+bundle: webform
 label: Titellink
 description: ''
 required: false

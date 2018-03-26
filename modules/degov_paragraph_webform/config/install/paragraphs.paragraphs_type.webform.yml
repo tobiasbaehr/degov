@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - degov_paragraph_webformular
-id: webformular
-label: Webformular
+      - degov_paragraph_webform
+id: webform
+label: Webform
 behavior_plugins: {  }

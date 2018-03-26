@@ -3,14 +3,14 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_title
-    - paragraphs.paragraphs_type.webformular
+    - paragraphs.paragraphs_type.webform
   enforced:
     module:
-      - degov_paragraph_webformular
-id: paragraph.webformular.field_title
+      - degov_paragraph_webform
+id: paragraph.webform.field_title
 field_name: field_title
 entity_type: paragraph
-bundle: webformular
+bundle: webform
 label: Titel
 description: ''
 required: false
