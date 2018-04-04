@@ -6,6 +6,7 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\media\Entity\Media;
 
 /**
  * Implements hook_preprocess().
@@ -37,12 +38,14 @@ function degov_media_gallery_preprocess_media(&$variables) {
     $variables['content']['totalImages'] = $media->get('field_gallery_images')->count();
     /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $item */
     foreach ($media->get('field_gallery_images') as $item) {
-      $uri = $item->entity->image->get(0)->entity->uri->value;
-      $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
-        'uri' => file_create_url($uri),
-        'width' => $item->entity->image->get(0)->width,
-        'height' => $item->entity->image->get(0)->height
-      ];
+			$media = Media::load($item->getValue('id')['target_id']);
+    	$uri = $item->entity->image->get(0)->entity->uri->value;
+			$variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
+				'uri'                  => file_create_url($uri),
+				'width'                => $item->entity->image->get(0)->width,
+				'height'               => $item->entity->image->get(0)->height,
+				'field_allow_download' => $media->get('field_allow_download')->first()->getValue()['value'],
+			];
     }
 
     $media_current = $variables['elements']['#media'];
