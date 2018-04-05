@@ -7,6 +7,7 @@ use Drupal\degov_common\Entity\NodeService;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\paragraphs\Entity\ParagraphsType;
 
 class CommonTest extends KernelTestBase {
 
@@ -20,7 +21,9 @@ class CommonTest extends KernelTestBase {
     'paragraphs',
     'degov_common',
     'config_rewrite',
-    'video_embed_field'
+    'video_embed_field',
+		'paragraphs',
+		'file',
   ];
 
   /**
@@ -63,5 +66,43 @@ class CommonTest extends KernelTestBase {
     ]);
     $this->assertEquals($nodeLoaded, NULL);
   }
+
+  public function testRemoveParagraph() {
+		$paragraph_type = ParagraphsType::create(array(
+			'label' => 'test_text',
+			'id' => 'test_text',
+		));
+		$paragraph_type->save();
+
+		$paragraph1 = Paragraph::create([
+			'title' => 'Paragraph',
+			'type' => 'test_text',
+		]);
+		$paragraph1->save();
+
+		$paragraph2 = Paragraph::create([
+			'title' => 'Paragraph',
+			'type' => 'test_text',
+		]);
+		$paragraph2->save();
+
+		$this->assertEquals(get_class(Paragraph::load($paragraph1->id())), Paragraph::class);
+		$this->assertEquals(get_class(Paragraph::load($paragraph2->id())), Paragraph::class);
+
+		$node = Node::create([
+			'title' => $this->randomMachineName(),
+			'type' => 'article',
+			'node_paragraph_field' => array($paragraph1, $paragraph2),
+		]);
+		$node->save();
+
+		Common::removeContent([
+			'entity_type' => 'paragraph',
+			'entity_bundles' => ['test_text'],
+		]);
+
+		$this->assertEquals(get_class(Paragraph::load($paragraph1->id())), NULL);
+		$this->assertEquals(get_class(Paragraph::load($paragraph2->id())), NULL);
+	}
 
 }
