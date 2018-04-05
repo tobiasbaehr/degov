@@ -68,26 +68,15 @@ class CommonTest extends KernelTestBase {
   }
 
   public function testRemoveParagraph() {
-		$paragraph_type = ParagraphsType::create(array(
-			'label' => 'test_text',
-			'id' => 'test_text',
-		));
-		$paragraph_type->save();
+		list($paragraph1, $paragraph2, $paragraph3) = $this->createParagraphs();
 
-		$paragraph1 = Paragraph::create([
-			'title' => 'Paragraph',
-			'type' => 'test_text',
-		]);
-		$paragraph1->save();
+		$idParagraph1 = $paragraph1->id();
+		$idParagraph2 = $paragraph2->id();
+		$idParagraph3 = $paragraph3->id();
 
-		$paragraph2 = Paragraph::create([
-			'title' => 'Paragraph',
-			'type' => 'test_text',
-		]);
-		$paragraph2->save();
-
-		$this->assertEquals(get_class(Paragraph::load($paragraph1->id())), Paragraph::class);
-		$this->assertEquals(get_class(Paragraph::load($paragraph2->id())), Paragraph::class);
+		$this->assertEquals(get_class(Paragraph::load($idParagraph1)), Paragraph::class);
+		$this->assertEquals(get_class(Paragraph::load($idParagraph2)), Paragraph::class);
+		$this->assertEquals(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 
 		$node = Node::create([
 			'title' => $this->randomMachineName(),
@@ -101,8 +90,48 @@ class CommonTest extends KernelTestBase {
 			'entity_bundles' => ['test_text'],
 		]);
 
-		$this->assertEquals(get_class(Paragraph::load($paragraph1->id())), NULL);
-		$this->assertEquals(get_class(Paragraph::load($paragraph2->id())), NULL);
+		$this->assertEquals(Paragraph::load($idParagraph1), NULL);
+		$this->assertEquals(Paragraph::load($idParagraph2), NULL);
+		$this->assertEquals(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+	}
+
+	private function createParagraphs(): array
+	{
+		$paragraph_type = ParagraphsType::create([
+			'label' => 'test_text',
+			'id'    => 'test_text',
+		]);
+		$paragraph_type->save();
+
+		$paragraph_type = ParagraphsType::create([
+			'label' => 'test_text_not_remove',
+			'id'    => 'test_text_not_remove',
+		]);
+		$paragraph_type->save();
+
+		$paragraph1 = Paragraph::create([
+			'title' => 'Paragraph',
+			'type'  => 'test_text',
+		]);
+		$paragraph1->save();
+
+		$paragraph2 = Paragraph::create([
+			'title' => 'Paragraph',
+			'type'  => 'test_text',
+		]);
+		$paragraph2->save();
+
+		$paragraph3 = Paragraph::create([
+			'title' => 'Paragraph',
+			'type'  => 'test_text_not_remove',
+		]);
+		$paragraph3->save();
+
+		return [
+			$paragraph1,
+			$paragraph2,
+			$paragraph3,
+		];
 	}
 
 }

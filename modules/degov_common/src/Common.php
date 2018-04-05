@@ -102,43 +102,31 @@ class Common {
     }
   }
 
-  /**
-   * Remove content of a given entity type and its bundles.
-   *
-   * @param array $options
-   *   A key named array of options, including:
-   *     - entity_type: entity type of the bundles.
-   *     - entity_bundles: an array of entity bundle names.
-   */
-  public static function removeContent($options) {
+  public static function removeContent(array $options) : void {
     /* @var $entity_type string */
     /* @var $entity_bundles array */
     extract($options);
-    // Retrieve the bundle name of the entity type.
-    $entity_bundle_name = 'type';
 
     if ($entity_type == 'paragraph') {
-			xdebug_break();
+			$paragraphQuery = \Drupal::entityQuery('paragraph');
 
-			$entityParagraphQuery = \Drupal::entityQuery('paragraphs_type');
-
-//			foreach ($options['entity_bundles'] as $bundle) {
-//				$entityParagraphQuery->condition($bundle);
-//			}
-
-			$ids = $entityParagraphQuery
-				->condition('originalId', 'test')
-				->execute();
-
-			if (!empty($ids)) {
-				$paragraphs = Paragraph::load;
-				$storage->delete($paragraphs);
+			foreach ($entity_bundles as $type) {
+				$paragraphQuery->condition('type', $type);
 			}
+
+			$entity_ids = $paragraphQuery
+				->execute();
+			$controller = \Drupal::entityTypeManager()->getStorage($entity_type);
+			$entities = $controller->loadMultiple($entity_ids);
+			$controller->delete($entities);
+
+			return;
 		}
+
     foreach ($entity_bundles as $entity_bundle) {
       \Drupal::logger($entity_bundle)->notice(t('Removing all content of type @bundle', ['@bundle' => $entity_bundle]));
       $entity_ids = \Drupal::entityQuery($entity_type)
-        ->condition($entity_bundle_name, $entity_bundle)
+        ->condition('type', $entity_bundle)
         ->execute();
       $controller = \Drupal::entityTypeManager()->getStorage($entity_type);
       $entities = $controller->loadMultiple($entity_ids);
