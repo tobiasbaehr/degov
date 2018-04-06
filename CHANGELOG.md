@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Implemented external teaser content type
+- Drupal security update 8.5.1
+- Override default configuration of the metatag module.
+- Use stable versions of lightning
+- Pipelines - Started php build-in server in proper directory
 
-## [2.x]
 
 ## [2.0.0-beta2] - 2018-3-22
 - Updated Changelogs
