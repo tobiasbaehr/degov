@@ -1,4 +1,5 @@
-langcode: de
+config_rewrite: replace
+langcode: en
 status: true
 dependencies:
   enforced:
