@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Drupal security update 8.5.1
 - Override default configuration of the metatag module.
 - Use stable versions of lightning
-
-## [2.x]
 - Pipelines - Started php build-in server in proper directory
 
 
