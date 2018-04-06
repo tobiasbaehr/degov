@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Implemented external teaser content type
 
 ## [2.x]
+- Pipelines - Started php build-in server in proper directory
+
 
 ## [2.0.0-beta2] - 2018-3-22
 - Updated Changelogs
