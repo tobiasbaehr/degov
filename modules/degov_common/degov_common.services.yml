@@ -30,3 +30,5 @@ services:
     class: '\Drupal\degov_common\Routing\RouteSubscriber'
     tags:
       - { name: event_subscriber }
+  degov_common.node:
+    class: Drupal\degov_common\Entity\NodeService

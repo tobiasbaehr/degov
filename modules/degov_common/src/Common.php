@@ -3,6 +3,7 @@
 namespace Drupal\degov_common;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
@@ -101,39 +102,31 @@ class Common {
     }
   }
 
-  /**
-   * Remove content of a given entity type and its bundles.
-   *
-   * @param array $options
-   *   A key named array of options, including:
-   *     - entity_type: entity type of the bundles.
-   *     - entity_bundles: an array of entity bundle names.
-   */
-  public static function removeContent($options) {
+  public static function removeContent(array $options) : void {
     /* @var $entity_type string */
     /* @var $entity_bundles array */
     extract($options);
-    // Retrieve the bundle name of the entity type.
-    $entity_bundle_name = 'type';
-    #if ($entity_type == 'media') {
-    #  $entity_bundle_name = 'bundle';
-    #}
+
     if ($entity_type == 'paragraph') {
-      // TODO: There is still a problem with orphaned paragraph references.
-      //       Although the paragraph has been removed, the references (on the node) still exist.
-      //
-      // select * from paragraphs_item_field_data;
-      // select * from paragraphs_item;
-      // e.g. field - select * from node__field_normal_page_header_pars;
-      // 1. Retrieve an array with `parent_type__parent_field_name` of all entity_ids above.
-      // 2. Remove all rows with `parent_field_name`_target_id with above entity_ids.
-      //    from tables with the name `parent_type__parent_field_name`
-      // 3. Do the same for revision tables.
-    }
+			$paragraphQuery = \Drupal::entityQuery('paragraph');
+
+			foreach ($entity_bundles as $type) {
+				$paragraphQuery->condition('type', $type);
+			}
+
+			$entity_ids = $paragraphQuery
+				->execute();
+			$controller = \Drupal::entityTypeManager()->getStorage($entity_type);
+			$entities = $controller->loadMultiple($entity_ids);
+			$controller->delete($entities);
+
+			return;
+		}
+
     foreach ($entity_bundles as $entity_bundle) {
       \Drupal::logger($entity_bundle)->notice(t('Removing all content of type @bundle', ['@bundle' => $entity_bundle]));
       $entity_ids = \Drupal::entityQuery($entity_type)
-        ->condition($entity_bundle_name, $entity_bundle)
+        ->condition('type', $entity_bundle)
         ->execute();
       $controller = \Drupal::entityTypeManager()->getStorage($entity_type);
       $entities = $controller->loadMultiple($entity_ids);
