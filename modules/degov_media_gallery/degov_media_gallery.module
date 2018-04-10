@@ -6,24 +6,33 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\media\Entity\Media;
 
 /**
  * Implements hook_preprocess().
  */
-function degov_media_gallery_preprocess(&$variables, $hook, &$info) {
+function degov_media_gallery_preprocess(&$variables, $hook, &$info)
+{
   // Add template suggestions and libraries implemented in this module.
   Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_gallery',
-    'entity_type' => 'media',
-    'entity_bundles' => ['gallery'],
-    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded', 'reference'],
+    'module_name'       => 'degov_media_gallery',
+    'entity_type'       => 'media',
+    'entity_bundles'    => ['gallery'],
+    'entity_view_modes' => [
+      'usage',
+      'preview',
+      'search',
+      'embedded',
+      'reference',
+    ],
   ]);
 }
 
 /**
  * Implements hook_preprocess_media().
  */
-function degov_media_gallery_preprocess_media(&$variables) {
+function degov_media_gallery_preprocess_media(&$variables)
+{
   /** @var \Drupal\media\Entity\Media $media */
   $media = $variables['elements']['#media'];
   if ($media->bundle() === 'gallery') {
@@ -37,11 +46,13 @@ function degov_media_gallery_preprocess_media(&$variables) {
     $variables['content']['totalImages'] = $media->get('field_gallery_images')->count();
     /** @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $item */
     foreach ($media->get('field_gallery_images') as $item) {
+      $media = Media::load($item->getValue('id')['target_id']);
       $uri = $item->entity->image->get(0)->entity->uri->value;
       $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
-        'uri' => file_create_url($uri),
-        'width' => $item->entity->image->get(0)->width,
-        'height' => $item->entity->image->get(0)->height
+        'uri'                  => file_create_url($uri),
+        'width'                => $item->entity->image->get(0)->width,
+        'height'               => $item->entity->image->get(0)->height,
+        'field_allow_download' => $media->get('field_allow_download')->first()->getValue()['value'],
       ];
     }
 
@@ -53,6 +64,7 @@ function degov_media_gallery_preprocess_media(&$variables) {
 /**
  * Implements hook_preprocess_type().
  */
-function degov_media_gallery_preprocess_media__gallery(&$variables) {
+function degov_media_gallery_preprocess_media__gallery(&$variables)
+{
   $variables['created'] = $variables['elements']['#media']->created->value;
 }
