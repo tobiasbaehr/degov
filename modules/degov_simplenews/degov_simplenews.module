@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_alter().
@@ -44,7 +45,16 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
           '#type' => 'checkbox',
           '#title' => t('I have read and accepted the @privacy_policy.', ['@privacy_policy' => \Drupal\Core\Link::fromTextAndUrl(t('privacy policy'), $url)->toString()]),
           '#required' => TRUE,
+          '#weight' => 99,
         ];
+      }
+    }
+  }
+
+  if (strstr($form_id, 'simplenews_subscriptions_block') !== FALSE) {
+    foreach (array_keys($form['actions']) as $action) {
+      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+        $form['actions'][$action]['#submit'][] = 'degov_simplenews_form_submit';
       }
     }
   }
@@ -72,4 +82,63 @@ function degov_simplenews_locale_translation_projects_alter(&$projects) {
       'interface translation server pattern' => drupal_get_path('module', 'degov_simplenews').'/translations/%language.po',
     ],
   ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function degov_simplenews_form_simplenews_subscriber_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'simplenews_subscriber_form') {
+    $result = \Drupal::service('database')
+      ->select('simplenews_subscriber', 'ss')
+      ->fields('ss', ['created'])
+      ->condition('ss.mail', $form['mail']['widget'][0]['value']['#default_value'], '=')
+      ->execute()
+      ->fetchCol();
+
+    if (!empty($result)) {
+      $dateTime = new DateTime();
+      $dateTime->setTimestamp($result['0']);
+
+      $form['data_protection_regulations'] = array(
+        '#title' => t('Data protection regulations'),
+        '#type' => 'fieldset',
+        '#description' => t('Has accepted the data protection regulations at @date @time.', [
+          '@date' => $dateTime->format('d.m.Y'),
+          '@time' => $dateTime->format('H:i'),
+        ]),
+        '#weight' => 15,
+      );
+    } else {
+      $form['data_protection_regulations'] = array(
+        '#title' => t('Data protection regulations'),
+        '#type' => 'fieldset',
+        '#description' => t('The user has not yet accepted the data protection regulations.'),
+        '#weight' => 15,
+      );
+    }
+
+  }
+}
+
+function degov_simplenews_form_submit($form, FormStateInterface $form_state) {
+  /**
+   * @var Drupal\Core\Database\Connection $database
+   */
+  $database = \Drupal::service('database');
+
+  $result = $database
+    ->select('nrw_simplenews_subscription', 'nss')
+    ->fields('nss', ['uid'])
+    ->condition('nss.uid', \Drupal::currentUser()->id(), '=')
+    ->execute()
+    ->fetchCol();
+
+  if (empty($result)) {
+    $database
+      ->insert('nrw_simplenews_subscription')->fields([
+        'uid' => \Drupal::currentUser()->id(),
+      ])->execute();
+  }
+
 }

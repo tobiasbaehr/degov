@@ -1,12 +1,3 @@
-# $Id$
-#
-# LANGUAGE translation of degov_simplenews module.
-# Copyright 2017 <info@degov.de>
-# Generated from files:
-#  modules/degov/degov_simplenews/degov_simplenews.module: n/a
-#  modules/degov/degov_simplenews/src/Form/SettingsForm.php: n/a
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 2\n"
@@ -17,19 +8,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: modules/degov/degov_simplenews/degov_simplenews.module:25
 msgid "I have read and accepted the @privacy_policy."
 msgstr "Ich habe die @privacy_policy gelesen und akzeptiert."
 
-#: modules/degov/degov_simplenews/degov_simplenews.module:25
 msgid "privacy policy"
-msgstr "Datenschutzhinweise"
+msgstr "Datenschutz-Informationen"
 
-#: modules/degov/degov_simplenews/src/Form/SettingsForm.php:95
 msgid "Simplenews settings"
 msgstr ""
 
-#: modules/degov/degov_simplenews/src/Form/SettingsForm.php:113
 msgid "Privacy policy page (@langcode)"
 msgstr ""
 
+msgid "I have read and accepted the @privacy_policy."
+msgstr "Ich willige hiermit ein, dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen.\nIch versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt.\n\nWeitere Informationen finden Sie in unseren @privacy_policy."
+
+msgid "Data protection regulations"
+msgstr "Datenschutzbestimmungen"
+
+msgid "Has accepted the data protection regulations at @date @time."
+msgstr "Hat den Datenschutzbestimmungen am @date um @time Uhr zugestimmt."
+
+msgid "The user has not yet accepted the data protection regulations."
+msgstr "Der Benutzer hat den Datenschutzbestimmungen noch nicht zugestimmt."
