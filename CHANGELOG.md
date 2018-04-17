@@ -5,19 +5,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+None
+
+## [2.0.0-beta3] - 17-04-2018
 - Implemented external teaser content type
 - Drupal security update 8.5.1
-- Override default configuration of the metatag module.
+- Override default configuration of the metatag module
 - Use stable versions of lightning
 - Pipelines - Started php build-in server in proper directory
+- Simplenews module requires privacy policy acceptance
+- Implemented allow download functionality in gallery media type
+- Removed external teaser content type
+- Removed german naming in webform paragraph
+- Tests for the common module
+- Implemented paragraphs removal into common module
 
-
-## [2.0.0-beta2] - 2018-3-22
+## [2.0.0-beta2] - 22-03-2018
 - Updated Changelogs
 - Removed duplicated files
 - Fixed date format in calendar to be in German by default
 
-## [2.0.0-beta1] - 2018-3-09
+## [2.0.0-beta1] - 09-03-2018
 - Removed lightning profile from deGov
 - Outsourced installation profile 
 - Moved deGov modules into installation profile
