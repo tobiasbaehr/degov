@@ -12,7 +12,7 @@ msgid "I have read and accepted the @privacy_policy."
 msgstr "Ich habe die @privacy_policy gelesen und akzeptiert."
 
 msgid "privacy policy"
-msgstr "Datenschutz-Informationen"
+msgstr "Datenschutzhinweise"
 
 msgid "Simplenews settings"
 msgstr ""
@@ -21,7 +21,7 @@ msgid "Privacy policy page (@langcode)"
 msgstr ""
 
 msgid "I have read and accepted the @privacy_policy."
-msgstr "Ich willige hiermit ein, dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen.\nIch versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt.\n\nWeitere Informationen finden Sie in unseren @privacy_policy."
+msgstr "Ich willige hiermit ein, dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen.\nIch versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt.\n\nDie @privacy_policy habe ich gelesen."
 
 msgid "Data protection regulations"
 msgstr "Datenschutzbestimmungen"
