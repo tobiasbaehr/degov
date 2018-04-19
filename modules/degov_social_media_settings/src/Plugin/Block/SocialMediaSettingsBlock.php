@@ -18,7 +18,11 @@ class SocialMediaSettingsBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $config = \Drupal::service('config.factory')->get('degov_common.default_settings');
+
     $build['#theme'] = 'degov_social_media_settings_block';
+    $build['#social_media_netiquette_url'] = $config->get('netiquette_url');
+    $build['#social_media_privacy_url'] = $config->get('privacy_url');
     $build['#social_media_sources'] = degov_social_media_settings_sources();
     $build['#attached']['library'][] = 'degov_social_media_settings/process';
     $build['#attached']['drupalSettings']['degov_social_media_settings']['link'] = t('This social media source is disabled. You can enable it in the <a role="button" href="#" class="js-social-media-settings-open">social media settings</a>.');
