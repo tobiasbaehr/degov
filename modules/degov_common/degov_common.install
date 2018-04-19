@@ -44,7 +44,7 @@ function degov_common_update_8016() {
  */
 function degov_common_update_8017() {
   \Drupal::configFactory()->getEditable('degov_common.default_settings')
-      ->set('netiquette_url', '/netiquette')
-      ->set('privacy_url', '/datenschutzhinweise')
-      ->save();
+    ->set('netiquette_url', '/netiquette')
+    ->set('privacy_url', '/datenschutzhinweise')
+    ->save();
 }
