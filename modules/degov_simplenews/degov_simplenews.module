@@ -41,6 +41,18 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       if (!$is_subscribed) {
         $language_id = \Drupal::languageManager()->getCurrentLanguage()->getId();
         $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $privacy_policy_pages[$language_id]], ['attributes' => ['target' => '_blank']]);
+        $form['forename'] = [
+          '#type' => 'textfield',
+          '#title' => t('Forename'),
+          '#required' => TRUE,
+          '#weight' => 97,
+        ];
+        $form['surname'] = [
+          '#type' => 'textfield',
+          '#title' => t('Surname'),
+          '#required' => TRUE,
+          '#weight' => 98,
+        ];
         $form['privacy_policy'] = [
           '#type' => 'checkbox',
           '#title' => t('I have read and accepted the @privacy_policy.', ['@privacy_policy' => \Drupal\Core\Link::fromTextAndUrl(t('privacy policy'), $url)->toString()]),
