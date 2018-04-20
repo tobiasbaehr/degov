@@ -31,3 +31,9 @@ msgstr "Hat den Datenschutzbestimmungen am @date um @time Uhr zugestimmt."
 
 msgid "The user has not yet accepted the data protection regulations."
 msgstr "Der Benutzer hat den Datenschutzbestimmungen noch nicht zugestimmt."
+
+msgid "Forename"
+msgstr "Vorname"
+
+msgid "Surname"
+msgstr "Nachname"
