@@ -37,13 +37,12 @@ function degov_simplenews_update_8004() {
 }
 
 function degov_simplenews_update_8005() {
-  $columnForenameSpec = [
+  $columnForenameSpec = $columnSurnameSpec = [
     'type' => 'varchar',
     'description' => "The forename of the subscriber.",
     'length' => 32,
     'not null' => FALSE,
   ];
-  $columnSurnameSpec = $columnForenameSpec;
   $columnSurnameSpec['description'] = "The surname of the subscriber.";
 
   $schema = Database::getConnection()->schema();

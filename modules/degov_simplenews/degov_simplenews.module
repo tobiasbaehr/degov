@@ -167,18 +167,27 @@ function degov_simplenews_form_submit($form, FormStateInterface $form_state) {
    */
   $database = \Drupal::service('database');
 
+  $database
+    ->update('simplenews_subscriber')
+    ->fields([
+      'forename' => $form_state->getValues()['forename'],
+      'surname' => $form_state->getValues()['surname'],
+    ])
+    ->condition('uid', \Drupal::currentUser()->id(), '=')
+    ->execute();
+
   $result = $database
     ->select('nrw_simplenews_subscription', 'nss')
     ->fields('nss', ['uid'])
     ->condition('nss.uid', \Drupal::currentUser()->id(), '=')
     ->execute()
     ->fetchCol();
-
   if (empty($result)) {
     $database
-      ->insert('nrw_simplenews_subscription')->fields([
+      ->insert('nrw_simplenews_subscription')
+      ->fields([
         'uid' => \Drupal::currentUser()->id(),
-      ])->execute();
+      ])
+      ->execute();
   }
-
 }
