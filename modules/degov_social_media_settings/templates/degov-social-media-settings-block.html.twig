@@ -4,6 +4,8 @@
  * Default theme implementation to format the deGov social media settings block.
  *
  * Available variables:
+ *   - social_media_netiquette_url: URL of the netiquette page
+ *   - social_media_privacy_url: URL of the privacy page
  *   - social_media_sources: available media sources.
  */
 #}
@@ -37,7 +39,7 @@
               <a href="https://vimeo.com/" target="_blank">Vimeo</a>
               übertragen und unter Umständen auch dort gespeichert.</p>
             <p>Bitte beachten Sie unsere Hinweise und Informationen zum
-              <a href="/datenschutzhinweise" target="_blank"> Datenschutz </a> und zur <a href="/netiquette" target="_blank">Netiquette</a>, bevor Sie einzelne Soziale Medien aktivieren.</p>
+              <a href="{{ social_media_privacy_url }}" title="Zur Datenschutzseite" target="_blank"> Datenschutz </a> und zur <a href="{{ social_media_netiquette_url }}" title="Zur Netiquette" target="_blank">Netiquette</a>, bevor Sie einzelne Soziale Medien aktivieren.</p>
             <p>Datenfeeds von sozialen Netzwerken dauerhaft aktivieren und Datenübertragung zustimmen:</p>
             {% endtrans %}
           </div>
