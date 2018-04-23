@@ -89,22 +89,10 @@ class Template {
     if ($add_suggestion) {
       $template_path = $info['theme path']; #substr($info['theme path'], 0, 14);
       $path_to_theme = $this->themeManager->getActiveTheme()->getPath();
-      // Only override templates that are defined by contrib modules.
+
       if (strpos($template_path, 'themes/contrib') === 0 ||
         (strpos($template_path, $path_to_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
-        // Add a template for every defined view mode else add it for the default view mode.
-        if (isset($variables['elements']['#view_mode'])
-          && in_array($variables['elements']['#view_mode'], $entity_view_modes)) {
-          $template_filename = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
-        }
-        else {
-          if (isset($entity_bundle)) {
-            $template_filename = $entity_type . '--' . $entity_bundle . '--default';
-          }
-          else {
-            $template_filename = $entity_type . '--default';
-          }
-        }
+        list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle);
 
         $module_path = $this->drupalPath->getPath('module', $module_name);
         $template_fullname = $module_path . '/templates/' . $template_filename . '.html.twig';
@@ -125,9 +113,8 @@ class Template {
     }
   }
 
-  private function computeTemplateFilename(string $entity_type, string $entity_bundle, array $entity_view_modes) {
-    $variables = $this->getVariables();
-
+  private function computeTemplateFilename(array &$variables, $entity_view_modes, $entity_type, $entity_bundle): array
+  {
     if (isset($variables['elements']['#view_mode'])
       && in_array($variables['elements']['#view_mode'], $entity_view_modes)) {
       $template_filename = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
@@ -138,8 +125,10 @@ class Template {
         $template_filename = $entity_type . '--default';
       }
     }
-
-    return $template_filename . '.html.twig';
+    return [
+      $variables,
+      $template_filename
+    ];
   }
 
 }
