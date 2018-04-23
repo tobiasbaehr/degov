@@ -26,7 +26,6 @@ class TemplateTest extends UnitTestCase {
    */
   public static $modules = [
     'degov_theming',
-    'degov_node_press'
   ];
 
   /**
