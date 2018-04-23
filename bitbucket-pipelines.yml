@@ -25,7 +25,6 @@ pipelines:
           - composer dumpautoload
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
-          - composer require phpunit/phpunit:~4.8
           - mkdir docroot/profiles
           - mkdir docroot/profiles/contrib
           - mkdir docroot/profiles/contrib/degov
