@@ -25,6 +25,7 @@ pipelines:
           - composer dumpautoload
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - composer global require drush/drush:9.1.0
+          - composer require phpunit/phpunit:~4.8
           - mkdir docroot/profiles
           - mkdir docroot/profiles/contrib
           - mkdir docroot/profiles/contrib/degov
@@ -34,7 +35,7 @@ pipelines:
           - mv testing docroot/profiles/contrib/degov
           - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - php -S localhost:8000 -t ./docroot &
-          - (cd docroot/profiles/contrib/degov && wget https://phar.phpunit.de/phpunit-4.8.9.phar && chmod +x phpunit-4.8.9.phar && php ./phpunit-4.8.9.phar)
+          - (cd docroot/profiles/contrib/degov && ../../../bin/phpunit)
           - rm -rf docroot/modules/contrib/lightning_layout/tests/contexts
           - rm -rf docroot/modules/contrib/lightning_media/tests/contexts
           - cp docroot/profiles/contrib/degov/behat.yml .
