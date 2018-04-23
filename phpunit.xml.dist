@@ -22,7 +22,7 @@
 
   <testsuites>
     <testsuite name="deGov">
-      <directory>./modules/degov_theming</directory>
+      <directory>./modules/</directory>
     </testsuite>
   </testsuites>
 
