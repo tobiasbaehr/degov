@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-None
+- Added settings for privacy URL and netiquette URL in common module (please execute drush updb)
+- Fixed suggestion of module templates in the layer system. Base theme templates are loaded,
+if project theme templates are not existing. Otherwise the module templates are loaded. 
 
 ## [2.0.0-beta3] - 17-04-2018
 - Implemented external teaser content type
