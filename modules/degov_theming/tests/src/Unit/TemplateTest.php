@@ -36,7 +36,7 @@ class TemplateTest extends UnitTestCase {
   private function mockDrupalPath() {
     $drupalPath = $this->prophesize(DrupalPath::class);
     $drupalPath->getPath(Argument::type('string'), Argument::type('string'))
-      ->willReturn('profiles/contrib/degov/degov_node_normal_page');
+      ->willReturn('profiles/contrib/degov/modules/degov_node_normal_page');
 
     return $drupalPath->reveal();
   }
@@ -179,7 +179,7 @@ class TemplateTest extends UnitTestCase {
         'type'           => 'base_theme',
         'theme path'     => 'modules',
         'template'       => 'node--normal_page--preview',
-        'path'           => 'profiles/contrib/degov/degov_node_normal_page/templates',
+        'path'           => 'profiles/contrib/degov/modules/degov_node_normal_page/templates',
       ],
       $info
     );
