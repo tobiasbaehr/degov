@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added fields for forename and surname in the Simplenews newsletter subscription.
 - Fixed suggestion of module templates in the layer system. Base theme templates are loaded,
 if project theme templates are not existing. Otherwise the module templates are loaded. 
+- Moved PHPUnit to the development dependencies
 - Pipelines - Undo removing of lightning tests
 
 ## [2.0.0-beta3] - 17-04-2018
