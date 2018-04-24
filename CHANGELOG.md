@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - Added settings for privacy URL and netiquette URL in common module (please execute drush updb)
 - Moved PHPUnit to the development dependencies
+- Pipelines - Undo removing of lightning tests
 
 ## [2.0.0-beta3] - 17-04-2018
 - Implemented external teaser content type
