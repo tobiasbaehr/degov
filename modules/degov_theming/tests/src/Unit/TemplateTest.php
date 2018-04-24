@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\degov_common\Kernel;
+namespace Drupal\Tests\degov_common\Unit;
 
 use Drupal\Core\Asset\LibraryDiscovery;
 use Drupal\Core\Entity\Entity;

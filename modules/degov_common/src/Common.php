@@ -31,7 +31,7 @@ class Common {
    *   - entity_type: mandatory value with mostly the entity type created (E.g. node, paragraph, media, swiftmailer..)
    *   - entity_bundles: optional array of entity bundles created, could be empty.
    *   - entity_view_modes: optional array of entity view modes that need templates, could be empty.
-   * @deprecated Use Drupal\degov_common\Service\Template::suggestAndLoad() instead.
+   * @deprecated Use Drupal\degov_theming\Service\Template::suggestAndLoad() instead.
    */
   public static function addThemeSuggestions(array &$variables, $hook, array &$info, array $options) {
     /**
