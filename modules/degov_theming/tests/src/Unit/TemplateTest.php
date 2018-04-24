@@ -24,13 +24,6 @@ class TemplateTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
-    'degov_theming',
-  ];
-
-  /**
-   * {@inheritdoc}
-   */
   protected function setUp() {
     parent::setUp();
 
