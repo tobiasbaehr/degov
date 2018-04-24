@@ -35,7 +35,5 @@ pipelines:
           - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - php -S localhost:8000 -t ./docroot &
           - (cd docroot/profiles/contrib/degov && wget https://phar.phpunit.de/phpunit-4.8.9.phar && chmod +x phpunit-4.8.9.phar && php ./phpunit-4.8.9.phar)
-          - rm -rf docroot/modules/contrib/lightning_layout/tests/contexts
-          - rm -rf docroot/modules/contrib/lightning_media/tests/contexts
           - cp docroot/profiles/contrib/degov/behat.yml .
           - bin/behat
