@@ -62,7 +62,7 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         ];
         $form['privacy_policy'] = [
           '#type' => 'checkbox',
-          '#title' => t('I have read and accepted the @privacy_policy.', [
+          '#title' => t('I hereby agree that my personal data transmitted with the contact information may be saved and processed.\n I confirm to be at least 16 years of age or have made available authorisation from the custodian(s) permitting the use of the contact information and dissemination of the data.\n\n I have read the @privacy_policy.', [
             '@privacy_policy' => \Drupal\Core\Link::fromTextAndUrl(t('privacy policy'), $url)
               ->toString(),
           ]),
