@@ -50,8 +50,8 @@ function degov_media_gallery_preprocess_media(&$variables)
       $uri = $item->entity->image->get(0)->entity->uri->value;
 
       $fieldAllowDownload = NULL;
-      if (!empty($media->get('field_allow_download')->first())) {
-        $fieldAllowDownload = $media->get('field_allow_download')->first()->getValue()['value'];
+      if (!empty($mediaFirstValue = $media->get('field_allow_download')->first())) {
+        $fieldAllowDownload = $mediaFirstValue->getValue()['value'];
       }
 
       $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
