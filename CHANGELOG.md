@@ -3,9 +3,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
 ## [Unreleased]
-- Updated drupal core to 8.5.3
 - Fixed media gallery indexing via checking field value before retrieving it.
+
+## [2.0.0-beta6] - 27-04-2018
+- Updated translations in degov_simplenews module
+
+## [2.0.0-beta5] - 25-04-2018
+- Updated drupal core to 8.5.3
 
 ## [2.0.0-beta4] - 24-04-2018
 - Added settings for privacy URL and netiquette URL in common module (please execute drush updb)
