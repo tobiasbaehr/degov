@@ -5,4 +5,6 @@ core: 8.x
 package: 'MHKBG'
 configure: instagram_feed_block.admin_settings
 dependencies:
-  - degov_common
+  - 'drupal:degov_common'
+  - 'drupal:degov_social_media_settings'
+  - 'drupal:eu_cookie_compliance'
