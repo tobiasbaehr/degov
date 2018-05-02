@@ -4,3 +4,6 @@ description: 'This module allows you to show you the newest videos of one youtub
 core: 8.x
 package: 'MHKBG'
 configure: youtube_feed_block.admin_settings
+dependencies:
+  - 'drupal:degov_social_media_settings'
+  - 'drupal:eu_cookie_compliance'
