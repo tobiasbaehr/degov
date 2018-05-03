@@ -20,8 +20,6 @@ class TemplateTest extends KernelTestBase {
   }
 
   public function testRender() {
-
-    $this->assertEquals(true, true);
     /**
      * @var Template $template
      */
@@ -30,6 +28,5 @@ class TemplateTest extends KernelTestBase {
 
     $this->assertEquals($html, '<span>some string</span>');
   }
-
 
 }
