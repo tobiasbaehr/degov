@@ -11,10 +11,6 @@
   Drupal.behaviors.slickTweets = {
     attach: function (context, settings) {
 
-      console.log('Muhh!!');
-
-      console.log($.parseJSON($.cookie("degov_social_media_settings")).twitter);
-
       if ($.parseJSON($.cookie("degov_social_media_settings")).twitter) {
         $('.tweets-slideshow .tweets').once().slick({
           dots: true,
