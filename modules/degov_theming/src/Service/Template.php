@@ -41,7 +41,7 @@ class Template {
   {
     $this->themeManager = $themeManager;
     $this->libraryDiscovery = $componentLocation->getLibraryDiscovery();
-    $this->filesystem = $componentLocation->getFilesystem()->create();
+    $this->filesystem = $componentLocation->getFilesystem();
     $this->drupalPath = $componentLocation->getDrupalPath();
     $this->twig = $twig;
   }
@@ -131,9 +131,10 @@ class Template {
   }
 
   public function render(string $module, string $templatePath, array $variables) {
+    $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
+    $twigTemplate = $this->twig->load($path);
 
-
-
+    return $twigTemplate->render($variables);
   }
 
 }

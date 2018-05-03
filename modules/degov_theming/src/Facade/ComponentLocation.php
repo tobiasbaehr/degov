@@ -26,7 +26,7 @@ class ComponentLocation {
 
   public function __construct(LibraryDiscovery $libraryDiscovery, FilesystemFactory $filesystemFactory, DrupalPath $drupalPath) {
     $this->libraryDiscovery = $libraryDiscovery;
-    $this->filesystem = $filesystemFactory->create();
+    $this->filesystem = $filesystemFactory;
     $this->drupalPath = $drupalPath;
   }
 
@@ -35,7 +35,7 @@ class ComponentLocation {
   }
 
   public function getFilesystem() {
-    return $this->filesystem;
+    return $this->filesystem->create();
   }
 
   public function getDrupalPath() {
