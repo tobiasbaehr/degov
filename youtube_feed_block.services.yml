@@ -2,6 +2,3 @@ services:
   youtube_feed_block.youtube_factory:
     class: Drupal\youtube_feed_block\Factory\YouTubeFactory
     arguments: []
-  youtube_feed_block.youtube_feed:
-    class: Drupal\youtube_feed_block\Service\YouTubeFeed
-    arguments: ['@config.factory', '@youtube_feed_block.youtube_factory', '@degov_social_media_settings.cookie_check', '@degov_theming.template']
