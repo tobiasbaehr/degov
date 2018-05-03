@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\degov_common\Kernel;
+namespace Drupal\Tests\degov_theming\Kernel;
 
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\token\Kernel\KernelTestBase;
