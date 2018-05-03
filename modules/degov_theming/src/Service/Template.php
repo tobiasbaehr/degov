@@ -130,7 +130,7 @@ class Template {
     ];
   }
 
-  public function render(string $module, string $templatePath, array $variables) {
+  public function render(string $module, string $templatePath, array $variables = []) {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 
