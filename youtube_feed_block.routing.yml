@@ -5,3 +5,11 @@ youtube_feed_block.admin_settings:
     _title: 'Youtube Feed Block configuration screen'
   requirements:
     _permission: 'administer site configuration'
+
+youtube_feed_block.feed_ajax:
+  path: '/youtube-feed-ajax'
+  defaults:
+    _controller: '\Drupal\youtube_feed_block\Controller\YouTubeController::renderFeed'
+    _title: ''
+  requirements:
+    _permission: 'access content'
