@@ -10,7 +10,7 @@ class TemplateTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['system', 'degov_theming'];
+  public static $modules = ['degov_theming'];
 
   /**
    * {@inheritdoc}
