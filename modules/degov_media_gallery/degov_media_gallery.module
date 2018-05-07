@@ -48,11 +48,17 @@ function degov_media_gallery_preprocess_media(&$variables)
     foreach ($media->get('field_gallery_images') as $item) {
       $media = Media::load($item->getValue('id')['target_id']);
       $uri = $item->entity->image->get(0)->entity->uri->value;
+
+      $fieldAllowDownload = NULL;
+      if (!empty($mediaFirstValue = $media->get('field_allow_download')->first())) {
+        $fieldAllowDownload = $mediaFirstValue->getValue()['value'];
+      }
+
       $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][] = [
         'uri'                  => file_create_url($uri),
         'width'                => $item->entity->image->get(0)->width,
         'height'               => $item->entity->image->get(0)->height,
-        'field_allow_download' => $media->get('field_allow_download')->first()->getValue()['value'],
+        'field_allow_download' => $fieldAllowDownload,
       ];
     }
 
