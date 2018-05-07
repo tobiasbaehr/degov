@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-beta7] - 07-05-2018
+- Solved bug in degov_media_gallery according to the use of PhotoSwipe
+
 ## [2.0.0-beta6] - 27-04-2018
 - Updated translations in degov_simplenews module
 
