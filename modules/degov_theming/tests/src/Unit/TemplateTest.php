@@ -48,7 +48,7 @@ class TemplateTest extends UnitTestCase {
      */
     $componentLocation = $this->prophesize(ComponentLocation::class);
     $componentLocation->getDrupalPath()->willReturn($this->mockDrupalPath());
-    $componentLocation->getFilesystem()->willReturn($this->mockFilesystemFactory($findsModulesTemplate));
+    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem($findsModulesTemplate));
     $componentLocation->getLibraryDiscovery()->willReturn($this->mockLibraryDiscovery());
 
     return $componentLocation->reveal();
@@ -92,14 +92,11 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return FilesystemFactory
    */
-  private function mockFilesystemFactory($findsModulesTemplate = TRUE) {
+  private function mockFilesystem($findsModulesTemplate = TRUE) {
     $filesystem = $this->prophesize(Filesystem::class);
     $filesystem->exists(Argument::type('string'))->shouldBeCalled()->willReturn($findsModulesTemplate);
 
-    $filesystemFactory = $this->prophesize(FilesystemFactory::class);
-    $filesystemFactory->create()->willReturn($filesystem->reveal());
-
-    return $filesystemFactory->reveal();
+    return $filesystem->reveal();
   }
 
   /**

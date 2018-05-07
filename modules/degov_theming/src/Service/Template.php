@@ -95,7 +95,7 @@ class Template {
 
         $module_path = $this->drupalPath->getPath('module', $module_name);
         $template_fullname = $module_path . '/templates/' . $template_filename . '.html.twig';
-        if ($this->filesystem->exists($template_fullname )) {
+        if ($this->filesystem->exists($template_fullname)) {
           $info['template'] = $template_filename;
           $info['theme path'] = "modules";
           $info['path'] = $module_path . '/templates';
