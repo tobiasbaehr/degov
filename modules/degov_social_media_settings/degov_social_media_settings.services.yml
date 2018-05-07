@@ -1,7 +1,0 @@
-services:
-  degov_social_media_settings.cookie_check:
-    class: Drupal\degov_social_media_settings\Service\CookieCheck
-    arguments: ['@request_stack']
-  degov_social_media_settings.deactivated_feed_renderer:
-    class: Drupal\degov_social_media_settings\Service\DeactivedFeedRenderer
-    arguments: ['@twig', '@logger.factory']
