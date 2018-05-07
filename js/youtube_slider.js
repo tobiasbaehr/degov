@@ -3,14 +3,14 @@
  *
  * Defines the behavior of the Instagram slider.
  */
-(function ($, Drupal, drupalSettings) {
+(function ($, Drupal) {
 
   'use strict';
 
   // Slick slider in Youtube block
   Drupal.behaviors.slickYoutube = {
     attach: function (context, settings) {
-      if ($.parseJSON($.cookie("degov_social_media_settings")).youtube) {
+      if ($.cookie("degov_social_media_settings") && $.parseJSON($.cookie("degov_social_media_settings")).youtube) {
         $('.youtube-preview').once().slick({
           dots: true,
           infinite: false,
@@ -38,8 +38,9 @@
           $(this).hide().siblings('.slick__pause').show();
         });
       } else {
-        var dataSafetyInfo = Drupal.t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.');
+        var dataSafetyInfo = '<div class="js-social-media-code__message">' + Drupal.t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.') + '</div>';
         $('.youtube-preview').html(dataSafetyInfo);
+        $('.slick-controls').remove();
       }
 
     }

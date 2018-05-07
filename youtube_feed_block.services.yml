@@ -1,4 +1,0 @@
-services:
-  youtube_feed_block.youtube_factory:
-    class: Drupal\youtube_feed_block\Factory\YouTubeFactory
-    arguments: []
