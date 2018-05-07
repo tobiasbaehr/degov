@@ -11,7 +11,9 @@
   Drupal.behaviors.slickTweets = {
     attach: function (context, settings) {
 
-      if ($.parseJSON($.cookie("degov_social_media_settings")).twitter) {
+      $('.tweets-slideshow').show();
+
+      if ($.cookie("degov_social_media_settings") && $.parseJSON($.cookie("degov_social_media_settings")).twitter) {
         $('.tweets-slideshow .tweets').once().slick({
           dots: true,
           infinite: false,
@@ -39,7 +41,7 @@
           $(this).hide().siblings('.slick__pause').show();
         });
       } else {
-        var dataSafetyInfo = Drupal.t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.');
+        var dataSafetyInfo = '<div class="js-social-media-code__message">' + Drupal.t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.') + '</div>';
         $('.tweets-slideshow .tweets').html(dataSafetyInfo);
       }
 
