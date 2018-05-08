@@ -15,3 +15,10 @@ function degov_social_media_settings_update_8004() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_social_media_settings', '8004');
 }
+
+/**
+ * Add translations for disabled social media feeds.
+ */
+function degov_social_media_settings_update_8005() {
+  degov_common_add_translation("This social media source is disabled. You can enable it in the <a href=\"#\" class=\"js-social-media-settings-open\">social media settings</a>.", 'de', "Diese \"Social-Media\" Quelle ist deaktiviert. Sie können sie in den <a href=\"#\" class=\"js-social-media-settings-open\">\"Social-Media\" Einstellungen aktivieren</a>.");
+}

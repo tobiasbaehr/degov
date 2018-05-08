@@ -320,3 +320,32 @@ function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
     $form['#attributes']['novalidate'] = TRUE;
   }
 }
+
+/**
+ * Helper to manually add a single translation string.
+ *
+ * @param string $source_string
+ *   Source string.
+ * @param string $langcode
+ *   The langcode.
+ * @param string $translated_string
+ *   Translated string.
+ */
+function degov_common_add_translation($source_string, $langcode, $translated_string) {
+  // Find existing source string.
+  $storage = \Drupal::service('locale.storage');
+  $string = $storage->findString(['source' => $source_string]);
+  if (is_null($string)) {
+    $string = new SourceString();
+    $string->setString($source_string);
+    $string->setStorage($storage);
+    $string->save();
+  }
+  // Create translation. If one already exists, it will be replaced.
+  $translation = $storage->createTranslation([
+    'lid' => $string->lid,
+    'language' => $langcode,
+    'translation' => $translated_string,
+  ]);
+  $translation->save();
+}
