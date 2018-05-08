@@ -29,7 +29,10 @@ class YoutubeFeedBlock extends BlockBase {
     $numberOfVideos = $config->get('number_of_videos');
 
     $youtube = new Youtube(['key' => $apiKey]);
-    $channelID = $youtube->getChannelByName($channelName)->id;
+    $channelID = NULL;
+    if (!empty($youtube->getChannelByName($channelName))) {
+      $channelID = $youtube->getChannelByName($channelName)->id;
+    }
     $videos = $youtube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
 
     foreach ($videos as $video) {
@@ -39,7 +42,7 @@ class YoutubeFeedBlock extends BlockBase {
         '#title' => $video->snippet->title,
         '#likes' => $info->statistics->likeCount,
         '#views' => $info->statistics->viewCount,
-        '#comments' => $info->statistics->commentCount,
+        '#comments' => (property_exists($info->statistics, 'commentCount')) ? $info->statistics->commentCount : NULL,
         '#videoID' => $video->id->videoId,
         '#thumbnail' =>$video->snippet->thumbnails->default->url,
         '#cache' => ['max-age' => (60*60)],
