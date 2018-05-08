@@ -37,5 +37,5 @@ msgstr ""
 msgid "deGov"
 msgstr ""
 
-msgid 'This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.'
-msgstr 'Diese "Social-Media" Quelle ist deaktiviert. Sie können sie in den <a href="#" class="js-social-media-settings-open">"Social-Media" Einstellungen aktivieren</a>.'
+msgid "This social media source is disabled. You can enable it in the <a href=\"#\" class=\"js-social-media-settings-open\">social media settings</a>."
+msgstr "Diese \"Social-Media\" Quelle ist deaktiviert. Sie können sie in den <a href=\"#\" class=\"js-social-media-settings-open\">\"Social-Media\" Einstellungen aktivieren</a>."
