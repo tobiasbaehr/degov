@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed media gallery indexing via checking field value before retrieving it
 - Implemented disabling of Twitter feeds
 - Template rendering via Template service
+- Implemented degov_common function for adding translations manually. E.g. in update hooks.
 
 ## [2.0.0-beta6] - 27-04-2018
 - Updated translations in degov_simplenews module
