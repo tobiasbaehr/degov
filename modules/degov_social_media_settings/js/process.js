@@ -24,7 +24,7 @@
       });
 
       // Open the modal.
-      var $openSocialMediaSettings = $('.js-social-media-settings-open', context);
+      var $openSocialMediaSettings = $('.js-social-media-settings-open');
       $openSocialMediaSettings.click(function (e) {
         e.preventDefault();
         openModal();
