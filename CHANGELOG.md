@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 None
 
+## [2.0.0-beta7] - 09-05-2018
+- Renamed "webformular" paragraph type id to "webform" via update hook
+- Removed broken facets module version dependency in degov_search_base module
+
 ## [2.0.0-beta7] - 08-05-2018
 - Fixed media gallery indexing via checking field value before retrieving it
 - Implemented disabling of Twitter feeds
