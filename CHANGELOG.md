@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 None
 
+## [2.0.0-beta8] - 14-05-2018
+- Show mediatype in slideshow text (MHKBGNRW-69). 
+
 ## [2.0.0-beta7] - 09-05-2018
 - Renamed "webformular" paragraph type id to "webform" via update hook
 - Removed broken facets module version dependency in degov_search_base module
