@@ -3,8 +3,9 @@
 namespace Drupal\degov_theming\Service;
 
 use Drupal\Core\Asset\LibraryDiscovery;
+use Drupal\Core\Template\TwigEnvironment;
 use Drupal\Core\Theme\ThemeManager;
-use Drupal\degov_theming\Factory\FilesystemFactory;
+use Drupal\degov_theming\Facade\ComponentLocation;
 use Symfony\Component\Filesystem\Filesystem;
 
 class Template {
@@ -29,12 +30,20 @@ class Template {
    */
   private $filesystem;
 
-  public function __construct(ThemeManager $themeManager, LibraryDiscovery $libraryDiscovery, FilesystemFactory $filesystemFactory, DrupalPath $drupalPath)
+  /**
+   * @var TwigEnvironment
+   */
+  private $twig;
+
+  public function __construct(
+    ThemeManager $themeManager, ComponentLocation $componentLocation, TwigEnvironment $twig
+  )
   {
     $this->themeManager = $themeManager;
-    $this->libraryDiscovery = $libraryDiscovery;
-    $this->filesystem = $filesystemFactory->create();
-    $this->drupalPath = $drupalPath;
+    $this->libraryDiscovery = $componentLocation->getLibraryDiscovery();
+    $this->filesystem = $componentLocation->getFilesystem();
+    $this->drupalPath = $componentLocation->getDrupalPath();
+    $this->twig = $twig;
   }
 
   private function getInheritedTheme() {
@@ -44,14 +53,6 @@ class Template {
     return array_shift($baseThemes);
   }
 
-  private function setVariables($variables) {
-    $this->variables = $variables;
-  }
-
-  private function getVariables() {
-    return $this->variables;
-  }
-
   public function suggest(array &$variables, $hook, array &$info, array $options) {
     /* @var $entity_type string */
     /* @var $entity_bundles array */
@@ -59,8 +60,6 @@ class Template {
     /* @var $entity_view_modes array */
     extract($options);
     $add_suggestion = FALSE;
-
-    $this->setVariables($variables);
 
     if ($hook == $entity_type) {
       // Add module overwritten template suggestions for only the entity bundles that are defined.
@@ -96,7 +95,7 @@ class Template {
 
         $module_path = $this->drupalPath->getPath('module', $module_name);
         $template_fullname = $module_path . '/templates/' . $template_filename . '.html.twig';
-        if ($this->filesystem->exists($template_fullname )) {
+        if ($this->filesystem->exists($template_fullname)) {
           $info['template'] = $template_filename;
           $info['theme path'] = "modules";
           $info['path'] = $module_path . '/templates';
@@ -129,6 +128,13 @@ class Template {
       $variables,
       $template_filename
     ];
+  }
+
+  public function render(string $module, string $templatePath, array $variables = []) {
+    $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
+    $twigTemplate = $this->twig->load($path);
+
+    return $twigTemplate->render($variables);
   }
 
 }

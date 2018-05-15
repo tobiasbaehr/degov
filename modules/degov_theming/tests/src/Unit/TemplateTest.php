@@ -1,18 +1,19 @@
 <?php
 
-namespace Drupal\Tests\degov_common\Unit;
+namespace Drupal\Tests\degov_theming\Unit;
 
 use Drupal\Core\Asset\LibraryDiscovery;
 use Drupal\Core\Entity\Entity;
 use Drupal\Core\Theme\ActiveTheme;
 use Drupal\Core\Theme\ThemeManager;
+use Drupal\degov_theming\Facade\ComponentLocation;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 use Symfony\Component\Filesystem\Filesystem;
-
+use Drupal\Core\Template\TwigEnvironment;
 
 class TemplateTest extends UnitTestCase {
 
@@ -39,6 +40,18 @@ class TemplateTest extends UnitTestCase {
       ->willReturn('profiles/contrib/degov/modules/degov_node_normal_page');
 
     return $drupalPath->reveal();
+  }
+
+  private function mockComponentLocation($findsModulesTemplate = TRUE) {
+    /**
+     * @var ComponentLocation $componentLocation
+     */
+    $componentLocation = $this->prophesize(ComponentLocation::class);
+    $componentLocation->getDrupalPath()->willReturn($this->mockDrupalPath());
+    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem($findsModulesTemplate));
+    $componentLocation->getLibraryDiscovery()->willReturn($this->mockLibraryDiscovery());
+
+    return $componentLocation->reveal();
   }
 
   /**
@@ -79,14 +92,20 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return FilesystemFactory
    */
-  private function mockFilesystemFactory($findsModulesTemplate = TRUE) {
+  private function mockFilesystem($findsModulesTemplate = TRUE) {
     $filesystem = $this->prophesize(Filesystem::class);
     $filesystem->exists(Argument::type('string'))->shouldBeCalled()->willReturn($findsModulesTemplate);
 
-    $filesystemFactory = $this->prophesize(FilesystemFactory::class);
-    $filesystemFactory->create()->willReturn($filesystem->reveal());
+    return $filesystem->reveal();
+  }
 
-    return $filesystemFactory->reveal();
+  /**
+   * @return TwigEnvironment
+   */
+  private function mockTwig() {
+    $twig = $this->prophesize(TwigEnvironment::class);
+
+    return $twig->reveal();
   }
 
   public function getPreprocess() {
@@ -159,7 +178,7 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getPreprocess()
    */
   public function testSuggestModuleTemplate($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockLibraryDiscovery(), $this->mockFilesystemFactory(), $this->mockDrupalPath());
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
     $node->bundle()->willReturn('normal_page');
@@ -189,7 +208,7 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getPreprocess()
    */
   public function testSuggestInheritedThemeTemplate($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockLibraryDiscovery(), $this->mockFilesystemFactory(FALSE), $this->mockDrupalPath());
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(FALSE), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
     $node->bundle()->willReturn('normal_page');
@@ -219,7 +238,7 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getClientThemePreprocess()
    */
   public function testSuggestProjectThemeTemplate($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockLibraryDiscovery(), $this->mockFilesystemFactory(FALSE), $this->mockDrupalPath());
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(FALSE), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
     $node->bundle()->willReturn('normal_page');
