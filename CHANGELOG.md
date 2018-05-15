@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Show mediatype in slideshow text (MHKBGNRW-69). 
+- Solved bug in degov_media_gallery according to the use of PhotoSwipe
 
 ## [2.0.0-beta7] - 09-05-2018
 - Renamed "webformular" paragraph type id to "webform" via update hook
