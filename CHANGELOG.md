@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-None
+- Show mediatype in slideshow text (MHKBGNRW-69). 
 
 ## [2.0.0-beta7] - 09-05-2018
 - Renamed "webformular" paragraph type id to "webform" via update hook
