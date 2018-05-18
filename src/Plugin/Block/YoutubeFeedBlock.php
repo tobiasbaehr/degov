@@ -33,6 +33,10 @@ class YoutubeFeedBlock extends BlockBase {
     if (!empty($youtube->getChannelByName($channelName))) {
       $channelID = $youtube->getChannelByName($channelName)->id;
     }
+    else {
+      // If no channel was found by that name then take the channel name as ID
+      $channelID = $channelName;
+    }
     $videos = $youtube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
 
     foreach ($videos as $video) {
@@ -44,9 +48,9 @@ class YoutubeFeedBlock extends BlockBase {
         '#views' => $info->statistics->viewCount,
         '#comments' => (property_exists($info->statistics, 'commentCount')) ? $info->statistics->commentCount : NULL,
         '#videoID' => $video->id->videoId,
-        '#thumbnail' =>$video->snippet->thumbnails->default->url,
-        '#cache' => ['max-age' => (60*60)],
-        '#link_display' => $this->_shortDescription("https://youtube.com/watch?q=".$video->id->videoId,32,'...'),
+        '#thumbnail' => $video->snippet->thumbnails->default->url,
+        '#cache' => ['max-age' => (60 * 60)],
+        '#link_display' => $this->_shortDescription("https://youtube.com/watch?q=" . $video->id->videoId, 32, '...'),
       ];
     }
 

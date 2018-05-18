@@ -38,7 +38,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
     ];
     $form['channel'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Your channel name'),
+      '#title' => $this->t('Your channel name or channel Id'),
       '#default_value' => $config->get('channel'),
     ];
     $form['number_of_videos'] = [
