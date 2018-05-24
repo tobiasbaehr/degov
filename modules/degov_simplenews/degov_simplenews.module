@@ -73,8 +73,6 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     }
   }
 
-  //ToDo: save fore- and surname in db
-
   if (strstr($form_id, 'simplenews_subscriptions_block') !== FALSE) {
     foreach (array_keys($form['actions']) as $action) {
       if ($action != 'preview'
@@ -167,13 +165,18 @@ function degov_simplenews_form_submit($form, FormStateInterface $form_state) {
    */
   $database = \Drupal::service('database');
 
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $email = $form_state->getValues()['mail'][0]['value'];
+  } else {
+    $email = \Drupal::currentUser()->getEmail();
+  }
   $database
     ->update('simplenews_subscriber')
     ->fields([
       'forename' => $form_state->getValues()['forename'],
       'surname' => $form_state->getValues()['surname'],
     ])
-    ->condition('uid', \Drupal::currentUser()->id(), '=')
+    ->condition('mail', $email, '=')
     ->execute();
 
   $result = $database
