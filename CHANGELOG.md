@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None.
 
+## [2.0.0-beta10] - 25-05-2018
+- [CRITICAL] Guest user newsletter registration does not update all other guest user email addresses.
+
 ## [2.0.0-beta9] - 15-05-2018
 - Show mediatype in slideshow text (MHKBGNRW-69). 
 - Solved bug in degov_media_gallery according to the use of PhotoSwipe
