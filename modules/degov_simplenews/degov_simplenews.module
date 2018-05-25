@@ -160,14 +160,20 @@ function degov_simplenews_form_simplenews_subscriber_form_alter(&$form, FormStat
 }
 
 function degov_simplenews_form_submit($form, FormStateInterface $form_state) {
-  /**
-   * @var Drupal\Core\Database\Connection $database
-   */
+  /** @var \Drupal\user\Entity\User $user */
+  $user = \Drupal::currentUser();
+  /** @var \Drupal\Core\Database\Connection $database */
   $database = \Drupal::service('database');
 
-  /** @var Drupal\degov_simplenews\Service\InsertNameService $insertName */
+  $subscriberData = [
+    'mail' => $form_state->getValues()['mail'][0]['value'],
+    'forename' => $form_state->getValues()['forename'],
+    'surname' => $form_state->getValues()['surname'],
+  ];
+
+  /** @var \Drupal\degov_simplenews\Service\InsertNameService $insertName */
   $insertName = \Drupal::service('degov_simplenews.insert_name');
-  $insertName->updateForeAndSurname($form_state, $database);
+  $insertName->updateForeAndSurname($user, $subscriberData, $database);
 
   $result = $database
     ->select('nrw_simplenews_subscription', 'nss')
