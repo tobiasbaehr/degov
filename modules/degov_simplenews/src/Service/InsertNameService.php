@@ -3,18 +3,27 @@
 namespace Drupal\degov_simplenews\Service;
 
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
+use Drupal\Core\Session\AccountProxy;
 
 class InsertNameService {
 
-  public function updateForeAndSurname(User $user, array $subscriberData, Connection $database): void {
+	/**
+	 * @var Connection
+	 */
+	private $database;
+
+	public function __construct(Connection $database)
+	{
+		$this->database = $database;
+	}
+
+	public function updateForeAndSurname(AccountProxy $user, array $subscriberData): void {
     if ($user->isAnonymous()) {
       $email = $subscriberData['mail'];
     } else {
       $email = $user->getEmail();
     }
-    $database
+    $this->database
       ->update('simplenews_subscriber')
       ->fields([
         'forename' => $subscriberData['forename'],

@@ -10,6 +10,20 @@
 
 use Drupal\Core\Database\Database;
 
+function degov_simplenews_install() {
+	$columnForenameSpec = $columnSurnameSpec = [
+		'type' => 'varchar',
+		'description' => "The forename of the subscriber.",
+		'length' => 32,
+		'not null' => FALSE,
+	];
+	$columnSurnameSpec['description'] = "The surname of the subscriber.";
+
+	$schema = Database::getConnection()->schema();
+	$schema->addField('simplenews_subscriber', 'forename', $columnForenameSpec);
+	$schema->addField('simplenews_subscriber', 'surname', $columnSurnameSpec);
+}
+
 /**
  * Change newsletter field cardinality.
  */
