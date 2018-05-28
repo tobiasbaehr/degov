@@ -24,7 +24,9 @@ function instagram_feed_block_help($route_name, RouteMatchInterface $route_match
 }
 
 function instagram_feed_block_preprocess_block(&$variables) {
-  $variables['#attached']['library'][] = 'instagram_feed_block/instagram_slider';
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'instagram_feed_block') {
+    $variables['#attached']['library'][] = 'instagram_feed_block/instagram_slider';
+  }
 }
 
 /**
