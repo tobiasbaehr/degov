@@ -27,7 +27,9 @@ function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) 
  * @param $variables
  */
 function youtube_feed_block_preprocess_block(&$variables) {
-  $variables['#attached']['library'][] = 'youtube_feed_block/youtube_slider';
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'youtube_feed_block') {
+    $variables['#attached']['library'][] = 'youtube_feed_block/youtube_slider';
+  }
 }
 
 /**

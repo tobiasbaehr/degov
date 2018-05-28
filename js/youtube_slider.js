@@ -40,7 +40,7 @@
       } else {
         var dataSafetyInfo = '<div class="js-social-media-code__message">' + Drupal.t('This social media source is disabled. You can enable it in the <a href="#" class="js-social-media-settings-open">social media settings</a>.') + '</div>';
         $('.youtube-preview').html(dataSafetyInfo);
-        $('.slick-controls').remove();
+        $('#block-youtubefeedblock .slick-controls', context).remove();
       }
 
     }
