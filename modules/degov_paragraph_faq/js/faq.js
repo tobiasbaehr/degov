@@ -12,8 +12,8 @@
    */
   Drupal.behaviors.faq = {
     attach: function (context, settings) {
-      
-      if ( $('.faq', context).length == 0 ) {
+
+      if ($('.faq', context).length == 0) {
         return;
       }
       $('.faq', context).once('faq-is-opened').each(function () {
@@ -22,9 +22,16 @@
           if (wrapper.hasClass('is-openend')) {
             $('.faq_answer', wrapper).slideUp();
             wrapper.removeClass('is-openend');
-          } else {
+          }
+          else {
             $('.faq_answer', wrapper).slideDown();
             wrapper.addClass('is-openend');
+          }
+        });
+        $('.faq_question', wrapper).keyup(function (e) {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            $('.faq_question', wrapper).click();
           }
         });
       });
