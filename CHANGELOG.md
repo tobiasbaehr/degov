@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None.
 
+## [2.0.0-beta11] - 01-06-2018
+- Fixed unimported namespace in degov_common_add_translation()
+
 ## [2.0.0-beta10] - 25-05-2018
 - [CRITICAL] Guest user newsletter registration does not update all other guest user email addresses.
 
