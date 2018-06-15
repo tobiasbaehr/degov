@@ -5,6 +5,7 @@
  * Contains youtube_feed_block.module.
  */
 
+use Drupal\Component\Utility\Xss;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -28,8 +29,19 @@ function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) 
  */
 function youtube_feed_block_preprocess_block(&$variables) {
   if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'youtube_feed_block') {
-    $variables['#attached']['library'][] = 'youtube_feed_block/youtube_slider';
+    $variables['#attached']['library'][] = 'degov_common/slick';
+    $markup = render($variables['content']);
+
+    if (!empty($markup)) {
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code']['yt'] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
+      $variables['attributes']['data-social-media-source'] = 'youtube';
+      $variables['attributes']['data-social-media-entity'] = 'yt';
+      $variables['social_media_disabled'] = TRUE;
+    }
   }
+
+
 }
 
 /**
@@ -49,10 +61,10 @@ function youtube_feed_block_theme() {
         'views' => NULL,
         'comments' => NULL,
         'likes' => NULL,
-      ]
+      ],
     ],
     'block' => [
       'render element' => 'elements',
-    ]
+    ],
   ];
 }
