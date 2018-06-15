@@ -25,7 +25,16 @@ function instagram_feed_block_help($route_name, RouteMatchInterface $route_match
 
 function instagram_feed_block_preprocess_block(&$variables) {
   if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'instagram_feed_block') {
-    $variables['#attached']['library'][] = 'instagram_feed_block/instagram_slider';
+    $variables['#attached']['library'][] = 'degov_common/slick';
+    $markup = render($variables['content']);
+
+    if (!empty($markup)) {
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code']['insta'] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
+      $variables['attributes']['data-social-media-source'] = 'instagram';
+      $variables['attributes']['data-social-media-entity'] = 'insta';
+      $variables['social_media_disabled'] = TRUE;
+    }
   }
 }
 
