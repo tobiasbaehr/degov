@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None.
 
+## [2.0.0-beta12] - 18-06-2018
+- Add ids to the faq, to allow referencing and anchoring
+
 ## [2.0.0-beta11] - 01-06-2018
 - Fixed unimported namespace in degov_common_add_translation()
 
