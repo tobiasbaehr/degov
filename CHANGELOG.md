@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None.
 
+## [2.0.0-beta13] - 18-06-2018
+- Add ids to the faq, to allow referencing and anchoring
+
 ## [2.0.0-beta12] - 18-06-2018
 - Videos and FAQ paragraphs are accessible with the keyboard
 
