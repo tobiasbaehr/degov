@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None.
 
+## [2.0.0-beta14] - 19-06-2018
+- Fixed twig syntax for text and faq paragraph
+
 ## [2.0.0-beta13] - 18-06-2018
 - Add ids to the faq, to allow referencing and anchoring
 
