@@ -96,7 +96,7 @@
   </div>
 
   <div class="press__slideshow-content slideshow-content {{ class_content }}">
-    <p class="slideshow-section">{% trans %}Press{% endtrans %}</p>
+    <p class="slideshow-section">{{ node.field_content_type.entity.name.value }}</p>
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="press__slideshow-title slideshow-title">

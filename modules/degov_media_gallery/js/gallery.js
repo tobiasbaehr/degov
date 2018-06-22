@@ -51,18 +51,24 @@
         $('.slick-controls__gallery .slick__lightroom').css("right", "129px");
       }
 
-      $slider.find('.media-image').click(function () {
-        var $index = parseInt($slider.slick('slickCurrentSlide'));
+      // Initializes PhotoSwipe.
+      var $index = parseInt($slider.slick('slickCurrentSlide'));
 
-        var $options = {
-          index: $index
-        };
-        // Initializes and opens PhotoSwipe.
+      var $options = {
+        index: $index
+      };
+
+      $slider.find('.media-image').click(function () {
+        // Opens PhotoSwipe.
         var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
         $pswp.init();
       });
+
       $('.media-gallery-js-open-lightroom', $gallery).click(function () {
-        $images.get($slider.slick('slickCurrentSlide')).click();
+        // Opens PhotoSwipe.
+        var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
+        $pswp.init();
+        //$images.get($slider.slick('slickCurrentSlide')).click();
       });
       $slider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
         var i = (currentSlide ? currentSlide : 0) + 1;

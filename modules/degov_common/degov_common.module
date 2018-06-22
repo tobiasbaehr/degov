@@ -1,15 +1,12 @@
 <?php
 
-use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\degov_common\DegovOverride;
 use Drupal\degov_common\Form\DegovMediaForm;
 use Drupal\degov_common\MediaFormAlter;
 use Drupal\degov_common\Plugin\views\filter\DegovBundle;
-use Drupal\field\Entity\FieldConfig;
-use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\locale\SourceString;
 use Drupal\media\MediaInterface;
-use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_views_plugins_filter_alter().
@@ -319,4 +316,29 @@ function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
     // field groups).
     $form['#attributes']['novalidate'] = TRUE;
   }
+}
+
+/**
+ * @param $source_string
+ * @param $langcode
+ * @param $translated_string
+ * @throws \Drupal\locale\StringStorageException
+ */
+function degov_common_add_translation($source_string, $langcode, $translated_string) {
+  // Find existing source string.
+  $storage = \Drupal::service('locale.storage');
+  $string = $storage->findString(['source' => $source_string]);
+  if (is_null($string)) {
+    $string = new SourceString();
+    $string->setString($source_string);
+    $string->setStorage($storage);
+    $string->save();
+  }
+  // Create translation. If one already exists, it will be replaced.
+  $translation = $storage->createTranslation([
+    'lid' => $string->lid,
+    'language' => $langcode,
+    'translation' => $translated_string,
+  ]);
+  $translation->save();
 }
