@@ -63,7 +63,7 @@ class Common {
 		}
 
     foreach ($entity_bundles as $entity_bundle) {
-      \Drupal::logger($entity_bundle)->notice(t('Removing all content of type @bundle', ['@bundle' => $entity_bundle]));
+      \Drupal::logger($entity_bundle)->notice('Removing all content of type @bundle', ['@bundle' => $entity_bundle]);
       $entity_ids = \Drupal::entityQuery($entity_type)
         ->condition('type', $entity_bundle)
         ->execute();

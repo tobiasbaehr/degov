@@ -103,7 +103,7 @@ class VideoUtils {
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
-          $this->logger->error(t('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]));
+          $this->logger->error('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]);
         }
         if (!empty($id3Info['playtime_seconds'])) {
           $duration = (int) ceil($id3Info['playtime_seconds']);
@@ -127,7 +127,7 @@ class VideoUtils {
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the audio duration. Please check site logs.'));
-          $this->logger->error(t('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]));
+          $this->logger->error('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]);
         }
         if (!empty($id3Info['playtime_seconds'])) {
           $duration = (int) ceil($id3Info['playtime_seconds']);
@@ -164,7 +164,7 @@ class VideoUtils {
       $response = $this->httpClient->request('GET', $query_url);
     } catch (ClientException $e) {
       drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
-      $this->logger->error("Youtube access failure with status: " . \GuzzleHttp\Psr7\str($e->getResponse()));
+      $this->logger->error("Youtube access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
       return 0;
     }
 
@@ -196,7 +196,7 @@ class VideoUtils {
       $response = $this->httpClient->request('GET', $query_url);
     } catch (ClientException $e) {
       drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
-      $this->error("Vimeo access failure with status: " . \GuzzleHttp\Psr7\str($e->getResponse()));
+      $this->logger->error("Vimeo access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
       return 0;
     }
 

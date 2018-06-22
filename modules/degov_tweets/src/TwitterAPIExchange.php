@@ -57,8 +57,7 @@ class TwitterAPIExchange {
    */
   public function __construct(array $settings) {
     if (!in_array('curl', get_loaded_extensions())) {
-      $msg = 'You need to install cURL, see: http://curl.haxx.se/docs/install.html';
-      \Drupal::logger('degov_tweets')->notice($msg);
+      \Drupal::logger('degov_tweets')->notice('You need to install cURL, see: http://curl.haxx.se/docs/install.html');
     }
 
     if (!isset($settings['oauth_access_token'])
@@ -66,8 +65,7 @@ class TwitterAPIExchange {
       || !isset($settings['consumer_key'])
       || !isset($settings['consumer_secret'])
     ) {
-      $msg = 'Make sure you are passing in the correct parameters';
-      \Drupal::logger('degov_tweets')->notice($msg);
+      \Drupal::logger('degov_tweets')->notice('Make sure you are passing in the correct parameters');
     }
     $this->oauth_access_token = $settings['oauth_access_token'];
     $this->oauth_access_token_secret = $settings['oauth_access_token_secret'];
@@ -88,8 +86,7 @@ class TwitterAPIExchange {
    */
   public function setPostfields(array $array) {
     if (!is_null($this->getGetfield())) {
-      $msg = 'You can only choose get OR post fields.';
-      \Drupal::logger('my_module')->notice($msg);
+      \Drupal::logger('my_module')->notice('You can only choose get OR post fields.');
     }
 
     if (isset($array['status']) && substr($array['status'], 0, 1) === '@') {
@@ -118,13 +115,12 @@ class TwitterAPIExchange {
    *
    * @throws \Exception
    *
-   * @return \TwitterAPIExchange
+   * @return \Drupal\degov_tweets\TwitterAPIExchange
    *   Instance of self for method chaining
    */
   public function setGetfield($string) {
     if (!is_null($this->getPostfields())) {
-      $msg = 'You can only choose get OR post fields.';
-      \Drupal::logger('degov_tweets')->notice($msg);
+      \Drupal::logger('degov_tweets')->notice('You can only choose get OR post fields.');
     }
 
     $getfields = preg_replace('/^\?/', '', explode('&', $string));
@@ -171,7 +167,7 @@ class TwitterAPIExchange {
    *
    * @throws \Exception
    *
-   * @return \TwitterAPIExchange
+   * @return \Drupal\degov_tweets\TwitterAPIExchange
    *   Instance of self for method chaining
    */
   public function buildOauth($url, $requestMethod) {
