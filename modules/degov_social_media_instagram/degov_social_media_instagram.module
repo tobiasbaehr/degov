@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains instagram_feed_block.module.
+ * Contains degov_social_media_instagram.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,10 +10,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function instagram_feed_block_help($route_name, RouteMatchInterface $route_match) {
+function degov_social_media_instagram_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the instagram_feed_block module.
-    case 'help.page.instagram_feed_block':
+    // Main module help for the degov_social_media_instagram module.
+    case 'help.page.degov_social_media_instagram':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('This module allows you to show you the newest posts from a user') . '</p>';
@@ -23,8 +23,8 @@ function instagram_feed_block_help($route_name, RouteMatchInterface $route_match
   }
 }
 
-function instagram_feed_block_preprocess_block(&$variables) {
-  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'instagram_feed_block') {
+function degov_social_media_instagram_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_social_media_instagram') {
     $variables['#attached']['library'][] = 'degov_common/slick';
     $markup = render($variables['content']);
 
@@ -41,9 +41,9 @@ function instagram_feed_block_preprocess_block(&$variables) {
 /**
  * Implements hook_theme().
  */
-function instagram_feed_block_theme() {
+function degov_social_media_instagram_theme() {
   return [
-    'instagram_feed_block' => [
+    'degov_social_media_instagram' => [
       'render element' => 'elements',
       'variables' => [
         'imageUrl' => NULL,

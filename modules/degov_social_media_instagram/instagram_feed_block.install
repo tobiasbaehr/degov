@@ -1,8 +1,0 @@
-<?php
-
-function instagram_feed_block_install() {
-  $config = \Drupal::service('config.factory')->getEditable('instagram_feed_block.settings');
-  $config->set('user', "")->save();
-  $config->set('number_of_posts', "5")->save();
-  $config->set('number_of_characters', "100")->save();
-}

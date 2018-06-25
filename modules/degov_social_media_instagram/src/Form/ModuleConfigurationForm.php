@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\instagram_feed_block\Form;
+namespace Drupal\degov_social_media_instagram\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -14,7 +14,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'instagram_feed_block_admin_settings';
+    return 'degov_social_media_instagram_admin_settings';
   }
 
   /**
@@ -22,7 +22,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'instagram_feed_block.api_key',
+      'degov_social_media_instagram.api_key',
     ];
   }
 
@@ -30,7 +30,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('instagram_feed_block.settings');
+    $config = $this->config('degov_social_media_instagram.settings');
     $form['user'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your user name'),
@@ -54,7 +54,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $config = \Drupal::service('config.factory')->getEditable('instagram_feed_block.settings');
+    $config = \Drupal::service('config.factory')->getEditable('degov_social_media_instagram.settings');
     $config->set('user', $values['user'])->save();
     $config->set('number_of_posts', $values['number_of_posts'])->save();
     $config->set('number_of_characters', $values['number_of_characters'])->save();

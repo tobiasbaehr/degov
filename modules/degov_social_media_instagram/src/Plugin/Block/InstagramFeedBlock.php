@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\instagram_feed_block\Plugin\Block;
+namespace Drupal\degov_social_media_instagram\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use InstagramScraper\Instagram;
@@ -9,7 +9,7 @@ use InstagramScraper\Instagram;
  * Provides a 'YouttubeFeedBlock' block.
  *
  * @Block(
- *  id = "instagram_feed_block",
+ *  id = "degov_social_media_instagram",
  *  admin_label = @Translation("Instagram Feed Block"),
  * )
  */
@@ -22,7 +22,7 @@ class InstagramFeedBlock extends BlockBase {
     $build = [];
 
     $config = \Drupal::service('config.factory')
-      ->get('instagram_feed_block.settings');
+      ->get('degov_social_media_instagram.settings');
     $user = $config->get('user');
     $max = $config->get('number_of_posts');
     $maxLenth = $config->get('number_of_characters');
@@ -35,8 +35,8 @@ class InstagramFeedBlock extends BlockBase {
     $nonPrivateAccountMedias = $instagram->getMedias($user, $max);
 
     foreach ($nonPrivateAccountMedias as $media) {
-      $build['instagram_feed_block'][] = [
-        '#theme' => 'instagram_feed_block',
+      $build['degov_social_media_instagram'][] = [
+        '#theme' => 'degov_social_media_instagram',
         '#imageUrl' => $media->getImageThumbnailUrl(),
         '#link' => $media->getLink(),
         '#link_display' => $this->_shortDescription($media->getLink(),32,'...'),

@@ -1,7 +1,0 @@
-instagram_feed_block.admin_settings:
-  path: '/admin/config/instagram_feed_block'
-  defaults:
-    _form: '\Drupal\instagram_feed_block\Form\ModuleConfigurationForm'
-    _title: 'Instagram Feed Block configuration screen'
-  requirements:
-    _permission: 'administer site configuration'
