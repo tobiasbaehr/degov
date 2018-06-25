@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Contains instagram_feed_block.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function instagram_feed_block_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the instagram_feed_block module.
+    case 'help.page.instagram_feed_block':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allows you to show you the newest posts from a user') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function instagram_feed_block_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'instagram_feed_block') {
+    $variables['#attached']['library'][] = 'degov_common/slick';
+    $markup = render($variables['content']);
+
+    if (!empty($markup)) {
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code']['insta'] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
+      $variables['attributes']['data-social-media-source'] = 'instagram';
+      $variables['attributes']['data-social-media-entity'] = 'insta';
+      $variables['social_media_disabled'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function instagram_feed_block_theme() {
+  return [
+    'instagram_feed_block' => [
+      'render element' => 'elements',
+      'variables' => [
+        'imageUrl' => NULL,
+        'type' => NULL,
+        'link' => NULL,
+        'caption' => NULL,
+        'date' => NULL,
+        'views' => NULL,
+        'comments' => NULL,
+        'likes' => NULL,
+        'link_display' => NULL,
+      ]
+    ],
+    'block' => [
+      'render element' => 'elements',
+    ]
+  ];
+}
