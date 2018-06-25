@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\youtube_feed_block\Form;
+namespace Drupal\degov_social_media_youtube\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -14,7 +14,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'youtube_feed_block_admin_settings';
+    return 'degov_social_media_youtube_admin_settings';
   }
 
   /**
@@ -22,7 +22,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'youtube_feed_block.api_key',
+      'degov_social_media_youtube.api_key',
     ];
   }
 
@@ -30,7 +30,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('youtube_feed_block.settings');
+    $config = $this->config('degov_social_media_youtube.settings');
     $form['api_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your API key'),
@@ -54,7 +54,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $config = \Drupal::service('config.factory')->getEditable('youtube_feed_block.settings');
+    $config = \Drupal::service('config.factory')->getEditable('degov_social_media_youtube.settings');
     $config->set('api_key', $values['api_key'])->save();
     $config->set('channel', $values['channel'])->save();
     $config->set('number_of_videos', $values['number_of_videos'])->save();

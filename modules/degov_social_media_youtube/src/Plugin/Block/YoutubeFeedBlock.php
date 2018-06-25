@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\youtube_feed_block\Plugin\Block;
+namespace Drupal\degov_social_media_youtube\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Madcoda\Youtube\Youtube;
@@ -9,7 +9,7 @@ use Madcoda\Youtube\Youtube;
  * Provides a 'YouttubeFeedBlock' block.
  *
  * @Block(
- *  id = "youtube_feed_block",
+ *  id = "degov_social_media_youtube",
  *  admin_label = @Translation("Youtube Feed Block"),
  * )
  */
@@ -22,7 +22,7 @@ class YoutubeFeedBlock extends BlockBase {
     $build = [];
 
     $config = \Drupal::service('config.factory')
-      ->get('youtube_feed_block.settings');
+      ->get('degov_social_media_youtube.settings');
 
     $apiKey = $config->get('api_key');
     $channelName = $config->get('channel');
@@ -41,8 +41,8 @@ class YoutubeFeedBlock extends BlockBase {
 
     foreach ($videos as $video) {
       $info = $youtube->getVideoInfo($video->id->videoId);
-      $build['youtube_feed_block'][] = [
-        '#theme' => 'youtube_feed_block',
+      $build['degov_social_media_youtube'][] = [
+        '#theme' => 'degov_social_media_youtube',
         '#title' => $video->snippet->title,
         '#likes' => $info->statistics->likeCount,
         '#views' => $info->statistics->viewCount,

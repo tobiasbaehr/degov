@@ -11,10 +11,10 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) {
+function degov_social_media_youtube_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the youtube_feed_block module.
-    case 'help.page.youtube_feed_block':
+    // Main module help for the degov_social_media_youtube module.
+    case 'help.page.degov_social_media_youtube':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
       $output .= '<p>' . t('This module allows you to show you the newest videos of one youtube channel') . '</p>';
@@ -27,8 +27,8 @@ function youtube_feed_block_help($route_name, RouteMatchInterface $route_match) 
 /**
  * @param $variables
  */
-function youtube_feed_block_preprocess_block(&$variables) {
-  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'youtube_feed_block') {
+function degov_social_media_youtube_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_social_media_youtube') {
     $variables['#attached']['library'][] = 'degov_common/slick';
     $markup = render($variables['content']);
 
@@ -47,9 +47,9 @@ function youtube_feed_block_preprocess_block(&$variables) {
 /**
  * Implements hook_theme().
  */
-function youtube_feed_block_theme() {
+function degov_social_media_youtube_theme() {
   return [
-    'youtube_feed_block' => [
+    'degov_social_media_youtube' => [
       'render element' => 'elements',
       'variables' => [
         'title' => NULL,

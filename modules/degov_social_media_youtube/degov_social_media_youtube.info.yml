@@ -1,9 +1,9 @@
-name: 'YouTube-feed block'
+name: 'deGov social media - YouTube-feed block'
 type: module
 description: 'This module allows you to show you the newest videos of one youtube channel'
 core: 8.x
-package: 'MHKBG'
-configure: youtube_feed_block.admin_settings
+package: 'deGov - Social Media'
+configure: degov_social_media_youtube.admin_settings
 dependencies:
   - 'drupal:degov_common'
   - 'drupal:degov_social_media_settings'
