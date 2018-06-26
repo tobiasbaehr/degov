@@ -16,7 +16,7 @@ default:
       show_cmd: "open %s"
       selenium2:
         wd_host: 'http://localhost:4444/wd/hub'
-      base_url: http://localhost:8000
+      base_url: http://localhost:80
       sessions:
         default:
           goutte: ~

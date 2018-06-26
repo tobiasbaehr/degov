@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Fixed translation warnings on localize.drupal.org
+- Added drush and drupal console as dependecies
+- Using Chromedriver for behat tests in the pipeline
 
 ## [2.0.0-beta14] - 19-06-2018
 - Fixed twig syntax for text and faq paragraph
