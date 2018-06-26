@@ -16,7 +16,6 @@ pipelines:
         script:
           - apt-get update
           - apt-get install -y sqlite3 php7.1-sqlite
-          - cd project
           - composer install
           - mkdir docroot/profiles
           - mkdir docroot/profiles/contrib
