@@ -29,7 +29,7 @@ pipelines:
           - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
 
           # Execute tests
-          - bin/behat --strict
+          - (cd docroot/profiles/contrib/degov && ../../../../bin/behat --strict)
           - (cd docroot/profiles/contrib/degov && ../../../../bin/phpunit)
         services:
           - testing
