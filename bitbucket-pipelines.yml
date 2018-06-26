@@ -26,7 +26,7 @@ pipelines:
           - mv testing docroot/profiles/contrib/degov
           - composer dump-autoload
           - php -S localhost:80 -t docroot &
-          - bin/drush si degov
+          - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
 
           # Execute tests
           - bin/behat --strict
