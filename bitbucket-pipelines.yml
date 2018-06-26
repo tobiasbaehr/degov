@@ -28,8 +28,9 @@ pipelines:
           - php -S localhost:80 -t docroot &
           - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
 
+          - mv docroot/profiles/contrib/degov/behat.yml .
           # Execute tests
-          - (cd docroot/profiles/contrib/degov && ../../../../bin/behat --strict)
+          - bin/behat
           - (cd docroot/profiles/contrib/degov && ../../../../bin/phpunit)
         services:
           - testing
