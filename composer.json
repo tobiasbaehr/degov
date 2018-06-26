@@ -92,6 +92,8 @@
         "drupal/linkit": "^4.3",
         "drupal/media_entity_generic": "^1.0@alpha",
         "drupal/workbench_moderation": "^1.3",
+        "madcoda/php-youtube-api": "^1.2",
+        "raiym/instagram-php-scraper": "^0.8.22",
         "heiseonline/shariff": "2.0.4",
         "drupal/console": "^1.8",
         "drush/drush": "^9.3"
