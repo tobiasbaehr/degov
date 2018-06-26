@@ -53,7 +53,6 @@ class YoutubeFeedBlock extends BlockBase {
         '#link_display' => $this->_shortDescription("https://youtube.com/watch?q=" . $video->id->videoId, 32, '...'),
       ];
     }
-
     return $build;
   }
 

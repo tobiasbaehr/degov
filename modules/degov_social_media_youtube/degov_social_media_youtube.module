@@ -40,8 +40,6 @@ function degov_social_media_youtube_preprocess_block(&$variables) {
       $variables['social_media_disabled'] = TRUE;
     }
   }
-
-
 }
 
 /**
@@ -62,9 +60,6 @@ function degov_social_media_youtube_theme() {
         'comments' => NULL,
         'likes' => NULL,
       ],
-    ],
-    'block' => [
-      'render element' => 'elements',
     ],
   ];
 }

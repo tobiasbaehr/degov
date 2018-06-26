@@ -216,11 +216,12 @@
     }
     selector.slick({
       dots: true,
-      infinite: false,
+      infinite: true,
       speed: 300,
       slidesToShow: 2,
       slidesToScroll: 2,
       autoplay: true,
+      arrows: true,
       responsive: [
         {
           breakpoint: 1319,
@@ -232,12 +233,13 @@
       ]
     });
 
-    $('.slick__pause').on('click', function () {
-      selector.once().slick('slickPause');
+    var slickControlls = selector.parent();
+    slickControlls.find('.slick__pause').click(function () {
+      selector.slick('slickPause');
       $(this).hide().siblings('.slick__play').show();
     });
-    $('.slick__play').on('click', function () {
-      selector.once().slick('slickPlay');
+    slickControlls.find('.slick__play').on('click', function () {
+      selector.slick('slickPlay').slick('setOption', 'autoplay', true);
       $(this).hide().siblings('.slick__pause').show();
     });
   }

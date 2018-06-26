@@ -6,7 +6,7 @@ use Drupal\Core\Block\BlockBase;
 use InstagramScraper\Instagram;
 
 /**
- * Provides a 'YouttubeFeedBlock' block.
+ * Provides a 'InstagramFeedBlock' block.
  *
  * @Block(
  *  id = "degov_social_media_instagram",
@@ -50,7 +50,6 @@ class InstagramFeedBlock extends BlockBase {
         '#cache' => ['max-age' => (60 * 5)],
       ];
     }
-
     return $build;
   }
 
@@ -62,5 +61,4 @@ class InstagramFeedBlock extends BlockBase {
       return $string;
     }
   }
-
 }
