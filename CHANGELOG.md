@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.0-beta16] - 27-06-2018
 - Added makefile for automatic generation of deGov
 
 ## [2.0.0-beta15] - 26-06-2018
