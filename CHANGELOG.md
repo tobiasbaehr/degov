@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- None.
+
+## [2.0.0-beta17] - 27-06-2018
 - Show and hide slick controls by SoMe settings
 
 ## [2.0.0-beta16] - 27-06-2018
