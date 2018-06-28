@@ -113,6 +113,7 @@
         });
 
         target.html(link);
+        target.parent().find(".slick-controls").hide();
       }
       else {
         target.html(settings.cookie);
@@ -214,6 +215,7 @@
     if (selector.hasClass("slick-slider")) {
       selector.slick('unslick');
     }
+    selector.parent().find(".slick-controls").show();
     selector.slick({
       dots: true,
       infinite: true,
