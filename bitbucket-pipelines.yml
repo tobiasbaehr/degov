@@ -24,7 +24,7 @@ pipelines:
 
           - mv docroot/profiles/contrib/degov/behat.yml .
           # Execute tests
-          - bin/behat
+          - behat
         services:
           - testing
 
