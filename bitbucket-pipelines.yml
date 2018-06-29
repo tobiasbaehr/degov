@@ -16,9 +16,9 @@ pipelines:
         script:
           - composer create-project degov/degov-project
           - cd degov-project
-          - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT phpstan/phpstan
+          - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT
           - php -S localhost:80 -t docroot &
-
+          - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - (cd docroot/profiles/contrib/degov && phpunit)
           - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
 
