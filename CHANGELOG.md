@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Removed make files
+- Improved pipeline
 
 ## [2.0.0-beta17] - 27-06-2018
 - Show and hide slick controls by SoMe settings
