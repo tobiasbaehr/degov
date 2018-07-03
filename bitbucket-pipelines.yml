@@ -5,7 +5,7 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: derh4nnes/pipeline-behat:latest
 clone:
-  depth: full
+  depth: 1
 
 pipelines:
   default:
@@ -14,24 +14,17 @@ pipelines:
         caches:
           - composer
         script:
-          - apt-get update
-          - apt-get install -y sqlite3 php7.1-sqlite
-          - composer install
-          - mkdir docroot/profiles
-          - mkdir docroot/profiles/contrib
-          - mkdir docroot/profiles/contrib/degov
-          - find . -maxdepth 1 -type f -exec mv {} docroot/profiles/contrib/degov \;
-          - mv docroot/profiles/contrib/degov/composer.* .
-          - mv modules docroot/profiles/contrib/degov
-          - mv testing docroot/profiles/contrib/degov
-          - composer dump-autoload
+          - composer create-project degov/degov-project
+          - cd degov-project
+          - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT
           - php -S localhost:80 -t docroot &
+          - export PATH="$HOME/.composer/vendor/bin:$PATH"
+          - (cd docroot/profiles/contrib/degov && phpunit)
           - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
 
           - mv docroot/profiles/contrib/degov/behat.yml .
           # Execute tests
-          - bin/behat
-          - (cd docroot/profiles/contrib/degov && ../../../../bin/phpunit)
+          - behat
         services:
           - testing
 
