@@ -1,2 +1,4 @@
 parameters:
 	bootstrap: docroot/core/tests/bootstrap.php
+	ignoreErrors:
+	  - 'Function t not found.'
