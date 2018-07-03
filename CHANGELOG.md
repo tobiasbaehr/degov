@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed make files
 - Added matomo dependecy
 - Removed piwik dependency from deGov installation profile
+- Removed broken patches
 
 ## [2.0.0-beta17] - 27-06-2018
 - Show and hide slick controls by SoMe settings
@@ -20,7 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added Youtube Slider
 - Added Instagram Slider
 - Fixed social-media-settings (social media sliders can be enables/disabled without reloading the whole page)
-- Added drush and drupal console as dependecies
+- Added drush and drupal console as dependencies
 - Using Chromedriver for behat tests in the pipeline
 
 ## [2.0.0-beta14] - 19-06-2018
