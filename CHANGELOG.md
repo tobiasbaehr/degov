@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Removed make files
+- Updated README file to improve documentation
 - Improved pipeline
 - Added matomo dependecy
 - Removed piwik dependency from deGov installation profile

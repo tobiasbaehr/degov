@@ -28,26 +28,29 @@ Sounds interesting? Then go for it and install the first Drupal 8 distribution f
 
 **BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 
-First your need to **clone** the deGov repository.
+First your need to setup the deGov repository.
+
 ```
-git clone https://github.com/deGov/deGov.git
+composer create-project degov/degov-project MY_PROJECT_PATH
 ```
 
 Change your **working directory** into deGov
 ```
-$ cd deGov
+$ cd MY_PROJECT_PATH
 ```
 
-After a successfully clone you need to run **Composer** to install all deGov dependencies.
-```bash
-$ composer install
+You need to install deGov. You need to choose one installation type
+####**Drush**
+You can install your site via drush. Drush will be shipped by deGov
 ```
-
+bin/drush si degov
+```
+####**Webinstaller**
 Visit the **deGov-Domain** to start the installation process.
+Follow the Installer instructions to successfully finish the installation process.
 ```
 http://[YOUR_SITE]/
 ```
-Follow the Installer instructions to successfully finish the installation process.
 
 ## Usage
 Visit the following page to log into your deGov Installation with your previously created User to administer your deGov Installation.
@@ -56,12 +59,18 @@ http://[YOUR_SITE]/user/login/
 ``` 
 
 ## Testing
+
+### PHPUnit
 Drupal 8 needs PHPUnit 4.8. Therefor it is recommended to download the [PHP phar archive](https://phar.phpunit.de/) in the
 appropriate version. Copy the `phpunit.xml.dist` file to `phpunit.xml` for fitting your needs. Afterwards you can execute the
-tests via
+tests via:
 ```
 php ./phpunit-4.8.9.phar
 ```
+
+### Behat
+Needs to be added
+
 Learn more about [testing in Drupal 8](https://www.drupal.org/docs/8/testing).
 
 ## License
