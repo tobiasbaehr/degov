@@ -19,7 +19,7 @@ pipelines:
           - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT
           - php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
-          - phpstan analyse docroot/profiles/contrib/degov || true
+          - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon || true
           - (cd docroot/profiles/contrib/degov && phpunit)
           - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
           - mv docroot/profiles/contrib/degov/behat.yml .
