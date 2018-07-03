@@ -10,3 +10,5 @@ parameters:
 	  - '#Function batch_set not found.#'
 	  - '#Function node_access_rebuild not found.#'
 	  - '#Constant DRUPAL_ROOT not found.#'
+	  - '#Function render not found.#'
+	  - '#Function drupal_basename not found.#'
