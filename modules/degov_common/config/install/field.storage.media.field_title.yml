@@ -1,9 +1,6 @@
 langcode: de
 status: true
 dependencies:
-  enforced:
-    module:
-      - degov_content_types_shared_fields
   module:
     - media
 id: media.field_title
