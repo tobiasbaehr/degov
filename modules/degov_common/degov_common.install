@@ -57,7 +57,7 @@ function degov_common_update_8018() {
 }
 
 /**
- *
+ * Remove entity_reference_entegrity module
  */
 function degov_common_update_8019() {
   \Drupal::service('module_installer')->uninstall(['entity_reference_entegrity']);
