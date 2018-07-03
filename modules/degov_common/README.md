@@ -10,8 +10,6 @@ deGov | Modul |  Kompatibilität: 8.x
   - config_rewrite
   - dropzonejs_eb_widget
   - lightning_media
-  - entity_reference_integrity
-  - entity_reference_integrity_enforce
 
 ##Installation
 Dieses Modul sollte über composer geladen werden. Dadurch werden sämtliche Abhängikeiten korrekt aufgelöst.
