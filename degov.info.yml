@@ -61,7 +61,6 @@ dependencies:
   - open_readspeaker
   - pathauto
   - paragraphs
-  - piwik
   - scheduled_updates
   - sitemap
   - simple_sitemap
