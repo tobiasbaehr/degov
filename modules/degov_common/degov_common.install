@@ -55,3 +55,10 @@ function degov_common_update_8017() {
 function degov_common_update_8018() {
   \Drupal::service('module_installer')->install(['degov_theming']);
 }
+
+/**
+ *
+ */
+function degov_common_update_8019() {
+  \Drupal::service('module_installer')->uninstall(['entity_reference_entegrity']);
+}
