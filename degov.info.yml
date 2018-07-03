@@ -6,7 +6,7 @@ distribution:
 description: 'Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)'
 version: 8.x-2.0-dev
 core: '8.x'
-project: 'deGov'
+project: degov
 dependencies:
   - block_content
   - breakpoint
