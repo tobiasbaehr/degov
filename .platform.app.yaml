@@ -114,7 +114,8 @@ hooks:
       cd project
       composer update degov/degov
       rm -rf docroot/profiles/contrib/degov/*
-      mv ../!(project) docroot/profiles/contrib/degov/
+      cd ..
+      mv !(project) project/docroot/profiles/contrib/degov/
 
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
