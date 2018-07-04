@@ -112,7 +112,10 @@ hooks:
     build: |
       composer create-project degov/degov-project project || true
       cd project
-      composer require degov/degov:dev-$PLATFORM_BRANCH
+      composer update degov/degov
+      rm -rf project/docroot/profiles/contrib/degov
+      mv ../* project/docroot/profiles/contrib/degov/
+      mv ../.* project/docroot/profiles/contrib/degov/
 
     # The deploy hook runs after your application has been deployed and started.
     deploy: |
