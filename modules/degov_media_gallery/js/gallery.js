@@ -11,89 +11,125 @@
    * Initializes the slideshow with Slick and PhotoSwipe.
    */
   Drupal.behaviors.gallery = {
-    pswpItems: [],
+    count: 0,
     attach: function (context, settings) {
-      var $gallery = $('.media-gallery__images', context);
-      if ($gallery.length < 1) {
-        return;
-      }
-      var $slider = $('.slideshow__slides', $gallery);
-      var $images = $slider.find('img');
-      $slider.once().slick({
-        dots: false,
-        autoplay: false,
-        arrows: true,
-        swipeToSlide: true
+      $('.pswp__media-gallery', context).each(function( index ){
+          initPswpMediagallery( this, $(this).next(), settings);
       });
-      $('.media-gallery__preview .image').click(function () {
-        $slider.slick('slickGoTo', $(this).parent().data('index'));
-      });
-      var $pswpElement = document.querySelectorAll('.pswp__media-gallery')[0];
-      if (Drupal.behaviors.gallery.pswpItems.length > 0) {
-        return;
+    }
+  };
+
+  function copyImageCopyrightGallery($slider, context){
+    $slider.on('init', function () {
+      $('.media-gallery__image-info', context).html($('.slick-current .image__info', context).html());
+    });
+
+    $slider.on('afterChange', function () {
+      $('.media-gallery__image-info', context).html($('.slick-current .image__info', context).html());
+    });
+  }
+
+  function sliderInitUpdate($slider, settings, context, gallery) {
+    $slider.on('init reInit afterChange', {value: Drupal.behaviors.gallery.count}, function (event, slick, currentSlide) {
+      let i = (currentSlide ? currentSlide : 0) + 1;
+      if (settings.degov_media_gallery.imagesDownloadLinks[event.data.value][$slider.slick('slickCurrentSlide')].field_allow_download === "0") {
+        $('.slick-controls__gallery .slick__download', context).hide();
+        $('.slick-controls__gallery .slick__lightroom', context).css("right", "0px");
       }
-      $.each($images, function (k, img) {
-        var $pswpItem = {
-          src: settings.degov_media_gallery.imagesDownloadLinks[k].uri,
-          w: settings.degov_media_gallery.imagesDownloadLinks[k].width,
-          h: settings.degov_media_gallery.imagesDownloadLinks[k].height
+      else if (settings.degov_media_gallery.imagesDownloadLinks[event.data.value][$slider.slick('slickCurrentSlide')].field_allow_download === "1") {
+        $('.slick-controls__gallery .slick__download', context).show();
+        $('.slick-controls__gallery .slick__lightroom', context).css("right", "129px");
+      }
+
+      $('.slick__counter__current', gallery).text(i);
+      $('.slick__counter__total', gallery).text(slick.slideCount);
+      $('.slick-controls__gallery .slick__download a', gallery).prop('href', settings.degov_media_gallery.imagesDownloadLinks[event.data.value][$slider.slick('slickCurrentSlide')].uri);
+    });
+  };
+
+  function getImageAndImageDataForSlideshow($images, settings){
+    let $imageIndex = 0;
+    let currentImages = [];
+    $.each($images, function () {
+      let $pswpItem;
+      try {
+        $pswpItem = {
+          src: settings.degov_media_gallery.imagesDownloadLinks[Drupal.behaviors.gallery.count][$imageIndex].uri,
+          w: settings.degov_media_gallery.imagesDownloadLinks[Drupal.behaviors.gallery.count][$imageIndex].width,
+          h: settings.degov_media_gallery.imagesDownloadLinks[Drupal.behaviors.gallery.count][$imageIndex].height
         };
-        Drupal.behaviors.gallery.pswpItems.push($pswpItem);
-      });
-
-      $('.slick-controls__gallery', $gallery).once().append('<span class="slick__download"><a href="' + settings.degov_media_gallery.imagesDownloadLinks[0].uri + '"><i aria-hidden="true" class="fa fa-download"></i>' + Drupal.t('Download') + '</a></span>');
-
-      if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "0") {
-        $('.slick-controls__gallery .slick__download').hide();
-        $('.slick-controls__gallery .slick__lightroom').css("right", "0px");
-      } else if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "1") {
-        $('.slick-controls__gallery .slick__download').show();
-        $('.slick-controls__gallery .slick__lightroom').css("right", "129px");
       }
+      catch (e) {
+        console.log(e.message);
+        $pswpItem = [];
+      }
+      currentImages.push($pswpItem);
+      $imageIndex++;
+    });
+    return currentImages;
+  };
 
-      // Initializes PhotoSwipe.
-      var $index = parseInt($slider.slick('slickCurrentSlide'));
+  function initPswpMediagallery(pswdMediagallery, context, settings){
+    let gallery = $('.media-gallery__images', context);
+    let $slider = $('.slideshow__slides', gallery);
+    let $images = $slider.find('img');
 
-      var $options = {
+    copyImageCopyrightGallery($slider, context);
+
+    $slider.once().slick({
+      dots: false,
+      autoplay: false,
+      arrows: true,
+      swipeToSlide: true
+    });
+
+    let currentImages = getImageAndImageDataForSlideshow($images, settings);
+
+    $('.slick-controls__gallery', gallery).once().append(
+      '<span class="slick__download"><a href="' +
+      settings.degov_media_gallery.imagesDownloadLinks[Drupal.behaviors.gallery.count][0].uri +
+      '"><i aria-hidden="true" class="fa fa-download"></i>' +
+      Drupal.t('Download') +
+      '</a></span>'
+    );
+
+    if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "0") {
+      $('.slick-controls__gallery .slick__download').hide();
+      $('.slick-controls__gallery .slick__lightroom').css("right", "0px");
+    } else if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "1") {
+      $('.slick-controls__gallery .slick__download').show();
+      $('.slick-controls__gallery .slick__lightroom').css("right", "129px");
+    }
+
+    $('.media-gallery-js-open-lightroom', gallery).on("click", {value : currentImages}, function(event){
+      let $index = parseInt($slider.slick('slickCurrentSlide'));
+      let $options = {
         index: $index
       };
 
-      $slider.find('.media-image').click(function () {
-        // Opens PhotoSwipe.
-        var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
-        $pswp.init();
-      });
+      let $pswp = new PhotoSwipe(pswdMediagallery, PhotoSwipeUI_Default, event.data.value, $options);
+      $pswp.init();
+    });
 
-      $('.media-gallery-js-open-lightroom', $gallery).click(function () {
-        // Opens PhotoSwipe.
-        var $pswp = new PhotoSwipe($pswpElement, PhotoSwipeUI_Default, Drupal.behaviors.gallery.pswpItems, $options);
-        $pswp.init();
-        //$images.get($slider.slick('slickCurrentSlide')).click();
-      });
-      $slider.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-        var i = (currentSlide ? currentSlide : 0) + 1;
+    sliderInitUpdate($slider, settings, context, gallery);
 
-        if (settings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].field_allow_download === "0") {
-          $('.slick-controls__gallery .slick__download').hide();
-          $('.slick-controls__gallery .slick__lightroom').css("right", "0px");
-        } else if (settings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].field_allow_download === "1") {
-          $('.slick-controls__gallery .slick__download').show();
-          $('.slick-controls__gallery .slick__lightroom').css("right", "129px");
-        }
+    $('.slick__pause', gallery).on('click', function () {
+      $slider.slick('slickPause');
+      $(this).hide().siblings('.slick__play').show().focus();
+    }).hide();
 
-        $('.slick__counter__current', $gallery).text(i);
-        $('.slick__counter__total', $gallery).text(slick.slideCount);
-        $('.slick-controls__gallery .slick__download a', $gallery).prop('href', settings.degov_media_gallery.imagesDownloadLinks[$slider.slick('slickCurrentSlide')].uri);
-      });
-      $('.slick__pause', $gallery).on('click', function () {
-        $slider.slick('slickPause');
-        $(this).hide().siblings('.slick__play').show().focus();
-      }).hide();
-      $('.slick__play', $gallery).on('click', function () {
-        $slider.slick('slickPlay');
-        $(this).hide().siblings('.slick__pause').show().focus();
-      }).show();
-    }
+    $('.slick__play', gallery).on('click', function () {
+      $slider.slick('slickPlay');
+      $(this).hide().siblings('.slick__pause').show().focus();
+    }).show();
+
+    Drupal.behaviors.gallery.count++;
   }
 
 })(jQuery, Drupal);
+
+
+
+
+
+
