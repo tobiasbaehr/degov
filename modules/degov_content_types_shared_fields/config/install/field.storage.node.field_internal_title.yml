@@ -2,9 +2,9 @@ langcode: de
 status: true
 dependencies:
   module:
-    - paragraphs
-id: paragraph.field_teaser_sub_title
-field_name: field_teaser_sub_title
+    - node
+id: node.field_internal_title
+field_name: field_internal_title
 entity_type: node
 type: string
 settings:

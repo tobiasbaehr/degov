@@ -4,9 +4,6 @@ dependencies:
   module:
     - node
     - taxonomy
-  enforced:
-    module:
-      - nrw_taxonomies
 id: node.field_content_type
 field_name: field_content_type
 entity_type: node

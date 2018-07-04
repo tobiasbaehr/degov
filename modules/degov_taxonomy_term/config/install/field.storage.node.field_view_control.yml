@@ -2,15 +2,14 @@ langcode: de
 status: true
 dependencies:
   module:
-    - paragraphs
-id: paragraph.field_teaser_sub_title
-field_name: field_teaser_sub_title
+    - node
+    - taxonomy
+id: node.field_view_control
+field_name: field_view_control
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

@@ -5,9 +5,6 @@ dependencies:
     - field.storage.node.field_content_type
     - node.type.press
     - taxonomy.vocabulary.content_type
-  enforced:
-    module:
-      - nrw_taxonomies
 id: node.press.field_content_type
 field_name: field_content_type
 entity_type: node

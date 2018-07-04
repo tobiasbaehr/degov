@@ -5,9 +5,6 @@ dependencies:
     - field.storage.node.field_view_control
     - node.type.press
     - taxonomy.vocabulary.view_control
-  enforced:
-    module:
-      - nrw_taxonomies
 id: node.press.field_view_control
 field_name: field_view_control
 entity_type: node

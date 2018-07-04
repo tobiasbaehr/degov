@@ -164,4 +164,10 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  field_metatags:
+    type: metatag_firehose
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

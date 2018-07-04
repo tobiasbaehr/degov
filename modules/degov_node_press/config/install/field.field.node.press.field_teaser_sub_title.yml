@@ -4,9 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_teaser_sub_title
     - node.type.press
-  enforced:
-    module:
-      - nrw_node_overrides
 id: node.press.field_teaser_sub_title
 field_name: field_teaser_sub_title
 entity_type: node
