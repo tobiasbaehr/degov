@@ -28,8 +28,6 @@ pipelines:
           - testing
     - step:
         name: Deploy to platform.sh
-        caches:
-          - composer
         script:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
