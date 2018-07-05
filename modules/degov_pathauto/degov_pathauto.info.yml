@@ -10,4 +10,4 @@ dependencies:
   - redirect
   - taxonomy
   - user
-  - config_rewrite
+  - config_replace

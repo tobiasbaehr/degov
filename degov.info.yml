@@ -4,7 +4,7 @@ distribution:
   name: deGov
   langcode: de
 description: 'Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)'
-version: 8.x-2.0-dev
+version: 8.x-2.x-dev
 core: '8.x'
 project: degov
 dependencies:
@@ -53,7 +53,7 @@ dependencies:
   - admin_toolbar
   - admin_toolbar_tools
   - automated_cron
-  - config_rewrite
+  - config_replace
   - entity_browser
   - entity_reference_revisions
   - features

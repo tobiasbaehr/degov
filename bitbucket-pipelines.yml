@@ -5,7 +5,7 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: derh4nnes/pipeline-behat:latest
 clone:
-  depth: 1
+  depth: full
 
 pipelines:
   default:
@@ -16,7 +16,7 @@ pipelines:
         script:
           - composer create-project degov/degov-project
           - cd degov-project
-          - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT
+          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
           - php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
@@ -26,6 +26,14 @@ pipelines:
           - behat
         services:
           - testing
+    - step:
+        name: Deploy to platform.sh
+        caches:
+          - composer
+        script:
+          - git config --global push.default matching
+          - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
+          - git push platform $BITBUCKET_BRANCH
 
 definitions:
   services:

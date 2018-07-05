@@ -1,14 +1,11 @@
 langcode: de
 status: true
 dependencies:
-  enforced:
-    module:
-      - degov_content_types_shared_fields
   module:
-    - media
-id: media.field_title
-field_name: field_title
-entity_type: media
+    - paragraphs
+id: paragraph.field_teaser_sub_title
+field_name: field_teaser_sub_title
+entity_type: node
 type: string
 settings:
   max_length: 255

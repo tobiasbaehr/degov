@@ -1,3 +1,8 @@
+
+
+
+
+
 langcode: de
 status: true
 dependencies:
@@ -265,4 +270,23 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+  field_metatags:
+    type: metatag_firehose
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduled_updates:
+    type: inline_entity_form_complex
+    weight: 11
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: 'Scheduled Updates'
+      label_plural: 'Scheduled Updatess'
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    region: content
 hidden: {  }
