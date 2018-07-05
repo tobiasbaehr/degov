@@ -5,7 +5,7 @@
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: derh4nnes/pipeline-behat:latest
 clone:
-  depth: 1
+  depth: full
 
 pipelines:
   default:
@@ -26,6 +26,14 @@ pipelines:
           - behat
         services:
           - testing
+    - step:
+        name: Deploy to platform.sh
+        caches:
+          - composer
+        script:
+          - git config --global push.default matching
+          - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
+          - git push platform $BITBUCKET_BRANCH
 
 definitions:
   services:
