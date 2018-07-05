@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: ubuntu:17.10
+image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
 
@@ -14,26 +14,28 @@ pipelines:
         caches:
           - composer
         script:
-          - apt-get update
-          - apt-get install -y wget bzip2
-          - wget -qO- https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | tar jx
-          - chmod +x phantomjs-2.1.1-linux-x86_64 && ./phantomjs-2.1.1-linux-x86_64 --webdriver=4444 &
-          - apt-get install -y unzip git curl php php-cli php-gd php-curl php7.1-sqlite
-          - apt-get install -y php-dom php-json php-common php-mbstring
-          - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-          - composer install
-          - composer dumpautoload
+          - composer create-project degov/degov-project
+          - cd degov-project
+          - composer require degov/degov:dev-release/2.x#$BITBUCKET_COMMIT
+          - php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
-          - composer global require drush/drush:9.1.0
-          - mkdir docroot/profiles
-          - mkdir docroot/profiles/contrib
-          - mkdir docroot/profiles/contrib/degov
-          - find . -maxdepth 1 -type f -exec mv {} docroot/profiles/contrib/degov \;
-          - mv docroot/profiles/contrib/degov/composer.* .
-          - mv modules docroot/profiles/contrib/degov
-          - mv testing docroot/profiles/contrib/degov
-          - drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
-          - php -S localhost:8000 -t ./docroot &
-          - (cd docroot/profiles/contrib/degov && ../../../../bin/phpunit)
-          - cp docroot/profiles/contrib/degov/behat.yml .
-          - bin/behat
+          - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+          - (cd docroot/profiles/contrib/degov && phpunit)
+          - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
+          - mv docroot/profiles/contrib/degov/behat.yml .
+          - behat
+        services:
+          - testing
+    - step:
+        name: Deploy to platform.sh
+        caches:
+          - composer
+        script:
+          - git config --global push.default matching
+          - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
+          - git push platform $BITBUCKET_BRANCH
+
+definitions:
+  services:
+    testing:
+      image: darksolar/selenium-chrome-headless
