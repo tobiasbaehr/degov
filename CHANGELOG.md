@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Merged config rewrites into original config
 - Removal of faulty config
 - Moved meta tag fields for content types from rewrites into original config
+- Fixed not existing logger channel for config_replace module
 
 ## [2.0.1] - 05-07-2018
 - Security Udpate 8.5.5
