@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.0-beta21] - 05-07-2018
+- new implementation of degov_media_gallery
+
 ## [2.0.0-beta20] - 03-07-2018
 - Implemented static code analyse with phpstan
 
