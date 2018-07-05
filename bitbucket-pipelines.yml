@@ -48,7 +48,7 @@ pipelines:
       - step:
         name: Push dev to drupal.org
         script:
-          - git remote add drupal @git.drupal.org:project/degov.git
+          - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
           - git config --global push.default matching
           - git config --global user.name "SaschaHannes"
           - git checkout 8.x-2.x -f
