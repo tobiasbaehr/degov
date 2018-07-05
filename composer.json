@@ -27,7 +27,7 @@
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "cweagans/composer-patches": "^1.6.0",
         "mnsami/composer-custom-directory-installer": "^1.0",
-        "drupal/config_rewrite": "^1.0",
+        "drupal/config_replace": "^1.0",
         "drupal/admin_toolbar": "^1.19",
         "drupal/admin_links_access_filter": "^1.0@alpha",
         "drupal/entity_reference_revisions": "^1.2",

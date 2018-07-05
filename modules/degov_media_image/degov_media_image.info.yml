@@ -4,7 +4,7 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - config_rewrite
+  - config_replace
   - datetime
   - degov_common
   - degov_content_types_shared_fields
