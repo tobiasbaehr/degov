@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- Security Udpate 8.5.5
+- Use another branch for the deGov Theme
 
 ## [2.0.0] - 05-07-2018
 - First 2.x release
