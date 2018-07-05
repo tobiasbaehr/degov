@@ -110,7 +110,7 @@ mounts:
 hooks:
 
     build: |
-      composer create-project degov/degov-project project --no-interaction --remove-vcs --no-install || true
+      git clone https://bitbucket.org/publicplan/degov_project.git project
       cd project
       composer update degov/degov
       rm -rf docroot/profiles/contrib/degov/*
