@@ -34,13 +34,22 @@ pipelines:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
           - git push platform $BITBUCKET_BRANCH
+    - step:
+        name: Push to drupal.org
+        caches:
+          - composer
+        script:
+          - git remote add drupal @git.drupal.org:project/degov.git
+          - git config --global push.default matching
+          - git config --global user.name "SaschaHannes"
+          - git push drupal $BITBUCKET_BRANCH
   branches:
     release/2.x:
       - step:
-        name: Push to drupal.org
+        name: Push dev to drupal.org
         script:
           - git remote add drupal @git.drupal.org:project/degov.git
-          - git config --global push.default simple
+          - git config --global push.default matching
           - git config --global user.name "SaschaHannes"
           - git checkout 8.x-2.x -f
           - git merge release/2.x
