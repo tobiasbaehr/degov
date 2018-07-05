@@ -7,7 +7,7 @@ Feature: Test deGov
     Then I should not see text matching "Warning"
 
   Scenario: I am installing the degov user roles module
-    Given I am logged in as "administator"
+    Given I am logged in as a user with the "Administrator" role
     Then I am on "/admin/modules"
     And I check checkbox with id "edit-modules-degov-users-roles-enable"
     Then I press the "Installieren" button
