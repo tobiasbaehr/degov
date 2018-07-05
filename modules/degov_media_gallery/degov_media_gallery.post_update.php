@@ -48,5 +48,5 @@ function degov_media_gallery_post_update_migrate_field_title(&$sandbox) {
     $index->setOption('index_directly', TRUE);
     $index->save();
   }
-  return t($sandbox['current'] . ' media processed.');
+  return t('@current media processed.', ['@current' => $sandbox['current']]);
 }

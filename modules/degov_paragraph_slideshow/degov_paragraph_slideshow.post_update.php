@@ -31,6 +31,5 @@ function degov_paragraph_slideshow_post_update_migrate_type_3(&$sandbox) {
     $paragraph->save();
     $sandbox['current']++;
   }
-
-  return t($sandbox['current'] . ' paragraphs processed.');
+  return t('@current paragraphs processed.', ['@current' => $sandbox['current']]);
 }

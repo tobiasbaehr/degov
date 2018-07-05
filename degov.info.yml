@@ -4,9 +4,9 @@ distribution:
   name: deGov
   langcode: de
 description: 'Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)'
-version: 8.2.x-dev
+version: 8.x-2.0-dev
 core: '8.x'
-project: 'deGov'
+project: degov
 dependencies:
   - block_content
   - breakpoint
@@ -61,7 +61,6 @@ dependencies:
   - open_readspeaker
   - pathauto
   - paragraphs
-  - piwik
   - scheduled_updates
   - sitemap
   - simple_sitemap

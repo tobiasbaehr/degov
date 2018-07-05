@@ -2,55 +2,17 @@
 
 namespace Drupal\Tests\Behat\Context;
 
-use Behat\Gherkin\Node\TableNode;
 use Drupal\Driver\DrupalDriver;
 use Drupal\taxonomy\Entity\Vocabulary;
 
 class FeatureContext extends ExtendedRawDrupalContext {
 
-  /**
-   * VSMTestingContext constructor.
-   */
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
     $driver->setCoreFromVersion();
 
     // Bootstrap Drupal.
     $driver->bootstrap();
-  }
-
-  /**
-   * Creates one or more terms on an existing vocabulary.
-   *
-   * Provide term data in the following format:
-   *
-   * | name  | parent | description | weight | taxonomy_field_image | access_user | access_role |
-   * | Snook | Fish   | Marine fish | 10     | snook-123.jpg        | Bob         | editor      |
-   * | ...   | ...    | ...         | ...    | ...                  | ...         | ...         |
-   *
-   * Only the 'name' field is required.
-   *
-   * @Given restricted :vocabulary terms:
-   */
-  public function createTerms($vocabulary, TableNode $termsTable) {
-    foreach ($termsTable->getHash() as $termsHash) {
-      $term = (object) $termsHash;
-      $term->vocabulary_machine_name = $vocabulary;
-      $this->termCreate($term);
-
-      $accessStorage = \Drupal::Service('permissions_by_term.access_storage');
-      if (!empty($termsHash['access_user'])) {
-        $userNames = explode(', ', $termsHash['access_user']);
-        foreach ($userNames as $userName) {
-          $accessStorage->addTermPermissionsByUserIds([$accessStorage->getUserIdByName($userName)['uid']], $term->tid);
-        }
-      }
-
-      if (!empty($termsHash['access_role'])) {
-        $rolesIds = explode(', ', $termsHash['access_role']);
-        $accessStorage->addTermPermissionsByRoleIds($rolesIds, $term->tid);
-      }
-    }
   }
 
   /**
@@ -68,14 +30,6 @@ class FeatureContext extends ExtendedRawDrupalContext {
       ]);
       $vocabulary->save();
     }
-  }
-
-  /**
-   * @Then I open open Permissions By Term advanced info
-   */
-  public function iOpenOpenPermissionsByTermAdvancedInfo()
-  {
-    $this->getSession()->evaluateScript("jQuery('#edit-permissions-by-term-info').attr('open', true);");
   }
 
   /**

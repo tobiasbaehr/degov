@@ -24,7 +24,7 @@
       });
 
       // Open the modal.
-      var $openSocialMediaSettings = $('.js-social-media-settings-open', context);
+      var $openSocialMediaSettings = $('.js-social-media-settings-open');
       $openSocialMediaSettings.click(function (e) {
         e.preventDefault();
         openModal();
@@ -89,8 +89,18 @@
         initTwitter(wrapper);
       }
 
+      if (source === 'twitter') {
+        initTwitter(wrapper);
+        initSoMeSlider('twitter');
+      }
+
       if (source === 'instagram') {
         initInstagram();
+        initSoMeSlider('instagram');
+      }
+
+      if (source === 'youtube') {
+        initSoMeSlider('youtube');
       }
     }
     else {
@@ -103,6 +113,7 @@
         });
 
         target.html(link);
+        target.parent().find(".slick-controls").hide();
       }
       else {
         target.html(settings.cookie);
@@ -198,6 +209,42 @@
 
   // Initialize.
   initializeSettings();
+
+  function initSoMeSlider(source) {
+    var selector = source === 'twitter' ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview');
+    if (selector.hasClass("slick-slider")) {
+      selector.slick('unslick');
+    }
+    selector.parent().find(".slick-controls").show();
+    selector.slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      autoplay: true,
+      arrows: true,
+      responsive: [
+        {
+          breakpoint: 1319,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+
+    var slickControlls = selector.parent();
+    slickControlls.find('.slick__pause').click(function () {
+      selector.slick('slickPause');
+      $(this).hide().siblings('.slick__play').show();
+    });
+    slickControlls.find('.slick__play').on('click', function () {
+      selector.slick('slickPlay').slick('setOption', 'autoplay', true);
+      $(this).hide().siblings('.slick__pause').show();
+    });
+  }
 
 })(jQuery, Drupal, drupalSettings);
 

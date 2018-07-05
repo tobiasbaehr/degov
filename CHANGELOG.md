@@ -6,12 +6,99 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [2.x]
+## [2.0.0] - 05-07-2018
+- First 2.x release
+
+## [2.0.0-beta20] - 03-07-2018
+- Implemented static code analyse with phpstan
+
+## [2.0.0-beta19] - 03-07-2018
+- Changed project tag from 'deGov' to 'degov'
+
+## [2.0.0-beta18] - 03-07-2018
+- Removed make files
+- Updated README file to improve documentation
+- Improved pipeline
+- Added matomo dependecy
+- Removed piwik dependency from deGov installation profile
+- Removed broken patches
+
+## [2.0.0-beta17] - 27-06-2018
+- Show and hide slick controls by SoMe settings
+
+## [2.0.0-beta16] - 27-06-2018
+- Added makefile for automatic generation of deGov
+
+## [2.0.0-beta15] - 26-06-2018
+- Fixed translation warnings on localize.drupal.org
+- Added Youtube Slider
+- Added Instagram Slider
+- Fixed social-media-settings (social media sliders can be enables/disabled without reloading the whole page)
+- Added drush and drupal console as dependencies
+- Using Chromedriver for behat tests in the pipeline
+
+## [2.0.0-beta14] - 19-06-2018
+- Fixed twig syntax for text and faq paragraph
+
+## [2.0.0-beta13] - 18-06-2018
+- Add ids to the faq, to allow referencing and anchoring
+
+## [2.0.0-beta12] - 18-06-2018
+- Videos and FAQ paragraphs are accessible with the keyboard
+
+## [2.0.0-beta11] - 01-06-2018
+- Fixed unimported namespace in degov_common_add_translation()
+
+## [2.0.0-beta10] - 25-05-2018
+- [CRITICAL] Guest user newsletter registration does not update all other guest user email addresses.
+
+## [2.0.0-beta9] - 15-05-2018
+- Show mediatype in slideshow text (MHKBGNRW-69). 
+- Solved bug in degov_media_gallery according to the use of PhotoSwipe
+
+## [2.0.0-beta7] - 09-05-2018
+- Renamed "webformular" paragraph type id to "webform" via update hook
+- Removed broken facets module version dependency in degov_search_base module
+
+## [2.0.0-beta7] - 08-05-2018
+- Fixed media gallery indexing via checking field value before retrieving it
+- Implemented disabling of Twitter feeds
+- Template rendering via Template service
+- Implemented degov_common function for adding translations manually. E.g. in update hooks.
+
+## [2.0.0-beta6] - 27-04-2018
+- Updated translations in degov_simplenews module
+
+## [2.0.0-beta5] - 25-04-2018
+- Updated drupal core to 8.5.3
+
+## [2.0.0-beta4] - 24-04-2018
+- Added settings for privacy URL and netiquette URL in common module (please execute drush updb)
+- Added fields for forename and surname in the Simplenews newsletter subscription.
+- Fixed suggestion of module templates in the layer system. Base theme templates are loaded,
+if project theme templates are not existing. Otherwise the module templates are loaded. 
+- Moved PHPUnit to the development dependencies
+- Pipelines - Undo removing of lightning tests
+
+## [2.0.0-beta3] - 17-04-2018
+- Implemented external teaser content type
+- Drupal security update 8.5.1
+- Override default configuration of the metatag module
+- Use stable versions of lightning
+- Pipelines - Started php build-in server in proper directory
+- Simplenews module requires privacy policy acceptance
+- Implemented allow download functionality in gallery media type
+- Removed external teaser content type
+- Removed german naming in webform paragraph
+- Tests for the common module
+- Implemented paragraphs removal into common module
+
+## [2.0.0-beta2] - 22-03-2018
 - Updated Changelogs
 - Removed duplicated files
 - Fixed date format in calendar to be in German by default
 
-## [2.0.0-beta1] - 2018-3-09
+## [2.0.0-beta1] - 09-03-2018
 - Removed lightning profile from deGov
 - Outsourced installation profile 
 - Moved deGov modules into installation profile

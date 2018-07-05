@@ -1,0 +1,8 @@
+<?php
+
+function degov_social_media_instagram_install() {
+  $config = \Drupal::service('config.factory')->getEditable('degov_social_media_instagram.settings');
+  $config->set('user', "")->save();
+  $config->set('number_of_posts', "5")->save();
+  $config->set('number_of_characters', "100")->save();
+}

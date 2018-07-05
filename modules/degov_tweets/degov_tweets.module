@@ -50,7 +50,7 @@ function template_preprocess_degov_tweets(&$variables) {
   }
   $variables['items'] = $items;
   // Attach slider library.
-  $variables['#attached']['library'][] = 'degov_tweets/tweets_slider';
+  $variables['#attached']['library'][] = 'degov_common/slick';
 }
 
 /**
@@ -83,4 +83,19 @@ function degov_tweets_locale_translation_projects_alter(&$projects) {
       'interface translation server pattern' => drupal_get_path('module', 'degov_tweets').'/translations/%language.po',
     ],
   ];
+}
+
+function degov_tweets_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_twitter_block') {
+    $variables['#attached']['library'][] = 'degov_common/slick';
+    $markup = render($variables['content']);
+
+    if (!empty($markup)) {
+      $variables['#attached']['drupalSettings']['degov_social_media_settings']['code']['tweetslider'] = $markup;
+      $variables['attributes']['class'][] = 'js-social-media-wrapper';
+      $variables['attributes']['data-social-media-source'] = 'twitter';
+      $variables['attributes']['data-social-media-entity'] = 'tweetslider';
+      $variables['social_media_disabled'] = TRUE;
+    }
+  }
 }

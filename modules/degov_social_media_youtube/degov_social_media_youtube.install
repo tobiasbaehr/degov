@@ -1,0 +1,8 @@
+<?php
+
+function degov_social_media_youtube_install() {
+  $config = \Drupal::service('config.factory')->getEditable('degov_social_media_youtube.settings');
+  $config->set('api_key', '')->save();
+  $config->set('channel', '')->save();
+  $config->set('number_of_videos', '5')->save();
+}
