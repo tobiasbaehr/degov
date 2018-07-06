@@ -57,3 +57,10 @@ function degov_update_8440() {
   // Write the configuration.
   \Drupal::configFactory()->getEditable('core.extension')->set('module', $module_data)->save();
 }
+
+/**
+ * Uninstalls the lightning API module. It will be removed in 2.1.x
+ */
+function degov_update_8441() {
+  \Drupal::service('module_installer')->uninstall(['lightning_api']);
+}
