@@ -40,7 +40,6 @@ dependencies:
   - image_widget_crop
   - metatag
   - lightning_core
-  - lightning_api
   - lightning_media
   - lightning_workflow
   - lightning_media_bulk_upload
