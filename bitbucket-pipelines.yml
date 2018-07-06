@@ -82,8 +82,8 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git checkout 8.x-2.x -f
-            - git tag $(./scripts/transform --tag=BITBUCKET_TAG)
-            - git push drupal $(./scripts/transform --tag=BITBUCKET_TAG)
+            - git tag $(./scripts/transform.sh --tag=BITBUCKET_TAG)
+            - git push drupal $(./scripts/transform.sh --tag=BITBUCKET_TAG)
 
 definitions:
   services:
