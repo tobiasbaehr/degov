@@ -6,11 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Moved optional user roles config to 'install'
- - Removed unnecessary stuff
- - Removed nrw dependencies
- - Implemented automatic push into the bitbucket pipeline
- - Removed dependency to lightning API
-- new implementation of degov_media_gallary
+- New implementation of degov_media_gallary
+- Moved optional user roles config to 'install'
+- Removed unnecessary stuff
+- Removed nrw dependencies
+- Implemented automatic push into the bitbucket pipeline
+- Removed dependency to lightning API
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
