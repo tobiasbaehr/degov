@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Moved optional user roles config to 'install'
+- Implemented automatic push into the bitbucket pipeline
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
