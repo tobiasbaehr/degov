@@ -74,7 +74,7 @@ pipelines:
             - git merge release/2.x
             - git push drupal 8.x-2.x
   tags:
-    '*'
+    '*':
       - step:
           name: Pushing tags to drupal.org
           script:
