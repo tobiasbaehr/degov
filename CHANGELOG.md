@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Moved optional user roles config to 'install'
+- Removed unnecessary stuff
+- Removed nrw dependencies
 - Implemented automatic push into the bitbucket pipeline
 
 ## [2.0.2] - 05-07-2018
