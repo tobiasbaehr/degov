@@ -36,7 +36,7 @@ function degov_media_gallery_preprocess_media(&$variables)
   /** @var \Drupal\media\Entity\Media $media */
   $media = $variables['elements']['#media'];
   if ($media->bundle() === 'gallery') {
-    static $arr;
+    static $imageDataArray;
     /** @var \Drupal\Core\Entity\Entity\EntityViewDisplay $display */
     $display = \Drupal::entityTypeManager()
       ->getStorage('entity_view_display')
@@ -63,8 +63,8 @@ function degov_media_gallery_preprocess_media(&$variables)
         'field_allow_download' => $fieldAllowDownload,
       ];
     }
-    $arr[] = $imageData;
-    $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'] = $arr;
+    $imageDataArray[] = $imageData;
+    $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'] = $imageDataArray;
     $media_current = $variables['elements']['#media'];
     $variables['gallery_url'] = $media_current->url();
   }
