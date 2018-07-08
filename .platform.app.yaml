@@ -140,7 +140,7 @@ crons:
 
     # Create a snapshot at 12:00 and 18:00 if environment variable 'DO_BACKUP' equals 'true' on master system
     snapshot-create:
-        spec: '0 12,18 * * *'
+        spec: '0 12,18,22 * * *'
         cmd: |
           if [ "$PLATFORM_BRANCH" = master -a $DO_BACKUP = "yes" ]; then
               platform snapshot:create --yes --no-wait
