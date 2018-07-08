@@ -145,10 +145,10 @@ crons:
           if [ "$PLATFORM_BRANCH" = master -a $DO_BACKUP = "yes" ]; then
               platform snapshot:create --yes --no-wait
           fi
-    # Restore a snapshot at 04:00 if environment variable 'DO_BACKUP' equals 'false' on master system
+    # Restore the last snapshot at 04:00 if environment variable 'DO_BACKUP' equals 'false' on master system
     snapshot-restore:
       spec: '0 4 * * *'
         cmd: |
           if [ "$PLATFORM_BRANCH" = master -a $DO_BACKUP = "no" ]; then
-              platform snapshot:create --yes --no-wait
+              platform snapshot:restore --yes --no-wait $(platform snapshots --project=$PLATFORM_PROJECT -e master  --limit=1 | grep -E  "[a-z0-9]{26,26}" -o)
           fi
