@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed nrw dependencies
 - Implemented automatic push into the bitbucket pipeline
 - Removed dependency to lightning API
-- Added automatic backup and restore function for platoform.sh
+- Added automatic backup and restore function for platform.sh
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
