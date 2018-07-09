@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.0.3] - 09-07-2018
 - Moved optional user roles config to 'install'
+- New implementation of degov_media_gallary
+- Moved optional user roles config to 'install'
 - Removed unnecessary stuff
 - Removed nrw dependencies
 - Implemented automatic push into the bitbucket pipeline
@@ -29,6 +31,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.0.0] - 05-07-2018
 - First 2.x release
+
+## [2.0.0-beta21] - 05-07-2018
+- new implementation of degov_media_gallery
 
 ## [2.0.0-beta20] - 03-07-2018
 - Implemented static code analyse with phpstan
