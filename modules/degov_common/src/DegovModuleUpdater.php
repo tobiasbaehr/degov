@@ -3,14 +3,14 @@
 namespace Drupal\degov_common;
 
 
-use Drupal\config_rewrite\ConfigRewriter;
+use Drupal\config_replace\ConfigReplacer;
 
 /**
  * Class DegovModuleUpdater
  *
  * @package Drupal\degov_common
  */
-class DegovModuleUpdater extends ConfigRewriter {
+class DegovModuleUpdater extends ConfigReplacer {
 
   /**
    * Applies the updates for given module and version.

@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Drupal\Driver\DrupalDriver;
 use Drupal\taxonomy\Entity\Vocabulary;
 
@@ -225,5 +226,12 @@ class FeatureContext extends ExtendedRawDrupalContext {
       throw new \Exception('Checkbox was '.$status.' when expecting '.$checkfor);
       return false;
     }
+  }
+
+  /**
+   * @Then /^I am installing the "([^"]*)" module$/
+   */
+  public function iAmInstallingTheModule($moduleName) {
+    \Drupal::service('module_installer')->install([$moduleName]);
   }
 }

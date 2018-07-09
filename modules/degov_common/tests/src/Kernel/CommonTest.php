@@ -20,7 +20,7 @@ class CommonTest extends KernelTestBase {
     'node',
     'paragraphs',
     'degov_common',
-    'config_rewrite',
+    'config_replace',
     'video_embed_field',
 		'paragraphs',
 		'file',

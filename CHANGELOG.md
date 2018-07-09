@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - Removed entity reference entegrity module
 
+## [2.0.3] - 09-07-2018
+- Moved optional user roles config to 'install'
+- Removed unnecessary stuff
+- Removed nrw dependencies
+- Implemented automatic push into the bitbucket pipeline
+- Pushing translated tags from bitbucket to drupal.org
+- Removed dependency to lightning API
+- Added automatic backup and restore function for platform.sh
+
+## [2.0.2] - 05-07-2018
+- Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
+- Merged config rewrites into original config
+- Removal of faulty config
+- Moved meta tag fields for content types from rewrites into original config
+- Fixed not existing logger channel for config_replace module
+
+## [2.0.1] - 05-07-2018
+- Security Udpate 8.5.5
+- Use another branch for the deGov Theme
+
+## [2.0.0] - 05-07-2018
+- First 2.x release
+
 ## [2.0.0-beta20] - 03-07-2018
 - Implemented static code analyse with phpstan
 

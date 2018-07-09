@@ -5,7 +5,7 @@ type: module
 core: 8.x
 dependencies:
   - degov_common
-  - config_rewrite
+  - config_replace
   - degov_taxonomy_term_section
   - field
   - node

@@ -5,7 +5,7 @@ type: module
 core: 8.x
 dependencies:
   - viewsreference
-  - config_rewrite
+  - config_replace
   - dropzonejs_eb_widget
   - lightning_media
   - degov_theming
