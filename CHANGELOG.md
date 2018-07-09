@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - None
 
-## [2.0.2] - 09-07-2018
+## [2.0.3] - 09-07-2018
 - Moved optional user roles config to 'install'
 - Removed unnecessary stuff
 - Removed nrw dependencies
