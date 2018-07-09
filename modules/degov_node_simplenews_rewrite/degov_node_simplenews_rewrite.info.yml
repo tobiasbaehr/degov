@@ -1,0 +1,7 @@
+name: 'deGov - Node Simplenews Rewrite'
+description: 'Config replacements for the simplenews module.'
+type: module
+package: deGov
+core: 8.x
+dependencies:
+  - simplenews

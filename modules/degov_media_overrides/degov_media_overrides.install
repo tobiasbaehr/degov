@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_overrides_install() {
+  // Try to re-index content after adding new field.
+  if (\Drupal::moduleHandler()->moduleExists('search_api')) {
+    $index = \Drupal\search_api\Entity\Index::load('search_media');
+    if ($index) {
+      $index->reindex();
+    }
+  }
+}
+
+/**
+ * Next module update version is 8005.
+ * All update hooks from 1.1 to 1.15 were deleted.
+ * There is no upgrade path from 1.1 to 1.15, you need first to update to 1.2
+ * and every minor release as well until 1.15 respectively.
+ * The fresh install should have all the changes from 1.1 to 1.15.
+ */

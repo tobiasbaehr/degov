@@ -1,0 +1,16 @@
+langcode: de
+status: true
+dependencies:
+  module:
+    - lightning_core
+    - media
+  enforced:
+    module:
+      - degov_media_overrides
+third_party_settings:
+  lightning_core:
+    description: 'Used in Mediathek block'
+id: media.preview_wide
+label: 'Preview Wide'
+targetEntityType: media
+cache: true
