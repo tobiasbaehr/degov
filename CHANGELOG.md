@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Pushing translated tags from bitbucket to drupal.org
 - Removed dependency to lightning API
 - Added automatic backup and restore function for platform.sh
+- #2984104: Removed leftover nrw_simplenews table
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
