@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed unnecessary stuff
 - Removed nrw dependencies
 - Implemented automatic push into the bitbucket pipeline
+- Pushing translated tags from bitbucket to drupal.org
 - Removed dependency to lightning API
 - Added automatic backup and restore function for platform.sh
 
