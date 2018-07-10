@@ -17,16 +17,19 @@ timestamps {
       }
       stage('Build and Test') {
         container('php') {
-          sh 'composer create-project degov/degov-project'
-          sh 'cd degov-project'
-          sh 'GIT_COMMIT=$(git rev-parse HEAD) && composer require degov/degov:dev-$BRANCH_NAME#$GIT_COMMIT'
-          sh 'php -S localhost:80 -t docroot &'
-          sh 'export PATH="$HOME/.composer/vendor/bin:$PATH"'
-          sh 'phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true'
-          sh '(cd docroot/profiles/contrib/degov && phpunit)'
-          sh 'bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y'
-          sh 'mv docroot/profiles/contrib/degov/behat.yml .'
-          sh 'behat'
+          sh script: """\
+            GIT_COMMIT=$(git rev-parse HEAD)
+            composer create-project degov/degov-project
+            cd degov-project
+            composer require degov/degov:dev-$BRANCH_NAME#$GIT_COMMIT
+            php -S localhost:80 -t docroot &
+            export PATH="$HOME/.composer/vendor/bin:$PATH"
+            phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+            (cd docroot/profiles/contrib/degov && phpunit)
+            bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
+            mv docroot/profiles/contrib/degov/behat.yml .
+            behat
+          """, returnStdout: true
         }
       }
     }
