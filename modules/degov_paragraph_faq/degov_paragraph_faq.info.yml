@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph FAQ/Akkordion'
-description: 'Mit diesem Flexiblen Paragraphen sollen an beliebigen Stellen im Inhalt FAQ-Listen eingestellt werden können.'
+name: 'deGov - Paragraph FAQ accordion'
+description: 'This paragraph shows you an FAQ list. This will be displayed as an accordion.'
 type: module
 package: deGov
 core: 8.x
@@ -10,4 +10,4 @@ dependencies:
   - link
   - paragraphs
   - text
-  - workbench_moderation
+

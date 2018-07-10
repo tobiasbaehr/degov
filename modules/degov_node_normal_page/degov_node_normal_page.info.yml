@@ -1,5 +1,5 @@
-name: 'deGov - Inhaltsseite'
-description: 'Provides Inhaltsseite content type and related configuration. Dieser Seitentyp ist für allgemeine Seiten gedacht.'
+name: 'deGov - Node normal page'
+description: 'This module ships the content type \"node normal page\" and relating configuration.'
 package: deGov
 type: module
 core: 8.x
@@ -22,4 +22,4 @@ dependencies:
   - text
   - user
   - views
-  - workbench_moderation
+  - content_moderation

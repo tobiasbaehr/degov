@@ -1,5 +1,5 @@
-name: 'deGov - Media Video-Upload'
-description: 'Stellt einen Media-Bundle für Video-Uploads bereit.'
+name: 'deGov - Media video upload'
+description: 'This media type is used for uploaded videos.'
 package: deGov
 type: module
 core: 8.x
@@ -22,4 +22,3 @@ dependencies:
   - path
   - taxonomy
   - text
-  - workbench_moderation

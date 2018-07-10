@@ -1,5 +1,5 @@
-name: 'deGov - Media Image'
-description: 'Erweiterung des existierenden Image Bundles um Copyright, Caption und weitere Felder.'
+name: 'deGov - Media image'
+description: 'This module extends the media type image'
 type: module
 package: deGov
 core: 8.x
@@ -19,4 +19,3 @@ dependencies:
   - media
   - taxonomy
   - text
-  - workbench_moderation
