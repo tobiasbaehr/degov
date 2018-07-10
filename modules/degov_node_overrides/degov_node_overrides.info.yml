@@ -1,0 +1,13 @@
+name: 'deGov - Node Configuration Overrides'
+description: 'Overrides node entities.'
+type: module
+package: deGov
+core: 8.x
+dependencies:
+  - degov_content_types_shared_fields
+  - field
+  - text
+  - degov_media_image
+  - degov_node_press
+  - degov_node_event
+  - degov_common

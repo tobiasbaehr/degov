@@ -1,0 +1,12 @@
+dependencies:
+  config:
+    - field.field.node.simplenews_issue.field_internal_title
+content:
+  field_internal_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
