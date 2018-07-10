@@ -57,13 +57,6 @@ function degov_common_update_8018() {
 }
 
 /**
- * Remove entity_reference_entegrity module
- */
-function degov_common_update_8019() {
-  \Drupal::service('module_installer')->uninstall(['entity_reference_entegrity']);
-}
-
-/**
  * Installs the config_replace module as a replacement for config_rewrite. Mainly because config_replace does not apply config rewrites for not existing original config and config_rewrite is unmaintained since a long time. config_replace will be removed from composer.json at 27.08.2018.
  */
 function degov_common_update_8020() {
@@ -73,4 +66,48 @@ function degov_common_update_8020() {
   $moduleInstaller = \Drupal::service('module_installer');
   $moduleInstaller->uninstall(['config_rewrite']);
   $moduleInstaller->install(['config_replace']);
+}
+
+/**
+ * Remove entity_reference_entegrity module
+ */
+function degov_common_update_8021() {
+  \Drupal::service('module_installer')->uninstall(['entity_reference_entegrity']);
+}
+
+function degov_common_update_8022() {
+  //Remove workbench_moderation dependency from configuration
+
+  $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
+    ->getBundleInfo('media');
+  $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
+    ->getBundleInfo('node');
+  $paragraphBundleInfo = \Drupal::service('entity_type.bundle.info')
+    ->getBundleInfo('paragraph');
+
+  $types['media'] = array_keys($mediaBundleInfo);
+  $types['node'] = $nodeTypes = array_keys($nodeBundleInfo);
+  $types['paragraph'] = $paragraphTypes = array_keys($paragraphBundleInfo);
+
+  /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
+  $configRemover = \Drupal::service('degov_common.config_remover');
+
+  $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
+  $formModes = \Drupal::entityQuery('entity_form_display')->execute();
+
+  // Remove dependency from view modes
+  foreach ($viewModes as $viewMode) {
+    $configRemover->removeValueFromConfiguration('core.entity_view_display.' . $viewMode, 'dependencies.module', 'workbench_moderation');
+  }
+  // Remove dependency from form modes
+  foreach ($formModes as $formMode) {
+    $configRemover->removeValueFromConfiguration('core.entity_form_display.' . $formMode, 'dependencies.module', 'workbench_moderation');
+  }
+
+  // Remove 3. Party settings
+  foreach(['media','node','paragraph'] as $type) {
+    foreach ($types[$type] as $nodeType) {
+      $configRemover->removeValueFromConfiguration($type.'type' . $nodeType, 'third_party_settings', 'workbench_moderation');
+    }
+  }
 }

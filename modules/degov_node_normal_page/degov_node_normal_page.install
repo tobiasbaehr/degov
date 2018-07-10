@@ -24,6 +24,14 @@ function degov_node_normal_page_install() {
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('normal_page');
+
+  /** @var $test \Drupal\Core\Entity\EntityTypeManager*/
+  $test="";
+
+  /**
+   * @var \Drupal\Core\Entity\Entity\EntityViewDisplay $lala
+   */
+  $lala =
 }
 
 
