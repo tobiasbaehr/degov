@@ -22,4 +22,4 @@ dependencies:
   - text
   - user
   - views
-  - content_moderation
+  - lightning_workflow
