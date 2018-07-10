@@ -41,7 +41,6 @@ dependencies:
   - metatag
   - lightning_core
   - lightning_media
-  - lightning_workflow
   - lightning_media_bulk_upload
   - lightning_media_document
   - lightning_media_image

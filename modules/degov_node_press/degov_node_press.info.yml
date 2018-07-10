@@ -28,4 +28,4 @@ dependencies:
   - user
   - views
   - simplenews
-  - content_moderation
+  - lightning_workflow
