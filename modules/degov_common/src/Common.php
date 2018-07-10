@@ -27,50 +27,63 @@ class Common {
    *   Original $info from the hook_preprocess() function.
    * @param array $options
    *   A key named array of options, including:
-   *   - module_name: mandatory value with the name of the module implementing the method.
-   *   - entity_type: mandatory value with mostly the entity type created (E.g. node, paragraph, media, swiftmailer..)
-   *   - entity_bundles: optional array of entity bundles created, could be empty.
-   *   - entity_view_modes: optional array of entity view modes that need templates, could be empty.
-   * @deprecated Use Drupal\degov_theming\Service\Template::suggestAndLoad() instead.
+   *   - module_name: mandatory value with the name of the module implementing
+   *   the method.
+   *   - entity_type: mandatory value with mostly the entity type created (E.g.
+   *   node, paragraph, media, swiftmailer..)
+   *   - entity_bundles: optional array of entity bundles created, could be
+   *   empty.
+   *   - entity_view_modes: optional array of entity view modes that need
+   *   templates, could be empty.
+   *
+   * @deprecated Use Drupal\degov_theming\Service\Template::suggestAndLoad()
+   *   instead.
    */
   public static function addThemeSuggestions(array &$variables, $hook, array &$info, array $options) {
     /**
      * @var Template $template
      */
     $template = \Drupal::service('degov_theming.template');
-    $template->suggest($variables, $hook,$info, $options);
+    $template->suggest($variables, $hook, $info, $options);
   }
 
-  public static function removeContent(array $options) : void {
+  public static function removeContent(array $options): void {
     /* @var $entity_type string */
     /* @var $entity_bundles array */
     extract($options);
 
-    if ($entity_type == 'paragraph') {
-			$paragraphQuery = \Drupal::entityQuery('paragraph');
+    if ($entity_type === 'paragraph') {
+      foreach ($entity_bundles as $entity_bundle) {
+        self::removeEntities($entity_type, $entity_bundle, 'type');
+      }
+    }
 
-			foreach ($entity_bundles as $type) {
-				$paragraphQuery->condition('type', $type);
-			}
+    if ($entity_type === 'taxonomy_term') {
+      foreach ($entity_bundles as $entity_bundle) {
+        self::removeEntities($entity_type, $entity_bundle, 'vid');
+      }
+    }
 
-			$entity_ids = $paragraphQuery
-				->execute();
-			$controller = \Drupal::entityTypeManager()->getStorage($entity_type);
-			$entities = $controller->loadMultiple($entity_ids);
-			$controller->delete($entities);
-
-			return;
-		}
-
-    foreach ($entity_bundles as $entity_bundle) {
-      \Drupal::logger($entity_bundle)->notice('Removing all content of type @bundle', ['@bundle' => $entity_bundle]);
-      $entity_ids = \Drupal::entityQuery($entity_type)
-        ->condition('type', $entity_bundle)
-        ->execute();
-      $controller = \Drupal::entityTypeManager()->getStorage($entity_type);
-      $entities = $controller->loadMultiple($entity_ids);
-      $controller->delete($entities);
+    if ($entity_type === 'media') {
+      foreach ($entity_bundles as $entity_bundle) {
+        self::removeEntities($entity_type, $entity_bundle, 'bundle');
+      }
     }
   }
 
+  /**
+   * @param $entity_id
+   * @param $entity_bundle
+   * @param $condition_field
+   */
+  public static function removeEntities($entity_id, $entity_bundle, $condition_field): void {
+    \Drupal::logger($entity_id)
+      ->notice('Removing all content of type @type', ['@type' => $entity_bundle]);
+    $entity_ids = \Drupal::entityQuery($entity_id)
+      ->condition($condition_field, $entity_bundle)
+      ->execute();
+    $controller = \Drupal::entityTypeManager()->getStorage($entity_id);
+    $entities = $controller->loadMultiple($entity_ids);
+    $controller->delete($entities);
+  }
 }
