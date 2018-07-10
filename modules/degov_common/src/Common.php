@@ -52,7 +52,7 @@ class Common {
     /* @var $entity_bundles array */
     extract($options);
 
-    if ($entity_type === 'paragraph') {
+    if (in_array($entity_type, ['paragraph', 'node'])) {
       foreach ($entity_bundles as $entity_bundle) {
         self::removeEntities($entity_type, $entity_bundle, 'type');
       }
