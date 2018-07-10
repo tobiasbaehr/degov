@@ -178,7 +178,6 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
     '#options' => $degov_optional_modules,
     '#default_value' => [
       'degov_eu_cookie_compliance',
-      'degov_password_policy',
     ],
   ];
 

@@ -110,6 +110,7 @@ mounts:
 hooks:
 
     build: |
+      curl -sS https://platform.sh/cli/installer | php
       git clone https://bitbucket.org/publicplan/degov_project.git project
       cd project
       composer update degov/degov
@@ -136,3 +137,15 @@ crons:
     scheduled-updates:
         spec: '*/5 * * * *'
         cmd: 'cd docroot ; drush sch-updates'
+
+    # Create a snapshot at 12:00 and 18:00 if environment variable 'DO_BACKUP' equals 'true'
+    snapshot-create:
+        spec: '0 12,18,22 * * *'
+        cmd: platform snapshot:create --yes --no-wait --project=$PLATFORM_PROJECT -e $PLATFORM_BRANCH
+    # Restore the last snapshot at 04:00 if environment variable 'DO_BACKUP' equals 'false' on master system
+    snapshot-restore:
+        spec: '0 4 * * *'
+        cmd: |
+          if [ "$PLATFORM_BRANCH" = master -a $DO_BACKUP = "no" ]; then
+              platform snapshot:restore --yes --no-wait --project=$PLATFORM_PROJECT -e $PLATFORM_BRANCH $(platform snapshots --project=$PLATFORM_PROJECT -e master  --limit=1 | grep -E  "[a-z0-9]{26,26}" -o)
+          fi

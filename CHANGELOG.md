@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Add Jenkinsfile to allow the CI/CD process in a Jenkins environment
+- Removed entity reference integrity module
+
+## [2.0.3] - 09-07-2018
+- Moved optional user roles config to 'install'
+- New implementation of degov_media_gallary
+- Moved optional user roles config to 'install'
+- Removed unnecessary stuff
+- Removed nrw dependencies
+- Implemented automatic push into the bitbucket pipeline
+- Pushing translated tags from bitbucket to drupal.org
+- Removed dependency to lightning API
+- Added automatic backup and restore function for platform.sh
+- #2984104: Removed leftover nrw_simplenews table
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
@@ -20,6 +33,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.0.0] - 05-07-2018
 - First 2.x release
+
+## [2.0.0-beta21] - 05-07-2018
+- new implementation of degov_media_gallery
 
 ## [2.0.0-beta20] - 03-07-2018
 - Implemented static code analyse with phpstan
