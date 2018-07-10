@@ -14,10 +14,10 @@ timestamps {
       }
       stage('Build and Test') {
         container('php') {
-          sh 'printenv'
           sh 'composer create-project degov/degov-project'
+          sh 'GIT_COMMIT=$(git rev-parse HEAD)'
           sh 'cd degov-project'
-          sh 'composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT'
+          sh 'composer require degov/degov:dev-$BRANCH_NAME#$GIT_COMMIT'
           sh 'php -S localhost:80 -t docroot &'
           sh 'export PATH="$HOME/.composer/vendor/bin:$PATH"'
           sh 'phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true'
