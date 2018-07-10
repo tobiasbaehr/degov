@@ -63,3 +63,14 @@ function degov_simplenews_update_8005() {
   $schema->addField('simplenews_subscriber', 'forename', $columnForenameSpec);
   $schema->addField('simplenews_subscriber', 'surname', $columnSurnameSpec);
 }
+
+/**
+ * Remove nrw_simplenews_subscription leftover database table.
+ */
+function degov_simplenews_update_8006() {
+  $schema = Database::getConnection()->schema();
+
+  if ($schema->tableExists('nrw_simplenews_subscription')) {
+    $schema->dropTable('nrw_simplenews_subscription');
+  }
+}

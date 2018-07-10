@@ -27,4 +27,5 @@ dependencies:
   - text
   - user
   - views
+  - simplenews
   - content_moderation

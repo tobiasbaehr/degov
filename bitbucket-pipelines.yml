@@ -70,9 +70,24 @@ pipelines:
             - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
-            - git checkout 8.x-2.x -f
+            - git fetch drupal
+            - git checkout drupal/8.x-2.x -f
+            - git checkout -b 8.x-2.x
             - git merge release/2.x
             - git push drupal 8.x-2.x
+            - git push
+  tags:
+    '*':
+      - step:
+          name: Pushing tags to drupal.org
+          script:
+            - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
+            - git config --global push.default matching
+            - git config --global user.name "SaschaHannes"
+            - git fetch drupal
+            - git checkout drupal/8.x-2.x -f
+            - git tag $(./scripts/transform.sh --tag=BITBUCKET_TAG)
+            - git push drupal $(./scripts/transform.sh --tag=BITBUCKET_TAG)
 
 definitions:
   services:
