@@ -33,5 +33,5 @@ services:
   degov_common.node:
     class: Drupal\degov_common\Entity\NodeService
   degov_common.workflow_handler:
-    class: \Drupal\degov_common\WorkflowHandler
+    class: \Drupal\degov_common\Entity\WorkflowHandler
     arguments: ['@config.factory']
