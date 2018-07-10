@@ -23,7 +23,7 @@ timestamps {
             cd degov-project
             composer require degov/degov:dev-\$BRANCH_NAME#\$GIT_COMMIT
             php -S localhost:80 -t docroot &
-            export PATH="\$HOME/.composer/vendor/bin:\$PATH"
+            export PATH="/root/.composer/vendor/bin/:\$PATH"
             phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
             (cd docroot/profiles/contrib/degov && phpunit)
             bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
