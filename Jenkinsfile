@@ -15,7 +15,7 @@ timestamps {
       stage('Build and Test') {
         container('php') {
           sh 'composer create-project degov/degov-project'
-          sh 'cd degov-project
+          sh 'cd degov-project'
           sh 'composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT'
           sh 'php -S localhost:80 -t docroot &'
           sh 'export PATH="$HOME/.composer/vendor/bin:$PATH"'
