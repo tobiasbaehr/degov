@@ -13,7 +13,6 @@ dependencies:
   module:
     - link
     - viewsreference
-    - workbench_moderation
 id: paragraph.view_reference.default
 targetEntityType: paragraph
 bundle: view_reference

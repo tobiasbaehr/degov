@@ -13,7 +13,6 @@ dependencies:
   module:
     - entity_browser
     - text
-    - workbench_moderation
 id: paragraph.image_header.default
 targetEntityType: paragraph
 bundle: image_header

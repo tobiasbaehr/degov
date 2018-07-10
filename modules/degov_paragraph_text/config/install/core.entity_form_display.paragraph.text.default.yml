@@ -13,7 +13,6 @@ dependencies:
   module:
     - link
     - text
-    - workbench_moderation
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text

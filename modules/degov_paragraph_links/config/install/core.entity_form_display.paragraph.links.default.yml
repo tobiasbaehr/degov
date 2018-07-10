@@ -12,7 +12,6 @@ dependencies:
       - degov_paragraph_links
   module:
     - link
-    - workbench_moderation
 id: paragraph.links.default
 targetEntityType: paragraph
 bundle: links
