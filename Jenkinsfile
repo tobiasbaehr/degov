@@ -14,6 +14,7 @@ timestamps {
       }
       stage('Build and Test') {
         container('php') {
+          sh 'printenv'
           sh 'composer create-project degov/degov-project'
           sh 'cd degov-project'
           sh 'composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT'
