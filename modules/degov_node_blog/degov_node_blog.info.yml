@@ -23,4 +23,3 @@ dependencies:
   - text
   - user
   - views
-  - lightning_workflow

@@ -86,8 +86,8 @@ function degov_common_update_8022() {
     ->getBundleInfo('paragraph');
 
   $types['media'] = array_keys($mediaBundleInfo);
-  $types['node'] = $nodeTypes = array_keys($nodeBundleInfo);
-  $types['paragraph'] = $paragraphTypes = array_keys($paragraphBundleInfo);
+  $types['node'] =  array_keys($nodeBundleInfo);
+  $types['paragraph'] = array_keys($paragraphBundleInfo);
 
   /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
   $configRemover = \Drupal::service('degov_common.config_remover');
@@ -105,9 +105,16 @@ function degov_common_update_8022() {
   }
 
   // Remove 3. Party settings
-  foreach(['media','node','paragraph'] as $type) {
+  foreach (['media', 'node', 'paragraph'] as $type) {
     foreach ($types[$type] as $nodeType) {
-      $configRemover->removeValueFromConfiguration($type.'type' . $nodeType, 'third_party_settings', 'workbench_moderation');
+      $configRemover->removeValueFromConfiguration($type . '.type.' . $nodeType, 'third_party_settings', 'workbench_moderation');
     }
   }
+}
+
+/**
+ * Remove entity_reference_entegrity module
+ */
+function degov_common_update_8023() {
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
 }

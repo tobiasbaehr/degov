@@ -12,7 +12,7 @@ class WorkflowHandler {
    */
   private $configFactory;
 
-  /** @var   */
+  /** @var */
   private $config;
 
   /**
@@ -20,8 +20,7 @@ class WorkflowHandler {
    *
    * @param \Drupal\Core\Config\ConfigFactory $configFactory
    */
-  public function __construct(ConfigFactory $configFactory)
-  {
+  public function __construct(ConfigFactory $configFactory) {
     $this->configFactory = $configFactory;
     $this->config = $this->configFactory
       ->getEditable('workflows.workflow.editorial');
@@ -29,11 +28,12 @@ class WorkflowHandler {
 
   /**
    * This method enables the moderation workflow of a certain content type
+   *
    * @param string $nodeType
    */
-  public function enableWorkflow(string $nodeType):void {
+  public function enableWorkflow(string $nodeType): void {
     $nodeTypes = $this->config->get('type_settings.entity_types.node');
-    if (!in_array($nodeType, array_flip($nodeTypes))) {
+    if (!$nodeTypes || !array_key_exists($nodeType, array_flip($nodeTypes))) {
       $nodeTypes[] = $nodeType;
       $this->config
         ->set('type_settings.entity_types.node', $nodeTypes)
@@ -43,12 +43,13 @@ class WorkflowHandler {
 
   /**
    * This method disables the moderation workflow of a certain content type
+   *
    * @param string $nodeType
    */
-  public function disableWorkflow(string $nodeType):void {
+  public function disableWorkflow(string $nodeType): void {
     $nodeTypesConfig = $this->config->get('type_settings.entity_types.node');
     $nodeTypes = array_keys(array_flip($nodeTypesConfig));
-    if (in_array($nodeType, $nodeTypes, TRUE)) {
+    if (\in_array($nodeType, $nodeTypes, TRUE)) {
       unset($nodeTypes[$nodeType]);
       $filteredTypes = array_values($nodeTypes);
       $this->config

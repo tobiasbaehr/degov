@@ -4,6 +4,7 @@ namespace Drupal\degov_common\Entity;
 
 
 use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Logger\LoggerChannelInterface;
 
 class ConfigRemover {
 
@@ -13,15 +14,20 @@ class ConfigRemover {
   private $configFactory;
 
   /**
+   * @var \Drupal\Core\Logger\LoggerChannelInterface
+   */
+  private $logger;
+
+  /**
    * WorkflowHandler constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactory $configFactory
+   * @param \Drupal\Core\Logger\LoggerChannelInterface $logger
    */
-  public function __construct(ConfigFactory $configFactory)
-  {
+  public function __construct(ConfigFactory $configFactory, LoggerChannelInterface $logger) {
     $this->configFactory = $configFactory;
+    $this->logger = $logger;
   }
-
 
   /**
    * removes a special value from configuration
@@ -30,11 +36,16 @@ class ConfigRemover {
    * @param string $key
    */
  public function removeValueFromConfiguration(string $configName, string $configPath, string $key):void {
+   $this->logger->info("Opening configuration \"$configName.$configPath\"");
     $config = \Drupal::configFactory()
       ->getEditable($configName);
     $value = $config->get($configPath);
-    if (array_key_exists($key, $value)) {
+    if ($value && array_key_exists($key, $value)) {
+      $this->logger->info("Removed key \"$key\" of value \"$value\" from configuration \"$configName.$configPath\"");
       unset($value[$key]);
+    }
+    else {
+      $this->logger->info("Skipped configuration \"$configName.$configPath\"");
     }
     if ($value) {
       $config->set($configPath, $value);
