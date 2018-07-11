@@ -1,7 +1,7 @@
-name: 'NRW - Paragraph Configuration Overrides'
+name: 'deGov - Paragraph Configuration Overrides'
 description: 'Overrides node entities.'
 type: module
-package: NRW
+package: deGov
 core: 8.x
 dependencies:
   - degov_content_types_shared_fields
