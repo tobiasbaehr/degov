@@ -10,8 +10,8 @@ timestamps {
 
     node(label) {
       stage('Updating deGov project') {
+        checkout scm
         container('php') {
-            git branch: 'master', credentialsId: 'degov-git', url: 'git@bitbucket.org:publicplan/degov.git'
             sshagent(['degov-git']) {
               sh "./scripts/deploy.sh"
             }
