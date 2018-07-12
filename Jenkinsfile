@@ -36,16 +36,16 @@ timestamps {
       stage('Updating deGov project') {
         container('php') {
             sh script: """\
-                if [ $BRANCH_NAME == 'master' ] then
+                if [ \$BRANCH_NAME == 'master' ] then
                     git clone git@bitbucket.org:/publicplan/degov_project.git
                     cd degov_project
                     composer update degov/degov
                     git add composer.lock
                     git commit -m "Updating deGov dependencies automatically"
                     git push
-                    TAG=./docroot/profiles/degov/scripts/transform.sh --tag=$(git describe --tags --abbrev=0) --increment
-                    git tag ${TAG}
-                    git push origin ${TAG}
+                    TAG=./docroot/profiles/degov/scripts/transform.sh --tag=\$(git describe --tags --abbrev=0) --increment
+                    git tag \${TAG}
+                    git push origin \${TAG}
                 fi
             """, returnStdout: true
         }
