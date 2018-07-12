@@ -20,6 +20,7 @@ timestamps {
           sh script: """\
             GIT_COMMIT=\$(git rev-parse HEAD)
             composer create-project degov/degov-project
+            composer clear-cache
             cd degov-project
             rm -rf vendor composer.lock
             composer require degov/degov:dev-\$BRANCH_NAME#\$GIT_COMMIT
