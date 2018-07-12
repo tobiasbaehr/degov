@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-mkdir ~/.ssh
-ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
+echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 git clone git@bitbucket.org:/publicplan/degov_project.git
 cd degov_project
 composer update degov/degov
