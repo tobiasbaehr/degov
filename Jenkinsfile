@@ -3,9 +3,7 @@ def label = UUID.randomUUID().toString()
 timestamps {
 
   podTemplate(serviceAccount: 'jenkins', label: label, containers: [
-    containerTemplate(name: 'php', image: 'derh4nnes/pipeline-behat:latest', ttyEnabled: true, command: 'cat',
-        resourceRequestCpu: '1',
-        resourceLimitMemory: '1200Mi')
+    containerTemplate(name: 'php', image: 'derh4nnes/pipeline-behat', ttyEnabled: true, command: 'cat', resourceRequestCpu: '1', alwaysPullImage: true)
     ]) {
 
     node(label) {
