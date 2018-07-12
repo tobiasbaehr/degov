@@ -25,7 +25,7 @@ if [[ $tag =~ $regex ]]; then
     fi
 
     # fix starting null in version tag
-    if [[ $minor == "0[0-9]*" ]]; then
+    if [[ $minor =~ "0[0-9]*" ]]; then
         minor=${minor:1}
     fi
 
