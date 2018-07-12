@@ -5,10 +5,7 @@ timestamps {
   podTemplate(serviceAccount: 'jenkins', label: label, containers: [
     containerTemplate(name: 'php', image: 'derh4nnes/pipeline-behat:latest', ttyEnabled: true, command: 'cat',
         resourceRequestCpu: '1',
-        resourceLimitMemory: '1200Mi'),
-    containerTemplate(name: 'testing', image: 'darksolar/selenium-chrome-headless',
-        resourceRequestCpu: '1',
-        resourceLimitMemory: '2048Mi')
+        resourceLimitMemory: '1200Mi')
     ]) {
 
     node(label) {
@@ -16,9 +13,6 @@ timestamps {
         container('php') {
             checkout scm
             sh script: """\
-                ls -a .jenkins
-                ls -a agent
-                ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
                 git clone git@bitbucket.org:/publicplan/degov_project.git
                 cd degov_project
                 composer update degov/degov
