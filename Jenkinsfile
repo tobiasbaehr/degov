@@ -12,12 +12,16 @@ timestamps {
     ]) {
 
     node(label) {
-      stage('Checkout') {
+      stage('Updating deGov project') {
         checkout scm
       }
       stage('Updating deGov project') {
         container('php') {
             sh script: """\
+                checkout scm
+                ls -a
+                ls -a ~/
+                ls -a ~/.ssh/
                 ssh-add -l
                 ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
                 git clone git@bitbucket.org:/publicplan/degov_project.git
