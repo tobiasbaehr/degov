@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+mkdir ~/.ssh
 ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
 git clone git@bitbucket.org:/publicplan/degov_project.git
 cd degov_project
