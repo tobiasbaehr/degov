@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
 git clone git@bitbucket.org:/publicplan/degov_project.git --branch=master
 cd degov_project
