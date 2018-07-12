@@ -21,6 +21,7 @@ timestamps {
             GIT_COMMIT=\$(git rev-parse HEAD)
             composer create-project degov/degov-project
             cd degov-project
+            rm -rf vendor composer.lock
             composer require degov/degov:dev-\$BRANCH_NAME#\$GIT_COMMIT
             php -S localhost:80 -t docroot &
             export PATH="/root/.composer/vendor/bin/:\$PATH"
@@ -30,6 +31,23 @@ timestamps {
             mv docroot/profiles/contrib/degov/behat.yml .
             behat
           """, returnStdout: true
+        }
+      }
+      stage('Updating deGov project') {
+        container('php') {
+            sh script: """\
+                if [ $BRANCH_NAME == 'master' ] then
+                    git clone git@bitbucket.org:/publicplan/degov_project.git
+                    cd degov_project
+                    composer update degov/degov
+                    git add composer.lock
+                    git commit -m "Updating deGov dependencies automatically"
+                    git push
+                    TAG=git describe --tags --abbrev=0
+                    git tag $(./docroot/profiles/degov/scripts/transform.sh --tag=${TAG} --increment)
+                    git push origin ${TAG}
+                fi
+            """, returnStdout: true
         }
       }
     }
