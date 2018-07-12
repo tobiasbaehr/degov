@@ -13,6 +13,7 @@ timestamps {
         container('php') {
             checkout scm
             sh script: """\
+                ssh-keygen -F bitbucket.org
                 git clone git@bitbucket.org:/publicplan/degov_project.git
                 cd degov_project
                 composer update degov/degov
