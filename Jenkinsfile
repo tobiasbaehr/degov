@@ -18,7 +18,7 @@ timestamps {
       stage('Updating deGov project') {
         container('php') {
             sh script: """\
-                git ls-remote -h ssh://git@bitbucket.org:/publicplan/degov_project.git
+                ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
                 git clone git@bitbucket.org:/publicplan/degov_project.git
                 cd degov_project
                 composer update degov/degov
