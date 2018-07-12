@@ -24,6 +24,11 @@ if [[ $tag =~ $regex ]]; then
         suffix=-${BASH_REMATCH[3]}
     fi
 
+    # fix starting null in version tag
+    if [[ $minor == "0[0-9]*" ]]; then
+        minor=${minor:1}
+    fi
+
     final="8.x-${major}.${minor}${suffix}"
     echo ${final}
 fi
