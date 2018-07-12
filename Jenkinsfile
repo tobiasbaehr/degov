@@ -17,8 +17,8 @@ timestamps {
       }
       stage('Updating deGov project') {
         container('php') {
+            checkout scm
             sh script: """\
-                checkout scm
                 ls -a
                 ls -a ~/
                 ls -a ~/.ssh/
