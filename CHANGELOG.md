@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 - Add Jenkinsfile to allow the CI/CD process in a Jenkins environment
 - Renamed a few nrwGov naming left-overs
+- Fixed failed tag pushing to drupal.org
 
 ## [2.0.4] - 10-07-2018
 - Removed entity reference integrity module
