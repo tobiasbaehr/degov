@@ -16,7 +16,6 @@ timestamps {
         checkout scm
       }
       stage('Updating deGov project') {
-        when { tag "*" }
         container('php') {
             sh script: """\
                 git clone git@bitbucket.org:/publicplan/degov_project.git
