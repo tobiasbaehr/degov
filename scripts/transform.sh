@@ -1,34 +1,51 @@
 #!/usr/bin/env bash
 
 # Usage example:
-# var=`./transform.sh "--tag=$tag"`
+# var=`./transform.sh "--tag=$tag" [--increment]`
 
 # set expected script args
 tag=`echo ${*} | egrep -o '(--tag=)(-?[a-zA-Z0-9\-\.]+)+' | awk -F'=' '{print $2}'`
+
 # parameter is required
-if [ -z $tag ]; then
+if [ -z ${tag} ]; then
   echo "parameter --tag=<tag> is required";
   exit -1;
 fi
 
-regex="([0-9]+)\.([0-9]+\.[0-9]+)-?([a-z0-9]+)?"
+if [ $2 ]; then
+    if [ $2 == "--increment" ]; then
+        regex="([0-9]+)\.([0-9]+).([0-9]+)"
+        if [[ ${tag} =~ $regex ]]; then
+            major=${BASH_REMATCH[1]}
+            minor=${BASH_REMATCH[2]}
+            patch=${BASH_REMATCH[3]}
+            echo "${major}.${minor}.$(($patch + 1))"
+        else
+            echo "No valid tag"
+            exit -1;
+        fi
+        exit 0;
+    fi
+fi
+
+regex="([0-9]+)\.([0-9]+).([0-9]+)-?([a-z0-9]+)?"
 if [[ $tag =~ $regex ]]; then
     major=${BASH_REMATCH[1]}
-    minor=`sed -e "s/\.//g" <<< "${BASH_REMATCH[2]}"`
+    minor=${BASH_REMATCH[2]}
+    patch=${BASH_REMATCH[3]}
+    merged=""
+    suffix=""
 
-    if [ $minor == "00" ]; then
-        minor="0"
+    if [ $minor == "0" ]; then
+        merged=$patch
+    else
+        merged="${minor}${patch}"
     fi
 
-    if [ ! -z ${BASH_REMATCH[3]} ]; then
-        suffix=-${BASH_REMATCH[3]}
+    if [ ! -z ${BASH_REMATCH[4]} ]; then
+        suffix=-${BASH_REMATCH[4]}
     fi
 
-    # fix starting null in version tag
-    if [[ $minor =~ "0[0-9]*" ]]; then
-        minor=${minor:1}
-    fi
-
-    final="8.x-${major}.${minor}${suffix}"
+    final="8.x-${major}.${merged}${suffix}"
     echo ${final}
 fi
