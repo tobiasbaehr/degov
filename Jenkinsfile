@@ -19,11 +19,10 @@ timestamps {
         container('php') {
           sh script: """\
             GIT_COMMIT=\$(git rev-parse HEAD)
-            composer create-project degov/degov-project
-            composer clear-cache
+            composer create-project degov/degov-project --remove-vcs --no-install
             cd degov-project
-            rm -rf vendor composer.lock
-            composer require degov/degov:dev-\$BRANCH_NAME#\$GIT_COMMIT
+            composer require degov/degov:dev-master#\$GIT_COMMIT --no-update
+            composer update
             php -S localhost:80 -t docroot &
             export PATH="/root/.composer/vendor/bin/:\$PATH"
             phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
