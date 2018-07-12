@@ -43,8 +43,8 @@ timestamps {
                     git add composer.lock
                     git commit -m "Updating deGov dependencies automatically"
                     git push
-                    TAG=git describe --tags --abbrev=0
-                    git tag $(./docroot/profiles/degov/scripts/transform.sh --tag=${TAG} --increment)
+                    TAG=./docroot/profiles/degov/scripts/transform.sh --tag=$(git describe --tags --abbrev=0) --increment
+                    git tag ${TAG}
                     git push origin ${TAG}
                 fi
             """, returnStdout: true
