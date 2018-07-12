@@ -74,11 +74,9 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
-            - git checkout drupal/8.x-2.x -f
-            - git checkout -b 8.x-2.x
+            - git checkout 8.x-2.x -f
             - git merge release/2.x
             - git push drupal 8.x-2.x
-            - git push
   tags:
     '*':
       - step:
