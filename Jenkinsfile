@@ -18,6 +18,7 @@ timestamps {
       stage('Updating deGov project') {
         container('php') {
             sh script: """\
+                ssh-add -l
                 ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
                 git clone git@bitbucket.org:/publicplan/degov_project.git
                 cd degov_project
@@ -27,7 +28,7 @@ timestamps {
                 git push
                 TAG=./docroot/profiles/degov/scripts/transform.sh --tag=\$(git describe --tags --abbrev=0) --increment
                 git tag \${TAG}
-                git push origin \${TAG}
+                #git push origin \${TAG}
             """, returnStdout: true
         }
       }
