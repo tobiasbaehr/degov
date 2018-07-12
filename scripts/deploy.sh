@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config
-git clone git@bitbucket.org:/publicplan/degov_project.git
+git clone git@bitbucket.org:/publicplan/degov_project.git --branch=master
 cd degov_project
 composer update degov/degov
 git add composer.lock
