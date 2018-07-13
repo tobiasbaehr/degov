@@ -16,6 +16,7 @@ dependencies:
     - field_group
     - path
     - workbench_moderation
+    - degov_social_media_settings
 third_party_settings:
   field_group:
     group_vertical:
