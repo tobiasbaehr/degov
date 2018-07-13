@@ -7,6 +7,6 @@ composer update --prefer-dist
 git add composer.lock
 git commit -m "Updating deGov dependencies automatically"
 git push
-TAG=$(./docroot/profiles/contrib/degov/scripts/transform.sh --tag=$(git describe --tags --abbrev=0) --increment)
+TAG=$(./docroot/profiles/contrib/degov/scripts/transform.sh --tag=$(git describe --tags $(git rev-list --tags --max-count=1)) --increment)
 git tag ${TAG}
 git push origin ${TAG}
