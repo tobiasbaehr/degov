@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- None
+- Fixed installation of degov_restrict_ip module.
 
 ## [2.0.6] - 17-07-2018
 - Fixed degov_node_blog_rewrite module dependency.
