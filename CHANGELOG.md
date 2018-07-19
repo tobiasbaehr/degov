@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 - Fixed installation of degov_restrict_ip module.
+- Fixed installation - removed unmet module "degov_shariff_social_sharing" from installation step.
 
 ## [2.0.6] - 17-07-2018
 - Fixed degov_node_blog_rewrite module dependency.
