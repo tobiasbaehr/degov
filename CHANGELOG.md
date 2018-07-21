@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-- None
+- Security Update for EU Cookie Compliance & more
 
 ## [2.0.7] - 19-07-2018
 - Fixed installation of degov_restrict_ip module.
