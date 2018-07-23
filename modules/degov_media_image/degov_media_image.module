@@ -27,8 +27,10 @@ function degov_media_image_preprocess_media__image(&$variables) {
   // Add the download link only to full view mode.
   if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
     // Add media type name to display.
-    $bundle_definition = $media->getSource()->getPluginDefinition();
-    $variables['content']['media_type_label'] = $bundle_definition['label'];
+    if(isset($variables['content']['media_type_label'])) {
+      $bundle_definition = $media->getSource()->getPluginDefinition();
+      $variables['content']['media_type_label'] = $bundle_definition['label'];
+    }
     // Check if the download of the video is allowed by media settings.
     $download_is_allowed = FALSE;
     if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
