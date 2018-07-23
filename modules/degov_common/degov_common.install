@@ -69,13 +69,23 @@ function degov_common_update_8020() {
 }
 
 /**
- * Remove entity_reference_entegrity module
+ * Remove entity_reference_integrity module
  */
 function degov_common_update_8021() {
-  \Drupal::service('module_installer')->uninstall(['entity_reference_entegrity']);
+  \Drupal::service('module_installer')->uninstall(['entity_reference_integrity']);
 }
 
-function degov_common_update_8022() {
+/**
+ * Remove lightning_workflow module
+ */
+function degov_common_update_8023() {
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+}
+
+/**
+ * Remove workbench moderation keys form configuration
+ */
+function degov_common_update_8024() {
   //Remove workbench_moderation dependency from configuration
 
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -95,26 +105,21 @@ function degov_common_update_8022() {
   $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
   $formModes = \Drupal::entityQuery('entity_form_display')->execute();
 
-  // Remove dependency from view modes
+  // Remove dependency from content type view modes
   foreach ($viewModes as $viewMode) {
-    $configRemover->removeValueFromConfiguration('core.entity_view_display.' . $viewMode, 'dependencies.module', 'workbench_moderation');
+    $configRemover->removeListItemFromConfiguration('core.entity_view_display.' . $viewMode, 'dependencies.module', 'workbench_moderation');
   }
   // Remove dependency from form modes
   foreach ($formModes as $formMode) {
-    $configRemover->removeValueFromConfiguration('core.entity_form_display.' . $formMode, 'dependencies.module', 'workbench_moderation');
+    $configRemover->removeListItemFromConfiguration('core.entity_form_display.' . $formMode, 'dependencies.module', 'workbench_moderation');
   }
-
-  // Remove 3. Party settings
+  // Remove 3. party settings
   foreach (['media', 'node', 'paragraph'] as $type) {
     foreach ($types[$type] as $nodeType) {
+      $configRemover->removeListItemFromConfiguration($type . '.type.' . $nodeType, 'dependencies.module', 'workbench_moderation');
       $configRemover->removeValueFromConfiguration($type . '.type.' . $nodeType, 'third_party_settings', 'workbench_moderation');
     }
   }
-}
-
-/**
- * Remove entity_reference_entegrity module
- */
-function degov_common_update_8023() {
-  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+  // Disable workbench_moderation
+  \Drupal::service('module_installer')->uninstall(['workbench_moderation']);
 }
