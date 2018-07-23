@@ -8,7 +8,7 @@
 /**
  * Updating permissions from workbench moderation to content moderation
  */
-function degov_users_roles_update_8001() {
+function degov_users_roles_update_8010() {
 
   // Apply updates for workflows
   \Drupal::service('degov_config.module_updater')

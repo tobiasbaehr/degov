@@ -85,7 +85,7 @@ function degov_common_update_8023() {
 /**
  * Remove workbench moderation keys form configuration
  */
-function degov_common_update_8024() {
+function degov_common_update_8025() {
   //Remove workbench_moderation dependency from configuration
 
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
