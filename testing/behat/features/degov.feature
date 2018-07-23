@@ -14,3 +14,9 @@ Feature: Test deGov
     And I should see "Redakteur"
     And I should see "Benutzerverwaltung"
 
+  Scenario: I am visiting the media edit pages #2986289
+    Given I am on "/admin/structure/media/manage/address"
+    Then I am on "/admin/structure/media/manage/gallery"
+    Then I am on "/admin/structure/media/manage/video_upload"
+    Then I am on "/admin/structure/media/manage/person"
+    Then I am on "/admin/structure/media/manage/audio"

@@ -10,5 +10,6 @@ description: 'Ein Media-Bundle zur Erstellung einer Bildergalerie'
 source: generic
 queue_thumbnail_downloads: false
 new_revision: false
-source_configuration: {  }
+source_configuration:
+  source_field: field_media_generic_4
 field_map: {  }

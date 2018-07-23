@@ -11,3 +11,4 @@ dependencies:
   - degov_node_press
   - degov_node_event
   - degov_common
+  - degov_image_and_crop_styles
