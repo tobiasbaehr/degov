@@ -1,0 +1,9 @@
+field_settings:
+  field_title:
+    label: 'Untertitel'
+    datasource_id: 'entity:media'
+    property_path: field_subtitle
+    type: text
+    dependencies:
+      config:
+        - field.storage.media.field_subtitle

@@ -1,0 +1,7 @@
+name: 'deGov - Node Event Rewrite'
+description: 'Config replacements for the degov_node_event module.'
+type: module
+package: deGov
+core: 8.x
+dependencies:
+  - degov_node_event

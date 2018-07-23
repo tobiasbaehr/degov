@@ -14,10 +14,13 @@ pipelines:
         caches:
           - composer
         script:
+          - apt-get update
+          - apt install -y screen
           - composer create-project degov/degov-project
           - cd degov-project
+          - rm -rf vendor/ composer.lock
           - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
-          - php -S localhost:80 -t docroot &
+          - screen -dmS php-server php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
           - (cd docroot/profiles/contrib/degov && phpunit)
@@ -71,11 +74,9 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
-            - git checkout drupal/8.x-2.x -f
-            - git checkout -b 8.x-2.x
+            - git checkout 8.x-2.x -f
             - git merge release/2.x
             - git push drupal 8.x-2.x
-            - git push
   tags:
     '*':
       - step:
@@ -86,8 +87,8 @@ pipelines:
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
             - git checkout drupal/8.x-2.x -f
-            - git tag $(./scripts/transform.sh --tag=BITBUCKET_TAG)
-            - git push drupal $(./scripts/transform.sh --tag=BITBUCKET_TAG)
+            - git tag $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
+            - git push drupal $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
 
 definitions:
   services:

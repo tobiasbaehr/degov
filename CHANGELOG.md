@@ -5,7 +5,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- Fixed "media_type_label" is an invalid render array key error
+- Fixed image styles and cropping dependencies.
+
+## [2.0.8] - 22-07-2018
+- Security Update for EU Cookie Compliance & more
+
+## [2.0.7] - 19-07-2018
+- Fixed installation of degov_restrict_ip module.
+- Fixed installation - removed unmet module "degov_shariff_social_sharing" from installation step.
+
+## [2.0.6] - 17-07-2018
+- Fixed degov_node_blog_rewrite module dependency.
+
+## [2.0.5] - 12-07-2018
+- Add Jenkinsfile to allow the CI/CD process in a Jenkins environment
+- Renamed a few nrwGov naming left-overs
+- Fixed failed tag pushing to drupal.org
+
+## [2.0.4] - 10-07-2018
 - Removed entity reference integrity module
+- \#2984568: Moved modules from proprietary nrwGov distribution into deGov. E.g. search media manager, paragraph overrides, paragraph header video, external teaser, miscellaneous config replacements. 
 
 ## [2.0.3] - 09-07-2018
 - Moved optional user roles config to 'install'
@@ -17,7 +37,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Pushing translated tags from bitbucket to drupal.org
 - Removed dependency to lightning API
 - Added automatic backup and restore function for platform.sh
-- #2984104: Removed leftover nrw_simplenews table
+- \#2984104: Removed leftover nrw_simplenews table
 
 ## [2.0.2] - 05-07-2018
 - Replaced dependency to config_rewrite with config_replace module (does not allow config replacements for not existing original config)
