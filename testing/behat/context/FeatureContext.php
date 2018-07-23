@@ -224,23 +224,29 @@ class FeatureContext extends ExtendedRawDrupalContext {
 
   /**
    * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
+   * @param $value
+   * @param $id
    */
   public function iShouldSeeTheOptionIn($value, $id) {
     $page = $this->getSession()->getPage();
     /** @var $selectElement \Behat\Mink\Element\NodeElement */
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $selectElement->find('xpath', '//option[@value = "' . $value . "']");
+    $selectElement->find('css', 'option[value='.$value.']');
   }
 
   /**
    * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
+   * @param $value
+   * @param $id
+   *
+   * @throws \Exception
    */
   public function iShouldNotSeeTheOptionIn($value, $id) {
     $page = $this->getSession()->getPage();
     try {
       /** @var $selectElement \Behat\Mink\Element\NodeElement */
       $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-      $selectElement->find('xpath', '//option[@value = "' . $value . "']");
+      $selectElement->find('css', 'option[value='.$value.']');
     }catch (\Exception $e) {
       return;
     }
