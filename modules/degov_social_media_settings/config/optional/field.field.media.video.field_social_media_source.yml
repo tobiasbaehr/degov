@@ -9,6 +9,7 @@ dependencies:
       - degov_social_media_settings
   module:
     - options
+    - lightning_media_video
 id: media.video.field_social_media_source
 field_name: field_social_media_source
 entity_type: media

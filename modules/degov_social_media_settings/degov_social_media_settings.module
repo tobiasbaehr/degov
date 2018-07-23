@@ -63,8 +63,29 @@ function degov_social_media_settings_modules_installed($modules) {
 
     // Add field instance.
     foreach ($new as $file) {
-      $data = Yaml::parse(file_get_contents(implode(DIRECTORY_SEPARATOR, [$path, 'config', 'optional', $file . '.yml'])));
-      $configFactory->getEditable($file)->setData($data)->save();
+      if (!file_exists(implode(DIRECTORY_SEPARATOR, [DRUPAL_ROOT, $path, 'config', 'install', $file . '.yml']))) {
+        $configFilePath = implode( DIRECTORY_SEPARATOR, [
+          DRUPAL_ROOT,
+          $path,
+          'config',
+          'optional',
+          $file . '.yml'
+        ]);
+        $data = Yaml::parse(file_get_contents($configFilePath));
+        if (!empty($data)) {
+          $configFactory->getEditable($file)->setData($data)->save();
+        }
+        else {
+          /**
+           * @var \Drupal\Core\Logger\LoggerChannelInterface $logger
+           */
+          $logger = \Drupal::service('logger.channel.degov_social_media_settings');
+          $logger->log('notice', "Skipped saving config via path $configFilePath and file $file due non-existing file");
+
+          // TEMP!!!
+          \error_log("Skipped saving config via path $configFilePath and file $file due non-existing file");
+        }
+      }
     }
 
     // Rewrite form display to add field.
