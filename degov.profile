@@ -165,7 +165,6 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
 		'degov_password_policy'      => t('Secure password policy'),
 		'degov_blogarticle'          => t('Blog'),
 		'degov_sitemap'              => t('User sitemap'),
-		'degov_shariff_social_share' => t('Social sharing'),
 	];
 	$form['degov']['optional_modules'] = [
 		'#type'          => 'checkboxes',
