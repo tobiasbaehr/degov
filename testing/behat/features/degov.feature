@@ -15,8 +15,10 @@ Feature: Test deGov
     And I should see "Benutzerverwaltung"
 
   Scenario: "I am creating content with role 'Redakteur' and publishing it with the 'Chefredakteur' role"
-    Given I am logged in as a user with the "Redakteur" role
-    Then I am on "/node/add/normal_page"
+    Given I am logged in as a user with the "Administrator" role
+    Then I am installing the "degov_node_normal_page" module
+    Then I am logged in as a user with the "Redakteur" role
+    And I am on "/node/add/normal_page"
     And I fill in "Titel" with "Test1234"
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should see the option "needs_review" in "edit-moderation-state-0-state"
