@@ -227,8 +227,9 @@ class FeatureContext extends ExtendedRawDrupalContext {
    */
   public function iShouldSeeTheOptionIn($value, $id) {
     $page = $this->getSession()->getPage();
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $selectElement->find('css', '//option[@value = "' . $value . "']");
+    $selectElement->find('xpath', '//option[@value = "' . $value . "']");
   }
 
   /**
@@ -237,8 +238,9 @@ class FeatureContext extends ExtendedRawDrupalContext {
   public function iShouldNotSeeTheOptionIn($value, $id) {
     $page = $this->getSession()->getPage();
     try {
+      /** @var $selectElement \Behat\Mink\Element\NodeElement */
       $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-      $selectElement->find('css', '//option[@value = "' . $value . "']");
+      $selectElement->find('xpath', '//option[@value = "' . $value . "']");
     }catch (\Exception $e) {
       return;
     }
