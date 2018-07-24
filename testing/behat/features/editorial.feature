@@ -26,10 +26,7 @@ Feature: Test deGov - Content moderation and workflow
     And I select "draft" in "edit-moderation-state-0-state"
     And I press the "Speichern" button
     Then I am logged in as "manager"
-    And I am on "/admin/content"
-    And I click "Test1234"
-    And I wait 3 seconds
-    And I click "Neuer Entwurf"
+    And I open node edit form by node title "Test1234"
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should see the option "needs_review" in "edit-moderation-state-0-state"
     And I should see the option "publish" in "edit-moderation-state-0-state"
@@ -37,10 +34,7 @@ Feature: Test deGov - Content moderation and workflow
     And I should not see the option "restore" in "edit-moderation-state-0-state"
     And I select "publish" in "edit-moderation-state-0-state"
     And I press the "Speichern" button
-    Then I am on "/admin/content"
-    And I click "Test1234"
-    And I wait 3 seconds
-    And I click "Neuer Entwurf"
+    And I open node edit form by node title "Test1234"
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should see the option "needs_review" in "edit-moderation-state-0-state"
     And I should see the option "publish" in "edit-moderation-state-0-state"
