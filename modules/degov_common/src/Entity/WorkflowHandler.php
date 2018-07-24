@@ -15,22 +15,12 @@ class WorkflowHandler {
   /** @var */
   private $config;
 
-  /**
-   * WorkflowHandler constructor.
-   *
-   * @param \Drupal\Core\Config\ConfigFactory $configFactory
-   */
   public function __construct(ConfigFactory $configFactory) {
     $this->configFactory = $configFactory;
     $this->config = $this->configFactory
       ->getEditable('workflows.workflow.editorial');
   }
 
-  /**
-   * This method enables the moderation workflow of a certain content type
-   *
-   * @param string $nodeType
-   */
   public function enableWorkflow(string $nodeType): void {
     $nodeTypes = $this->config->get('type_settings.entity_types.node');
     if (!$nodeTypes || !array_key_exists($nodeType, array_flip($nodeTypes))) {
@@ -41,11 +31,6 @@ class WorkflowHandler {
     }
   }
 
-  /**
-   * This method disables the moderation workflow of a certain content type
-   *
-   * @param string $nodeType
-   */
   public function disableWorkflow(string $nodeType): void {
     $nodeTypesConfig = $this->config->get('type_settings.entity_types.node');
     $nodeTypes = array_keys(array_flip($nodeTypesConfig));

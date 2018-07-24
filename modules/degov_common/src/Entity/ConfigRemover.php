@@ -18,24 +18,11 @@ class ConfigRemover {
    */
   private $logger;
 
-  /**
-   * WorkflowHandler constructor.
-   *
-   * @param \Drupal\Core\Config\ConfigFactory $configFactory
-   * @param \Drupal\Core\Logger\LoggerChannelInterface $logger
-   */
   public function __construct(ConfigFactory $configFactory, LoggerChannelInterface $logger) {
     $this->configFactory = $configFactory;
     $this->logger = $logger;
   }
 
-  /**
-   * removes a special value from configuration
-   *
-   * @param string $configName
-   * @param string $configPath
-   * @param string $key
-   */
   public function removeValueFromConfiguration(string $configName, string $configPath, string $key): void {
     $config = \Drupal::configFactory()
       ->getEditable($configName);
@@ -47,13 +34,6 @@ class ConfigRemover {
     }
   }
 
-  /**
-   * removes a special value from configuration
-   *
-   * @param string $configName
-   * @param string $configPath
-   * @param string $key
-   */
   public function removeListItemFromConfiguration(string $configName, string $configPath, string $key): void {
     $config = \Drupal::configFactory()
       ->getEditable($configName);
@@ -85,8 +65,6 @@ class ConfigRemover {
     $value = array_flip($config->get($configPath));
     $value[$key] = -1;
     $value = array_keys($value);
-    echo "----\n";
-    var_dump($value);
     $config->set($configPath, $value);
     $config->save(TRUE);
   }

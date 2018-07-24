@@ -2,11 +2,12 @@
 
 namespace Drupal\degov_common\Entity;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\Entity\Node;
 
 class NodeService {
 
-  public function load(array $conditions): ?Node {
+  public function load(array $conditions): ?EntityInterface {
     $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
     foreach ($conditions as $field => $value) {
       $query->condition($field, $value);
