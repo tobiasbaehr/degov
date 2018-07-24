@@ -46,5 +46,5 @@ Feature: Test deGov - Content moderation and workflow
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should not see the option "needs_review" in "edit-moderation-state-0-state"
     And I should see the option "published" in "edit-moderation-state-0-state"
-    And I should see the option "archiv" in "edit-moderation-state-0-state"
+    And I should see the option "archived" in "edit-moderation-state-0-state"
 
