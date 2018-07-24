@@ -82,11 +82,12 @@ class ConfigRemover {
   public function addListItemFromConfiguration($configName, $configPath, $key) {
     $config = \Drupal::configFactory()
       ->getEditable($configName);
+    $value = array_flip($config->get($configPath));
     $value[$key] = -1;
     $value = array_keys($value);
+    echo "----\n";
+    var_dump($value);
     $config->set($configPath, $value);
     $config->save(TRUE);
-
-
   }
 }
