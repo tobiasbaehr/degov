@@ -26,6 +26,7 @@ class CommonTest extends KernelTestBase {
     'video_embed_field',
 		'paragraphs',
 		'file',
+    'text',
     'taxonomy'
   ];
 
@@ -42,7 +43,7 @@ class CommonTest extends KernelTestBase {
     parent::setUp();
     $this->installEntitySchema('user');
     $this->installEntitySchema('paragraph');
-    $this->installEntitySchema('taxonomy');
+    $this->installEntitySchema('taxonomy_term');
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('node');
     $this->installSchema('node', 'node_access');
@@ -67,20 +68,16 @@ class CommonTest extends KernelTestBase {
       'vid' => 'mytaxonomy',
       'name' => 'An Taxonomy term'
     ]);
-    $this->assertEquals(\get_class($termLoaded), Term::class);
-
+    self::assertTrue($termLoaded);
     Common::removeContent([
       'entity_type' => 'taxonomy_term',
       'entity_bundles' => ['mytaxonomy'],
     ]);
-    $termLoaded = $this->entityService->load('taxonomy_term', [
+    $termID = $this->entityService->load('taxonomy_term', [
       'name' => 'An Taxonomy term',
       'vid' => 'mytaxonomy',
     ]);
-    $this->assertEquals($termLoaded, NULL);
-
-
-
+    self::assertFalse($termID);
   }
   public function testRemoveNode() {
     $node = Node::create([
@@ -89,20 +86,19 @@ class CommonTest extends KernelTestBase {
     ]);
     $node->save();
 
-    $nodeLoaded = $this->entityService->load('node', [
+    $nodeID = $this->entityService->load('node', [
       'title' => 'An article node'
     ]);
-    $this->assertEquals(\get_class($nodeLoaded), Node::class);
-
+    self::assertTrue($nodeID);
     Common::removeContent([
       'entity_type' => 'node',
       'entity_bundles' => ['article'],
     ]);
-    $nodeLoaded = $this->entityService->load('node', [
+    $nodeID = $this->entityService->load('node', [
       'title' => 'An article node',
       'vid' => 'mytaxonomy',
     ]);
-    $this->assertEquals($nodeLoaded, NULL);
+    self::assertFalse($nodeID);
   }
 
   public function testRemoveParagraph() {
@@ -112,9 +108,9 @@ class CommonTest extends KernelTestBase {
 		$idParagraph2 = $paragraph2->id();
 		$idParagraph3 = $paragraph3->id();
 
-		$this->assertEquals(get_class(Paragraph::load($idParagraph1)), Paragraph::class);
-		$this->assertEquals(get_class(Paragraph::load($idParagraph2)), Paragraph::class);
-		$this->assertEquals(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 
 		$node = Node::create([
 			'title' => $this->randomMachineName(),
