@@ -37,7 +37,6 @@ Feature: Test deGov - Content moderation and workflow
     And I open node edit form by node title "Test1234"
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should not see the option "needs_review" in "edit-moderation-state-0-state"
-    And I wait 10 seconds
     And I should see the option "published" in "edit-moderation-state-0-state"
     And I should not see the option "archiv" in "edit-moderation-state-0-state"
     And I should not see the option "restore" in "edit-moderation-state-0-state"
