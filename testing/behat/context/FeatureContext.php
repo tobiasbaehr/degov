@@ -231,7 +231,10 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $page = $this->getSession()->getPage();
     /** @var $selectElement \Behat\Mink\Element\NodeElement */
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $selectElement->find('css', 'option[value='.$value.']');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if (!$element) {
+      throw new \Exception("There is no option with the value '$value' in the select '$id'");
+    }
   }
 
   /**
@@ -243,13 +246,11 @@ class FeatureContext extends ExtendedRawDrupalContext {
    */
   public function iShouldNotSeeTheOptionIn($value, $id) {
     $page = $this->getSession()->getPage();
-    try {
-      /** @var $selectElement \Behat\Mink\Element\NodeElement */
-      $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-      $selectElement->find('css', 'option[value='.$value.']');
-    }catch (\Exception $e) {
-      return;
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if ($element) {
+      throw new \Exception("There is an option with the value '$value' in the select '$id'");
     }
-    throw new \Exception("There is an option with the value '$value' in the select '$id'");
   }
 }
