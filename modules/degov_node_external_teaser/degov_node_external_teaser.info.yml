@@ -2,6 +2,7 @@ name: 'deGov - Node External Teaser'
 description: 'A content type for external teaser.'
 type: module
 core: 8.x
+version: 8.x-1.0
 dependencies:
   - entity_browser
   - entity_reference_display
@@ -14,6 +15,7 @@ dependencies:
   - node
   - degov_image_and_crop_styles
   - degov_node_overrides
+  - degov_paragraph_node_reference
   - path
   - responsive_image
   - scheduled_updates
@@ -22,4 +24,3 @@ dependencies:
   - text
   - user
   - workbench_access
-version: 8.x-1.0

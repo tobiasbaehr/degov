@@ -5,8 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- None
+
+## [2.0.9] 23-07-2018
+- Removed lightning workflow module \#2987098
+- Fixed media edit page not accessable \#2986289
 - Fixed "media_type_label" is an invalid render array key error
 - Fixed image styles and cropping dependencies.
+- Fixed 'deGov - Node external teaser' installation.
 
 ## [2.0.8] - 22-07-2018
 - Security Update for EU Cookie Compliance & more
