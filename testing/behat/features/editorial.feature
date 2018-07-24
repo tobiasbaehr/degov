@@ -13,7 +13,7 @@ Feature: Test deGov - Content moderation and workflow
     Then I am on "/admin/config/workflow/workbench_access/sections/section/users"
     And I fill in "Add editors to the Bereich section." with "editor"
     And I press the "Hinzufügen" button
-    And I fill in "Add editors to the Bereich section." with "manager"
+    And I fill in "edit-editors-add" with "manager"
     And I press the "Hinzufügen" button
     Then I am logged in as "editor"
     And I am on "/node/add/normal_page"
