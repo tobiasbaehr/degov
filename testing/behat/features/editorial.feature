@@ -20,7 +20,6 @@ Feature: Test deGov - Content moderation and workflow
     And I fill in "Titel" with "Test1234"
     And I should see the option "draft" in "edit-moderation-state-0-state"
     And I should see the option "needs_review" in "edit-moderation-state-0-state"
-    And I scroll to bottom
     And I should not see the option "publish" in "edit-moderation-state-0-state"
     And I should not see the option "archiv" in "edit-moderation-state-0-state"
     And I should not see the option "restore" in "edit-moderation-state-0-state"
