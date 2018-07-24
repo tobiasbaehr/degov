@@ -11,7 +11,7 @@ Feature: Test deGov - Content moderation and workflow
     Given I am logged in as a user with the "Administrator" role
     Then I am installing the "degov_node_normal_page" module
     Then I am on "/admin/config/workflow/workbench_access/sections/section/users"
-    And I fill in "Add editors to the Bereich section." with "editor"
+    And I fill in "edit-editors-add" with "editor"
     And I press the "Hinzufügen" button
     And I fill in "edit-editors-add" with "manager"
     And I press the "Hinzufügen" button
