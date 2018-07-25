@@ -13,7 +13,7 @@ default:
       default_session: selenium2
       goutte: ~
       selenium2:
-        wd_host: "http://localhost:4444/wd/hub" # Replace with your adress
+        wd_host: "http://localhost:4444/wd/hub"
         browser: "chrome"
         capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox"] } }
       base_url: http://localhost:80
