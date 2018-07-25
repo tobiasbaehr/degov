@@ -24,4 +24,3 @@ dependencies:
   - text
   - user
   - workbench_access
-  - workbench_moderation

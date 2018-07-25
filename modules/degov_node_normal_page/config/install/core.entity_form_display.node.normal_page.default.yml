@@ -22,7 +22,6 @@ dependencies:
     - paragraphs
     - path
     - text
-    - workbench_moderation
     - degov_metatags
 third_party_settings:
   field_group:

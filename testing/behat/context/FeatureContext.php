@@ -36,8 +36,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Given /^I create (\d+) nodes of type "([^"]*)"$/
    */
-  public function iCreateNodesOfType($number, $type)
-  {
+  public function iCreateNodesOfType($number, $type) {
     for ($i = 0; $i <= $number; $i++) {
       $node = new \stdClass();
       $node->type = $type;
@@ -54,33 +53,30 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Given Node access records are rebuild.
    */
-  public function nodeAccessRecordsAreRebuild()
-  {
+  public function nodeAccessRecordsAreRebuild() {
     node_access_rebuild();
   }
 
   /**
    * @Then /^wait (\d+) seconds$/
    */
-  public function waitSeconds($secondsNumber)
-  {
+  public function waitSeconds($secondsNumber) {
     $this->getSession()->wait($secondsNumber * 1000);
   }
 
   /**
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
-  public function selectIndexInDropdown($index, $name)
-  {
-    $this->getSession()->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
+  public function selectIndexInDropdown($index, $name) {
+    $this->getSession()
+      ->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
   }
 
   /**
    * @Then /^I open node edit form by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeEditFormByTitle($title)
-  {
+  public function openNodeEditFormByTitle($title) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
@@ -92,8 +88,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeViewByTitle($title)
-  {
+  public function openNodeViewByTitle($title) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
@@ -105,8 +100,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I scroll to element with id "([^"]*)"$/
    * @param string $id
    */
-  public function iScrollToElementWithId($id)
-  {
+  public function iScrollToElementWithId($id) {
     $this->getSession()->executeScript(
       "
                 var element = document.getElementById('" . $id . "');
@@ -119,8 +113,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
    * @param string $id
    */
-  public function checkCheckboxWithJS($id)
-  {
+  public function checkCheckboxWithJS($id) {
     $this->getSession()->executeScript(
       "
                 document.getElementById('" . $id . "').checked = true;
@@ -132,9 +125,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I check checkbox with id "([^"]*)"$/
    * @param string $id
    */
-  public function checkCheckbox($id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function checkCheckbox($id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
 
     $selectElement->check();
@@ -144,9 +136,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I uncheck checkbox with id "([^"]*)"$/
    * @param string $id
    */
-  public function uncheckCheckbox($id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function uncheckCheckbox($id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
 
     $selectElement->uncheck();
@@ -157,9 +148,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @param string $label
    * @param string $id
    */
-  public function selectOption($label, $id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function selectOption($label, $id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
     $selectElement->selectOption($label);
   }
@@ -168,9 +158,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass($class)
-  {
-    $page   = $this->getSession()->getPage();
+  public function clickByCSSClass($class) {
+    $page = $this->getSession()->getPage();
     $button = $page->find('xpath', '//input[contains(@class, ' . $class . ')]');
     $button->click();
   }
@@ -179,8 +168,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by XPath "([^"]*)"$/
    * @param string $xpath
    */
-  public function iClickByXpath($xpath)
-  {
+  public function iClickByXpath($xpath) {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
@@ -188,7 +176,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
     ); // runs the actual query and returns the element
 
     // errors must not pass silently
-    if (null === $element) {
+    if (NULL === $element) {
       throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', $xpath));
     }
 
@@ -199,32 +187,31 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
    */
-  public function iShouldSeeTextSoManyTimes($sText, $iExpected)
-  {
+  public function iShouldSeeTextSoManyTimes($sText, $iExpected) {
     $sContent = $this->getSession()->getPage()->getText();
     $iFound = substr_count($sContent, $sText);
     if ($iExpected != $iFound) {
-      throw new \Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
+      throw new \Exception('Found ' . $iFound . ' occurences of "' . $sText . '" when expecting ' . $iExpected);
     }
   }
 
   /**
    * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
    */
-  public function iProofCheckboxWithIdHasValue($id,$checkfor)
-  {
+  public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();
     $isChecked = $Page->find('css', 'input[type="checkbox"]:checked#' . $id);
     $status = ($isChecked) ? "checked" : "unchecked";
-    if(
-      ($checkfor == "checked" && $isChecked == true)
+    if (
+      ($checkfor == "checked" && $isChecked == TRUE)
       ||
-      ($checkfor == "unchecked" && $isChecked == false)
-    ){
-      return true;
-    }else{
-      throw new \Exception('Checkbox was '.$status.' when expecting '.$checkfor);
-      return false;
+      ($checkfor == "unchecked" && $isChecked == FALSE)
+    ) {
+      return TRUE;
+    }
+    else {
+      throw new \Exception('Checkbox was ' . $status . ' when expecting ' . $checkfor);
+      return FALSE;
     }
   }
 
@@ -233,5 +220,37 @@ class FeatureContext extends ExtendedRawDrupalContext {
    */
   public function iAmInstallingTheModule($moduleName) {
     \Drupal::service('module_installer')->install([$moduleName]);
+  }
+
+  /**
+   * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
+   * @param $value
+   * @param $id
+   */
+  public function iShouldSeeTheOptionIn($value, $id) {
+    $page = $this->getSession()->getPage();
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if (!$element) {
+      throw new \Exception("There is no option with the value '$value' in the select '$id'");
+    }
+  }
+
+  /**
+   * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
+   * @param $value
+   * @param $id
+   *
+   * @throws \Exception
+   */
+  public function iShouldNotSeeTheOptionIn($value, $id) {
+    $page = $this->getSession()->getPage();
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if ($element) {
+      throw new \Exception("There is an option with the value '$value' in the select '$id'");
+    }
   }
 }

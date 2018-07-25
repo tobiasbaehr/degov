@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Link-Liste'
-description: 'Mit diesem Paragraphen lassen sich Link-Listen erstellen.'
+name: 'deGov - Paragraph link list'
+description: 'This paragraph shows a list of links.'
 package: deGov
 type: module
 core: 8.x
@@ -8,4 +8,4 @@ dependencies:
   - field
   - link
   - paragraphs
-  - workbench_moderation
+

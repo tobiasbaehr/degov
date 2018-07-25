@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Block Referenz'
-description: 'Dieser Paragraph stellt Block Referenz bereit.'
+name: 'deGov - Paragraph block reference'
+description: 'This paragraph can show a block.'
 package: deGov
 type: module
 core: 8.x
@@ -10,4 +10,3 @@ dependencies:
   - block
   - block_field
   - paragraphs
-  - workbench_moderation

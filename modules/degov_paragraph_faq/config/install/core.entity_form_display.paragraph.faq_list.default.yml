@@ -13,7 +13,6 @@ dependencies:
   module:
     - link
     - paragraphs
-    - workbench_moderation
 id: paragraph.faq_list.default
 targetEntityType: paragraph
 bundle: faq_list

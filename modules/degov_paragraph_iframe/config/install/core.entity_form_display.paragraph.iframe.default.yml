@@ -13,7 +13,6 @@ dependencies:
       - degov_paragraph_iframe
   module:
     - link
-    - workbench_moderation
 id: paragraph.iframe.default
 targetEntityType: paragraph
 bundle: iframe

@@ -1,5 +1,5 @@
-name: 'deGov - Pressemitteilung'
-description: 'Erstellen von Pressemitteilungen.'
+name: 'deGov - Node press'
+description: 'This module ships the content type \"press\".'
 type: module
 package: deGov
 core: 8.x
@@ -27,5 +27,4 @@ dependencies:
   - text
   - user
   - views
-  - workbench_moderation
   - simplenews

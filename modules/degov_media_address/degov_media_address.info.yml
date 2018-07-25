@@ -23,4 +23,3 @@ dependencies:
   - styled_google_map
   - system_stream_wrapper
   - taxonomy
-  - workbench_moderation

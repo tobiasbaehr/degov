@@ -12,7 +12,6 @@ dependencies:
     - link
     - path
     - text
-    - workbench_moderation
   enforced:
     module:
       - degov_node_external_teaser

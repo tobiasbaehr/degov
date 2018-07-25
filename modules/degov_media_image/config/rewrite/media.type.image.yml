@@ -3,19 +3,9 @@ status: true
 dependencies:
   module:
     - media
-    - workbench_moderation
-third_party_settings:
-  workbench_moderation:
-    enabled: 0
-    allowed_moderation_states:
-      - published
-      - archived
-      - draft
-      - needs_review
-    default_moderation_state: draft
 id: image
 label: Bild
-description: 'Zum Hochloaden von Bildern und Grafiken.'
+description: 'Used for uploading images.'
 source: image
 queue_thumbnail_downloads: false
 new_revision: false

@@ -57,6 +57,7 @@ class Template {
     /* @var $entity_type string */
     /* @var $entity_bundles array */
     /* @var $module_name string*/
+    /* @var $entity_bundle string*/
     /* @var $entity_view_modes array */
     extract($options);
     $add_suggestion = FALSE;
@@ -67,7 +68,7 @@ class Template {
         if ($hook === 'media') {
           $entity = $variables['elements']['#media'];
         }
-        elseif ($hook == 'taxonomy_term') {
+        elseif ($hook === 'taxonomy_term') {
           $entity = $variables['term'];
         }
         else {

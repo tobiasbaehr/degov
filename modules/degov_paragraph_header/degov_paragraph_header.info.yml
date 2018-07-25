@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Header'
-description: 'Stellt einen Paragraphentyp für headers.'
+name: 'deGov - Paragraph header'
+description: 'This paragraph can show an header.'
 package: deGov
 type: module
 core: 8.x
@@ -10,4 +10,4 @@ dependencies:
   - media
   - paragraphs
   - text
-  - workbench_moderation
+
