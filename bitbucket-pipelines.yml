@@ -25,7 +25,7 @@ pipelines:
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
           - (cd docroot/profiles/contrib/degov && phpunit)
           - bin/drush si degov --locale=de --db-url=sqlite://sites/default/files/db.sqlite -y
-          - mv docroot/profiles/contrib/degov/behat.yml .
+          - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
           - testing
@@ -57,7 +57,7 @@ pipelines:
             - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
             - (cd docroot/profiles/contrib/degov && phpunit)
             - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
-            - mv docroot/profiles/contrib/degov/behat.yml .
+            - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
           services:
             - testing
