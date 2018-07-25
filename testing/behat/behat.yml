@@ -6,31 +6,28 @@ default:
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
-        - Drupal\Tests\Behat\Context\FeatureContext
+        - Drupal\nrwgov\Behat\Context\FeatureContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
     Behat\MinkExtension:
-      javascript_session: 'selenium2'
-      browser_name: 'chrome'
-      show_cmd: "open %s"
+      browser_name: chrome
+      javascript_session: selenium2
+      default_session: selenium2
+      goutte: ~
       selenium2:
-        wd_host: 'http://localhost:4444/wd/hub'
+        wd_host: "http://localhost:4444/wd/hub" # Replace with your adress
+        browser: "chrome"
+        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox"] } }
       base_url: http://localhost:80
-      sessions:
-        default:
-          goutte: ~
-        javascript:
-          selenium2:
-            browser: phantomjs
     Drupal\DrupalExtension:
       blackbox: ~
-      text:
-        username_field: "Benutzername"
-        password_field: "Passwort"
-        log_in: "Anmelden"
       drupal:
         drupal_root: '%paths.base%/docroot'
       api_driver: 'drupal'
       drush:
         alias: 'local'
+      text:
+        username_field: "Benutzername"
+        password_field: "Passwort"
+        log_in: "Anmelden"
