@@ -2,7 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.long_text
+    - core.entity_view_mode.node.teaser
     - field.field.node.normal_page.field_content_paragraphs
     - field.field.node.normal_page.field_header_paragraphs
     - field.field.node.normal_page.field_section
@@ -10,37 +10,35 @@ dependencies:
     - field.field.node.normal_page.field_social_media
     - field.field.node.normal_page.field_tags
     - field.field.node.normal_page.field_teaser_image
-    - field.field.node.normal_page.field_teaser_sub_title
     - field.field.node.normal_page.field_teaser_text
     - field.field.node.normal_page.field_teaser_title
     - node.type.normal_page
   enforced:
     module:
-      - degov_node_overrides
+      - degov_node_normal_page
   module:
     - text
     - user
-id: node.normal_page.long_text
+id: node.normal_page.teaser
 targetEntityType: node
 bundle: normal_page
-mode: long_text
+mode: teaser
 content:
   field_teaser_image:
-    type: degov_preview_image
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
+      view_mode: teaser_squared_1_1
       link: false
-      view_mode: default
     third_party_settings: {  }
   field_teaser_text:
-    type: text_trimmed
+    type: text_default
     weight: 2
     region: content
     label: hidden
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
   field_teaser_title:
     type: string
@@ -57,7 +55,6 @@ hidden:
   field_sidebar_right_paragraphs: true
   field_social_media: true
   field_tags: true
-  field_teaser_sub_title: true
   langcode: true
   links: true
   shariff_field: true

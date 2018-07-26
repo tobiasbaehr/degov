@@ -2,7 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.preview
+    - core.entity_view_mode.node.slim
     - field.field.node.normal_page.field_content_paragraphs
     - field.field.node.normal_page.field_header_paragraphs
     - field.field.node.normal_page.field_section
@@ -20,10 +20,10 @@ dependencies:
   module:
     - text
     - user
-id: node.normal_page.preview
+id: node.normal_page.slim
 targetEntityType: node
 bundle: normal_page
-mode: preview
+mode: slim
 content:
   field_teaser_image:
     type: degov_preview_image
@@ -32,15 +32,23 @@ content:
     label: hidden
     settings:
       link: false
-      view_mode: default
+      view_mode: teaser_landscape_2_1
     third_party_settings: {  }
-  field_teaser_text:
-    type: text_trimmed
+  field_teaser_sub_title:
+    type: string
     weight: 2
     region: content
     label: hidden
     settings:
-      trim_length: 600
+      link_to_entity: false
+    third_party_settings: {  }
+  field_teaser_text:
+    type: text_trimmed
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 300
     third_party_settings: {  }
   field_teaser_title:
     type: string
@@ -57,7 +65,6 @@ hidden:
   field_sidebar_right_paragraphs: true
   field_social_media: true
   field_tags: true
-  field_teaser_sub_title: true
   langcode: true
   links: true
   shariff_field: true
