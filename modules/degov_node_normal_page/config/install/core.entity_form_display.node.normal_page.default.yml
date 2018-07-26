@@ -264,7 +264,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-field_teaser_sub_title:
+  field_teaser_sub_title:
     type: string
     weight: 6
     region: content
