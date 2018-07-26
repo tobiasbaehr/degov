@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - scheduled_updates
-    - workbench_moderation
+    - content_moderation
   enforced:
     module:
       - degov_scheduled_updates

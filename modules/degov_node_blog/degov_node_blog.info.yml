@@ -1,5 +1,5 @@
-name: 'deGov - Inhalt Blog'
-description: 'Dieses Modul stellt einen Inhaltstyp für Blogeinträge bereit.'
+name: 'deGov - Node blog'
+description: 'This content type is used for blog entries.'
 package: deGov
 type: module
 core: 8.x
@@ -23,4 +23,3 @@ dependencies:
   - text
   - user
   - views
-  - workbench_moderation

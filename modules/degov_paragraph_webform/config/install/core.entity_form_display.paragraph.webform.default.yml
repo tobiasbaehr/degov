@@ -13,7 +13,6 @@ dependencies:
   module:
     - link
     - webform
-    - workbench_moderation
 id: paragraph.webform.default
 targetEntityType: paragraph
 bundle: webform

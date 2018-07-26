@@ -32,3 +32,11 @@ services:
       - { name: event_subscriber }
   degov_common.node:
     class: Drupal\degov_common\Entity\NodeService
+  degov_common.entity:
+    class: Drupal\degov_common\Entity\EntityService
+  degov_common.workflow_handler:
+    class: \Drupal\degov_common\Entity\WorkflowHandler
+    arguments: ['@config.factory']
+  degov_common.config_remover:
+    class: \Drupal\degov_common\Entity\ConfigRemover
+    arguments: ['@config.factory','@logger.channel.php']

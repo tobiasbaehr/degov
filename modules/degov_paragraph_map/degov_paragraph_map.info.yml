@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Map'
-description: 'Mit diesem Paragraphen lassen sich Adressen in einer Kartenansicht darstellen.'
+name: 'deGov - Paragraph map'
+description: 'This paragraph can show you a map for an address.'
 package: deGov
 type: module
 core: 8.x
@@ -13,4 +13,4 @@ dependencies:
   - media
   - options
   - paragraphs
-  - workbench_moderation
+

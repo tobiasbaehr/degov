@@ -8,6 +8,8 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 class CommonTest extends KernelTestBase {
 
@@ -24,12 +26,15 @@ class CommonTest extends KernelTestBase {
     'video_embed_field',
 		'paragraphs',
 		'file',
+    'text',
+    'taxonomy'
   ];
 
   /**
-   * @var NodeService
+   * @var \Drupal\degov_common\Entity\EntityService
    */
-  private $nodeService;
+  private $entityService;
+
 
   /**
    * {@inheritdoc}
@@ -38,13 +43,42 @@ class CommonTest extends KernelTestBase {
     parent::setUp();
     $this->installEntitySchema('user');
     $this->installEntitySchema('paragraph');
+    $this->installEntitySchema('taxonomy_term');
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('node');
     $this->installSchema('node', 'node_access');
     \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
-    $this->nodeService = \Drupal::service('degov_common.node');
+    \Drupal::moduleHandler()->loadInclude('taxonomy', 'install');
+    $this->entityService = \Drupal::service('degov_common.entity');
   }
 
+  public function testRemoveTaxonomyTerm() {
+
+    $vocabulary = Vocabulary::create([
+      'vid' => 'mytaxonomy',
+      'description' => 'myTest',
+      'name' => 'myTaxonomy'
+    ])->save();
+    $taxonomyTerm = Term::create([
+      'name' => 'An Taxonomy term',
+      'vid' => 'mytaxonomy'
+    ])->save();
+
+    $termLoaded = $this->entityService->load('taxonomy_term',[
+      'vid' => 'mytaxonomy',
+      'name' => 'An Taxonomy term'
+    ]);
+    self::assertTrue($termLoaded);
+    Common::removeContent([
+      'entity_type' => 'taxonomy_term',
+      'entity_bundles' => ['mytaxonomy'],
+    ]);
+    $termID = $this->entityService->load('taxonomy_term', [
+      'name' => 'An Taxonomy term',
+      'vid' => 'mytaxonomy',
+    ]);
+    self::assertFalse($termID);
+  }
   public function testRemoveNode() {
     $node = Node::create([
       'title' => 'An article node',
@@ -52,19 +86,19 @@ class CommonTest extends KernelTestBase {
     ]);
     $node->save();
 
-    $nodeLoaded = $this->nodeService->load([
+    $nodeID = $this->entityService->load('node', [
       'title' => 'An article node'
     ]);
-    $this->assertEquals(get_class($nodeLoaded), Node::class);
-
+    self::assertTrue($nodeID);
     Common::removeContent([
       'entity_type' => 'node',
       'entity_bundles' => ['article'],
     ]);
-    $nodeLoaded = $this->nodeService->load([
-      'title' => 'An article node'
+    $nodeID = $this->entityService->load('node', [
+      'title' => 'An article node',
+      'vid' => 'mytaxonomy',
     ]);
-    $this->assertEquals($nodeLoaded, NULL);
+    self::assertFalse($nodeID);
   }
 
   public function testRemoveParagraph() {
@@ -74,9 +108,9 @@ class CommonTest extends KernelTestBase {
 		$idParagraph2 = $paragraph2->id();
 		$idParagraph3 = $paragraph3->id();
 
-		$this->assertEquals(get_class(Paragraph::load($idParagraph1)), Paragraph::class);
-		$this->assertEquals(get_class(Paragraph::load($idParagraph2)), Paragraph::class);
-		$this->assertEquals(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
+		$this->assertEquals(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 
 		$node = Node::create([
 			'title' => $this->randomMachineName(),
