@@ -6,7 +6,7 @@ default:
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
-        - Drupal\nrwgov\Behat\Context\FeatureContext
+        - Drupal\degov\Behat\Context\FeatureContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
