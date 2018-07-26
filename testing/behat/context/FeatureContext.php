@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\Behat\Context;
+namespace Drupal\degov\Behat\Context;
 
 use Behat\Behat\Tester\Exception\PendingException;
 use Drupal\Driver\DrupalDriver;

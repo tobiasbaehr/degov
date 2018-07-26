@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removed workbench_moderation \#2984124
 - configured content_moderation
 - Some module description translations from german into english
+- Fixed configuration which has not been appliable via config_replace module
 
 ## [2.0.9] 23-07-2018
 - Removed lightning workflow module \#2987098

@@ -10,8 +10,6 @@ dependencies:
     - field.field.media.video.field_tags
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_video_preview
-    - field.field.media.audio.field_copyright
-    - field.field.media.audio.field_description
     - image.style.thumbnail
     - media.type.video
   enforced:

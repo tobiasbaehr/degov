@@ -87,22 +87,21 @@ function degov_media_setup(&$install_state) {
   $files = system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
-	$modules = [
-		#'degov_social_media_settings' => 'degov_social_media_settings',
-		'degov_media_address'        => 'degov_media_address',
-		'degov_media_audio'          => 'degov_media_audio',
-		'degov_media_caption_helper' => 'degov_media_caption_helper',
-		'degov_media_citation'       => 'degov_media_citation',
-		'degov_media_contact'        => 'degov_media_contact',
-		'degov_media_document'       => 'degov_media_document',
-		'degov_media_gallery'        => 'degov_media_gallery',
-		'degov_media_image'          => 'degov_media_image',
-		'degov_media_instagram'      => 'degov_media_instagram',
-		'degov_media_person'         => 'degov_media_person',
-		'degov_media_tweet'          => 'degov_media_tweet',
-		'degov_media_video'          => 'degov_media_video',
-		'degov_media_video_upload'   => 'degov_media_video_upload',
-	];
+  $modules = [
+    'degov_media_address'         => 'degov_media_address',
+    'degov_media_audio'           => 'degov_media_audio',
+    'degov_media_caption_helper'  => 'degov_media_caption_helper',
+    'degov_media_citation'        => 'degov_media_citation',
+    'degov_media_contact'         => 'degov_media_contact',
+    'degov_media_document'        => 'degov_media_document',
+    'degov_media_gallery'         => 'degov_media_gallery',
+    'degov_media_image'           => 'degov_media_image',
+    'degov_media_instagram'       => 'degov_media_instagram',
+    'degov_media_person'          => 'degov_media_person',
+    'degov_media_tweet'           => 'degov_media_tweet',
+    'degov_media_video'           => 'degov_media_video',
+    'degov_media_video_upload'    => 'degov_media_video_upload',
+  ];
 
   // Add a batch operation to install each module.
   $operations = [];
