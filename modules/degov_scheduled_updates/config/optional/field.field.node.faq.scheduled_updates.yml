@@ -17,6 +17,4 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  handler: 'default:scheduled_update'
 field_type: entity_reference
