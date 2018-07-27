@@ -34,3 +34,11 @@ function degov_node_blog_update_8010() {
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('blog');
 }
+
+/**
+ * Adds missing view modes
+ */
+function degov_node_blog_update_8011() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8011');
+}

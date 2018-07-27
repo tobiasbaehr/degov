@@ -28,3 +28,4 @@ dependencies:
   - user
   - views
   - simplenews
+  - degov_node_overrides

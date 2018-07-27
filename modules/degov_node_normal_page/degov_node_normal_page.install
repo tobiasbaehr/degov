@@ -41,5 +41,5 @@ function degov_node_normal_page_update_8010() {
  */
 function degov_node_normal_page_update_8011() {
   \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_normal_page', '8004');
+    ->applyUpdates('degov_node_normal_page', '8011');
 }

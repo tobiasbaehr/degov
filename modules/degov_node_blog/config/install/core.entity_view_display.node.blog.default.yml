@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.blog.field_teaser_image
     - field.field.node.blog.field_teaser_text
     - field.field.node.blog.field_teaser_title
+    - field.field.node.blog.field_teaser_sub_title
+    - field.field.node.blog.field_internal_title
     - node.type.blog
   enforced:
     module:
@@ -26,6 +28,11 @@ id: node.blog.default
 targetEntityType: node
 bundle: blog
 mode: default
+third_party_settings:
+  field_group:
+    group_preview:
+      children:
+        - field_teaser_sub_title
 content:
   field_blog_date:
     weight: 1
@@ -75,6 +82,22 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_internal_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_teaser_sub_title:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   field_blog_author: true
