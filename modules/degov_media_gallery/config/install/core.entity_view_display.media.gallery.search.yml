@@ -29,7 +29,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: teaser_landscape_2_1_480
       image_link: content
     third_party_settings: {  }
   field_tags:

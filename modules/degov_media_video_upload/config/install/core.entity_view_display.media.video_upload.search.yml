@@ -63,7 +63,9 @@ content:
     settings:
       image_style: large
       image_link: content
-    third_party_settings: {  }
+      image_style: teaser_landscape_2_1_480
+      image_link: 'content'
+third_party_settings: {  }
 hidden:
   created: true
   field_allow_download: true

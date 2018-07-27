@@ -86,9 +86,11 @@ content:
     weight: 5
     region: content
     label: hidden
+    type: responsive_image
     settings:
+      responsive_image_style: teaser_squared
+      image_link: ''
       image_style: thumbnail
-      image_link: content
     third_party_settings: {  }
 hidden:
   created: true

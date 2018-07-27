@@ -89,9 +89,15 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: thumbnail
       image_link: content
+      image_style: teaser_landscape_2_1_480
+      link_image_to: 'content'
     third_party_settings: {  }
+  field_video_preview:
+    type: entity_reference_entity_view
+    settings:
+      view_mode: teaser_landscape_2_1
+      link: true
 hidden:
   created: true
   field_include_search: true
