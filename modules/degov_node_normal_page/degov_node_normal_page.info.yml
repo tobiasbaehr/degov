@@ -22,3 +22,4 @@ dependencies:
   - text
   - user
   - views
+  - degov_node_overrides
