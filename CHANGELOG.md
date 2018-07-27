@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 - Merged configuration for node normal page into one module
+- Merged configuration for node press into one module
+- Merged configuration for node blog into one module
+- Merged configuration for node faq into one module
+- Deleted duplicated rewrites for simplenews module
 
 ## [2.0.10] - 24-07-2018
 - Fixed deGov removeContent routine
