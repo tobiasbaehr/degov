@@ -2,7 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.small_image
+    - core.entity_view_mode.node.slideshow
     - field.field.node.press.field_content_paragraphs
     - field.field.node.press.field_header_paragraphs
     - field.field.node.press.field_press_date
@@ -11,24 +11,23 @@ dependencies:
     - field.field.node.press.field_social_media
     - field.field.node.press.field_tags
     - field.field.node.press.field_teaser_image
-    - field.field.node.press.field_teaser_sub_title
     - field.field.node.press.field_teaser_text
     - field.field.node.press.field_teaser_title
     - node.type.press
   enforced:
     module:
-      - degov_node_overrides
+      - degov_node_press
   module:
     - datetime
     - text
     - user
-id: node.press.small_image
+id: node.press.slideshow
 targetEntityType: node
 bundle: press
-mode: small_image
+mode: slideshow
 content:
   field_press_date:
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       format_type: short
@@ -37,33 +36,24 @@ content:
     type: datetime_default
     region: content
   field_teaser_image:
-    type: degov_preview_image
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      link: false
-      view_mode: default
+      link: true
+      view_mode: slider_main_16_9
     third_party_settings: {  }
   field_teaser_text:
-    type: text_trimmed
-    weight: 3
+    type: text_default
+    weight: 1
     region: content
     label: hidden
-    settings:
-      trim_length: 100
+    settings: {  }
     third_party_settings: {  }
   field_teaser_title:
     type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_teaser_sub_title:
-    type: string
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
