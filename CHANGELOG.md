@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 - None
 
+## [2.0.11] - 27-07-2018
+- Improved namespaces regarding Behat testing
+- Fixed config which has been failing due rewrites and non-existent original config
+
 ## [2.0.10] - 24-07-2018
 - Fixed deGov removeContent routine
 - Removed workbench_moderation \#2984124
