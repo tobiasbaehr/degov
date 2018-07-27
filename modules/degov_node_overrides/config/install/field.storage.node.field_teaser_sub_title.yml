@@ -3,6 +3,9 @@ status: true
 dependencies:
   module:
     - paragraphs
+  enforced:
+    module:
+      - degov_node_overrides
 id: paragraph.field_teaser_sub_title
 field_name: field_teaser_sub_title
 entity_type: node
