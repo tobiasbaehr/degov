@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
-- None
+- Removed dependencies to scheduled_updates module in degov_node_press
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
