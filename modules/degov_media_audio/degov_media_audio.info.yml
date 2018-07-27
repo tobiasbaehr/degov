@@ -20,4 +20,3 @@ dependencies:
   - path
   - taxonomy
   - text
-  - workbench_moderation

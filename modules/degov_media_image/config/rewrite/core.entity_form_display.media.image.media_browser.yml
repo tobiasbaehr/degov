@@ -21,7 +21,6 @@ dependencies:
     - field_group
     - lightning_media
     - text
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_vertical:
@@ -195,7 +194,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   image:
-    type: image_immutable
+    type: image_image
     weight: 2
     settings:
       preview_image_style: medium

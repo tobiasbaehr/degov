@@ -3,7 +3,7 @@ type: profile
 distribution:
   name: deGov
   langcode: de
-description: 'Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)'
+description: 'deGov - Drupal 8 for Government'
 version: 8.x-2.x-dev
 core: '8.x'
 project: degov
@@ -41,14 +41,12 @@ dependencies:
   - metatag
   - lightning_core
   - lightning_media
-  - lightning_workflow
   - lightning_media_bulk_upload
   - lightning_media_document
   - lightning_media_image
   - lightning_media_instagram
   - lightning_media_twitter
   - lightning_media_video
-  - lightning_scheduler
   - admin_toolbar
   - admin_toolbar_tools
   - automated_cron

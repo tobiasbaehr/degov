@@ -8,7 +8,7 @@ function degov_media_image_uninstall() {
   $dependencies = \Drupal::config('entity_browser.browser.media_browser')
     ->get('dependencies.config');
   foreach ($dependencies as $key => $dependency) {
-    if ($dependency == 'media.type.image') {
+    if ($dependency === 'media.type.image') {
       unset($dependencies[$key]);
     }
   }
@@ -18,21 +18,22 @@ function degov_media_image_uninstall() {
     ->save(TRUE);
 
   // Remove the image tab from the entity media browser.
-  $key = "cf5d9a31-e053-413a-8666-a2c3fedbc4a0";
-  $widgets = \Drupal::config("entity_browser.browser.media_browser")
-    ->get("widgets");
+  $key = 'cf5d9a31-e053-413a-8666-a2c3fedbc4a0';
+  $widgets = \Drupal::config('entity_browser.browser.media_browser')
+    ->get('widgets');
   if (!empty($widgets[$key])) {
     unset($widgets[$key]);
-    \Drupal::configFactory()->getEditable("entity_browser.browser.media_browser")
-      ->set("widgets", $widgets)
+    \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser')
+      ->set('widgets', $widgets)
       ->save(TRUE);
   }
 }
 
 /**
- * Next module update version is 8017.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Migrate image field type from image_immutable to image_image
  */
+function degov_media_image_update_8001() {
+  \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser')
+    ->set('content.image.type', 'image_image')
+    ->save(TRUE);
+}

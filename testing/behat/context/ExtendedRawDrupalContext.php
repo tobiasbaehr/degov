@@ -40,4 +40,18 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
     );
   }
 
+  /**
+   * @Then I scroll to top
+   */
+  public function iScrollToTop() {
+    $this->getSession()->executeScript('window.scrollTo(0,0);');
+  }
+
+  /**
+   * @Then I scroll to bottom
+   */
+  public function iScrollToBottom() {
+    $this->getSession()
+      ->executeScript('window.scrollTo(0,document.body.scrollHeight);');
+  }
 }

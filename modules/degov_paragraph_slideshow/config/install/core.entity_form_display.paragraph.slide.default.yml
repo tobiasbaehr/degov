@@ -15,7 +15,7 @@ dependencies:
     - entity_browser
     - link
     - text
-    - workbench_moderation
+
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide

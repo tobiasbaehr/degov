@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Downloads'
-description: 'Dieser Paragraph stellt Download-Listen bereit.'
+name: 'deGov - Paragraph downloads'
+description: 'This paragraph displays a list of downloads.'
 package: deGov
 type: module
 core: 8.x
@@ -11,4 +11,3 @@ dependencies:
   - link
   - media
   - paragraphs
-  - workbench_moderation

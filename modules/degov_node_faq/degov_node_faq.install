@@ -6,9 +6,31 @@ use Drupal\degov_common\Common;
  * Implements hook_uninstall().
  */
 function degov_node_faq_uninstall() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->disableWorkflow('faq');
+
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
     'entity_type' => 'node',
     'entity_bundles' => ['faq'],
   ]);
+}
+
+/**
+ * Enable workflow for content type
+ */
+function degov_node_faq_install() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('faq');
+}
+
+/**
+ * Enable workflow for content type
+ */
+function degov_node_faq_update_8010() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('faq');
 }
