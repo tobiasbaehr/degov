@@ -66,6 +66,7 @@ dependencies:
   - viewsreference
   - webform
   - content_moderation
+  - workflows
 
 themes:
   - degov_base_theme
