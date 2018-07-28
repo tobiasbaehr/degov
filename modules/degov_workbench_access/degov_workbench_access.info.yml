@@ -9,5 +9,4 @@ dependencies:
   - field
   - node
   - taxonomy
-  - content_moderation
   - workbench_access

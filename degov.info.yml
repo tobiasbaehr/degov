@@ -65,6 +65,7 @@ dependencies:
   - ultimate_cron
   - viewsreference
   - webform
+  - content_moderation
 
 themes:
   - degov_base_theme
