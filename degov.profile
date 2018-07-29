@@ -161,9 +161,9 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
   // List all optional deGov modules.
 	$degov_optional_modules = [
 		'degov_eu_cookie_compliance' => t('EU cookie compliance'),
-		'degov_password_policy'      => t('Secure password policy'),
-		'degov_blogarticle'          => t('Blog'),
-		'degov_sitemap'              => t('User sitemap'),
+		#'degov_password_policy'      => t('Secure password policy'),
+		#'degov_blogarticle'          => t('Blog'),
+		#'degov_sitemap'              => t('User sitemap'),
 	];
 	$form['degov']['optional_modules'] = [
 		'#type'          => 'checkboxes',

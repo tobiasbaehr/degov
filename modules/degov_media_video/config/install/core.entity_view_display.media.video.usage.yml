@@ -45,10 +45,10 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: thumbnail
-      image_link: content
       view_mode: teaser_squared_1_1
       link: true
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
   field_tags:
     type: taxonomy_term_search
@@ -77,13 +77,14 @@ content:
     type: video_embed_field_video
     region: content
   thumbnail:
+    type: responsive_image
     weight: 5
     region: content
     label: hidden
-    type: responsive_image
     settings:
-      responsive_image_style: teaser_squared
+      image_style: thumbnail
       image_link: content
+      responsive_image_style: teaser_squared
     third_party_settings: {  }
 hidden:
   created: true

@@ -56,16 +56,14 @@ content:
     type: string
     region: content
   field_video_upload_preview:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      image_style: large
-      image_link: content
       image_style: teaser_landscape_2_1_480
-      image_link: 'content'
-third_party_settings: {  }
+      image_link: content
+    third_party_settings: {  }
 hidden:
   created: true
   field_allow_download: true
