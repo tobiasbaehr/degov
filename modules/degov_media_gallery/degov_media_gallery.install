@@ -25,3 +25,11 @@ function degov_media_gallery_update_8010() {
   \Drupal::configFactory()->getEditable('media.type.gallery')
     ->set('source_configuration.source_field', 'field_media_generic_5')->save();
 }
+
+/**
+ * Moved configuration from image styles module
+ */
+function degov_media_gallery_update_8011() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_gallery', '8011');
+}
