@@ -1,4 +1,4 @@
-name: 'deGov - Node Configuration Overrides'
+name: 'deGov - Node Overrides'
 description: 'Overrides node entities.'
 type: module
 package: deGov

@@ -1,11 +1,10 @@
 name: 'deGov - Workbench Access'
-description: 'Enthält Konfiguration für das Workbench Access Modul.'
+description: 'Contains configuration for the Workbench Access module.'
 package: deGov
 type: module
 core: 8.x
 dependencies:
   - degov_common
-  - config_replace
   - degov_taxonomy_term_section
   - field
   - node
