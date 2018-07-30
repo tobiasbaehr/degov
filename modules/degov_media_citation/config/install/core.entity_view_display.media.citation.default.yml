@@ -41,8 +41,9 @@ content:
     settings:
       image_style: large
       image_link: ''
+      view_mode: teaser_landscape_2_1
     third_party_settings: {  }
-    type: media_thumbnail
+    type: entity_reference_entity_view
     region: content
   field_citation_text:
     weight: 5

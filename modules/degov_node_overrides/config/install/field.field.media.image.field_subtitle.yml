@@ -7,6 +7,8 @@ dependencies:
   enforced:
     module:
       - degov_media_image
+      - degov_node_overrides
+
 third_party_settings: {  }
 id: media.image.field_subtitle
 field_name: field_subtitle

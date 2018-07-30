@@ -8,6 +8,7 @@ dependencies:
   - degov_content_types_shared_fields
   - degov_taxonomy_term_copyright
   - degov_taxonomy_term_tags
+  - degov_image_and_crop_styles
   - field
   - image
   - language

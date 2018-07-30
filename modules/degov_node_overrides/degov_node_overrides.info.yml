@@ -8,7 +8,16 @@ dependencies:
   - field
   - text
   - degov_media_image
-  - degov_node_press
-  - degov_node_event
   - degov_common
   - degov_image_and_crop_styles
+  - field_group
+  - language
+  - media
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - pathauto
+  - taxonomy
+  - user
+  - views

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.faq.field_faq_description
     - field.field.node.faq.field_faq_related
     - field.field.node.faq.field_section
+    - field.field.node.faq.field_internal_title
     - node.type.faq
   enforced:
     module:
@@ -168,5 +169,13 @@ content:
     weight: 7
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_internal_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden: {  }
