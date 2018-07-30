@@ -265,7 +265,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_teaser_sub_title:
-    type: string
+    type: string_textfield
     weight: 6
     region: content
     label: hidden

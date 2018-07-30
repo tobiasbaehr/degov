@@ -6,6 +6,7 @@ dependencies:
   enforced:
     module:
       - degov_node_overrides
+      - node
 id: paragraph.field_teaser_sub_title
 field_name: field_teaser_sub_title
 entity_type: node
