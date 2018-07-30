@@ -46,10 +46,9 @@ content:
       field_widget_remove: true
       selection_mode: selection_append
       open: false
-      view_mode: slider_main_16_9
       field_widget_display_settings: {  }
-    type: entity_reference_entity_view
     third_party_settings: {  }
+    type: entity_browser_entity_reference
     region: content
   field_slide_text:
     weight: 1
