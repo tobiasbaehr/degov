@@ -44,6 +44,7 @@ third_party_settings:
     group_preview:
       children:
         - field_teaser_title
+        - field_teaser_sub_title
         - field_teaser_text
         - field_teaser_image
       parent_name: group_vertical
