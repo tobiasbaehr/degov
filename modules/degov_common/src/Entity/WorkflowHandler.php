@@ -22,6 +22,10 @@ class WorkflowHandler {
   }
 
   public function enableWorkflow(string $nodeType): void {
+    if (empty($this->config)) {
+      throw new \Exception('workflows core module is not installed.');
+    }
+
     $nodeTypes = $this->config->get('type_settings.entity_types.node');
     if (!$nodeTypes || !array_key_exists($nodeType, array_flip($nodeTypes))) {
       $nodeTypes[] = $nodeType;
@@ -32,6 +36,10 @@ class WorkflowHandler {
   }
 
   public function disableWorkflow(string $nodeType): void {
+    if (empty($this->config)) {
+      throw new \Exception('workflows core module is not installed.');
+    }
+
     $nodeTypesConfig = $this->config->get('type_settings.entity_types.node');
     $nodeTypes = array_keys(array_flip($nodeTypesConfig));
     if (\in_array($nodeType, $nodeTypes, TRUE)) {
