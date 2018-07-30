@@ -28,11 +28,6 @@ id: node.blog.default
 targetEntityType: node
 bundle: blog
 mode: default
-third_party_settings:
-  field_group:
-    group_preview:
-      children:
-        - field_teaser_sub_title
 content:
   field_blog_date:
     weight: 1
