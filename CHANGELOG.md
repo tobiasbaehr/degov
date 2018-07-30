@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Merged configuration for node press into one module
 - Merged configuration for node blog into one module
 - Merged configuration for node faq into one module
+- Released dependencies of degov_image_and_crop_styles module
+- Released dependencies of degov_node_overrides module
 - Deleted duplicated rewrites for simplenews module
 - Removed dependencies to scheduled_updates module in degov_node_press
 - Added content_moderation and workflows core modules dependency to degov.info.yml
