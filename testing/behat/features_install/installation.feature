@@ -29,6 +29,6 @@ Feature: Installation via webbrowser
     And task "Install deGov - Theme" is done
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
-    Then I should see text matching "nrwGov wurde erfolgreich installiert." after a while
+    Then I should see text matching "deGov wurde erfolgreich installiert." after a while
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
