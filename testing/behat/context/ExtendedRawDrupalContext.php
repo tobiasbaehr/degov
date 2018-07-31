@@ -51,9 +51,9 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^Drupal module "([^"]*)" is installed$/
+   * @Then /^I proof that Drupal module "([^"]*)" is installed$/
    */
-  public function iAmInstallingTheModule($moduleName) {
+  public function proofDrupalModuleIsInstalled($moduleName) {
     /**
      * @var ModuleHandler $moduleHandler
      */
