@@ -54,6 +54,7 @@ function degov_module_setup(&$install_state) {
 		'degov_date_formats'                => 'degov_date_formats',
 		'degov_pathauto'                    => 'degov_pathauto',
 		'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
+    'degov_users_roles'                 => 'degov_users_roles',
 	];
 
   // Add a batch operation to install each module.

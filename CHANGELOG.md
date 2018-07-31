@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Deleted duplicated rewrites for simplenews module
 - Removed dependencies to scheduled_updates module in degov_node_press
 - Added content_moderation and workflows core modules dependency to degov.info.yml
+- Added test for media address creation
+- Added Behat test for deGov installation. Replaced installation via "drush site-install" with this.
 - degov_common: Splitted "config_remover" service into "config_remover" and "config_adder" services. Replaces usages with the new service method ConfigAdder:addListItemFromConfiguration().
 - degov_common: Added Kernel Base tests for "config_remover" and "config_adder" services
 

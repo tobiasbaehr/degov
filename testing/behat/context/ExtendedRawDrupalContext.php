@@ -6,11 +6,7 @@ use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-/**
- * Class BasicContext
- *
- * @package Drupal\Tests\vsm_testing\Behat\Context
- */
+
 class ExtendedRawDrupalContext extends RawDrupalContext {
 
   /**
@@ -41,17 +37,16 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then I scroll to top
+   * @Then header has CSS class for fluid bootstrap layout
    */
-  public function iScrollToTop() {
-    $this->getSession()->executeScript('window.scrollTo(0,0);');
+  public function headerHasCssClassForFluidBootstrapLayout() : ?bool
+  {
+    $header = $this->getSession()->getPage()->findAll('css', 'header.container-fluid');
+    if (\count($header) > 0) {
+      return true;
+    } else {
+      throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
+    }
   }
 
-  /**
-   * @Then I scroll to bottom
-   */
-  public function iScrollToBottom() {
-    $this->getSession()
-      ->executeScript('window.scrollTo(0,document.body.scrollHeight);');
-  }
 }
