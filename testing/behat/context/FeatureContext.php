@@ -160,8 +160,6 @@ class FeatureContext extends ExtendedRawDrupalContext {
 
   /**
    * @Then /^I select "([^"]*)" in "([^"]*)"$/
-   * @param string $label
-   * @param string $id
    */
   public function selectOption($label, $id)
   {
@@ -295,5 +293,31 @@ class FeatureContext extends ExtendedRawDrupalContext {
 		]);
 		$node->save();
 	}
+
+  /**
+   * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
+   * @param $value
+   * @param $id
+   *
+   * @throws \Exception
+   */
+  public function iShouldNotSeeTheOptionIn($value, $id) {
+    $page = $this->getSession()->getPage();
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if ($element) {
+      throw new \Exception("There is an option with the value '$value' in the select '$id'");
+    }
+  }
+
+  /**
+   * @Given /^I submit a form by id "([^"]*)"$/
+   */
+  public function iSubmitAFormById($Id) {
+    $page = $this->getSession()->getPage();
+    $element = $page->find('css',"form#${Id}");
+    $element->submit();
+  }
 
 }
