@@ -4,6 +4,7 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\Core\Extension\ModuleHandler;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 
@@ -47,6 +48,21 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
     } else {
       throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
     }
+  }
+
+  /**
+   * @Then /^Drupal module "([^"]*)" is installed$/
+   */
+  public function iAmInstallingTheModule($moduleName) {
+    /**
+     * @var ModuleHandler $moduleHandler
+     */
+    $moduleHandler = \Drupal::service('module_handler');
+    if (!$moduleHandler->moduleExists($moduleName)){
+      throw new ResponseTextException("Drupal module $moduleName is not installed.", $this->getSession());
+    }
+
+    return TRUE;
   }
 
 }
