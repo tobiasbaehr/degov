@@ -39,4 +39,7 @@ services:
     arguments: ['@config.factory']
   degov_common.config_remover:
     class: \Drupal\degov_common\Entity\ConfigRemover
-    arguments: ['@config.factory','@logger.channel.php']
+    arguments: ['@config.factory']
+  degov_common.config_adder:
+    class: \Drupal\degov_common\Entity\ConfigAdder
+    arguments: ['@config.factory']

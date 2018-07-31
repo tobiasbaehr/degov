@@ -51,11 +51,14 @@ function degov_users_roles_update_8010() {
     'use editorial transition publish',
   ];
 
+  /** @var \Drupal\degov_common\Entity\ConfigAdder $configAdder */
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
   foreach ($editorPermissions as $permission) {
-    $configRemover->addListItemFromConfiguration('user.role.editor', 'permissions', $permission);
+    $configAdder->addListItemFromConfiguration('user.role.editor', 'permissions', $permission);
   }
   foreach ($managerPermissions as $permission) {
-    $configRemover->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+    $configAdder->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
   }
 }
 

@@ -34,21 +34,36 @@ class ConfigRemoverTest extends KernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installEntitySchema('user');
-    $this->installEntitySchema('paragraph');
-    $this->installEntitySchema('taxonomy_term');
-    $this->installSchema('system', ['sequences']);
-    $this->installEntitySchema('node');
-    $this->installSchema('node', 'node_access');
-    \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
-    \Drupal::moduleHandler()->loadInclude('taxonomy', 'install');
+    $this->installConfig(['taxonomy']);
     $this->configRemover = \Drupal::service('degov_common.config_remover');
   }
 
-  public function testConfigRemove() {
-    $this->configRemover->
+  public function testRemoveListItemFromConfiguration() {
+    $originalConfigList = \Drupal::configFactory()
+      ->getEditable('core.entity_view_mode.taxonomy_term.full');
 
+    self::assertArrayHasKey('taxonomy', array_flip($originalConfigList->get('dependencies.module')));
 
+    $this->configRemover->removeListItemFromConfiguration('core.entity_view_mode.taxonomy_term.full', 'dependencies.module', 'taxonomy');
+
+    $updatedConfigList = \Drupal::configFactory()
+      ->getEditable('core.entity_view_mode.taxonomy_term.full');
+
+    self::assertArrayNotHasKey('taxonomy', (!empty($updatedConfigList->get('dependencies.module'))) ? array_flip($updatedConfigList->get('dependencies.module')) : [], 'The dependencies.module config key must not contain the "taxonomy" key in the list.');
+  }
+
+  public function testRemoveValueFromConfiguration() {
+    $originalConfigList = \Drupal::configFactory()
+      ->getEditable('core.entity_view_mode.taxonomy_term.full');
+
+    self::assertArrayHasKey('taxonomy', array_flip($originalConfigList->get('dependencies.module')));
+
+    $this->configRemover->removeValueFromConfiguration('core.entity_view_mode.taxonomy_term.full', 'dependencies', 'module');
+
+    $updatedConfigList = \Drupal::configFactory()
+      ->getEditable('core.entity_view_mode.taxonomy_term.full');
+
+    self::assertArrayNotHasKey('module', (!empty($updatedConfigList->get('dependencies'))) ? array_flip($updatedConfigList->get('dependencies')) : [], 'The dependencies config key must not contain the "module" child-key as a parent array element.');
   }
 
 }
