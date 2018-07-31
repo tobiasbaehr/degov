@@ -27,11 +27,17 @@ pipelines:
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
           - (cd docroot/profiles/contrib/degov && phpunit)
-          - bin/drush si degov --locale=de --db-url=sqlite://sites/default/files/db.sqlite -y
+          - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+          - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+          - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+          - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+          - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+          - behat -c behat-no-drupal.yml -vvv
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
           - testing
+          - mysql
     - step:
         name: Deploy to platform.sh
         script:
@@ -62,11 +68,17 @@ pipelines:
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
             - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
             - (cd docroot/profiles/contrib/degov && phpunit)
-            - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
+            - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+            - mv docroot/profiles/contrib/nrwgov/testing/behat/behat-no-drupal.yml .
+            - behat -c behat-no-drupal.yml -vvv
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
           services:
             - testing
+            - mysql
       - step:
           name: Deploy to platform.sh
           script:
@@ -100,3 +112,8 @@ definitions:
   services:
     testing:
       image: darksolar/selenium-chrome-headless
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: testing
+        MYSQL_DATABASE: testing
