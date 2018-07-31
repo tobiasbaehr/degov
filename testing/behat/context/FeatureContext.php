@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nrwgov\Behat\Context;
+namespace Drupal\degov\Behat\Context;
 
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nrwgov\Behat\Context;
+namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
