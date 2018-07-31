@@ -253,4 +253,13 @@ class FeatureContext extends ExtendedRawDrupalContext {
       throw new \Exception("There is an option with the value '$value' in the select '$id'");
     }
   }
+
+  /**
+   * @Given /^I submit a form by id "([^"]*)"$/
+   */
+  public function iSubmitAFormById($Id) {
+    $page = $this->getSession()->getPage();
+    $element = $page->find('css',"form#${Id}");
+    $element->submit();
+  }
 }
