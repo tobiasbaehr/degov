@@ -4,7 +4,9 @@ Feature: deGov - Media creation
   Scenario: I am creating media address entity
     Given I am logged in as a user with the "Administrator" role
     And I am on "/media/add/address"
-    And I fill in "test1234" for "Name"
+    Then I should see text matching "Adresse hinzufügen" after a while
+    And I should see text matching "Speichern" after a while
+    Then I fill in "test1234" for "Name"
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"
