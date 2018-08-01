@@ -23,12 +23,18 @@ Feature: Installation via webbrowser
     And I fill in "edit-account-mail" with "admin@example.com"
     And I submit the form
     Then I should not see text matching "Es wurde eine nicht erlaubte Auswahl entdeckt." after a while
+    And I should not see text matching "The import failed due for the following reasons:"
     And task "Website konfigurieren" is done
+    And I should not see text matching "The import failed due for the following reasons:"
     And task "Install deGov - Base" is done
+    And I should not see text matching "The import failed due for the following reasons:"
     And task "Install deGov - Media" is done
+    And I should not see text matching "The import failed due for the following reasons:"
     And task "Install deGov - Theme" is done
+    And I should not see text matching "The import failed due for the following reasons:"
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
     Then I should see text matching "deGov wurde erfolgreich installiert." after a while
+    And I should not see text matching "The import failed due for the following reasons:"
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
