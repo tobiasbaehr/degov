@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - degov_common: Splitted "config_remover" service into "config_remover" and "config_adder" services. Replaces usages with the new service method ConfigAdder:addListItemFromConfiguration().
 - degov_common: Added Kernel Base tests for "config_remover" and "config_adder" services
 - Added KernelTestBase tests for proving installation of the following modules: degov_breadcrumb, degov_content_types_shared_fields
+- Uninstall and config removal of degov_node_overrides module
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
