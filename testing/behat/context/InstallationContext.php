@@ -41,6 +41,8 @@ class InstallationContext extends RawMinkContext {
           $errorText = 'Warning';
         } elseif (substr_count($content, 'Notice') > 0) {
           $errorText = 'Notice';
+        } elseif (substr_count($content, 'The import failed due for the following reasons:') > 0) {
+          $errorText = 'The import failed due for the following reasons:';
         }
 
         if (!empty($errorText)) {
