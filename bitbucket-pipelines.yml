@@ -33,6 +33,7 @@ pipelines:
           - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
           - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
           - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+          - bin/drush locale-check && bin/drush locale-update
           - behat -c behat-no-drupal.yml -vvv
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
@@ -76,6 +77,7 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml --strict
+            - bin/drush locale-check && bin/drush locale-update
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat --strict
           services:
