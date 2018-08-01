@@ -7,7 +7,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 class DebuggingContext extends RawMinkContext {
 
   /**
-   * @Then /^I print current page HTML markup into pipeline$/
+   * @Then /^I print current page HTML markup into pipeline - DEBUG$/
    */
   public function printCurrentPageHTMLMarkup() {
     var_dump($this->getSession()->getPage()->getHtml());
