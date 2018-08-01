@@ -232,6 +232,26 @@ class FeatureContext extends ExtendedRawDrupalContext {
 		}
 	}
 
+  /**
+   * @Then /^I am installing the "([^"]*)" module$/
+   */
+  public function iAmInstallingTheModule(string $moduleName) {
+    \Drupal::service('module_installer')->install([$moduleName]);
+  }
+
+  /**
+   * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
+   */
+  public function iShouldSeeTheOptionIn(string $value, string $id) {
+    $page = $this->getSession()->getPage();
+    /** @var $selectElement \Behat\Mink\Element\NodeElement */
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $element = $selectElement->find('css', 'option[value=' . $value . ']');
+    if (!$element) {
+      throw new \Exception("There is no option with the value '$value' in the select '$id'");
+    }
+  }
+
 	/**
 	 * @Given /^I have an normal_page with a slideshow paragraph reference$/
 	 */
