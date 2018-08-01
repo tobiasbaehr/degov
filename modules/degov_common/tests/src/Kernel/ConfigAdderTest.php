@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\degov_common\Kernel;
 
-use Drupal\Tests\token\Kernel\KernelTestBase;
+use Drupal\KernelTests\KernelTestBase;
 use Drupal\degov_common\Entity\ConfigAdder;
 
 class ConfigAdderTest extends KernelTestBase {
