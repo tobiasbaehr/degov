@@ -74,7 +74,7 @@ pipelines:
             - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
             - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
-            - mv docroot/profiles/contrib/nrwgov/testing/behat/behat-no-drupal.yml .
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
