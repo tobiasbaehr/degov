@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_internal_title
   module:
-    - lightning_workflow
     - node
     - user
 id: content
