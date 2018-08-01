@@ -6,7 +6,9 @@ Feature: deGov - Media creation
     And I am on "/media/add/address"
     And I should see text matching "Adresse hinzufügen"
     Then I fill in "test1234" for "Name"
+    And I should see HTML content matching "Straße"
     And I should see text matching "Straße"
+    And I print current page HTML markup into pipeline - DEBUG
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"
