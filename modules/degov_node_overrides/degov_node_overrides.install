@@ -55,3 +55,14 @@ function degov_node_overrides_install() {
 function degov_node_overrides_update_8013() {
   \Drupal::configFactory()->getEditable('nrw_base_theme.settings')->set('tooltip_html', 1)->save(TRUE);
 }
+
+/**
+ * Uninstall lightning_workflow module and remove it's dependency
+ */
+function degov_node_overrides_update_8014() {
+  /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
+  $configRemover = \Drupal::service('degov_common.config_remover');
+  $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
+
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+}
