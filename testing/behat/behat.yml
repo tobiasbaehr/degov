@@ -7,6 +7,7 @@ default:
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
         - Drupal\degov\Behat\Context\FeatureContext
+        - Drupal\degov\Behat\Context\DrupalIndependentContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
