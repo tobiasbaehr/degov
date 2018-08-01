@@ -13,3 +13,14 @@ Feature: deGov - Media creation
     And I submit a form by id "media-address-add-form"
     And I should not see "Error"
     And I should not see "Warning"
+
+  Scenario: I am creating media video entity
+    Given I am logged in as an "Administrator"
+    When I go to "/media/add/video"
+    And I fill in the following:
+      | Name                | fooVideo                    |
+      | Öffentlicher Titel  | fooVideoOeffi               |
+      | Video-URL           | https://vimeo.com/191669818 |
+    And I submit a form by id "media-video-add-form"
+    Then I should not see "Error"
+    And I should not see "Warning"
