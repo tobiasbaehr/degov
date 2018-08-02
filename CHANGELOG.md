@@ -300,3 +300,12 @@ if project theme templates are not existing. Otherwise the module templates are 
 ### Fixed
 - Template suggestions now can be set from different modules for the same bundle of entity type.
 - The image preview in Media reference paragraph preview mode is now not overlapping the edit buttons.
+
+## [2.x] - 02.08.2018
+### Added 
+Add new Behat Testcontext "NormalPageContext" and it's feature normal_page_form. This Context/Feature tests the creation of a normal page.
+The new Context has been added to the behat.yml file.
+
+Add new Behat Testfeature content_types, which tests the availability/visibility of required fields. For example the test checks, if content_type "normal_page" has a field
+"field_section".
+ 
