@@ -33,7 +33,7 @@ class ModuleInstallationTest extends FieldKernelTestBase {
     $this->installConfig(['degov_content_types_shared_fields']);
   }
 
-  public function testSetup() {
+  public function testSetup(): void {
     /**
      * @var ModuleHandler $moduleHandler
      */

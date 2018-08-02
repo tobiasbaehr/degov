@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added Behat test for deGov installation. Replaced installation via "drush site-install" with this.
 - degov_common: Splitted "config_remover" service into "config_remover" and "config_adder" services. Replaces usages with the new service method ConfigAdder:addListItemFromConfiguration().
 - degov_common: Added Kernel Base tests for "config_remover" and "config_adder" services
-- Added KernelTestBase tests for proving installation of the following modules: degov_breadcrumb, degov_content_types_shared_fields
+- Added KernelTestBase tests for proving installation of the following modules: degov_breadcrumb, degov_content_types_shared_fields,
+  degov_breadcrumb, degov_content_types_shared_fields, degov_date_formats, degov_eu_cookie_compliance, degov_html_mail, degov_tweets
 - Uninstall and config removal of degov_node_overrides module
 - Behat tests are proofing, that config could not be imported due nrwGOV installation.
 - Behat tests are run in strict mode
