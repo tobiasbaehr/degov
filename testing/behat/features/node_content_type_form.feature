@@ -30,20 +30,20 @@ Feature: NRWGov check normal page form
     And I fill in "field_teaser_title[0][value]" with "preview__aaabbcc"
     And I fill in Textarea with "TEST TEST TEST"
     And I choose "Allgemein" from tab menu
-    Then I should see text matching "SCHLAGWORTE" after a moment
+    Then I should see text matching "SCHLAGWORTE" after a while
     And I choose "Kopfbereich" from tab menu
-    Then I should see text matching "to Kopfbereich" after a moment
+    Then I should see text matching "to Kopfbereich" after a while
     And I choose "Seitenleiste rechts" from tab menu
-    Then I should see text matching "to Seitenleiste rechts" after a moment
+    Then I should see text matching "to Seitenleiste rechts" after a while
     And I choose "Inhalt" from tab menu
-    Then I should see text matching "to Inhaltsbereich" after a moment
+    Then I should see text matching "to Inhaltsbereich" after a while
     And I click on togglebutton
     Then I click by XPath "//*[@id='edit-field-content-paragraphs-add-more-add-more-button-text']"
     And I fill in "field_content_paragraphs[0][subform][field_title][0][value]" with "TestABC"
     And I fill in "field_content_paragraphs[0][subform][field_sub_title][0][value]" with "TestABC Subtitle"
     And I fill in Textarea with "This is a body text"
     And I select "URL-ALIAS-EINSTELLUNGEN" from rightpane
-    Then I should see text matching "Generate automatic URL alias" after a moment
+    Then I should see text matching "Generate automatic URL alias" after a while
     And I fill in "path[0][alias]" with "/aabbcc"
     And I choose "Veröffentlicht" in selectModerationBox
     And I press the "Speichern" button

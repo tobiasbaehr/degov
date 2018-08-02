@@ -8,15 +8,13 @@ use Behat\Mink\Exception\ResponseTextException;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\Core\Entity\Query\QueryInterface;
 
-class NormalPageFormContext extends RawDrupalContext
+class NodeContentTypeFormContext extends RawDrupalContext
 {
 
-  private const MAX_DURATION_SECONDS = 1200;
-  private const MAX_SHORT_DURATION_SECONDS = 10;
   /**
    * @Given /^I see element "([^"]*)" with divclass "([^"]*)"$/
    */
-  public function iSeeElementWithDivclass($elmnt, $className)
+  public function iSeeElementWithDivclass(string $elmnt, $className)
   {
     $page = $this->getSession()->getPage(); // get the mink session
     $element = $page->find('css', $elmnt . '.' . $className);
@@ -38,45 +36,19 @@ class NormalPageFormContext extends RawDrupalContext
 
     $counter = 0;
     foreach ($elements as $element) {
-        $tmp = $element->find('css',"strong");
-        $selectedText = $tmp->getText();
+      $tmp = $element->find('css',"strong");
+      $selectedText = $tmp->getText();
 
-        if ($selectedText === $arg1) {
-          $found = true;
-          $this->getSession()->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
-        }
-        $counter++;
-    }
-  }
-
-  /**
-   * @Given /^I fill in Textarea with "([^"]*)"$/
-   */
-  public function iFillInTextareaWith($arg1)
-  {
-
-    $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
-
-  }
-
-  /**
-   * @Given /^I select action "([^"]*)" from Dropdownlist$/
-   */
-  public function iSelectActionFromDropdownlist($arg1)
-  {
-    $page = $this->getSession()->getPage(); // get the mink session
-
-    $elements = $page->findAll("css", ".dropbutton-wrapper.dropbutton-multiple.open .dropbutton-widget ul.dropbutton li.dropbutton-action input");
-    $counter = 0;
-
-    foreach ($elements as $element) {
-
-       if ($counter === 0) {
-          $element->submit();
+      if ($selectedText === $arg1) {
+        $found = true;
+        $this->getSession()->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
       }
       $counter++;
     }
   }
+
+
+
 
   /**
    * @Given /^I click on togglebutton$/
@@ -115,32 +87,11 @@ class NormalPageFormContext extends RawDrupalContext
 
     foreach ($optionElements as $optionElement) {
       if ($optionElement->getText() === trim($arg1)) {
-          $optionElement->click();
+        $optionElement->click();
       }
     }
   }
 
-  /**
-   * @Then /^I should see text matching "([^"]*)" after a moment$/
-   */
-  public function iShouldSeeTextMatchingAfterAMoment($text)
-  {
-    try {
-      $startTime = time();
-      do {
-        $content = $this->getSession()->getPage()->getText();
-        if (substr_count($content, $text) > 0) {
-          return true;
-        }
-      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
-        sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
-        $this->getSession()
-      );
-    } catch (StaleElementReference $e) {
-      return true;
-    }
-  }
 
 
 }

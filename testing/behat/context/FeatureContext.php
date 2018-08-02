@@ -339,5 +339,14 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $element = $page->find('css',"form#${Id}");
     $element->submit();
   }
+  /**
+   * @Given /^I fill in Textarea with "([^"]*)"$/
+   */
+  public function iFillInTextareaWith($arg1)
+  {
+
+    $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
+
+  }
 
 }
