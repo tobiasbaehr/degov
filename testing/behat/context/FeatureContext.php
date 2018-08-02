@@ -172,18 +172,27 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass($class)
+  public function clickByCSSClass(string $class)
   {
     $page   = $this->getSession()->getPage();
-    $button = $page->find('xpath', '//input[contains(@class, ' . $class . ')]');
+    $button = $page->find('xpath', '//*[contains(@class, "' . $class . '")]');
+    $button->click();
+  }
+
+  /**
+   * @Then /^I click by CSS id "([^"]*)"$/
+   */
+  public function clickByCSSId(string $id)
+  {
+    $page   = $this->getSession()->getPage();
+    $button = $page->find('xpath', '//*[contains(@id, "' . $id . '")]');
     $button->click();
   }
 
   /**
    * @Then /^I click by XPath "([^"]*)"$/
-   * @param string $xpath
    */
-  public function iClickByXpath($xpath)
+  public function iClickByXpath(string $xpath)
   {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
