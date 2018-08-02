@@ -4,13 +4,10 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\Core\Extension\ModuleHandler;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-/**
- * Class BasicContext
- *
- * @package Drupal\Tests\vsm_testing\Behat\Context
- */
+
 class ExtendedRawDrupalContext extends RawDrupalContext {
 
   /**
@@ -41,17 +38,31 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then I scroll to top
+   * @Then header has CSS class for fluid bootstrap layout
    */
-  public function iScrollToTop() {
-    $this->getSession()->executeScript('window.scrollTo(0,0);');
+  public function headerHasCssClassForFluidBootstrapLayout() : ?bool
+  {
+    $header = $this->getSession()->getPage()->findAll('css', 'header.container-fluid');
+    if (\count($header) > 0) {
+      return true;
+    } else {
+      throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
+    }
   }
 
   /**
-   * @Then I scroll to bottom
+   * @Then /^I proof that Drupal module "([^"]*)" is installed$/
    */
-  public function iScrollToBottom() {
-    $this->getSession()
-      ->executeScript('window.scrollTo(0,document.body.scrollHeight);');
+  public function proofDrupalModuleIsInstalled($moduleName) {
+    /**
+     * @var ModuleHandler $moduleHandler
+     */
+    $moduleHandler = \Drupal::service('module_handler');
+    if (!$moduleHandler->moduleExists($moduleName)){
+      throw new ResponseTextException("Drupal module $moduleName is not installed.", $this->getSession());
+    }
+
+    return TRUE;
   }
+
 }

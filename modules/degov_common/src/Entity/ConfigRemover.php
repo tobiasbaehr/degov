@@ -2,9 +2,9 @@
 
 namespace Drupal\degov_common\Entity;
 
-
 use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Logger\LoggerChannelInterface;
+
 
 class ConfigRemover {
 
@@ -13,18 +13,12 @@ class ConfigRemover {
    */
   private $configFactory;
 
-  /**
-   * @var \Drupal\Core\Logger\LoggerChannelInterface
-   */
-  private $logger;
-
-  public function __construct(ConfigFactory $configFactory, LoggerChannelInterface $logger) {
+  public function __construct(ConfigFactory $configFactory) {
     $this->configFactory = $configFactory;
-    $this->logger = $logger;
   }
 
   public function removeValueFromConfiguration(string $configName, string $configPath, string $key): void {
-    $config = \Drupal::configFactory()
+    $config = $this->configFactory
       ->getEditable($configName);
     $value = $config->get($configPath);
     if ($value && array_key_exists($key, $value)) {
@@ -35,7 +29,7 @@ class ConfigRemover {
   }
 
   public function removeListItemFromConfiguration(string $configName, string $configPath, string $key): void {
-    $config = \Drupal::configFactory()
+    $config = $this->configFactory
       ->getEditable($configName);
     $value = $config->get($configPath);
     if (!$value) {
@@ -59,13 +53,4 @@ class ConfigRemover {
     }
   }
 
-  public function addListItemFromConfiguration($configName, $configPath, $key) {
-    $config = \Drupal::configFactory()
-      ->getEditable($configName);
-    $value = array_flip($config->get($configPath));
-    $value[$key] = -1;
-    $value = array_keys($value);
-    $config->set($configPath, $value);
-    $config->save(TRUE);
-  }
 }

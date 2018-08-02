@@ -2,15 +2,11 @@ default:
   suites:
     default:
       contexts:
-        - Drupal\DrupalExtension\Context\DrupalContext
         - Drupal\DrupalExtension\Context\MinkContext
-        - Drupal\DrupalExtension\Context\MessageContext
-        - Drupal\DrupalExtension\Context\DrushContext
-        - Drupal\degov\Behat\Context\FeatureContext
+        - Drupal\degov\Behat\Context\InstallationContext
         - Drupal\degov\Behat\Context\DrupalIndependentContext
-        - Drupal\degov\Behat\Context\NormalPageFormContext
       paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
   extensions:
     Behat\MinkExtension:
       browser_name: chrome
