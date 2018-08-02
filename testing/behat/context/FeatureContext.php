@@ -211,8 +211,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value
-   *   "([^"]*)"$/
+   * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
    */
   public function cssSelectorAttributeMatchesValue($selector, $attribute, $value) {
     if ($this->getSession()
