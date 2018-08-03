@@ -359,7 +359,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Given /^I click with jquery selector "([^"]*)"$/
    */
-  public function IOpenMenuById(string $selector): void {
+  public function IClickWithJQuerySelector(string $selector): void {
     $this->getSession()->executeScript('jQuery("'.$selector.'").click();');
   }
 
