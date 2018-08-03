@@ -415,6 +415,34 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $media = Media::create($mediaData);
     $media->save();
     $this->trash[$media->getEntityTypeId()][] = $media->id();
+
+    return $media;
+  }
+
+  /**
+   * Creates a page with a specific media
+   * Example: Given I created a content page named "videoPage" with a media "video"
+   *
+   * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   */
+  public function iCreatedPageWithMedia($pageName, $mediaType) {
+    $media = $this->iCreateAMediaOfType($mediaType);
+
+    $mediaParagraph = Paragraph::create([
+      'type'                        => 'media_reference',
+      'field_media_reference_media' => $media,
+    ]);
+    $mediaParagraph->save();
+    $this->trash[$mediaParagraph->getEntityTypeId()][] = $mediaParagraph->id();
+
+    $node = Node::create([
+      'type'                     => 'normal_page',
+      'title'                    => $pageName,
+      'moderation_state'         => 'published',
+      'field_content_paragraphs' => [$mediaParagraph],
+    ]);
+    $node->save();
+    $this->trash[$node->getEntityTypeId()][] = $node->id();
   }
 
   /**
