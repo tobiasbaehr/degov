@@ -3,6 +3,7 @@ Feature: NRWGov content types
   Scenario: Checking available node content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/types"
+    Then I dump the HTML
     Then I should see text matching "Inhaltsseite"
     And I should see text matching "Veranstaltung"
 

@@ -30,13 +30,9 @@ Feature: NRWGov check normal page form
     And I fill in Textarea with "TEST TEST TEST"
     And I choose "Allgemein" from tab menu
     Then I should see text matching "SCHLAGWORTE" after a while
-    And I dump the HTML
     And I choose "Kopfbereich" from tab menu
-    Then I should see text matching "zu Kopfbereich" after a while
     And I choose "Seitenleiste rechts" from tab menu
-    Then I should see text matching "zu Seitenleiste rechts" after a while
     And I choose "Inhalt" from tab menu
-    Then I should see text matching "zu Inhaltsbereich" after a while
     And I click on togglebutton
     Then I click by XPath "//*[@id='edit-field-content-paragraphs-add-more-add-more-button-text']"
     And I fill in "field_content_paragraphs[0][subform][field_title][0][value]" with "TestABC"
