@@ -24,9 +24,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Behat tests are proofing, that config could not be imported due nrwGOV installation.
 - Behat tests are run in strict mode
 - Updated drupal core to 8.5.6
+- Add new Behat Testcontext "NodeContetTypeForm" and it's feature node_content_type_form. This Context/Feature tests the creation of a normal page.
+  The new Context has been added to the behat.yml file.
+- Add new Behat Testfeature content_types, which tests the availability/visibility of required fields. For example the test checks, if content_type "normal_page" has a field
+  "field_section".
 - Cleanup for Behat feature context
 - Implemented Behat test for "Instagram feed block" from "deGov - Social media Instagram" module
 - Behat tests for various media entity types
+
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
@@ -313,3 +318,4 @@ if project theme templates are not existing. Otherwise the module templates are 
 ### Fixed
 - Template suggestions now can be set from different modules for the same bundle of entity type.
 - The image preview in Media reference paragraph preview mode is now not overlapping the edit buttons.
+ 
