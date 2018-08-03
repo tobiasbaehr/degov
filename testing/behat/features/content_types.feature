@@ -5,7 +5,7 @@ Feature: NRWGov content types
     Then I am installing the "degov_node_overrides" module
     And I am installing the "degov_node_normal_page" module
     And I am on "/admin/structure/types/manage/normal_page/fields"
-    And I should see text matching "field_header_paragraphs"
+    Then I should see text matching "field_header_paragraphs"
     And I should see text matching "field_tags"
     And I should see text matching "field_sidebar_right_paragraphs"
     And I should see text matching "field_social_media"
