@@ -3,8 +3,7 @@ Feature: NRWGov content types
   Scenario: Content type normal_page has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/types/manage/normal_page/fields"
-    Then I should see text matching "field_internal_title"
-    And I should see text matching "field_header_paragraphs"
+    Then I should see text matching "field_header_paragraphs"
     And I should see text matching "field_tags"
     And I should see text matching "field_sidebar_right_paragraphs"
     And I should see text matching "field_social_media"
@@ -16,8 +15,7 @@ Feature: NRWGov content types
   Scenario: Content type event has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/types/manage/event/fields"
-    Then I should see text matching "field_event_date"
-    And I should see text matching "field_event_date_end"
+    Then I should see text matching "field_event_date_end"
     And I should see text matching "field_content_paragraphs"
     And I should see text matching "field_internal_title"
     And I should see text matching "field_header_paragraphs"

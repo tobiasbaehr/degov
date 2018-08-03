@@ -35,7 +35,6 @@ Feature: NRWGov check normal page form
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
     And I select "URL-ALIAS-EINSTELLUNGEN" from rightpane
-    And I dump the HTML
     Then I should see text matching "Automatischen URL-Alias erzeugen" after a while
     And I fill in "path[0][alias]" with "/aabbcc"
     And I choose "Veröffentlicht" in selectModerationBox
