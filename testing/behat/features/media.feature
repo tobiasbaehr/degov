@@ -22,6 +22,7 @@ Feature: deGov - Media creation
       | Name                | fooVideo                    |
       | Öffentlicher Titel  | fooVideoOeffi               |
       | Video-URL           | https://vimeo.com/191669818 |
-    And I submit a form by id "media-video-add-form"
-    Then I should not see "Error"
-    And I should not see "Warning"
+    And I scroll to element with id "edit-submit"
+    And I press "Speichern"
+    Then I should not see "ist erforderlich."
+    And I should see "Video fooVideo wurde erstellt."
