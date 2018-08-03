@@ -8,8 +8,11 @@ default:
         - Drupal\DrupalExtension\Context\DrushContext
         - Drupal\degov\Behat\Context\FeatureContext
         - Drupal\degov\Behat\Context\DrupalIndependentContext
+        - Drupal\degov\Behat\Context\BlockContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+      translation:
+          locale: de
   extensions:
     Behat\MinkExtension:
       browser_name: chrome

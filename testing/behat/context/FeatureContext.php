@@ -131,6 +131,41 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
+   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function checkCheckboxBySelector(string $selector)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('" . $selector . "').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
+   * @param string $value
+   */
+  public function checkCheckboxByValue(string $value)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('input[value=" . $value . "]').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I click by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function clickBySelector(string $selector)
+  {
+    $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+  }
+
+  /**
    * @Then /^I check checkbox with id "([^"]*)"$/
    * @param string $id
    */
@@ -165,9 +200,20 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass($class) {
-    $page = $this->getSession()->getPage();
-    $button = $page->find('xpath', '//input[contains(@class, ' . $class . ')]');
+  public function clickByCSSClass(string $class)
+  {
+    $page   = $this->getSession()->getPage();
+    $button = $page->find('xpath', '//*[contains(@class, "' . $class . '")]');
+    $button->click();
+  }
+
+  /**
+   * @Then /^I click by CSS id "([^"]*)"$/
+   */
+  public function clickByCSSId(string $id)
+  {
+    $page   = $this->getSession()->getPage();
+    $button = $page->find('xpath', '//*[contains(@id, "' . $id . '")]');
     $button->click();
   }
 
@@ -175,7 +221,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by XPath "([^"]*)"$/
    * @param string $xpath
    */
-  public function iClickByXpath($xpath) {
+  public function iClickByXpath(string $xpath)
+  {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
@@ -332,22 +379,37 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * Creates a media
-   * Example: Given I create a media of type "video"
-   *
-   * @Given /^I create a media of type "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   * @Given /^I created a media of type "([^"]*)" named "([^"]*)"$/
+   * @When /^I create a media of type "([^"]*)" named "([^"]*)"$/
    */
-  public function iCreateAMediaOfType($type): Media {
-    $mediaData = ['bundle' => $type,];
+  public function iCreateAMediaOfType($type, $name = null) {
+    if (!$name) {
+      $name = $this->createRandomString();
+    }
+    $mediaData = [
+      'bundle'               => $type,
+      'field_title'          => $name,
+      'field_include_search' => true,
+    ];
     switch ($type) {
       case 'video':
         $mediaData += [
-          'field_title'                   => $this->createRandomString(),
           'field_media_video_embed_field' => 'https://vimeo.com/191669818',
+        ];
+        break;
+      case 'tweet':
+        $mediaData += [
+          'embed_code' => 'https://twitter.com/publicplan_GmbH/status/1024935629065469958',
+        ];
+        break;
+      case 'instagram':
+        $mediaData += [
+          'embed_code' => 'https://www.instagram.com/p/JUvux9iFRY',
         ];
         break;
       //ToDo: Add all media types
       default:
+        throw new \InvalidArgumentException(sprintf('The media type "%s" does not exist.', $type));
         break;
     }
     $media = Media::create($mediaData);
