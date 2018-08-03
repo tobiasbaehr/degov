@@ -28,6 +28,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   The new Context has been added to the behat.yml file.
 - Add new Behat Testfeature content_types, which tests the availability/visibility of required fields. For example the test checks, if content_type "normal_page" has a field
   "field_section".
+- Cleanup for Behat feature context
+- Implemented Behat test for "Instagram feed block" from "deGov - Social media Instagram" module
+
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
