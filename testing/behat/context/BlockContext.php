@@ -41,8 +41,21 @@ class BlockContext extends RawDrupalContext {
     $config = $configFactory->getEditable('degov_social_media_instagram.settings');
     $config->set('user', 'ig_bundestag')->save();
 
-    $block = Block::load('instagramfeedblock');
-    $block->setRegion('content');
+    $block = Block::create([
+      'id' => 'instagramfeedblock',
+      'theme' => 'degov_base_theme',
+      'weight' => 0,
+      'status' => TRUE,
+      'region' => 'content',
+      'plugin' => 'degov_social_media_instagram',
+      'settings' => [
+        'id'            => 'degov_social_media_instagram',
+        'label'         => 'Instagram feed block',
+        'provider'      => 'degov_social_media_instagram',
+        'label_display' => 'visible',
+      ],
+      'visibility' => [],
+    ]);
     $block->save();
   }
 
@@ -60,7 +73,7 @@ class BlockContext extends RawDrupalContext {
     }
 
     foreach ($blockIds as $blockId) {
-      $block = Block::load($blockId);
+      $block = Block::load(trim($blockId));
       if ($block instanceof Block) {
         $block->delete();
       }
