@@ -131,6 +131,41 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
+   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function checkCheckboxBySelector(string $selector)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('" . $selector . "').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
+   * @param string $value
+   */
+  public function checkCheckboxByValue(string $value)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('input[value=" . $value . "]').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I click by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function clickBySelector(string $selector)
+  {
+    $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+  }
+
+  /**
    * @Then /^I check checkbox with id "([^"]*)"$/
    * @param string $id
    */
@@ -165,9 +200,20 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass($class) {
-    $page = $this->getSession()->getPage();
-    $button = $page->find('xpath', '//input[contains(@class, ' . $class . ')]');
+  public function clickByCSSClass(string $class)
+  {
+    $page   = $this->getSession()->getPage();
+    $button = $page->find('xpath', '//*[contains(@class, "' . $class . '")]');
+    $button->click();
+  }
+
+  /**
+   * @Then /^I click by CSS id "([^"]*)"$/
+   */
+  public function clickByCSSId(string $id)
+  {
+    $page   = $this->getSession()->getPage();
+    $button = $page->find('xpath', '//*[contains(@id, "' . $id . '")]');
     $button->click();
   }
 
@@ -175,7 +221,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by XPath "([^"]*)"$/
    * @param string $xpath
    */
-  public function iClickByXpath($xpath) {
+  public function iClickByXpath(string $xpath)
+  {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
