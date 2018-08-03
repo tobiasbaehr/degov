@@ -23,7 +23,7 @@ class BlockContext extends RawDrupalContext {
       'plugin' => 'social_media_settings_block',
       'settings' => [
         'id'            => 'social_media_settings_block',
-        'label'         => 'Social media settings block',
+        'label'         => 'Social Media Settings',
         'provider'      => 'degov_social_media_settings',
         'label_display' => FALSE,
       ],
