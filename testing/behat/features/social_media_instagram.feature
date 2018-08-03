@@ -12,13 +12,10 @@ Feature: deGov - Social media Instagram
     Given I am on "/"
     Then I should see HTML content matching "Social Media Settings" after a while
     And I should see HTML content matching "Instagram feed block"
-    And I should see text matching "Quelle ist deaktiviert"
-    And I should not see text matching "Pause"
-    And I should not see text matching "Wiedergabe"
+    And I should see HTML content matching "This social media source is disabled. After accepting our cookie policy, you can enable it."
     And I should not see HTML content matching "slick-slide"
-    Then I click "Social Media Settings"
+    Then I click by selector ".social-media-settings--menu-item" via JavaScript
     And I check checkbox by value "instagram" via JavaScript
     And I click by selector ".social-media-settings__save" via JavaScript
+    And I should not see HTML content matching "This social media source is disabled. After accepting our cookie policy, you can enable it."
     Then I should see HTML content matching "slick-slide" after a while
-    And I should see text matching "Pause" after a while
-    And I should see text matching "Wiedergabe" after a while

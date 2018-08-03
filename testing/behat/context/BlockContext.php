@@ -19,7 +19,7 @@ class BlockContext extends RawDrupalContext {
       'theme' => 'degov_base_theme',
       'weight' => 0,
       'status' => TRUE,
-      'region' => 'header',
+      'region' => 'content',
       'plugin' => 'social_media_settings_block',
       'settings' => [
         'id'            => 'social_media_settings_block',
