@@ -446,30 +446,6 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * Opens specified content page
-   * Example: Given I am on the content page named "videoPage"
-   * Example: When I go to the content page named "foobar"
-   *
-   * @Given /^(?:|I )am on the content page named "([^"]*)"$/
-   * @When /^(?:|I )go to the content page named "([^"]*)"$/
-   *
-   * @throws \InvalidArgumentException
-   */
-  public function visitContentPage($pageName)
-  {
-    /** @var Node $node */
-    $nodeId = \Drupal::entityQuery('node')
-      ->condition('title', $pageName)
-      ->execute();
-    if($nodeId) {
-      $node = Node::load(array_pop($nodeId));
-    } else {
-      throw new \InvalidArgumentException(sprintf('There is no content page named "%s"', $pageName));
-    }
-    $this->visitPath($node->url());
-  }
-
-  /**
    * Deletes entities created during the scenario.
    *
    * @afterScenario
