@@ -332,12 +332,15 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * @Given /^I create a media of type "([^"]*)"$/
+   * Creates a media
+   * Example: Given I create a media of type "video"
+   *
+   * @Given /^I create a media of type "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
-  public function iCreateAMediaOfType($type) {
+  public function iCreateAMediaOfType($type): Media {
     $mediaData = ['bundle' => $type,];
     switch ($type) {
-      case "video":
+      case 'video':
         $mediaData += [
           'field_title'                   => $this->createRandomString(),
           'field_media_video_embed_field' => 'https://vimeo.com/191669818',
@@ -350,6 +353,58 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $media = Media::create($mediaData);
     $media->save();
     $this->trash[$media->getEntityTypeId()][] = $media->id();
+
+    return $media;
+  }
+
+  /**
+   * Creates a page with a specific media
+   * Example: Given I created a content page named "videoPage" with a media "video"
+   *
+   * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   */
+  public function iCreatedPageWithMedia($pageName, $mediaType) {
+    $media = $this->iCreateAMediaOfType($mediaType);
+
+    $mediaParagraph = Paragraph::create([
+      'type'                        => 'media_reference',
+      'field_media_reference_media' => $media,
+    ]);
+    $mediaParagraph->save();
+    $this->trash[$mediaParagraph->getEntityTypeId()][] = $mediaParagraph->id();
+
+    $node = Node::create([
+      'type'                     => 'normal_page',
+      'title'                    => $pageName,
+      'moderation_state'         => 'published',
+      'field_content_paragraphs' => [$mediaParagraph],
+    ]);
+    $node->save();
+    $this->trash[$node->getEntityTypeId()][] = $node->id();
+  }
+
+  /**
+   * Opens specified content page
+   * Example: Given I am on the content page named "videoPage"
+   * Example: When I go to the content page named "foobar"
+   *
+   * @Given /^(?:|I )am on the content page named "([^"]*)"$/
+   * @When /^(?:|I )go to the content page named "([^"]*)"$/
+   *
+   * @throws \InvalidArgumentException
+   */
+  public function visitContentPage($pageName)
+  {
+    /** @var Node $node */
+    $nodeId = \Drupal::entityQuery('node')
+      ->condition('title', $pageName)
+      ->execute();
+    if($nodeId) {
+      $node = Node::load(array_pop($nodeId));
+    } else {
+      throw new \InvalidArgumentException(sprintf('There is no content page named "%s"', $pageName));
+    }
+    $this->visitPath($node->url());
   }
 
   /**
