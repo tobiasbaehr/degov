@@ -10,6 +10,7 @@ Feature: deGov - Social media Instagram
 
   Scenario: I see the Instagram feed block after enabling it in the social media settings
     Given I am logged in as an "Administrator"
+    And I dump the HTML
     Then I should see text matching "Social Media Settings" after a while
     Then I am on "/"
     And I should see text matching "IN THE SOCIAL MEDIA Instagram feed block"
