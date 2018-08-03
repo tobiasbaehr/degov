@@ -14,6 +14,9 @@ use Drupal\Core\File\FileSystem as DrupalFilesystem;
 
 class FeatureContext extends ExtendedRawDrupalContext {
 
+  /** @var array */
+  protected $trash = [];
+
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
     $driver->setCoreFromVersion();
@@ -33,7 +36,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
     if (empty($vocabulary)) {
       $vocabulary = Vocabulary::create([
         'name' => $name,
-        'vid' => $vid,
+        'vid'  => $vid,
       ]);
       $vocabulary->save();
     }
@@ -42,8 +45,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Given /^I create (\d+) nodes of type "([^"]*)"$/
    */
-  public function iCreateNodesOfType($number, $type)
-  {
+  public function iCreateNodesOfType($number, $type) {
     for ($i = 0; $i <= $number; $i++) {
       $node = new \stdClass();
       $node->type = $type;
@@ -60,33 +62,30 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Given Node access records are rebuild.
    */
-  public function nodeAccessRecordsAreRebuild()
-  {
+  public function nodeAccessRecordsAreRebuild() {
     node_access_rebuild();
   }
 
   /**
    * @Then /^wait (\d+) seconds$/
    */
-  public function waitSeconds($secondsNumber)
-  {
+  public function waitSeconds($secondsNumber) {
     $this->getSession()->wait($secondsNumber * 1000);
   }
 
   /**
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
-  public function selectIndexInDropdown($index, $name)
-  {
-    $this->getSession()->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
+  public function selectIndexInDropdown($index, $name) {
+    $this->getSession()
+      ->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
   }
 
   /**
    * @Then /^I open node edit form by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeEditFormByTitle($title)
-  {
+  public function openNodeEditFormByTitle($title) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
@@ -98,8 +97,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeViewByTitle($title)
-  {
+  public function openNodeViewByTitle($title) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
@@ -111,8 +109,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I scroll to element with id "([^"]*)"$/
    * @param string $id
    */
-  public function iScrollToElementWithId($id)
-  {
+  public function iScrollToElementWithId($id) {
     $this->getSession()->executeScript(
       "
                 var element = document.getElementById('" . $id . "');
@@ -125,8 +122,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
    * @param string $id
    */
-  public function checkCheckboxWithJS($id)
-  {
+  public function checkCheckboxWithJS($id) {
     $this->getSession()->executeScript(
       "
                 document.getElementById('" . $id . "').checked = true;
@@ -138,9 +134,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I check checkbox with id "([^"]*)"$/
    * @param string $id
    */
-  public function checkCheckbox($id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function checkCheckbox($id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
 
     $selectElement->check();
@@ -150,9 +145,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I uncheck checkbox with id "([^"]*)"$/
    * @param string $id
    */
-  public function uncheckCheckbox($id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function uncheckCheckbox($id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
 
     $selectElement->uncheck();
@@ -161,9 +155,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Then /^I select "([^"]*)" in "([^"]*)"$/
    */
-  public function selectOption($label, $id)
-  {
-    $page          = $this->getSession()->getPage();
+  public function selectOption($label, $id) {
+    $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
     $selectElement->selectOption($label);
   }
@@ -172,9 +165,8 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass($class)
-  {
-    $page   = $this->getSession()->getPage();
+  public function clickByCSSClass($class) {
+    $page = $this->getSession()->getPage();
     $button = $page->find('xpath', '//input[contains(@class, ' . $class . ')]');
     $button->click();
   }
@@ -183,8 +175,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by XPath "([^"]*)"$/
    * @param string $xpath
    */
-  public function iClickByXpath($xpath)
-  {
+  public function iClickByXpath($xpath) {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
@@ -203,34 +194,34 @@ class FeatureContext extends ExtendedRawDrupalContext {
   /**
    * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
    */
-  public function iProofCheckboxWithIdHasValue($id,$checkfor)
-  {
+  public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();
     $isChecked = $Page->find('css', 'input[type="checkbox"]:checked#' . $id);
     $status = ($isChecked) ? "checked" : "unchecked";
-    if(
-      ($checkfor == "checked" && $isChecked == true)
-      ||
+    if (
+      ($checkfor == "checked" && $isChecked == true) ||
       ($checkfor == "unchecked" && $isChecked == false)
-    ){
+    ) {
       return true;
-    }else{
-      throw new \Exception('Checkbox was '.$status.' when expecting '.$checkfor);
+    }
+    else {
+      throw new \Exception('Checkbox was ' . $status . ' when expecting ' . $checkfor);
       return false;
     }
   }
 
-	/**
-	 * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
-	 */
-	public function cssSelectorAttributeMatchesValue($selector, $attribute, $value)
-	{
-		if ($this->getSession()->evaluateScript("jQuery('$selector').css('$attribute')") == $value) {
-			return TRUE;
-		} else {
-			throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
-		}
-	}
+  /**
+   * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
+   */
+  public function cssSelectorAttributeMatchesValue($selector, $attribute, $value) {
+    if ($this->getSession()
+        ->evaluateScript("jQuery('$selector').css('$attribute')") == $value) {
+      return true;
+    }
+    else {
+      throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
+    }
+  }
 
   /**
    * @Then /^I am installing the "([^"]*)" module$/
@@ -252,67 +243,67 @@ class FeatureContext extends ExtendedRawDrupalContext {
     }
   }
 
-	/**
-	 * @Given /^I have an normal_page with a slideshow paragraph reference$/
-	 */
-	public function normalPageWithSlideshow() {
-		/**
-		 * @var FilesystemFactory $symfonyFilesystem
-		 */
-		$filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
-		/**
-		 * @var SymfonyFilesystem $filesystem
-		 */
-		$symfonyFilesystem = $filesystemFactory->create();
+  /**
+   * @Given /^I have an normal_page with a slideshow paragraph reference$/
+   */
+  public function normalPageWithSlideshow() {
+    /**
+     * @var FilesystemFactory $symfonyFilesystem
+     */
+    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
+    /**
+     * @var SymfonyFilesystem $filesystem
+     */
+    $symfonyFilesystem = $filesystemFactory->create();
 
-		/**
-		 * @var DrupalFilesystem $drupalFilesystem
-		 */
-		$drupalFilesystem = \Drupal::service('file_system');
+    /**
+     * @var DrupalFilesystem $drupalFilesystem
+     */
+    $drupalFilesystem = \Drupal::service('file_system');
 
-		$symfonyFilesystem->copy(
-			drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
-			$drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
-		);
+    $symfonyFilesystem->copy(
+      drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
+      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
+    );
 
-		$imageFileEntity = File::create([
-			'uid'      => 1,
-			'filename' => 'leaning-tower-of-pisa.jpg',
-			'uri'      => 'public://leaning-tower-of-pisa.jpg',
-			'status'   => 1,
-		]);
-		$imageFileEntity->save();
+    $imageFileEntity = File::create([
+      'uid'      => 1,
+      'filename' => 'leaning-tower-of-pisa.jpg',
+      'uri'      => 'public://leaning-tower-of-pisa.jpg',
+      'status'   => 1,
+    ]);
+    $imageFileEntity->save();
 
-		$media = Media::create([
-			'bundle'              => 'image',
-			'field_title'         => 'Some image',
-			'field_copyright'     => 'Some copyright',
-			'field_image_caption' => 'Some image caption',
-			'image'               => $imageFileEntity->id(),
-		]);
-		$media->save();
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => 'Some copyright',
+      'field_image_caption' => 'Some image caption',
+      'image'               => $imageFileEntity->id(),
+    ]);
+    $media->save();
 
-		$paragraphSlide = Paragraph::create([
-			'type'              => 'slide',
-			'field_slide_media' => $media,
-		]);
-		$paragraphSlide->save();
+    $paragraphSlide = Paragraph::create([
+      'type'              => 'slide',
+      'field_slide_media' => $media,
+    ]);
+    $paragraphSlide->save();
 
-		$paragraphSlideshow = Paragraph::create([
-			'type'                   => 'slideshow',
-			'field_slideshow_slides' => $paragraphSlide,
-			'field_slideshow_type'   => 'Typ 1',
-		]);
-		$paragraphSlideshow->save();
+    $paragraphSlideshow = Paragraph::create([
+      'type'                   => 'slideshow',
+      'field_slideshow_slides' => $paragraphSlide,
+      'field_slideshow_type'   => 'Typ 1',
+    ]);
+    $paragraphSlideshow->save();
 
-		$node = Node::create([
-			'title'                   => 'An normal page with a slideshow',
-			'type'                    => 'normal_page',
-			'moderation_state'        => 'published',
-			'field_header_paragraphs' => [$paragraphSlideshow],
-		]);
-		$node->save();
-	}
+    $node = Node::create([
+      'title'                   => 'An normal page with a slideshow',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_header_paragraphs' => [$paragraphSlideshow],
+    ]);
+    $node->save();
+  }
 
   /**
    * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
@@ -336,8 +327,47 @@ class FeatureContext extends ExtendedRawDrupalContext {
    */
   public function iSubmitAFormById($Id) {
     $page = $this->getSession()->getPage();
-    $element = $page->find('css',"form#${Id}");
+    $element = $page->find('css', "form#${Id}");
     $element->submit();
+  }
+
+  /**
+   * @Given /^I create a media of type "([^"]*)"$/
+   */
+  public function iCreateAMediaOfType($type) {
+    $mediaData = ['bundle' => $type,];
+    switch ($type) {
+      case "video":
+        $mediaData += [
+          'field_title'                   => $this->createRandomString(),
+          'field_media_video_embed_field' => 'https://vimeo.com/191669818',
+        ];
+        break;
+      //ToDo: Add all media types
+      default:
+        break;
+    }
+    $media = Media::create($mediaData);
+    $media->save();
+    $this->trash[$media->getEntityTypeId()][] = $media->id();
+  }
+
+  /**
+   * Deletes entities created during the scenario.
+   *
+   * @afterScenario
+   */
+  public function tearDown() {
+    foreach ($this->trash as $entity_type => $IDs) {
+      /** @var \Drupal\Core\Entity\EntityInterface[] $entities */
+      $entities = \Drupal::entityTypeManager()
+        ->getStorage($entity_type)
+        ->loadMultiple($IDs);
+
+      foreach ($entities as $entity) {
+        $entity->delete();
+      }
+    }
   }
 
 }
