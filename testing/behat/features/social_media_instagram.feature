@@ -11,7 +11,7 @@ Feature: deGov - Social media Instagram
   Scenario: I see the Instagram feed block after enabling it in the social media settings
     Given I am logged in as an "Administrator"
     Then I should see text matching "Social Media Settings"
-    Then I am on "/frontpage"
+    Then I am on "/"
     And I should see text matching "IN THE SOCIAL MEDIA Instagram feed block"
     And I should see text matching "Quelle ist deaktiviert"
     And I should not see text matching "Pause"
