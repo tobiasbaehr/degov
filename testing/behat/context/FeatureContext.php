@@ -135,6 +135,41 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
+   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function checkCheckboxBySelector(string $selector)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('" . $selector . "').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
+   * @param string $value
+   */
+  public function checkCheckboxByValue(string $value)
+  {
+    $this->getSession()->executeScript(
+      "
+                document.querySelector('input[value=" . $value . "]').checked = true;
+            "
+    );
+  }
+
+  /**
+   * @Then /^I click by selector "([^"]*)" via JavaScript$/
+   * @param string $selector
+   */
+  public function clickBySelector(string $selector)
+  {
+    $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+  }
+
+  /**
    * @Then /^I check checkbox with id "([^"]*)"$/
    * @param string $id
    */
