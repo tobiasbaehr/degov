@@ -21,7 +21,6 @@ Feature: deGov - Media creation
     And I fill in "testAddress1234" for "Titel"
     And I click with jquery selector ".vertical-tabs__menu-item.last a"
     And I click with jquery selector "#edit-field-content-paragraphs button"
-    Then I click by XPath "//*[@id='edit-field-content-paragraphs-add-more-add-more-button-map']"
     Then I scroll to bottom
     And I press the "Speichern" button
     And I am on "/admin/content"
