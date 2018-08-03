@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Uninstall and config removal of degov_node_overrides module
 - Behat tests are proofing, that config could not be imported due nrwGOV installation.
 - Behat tests are run in strict mode
+- Cleanup for behat feature context
 - Updated drupal core to 8.5.6
 - Implemented Behat test for "Instagram feed block" from "deGov - Social media Instagram" module
 
