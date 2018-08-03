@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\degov_breadcrumb\Kernel;
+namespace Drupal\Tests\degov_tweets\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Core\Extension\ModuleHandler;
@@ -11,7 +11,7 @@ class ModuleInstallationTest extends KernelTestBase {
    * {@inheritdoc}
    */
   public static $modules = [
-    'degov_breadcrumb',
+    'degov_tweets',
   ];
 
   /**
@@ -19,7 +19,7 @@ class ModuleInstallationTest extends KernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installConfig(['degov_breadcrumb']);
+    $this->installConfig(['degov_tweets']);
   }
 
   public function testSetup(): void {
@@ -27,8 +27,8 @@ class ModuleInstallationTest extends KernelTestBase {
      * @var ModuleHandler $moduleHandler
      */
     $moduleHandler = \Drupal::service('module_handler');
-    self::assertTrue($moduleHandler->moduleExists('degov_breadcrumb'));
-    self::assertTrue($moduleHandler->getModule('degov_breadcrumb'));
+    self::assertTrue($moduleHandler->moduleExists('degov_tweets'));
+    self::assertTrue($moduleHandler->getModule('degov_tweets'));
   }
 
 }
