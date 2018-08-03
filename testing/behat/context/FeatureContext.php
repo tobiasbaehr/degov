@@ -332,19 +332,37 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * @Given /^I create a media of type "([^"]*)"$/
+   * @Given /^I created a media of type "([^"]*)" named "([^"]*)"$/
+   * @When /^I create a media of type "([^"]*)" named "([^"]*)"$/
    */
-  public function iCreateAMediaOfType($type) {
-    $mediaData = ['bundle' => $type,];
+  public function iCreateAMediaOfType($type, $name = null) {
+    if (!$name) {
+      $name = $this->createRandomString();
+    }
+    $mediaData = [
+      'bundle'               => $type,
+      'field_title'          => $name,
+      'field_include_search' => true,
+    ];
     switch ($type) {
-      case "video":
+      case 'video':
         $mediaData += [
-          'field_title'                   => $this->createRandomString(),
           'field_media_video_embed_field' => 'https://vimeo.com/191669818',
+        ];
+        break;
+      case 'tweet':
+        $mediaData += [
+          'embed_code' => 'https://twitter.com/publicplan_GmbH/status/1024935629065469958',
+        ];
+        break;
+      case 'instagram':
+        $mediaData += [
+          'embed_code' => 'https://www.instagram.com/p/JUvux9iFRY',
         ];
         break;
       //ToDo: Add all media types
       default:
+        throw new \InvalidArgumentException(sprintf('The media type "%s" does not exist.', $type));
         break;
     }
     $media = Media::create($mediaData);
