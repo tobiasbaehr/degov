@@ -220,17 +220,17 @@ class FeatureContext extends ExtendedRawDrupalContext {
     }
   }
 
-	/**
-	 * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
-	 */
-	public function cssSelectorAttributeMatchesValue($selector, $attribute, $value)
-	{
-		if ($this->getSession()->evaluateScript("jQuery('$selector').css('$attribute')") == $value) {
-			return TRUE;
-		} else {
-			throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
-		}
-	}
+  /**
+   * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
+   */
+  public function cssSelectorAttributeMatchesValue($selector, $attribute, $value)
+  {
+    if ($this->getSession()->evaluateScript("jQuery('$selector').css('$attribute')") == $value) {
+      return TRUE;
+    } else {
+      throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
+    }
+  }
 
   /**
    * @Then /^I am installing the "([^"]*)" module$/
@@ -252,67 +252,67 @@ class FeatureContext extends ExtendedRawDrupalContext {
     }
   }
 
-	/**
-	 * @Given /^I have an normal_page with a slideshow paragraph reference$/
-	 */
-	public function normalPageWithSlideshow() {
-		/**
-		 * @var FilesystemFactory $symfonyFilesystem
-		 */
-		$filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
-		/**
-		 * @var SymfonyFilesystem $filesystem
-		 */
-		$symfonyFilesystem = $filesystemFactory->create();
+  /**
+   * @Given /^I have an normal_page with a slideshow paragraph reference$/
+   */
+  public function normalPageWithSlideshow() {
+    /**
+     * @var FilesystemFactory $symfonyFilesystem
+     */
+    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
+    /**
+     * @var SymfonyFilesystem $filesystem
+     */
+    $symfonyFilesystem = $filesystemFactory->create();
 
-		/**
-		 * @var DrupalFilesystem $drupalFilesystem
-		 */
-		$drupalFilesystem = \Drupal::service('file_system');
+    /**
+     * @var DrupalFilesystem $drupalFilesystem
+     */
+    $drupalFilesystem = \Drupal::service('file_system');
 
-		$symfonyFilesystem->copy(
-			drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
-			$drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
-		);
+    $symfonyFilesystem->copy(
+      drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
+      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
+    );
 
-		$imageFileEntity = File::create([
-			'uid'      => 1,
-			'filename' => 'leaning-tower-of-pisa.jpg',
-			'uri'      => 'public://leaning-tower-of-pisa.jpg',
-			'status'   => 1,
-		]);
-		$imageFileEntity->save();
+    $imageFileEntity = File::create([
+      'uid'      => 1,
+      'filename' => 'leaning-tower-of-pisa.jpg',
+      'uri'      => 'public://leaning-tower-of-pisa.jpg',
+      'status'   => 1,
+    ]);
+    $imageFileEntity->save();
 
-		$media = Media::create([
-			'bundle'              => 'image',
-			'field_title'         => 'Some image',
-			'field_copyright'     => 'Some copyright',
-			'field_image_caption' => 'Some image caption',
-			'image'               => $imageFileEntity->id(),
-		]);
-		$media->save();
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => 'Some copyright',
+      'field_image_caption' => 'Some image caption',
+      'image'               => $imageFileEntity->id(),
+    ]);
+    $media->save();
 
-		$paragraphSlide = Paragraph::create([
-			'type'              => 'slide',
-			'field_slide_media' => $media,
-		]);
-		$paragraphSlide->save();
+    $paragraphSlide = Paragraph::create([
+      'type'              => 'slide',
+      'field_slide_media' => $media,
+    ]);
+    $paragraphSlide->save();
 
-		$paragraphSlideshow = Paragraph::create([
-			'type'                   => 'slideshow',
-			'field_slideshow_slides' => $paragraphSlide,
-			'field_slideshow_type'   => 'Typ 1',
-		]);
-		$paragraphSlideshow->save();
+    $paragraphSlideshow = Paragraph::create([
+      'type'                   => 'slideshow',
+      'field_slideshow_slides' => $paragraphSlide,
+      'field_slideshow_type'   => 'Typ 1',
+    ]);
+    $paragraphSlideshow->save();
 
-		$node = Node::create([
-			'title'                   => 'An normal page with a slideshow',
-			'type'                    => 'normal_page',
-			'moderation_state'        => 'published',
-			'field_header_paragraphs' => [$paragraphSlideshow],
-		]);
-		$node->save();
-	}
+    $node = Node::create([
+      'title'                   => 'An normal page with a slideshow',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_header_paragraphs' => [$paragraphSlideshow],
+    ]);
+    $node->save();
+  }
 
   /**
    * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
@@ -338,6 +338,29 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $page = $this->getSession()->getPage();
     $element = $page->find('css',"form#${Id}");
     $element->submit();
+  }
+
+  /**
+   * @Then /^I scroll to bottom$/
+   */
+  public function iScrollToBottom(): void {
+    $this->getSession()
+      ->executeScript('window.scrollTo(0,document.body.scrollHeight);');
+  }
+
+  /**
+   * @Then /^I scroll to top$/
+   */
+  public function iScrollToTop(): void {
+    $this->getSession()
+      ->executeScript('window.scrollTo(0,0);');
+  }
+
+  /**
+   * @Given /^I click with jquery selector "([^"]*)"$/
+   */
+  public function IOpenMenuById(string $selector): void {
+    $this->getSession()->executeScript('jQuery("'.$selector.'").click();');
   }
 
 }
