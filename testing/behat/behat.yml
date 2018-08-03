@@ -11,6 +11,8 @@ default:
         - Drupal\degov\Behat\Context\BlockContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+      translation:
+          locale: de
   extensions:
     Behat\MinkExtension:
       browser_name: chrome
