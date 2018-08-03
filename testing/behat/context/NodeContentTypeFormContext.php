@@ -95,39 +95,5 @@ class NodeContentTypeFormContext extends RawDrupalContext
     }
   }
 
-  /**
-   * @Then /^I should see HTML content matching "([^"]*)" after a while$/
-   */
-  public function iShouldSeeHTMLContentMatchingAfterAWhile($text)
-  {
-    try {
-
-      $startTime = time();
-
-      do {
-
-        $content = $this->getSession()->getPage()->getHtml();
-
-        if (substr_count($content, $text) > 0) {
-
-          return true;
-
-        }
-
-      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-
-      throw new ResponseTextException(
-
-        sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
-
-        $this->getSession()
-
-      );
-
-    } catch (StaleElementReference $e) {
-      return true;
-    }
-  }
-
 
 }
