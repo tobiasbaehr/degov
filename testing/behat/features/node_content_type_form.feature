@@ -30,6 +30,7 @@ Feature: NRWGov check normal page form
     And I fill in Textarea with "TEST TEST TEST"
     And I choose "Allgemein" from tab menu
     Then I should see text matching "SCHLAGWORTE" after a while
+    And I dump the HTML
     And I choose "Kopfbereich" from tab menu
     And I choose "Seitenleiste rechts" from tab menu
     And I choose "Inhalt" from tab menu
