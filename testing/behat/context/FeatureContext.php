@@ -200,8 +200,7 @@ class FeatureContext extends ExtendedRawDrupalContext {
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
-  public function clickByCSSClass(string $class)
-  {
+  public function clickByCSSClass(string $class) {
     $page   = $this->getSession()->getPage();
     $button = $page->find('xpath', '//*[contains(@class, "' . $class . '")]');
     $button->click();
@@ -376,6 +375,22 @@ class FeatureContext extends ExtendedRawDrupalContext {
     $page = $this->getSession()->getPage();
     $element = $page->find('css', "form#${Id}");
     $element->submit();
+  }
+
+  /**
+   * @Then /^I scroll to bottom$/
+   */
+  public function iScrollToBottom(): void {
+    $this->getSession()
+      ->executeScript('window.scrollTo(0,document.body.scrollHeight);');
+  }
+
+  /**
+   * @Then /^I scroll to top$/
+   */
+  public function iScrollToTop(): void {
+    $this->getSession()
+      ->executeScript('window.scrollTo(0,0);');
   }
 
   /**
