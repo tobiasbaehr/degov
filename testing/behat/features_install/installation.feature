@@ -4,11 +4,11 @@ Feature: Installation via webbrowser
     Given I am on "/core/install.php"
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
-#    Then I should see text matching "Datenbankkonfiguration" after a while
-#    Then I fill in "edit-mysql-database" with "testing"
-#    Then I fill in "edit-mysql-username" with "root"
-#    Then I fill in "edit-mysql-password" with "testing"
-#    Then I submit the form
+    Then I should see text matching "Datenbankkonfiguration" after a while
+    Then I fill in "edit-mysql-database" with "testing"
+    Then I fill in "edit-mysql-username" with "root"
+    Then I fill in "edit-mysql-password" with "testing"
+    Then I submit the form
     And task "Datenbank einrichten" is done
     And task "Website installieren" is done
     And task "Übersetzungen konfigurieren" is done
