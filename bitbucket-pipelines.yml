@@ -23,7 +23,8 @@ pipelines:
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
           - php composer-require-namespace.php
           - composer dump-autoload
-          - screen -dmS php-server php -S localhost:80 -t docroot &
+#          - screen -dmS php-server php -S localhost:80 -t docroot &
+          - php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
           - (cd docroot/profiles/contrib/degov && phpunit)
