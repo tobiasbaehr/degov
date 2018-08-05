@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Cleanup for Behat feature context
 - Implemented Behat test for "Instagram feed block" from "deGov - Social media Instagram" module
 - Behat tests for various media entity types
-
+- Fixed social media settings video installation
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
