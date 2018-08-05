@@ -8,3 +8,4 @@ dependencies:
   - degov_image_and_crop_styles
   - field
   - text
+  - degov_search_media

@@ -103,6 +103,7 @@ function degov_media_setup(&$install_state) {
     'degov_media_tweet'          => 'degov_media_tweet',
     'degov_media_video'          => 'degov_media_video',
     'degov_media_video_upload'   => 'degov_media_video_upload',
+    'degov_search_media'         => 'degov_search_media',
     'degov_media_overrides'      => 'degov_media_overrides',
   ];
 
