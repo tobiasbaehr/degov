@@ -19,7 +19,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-account-pass-pass1" with "password"
     And I fill in "edit-account-pass-pass2" with "password"
     And I fill in "edit-account-mail" with "admin@example.com"
-    And I select "Deutschland" in "Standard-Land"
+    And I select "Deutschland" in "edit-site-default-country"
     And I submit the form
     Then I should not see text matching "Es wurde eine nicht erlaubte Auswahl entdeckt." after a while
     And task "Website konfigurieren" is done
