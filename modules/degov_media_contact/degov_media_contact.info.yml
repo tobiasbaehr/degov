@@ -1,5 +1,5 @@
-name: 'deGov - Media Contact'
-description: 'Dient der Erstellung einer Kontaktperson/-stelle.'
+name: 'deGov - media contact'
+description: 'Contains a media type for a contact or a location.'
 type: module
 core: 8.x
 package: deGov
