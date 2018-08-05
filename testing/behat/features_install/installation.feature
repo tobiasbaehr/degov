@@ -28,6 +28,3 @@ Feature: Installation via webbrowser
     And task "Install deGov - Media" is done
     And task "Install deGov - Theme" is done
     Then I should see text matching "deGov wurde erfolgreich installiert." after a while
-    And I should not see text matching "The import failed due for the following reasons:"
-    And I should not see text matching "Error"
-    And I should not see text matching "Warning"

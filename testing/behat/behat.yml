@@ -11,7 +11,7 @@ default:
         - Drupal\degov\Behat\Context\NodeContentTypeFormContext
         - Drupal\degov\Behat\Context\BlockContext
       paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features/node_content_type_form.feature'
       translation:
           locale: de
   extensions:
