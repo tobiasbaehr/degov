@@ -48,14 +48,15 @@ function degov_module_setup(&$install_state) {
   $files = system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
-	$modules = [
-		'degov_common'                      => 'degov_common',
-		'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
-		'degov_date_formats'                => 'degov_date_formats',
-		'degov_pathauto'                    => 'degov_pathauto',
-		'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
+  $modules = [
+    'degov_common'                      => 'degov_common',
+    'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+    'degov_date_formats'                => 'degov_date_formats',
+    'degov_pathauto'                    => 'degov_pathauto',
+    'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
     'degov_users_roles'                 => 'degov_users_roles',
-	];
+    'degov_node_overrides'              => 'degov_node_overrides',
+  ];
 
   // Add a batch operation to install each module.
   $operations = [];
@@ -89,19 +90,20 @@ function degov_media_setup(&$install_state) {
 
   // Define all required base deGov modules and features.
   $modules = [
-    'degov_media_address'         => 'degov_media_address',
-    'degov_media_audio'           => 'degov_media_audio',
-    'degov_media_caption_helper'  => 'degov_media_caption_helper',
-    'degov_media_citation'        => 'degov_media_citation',
-    'degov_media_contact'         => 'degov_media_contact',
-    'degov_media_document'        => 'degov_media_document',
-    'degov_media_gallery'         => 'degov_media_gallery',
-    'degov_media_image'           => 'degov_media_image',
-    'degov_media_instagram'       => 'degov_media_instagram',
-    'degov_media_person'          => 'degov_media_person',
-    'degov_media_tweet'           => 'degov_media_tweet',
-    'degov_media_video'           => 'degov_media_video',
-    'degov_media_video_upload'    => 'degov_media_video_upload',
+    'degov_media_address'        => 'degov_media_address',
+    'degov_media_audio'          => 'degov_media_audio',
+    'degov_media_caption_helper' => 'degov_media_caption_helper',
+    'degov_media_citation'       => 'degov_media_citation',
+    'degov_media_contact'        => 'degov_media_contact',
+    'degov_media_document'       => 'degov_media_document',
+    'degov_media_gallery'        => 'degov_media_gallery',
+    'degov_media_image'          => 'degov_media_image',
+    'degov_media_instagram'      => 'degov_media_instagram',
+    'degov_media_person'         => 'degov_media_person',
+    'degov_media_tweet'          => 'degov_media_tweet',
+    'degov_media_video'          => 'degov_media_video',
+    'degov_media_video_upload'   => 'degov_media_video_upload',
+    'degov_media_overrides'      => 'degov_media_overrides',
   ];
 
   // Add a batch operation to install each module.
