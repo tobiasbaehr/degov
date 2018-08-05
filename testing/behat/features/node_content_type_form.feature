@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: NRWGov check normal page form
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role

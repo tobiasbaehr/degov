@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: NRWGov media types
   Scenario: Checking available Media Types
     Given I am logged in as a user with the "administrator" role
