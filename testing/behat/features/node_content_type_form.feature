@@ -1,5 +1,11 @@
 @api @drupal
-Feature: NRWGov check normal page form
+Feature: nrwGOV check normal page form
+
+  Background:
+    Given I proof that Drupal module "pathauto" is installed
+    Given I proof that Drupal module "redirect" is installed
+    Given I proof that Drupal module "degov_pathauto" is installed
+
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"

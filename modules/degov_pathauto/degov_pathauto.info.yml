@@ -4,10 +4,10 @@ package: deGov
 type: module
 core: 8.x
 dependencies:
-  - media
-  - node
   - pathauto
   - redirect
+  - media
+  - node
   - taxonomy
   - user
   - config_replace
