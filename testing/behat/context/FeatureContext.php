@@ -188,15 +188,6 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * @Then /^I select "([^"]*)" in "([^"]*)"$/
-   */
-  public function selectOption($label, $id) {
-    $page = $this->getSession()->getPage();
-    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $selectElement->selectOption($label);
-  }
-
-  /**
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */
