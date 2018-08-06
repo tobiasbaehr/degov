@@ -12,6 +12,7 @@ default:
         - Drupal\degov\Behat\Context\BlockContext
         - Drupal\degov\Behat\Context\ModuleContext
         - Drupal\degov\Behat\Context\JavaScriptContext
+        - Drupal\degov\Behat\Context\Traits\ErrorTrait
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
