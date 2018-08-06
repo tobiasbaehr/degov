@@ -22,8 +22,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-account-mail" with "admin@example.com"
     And I select "Deutschland" in "edit-site-default-country"
     And I submit the form
-    Then I should not see text matching "Es wurde eine nicht erlaubte Auswahl entdeckt." after a while
-    And task "Website konfigurieren" is done
+    Then task "Website konfigurieren" is done
     And task "Install deGov - Base" is done
     And task "Install deGov - Media" is done
     And task "Install deGov - Theme" is done
