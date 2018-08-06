@@ -45,7 +45,7 @@ function degov_module_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
   $modules = [
@@ -56,6 +56,7 @@ function degov_module_setup(&$install_state) {
     'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
     'degov_users_roles'                 => 'degov_users_roles',
     'degov_node_overrides'              => 'degov_node_overrides',
+    'degov_node_normal_page'            => 'degov_node_normal_page',
   ];
 
   // Add a batch operation to install each module.
@@ -86,7 +87,7 @@ function degov_media_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
   $modules = [

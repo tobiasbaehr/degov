@@ -3,9 +3,10 @@ Feature: nrwGOV check normal page form
 
   Background:
     Given I proof that the following Drupal modules are installed:
-     | machine_name   |
-     | pathauto       |
-     | degov_pathauto |
+      | machine_name           |
+      | degov_node_normal_page |
+      | pathauto               |
+      | degov_pathauto         |
 
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role
