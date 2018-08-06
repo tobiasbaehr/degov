@@ -63,10 +63,6 @@ class ModuleContext extends RawDrupalContext {
     $moduleMachineNames = array_keys($rowsHash);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      if ($this->getModuleHandler()->moduleExists($moduleMachineName)){
-        throw new ResponseTextException("Drupal module '$moduleMachineName' is already installed.", $this->getSession());
-      }
-
       $this->getModuleInstaller()->install([$moduleMachineName]);
     }
   }
