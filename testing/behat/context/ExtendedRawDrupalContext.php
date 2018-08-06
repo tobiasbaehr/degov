@@ -13,32 +13,6 @@ use Drupal\DrupalExtension\Context\RawDrupalContext;
 class ExtendedRawDrupalContext extends RawDrupalContext {
 
   /**
-   * @param int    $seconds
-   * @param string $locator
-   * @param string $selector
-   *
-   * @return bool
-   * @throws ResponseTextException
-   */
-  protected function waitSecondsUntilElementAppears($seconds, $locator, $selector = 'css') {
-    $startTime = time();
-    do {
-      try {
-        $node = $this->getSession()->getPage()->findAll($selector, $locator);
-        if (count($node) > 0) {
-          return true;
-        }
-      } catch (ExpectationException $e) {
-        /* Intentionally left blank */
-      }
-    } while (time() - $startTime < $seconds);
-    throw new ResponseTextException(
-      sprintf('Cannot find the element %s after %s seconds', $locator, $seconds),
-      $this->getSession()
-    );
-  }
-
-  /**
    * @Then header has CSS class for fluid bootstrap layout
    */
   public function headerHasCssClassForFluidBootstrapLayout() : ?bool {
