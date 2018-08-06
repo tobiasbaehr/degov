@@ -2,11 +2,13 @@
 Feature: deGov - Media creation
 
   Background:
-    Given I proof that Drupal module "degov_media_video" is installed
-    And I proof that Drupal module "degov_node_overrides" is installed
-    And I proof that Drupal module "degov_node_normal_page" is installed
-    And I proof that Drupal module "degov_paragraph_text" is installed
-    And I proof that Drupal module "degov_paragraph_media_reference" is installed
+    Given I proof that the following Drupal modules are installed:
+      | machine_name                    |
+      | degov_media_video               |
+      | degov_node_overrides            |
+      | degov_node_normal_page          |
+      | degov_paragraph_text            |
+      | degov_paragraph_media_reference |
 
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role

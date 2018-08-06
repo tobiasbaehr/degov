@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Extension\ModuleHandler;
@@ -66,22 +67,36 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
   }
 
   /**
-   * Proofs multiple Drupal module's installation.
+   * Proofs multiple Drupal modules installation.
    *
    * Provide module data in the following format:
    *
-   * | machine_name     |
-   * | webform          |
-   * | devel            |
+   * | machine_name |
+   * | webform      |
+   * | devel        |
    *
-   * @Given I proof that :
+   * @Given I proof that the following Drupal modules are installed:
    */
-  public function proofMultipleDrupalModulesAreInstalled(TableNode $fields)
+  public function proofMultipleDrupalModulesAreInstalled(TableNode $modulesTable)
   {
-    foreach ($fields->getRowsHash() as $field => $value) {
-      $this->fillField($field, $value);
+    $rowsHash = $modulesTable->getRowsHash();
+    $moduleMachineNames = array_keys($rowsHash);
+    if ($moduleMachineNames['0'] !== 'machine_name') {
+      throw new ResponseTextException("You must specify a 'machine_name' table column identifier.", $this->getSession());
+    }
+    unset($moduleMachineNames['0']);
+
+    foreach ($moduleMachineNames as $moduleMachineName) {
+      /**
+       * @var ModuleHandler $moduleHandler
+       */
+      $moduleHandler = \Drupal::service('module_handler');
+      if (!$moduleHandler->moduleExists($moduleMachineName)){
+        throw new ResponseTextException("Drupal module '$moduleMachineName'' is not installed.", $this->getSession());
+      }
+
+      return TRUE;
     }
   }
-
 
 }
