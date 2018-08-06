@@ -6,7 +6,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ExpectationException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Extension\ModuleHandler;
-use Drupal\Core\Extension\ModuleInstaller;
+use Drupal\Core\ProxyClass\Extension\ModuleInstaller;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 
