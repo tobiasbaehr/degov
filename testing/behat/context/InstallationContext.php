@@ -10,6 +10,14 @@ class InstallationContext extends RawMinkContext {
 
   private const MAX_DURATION_SECONDS = 1200;
 
+  private const ERROR_TEXTS = [
+    'Error',
+    'Warning',
+    'Notice',
+    'The import failed due for the following reasons:',
+    'Es wurde eine nicht erlaubte Auswahl entdeckt.',
+  ];
+
   /**
    * @Then /^task "([^"]*)" is done$/
    */
@@ -33,24 +41,7 @@ class InstallationContext extends RawMinkContext {
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
 
-        $content = $this->getSession()->getPage()->getText();
-
-        if (substr_count($content, 'Error') > 0) {
-          $errorText = 'Error';
-        } elseif (substr_count($content, 'Warning') > 0) {
-          $errorText = 'Warning';
-        } elseif (substr_count($content, 'Notice') > 0) {
-          $errorText = 'Notice';
-        } elseif (substr_count($content, 'The import failed due for the following reasons:') > 0) {
-          $errorText = 'The import failed due for the following reasons:';
-        }
-
-        if (!empty($errorText)) {
-          throw new ResponseTextException(
-            sprintf('Task failed due "%s" text on page', $errorText),
-            $this->getSession()
-          );
-        }
+        $this->checkErrors();
 
         if (\count($task) > 0) {
           return true;
@@ -64,6 +55,20 @@ class InstallationContext extends RawMinkContext {
       return TRUE;
     }
 
+  }
+
+  /**
+   * @afterStep
+   */
+  public function checkErrors(): void {
+    foreach (self::ERROR_TEXTS as $errorText) {
+      if (substr_count($this->getSession()->getPage()->getText(), $errorText) > 0) {
+        throw new ResponseTextException(
+          sprintf('Task failed due "%s" text on page', $errorText),
+          $this->getSession()
+        );
+      }
+    }
   }
 
 }

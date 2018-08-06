@@ -71,3 +71,4 @@ dependencies:
 themes:
   - degov_base_theme
   - seven
+  - bartik

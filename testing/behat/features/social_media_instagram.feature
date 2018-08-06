@@ -2,9 +2,11 @@
 Feature: deGov - Social media Instagram
 
   Background:
+    Given I am installing the following Drupal modules:
+      | machine_name                 |
+      | degov_social_media_instagram |
+    Given I proof that Drupal module "degov_social_media_settings" is installed
     Given I delete any existing blocks with comma separated ids "social_media_settings_block, instagramfeedblock"
-    Given I am installing the "degov_social_media_settings" module
-    Given I am installing the "degov_social_media_instagram" module
     Given I configure and place the deGov social media settings block
     Given I configure and place the Instagram feed block
 
@@ -12,7 +14,6 @@ Feature: deGov - Social media Instagram
     Given I am on "/"
     Then I should see HTML content matching "Social Media Settings" after a while
     And I should see HTML content matching "Instagram feed block"
-    And I should see HTML content matching "This social media source is disabled. After accepting our cookie policy, you can enable it."
     And I should not see HTML content matching "slick-slide"
     Then I click by selector ".social-media-settings--menu-item" via JavaScript
     And I check checkbox by value "instagram" via JavaScript
