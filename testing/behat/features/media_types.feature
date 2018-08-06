@@ -1,5 +1,5 @@
 @api @drupal
-Feature: NRWGov media types
+Feature: nrwGOV media types
   Scenario: Checking available Media Types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media"
@@ -15,7 +15,6 @@ Feature: NRWGov media types
     And I should see text matching "Video"
     And I should see text matching "Video Upload"
     And I should see text matching "Zitat"
-
 
   Scenario: Media type Adress has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -167,7 +166,6 @@ Feature: NRWGov media types
      And I should see text matching "field_video_upload_preview"
      And I should see text matching "field_video_upload_webm"
      And I should see text matching "field_title"
-
 
   Scenario: Media type Citation has all required fields
     Given I am logged in as a user with the "administrator" role

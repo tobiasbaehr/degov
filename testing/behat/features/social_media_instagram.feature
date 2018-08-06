@@ -12,7 +12,6 @@ Feature: deGov - Social media Instagram
     Given I am on "/"
     Then I should see HTML content matching "Social Media Settings" after a while
     And I should see HTML content matching "Instagram feed block"
-    And I should see HTML content matching "This social media source is disabled. After accepting our cookie policy, you can enable it."
     And I should not see HTML content matching "slick-slide"
     Then I click by selector ".social-media-settings--menu-item" via JavaScript
     And I check checkbox by value "instagram" via JavaScript
