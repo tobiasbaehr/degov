@@ -64,7 +64,6 @@ Feature: deGov - Media creation
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
-    Then I should see text matching "Quelle" after a while
     And I fill in the following:
       | Öffentlicher Titel  | Example video                               |
       | Name                | Example video public                        |
