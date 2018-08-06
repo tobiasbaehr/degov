@@ -1,5 +1,8 @@
 @api @drupal
-Feature: Test deGov
+Feature: deGov - Users
+
+  Background:
+    Given I proof that Drupal module "degov_users_roles" is installed
 
   Scenario: I am on the frontpage
     Given I am on "/"
@@ -13,10 +16,3 @@ Feature: Test deGov
     And I should see "Chefredakteur"
     And I should see "Redakteur"
     And I should see "Benutzerverwaltung"
-
-  Scenario: I am visiting the media edit pages #2986289
-    Given I am on "/admin/structure/media/manage/address"
-    Then I am on "/admin/structure/media/manage/gallery"
-    Then I am on "/admin/structure/media/manage/video_upload"
-    Then I am on "/admin/structure/media/manage/person"
-    Then I am on "/admin/structure/media/manage/audio"

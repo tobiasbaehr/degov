@@ -1,15 +1,15 @@
 @api @drupal
-Feature: Test deGov - Content moderation and workflow
+Feature: deGov - Editorial
 
   Background:
     Given users:
       | name    | mail               | pass     | roles   |
       | editor  | editor@example.com | password | editor  |
       | manager | editor@example.com | password | manager |
+    Given I proof that Drupal module "degov_node_normal_page" is installed
 
   Scenario: "I am creating content with role 'Redakteur' and publisheding it with the 'Chefredakteur' role"
     Given I am logged in as a user with the "Administrator" role
-    Then I am installing the "degov_node_normal_page" module
     Then I am on "/admin/config/workflow/workbench_access/sections/section/users"
     And I fill in "edit-editors-add" with "editor"
     And I press the "Hinzufügen" button

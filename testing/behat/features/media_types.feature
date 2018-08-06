@@ -1,6 +1,7 @@
-@api @drupal @javascript
-Feature: NRWGov media types
-  Scenario: Checking available Media Types
+@api @drupal
+Feature: deGov - Media types
+
+  Scenario: Checking available media types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media"
     Then I should see text matching "Adresse"
@@ -16,8 +17,7 @@ Feature: NRWGov media types
     And I should see text matching "Video Upload"
     And I should see text matching "Zitat"
 
-
-  Scenario: Media type Adress has all required fields
+  Scenario: Media type address has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/address/fields"
     Then I should see text matching "field_address_address"
@@ -32,7 +32,7 @@ Feature: NRWGov media types
     And I should see text matching "field_address_title"
     And I should see text matching "field_title"
 
-  Scenario: Media type Audio has all required fields
+  Scenario: Media type audio has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/audio/fields"
     Then I should see text matching "field_audio_caption"
@@ -50,7 +50,7 @@ Feature: NRWGov media types
     And I should see text matching "field_audio_preview"
     And I should see text matching "field_title"
 
-  Scenario: Media type Image has all required fields
+  Scenario: Media type image has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/image/fields"
     Then I should see text matching "field_description"
@@ -68,7 +68,7 @@ Feature: NRWGov media types
     And I should see text matching "field_subtitle"
     And I should see text matching "field_title"
 
-  Scenario: Media type Gallery has all required fields
+  Scenario: Media type gallery has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/gallery/fields"
     Then I should see text matching "field_description"
@@ -80,7 +80,7 @@ Feature: NRWGov media types
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_title"
 
-  Scenario: Media type Document has all required fields
+  Scenario: Media type document has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/document/fields"
     Then I should see text matching "field_document"
@@ -89,7 +89,7 @@ Feature: NRWGov media types
     And I should see text matching "field_tags"
     And I should see text matching "field_title"
 
-  Scenario: Media type Instragram has all required fields
+  Scenario: Media type instragram has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/instagram/fields"
     Then I should see text matching "embed_code"
@@ -98,7 +98,7 @@ Feature: NRWGov media types
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_title"
 
-  Scenario: Media type Kontakt has all requried fields
+  Scenario: Media type contact has all requried fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/contact/fields"
     Then I should see text matching "field_contact_email"
@@ -113,7 +113,7 @@ Feature: NRWGov media types
     And I should see text matching "field_contact_tel"
     And I should see text matching "field_title"
 
-  Scenario: Media Type Person has all required fields
+  Scenario: Media Type person has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/person/fields"
     Then I should see text matching "field_person_image"
@@ -124,7 +124,7 @@ Feature: NRWGov media types
     And I should see text matching "field_tags"
     And I should see text matching "field_title"
 
-  Scenario: Media Type Tweet has all required fields
+  Scenario: Media type tweet has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/tweet/fields"
     Then I should see text matching "field_include_search"
@@ -148,7 +148,7 @@ Feature: NRWGov media types
     And I should see text matching "field_video_preview"
     And I should see text matching "field_title"
 
-   Scenario: Media type Video-Upload has all required fields
+   Scenario: Media type video_upload has all required fields
      Given I am logged in as a user with the "administrator" role
      And I am on "/admin/structure/media/manage/video_upload/fields"
      Then I should see text matching "field_description"
@@ -168,8 +168,7 @@ Feature: NRWGov media types
      And I should see text matching "field_video_upload_webm"
      And I should see text matching "field_title"
 
-
-  Scenario: Media type Citation has all required fields
+  Scenario: Media type citation has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/citation/fields"
     Then I should see text matching "field_citation_date"
@@ -181,3 +180,10 @@ Feature: NRWGov media types
     And I should see text matching "field_citation_text"
     And I should see text matching "field_citation_title"
     And I should see text matching "field_title"
+
+  Scenario: I am visiting the media entity type configuration pages
+    Given I am on "/admin/structure/media/manage/address"
+    Then I am on "/admin/structure/media/manage/gallery"
+    Then I am on "/admin/structure/media/manage/video_upload"
+    Then I am on "/admin/structure/media/manage/person"
+    Then I am on "/admin/structure/media/manage/audio"

@@ -161,4 +161,13 @@ class DrupalIndependentContext extends RawMinkContext {
 		$element->click();
 	}
 
+  /**
+   * @Then /^I select "([^"]*)" in "([^"]*)"$/
+   */
+  public function selectOption($label, $id) {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $selectElement->selectOption($label);
+  }
+
 }
