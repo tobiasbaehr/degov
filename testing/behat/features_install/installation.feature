@@ -1,6 +1,6 @@
 Feature: Installation via webbrowser
 
-  Scenario: I want to install nrwGov via webbrowser
+  Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
