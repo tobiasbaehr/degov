@@ -65,6 +65,17 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
     return TRUE;
   }
 
+  /**
+   * Proofs multiple Drupal module's installation.
+   *
+   * Provide module data in the following format:
+   *
+   * | machine_name     |
+   * | webform          |
+   * | devel            |
+   *
+   * @Given I proof that :
+   */
   public function proofMultipleDrupalModulesAreInstalled(TableNode $fields)
   {
     foreach ($fields->getRowsHash() as $field => $value) {
