@@ -1,6 +1,16 @@
 @api @drupal @javascript
 Feature: NRWGov view modes
 
+  Background:
+    Given I am installing the following Drupal modules:
+      | machine_name     |
+      | simplenews       |
+      | degov_simplenews |
+      | degov_node_press |
+      | degov_node_blog  |
+      | degov_node_event |
+    Given I proof that Drupal module "degov_node_normal_page" is installed
+
   Scenario: Content type normal_page has necessary view modes
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/types/manage/normal_page/display"
