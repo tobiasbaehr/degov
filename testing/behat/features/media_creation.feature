@@ -75,7 +75,7 @@ Feature: deGov - Media creation
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
     And I should see "Video Example video public wurde erstellt."
 
-  Scenario: I am creating an instagram media entity
+  Scenario: I am creating an Instagram media entity
     Given I am logged in as an "Administrator"
     When I go to "media/add/instagram"
     Then I should see text matching "Öffentlicher Titel" after a while
