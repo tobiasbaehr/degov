@@ -38,6 +38,7 @@ Feature: deGov - Media creation
     Given I am logged in as a user with the "Administrator" role
     And I am on "media/add/citation"
     And I click "Beschreibung"
+    Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
       | Name               | Example quote              |
       | Öffentlicher Titel | Example quote public       |
@@ -51,6 +52,7 @@ Feature: deGov - Media creation
     Given I am logged in as a user with the "Administrator" role
     And I am on "media/add/person"
     And I click "Beschreibung"
+    Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
       | Name               | Example person |
       | Öffentlicher Titel | Example person public |
@@ -62,6 +64,7 @@ Feature: deGov - Media creation
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
+    Then I should see text matching "Quelle" after a while
     And I fill in the following:
       | Öffentlicher Titel  | Example video                               |
       | Name                | Example video public                        |
@@ -75,6 +78,7 @@ Feature: deGov - Media creation
   Scenario: I am creating an instagram media entity
     Given I am logged in as an "Administrator"
     When I go to "media/add/instagram"
+    Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
       | Name               | Example Instagram                      |
       | Öffentlicher Titel | Example Instagram public               |
