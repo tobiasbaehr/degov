@@ -1,5 +1,5 @@
-@api @drupal @javascript
-Feature: NRWGov view modes
+@api @drupal
+Feature: deGov view modes
 
   Background:
     Given I am installing the following Drupal modules:
