@@ -179,3 +179,10 @@ Feature: nrwGOV media types
     And I should see text matching "field_citation_text"
     And I should see text matching "field_citation_title"
     And I should see text matching "field_title"
+
+  Scenario: I am visiting the media entity type configuration pages
+    Given I am on "/admin/structure/media/manage/address"
+    Then I am on "/admin/structure/media/manage/gallery"
+    Then I am on "/admin/structure/media/manage/video_upload"
+    Then I am on "/admin/structure/media/manage/person"
+    Then I am on "/admin/structure/media/manage/audio"

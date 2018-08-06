@@ -57,6 +57,7 @@ function degov_module_setup(&$install_state) {
     'degov_users_roles'                 => 'degov_users_roles',
     'degov_node_overrides'              => 'degov_node_overrides',
     'degov_node_normal_page'            => 'degov_node_normal_page',
+    'degov_paragraph_text'              => 'degov_paragraph_text',
   ];
 
   // Add a batch operation to install each module.
