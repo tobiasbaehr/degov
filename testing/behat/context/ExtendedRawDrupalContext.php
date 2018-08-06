@@ -65,4 +65,12 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
     return TRUE;
   }
 
+  public function proofMultipleDrupalModulesAreInstalled(TableNode $fields)
+  {
+    foreach ($fields->getRowsHash() as $field => $value) {
+      $this->fillField($field, $value);
+    }
+  }
+
+
 }
