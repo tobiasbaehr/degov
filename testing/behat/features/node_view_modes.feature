@@ -1,0 +1,69 @@
+@api @drupal @javascript
+Feature: NRWGov view modes
+
+  Scenario: Content type normal_page has necessary view modes
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/types/manage/normal_page/display"
+    Then I should not see text matching "Error"
+    And I should not see text matching "Warning"
+    Then I should see text matching "Default"
+    And I should see text matching "Teaser langer Text"
+    And I should see text matching "Teaser Preview"
+    And I should see text matching "Slideshow"
+    And I should see text matching "Teaser schmal"
+    And I should see text matching "Teaser kleines Bild"
+    And I should see text matching "Anrisstext"
+
+  Scenario: Content type blog has necessary view modes
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/types/manage/blog/display"
+    Then I should not see text matching "Error"
+    And I should not see text matching "Warning"
+    Then I should see text matching "Default"
+    And I should see text matching "Teaser langer Text"
+    And I should see text matching "Teaser Preview"
+    And I should see text matching "Slideshow"
+    And I should see text matching "Teaser schmal"
+    And I should see text matching "Teaser kleines Bild"
+    And I should see text matching "Anrisstext"
+
+  Scenario: Content type press has necessary view modes
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/types/manage/press/display"
+    Then I should not see text matching "Error"
+    And I should not see text matching "Warning"
+    Then I should see text matching "Default"
+    And I should see text matching "Latest"
+    And I should see text matching "Teaser langer Text"
+    And I should see text matching "Teaser Preview"
+    And I should see text matching "Slideshow"
+    And I should see text matching "Teaser schmal"
+    And I should see text matching "Teaser kleines Bild"
+    And I should see text matching "Anrisstext"
+
+  Scenario: Content type event has necessary view modes
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/types/manage/event/display"
+    Then I should not see text matching "Error"
+    And I should not see text matching "Warning"
+    Then I should see text matching "Default"
+    And I should see text matching "Latest"
+    And I should see text matching "Teaser langer Text"
+    And I should see text matching "Teaser Preview"
+    And I should see text matching "Slideshow"
+    And I should see text matching "Teaser schmal"
+    And I should see text matching "Teaser kleines Bild"
+    And I should see text matching "Anrisstext"
+
+  Scenario: Content type simplenews_issue has necessary view modes
+    Given I am logged in as a user with the "administrator" role
+    And I proof that Drupal module "simplenews" is installed
+    And I proof that Drupal module "degov_simplenews" is installed
+    Then I am on "/admin/structure/types/manage/simplenews_issue/display"
+    And I should not see text matching "Error"
+    And I should not see text matching "Warning"
+    Then I should see HTML content matching "Default"
+    And I should see HTML content matching "Anrisstext"
+    And I should see HTML content matching "E-Mail: HTML"
+    And I should see HTML content matching "E-Mail: Nur-Text"
+    And I should see HTML content matching "E-Mail: HTML Text Alternative"
