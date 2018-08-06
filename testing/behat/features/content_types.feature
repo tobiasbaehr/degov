@@ -3,7 +3,6 @@ Feature: deGov - Content types
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | machine_name           |
       | degov_node_overrides   |
       | degov_node_normal_page |
     Given I am installing the "degov_node_event" module

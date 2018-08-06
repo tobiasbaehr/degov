@@ -3,13 +3,13 @@ Feature: NRWGov view modes
 
   Background:
     Given I am installing the following Drupal modules:
-      | machine_name     |
-      | simplenews       |
       | degov_simplenews |
       | degov_node_press |
       | degov_node_blog  |
       | degov_node_event |
-    Given I proof that Drupal module "degov_node_normal_page" is installed
+    Given I proof that the following Drupal modules are installed:
+      | simplenews             |
+      | degov_node_normal_page |
 
   Scenario: Content type normal_page has necessary view modes
     Given I am logged in as a user with the "administrator" role
@@ -67,8 +67,6 @@ Feature: NRWGov view modes
 
   Scenario: Content type simplenews_issue has necessary view modes
     Given I am logged in as a user with the "administrator" role
-    And I proof that Drupal module "simplenews" is installed
-    And I proof that Drupal module "degov_simplenews" is installed
     Then I am on "/admin/structure/types/manage/simplenews_issue/display"
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
