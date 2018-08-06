@@ -8,7 +8,7 @@ Feature: deGov - Media creation
       | degov_node_overrides            |
       | degov_node_normal_page          |
       | degov_paragraph_text            |
-      | degov_paragraph_media_reference |
+    Given I am installing the "degov_paragraph_media_reference" module
 
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role
