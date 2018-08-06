@@ -6,7 +6,6 @@ default:
         - Drupal\degov\Behat\Context\InstallationContext
         - Drupal\degov\Behat\Context\DrupalIndependentContext
         - Drupal\degov\Behat\Context\JavaScriptContext
-        - Drupal\degov\Behat\Context\Traits\ErrorTrait
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
   extensions:
