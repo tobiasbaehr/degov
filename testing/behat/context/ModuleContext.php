@@ -50,10 +50,6 @@ class ModuleContext extends RawDrupalContext {
    * @Then /^I am installing the "([^"]*)" module$/
    */
   public function iAmInstallingTheModule(string $moduleName): void {
-    if ($this->getModuleHandler()->moduleExists($moduleName)){
-      throw new ResponseTextException("Drupal module '$moduleName is already installed.", $this->getSession());
-    }
-
     $this->getModuleInstaller()->install([$moduleName]);
   }
 

@@ -5,9 +5,9 @@ Feature: Installation via webbrowser
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
     Then I should see text matching "Datenbankkonfiguration" after a while
-    Then I fill in "edit-mysql-database" with "testing"
-    Then I fill in "edit-mysql-username" with "root"
-    Then I fill in "edit-mysql-password" with "testing"
+    And I fill in "edit-mysql-database" with "testing"
+    And I fill in "edit-mysql-username" with "root"
+    And I fill in "edit-mysql-password" with "testing"
     Then I submit the form
     And task "Datenbank einrichten" is done
     And task "Website installieren" is done
