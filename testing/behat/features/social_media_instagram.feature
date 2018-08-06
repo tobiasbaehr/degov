@@ -2,9 +2,11 @@
 Feature: deGov - Social media Instagram
 
   Background:
+    Given I am installing the following Drupal modules:
+      | machine_name                 |
+      | degov_social_media_settings  |
+      | degov_social_media_instagram |
     Given I delete any existing blocks with comma separated ids "social_media_settings_block, instagramfeedblock"
-    Given I am installing the "degov_social_media_settings" module
-    Given I am installing the "degov_social_media_instagram" module
     Given I configure and place the deGov social media settings block
     Given I configure and place the Instagram feed block
 

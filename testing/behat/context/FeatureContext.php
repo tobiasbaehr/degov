@@ -261,13 +261,6 @@ class FeatureContext extends ExtendedRawDrupalContext {
   }
 
   /**
-   * @Then /^I am installing the "([^"]*)" module$/
-   */
-  public function iAmInstallingTheModule(string $moduleName) {
-    \Drupal::service('module_installer')->install([$moduleName]);
-  }
-
-  /**
    * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
    */
   public function iShouldSeeTheOptionIn(string $value, string $id) {
