@@ -20,8 +20,7 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
    * @return bool
    * @throws ResponseTextException
    */
-  protected function waitSecondsUntilElementAppears($seconds, $locator, $selector = 'css')
-  {
+  protected function waitSecondsUntilElementAppears($seconds, $locator, $selector = 'css') {
     $startTime = time();
     do {
       try {
@@ -42,8 +41,7 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
   /**
    * @Then header has CSS class for fluid bootstrap layout
    */
-  public function headerHasCssClassForFluidBootstrapLayout() : ?bool
-  {
+  public function headerHasCssClassForFluidBootstrapLayout() : ?bool {
     $header = $this->getSession()->getPage()->findAll('css', 'header.container-fluid');
     if (\count($header) > 0) {
       return true;
@@ -81,8 +79,8 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
     unset($moduleMachineNames['0']);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      if ($this->getModuleHandler()->moduleExists($moduleMachineName)){
-        throw new ResponseTextException("Drupal module '$moduleMachineName'' is not installed.", $this->getSession());
+      if (!$this->getModuleHandler()->moduleExists($moduleMachineName)){
+        throw new ResponseTextException("Drupal module '$moduleMachineName' is not installed.", $this->getSession());
       }
     }
   }
