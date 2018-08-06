@@ -1,5 +1,13 @@
-@api @drupal @javascript
-Feature: NRWGov check normal page form
+@api @drupal
+Feature: deGov - Content type form
+
+  Background:
+    Given I proof that the following Drupal modules are installed:
+      | machine_name           |
+      | degov_node_normal_page |
+      | pathauto               |
+      | degov_pathauto         |
+
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"
@@ -34,6 +42,7 @@ Feature: NRWGov check normal page form
     And I choose "Seitenleiste rechts" from tab menu
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
+    Then I should see text matching "URL-ALIAS-EINSTELLUNGEN" after a while
     And I select "URL-ALIAS-EINSTELLUNGEN" from rightpane
     Then I should see text matching "Automatischen URL-Alias erzeugen" after a while
     And I fill in "path[0][alias]" with "/aabbcc"
