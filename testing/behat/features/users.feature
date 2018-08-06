@@ -1,5 +1,5 @@
 @api @drupal
-Feature: Test deGov
+Feature: deGov - Users
 
   Background:
     Given I proof that Drupal module "degov_users_roles" is installed

@@ -1,5 +1,6 @@
 @api @drupal
-Feature: nrwGOV media types
+Feature: deGov - Media types
+
   Scenario: Checking available Media Types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media"

@@ -1,5 +1,5 @@
 @api @drupal
-Feature: Test deGov - Content moderation and workflow
+Feature: deGov - Editorial
 
   Background:
     Given users:

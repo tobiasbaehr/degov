@@ -1,5 +1,5 @@
 @api @drupal
-Feature: nrwGOV check normal page form
+Feature: deGov - Content type form
 
   Background:
     Given I proof that the following Drupal modules are installed:
