@@ -6,7 +6,7 @@ Feature: deGov - Content types
       | machine_name           |
       | degov_node_overrides   |
       | degov_node_normal_page |
-    Given I am installing the "degov_node_event" module
+      | degov_node_event       |
 
   Scenario: Content type normal_page has all required fields
     Given I am logged in as a user with the "administrator" role
