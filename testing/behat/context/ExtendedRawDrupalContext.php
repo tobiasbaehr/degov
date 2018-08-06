@@ -77,8 +77,7 @@ class ExtendedRawDrupalContext extends RawDrupalContext {
    *
    * @Given I proof that the following Drupal modules are installed:
    */
-  public function proofMultipleDrupalModulesAreInstalled(TableNode $modulesTable)
-  {
+  public function proofMultipleDrupalModulesAreInstalled(TableNode $modulesTable) {
     $rowsHash = $modulesTable->getRowsHash();
     $moduleMachineNames = array_keys($rowsHash);
     if ($moduleMachineNames['0'] !== 'machine_name') {

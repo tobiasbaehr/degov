@@ -12,6 +12,10 @@
  */
 function degov_install_tasks($install_state) {
   $tasks = [
+    'degov_theme_setup' => [
+      'display_name' => t('Install deGov - Theme'),
+      'display' => TRUE,
+    ],
     'degov_module_setup' => [
       'display_name' => t('Install deGov - Base'),
       'type' => 'batch',
@@ -19,10 +23,6 @@ function degov_install_tasks($install_state) {
     'degov_media_setup' => [
       'display_name' => t('Install deGov - Media'),
       'type' => 'batch',
-    ],
-    'degov_theme_setup' => [
-      'display_name' => t('Install deGov - Theme'),
-      'display' => TRUE,
     ],
     'degov_finalize_setup' => [
       'display_name' => t('Finalize installation'),
@@ -145,11 +145,11 @@ function degov_theme_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Set the default theme to be deGov.
-  $theme = 'degov_base_theme';
-  \Drupal::service('theme_handler')->install([$theme]);
+  $themes = ['degov_base_theme', 'bartik'];
+  \Drupal::service('theme_handler')->install($themes);
   \Drupal::configFactory()
     ->getEditable('system.theme')
-    ->set('default', $theme)
+    ->set('default', 'degov_base_theme')
     ->save();
   \Drupal::service('theme.manager')->resetActiveTheme();
 }
