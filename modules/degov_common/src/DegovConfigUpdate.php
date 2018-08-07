@@ -96,12 +96,15 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    *
    * @param $source_dir
    */
-  public function checkOptional($source_dir) {
-    $optional_install_path = $source_dir;
+  public function checkOptional($optional_install_path) {
     if (is_dir($optional_install_path)) {
       // Install any optional config the module provides.
       $storage = new FileStorage($optional_install_path, StorageInterface::DEFAULT_COLLECTION);
-      \Drupal::service('config.installer')->installOptionalConfig($storage, '');
+      /**
+       * @var \Drupal\Core\Config\ConfigInstaller $configInstaller
+       */
+      $configInstaller = \Drupal::service('config.installer');
+      $configInstaller->installOptionalConfig($storage, '');
     }
   }
 

@@ -3,7 +3,6 @@ Feature: deGov - Content type form
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | machine_name           |
       | degov_node_normal_page |
       | pathauto               |
       | degov_pathauto         |
