@@ -64,6 +64,7 @@ function degov_social_media_settings_preprocess_media(&$variables) {
   // - a preprocess function for the fields and a hook that informs this
   //   module about fields that need to be disabled
   if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video', 'tweet', 'instagram'])) {
+    $source = NULL;
     switch ($bundle) {
       case 'some_embed':
         // Maybe make sure this runs after degov_media_social_media_embed_preprocess_media__some_embed

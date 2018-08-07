@@ -67,6 +67,7 @@ Feature: deGov - Media creation
       | Öffentlicher Titel  | Example video                               |
       | Name                | Example video public                        |
       | Video-URL           | https://www.youtube.com/watch?v=qREKP9oijWI |
+      | Quelle              | youtube                                     |
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
