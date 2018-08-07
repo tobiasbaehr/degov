@@ -14,7 +14,7 @@ use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 
-class FeatureContext extends RawDrupalContext {
+class DrupalContext extends RawDrupalContext {
 
   /** @var array */
   protected $trash = [];
