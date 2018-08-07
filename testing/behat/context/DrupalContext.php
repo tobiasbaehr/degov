@@ -381,7 +381,7 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then I assert "([^"]*)" local task tabs
+   * @Then /^I assert "(\d+)" local task tabs$/
    */
   public function assertLocalTasksTabsNumber($number) {
     if (\count($this->getSession()->getPage()->findAll('css', ".block-local-tasks-block > nav > nav > ul > li:nth-child($number)")) > 0) {
