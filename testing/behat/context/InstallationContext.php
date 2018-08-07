@@ -4,19 +4,15 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
+use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 use WebDriver\Exception\StaleElementReference;
+
 
 class InstallationContext extends RawMinkContext {
 
-  private const MAX_DURATION_SECONDS = 1200;
+  use ErrorTrait;
 
-  private const ERROR_TEXTS = [
-    'Error',
-    'Warning',
-    'Notice',
-    'The import failed due for the following reasons:',
-    'Es wurde eine nicht erlaubte Auswahl entdeckt.',
-  ];
+  private const MAX_DURATION_SECONDS = 1200;
 
   /**
    * @Then /^task "([^"]*)" is done$/
@@ -55,20 +51,6 @@ class InstallationContext extends RawMinkContext {
       return TRUE;
     }
 
-  }
-
-  /**
-   * @afterStep
-   */
-  public function checkErrors(): void {
-    foreach (self::ERROR_TEXTS as $errorText) {
-      if (substr_count($this->getSession()->getPage()->getText(), $errorText) > 0) {
-        throw new ResponseTextException(
-          sprintf('Task failed due "%s" text on page', $errorText),
-          $this->getSession()
-        );
-      }
-    }
   }
 
 }

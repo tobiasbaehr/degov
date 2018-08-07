@@ -3,7 +3,6 @@ Feature: deGov - Media creation
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | machine_name                    |
       | degov_media_video               |
       | degov_node_overrides            |
       | degov_node_normal_page          |

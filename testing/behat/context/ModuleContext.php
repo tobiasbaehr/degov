@@ -25,7 +25,6 @@ class ModuleContext extends RawDrupalContext {
    *
    * Provide module data in the following format:
    *
-   * | machine_name |
    * | webform      |
    * | devel        |
    *
@@ -34,10 +33,6 @@ class ModuleContext extends RawDrupalContext {
   public function proofMultipleDrupalModulesAreInstalled(TableNode $modulesTable): void {
     $rowsHash = $modulesTable->getRowsHash();
     $moduleMachineNames = array_keys($rowsHash);
-    if ($moduleMachineNames['0'] !== 'machine_name') {
-      throw new ResponseTextException("You must specify a 'machine_name' table column identifier.", $this->getSession());
-    }
-    unset($moduleMachineNames['0']);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
       if (!$this->getModuleHandler()->moduleExists($moduleMachineName)){
@@ -58,7 +53,6 @@ class ModuleContext extends RawDrupalContext {
    *
    * Provide module data in the following format:
    *
-   * | machine_name |
    * | webform      |
    * | devel        |
    *
@@ -67,16 +61,8 @@ class ModuleContext extends RawDrupalContext {
   public function installMultipleDrupalModules(TableNode $modulesTable): void {
     $rowsHash = $modulesTable->getRowsHash();
     $moduleMachineNames = array_keys($rowsHash);
-    if ($moduleMachineNames['0'] !== 'machine_name') {
-      throw new ResponseTextException("You must specify a 'machine_name' table column identifier.", $this->getSession());
-    }
-    unset($moduleMachineNames['0']);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      if ($this->getModuleHandler()->moduleExists($moduleMachineName)){
-        throw new ResponseTextException("Drupal module '$moduleMachineName' is already installed.", $this->getSession());
-      }
-
       $this->getModuleInstaller()->install([$moduleMachineName]);
     }
   }

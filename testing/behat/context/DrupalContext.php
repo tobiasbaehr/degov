@@ -2,8 +2,10 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ResponseTextException;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
@@ -12,7 +14,7 @@ use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 
-class FeatureContext extends ExtendedRawDrupalContext {
+class DrupalContext extends RawDrupalContext {
 
   /** @var array */
   protected $trash = [];
@@ -364,6 +366,32 @@ class FeatureContext extends ExtendedRawDrupalContext {
         $entity->delete();
       }
     }
+  }
+
+  /**
+   * @Then header has CSS class for fluid bootstrap layout
+   */
+  public function headerHasCssClassForFluidBootstrapLayout() : ?bool {
+    $header = $this->getSession()->getPage()->findAll('css', 'header.container-fluid');
+    if (\count($header) > 0) {
+      return true;
+    } else {
+      throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
+    }
+  }
+
+  /**
+   * @Then I assert "([^"]*)" local task tabs
+   */
+  public function assertLocalTasksTabsNumber($number) {
+    if (\count($this->getSession()->getPage()->findAll('css', ".block-local-tasks-block > nav > nav > ul > li:nth-child($number)")) > 0) {
+      return true;
+    }
+
+    throw new ResponseTextException(
+      sprintf('Could not find "%s" local task items', $number),
+      $this->getSession()
+    );
   }
 
 }

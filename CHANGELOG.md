@@ -33,6 +33,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Behat tests for various media entity types
 - Fixed social media settings video installation
 - Jenkins fixed errors
+- Translating german base texts of degov_common
+- Translating german base texts of degov_date_formats module
+- Translating german base texts of degov_eu_cookie_compliance module
+- Translating german base texts of degov_html_mail module
+- Translating german base texts of degov_media_address module
+- Translating german base texts of degov_media_audio module
+- Translating german base texts of degov_media_citation module
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
