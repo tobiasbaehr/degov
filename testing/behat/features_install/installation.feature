@@ -4,16 +4,16 @@ Feature: Installation via webbrowser
     Given I am on "/core/install.php"
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
-#    Then I should see text matching "Datenbankkonfiguration" after a while
-#    And I fill in "edit-mysql-database" with "testing"
-#    And I fill in "edit-mysql-username" with "root"
-#    And I fill in "edit-mysql-password" with "testing"
-#    Then I submit the form
+    Then I should see text matching "Datenbankkonfiguration" after a while
+    And I fill in "edit-mysql-database" with "testing"
+    And I fill in "edit-mysql-username" with "root"
+    And I fill in "edit-mysql-password" with "testing"
+    Then I submit the form
     And task "Datenbank einrichten" is done
     And task "Website installieren" is done
     And task "Übersetzungen konfigurieren" is done
     Then I should see text matching "WEBSITE-INFORMATIONEN" after a while
-#    And I should see text matching "Übersetzungsdatei wurde importiert"
+    And I should see text matching "Übersetzungsdatei wurde importiert"
     And I fill in "site_name" with "Some site name"
     And I fill in "site_mail" with "site@example.com"
     And I fill in "edit-account-name" with "admin"
