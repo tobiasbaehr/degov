@@ -14,7 +14,6 @@ Feature: deGov view modes
     Given I proof that the following Drupal modules are installed:
       | degov_node_normal_page |
       | degov_node_press       |
-    Given the cache has been cleared
 
   Scenario: Content type normal_page has necessary view modes
     Given I am logged in as a user with the "administrator" role
