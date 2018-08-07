@@ -75,7 +75,4 @@ Feature: deGov view modes
     And I should not see text matching "Error"
     And I should not see text matching "Warning"
     Then I should see text matching "Default"
-    And I should see text matching "Anrisstext"
-    And I should see text matching "HTML"
-    And I should see text matching "Nur-Text"
-    And I should see text matching "HTML Text Alternative"
+    And I assert "5" local task tabs

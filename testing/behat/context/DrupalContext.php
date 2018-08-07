@@ -380,4 +380,18 @@ class DrupalContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * @Then I assert "([^"]*)" local task tabs
+   */
+  public function assertLocalTasksTabsNumber($number) {
+    if (\count($this->getSession()->getPage()->findAll('css', ".block-local-tasks-block > nav > nav > ul > li:nth-child($number)")) > 0) {
+      return true;
+    }
+
+    throw new ResponseTextException(
+      sprintf('Could not find "%s" local task items', $number),
+      $this->getSession()
+    );
+  }
+
 }
