@@ -1,0 +1,7 @@
+settings:
+  exclude:
+    small_image: small_image
+    long_text: long_text
+    slim: slim
+    preview: preview
+  negate: 1

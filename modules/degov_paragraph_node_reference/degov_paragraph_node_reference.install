@@ -12,3 +12,11 @@ function degov_paragraph_node_reference_uninstall() {
     'entity_bundles' => ['node_reference'],
   ]);
 }
+
+/**
+ * Set small_image, long_text, slim and preview viewmodes in node reference field.
+ */
+function degov_paragraph_node_reference_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_paragraph_node_reference', '8001');
+}
