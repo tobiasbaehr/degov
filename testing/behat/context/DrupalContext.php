@@ -394,4 +394,21 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
+  /**
+   * @Then /^I should see text matching "([^"]*)" in "([^"]*)" selector "([^"]*)"$/
+   *
+   * Example:
+   *  I should see text matching "Startseite Node" in "css" selector "ol.breadcrumb"
+   */
+  public function assertSelectorContainsText($text, $selectorType, $selector) {
+    $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
+    if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
+      return TRUE;
+    }
+    throw new ResponseTextException(
+      sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
+      $this->getSession()
+    );
+  }
+
 }
