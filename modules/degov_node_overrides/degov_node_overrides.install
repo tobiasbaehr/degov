@@ -42,14 +42,6 @@ function degov_node_overrides_install() {
 }
 
 /**
- * Next module update version is 8013.
- * All update hooks from 1.1 to 1.15 were deleted.
- * There is no upgrade path from 1.1 to 1.15, you need first to update to 1.2
- * and every minor release as well until 1.15 respectively.
- * The fresh install should have all the changes from 1.1 to 1.15.
- */
-
-/**
  * Set the correct nrw_base_theme default tooltip_html setting.
  */
 function degov_node_overrides_update_8013() {

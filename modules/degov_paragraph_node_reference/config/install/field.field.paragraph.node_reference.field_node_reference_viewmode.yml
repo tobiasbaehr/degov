@@ -19,5 +19,8 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  exclude:
+    preview: preview
+  negate: 1
 field_type: entity_reference_display
