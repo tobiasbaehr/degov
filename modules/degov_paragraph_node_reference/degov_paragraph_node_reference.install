@@ -16,23 +16,6 @@ function degov_paragraph_node_reference_uninstall() {
 }
 
 /**
- * Implements hook_install().
- */
-function degov_paragraph_node_reference_install() {
-  /** @var ConfigFactory $configFactory */
-  $configFactory = \Drupal::service('config.factory');
-  $config = $configFactory->getEditable('field.field.paragraph.node_reference.field_node_reference_viewmode');
-  $config->set('settings.exclude', [
-    'small_image' => 'small_image',
-    'long_text'   => 'long_text',
-    'slim'        => 'slim',
-    'preview'     => 'preview',
-  ]);
-  $config->save();
-  $config->set('settings.negate', TRUE)->save();
-}
-
-/**
  * Adds reference to press node content type in node reference paragraph type. Adds view modes.
  */
 function degov_paragraph_node_reference_update_8002() {

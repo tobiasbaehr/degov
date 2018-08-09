@@ -11,3 +11,5 @@ dependencies:
   - link
   - node
   - paragraphs
+
+configure: degov_paragraph_node_reference.settings
