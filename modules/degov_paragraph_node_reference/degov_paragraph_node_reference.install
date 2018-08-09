@@ -1,8 +1,8 @@
 <?php
 
 use Drupal\degov_common\Common;
-use Drupal\config_replace\ConfigReplacer;
 use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\Core\Config\ConfigFactory;
 
 /**
  * Implements hook_uninstall().
@@ -16,22 +16,39 @@ function degov_paragraph_node_reference_uninstall() {
 }
 
 /**
- * Set small_image, long_text, slim and preview viewmodes in node reference field.
+ * Implements hook_install().
  */
-function degov_paragraph_node_reference_update_8001() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_paragraph_node_reference', '8001');
+function degov_paragraph_node_reference_install() {
+  /** @var ConfigFactory $configFactory */
+//  $configFactory = \Drupal::service('config.factory');
+//  $config = $configFactory->getEditable('field.field.paragraph.node_reference.field_node_reference_viewmode');
+//  $config->set('settings.exclude', [
+//    'small_image' => 'small_image',
+//    'long_text'   => 'long_text',
+//    'slim'        => 'slim',
+//    'preview'     => 'preview',
+//  ]);
+//  $config->save();
+//  $config->set('settings.negate', 1)->save();
 }
 
 /**
  * Adds reference to press node content type in node reference paragraph type. Adds view modes.
  */
-function degov_paragraph_node_reference_update_8002() {
-  /** @var ConfigReplacer $configReplacer */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $configReplacer->rewriteModuleConfig('degov_paragraph_node_reference');
-
+function degov_paragraph_node_reference_update_8001() {
   /** @var DegovModuleUpdater $degovModuleUpdater */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
-  $degovModuleUpdater->applyUpdates('degov_paragraph_node_reference', '8002');
+  $degovModuleUpdater->applyUpdates('degov_paragraph_node_reference', '8001');
+
+  /** @var ConfigFactory $configFactory */
+//  $configFactory = \Drupal::service('config.factory');
+//  $config = $configFactory->getEditable('field.field.paragraph.node_reference.field_node_reference_viewmode');
+//  $config->set('settings.exclude', [
+//    'small_image' => 'small_image',
+//    'long_text'   => 'long_text',
+//    'slim'        => 'slim',
+//    'preview'     => 'preview',
+//  ]);
+//  $config->save();
+//  $config->set('settings.negate', 1)->save();
 }
