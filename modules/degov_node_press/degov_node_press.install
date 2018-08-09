@@ -42,3 +42,11 @@ function degov_node_normal_page_update_8013() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_press', '8013');
 }
+
+/**
+ * Adds reference to press node content type in node reference paragraph type
+ */
+function degov_node_normal_page_update_8014() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8014');
+}
