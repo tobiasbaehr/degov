@@ -38,7 +38,7 @@ function degov_node_press_update_8012() {
 /**
  * Adds missing view modes
  */
-function degov_node_normal_page_update_8013() {
+function degov_node_press_update_8013() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_press', '8013');
 }
