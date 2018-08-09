@@ -5,6 +5,7 @@ package: deGov
 core: 8.x
 dependencies:
   - degov_content_types_shared_fields
+  - degov_node_press
   - entity_reference_display
   - field
   - link
