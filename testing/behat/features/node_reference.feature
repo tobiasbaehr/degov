@@ -9,6 +9,7 @@ Feature: deGov - Node reference
       | paragraphs                     |
       | degov_paragraph_node_reference |
       | degov_node_press               |
+    And the cache has been cleared
 
   Scenario: Node type press can be referenced in node reference paragraph
     Given I am logged in as a user with the "administrator" role
