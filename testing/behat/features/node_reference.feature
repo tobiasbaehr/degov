@@ -15,6 +15,5 @@ Feature: deGov - Node reference
     And I am on "/admin/structure/paragraphs_type/node_reference/fields"
     Then I should see text matching "field_node_reference_nodes"
     And I click the "#field-node-reference-nodes > td:nth-child(4) > div > div > ul > li.edit.dropbutton-action > a" element
-    And I should see text matching "REFERENZTYP"
-    And I should see text matching "Inhaltstyp"
+    And I should see text matching "Inhaltstyp" after a while
     Then the "settings[handler_settings][target_bundles][press]" checkbox should be checked
