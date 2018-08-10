@@ -6,6 +6,8 @@
 image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
+options:
+  size: 2x
 
 pipelines:
   default:
@@ -15,7 +17,6 @@ pipelines:
           - composer
         script:
           - apt-get update
-          - apt install -y screen
           - composer create-project degov/degov-project
           - cd degov-project
           - rm -rf vendor/ composer.lock

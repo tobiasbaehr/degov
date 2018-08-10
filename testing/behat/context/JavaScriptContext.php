@@ -29,44 +29,6 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
-   * @param string $id
-   */
-  public function checkCheckboxWithJS($id) {
-    $this->getSession()->executeScript(
-      "
-                document.getElementById('" . $id . "').checked = true;
-            "
-    );
-  }
-
-  /**
-   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
-   * @param string $selector
-   */
-  public function checkCheckboxBySelector(string $selector)
-  {
-    $this->getSession()->executeScript(
-      "
-                document.querySelector('" . $selector . "').checked = true;
-            "
-    );
-  }
-
-  /**
-   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
-   * @param string $value
-   */
-  public function checkCheckboxByValue(string $value)
-  {
-    $this->getSession()->executeScript(
-      "
-                document.querySelector('input[value=" . $value . "]').checked = true;
-            "
-    );
-  }
-
-  /**
    * @Then /^I click by selector "([^"]*)" via JavaScript$/
    * @param string $selector
    */
@@ -86,16 +48,6 @@ class JavaScriptContext extends RawMinkContext {
     else {
       throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
     }
-  }
-
-  /**
-   * @Given /^I fill in Textarea with "([^"]*)"$/
-   */
-  public function iFillInTextareaWith($arg1)
-  {
-
-    $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
-
   }
 
   /**
