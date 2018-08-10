@@ -220,9 +220,6 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/calendar": {
-                "2845257 - Undefined index: id in calendar_views_data_alter": "https://www.drupal.org/files/issues/undefined_index-2845257-10.patch"
-            },
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             }
