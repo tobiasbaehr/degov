@@ -6,6 +6,8 @@
 image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
+options:
+  size: 2x
 
 pipelines:
   default:
