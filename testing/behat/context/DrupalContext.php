@@ -69,14 +69,6 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^wait (\d+) seconds$/
-   */
-  public function waitSeconds($secondsNumber) {
-    $this->getSession()->wait($secondsNumber * 1000);
-  }
-
-
-  /**
    * @Then /^I open node edit form by node title "([^"]*)"$/
    * @param string $title
    */
@@ -98,28 +90,6 @@ class DrupalContext extends RawDrupalContext {
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField());
-  }
-
-  /**
-   * @Then /^I check checkbox with id "([^"]*)"$/
-   * @param string $id
-   */
-  public function checkCheckbox($id) {
-    $page = $this->getSession()->getPage();
-    $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
-
-    $selectElement->check();
-  }
-
-  /**
-   * @Then /^I uncheck checkbox with id "([^"]*)"$/
-   * @param string $id
-   */
-  public function uncheckCheckbox($id) {
-    $page = $this->getSession()->getPage();
-    $selectElement = $page->find('xpath', '//input[@id = "' . $id . '"]');
-
-    $selectElement->uncheck();
   }
 
   /**
@@ -255,32 +225,6 @@ class DrupalContext extends RawDrupalContext {
       'field_header_paragraphs' => [$paragraphSlideshow],
     ]);
     $node->save();
-  }
-
-  /**
-   * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
-   * @param $value
-   * @param $id
-   *
-   * @throws \Exception
-   */
-  public function iShouldNotSeeTheOptionIn($value, $id) {
-    $page = $this->getSession()->getPage();
-    /** @var $selectElement \Behat\Mink\Element\NodeElement */
-    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $element = $selectElement->find('css', 'option[value=' . $value . ']');
-    if ($element) {
-      throw new \Exception("There is an option with the value '$value' in the select '$id'");
-    }
-  }
-
-  /**
-   * @Given /^I submit a form by id "([^"]*)"$/
-   */
-  public function iSubmitAFormById($Id) {
-    $page = $this->getSession()->getPage();
-    $element = $page->find('css', "form#${Id}");
-    $element->submit();
   }
 
   /**

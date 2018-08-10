@@ -141,33 +141,11 @@ class DrupalIndependentContext extends RawMinkContext {
 		);
 	}
 
-	/**
-	 * @Then /^I submit the form$/
-	 */
-	public function iSubmitTheForm()
-	{
-		$session = $this->getSession(); // get the mink session
-		$element = $session->getPage()->find(
-			'xpath',
-			$session->getSelectorsHandler()->selectorToXpath('xpath', '//*[@type="submit"]')
-		); // runs the actual query and returns the element
-
-		// errors must not pass silently
-		if (null === $element) {
-			throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
-		}
-
-		// ok, let's click on it
-		$element->click();
-	}
-
   /**
-   * @Then /^I select "([^"]*)" in "([^"]*)"$/
+   * @Then /^wait (\d+) seconds$/
    */
-  public function selectOption($label, $id) {
-    $page = $this->getSession()->getPage();
-    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $selectElement->selectOption($label);
+  public function waitSeconds($secondsNumber) {
+    $this->getSession()->wait($secondsNumber * 1000);
   }
 
 }
