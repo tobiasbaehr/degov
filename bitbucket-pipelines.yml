@@ -17,7 +17,6 @@ pipelines:
           - composer
         script:
           - apt-get update
-          - apt install -y screen
           - composer create-project degov/degov-project
           - cd degov-project
           - rm -rf vendor/ composer.lock
