@@ -44,7 +44,7 @@ class ModuleContext extends RawDrupalContext {
   /**
    * @Then /^I am installing the "([^"]*)" module$/
    */
-  public function iAmInstallingTheModule(string $moduleName) {
+  public function iAmInstallingTheModule(string $moduleName): void {
     $this->getModuleInstaller()->install([$moduleName]);
   }
 
@@ -58,7 +58,7 @@ class ModuleContext extends RawDrupalContext {
    *
    * @Given I am installing the following Drupal modules:
    */
-  public function installMultipleDrupalModules(TableNode $modulesTable) {
+  public function installMultipleDrupalModules(TableNode $modulesTable): void {
     $rowsHash = $modulesTable->getRowsHash();
     $moduleMachineNames = array_keys($rowsHash);
 
