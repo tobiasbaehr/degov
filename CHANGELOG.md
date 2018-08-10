@@ -1,45 +1,9 @@
 # Changelog
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+Do not make edits on this file.
 
-## Unreleased
-- Merged configuration for node normal page into one module
-- Merged configuration for node press into one module
-- Merged configuration for node blog into one module
-- Merged configuration for node faq into one module
-- Released dependencies of degov_image_and_crop_styles module
-- Released dependencies of degov_node_overrides module
-- Deleted duplicated rewrites for simplenews module
-- Removed dependencies to scheduled_updates module in degov_node_press
-- Added content_moderation and workflows core modules dependency to degov.info.yml
-- Added test for media address creation
-- Added Behat test for deGov installation. Replaced installation via "drush site-install" with this.
-- degov_common: Splitted "config_remover" service into "config_remover" and "config_adder" services. Replaces usages with the new service method ConfigAdder:addListItemFromConfiguration().
-- degov_common: Added Kernel Base tests for "config_remover" and "config_adder" services
-- Added KernelTestBase tests for proving installation of the following modules: degov_breadcrumb, degov_content_types_shared_fields,
-  degov_breadcrumb, degov_content_types_shared_fields, degov_date_formats, degov_eu_cookie_compliance, degov_html_mail, degov_tweets
-- Uninstall and config removal of degov_node_overrides module
-- Behat tests are proofing, that config could not be imported due nrwGOV installation.
-- Behat tests are run in strict mode
-- Updated drupal core to 8.5.6
-- Add new Behat Testcontext "NodeContetTypeForm" and it's feature node_content_type_form. This Context/Feature tests the creation of a normal page.
-  The new Context has been added to the behat.yml file.
-- Add new Behat Testfeature content_types, which tests the availability/visibility of required fields. For example the test checks, if content_type "normal_page" has a field
-  "field_section".
-- Cleanup for Behat feature context
-- Implemented Behat test for "Instagram feed block" from "deGov - Social media Instagram" module
-- Behat tests for various media entity types
-- Fixed social media settings video installation
-- Jenkins fixed errors
-- Translating german base texts of degov_common
-- Translating german base texts of degov_date_formats module
-- Translating german base texts of degov_eu_cookie_compliance module
-- Translating german base texts of degov_html_mail module
-- Translating german base texts of degov_media_address module
-- Translating german base texts of degov_media_audio module
-- Translating german base texts of degov_media_citation module
+* Newer release notes are available at: https://www.drupal.org/project/degov/releases
+* More information about the development workflow: https://www.drupal.org/docs/8/distributions/degov/development-workflow
 
 ## [2.0.11] - 27-07-2018
 - Improved namespaces regarding Behat testing
