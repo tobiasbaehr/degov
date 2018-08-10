@@ -1,5 +1,5 @@
 @api @drupal
-Feature: deGov node reference
+Feature: deGov - Node reference
 
   Background:
     Given I am installing the following Drupal modules:

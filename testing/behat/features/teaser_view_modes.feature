@@ -1,5 +1,5 @@
 @api @drupal
-Feature: deGov teaser view modes
+Feature: deGov - Teaser view modes
 
   Background:
     Given I am installing the "degov_paragraph_node_reference" module
