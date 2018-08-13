@@ -1,7 +1,0 @@
-ief:
-  version: 1.0
-  js:
-    js/ief.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal

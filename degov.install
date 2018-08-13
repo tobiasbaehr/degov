@@ -79,3 +79,10 @@ function degov_update_8442() {
 function degov_update_8443() {
   \Drupal::service('module_installer')->install(['bartik']);
 }
+
+/**
+ * Uninstalls the scheduled_updates module and configuration
+ */
+function degov_update_8444() {
+  \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
+}

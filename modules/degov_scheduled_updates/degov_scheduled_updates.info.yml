@@ -1,8 +1,7 @@
 name: 'deGov - Scheduled Updates'
-description: "This module contains configuration for the sheduled module."
+description: "This module contains configuration for the scheduled module."
 package: deGov
 type: module
 core: 8.x
 dependencies:
-  - scheduled_updates
-  - node
+  - scheduled_publish
