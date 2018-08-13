@@ -13,7 +13,6 @@ dependencies:
   module:
     - block_field
     - link
-    - workbench_moderation
 id: paragraph.block_reference.default
 targetEntityType: paragraph
 bundle: block_reference

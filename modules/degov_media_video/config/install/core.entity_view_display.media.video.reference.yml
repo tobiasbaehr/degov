@@ -59,6 +59,12 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  thumbnail:
+    type: responsive_image
+    settings:
+      responsive_image_style: slider_main
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   created: true
   field_description: true
@@ -69,5 +75,4 @@ hidden:
   field_tags: true
   langcode: true
   name: true
-  thumbnail: true
   uid: true

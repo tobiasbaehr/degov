@@ -10,7 +10,6 @@ dependencies:
   module:
     - entity_browser
     - text
-    - workbench_moderation
   enforced:
     module:
       - degov_paragraph_header_video

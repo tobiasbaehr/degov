@@ -85,6 +85,12 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+  field_video_upload_preview:
+    type: entity_reference_entity_view
+    settings:
+      view_mode: slider_main_16_9
+      link: false
+    third_party_settings: {  }
 hidden:
   created: true
   field_allow_download: true
@@ -93,7 +99,6 @@ hidden:
   field_video_upload_caption: true
   field_video_upload_mp4: true
   field_video_upload_ogg: true
-  field_video_upload_preview: true
   field_video_upload_webm: true
   langcode: true
   name: true

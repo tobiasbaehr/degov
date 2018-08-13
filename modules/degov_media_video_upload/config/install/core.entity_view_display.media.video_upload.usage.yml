@@ -49,13 +49,15 @@ content:
     type: string
     region: content
   field_video_upload_preview:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     weight: 3
     region: content
     label: hidden
     settings:
       image_style: thumbnail
       image_link: content
+      view_mode: teaser_squared_1_1
+      link: true
     third_party_settings: {  }
   field_video_upload_subtitle:
     type: entity_reference_revisions_entity_view

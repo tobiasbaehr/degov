@@ -5,16 +5,6 @@ dependencies:
     module:
       - degov_node_normal_page
   module:
-    - workbench_moderation
-third_party_settings:
-  workbench_moderation:
-    enabled: true
-    allowed_moderation_states:
-      - published
-      - archived
-      - draft
-      - needs_review
-    default_moderation_state: draft
 name: Inhaltsseite
 type: normal_page
 description: 'Dieser Seitentyp ist für allgemeine Seiten gedacht.'

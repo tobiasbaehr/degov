@@ -1,5 +1,5 @@
-name: 'deGov - Media Gallery'
-description: 'Ein Media-Bundle zur Erstellung einer Bildergalerie'
+name: 'deGov - Media gallery'
+description: 'This media type displays a media gallery'
 type: module
 core: 8.x
 package: deGov
@@ -7,6 +7,7 @@ dependencies:
   - degov_common
   - degov_content_types_shared_fields
   - degov_taxonomy_term_tags
+  - degov_image_and_crop_styles
   - entity_browser
   - field
   - field_group
@@ -16,4 +17,3 @@ dependencies:
   - path
   - text
   - user
-  - workbench_moderation

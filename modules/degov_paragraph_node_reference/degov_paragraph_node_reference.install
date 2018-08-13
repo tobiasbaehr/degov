@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\Core\Config\ConfigFactory;
 
 /**
  * Implements hook_uninstall().
@@ -14,9 +16,22 @@ function degov_paragraph_node_reference_uninstall() {
 }
 
 /**
- * Next module update version is 8004.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Adds reference to press node content type in node reference paragraph type. Adds view modes.
  */
+function degov_paragraph_node_reference_update_8001() {
+  /** @var DegovModuleUpdater $degovModuleUpdater */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_paragraph_node_reference', '8001');
+
+  /** @var ConfigFactory $configFactory */
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('field.field.paragraph.node_reference.field_node_reference_viewmode');
+  $config->set('settings.exclude', [
+    'small_image' => 'small_image',
+    'long_text'   => 'long_text',
+    'slim'        => 'slim',
+    'preview'     => 'preview',
+  ]);
+  $config->save();
+  $config->set('settings.negate', TRUE)->save();
+}

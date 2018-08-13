@@ -64,3 +64,18 @@ function degov_update_8440() {
 function degov_update_8441() {
   \Drupal::service('module_installer')->uninstall(['lightning_api']);
 }
+
+/**
+ * Uninstalls the lightning workflow module. It will be removed in 2.1.x
+ */
+function degov_update_8442() {
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+  \Drupal::service('module_installer')->uninstall(['lightning_scheduler']);
+}
+
+/**
+ * Installing Bartik theme to prevent configuration errors created by block imports
+ */
+function degov_update_8443() {
+  \Drupal::service('module_installer')->install(['bartik']);
+}

@@ -1,4 +1,3 @@
-langcode: de
 status: true
 dependencies:
   config:
@@ -17,7 +16,6 @@ dependencies:
     - field_group
     - text
     - video_embed_field
-    - workbench_moderation
 third_party_settings:
   field_group:
     group_vertical:

@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Video-Untertitel'
-description: 'Stellt einen Paragraphen für Video-Untertitel bereit.'
+name: 'deGov - Paragraph video subtitle'
+description: 'This paragraph is used for subtitles of videos.'
 package: deGov
 type: module
 core: 8.x
@@ -9,5 +9,4 @@ dependencies:
   - file
   - options
   - paragraphs
-  - workbench_moderation
 hidden: TRUE

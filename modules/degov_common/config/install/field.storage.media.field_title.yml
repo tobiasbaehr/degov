@@ -3,6 +3,7 @@ status: true
 dependencies:
   module:
     - media
+    - degov_common
 id: media.field_title
 field_name: field_title
 entity_type: media

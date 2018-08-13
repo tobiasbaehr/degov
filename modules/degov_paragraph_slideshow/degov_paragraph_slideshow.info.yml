@@ -1,11 +1,13 @@
 name: 'deGov - Paragraph Slideshow'
-description: 'Slideshowparagraph, der hauptsächlich im Headerbereich zum Einstatz kommt.'
+description: 'Slideshow paragraph for the header region.'
 type: module
 package: deGov
 core: 8.x
 dependencies:
   - degov_common
   - degov_content_types_shared_fields
+  - degov_image_and_crop_styles
+  - degov_paragraph_node_reference
   - entity_browser
   - entity_reference_revisions
   - field
@@ -15,4 +17,3 @@ dependencies:
   - options
   - paragraphs
   - text
-  - workbench_moderation

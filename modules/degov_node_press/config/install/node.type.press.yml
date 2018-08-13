@@ -4,17 +4,6 @@ dependencies:
   enforced:
     module:
       - degov_node_press
-  module:
-    - workbench_moderation
-third_party_settings:
-  workbench_moderation:
-    enabled: true
-    allowed_moderation_states:
-      - published
-      - archived
-      - draft
-      - needs_review
-    default_moderation_state: draft
 name: Pressemitteilung
 type: press
 description: 'Erstellen von Pressemitteilungen.'

@@ -45,7 +45,7 @@
         "drupal/webform": "^5.0@beta",
         "drupal/entity_reference_display": "^1.0",
         "drupal/search_api_solr": "^1.0",
-        "drupal/core": "~8.5.5",
+        "drupal/core": "~8.5.6",
         "drupal/lightning_api": "^2.0",
         "drupal/lightning_core": "^2.1",
         "drupal/lightning_layout": "^1.1",
@@ -220,9 +220,6 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/calendar": {
-                "2845257 - Undefined index: id in calendar_views_data_alter": "https://www.drupal.org/files/issues/undefined_index-2845257-10.patch"
-            },
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             }

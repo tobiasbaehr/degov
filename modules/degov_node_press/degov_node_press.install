@@ -6,6 +6,10 @@ use Drupal\degov_common\Common;
  * Implements hook_uninstall().
  */
 function degov_node_press_uninstall() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->disableWorkflow('press');
+
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
     'entity_type' => 'node',
@@ -14,9 +18,27 @@ function degov_node_press_uninstall() {
 }
 
 /**
- * Next module update version is 8012.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Enable workflow for content type
+ * */
+function degov_node_press_install() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('press');
+}
+
+/**
+ * Enable workflow for content type
+ * */
+function degov_node_press_update_8012() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('press');
+}
+
+/**
+ * Adds missing view modes
  */
+function degov_node_press_update_8013() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8013');
+}

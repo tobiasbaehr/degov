@@ -1,5 +1,5 @@
-name: 'deGov - Veranstaltung'
-description: 'Erstellen von Veranstaltungen / Events, die in einzeln, in einem Kalender und in Aggregationen angezeigt werden können.'
+name: 'deGov - Node event'
+description: 'Ships the content type \"event\" it can displayed in a calendar or a view.'
 type: module
 package: deGov
 core: 8.x
@@ -26,4 +26,4 @@ dependencies:
   - text
   - user
   - views
-  - workbench_moderation
+  - degov_node_overrides

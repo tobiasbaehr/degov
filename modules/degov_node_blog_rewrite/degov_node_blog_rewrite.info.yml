@@ -4,4 +4,4 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - degov_node_event
+  - degov_node_blog

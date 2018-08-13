@@ -13,7 +13,6 @@ dependencies:
       - degov_paragraph_node_reference
   module:
     - link
-    - workbench_moderation
 id: paragraph.node_reference.default
 targetEntityType: paragraph
 bundle: node_reference

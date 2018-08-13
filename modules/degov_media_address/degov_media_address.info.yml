@@ -1,5 +1,5 @@
-name: 'deGov - Media Adresse'
-description: 'Ein Media-Bundle für Adressen.'
+name: 'deGov - media address'
+description: 'Contains the media address media type.'
 type: module
 package: deGov
 core: 8.x
@@ -23,4 +23,3 @@ dependencies:
   - styled_google_map
   - system_stream_wrapper
   - taxonomy
-  - workbench_moderation

@@ -42,16 +42,19 @@ function degov_node_overrides_install() {
 }
 
 /**
- * Next module update version is 8013.
- * All update hooks from 1.1 to 1.15 were deleted.
- * There is no upgrade path from 1.1 to 1.15, you need first to update to 1.2
- * and every minor release as well until 1.15 respectively.
- * The fresh install should have all the changes from 1.1 to 1.15.
- */
-
-/**
  * Set the correct nrw_base_theme default tooltip_html setting.
  */
 function degov_node_overrides_update_8013() {
   \Drupal::configFactory()->getEditable('nrw_base_theme.settings')->set('tooltip_html', 1)->save(TRUE);
+}
+
+/**
+ * Uninstall lightning_workflow module and remove it's dependency
+ */
+function degov_node_overrides_update_8014() {
+  /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
+  $configRemover = \Drupal::service('degov_common.config_remover');
+  $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
+
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
 }
