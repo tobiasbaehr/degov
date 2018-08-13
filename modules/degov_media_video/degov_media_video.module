@@ -24,7 +24,6 @@ function degov_media_video_preprocess_media__video(&$variables) {
 
   $variables['video_url'] = $media->url();
   $variables['created'] = $variables['elements']['#media']->created->value;
-  $variables['content']['video_date'] = format_date($variables['elements']['#media']->created->value, 'date_medium');
 }
 
 /**

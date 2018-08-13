@@ -30,8 +30,6 @@ function degov_media_video_upload_preprocess_media__video_upload(&$variables) {
     'controls' => 'controls',
   ]);
 
-  $variables['content']['video_date'] = format_date($variables['elements']['#media']->created->value, 'date_medium');
-
   // Check if the download of the video is allowed by media settings.
   $download_is_allowed = FALSE;
   if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
