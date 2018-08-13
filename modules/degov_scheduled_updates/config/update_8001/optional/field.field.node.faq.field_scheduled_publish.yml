@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.storage.node.field_scheduled_publish
-  - node.type.blog
+  - field.storage.node.field_publish
+  - node.type.faq
   module:
   - scheduled_publish
-id: node.blog.field_scheduled_publish
-field_name: field_scheduled_publish
+id: node.faq.field_publish
+field_name: field_publish
 entity_type: node
-bundle: blog
-label: 'Scheduled publish'
+bundle: faq
+label: Scheduled publish
 description: ''
 required: false
 translatable: false

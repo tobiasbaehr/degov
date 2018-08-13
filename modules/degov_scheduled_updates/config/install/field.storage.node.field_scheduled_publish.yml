@@ -3,8 +3,8 @@ dependencies:
   module:
   - node
   - scheduled_publish
-id: node.field_scheduled_publish
-field_name: field_scheduled_publish
+id: node.field_publish
+field_name: field_publish
 entity_type: node
 type: scheduled_publish
 settings:

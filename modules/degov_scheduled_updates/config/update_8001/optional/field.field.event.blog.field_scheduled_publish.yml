@@ -2,15 +2,15 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.storage.node.field_scheduled_publish
+  - field.storage.node.field_publish
   - node.type.event
   module:
   - scheduled_publish
-id: node.event.field_scheduled_publish
-field_name: field_scheduled_publish
+id: node.event.field_publish
+field_name: field_publish
 entity_type: node
 bundle: event
-label: 'Scheduled publish'
+label: Scheduled publish
 description: ''
 required: false
 translatable: false
