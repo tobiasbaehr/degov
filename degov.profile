@@ -48,17 +48,20 @@ function degov_module_setup(&$install_state) {
   system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
-  $modules = [
-    'degov_common'                      => 'degov_common',
-    'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
-    'degov_date_formats'                => 'degov_date_formats',
-    'degov_pathauto'                    => 'degov_pathauto',
-    'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
-    'degov_users_roles'                 => 'degov_users_roles',
-    'degov_node_overrides'              => 'degov_node_overrides',
-    'degov_node_normal_page'            => 'degov_node_normal_page',
-    'degov_paragraph_text'              => 'degov_paragraph_text',
-  ];
+	$modules = [
+		'degov_common'                      => 'degov_common',
+		'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+		'degov_date_formats'                => 'degov_date_formats',
+		'degov_pathauto'                    => 'degov_pathauto',
+		'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
+		'degov_users_roles'                 => 'degov_users_roles',
+		'degov_node_overrides'              => 'degov_node_overrides',
+		'degov_node_normal_page'            => 'degov_node_normal_page',
+		'degov_paragraph_text'              => 'degov_paragraph_text',
+		'degov_paragraph_webform'           => 'degov_paragraph_webform',
+		'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
+		'degov_paragraph_header'            => 'degov_paragraph_header',
+	];
 
   // Add a batch operation to install each module.
   $operations = [];

@@ -79,3 +79,12 @@ function degov_update_8442() {
 function degov_update_8443() {
   \Drupal::service('module_installer')->install(['bartik']);
 }
+
+/**
+ * Install degov_paragraph_webform and degov_paragraph_slideshow by default
+ */
+function degov_update_8444() {
+	/** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+	$moduleInstaller = \Drupal::service('module_installer');
+	$moduleInstaller->install(['degov_paragraph_webform', 'degov_paragraph_slideshow', 'degov_paragraph_header']);
+}
