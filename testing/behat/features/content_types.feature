@@ -7,6 +7,7 @@ Feature: deGov - Content types
       | degov_node_normal_page    |
       | degov_paragraph_webform   |
       | degov_paragraph_slideshow |
+      | degov_paragraph_header    |
     Given I am installing the following Drupal modules:
       | degov_node_event          |
 

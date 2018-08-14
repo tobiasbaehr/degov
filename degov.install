@@ -86,5 +86,5 @@ function degov_update_8443() {
 function degov_update_8444() {
 	/** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
 	$moduleInstaller = \Drupal::service('module_installer');
-	$moduleInstaller->install(['degov_paragraph_webform', 'degov_paragraph_slideshow']);
+	$moduleInstaller->install(['degov_paragraph_webform', 'degov_paragraph_slideshow', 'degov_paragraph_header']);
 }
