@@ -7,9 +7,7 @@ dependencies:
   enforced:
     module:
       - degov_simplenews
-third_party_settings:
-  lightning_core:
-    description: ''
+third_party_settings: { }
 id: node.email_plainalt
 label: 'Email: Plain text alternative'
 targetEntityType: node
