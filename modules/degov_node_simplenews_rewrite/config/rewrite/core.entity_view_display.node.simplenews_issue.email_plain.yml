@@ -2,3 +2,6 @@ content:
   field_simplenews_issue_week:
     settings:
       view_mode: small_image
+  field_simplenews_issue_more:
+    settings:
+      view_mode: small_image

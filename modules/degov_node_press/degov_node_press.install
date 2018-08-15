@@ -1,11 +1,16 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Common;
 
 /**
  * Implements hook_uninstall().
  */
 function degov_node_press_uninstall() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->disableWorkflow('press');
+
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
     'entity_type' => 'node',
@@ -14,9 +19,59 @@ function degov_node_press_uninstall() {
 }
 
 /**
- * Next module update version is 8012.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Enable workflow for content type
+ * */
+function degov_node_press_install() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('press');
+}
+
+/**
+ * Enable workflow for content type
+ * */
+function degov_node_press_update_8012() {
+  /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
+  $workflowService = \Drupal::service('degov_common.workflow_handler');
+  $workflowService->enableWorkflow('press');
+}
+
+/**
+ * Adds missing view modes
  */
+function degov_node_press_update_8013() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8013');
+}
+
+/**
+ * Updated date format in node view mode's display to DD.MM.YYYY
+ */
+function degov_node_press_update_8014() {
+	/** @var ConfigFactory $configFactory */
+	$configFactory = \Drupal::service('config.factory');
+
+	$configNamespaces = [
+		'core.entity_view_display.node.press.default',
+		'core.entity_view_display.node.press.email_html',
+		'core.entity_view_display.node.press.email_plain',
+		'core.entity_view_display.node.press.latest',
+		'core.entity_view_display.node.press.long_text',
+		'core.entity_view_display.node.press.preview',
+		'core.entity_view_display.node.press.slideshow',
+		'core.entity_view_display.node.press.slim',
+		'core.entity_view_display.node.press.small_image',
+		'core.entity_view_display.node.press.teaser',
+	];
+
+	foreach ($configNamespaces as $namespace) {
+		$configFromYaml = Symfony\Component\Yaml\Yaml::parse(
+			file_get_contents(drupal_get_path('module', 'degov_node_press') . '/config/install/' . $namespace . '.yml')
+		);
+
+		$configFromStorage = $configFactory->getEditable($namespace);
+		$configFromStorage->set('content.field_press_date', $configFromYaml['content']['field_press_date']);
+		$configFromStorage->save();
+	}
+
+}

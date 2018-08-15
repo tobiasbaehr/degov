@@ -1,5 +1,5 @@
-name: 'deGov - Paragraph Iframe'
-description: 'Stellt einen Paragraphen zum Einbinden von Iframes bereit.'
+name: 'deGov - Paragraph iframe'
+description: 'This paragraph can show an iframe.'
 package: deGov
 type: module
 core: 8.x
@@ -8,4 +8,3 @@ dependencies:
   - field
   - link
   - paragraphs
-  - workbench_moderation

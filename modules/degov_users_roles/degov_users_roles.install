@@ -1,9 +1,64 @@
 <?php
 
+
+#- 'use draft_draft transition'
+#- 'use draft_needs_review transition'
+#- 'use published_draft transition'
+
 /**
- * Next module update version is 8007.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
+ * Updating permissions from workbench moderation to content moderation
  */
+function degov_users_roles_update_8010() {
+
+  // Apply updates for workflows
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_users_roles', '8001');
+
+  /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
+  $configRemover = \Drupal::service('degov_common.config_remover');
+
+  $permissions = [
+    'use draft_draft transition',
+    'use draft_needs_review transition',
+    'use published_draft transition',
+    'use needs_review_draft transition',
+    'use archived_published transition',
+    'use draft_published transition',
+    'use needs_review_needs_review transition',
+    'use needs_review_published transition',
+    'use published_archived transition',
+    'use published_published transition',
+  ];
+
+  // Remove old permissions
+  foreach ($permissions as $permission) {
+    $configRemover->removeListItemFromConfiguration('user.role.editor', 'permissions', $permission);
+    $configRemover->removeListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+  }
+
+  // Add new permissions
+  $editorPermissions = [
+    'use editorial transition create_new_draft',
+    'use editorial transition needs_review',
+    'use published_draft transition',
+  ];
+  $managerPermissions = [
+    'use editorial transition archive',
+    'use editorial transition archived_draft',
+    'use editorial transition archived_published',
+    'use editorial transition create_new_draft',
+    'use editorial transition needs_review',
+    'use editorial transition publish',
+  ];
+
+  /** @var \Drupal\degov_common\Entity\ConfigAdder $configAdder */
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach ($editorPermissions as $permission) {
+    $configAdder->addListItemFromConfiguration('user.role.editor', 'permissions', $permission);
+  }
+  foreach ($managerPermissions as $permission) {
+    $configAdder->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+  }
+}
+

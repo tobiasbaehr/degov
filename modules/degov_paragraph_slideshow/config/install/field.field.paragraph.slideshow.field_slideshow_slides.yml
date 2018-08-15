@@ -5,6 +5,7 @@ dependencies:
     - field.storage.paragraph.field_slideshow_slides
     - paragraphs.paragraphs_type.slide
     - paragraphs.paragraphs_type.slideshow
+    - paragraphs.paragraphs_type.node_reference
   enforced:
     module:
       - degov_paragraph_slideshow
@@ -25,4 +26,9 @@ settings:
   handler_settings:
     target_bundles:
       slide: slide
+      node_reference: node_reference
+    target_bundles_drag_drop:
+      node_reference:
+        weight: 0
+        enabled: true
 field_type: entity_reference_revisions

@@ -1,14 +1,6 @@
 <?php
 
 /**
- * Next module update version is 8004.
- * All update hooks from 1.1 to 1.14 were deleted.
- * There is no upgrade path from 1.1 to 1.14, you need first to update to 1.2
- * and every minor release as well until 1.14 respectively.
- * The fresh install should have all the changes from 1.1 to 1.14.
- */
-
-/**
  * Add social media source Instagram.
  */
 function degov_social_media_settings_update_8004() {
@@ -21,4 +13,16 @@ function degov_social_media_settings_update_8004() {
  */
 function degov_social_media_settings_update_8005() {
   degov_common_add_translation("This social media source is disabled. You can enable it in the <a href=\"#\" class=\"js-social-media-settings-open\">social media settings</a>.", 'de', "Diese \"Social-Media\" Quelle ist deaktiviert. Sie können sie in den <a href=\"#\" class=\"js-social-media-settings-open\">\"Social-Media\" Einstellungen aktivieren</a>.");
+}
+
+/**
+ * Adds missing field
+ */
+function degov_social_media_settings_update_8006() {
+  $all_bundle_fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('media', 'video');
+
+  if(isset($all_bundle_fields['field_social_media_source'])) {
+    \Drupal::service('degov_config.module_updater')
+      ->applyUpdates('degov_social_media_settings', '8006');
+  }
 }

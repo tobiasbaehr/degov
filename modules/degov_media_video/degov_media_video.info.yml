@@ -1,5 +1,5 @@
-name: 'deGov - Media Video'
-description: 'Erweiterung des existierenden Video Bundles um Copyright und Caption.'
+name: 'deGov - Media video'
+description: 'Extention of the media video type.'
 package: deGov
 type: module
 core: 8.x
@@ -8,6 +8,7 @@ dependencies:
   - degov_content_types_shared_fields
   - degov_taxonomy_term_copyright
   - degov_taxonomy_term_tags
+  - degov_image_and_crop_styles
   - field
   - image
   - language
@@ -15,4 +16,3 @@ dependencies:
   - taxonomy
   - video_embed_field
   - video_embed_media
-  - workbench_moderation

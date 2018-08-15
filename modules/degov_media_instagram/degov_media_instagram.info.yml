@@ -1,5 +1,5 @@
-name: 'deGov - Media Instagram'
-description: 'Dieses Modul erweitert das Media Bundle Instagram.'
+name: 'deGov - Media instagram'
+description: 'This module extends the media type instagram.'
 package: deGov
 type: module
 core: 8.x
@@ -17,4 +17,3 @@ dependencies:
   - taxonomy
   - text
   - user
-  - workbench_moderation

@@ -55,7 +55,10 @@ function degov_update_8440() {
   unset($module_data['lightning']);
 
   // Write the configuration.
-  \Drupal::configFactory()->getEditable('core.extension')->set('module', $module_data)->save();
+  \Drupal::configFactory()
+    ->getEditable('core.extension')
+    ->set('module', $module_data)
+    ->save();
 }
 
 /**
@@ -63,4 +66,45 @@ function degov_update_8440() {
  */
 function degov_update_8441() {
   \Drupal::service('module_installer')->uninstall(['lightning_api']);
+}
+
+/**
+ * Uninstalls the lightning workflow module. It will be removed in 2.1.x
+ */
+function degov_update_8442() {
+  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+  \Drupal::service('module_installer')->uninstall(['lightning_scheduler']);
+}
+
+/**
+ * Installing Bartik theme to prevent configuration errors created by block
+ * imports
+ */
+function degov_update_8443() {
+  \Drupal::service('module_installer')->install(['bartik']);
+}
+
+/**
+ * Install degov_paragraph_webform and degov_paragraph_slideshow by default
+ */
+function degov_update_8444() {
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+  $moduleInstaller = \Drupal::service('module_installer');
+  $moduleInstaller->install([
+    'degov_paragraph_webform',
+    'degov_paragraph_slideshow',
+    'degov_paragraph_header',
+  ]);
+}
+
+function degov_update_8445() {
+  \Drupal::service('module_installer')->uninstall([
+    'degov_password_policy',
+    'password_policy_length',
+    'password_policy_characters',
+    'password_policy_character_types',
+    'password_policy_history',
+    'password_policy_username',
+    'password_policy',
+  ]);
 }

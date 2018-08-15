@@ -56,13 +56,15 @@ content:
     type: string
     region: content
   field_video_upload_preview:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
       image_style: large
       image_link: content
+      view_mode: teaser_squared_1_1
+      link: false
     third_party_settings: {  }
 hidden:
   created: true

@@ -1,5 +1,5 @@
-name: 'deGov - Media Contact'
-description: 'Dient der Erstellung einer Kontaktperson/-stelle.'
+name: 'deGov - media contact'
+description: 'Contains a media type for a contact or a location.'
 type: module
 core: 8.x
 package: deGov
@@ -7,6 +7,7 @@ dependencies:
   - degov_common
   - degov_content_types_shared_fields
   - degov_taxonomy_term_tags
+  - degov_image_and_crop_styles
   - entity_browser
   - field
   - field_group
@@ -17,4 +18,4 @@ dependencies:
   - path
   - taxonomy
   - user
-  - workbench_moderation
+

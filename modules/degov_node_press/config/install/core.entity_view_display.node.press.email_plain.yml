@@ -19,11 +19,9 @@ dependencies:
     - field.field.node.press.field_teaser_title
     - field.field.node.press.field_topic
     - field.field.node.press.field_view_control
-    - field.field.node.press.scheduled_updates
     - node.type.press
   enforced:
     module:
-      - degov_node_press
       - degov_node_press
   module:
     - datetime
@@ -37,10 +35,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: date_medium
-      timezone_override: ''
+      timezone_override: Europe/Berlin
+      date_format: d.m.Y
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_teaser_title:
     type: string
@@ -67,6 +65,5 @@ hidden:
   field_view_control: true
   langcode: true
   links: true
-  scheduled_updates: true
   shariff_field: true
   workbench_moderation_control: true

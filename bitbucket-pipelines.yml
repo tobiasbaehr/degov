@@ -6,6 +6,8 @@
 image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
+options:
+  size: 2x
 
 pipelines:
   default:
@@ -15,20 +17,30 @@ pipelines:
           - composer
         script:
           - apt-get update
-          - apt install -y screen
           - composer create-project degov/degov-project
           - cd degov-project
           - rm -rf vendor/ composer.lock
-          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+          - composer require degov/degov:dev-master#$BITBUCKET_COMMIT --update-with-dependencies
+          - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+          - php composer-require-namespace.php
+          - composer dump-autoload
           - screen -dmS php-server php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-          - (cd docroot/profiles/contrib/degov && phpunit)
-          - bin/drush si degov --locale=de --db-url=sqlite://sites/default/files/db.sqlite -y
-          - mv docroot/profiles/contrib/degov/behat.yml .
+          - (cd docroot/profiles/contrib/degov && phpunit --testdox)
+          - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+          - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+          - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+          - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+          - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+          - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+          - behat -c behat-no-drupal.yml -vvv
+          - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+          - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
           - testing
+          - mysql
     - step:
         name: Deploy to platform.sh
         script:
@@ -51,16 +63,27 @@ pipelines:
           script:
             - composer create-project degov/degov-project
             - cd degov-project
-            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
-            - php -S localhost:80 -t docroot &
+            - composer require degov/degov:dev-master#$BITBUCKET_COMMIT --update-with-dependencies
+            - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+            - php composer-require-namespace.php
+            - composer dump-autoload
+            - screen -dmS php-server php -S localhost:80 -t docroot &
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
             - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-            - (cd docroot/profiles/contrib/degov && phpunit)
-            - bin/drush si degov --db-url=sqlite://sites/default/files/db.sqlite -y
-            - mv docroot/profiles/contrib/degov/behat.yml .
-            - behat
+            - (cd docroot/profiles/contrib/degov && phpunit --testdox)
+            - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+            - behat -c behat-no-drupal.yml --strict
+            - bin/drush locale-check && bin/drush locale-update
+            - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+            - behat --strict
           services:
             - testing
+            - mysql
       - step:
           name: Deploy to platform.sh
           script:
@@ -74,11 +97,9 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
-            - git checkout drupal/8.x-2.x -f
-            - git checkout -b 8.x-2.x
+            - git checkout 8.x-2.x -f
             - git merge release/2.x
             - git push drupal 8.x-2.x
-            - git push
   tags:
     '*':
       - step:
@@ -89,10 +110,15 @@ pipelines:
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
             - git checkout drupal/8.x-2.x -f
-            - git tag $(./scripts/transform.sh --tag=BITBUCKET_TAG)
-            - git push drupal $(./scripts/transform.sh --tag=BITBUCKET_TAG)
+            - git tag $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
+            - git push drupal $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
 
 definitions:
   services:
     testing:
       image: darksolar/selenium-chrome-headless
+    mysql:
+      image: mysql:5.7
+      environment:
+        MYSQL_ROOT_PASSWORD: testing
+        MYSQL_DATABASE: testing

@@ -9,6 +9,7 @@ dependencies:
   enforced:
     module:
       - degov_paragraph_header_video
+      - degov_media_video_upload
 id: paragraph.video_header.field_header_media
 field_name: field_header_media
 entity_type: paragraph

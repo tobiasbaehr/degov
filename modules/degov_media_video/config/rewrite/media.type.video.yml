@@ -3,16 +3,6 @@ status: true
 dependencies:
   module:
     - video_embed_media
-    - workbench_moderation
-third_party_settings:
-  workbench_moderation:
-    enabled: 0
-    allowed_moderation_states:
-      - published
-      - archived
-      - draft
-      - needs_review
-    default_moderation_state: draft
 id: video
 label: Video
 description: 'Videos von YouTube oder Vimeo einbinden.'

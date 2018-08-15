@@ -8,3 +8,5 @@ dependencies:
   - workbench
   - workbench_access
   - degov_rich_text_format_settings
+  - content_moderation
+  - workflows

@@ -4,6 +4,9 @@ dependencies:
   module:
     - lightning_core
     - media
+  enforced:
+    module:
+      - degov_node_overrides
 third_party_settings:
   lightning_core:
     description: ''

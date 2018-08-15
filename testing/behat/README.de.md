@@ -53,7 +53,7 @@ Tests direkt in Gast-System über Behat Kommando ausführen (aus dem *project* V
 bin/behat
 ```
 
-_Tipp:_ Mit den `-vvv` (Verbose) und `--strict` Parametern werden sämtliche Errors ausgegeben. Optional kann der Pfad
+_Tipp:_ Mit dem `--strict` Parameter werden sämtliche Errors ausgegeben. Optional kann der Pfad
 zu einer Config Datei übergeben werden.
 ```
 ./behat -vvv --strict --config /var/www/project/docroot/behat.yml

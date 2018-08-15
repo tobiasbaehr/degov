@@ -1,7 +1,7 @@
-name: 'NRW - Workbench Rewrite'
+name: 'deGov - Workbench Rewrite'
 description: 'Config replacements for the workbench module.'
 type: module
-package: NRW
+package: deGov
 core: 8.x
 dependencies:
   - workbench

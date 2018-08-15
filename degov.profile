@@ -12,6 +12,10 @@
  */
 function degov_install_tasks($install_state) {
   $tasks = [
+    'degov_theme_setup' => [
+      'display_name' => t('Install deGov - Theme'),
+      'display' => TRUE,
+    ],
     'degov_module_setup' => [
       'display_name' => t('Install deGov - Base'),
       'type' => 'batch',
@@ -19,10 +23,6 @@ function degov_install_tasks($install_state) {
     'degov_media_setup' => [
       'display_name' => t('Install deGov - Media'),
       'type' => 'batch',
-    ],
-    'degov_theme_setup' => [
-      'display_name' => t('Install deGov - Theme'),
-      'display' => TRUE,
     ],
     'degov_finalize_setup' => [
       'display_name' => t('Finalize installation'),
@@ -45,7 +45,7 @@ function degov_module_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
 	$modules = [
@@ -54,6 +54,13 @@ function degov_module_setup(&$install_state) {
 		'degov_date_formats'                => 'degov_date_formats',
 		'degov_pathauto'                    => 'degov_pathauto',
 		'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
+		'degov_users_roles'                 => 'degov_users_roles',
+		'degov_node_overrides'              => 'degov_node_overrides',
+		'degov_node_normal_page'            => 'degov_node_normal_page',
+		'degov_paragraph_text'              => 'degov_paragraph_text',
+		'degov_paragraph_webform'           => 'degov_paragraph_webform',
+		'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
+		'degov_paragraph_header'            => 'degov_paragraph_header',
 	];
 
   // Add a batch operation to install each module.
@@ -84,25 +91,27 @@ function degov_media_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
-	$modules = [
-		#'degov_social_media_settings' => 'degov_social_media_settings',
-		'degov_media_address'        => 'degov_media_address',
-		'degov_media_audio'          => 'degov_media_audio',
-		'degov_media_caption_helper' => 'degov_media_caption_helper',
-		'degov_media_citation'       => 'degov_media_citation',
-		'degov_media_contact'        => 'degov_media_contact',
-		'degov_media_document'       => 'degov_media_document',
-		'degov_media_gallery'        => 'degov_media_gallery',
-		'degov_media_image'          => 'degov_media_image',
-		'degov_media_instagram'      => 'degov_media_instagram',
-		'degov_media_person'         => 'degov_media_person',
-		'degov_media_tweet'          => 'degov_media_tweet',
-		'degov_media_video'          => 'degov_media_video',
-		'degov_media_video_upload'   => 'degov_media_video_upload',
-	];
+  $modules = [
+    'degov_media_video'           => 'degov_media_video',
+    'degov_media_video_upload'    => 'degov_media_video_upload',
+    'degov_media_address'         => 'degov_media_address',
+    'degov_media_audio'           => 'degov_media_audio',
+    'degov_media_caption_helper'  => 'degov_media_caption_helper',
+    'degov_media_citation'        => 'degov_media_citation',
+    'degov_media_contact'         => 'degov_media_contact',
+    'degov_media_document'        => 'degov_media_document',
+    'degov_media_gallery'         => 'degov_media_gallery',
+    'degov_media_image'           => 'degov_media_image',
+    'degov_media_instagram'       => 'degov_media_instagram',
+    'degov_media_person'          => 'degov_media_person',
+    'degov_media_tweet'           => 'degov_media_tweet',
+    'degov_search_media'          => 'degov_search_media',
+    'degov_media_overrides'       => 'degov_media_overrides',
+    'degov_social_media_settings' => 'degov_social_media_settings',
+  ];
 
   // Add a batch operation to install each module.
   $operations = [];
@@ -140,11 +149,11 @@ function degov_theme_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Set the default theme to be deGov.
-  $theme = 'degov_base_theme';
-  \Drupal::service('theme_handler')->install([$theme]);
+  $themes = ['degov_base_theme', 'bartik'];
+  \Drupal::service('theme_handler')->install($themes);
   \Drupal::configFactory()
     ->getEditable('system.theme')
-    ->set('default', $theme)
+    ->set('default', 'degov_base_theme')
     ->save();
   \Drupal::service('theme.manager')->resetActiveTheme();
 }
@@ -162,10 +171,6 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
   // List all optional deGov modules.
 	$degov_optional_modules = [
 		'degov_eu_cookie_compliance' => t('EU cookie compliance'),
-		'degov_password_policy'      => t('Secure password policy'),
-		'degov_blogarticle'          => t('Blog'),
-		'degov_sitemap'              => t('User sitemap'),
-		'degov_shariff_social_share' => t('Social sharing'),
 	];
 	$form['degov']['optional_modules'] = [
 		'#type'          => 'checkboxes',
