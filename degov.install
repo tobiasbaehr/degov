@@ -55,7 +55,10 @@ function degov_update_8440() {
   unset($module_data['lightning']);
 
   // Write the configuration.
-  \Drupal::configFactory()->getEditable('core.extension')->set('module', $module_data)->save();
+  \Drupal::configFactory()
+    ->getEditable('core.extension')
+    ->set('module', $module_data)
+    ->save();
 }
 
 /**
@@ -74,7 +77,8 @@ function degov_update_8442() {
 }
 
 /**
- * Installing Bartik theme to prevent configuration errors created by block imports
+ * Installing Bartik theme to prevent configuration errors created by block
+ * imports
  */
 function degov_update_8443() {
   \Drupal::service('module_installer')->install(['bartik']);
@@ -84,14 +88,30 @@ function degov_update_8443() {
  * Install degov_paragraph_webform and degov_paragraph_slideshow by default
  */
 function degov_update_8444() {
-	/** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
-	$moduleInstaller = \Drupal::service('module_installer');
-	$moduleInstaller->install(['degov_paragraph_webform', 'degov_paragraph_slideshow', 'degov_paragraph_header']);
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+  $moduleInstaller = \Drupal::service('module_installer');
+  $moduleInstaller->install([
+    'degov_paragraph_webform',
+    'degov_paragraph_slideshow',
+    'degov_paragraph_header',
+  ]);
+}
+
+function degov_update_8445() {
+  \Drupal::service('module_installer')->uninstall([
+    'degov_password_policy',
+    'password_policy_length',
+    'password_policy_characters',
+    'password_policy_character_types',
+    'password_policy_history',
+    'password_policy_username',
+    'password_policy',
+  ]);
 }
 
 /**
  * Uninstalls the scheduled_updates module and configuration
  */
-function degov_update_8445() {
+function degov_update_8446() {
   \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
 }
