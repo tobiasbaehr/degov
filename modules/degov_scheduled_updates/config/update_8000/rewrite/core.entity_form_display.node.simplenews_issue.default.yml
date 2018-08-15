@@ -1,6 +1,6 @@
 dependencies:
   config:
-    - field.field.node.normal_page.field_publish
+    - field.field.node.simplenews_issue.field_publish
   module:
     - scheduled_publish
 content:
