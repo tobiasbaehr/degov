@@ -30,10 +30,10 @@ content:
     weight: 7
     label: above
     settings:
-      format_type: short
-      timezone_override: ''
+      timezone_override: Europe/Berlin
+      date_format: d.m.Y
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_citation_image:
     weight: 6

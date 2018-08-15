@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Common;
 
 /**
@@ -19,4 +20,29 @@ function degov_media_citation_uninstall() {
 function degov_media_citation_update_8011() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_citation', '8011');
+}
+
+/**
+ * Updated date format in display to DD.MM.YYYY
+ */
+function degov_media_citation_update_8012() {
+	/** @var ConfigFactory $configFactory */
+	$configFactory = \Drupal::service('config.factory');
+
+	$configNamespaces = [
+		'core.entity_view_display.media.citation.default',
+		'core.entity_view_display.media.citation.preview',
+		'core.entity_view_display.media.citation.usage'
+	];
+
+	foreach ($configNamespaces as $namespace) {
+		$configFromYaml = Symfony\Component\Yaml\Yaml::parse(
+			file_get_contents(drupal_get_path('module', 'degov_media_citation') . '/config/install/' . $namespace . '.yml')
+		);
+
+		$configFromStorage = $configFactory->getEditable($namespace);
+		$configFromStorage->set('content.field_citation_date', $configFromYaml['content']['field_citation_date']);
+		$configFromStorage->save();
+	}
+
 }
