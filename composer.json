@@ -223,6 +223,9 @@
         "patches": {
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
+            },
+            "drupal/core": {
+                "Issue 2937543 - Updating symfony": "https://www.drupal.org/files/issues/2018-08-01/2937543.patch"
             }
         }
     },
