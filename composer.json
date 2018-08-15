@@ -226,6 +226,9 @@
             },
             "drupal/core": {
                 "Issue 2937543 - Updating symfony": "https://www.drupal.org/files/issues/2018-08-01/2937543.patch"
+            },
+            "drupal/pathauto": {
+                "Issue 2961850 - Duplicated keys in schema": "https://www.drupal.org/files/issues/2018-05-11/pathauto-duplicate_ignore_words_config_schema-2961850-8.patch"
             }
         }
     },
