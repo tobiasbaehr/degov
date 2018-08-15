@@ -2,7 +2,7 @@
   Feature: Scheduled moderation
     Scenario: Creating node with schedued publish - Timeout
       Given I am logged in as a user with the "editor" role
-      And I proof that Drupal module "degov_scheduled_updates" is installed
+      And I am installing the "degov_scheduled_updates" module
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
       And I fill in "01/01/2018" for "edit-field-scheduled-publish-0-value-date"
