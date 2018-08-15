@@ -36,10 +36,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: date_medium
-      timezone_override: ''
+      timezone_override: Europe/Berlin
+      date_format: d.m.Y
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_teaser_image:
     type: entity_reference_entity_view
