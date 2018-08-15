@@ -81,8 +81,17 @@ function degov_update_8443() {
 }
 
 /**
- * Uninstalls the scheduled_updates module and configuration
+ * Install degov_paragraph_webform and degov_paragraph_slideshow by default
  */
 function degov_update_8444() {
+	/** @var \Drupal\Core\Extension\ModuleInstallerInterface $moduleInstaller */
+	$moduleInstaller = \Drupal::service('module_installer');
+	$moduleInstaller->install(['degov_paragraph_webform', 'degov_paragraph_slideshow', 'degov_paragraph_header']);
+}
+
+/**
+ * Uninstalls the scheduled_updates module and configuration
+ */
+function degov_update_8445() {
   \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
 }

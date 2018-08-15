@@ -98,8 +98,9 @@
         "raiym/instagram-php-scraper": "^0.8.22",
         "heiseonline/shariff": "2.0.4",
         "drupal/console": "^1.8",
+        "drupal/module_status": "^1.0@alpha",
         "drush/drush": "^9.3",
-        "drupal/scheduled_publish": "1.x-dev"
+        "drupal/scheduled_publish": "^1.0"
     },
     "repositories": {
         "drupal": {
