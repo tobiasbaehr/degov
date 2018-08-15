@@ -3,6 +3,7 @@
 namespace Drupal\degov\Behat\Context;
 
 use Drupal\DrupalExtension\Context\RawDrupalContext;
+use Drupal\node\Entity\Node;
 
 class NodeContentTypeFormContext extends RawDrupalContext {
 
@@ -86,11 +87,17 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    *   "([^"]*)"$/
    */
   public function iProofContentWithTitleHasModerationState($title, $state) {
-    if (!(\Drupal::entityQuery('node')
-      ->condition('title', $title)
-      ->condition('moderation_state', $state) > 0)) {
-      throw new \Exception("No content with title '$title' and moderation state '$state'");
+    $Ids = \Drupal::entityQuery('node')
+      ->condition('title', $title)->execute();
+
+    foreach($Ids as $Id) {
+      $NodeState = Node::load($Id)->moderation_state->value;
+      if($state === $NodeState) {
+        return;
+      }
     }
+    throw new \Exception("No content with title '$title' and moderation state '$state'");
+
   }
 
 }

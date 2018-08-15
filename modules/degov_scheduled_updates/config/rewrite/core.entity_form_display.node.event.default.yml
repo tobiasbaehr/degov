@@ -1,0 +1,12 @@
+dependencies:
+  config:
+    - field.field.node.normal_page.field_publish
+  module:
+    - scheduled_publish
+content:
+  field_publish:
+    type: scheduled_publish
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }

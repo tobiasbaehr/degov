@@ -1,8 +1,12 @@
 status: true
 dependencies:
   module:
-  - node
-  - scheduled_publish
+    - node
+    - scheduled_publish
+    - degov_scheduled_updates
+  enforced:
+    module:
+      - degov_scheduled_updates
 id: node.field_publish
 field_name: field_publish
 entity_type: node

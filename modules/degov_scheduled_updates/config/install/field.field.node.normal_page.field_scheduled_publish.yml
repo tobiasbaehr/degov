@@ -2,14 +2,18 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.storage.node.field_publish
-  - node.type.press
+    - field.storage.node.field_publish
+    - node.type.normal_page
   module:
-  - scheduled_publish
-id: node.press.field_publish
+    - scheduled_publish
+    - degov_scheduled_updates
+  enforced:
+    module:
+      - degov_scheduled_updates
+id: node.normal_page.field_publish
 field_name: field_publish
 entity_type: node
-bundle: press
+bundle: normal_page
 label: Scheduled publish
 description: ''
 required: false
