@@ -2,9 +2,7 @@
 
 namespace Drupal\degov\Behat\Context\Traits;
 
-use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\Mink\Exception\ResponseTextException;
-use Behat\Testwork\Tester\Result\TestResult;
 
 trait ErrorTrait  {
 
@@ -29,17 +27,4 @@ trait ErrorTrait  {
       }
     }
   }
-
-  /**
-   * @AfterStep
-   *
-   */
-  public function takeScreenshotAfterFailedStep(AfterStepScope $scope)
-  {
-    if (TestResult::FAILED === $scope->getTestResult()) {
-      sprintf('Screenshot as base64 "%s"',$this->getSession()->getDriver()->getScreenshot());
-    }
-  }
-
-
 }
