@@ -18,8 +18,8 @@ if [ $2 ]; then
         if [[ ${tag} =~ $regex ]]; then
             major=${BASH_REMATCH[1]}
             minor=${BASH_REMATCH[2]}
-            patch=${BASH_REMATCH[3]}+1
-            echo "${major}.${minor}.$(($patch))"
+            patch=${BASH_REMATCH[3]}
+            echo "${major}.${minor}.$(($patch + 1))"
         else
             echo "No valid tag"
             exit -1;

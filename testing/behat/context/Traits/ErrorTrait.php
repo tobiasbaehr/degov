@@ -4,7 +4,7 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
 
-trait ErrorTrait  {
+trait ErrorTrait {
 
   private static $errorTexts = [
     'Error',
@@ -27,4 +27,5 @@ trait ErrorTrait  {
       }
     }
   }
+
 }
