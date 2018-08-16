@@ -28,4 +28,15 @@ trait ErrorTrait {
     }
   }
 
+  /**
+   * @AfterStep
+   */
+  public function takeScreenshotAfterFailedStep($event)
+  {
+    if (4 === $event->getResult()) {
+      echo $this->getSession()->getDriver()->getScreenshot();
+    }
+  }
+
+
 }
