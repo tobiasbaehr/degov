@@ -4,7 +4,7 @@ distribution:
   name: deGov
   langcode: de
 description: 'deGov - Drupal 8 for Government'
-version: 8.x-2.x-dev
+version: 8.x-2.13
 core: '8.x'
 project: degov
 dependencies:
