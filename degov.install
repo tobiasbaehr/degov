@@ -108,3 +108,10 @@ function degov_update_8445() {
     'password_policy',
   ]);
 }
+
+/**
+ * Uninstalls the scheduled_updates module and configuration
+ */
+function degov_update_8446() {
+  \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
+}

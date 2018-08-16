@@ -19,8 +19,7 @@ pipelines:
           - apt-get update
           - composer create-project degov/degov-project
           - cd degov-project
-          - rm -rf vendor/ composer.lock
-          - composer require degov/degov:dev-master#$BITBUCKET_COMMIT --update-with-dependencies
+          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
           - php composer-require-namespace.php
           - composer dump-autoload
@@ -63,7 +62,7 @@ pipelines:
           script:
             - composer create-project degov/degov-project
             - cd degov-project
-            - composer require degov/degov:dev-master#$BITBUCKET_COMMIT --update-with-dependencies
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
             - composer dump-autoload
@@ -119,6 +118,7 @@ definitions:
       image: darksolar/selenium-chrome-headless
     mysql:
       image: mysql:5.7
+      memory: 2048
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: testing

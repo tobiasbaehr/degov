@@ -7,9 +7,7 @@ dependencies:
   module:
     - lightning_core
     - node
-third_party_settings:
-  lightning_core:
-    description: 'Suchergebnis Pressemeldung'
+third_party_settings: { }
 id: node.small_image
 label: 'Teaser kleines Bild'
 targetEntityType: node

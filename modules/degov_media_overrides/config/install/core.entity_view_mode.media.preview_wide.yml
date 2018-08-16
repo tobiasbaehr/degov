@@ -7,9 +7,7 @@ dependencies:
   enforced:
     module:
       - degov_media_overrides
-third_party_settings:
-  lightning_core:
-    description: 'Used in Mediathek block'
+third_party_settings: { }
 id: media.preview_wide
 label: 'Preview Wide'
 targetEntityType: media

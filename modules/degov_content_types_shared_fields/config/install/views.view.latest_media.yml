@@ -187,7 +187,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            argument: null
           is_grouped: false
           group_info:
             label: ''
