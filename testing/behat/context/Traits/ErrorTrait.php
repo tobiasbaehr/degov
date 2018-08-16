@@ -3,7 +3,6 @@
 namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
-use Drupal\degov\Behat\Context\DrupalContext;
 
 trait ErrorTrait  {
 
@@ -31,10 +30,11 @@ trait ErrorTrait  {
 
   /**
    * @AfterStep
+   *
    */
-  public function takeScreenshotAfterFailedStep(StepEvent $event)
+  public function takeScreenshotAfterFailedStep(AfterStepScope $scope)
   {
-    if (4 === $this->getResult()) {
+    if (TestResult::FAILED === $this->getTestResult()) {
       echo $this->getSession()->getDriver()->getScreenshot();
     }
   }
