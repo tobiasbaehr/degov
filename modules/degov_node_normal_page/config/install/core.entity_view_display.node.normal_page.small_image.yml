@@ -68,8 +68,6 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_teaser_image:
-    type: degov_preview_image
 hidden:
   field_content_paragraphs: true
   field_header_paragraphs: true
