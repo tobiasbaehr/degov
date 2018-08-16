@@ -7,9 +7,7 @@ dependencies:
   module:
     - lightning_core
     - node
-third_party_settings:
-  lightning_core:
-    description: 'Bild/Text quadratisch, 50% Breite'
+third_party_settings: { }
 id: node.preview
 label: 'Teaser Preview'
 targetEntityType: node

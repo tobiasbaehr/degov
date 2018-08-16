@@ -7,9 +7,7 @@ dependencies:
   enforced:
     module:
       - degov_node_overrides
-third_party_settings:
-  lightning_core:
-    description: ''
+third_party_settings: { }
 id: media.email
 label: Email
 targetEntityType: media

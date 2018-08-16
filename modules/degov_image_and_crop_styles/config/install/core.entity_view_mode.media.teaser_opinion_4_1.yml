@@ -7,9 +7,7 @@ dependencies:
   module:
     - lightning_core
     - media
-third_party_settings:
-  lightning_core:
-    description: ''
+third_party_settings: { }
 id: media.teaser_opinion_4_1
 label: 'Teaser opinion (4:1)'
 targetEntityType: media
