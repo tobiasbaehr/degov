@@ -1,2 +1,3 @@
 settings:
   alt_field_required: true
+  file_extensions: 'png gif jpg jpeg svg'
