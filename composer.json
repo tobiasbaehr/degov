@@ -229,6 +229,9 @@
             },
             "drupal/pathauto": {
                 "Issue 2961850 - Duplicated keys in schema": "https://www.drupal.org/files/issues/2018-05-11/pathauto-duplicate_ignore_words_config_schema-2961850-8.patch"
+            },
+            "drupal/simplenews": {
+                "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"
             }
         }
     },
