@@ -37,7 +37,7 @@ trait ErrorTrait  {
   public function takeScreenshotAfterFailedStep(AfterStepScope $scope)
   {
     if (TestResult::FAILED === $scope->getTestResult()) {
-      echo $this->getSession()->getDriver()->getScreenshot();
+      sprintf('Screen shot as base64 "%s"',$this->getSession()->getDriver()->getScreenshot());
     }
   }
 
