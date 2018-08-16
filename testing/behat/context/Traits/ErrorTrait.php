@@ -2,7 +2,9 @@
 
 namespace Drupal\degov\Behat\Context\Traits;
 
+use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\Mink\Exception\ResponseTextException;
+use Behat\Testwork\Tester\Result\TestResult;
 
 trait ErrorTrait  {
 
