@@ -43,6 +43,6 @@ function degov_media_image_update_8001() {
  */
 function degov_media_image_update_8002() {
   \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser')
-    ->set('settings.file_extensions', 'png gif jpg jpeg')
+    ->set('settings.file_extensions', 'png gif jpg jpeg svg')
     ->save(TRUE);
 }
