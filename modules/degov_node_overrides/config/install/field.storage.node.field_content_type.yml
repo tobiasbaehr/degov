@@ -2,19 +2,17 @@ langcode: de
 status: true
 dependencies:
   module:
-    - paragraphs
+    - node
+    - taxonomy
   enforced:
     module:
-      - degov_media_overrides
-      - node
-id: paragraph.field_teaser_sub_title
-field_name: field_teaser_sub_title
+      - degov_node_overrides
+id: node.field_content_type
+field_name: field_content_type
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1
