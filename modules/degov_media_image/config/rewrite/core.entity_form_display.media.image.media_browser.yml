@@ -15,12 +15,14 @@ dependencies:
     - field.field.media.image.field_media_in_library
     - field.field.media.image.field_tags
     - image.style.medium
+    - image.style.crop_thumbnail
     - media.type.image
   module:
     - datetime
     - field_group
     - lightning_media
     - text
+    - image_widget_crop
 third_party_settings:
   field_group:
     group_vertical:
@@ -194,13 +196,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
   image:
-    type: image_image
-    weight: 2
-    settings:
-      preview_image_style: medium
-      progress_indicator: throbber
-    third_party_settings: {  }
+    type: image_widget_crop
+    weight: 1
     region: content
+    settings:
+      show_default_crop: true
+      warn_multiple_usages: true
+      crop_required: true
+      preview_image_style: crop_thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 16_to_9
+        - 1_to_1
+        - 2_to_1
+        - 4_to_1
+        - 8_to_3
+      progress_indicator: throbber
+      show_crop_area: false
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 3
