@@ -11,7 +11,7 @@ dependencies:
   - degov_image_and_crop_styles
   - degov_media_overrides
   - degov_taxonomy_media_accessibility
-  - degov_media_taxonomy_language
+  - degov_taxonomy_media_language
   - degov_social_media_settings
   - field
   - image
