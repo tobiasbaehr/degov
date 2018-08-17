@@ -2,7 +2,7 @@ core: 8.x
 type: theme
 
 name: 'deGov Theme'
-description: 'A simple base for sub-themes of the deGov drupal distribution.'
+description: 'The base theme of the deGov Drupal distribution.'
 package: 'deGov - Theme'
 
 regions:
