@@ -3,7 +3,6 @@
     "node_modules",
     "package.json",
     "package-json.lock",
-    "drupal-behavior-function",
     "webpack-dist",
     "*.scss"
   ],
