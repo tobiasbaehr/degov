@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: [
     // deGov theme
-    './scss/style.scss',
+    './scss/main.scss',
     // Bootstrap
     './node_modules/bootstrap/js/src/carousel.js',
     './node_modules/bootstrap/scss/bootstrap-grid.scss',
