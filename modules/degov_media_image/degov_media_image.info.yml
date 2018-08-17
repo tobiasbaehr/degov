@@ -18,6 +18,7 @@ dependencies:
   - image
   - language
   - lightning_media
+  - lightning_media_image
   - media
   - taxonomy
   - text
