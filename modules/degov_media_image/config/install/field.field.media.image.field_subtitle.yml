@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.media.field_subtitle
     - media.type.image
-  enforced:
-    module:
       - degov_media_overrides
       - degov_media_image
 third_party_settings: {  }
