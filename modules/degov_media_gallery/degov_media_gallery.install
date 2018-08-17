@@ -6,6 +6,7 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -33,3 +34,15 @@ function degov_media_gallery_update_8011() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_gallery', '8011');
 }
+
+/**
+ * Add missing view mode preview wide
+ */
+function degov_media_gallery_update_8012() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_gallery', '8012');
+}
+

@@ -17,6 +17,7 @@ dependencies:
     - field.field.media.audio.field_media_transcription
     - field.field.media.audio.field_tags
     - field.field.media.audio.field_title
+    - field.field.media.audio.field_subtitle
     - media.type.audio
   enforced:
     module:
@@ -229,6 +230,14 @@ content:
     third_party_settings: {  }
   field_title:
     weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_subtitle:
+    weight: 2
     settings:
       size: 60
       placeholder: ''

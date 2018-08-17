@@ -15,6 +15,7 @@ dependencies:
     - field.field.media.audio.field_media_transcription
     - field.field.media.audio.field_tags
     - field.field.media.audio.field_title
+    - field.field.media.audio.field_subtitle
     - image.style.large
     - media.type.audio
   enforced:
@@ -87,6 +88,14 @@ content:
   field_title:
     weight: 0
     label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_subtitle:
+    weight: 0
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }

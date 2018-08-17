@@ -19,6 +19,7 @@ dependencies:
     - field.field.media.audio.field_subtitle
     - field.field.media.audio.field_tags
     - field.field.media.audio.field_title
+    - field.field.media.audio.field_subtitle
     - media.type.audio
   enforced:
     module:
