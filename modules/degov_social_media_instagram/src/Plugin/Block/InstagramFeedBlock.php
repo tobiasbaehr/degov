@@ -31,8 +31,15 @@ class InstagramFeedBlock extends BlockBase {
       $max = intval($max);
     }
 
-    $instagram = new Instagram();
-    $nonPrivateAccountMedias = $instagram->getMedias($user, $max);
+    $nonPrivateAccountMedias = [];
+    try {
+      $instagram = new Instagram();
+      $nonPrivateAccountMedias = $instagram->getMedias($user, $max);
+    }
+    catch(\Exception $exception) {
+      \Drupal::service('messenger')->addMessage("There occurred an error while fetching new medias ($exception) ",'error');
+      return ['#markup' => t('There occurred an error while fetching new medias')];
+    }
 
     foreach ($nonPrivateAccountMedias as $media) {
       $build['degov_social_media_instagram'][] = [
