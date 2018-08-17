@@ -97,11 +97,6 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  shariff_field:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_social_media: true
   field_teaser_image: true
