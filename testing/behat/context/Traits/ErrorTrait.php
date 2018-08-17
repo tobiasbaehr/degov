@@ -23,7 +23,7 @@ trait ErrorTrait {
       $pageText = $this->getSession()->getPage()->getText();
       if (substr_count($pageText, $errorText) > 0) {
         $matches = [];
-        preg_match($errorText . '[a-zA-Z 0-9\r\n\"\\\'\:\{\}]*/$mi', 'foobarbaz', $matches, PREG_OFFSET_CAPTURE);
+        preg_match($errorText . '[a-zA-Z 0-9\r\n\'\"\{\}\:]*/$mi', 'foobarbaz', $matches, PREG_OFFSET_CAPTURE);
         if ($matches && is_array($matches)) {
           throw new ResponseTextException(
             sprintf('Task failed due "%s" text on page', $matches[0]),
