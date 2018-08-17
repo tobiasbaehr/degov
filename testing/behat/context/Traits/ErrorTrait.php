@@ -21,7 +21,7 @@ trait ErrorTrait {
   public function checkErrors(): void {
     foreach (self::$errorTexts as $errorText) {
       $pageText = $this->getSession()->getPage()->getText();
-      if (substr_count($pageText, $errorText) > 0) {
+      if (substr_count(strtolower($pageText), strtolower($errorText)) > 0) {
         throw new ResponseTextException(
           sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
           $this->getSession()
