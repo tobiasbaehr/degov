@@ -6,7 +6,7 @@ dependencies:
     - media
   enforced:
     module:
-      - degov_node_overrides
+      - degov_media_overrides
 third_party_settings: { }
 id: media.email
 label: Email

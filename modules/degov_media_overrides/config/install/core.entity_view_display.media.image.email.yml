@@ -26,7 +26,7 @@ dependencies:
     - text
   enforced:
     module:
-      - degov_node_overrides
+      - degov_media_overrides
 id: media.image.email
 targetEntityType: media
 bundle: image
