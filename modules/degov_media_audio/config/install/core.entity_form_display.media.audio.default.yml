@@ -18,10 +18,12 @@ dependencies:
     - field.field.media.audio.field_tags
     - field.field.media.audio.field_title
     - field.field.media.audio.field_subtitle
+    - field.field.media.audio.field_media_accessibility
     - media.type.audio
   enforced:
     module:
       - degov_media_audio
+      - degov_taxonomy_media_accessibility
   module:
     - entity_browser
     - field_group
