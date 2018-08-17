@@ -11,6 +11,7 @@ dependencies:
   - degov_taxonomy_term_copyright
   - degov_taxonomy_term_tags
   - degov_media_overrides
+  - degov_image_and_crop_styles
   - dropzonejs_eb_widget
   - field
   - file
