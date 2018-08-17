@@ -10,7 +10,7 @@ dependencies:
   - degov_taxonomy_term_tags
   - degov_image_and_crop_styles
   - degov_media_overrides
-  - degov_media_taxonomy_accessibility
+  - degov_taxonomy_media_accessibility
   - degov_media_taxonomy_language
   - degov_social_media_settings
   - field
