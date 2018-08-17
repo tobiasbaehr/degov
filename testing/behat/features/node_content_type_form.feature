@@ -23,7 +23,7 @@ Feature: deGov - Content type form
     And I should see text matching "Vorschau Untertitel"
     And I should see text matching "Speichern unter"
     And I should see text matching "Zuletzt gespeichert"
-    And I should see text matching "Protokollnachricht der Version"
+    And I should see text matching "Protokollnachricht der Revision"
     And I should see text matching "MENÜEINSTELLUNGEN"
     And I should see text matching "URL-PFADEINSTELLUNGEN"
     And I should see text matching "INFORMATIONEN ZUM AUTOR"
