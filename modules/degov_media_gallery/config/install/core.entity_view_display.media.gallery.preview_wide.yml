@@ -5,7 +5,6 @@ dependencies:
     - core.entity_view_mode.media.preview_wide
     - field.field.media.gallery.field_description
     - field.field.media.gallery.field_gallery_images
-    - field.field.media.gallery.field_gallery_sub_title
     - field.field.media.gallery.field_gallery_title
     - field.field.media.gallery.field_include_search
     - field.field.media.gallery.field_media_in_library
@@ -67,7 +66,6 @@ content:
     region: content
 hidden:
   created: true
-  field_gallery_sub_title: true
   field_gallery_text: true
   field_include_search: true
   field_media_in_library: true

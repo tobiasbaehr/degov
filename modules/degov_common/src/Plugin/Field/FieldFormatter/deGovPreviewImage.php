@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_node_overrides\Plugin\Field\FieldFormatter;
+namespace Drupal\degov_common\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;

@@ -21,11 +21,7 @@ dependencies:
     - media.type.video
     - responsive_image.styles.teaser_landscape
   module:
-    - degov_common
-    - degov_node_overrides
-    - responsive_image
-    - text
-    - video_embed_field
+    - degov_media_video
 id: media.video.preview_wide
 targetEntityType: media
 bundle: video

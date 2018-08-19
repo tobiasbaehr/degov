@@ -2,16 +2,14 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_accessibility
-    - media.type.video
+    - media.type.video_upload
     - taxonomy.vocabulary.media_accessibility
-  enforced:
-    module:
-      - degov_taxonomy_media_accessibility
-id: media.video.field_media_accessibility
+  module:
+    - degov_taxonomy_media_accessibility
+id: media.video_upload.field_media_accessibility
 field_name: field_media_accessibility
 entity_type: media
-bundle: video
+bundle: video_upload
 label: Barrierefreiheit
 description: ''
 required: false

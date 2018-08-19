@@ -2,17 +2,15 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_media_language
-    - media.type.video
-    - taxonomy.vocabulary.media_language
-  enforced:
-    module:
-      - degov_taxonomy_media_language
-id: media.video.field_media_language
-field_name: field_media_language
+    - media.type.audio
+    - taxonomy.vocabulary.media_accessibility
+  module:
+    - degov_taxonomy_media_accessibility
+id: media.audio.field_media_accessibility
+field_name: field_media_accessibility
 entity_type: media
-bundle: video
-label: Sprache
+bundle: audio
+label: Barrierefreiheit
 description: ''
 required: false
 translatable: false
@@ -22,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      media_language: media_language
+      media_accessibility: media_accessibility
     sort:
       field: _none
     auto_create: false
