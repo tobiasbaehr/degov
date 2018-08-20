@@ -12,6 +12,7 @@ trait ErrorTrait {
     'Notice',
     'The import failed due for the following reasons:',
     'Es wurde eine nicht erlaubte Auswahl entdeckt.',
+    'An AJAX HTTP error occurred.'
   ];
 
   /**

@@ -38,6 +38,7 @@ dependencies:
   - diff
   - image_widget_crop
   - metatag
+  - degov_pathauto
   - lightning_core
   - lightning_media
   - lightning_media_bulk_upload
