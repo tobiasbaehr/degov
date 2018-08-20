@@ -2,12 +2,8 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
-use Behat\Mink\Exception\ExpectationException;
-use Behat\Mink\Exception\ResponseTextException;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
-use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\node\Entity\Node;
 
 class NodeContentTypeFormContext extends RawDrupalContext {
 
@@ -84,6 +80,24 @@ class NodeContentTypeFormContext extends RawDrupalContext {
         $optionElement->click();
       }
     }
+  }
+
+  /**
+   * @Given /^I proof content with title "([^"]*)" has moderation state "([^"]*)"$/
+   *   "([^"]*)"$/
+   */
+  public function iProofContentWithTitleHasModerationState($title, $state) {
+    $Ids = \Drupal::entityQuery('node')
+      ->condition('title', $title)->execute();
+
+    foreach($Ids as $Id) {
+      $NodeState = Node::load($Id)->moderation_state->value;
+      if($state === $NodeState) {
+        return;
+      }
+    }
+    throw new \Exception("No content with title '$title' and moderation state '$state'");
+
   }
 
 }

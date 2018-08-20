@@ -1,0 +1,11 @@
+<?php
+
+function degov_scheduled_updates_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_scheduled_updates', '8001');
+}
+
+function degov_scheduled_updates_install() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_scheduled_updates', '8000');
+}

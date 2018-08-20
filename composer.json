@@ -88,8 +88,9 @@
         "raiym/instagram-php-scraper": "^0.8.22",
         "heiseonline/shariff": "2.0.4",
         "drupal/console": "^1.8",
+        "drupal/module_status": "^1.0@alpha",
         "drush/drush": "^9.3",
-        "drupal/module_status": "^1.0@alpha"
+        "drupal/scheduled_publish": "^1.0"
     },
     "repositories": {
         "drupal": {
@@ -213,12 +214,18 @@
         "patches": {
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
+            },
+            "drupal/pathauto": {
+                "Issue 2961850 - Duplicated keys in schema": "https://www.drupal.org/files/issues/2018-05-11/pathauto-duplicate_ignore_words_config_schema-2961850-8.patch"
+            },
+            "drupal/simplenews": {
+                "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"
             }
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\Behat\\Context\\": "docroot/profiles/contrib/degov/testing/behat/context"
+            "Drupal\\degov\\Behat\\Context\\": "docroot/profiles/contrib/degov/testing/behat/context"
         }
     }
 }

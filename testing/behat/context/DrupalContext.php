@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
@@ -353,6 +354,13 @@ class DrupalContext extends RawDrupalContext {
       sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
       $this->getSession()
     );
+  }
+
+  /**
+   * @Given /^I run the cron$/
+   */
+  public function iRunTheCron() {
+    \Drupal::service('cron')->run();
   }
 
 }
