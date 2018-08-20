@@ -81,7 +81,7 @@ function degov_update_8442() {
  * imports
  */
 function degov_update_8443() {
-  \Drupal::service('module_installer')->install(['bartik']);
+  \Drupal::service('theme_installer')->install(['bartik']);
 }
 
 /**
