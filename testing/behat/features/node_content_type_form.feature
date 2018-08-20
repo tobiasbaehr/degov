@@ -13,7 +13,7 @@ Feature: deGov - Content type form
     And I should see text matching "Titel"
     And I should see text matching "Vorschau"
     And I should see text matching "Allgemein"
-    And I should see text matching "Kopfbereich"
+    And I should see text matching "Kopfzeile"
     And I should see text matching "Seitenleiste rechts"
     And I should see text matching "Inhalt"
     And I should see text matching "Vorschau Titel"
@@ -23,7 +23,7 @@ Feature: deGov - Content type form
     And I should see text matching "Vorschau Untertitel"
     And I should see text matching "Speichern unter"
     And I should see text matching "Zuletzt gespeichert"
-    And I should see text matching "Protokollnachricht der Version"
+    And I should see text matching "Protokollnachricht der Revision"
     And I should see text matching "MENÜEINSTELLUNGEN"
     And I should see text matching "URL-PFADEINSTELLUNGEN"
     And I should see text matching "INFORMATIONEN ZUM AUTOR"
@@ -37,7 +37,7 @@ Feature: deGov - Content type form
     And I fill in Textarea with "TEST TEST TEST"
     And I choose "Allgemein" from tab menu
     Then I should see text matching "SCHLAGWORTE" after a while
-    And I choose "Kopfbereich" from tab menu
+    And I choose "Kopfzeile" from tab menu
     And I choose "Seitenleiste rechts" from tab menu
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
