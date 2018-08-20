@@ -1,4 +1,6 @@
-framework:
+theme-assets:
   css:
     theme:
-      css/style.css: {}
+      webpack-dist/main.css: {}
+  js:
+    webpack-dist/bundle.js: {}
