@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: derh4nnes/pipeline-behat:latest
+image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
@@ -17,7 +17,7 @@ pipelines:
           - composer
         script:
           - apt-get update
-          - composer create-project degov/degov-project
+          - composer create-project degov/degov-project --no-install
           - cd degov-project
           - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
@@ -60,7 +60,7 @@ pipelines:
           caches:
             - composer
           script:
-            - composer create-project degov/degov-project
+            - composer create-project degov/degov-project --no-install
             - cd degov-project
             - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
