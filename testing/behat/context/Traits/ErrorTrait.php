@@ -4,6 +4,11 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
 
+/**
+ * Trait ErrorTrait
+ *
+ * @package Drupal\degov\Behat\Context\Traits
+ */
 trait ErrorTrait {
 
   private static $errorTexts = [
@@ -20,7 +25,7 @@ trait ErrorTrait {
    */
   public function checkErrors(): void {
     foreach (self::$errorTexts as $errorText) {
-      if (substr_count($this->getSession()->getPage()->getText(), $errorText) > 0) {
+      if (substr_count($this->getSession()->getPage()->getContent(), $errorText) > 0) {
         throw new ResponseTextException(
           sprintf('Task failed due "%s" text on page', $errorText),
           $this->getSession()
