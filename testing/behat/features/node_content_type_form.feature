@@ -25,7 +25,7 @@ Feature: deGov - Content type form
     And I should see text matching "Zuletzt gespeichert"
     And I should see text matching "Protokollnachricht der Revision"
     And I should see text matching "MENÜEINSTELLUNGEN"
-    And I should see text matching "URL-PFADEINSTELLUNGEN"
+    And I should see text matching "URL-ALIAS"
     And I should see text matching "INFORMATIONEN ZUM AUTOR"
     And I should see text matching "HERVORHEBUNGSOPTIONEN"
 
@@ -41,8 +41,8 @@ Feature: deGov - Content type form
     And I choose "Seitenleiste rechts" from tab menu
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
-    Then I should see text matching "URL-PFADEINSTELLUNGEN" after a while
-    And I select "URL-PFADEINSTELLUNGEN" from rightpane
+    Then I should see text matching "URL-ALIAS" after a while
+    And I select "URL-ALIAS" from rightpane
     Then I should see text matching "Automatischen URL-Alias erzeugen" after a while
     And I fill in "path[0][alias]" with "/aabbcc"
     And I choose "Veröffentlicht" in selectModerationBox

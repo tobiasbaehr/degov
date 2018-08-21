@@ -13,7 +13,6 @@ Feature: Installation via webbrowser
     And task "Website installieren" is done
     And task "Übersetzungen konfigurieren" is done
     Then I should see text matching "WEBSITE-INFORMATIONEN" after a while
-    And I should see text matching "Übersetzungsdatei wurde importiert"
     And I fill in "site_name" with "Some site name"
     And I fill in "site_mail" with "site@example.com"
     And I fill in "edit-account-name" with "admin"
