@@ -234,4 +234,13 @@ class FormContext extends RawMinkContext {
 		}
 	}
 
+	/**
+	 * Presses button with specified id|name|title|alt|value.
+	 *
+	 * @When I press the :button button
+	 */
+	public function pressButton($button) {
+		throw new \Exception('Press Button from form context was triggered. DEBUGGING! THIS IS GOOD!');
+	}
+
 }
