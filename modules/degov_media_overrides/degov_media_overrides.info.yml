@@ -4,8 +4,6 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - degov_content_types_shared_fields
-  - degov_image_and_crop_styles
   - field
   - text
   - degov_search_media

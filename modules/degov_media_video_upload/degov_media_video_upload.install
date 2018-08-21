@@ -44,3 +44,11 @@ function degov_media_video_upload_update_8011() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_video_upload', '8011');
 }
+
+/**
+ * Add missing view mode preview wide
+ */
+function degov_media_video_upload_update_8012() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video_upload', '8012');
+}
