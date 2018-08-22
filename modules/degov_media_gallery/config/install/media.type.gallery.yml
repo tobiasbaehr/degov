@@ -11,5 +11,5 @@ source: generic
 queue_thumbnail_downloads: false
 new_revision: false
 source_configuration:
-  source_field: field_media_generic_4
+  source_field: field_media_generic_5
 field_map: {  }
