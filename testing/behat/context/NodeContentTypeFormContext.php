@@ -2,10 +2,13 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\node\Entity\Node;
 
 class NodeContentTypeFormContext extends RawDrupalContext {
+
+	use TranslationTrait;
 
   /**
    * @Given /^I see element "([^"]*)" with divclass "([^"]*)"$/
@@ -22,7 +25,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   /**
    * @Given /^I choose "([^"]*)" from tab menu$/
    */
-  public function iChooseFromTabMenu($arg1) {
+  public function iChooseFromTabMenu(string $text): void {
     $page = $this->getSession()->getPage(); // get the mink session
     $found = FALSE;
     $cssClass = "div.vertical-tabs.clearfix ul.vertical-tabs__menu li a";
@@ -33,7 +36,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       $tmp = $element->find('css', "strong");
       $selectedText = $tmp->getText();
 
-      if ($selectedText === $arg1) {
+      if ($selectedText === $text) {
         $found = TRUE;
         $this->getSession()
           ->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
@@ -41,6 +44,32 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       $counter++;
     }
   }
+
+	/**
+	 * @Given /^I choose "([^"]*)" via translation from tab menu$/
+	 */
+	public function iChooseTranslatedFromTabMenu(string $text): void {
+
+		$text = $this->translateString($text);
+
+		$page = $this->getSession()->getPage(); // get the mink session
+		$found = FALSE;
+		$cssClass = "div.vertical-tabs.clearfix ul.vertical-tabs__menu li a";
+		$elements = $page->findAll('css', $cssClass);
+
+		$counter = 0;
+		foreach ($elements as $element) {
+			$tmp = $element->find('css', "strong");
+			$selectedText = $tmp->getText();
+
+			if ($selectedText === $text) {
+				$found = TRUE;
+				$this->getSession()
+					->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
+			}
+			$counter++;
+		}
+	}
 
   /**
    * @Given /^I click on togglebutton$/
