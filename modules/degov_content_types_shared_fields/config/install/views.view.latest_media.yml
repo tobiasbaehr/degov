@@ -172,13 +172,7 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value:
-            audio: audio
-            image: image
-            gallery: gallery
-            video: video
-            video_upload: video_upload
-            citation: citation
+          value: []
           group: 1
           exposed: false
           expose:
