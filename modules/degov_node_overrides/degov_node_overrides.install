@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Extension\ModuleInstaller;
+
 /**
  * Implements hook_install().
  */
@@ -57,4 +59,15 @@ function degov_node_overrides_update_8014() {
   $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
 
   \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+}
+
+/**
+ * Installing views_parity_row module
+ */
+function degov_node_overrides_update_8015() {
+  /**
+   * @var $moduleInstaller ModuleInstaller
+   */
+  $moduleInstaller = \Drupal::service('module_installer');
+  $moduleInstaller->install(['views_parity_row']);
 }
