@@ -2,7 +2,13 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview
+    - core.entity_view_mode.media.preview_wide
+    - media.type.audio
+    - media.type.citation
+    - media.type.gallery
+    - media.type.image
+    - media.type.video
+    - media.type.video_upload
   module:
     - media
     - user
@@ -49,19 +55,19 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 4
+          items_per_page: 9
           offset: 0
       style:
         type: default
         options:
-          row_class: 'col-sm-12 col-md-6 no-padding'
+          row_class: no-padding
           default_row_class: true
           uses_fields: false
       row:
         type: 'entity:media'
         options:
           relationship: none
-          view_mode: preview
+          view_mode: preview_wide
       fields:
         name:
           id: name
@@ -168,10 +174,11 @@ display:
           operator: in
           value:
             audio: audio
-            gallery: gallery
             image: image
+            gallery: gallery
             video: video
             video_upload: video_upload
+            citation: citation
           group: 1
           exposed: false
           expose:
@@ -187,6 +194,7 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            argument: null
           is_grouped: false
           group_info:
             label: ''
@@ -225,6 +233,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: mediathek-slides
     cache_metadata:
       max-age: -1
       contexts:
