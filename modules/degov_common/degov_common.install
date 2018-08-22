@@ -8,14 +8,8 @@ use Symfony\Component\Yaml\Yaml;
  */
 function degov_common_install() {
   // Set the first day of the week to Monday.
-  \Drupal::configFactory()
-    ->getEditable('system.date')
-    ->set('first_day', 1)
-    ->save();
-  \Drupal::configFactory()->getEditable('degov_common.default_settings')
-    ->set('netiquette_url', '/netiquette')
-    ->set('privacy_url', '/datenschutzhinweise')
-    ->save();
+  \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
+  \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
 }
 
 /**
