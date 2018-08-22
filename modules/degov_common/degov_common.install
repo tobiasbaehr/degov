@@ -1,11 +1,17 @@
 <?php
 
+use Drupal\config_replace\Exception\NonexistentInitialConfigException;
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Implements hook_install().
  */
 function degov_common_install() {
   // Set the first day of the week to Monday.
-  \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
+  \Drupal::configFactory()
+    ->getEditable('system.date')
+    ->set('first_day', 1)
+    ->save();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')
     ->set('netiquette_url', '/netiquette')
     ->set('privacy_url', '/datenschutzhinweise')
@@ -16,7 +22,9 @@ function degov_common_install() {
  * Implement hook_uninstall().
  */
 function degov_common_uninstall() {
-  \Drupal::configFactory()->getEditable('degov_common.default_settings')->delete();
+  \Drupal::configFactory()
+    ->getEditable('degov_common.default_settings')
+    ->delete();
 }
 
 function degov_common_update_8016() {
@@ -25,16 +33,36 @@ function degov_common_update_8016() {
   $query->condition('name', 'degov_paragraph_webformular');
   $query->execute();
 
-  \Drupal::configFactory()->getEditable('core.entity_form_display.paragraph.webformular.default')->delete();
-  \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.webformular.default')->delete();
-  \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.webformular.preview')->delete();
-  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_sub_title')->delete();
-  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_title')->delete();
-  \Drupal::configFactory()->getEditable('field.field.paragraph.webformular.field_webform_form')->delete();
-  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webformular')->delete();
-  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webform')->delete();
-  \Drupal::configFactory()->getEditable('paragraphs.paragraphs_type.webform_form')->delete();
-  \Drupal::configFactory()->getEditable('field.storage.paragraph.field_webform_form')->delete();
+  \Drupal::configFactory()
+    ->getEditable('core.entity_form_display.paragraph.webformular.default')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.paragraph.webformular.default')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('core.entity_view_display.paragraph.webformular.preview')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('field.field.paragraph.webformular.field_sub_title')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('field.field.paragraph.webformular.field_title')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('field.field.paragraph.webformular.field_webform_form')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('paragraphs.paragraphs_type.webformular')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('paragraphs.paragraphs_type.webform')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('paragraphs.paragraphs_type.webform_form')
+    ->delete();
+  \Drupal::configFactory()
+    ->getEditable('field.storage.paragraph.field_webform_form')
+    ->delete();
 
   \Drupal::service('module_installer')->install(['degov_paragraph_webform']);
 }
@@ -50,14 +78,18 @@ function degov_common_update_8017() {
 }
 
 /**
- * Installs the degov_theming module for decoupling degov_common module's theming functionality.
+ * Installs the degov_theming module for decoupling degov_common module's
+ * theming functionality.
  */
 function degov_common_update_8018() {
   \Drupal::service('module_installer')->install(['degov_theming']);
 }
 
 /**
- * Installs the config_replace module as a replacement for config_rewrite. Mainly because config_replace does not apply config rewrites for not existing original config and config_rewrite is unmaintained since a long time. config_replace will be removed from composer.json at 27.08.2018.
+ * Installs the config_replace module as a replacement for config_rewrite.
+ * Mainly because config_replace does not apply config rewrites for not
+ * existing original config and config_rewrite is unmaintained since a long
+ * time. config_replace will be removed from composer.json at 27.08.2018.
  */
 function degov_common_update_8020() {
   /**
@@ -72,7 +104,8 @@ function degov_common_update_8020() {
  * Remove entity_reference_integrity module
  */
 function degov_common_update_8021() {
-  \Drupal::service('module_installer')->uninstall(['entity_reference_integrity']);
+  \Drupal::service('module_installer')
+    ->uninstall(['entity_reference_integrity']);
 }
 
 /**
@@ -96,7 +129,7 @@ function degov_common_update_8026() {
     ->getBundleInfo('paragraph');
 
   $types['media'] = array_keys($mediaBundleInfo);
-  $types['node'] =  array_keys($nodeBundleInfo);
+  $types['node'] = array_keys($nodeBundleInfo);
   $types['paragraph'] = array_keys($paragraphBundleInfo);
 
   /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
@@ -122,4 +155,21 @@ function degov_common_update_8026() {
   }
   // Disable workbench_moderation
   \Drupal::service('module_installer')->uninstall(['workbench_moderation']);
+}
+
+/**
+ * Updated media browser view
+ */
+function degov_common_update_8027() {
+  /**
+   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
+   */
+  $configReplacer = \Drupal::service('config_replace.config_replacer');
+  $original = ['original'];
+  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . DIRECTORY_SEPARATOR . 'views.view.media' . '.yml'));
+  try {
+    $configReplacer->rewriteConfig($original, $replace, 'views.view.media', 'degov_common');
+  } catch (NonexistentInitialConfigException $e) {
+    //Ignore
+  }
 }
