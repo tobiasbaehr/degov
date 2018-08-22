@@ -46,6 +46,7 @@ Feature: deGov - Content types
       | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
       | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
       | Banner hinzufügen                | field_content_paragraphs_image_header_add_more    |
+      | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
       | Inhaltsreferenz hinzufügen       | field_content_paragraphs_node_reference_add_more  |
       | Slide hinzufügen                 | field_content_paragraphs_slide_add_more           |
       | Slideshow hinzufügen             | field_content_paragraphs_slideshow_add_more       |
