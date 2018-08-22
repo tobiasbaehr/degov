@@ -77,8 +77,7 @@ function degov_update_8442() {
 }
 
 /**
- * Installing Bartik theme to prevent configuration errors created by block
- * imports
+ * Installing Bartik theme to prevent configuration errors created by block imports
  */
 function degov_update_8443() {
   \Drupal::service('theme_installer')->install(['bartik']);
@@ -97,6 +96,9 @@ function degov_update_8444() {
   ]);
 }
 
+/**
+ * Remove password policy module
+ */
 function degov_update_8445() {
   \Drupal::service('module_installer')->uninstall([
     'degov_password_policy',
@@ -110,8 +112,46 @@ function degov_update_8445() {
 }
 
 /**
- * Uninstalls the scheduled_updates module and configuration
+ * Add missing image preview icons
  */
-function degov_update_8446() {
-  \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
+function degov_update_8447() {
+
+  if (\Drupal::moduleHandler()->moduleExists('media')) {
+    $source = drupal_get_path('module', 'media') . '/images/icons';
+    $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+    file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+
+    $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+    foreach ($files as $file) {
+      // When reinstalling the media module we don't want to copy the icons when
+      // they already exist. The icons could be replaced (by a contrib module or
+      // manually), so we don't want to replace the existing files. Removing the
+      // files when we uninstall could also be a problem if the files are
+      // referenced somewhere else. Since showing an error that it was not
+      // possible to copy the files is also confusing, we silently do nothing.
+      if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+        file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+      }
+    }
+  }
+}
+
+/**
+ * Safe scheduled_updates uninstall
+ */
+function degov_update_8448() {
+  foreach ([
+             'normal_page',
+             'blog',
+             'press',
+             'simplenews_issue',
+             'faq',
+             'event',
+             'external_teaser',
+           ] as $nodeType) {
+    $fieldConfig = FieldConfig::loadByName('node', $nodeType, 'scheduled_updates');
+    if (!empty($fieldConfig)) {
+      $fieldConfig->delete();
+    }
+  }
 }
