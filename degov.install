@@ -77,8 +77,7 @@ function degov_update_8442() {
 }
 
 /**
- * Installing Bartik theme to prevent configuration errors created by block
- * imports
+ * Installing Bartik theme to prevent configuration errors created by block imports
  */
 function degov_update_8443() {
   \Drupal::service('theme_installer')->install(['bartik']);
@@ -97,6 +96,9 @@ function degov_update_8444() {
   ]);
 }
 
+/**
+ * Remove password policy module
+ */
 function degov_update_8445() {
   \Drupal::service('module_installer')->uninstall([
     'degov_password_policy',
@@ -107,13 +109,6 @@ function degov_update_8445() {
     'password_policy_username',
     'password_policy',
   ]);
-}
-
-/**
- * Uninstalls the scheduled_updates module and configuration
- */
-function degov_update_8446() {
-  \Drupal::service('module_installer')->uninstall(['scheduled_updates']);
 }
 
 /**
@@ -137,6 +132,26 @@ function degov_update_8447() {
       if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
         file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
       }
+    }
+  }
+}
+
+/**
+ * Safe scheduled_updates uninstall
+ */
+function degov_update_8448() {
+  foreach ([
+             'normal_page',
+             'blog',
+             'press',
+             'simplenews_issue',
+             'faq',
+             'event',
+             'external_teaser',
+           ] as $nodeType) {
+    $fieldConfig = FieldConfig::loadByName('node', $nodeType, 'scheduled_updates');
+    if (!empty($fieldConfig)) {
+      $fieldConfig->delete();
     }
   }
 }
