@@ -80,15 +80,15 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
-   * @Given /^I select "([^"]*)" from rightpane$/
+   * @Given /^I select "([^"]*)" via translation in uppercase from rightpane$/
    */
-  public function iSelectFromRightpane($arg1) {
+  public function iSelectFromRightpane(string $text): void {
     $divLayout = "div.layout-region.layout-region-node-secondary div.entity-meta.js-form-wrapper.form-wrapper details";
     $page = $this->getSession()->getPage(); // get the mink session
     $elements = $page->findAll("css", $divLayout);
-    $counter = 0;
+
     foreach ($elements as $element) {
-      if ($element->getText() === trim($arg1)) {
+      if ($element->getText() === trim(mb_strtoupper($this->translateString($text)))) {
         $pane = $element->find("css", "summary");
         $pane->click();
         $checkbox = $element->find('css', '.details-wrapper label.option');
@@ -98,14 +98,14 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
-   * @Given /^I choose "([^"]*)" in selectModerationBox$/
+   * @Given /^I choose "([^"]*)" via translation in selectModerationBox$/
    */
-  public function iChooseInSelectModerationBox($arg1) {
-    $page = $this->getSession()->getPage(); // get the mink session
-    $optionElements = $page->findAll("css", "div.container-inline select option");
+  public function iChooseInSelectModerationBox(string $text): void {
+    $page = $this->getSession()->getPage();
+    $optionElements = $page->findAll('css', 'div.container-inline select option');
 
     foreach ($optionElements as $optionElement) {
-      if ($optionElement->getText() === trim($arg1)) {
+      if ($optionElement->getText() === trim($this->translateString($text))) {
         $optionElement->click();
       }
     }

@@ -411,4 +411,11 @@ class DrupalContext extends RawDrupalContext {
 		}
 	}
 
+	/**
+	 * @When I click :link via translation
+	 */
+	public function assertClickViaTranslate(string $link): void {
+		$this->getSession()->getPage()->clickLink($this->translateString($link));
+	}
+
 }

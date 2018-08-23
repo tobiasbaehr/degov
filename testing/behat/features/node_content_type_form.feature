@@ -42,10 +42,10 @@ Feature: deGov - Content type form
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
     Then I should see text matching "URL path settings" via translated text in uppercase after a while
-    And I select "URL-PFADEINSTELLUNGEN" from rightpane
+    And I select "URL path settings" via translation in uppercase from rightpane
     Then I should see text matching "Generate automatic URL alias" via translated text after a while
     And I fill in "path[0][alias]" with "/aabbcc"
-    And I choose "Veröffentlicht" in selectModerationBox
+    And I choose "Published" via translation in selectModerationBox
     And I scroll to bottom
     And I press button with label "Save" via translated text
     Then I should be on "/aabbcc"
