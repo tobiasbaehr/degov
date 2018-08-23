@@ -19,17 +19,17 @@ Feature: deGov - Media creation
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"
-    And I click "Allgemein"
+    And I click "General" via translation
     And I check the box "Mediathek"
     Then I scroll to bottom
-    And I press the "Speichern" button
+    And I press button with label "Save" via translated text
     Then I should see text matching "Example address" after a while
     Then I am on "/node/add/normal_page"
     And I fill in "Example normal page title" for "Titel"
     And I click by selector ".vertical-tabs__menu-item.last a" via JavaScript
     And I click by selector "#edit-field-content-paragraphs button" via JavaScript
     Then I scroll to bottom
-    And I press the "Speichern" button
+    And I press button with label "Save" via translated text
     And I am on "/admin/content"
     Then I should see text matching "Example normal page title" after a while
 
@@ -43,7 +43,7 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example quote public       |
       | Text               | Example text. Lorem ipsum. |
     Then I scroll to bottom
-    And I press the "Speichern" button
+    And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example quote" after a while
 
@@ -56,7 +56,7 @@ Feature: deGov - Media creation
       | Name               | Example person |
       | Öffentlicher Titel | Example person public |
     Then I scroll to bottom
-    And I press the "Speichern" button
+    And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
 
@@ -69,7 +69,7 @@ Feature: deGov - Media creation
       | Video-URL           | https://www.youtube.com/watch?v=qREKP9oijWI |
       | Quelle              | youtube                                     |
     And I scroll to element with id "edit-submit"
-    And I press "Speichern"
+    And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
     And I should see "Video Example video public wurde erstellt."
 
@@ -82,6 +82,6 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example Instagram public               |
       | Instagram post     | https://www.instagram.com/p/JUvux9iFRY |
     And I scroll to element with id "edit-submit"
-    And I press "Speichern"
+    And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
