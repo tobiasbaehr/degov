@@ -10,24 +10,24 @@ Feature: deGov - Content type form
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"
-    And I should see text matching "Titel"
-    And I should see text matching "Vorschau"
-    And I should see text matching "Allgemein"
-    And I should see text matching "Kopfzeile"
+    And I should see text matching "Title" via translated text
+    And I should see text matching "Preview" via translated text
+    And I should see text matching "General" via translated text
+    And I should see text matching "Header" via translated text
     And I should see text matching "Seitenleiste rechts"
-    And I should see text matching "Inhalt"
+    And I should see text matching "Content" via translated text
     And I should see text matching "Vorschau Titel"
     And I should see text matching "Vorschau Text"
-    And I should see text matching "Textformat"
+    And I should see text matching "Text format" via translated text
     And I should see text matching "VORSCHAU BILD"
     And I should see text matching "Vorschau Untertitel"
-    And I should see text matching "Speichern unter"
-    And I should see text matching "Zuletzt gespeichert"
-    And I should see text matching "Protokollnachricht der Revision"
-    And I should see text matching "MENÜEINSTELLUNGEN"
-    And I should see text matching "URL-PFADEINSTELLUNGEN"
-    And I should see text matching "INFORMATIONEN ZUM AUTOR"
-    And I should see text matching "HERVORHEBUNGSOPTIONEN"
+    And I should see text matching "Save as" via translated text
+    And I should see text matching "Last saved" via translated text
+    And I should see text matching "Revision log message" via translated text
+    And I should see text matching "Menu settings" via translated text in uppercase
+    And I should see text matching "URL path settings" via translated text in uppercase
+    And I should see text matching "Authoring information" via translated text in uppercase
+    And I should see text matching "Promotion options" via translated text in uppercase
 
   Scenario: Add content to normal page
     Given I am logged in as a user with the "administrator" role
@@ -35,16 +35,17 @@ Feature: deGov - Content type form
     And I fill in "title[0][value]" with "aabbcc"
     And I fill in "field_teaser_title[0][value]" with "preview__aaabbcc"
     And I fill in Textarea with "TEST TEST TEST"
-    And I choose "Allgemein" from tab menu
-    Then I should see text matching "SCHLAGWORTE" after a while
-    And I choose "Kopfzeile" from tab menu
+    And I choose "General" via translation from tab menu
+    Then I should see text matching "Schlagworte"
+    And I choose "Header" via translation from tab menu
     And I choose "Seitenleiste rechts" from tab menu
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
-    Then I should see text matching "URL-PFADEINSTELLUNGEN" after a while
-    And I select "URL-PFADEINSTELLUNGEN" from rightpane
-    Then I should see text matching "Automatischen URL-Alias erzeugen" after a while
+    Then I should see text matching "URL path settings" via translated text in uppercase after a while
+    And I select "URL path settings" via translation in uppercase from rightpane
+    Then I should see text matching "Generate automatic URL alias" via translated text after a while
     And I fill in "path[0][alias]" with "/aabbcc"
-    And I choose "Veröffentlicht" in selectModerationBox
-    And I press the "Speichern" button
+    And I choose "Published" via translation in selectModerationBox
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
     Then I should be on "/aabbcc"
