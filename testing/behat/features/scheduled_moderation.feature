@@ -9,7 +9,7 @@
       And I fill in "01012018" for "edit-field-publish-0-value-date"
       And I fill in "010000AM" for "edit-field-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
-      And I press the "Speichern" button
+      And I press button with label "Save" via translated text
       And I run the cron
       And I am on "/admin/content"
       And I click "Test"
@@ -24,7 +24,7 @@
       And I fill in "01012118" for "edit-field-publish-0-value-date"
       And I fill in "010000AM" for "edit-field-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
-      And I press the "Speichern" button
+      And I press button with label "Save" via translated text
       And I run the cron
       And I am on "/admin/content"
       And I click "Test"
