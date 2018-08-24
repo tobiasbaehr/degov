@@ -1,12 +1,13 @@
-@api @drupal
+@api @drupal @test
 Feature: deGov - Media creation
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | degov_media_video               |
-      | degov_node_overrides            |
-      | degov_node_normal_page          |
-      | degov_paragraph_text            |
+      | degov_media_video      |
+      | degov_node_overrides   |
+      | degov_node_normal_page |
+      | degov_paragraph_text   |
+      | degov_media_image      |
     Given I am installing the "degov_paragraph_media_reference" module
 
   Scenario: I am creating a address media entity
@@ -53,7 +54,7 @@ Feature: deGov - Media creation
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
-      | Name               | Example person |
+      | Name               | Example person        |
       | Öffentlicher Titel | Example person public |
     Then I scroll to bottom
     And I press button with label "Save" via translated text
@@ -64,10 +65,10 @@ Feature: deGov - Media creation
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
     And I fill in the following:
-      | Öffentlicher Titel  | Example video                               |
-      | Name                | Example video public                        |
-      | Video-URL           | https://www.youtube.com/watch?v=qREKP9oijWI |
-      | Quelle              | youtube                                     |
+      | Öffentlicher Titel | Example video                               |
+      | Name               | Example video public                        |
+      | Video-URL          | https://www.youtube.com/watch?v=qREKP9oijWI |
+      | Quelle             | youtube                                     |
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
@@ -85,3 +86,16 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
+
+  Scenario: I am creating an media image entity
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/image"
+    And I fill in "Name" with "Test1234"
+    And I fill in "Öffentlicher Titel" with "Test1234"
+    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should not see "ist erforderlich."
+
