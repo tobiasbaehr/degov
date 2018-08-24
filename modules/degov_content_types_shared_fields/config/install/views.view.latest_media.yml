@@ -2,13 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview_wide
-    - media.type.audio
-    - media.type.citation
-    - media.type.gallery
-    - media.type.image
-    - media.type.video
-    - media.type.video_upload
+    - core.entity_view_mode.media.preview
   module:
     - media
     - user
@@ -67,7 +61,7 @@ display:
         type: 'entity:media'
         options:
           relationship: none
-          view_mode: preview_wide
+          view_mode: preview
       fields:
         name:
           id: name
