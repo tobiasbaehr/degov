@@ -134,10 +134,9 @@ function degov_common_update_8034() {
    * @var $configReplacer \Drupal\config_replace\ConfigReplacer
    */
   $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $original = ['original'];
   $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/install/views.view.media.yml'));
   try {
-    $configReplacer->rewriteConfig($original, $replace, 'views.view.media', 'degov_common');
+    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.media', 'degov_common');
   } catch (NonexistentInitialConfigException $e) {
     //Ignore
   }
@@ -151,10 +150,9 @@ function degov_common_update_8035() {
    * @var $configReplacer \Drupal\config_replace\ConfigReplacer
    */
   $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $original = ['original'];
   $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_content_types_shared_fields') . '/config/install/views.view.latest_media.yml'));
   try {
-    $configReplacer->rewriteConfig($original, $replace, 'views.view.latest_media', 'degov_content_types_shared_fields');
+    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.latest_media', 'degov_content_types_shared_fields');
   } catch (NonexistentInitialConfigException $e) {
     //Ignore
   }
