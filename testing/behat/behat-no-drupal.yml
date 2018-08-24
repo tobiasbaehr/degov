@@ -18,7 +18,7 @@ default:
       selenium2:
         wd_host: "http://localhost:4444/wd/hub"
         browser: "chrome"
-        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox"] } }
+        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--headless","--disable-gpu"] } }
       base_url: http://localhost:80
     Drupal\DrupalExtension:
       blackbox: ~
