@@ -49,12 +49,12 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 9
+          items_per_page: 4
           offset: 0
       style:
         type: default
         options:
-          row_class: no-padding
+          row_class: 'col-sm-12 col-md-6 no-padding'
           default_row_class: true
           uses_fields: false
       row:
@@ -166,7 +166,12 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: []
+          value:
+            audio: audio
+            gallery: gallery
+            image: image
+            video: video
+            video_upload: video_upload
           group: 1
           exposed: false
           expose:
