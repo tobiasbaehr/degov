@@ -106,6 +106,7 @@ Feature: deGov - Media creation
     And I fill in "Name" with "Test1234"
     And I fill in "Öffentlicher Titel" with "Test1234"
     #And I click "Medien"
+    And I should see "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
