@@ -99,6 +99,7 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
+    And I should see "wurde erstellt."
 
   Scenario: I am creating an media gallery entity
     Given I am logged in as an "Administrator"
