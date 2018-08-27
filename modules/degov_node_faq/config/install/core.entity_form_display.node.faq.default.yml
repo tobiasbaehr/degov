@@ -87,16 +87,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content_paragraphs:
-    weight: 6
     settings:
-      title: Absatz
-      title_plural: Paragraphs
-      edit_mode: preview
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: faq_list
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+     title: Paragraph
+     title_plural: Paragraphs
+     edit_mode: closed
+     autocollapse: none
+     add_mode: modal
+     form_display_mode: default
+     default_paragraph_type: _none
+     features:
+       duplicate: duplicate
+       collapse_edit_all: collapse_edit_all
+       add_above: add_above
     region: content
   field_faq_description:
     weight: 5

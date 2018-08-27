@@ -151,14 +151,17 @@ content:
   field_content_paragraphs:
     weight: 14
     settings:
-      title: Absatz
-      title_plural: Paragraphs
-      edit_mode: preview
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+     title: Paragraph
+     title_plural: Paragraphs
+     edit_mode: closed
+     autocollapse: none
+     add_mode: modal
+     form_display_mode: default
+     default_paragraph_type: _none
+     features:
+       duplicate: duplicate
+       collapse_edit_all: collapse_edit_all
+       add_above: add_above
     region: content
   field_event_date:
     weight: 3
@@ -189,14 +192,17 @@ content:
   field_header_paragraphs:
     weight: 12
     settings:
-      title: Absatz
-      title_plural: Paragraphs
-      edit_mode: preview
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+     title: Paragraph
+     title_plural: Paragraphs
+     edit_mode: closed
+     autocollapse: none
+     add_mode: modal
+     form_display_mode: default
+     default_paragraph_type: _none
+     features:
+       duplicate: duplicate
+       collapse_edit_all: collapse_edit_all
+       add_above: add_above
     region: content
   field_section:
     type: options_select
@@ -205,16 +211,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
-    weight: 15
     settings:
-      title: Absatz
-      title_plural: Paragraphs
-      edit_mode: preview
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
+     title: Paragraph
+     title_plural: Paragraphs
+     edit_mode: closed
+     autocollapse: none
+     add_mode: modal
+     form_display_mode: default
+     default_paragraph_type: _none
+     features:
+       duplicate: duplicate
+       collapse_edit_all: collapse_edit_all
+       add_above: add_above
     region: content
   field_social_media:
     weight: 9
