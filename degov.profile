@@ -12,22 +12,22 @@
  */
 function degov_install_tasks($install_state) {
   $tasks = [
-    'degov_theme_setup' => [
+    'degov_theme_setup'    => [
       'display_name' => t('Install deGov - Theme'),
-      'display' => TRUE,
+      'display'      => TRUE,
     ],
-    'degov_module_setup' => [
+    'degov_module_setup'   => [
       'display_name' => t('Install deGov - Base'),
-      'type' => 'batch',
+      'type'         => 'batch',
     ],
-    'degov_media_setup' => [
+    'degov_media_setup'    => [
       'display_name' => t('Install deGov - Media'),
-      'type' => 'batch',
+      'type'         => 'batch',
     ],
     'degov_finalize_setup' => [
       'display_name' => t('Finalize installation'),
-      'type' => 'batch',
-      'display' => TRUE,
+      'type'         => 'batch',
+      'display'      => TRUE,
     ],
   ];
 
@@ -48,20 +48,21 @@ function degov_module_setup(&$install_state) {
   system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
-	$modules = [
-		'degov_common'                      => 'degov_common',
-		'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
-		'degov_date_formats'                => 'degov_date_formats',
-		'degov_pathauto'                    => 'degov_pathauto',
-		'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
-		'degov_users_roles'                 => 'degov_users_roles',
-		'degov_node_overrides'              => 'degov_node_overrides',
-		'degov_node_normal_page'            => 'degov_node_normal_page',
-		'degov_paragraph_text'              => 'degov_paragraph_text',
-		'degov_paragraph_webform'           => 'degov_paragraph_webform',
-		'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
-		'degov_paragraph_header'            => 'degov_paragraph_header',
-	];
+  $modules = [
+    'degov_common'                      => 'degov_common',
+    'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+    'degov_image_and_crop_styles'       => 'degov_image_and_crop_styles',
+    'degov_date_formats'                => 'degov_date_formats',
+    'degov_pathauto'                    => 'degov_pathauto',
+    'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
+    'degov_users_roles'                 => 'degov_users_roles',
+    'degov_node_overrides'              => 'degov_node_overrides',
+    'degov_node_normal_page'            => 'degov_node_normal_page',
+    'degov_paragraph_text'              => 'degov_paragraph_text',
+    'degov_paragraph_webform'           => 'degov_paragraph_webform',
+    'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
+    'degov_paragraph_header'            => 'degov_paragraph_header',
+  ];
 
   // Add a batch operation to install each module.
   $operations = [];
@@ -70,11 +71,11 @@ function degov_module_setup(&$install_state) {
   }
 
   // Batch operation definition.
-	$batch = [
-		'operations'    => $operations,
-		'title'         => t('Install deGov modules'),
-		'error_message' => t('An error occured during deGov module installation.'),
-	];
+  $batch = [
+    'operations'    => $operations,
+    'title'         => t('Install deGov modules'),
+    'error_message' => t('An error occured during deGov module installation.'),
+  ];
 
   return $batch;
 }
@@ -122,8 +123,8 @@ function degov_media_setup(&$install_state) {
 
   // Batch operation definition.
   $batch = [
-    'operations' => $operations,
-    'title' => t('Install deGov - Media'),
+    'operations'    => $operations,
+    'title'         => t('Install deGov - Media'),
     'error_message' => t('An error occured during deGov - Media installation.'),
   ];
 
@@ -170,18 +171,18 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
   drupal_get_messages('status', TRUE);
 
   // List all optional deGov modules.
-	$degov_optional_modules = [
-		'degov_eu_cookie_compliance' => t('EU cookie compliance'),
-	];
-	$form['degov']['optional_modules'] = [
-		'#type'          => 'checkboxes',
-		'#title'         => t('ENABLE OPTIONAL FEATURES'),
-		'#description'   => t('Checked features are recommended.'),
-		'#options'       => $degov_optional_modules,
-		'#default_value' => [
-			'degov_eu_cookie_compliance',
-		],
-	];
+  $degov_optional_modules = [
+    'degov_eu_cookie_compliance' => t('EU cookie compliance'),
+  ];
+  $form['degov']['optional_modules'] = [
+    '#type'          => 'checkboxes',
+    '#title'         => t('ENABLE OPTIONAL FEATURES'),
+    '#description'   => t('Checked features are recommended.'),
+    '#options'       => $degov_optional_modules,
+    '#default_value' => [
+      'degov_eu_cookie_compliance',
+    ],
+  ];
 
   // Add an additional submit handler for optional modules.
   $form['#submit'][] = 'degov_optional_modules_submit';
@@ -212,15 +213,15 @@ function degov_finalize_setup() {
   $degov_optional_modules = \Drupal::state()->get('degov_optional_modules');
 
   // Add a batch operation to install each optional module.
-	foreach ($degov_optional_modules as $module => $module_name) {
-		$batch['operations'][] = [
-			'_install_degov_module_batch',
-			[
-				[$module],
-				$module_name,
-			],
-		];
-	}
+  foreach ($degov_optional_modules as $module => $module_name) {
+    $batch['operations'][] = [
+      '_install_degov_module_batch',
+      [
+        [$module],
+        $module_name,
+      ],
+    ];
+  }
 
   return $batch;
 }

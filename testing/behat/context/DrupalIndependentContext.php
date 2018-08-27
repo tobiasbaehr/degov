@@ -5,10 +5,13 @@ namespace Drupal\degov\Behat\Context;
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
+use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
 
 class DrupalIndependentContext extends RawMinkContext {
+
+	use TranslationTrait;
 
 	private const MAX_DURATION_SECONDS = 1200;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
@@ -54,9 +57,57 @@ class DrupalIndependentContext extends RawMinkContext {
 	}
 
 	/**
+	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase after a while$/
+	 */
+	public function iShouldSeeTranslatedUppercaseTextAfterAWhile(string $text): bool
+	{
+		$translatedText = mb_strtoupper($this->translateString($text));
+
+		try {
+			$startTime = time();
+			do {
+				$content = $this->getSession()->getPage()->getText();
+				if (substr_count($content, $translatedText) > 0) {
+					return true;
+				}
+			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+			throw new ResponseTextException(
+				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+				$this->getSession()
+			);
+		} catch (StaleElementReference $e) {
+			return true;
+		}
+	}
+
+	/**
+	 * @Then /^I should see text matching "([^"]*)" via translated text after a while$/
+	 */
+	public function iShouldSeeTranslatedTextAfterAWhile(string $text): bool
+	{
+		$translatedText = $this->translateString($text);
+
+		try {
+			$startTime = time();
+			do {
+				$content = $this->getSession()->getPage()->getText();
+				if (substr_count($content, $translatedText) > 0) {
+					return true;
+				}
+			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+			throw new ResponseTextException(
+				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+				$this->getSession()
+			);
+		} catch (StaleElementReference $e) {
+			return true;
+		}
+	}
+
+	/**
 	 * @Then /^I should see text matching "([^"]*)" after a while$/
 	 */
-	public function iShouldSeeTextAfterAWhile($text)
+	public function iShouldSeeTextAfterAWhile(string $text): bool
 	{
 		try {
 			$startTime = time();

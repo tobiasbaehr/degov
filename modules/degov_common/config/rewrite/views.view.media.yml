@@ -846,10 +846,10 @@ display:
         type: grid
         options:
           grouping: {  }
-          columns: 6
+          columns: 5
           automatic_width: true
           alignment: horizontal
-          col_class_default: true
+          col_class_default: false
           col_class_custom: ''
           row_class_default: true
           row_class_custom: ''
@@ -918,7 +918,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: medium
+            image_style: thumbnail
             image_link: ''
           group_column: ''
           group_columns: {  }

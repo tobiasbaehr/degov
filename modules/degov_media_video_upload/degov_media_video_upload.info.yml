@@ -13,6 +13,7 @@ dependencies:
   - dropzonejs_eb_widget
   - entity_browser
   - entity_reference_revisions
+  - degov_media_overrides
   - field
   - field_group
   - file
