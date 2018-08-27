@@ -60,14 +60,3 @@ function degov_node_overrides_update_8014() {
 
   \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
 }
-
-/**
- * Installing views_parity_row module
- */
-function degov_node_overrides_update_8015() {
-  /**
-   * @var $moduleInstaller ModuleInstaller
-   */
-  $moduleInstaller = \Drupal::service('module_installer');
-  $moduleInstaller->install(['views_parity_row']);
-}

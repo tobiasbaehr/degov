@@ -20,4 +20,3 @@ dependencies:
   - taxonomy
   - user
   - views
-  - views_parity_row

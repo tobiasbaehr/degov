@@ -2,13 +2,7 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview_wide
-    - media.type.audio
-    - media.type.citation
-    - media.type.gallery
-    - media.type.image
-    - media.type.video
-    - media.type.video_upload
+    - core.entity_view_mode.media.preview
   module:
     - media
     - user
@@ -55,19 +49,19 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 9
+          items_per_page: 4
           offset: 0
       style:
         type: default
         options:
-          row_class: no-padding
+          row_class: 'col-sm-12 col-md-6 no-padding'
           default_row_class: true
           uses_fields: false
       row:
         type: 'entity:media'
         options:
           relationship: none
-          view_mode: preview_wide
+          view_mode: preview
       fields:
         name:
           id: name
@@ -172,7 +166,12 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: []
+          value:
+            audio: audio
+            gallery: gallery
+            image: image
+            video: video
+            video_upload: video_upload
           group: 1
           exposed: false
           expose:
