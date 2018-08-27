@@ -1,0 +1,4 @@
+//Use on colors with transparency
+@mixin lighter-bg-color($degov-color, $degov-opacity) {
+  background-color: rgba($degov-color, $degov-opacity);
+}

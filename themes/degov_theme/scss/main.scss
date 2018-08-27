@@ -1,3 +1,43 @@
-body {
-  background-color: blue;
+@import "variables";
+@import "mixins";
+
+@import "components/content";
+@import "elements/teasers";
+//@import "pages/**";
+//@import "modules/**";
+//@import "view-modes/**";
+//@import "views/**";
+
+#title,
+#teaser-text,
+#topicality,
+#cover-headline,
+#distribution-headline,
+#geo-headline,
+#contact-information-headline {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: $font-size-h2;
+  font-weight: bold;
+  color: red;
+}
+
+#topicality-data-title,
+#topicality-data-second-title,
+#cover-teasertext,
+#cover-map-teasertext,
+#contact-information-teasertext,
+#contact-information-provider-teasertext,
+#distribution-teasertext,
+#geo-contact-teasertext {
+  color: red;
+}
+
+#description {
+  margin-bottom: 40px;
+}
+
+#duplicate-button {
+  color: red;
+  cursor: pointer;
 }
