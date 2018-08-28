@@ -418,4 +418,13 @@ class DrupalContext extends RawDrupalContext {
 		$this->getSession()->getPage()->clickLink($this->translateString($link));
 	}
 
+  /**
+   * @Then I should see an element with selector :arg1 with :arg2 children with selector :arg3
+   */
+  public function iShouldSeeAnElementWithSelectorWithChildrenWithSelectorType($elementSelector, $numberOfChildren, $childrenSelector)
+  {
+    $this->assertSession()->elementExists('css', $elementSelector);
+    $this->assertSession()->elementExists('css', $elementSelector . ' > ' . $childrenSelector);
+    $this->assertSession()->elementsCount('css', $elementSelector . ' > ' . $childrenSelector, $numberOfChildren);
+  }
 }
