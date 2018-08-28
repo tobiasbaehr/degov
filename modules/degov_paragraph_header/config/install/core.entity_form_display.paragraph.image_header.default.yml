@@ -4,7 +4,6 @@ dependencies:
   config:
     - entity_browser.browser.media_browser
     - field.field.paragraph.image_header.field_header_media
-    - field.field.paragraph.image_header.field_header_text
     - field.field.paragraph.image_header.field_override_caption
     - paragraphs.paragraphs_type.image_header
   enforced:
@@ -12,7 +11,6 @@ dependencies:
       - degov_paragraph_header
   module:
     - entity_browser
-    - text
 id: paragraph.image_header.default
 targetEntityType: paragraph
 bundle: image_header
@@ -31,14 +29,6 @@ content:
       field_widget_display_settings: {  }
     region: content
     third_party_settings: {  }
-  field_header_text:
-    weight: 1
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_override_caption:
     type: string_textfield
     weight: 2
