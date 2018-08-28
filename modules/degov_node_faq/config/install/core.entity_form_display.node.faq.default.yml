@@ -87,7 +87,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content_paragraphs:
-    type: paragraph
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs
