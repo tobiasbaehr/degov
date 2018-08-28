@@ -13,6 +13,8 @@ Feature: deGov - Teaser view modes
     And I click by XPath "//input[@name='field_content_paragraphs_node_reference_add_more']"
     And I should see text matching "INHALTSBEREICH" after a while
     And I should see text matching "Inhaltsreferenz" after a while
+    And I press button with label "Add Paragraph" via translated text
+    And I press button with label "Inhaltsreferenz" via translated text
     Then I assert dropdown named "field_content_paragraphs[0][subform][field_node_reference_viewmode]" contains the following text-value pairs:
       | text                | value       |
       | Teaser kleines Bild | small_image |
