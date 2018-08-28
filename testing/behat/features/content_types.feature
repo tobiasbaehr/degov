@@ -42,7 +42,7 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I press button with label "Add Paragraph" via translated text
-    And I assert dropbutton actions with css selector ".paragraphs-add-dialog-list" contains the following name-value pairs:
+    And I assert dropbutton actions with css selector ".paragraphs-add-dialog" contains the following name-value pairs:
       | value                            | name                                              |
       | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
       | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |

@@ -9,8 +9,6 @@ Feature: deGov - Teaser view modes
     And I am on "/node/add/normal_page"
     Then I choose "Inhalt" from tab menu
     And I should see text matching "Inhaltsbereich"
-    And I click by selector "#edit-field-content-paragraphs-wrapper li.dropbutton-toggle button" via JavaScript
-    And I click by XPath "//input[@name='field_content_paragraphs_node_reference_add_more']"
     And I should see text matching "INHALTSBEREICH" after a while
     And I press button with label "Add Paragraph" via translated text
     And I should see text matching "Inhaltsreferenz" after a while
