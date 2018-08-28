@@ -1,6 +1,6 @@
 content:
   field_content_paragraphs:
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph

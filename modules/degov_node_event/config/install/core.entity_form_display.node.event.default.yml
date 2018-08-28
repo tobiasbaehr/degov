@@ -149,7 +149,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content_paragraphs:
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     weight: 14
     settings:
@@ -192,7 +192,7 @@ content:
     type: address_default
     region: content
   field_header_paragraphs:
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     weight: 12
     settings:
@@ -215,7 +215,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph

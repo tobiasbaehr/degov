@@ -166,7 +166,7 @@ content:
     type: datetime_default
     region: content
   field_content_paragraphs:
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     weight: 8
     settings:
@@ -184,7 +184,7 @@ content:
     region: content
   field_header_paragraphs:
     weight: 8
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph
@@ -207,7 +207,7 @@ content:
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
     weight: 9
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph

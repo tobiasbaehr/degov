@@ -130,7 +130,7 @@ content:
     third_party_settings: {  }
   field_content_paragraphs:
     weight: 3
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph
@@ -147,7 +147,7 @@ content:
     region: content
   field_header_paragraphs:
     weight: 2
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph
@@ -164,7 +164,7 @@ content:
     region: content
   field_sidebar_right_paragraphs:
     weight: 4
-    type: paragraph
+    type: paragraphs
     third_party_settings: {  }
     settings:
      title: Paragraph
