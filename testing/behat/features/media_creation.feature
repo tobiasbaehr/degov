@@ -26,14 +26,6 @@ Feature: deGov - Media creation
     Then I scroll to bottom
     And I press button with label "Save" via translated text
     Then I should see text matching "Example address" after a while
-    Then I am on "/node/add/normal_page"
-    And I fill in "Example normal page title" for "Titel"
-    And I click by selector ".vertical-tabs__menu-item.last a" via JavaScript
-    And I click by selector "#edit-field-content-paragraphs button" via JavaScript
-    Then I scroll to bottom
-    And I press button with label "Save" via translated text
-    And I am on "/admin/content"
-    Then I should see text matching "Example normal page title" after a while
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
