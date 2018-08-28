@@ -1,6 +1,6 @@
 content:
   field_content_paragraphs:
-    type: paragraphs
+    type: paragraph
     settings:
      title: Paragraph
      title_plural: Paragraphs
@@ -15,7 +15,7 @@ content:
        add_above: add_above
     region: content
   field_header_paragraphs:
-    type: paragraphs
+    type: paragraph
     settings:
      title: Paragraph
      title_plural: Paragraphs
@@ -30,7 +30,7 @@ content:
        add_above: add_above
     region: content
   field_sidebar_right_paragraphs:
-    type: paragraphs
+    type: paragraph
     settings:
      title: Paragraph
      title_plural: Paragraphs
