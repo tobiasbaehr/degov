@@ -11,7 +11,7 @@ Feature: deGov - Teaser view modes
     And I should see text matching "Inhaltsbereich"
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I should see text matching "Inhaltsreferenz" after a while
-    And I press button with label "Inhaltsreferenz" via translated text
+    And I press the "Inhaltsreferenz" button
     Then I assert dropdown named "field_content_paragraphs[0][subform][field_node_reference_viewmode]" contains the following text-value pairs:
       | text                | value       |
       | Teaser kleines Bild | small_image |
