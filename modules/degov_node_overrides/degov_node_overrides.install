@@ -58,5 +58,9 @@ function degov_node_overrides_update_8014() {
   $configRemover = \Drupal::service('degov_common.config_remover');
   $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
 
-  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+  /**
+   * @var $moduleInstallerService ModuleInstaller
+   */
+  $moduleInstallerService = \Drupal::service('module_installer');
+  $moduleInstallerService->uninstall(['lightning_workflow']);
 }
