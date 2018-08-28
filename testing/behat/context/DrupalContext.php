@@ -419,12 +419,20 @@ class DrupalContext extends RawDrupalContext {
 	}
 
   /**
-   * @Then I should see an element with selector :arg1 with :arg2 children with selector :arg3
+   * @Then I should see the fields list with exactly :arg1 entries
    */
-  public function iShouldSeeAnElementWithSelectorWithChildrenWithSelectorType($elementSelector, $numberOfChildren, $childrenSelector)
+  public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
+  {
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+  }
+
+
+  /**
+   * @Then I should see exactly :arg1 instances of the element with the selector :arg2
+   */
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
   {
     $this->assertSession()->elementExists('css', $elementSelector);
-    $this->assertSession()->elementExists('css', $elementSelector . ' > ' . $childrenSelector);
-    $this->assertSession()->elementsCount('css', $elementSelector . ' > ' . $childrenSelector, $numberOfChildren);
+    $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
   }
 }
