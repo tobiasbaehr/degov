@@ -36,7 +36,9 @@ pipelines:
           - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
           - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
           - behat -c behat-no-drupal.yml -vvv
-          - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+          - bin/drush locale-check
+          - bin/drush locale-update -y
+          - bin/drush cr
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
@@ -83,7 +85,9 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+            - bin/drush locale-check
+            - bin/drush locale-update -y
+            - bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
           services:
