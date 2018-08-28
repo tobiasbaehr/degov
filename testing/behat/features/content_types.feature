@@ -41,7 +41,7 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I press button with label "Add Paragraph" via translated text
+    And I press the "Add Paragraph" button
     And I assert dropbutton actions with css selector ".paragraphs-add-dialog" contains the following name-value pairs:
       | value                            | name                                              |
       | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |

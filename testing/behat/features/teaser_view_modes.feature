@@ -10,7 +10,7 @@ Feature: deGov - Teaser view modes
     Then I choose "Inhalt" from tab menu
     And I should see text matching "Inhaltsbereich"
     And I should see text matching "INHALTSBEREICH" after a while
-    And I press button with label "Add Paragraph" via translated text
+    And I press the "Add Paragraph" button
     And I should see text matching "Inhaltsreferenz" after a while
     And I press button with label "Inhaltsreferenz" via translated text
     Then I assert dropdown named "field_content_paragraphs[0][subform][field_node_reference_viewmode]" contains the following text-value pairs:
