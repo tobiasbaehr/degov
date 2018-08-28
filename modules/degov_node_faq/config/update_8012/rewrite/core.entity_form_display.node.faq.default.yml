@@ -1,5 +1,6 @@
 content:
   field_content_paragraphs:
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs

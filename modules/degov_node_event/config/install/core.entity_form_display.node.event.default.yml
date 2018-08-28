@@ -149,6 +149,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_content_paragraphs:
+    type: paragraphs
     weight: 14
     settings:
      title: Paragraph
@@ -190,6 +191,7 @@ content:
     type: address_default
     region: content
   field_header_paragraphs:
+    type: paragraphs
     weight: 12
     settings:
      title: Paragraph
@@ -211,6 +213,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs

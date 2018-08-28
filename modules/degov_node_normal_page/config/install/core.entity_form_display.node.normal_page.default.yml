@@ -130,6 +130,7 @@ content:
     third_party_settings: {  }
   field_content_paragraphs:
     weight: 3
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs
@@ -145,6 +146,7 @@ content:
     region: content
   field_header_paragraphs:
     weight: 2
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs
@@ -160,6 +162,7 @@ content:
     region: content
   field_sidebar_right_paragraphs:
     weight: 4
+    type: paragraphs
     settings:
      title: Paragraph
      title_plural: Paragraphs
