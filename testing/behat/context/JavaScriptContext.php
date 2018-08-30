@@ -66,4 +66,14 @@ class JavaScriptContext extends RawMinkContext {
       ->executeScript('window.scrollTo(0,0);');
   }
 
+  /**
+   * Switches out of an frame, into the main window.
+   *
+   * @When I (switch|return) to the window
+   * @When I (exit|leave) the frame
+   */
+  public function exitFrame() {
+    $this->getSession()->switchToWindow();
+  }
+
 }
