@@ -1,4 +1,4 @@
-@api @drupal @javascript @lala
+@api @drupal @javascript
 Feature: deGov - Media creation
 
   Background:
