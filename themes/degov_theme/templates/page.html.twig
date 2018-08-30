@@ -53,6 +53,9 @@
 #}
 {#{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}#}
 {% set container = 'container-fluid' %}
+
+{% set allowedTags = '<embed><iframe><article><drupal-render-placeholder>' %}
+
 {# Navbar #}
 {% if page.navigation or page.navigation_collapsible %}
   {% block navbar %}
@@ -108,7 +111,7 @@
       {% endif %}
 
       {# Sidebar First #}
-      {% if page.sidebar_first %}
+      {% if page.sidebar_first|render|trim %}
         {% block sidebar_first %}
           <aside class="col-sm-3" role="complementary">
             {{ page.sidebar_first }}
@@ -119,12 +122,13 @@
       {# Content #}
       {%
         set content_classes = [
-          page.sidebar_first and page.sidebar_second ? 'col-sm-6',
-          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
-          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
-          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+          page.sidebar_first|render|trim and page.sidebar_first|render|trim ? 'col-sm-6',
+          page.sidebar_first|render|trim and page.sidebar_second|render|trim is empty ? 'col-sm-9',
+          page.sidebar_second|render|trim and page.sidebar_first|render|trim is empty ? 'col-sm-9',
+          page.sidebar_first|render|trim is empty and page.sidebar_second|render|trim is empty ? 'col-sm-12'
         ]
       %}
+
       <section{{ content_attributes.addClass(content_classes) }}>
 
         {# Highlighted #}
@@ -149,7 +153,7 @@
       </section>
 
       {# Sidebar Second #}
-      {% if page.sidebar_second %}
+      {% if page.sidebar_second|render|trim %}
         {% block sidebar_second %}
           <aside class="col-sm-3" role="complementary">
             {{ page.sidebar_second }}

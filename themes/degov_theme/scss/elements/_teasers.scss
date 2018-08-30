@@ -6,17 +6,23 @@ article {
     @include lighter-bg-color($degov-steel, 0.1);
     width: 48%;
     height: 190px;
-    margin-bottom: 20px;
-    margin-right: 2%;
+    margin: 0 20px 20px 0;
     float: left;
+    display: flex;
+    justify-content: space-between;
 
     &:nth-child(even) {
       margin-right: 0;
     }
 
+    @media (max-width: $screen-lg) {
+      width: 100%;
+      margin-right: 0;
+      float: none;
+    }
+
     a {
       .teaser-image {
-        float: left;
         margin-right: 20px;
         article {
           picture {
@@ -28,9 +34,8 @@ article {
       }
     }
     .teaser-content {
+      margin-right: 20px;
       .teaser-content-inner {
-        background-color: green;
-        float: left;
         a {
           color: $degov-black;
           text-decoration: none;
@@ -41,8 +46,14 @@ article {
     a {
       .normal-page__teaser-arrow {
         background-color: $degov-blue;
+        width: 58px;
+        height: 190px;
+        padding-top: 85px;
+
         svg {
           color: $color-white;
+          display: block;
+          margin: 0 auto;
         }
       }
     }
