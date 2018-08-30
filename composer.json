@@ -224,7 +224,7 @@
                 "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"
             },
             "drupal/paragraphs": {
-                "Issue 2976891 - PHP 7.2 Throws countable error": "https://www.drupal.org/files/issues/2018-08-30/paragraphs.patch"
+                "Issue 2976891 - PHP 7.2 Throws countable error": "https://www.drupal.org/files/issues/2018-08-30/paragraphs_0.patch"
             }
         }
     },
