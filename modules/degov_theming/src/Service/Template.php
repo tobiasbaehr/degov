@@ -88,20 +88,33 @@ class Template {
 
     if ($add_suggestion) {
       $template_path = $info['theme path']; #substr($info['theme path'], 0, 14);
-      $path_to_theme = $this->themeManager->getActiveTheme()->getPath();
+      $path_to_active_theme = $this->themeManager->getActiveTheme()->getPath();
 
       if (strpos($template_path, 'themes/contrib') === 0 ||
-        (strpos($template_path, $path_to_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
+        (strpos($template_path, $path_to_active_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
         list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle);
-
-        $module_path = $this->drupalPath->getPath('module', $module_name);
-        $template_fullname = $module_path . '/templates/' . $template_filename . '.html.twig';
-        if ($this->filesystem->exists($template_fullname)) {
-          $info['template'] = $template_filename;
-          $info['theme path'] = "modules";
-          $info['path'] = $module_path . '/templates';
+        // does the template exist in the active theme?
+        $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
+        $template_found = $this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname);
+        if(!$template_found) {
+          // no? does the template exist in a base theme?
+          $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
+          foreach($base_themes as $base_theme) {
+            if($base_theme->getPath() !== null) {
+              $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
+              if($this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname)) {
+                $template_found = TRUE;
+                break;
+              }
+            }
+          }
         }
-
+        if(!$template_found) {
+          // no? does the template exist in a module?
+          $module_path = $this->drupalPath->getPath('module', $module_name);
+          $module_templates_dirname = $this->buildPath($module_path, 'templates');
+          $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+        }
       }
     }
     // Include defined entity bundle libraries.
@@ -111,6 +124,45 @@ class Template {
         $variables['#attached']['library'][] = $module_name . '/' . $entity_bundle;
       }
     }
+  }
+
+  private function buildPath($base, $directory) {
+    if(!preg_match("/\/$/", $base)) {
+      $base = $base . '/';
+    }
+    return $base . $directory;
+  }
+
+  private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, $directory_name)
+  {
+    $template_filename_with_suffix = $template_filename . '.html.twig';
+    $directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name);
+    foreach($directory_iterator as $file_in_directory) {
+      if($file_in_directory->getFilename() === $template_filename_with_suffix) {
+        $original_array = array_merge($original_array, [
+          'template'   => $template_filename,
+          'theme path' => $theme_path,
+          'path'       => $this->dirname($file_in_directory->getPathName()),
+        ]);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private function dirname($path) {
+    $path = dirname($path);
+    if(preg_match('/^vfs:\/\/\//', $path)) {
+      $path = str_replace('vfs:///', '', $path);
+    }
+    return $path;
+  }
+
+  private function getFileSystemIteratorForDirectory($directory_name) {
+    if(preg_match("/vfsStreamDirectory$/", get_class($this->filesystem))) {
+      return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->filesystem->url() . '/' . $directory_name));
+    }
+    return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_name));
   }
 
   private function computeTemplateFilename(array &$variables, $entity_view_modes, $entity_type, $entity_bundle): array
