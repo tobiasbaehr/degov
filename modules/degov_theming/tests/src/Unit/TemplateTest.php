@@ -11,8 +11,8 @@ use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
-use org\bovigo\vfs\vfsStream;
 use Prophecy\Argument;
+use Symfony\Component\Filesystem\Filesystem;
 use Drupal\Core\Template\TwigEnvironment;
 
 class TemplateTest extends UnitTestCase {
@@ -42,13 +42,13 @@ class TemplateTest extends UnitTestCase {
     return $drupalPath->reveal();
   }
 
-  private function mockComponentLocation($findsModulesTemplate = TRUE, $findsThemesTemplate = FALSE) {
+  private function mockComponentLocation($findsModulesTemplate = TRUE) {
     /**
      * @var ComponentLocation $componentLocation
      */
     $componentLocation = $this->prophesize(ComponentLocation::class);
     $componentLocation->getDrupalPath()->willReturn($this->mockDrupalPath());
-    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem($findsModulesTemplate, $findsThemesTemplate));
+    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem($findsModulesTemplate));
     $componentLocation->getLibraryDiscovery()->willReturn($this->mockLibraryDiscovery());
 
     return $componentLocation->reveal();
@@ -92,38 +92,11 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return FilesystemFactory
    */
-  private function mockFilesystem($findsModulesTemplate = TRUE, $findsThemesTemplate = FALSE) {
-    return vfsStream::setup(NULL, NULL, [
-      'profiles' => [
-        'contrib' => [
-          'degov' => [
-            'modules' => [
-              'degov_node_normal_page' => [
-                'templates' => [
-                  'node--normal_page--preview.html.twig' => 'Foo',
-                  'node--normal_page--default.html.twig' => 'Foo',
-                  'node--normal_page--full.html.twig' => 'Foo',
-                ],
-              ]
-            ],
-          ],
-        ],
-      ],
-      'themes'   => [
-        'custom' => [
-          'project_theme' => [
-            'templates' => [
-              'node--normal_page--default.html.twig' => 'Foo',
-            ],
-          ],
-          'base_theme' => [
-            'templates' => [
-              'node--normal_page--full.html.twig' => 'Foo',
-            ],
-          ],
-        ],
-      ],
-    ]);
+  private function mockFilesystem($findsModulesTemplate = TRUE) {
+    $filesystem = $this->prophesize(Filesystem::class);
+    $filesystem->exists(Argument::type('string'))->shouldBeCalled()->willReturn($findsModulesTemplate);
+
+    return $filesystem->reveal();
   }
 
   /**
@@ -242,7 +215,7 @@ class TemplateTest extends UnitTestCase {
 
     $variables = [
       'elements' => [
-        '#view_mode' => 'full'
+        '#view_mode' => 'preview'
       ],
       'node' => $node->reveal()
     ];
@@ -254,8 +227,8 @@ class TemplateTest extends UnitTestCase {
         'render element' => 'elements',
         'type'           => 'base_theme',
         'theme path'     => 'themes',
-        'template'       => 'node--normal_page--full',
-        'path'           => 'themes/custom/base_theme/templates',
+        'template'       => 'node--normal_page--default',
+        'path'           => 'themes/base-theme/templates',
       ],
       $info
     );
@@ -272,7 +245,7 @@ class TemplateTest extends UnitTestCase {
 
     $variables = [
       'elements' => [
-        '#view_mode' => 'default'
+        '#view_mode' => 'preview'
       ],
       'node' => $node->reveal()
     ];
@@ -285,9 +258,10 @@ class TemplateTest extends UnitTestCase {
         'type'           => 'base_theme',
         'theme path'     => 'themes',
         'template'       => 'node--normal_page--default',
-        'path'           => 'themes/custom/project_theme/templates',
+        'path'           => 'themes/client-theme/templates',
       ],
       $info
     );
   }
+
 }
