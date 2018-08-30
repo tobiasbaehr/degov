@@ -110,7 +110,7 @@ Feature: deGov - Media creation
     And I press the "Auswählen" button
     And I scroll to top
     And I press the "Use selected" button
-    And I return to the window
+    And I go back to the main window
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."

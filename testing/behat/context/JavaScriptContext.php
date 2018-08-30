@@ -68,9 +68,7 @@ class JavaScriptContext extends RawMinkContext {
 
   /**
    * Switches out of an frame, into the main window.
-   *
-   * @When I (switch|return) to the window
-   * @When I (exit|leave) the frame
+   * @When I go back to the main window
    */
   public function exitFrame() {
     $this->getSession()->switchToWindow();
