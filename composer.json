@@ -46,7 +46,7 @@
         "drupal/core": "8.6.x-dev",
         "drupal/lightning_core": "3.x-dev",
         "drupal/lightning_media": "^3",
-        "drupal/paragraphs": "^1.2",
+        "drupal/paragraphs": "1.x-dev",
         "drupal/features": "^3.5",
         "degov/degov_base_theme": "dev-8.x-2.x-dev",
         "drupal/easy_breadcrumb": "~1.6",
@@ -222,9 +222,6 @@
             },
             "drupal/simplenews": {
                 "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"
-            },
-            "drupal/paragraphs": {
-                "Issue 2976891 - PHP 7.2 Throws countable error": "https://www.drupal.org/files/issues/2018-06-01/2976891-5.patch"
             }
         }
     },
