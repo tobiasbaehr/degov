@@ -34,3 +34,14 @@ function degov_node_normal_page_update_8010() {
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('normal_page');
 }
+
+/**
+ * Set paragraph form mode to experimental
+ */
+function degov_node_normal_page_update_8011() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_node_normal_page','8011');
+}

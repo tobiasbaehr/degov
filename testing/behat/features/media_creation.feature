@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @javascript
 Feature: deGov - Media creation
 
   Background:
@@ -26,14 +26,6 @@ Feature: deGov - Media creation
     Then I scroll to bottom
     And I press button with label "Save" via translated text
     Then I should see text matching "Example address" after a while
-    Then I am on "/node/add/normal_page"
-    And I fill in "Example normal page title" for "Titel"
-    And I click by selector ".vertical-tabs__menu-item.last a" via JavaScript
-    And I click by selector "#edit-field-content-paragraphs button" via JavaScript
-    Then I scroll to bottom
-    And I press button with label "Save" via translated text
-    And I am on "/admin/content"
-    Then I should see text matching "Example normal page title" after a while
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
@@ -100,21 +92,25 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
-
   Scenario: I am creating an media gallery entity
     Given I am logged in as an "Administrator"
     And I am on "/media/add/gallery"
+    And I press the "Ich stimme zu" button
     And I fill in "Name" with "Test1234"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I should see "Hochladen" after a while
+    And I switch to the "entity_browser_iframe_media_browser" frame
     And I click "Hochladen"
-    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And wait 2 seconds
+    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "Datei"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
+    And I scroll to bottom
     And I press the "Auswählen" button
-    And I press button with label "Use selected" via translated text
+    And I scroll to top
+    And I press the "Use selected" button
+    And I go back to the main window
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
