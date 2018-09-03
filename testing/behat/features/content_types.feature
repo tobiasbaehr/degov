@@ -41,16 +41,17 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I assert dropbutton actions with css selector "#edit-field-content-paragraphs-wrapper ul.dropbutton" contains the following name-value pairs:
-      | value                            | name                                              |
-      | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
-      | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
-      | Banner hinzufügen                | field_content_paragraphs_image_header_add_more    |
-      | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
-      | Inhaltsreferenz hinzufügen       | field_content_paragraphs_node_reference_add_more  |
-      | Slide hinzufügen                 | field_content_paragraphs_slide_add_more           |
-      | Slideshow hinzufügen             | field_content_paragraphs_slideshow_add_more       |
-      | Inhaltsreferenz hinzufügen       | field_content_paragraphs_node_reference_add_more  |
-      | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
-      | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
-      | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I assert dropbutton actions with css selector ".ui-widget-content .paragraphs-add-dialog-list" contains the following name-value pairs:
+      | value                 | name                                              |
+      | FAQ                   | field-content-paragraphs-faq-add-more             |
+      | FAQ / Akkordion Liste | field-content-paragraphs-faq-list-add-more        |
+      | Banner                | field-content-paragraphs-image-header-add-more    |
+      | Medienreferenz        | field-content-paragraphs-media-reference-add-more |
+      | Inhaltsreferenz       | field-content-paragraphs-node-reference-add-more  |
+      | Slide                 | field-content-paragraphs-slide-add-more           |
+      | Slideshow             | field-content-paragraphs-slideshow-add-more       |
+      | Text                  | field-content-paragraphs-text-add-more            |
+      | Untertitel            | field-content-paragraphs-video-subtitle-add-more  |
+      | Webform               | field-content-paragraphs-webform-add-more         |
