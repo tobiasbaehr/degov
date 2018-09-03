@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.video.field_video_preview
     - field.field.media.video.field_media_duration
     - field.field.media.video.field_media_transcription
+    - field.field.media.video.field_subtitle
     - media.type.video
   module:
     - field_group
@@ -202,6 +203,14 @@ content:
     region: content
   field_title:
     weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_subtitle:
+    weight: 2
     settings:
       size: 60
       placeholder: ''

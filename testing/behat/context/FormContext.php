@@ -4,10 +4,15 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ElementNotFoundException;
+use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\MinkExtension\Context\RawMinkContext;
+use Behat\MinkExtension\ServiceContainer\MinkExtension;
+use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
 
 class FormContext extends RawMinkContext {
+
+	use TranslationTrait;
 
   /**
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
@@ -232,6 +237,13 @@ class FormContext extends RawMinkContext {
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}
+	}
+
+	/**
+	 * @When /^I press button with label "([^"]*)" via translated text$/
+	 */
+	public function pressButtonTranslate(string $button) {
+		$this->getSession()->getPage()->pressButton($this->translateString($button));
 	}
 
 }

@@ -17,7 +17,7 @@ trait ErrorTrait {
     'Notice',
     'The import failed due for the following reasons:',
     'Es wurde eine nicht erlaubte Auswahl entdeckt.',
-    'An AJAX HTTP error occurred.'
+    'An AJAX HTTP error occurred.',
   ];
 
   /**
@@ -25,9 +25,10 @@ trait ErrorTrait {
    */
   public function checkErrors(): void {
     foreach (self::$errorTexts as $errorText) {
-      if (substr_count($this->getSession()->getPage()->getContent(), $errorText) > 0) {
+      $pageText = $this->getSession()->getPage()->getText();
+      if (substr_count(strtolower($pageText), strtolower($errorText)) > 0) {
         throw new ResponseTextException(
-          sprintf('Task failed due "%s" text on page', $errorText),
+          sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
           $this->getSession()
         );
       }

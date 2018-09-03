@@ -2,30 +2,6 @@
 
 use Drupal\degov_common\Common;
 
-
-/**
- * Implements hook_modules_installed().
- */
-function degov_media_overrides_modules_installed($modules) {
-  // Check if we have a config to be installed for the module.
-  if (in_array('degov_media_audio', $modules)) {
-    \Drupal::service('degov_config.module_updater')->onModuleInstalled('degov_media_overrides', 'degov_media_audio');
-  }
-  if (in_array('degov_media_gallery', $modules)) {
-    \Drupal::service('degov_config.module_updater')->onModuleInstalled('degov_media_overrides', 'degov_media_gallery');
-  }
-  if (in_array('degov_media_image', $modules)) {
-    \Drupal::service('degov_config.module_updater')->onModuleInstalled('degov_media_overrides', 'degov_media_image');
-  }
-  if (in_array('degov_media_video', $modules)) {
-    \Drupal::service('degov_config.module_updater')->onModuleInstalled('degov_media_overrides', 'degov_media_video');
-  }
-  if (in_array('degov_media_video_upload', $modules)) {
-    \Drupal::service('degov_config.module_updater')->onModuleInstalled('degov_media_overrides', 'degov_media_video_upload');
-  }
-
-}
-
 /**
  * Implements hook_preprocess().
  */

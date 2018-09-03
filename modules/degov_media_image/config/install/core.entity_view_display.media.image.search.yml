@@ -64,12 +64,13 @@ content:
     type: string
     region: content
   image:
-    type: image
+    type: responsive_image
     weight: 0
     region: content
     label: hidden
     settings:
       image_style: large
+      responsive_image_style: teaser_landscape
       image_link: content
     third_party_settings: {  }
 hidden:

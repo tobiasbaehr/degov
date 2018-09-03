@@ -19,6 +19,7 @@ default:
           locale: de
   extensions:
     Behat\MinkExtension:
+      files_path: '%paths.base%/docroot/profiles/contrib/degov/testing/fixtures'
       browser_name: chrome
       javascript_session: selenium2
       default_session: selenium2
@@ -26,8 +27,8 @@ default:
       selenium2:
         wd_host: "http://localhost:4444/wd/hub"
         browser: "chrome"
-        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox"] } }
-      base_url: http://localhost:80
+        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--disable-dev-shm-usage", "--headless","--disable-gpu"] } }
+      base_url: http://127.0.0.1:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:

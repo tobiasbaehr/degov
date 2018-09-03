@@ -2,8 +2,8 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
@@ -14,8 +14,11 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
+use WebDriver\Exception\StaleElementReference;
 
 class DrupalContext extends RawDrupalContext {
+
+	use TranslationTrait;
 
   /** @var array */
   protected $trash = [];
@@ -363,4 +366,73 @@ class DrupalContext extends RawDrupalContext {
     \Drupal::service('cron')->run();
   }
 
+	/**
+	 * @Then /^I should see text matching "([^"]*)" via translated text$/
+	 */
+	public function assertPageMatchesText(string $text)
+	{
+		if (ctype_upper($text)) {
+			$translatedText = mb_strtoupper($this->translateString($text));
+		} else {
+			$translatedText = $this->translateString($text);
+		}
+
+		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
+	}
+
+	/**
+	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
+	 */
+	public function assertPageMatchesTextUppercase(string $text)
+	{
+		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+	}
+
+	/**
+	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/
+	 */
+	public function iShouldSeeTranslatedTextAfterAWhile(string $text): bool
+	{
+		try {
+			$startTime = time();
+			do {
+				$content = $this->getSession()->getPage()->getText();
+				$translatedText = $this->translateString($text);
+				if (substr_count($content, $translatedText) > 0) {
+					return true;
+				}
+			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+			throw new ResponseTextException(
+				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+				$this->getSession()
+			);
+		} catch (StaleElementReference $e) {
+			return true;
+		}
+	}
+
+	/**
+	 * @When I click :link via translation
+	 */
+	public function assertClickViaTranslate(string $link): void {
+		$this->getSession()->getPage()->clickLink($this->translateString($link));
+	}
+
+  /**
+   * @Then I should see the fields list with exactly :arg1 entries
+   */
+  public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
+  {
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+  }
+
+
+  /**
+   * @Then I should see exactly :arg1 instances of the element with the selector :arg2
+   */
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  {
+    $this->assertSession()->elementExists('css', $elementSelector);
+    $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
+  }
 }

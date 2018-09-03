@@ -11,6 +11,7 @@ dependencies:
     - field.field.media.gallery.field_media_in_library
     - field.field.media.gallery.field_tags
     - field.field.media.gallery.field_title
+    - field.field.media.gallery.field_subtitle
     - media.type.gallery
   enforced:
     module:
@@ -143,6 +144,14 @@ content:
     region: content
   field_title:
     weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_subtitle:
+    weight: 2
     settings:
       size: 60
       placeholder: ''
