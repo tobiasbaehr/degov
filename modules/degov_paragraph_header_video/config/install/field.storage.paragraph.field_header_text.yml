@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - degov_paragraph_header
+      - degov_paragraph_header_video
   module:
     - paragraphs
     - text

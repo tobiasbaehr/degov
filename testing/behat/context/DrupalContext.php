@@ -418,4 +418,21 @@ class DrupalContext extends RawDrupalContext {
 		$this->getSession()->getPage()->clickLink($this->translateString($link));
 	}
 
+  /**
+   * @Then I should see the fields list with exactly :arg1 entries
+   */
+  public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
+  {
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+  }
+
+
+  /**
+   * @Then I should see exactly :arg1 instances of the element with the selector :arg2
+   */
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  {
+    $this->assertSession()->elementExists('css', $elementSelector);
+    $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
+  }
 }
