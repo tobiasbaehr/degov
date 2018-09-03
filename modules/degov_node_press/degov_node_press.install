@@ -75,3 +75,11 @@ function degov_node_press_update_8014() {
 	}
 
 }
+
+/**
+ * Update paragraph experimental
+ */
+function degov_node_press_update_8015() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8015');
+}

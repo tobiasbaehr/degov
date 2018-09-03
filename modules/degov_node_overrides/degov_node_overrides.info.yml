@@ -5,6 +5,7 @@ package: deGov
 core: 8.x
 dependencies:
   - degov_content_types_shared_fields
+  - content_moderation
   - field
   - text
   - degov_common

@@ -20,10 +20,11 @@ pipelines:
           - composer create-project degov/degov-project --no-install
           - cd degov-project
           - rm composer.lock
-          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
           - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
           - php composer-require-namespace.php
+          - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
           - composer dump-autoload
           - screen -dmS php-server php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -36,7 +37,9 @@ pipelines:
           - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
           - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
           - behat -c behat-no-drupal.yml -vvv
-          - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+          - bin/drush locale-check
+          - bin/drush locale-update -y
+          - bin/drush cr
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
@@ -71,6 +74,7 @@ pipelines:
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
+            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - screen -dmS php-server php -S localhost:80 -t docroot &
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -83,7 +87,9 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+            - bin/drush locale-check
+            - bin/drush locale-update -y
+            - bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
           services:
