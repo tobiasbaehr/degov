@@ -36,3 +36,26 @@ function degov_node_event_update_8012() {
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('event');
 }
+
+/**
+ * Updated view display modes
+ */
+function degov_node_event_update_8013() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_node_event','8013');
+}
+
+
+/**
+ * Set paragraph form mode to experimental
+ */
+function degov_node_event_update_8014() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_node_faq','8014');
+}
