@@ -435,4 +435,14 @@ class DrupalContext extends RawDrupalContext {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
   }
+
+  /**
+   * @Given I have dismissed the cookie banner if necessary
+   */
+  public function iHaveDismissedTheCookieBannerIfNecessary()
+  {
+    if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
+      $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
+    }
+  }
 }

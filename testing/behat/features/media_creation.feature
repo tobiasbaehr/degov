@@ -103,6 +103,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating an media gallery entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/gallery"
     And I fill in "Name" with "Test1234"
     And I fill in "Öffentlicher Titel" with "Test1234"
