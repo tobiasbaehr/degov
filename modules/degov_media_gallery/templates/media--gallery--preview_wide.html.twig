@@ -39,8 +39,8 @@
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-4">
     <a href="{{ gallery_url }}">
-      {% if content.field_image_date|field_value %}
-        <div class="gallery__date"{{ content.field_gallery_date|quickedit_attr }}>{{ content.field_gallery_date|field_value }}</div>
+      {% if content.field_publish_date|field_value %}
+        <div class="gallery__date"{{ content.field_publish_date|quickedit_attr }}>{{ content.field_publish_date|field_value }}</div>
       {% else %}
         <div class="gallery__date">{{ created|date("d.m.Y") }}</div>
       {% endif %}

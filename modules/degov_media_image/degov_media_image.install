@@ -59,3 +59,15 @@ function degov_media_image_update_8003() {
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '8003');
 }
+
+/**
+ * Adds new field publish date
+ */
+function degov_media_image_update_8004() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8004');
+}
+

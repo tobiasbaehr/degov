@@ -19,6 +19,7 @@ dependencies:
     - field.field.media.audio.field_title
     - field.field.media.audio.field_subtitle
     - field.field.media.audio.field_media_accessibility
+    - field.field.media.audio.field_publish_date
     - media.type.audio
   enforced:
     module:
@@ -245,6 +246,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_publish_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   langcode:
     type: language_select

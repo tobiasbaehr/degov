@@ -12,3 +12,14 @@ function degov_media_overrides_install() {
     }
   }
 }
+
+/**
+ * Add new media date publish field
+ */
+function degov_media_overrides_8001() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_media_overrides','8001');
+}

@@ -45,9 +45,9 @@
     {% if content.field_subtitle %}
       <h2 class="image__subtitle"{{ content.field_subtitle|quickedit_attr }}>{{ content.field_subtitle|field_value }}</h2>
     {% endif %}
-    {% if content.field_image_date %}
-      <div class="image__date"{{ content.field_image_date|quickedit_attr }}>
-        {{ content.field_image_date|field_value }}
+    {% if content.field_publish_date %}
+      <div class="image__date"{{ content.field_publish_date|quickedit_attr }}>
+        {{ content.field_publish_date|field_value }}
       </div>
     {% endif %}
     {% if content.field_description %}
