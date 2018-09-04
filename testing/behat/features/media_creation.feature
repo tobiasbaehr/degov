@@ -109,7 +109,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
