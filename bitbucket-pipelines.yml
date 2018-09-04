@@ -3,11 +3,11 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: derh4nnes/pipeline-behat:latest
+image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
-  size: 2x
+  docker: true
 
 pipelines:
   default:
@@ -15,14 +15,16 @@ pipelines:
         name: Build and test
         caches:
           - composer
+          - docker
         script:
-          - apt-get update
-          - composer create-project degov/degov-project
+          - composer create-project degov/degov-project --no-install
           - cd degov-project
-          - rm -rf vendor/ composer.lock
-          - composer require degov/degov:dev-master#$BITBUCKET_COMMIT
+          - rm composer.lock
+          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+          - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
           - php composer-require-namespace.php
+          - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
           - composer dump-autoload
           - screen -dmS php-server php -S localhost:80 -t docroot &
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -39,16 +41,18 @@ pipelines:
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
-          - testing
+          - docker
           - mysql
     - step:
         name: Deploy to platform.sh
+        image: alpine/git
         script:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
           - git push platform $BITBUCKET_BRANCH
     - step:
         name: Push to drupal.org
+        image: alpine/git
         script:
           - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
           - git config --global push.default matching
@@ -61,11 +65,14 @@ pipelines:
           caches:
             - composer
           script:
-            - composer create-project degov/degov-project
+            - composer create-project degov/degov-project --no-install
             - cd degov-project
-            - composer require degov/degov:dev-master#$BITBUCKET_COMMIT
+            - rm composer.lock
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
+            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - screen -dmS php-server php -S localhost:80 -t docroot &
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -77,21 +84,23 @@ pipelines:
             - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
-            - behat -c behat-no-drupal.yml --strict
-            - bin/drush locale-check && bin/drush locale-update
+            - behat -c behat-no-drupal.yml -vvv
+            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
-            - behat --strict
+            - behat
           services:
-            - testing
+            - docker
             - mysql
       - step:
           name: Deploy to platform.sh
+          image: alpine/git
           script:
             - git config --global push.default matching
             - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
             - git push platform $BITBUCKET_BRANCH
       - step:
           name: Push dev to drupal.org
+          image: alpine/git
           script:
             - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -104,6 +113,7 @@ pipelines:
     '*':
       - step:
           name: Pushing tags to drupal.org
+          image: alpine/git
           script:
             - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -115,10 +125,9 @@ pipelines:
 
 definitions:
   services:
-    testing:
-      image: darksolar/selenium-chrome-headless
     mysql:
       image: mysql:5.7
+      memory: 1024
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: testing

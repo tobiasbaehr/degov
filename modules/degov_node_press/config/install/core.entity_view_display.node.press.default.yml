@@ -47,10 +47,10 @@ content:
     weight: 1
     label: hidden
     settings:
-      format_type: date_medium
-      timezone_override: ''
+      timezone_override: Europe/Berlin
+      date_format: d.m.Y
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_sidebar_right_paragraphs:
     weight: 5
@@ -96,11 +96,6 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-  shariff_field:
-    weight: 6
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
   field_social_media: true

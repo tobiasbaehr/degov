@@ -6,9 +6,7 @@ dependencies:
   enforced:
     module:
       - degov_users_roles
-third_party_settings:
-  lightning_core:
-    description: ''
+third_party_settings: { }
 id: usermanager
 label: Benutzerverwaltung
 weight: 17

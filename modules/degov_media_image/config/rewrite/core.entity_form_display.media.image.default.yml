@@ -12,12 +12,15 @@ dependencies:
     - field.field.media.image.field_image_width
     - field.field.media.image.field_include_search
     - field.field.media.image.field_media_in_library
+    - field.field.media.gallery.field_title
     - field.field.media.image.field_tags
     - field.field.media.image.image
+    - image.style.crop_thumbnail
     - media.type.image
   module:
     - datetime
     - field_group
+    - image_widget_crop
     - text
 third_party_settings:
   field_group:
@@ -192,11 +195,27 @@ content:
       placeholder: ''
     third_party_settings: {  }
   image:
-    type: image_image
+    type: image_widget_crop
     weight: 1
     settings:
-      preview_image_style: thumbnail
       progress_indicator: throbber
+      preview_image_style: crop_thumbnail
+      show_default_crop: true
+      warn_multiple_usages: true
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - 16_to_9
+        - 1_to_1
+        - 2_to_1
+        - 4_to_1
+        - 8_to_3
+        - 16_to_9
+        - 1_to_1
+        - 2_to_1
+        - 4_to_1
+        - 8_to_3
+      show_crop_area: false
+      crop_required: true
     third_party_settings: {  }
     region: content
   langcode:

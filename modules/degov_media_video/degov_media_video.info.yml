@@ -1,5 +1,5 @@
 name: 'deGov - Media video'
-description: 'Extention of the media video type.'
+description: 'Extension of the media video type.'
 package: deGov
 type: module
 core: 8.x
@@ -9,6 +9,10 @@ dependencies:
   - degov_taxonomy_term_copyright
   - degov_taxonomy_term_tags
   - degov_image_and_crop_styles
+  - degov_media_overrides
+  - degov_taxonomy_media_accessibility
+  - degov_taxonomy_media_language
+  - degov_social_media_settings
   - field
   - image
   - language
