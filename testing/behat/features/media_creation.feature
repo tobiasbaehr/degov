@@ -106,6 +106,7 @@ Feature: deGov - Media creation
     And I am on "/media/add/gallery"
     And I fill in "Name" with "Test1234"
     And I fill in "Öffentlicher Titel" with "Test1234"
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
@@ -114,7 +115,9 @@ Feature: deGov - Media creation
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
     And I press the "Auswählen" button
-    And I press button with label "Use selected" via translated text
+    And I press the "Use selected" button
+    And wait 2 seconds
+    And I go back to the main window
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
