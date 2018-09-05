@@ -5,6 +5,7 @@
 
     Scenario: Creating node with scheduled publish - Needs update
       Given I am logged in as a user with the "administrator" role
+      And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
       And I dump the HTML
