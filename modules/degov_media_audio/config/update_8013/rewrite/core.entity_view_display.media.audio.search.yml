@@ -3,7 +3,7 @@ content:
     weight: 11
     label: above
     settings:
-      format_type: medium
+      format_type: date_without_time
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default

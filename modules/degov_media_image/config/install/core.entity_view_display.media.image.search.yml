@@ -7,7 +7,7 @@ dependencies:
     - field.field.media.image.field_copyright
     - field.field.media.image.field_description
     - field.field.media.image.field_image_caption
-    - field.field.media.image.field_image_date
+    - field.field.media.image.field_publish_date
     - field.field.media.image.field_image_height
     - field.field.media.image.field_image_mime
     - field.field.media.image.field_image_width
@@ -38,14 +38,14 @@ content:
     settings:
       link: false
     third_party_settings: {  }
-  field_image_date:
+  field_publish_date:
     type: datetime_default
     weight: 1
     region: content
     label: hidden
     settings:
       timezone_override: ''
-      format_type: short
+      format_type: date_without_time
     third_party_settings: {  }
   field_tags:
     type: taxonomy_term_search

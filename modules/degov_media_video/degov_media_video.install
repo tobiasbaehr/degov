@@ -17,7 +17,7 @@ function degov_media_video_update_8016() {
 }
 
 /**
- * Moved configuration from image styles module
+ * Adds missing field publish_date
  */
 function degov_media_video_update_8018() {
   \Drupal::service('degov_config.module_updater')

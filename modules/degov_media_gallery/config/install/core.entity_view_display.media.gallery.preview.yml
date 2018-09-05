@@ -10,6 +10,7 @@ dependencies:
     - field.field.media.gallery.field_media_in_library
     - field.field.media.gallery.field_tags
     - field.field.media.gallery.field_title
+    - field.field.media.audio.field_publish_date
     - image.style.large
     - media.type.gallery
   enforced:
@@ -55,6 +56,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_publish_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: date_without_time
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
 hidden:
   created: true

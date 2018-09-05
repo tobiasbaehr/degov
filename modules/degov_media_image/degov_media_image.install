@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\field\Entity\FieldConfig;
 
 /**
  * Implements hook_uninstall().
@@ -69,5 +70,29 @@ function degov_media_image_update_8004() {
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '8004');
+
+  
+  // Migrate field_image_date to field_publish_date
+  $mediaQuery = \Drupal::entityQuery('media');
+  $imageIds = $mediaQuery->condition('bundle', 'image')->execute();
+  $images = \Drupal::entityTypeManager()->getStorage('media')->loadMultiple($imageIds);
+  foreach ($images as $image) {
+    if($image->hasField('field_image_date')) {
+      $imageDate = $image->get('field_image_date')->value;
+      $imageCreatedDate = date("Y-m-d", $image->get('created')->value);
+      if ($image->get('field_published_date')->isEmpty()) {
+        $imagePublishedDate = (isset($imageDate)) ? $imageDate : $imageCreatedDate;
+        $image->set('field_published_date', $imagePublishedDate);
+        $image->set('field_image_date', NULL);
+        $image->save();
+      }
+    }
+  }
+
+  //Remove old field
+  $imageDateFieldConfig = FieldConfig::loadByName('media','image','field_image_date');
+  if($imageDateFieldConfig) {
+    $imageDateFieldConfig->delete();
+  }
 }
 

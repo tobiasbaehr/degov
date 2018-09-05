@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.gallery.field_tags
     - field.field.media.gallery.field_title
     - field.field.media.gallery.field_subtitle
+    - field.field.media.gallery.field_publish_date
     - media.type.gallery
   enforced:
     module:
@@ -157,6 +158,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_publish_date:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   langcode:
     type: language_select
