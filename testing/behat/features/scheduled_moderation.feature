@@ -8,7 +8,7 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
-      And I dump the HTML
+      And I run drush "cr"
       And I select "published" in "edit-field-publish-0-moderation-state"
       And I fill in "01012018" for "edit-field-publish-0-value-date"
       And I fill in "010000AM" for "edit-field-publish-0-value-time"
@@ -19,7 +19,7 @@
       And I click "Test"
       And I proof content with title "Test" has moderation state "published"
 
-    Scenario: deGov Creating node with schedlued publish - No update
+    Scenario: deGov Creating node with scheduled publish - No update
       And I am installing the "degov_scheduled_updates" module
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
