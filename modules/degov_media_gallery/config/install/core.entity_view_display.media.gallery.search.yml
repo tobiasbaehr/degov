@@ -49,7 +49,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  region: content
   field_publish_date:
     weight: 1
     label: above
