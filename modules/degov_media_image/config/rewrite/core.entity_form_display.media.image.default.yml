@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.image.field_image_width
     - field.field.media.image.field_include_search
     - field.field.media.image.field_media_in_library
+    - field.field.media.gallery.field_title
     - field.field.media.image.field_tags
     - field.field.media.image.image
     - image.style.crop_thumbnail
@@ -230,6 +231,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
+  field_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   path:
     type: path

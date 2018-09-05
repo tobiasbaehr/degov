@@ -36,7 +36,6 @@ class InstallationContext extends RawMinkContext {
         ];
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
-
         $this->checkErrors();
 
         if (\count($task) > 0) {
