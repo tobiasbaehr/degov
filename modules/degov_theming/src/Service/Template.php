@@ -126,14 +126,15 @@ class Template {
     }
   }
 
-  private function buildPath($base, $directory) {
-    if(!preg_match("/\/$/", $base)) {
+  private function buildPath(string $base, string $directory): string
+  {
+    if (!preg_match("/\/$/", $base)) {
       $base = $base . '/';
     }
     return $base . $directory;
   }
 
-  private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, $directory_name)
+  private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, string $directory_name): bool
   {
     $template_filename_with_suffix = $template_filename . '.html.twig';
     $directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name);
@@ -158,8 +159,9 @@ class Template {
     return $path;
   }
 
-  private function getFileSystemIteratorForDirectory($directory_name) {
-    if(preg_match("/vfsStreamDirectory$/", get_class($this->filesystem))) {
+  private function getFileSystemIteratorForDirectory(string $directory_name)
+  {
+    if (preg_match("/vfsStreamDirectory$/", get_class($this->filesystem))) {
       return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->filesystem->url() . '/' . $directory_name));
     }
     return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_name));
