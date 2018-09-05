@@ -2,13 +2,14 @@
   Feature: deGov Scheduled moderation
     Background:
       Given I am installing the "degov_scheduled_updates" module
+      And I run drush "cr"
 
     Scenario: Creating node with scheduled publish - Needs update
       Given I am logged in as a user with the "administrator" role
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
-      And I run drush "cr"
+      And I dump the HTML
       And I select "published" in "edit-field-publish-0-moderation-state"
       And I fill in "01012018" for "edit-field-publish-0-value-date"
       And I fill in "010000AM" for "edit-field-publish-0-value-time"
