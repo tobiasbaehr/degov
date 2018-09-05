@@ -1,5 +1,8 @@
 @api @drupal @javascript @scheduledModeration
   Feature: deGov Scheduled moderation
+    Background:
+      Given I am installing the "degov_scheduled_updates" module
+
     Scenario: Creating node with scheduled publish - Needs update
       Given I am logged in as a user with the "administrator" role
       And I am installing the "degov_scheduled_updates" module
