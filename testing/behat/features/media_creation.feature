@@ -102,8 +102,9 @@ Feature: deGov - Media creation
     And I should see "wurde erstellt."
 
   Scenario: I am creating an media gallery entity
-    Given I am logged in as an "Administrator"
+    Given I am on "/"
     And I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/gallery"
     And I fill in "Name" with "Test1234"
     And I fill in "Öffentlicher Titel" with "Test1234"
@@ -117,8 +118,8 @@ Feature: deGov - Media creation
     And I fill in "entity[image][0][alt]" with "Test1234"
     And I press the "Auswählen" button
     And I press the "Use selected" button
-    And wait 2 seconds
     And I go back to the main window
+    And I should see the details container titled "Current selections" with entries after a while
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."

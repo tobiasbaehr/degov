@@ -20,6 +20,8 @@ class DrupalContext extends RawDrupalContext {
 
 	use TranslationTrait;
 
+  private const MAX_DURATION_SECONDS = 1200;
+
   /** @var array */
   protected $trash = [];
 
@@ -443,6 +445,36 @@ class DrupalContext extends RawDrupalContext {
   {
     if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
+    }
+  }
+
+  /**
+   * @Given I should see the details container titled :arg1 with entries after a while
+   */
+  public function iShouldSeeTheDetailsContainerTitledWithEntriesAfterAWhile($title)
+  {
+    $title = mb_strtoupper($title);
+
+    try {
+      $startTime = time();
+      do {
+        $details_array = $this->getSession()->getPage()->findAll('css', 'details');
+
+        foreach($details_array as $details_element) {
+          if($details_element->find('css', 'summary')->getText() != $title) {
+            continue;
+          }
+          if($details_element->has('css', '.item-container')) {
+            return true;
+          }
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+      throw new ResponseTextException(
+        sprintf('Could not find element titled %s with entries within %s seconds.', $title, self::MAX_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (StaleElementReference $e) {
+      return true;
     }
   }
 }
