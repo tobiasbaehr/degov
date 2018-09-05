@@ -143,7 +143,7 @@ class Template {
         $original_array = array_merge($original_array, [
           'template'   => $template_filename,
           'theme path' => $theme_path,
-          'path'       => $this->dirname($file_in_directory->getPathName()),
+          'path'       => $this->getDirnameWithoutVfsProtocol($file_in_directory->getPathName()),
         ]);
         return true;
       }
@@ -151,9 +151,10 @@ class Template {
     return false;
   }
 
-  private function dirname($path) {
+  private function getDirnameWithoutVfsProtocol(string $path): string
+  {
     $path = dirname($path);
-    if(preg_match('/^vfs:\/\/\//', $path)) {
+    if (preg_match('/^vfs:\/\/\//', $path)) {
       $path = str_replace('vfs:///', '', $path);
     }
     return $path;
