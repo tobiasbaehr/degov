@@ -62,6 +62,7 @@ function degov_module_setup(&$install_state) {
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
     'degov_paragraph_header'            => 'degov_paragraph_header',
+    'degov_scheduled_updates'           => 'degov_scheduled_updates',
   ];
 
   // Add a batch operation to install each module.
