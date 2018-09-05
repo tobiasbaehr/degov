@@ -49,6 +49,8 @@ Feature: deGov - Media types
     And I should see text matching "field_media_transcription"
     And I should see text matching "field_audio_preview"
     And I should see text matching "field_title"
+    And I should see text matching "field_publish_date"
+
 
   Scenario: Media type image has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -57,7 +59,7 @@ Feature: deGov - Media types
     And I should see text matching "field_image_caption"
     And I should see text matching "field_image_width"
     And I should see text matching "field_copyright"
-    And I should see text matching "field_image_date"
+    And I should see text matching "field_publish_date"
     And I should see text matching "field_allow_download"
     And I should see text matching "field_image_height"
     And I should see text matching "image"
@@ -79,6 +81,7 @@ Feature: deGov - Media types
     And I should see text matching "field_gallery_title"
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_title"
+    And I should see text matching "field_publish_date"
 
   Scenario: Media type document has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -147,6 +150,7 @@ Feature: deGov - Media types
     And I should see text matching "field_media_video_embed_field"
     And I should see text matching "field_video_preview"
     And I should see text matching "field_title"
+    And I should see text matching "field_publish_date"
 
    Scenario: Media type video_upload has all required fields
      Given I am logged in as a user with the "administrator" role
@@ -167,6 +171,7 @@ Feature: deGov - Media types
      And I should see text matching "field_video_upload_preview"
      And I should see text matching "field_video_upload_webm"
      And I should see text matching "field_title"
+     And I should see text matching "field_publish_date"
 
   Scenario: Media type citation has all required fields
     Given I am logged in as a user with the "administrator" role
