@@ -187,6 +187,7 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
+            argument: null
           is_grouped: false
           group_info:
             label: ''
@@ -225,6 +226,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      css_class: mediathek-slides
     cache_metadata:
       max-age: -1
       contexts:
