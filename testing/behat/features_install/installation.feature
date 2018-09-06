@@ -2,6 +2,7 @@ Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
+    Then I should see HTML content matching "themes/degov_theme"
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
     Then I should see text matching "Datenbankkonfiguration" after a while
