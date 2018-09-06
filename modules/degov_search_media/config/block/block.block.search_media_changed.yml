@@ -19,7 +19,7 @@ provider: null
 plugin: 'facet_block:search_media_changed'
 settings:
   id: 'facet_block:search_media_changed'
-  label: Änderungsdatum
+  label: Veröffentlichungsdatum
   provider: facets
   label_display: visible
 visibility:

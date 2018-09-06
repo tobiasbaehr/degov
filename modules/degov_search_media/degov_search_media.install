@@ -7,3 +7,19 @@ function degov_search_media_install() {
   // Flush plugin caches so our facets will be shown.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
 }
+
+/**
+ * Add fields publish date to field sort
+ */
+function degov_search_media_update_8001() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   * @var $configRemover \Drupal\degov_common\Entity\ConfigRemover
+   */
+
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_search_media','8001');
+
+  $configRemover = \Drupal::service('degov_common.config_remover');
+  $configRemover->removeValueFromConfiguration('search_api.index.search_media','field_settings','changed');
+}

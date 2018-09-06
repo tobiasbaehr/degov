@@ -1,44 +1,17 @@
 <?php
 
-use Drupal\degov_common\Common;
+
+/*
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function degov_media_overrides_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+  $test = "";
+}
 
 /**
- * Implements hook_preprocess().
+ * Implements hook_entity_presave().
  */
-function degov_media_overrides_preprocess(&$variables, $hook, &$info) {
-  // Add template suggestions for audio.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_overrides',
-    'entity_type' => 'media',
-    'entity_bundles' => ['audio'],
-    'entity_view_modes' => ['full', 'preview_wide']
-  ]);
-  // Add template suggestions for gallery.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_overrides',
-    'entity_type' => 'media',
-    'entity_bundles' => ['gallery'],
-    'entity_view_modes' => ['full', 'preview_wide']
-  ]);
-  // Add template suggestions for image.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_overrides',
-    'entity_type' => 'media',
-    'entity_bundles' => ['image'],
-    'entity_view_modes' => ['full', 'preview_wide']
-  ]);
-  // Add template suggestions for video.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_overrides',
-    'entity_type' => 'media',
-    'entity_bundles' => ['video'],
-    'entity_view_modes' => ['full', 'preview_wide']
-  ]);
-  // Add template suggestions for video_upload
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_overrides',
-    'entity_type' => 'media',
-    'entity_bundles' => ['video_upload'],
-    'entity_view_modes' => ['full', 'preview_wide']
-  ]);
+function degov_media_overrides_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  $test = "";
 }
