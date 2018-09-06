@@ -62,7 +62,6 @@ function degov_module_setup(&$install_state) {
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
     'degov_paragraph_header'            => 'degov_paragraph_header',
-    'degov_scheduled_updates'           => 'degov_scheduled_updates',
   ];
 
   // Add a batch operation to install each module.
@@ -173,7 +172,7 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
   // List all optional deGov modules.
   $degov_optional_modules = [
     'degov_eu_cookie_compliance' => t('EU cookie compliance'),
-    'degov_scheduled_publish' => t('Scheduled Publish'),
+    'degov_scheduled_updates' => t('Scheduled Moderation'),
   ];
   $form['degov']['optional_modules'] = [
     '#type'          => 'checkboxes',
@@ -182,7 +181,7 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
     '#options'       => $degov_optional_modules,
     '#default_value' => [
       'degov_eu_cookie_compliance',
-      'degov_scheduled_publish'
+      'degov_scheduled_updates'
     ],
   ];
 
