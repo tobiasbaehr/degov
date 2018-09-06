@@ -1,0 +1,61 @@
+@import "variables";
+@import "mixins";
+
+.installer-page {
+  background-position: center;
+  background-size: cover;
+}
+
+.layout-container {
+  background-color: rgba(#ffffff, 0.975);
+}
+
+.form-required {
+  &::after {
+    content: "*";
+    color: #ff0000;
+    margin-left: 0.5em;
+  }
+}
+
+fieldset legend {
+  font-weight: bold;
+}
+
+[class*='form-type-radio'] {
+  label {
+    display: inline;
+    font-weight: normal;
+  }
+}
+
+.form-item {
+  > label {
+    text-transform: uppercase;
+  }
+}
+
+details {
+  border: 1px solid #cccccc;
+  margin: 1ch 0;
+  padding: 0 1em;
+
+  [role="button"] {
+    cursor: pointer;
+  }
+}
+
+input[type="submit"] {
+  background-color: $degov-blue;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #ffffff;
+  padding: 1ch 1em;
+  text-shadow: none;
+
+  &:hover {
+    background-color: lighten($degov-blue, 10%);
+    box-shadow: 0 1px 2px rgba($degov-gray, 0.2);
+  }
+}
