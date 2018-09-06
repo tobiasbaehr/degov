@@ -155,3 +155,20 @@ function degov_update_8448() {
     }
   }
 }
+
+/**
+ * Uninstalls an old lightning dependency
+ */
+function degov_update_8449() {
+  // Read the configuration.
+  $module_data = \Drupal::config('core.extension')->get('module');
+
+  // Remove openapi_redoc
+  unset($module_data['openapi_redoc']);
+
+  // Write the configuration.
+  \Drupal::configFactory()
+    ->getEditable('core.extension')
+    ->set('module', $module_data)
+    ->save();
+}
