@@ -3,4 +3,11 @@ theme-assets:
     theme:
       webpack-dist/main.css: {}
   js:
-    webpack-dist/bundle.js: {}
+    webpack-dist/main.js: {}
+
+install-page:
+  css:
+    theme:
+      webpack-dist/install.css: {}
+  dependencies:
+    - seven/install-page
