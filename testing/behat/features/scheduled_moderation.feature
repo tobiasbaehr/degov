@@ -17,7 +17,7 @@
       And I proof content with title "Test" has moderation state "published"
 
     Scenario: deGov Creating node with scheduled publish - No update
-      And I am installing the "degov_scheduled_updates" module
+      And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
       And I select "published" in "edit-field-publish-0-moderation-state"

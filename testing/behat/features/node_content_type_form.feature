@@ -47,5 +47,6 @@ Feature: deGov - Content type form
     And I fill in "path[0][alias]" with "/aabbcc"
     And I choose "Published" via translation in selectModerationBox
     And I scroll to bottom
+    And I dump the HTML
     And I press button with label "Save" via translated text
     Then I should be on "/aabbcc"
