@@ -14,15 +14,11 @@ function degov_theme_preprocess_html(&$vars)
       }
       closedir($background_images_dir_handle);
 
-      $css = '';
-      foreach($background_image_filenames as $key => $background_image_filename) {
-        $css .= sprintf(
-          'body.installer-page__background-image-%s{background-image:url(/%s/images/installer/%s);}',
-          $key,
-          drupal_get_path('theme', 'degov_theme'),
-          $background_image_filename
-        );
-      }
+      $css = sprintf(
+        'body.install-page{background-image:url(/%s/images/installer/%s);}',
+        drupal_get_path('theme', 'degov_theme'),
+        $background_image_filenames[rand(0, count($background_image_filenames) - 1)]
+      );
       $vars['page']['#attached']['html_head'][] = [
         [
           '#tag' => 'style',
@@ -31,10 +27,6 @@ function degov_theme_preprocess_html(&$vars)
         ],
         'installer-background-images-css',
       ];
-      $vars['attributes']['class'][] = sprintf(
-        'installer-page__background-image-%s',
-        rand(0, count($background_image_filenames) - 1)
-      );
     }
   }
 }
