@@ -62,14 +62,14 @@ function degov_update_8440() {
 }
 
 /**
- * Uninstalls the lightning API module. It will be removed in 2.1.x
+ * Uninstalls the lightning API module. It will be removed in 3.x
  */
 function degov_update_8441() {
   \Drupal::service('module_installer')->uninstall(['lightning_api']);
 }
 
 /**
- * Uninstalls the lightning workflow module. It will be removed in 2.1.x
+ * Uninstalls the lightning workflow module. It will be removed in 3.x
  */
 function degov_update_8442() {
   \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
