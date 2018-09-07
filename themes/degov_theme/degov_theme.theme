@@ -2,13 +2,20 @@
 
 function degov_theme_preprocess_html(&$vars)
 {
-  if(in_array('install-page', $vars['attributes']['class'])) {
+  if (in_array('install-page', $vars['attributes']['class'])) {
+    if (count($vars['head_title']) === 1) {
+      if (!empty($vars['page']['#title'])) {
+        $vars['head_title']['title'] = $vars['page']['#title'];
+        $vars['head_title']['name'] = drupal_install_profile_distribution_name();
+      }
+    }
+
     $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
 
-    if($background_images_dir_handle) {
+    if ($background_images_dir_handle) {
       $background_image_filenames = [];
-      while($filename = readdir($background_images_dir_handle)) {
-        if(preg_match("/^[a-zA-Z0-9\-_]+\.(jpg|jpeg|png)$/", $filename)) {
+      while ($filename = readdir($background_images_dir_handle)) {
+        if (preg_match("/^[a-zA-Z0-9\-_]+\.(jpg|jpeg|png)$/", $filename)) {
           $background_image_filenames[] = $filename;
         }
       }
@@ -21,8 +28,8 @@ function degov_theme_preprocess_html(&$vars)
       );
       $vars['page']['#attached']['html_head'][] = [
         [
-          '#tag' => 'style',
-          '#value' => $css,
+          '#tag'    => 'style',
+          '#value'  => $css,
           '#weight' => 1,
         ],
         'installer-background-images-css',
