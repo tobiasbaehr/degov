@@ -12,3 +12,4 @@ install-page:
   dependencies:
     - seven/install-page
     - classy/progress
+    - classy/user

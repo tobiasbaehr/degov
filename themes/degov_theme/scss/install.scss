@@ -23,6 +23,7 @@
   }
 }
 
+/* Forms */
 .form-required {
   &::after {
     content: "*";
@@ -31,11 +32,18 @@
   }
 }
 
-fieldset legend {
-  font-weight: bold;
+fieldset {
+  legend {
+    font-weight: bold;
+    padding: 0;
+  }
+
+  .fieldset-wrapper {
+    padding: 0 0 0 4px;
+  }
 }
 
-[class*='form-type-radio'] {
+[class*='form-type-radio'], [class*='form-type-checkbox'] {
   label {
     display: inline;
     font-weight: normal;
