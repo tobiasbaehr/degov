@@ -11,3 +11,4 @@ install-page:
       webpack-dist/install.css: {}
   dependencies:
     - seven/install-page
+    - classy/progress
