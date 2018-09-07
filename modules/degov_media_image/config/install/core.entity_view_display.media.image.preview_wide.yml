@@ -53,7 +53,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_publish_date:
+  field_image_date:
     weight: 6
     label: hidden
     settings:

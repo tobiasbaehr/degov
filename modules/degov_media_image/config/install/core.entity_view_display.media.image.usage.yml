@@ -44,7 +44,7 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_publish_date:
+  field_image_date:
     weight: 9
     label: above
     settings:
