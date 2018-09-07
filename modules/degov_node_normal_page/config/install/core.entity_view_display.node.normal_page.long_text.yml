@@ -20,6 +20,7 @@ dependencies:
   module:
     - text
     - user
+    - degov_node_overrides
 id: node.normal_page.long_text
 targetEntityType: node
 bundle: normal_page
