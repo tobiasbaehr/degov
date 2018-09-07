@@ -10,6 +10,19 @@
   background-color: rgba(#ffffff, 0.975);
 }
 
+.page-title {
+  display: block;
+
+  img {
+    height: auto;
+    width: 35%;
+  }
+
+  .site-version {
+    color: $color-blue;
+  }
+}
+
 .form-required {
   &::after {
     content: "*";
