@@ -63,7 +63,7 @@ function degov_users_roles_update_8010() {
 }
 
 /**
- *
+ * Re-apply update hook 8001 with role configuration
  */
 function degov_users_roles_update_8011() {
   // Apply updates for workflows
