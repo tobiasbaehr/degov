@@ -37,3 +37,8 @@ function degov_theme_preprocess_html(&$vars)
     }
   }
 }
+
+function degov_theme_preprocess_install_page(&$vars) {
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $vars['theme_logo'] = $active_theme->getLogo();
+}
