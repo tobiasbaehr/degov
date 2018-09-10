@@ -48,6 +48,11 @@ function degov_media_gallery_preprocess_media(&$variables)
     /* @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $item */
 
     foreach ($media->get('field_gallery_images') as $item) {
+
+      if(!$item->entity) {
+        $media->save();
+        continue;
+      }
       $media = Media::load($item->getValue('id')['target_id']);
       $uri = $item->entity->image->get(0)->entity->uri->value;
 

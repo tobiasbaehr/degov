@@ -18,7 +18,6 @@ dependencies:
   - degov_paragraph_node_reference
   - path
   - responsive_image
-  - scheduled_updates
   - search_api_sorts
   - simplenews
   - text

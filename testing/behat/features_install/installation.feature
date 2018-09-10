@@ -2,6 +2,8 @@ Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
+    And I select "Deutsch" in "edit-langcode"
+    And I press the "Save and continue" button
     Then task "Sprache auswählen" is done
     And task "Systemvoraussetzungen überprüfen" is done
     Then I should see text matching "Datenbankkonfiguration" after a while
@@ -22,7 +24,7 @@ Feature: Installation via webbrowser
     And I select "Deutschland" in "edit-site-default-country"
     And I submit the form
     Then task "Website konfigurieren" is done
+    And task "Install deGov - Theme" is done
     And task "Install deGov - Base" is done
     And task "Install deGov - Media" is done
-    And task "Install deGov - Theme" is done
     Then I should see text matching "deGov wurde erfolgreich installiert." after a while
