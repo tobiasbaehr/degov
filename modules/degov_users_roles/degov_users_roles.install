@@ -62,3 +62,12 @@ function degov_users_roles_update_8010() {
   }
 }
 
+/**
+ *
+ */
+function degov_users_roles_update_8011() {
+  // Apply updates for workflows
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_users_roles', '8001');
+}
+
