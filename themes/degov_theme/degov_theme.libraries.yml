@@ -9,6 +9,8 @@ install-page:
   css:
     theme:
       webpack-dist/install.css: {}
+  js:
+    webpack-dist/install.js: {}
   dependencies:
     - seven/install-page
     - classy/progress

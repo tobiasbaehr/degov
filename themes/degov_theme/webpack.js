@@ -17,6 +17,7 @@ module.exports = {
     ],
     install: [
         './scss/install.scss',
+        './javascript/favicon_animation.js',
     ],
   },
   plugins: [
