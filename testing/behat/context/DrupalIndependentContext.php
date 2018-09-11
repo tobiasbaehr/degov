@@ -16,32 +16,13 @@ class DrupalIndependentContext extends RawMinkContext {
 	private const MAX_DURATION_SECONDS = 1200;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
 
-	/**
+  private $dispatcher;
+
+  /**
 	 * {@inheritdoc}
 	 */
 	public function setDispatcher(HookDispatcher $dispatcher) {
 		$this->dispatcher = $dispatcher;
-	}
-
-	/**
-	 * @param $name
-	 *
-	 * @return string
-	 * @throws \Exception
-	 */
-	public function getDrupalSelector($name) {
-		$text = $this->getDrupalParameter('selectors');
-		if (!isset($text[$name])) {
-			throw new \Exception(sprintf('No such selector configured: %s', $name));
-		}
-		return $text[$name];
-	}
-
-	/**
-	 * Get driver's random generator.
-	 */
-	public function getRandom() {
-		return $this->getDriver()->getRandom();
 	}
 
 	/**
