@@ -18,3 +18,5 @@ parameters:
 	  - '#Function locale_translation_batch_update_build not found.#'
 	  - '#Constructor of class Drupal\\degov_users_roles\\Plugin\\Derivative\\WorkbenchMenuLinks has an unused parameter $base_plugin_id.#'
 	  - '#Function file_default_scheme not found.#'
+   excludes_analyse:
+    - "%rootDir%/docroot/profiles/contrib/degov/modules/**/*.post_update.php"
