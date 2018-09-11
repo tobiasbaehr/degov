@@ -82,7 +82,7 @@ class Template {
       }
       else {
         // In case no entity bundles are defined, we still include the default template override.
-        return;
+        $add_suggestion = TRUE;
       }
     }
 
