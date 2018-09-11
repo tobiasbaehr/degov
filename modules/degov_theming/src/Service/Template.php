@@ -112,8 +112,10 @@ class Template {
         if(!$template_found) {
           // no? does the template exist in a module?
           $module_path = $this->drupalPath->getPath('module', $module_name);
-          $module_templates_dirname = $this->buildPath($module_path, 'templates');
-          $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+          if($module_path) {
+            $module_templates_dirname = $this->buildPath($module_path, 'templates');
+            $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+          }
         }
       }
     }
@@ -137,15 +139,16 @@ class Template {
   private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, string $directory_name): bool
   {
     $template_filename_with_suffix = $template_filename . '.html.twig';
-    $directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name);
-    foreach($directory_iterator as $file_in_directory) {
-      if($file_in_directory->getFilename() === $template_filename_with_suffix) {
-        $original_array = array_merge($original_array, [
-          'template'   => $template_filename,
-          'theme path' => $theme_path,
-          'path'       => $this->getDirnameWithoutVfsProtocol($file_in_directory->getPathName()),
-        ]);
-        return true;
+    if($directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name)) {
+      foreach($directory_iterator as $file_in_directory) {
+        if($file_in_directory->getFilename() === $template_filename_with_suffix) {
+          $original_array = array_merge($original_array, [
+            'template'   => $template_filename,
+            'theme path' => $theme_path,
+            'path'       => $this->getDirnameWithoutVfsProtocol($file_in_directory->getPathName()),
+          ]);
+          return true;
+        }
       }
     }
     return false;
@@ -162,10 +165,14 @@ class Template {
 
   private function getFileSystemIteratorForDirectory(string $directory_name)
   {
+    $directory_path = $directory_name;
     if (preg_match("/vfsStreamDirectory$/", get_class($this->filesystem))) {
-      return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->filesystem->url() . '/' . $directory_name));
+      $directory_path = $this->filesystem->url() . '/' . $directory_name;
     }
-    return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_name));
+    if (file_exists($directory_path) && is_dir($directory_path)) {
+      return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_path));
+    }
+    return null;
   }
 
   private function computeTemplateFilename(array &$variables, $entity_view_modes, $entity_type, $entity_bundle): array
