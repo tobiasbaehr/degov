@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementTextException;
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
@@ -180,4 +181,18 @@ class DrupalIndependentContext extends RawMinkContext {
     $this->getSession()->wait($secondsNumber * 1000);
   }
 
+  /**
+   * @Then the HTML title should show the page title and the distribution title
+   */
+  public function theHtmlTitleShouldShowThePageTitleAndTheDistributionTitle() {
+    return $this->elementWithSelectorShouldMatchPattern('css', 'html>head>title', "/^[^|]+ | [^|]+$/");
+  }
+
+  private function elementWithSelectorShouldMatchPattern($selector_type, $locator, $pattern) {
+    $element = $this->getSession()->getPage()->find($selector_type, $locator);
+    if(preg_match($pattern, $element->getHtml())) {
+      return true;
+    }
+    throw new ResponseTextException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+  }
 }

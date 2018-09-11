@@ -3,16 +3,23 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: [
-    // deGov theme
-    './scss/main.scss',
-    // Bootstrap
-    './node_modules/bootstrap/js/src/carousel.js',
-    './node_modules/bootstrap/scss/bootstrap-grid.scss',
-    // Font Awesome
-    './node_modules/@fortawesome/fontawesome-free/js/all.js',
-    './node_modules/@fortawesome/fontawesome-free/css/all.css',
-  ],
+  watch: true,
+  entry: {
+    main: [
+        // deGov theme
+        './scss/main.scss',
+        // Bootstrap
+        './node_modules/bootstrap/js/src/carousel.js',
+        './node_modules/bootstrap/scss/bootstrap-grid.scss',
+        // Font Awesome
+        './node_modules/@fortawesome/fontawesome-free/js/all.js',
+        './node_modules/@fortawesome/fontawesome-free/css/all.css',
+    ],
+    install: [
+        './scss/install.scss',
+        './javascript/favicon_animation.js',
+    ],
+  },
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -28,7 +35,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, '/webpack-dist/'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -44,11 +51,20 @@ module.exports = {
       },
       {
         test: [/\.scss$/, /\.css$/],
+        exclude: [/install\.scss/],
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { url: false, sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } }
         ],
+      },
+      {
+          test: [/install\.scss$/],
+          use: [
+              MiniCssExtractPlugin.loader,
+              { loader: 'css-loader', options: { url: false, sourceMap: true } },
+              { loader: 'sass-loader', options: { sourceMap: true } }
+          ],
       }
     ]
   }
