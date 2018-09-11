@@ -8,15 +8,14 @@ parameters:
     - '#Function watchdog_exception not found.#'
     - '#Function drupal_get_path not found.#'
     - '#Function batch_set not found.#'
-    - '#Function node_access_rebuild not found.#'
-    - '#Constant DRUPAL_ROOT not found.#'
     - '#Function render not found.#'
     - '#Function drupal_basename not found.#'
     - '#Function locale_translation_get_status not found.#'
     - '#Function _locale_translation_default_update_options not found.#'
     - '#Function locale_translation_clear_status not found.#'
     - '#Function locale_translation_batch_update_build not found.#'
-    - '#Function file_default_scheme not found.#'
   excludes_analyse:
-    - "modules/*/src/*.post_update.php"
-    - "modules/degov_users_roles/src/Plugin/Derivative/WorkbenchMenuLinks.php"
+    - "./**/*.post_update.php"
+    - "./**/*/WorkbenchMenuLinks.php"
+    - "./**/tests/**"
+    - "./**/testing/**"
