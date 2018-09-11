@@ -54,15 +54,15 @@ class Template {
   }
 
   public function suggest(array &$variables, $hook, array &$info, array $options) {
-    /* @var $entity_type string */
-    /* @var $entity_bundles array */
-    /* @var $module_name string*/
-    /* @var $entity_bundle string*/
-    /* @var $entity_view_modes array */
-    extract($options);
+
+    $entity_type = $options['entity_type'];
+    $entity_bundles = $options['entity_bundles'];
+    $module_name = $options['module_name'];
+    $entity_view_modes = $options['entity_view_modes'];
+
     $add_suggestion = FALSE;
 
-    if ($hook == $entity_type) {
+    if ($hook === $entity_type) {
       // Add module overwritten template suggestions for only the entity bundles that are defined.
       if ($entity_bundles) {
         if ($hook === 'media') {
@@ -76,13 +76,13 @@ class Template {
         }
         $entity_bundle = $entity->bundle();
         // Overwrite the core/contrib template with our module template in case no custom theme has overwritten the template.
-        if (in_array($entity_bundle, $entity_bundles)) {
+        if (\in_array($entity_bundle, $entity_bundles, TRUE)) {
           $add_suggestion = TRUE;
         }
       }
       else {
         // In case no entity bundles are defined, we still include the default template override.
-        $add_suggestion = TRUE;
+        return;
       }
     }
 
@@ -95,14 +95,14 @@ class Template {
         list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle);
         // does the template exist in the active theme?
         $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
-        $template_found = $this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname);
+        $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
         if(!$template_found) {
           // no? does the template exist in a base theme?
           $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
           foreach($base_themes as $base_theme) {
             if($base_theme->getPath() !== null) {
               $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
-              if($this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname)) {
+              if($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
                 $template_found = TRUE;
                 break;
               }
