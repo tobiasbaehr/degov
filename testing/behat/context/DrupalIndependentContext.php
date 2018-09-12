@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementTextException;
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
@@ -16,32 +17,13 @@ class DrupalIndependentContext extends RawMinkContext {
 	private const MAX_DURATION_SECONDS = 1200;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
 
-	/**
+  private $dispatcher;
+
+  /**
 	 * {@inheritdoc}
 	 */
 	public function setDispatcher(HookDispatcher $dispatcher) {
 		$this->dispatcher = $dispatcher;
-	}
-
-	/**
-	 * @param $name
-	 *
-	 * @return string
-	 * @throws \Exception
-	 */
-	public function getDrupalSelector($name) {
-		$text = $this->getDrupalParameter('selectors');
-		if (!isset($text[$name])) {
-			throw new \Exception(sprintf('No such selector configured: %s', $name));
-		}
-		return $text[$name];
-	}
-
-	/**
-	 * Get driver's random generator.
-	 */
-	public function getRandom() {
-		return $this->getDriver()->getRandom();
 	}
 
 	/**
@@ -199,4 +181,18 @@ class DrupalIndependentContext extends RawMinkContext {
     $this->getSession()->wait($secondsNumber * 1000);
   }
 
+  /**
+   * @Then the HTML title should show the page title and the distribution title
+   */
+  public function theHtmlTitleShouldShowThePageTitleAndTheDistributionTitle() {
+    return $this->elementWithSelectorShouldMatchPattern('css', 'html>head>title', "/^[^|]+ | [^|]+$/");
+  }
+
+  private function elementWithSelectorShouldMatchPattern($selector_type, $locator, $pattern) {
+    $element = $this->getSession()->getPage()->find($selector_type, $locator);
+    if(preg_match($pattern, $element->getHtml())) {
+      return true;
+    }
+    throw new ResponseTextException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+  }
 }
