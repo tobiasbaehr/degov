@@ -40,8 +40,6 @@ set media_classes = [
     <a href="{{ gallery_url }}">
       {% if content.field_publish_date|field_value %}
         <div class="gallery__date"{{ content.field_publish_date|quickedit_attr }}>{{ content.field_publish_date|field_value }}</div>
-      {% else %}
-        <div class="gallery__date">{{ created|date("d.m.Y") }}</div>
       {% endif %}
       {% set title = content.field_title|field_value %}
       <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{ title|length > 50 ? title|slice(0, 50) ~ '...' : title }}{% endspaceless %}</h2>

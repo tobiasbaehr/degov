@@ -31,8 +31,6 @@ set media_classes = [
       <div class="media--search__date video_upload__date">
         {% if content.field_publish_date|field_value %}
           {{ content.field_publish_date|field_value }}
-        {% else %}
-          {{ created|date("d.m.Y") }}
         {% endif %}
       </div>
       {% if content.field_title|field_value %}

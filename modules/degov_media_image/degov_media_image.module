@@ -16,7 +16,6 @@ function degov_media_image_preprocess(&$variables, $hook, &$info) {
       'usage',
       'preview',
       'search',
-      'full',
       'embedded',
       'full',
       'preview_wide',

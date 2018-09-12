@@ -32,8 +32,6 @@ set media_classes = [
     <div class="media--search__date gallery__date">
       {% if content.field_publish_date|field_value %}
         {{ content.field_publish_date|field_value }}
-      {% else %}
-        {{ created|date("d.m.Y") }}
       {% endif %}
     </div>
     <span class="gallery__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
