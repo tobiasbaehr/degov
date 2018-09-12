@@ -39,7 +39,7 @@ content:
     weight: 1
     label: above
     settings:
-      format_type: date_without_time
+      format_type: medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default

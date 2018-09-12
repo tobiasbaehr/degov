@@ -1,10 +1,10 @@
 content:
-  field_publish_date:
+  field_media_publish_date:
     weight: 11
     label: above
     settings:
-      format_type: date_without_time
+      format_type: 'j. F Y'
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content

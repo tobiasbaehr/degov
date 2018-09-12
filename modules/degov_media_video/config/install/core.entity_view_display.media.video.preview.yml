@@ -12,7 +12,7 @@ dependencies:
     - field.field.media.video.field_copyright
     - field.field.media.video.field_description
     - field.field.media.video.field_title
-    - field.field.media.video.field_publish_date
+    - field.field.media.video.field_media_publish_date
     - image.style.thumbnail
     - media.type.video
   enforced:
@@ -33,14 +33,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_publish_date:
+  field_media_publish_date:
     weight: 1
     label: above
     settings:
-      format_type: date_without_time
+      format_type: 'j. F Y'
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_custom
     region: content
   field_copyright:
     weight: 2
