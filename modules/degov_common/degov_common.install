@@ -141,3 +141,19 @@ function degov_common_update_8027() {
     //Ignore
   }
 }
+
+/**
+ * Updated media browser view
+ */
+function degov_common_update_8029() {
+  /**
+   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
+   */
+  $configReplacer = \Drupal::service('config_replace.config_replacer');
+  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_content_types_shared_fields') . '/config/install/views.view.latest_media.yml'));
+  try {
+    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.latest_media', 'degov_content_types_shared_fields');
+  } catch (NonexistentInitialConfigException $e) {
+    //Ignore
+  }
+}
