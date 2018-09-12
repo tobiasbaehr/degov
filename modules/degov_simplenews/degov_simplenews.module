@@ -175,3 +175,41 @@ function degov_simplenews_form_submit($form, FormStateInterface $form_state) {
   $insertName = \Drupal::service('degov_simplenews.insert_name');
   $insertName->updateForeAndSurname($user, $subscriberData);
 }
+
+/**
+ * Implements hook_requirements
+ */
+function degov_simplenews_requirements($phase) {
+  $requirements = [];
+  if($phase === 'runtime') {
+    $stored_privacy_policy_nodes = \Drupal::config('degov_simplenews.settings')->get('privacy_policy');
+    $status_message = t('Correctly configured');
+    $severity = REQUIREMENT_OK;
+
+    $active_languages = \Drupal::languageManager()->getLanguages();
+    $languages_with_errors = [];
+    foreach($active_languages as $active_language) {
+      if(!isset($stored_privacy_policy_nodes[$active_language->getId()]) || empty($stored_privacy_policy_nodes[$active_language->getId()])) {
+        $languages_with_errors[] = sprintf('%s (%s)', $active_language->getName(), $active_language->getId());
+        $severity = REQUIREMENT_ERROR;
+      }
+    }
+
+    if($severity === REQUIREMENT_ERROR) {
+      $status_message = t(
+        'Privacy pages missing for these languages: :languages. <a href=":settings_url">Update settings</a>',
+        [
+          ':languages' => implode(', ', $languages_with_errors),
+          ':settings_url' => \Drupal\Core\Url::fromRoute('degov_simplenews.settings')->toString(),
+        ]
+      );
+    }
+
+    $requirements['degov_simplenews_privacy_pages'] = [
+      'title' => t('deGov — Simplenews'),
+      'description' => $status_message,
+      'severity' => $severity,
+    ];
+  }
+  return $requirements;
+}
