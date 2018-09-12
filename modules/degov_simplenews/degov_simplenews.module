@@ -207,7 +207,7 @@ function degov_simplenews_requirements($phase)
     }
 
     $requirements['degov_simplenews_privacy_pages'] = [
-      'title'       => t('deGov — Simplenews'),
+      'title'       => t('deGov - Simplenews'),
       'description' => $status_message,
       'severity'    => $severity,
     ];
