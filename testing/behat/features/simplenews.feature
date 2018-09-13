@@ -16,3 +16,13 @@ Feature: deGov Simplenews
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/reports/status"
     Then I should see text matching "DEGOV - SIMPLENEWS" after a while
+
+  Scenario: When I create a newsletter I only see safe settings options
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/config/services/simplenews"
+    Then I click "Newsletter hinzufügen"
+    Then I should see text matching "Subscription settings" via translated text in uppercase
+    Then I should see an "optgroup" element with the translated "label" attribute "Silent"
+    Then I should see an "optgroup" element with the translated "label" attribute "Hidden"
+    Then I should see an "optgroup" element with the translated "label" attribute "Single"
+    Then I fill in "Name" with "My great newsletter"

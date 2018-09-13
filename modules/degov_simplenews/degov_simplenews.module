@@ -83,6 +83,26 @@ function degov_simplenews_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       }
     }
   }
+
+  if (strstr($form_id, 'simplenews_newsletter_add_form') !== FALSE) {
+    _degov_option_to_optgroup($form['subscription']['new_account']['#options'], 'silent');
+    _degov_option_to_optgroup($form['subscription']['opt_inout']['#options'], ['hidden', 'single']);
+  }
+}
+
+function _degov_option_to_optgroup(&$options, $option_keys)
+{
+  if (!is_array($option_keys)) {
+    $option_keys = [$option_keys];
+  }
+
+  foreach ($option_keys as $option_key) {
+    if (isset($options[$option_key])) {
+      $option_configuration = $options[$option_key];
+      unset($options[$option_key]);
+      $options[(string)$option_configuration] = [];
+    }
+  }
 }
 
 /**
