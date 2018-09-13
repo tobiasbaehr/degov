@@ -11,11 +11,12 @@ use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
+use org\bovigo\vfs\vfsStream;
 use Prophecy\Argument;
-use Symfony\Component\Filesystem\Filesystem;
 use Drupal\Core\Template\TwigEnvironment;
 
-class TemplateTest extends UnitTestCase {
+class TemplateTest extends UnitTestCase
+{
 
   /**
    * @var Template $template
@@ -25,7 +26,8 @@ class TemplateTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp()
+  {
     parent::setUp();
 
     $this->mockThemeManager();
@@ -34,21 +36,31 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return DrupalPath
    */
-  private function mockDrupalPath() {
+  private function mockDrupalPath($bundle)
+  {
     $drupalPath = $this->prophesize(DrupalPath::class);
-    $drupalPath->getPath(Argument::type('string'), Argument::type('string'))
-      ->willReturn('profiles/contrib/degov/modules/degov_node_normal_page');
+    switch($bundle) {
+      case 'normal_page':
+        $drupalPath->getPath(Argument::type('string'), Argument::type('string'))
+          ->willReturn('profiles/contrib/degov/modules/degov_node_normal_page');
+        break;
+      case 'blog':
+        $drupalPath->getPath(Argument::type('string'), Argument::type('string'))
+          ->willReturn('profiles/contrib/degov/modules/degov_node_blog');
+        break;
+    }
 
     return $drupalPath->reveal();
   }
 
-  private function mockComponentLocation($findsModulesTemplate = TRUE) {
+  private function mockComponentLocation($bundle = 'normal_page')
+  {
     /**
      * @var ComponentLocation $componentLocation
      */
     $componentLocation = $this->prophesize(ComponentLocation::class);
-    $componentLocation->getDrupalPath()->willReturn($this->mockDrupalPath());
-    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem($findsModulesTemplate));
+    $componentLocation->getDrupalPath()->willReturn($this->mockDrupalPath($bundle));
+    $componentLocation->getFilesystem()->willReturn($this->mockFilesystem());
     $componentLocation->getLibraryDiscovery()->willReturn($this->mockLibraryDiscovery());
 
     return $componentLocation->reveal();
@@ -57,7 +69,8 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return ThemeManager
    */
-  private function mockThemeManager() {
+  private function mockThemeManager()
+  {
     $themeManager = $this->prophesize(ThemeManager::class);
 
     $activeThemeStub = $this->prophesize(ActiveTheme::class);
@@ -81,7 +94,8 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return LibraryDiscovery
    */
-  private function mockLibraryDiscovery() {
+  private function mockLibraryDiscovery()
+  {
     $libraryDiscovery = $this->prophesize(LibraryDiscovery::class);
     $libraryDiscovery->getLibraryByName(Argument::type('string'), Argument::type('string'))
       ->willReturn('any.library');
@@ -92,23 +106,59 @@ class TemplateTest extends UnitTestCase {
   /**
    * @return FilesystemFactory
    */
-  private function mockFilesystem($findsModulesTemplate = TRUE) {
-    $filesystem = $this->prophesize(Filesystem::class);
-    $filesystem->exists(Argument::type('string'))->shouldBeCalled()->willReturn($findsModulesTemplate);
-
-    return $filesystem->reveal();
+  private function mockFilesystem()
+  {
+    return vfsStream::setup(NULL, NULL, [
+      'profiles' => [
+        'contrib' => [
+          'degov' => [
+            'modules' => [
+              'degov_node_blog' => [],
+              'degov_node_normal_page' => [
+                'templates' => [
+                  'node--normal_page--small_image.html.twig' => 'Foo',
+                  'node--normal_page--preview.html.twig'     => 'Foo',
+                  'node--normal_page--default.html.twig'     => 'Foo',
+                  'node--normal_page--full.html.twig'        => 'Foo',
+                ],
+              ]
+            ],
+          ],
+        ],
+      ],
+      'themes'   => [
+        'custom' => [
+          'project_theme' => [
+            'templates' => [
+              'nodes' => [
+                'node--normal_page--preview.html.twig' => 'Foo',
+                'node--normal_page--default.html.twig' => 'Foo',
+              ],
+            ],
+          ],
+          'base_theme'    => [
+            'templates' => [
+              'node--normal_page--preview.html.twig' => 'Foo',
+              'node--normal_page--full.html.twig'    => 'Foo',
+            ],
+          ],
+        ],
+      ],
+    ]);
   }
 
   /**
    * @return TwigEnvironment
    */
-  private function mockTwig() {
+  private function mockTwig()
+  {
     $twig = $this->prophesize(TwigEnvironment::class);
 
     return $twig->reveal();
   }
 
-  public function getPreprocess() {
+  public function getPreprocess()
+  {
     $out = [];
 
     $out[] = [
@@ -141,7 +191,8 @@ class TemplateTest extends UnitTestCase {
     return $out;
   }
 
-  public function getClientThemePreprocess() {
+  public function getClientThemePreprocess()
+  {
     $out = [];
 
     $out[] = [
@@ -174,10 +225,45 @@ class TemplateTest extends UnitTestCase {
     return $out;
   }
 
+  public function getNoTemplatePreprocess()
+  {
+    $out = [];
+
+    $out[] = [
+      'hook'    => 'node',
+      'info'    => [
+        'render element' => 'elements',
+        'type'           => 'base_theme',
+        'theme path'     => 'themes',
+        'template'       => 'node--blog--default',
+        'path'           => 'themes/client-theme/templates',
+      ],
+      'options' => [
+        'module_name'       => 'degov_node_blog',
+        'entity_type'       => 'node',
+        'entity_bundles'    =>
+          [
+            0 => 'blog',
+          ],
+        'entity_view_modes' =>
+          [
+            0 => 'full',
+            1 => 'long_text',
+            2 => 'preview',
+            3 => 'slim',
+            4 => 'small_image',
+          ],
+      ],
+    ];
+
+    return $out;
+  }
+
   /**
    * @dataProvider getPreprocess()
    */
-  public function testSuggestModuleTemplate($hook, $info, $options) {
+  public function testSuggestTemplateFromModule($hook, $info, $options)
+  {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
@@ -185,9 +271,9 @@ class TemplateTest extends UnitTestCase {
 
     $variables = [
       'elements' => [
-        '#view_mode' => 'preview'
+        '#view_mode' => 'small_image'
       ],
-      'node' => $node->reveal()
+      'node'     => $node->reveal()
     ];
 
     $this->template->suggest($variables, $hook, $info, $options);
@@ -197,7 +283,7 @@ class TemplateTest extends UnitTestCase {
         'render element' => 'elements',
         'type'           => 'base_theme',
         'theme path'     => 'modules',
-        'template'       => 'node--normal_page--preview',
+        'template'       => 'node--normal_page--small_image',
         'path'           => 'profiles/contrib/degov/modules/degov_node_normal_page/templates',
       ],
       $info
@@ -207,17 +293,18 @@ class TemplateTest extends UnitTestCase {
   /**
    * @dataProvider getPreprocess()
    */
-  public function testSuggestInheritedThemeTemplate($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(FALSE), $this->mockTwig());
+  public function testSuggestTemplateFromBaseTheme($hook, $info, $options)
+  {
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
     $node->bundle()->willReturn('normal_page');
 
     $variables = [
       'elements' => [
-        '#view_mode' => 'preview'
+        '#view_mode' => 'full'
       ],
-      'node' => $node->reveal()
+      'node'     => $node->reveal()
     ];
 
     $this->template->suggest($variables, $hook, $info, $options);
@@ -227,8 +314,8 @@ class TemplateTest extends UnitTestCase {
         'render element' => 'elements',
         'type'           => 'base_theme',
         'theme path'     => 'themes',
-        'template'       => 'node--normal_page--default',
-        'path'           => 'themes/base-theme/templates',
+        'template'       => 'node--normal_page--full',
+        'path'           => 'themes/custom/base_theme/templates',
       ],
       $info
     );
@@ -237,8 +324,9 @@ class TemplateTest extends UnitTestCase {
   /**
    * @dataProvider getClientThemePreprocess()
    */
-  public function testSuggestProjectThemeTemplate($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(FALSE), $this->mockTwig());
+  public function testSuggestTemplateFromProjectThemeInPreviewViewMode($hook, $info, $options)
+  {
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(Entity::class);
     $node->bundle()->willReturn('normal_page');
@@ -247,7 +335,38 @@ class TemplateTest extends UnitTestCase {
       'elements' => [
         '#view_mode' => 'preview'
       ],
-      'node' => $node->reveal()
+      'node'     => $node->reveal()
+    ];
+
+    $this->template->suggest($variables, $hook, $info, $options);
+
+    $this->assertArrayEquals(
+      [
+        'render element' => 'elements',
+        'type'           => 'base_theme',
+        'theme path'     => 'themes',
+        'template'       => 'node--normal_page--preview',
+        'path'           => 'themes/custom/project_theme/templates/nodes',
+      ],
+      $info
+    );
+  }
+
+  /**
+   * @dataProvider getClientThemePreprocess()
+   */
+  public function testSuggestTemplateFromProjectThemeInDefaultViewMode($hook, $info, $options)
+  {
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
+
+    $node = $this->prophesize(Entity::class);
+    $node->bundle()->willReturn('normal_page');
+
+    $variables = [
+      'elements' => [
+        '#view_mode' => 'default'
+      ],
+      'node'     => $node->reveal()
     ];
 
     $this->template->suggest($variables, $hook, $info, $options);
@@ -258,10 +377,40 @@ class TemplateTest extends UnitTestCase {
         'type'           => 'base_theme',
         'theme path'     => 'themes',
         'template'       => 'node--normal_page--default',
-        'path'           => 'themes/client-theme/templates',
+        'path'           => 'themes/custom/project_theme/templates/nodes',
       ],
       $info
     );
   }
 
+  /**
+   * @dataProvider getNoTemplatePreprocess()
+   */
+  public function testDoNotAddSuggestionIfNoTemplateIsFound($hook, $info, $options)
+  {
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation('blog'), $this->mockTwig());
+
+    $node = $this->prophesize(Entity::class);
+    $node->bundle()->willReturn('blog');
+
+    $variables = [
+      'elements' => [
+        '#view_mode' => 'long_text',
+      ],
+      'node' => $node->reveal(),
+    ];
+
+    $this->template->suggest($variables, $hook, $info, $options);
+
+    $this->assertArrayEquals(
+      [
+        'render element' => 'elements',
+        'type'           => 'base_theme',
+        'theme path'     => 'themes',
+        'template'       => 'node--blog--default',
+        'path'           => 'themes/client-theme/templates',
+      ],
+      $info
+    );
+  }
 }
