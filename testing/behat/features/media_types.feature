@@ -50,7 +50,8 @@ Feature: deGov - Media types
     And I should see text matching "field_audio_preview"
     And I should see text matching "field_title"
     And I should see text matching "field_media_publish_date"
-
+    Then I am on "/admin/structure/media/manage/audio/fields/media.audio.field_media_published_date"
+    And the "edit-required" checkbox should be checked
 
   Scenario: Media type image has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -69,6 +70,8 @@ Feature: deGov - Media types
     And I should see text matching "field_tags"
     And I should see text matching "field_subtitle"
     And I should see text matching "field_title"
+    Then I am on "/admin/structure/media/manage/image/fields/media.image.field_media_published_date"
+    And the "edit-required" checkbox should be checked
 
   Scenario: Media type gallery has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -82,6 +85,8 @@ Feature: deGov - Media types
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_title"
     And I should see text matching "field_media_publish_date"
+    Then I am on "/admin/structure/media/manage/gallery/fields/media.gallery.field_media_published_date"
+    And the "edit-required" checkbox should be checked
 
   Scenario: Media type document has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -151,6 +156,8 @@ Feature: deGov - Media types
     And I should see text matching "field_video_preview"
     And I should see text matching "field_title"
     And I should see text matching "field_media_publish_date"
+    Then I am on "/admin/structure/media/manage/video/fields/media.video.field_media_published_date"
+    And the "edit-required" checkbox should be checked
 
    Scenario: Media type video_upload has all required fields
      Given I am logged in as a user with the "administrator" role
@@ -172,6 +179,8 @@ Feature: deGov - Media types
      And I should see text matching "field_video_upload_webm"
      And I should see text matching "field_title"
      And I should see text matching "field_media_publish_date"
+     Then I am on "/admin/structure/media/manage/video_upload/fields/media.video_upload.field_media_published_date"
+     And the "edit-required" checkbox should be checked
 
   Scenario: Media type citation has all required fields
     Given I am logged in as a user with the "administrator" role
