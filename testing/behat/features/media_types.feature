@@ -51,6 +51,7 @@ Feature: deGov - Media types
     And I should see text matching "field_title"
     And I should see text matching "field_media_publish_date"
     Then I am on "/admin/structure/media/manage/audio/fields/media.audio.field_media_publish_date"
+    And I dump the HTML
     And the "edit-required" checkbox should be checked
 
   Scenario: Media type image has all required fields
