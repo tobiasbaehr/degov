@@ -61,7 +61,7 @@ pipelines:
           - git config --global user.name "SaschaHannes"
           - git push drupal $BITBUCKET_BRANCH
   branches:
-    release/3.x:
+    release/6.x:
       - step:
           name: Build and test
           caches:
@@ -110,9 +110,9 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
-            - git checkout 8.x-3.x -f
-            - git merge release/3.x
-            - git push drupal 8.x-3.x
+            - git checkout 8.x-6.x -f
+            - git merge release/6.x
+            - git push drupal 8.x-6.x
   tags:
     '*':
       - step:
@@ -123,7 +123,7 @@ pipelines:
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
-            - git checkout drupal/8.x-2.x -f
+            - git checkout drupal/8.x-6.x -f
             - git tag $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
             - git push drupal $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
 
