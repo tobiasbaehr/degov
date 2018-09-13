@@ -4,8 +4,8 @@ dependencies:
   module:
     - datetime
     - media
-id: media.field_publish_date
-field_name: field_publish_date
+id: media.field_media_publish_date
+field_name: field_media_publish_date
 entity_type: media
 type: datetime
 settings:

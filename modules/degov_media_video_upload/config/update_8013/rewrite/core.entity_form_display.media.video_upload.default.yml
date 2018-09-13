@@ -1,5 +1,5 @@
 content:
-  field_publish_date:
+  field_media_publish_date:
     weight: 3
     settings: {  }
     third_party_settings: {  }

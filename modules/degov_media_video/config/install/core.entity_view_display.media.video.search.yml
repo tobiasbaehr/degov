@@ -12,7 +12,7 @@ dependencies:
     - field.field.media.video.field_title
     - field.field.media.video.field_video_caption
     - field.field.media.video.field_video_preview
-    - field.field.media.video.field_publish_date
+    - field.field.media.video.field_media_publish_date
     - image.style.thumbnail
     - media.type.video
   enforced:
@@ -35,7 +35,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_publish_date:
+  field_media_publish_date:
     weight: 1
     label: above
     settings:

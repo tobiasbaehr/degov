@@ -5,7 +5,7 @@ dependencies:
     - core.entity_view_mode.media.teaser_landscape_small_8_3
     - field.field.media.image.field_image_caption
     - field.field.media.image.field_copyright
-    - field.field.media.image.field_publish_date
+    - field.field.media.image.field_media_publish_date
     - field.field.media.image.field_description
     - field.field.media.image.field_image_height
     - field.field.media.image.field_image_mime
@@ -45,7 +45,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_publish_date:
+  field_media_publish_date:
     weight: 13
     label: above
     settings:

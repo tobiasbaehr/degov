@@ -20,7 +20,7 @@ dependencies:
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
-    - field.field.media.video_upload.field_publish_date
+    - field.field.media.video_upload.field_media_publish_date
     - media.type.video_upload
   enforced:
     module:
@@ -214,7 +214,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_publish_date:
+  field_media_publish_date:
     weight: 3
     settings: {  }
     third_party_settings: {  }

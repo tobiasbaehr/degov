@@ -29,8 +29,8 @@ set media_classes = [
   {% if content.field_audio_caption|field_value or content.field_copyright|field_value %}
     <div class="media--search__info">
       <div class="media--search__date audio__date">
-        {% if content.field_publish_date|field_value %}
-          {{ content.field_publish_date|field_value }}
+        {% if content.field_media_publish_date|field_value %}
+          {{ content.field_media_publish_date|field_value }}
         {% endif %}
       </div>
       {% if content.field_title|field_value %}

@@ -21,8 +21,8 @@
   <div class="media--search__type-text">{{ 'Bild'|t }}</div>
   <div class="image__image">{{ content.image|field_value }}</div>
   <div class="media--search__info">
-      {% if content.field_publish_date|field_value %}
-        <span class="media--search__date image__date">{{ content.field_publish_date|field_value }}</span>
+      {% if content.field_media_publish_date|field_value %}
+        <span class="media--search__date image__date">{{ content.field_media_publish_date|field_value }}</span>
       {% else %}
         <span class="media--search__date image__date">{{ created|date('d.m.Y') }}</span>
       {% endif %}

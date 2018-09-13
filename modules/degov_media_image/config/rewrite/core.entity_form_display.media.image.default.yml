@@ -13,7 +13,7 @@ dependencies:
     - field.field.media.image.field_media_in_library
     - field.field.media.image.field_title
     - field.field.media.image.field_tags
-    - field.field.media.image.field_publish_date
+    - field.field.media.image.field_media_publish_date
     - field.field.media.image.image
     - image.style.crop_thumbnail
     - media.type.image
@@ -240,7 +240,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_publish_date:
+  field_media_publish_date:
     weight: 2
     settings: {  }
     third_party_settings: {  }

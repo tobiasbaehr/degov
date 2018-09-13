@@ -2,12 +2,12 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_publish_date
+    - field.storage.media.field_media_publish_date
     - media.type.video
   module:
     - datetime
-id: media.video.field_publish_date
-field_name: field_publish_date
+id: media.video.field_media_publish_date
+field_name: field_media_publish_date
 entity_type: media
 bundle: video
 label: Veröffentlichungsdatum

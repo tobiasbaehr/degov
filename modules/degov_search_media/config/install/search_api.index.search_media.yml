@@ -36,14 +36,14 @@ field_settings:
           tweet: default
           video: default
           video_upload: default
-  field_publish_date:
+  field_media_publish_date:
     label: Veröffentlichungsdatum
     datasource_id: 'entity:media'
-    property_path: field_publish_date
+    property_path: field_media_publish_date
     type: date
     dependencies:
       config:
-        - field.storage.media.field_publish_date
+        - field.storage.media.field_media_publish_date
   field_tags:
     label: Schlagwörter
     datasource_id: 'entity:media'
