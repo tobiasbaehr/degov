@@ -56,7 +56,7 @@ pipelines:
         name: Push to drupal.org
         image: alpine/git
         script:
-          - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
+          - git remote add drupal git@git.drupal.org:project/degov.git
           - git config --global push.default matching
           - git config --global user.name "SaschaHannes"
           - git push drupal $BITBUCKET_BRANCH
@@ -106,7 +106,7 @@ pipelines:
           name: Push dev to drupal.org
           image: alpine/git
           script:
-            - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
+            - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
@@ -119,7 +119,7 @@ pipelines:
           name: Pushing tags to drupal.org
           image: alpine/git
           script:
-            - git remote add drupal DerH4NNES@git.drupal.org:project/degov.git
+            - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
             - git config --global user.name "SaschaHannes"
             - git fetch drupal
