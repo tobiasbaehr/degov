@@ -51,14 +51,5 @@ class InstallationContext extends RawMinkContext {
     }
 
   }
-  
-  /**
-   * Dumps the current page HTML.
-   *
-   * @When I dump the HTML
-   */
-  public function dumpHTML() {
-    print_r($this->getSession()->getPage()->getContent());
-  }
 
 }
