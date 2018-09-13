@@ -72,12 +72,12 @@ function degov_media_image_update_8004() {
   $degovModuleUpdater->applyUpdates('degov_media_image', '8004');
 
 
-  // Migrate field_image_date to field_media_publish_date
-  $mediaQuery = \Drupal::entityQuery('media');
-  $imageIds = $mediaQuery->condition('bundle', 'image')->execute();
-  $images = \Drupal::entityTypeManager()
-    ->getStorage('media')
-    ->loadMultiple($imageIds);
+  $mediaStorage = \Drupal::entityTypeManager()->getStorage('media');
+  $imageIds = $mediaStorage->getQuery()
+    ->condition('bundle', 'image')
+    ->execute();
+  $images = $mediaStorage->loadMultiple($imageIds);
+
   foreach ($images as $image) {
     if ($image->hasField('field_image_date')) {
       $imageDate = $image->get('field_image_date')->value;
