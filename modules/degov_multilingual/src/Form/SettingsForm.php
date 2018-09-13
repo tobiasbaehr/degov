@@ -222,6 +222,7 @@ class SettingsForm extends ConfigFormBase {
     $main_menu = [];
     $footer_menu = [];
     $footer_bottom_menu = [];
+    $header_top_menu = [];
 
     // Save settings.
     foreach ($form_state->getValue('language') as $language_id => $nid) {
