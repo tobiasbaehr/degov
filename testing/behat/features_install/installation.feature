@@ -2,6 +2,7 @@ Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
+    And I dump the HTML
     And I select "Deutsch" in "edit-langcode"
     And I press the "Save and continue" button
     Then task "Sprache auswählen" is done
