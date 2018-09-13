@@ -5,6 +5,8 @@ name: 'deGov Theme'
 description: 'The base theme of the deGov Drupal distribution.'
 package: 'deGov - Theme'
 
+logo: images/logo.png
+
 regions:
   navigation: 'Navigation'
   navigation_collapsible: 'Navigation (Collapsible)'

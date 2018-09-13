@@ -121,13 +121,13 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
             '#theme' => 'viewsreference__view_title',
             '#title' => $this->t('@title', ['@title' => $title]),
           ];
-        }
-
-        if ($this->getSetting('plugin_types')) {
-          if ($title) {
-            $elements[$delta]['title'] = $title_render_array;
+          if ($this->getSetting('plugin_types')) {
+            if ($title) {
+              $elements[$delta]['title'] = $title_render_array;
+            }
           }
         }
+
         // Create renderable array.
         $elements[$delta]['contents'] = $view->buildRenderable($display_id);
       }

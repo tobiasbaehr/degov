@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: onexinternet
- * Date: 20.10.17
- * Time: 12:39
- */
 
 namespace Drupal\degov_common\Controller;
 
@@ -29,7 +23,7 @@ class MediaViewController extends EntityViewController {
    * @return array
    *   The changed page render array.
    */
-  public function buildTitle(array $page) {
+  public function buildTitle(array $page): array {
     $entity_type = $page['#entity_type'];
     $entity = $page['#' . $entity_type];
     // If the entity's label is rendered using a field formatter, set the
@@ -41,7 +35,7 @@ class MediaViewController extends EntityViewController {
       if (isset($page[$label_field])) {
         $page['#title'] = $this->renderer->render($page[$label_field]);
       }
-      if ($entity->hasField('field_title') && !$entity->get('field_title')->isEmpty() && isset($page['field_title'])) {
+      if (isset($page['field_title']) && $entity->hasField('field_title') && !$entity->get('field_title')->isEmpty()) {
         $page['#title'] = $this->renderer->render($page['field_title']);
       }
     }
@@ -51,9 +45,8 @@ class MediaViewController extends EntityViewController {
   /**
    * {@inheritdoc}
    */
-  public function view(EntityInterface $media, $view_mode = 'full', $langcode = NULL) {
-    $build = parent::view($media, $view_mode, $langcode);
-    return $build;
+  public function view(EntityInterface $media, $view_mode = 'full'): array {
+    return parent::view($media, $view_mode);
   }
 
 }

@@ -28,7 +28,7 @@ $fa-font-path:   "../fonts/font-awesome";
 
 /* roboto-regular - latin */
 @font-face {
-  font-family: 'Roboto-Regular';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
@@ -41,7 +41,7 @@ $fa-font-path:   "../fonts/font-awesome";
 }
 /* roboto-italic - latin */
 @font-face {
-  font-family: 'Roboto-Italic';
+  font-family: 'Roboto';
   font-style: italic;
   font-weight: 400;
   src: url('../fonts/roboto-v18-latin-italic.eot'); /* IE9 Compat Modes */
@@ -54,7 +54,7 @@ $fa-font-path:   "../fonts/font-awesome";
 }
 /* roboto-700 - latin */
 @font-face {
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   src: url('../fonts/roboto-v18-latin-700.eot'); /* IE9 Compat Modes */
