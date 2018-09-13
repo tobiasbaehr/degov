@@ -252,3 +252,31 @@ function degov_simplenews_requirements($phase)
   }
   return $requirements;
 }
+
+function degov_simplenews_cron() {
+  $db_connection = \Drupal::database();
+  $subscribers_with_unconfirmed_old_subscriptions_query = $db_connection->select('simplenews_subscriber', 'sisu');
+  $subscribers_with_unconfirmed_old_subscriptions_query->addJoin('INNER', 'simplenews_subscriber__subscriptions', 'sisusu', 'sisu.id = sisusu.entity_id');
+  $subscribers_with_unconfirmed_old_subscriptions_query->fields('sisu', ['id']);
+  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_status', SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED);
+  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_timestamp', time(), '<');
+  $subscribers_with_unconfirmed_old_subscriptions_result = $subscribers_with_unconfirmed_old_subscriptions_query->execute()->fetchCol();
+  $subscribers_with_unconfirmed_old_subscriptions_result = array_unique($subscribers_with_unconfirmed_old_subscriptions_result);
+
+  foreach($subscribers_with_unconfirmed_old_subscriptions_result as $subscriber_with_unconfirmed_old_subscriptions_row) {
+    // fetch count of all subscriptions
+    $subscriptions_count_query = $db_connection->select('simplenews_subscriber__subscriptions', 'sisusu');
+    $subscriptions_count_query->fields('sisusu');
+    $subscriptions_count_query->condition('sisusu.entity_id', (int)$subscriber_with_unconfirmed_old_subscriptions_row);
+    $all_subscriptions_count = $subscriptions_count_query->countQuery()->execute()->fetchField();
+
+    // fetch count of unconfirmed subscriptions
+    $subscriptions_count_query->condition('sisusu.subscriptions_status', SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED);
+    $unconfirmed_subscriptions_count = $subscriptions_count_query->countQuery()->execute()->fetchField();
+
+    if($all_subscriptions_count === $unconfirmed_subscriptions_count) {
+      $subscriber = \Drupal::entityTypeManager()->getStorage('simplenews_subscriber')->load($subscriber_with_unconfirmed_old_subscriptions_row);
+      $subscriber->delete();
+    }
+  }
+}
