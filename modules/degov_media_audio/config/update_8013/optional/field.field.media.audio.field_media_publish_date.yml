@@ -12,9 +12,9 @@ entity_type: media
 bundle: audio
 label: Veröffentlichungsdatum
 description: ''
-required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime\nrequired: true
+field_type: datetime
+required: true

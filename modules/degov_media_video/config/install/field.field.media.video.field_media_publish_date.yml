@@ -12,9 +12,9 @@ entity_type: media
 bundle: video
 label: Veröffentlichungsdatum
 description: ''
-required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: datetime\nrequired: true\nrequired: true
+field_type: datetime
+required: true

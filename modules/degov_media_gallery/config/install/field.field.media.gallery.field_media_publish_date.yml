@@ -12,7 +12,6 @@ entity_type: media
 bundle: gallery
 label: Veröffentlichungsdatum
 description: ''
-required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
