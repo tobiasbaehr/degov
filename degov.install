@@ -192,8 +192,8 @@ function degov_update_8450() {
     $configurationName = 'core.entity_view_display.' . $viewMode;
 
     if (\Drupal::config($configurationName)->get('id') === NULL) {
-      $entityType = explode('.', $viewModes)[0];
-      $viewModeId = explode('.', $viewModes)[1];
+      $entityType = explode('.', $viewMode)[0];
+      $viewModeId = explode('.', $viewMode)[1];
       if ($entityType === 'node' || $entityType === 'media') {
 
         $moduleName = 'degov_' . $entityType . '_' . $viewModeId;
