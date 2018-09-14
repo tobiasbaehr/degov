@@ -146,7 +146,7 @@ function degov_common_update_8029() {
 }
 
 
-function degov_update_dependencies() {
+function degov_common_update_dependencies() {
   $dependencies['degov'][8450] = [
     'degov_common' => 8029,
   ];
