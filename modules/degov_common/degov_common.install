@@ -144,3 +144,11 @@ function degov_common_update_8028() {
 function degov_common_update_8029() {
   \Drupal::service('module_installer')->install(['degov_node_overrides']);
 }
+
+
+function degov_update_dependencies() {
+  $dependencies['degov'][8450] = [
+    'degov_common' => 8029,
+  ];
+  return $dependencies;
+}
