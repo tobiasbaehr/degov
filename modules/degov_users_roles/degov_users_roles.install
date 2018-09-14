@@ -1,10 +1,5 @@
 <?php
 
-
-#- 'use draft_draft transition'
-#- 'use draft_needs_review transition'
-#- 'use published_draft transition'
-
 /**
  * Updating permissions from workbench moderation to content moderation
  */
