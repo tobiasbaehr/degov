@@ -98,7 +98,7 @@ class SettingsForm extends ConfigFormBase
     $node_storage = $this->entityTypeManager->getStorage('node');
 
     $form['language'] = [
-      '#title' => $this->t('Simplenews settings'),
+      '#title' => $this->t('Privacy policy pages'),
       '#type'  => 'fieldset',
       '#tree'  => TRUE,
     ];
