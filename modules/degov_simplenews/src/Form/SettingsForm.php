@@ -16,7 +16,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Drupal\degov_simplenews
  */
-class SettingsForm extends ConfigFormBase {
+class SettingsForm extends ConfigFormBase
+{
 
   /**
    * The language manager.
@@ -42,7 +43,8 @@ class SettingsForm extends ConfigFormBase {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface
    *   The entity type manager service.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(ConfigFactoryInterface $config_factory, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager)
+  {
     parent::__construct($config_factory);
     $this->languageManager = $language_manager;
     $this->entityTypeManager = $entity_type_manager;
@@ -51,7 +53,8 @@ class SettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container)
+  {
     return new static(
       $container->get('config.factory'),
       $container->get('language_manager'),
@@ -66,7 +69,8 @@ class SettingsForm extends ConfigFormBase {
    *   An array of configuration object names that are editable if called in
    *   conjunction with the trait's config() method.
    */
-  protected function getEditableConfigNames() {
+  protected function getEditableConfigNames()
+  {
     return [
       'degov_simplenews.settings',
     ];
@@ -78,23 +82,25 @@ class SettingsForm extends ConfigFormBase {
    * @return string
    *   The unique string identifying the form.
    */
-  public function getFormId() {
+  public function getFormId()
+  {
     return 'degov_simplenews_settings';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state)
+  {
     $privacy_policy = $this->config('degov_simplenews.settings')->get('privacy_policy');
     $languages = $this->languageManager->getLanguages();
     $default_language_id = $this->languageManager->getDefaultLanguage()->getId();
     $node_storage = $this->entityTypeManager->getStorage('node');
 
     $form['language'] = [
-      '#title'=> $this->t('Simplenews settings'),
-      '#type' => 'fieldset',
-      '#tree' => TRUE,
+      '#title' => $this->t('Simplenews settings'),
+      '#type'  => 'fieldset',
+      '#tree'  => TRUE,
     ];
 
     foreach ($languages as $language) {
@@ -110,11 +116,11 @@ class SettingsForm extends ConfigFormBase {
       }
 
       $form['language'][$language_id] = [
-        '#title' => $this->t('Privacy policy page (@langcode)', ['@langcode' => $language_id]),
-        '#type' => 'entity_autocomplete',
-        '#target_type' => 'node',
+        '#title'         => $this->t('Privacy policy page (@langcode)', ['@langcode' => $language_id]),
+        '#type'          => 'entity_autocomplete',
+        '#target_type'   => 'node',
         '#default_value' => $default_value,
-        '#required' => $default_language_id === $language_id,
+        '#required'      => $default_language_id === $language_id,
       ];
     }
 
@@ -124,7 +130,8 @@ class SettingsForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state)
+  {
     $privacy_policy = [];
 
     foreach ($form_state->getValue('language') as $language_id => $nid) {
