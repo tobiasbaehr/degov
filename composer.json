@@ -45,7 +45,7 @@
         "drupal/webform": "^5.0@beta",
         "drupal/entity_reference_display": "^1.0",
         "drupal/search_api_solr": "^1.0",
-        "drupal/core": "~8.5.6",
+        "drupal/core": "^8.5.7",
         "drupal/lightning_api": "^2.0",
         "drupal/lightning_core": "2.9",
         "drupal/lightning_layout": "^1.1",
