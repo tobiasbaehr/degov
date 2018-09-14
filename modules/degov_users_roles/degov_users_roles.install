@@ -66,3 +66,17 @@ function degov_users_roles_update_8011() {
     ->applyUpdates('degov_users_roles', '8001');
 }
 
+function degov_users_roles_update_dependencies()
+{
+    $dependencies = [
+        'degov_users_roles' => [
+            8010 => [
+                'degov_common' => 8026
+            ],
+            8011 => [
+                'degov_common' => 8026
+            ]
+        ],
+    ];
+    return $dependencies;
+}

@@ -124,6 +124,7 @@ function degov_common_update_8026() {
   }
   // Disable workbench_moderation
   \Drupal::service('module_installer')->uninstall(['workbench_moderation']);
+  \Drupal::service('module_installer')->uninstall(['content_moderation', 'workflows']);
 }
 
 /**
