@@ -188,7 +188,6 @@ function degov_update_8450() {
   $configReplacer = \Drupal::service('config_replace.config_replacer');
 
   // Remove dependency from content type view modes
-  $config = \Drupal::configFactory();
   foreach ($viewModes as $viewMode) {
     $configurationName = 'core.entity_view_display.' . $viewMode;
 
@@ -199,7 +198,7 @@ function degov_update_8450() {
 
         $moduleName = 'degov_' . $entityType . '_' . $viewModeId;
         if (\Drupal::moduleHandler()->moduleExists($moduleName)) {
-          $replace = Yaml::parse(file_get_contents(drupal_get_path('module', $moduleName) . 'config/install' . $configurationName . '.yml'));
+          $replace = Yaml::parse(file_get_contents(drupal_get_path('module', $moduleName) . '/config/install/' . $configurationName . '.yml'));
 
           try {
             $configReplacer->rewriteConfig(['original'], $replace, $configurationName, $moduleName);
