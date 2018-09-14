@@ -71,14 +71,23 @@ details {
 input[type="submit"] {
   background-color: $degov-blue;
   background-image: none;
-  border: none;
   border-radius: 0;
   color: #ffffff;
   padding: 1ch 1em;
   text-shadow: none;
 
-  &:hover {
-    background-color: lighten($degov-blue, 10%);
-    box-shadow: 0 1px 2px rgba($degov-gray, 0.2);
+  &, &:hover, &:active, &:focus {
+    background-image: none;
+    border-color: $degov-blue;
+  }
+
+  &:hover, &:focus {
+    background-color: lighten($degov-blue, 20%);
+    box-shadow: 0 2px 4px rgba($degov-gray, 0.5);
+  }
+
+  &:active {
+    background-color: lighten($degov-blue, 5%);
+    box-shadow: 0 0 2px rgba($degov-gray, 0.75);
   }
 }
