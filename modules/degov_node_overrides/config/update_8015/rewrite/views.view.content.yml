@@ -1,3 +1,4 @@
+config_replace: replace
 langcode: de
 status: true
 dependencies:
