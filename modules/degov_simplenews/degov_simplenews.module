@@ -255,12 +255,18 @@ function degov_simplenews_requirements($phase)
 
 function degov_simplenews_cron()
 {
+  $subscribers_unconfirmed_lifetime = \Drupal::config('degov_simplenews.settings')->get('subscribers_unconfirmed_lifetime');
+  if (empty($subscribers_unconfirmed_lifetime)) {
+    $subscribers_unconfirmed_lifetime = 72;
+  }
+  $lifetime_string = sprintf('-%s hours', $subscribers_unconfirmed_lifetime);
+
   $db_connection = \Drupal::database();
   $subscribers_with_unconfirmed_old_subscriptions_query = $db_connection->select('simplenews_subscriber', 'sisu');
   $subscribers_with_unconfirmed_old_subscriptions_query->addJoin('INNER', 'simplenews_subscriber__subscriptions', 'sisusu', 'sisu.id = sisusu.entity_id');
   $subscribers_with_unconfirmed_old_subscriptions_query->fields('sisu', ['id']);
   $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_status', SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED);
-  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_timestamp', strtotime('-1 days'), '<');
+  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_timestamp', strtotime($lifetime_string), '<');
   $subscribers_with_unconfirmed_old_subscriptions_result = $subscribers_with_unconfirmed_old_subscriptions_query->execute()->fetchCol();
   $subscribers_with_unconfirmed_old_subscriptions_result = array_unique($subscribers_with_unconfirmed_old_subscriptions_result);
 
