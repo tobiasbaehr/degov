@@ -253,17 +253,19 @@ function degov_simplenews_requirements($phase)
   return $requirements;
 }
 
-function degov_simplenews_cron() {
+function degov_simplenews_cron()
+{
   $db_connection = \Drupal::database();
   $subscribers_with_unconfirmed_old_subscriptions_query = $db_connection->select('simplenews_subscriber', 'sisu');
   $subscribers_with_unconfirmed_old_subscriptions_query->addJoin('INNER', 'simplenews_subscriber__subscriptions', 'sisusu', 'sisu.id = sisusu.entity_id');
   $subscribers_with_unconfirmed_old_subscriptions_query->fields('sisu', ['id']);
   $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_status', SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED);
-  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_timestamp', time(), '<');
+  $subscribers_with_unconfirmed_old_subscriptions_query->condition('sisusu.subscriptions_timestamp', strtotime('-1 days'), '<');
   $subscribers_with_unconfirmed_old_subscriptions_result = $subscribers_with_unconfirmed_old_subscriptions_query->execute()->fetchCol();
   $subscribers_with_unconfirmed_old_subscriptions_result = array_unique($subscribers_with_unconfirmed_old_subscriptions_result);
 
-  foreach($subscribers_with_unconfirmed_old_subscriptions_result as $subscriber_with_unconfirmed_old_subscriptions_row) {
+  $deleted_subscribers = 0;
+  foreach ($subscribers_with_unconfirmed_old_subscriptions_result as $subscriber_with_unconfirmed_old_subscriptions_row) {
     // fetch count of all subscriptions
     $subscriptions_count_query = $db_connection->select('simplenews_subscriber__subscriptions', 'sisusu');
     $subscriptions_count_query->fields('sisusu');
@@ -274,9 +276,22 @@ function degov_simplenews_cron() {
     $subscriptions_count_query->condition('sisusu.subscriptions_status', SIMPLENEWS_SUBSCRIPTION_STATUS_UNCONFIRMED);
     $unconfirmed_subscriptions_count = $subscriptions_count_query->countQuery()->execute()->fetchField();
 
-    if($all_subscriptions_count === $unconfirmed_subscriptions_count) {
+    if ($all_subscriptions_count === $unconfirmed_subscriptions_count) {
       $subscriber = \Drupal::entityTypeManager()->getStorage('simplenews_subscriber')->load($subscriber_with_unconfirmed_old_subscriptions_row);
       $subscriber->delete();
+      $deleted_subscribers++;
     }
+  }
+
+  if ($deleted_subscribers > 0) {
+    \Drupal::logger('degov_simplenews')->info(
+      t(
+        ':number unconfirmed subscriber:s_or_not deleted.',
+        [
+          ':number'   => $deleted_subscribers,
+          ':s_or_not' => $deleted_subscribers !== 1 ? 's' : '',
+        ]
+      )
+    );
   }
 }
