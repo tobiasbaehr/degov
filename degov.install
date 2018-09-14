@@ -172,3 +172,10 @@ function degov_update_8449() {
     ->set('module', $module_data)
     ->save();
 }
+
+function degov_update_dependencies() {
+    $dependencies['degov'][8449] = [
+        'nrwgov' => 8007
+    ];
+    return $dependencies;
+}
