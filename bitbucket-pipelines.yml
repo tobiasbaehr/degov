@@ -45,14 +45,12 @@ pipelines:
           - mysql
     - step:
         name: Deploy to platform.sh
-        image: alpine/git
         script:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
           - git push platform $BITBUCKET_BRANCH
     - step:
         name: Push to drupal.org
-        image: alpine/git
         script:
           - git remote add drupal git@git.drupal.org:project/degov.git
           - git config --global push.default matching
@@ -93,14 +91,12 @@ pipelines:
             - mysql
       - step:
           name: Deploy to platform.sh
-          image: alpine/git
           script:
             - git config --global push.default matching
             - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
             - git push platform $BITBUCKET_BRANCH
       - step:
           name: Push dev to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -113,7 +109,6 @@ pipelines:
     '*':
       - step:
           name: Pushing tags to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
