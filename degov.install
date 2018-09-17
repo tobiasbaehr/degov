@@ -181,21 +181,11 @@ function degov_update_8449() {
 function degov_update_8450() {
 
   $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
-
-  /**
-   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
-   */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-
-  // Remove dependency from content type view modes
   foreach ($viewModes as $viewMode) {
     $configurationName = 'core.entity_view_display.' . $viewMode;
-
     if (\Drupal::config($configurationName)->get('id') === NULL) {
-      $entityType = explode('.', $viewMode)[0];
-      $viewModeId = explode('.', $viewMode)[1];
+      list($entityType, $viewModeId) = explode('.', $viewMode);
       if ($entityType === 'node' || $entityType === 'media') {
-
         $moduleName = 'degov_' . $entityType . '_' . $viewModeId;
         if (\Drupal::moduleHandler()->moduleExists($moduleName)) {
           $replace = Yaml::parse(file_get_contents(drupal_get_path('module', $moduleName) . '/config/install/' . $configurationName . '.yml'));
@@ -210,9 +200,7 @@ function degov_update_8450() {
 }
 
 function degov_update_dependencies() {
-  $dependencies['degov'][8449] = [
-    'nrwgov' => 8007,
-  ];
+
   $dependencies['field_group'][8301] = [
     'degov' => 8450,
   ];
