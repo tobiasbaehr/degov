@@ -1,6 +1,15 @@
 <?php
 
 function degov_scheduled_updates_update_8001() {
+
+  \Drupal::service('module_installer')->install([
+    'degov_node_normal_page',
+    'degov_node_press',
+    'degov_node_faq',
+    'degov_node_event',
+    'degov_simplenews',
+  ]);
+
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_scheduled_updates', '8001');
 }

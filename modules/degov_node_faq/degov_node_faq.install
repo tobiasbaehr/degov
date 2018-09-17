@@ -30,6 +30,7 @@ function degov_node_faq_install() {
  * Enable workflow for content type
  */
 function degov_node_faq_update_8010() {
+  \Drupal::service('module_installer')->install(['degov_users_roles']);
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('faq');

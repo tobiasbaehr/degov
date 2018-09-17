@@ -66,4 +66,18 @@ class JavaScriptContext extends RawMinkContext {
       ->executeScript('window.scrollTo(0,0);');
   }
 
+  /**
+   * @Then I focus on the Iframe with ID :arg1
+   */
+  public function iFocusOnTheIframeWithId($iframe_id) {
+    $this->getSession()->switchToIFrame($iframe_id);
+  }
+
+  /**
+   * Switches out of an frame, into the main window.
+   * @When I go back to the main window
+   */
+  public function exitFrame() {
+    $this->getSession()->switchToWindow();
+  }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Extension\ModuleInstaller;
+
 /**
  * Implements hook_install().
  */
@@ -56,5 +58,20 @@ function degov_node_overrides_update_8014() {
   $configRemover = \Drupal::service('degov_common.config_remover');
   $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
 
-  \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
+  /**
+   * @var $moduleInstallerService ModuleInstaller
+   */
+  $moduleInstallerService = \Drupal::service('module_installer');
+  $moduleInstallerService->uninstall(['lightning_workflow']);
+}
+
+/**
+ * #Issue-2998749 - Re-Import admin content view
+ */
+function degov_node_overrides_update_8015() {
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_node_overrides', '8015');
 }

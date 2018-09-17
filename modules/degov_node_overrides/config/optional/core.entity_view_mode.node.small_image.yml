@@ -5,10 +5,9 @@ dependencies:
     module:
       - degov_node_overrides
   module:
-    - lightning_core
     - node
 third_party_settings: { }
-id: node.long_text
-label: 'Teaser langer Text'
+id: node.small_image
+label: 'Teaser kleines Bild'
 targetEntityType: node
 cache: true
