@@ -31,6 +31,7 @@ function degov_node_press_install() {
  * Enable workflow for content type
  * */
 function degov_node_press_update_8012() {
+  \Drupal::service('module_installer')->install(['degov_users_roles']);
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('press');
@@ -74,4 +75,11 @@ function degov_node_press_update_8014() {
 		$configFromStorage->save();
 	}
 
+}
+
+function degov_node_press_update_dependencies() {
+  $dependencies['degov_node_press'][8013] = [
+    'degov_common' => 8029,
+  ];
+  return $dependencies;
 }

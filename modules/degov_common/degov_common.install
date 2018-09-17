@@ -1,6 +1,5 @@
 <?php
 
-use Drupal\config_replace\Exception\NonexistentInitialConfigException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -90,6 +89,7 @@ function degov_common_update_8023() {
 function degov_common_update_8026() {
   //Remove workbench_moderation dependency from configuration
 
+
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
     ->getBundleInfo('media');
   $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -124,36 +124,32 @@ function degov_common_update_8026() {
   }
   // Disable workbench_moderation
   \Drupal::service('module_installer')->uninstall(['workbench_moderation']);
+  \Drupal::service('module_installer')->install(['content_moderation', 'workflows', 'degov_users_roles']);
+
 }
 
 /**
  * Updated media browser view
  */
 function degov_common_update_8028() {
-  /**
-   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
-   */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/install/views.view.media.yml'));
-  try {
-    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.media', 'degov_common');
-  } catch (NonexistentInitialConfigException $e) {
-    //Ignore
-  }
+  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/rewrite/views.view.media' . '.yml'));
+  \Drupal::configFactory()
+    ->getEditable('views.view.media')
+    ->setData($replace)
+    ->save(TRUE);
 }
 
 /**
- * Updated media browser view
+ * Install node overrides module
  */
 function degov_common_update_8029() {
-  /**
-   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
-   */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_content_types_shared_fields') . '/config/install/views.view.latest_media.yml'));
-  try {
-    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.latest_media', 'degov_content_types_shared_fields');
-  } catch (NonexistentInitialConfigException $e) {
-    //Ignore
-  }
+  \Drupal::service('module_installer')->install(['degov_node_overrides']);
+}
+
+
+function degov_common_update_dependencies() {
+  $dependencies['degov'][8450] = [
+    'degov_common' => 8029,
+  ];
+  return $dependencies;
 }

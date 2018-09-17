@@ -32,7 +32,9 @@ function degov_node_event_uninstall() {
  * Enable workflow for content type
  */
 function degov_node_event_update_8012() {
+  \Drupal::service('module_installer')->install(['degov_users_roles']);
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('event');
+
 }

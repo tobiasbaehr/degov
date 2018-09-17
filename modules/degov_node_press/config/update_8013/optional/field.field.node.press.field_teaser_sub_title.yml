@@ -3,16 +3,11 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_teaser_sub_title
-    - node.type.normal_page
-  enforced:
-    module:
-      - degov_node_overrides
-  module:
-    - degov_node_overrides
-id: node.normal_page.field_teaser_sub_title
+    - node.type.press
+id: node.press.field_teaser_sub_title
 field_name: field_teaser_sub_title
 entity_type: node
-bundle: normal_page
+bundle: press
 label: 'Vorschau Untertitel'
 description: ''
 required: false
