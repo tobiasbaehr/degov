@@ -113,6 +113,7 @@ function degov_media_setup(&$install_state) {
     'degov_media_overrides'           => 'degov_media_overrides',
     'degov_social_media_settings'     => 'degov_social_media_settings',
     'degov_paragraph_media_reference' => 'degov_paragraph_media_reference',
+    'degov_simplenews'                => 'degov_simplenews',
   ];
 
   // Add a batch operation to install each module.
