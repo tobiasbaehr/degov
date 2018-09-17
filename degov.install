@@ -4,11 +4,7 @@
  * Install, update and uninstall hooks for the {{ profile }} subprofile.
  */
 
-use Drupal\config_replace\Exception\NonexistentInitialConfigException;
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\field\Entity\FieldConfig;
-use Drupal\lightning_core\ConfigHelper as Config;
-use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 use Symfony\Component\Yaml\Yaml;
 

@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\config_replace\Exception\NonexistentInitialConfigException;
-use Drupal\field\Entity\FieldConfig;
 use Symfony\Component\Yaml\Yaml;
 
 /**
