@@ -25,7 +25,7 @@ Feature: Installation via webbrowser
     And I select "Deutschland" in "edit-site-default-country"
     And I submit the form
     Then task "Website konfigurieren" is done
+    And task "Install deGov - Theme" is done
     And task "Install deGov - Base" is done
     And task "Install deGov - Media" is done
-    And task "Install deGov - Theme" is done
     Then I should see text matching "deGov wurde erfolgreich installiert." after a while

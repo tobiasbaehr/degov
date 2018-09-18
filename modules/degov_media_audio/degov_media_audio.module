@@ -1,7 +1,7 @@
 <?php
 
-use Drupal\degov_common\Common;
 use Drupal\Core\Template\Attribute;
+use Drupal\degov_common\Common;
 
 /**
  * Implements hook_preprocess().
