@@ -53,3 +53,16 @@ Feature: deGov - Content types
       | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
       | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
       | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
+
+  Scenario: Admin Content page
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/content"
+    And I see the button "Filter"
+    And I press button with label "Show all columns" via translated text
+    And I should see "Titel"
+    And I should see "Inhaltstyp"
+    And I should see "Autor"
+    And I should see "Aktualisiert"
+    And I should see "Interner Titel"
+    And I should see "Aktionen"
+    And I should not see the text "Undefined index"
