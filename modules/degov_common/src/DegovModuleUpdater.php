@@ -13,12 +13,12 @@ use Symfony\Component\Yaml\Yaml;
  */
 class DegovModuleUpdater extends ConfigReplacer {
 
-  public function applyUpdates($module, $version) {
+  public function applyUpdates(string $module, string $version) {
     $source_dir = drupal_get_path('module', $module) . '/config/update_' . $version;
     $this->manageConfig($module, $source_dir);
   }
 
-  public function reImport($configurationName, $moduleName, $folderName) {
+  public function reImport(string $configurationName, string $moduleName, string $folderName) {
     $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$configurationName.yml");
     $this->configFactory->getEditable($configurationName)
       ->setData($parsedConfiguration)
@@ -30,7 +30,7 @@ class DegovModuleUpdater extends ConfigReplacer {
     $this->manageConfig($module, $source_dir);
   }
 
-  private function manageConfig($module, $source_dir) {
+  private function manageConfig(string $module, string $source_dir) {
     if (file_exists($source_dir)) {
       // Are there any new installs?
       $install_dir = $source_dir . '/install';
