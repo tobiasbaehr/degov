@@ -68,10 +68,10 @@ function degov_node_overrides_update_8014() {
 /**
  * #Issue-2998749 - Re-Import admin content view
  */
-function degov_node_overrides_update_8015() {
+function degov_node_overrides_update_8016() {
   /**
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
-  $moduleUpdater->applyUpdates('degov_node_overrides', '8015');
+  $moduleUpdater->reImport('views.view.content', 'degov_node_overrides', 'rewrite');
 }
