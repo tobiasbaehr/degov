@@ -8,7 +8,8 @@ use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
 use Symfony\Component\Filesystem\Filesystem;
 
-class Template {
+class Template
+{
 
   /**
    * @var ThemeManager
@@ -46,41 +47,40 @@ class Template {
     $this->twig = $twig;
   }
 
-  private function getInheritedTheme() {
+  private function getInheritedTheme()
+  {
     $activeTheme = $this->themeManager->getActiveTheme();
     $baseThemes = $activeTheme->getBaseThemes();
 
     return array_shift($baseThemes);
   }
 
-  public function suggest(array &$variables, $hook, array &$info, array $options) {
-    /* @var $entity_type string */
-    /* @var $entity_bundles array */
-    /* @var $module_name string*/
-    /* @var $entity_bundle string*/
-    /* @var $entity_view_modes array */
-    extract($options);
+  public function suggest(array &$variables, $hook, array &$info, array $options)
+  {
+
+    $entity_type = $options['entity_type'];
+    $entity_bundles = $options['entity_bundles'];
+    $module_name = $options['module_name'];
+    $entity_view_modes = $options['entity_view_modes'];
+
     $add_suggestion = FALSE;
 
-    if ($hook == $entity_type) {
+    if ($hook === $entity_type) {
       // Add module overwritten template suggestions for only the entity bundles that are defined.
       if ($entity_bundles) {
         if ($hook === 'media') {
           $entity = $variables['elements']['#media'];
-        }
-        elseif ($hook === 'taxonomy_term') {
+        } elseif ($hook === 'taxonomy_term') {
           $entity = $variables['term'];
-        }
-        else {
+        } else {
           $entity = $variables[$entity_type];
         }
         $entity_bundle = $entity->bundle();
         // Overwrite the core/contrib template with our module template in case no custom theme has overwritten the template.
-        if (in_array($entity_bundle, $entity_bundles)) {
+        if (\in_array($entity_bundle, $entity_bundles, TRUE)) {
           $add_suggestion = TRUE;
         }
-      }
-      else {
+      } else {
         // In case no entity bundles are defined, we still include the default template override.
         $add_suggestion = TRUE;
       }
@@ -92,28 +92,30 @@ class Template {
 
       if (strpos($template_path, 'themes/contrib') === 0 ||
         (strpos($template_path, $path_to_active_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
-        list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle);
+        list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
         // does the template exist in the active theme?
         $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
-        $template_found = $this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname);
-        if(!$template_found) {
+        $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
+        if (!$template_found) {
           // no? does the template exist in a base theme?
           $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
-          foreach($base_themes as $base_theme) {
-            if($base_theme->getPath() !== null) {
+          foreach ($base_themes as $base_theme) {
+            if ($base_theme->getPath() !== null) {
               $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
-              if($this->addTemplateToArrayIfFileIsFound($info, "themes", $template_filename, $theme_templates_dirname)) {
+              if ($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
                 $template_found = TRUE;
                 break;
               }
             }
           }
         }
-        if(!$template_found) {
+        if (!$template_found) {
           // no? does the template exist in a module?
           $module_path = $this->drupalPath->getPath('module', $module_name);
-          $module_templates_dirname = $this->buildPath($module_path, 'templates');
-          $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+          if ($module_path) {
+            $module_templates_dirname = $this->buildPath($module_path, 'templates');
+            $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+          }
         }
       }
     }
@@ -129,7 +131,7 @@ class Template {
   private function buildPath(string $base, string $directory): string
   {
     if (!preg_match("/\/$/", $base)) {
-      $base = $base . '/';
+      $base .= '/';
     }
     return $base . $directory;
   }
@@ -137,15 +139,16 @@ class Template {
   private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, string $directory_name): bool
   {
     $template_filename_with_suffix = $template_filename . '.html.twig';
-    $directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name);
-    foreach($directory_iterator as $file_in_directory) {
-      if($file_in_directory->getFilename() === $template_filename_with_suffix) {
-        $original_array = array_merge($original_array, [
-          'template'   => $template_filename,
-          'theme path' => $theme_path,
-          'path'       => $this->getDirnameWithoutVfsProtocol($file_in_directory->getPathName()),
-        ]);
-        return true;
+    if ($directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name)) {
+      foreach ($directory_iterator as $file_in_directory) {
+        if ($file_in_directory->getFilename() === $template_filename_with_suffix) {
+          $original_array = array_merge($original_array, [
+            'template'   => $template_filename,
+            'theme path' => $theme_path,
+            'path'       => $this->getDirnameWithoutVfsProtocol($file_in_directory->getPathName()),
+          ]);
+          return true;
+        }
       }
     }
     return false;
@@ -162,10 +165,14 @@ class Template {
 
   private function getFileSystemIteratorForDirectory(string $directory_name)
   {
-    if (preg_match("/vfsStreamDirectory$/", get_class($this->filesystem))) {
-      return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->filesystem->url() . '/' . $directory_name));
+    $directory_path = $directory_name;
+    if (preg_match('/vfsStreamDirectory$/', get_class($this->filesystem))) {
+      $directory_path = $this->filesystem->url() . '/' . $directory_name;
     }
-    return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_name));
+    if (file_exists($directory_path) && is_dir($directory_path)) {
+      return new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($directory_path));
+    }
+    return null;
   }
 
   private function computeTemplateFilename(array &$variables, $entity_view_modes, $entity_type, $entity_bundle): array
@@ -186,7 +193,8 @@ class Template {
     ];
   }
 
-  public function render(string $module, string $templatePath, array $variables = []) {
+  public function render(string $module, string $templatePath, array $variables = [])
+  {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 
