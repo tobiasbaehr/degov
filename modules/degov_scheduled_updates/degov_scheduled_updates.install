@@ -1,8 +1,9 @@
 <?php
 
-function degov_scheduled_updates_update_8001() {
+function degov_scheduled_updates_update_8002() {
 
   \Drupal::service('module_installer')->install([
+    'scheduled_publish',
     'degov_node_normal_page',
     'degov_node_press',
     'degov_node_faq',
