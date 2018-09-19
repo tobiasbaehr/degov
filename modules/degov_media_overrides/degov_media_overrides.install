@@ -16,10 +16,34 @@ function degov_media_overrides_install() {
 /**
  * Add new media date publish field
  */
-function degov_media_overrides_8001() {
+function degov_media_overrides_update_8001() {
   /**
    * @var $updater \Drupal\degov_common\DegovModuleUpdater
    */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_media_overrides','8001');
+}
+
+/**
+ * Implements hook_update_dependencies
+ */
+function degov_media_overrides_update_dependencies() {
+  $dependencies['degov_media_gallery'][8014] = [
+    'degov_media_overrides' => 8001
+  ];
+  $dependencies['degov_media_image'][8004] = [
+    'degov_media_overrides' => 8001
+  ];
+  $dependencies['degov_media_video'][8018] = [
+    'degov_media_overrides' => 8001
+  ];
+  $dependencies['degov_media_video_upload'][8013] = [
+    'degov_media_overrides' => 8001
+  ];
+  $dependencies['degov_media_audio'][8013] = [
+    'degov_media_overrides' => 8001
+  ];
+
+
+  return $dependencies;
 }
