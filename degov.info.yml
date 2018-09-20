@@ -3,7 +3,7 @@ type: profile
 distribution:
   name: deGov
 description: 'deGov - Drupal 8 for Government'
-version: 8.x-5.x-dev
+version: 8.x-5.19
 core: '8.x'
 project: degov
 dependencies:
