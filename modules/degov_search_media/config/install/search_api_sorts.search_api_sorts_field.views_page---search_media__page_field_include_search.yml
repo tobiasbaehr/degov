@@ -1,0 +1,10 @@
+langcode: de
+status: false
+dependencies: {  }
+id: views_page---search_media__page_field_include_search
+display_id: views_page---search_media__page
+field_identifier: field_include_search
+default_sort: false
+default_order: asc
+label: 'In Mediensuche anzeigen'
+weight: 0

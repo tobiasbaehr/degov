@@ -13,22 +13,18 @@
  */
  #}
 {% set media_classes = [
-  'image',
-  'media--search',
-  'clearfix',
+'image',
+'media--search',
+'clearfix',
 ] %}
 <article{{ attributes.addClass(media_classes) }}>
-  <div class="media--search__type-text">{{ 'Bild'|t }}</div>
-  <div class="image__image">{{ content.image|field_value }}</div>
-  <div class="media--search__info">
-      {% if content.field_media_publish_date|field_value %}
+    <div class="media--search__type-text">{{ 'Bild'|t }}</div>
+    <div class="image__image">{{ content.image|field_value }}</div>
+    <div class="media--search__info">
         <span class="media--search__date image__date">{{ content.field_media_publish_date|field_value }}</span>
-      {% else %}
-        <span class="media--search__date image__date">{{ created|date('d.m.Y') }}</span>
-      {% endif %}
         <span class="media--search__caption">{{ content.field_title|field_value }}</span>
-  </div>
-  {% if content.field_tags|field_value %}
-    <div class="media--search__tags tags">{{ content.field_tags }}</div>
-  {% endif %}
+    </div>
+    {% if content.field_tags|field_value %}
+        <div class="media--search__tags tags">{{ content.field_tags }}</div>
+    {% endif %}
 </article>

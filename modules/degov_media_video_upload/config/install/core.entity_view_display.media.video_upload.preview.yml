@@ -60,10 +60,10 @@ content:
     weight: 11
     label: above
     settings:
-      format_type: 'j. F Y'
+      format_type: date_medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_custom
+    type: datetime_default
     region: content
   field_video_upload_preview:
     type: entity_reference_entity_view

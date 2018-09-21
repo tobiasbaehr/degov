@@ -17,6 +17,15 @@ function degov_media_video_update_8016() {
 }
 
 /**
+ * Adds missing preview wide format
+ */
+function degov_media_video_update_8017() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video', '8017');
+}
+
+
+/**
  * Adds missing field publish_date
  */
 function degov_media_video_update_8018() {

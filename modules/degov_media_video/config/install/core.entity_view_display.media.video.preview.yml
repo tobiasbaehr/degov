@@ -37,10 +37,10 @@ content:
     weight: 1
     label: above
     settings:
-      format_type: 'j. F Y'
+      format_type: date_medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_custom
+    type: datetime_default
     region: content
   field_copyright:
     weight: 2

@@ -3,7 +3,7 @@ type: profile
 distribution:
   name: deGov
 description: 'deGov - Drupal 8 for Government'
-version: 8.x-5.15
+version: 8.x-5.x-dev
 core: '8.x'
 project: degov
 dependencies:
@@ -66,6 +66,7 @@ dependencies:
   - content_moderation
   - workflows
   - simplenews
+  - config_translation
 
 themes:
   - degov_base_theme

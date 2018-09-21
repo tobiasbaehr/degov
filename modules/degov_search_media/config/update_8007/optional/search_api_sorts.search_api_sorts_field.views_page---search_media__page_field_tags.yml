@@ -1,0 +1,10 @@
+langcode: de
+status: false
+dependencies: {  }
+id: views_page---search_media__page_field_tags
+display_id: views_page---search_media__page
+field_identifier: field_tags
+default_sort: false
+default_order: asc
+label: Schlagwörter
+weight: 0

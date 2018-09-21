@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\config_replace\Exception\NonexistentInitialConfigException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -174,13 +175,15 @@ function degov_common_update_8031() {
  * Install node overrides module
  */
 function degov_common_update_8032() {
-  \Drupal::service('module_installer')->install(['degov_node_overrides']);
+  if (!\Drupal::moduleHandler()->moduleExists('degov_node_overrides')) {
+    \Drupal::service('module_installer')->install(['degov_node_overrides']);
+  }
 }
 
 
 function degov_common_update_dependencies() {
   $dependencies['degov'][8450] = [
-    'degov_common' => 8029,
+    'degov_common' => 8032,
   ];
 
   return $dependencies;
