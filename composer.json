@@ -88,6 +88,7 @@
         "drupal/search_api": "^1.2",
         "drupal/search_api_sorts": "^1.0@beta",
         "drupal/simplenews": "^1.0",
+        "drupal/degov_simplenews": "^1.2",
         "drupal/role_delegation": "^1.0.0",
         "drupal/workbench_access": "1.0.0-alpha6",
         "drupal/workbench": "^1.0",
