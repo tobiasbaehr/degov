@@ -9,7 +9,7 @@ class InstallationTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = ['degov_simplenews'];
+  public static $modules = ['degov_simplenews_references'];
 
   /**
    * {@inheritdoc}
@@ -23,7 +23,7 @@ class InstallationTest extends KernelTestBase {
      * @var \Drupal\Core\Extension\ModuleHandler $moduleInstaller
      */
     $moduleInstaller = \Drupal::service('module_handler');
-    self::assertTrue($moduleInstaller->moduleExists('degov_simplenews'));
+    self::assertTrue($moduleInstaller->moduleExists('degov_simplenews_references'));
   }
 
 }
