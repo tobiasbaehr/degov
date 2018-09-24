@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\degov_simplenews\Kernel;
+namespace Drupal\Tests\degov_simplenews_references\Kernel;
 
 use Drupal\Tests\token\Kernel\KernelTestBase;
 
