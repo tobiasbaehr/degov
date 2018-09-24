@@ -16,8 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Drupal\degov_simplenews
  */
-class SettingsForm extends ConfigFormBase
-{
+class SettingsForm extends ConfigFormBase {
 
   /**
    * The language manager.
@@ -43,8 +42,7 @@ class SettingsForm extends ConfigFormBase
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface
    *   The entity type manager service.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager)
-  {
+  public function __construct(ConfigFactoryInterface $config_factory, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($config_factory);
     $this->languageManager = $language_manager;
     $this->entityTypeManager = $entity_type_manager;
@@ -53,8 +51,7 @@ class SettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container)
-  {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
       $container->get('language_manager'),
@@ -69,8 +66,7 @@ class SettingsForm extends ConfigFormBase
    *   An array of configuration object names that are editable if called in
    *   conjunction with the trait's config() method.
    */
-  protected function getEditableConfigNames()
-  {
+  protected function getEditableConfigNames() {
     return [
       'degov_simplenews.settings',
     ];
@@ -82,26 +78,23 @@ class SettingsForm extends ConfigFormBase
    * @return string
    *   The unique string identifying the form.
    */
-  public function getFormId()
-  {
+  public function getFormId() {
     return 'degov_simplenews_settings';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $privacy_policy = $this->config('degov_simplenews.settings')->get('privacy_policy');
-    $subscribers_unconfirmed_lifetime = $this->config('degov_simplenews.settings')->get('subscribers_unconfirmed_lifetime');
     $languages = $this->languageManager->getLanguages();
     $default_language_id = $this->languageManager->getDefaultLanguage()->getId();
     $node_storage = $this->entityTypeManager->getStorage('node');
 
     $form['language'] = [
-      '#title' => $this->t('Privacy policy pages'),
-      '#type'  => 'fieldset',
-      '#tree'  => TRUE,
+      '#title'=> $this->t('Simplenews settings'),
+      '#type' => 'fieldset',
+      '#tree' => TRUE,
     ];
 
     foreach ($languages as $language) {
@@ -117,35 +110,13 @@ class SettingsForm extends ConfigFormBase
       }
 
       $form['language'][$language_id] = [
-        '#title'         => $this->t('Privacy policy page (@langcode)', ['@langcode' => $language_id]),
-        '#type'          => 'entity_autocomplete',
-        '#target_type'   => 'node',
+        '#title' => $this->t('Privacy policy page (@langcode)', ['@langcode' => $language_id]),
+        '#type' => 'entity_autocomplete',
+        '#target_type' => 'node',
         '#default_value' => $default_value,
-        '#required'      => $default_language_id === $language_id,
+        '#required' => $default_language_id === $language_id,
       ];
     }
-
-    $form['subscribers'] = [
-      '#title' => $this->t('Subscriber handling'),
-      '#type'  => 'fieldset',
-      '#tree'  => TRUE,
-    ];
-
-    $form['subscribers']['unconfirmed_lifetime'] = [
-      '#type'          => 'select',
-      '#title'         => $this->t('Time before unconfirmed subscribers are deleted.'),
-      '#options'       => [
-        24  => $this->t('@count hours', ['@count' => 24]),
-        48  => $this->t('@count hours', ['@count' => 48]),
-        72  => $this->t('@count hours', ['@count' => 72]),
-        168 => $this->t('@count days', ['@count' => 7]),
-        336 => $this->t('@count days', ['@count' => 14]),
-        720 => $this->t('@count days', ['@count' => 30]),
-      ],
-      '#description'   => $this->t('Subscribers with <em>only</em> unconfirmed subscriptions will be deleted after the set time has passed. Deletion is executed via cron.'),
-      '#default_value' => !empty($subscribers_unconfirmed_lifetime) ? $subscribers_unconfirmed_lifetime : 72,
-      '#required'      => TRUE,
-    ];
 
     return parent::buildForm($form, $form_state);
   }
@@ -153,10 +124,8 @@ class SettingsForm extends ConfigFormBase
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     $privacy_policy = [];
-    $subscribers = $form_state->getValue('subscribers');
 
     foreach ($form_state->getValue('language') as $language_id => $nid) {
       if (!empty($nid)) {
@@ -166,7 +135,6 @@ class SettingsForm extends ConfigFormBase
 
     $this->configFactory()->getEditable('degov_simplenews.settings')
       ->set('privacy_policy', $privacy_policy)
-      ->set('subscribers_unconfirmed_lifetime', !empty($subscribers['unconfirmed_lifetime']) ? $subscribers['unconfirmed_lifetime'] : null)
       ->save();
 
     Cache::invalidateTags(['degov_simplenews_front_page']);
