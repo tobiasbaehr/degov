@@ -1,48 +1,65 @@
 <?php
 
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\media\Entity\Media;
+
 /**
- * Migrate field_audio_caption to field_title.
+ * Migrate field_media_published_date to field_media_publish_date.
  */
-function degov_media_audio_post_update_migrate_field_title(&$sandbox) {
+function degov_media_audio_post_update_migrate_field_date(&$sandbox) {
+
+  $oldFieldName = 'field_media_published_date';
+  $newFieldName = 'field_media_publish_date';
+  $bundle = 'audio';
+
   // Initialize some variables during the first pass through.
   if (!isset($sandbox['total'])) {
-    $sandbox['is_index'] = FALSE;
     $max = \Drupal::entityQuery('media')
-      ->condition('bundle', 'audio')
+      ->condition('bundle', $bundle)
       ->count()
       ->execute();
     $sandbox['total'] = $max;
     $sandbox['current'] = 0;
-    if (\Drupal::moduleHandler()->moduleExists('degov_search_media')) {
-      $index = \Drupal\search_api\Entity\Index::load('search_media');
-      if ($index) {
-        $index->setOption('index_directly', FALSE);
-        $index->save();
-        $sandbox['is_index'] = TRUE;
+  }
+
+  $batchSize = 50;
+
+  // Handle one pass through.
+  $Ids = \Drupal::entityQuery('media')
+    ->condition('bundle', $bundle)
+    ->range($sandbox['current'], $batchSize)
+    ->execute();
+  $medias = \Drupal\media\Entity\Media::loadMultiple($Ids);
+  foreach ($medias as $media) {
+    /**
+     * @var $media Media
+     */
+
+    if ($media->hasField($oldFieldName)) {
+      $mediaDate = (new \DateTime($media->get($oldFieldName)->value))
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      $mediaCreatedDate = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($media->get('created')->value)
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      if ($media->get($newFieldName)->isEmpty()) {
+        $mediaPublishedDate = $media->get($oldFieldName)->value === NULL ? $mediaCreatedDate : $mediaDate;
+        $media->set($newFieldName, $mediaPublishedDate);
+        $media->set($oldFieldName, NULL);
+        $media->save();
       }
+    }
+    $sandbox['current']++;
+  }
+  if ($sandbox['current'] / $sandbox['total'] === 1) {
+    $index = \Drupal\search_api\Entity\Index::load('search_media');
+    if ($index) {
+      $index->reindex();
     }
   }
 
-  $media_per_batch = 50;
-
-  // Handle one pass through.
-  $mids = \Drupal::entityQuery('media')
-    ->condition('bundle', 'audio')
-    ->range($sandbox['current'], $sandbox['current'] + $media_per_batch)
-    ->execute();
-  $medias = \Drupal\media\Entity\Media::loadMultiple($mids);
-  foreach($medias as $media) {
-    $caption = $media->get('field_audio_caption')->getValue();
-    $media->set('field_title', $caption);
-    $media->save();
-    $sandbox['current']++;
-  }
-
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
-  if ($sandbox['#finished'] == 1 && $sandbox['is_index']) {
-    $index = \Drupal\search_api\Entity\Index::load('search_media');
-    $index->setOption('index_directly', TRUE);
-    $index->save();
-  }
-  return t('@current media processed.',['@current' => $sandbox['current']]);
+
+  return t('@current media @bundle processed.', [
+    '@current' => $sandbox['current'],
+    '@bundle'  => $bundle,
+  ]);
 }
