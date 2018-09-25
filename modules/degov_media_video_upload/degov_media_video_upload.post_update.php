@@ -56,11 +56,20 @@ function degov_media_video_upload_post_update_migrate_field_date(&$sandbox) {
         $media->save();
       }
     }
+    else {
+      $mediaCreatedDate = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($media->get('created')->value)
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      if ($media->get($newFieldName)->isEmpty()) {
+        $media->set($newFieldName, $mediaCreatedDate);
+        $media->save();
+      }
+    }
     $sandbox['current']++;
   }
   if ($sandbox['current'] / $sandbox['total'] === 1) {
     $index = \Drupal\search_api\Entity\Index::load('search_media');
     if ($index) {
+      $index->clear();
       $index->reindex();
     }
   }
