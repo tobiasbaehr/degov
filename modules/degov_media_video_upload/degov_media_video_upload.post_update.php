@@ -6,11 +6,11 @@ use Drupal\media\Entity\Media;
 /**
  * Migrate field_media_published_date to field_media_publish_date.
  */
-function degov_media_video_post_update_migrate_field_date(&$sandbox) {
+function degov_media_video_upload_post_update_migrate_field_date(&$sandbox) {
 
   $oldFieldName = 'field_media_published_date';
   $newFieldName = 'field_media_publish_date';
-  $bundle = 'video';
+  $bundle = 'video_upload';
 
   // Initialize some variables during the first pass through.
   if (!isset($sandbox['total'])) {
@@ -18,8 +18,17 @@ function degov_media_video_post_update_migrate_field_date(&$sandbox) {
       ->condition('bundle', $bundle)
       ->count()
       ->execute();
-    $sandbox['total'] = $max;
+    $sandbox['total'] = (int) $max;
     $sandbox['current'] = 0;
+  }
+
+  if ($sandbox['total'] === 0) {
+    $sandbox['#finished'] = 1;
+
+    return t('@current media @bundle processed.', [
+      '@current' => $sandbox['current'],
+      '@bundle'  => $bundle,
+    ]);
   }
 
   $batchSize = 50;

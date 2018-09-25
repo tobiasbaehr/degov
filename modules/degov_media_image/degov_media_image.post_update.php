@@ -17,8 +17,17 @@ function degov_media_image_post_update_migrate_field_date(&$sandbox) {
       ->condition('bundle', 'image')
       ->count()
       ->execute();
-    $sandbox['total'] = $max;
+    $sandbox['total'] = (int) $max;
     $sandbox['current'] = 0;
+  }
+
+  if ($sandbox['total'] === 0) {
+    $sandbox['#finished'] = 1;
+
+    return t('@current media @bundle processed.', [
+      '@current' => $sandbox['current'],
+      '@bundle'  => 'image',
+    ]);
   }
 
   $batchSize = 50;
