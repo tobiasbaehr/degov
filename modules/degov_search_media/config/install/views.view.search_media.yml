@@ -516,7 +516,12 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
-      sorts: {  }
+      sorts:
+        field_media_publish_date:
+          id: field_media_publish_date
+          table: search_api_index_search_media
+          field: field_media_publish_date
+          plugin_id: search_api
       title: Mediathek
       header: {  }
       footer: {  }
@@ -552,9 +557,23 @@ display:
         cache: false
         filters: true
         filter_groups: true
+        sorts: false
       cache:
         type: none
       exposed_block: true
+      sorts:
+        field_media_publish_date:
+          id: field_media_publish_date
+          table: search_api_index_search_media
+          field: field_media_publish_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: search_api
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\facets\Entity\Facet;
+
 /**
  * Implements hook_install().
  */
@@ -20,21 +22,13 @@ function degov_search_media_update_8007() {
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_search_media', '8007');
   $updater->reImport('views.view.search_media', 'degov_search_media', 'install');
-  $updater->reImport('facets.facet.search_media_changed', 'degov_search_media', 'install');
+  $updater->reImport('search_api.index.search_media', 'degov_search_media', 'install');
 
-  $theme = \Drupal::theme()->getActiveTheme();
-  $blocks = \Drupal::entityTypeManager()
-    ->getStorage('block')
-    ->loadByProperties(['theme' => $theme->getName()]);
-  $blockName = $theme->getName() . '_search_media_changed';
-  if (isset($blocks[$blockName])) {
-    /**
-     * @var $block \Drupal\block\Entity\Block
-     */
-    $block = $blocks[$blockName];
-    $block->set('settings', ['label' => 'Veröffentlichungsdatum']);
-    $block->save();
+  $facet = Facet::load('search_media_changed');
+  if ($facet) {
+    $facet->delete();
   }
+
 
 }
 
