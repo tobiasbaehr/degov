@@ -60,8 +60,8 @@ function degov_media_image_post_update_migrate_field_date(&$sandbox) {
   if($sandbox['current'] / $sandbox['total'] === 1) {
     $index = \Drupal\search_api\Entity\Index::load('search_media');
     if ($index) {
-      $index->clear();
-      $index->reindex();
+      $index->disable();
+      $index->enable();
     }
   }
 

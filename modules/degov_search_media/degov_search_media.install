@@ -24,11 +24,12 @@ function degov_search_media_update_8007() {
   $updater->reImport('views.view.search_media', 'degov_search_media', 'install');
   $updater->reImport('search_api.index.search_media', 'degov_search_media', 'install');
 
-  $facet = Facet::load('search_media_changed');
-  if ($facet) {
-    $facet->delete();
+  foreach(['search_media_changed','search_media_published_date'] as $facet) {
+    $facet = Facet::load('search_media_published_date');
+    if ($facet) {
+      $facet->delete();
+    }
   }
-
 
 }
 
