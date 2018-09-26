@@ -144,15 +144,10 @@ function degov_common_update_8028() {
  */
 function degov_common_update_8030() {
   /**
-   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_content_types_shared_fields') . '/config/install/views.view.latest_media.yml'));
-  try {
-    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.latest_media', 'degov_content_types_shared_fields');
-  } catch (NonexistentInitialConfigException $e) {
-    //Ignore
-  }
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.latest_media','degov_content_types_shared_fields','install');
 }
 
 /**
@@ -160,15 +155,10 @@ function degov_common_update_8030() {
  */
 function degov_common_update_8031() {
   /**
-   * @var $configReplacer \Drupal\config_replace\ConfigReplacer
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
-  $configReplacer = \Drupal::service('config_replace.config_replacer');
-  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/rewrite/views.view.media.yml'));
-  try {
-    $configReplacer->rewriteConfig(['original'], $replace, 'views.view.media', 'degov_common');
-  } catch (NonexistentInitialConfigException $e) {
-    //Ignore
-  }
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.media','degov_common','rewrite');
 }
 
 /**
