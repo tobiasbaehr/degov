@@ -96,6 +96,8 @@ Feature: deGov - Media creation
     And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I choose "Beschreibung" from tab menu
+    And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
@@ -116,6 +118,7 @@ Feature: deGov - Media creation
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
+    And I fill in "entity[field_copyright][0][target_id]" with "Test1234"
     And I press the "Auswählen" button
     And I press the "Use selected" button
     And I go back to the main window
