@@ -4,3 +4,4 @@ content:
     settings:
       responsive_image_style: slider_main
       image_link: ''
+    third_party_settings: {  }
