@@ -100,7 +100,8 @@
         "drupal/console": "^1.8",
         "drupal/module_status": "^1.0@alpha",
         "drush/drush": "^9.3",
-        "drupal/scheduled_publish": "^2.4"
+        "drupal/scheduled_publish": "^2.4",
+        "drupal/degov_simplenews": "^1.5"
     },
     "repositories": {
         "drupal": {
