@@ -88,6 +88,11 @@ Feature: deGov - Media creation
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
 
+  Scenario: I verify that the copyright field in the media image entity form is a required field
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/image"
+    Then I should see a form element with the label "Copyright" and a required input field
+
   Scenario: I am creating an media image entity
     Given I am logged in as an "Administrator"
     And I am on "/media/add/image"
@@ -123,5 +128,3 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
-
-

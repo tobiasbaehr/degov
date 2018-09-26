@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
@@ -476,5 +477,25 @@ class DrupalContext extends RawDrupalContext {
     } catch (StaleElementReference $e) {
       return true;
     }
+  }
+
+  /**
+   * @Then I should see a form element with the label :arg1 and a required input field
+   */
+  public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField($arg1)
+  {
+    // Get all form items with labels matching the supplied text.
+    $form_items_with_matching_labels = $this->getSession()->getPage()->findAll(
+      'xpath',
+      sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $arg1, 'form-item')
+    );
+
+    foreach($form_items_with_matching_labels as $form_item) {
+      if(count($form_item->findAll('css', '.required')) > 0) {
+        return TRUE;
+      }
+    }
+
+    throw new ElementNotFoundException($this->getSession());
   }
 }
