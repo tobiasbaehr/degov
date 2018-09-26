@@ -9,11 +9,3 @@ function degov_simplenews_references_install() {
     $schema->dropTable('nrw_simplenews_subscription');
   }
 }
-
-/**
- * Fix simplenews plain mail.
- */
-function degov_simplenews_references_update_8003() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_simplenews_references', '8003');
-}
