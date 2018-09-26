@@ -1,0 +1,5 @@
+dependencies:
+  config:
+    - field.field.media.image.field_royalty_free
+hidden:
+  field_royalty_free: true

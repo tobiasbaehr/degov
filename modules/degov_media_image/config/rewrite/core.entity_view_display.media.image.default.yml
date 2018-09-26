@@ -12,6 +12,7 @@ dependencies:
     - field.field.media.image.field_image_width
     - field.field.media.image.field_include_search
     - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_royalty_free
     - field.field.media.image.field_tags
     - media.type.image
   module:
@@ -108,6 +109,7 @@ hidden:
   field_allow_download: true
   field_include_search: true
   field_media_in_library: true
+  field_royalty_free: true
   langcode: true
   name: true
   thumbnail: true

@@ -32,7 +32,7 @@ function degov_media_image_uninstall() {
 }
 
 /**
- * Migrate image field type from image_immutable to image_image
+ * Migrate image field type from image_immutable to image_image.
  */
 function degov_media_image_update_8001() {
   \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser')
@@ -41,7 +41,7 @@ function degov_media_image_update_8001() {
 }
 
 /**
- * Add type svg to image types
+ * Add type svg to image types.
  */
 function degov_media_image_update_8002() {
   \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser')
@@ -50,7 +50,7 @@ function degov_media_image_update_8002() {
 }
 
 /**
- * Add missing view mode preview wide
+ * Add missing view mode preview wide.
  */
 function degov_media_image_update_8003() {
   /**
@@ -61,7 +61,7 @@ function degov_media_image_update_8003() {
 }
 
 /**
- * Make the copyright field required
+ * Make the copyright field required, add a royalty free checkbox.
  */
 function degov_media_image_update_8004() {
   /**
