@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\Media;
 
 /**
@@ -59,6 +60,13 @@ function degov_media_image_post_update_migrate_field_date(&$sandbox) {
   }
 
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+
+  if ($sandbox['#finished'] === 1) {
+    $fieldConfig = FieldConfig::loadByName('media', 'image', $oldFieldName);
+    if ($fieldConfig) {
+      $fieldConfig->delete();
+    }
+  }
 
   return t('@current media processed.', ['@current' => $sandbox['current']]);
 }
