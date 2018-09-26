@@ -6,9 +6,9 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
-      And I select "published" in "edit-field-publish-0-moderation-state"
-      And I fill in "01012018" for "edit-field-publish-0-value-date"
-      And I fill in "010000AM" for "edit-field-publish-0-value-time"
+      And I select "published" in "edit-field-scheduled-publish-0-moderation-state"
+      And I fill in "01012018" for "edit-field-scheduled-publish-0-value-date"
+      And I fill in "010000AM" for "edit-field-scheduled-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
       And I run the cron
@@ -21,9 +21,9 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
-      And I select "published" in "edit-field-publish-0-moderation-state"
-      And I fill in "01012118" for "edit-field-publish-0-value-date"
-      And I fill in "010000AM" for "edit-field-publish-0-value-time"
+      And I select "published" in "edit-field-scheduled-publish-0-moderation-state"
+      And I fill in "01012118" for "edit-field-scheduled-publish-0-value-date"
+      And I fill in "010000AM" for "edit-field-scheduled-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
       And I run the cron
