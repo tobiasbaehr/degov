@@ -485,10 +485,7 @@ class DrupalContext extends RawDrupalContext {
   public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField($arg1)
   {
     // Get all form items with labels matching the supplied text.
-    $form_items_with_matching_labels = $this->getSession()->getPage()->findAll(
-      'xpath',
-      sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $arg1, 'form-item')
-    );
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $arg1);
 
     foreach($form_items_with_matching_labels as $form_item) {
       if(count($form_item->findAll('css', '.required')) > 0) {
@@ -497,5 +494,29 @@ class DrupalContext extends RawDrupalContext {
     }
 
     throw new ElementNotFoundException($this->getSession());
+  }
+
+  /**
+   * @Then I should see a form element with the label :arg1 and a :arg2 field
+   */
+  public function iShouldSeeAFormElementWithTheLabelAndAField($arg1, $arg2)
+  {
+    // Get all form items with labels matching the supplied text.
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $arg1);
+
+    foreach($form_items_with_matching_labels as $form_item) {
+      if(count($form_item->findAll('xpath', sprintf('//input[@type="%s"]', $arg2))) > 0) {
+        return TRUE;
+      }
+    }
+
+    throw new ElementNotFoundException($this->getSession());
+  }
+
+  private function getElementWithClassContainingLabelWithText($class_name, $label_text) {
+    return $this->getSession()->getPage()->findAll(
+      'xpath',
+      sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $label_text, $class_name)
+    );
   }
 }

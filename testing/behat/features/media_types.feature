@@ -73,6 +73,11 @@ Feature: deGov - Media types
     And I am on "/media/add/image"
     Then I should see a form element with the label "Copyright" and a required input field
 
+  Scenario: I verify that the media image entity form contains the free license field
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/image"
+    Then I should see a form element with the label "Bild ist frei" and a "checkbox" field
+
   Scenario: Media type gallery has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/gallery/fields"
