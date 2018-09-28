@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\Media;
@@ -46,9 +47,9 @@ function degov_media_video_post_update_migrate_field_date(&$sandbox) {
      */
 
     if ($media->hasField($oldFieldName)) {
-      $mediaDate = (new \DateTime($media->get($oldFieldName)->value))
+      $mediaDate = (new DrupalDateTime($media->get($oldFieldName)->value))
         ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
-      $mediaCreatedDate = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($media->get('created')->value)
+      $mediaCreatedDate = DrupalDateTime::createFromTimestamp($media->get('created')->value)
         ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
       if ($media->get($newFieldName)->isEmpty()) {
         $mediaPublishedDate = $media->get($oldFieldName)->value === NULL ? $mediaCreatedDate : $mediaDate;
@@ -58,7 +59,7 @@ function degov_media_video_post_update_migrate_field_date(&$sandbox) {
       }
     }
     else {
-      $mediaCreatedDate = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($media->get('created')->value)
+      $mediaCreatedDate = DrupalDateTime::createFromTimestamp($media->get('created')->value)
         ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
       if ($media->get($newFieldName)->isEmpty()) {
         $media->set($newFieldName, $mediaCreatedDate);

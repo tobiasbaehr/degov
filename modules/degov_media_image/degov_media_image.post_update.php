@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\Media;
@@ -45,9 +46,9 @@ function degov_media_image_post_update_migrate_field_date(&$sandbox) {
      */
 
     if ($media->hasField($oldFieldName)) {
-      $imageDate = (new \DateTime($media->get($oldFieldName)->value))
+      $imageDate = (new DrupalDateTime($media->get($oldFieldName)->value))
         ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
-      $imageCreatedDate = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($media->get('created')->value)
+      $imageCreatedDate = DrupalDateTime::createFromTimestamp($media->get('created')->value)
         ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
       if ($media->get($newFieldName)->isEmpty()) {
         $imagePublishedDate = $media->get($oldFieldName)->value === NULL ? $imageCreatedDate : $imageDate;
