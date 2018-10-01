@@ -8,6 +8,7 @@ use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
+use Drupal\facets\Exception\Exception;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
@@ -480,37 +481,55 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then I should see a form element with the label :arg1 and a required input field
+   * @Then I should see :number_of_elements form element with the label :label and a required input field
    */
-  public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField($arg1)
+  public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField(int $number_of_elements, string $label_text)
   {
     // Get all form items with labels matching the supplied text.
-    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $arg1);
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
 
+    $matching_elements_count = 0;
     foreach($form_items_with_matching_labels as $form_item) {
       if(count($form_item->findAll('css', '.required')) > 0) {
-        return TRUE;
+        $matching_elements_count++;
       }
     }
 
-    throw new ElementNotFoundException($this->getSession());
+    if($matching_elements_count === 0) {
+      throw new ElementNotFoundException();
+    }
+
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    } else {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    }
   }
 
   /**
-   * @Then I should see a form element with the label :arg1 and a :arg2 field
+   * @Then I should see :number_of_elements form element with the label :arg2 and a :arg3 field
    */
-  public function iShouldSeeAFormElementWithTheLabelAndAField($arg1, $arg2)
+  public function iShouldSeeAFormElementWithTheLabelAndAField(int $number_of_elements, string $label_text, string $input_type)
   {
     // Get all form items with labels matching the supplied text.
-    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $arg1);
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
 
+    $matching_elements_count = 0;
     foreach($form_items_with_matching_labels as $form_item) {
-      if(count($form_item->findAll('xpath', sprintf('//input[@type="%s"]', $arg2))) > 0) {
-        return TRUE;
+      if(count($form_item->findAll('xpath', sprintf('//input[@type="%s"]', $input_type))) > 0) {
+        $matching_elements_count++;
       }
     }
 
-    throw new ElementNotFoundException($this->getSession());
+    if($matching_elements_count === 0) {
+      throw new ElementNotFoundException();
+    }
+
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    } else {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    }
   }
 
   private function getElementWithClassContainingLabelWithText($class_name, $label_text) {

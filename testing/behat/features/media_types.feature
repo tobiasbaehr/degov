@@ -68,15 +68,14 @@ Feature: deGov - Media types
     And I should see text matching "field_subtitle"
     And I should see text matching "field_title"
 
-  Scenario: I verify that the copyright field in the media image entity form is a required field
+  Scenario: I verify that image media entities have copyright related fields
     Given I am logged in as an "Administrator"
     And I am on "/media/add/image"
-    Then I should see a form element with the label "Copyright" and a required input field
-
-  Scenario: I verify that the media image entity form contains the free license field
-    Given I am logged in as an "Administrator"
-    And I am on "/media/add/image"
-    Then I should see a form element with the label "Bild ist frei" and a "checkbox" field
+    And I choose "Beschreibung" from tab menu
+    Then I should see 1 form element with the label "Copyright" and a required input field
+    And I should see 1 form element with the label "Bild ist frei" and a "checkbox" field
+    And I check checkbox with id "edit-field-royalty-free-value"
+    Then I should see 0 form element with the label "Copyright" and a required input field
 
   Scenario: Media type gallery has all required fields
     Given I am logged in as a user with the "administrator" role
