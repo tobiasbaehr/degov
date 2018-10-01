@@ -495,10 +495,6 @@ class DrupalContext extends RawDrupalContext {
       }
     }
 
-    if($matching_elements_count === 0) {
-      throw new ElementNotFoundException();
-    }
-
     if($number_of_elements === $matching_elements_count) {
       return true;
     } else {
