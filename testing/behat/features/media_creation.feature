@@ -88,7 +88,7 @@ Feature: deGov - Media creation
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
 
-  Scenario: I am creating an media image entity
+  Scenario: I am creating an media image entity with copyright
     Given I am logged in as an "Administrator"
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
@@ -98,6 +98,33 @@ Feature: deGov - Media creation
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
     And I fill in "Copyright" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should not see "ist erforderlich."
+    And I should see "wurde erstellt."
+
+  Scenario: I try and fail to create a licensed image without copyright info
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/image"
+    And I fill in "Name" with "Test1234"
+    And I fill in "Öffentlicher Titel" with "Test1234"
+    And I attach the file "/Users/marc/workspace/degov-required-copyright-field/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see "ist erforderlich."
+
+  Scenario: I am creating an media image entity without copyright
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/image"
+    And I fill in "Name" with "Test1234"
+    And I fill in "Öffentlicher Titel" with "Test1234"
+    And I attach the file "/Users/marc/workspace/degov-required-copyright-field/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I choose "Beschreibung" from tab menu
+    And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
