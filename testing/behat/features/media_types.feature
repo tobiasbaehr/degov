@@ -70,6 +70,7 @@ Feature: deGov - Media types
 
   Scenario: I verify that image media entities have copyright related fields
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I choose "Beschreibung" from tab menu
     Then I should see 1 form element with the label "Copyright" and a required input field
