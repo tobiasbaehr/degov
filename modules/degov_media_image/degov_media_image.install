@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\field\Entity\FieldConfig;
 
 /**
  * Implements hook_uninstall().
@@ -58,4 +59,16 @@ function degov_media_image_update_8003() {
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '8003');
+}
+
+/**
+ * Adds new field publish date
+ */
+function degov_media_image_update_8017() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8017');
+
 }

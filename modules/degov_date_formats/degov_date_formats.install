@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Translate date formats
+ */
+function degov_date_formats_update_8002() {
+  \Drupal::service('module_installer')->install(['config_translation']);
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_date_formats', 8002);
+
+}

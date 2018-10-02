@@ -7,8 +7,8 @@ dependencies:
   enforced:
     module:
       - degov_scheduled_updates
-id: node.field_publish
-field_name: field_publish
+id: node.field_scheduled_publish
+field_name: field_scheduled_publish
 entity_type: node
 type: scheduled_publish
 settings:
