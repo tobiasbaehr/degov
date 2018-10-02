@@ -1,3 +1,4 @@
+uuid: d9155dc2-8722-491a-9745-7dc5c438727d
 langcode: de
 status: true
 dependencies:
@@ -9,6 +10,8 @@ dependencies:
       - degov_search_content
   module:
     - search_api
+_core:
+  default_config_hash: YBHoF0XGxjH2syNnE5NIFjaGe9hm79eDNhcVlPBPhCQ
 id: search_content_tags
 name: Schlagworte
 url_alias: tags
@@ -22,7 +25,7 @@ widget:
   config:
     show_numbers: true
     default_option_label: Auswählen
-query_operator: and
+query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
@@ -66,3 +69,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
+show_title: false

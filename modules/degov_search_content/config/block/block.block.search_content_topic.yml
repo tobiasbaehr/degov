@@ -1,0 +1,23 @@
+uuid: 7fed33e8-5abc-4c07-bee2-978aafa53388
+langcode: de
+status: false
+dependencies:
+  config:
+    - facets.facet.search_content_topic
+  module:
+    - facets
+  theme:
+    - mhkbgnrw_theme
+id: search_content_topic
+theme: mhkbgnrw_theme
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'facet_block:search_content_topic'
+settings:
+  id: 'facet_block:search_content_topic'
+  label: Thema
+  provider: facets
+  label_display: visible
+  block_id: search_content_topic
+visibility: {  }
