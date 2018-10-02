@@ -37,9 +37,9 @@ function degov_node_faq_update_8010() {
 }
 
 /**
- * Enable workflow for content type
+ * Adds internal title field
  */
-function degov_node_faq_update_8011() {
+function degov_node_faq_update_8012() {
   \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_faq', '8011');
+    ->applyUpdates('degov_node_faq', '8012');
 }

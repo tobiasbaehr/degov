@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\config_replace\Exception\NonexistentInitialConfigException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -89,7 +90,6 @@ function degov_common_update_8023() {
 function degov_common_update_8026() {
   //Remove workbench_moderation dependency from configuration
 
-
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
     ->getBundleInfo('media');
   $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -140,16 +140,43 @@ function degov_common_update_8028() {
 }
 
 /**
+ * Updated latest media browser view
+ */
+function degov_common_update_8030() {
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.latest_media','degov_content_types_shared_fields','install');
+}
+
+/**
+ * Updated media browser view
+ */
+function degov_common_update_8031() {
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.media','degov_common','rewrite');
+}
+
+/**
  * Install node overrides module
  */
-function degov_common_update_8029() {
-  \Drupal::service('module_installer')->install(['degov_node_overrides']);
+function degov_common_update_8032() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_node_overrides')) {
+    \Drupal::service('module_installer')->install(['degov_node_overrides']);
+  }
 }
 
 
 function degov_common_update_dependencies() {
   $dependencies['degov'][8450] = [
-    'degov_common' => 8029,
+    'degov_common' => 8032,
   ];
+
   return $dependencies;
 }
+
+

@@ -8,12 +8,10 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
-    - degov_common
     - entity_browser
     - file
     - image
     - media
-    - taxonomy
     - user
     - views_infinite_scroll
 id: media
@@ -34,6 +32,7 @@ display:
       access:
         type: perm
         options:
+          perm: 'access media overview'
       cache:
         type: tag
         options: {  }
@@ -48,13 +47,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Filter
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Zurücksetzen
+          exposed_sorts_label: 'Sortieren nach'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Aufsteigend
+          sort_desc_label: Absteigend
       pager:
         type: full
         options:
@@ -64,17 +63,17 @@ display:
           total_pages: null
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Elemente pro Seite'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Versatz
           tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
+            previous: '‹ Zurück'
+            next: 'Weiter >'
+            first: '« Anfang'
+            last: 'Ende »'
           quantity: 9
       style:
         type: table
@@ -202,7 +201,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Vorschaubild
+          label: Miniaturbild
           exclude: false
           alter:
             alter_text: false
@@ -284,7 +283,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Interner Titel'
+          label: Medienname
           exclude: false
           element_type: ''
           element_class: ''
@@ -315,7 +314,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Anbieter
+          label: Typ
           exclude: false
           alter:
             alter_text: false
@@ -380,7 +379,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Author
+          label: Autor
           exclude: false
           alter:
             alter_text: false
@@ -491,7 +490,7 @@ display:
           settings:
             format: custom
             format_custom_true: Veröffentlicht
-            format_custom_false: Unveröffentlicht
+            format_custom_false: 'Nicht veröffentlicht'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -512,7 +511,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Updated
+          label: Aktualisiert
           exclude: false
           alter:
             alter_text: false
@@ -579,7 +578,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
+          label: Aktionen
           exclude: false
           alter:
             alter_text: false
@@ -624,52 +623,46 @@ display:
           entity_type: media
           plugin_id: entity_operations
       filters:
-        status:
-          id: status
+        name:
+          id: name
           table: media_field_data
-          field: status
+          field: name
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: ''
-            label: Wahr
-            description: null
+            operator_id: name_op
+            label: Medienname
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: name_op
+            identifier: name
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
           group_info:
-            label: Veröffentlichungsstatus
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Veröffentlicht
-                operator: '='
-                value: '1'
-              2:
-                title: Unveröffentlicht
-                operator: '='
-                value: '0'
-          plugin_id: boolean
+            group_items: {  }
           entity_type: media
-          entity_field: status
+          entity_field: name
+          plugin_id: string
         bundle:
           id: bundle
           table: media_field_data
@@ -683,7 +676,7 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: Anbieter
+            label: Typ
             description: ''
             use_operator: false
             operator: bundle_op
@@ -711,46 +704,60 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
-        name:
-          id: name
+        status:
+          id: status
           table: media_field_data
-          field: name
+          field: status
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
-          value: ''
+          operator: '='
+          value: '1'
           group: 1
           exposed: true
           expose:
-            operator_id: name_op
-            label: 'Interner Titel'
-            description: ''
+            operator_id: ''
+            label: Wahr
+            description: null
             use_operator: false
-            operator: name_op
-            identifier: name
-            required: false
+            operator: status_op
+            identifier: status
+            required: true
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Status veröffentlicht'
             description: ''
-            identifier: ''
+            identifier: status
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              -
+                title: Published
+                operator: '='
+                value: '1'
+              -
+                title: Veröffentlicht
+                operator: '='
+                value: '0'
+              -
+                title: 'Nicht veröffentlicht'
+                operator: '='
+                value: '1'
+              -
+                title: Unveröffentlicht
+                operator: '='
+                value: '0'
+          plugin_id: boolean
           entity_type: media
-          entity_field: name
-          plugin_id: string
+          entity_field: status
         langcode:
           id: langcode
           table: media_field_data
@@ -821,7 +828,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No content available.'
+          content: 'Kein Inhalt verfügbar.'
           plugin_id: text_custom
       relationships: {  }
       arguments: {  }
@@ -849,7 +856,7 @@ display:
           columns: 5
           automatic_width: true
           alignment: horizontal
-          col_class_default: false
+          col_class_default: true
           col_class_custom: ''
           row_class_default: true
           row_class_custom: ''
@@ -933,6 +940,56 @@ display:
           entity_type: media
           entity_field: thumbnail
           plugin_id: field
+        entity_browser_select:
+          id: entity_browser_select
+          table: media
+          field: entity_browser_select
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: visually-hidden
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          entity_type: media
+          plugin_id: entity_browser_select
         name:
           id: name
           table: media_field_data
@@ -1061,56 +1118,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        entity_browser_select:
-          id: entity_browser_select
-          table: media
-          field: entity_browser_select
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: visually-hidden
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: media
-          plugin_id: entity_browser_select
       filters:
         status:
           id: status
@@ -1147,11 +1154,19 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1:
+              -
                 title: Published
                 operator: '='
                 value: '1'
-              2:
+              -
+                title: Unpublished
+                operator: '='
+                value: '0'
+              -
+                title: Published
+                operator: '='
+                value: '1'
+              -
                 title: Unpublished
                 operator: '='
                 value: '0'
@@ -1205,47 +1220,6 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: string
-        field_title_value:
-          id: field_title_value
-          table: media__field_title
-          field: field_title_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_title_value_op
-            label: 'Öffentlicher Titel'
-            description: ''
-            use_operator: false
-            operator: field_title_value_op
-            identifier: field_title_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              manager: '0'
-              editor: '0'
-              usermanager: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         bundle:
           id: bundle
           table: media_field_data
@@ -1259,11 +1233,11 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: Type
+            label: Medientyp
             description: ''
             use_operator: false
             operator: bundle_op
-            identifier: type
+            identifier: bundle
             required: false
             remember: false
             multiple: false
@@ -1271,13 +1245,11 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              layout_manager: '0'
-              media_creator: '0'
-              media_manager: '0'
               manager: '0'
               editor: '0'
+              usermanager: '0'
             reduce: false
-            argument: bundle
+            argument: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1329,6 +1301,47 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
+        field_title_value:
+          id: field_title_value
+          table: media__field_title
+          field: field_title_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_title_value_op
+            label: 'Öffentlicher Titel'
+            description: ''
+            use_operator: false
+            operator: field_title_value_op
+            identifier: field_title_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
@@ -1610,11 +1623,19 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1:
+              -
                 title: Published
                 operator: '='
                 value: '1'
-              2:
+              -
+                title: Unpublished
+                operator: '='
+                value: '0'
+              -
+                title: Published
+                operator: '='
+                value: '1'
+              -
                 title: Unpublished
                 operator: '='
                 value: '0'
@@ -1667,47 +1688,6 @@ display:
             group_items: {  }
           entity_type: media
           entity_field: name
-          plugin_id: string
-        field_title_value:
-          id: field_title_value
-          table: media__field_title
-          field: field_title_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_title_value_op
-            label: 'Öffentlicher Titel'
-            description: ''
-            use_operator: false
-            operator: field_title_value_op
-            identifier: field_title_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              manager: '0'
-              editor: '0'
-              usermanager: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
           plugin_id: string
         bundle:
           id: bundle
@@ -1794,10 +1774,52 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
+        field_title_value:
+          id: field_title_value
+          table: media__field_title
+          field: field_title_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_title_value_op
+            label: 'Öffentlicher Titel'
+            description: ''
+            use_operator: false
+            operator: field_title_value_op
+            identifier: field_title_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
-          1: AND
+          - AND
+          - AND
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2692,56 +2714,6 @@ display:
           destination: true
           entity_type: media
           plugin_id: entity_operations
-        usage:
-          id: usage
-          table: media
-          field: usage
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Usage
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: media
-          plugin_id: degov_media_usage
     cache_metadata:
       max-age: 0
       contexts:
@@ -2749,7 +2721,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.permissions
       tags:
         - 'config:field.storage.media.field_title'

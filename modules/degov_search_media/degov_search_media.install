@@ -1,9 +1,44 @@
 <?php
 
+use Drupal\facets\Entity\Facet;
+
 /**
  * Implements hook_install().
  */
 function degov_search_media_install() {
   // Flush plugin caches so our facets will be shown.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+}
+
+
+/**
+ * Add fields publish date to field sort
+ */
+function degov_search_media_update_8007() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_search_media', '8007');
+  $updater->reImport('views.view.search_media', 'degov_search_media', 'install');
+  $updater->reImport('search_api.index.search_media', 'degov_search_media', 'install');
+
+  foreach (['search_media_changed', 'search_media_published_date'] as $facetName) {
+    $facet = Facet::load($facetName);
+    if ($facet) {
+      $facet->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_update_dependencies
+ */
+function degov_search_media_update_dependencies() {
+  $dependencies['degov_search_media'][8007] = [
+    'degov_media_overrides' => 8001,
+  ];
+
+  return $dependencies;
 }

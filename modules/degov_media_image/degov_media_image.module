@@ -11,7 +11,15 @@ function degov_media_image_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_image',
     'entity_type' => 'media',
     'entity_bundles' => ['image'],
-    'entity_view_modes' => ['thumbnail', 'usage', 'preview', 'search', 'full', 'embedded'],
+    'entity_view_modes' => [
+      'thumbnail',
+      'usage',
+      'preview',
+      'search',
+      'embedded',
+      'full',
+      'preview_wide',
+    ],
   ]);
 }
 

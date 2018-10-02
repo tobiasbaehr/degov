@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\field\Entity\FieldConfig;
+
 /**
  * Implements hook_install().
  */
@@ -11,4 +13,74 @@ function degov_media_overrides_install() {
       $index->reindex();
     }
   }
+}
+
+/**
+ * Add new media date publish field
+ */
+function degov_media_overrides_update_8001() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_media_overrides', '8001');
+}
+
+function degov_media_overrides_update_dependencies() {
+
+  return [
+    'degov_media_gallery'      => [
+      8014 => [
+        'degov_media_overrides' => 8001,
+      ],
+    ],
+    'degov_media_image'        => [
+      8017 => [
+        'degov_media_overrides' => 8001,
+      ],
+    ],
+    'degov_media_video'        => [
+      8018 => [
+        'degov_media_overrides' => 8001,
+      ],
+    ],
+    'degov_media_video_upload' => [
+      8015 => [
+        'degov_media_overrides' => 8001,
+      ],
+    ],
+    'degov_media_audio'        => [
+      8013 => [
+        'degov_media_overrides' => 8001,
+      ],
+    ],
+    'degov_search_media'       => [
+      8007 => [
+        'degov_media_overrides'    => 8001,
+        'degov_media_gallery'      => 8014,
+        'degov_media_image'        => 8017,
+        'degov_media_video'        => 8018,
+        'degov_media_video_upload' => 8015,
+        'degov_media_audio'        => 8013,
+      ],
+    ],
+    'degov_media_overrides'    => [
+      8002 => [
+        'degov_search_media' => 8007,
+      ],
+      8003 => [
+        'degov_search_media' => 8007,
+      ],
+      8004 => [
+        'degov_search_media' => 8007,
+      ],
+      8005 => [
+        'degov_search_media' => 8007,
+      ],
+      8006 => [
+        'degov_search_media' => 8007,
+      ],
+    ],
+
+  ];
 }

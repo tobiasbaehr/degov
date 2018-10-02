@@ -21,12 +21,12 @@ pipelines:
           - cd degov-project
           - rm composer.lock
           - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
-          - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+          - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
           - php composer-require-namespace.php
           - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
           - composer dump-autoload
-          - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php &)
+          - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
           - (cd docroot/profiles/contrib/degov && phpunit --testdox)
@@ -45,14 +45,12 @@ pipelines:
           - mysql
     - step:
         name: Deploy to platform.sh
-        image: alpine/git
         script:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
           - git push platform $BITBUCKET_BRANCH
     - step:
         name: Push to drupal.org
-        image: alpine/git
         script:
           - git remote add drupal git@git.drupal.org:project/degov.git
           - git config --global push.default matching
@@ -69,12 +67,12 @@ pipelines:
             - cd degov-project
             - rm composer.lock
             - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
-            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v /dev/shm:/dev/shm -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
             - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
-            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php &)
+            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
             - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
             - (cd docroot/profiles/contrib/degov && phpunit --testdox)
@@ -93,14 +91,12 @@ pipelines:
             - mysql
       - step:
           name: Deploy to platform.sh
-          image: alpine/git
           script:
             - git config --global push.default matching
             - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
             - git push platform $BITBUCKET_BRANCH
       - step:
           name: Push dev to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -113,7 +109,6 @@ pipelines:
     '*':
       - step:
           name: Pushing tags to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching

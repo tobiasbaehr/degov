@@ -1,12 +1,11 @@
-config_replace: replace
 langcode: de
 status: true
 dependencies:
   config:
-  - field.storage.node.field_internal_title
+    - field.storage.node.field_internal_title
   module:
-  - node
-  - user
+    - node
+    - user
 id: content
 label: Inhalt
 module: node
@@ -704,21 +703,12 @@ display:
           admin_label: author
           required: true
           plugin_id: standard
-        latest_revision__node:
-          id: latest_revision__node
-          table: workbench_revision_tracker
-          field: latest_revision__node
-          relationship: none
-          group_type: group
-          admin_label: 'latest revision'
-          required: false
-          plugin_id: standard
       show_admin_links: false
       filter_groups:
         operator: AND
         groups:
-        - AND
-        - AND
+          - AND
+          - AND
       display_extenders: {  }
     display_plugin: default
     display_title: Master
@@ -726,16 +716,16 @@ display:
     position: 0
     cache_metadata:
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - url.query_args
-      - user
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
       max-age: 0
       tags:
-      - 'config:field.storage.node.field_internal_title'
+        - 'config:field.storage.node.field_internal_title'
   page_1:
     display_options:
       path: admin/content/node
@@ -759,13 +749,13 @@ display:
     position: 1
     cache_metadata:
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - url.query_args
-      - user
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
       max-age: 0
       tags:
-      - 'config:field.storage.node.field_internal_title'
+        - 'config:field.storage.node.field_internal_title'

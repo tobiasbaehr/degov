@@ -18,6 +18,7 @@ dependencies:
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
     - field.field.media.video_upload.field_video_upload_webm
+    - field.field.media.video_upload.field_media_publish_date
     - image.style.large
     - media.type.video_upload
   enforced:
@@ -54,6 +55,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_media_publish_date:
+    weight: 11
+    label: above
+    settings:
+      format_type: date_medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_video_upload_preview:
     type: entity_reference_entity_view
