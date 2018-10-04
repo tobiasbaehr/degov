@@ -113,6 +113,8 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
@@ -126,6 +128,8 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
