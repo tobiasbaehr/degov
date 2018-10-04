@@ -25,7 +25,7 @@ function degov_media_gallery_preprocess(&$variables, $hook, &$info)
       'embedded',
       'reference',
       'full',
-      'preview_wide',
+      'preview_wide'
     ],
   ]);
 }

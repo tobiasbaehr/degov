@@ -51,5 +51,13 @@ function degov_media_gallery_update_8012() {
  */
 function degov_media_gallery_update_8013() {
   \Drupal::configFactory()->getEditable('media.type.gallery')
-    ->set('source_configuration.source_field', 'field_media_generic_5')->save();
+    ->set('source_configuration.source_field', 'field_media_generic_4')->save();
+}
+
+/**
+ * Adds new field publish date
+ */
+function degov_media_gallery_update_8014() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_gallery', '8014');
 }

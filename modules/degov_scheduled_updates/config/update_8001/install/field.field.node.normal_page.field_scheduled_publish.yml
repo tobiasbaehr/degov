@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_publish
+    - field.storage.node.field_scheduled_publish
     - node.type.normal_page
   module:
     - scheduled_publish
@@ -10,8 +10,8 @@ dependencies:
   enforced:
     module:
       - degov_scheduled_updates
-id: node.normal_page.field_publish
-field_name: field_publish
+id: node.normal_page.field_scheduled_publish
+field_name: field_scheduled_publish
 entity_type: node
 bundle: normal_page
 label: Scheduled publish

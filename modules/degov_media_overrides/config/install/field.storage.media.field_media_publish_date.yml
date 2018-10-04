@@ -1,18 +1,15 @@
 langcode: de
 status: true
 dependencies:
-  enforced:
-    module:
-      - degov_media_image
   module:
     - datetime
     - media
-id: media.field_image_date
-field_name: field_image_date
+id: media.field_media_publish_date
+field_name: field_media_publish_date
 entity_type: media
 type: datetime
 settings:
-  datetime_type: date
+  datetime_type: datetime
 module: datetime
 locked: false
 cardinality: 1
