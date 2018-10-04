@@ -1,4 +1,3 @@
-uuid: 38d44474-e0d0-4758-b3ae-640eb4b2d01c
 langcode: de
 status: true
 dependencies:
@@ -16,8 +15,6 @@ dependencies:
   module:
     - node
     - search_api
-_core:
-  default_config_hash: 0lOaJ8uxHQ2AdEkEBpROolkvY7nrtNGOHHiE89krm_o
 id: search_content
 name: Inhaltssuche
 description: ''

@@ -1,4 +1,3 @@
-uuid: d7e232c4-80b3-4b71-90ec-f59a27574f43
 langcode: de
 status: true
 dependencies:
@@ -10,8 +9,6 @@ dependencies:
       - degov_search_content
   module:
     - search_api
-_core:
-  default_config_hash: KT_KlqcbAkbk5EMB8EfH4u74Z_NR_kXu26wMaMmv8ug
 id: search_content_node_bundle
 name: Inhaltstyp
 url_alias: type

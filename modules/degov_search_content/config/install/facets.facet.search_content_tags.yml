@@ -1,4 +1,3 @@
-uuid: d9155dc2-8722-491a-9745-7dc5c438727d
 langcode: de
 status: true
 dependencies:
@@ -10,8 +9,6 @@ dependencies:
       - degov_search_content
   module:
     - search_api
-_core:
-  default_config_hash: YBHoF0XGxjH2syNnE5NIFjaGe9hm79eDNhcVlPBPhCQ
 id: search_content_tags
 name: Schlagworte
 url_alias: tags
