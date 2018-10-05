@@ -1,9 +1,32 @@
 <?php
 
+use Drupal\facets\Entity\Facet;
+
 /**
  * Implements hook_install().
  */
 function degov_search_content_install() {
   // Flush plugin caches so our facets will be shown.
   \Drupal::service('plugin.cache_clearer')->clearCachedDefinitions();
+}
+
+/**
+ * update topic filter for search content
+ */
+function degov_search_media_update_8001() {
+
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_search_media', '8001');
+
+  $updater->reImport('facets.facet.search_content_node_bundle', 'degov_search_content', 'install');
+  $updater->reImport('facets.facet.search_content_tags', 'degov_search_content', 'install');
+  $updater->reImport('search_api.index.search_content', 'degov_search_content', 'install');
+
+  $facet = Facet::load('search_content_section');
+  if ($facet) {
+    $facet->delete();
+  }
 }
