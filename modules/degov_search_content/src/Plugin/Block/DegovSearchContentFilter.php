@@ -37,13 +37,13 @@ class DegovSearchContentFilter extends BlockBase {
     $ids = [
       'search_content_node_bundle',
       'search_content_tags',
-      'search_content_section',
+      'search_content_topic',
       'search_content_node_changed'
     ];
     foreach ($ids as $id) {
       $block = \Drupal\block\Entity\Block::load($id);
-      $block->disable();
       if ($block) {
+        $block->disable();
         $form['filter'][$id] = \Drupal::entityTypeManager()
           ->getViewBuilder('block')
           ->view($block);

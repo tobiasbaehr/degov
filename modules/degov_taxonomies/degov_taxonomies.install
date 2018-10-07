@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Create the content type taxonomy terms.
+ */
+function degov_taxonomies_install() {
+  \Drupal\taxonomy\Entity\Term::create([
+    'name' => 'Blog-Artikel',
+    'vid' => 'content_type',
+  ])->save();
+  \Drupal\taxonomy\Entity\Term::create([
+    'name' => 'FAQ',
+    'vid' => 'content_type',
+  ])->save();
+  \Drupal\taxonomy\Entity\Term::create([
+    'name' => 'Inhaltsseite',
+    'vid' => 'content_type',
+  ])->save();
+  \Drupal\taxonomy\Entity\Term::create([
+    'name' => 'Pressemitteilung',
+    'vid' => 'content_type',
+  ])->save();
+  \Drupal\taxonomy\Entity\Term::create([
+    'name' => 'Veranstaltung',
+    'vid' => 'content_type',
+  ])->save();
+}
