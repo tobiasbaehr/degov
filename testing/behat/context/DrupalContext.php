@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
@@ -476,5 +477,60 @@ class DrupalContext extends RawDrupalContext {
     } catch (StaleElementReference $e) {
       return true;
     }
+  }
+
+  /**
+   * @Then I should see :number_of_elements form element with the label :label and a required input field
+   */
+  public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField(int $number_of_elements, string $label_text)
+  {
+    // Get all form items with labels matching the supplied text.
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
+
+    $matching_elements_count = 0;
+    foreach($form_items_with_matching_labels as $form_item) {
+      if(count($form_item->findAll('css', '.required')) > 0) {
+        $matching_elements_count++;
+      }
+    }
+
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    } else {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    }
+  }
+
+  /**
+   * @Then I should see :number_of_elements form element with the label :arg2 and a :arg3 field
+   */
+  public function iShouldSeeAFormElementWithTheLabelAndAField(int $number_of_elements, string $label_text, string $input_type)
+  {
+    // Get all form items with labels matching the supplied text.
+    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
+
+    $matching_elements_count = 0;
+    foreach($form_items_with_matching_labels as $form_item) {
+      if(count($form_item->findAll('xpath', sprintf('//input[@type="%s"]', $input_type))) > 0) {
+        $matching_elements_count++;
+      }
+    }
+
+    if($matching_elements_count === 0) {
+      throw new ElementNotFoundException();
+    }
+
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    } else {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    }
+  }
+
+  private function getElementWithClassContainingLabelWithText($class_name, $label_text) {
+    return $this->getSession()->getPage()->findAll(
+      'xpath',
+      sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $label_text, $class_name)
+    );
   }
 }

@@ -73,6 +73,16 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/image/fields/media.image.field_media_publish_date"
     And the "edit-required" checkbox should be checked
 
+  Scenario: I verify that image media entities have copyright related fields
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/image"
+    And I choose "Beschreibung" from tab menu
+    Then I should see 1 form element with the label "Copyright" and a required input field
+    And I should see 1 form element with the label "Bild ist frei" and a "checkbox" field
+    And I check checkbox with id "edit-field-royalty-free-value"
+    Then I should see 0 form element with the label "Copyright" and a required input field
+
   Scenario: Media type gallery has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/gallery/fields"

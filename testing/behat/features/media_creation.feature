@@ -90,16 +90,52 @@ Feature: deGov - Media creation
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
 
-  Scenario: I am creating an media image entity
+  Scenario: I am creating an media image entity with copyright
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-image-0-upload"
+    And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I choose "Beschreibung" from tab menu
+    And I fill in "Copyright" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should not see "ist erforderlich."
+    And I should see "wurde erstellt."
+
+  Scenario: I try and fail to create a licensed image without copyright info
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/image"
+    And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
+    And I fill in "Öffentlicher Titel" with "Test1234"
+    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see "ist erforderlich."
+
+  Scenario: I am creating an media image entity without copyright
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/image"
+    And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
+    And I fill in "Öffentlicher Titel" with "Test1234"
+    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I choose "Beschreibung" from tab menu
+    And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
@@ -117,11 +153,12 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I attach the file "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures/images/dummy.png" to "edit-input-file"
+    And I attach the file "images/dummy.png" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
+    And I fill in "entity[field_copyright][0][target_id]" with "Test1234"
     And I press the "Auswählen" button
     And I press the "Use selected" button
     And I go back to the main window
@@ -129,5 +166,3 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
-
-

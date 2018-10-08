@@ -1,6 +1,9 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
 /**
  * Implements hook_preprocess().
@@ -55,6 +58,40 @@ function degov_media_image_preprocess_media__image(&$variables) {
       else {
         $variables['content']['download'] = [];
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function degov_media_image_form_media_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
+  if(in_array($form_id, ['media_image_add_form', 'media_image_edit_form'])) {
+    $form['#attached']['library'][] = 'degov_media_image/entity-form';
+    $form['#validate'][] = 'degov_media_image_validate';
+  }
+}
+
+/**
+ * @param array $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
+function degov_media_image_validate(array &$form, FormStateInterface $form_state) {
+  $is_royalty_free_image_value = $form_state->getValue('field_royalty_free');
+  $is_royalty_free_image = (bool)$is_royalty_free_image_value['value'];
+  $field_copyright_value = $form_state->getValue('field_copyright');
+  if(!$is_royalty_free_image && empty($field_copyright_value[0]['target_id'])) {
+    $form_state->setError($form['field_copyright']['widget'][0]['target_id'], t('@name field is required.', ['@name' => $form['field_copyright']['widget'][0]['target_id']['#title']]));
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function degov_media_image_media_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if($entity->bundle() === 'image') {
+    if((bool)$entity->field_royalty_free->value === TRUE) {
+      unset($build['field_copyright']);
     }
   }
 }
