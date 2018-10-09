@@ -12,7 +12,6 @@ Feature: deGov - Paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I fill in "testblockreferenz" for "Titel"
-    And I click "Inhalt"
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
     And I click "Block Referenz"
