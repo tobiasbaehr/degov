@@ -22,4 +22,9 @@ default_value_callback: ''
 settings:
   plugin_ids:
     degov_twitter_block: degov_twitter_block
+    degov_social_media_instagram: degov_social_media_instagram
+    degov_social_media_youtube: degov_social_media_youtube
+    'views_block:press_latest_content-latest_press': 'views_block:press_latest_content-latest_press'
+    'menu_block:main': 'menu_block:main'
+    simplenews_subscription_block: simplenews_subscription_block
 field_type: block_field
