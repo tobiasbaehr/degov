@@ -484,21 +484,11 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField(int $number_of_elements, string $label_text)
   {
-    // Get all form items with labels matching the supplied text.
-    $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
-
-    $matching_elements_count = 0;
-    foreach($form_items_with_matching_labels as $form_item) {
-      if(count($form_item->findAll('css', '.required')) > 0) {
-        $matching_elements_count++;
-      }
-    }
-
+    $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'css', '.required');
     if($number_of_elements === $matching_elements_count) {
       return true;
-    } else {
-      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
     }
+    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
   }
 
   /**
@@ -506,25 +496,41 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeAFormElementWithTheLabelAndAField(int $number_of_elements, string $label_text, string $input_type)
   {
+    $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'xpath', sprintf('//input[@type="%s"]', $input_type));
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    }
+    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+  }
+
+  /**
+   * @Then I should see :number_of_elements form element with the label :label and the value :field_value
+   */
+  public function iShouldSeeAFormElementWithTheLabelAndTheValue(int $number_of_elements, string $label_text, string $field_value)
+  {
+    $selector_value = '//*[@value="' . $field_value . '"]';
+    if(empty($field_value)) {
+      $selector_value = '//*[@value and string-length(@value) = 0]';
+    }
+    $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'xpath', $selector_value);
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    }
+    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+  }
+
+  private function countFormElementsWithLabelMatchingSelector(string $label_text, string $selector_type, string $selector_value): int {
     // Get all form items with labels matching the supplied text.
     $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
 
     $matching_elements_count = 0;
     foreach($form_items_with_matching_labels as $form_item) {
-      if(count($form_item->findAll('xpath', sprintf('//input[@type="%s"]', $input_type))) > 0) {
+      if(count($form_item->findAll($selector_type, $selector_value)) > 0) {
         $matching_elements_count++;
       }
     }
 
-    if($matching_elements_count === 0) {
-      throw new ElementNotFoundException();
-    }
-
-    if($number_of_elements === $matching_elements_count) {
-      return true;
-    } else {
-      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
-    }
+    return $matching_elements_count;
   }
 
   private function getElementWithClassContainingLabelWithText($class_name, $label_text) {
