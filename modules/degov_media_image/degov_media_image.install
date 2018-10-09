@@ -83,7 +83,7 @@ function degov_media_image_update_8021() {
    * @var DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
-  $degovModuleUpdater->applyUpdates('degov_media_image', '8018');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8021');
 
   // Update form display
   \Drupal::configFactory()
@@ -94,4 +94,15 @@ function degov_media_image_update_8021() {
       'field_royalty_free',
       'field_description'
     ])->save(TRUE);
+}
+
+/**
+ * Define a default value for publish date
+ */
+function degov_media_image_update_8022() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8022');
 }

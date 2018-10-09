@@ -32,3 +32,14 @@ function degov_media_video_update_8018() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_video', '8018');
 }
+
+/**
+ * Define a default value for publish date
+ */
+function degov_media_video_update_8019() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_video', '8019');
+}

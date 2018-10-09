@@ -519,6 +519,20 @@ class DrupalContext extends RawDrupalContext {
     throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
   }
 
+  /**
+   * @Then I should see :number_of_elements elements with name matching :name_pattern and a not empty value
+   */
+  public function iShouldSeeElementsWithNameMatchingPatternAndANotEmptyValue(int $number_of_elements, string $name_pattern)
+  {
+    $selector_value = '//*[contains(@name, "' . $name_pattern . '") and @value and string-length(@value) > 0]';
+    $matches = $this->getSession()->getPage()->findAll('xpath', $selector_value);
+    $matching_elements_count = count($matches);
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    }
+    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+  }
+
   private function countFormElementsWithLabelMatchingSelector(string $label_text, string $selector_type, string $selector_value): int {
     // Get all form items with labels matching the supplied text.
     $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
