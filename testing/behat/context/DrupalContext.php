@@ -12,6 +12,7 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
@@ -191,14 +192,14 @@ class DrupalContext extends RawDrupalContext {
     $drupalFilesystem = \Drupal::service('file_system');
 
     $symfonyFilesystem->copy(
-      drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
-      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
+      drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
+      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
     );
 
     $imageFileEntity = File::create([
       'uid'      => 1,
-      'filename' => 'leaning-tower-of-pisa.jpg',
-      'uri'      => 'public://leaning-tower-of-pisa.jpg',
+      'filename' => 'dummy.png',
+      'uri'      => 'public://dummy.png',
       'status'   => 1,
     ]);
     $imageFileEntity->save();
@@ -227,6 +228,68 @@ class DrupalContext extends RawDrupalContext {
 
     $node = Node::create([
       'title'                   => 'An normal page with a slideshow',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_header_paragraphs' => [$paragraphSlideshow],
+    ]);
+    $node->save();
+  }
+
+
+  /**
+   * @Given /^I have an normal_page with a banner paragraph$/
+   */
+  public function normalPageWithBanner() {
+    /**
+     * @var FilesystemFactory $symfonyFilesystem
+     */
+    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
+    /**
+     * @var SymfonyFilesystem $filesystem
+     */
+    $symfonyFilesystem = $filesystemFactory->create();
+
+    /**
+     * @var DrupalFilesystem $drupalFilesystem
+     */
+    $drupalFilesystem = \Drupal::service('file_system');
+
+    $symfonyFilesystem->copy(
+      drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
+      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+    );
+
+    $imageFileEntity = File::create([
+      'uid'      => 1,
+      'filename' => 'dummy.png',
+      'uri'      => 'public://dummy.png',
+      'status'   => 1,
+    ]);
+    $imageFileEntity->save();
+
+    $copyrightTerm = Term::create([
+      'name' => 'Some copyright',
+      'vid'  => 'copyright',
+    ]);
+
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => $copyrightTerm,
+      'field_image_caption' => 'Some image caption',
+      'image'               => $imageFileEntity->id(),
+    ]);
+    $media->save();
+
+    $paragraphSlideshow = Paragraph::create([
+      'type'                   => 'image_header',
+      'field_override_caption' => '',
+      'field_header_media'     => $media,
+    ]);
+    $paragraphSlideshow->save();
+
+    $node = Node::create([
+      'title'                   => 'An normal page with a banner',
       'type'                    => 'normal_page',
       'moderation_state'        => 'published',
       'field_header_paragraphs' => [$paragraphSlideshow],
