@@ -573,6 +573,9 @@ class DrupalContext extends RawDrupalContext {
     $imageFileEntity = null;
 
     if (is_numeric($this->dummyImageFileEntityId)) {
+      /**
+       * @var File $imageFileEntity
+       */
       $imageFileEntity = File::load($this->dummyImageFileEntityId);
     }
 
