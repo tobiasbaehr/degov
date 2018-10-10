@@ -249,7 +249,7 @@ class FormContext extends RawMinkContext {
 	/**
    * @Then I should see the input with the name :input_name and the value :input_value checked
    */
-	public function iShouldSeeTheRadioButtonWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
+	public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
 	  $radio_button = $this
       ->getSession()
       ->getPage()
