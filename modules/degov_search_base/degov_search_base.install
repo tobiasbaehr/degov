@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\facets\Entity\Facet;
+
+/**
+ * Re-enable partial matching in search
+ */
+function degov_search_base_update_8001() {
+
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_search_base', '8001');
+}
