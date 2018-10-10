@@ -568,7 +568,7 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
-  private function createDummyImageFileEntity()
+  private function createDummyImageFileEntity(): File
   {
     $imageFileEntity = null;
 
