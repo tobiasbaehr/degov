@@ -577,7 +577,6 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
-
       /**
        * @var FilesystemFactory $symfonyFilesystem
        */
