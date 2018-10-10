@@ -27,6 +27,11 @@ class DrupalContext extends RawDrupalContext {
   /** @var array */
   protected $trash = [];
 
+  /**
+   * @var null|int
+   */
+  private $dummyImageFileEntityId = null;
+
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
     $driver->setCoreFromVersion();
@@ -177,39 +182,12 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
   public function normalPageWithSlideshow() {
-    /**
-     * @var FilesystemFactory $symfonyFilesystem
-     */
-    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
-    /**
-     * @var SymfonyFilesystem $filesystem
-     */
-    $symfonyFilesystem = $filesystemFactory->create();
-
-    /**
-     * @var DrupalFilesystem $drupalFilesystem
-     */
-    $drupalFilesystem = \Drupal::service('file_system');
-
-    $symfonyFilesystem->copy(
-      drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
-    );
-
-    $imageFileEntity = File::create([
-      'uid'      => 1,
-      'filename' => 'dummy.png',
-      'uri'      => 'public://dummy.png',
-      'status'   => 1,
-    ]);
-    $imageFileEntity->save();
-
     $media = Media::create([
       'bundle'              => 'image',
       'field_title'         => 'Some image',
       'field_copyright'     => 'Some copyright',
       'field_image_caption' => 'Some image caption',
-      'image'               => $imageFileEntity->id(),
+      'image'               => $this->createDummyImageFileEntity()->id(),
     ]);
     $media->save();
 
@@ -240,33 +218,6 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I have an normal_page with a banner paragraph$/
    */
   public function normalPageWithBanner() {
-    /**
-     * @var FilesystemFactory $symfonyFilesystem
-     */
-    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
-    /**
-     * @var SymfonyFilesystem $filesystem
-     */
-    $symfonyFilesystem = $filesystemFactory->create();
-
-    /**
-     * @var DrupalFilesystem $drupalFilesystem
-     */
-    $drupalFilesystem = \Drupal::service('file_system');
-
-    $symfonyFilesystem->copy(
-      drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
-    );
-
-    $imageFileEntity = File::create([
-      'uid'      => 1,
-      'filename' => 'dummy.png',
-      'uri'      => 'public://dummy.png',
-      'status'   => 1,
-    ]);
-    $imageFileEntity->save();
-
     $copyrightTerm = Term::create([
       'name' => 'Some copyright',
       'vid'  => 'copyright',
@@ -277,7 +228,7 @@ class DrupalContext extends RawDrupalContext {
       'field_title'         => 'Some image',
       'field_copyright'     => $copyrightTerm,
       'field_image_caption' => 'Some image caption',
-      'image'               => $imageFileEntity->id(),
+      'image'               => $this->createDummyImageFileEntity()->id(),
     ]);
     $media->save();
 
@@ -615,5 +566,48 @@ class DrupalContext extends RawDrupalContext {
       'xpath',
       sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $label_text, $class_name)
     );
+  }
+
+  private function createDummyImageFileEntity()
+  {
+    $imageFileEntity = null;
+
+    if (is_numeric($this->dummyImageFileEntityId)) {
+      $imageFileEntity = File::load($this->dummyImageFileEntityId);
+    }
+
+    if (!($imageFileEntity instanceof File)) {
+
+      /**
+       * @var FilesystemFactory $symfonyFilesystem
+       */
+      $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
+      /**
+       * @var SymfonyFilesystem $filesystem
+       */
+      $symfonyFilesystem = $filesystemFactory->create();
+
+      /**
+       * @var DrupalFilesystem $drupalFilesystem
+       */
+      $drupalFilesystem = \Drupal::service('file_system');
+
+      $symfonyFilesystem->copy(
+        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
+        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+      );
+
+      $imageFileEntity = File::create([
+        'uid'      => 1,
+        'filename' => 'dummy.png',
+        'uri'      => 'public://dummy.png',
+        'status'   => 1,
+      ]);
+      $imageFileEntity->save();
+
+      $this->dummyImageFileEntityId = $imageFileEntity->id();
+    }
+
+    return $imageFileEntity;
   }
 }
