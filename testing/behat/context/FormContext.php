@@ -253,7 +253,7 @@ class FormContext extends RawMinkContext {
 	  $radio_button = $this
       ->getSession()
       ->getPage()
-      ->find('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
+      ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
 
 	  if(count($radio_button) > 0) {
 	    return true;
