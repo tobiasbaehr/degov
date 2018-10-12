@@ -11,7 +11,7 @@ Feature: deGov - Social media Instagram
   Scenario: I see the Instagram feed block after enabling it in the social media settings
     Given I am on "/"
     Then I dump the HTML
-    Then I should see HTML content matching "Social Media Settings" after a while
+#    Then I should see HTML content matching "Social Media Settings" after a while
     And I should see HTML content matching "Instagram feed block"
     And I should not see HTML content matching "slick-slide"
     Then I click by selector ".social-media-settings--menu-item" via JavaScript
