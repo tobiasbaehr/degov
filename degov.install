@@ -45,6 +45,8 @@ function degov_install() {
     ->getEditable('node.settings')
     ->set('use_admin_theme', TRUE)
     ->save(TRUE);
+
+  degov_import_translations();
 }
 
 function degov_update_8440() {
@@ -171,4 +173,23 @@ function degov_update_8449() {
     ->getEditable('core.extension')
     ->set('module', $module_data)
     ->save();
+}
+
+/**
+ * Translate social media settings string into German.
+ */
+function degov_update_8500() {
+  degov_import_translations();
+}
+
+function degov_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
