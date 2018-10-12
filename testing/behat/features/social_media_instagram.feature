@@ -19,3 +19,4 @@ Feature: deGov - Social media Instagram
     And I click by selector ".social-media-settings__save" via JavaScript
     And I should not see HTML content matching "This social media source is disabled. After accepting our cookie policy, you can enable it."
     Then I should see HTML content matching "slick-slide" after a while
+
