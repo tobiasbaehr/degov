@@ -2,9 +2,10 @@
     'use strict';
 
     Drupal.behaviors.degov_media_image = {
+        toggle_field_selector: '[id^=edit-field-royalty-free-value]',
         attach: function (context, settings) {
             Drupal.behaviors.degov_media_image.toggle_copyright_required_indicators();
-            $('#edit-field-royalty-free-value').on('click', function(){
+            $(Drupal.behaviors.degov_media_image.toggle_field_selector).on('click', function(){
                 Drupal.behaviors.degov_media_image.toggle_copyright_required_indicators();
             });
         },
@@ -16,7 +17,7 @@
                 copyright_field_closest_label = copyright_field_form_item.children('label'),
                 vertical_tab = $('.vertical-tabs__menu').find('a[href="#' + details_container_id + '"]').find('.vertical-tabs__menu-item-title');
 
-            if($('#edit-field-royalty-free-value:checked').length === 0) {
+            if($(Drupal.behaviors.degov_media_image.toggle_field_selector + ':checked').length === 0) {
                 copyright_field.prop('disabled', false).prop('required', 'required').addClass('required');
                 copyright_field_form_item.removeClass('form-disabled');
                 copyright_field_closest_label.addClass(required_class);
