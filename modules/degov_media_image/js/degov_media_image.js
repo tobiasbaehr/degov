@@ -9,12 +9,12 @@
             });
         },
         toggle_copyright_required_indicators: function() {
-            var required_class = 'form-required';
-            var details_container_id = $('[name*=field_copyright][name*=target_id]').closest('details').attr('id');
-            var copyright_field = $('[name*=field_copyright][name*=target_id]');
-            var copyright_field_form_item = copyright_field.closest('.form-item');
-            var copyright_field_closest_label = copyright_field_form_item.children('label');
-            var vertical_tab = $('.vertical-tabs__menu').find('a[href="#' + details_container_id + '"]').find('.vertical-tabs__menu-item-title');
+            let required_class = 'form-required',
+                details_container_id = $('[name*=field_copyright][name*=target_id]').closest('details').attr('id'),
+                copyright_field = $('[name*=field_copyright][name*=target_id]'),
+                copyright_field_form_item = copyright_field.closest('.form-item'),
+                copyright_field_closest_label = copyright_field_form_item.children('label'),
+                vertical_tab = $('.vertical-tabs__menu').find('a[href="#' + details_container_id + '"]').find('.vertical-tabs__menu-item-title');
 
             if($('#edit-field-royalty-free-value:checked').length === 0) {
                 copyright_field.prop('disabled', false).prop('required', 'required').addClass('required');
