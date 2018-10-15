@@ -12,7 +12,7 @@ use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
 class FormContext extends RawMinkContext {
 
-	use TranslationTrait;
+  use TranslationTrait;
 
   /**
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
@@ -30,8 +30,7 @@ class FormContext extends RawMinkContext {
    * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
    * @param string $selector
    */
-  public function checkCheckboxBySelector(string $selector)
-  {
+  public function checkCheckboxBySelector(string $selector) {
     $this->getSession()->executeScript(
       "
                 document.querySelector('" . $selector . "').checked = true;
@@ -43,8 +42,7 @@ class FormContext extends RawMinkContext {
    * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
    * @param string $value
    */
-  public function checkCheckboxByValue(string $value)
-  {
+  public function checkCheckboxByValue(string $value) {
     $this->getSession()->executeScript(
       "
                 document.querySelector('input[value=" . $value . "]').checked = true;
@@ -55,10 +53,10 @@ class FormContext extends RawMinkContext {
   /**
    * @Given /^I fill in Textarea with "([^"]*)"$/
    */
-  public function iFillInTextareaWith($arg1)
-  {
+  public function iFillInTextareaWith($arg1) {
 
-    $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
+    $this->getSession()
+      ->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
 
   }
 
@@ -113,16 +111,16 @@ class FormContext extends RawMinkContext {
   /**
    * @Then /^I submit the form$/
    */
-  public function iSubmitTheForm()
-  {
+  public function iSubmitTheForm() {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
-      $session->getSelectorsHandler()->selectorToXpath('xpath', '//*[@type="submit"]')
+      $session->getSelectorsHandler()
+        ->selectorToXpath('xpath', '//*[@type="submit"]')
     ); // runs the actual query and returns the element
 
     // errors must not pass silently
-    if (null === $element) {
+    if (NULL === $element) {
       throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
     }
 
@@ -140,7 +138,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
+   * @Then /^I assert dropdown named "([^"]*)" contains the following
+   *   text-value pairs:$/
    *
    * Provide data in the following format:
    *
@@ -150,19 +149,20 @@ class FormContext extends RawMinkContext {
    * | Teaser schmal       | slim        |
    * | Vorschau            | preview     |
    */
-  public function assertDropdown(string $nameAttributeValue , TableNode $table): void {
+  public function assertDropdown(string $nameAttributeValue, TableNode $table): void {
     $rowsHash = $table->getRowsHash();
     unset($rowsHash['text']);
 
     $selector = "select[name='$nameAttributeValue']";
     $node = $this->getSession()->getPage()->find('css', $selector);
 
-    if (null === $node) {
+    if (NULL === $node) {
       if (is_array($selector)) {
         $selector = implode(' ', $selector);
       }
 
-      throw new ElementNotFoundException($this->getSession()->getDriver(), 'element', 'css', $selector);
+      throw new ElementNotFoundException($this->getSession()
+        ->getDriver(), 'element', 'css', $selector);
     }
 
     $html = $node->getHtml();
@@ -189,74 +189,83 @@ class FormContext extends RawMinkContext {
     }
   }
 
-	/**
-	 * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains the following name-value pairs:$/
-	 *
-	 * Provide data in the following format:
-	 *
-	 * | value                            | name                                              |
-	 * | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
-	 * | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
-	 * | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
-	 */
-	public function assertDropbutton(string $cssSelector , TableNode $table): void {
-		$rowsHash = $table->getRowsHash();
-		unset($rowsHash['text']);
-
-		$node = $this->getSession()->getPage()->find('css', $cssSelector);
-
-		if (null === $node) {
-			throw new ElementNotFoundException($this->getSession()->getDriver(), 'element', 'css', $cssSelector);
-		}
-
-		$html = $node->getHtml();
-
-		$htmlParts = explode('</li>', $html);
-
-		// Remove last element which is empty
-		array_pop($htmlParts);
-
-		// Remove dropdown toggle
-		unset($htmlParts['1']);
-
-		if (count($htmlParts) !== count($rowsHash) - 1) {
-			throw new \Exception('Table items number does not match found option values number.');
-		}
-
-		\sort($htmlParts);
-
-		foreach ($rowsHash as $text => $value) {
-			$found = FALSE;
-			$htmlPartItems = count($htmlParts) - 1;
-			for ($i = 0; $i <= $htmlPartItems; ++$i) {
-				if (strpos($htmlParts[$i], $text) && strpos($htmlParts[$i], $value)) {
-					$found = TRUE;
-				}
-			}
-			if ($found === FALSE) {
-				throw new \Exception("Text '$text' and value '$value' not found in given options.");
-			}
-		}
-	}
-
-	/**
-	 * @When /^I press button with label "([^"]*)" via translated text$/
-	 */
-	public function pressButtonTranslate(string $button) {
-		$this->getSession()->getPage()->pressButton($this->translateString($button));
-	}
-
-	/**
-   * @Then I should see the input with the name :input_name and the value :input_value checked
+  /**
+   * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains
+   *   the following name-value pairs:$/
+   *
+   * Provide data in the following format:
+   *
+   * | value                            | name
+   *               |
+   * | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more
+   *               |
+   * | FAQ / Akkordion Liste hinzufügen |
+   *   field_content_paragraphs_faq_list_add_more        |
+   * | Medienreferenz hinzufügen        |
+   *   field_content_paragraphs_media_reference_add_more |
    */
-	public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
-	  $radio_button = $this
+  public function assertDropbutton(string $cssSelector, TableNode $table): void {
+    $rowsHash = $table->getRowsHash();
+    unset($rowsHash['text']);
+
+    $node = $this->getSession()->getPage()->find('css', $cssSelector);
+
+    if (NULL === $node) {
+      throw new ElementNotFoundException($this->getSession()
+        ->getDriver(), 'element', 'css', $cssSelector);
+    }
+
+    $html = $node->getHtml();
+
+    $htmlParts = explode('</li>', $html);
+
+    // Remove last element which is empty
+    array_pop($htmlParts);
+
+    // Remove dropdown toggle
+    unset($htmlParts['1']);
+
+    if (count($htmlParts) !== count($rowsHash) - 1) {
+      throw new \Exception('Table items number does not match found option values number.');
+    }
+
+    \sort($htmlParts);
+
+    foreach ($rowsHash as $text => $value) {
+      $found = FALSE;
+      $htmlPartItems = count($htmlParts) - 1;
+      for ($i = 0; $i <= $htmlPartItems; ++$i) {
+        if (strpos($htmlParts[$i], $text) && strpos($htmlParts[$i], $value)) {
+          $found = TRUE;
+        }
+      }
+      if ($found === FALSE) {
+        throw new \Exception("Text '$text' and value '$value' not found in given options.");
+      }
+    }
+  }
+
+  /**
+   * @When /^I press button with label "([^"]*)" via translated text$/
+   */
+  public function pressButtonTranslate(string $button) {
+    $this->getSession()
+      ->getPage()
+      ->pressButton($this->translateString($button));
+  }
+
+  /**
+   * @Then I should see the input with the name :input_name and the value
+   *   :input_value checked
+   */
+  public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
+    $radio_button = $this
       ->getSession()
       ->getPage()
       ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
 
-	  if(count($radio_button) > 0) {
-	    return true;
+    if (count($radio_button) > 0) {
+      return TRUE;
     }
 
     throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
@@ -264,6 +273,7 @@ class FormContext extends RawMinkContext {
 
   /**
    * @Given /^Select "([^"]*)" has following options "([^"]*)"$/
+   * @throws \Behat\Mink\Exception\ElementNotFoundException
    */
   public function selectHasFollowingOptions($select, $optionsRaw) {
 
@@ -273,7 +283,10 @@ class FormContext extends RawMinkContext {
 
     $options = explode(' ', $optionsRaw);
     foreach ($options as $option) {
-      $select->find('css', 'select[value="' . $option . '"]')->getValue();
+      $element = $select->find('css', 'select[value="' . $option . '"]');
+      if (!$element) {
+        throw new ElementNotFoundException($this->getSession(), 'custom', 'select[value="' . $option . '"]', 'css');
+      }
     }
   }
 
