@@ -10,9 +10,8 @@ Feature: deGov - Paragraphs
 
   Scenario: Block Types given
     Given I am logged in as a user with the "administrator" role
-    And I am on "/node/add/normal_page"
+    And I am on "/node/add/normal_page#edit-group-content"
     And I fill in "testblockreferenz" for "Titel"
-    And I choose "Inhalt" from tab menu
     And I click on togglebutton
     And I press "Block Referenz hinzufügen"
     And I should see HTML content matching "degov_twitter_block"

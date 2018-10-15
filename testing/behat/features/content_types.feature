@@ -9,7 +9,7 @@ Feature: deGov - Content types
       | degov_paragraph_slideshow |
       | degov_paragraph_header    |
     Given I am installing the following Drupal modules:
-      | degov_node_event          |
+      | degov_node_event |
 
   Scenario: Content type normal_page has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -53,6 +53,7 @@ Feature: deGov - Content types
       | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
       | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
       | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
+      | Block Referenz hinzufügen        | field_content_paragraphs_block_reference_add_more |
 
   Scenario: Admin Content page
     Given I am logged in as a user with the "administrator" role

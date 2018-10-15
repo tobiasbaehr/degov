@@ -195,6 +195,13 @@ function degov_update_8450() {
   }
 }
 
+/**
+ * Install block reference paragraph
+ */
+function degov_update_8451() {
+  \Drupal::service('module_installer')->install(['degov_paragraph_block_reference']);
+}
+
 function degov_update_dependencies() {
 
   $dependencies['field_group'][8301] = [
