@@ -216,6 +216,15 @@ function degov_update_8500() {
   degov_import_translations();
 }
 
+/**
+ * Enables the deGov email login module to enable the login via email address.
+ */
+function degov_update_850025() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
+    \Drupal::service('module_installer')->install(['degov_email_login']);
+  }
+}
+
 function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
     'degov' => 8450,

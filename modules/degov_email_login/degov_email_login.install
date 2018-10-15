@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implement hook_uninstall().
+ */
+function degov_email_login_uninstall() {
+  \Drupal::configFactory()->getEditable('mail_login.settings')->delete();
+}
