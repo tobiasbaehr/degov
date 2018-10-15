@@ -14,12 +14,7 @@ Feature: deGov - Paragraphs
     And I fill in "testblockreferenz" for "Titel"
     And I click on togglebutton
     And I press "edit-field-content-paragraphs-add-more-add-more-button-block-reference"
-    And I click by selector "select[name=\'field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]\']" via JavaScript
-    And I should see HTML content matching "degov_twitter_block"
-    And I should see HTML content matching "degov_social_media_instagram"
-    And I should see HTML content matching "degov_social_media_youtube"
-    And I should see HTML content matching "views_block:press_latest_content-latest_press"
-    And I should see HTML content matching "simplenews_subscription_block"
+    Given Select "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "degov_twitter_block degov_social_media_instagram degov_social_media_youtube degov_social_media_instagram views_block:press_latest_content-latest_press simplenews_subscription_block"
     And I select "simplenews_subscription_block" from "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
     And I should see text matching "Newsletter" after a while
     And I check checkbox by value "default" via JavaScript

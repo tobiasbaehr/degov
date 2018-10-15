@@ -262,4 +262,19 @@ class FormContext extends RawMinkContext {
     throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
   }
 
+  /**
+   * @Given /^Select "([^"]*)" has following options "([^"]*)"$/
+   */
+  public function selectHasFollowingOptions($select, $optionsRaw) {
+
+    $select = $this->getSession()
+      ->getPage()
+      ->find('css', 'select[name="' . $select . '"]');
+
+    $options = explode(' ', $optionsRaw);
+    foreach ($options as $option) {
+      $select->find('css', 'select[value="' . $option . '"]')->getValue();
+    }
+  }
+
 }
