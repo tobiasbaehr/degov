@@ -4,5 +4,7 @@
  * Implement hook_uninstall().
  */
 function degov_email_login_uninstall() {
-  \Drupal::configFactory()->getEditable('mail_login.settings')->delete();
+  if (\Drupal::moduleHandler()->moduleExists('mail_login')) {
+    \Drupal::service('module_installer')->uninstall(['mail_login']);
+  }
 }
