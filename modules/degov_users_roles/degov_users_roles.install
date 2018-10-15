@@ -67,6 +67,15 @@ function degov_users_roles_update_8011() {
 }
 
 /**
+ * Give managers default permissions on the permissions by term module.
+ */
+function degov_users_roles_update_8012() {
+  // Apply updates for workflows
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_users_roles', '8012');
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function degov_users_roles_update_dependencies()
