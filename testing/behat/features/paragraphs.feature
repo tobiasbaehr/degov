@@ -14,7 +14,7 @@ Feature: deGov - Paragraphs
     And I fill in "testblockreferenz" for "Titel"
     And I choose "Inhalt" from tab menu
     And I click on togglebutton
-    And I press the "Block Referenz hinzufügen" button
+    And I press "Block Referenz hinzufügen"
     And I should see HTML content matching "degov_twitter_block"
     And I should see HTML content matching "degov_social_media_instagram"
     And I should see HTML content matching "degov_social_media_youtube"
