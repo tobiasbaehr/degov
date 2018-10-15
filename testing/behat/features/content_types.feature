@@ -43,6 +43,7 @@ Feature: deGov - Content types
     And I am on "/node/add/normal_page"
     And I assert dropbutton actions with css selector "#edit-field-content-paragraphs-wrapper ul.dropbutton" contains the following name-value pairs:
       | value                            | name                                              |
+      | Block Referenz hinzufügen        | field_content_paragraphs_block_reference_add_more |
       | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
       | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
       | Banner hinzufügen                | field_content_paragraphs_image_header_add_more    |
@@ -53,7 +54,6 @@ Feature: deGov - Content types
       | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
       | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
       | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
-      | Block Referenz hinzufügen        | field_content_paragraphs_block_reference_add_more |
 
   Scenario: Admin Content page
     Given I am logged in as a user with the "administrator" role
