@@ -3,16 +3,16 @@ status: true
 dependencies:
   config:
     - field.storage.media.field_media_publish_date
-    - media.type.audio
+    - media.type.gallery
   module:
     - datetime
-id: media.audio.field_media_publish_date
+id: media.gallery.field_media_publish_date
 field_name: field_media_publish_date
 entity_type: media
-bundle: audio
+bundle: gallery
 label: Veröffentlichungsdatum
 description: ''
-translatable: false
+translatable: true
 default_value:
 -
   default_date_type: now

@@ -205,6 +205,19 @@ Feature: deGov - Media types
     And I should see text matching "field_citation_title"
     And I should see text matching "field_title"
 
+  Scenario: Check that media entity types with publish date field have a default value in said field
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/media/add/audio"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/image"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/gallery"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/video"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/video_upload"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+
   Scenario: I am visiting the media entity type configuration pages
     Given I am on "/admin/structure/media/manage/address"
     Then I am on "/admin/structure/media/manage/gallery"

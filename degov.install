@@ -43,6 +43,20 @@ function degov_install() {
     ->getEditable('node.settings')
     ->set('use_admin_theme', TRUE)
     ->save(TRUE);
+
+  degov_import_translations();
+}
+
+function degov_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 function degov_update_8440() {
@@ -196,14 +210,14 @@ function degov_update_8450() {
 }
 
 /**
- * Install block reference paragraph
+ * Translate social media settings string into German., Install block reference paragraph.
  */
-function degov_update_8451() {
+function degov_update_850025() {
+  degov_import_translations();
   \Drupal::service('module_installer')->install(['degov_paragraph_block_reference']);
 }
 
 function degov_update_dependencies() {
-
   $dependencies['field_group'][8301] = [
     'degov' => 8450,
   ];

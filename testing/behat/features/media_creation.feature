@@ -123,6 +123,25 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
 
+  Scenario: I try to create an image just to check if the copyright field is emptied when I set the image to be royalty free
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/image"
+    And I choose "Beschreibung" from tab menu
+    And I fill in "Copyright" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see "ist erforderlich."
+    And I choose "Beschreibung" from tab menu
+    And I should see 1 form element with the label "Copyright" and the value "Test1234"
+    And I check checkbox with id "edit-field-royalty-free-value"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see "ist erforderlich."
+    And I choose "Beschreibung" from tab menu
+    And I should see 0 form element with the label "Copyright" and the value "Test1234"
+    And I should see 1 form element with the label "Copyright" and the value ""
+
   Scenario: I am creating an media image entity without copyright
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
