@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: deGov - Paragraphs
 
   Scenario: Banner paragraph should contain expected fields
@@ -8,7 +8,7 @@ Feature: deGov - Paragraphs
     And I should see text matching "field_override_caption"
     And I should see text matching "field_header_media"
 
-  Scenario: Block Types given
+  Scenario: Paragraph bock reference has correct blocks and can create an instance
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page#edit-group-content"
     And I fill in "testblockreferenz" for "Titel"
