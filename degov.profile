@@ -77,7 +77,7 @@ function degov_module_setup(&$install_state) {
   $batch = [
     'operations'    => $operations,
     'title'         => t('Install deGov modules'),
-    'error_message' => t('An error occured during deGov module installation.'),
+    'error_message' => t('An error occurred during deGov module installation.'),
   ];
 
   return $batch;
@@ -127,7 +127,7 @@ function degov_media_setup(&$install_state) {
   $batch = [
     'operations'    => $operations,
     'title'         => t('Install deGov - Media'),
-    'error_message' => t('An error occured during deGov - Media installation.'),
+    'error_message' => t('An error occurred during deGov - Media installation.'),
   ];
 
   return $batch;
