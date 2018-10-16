@@ -1,6 +1,42 @@
 <?php
 
 /**
+ * Implements hook_requirements().
+ */
+function degov_email_login_requirements($phase) {
+  
+  $requirements = [];
+  
+  if (!\Drupal::moduleHandler()->moduleExists('mail_login')) {
+    $requirements['mail_login'] = [
+      'title' => t('Mail login'),
+      'value' => t('This module requires the mail login module.'),
+      'description' => t('This module requires the mail login module.'),
+      'severity' => REQUIREMENT_ERROR,
+    ];
+  }
+  
+  return $requirements;
+}
+
+/**
+ * Implement hook_install().
+ */
+function degov_email_login_install() {
+  if (!\Drupal::moduleHandler()->moduleExists('mail_login')) {
+    
+    \Drupal::service('module_installer')->install(['mail_login']);
+  
+    $config = \Drupal::configFactory()->getEditable('mail_login.settings');
+    $config->set('mail_login_enabled', '1');
+    $config->set('mail_login_override_login_labels', '1');
+    $config->set('mail_login_username_title', 'Username / Email address');
+    $config->set('mail_login_username_description', 'You can use your username or email address to login.');
+    $config->save();
+  }
+}
+
+/**
  * Implement hook_uninstall().
  */
 function degov_email_login_uninstall() {
