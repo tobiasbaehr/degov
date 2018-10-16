@@ -70,9 +70,19 @@ function degov_users_roles_update_8011() {
  * Give managers default permissions on the permissions by term module.
  */
 function degov_users_roles_update_8012() {
-  // Apply updates for workflows
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_users_roles', '8012');
+  // Add new permissions
+  $managerPermissions = [
+    'access pbt settings',
+    'show term permission form on term page',
+    'show term permissions on node edit page',
+  ];
+
+  /** @var \Drupal\degov_common\Entity\ConfigAdder $configAdder */
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach ($managerPermissions as $permission) {
+    $configAdder->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+  }
 }
 
 /**
