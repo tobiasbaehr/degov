@@ -283,9 +283,9 @@ class FormContext extends RawMinkContext {
 
     $options = explode(' ', $optionsRaw);
     foreach ($options as $option) {
-      $element = $select->find('css', 'select[value="' . $option . '"]');
+      $element = $select->find('css', 'option[value="' . $option . '"]');
       if (!$element) {
-        throw new ElementNotFoundException($this->getSession(), 'custom', 'select[value="' . $option . '"]', 'css');
+        throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
       }
     }
   }
