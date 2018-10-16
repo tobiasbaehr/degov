@@ -75,7 +75,6 @@ permissions:
   - 'delete terms in copyright'
   - 'delete terms in section'
   - 'delete terms in tags'
-  - 'display eu cookie compliance popup'
   - 'dropzone upload files'
   - 'edit any blog content'
   - 'edit any event content'
