@@ -5,3 +5,6 @@ Feature: deGov - Search
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/config/search/search-api/server/database/edit"
     Then I should see the input with the name "backend_config[matching]" and the value "partial" checked
+    
+  Scenario: I am installing the 'search_media_manager' module
+    Given I am installing the "degov_search_media_manager" module

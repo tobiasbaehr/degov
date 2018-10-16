@@ -117,7 +117,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    */
   public function iProofContentWithTitleHasModerationState($title, $state) {
     $Ids = \Drupal::entityQuery('node')
-      ->condition('title', $title)->execute();
+      ->condition('title', $title)->accessCheck(FALSE)->execute();
 
     foreach($Ids as $Id) {
       $NodeState = Node::load($Id)->moderation_state->value;
