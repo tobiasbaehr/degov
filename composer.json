@@ -103,7 +103,8 @@
         "drupal/scheduled_publish": "^2.4",
         "drupal/degov_simplenews": "^1.5",
         "drupal/permissions_by_term": "^2.0",
-        "drupal/permissions_by_term_redirect": "^1.0"
+        "drupal/permissions_by_term_redirect": "^1.0",
+        "drupal/mail_login": "^1.0"
     },
     "repositories": {
         "drupal": {
