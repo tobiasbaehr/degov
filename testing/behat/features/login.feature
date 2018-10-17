@@ -15,7 +15,7 @@ Feature: deGov - Login
 
   Scenario: I am on the login page and login with the users email address
     Given I am on "/user"
-    Then I fill in "test@degov.ext" for "Benutzername / E-Mail Adresse"
+    Then I fill in "test@degov.ext" for "Benutzername oder E-Mail Adresse"
     And I fill in "test123" for "Passwort"
     And I press the "Anmelden" button
     Then I should see the text "Mitglied seit"
