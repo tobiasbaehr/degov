@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Implement hook_install().
+ * Implements hook_install().
  */
 function degov_email_login_install() {
   $config = \Drupal::configFactory()->getEditable('mail_login.settings');
