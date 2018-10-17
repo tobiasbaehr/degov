@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-msgid "Login by username/email address"
+msgid "Username or Email address"
 msgstr "Benutzername oder E-Mail Adresse"
 
 msgid "You can use your username or email address to login."
