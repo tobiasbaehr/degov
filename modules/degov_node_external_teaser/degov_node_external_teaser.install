@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Update the Preview view mode.
+ */
+function degov_node_external_teaser_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_external_teaser', '8001');
+}

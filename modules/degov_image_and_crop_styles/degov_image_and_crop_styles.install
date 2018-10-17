@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Add a new responsive image style
+ */
+function degov_image_and_crop_styles_update_8001() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_image_and_crop_styles', '8001');
+}
