@@ -2,14 +2,16 @@
 Feature: deGov - Login
 
   Background:
-    Given I proof that Drupal module "degov_email_login" is installed
+    Given I proof that the following Drupal modules are installed:
+      | mail_login        |
+      | degov_email_login |
     Given users:
       | name      | surname     | mail            | pass     |
       | Test      | User        | test@degov.ext  | test123  |
 
   Scenario: I am on the login page and check for the username / email address label
     Given I am on "/user"
-    Then I should see text matching "Benutzername / E-Mail Adresse"
+    Then I should see text matching "Benutzername oder E-Mail Adresse"
 
   Scenario: I am on the login page and login with the users email address
     Given I am on "/user"

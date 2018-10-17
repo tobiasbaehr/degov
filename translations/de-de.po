@@ -9,3 +9,6 @@ msgstr ""
 
 msgid "Social Media Settings"
 msgstr "Social Media Einstellungen"
+
+msgid "English Blub"
+msgstr "German Blub"
