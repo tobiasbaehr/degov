@@ -68,6 +68,7 @@ dependencies:
   - simplenews
   - permissions_by_term
   - permissions_by_term_redirect
+  - degov_email_login
 
 themes:
   - degov_base_theme
