@@ -12,8 +12,10 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\permissions_by_term\Service\AccessStorage;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
@@ -31,6 +33,11 @@ class DrupalContext extends RawDrupalContext {
    * @var null|int
    */
   private $dummyImageFileEntityId = null;
+
+  /**
+   * @var null|int
+   */
+  private $dummyDocumentFileEntityId = null;
 
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
@@ -249,6 +256,39 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given /^I have a restricted document media entity$/
+   */
+  public function createRestrictedDocument() {
+    $term = Term::create([
+      'name' => 'Admin role only',
+      'vid' => 'section',
+    ]);
+    $term->save();
+
+    /**
+     * @var AccessStorage $accessStorage
+     */
+    $accessStorage = \Drupal::service('permissions_by_term.access_storage');
+    $accessStorage->addTermPermissionsByRoleIds(['administrator'], $term->id());
+
+    Media::create([
+      'title'          => 'Restricted Word document',
+      'field_title'    => 'Restricted Word document',
+      'bundle'         => 'document',
+      'field_section'  => [
+        [
+          'target_id' => $term->id(),
+        ],
+      ],
+      'field_document' => [
+        [
+          'target_id' => $this->createPrivateDocumentFileEntity()->id(),
+        ],
+      ],
+    ])->save();
+  }
+
+  /**
    * @Given /^I created a media of type "([^"]*)" named "([^"]*)"$/
    * @When /^I create a media of type "([^"]*)" named "([^"]*)"$/
    */
@@ -397,7 +437,25 @@ class DrupalContext extends RawDrupalContext {
 		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
 	}
 
-	/**
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text$/
+   */
+  public function assertPageNotMatchesText(string $text)
+  {
+    if (ctype_upper($text)) {
+      $translatedText = mb_strtoupper($this->translateString($text));
+    } else {
+      $translatedText = $this->translateString($text);
+    }
+
+    $content = $this->getSession()->getPage()->getText();
+    if (substr_count($content, $translatedText) === 0) {
+      return true;
+    }
+  }
+
+
+  /**
 	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
 	 */
 	public function assertPageMatchesTextUppercase(string $text)
@@ -568,8 +626,25 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
-  private function createDummyImageFileEntity(): File
-  {
+  private function createPrivateDocumentFileEntity(): File {
+    $documentFileEntity = null;
+
+    if (is_numeric($this->dummyDocumentFileEntityId)) {
+      /**
+       * @var File $documentFileEntity
+       */
+      $documentFileEntity = File::load($this->dummyDocumentFileEntityId);
+    }
+
+    if (!($documentFileEntity instanceof File)) {
+      $documentFileEntity = $this->createFileEntity('word-document.docx', 'private');
+      $this->dummyDocumentFileEntityId = $documentFileEntity->id();
+    }
+
+    return $documentFileEntity;
+  }
+
+  private function createDummyImageFileEntity(): File {
     $imageFileEntity = null;
 
     if (is_numeric($this->dummyImageFileEntityId)) {
@@ -580,6 +655,17 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
+      $imageFileEntity = $this->createFileEntity('dummy.png');
+      $this->dummyImageFileEntityId = $imageFileEntity->id();
+    }
+
+    return $imageFileEntity;
+  }
+
+  private function createFileEntity(string $filename, string $fileSchemeMode = 'public'): File {
+    $fileEntity = null;
+
+    if (!($fileEntity instanceof File)) {
       /**
        * @var FilesystemFactory $symfonyFilesystem
        */
@@ -594,22 +680,29 @@ class DrupalContext extends RawDrupalContext {
        */
       $drupalFilesystem = \Drupal::service('file_system');
 
+      if ($fileSchemeMode === 'public') {
+        $drupalFilePath = 'public://';
+      } else {
+        $drupalFilePath = 'private://media/document/file';
+      }
+
       $symfonyFilesystem->copy(
-        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+        drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+        $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
       );
 
-      $imageFileEntity = File::create([
+      $fileEntity = File::create([
         'uid'      => 1,
-        'filename' => 'dummy.png',
-        'uri'      => 'public://dummy.png',
+        'filename' => $filename,
+        'uri'      => $drupalFilePath . '/' . $filename,
         'status'   => 1,
       ]);
-      $imageFileEntity->save();
+      $fileEntity->save();
 
-      $this->dummyImageFileEntityId = $imageFileEntity->id();
+      $this->dummyImageFileEntityId = $fileEntity->id();
     }
 
-    return $imageFileEntity;
+    return $fileEntity;
   }
+
 }
