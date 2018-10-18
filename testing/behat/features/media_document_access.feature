@@ -1,5 +1,5 @@
 @api @drupal
-Feature: deGov - Media creation
+Feature: deGov - Media document access
 
   Background:
     Given I proof that the following Drupal modules are installed:
