@@ -16,7 +16,7 @@ dependencies:
     - responsive_image.styles.teaser_landscape_squared
   enforced:
     module:
-    - degov_image_and_crop_styles
+      - degov_image_and_crop_styles
   module:
     - responsive_image
     - text
