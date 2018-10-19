@@ -12,6 +12,7 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
@@ -25,6 +26,11 @@ class DrupalContext extends RawDrupalContext {
 
   /** @var array */
   protected $trash = [];
+
+  /**
+   * @var null|int
+   */
+  private $dummyImageFileEntityId = null;
 
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
@@ -207,39 +213,12 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
   public function normalPageWithSlideshow() {
-    /**
-     * @var FilesystemFactory $symfonyFilesystem
-     */
-    $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
-    /**
-     * @var SymfonyFilesystem $filesystem
-     */
-    $symfonyFilesystem = $filesystemFactory->create();
-
-    /**
-     * @var DrupalFilesystem $drupalFilesystem
-     */
-    $drupalFilesystem = \Drupal::service('file_system');
-
-    $symfonyFilesystem->copy(
-      drupal_get_path('profile', 'nrwgov') . '/testing/fixtures/images/leaning-tower-of-pisa.jpg',
-      $drupalFilesystem->realpath(file_default_scheme() . "://") . '/leaning-tower-of-pisa.jpg'
-    );
-
-    $imageFileEntity = File::create([
-      'uid'      => 1,
-      'filename' => 'leaning-tower-of-pisa.jpg',
-      'uri'      => 'public://leaning-tower-of-pisa.jpg',
-      'status'   => 1,
-    ]);
-    $imageFileEntity->save();
-
     $media = Media::create([
       'bundle'              => 'image',
       'field_title'         => 'Some image',
       'field_copyright'     => 'Some copyright',
       'field_image_caption' => 'Some image caption',
-      'image'               => $imageFileEntity->id(),
+      'image'               => $this->createDummyImageFileEntity()->id(),
     ]);
     $media->save();
 
@@ -258,6 +237,41 @@ class DrupalContext extends RawDrupalContext {
 
     $node = Node::create([
       'title'                   => 'An normal page with a slideshow',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_header_paragraphs' => [$paragraphSlideshow],
+    ]);
+    $node->save();
+  }
+
+
+  /**
+   * @Given /^I have an normal_page with a banner paragraph$/
+   */
+  public function normalPageWithBanner() {
+    $copyrightTerm = Term::create([
+      'name' => 'Some copyright',
+      'vid'  => 'copyright',
+    ]);
+
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => $copyrightTerm,
+      'field_image_caption' => 'Some image caption',
+      'image'               => $this->createDummyImageFileEntity()->id(),
+    ]);
+    $media->save();
+
+    $paragraphSlideshow = Paragraph::create([
+      'type'                   => 'image_header',
+      'field_override_caption' => '',
+      'field_header_media'     => $media,
+    ]);
+    $paragraphSlideshow->save();
+
+    $node = Node::create([
+      'title'                   => 'An normal page with a banner',
       'type'                    => 'normal_page',
       'moderation_state'        => 'published',
       'field_header_paragraphs' => [$paragraphSlideshow],
@@ -550,6 +564,20 @@ class DrupalContext extends RawDrupalContext {
     throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
   }
 
+  /**
+   * @Then I should see :number_of_elements elements with name matching :name_pattern and a not empty value
+   */
+  public function iShouldSeeElementsWithNameMatchingPatternAndANotEmptyValue(int $number_of_elements, string $name_pattern)
+  {
+    $selector_value = '//*[contains(@name, "' . $name_pattern . '") and @value and string-length(@value) > 0]';
+    $matches = $this->getSession()->getPage()->findAll('xpath', $selector_value);
+    $matching_elements_count = count($matches);
+    if($number_of_elements === $matching_elements_count) {
+      return true;
+    }
+    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+  }
+
   private function countFormElementsWithLabelMatchingSelector(string $label_text, string $selector_type, string $selector_value): int {
     // Get all form items with labels matching the supplied text.
     $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
@@ -569,5 +597,50 @@ class DrupalContext extends RawDrupalContext {
       'xpath',
       sprintf('//label[contains(text(), "%s")]/ancestor::*[contains(@class, "%s")]', $label_text, $class_name)
     );
+  }
+
+  private function createDummyImageFileEntity(): File
+  {
+    $imageFileEntity = null;
+
+    if (is_numeric($this->dummyImageFileEntityId)) {
+      /**
+       * @var File $imageFileEntity
+       */
+      $imageFileEntity = File::load($this->dummyImageFileEntityId);
+    }
+
+    if (!($imageFileEntity instanceof File)) {
+      /**
+       * @var FilesystemFactory $symfonyFilesystem
+       */
+      $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
+      /**
+       * @var SymfonyFilesystem $filesystem
+       */
+      $symfonyFilesystem = $filesystemFactory->create();
+
+      /**
+       * @var DrupalFilesystem $drupalFilesystem
+       */
+      $drupalFilesystem = \Drupal::service('file_system');
+
+      $symfonyFilesystem->copy(
+        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
+        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+      );
+
+      $imageFileEntity = File::create([
+        'uid'      => 1,
+        'filename' => 'dummy.png',
+        'uri'      => 'public://dummy.png',
+        'status'   => 1,
+      ]);
+      $imageFileEntity->save();
+
+      $this->dummyImageFileEntityId = $imageFileEntity->id();
+    }
+
+    return $imageFileEntity;
   }
 }

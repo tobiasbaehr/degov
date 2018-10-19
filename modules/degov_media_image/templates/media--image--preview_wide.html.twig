@@ -40,9 +40,7 @@
   </div>
   <div class="media--preview__text-block col-xs-12 col-sm-4">
     <a href="{{ image_url }}">
-      {% if content.field_image_date|field_value %}
-        <div class="image__date"{{ content.field_image_date|quickedit_attr }}>{{ content.field_image_date|field_value }}</div>
-      {% endif %}
+        <div class="image__date"{{ content.field_media_publish_date|quickedit_attr }}>{{ content.field_media_publish_date|field_value }}</div>
       {% set title = content.field_title|field_value %}
       <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
     </a>

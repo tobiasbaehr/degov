@@ -103,5 +103,3 @@ hidden:
   field_teaser_title: true
   langcode: true
   links: true
-  scheduled_updates: true
-  workbench_moderation_control: true

@@ -41,7 +41,12 @@ function degov_media_citation_update_8012() {
 		);
 
 		$configFromStorage = $configFactory->getEditable($namespace);
-		$configFromStorage->set('content.field_citation_date', $configFromYaml['content']['field_citation_date']);
+		if($configFromStorage->isNew()){
+		  $configFromStorage->setData($configFromYaml);
+    }
+    else {
+      $configFromStorage->set('content.field_citation_date', $configFromYaml['content']['field_citation_date']);
+    }
 		$configFromStorage->save();
 	}
 
