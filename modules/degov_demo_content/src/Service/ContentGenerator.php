@@ -35,9 +35,9 @@ class ContentGenerator {
    */
   public function generateMedia() {
     error_log('generate');
-    error_log('content generated ' . $this->state->get($this->state_content_generated_key, FALSE));
+    error_log('content generated ' . $this->getGeneratedStatus());
     $this->state->set($this->state_content_generated_key, TRUE);
-    error_log('content generated ' . $this->state->get($this->state_content_generated_key, FALSE));
+    error_log('content generated ' . $this->getGeneratedStatus());
   }
 
   /**
@@ -45,9 +45,9 @@ class ContentGenerator {
    */
   public function deleteMedia() {
     error_log('delete');
-    error_log('content generated ' . $this->state->get($this->state_content_generated_key, FALSE));
+    error_log('content generated ' . $this->getGeneratedStatus());
     $this->state->delete($this->state_content_generated_key);
-    error_log('content generated ' . $this->state->get($this->state_content_generated_key, FALSE));
+    error_log('content generated ' . $this->getGeneratedStatus());
   }
 
   /**
@@ -56,5 +56,12 @@ class ContentGenerator {
   public function resetMedia() {
     $this->deleteMedia();
     $this->generateMedia();
+  }
+
+  /**
+   * Returns the current value of the generated-status State variable
+   */
+  public function getGeneratedStatus() {
+    return $this->state->get($this->state_content_generated_key, FALSE);
   }
 }
