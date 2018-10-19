@@ -13,6 +13,7 @@ use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\permissions_by_term\Service\AccessStorage;
+use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\user\Entity\Role;
@@ -188,7 +189,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
-  public function normalPageWithSlideshow() {
+  public function createNormalPageWithSlideshow(): void {
     $media = Media::create([
       'bundle'              => 'image',
       'field_title'         => 'Some image',
@@ -224,7 +225,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a banner paragraph$/
    */
-  public function normalPageWithBanner() {
+  public function createNormalPageWithBanner(): void {
     $copyrightTerm = Term::create([
       'name' => 'Some copyright',
       'vid'  => 'copyright',
@@ -258,34 +259,43 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have a restricted document media entity$/
    */
-  public function createRestrictedDocument() {
-    $term = Term::create([
-      'name' => 'Admin role only',
-      'vid' => 'section',
-    ]);
-    $term->save();
-
+  public function createRestrictedDocument(): void {
     /**
-     * @var AccessStorage $accessStorage
+     * @var TermHandler $termHandler
      */
-    $accessStorage = \Drupal::service('permissions_by_term.access_storage');
-    $accessStorage->addTermPermissionsByRoleIds(['administrator'], $term->id());
+    $termHandler = \Drupal::service('permissions_by_term.term_handler');
+    if (empty($termHandler->getTermIdByName('Admin role only - restricted media document'))) {
+      $term = Term::create([
+        'name' => 'Admin role only - restricted media document',
+        'vid' => 'section',
+      ]);
+      $term->save();
 
-    Media::create([
-      'title'          => 'Restricted Word document',
-      'field_title'    => 'Restricted Word document',
-      'bundle'         => 'document',
-      'field_section'  => [
-        [
-          'target_id' => $term->id(),
+      $termId = $term->id();
+
+      /**
+       * @var AccessStorage $accessStorage
+       */
+      $accessStorage = \Drupal::service('permissions_by_term.access_storage');
+      $accessStorage->addTermPermissionsByRoleIds(['administrator'], $termId);
+
+      Media::create([
+        'title'          => 'Restricted Word document',
+        'field_title'    => 'Restricted Word document',
+        'bundle'         => 'document',
+        'field_section'  => [
+          [
+            'target_id' => $termId,
+          ],
         ],
-      ],
-      'field_document' => [
-        [
-          'target_id' => $this->createPrivateDocumentFileEntity()->id(),
+        'field_document' => [
+          [
+            'target_id' => $this->createPrivateDocumentFileEntity()->id(),
+          ],
         ],
-      ],
-    ])->save();
+      ])->save();
+    }
+
   }
 
   /**
@@ -671,7 +681,7 @@ class DrupalContext extends RawDrupalContext {
        */
       $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
       /**
-       * @var SymfonyFilesystem $filesystem
+       * @var \Symfony\Component\Filesystem\Filesystem $filesystem
        */
       $symfonyFilesystem = $filesystemFactory->create();
 
@@ -682,14 +692,25 @@ class DrupalContext extends RawDrupalContext {
 
       if ($fileSchemeMode === 'public') {
         $drupalFilePath = 'public://';
+
+        $symfonyFilesystem->copy(
+          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
+        );
       } else {
         $drupalFilePath = 'private://media/document/file';
-      }
 
-      $symfonyFilesystem->copy(
-        drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
-        $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
-      );
+        $documentFilesUri = $drupalFilesystem->realpath('private://') . '/media/document/file';
+
+        if (!$symfonyFilesystem->exists($documentFilesUri)) {
+          $symfonyFilesystem->mkdir($documentFilesUri);
+        }
+
+        $symfonyFilesystem->copy(
+          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          $documentFilesUri . '/' . $filename
+        );
+      }
 
       $fileEntity = File::create([
         'uid'      => 1,
