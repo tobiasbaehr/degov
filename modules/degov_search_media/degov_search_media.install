@@ -42,3 +42,12 @@ function degov_search_media_update_dependencies() {
 
   return $dependencies;
 }
+
+/**
+ * Apply the updated media_publish_date block visibility
+ */
+function degov_search_media_update_8008() {
+  // Apply updates for workflows
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_search_media', '8008');
+}
