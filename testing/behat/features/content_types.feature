@@ -42,7 +42,7 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I choose "Inhalt" from tab menu
-    And I click "Add Paragraph"
+    And I press "Add Paragraph"
     And I should see "FAQ"
     And I should see "FAQ / Akkordion Liste hinzufügen"
     And I should see "Banner hinzufügen"
