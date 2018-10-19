@@ -37,20 +37,9 @@ function degov_node_faq_update_8010() {
 }
 
 /**
- * Adds internal title field
+ * Adds internal title field, Set paragraph form mode to experimental
  */
 function degov_node_faq_update_8012() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_faq', '8012');
-}
-
-/**
- * Set paragraph form mode to experimental
- */
-function degov_node_faq_update_8012() {
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
-  $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_node_faq','8012');
 }
