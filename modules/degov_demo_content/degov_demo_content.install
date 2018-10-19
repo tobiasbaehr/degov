@@ -1,15 +1,17 @@
 <?php
 
+use Drupal\degov_demo_content\Service\ContentGenerator;
+
 /**
  * Implementation of hook_install().
  */
 function degov_demo_content_install() {
-  error_log('install!');
+  \Drupal::service('degov_demo_content.content_generator')->generateMedia();
 }
 
 /**
  * Implementation of hook_uninstall().
  */
 function degov_demo_content_uninstall() {
-  error_log('uninstall!');
+  \Drupal::service('degov_demo_content.content_generator')->deleteMedia();
 }

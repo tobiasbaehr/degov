@@ -1,0 +1,4 @@
+services:
+  degov_demo_content.content_generator:
+    class: Drupal\degov_demo_content\Service\ContentGenerator
+    arguments: [ '@state' ]
