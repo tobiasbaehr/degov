@@ -35,3 +35,11 @@ function degov_node_normal_page_update_8010() {
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('normal_page');
 }
+
+/**
+ * Apply config to use the landscape_to_squared image style
+ */
+function degov_node_normal_page_update_8011() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_normal_page', '8011');
+}

@@ -41,5 +41,14 @@ function degov_node_blog_update_8010() {
  */
 function degov_node_blog_update_8011() {
   \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_press', '8011');
+    ->applyUpdates('degov_node_blog', '8011');
+}
+
+
+/**
+ * Apply config to use the landscape_to_squared image style
+ */
+function degov_node_blog_update_8012() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_blog', '8012');
 }
