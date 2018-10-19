@@ -73,11 +73,9 @@ content:
     third_party_settings: {  }
   field_section:
     weight: 2
-    label: above
-    settings:
-      link: true
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: options_select
     region: content
   field_include_search:
     type: boolean_checkbox
