@@ -14,7 +14,6 @@ Feature: deGov - Media creation
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role
     And I am on "/media/add/address"
-    And I should see text matching "Adresse hinzufügen"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
     And I should see HTML content matching "Straße" after a while
