@@ -217,11 +217,19 @@ function degov_update_8500() {
 }
 
 /**
- * Enables the deGov email login module to enable the login via email address.
+ * Removal of the Workbench Access module. Installation of deGov Email Login module.
  */
 function degov_update_850025() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
     \Drupal::service('module_installer')->install(['degov_email_login']);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['workbench_access']);
   }
 }
 
