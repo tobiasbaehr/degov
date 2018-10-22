@@ -2,10 +2,12 @@ image_1:
   bundle: 'image'
   name: 'Demo image 1'
   file: 'vladimir-riabinin-1058013-unsplash.jpg'
+  caption: 'The first image for demonstration purposes'
 image_2:
   bundle: 'image'
   name: 'Demo image 2'
   file: 'humberto-chavez-1058365-unsplash.jpg'
+  royalty_free: 1
 image_3:
   bundle: 'image'
   name: 'Demo image 3'

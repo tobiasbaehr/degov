@@ -51,6 +51,13 @@ class MediaFactory extends ContentFactory {
               'alt'       => $media_item['name'],
               'title'     => $media_item['name'],
             ];
+            $fields['field_image_caption'] = $media_item['caption'] ?? '';
+            $fields['field_royalty_free'] = $media_item['royalty_free'] ?? false;
+            if(empty($media_item['royalty_free'])) {
+              $fields['field_copyright'] = [
+                'target_id' => $this->getDemoContentCopyrightId(),
+              ];
+            }
             break;
           case 'video_upload':
             $fields['field_video_upload_mp4'] = [
