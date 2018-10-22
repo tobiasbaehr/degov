@@ -31,6 +31,9 @@ class MediaFactory extends ContentFactory {
         case 'video_upload':
           $fixtures_path = $fixtures_base_path . '/video';
           break;
+        case 'document':
+          $fixtures_path = $fixtures_base_path . '/documents';
+          break;
       }
 
       $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
@@ -42,7 +45,7 @@ class MediaFactory extends ContentFactory {
     // Create the Media entities.
     $saved_entities = [];
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      if(isset($file_ids[$media_item_key])) {
+      if (isset($file_ids[$media_item_key])) {
         $fields = [
           'bundle'      => $media_item['bundle'],
           'name'        => $media_item['name'],
@@ -66,6 +69,11 @@ class MediaFactory extends ContentFactory {
               'target_id' => $file_ids[$media_item_key],
             ];
             break;
+          case 'document':
+            $fields['field_document'] = [
+              'target_id' => $file_ids[$media_item_key],
+            ];
+            break;
         }
 
         $new_media = Media::create($fields);
@@ -76,13 +84,13 @@ class MediaFactory extends ContentFactory {
 
     // Create references between Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      if(!empty($saved_entities[$media_item_key])) {
+      if (!empty($saved_entities[$media_item_key])) {
         $saved_entity = $saved_entities[$media_item_key];
         switch ($media_item['bundle']) {
           case 'video_upload':
-            if(!empty($media_item['preview']['image'])) {
+            if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_video_upload_preview', [
-                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : null,
+                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : NULL,
               ]);
               $saved_entity->save();
             }

@@ -20,3 +20,7 @@ video_1:
   file: 'bokeh-video-of-leaves.mp4'
   preview:
     image: 'image_1'
+document_1:
+  bundle: 'document'
+  name: 'Demo document 1'
+  file: 'dummy.pdf'
