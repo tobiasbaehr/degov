@@ -1,6 +1,5 @@
 <?php
 
-use Drupal\degov_demo_content\Service\ContentGenerator;
 use Drupal\taxonomy\Entity\Term;
 
 /**

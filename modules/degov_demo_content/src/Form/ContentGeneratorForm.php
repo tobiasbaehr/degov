@@ -4,8 +4,9 @@ namespace Drupal\degov_demo_content\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\degov_demo_content\Factory\MediaFactory;
+use Drupal\degov_demo_content\Factory\NodeFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\degov_demo_content\Service\ContentGenerator;
 
 /**
  * Class ContentGeneratorForm.
@@ -13,24 +14,34 @@ use Drupal\degov_demo_content\Service\ContentGenerator;
 class ContentGeneratorForm extends FormBase {
 
   /**
-   * Drupal\degov_demo_content\Service\ContentGenerator definition.
+   * Drupal\degov_demo_content\Factory\MediaFactory definition.
    *
-   * @var \Drupal\degov_demo_content\Service\ContentGenerator
+   * @var \Drupal\degov_demo_content\Factory\MediaFactory
    */
-  protected $degovDemoContentContentGenerator;
+  protected $mediaFactory;
+
+  /**
+   * Drupal\degov_demo_content\Factory\NodeFactory definition.
+   *
+   * @var \Drupal\degov_demo_content\Factory\NodeFactory
+   */
+  protected $nodeFactory;
 
   /**
    * Constructs a new ContentGeneratorForm object.
    */
   public function __construct(
-    ContentGenerator $degov_demo_content_content_generator
+    MediaFactory $media_factory,
+    NodeFactory $node_factory
   ) {
-    $this->degovDemoContentContentGenerator = $degov_demo_content_content_generator;
+    $this->mediaFactory = $media_factory;
+    $this->nodeFactory = $node_factory;
   }
 
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('degov_demo_content.content_generator')
+      $container->get('degov_demo_content.media_generator'),
+      $container->get('degov_demo_content.node_generator')
     );
   }
 
@@ -67,7 +78,8 @@ class ContentGeneratorForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $this->degovDemoContentContentGenerator->resetMedia();
+    $this->mediaFactory->resetContent();
+    $this->nodeFactory->resetContent();
   }
 
 }
