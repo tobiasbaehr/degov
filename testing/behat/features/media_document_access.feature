@@ -10,6 +10,7 @@ Feature: deGov - Media document access
 
   Scenario: I am accessing a restricted media document file as anonymous user
     Given I am on "/system/files/media/document/file/word-document.docx"
+    And I dump the HTML
     And I should see text matching "Access denied" via translated text
     And I should see text matching "You are not authorized to access this page." via translated text
 
