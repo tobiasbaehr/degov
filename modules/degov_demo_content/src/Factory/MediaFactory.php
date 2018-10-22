@@ -18,27 +18,76 @@ class MediaFactory extends ContentFactory {
    */
   public function generateContent() {
     $media_to_generate = $this->loadDefinitions('media.yml');
-    print_r($media_to_generate);
-    $images_fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
-        ->getPath() . '/fixtures/images';
+    $fixtures_base_path = $this->moduleHandler->getModule('degov_demo_content')
+        ->getPath() . '/fixtures';
 
-    foreach ($media_to_generate as $media_item) {
-      $image_data = file_get_contents($images_fixtures_path . '/' . $media_item['file']);
-      if (($saved_file = file_save_data($image_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
-        $new_media = Media::create([
-          'bundle' => $media_item['bundle'],
-          'name'   => $media_item['name'],
-          'status' => $media_item['status'],
-          'image'  => [
-            'target_id' => $saved_file->id(),
-            'alt'       => $media_item['name'],
-            'title'     => $media_item['name'],
+    // Save files first.
+    $file_ids = [];
+    foreach ($media_to_generate as $media_item_key => $media_item) {
+      switch ($media_item['bundle']) {
+        case 'image':
+          $fixtures_path = $fixtures_base_path . '/images';
+          break;
+        case 'video_upload':
+          $fixtures_path = $fixtures_base_path . '/video';
+          break;
+      }
+
+      $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
+      if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
+        $file_ids[$media_item_key] = $saved_file->id();
+      }
+    }
+
+    // Create the Media entities.
+    $saved_entities = [];
+    foreach ($media_to_generate as $media_item_key => $media_item) {
+      if(isset($file_ids[$media_item_key])) {
+        $fields = [
+          'bundle'      => $media_item['bundle'],
+          'name'        => $media_item['name'],
+          'field_title' => $media_item['name'],
+          'status'      => !empty($media_item['status']) ? $media_item['status'] : TRUE,
+          'field_tags'  => [
+            ['target_id' => $this->getDemoContentTagId()],
           ],
-          'field_tags' => [
-            ['target_id' => $this->getDemoContentTagId()]
-          ],
-        ]);
+        ];
+
+        switch ($media_item['bundle']) {
+          case 'image':
+            $fields['image'] = [
+              'target_id' => $file_ids[$media_item_key],
+              'alt'       => $media_item['name'],
+              'title'     => $media_item['name'],
+            ];
+            break;
+          case 'video_upload':
+            $fields['field_video_upload_mp4'] = [
+              'target_id' => $file_ids[$media_item_key],
+            ];
+            break;
+        }
+
+        $new_media = Media::create($fields);
         $new_media->save();
+        $saved_entities[$media_item_key] = $new_media;
+      }
+    }
+
+    // Create references between Media entities.
+    foreach ($media_to_generate as $media_item_key => $media_item) {
+      if(!empty($saved_entities[$media_item_key])) {
+        $saved_entity = $saved_entities[$media_item_key];
+        switch ($media_item['bundle']) {
+          case 'video_upload':
+            if(!empty($media_item['preview']['image'])) {
+              $saved_entity->set('field_video_upload_preview', [
+                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : null,
+              ]);
+              $saved_entity->save();
+            }
+            break;
+        }
       }
     }
   }
