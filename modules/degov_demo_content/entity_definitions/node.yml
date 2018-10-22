@@ -1,0 +1,20 @@
+teaser_page:
+  type: 'normal_page'
+  title: 'Page with all teasers'
+  status: 1
+teaser1:
+  type: 'normal_page'
+  title: 'Page with content #1'
+  status: 1
+teaser2:
+  type: 'normal_page'
+  title: 'Page with content #2'
+  status: 1
+teaser3:
+  type: 'normal_page'
+  title: 'Page with content #3'
+  status: 1
+teaser4:
+  type: 'normal_page'
+  title: 'Page with content #4'
+  status: 1

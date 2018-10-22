@@ -1,4 +1,7 @@
 services:
-  degov_demo_content.content_generator:
-    class: Drupal\degov_demo_content\Service\ContentGenerator
+  degov_demo_content.node_generator:
+    class: Drupal\degov_demo_content\Factory\NodeFactory
+    arguments: ['@degov_demo_content.media_generator']
+  degov_demo_content.media_generator:
+    class: Drupal\degov_demo_content\Factory\MediaFactory
     arguments: []
