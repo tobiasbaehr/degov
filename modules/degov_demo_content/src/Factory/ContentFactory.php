@@ -73,6 +73,19 @@ class ContentFactory {
   }
 
   /**
+   * @return int|null|string
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function getDemoContentCopyrightId() {
+    $tag_term = taxonomy_term_load_multiple_by_name(DEGOV_DEMO_CONTENT_TAG_NAME, DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME);
+    if (!empty($tag_term)) {
+      $tag_term = reset($tag_term);
+      return $tag_term->id();
+    }
+    return NULL;
+  }
+
+  /**
    * Deletes the generated entities.
    */
   public function deleteContent() {
