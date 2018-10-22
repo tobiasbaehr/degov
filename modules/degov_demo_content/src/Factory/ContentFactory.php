@@ -61,11 +61,12 @@ class ContentFactory {
    * Deletes the generated entities.
    */
   public function deleteContent() {
-    $entities = \Drupal::entityTypeManager()
-      ->getStorage($this->entityType)
-      ->loadByProperties([
-        'field_tags' => $this->getDemoContentTagId(),
-      ]);
+    if($this->getDemoContentTagId() === null) {
+      return;
+    }
+    $entities = \Drupal::entityTypeManager()->getStorage($this->entityType)->loadByProperties([
+      'field_tags' => $this->getDemoContentTagId(),
+    ]);
 
     foreach ($entities as $entity) {
       $entity->delete();
