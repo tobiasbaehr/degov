@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\degov_common\DegovModuleUpdater;
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Implements hook_uninstall().
  */
@@ -27,4 +30,17 @@ function degov_media_document_upload_uninstall() {
       ->set("widgets", $widgets)
       ->save(TRUE);
   }
+}
+
+/**
+ * Configuration updates for restricted files.
+ */
+function degov_media_document_update_8001() {
+  /**
+   * @var DegovModuleUpdater $updater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->reImport('field.field.media.document.field_section', 'degov_media_document', 'install');
+  $updater->reImport('field.storage.media.field_section', 'degov_media_document', 'install');
+  $updater->rewriteModuleConfig('degov_media_document');
 }
