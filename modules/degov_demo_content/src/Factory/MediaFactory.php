@@ -62,6 +62,11 @@ class MediaFactory extends ContentFactory {
               'target_id' => $file_ids[$media_item_key],
             ];
             break;
+          case 'audio':
+            $fields['field_audio_mp3'] = [
+              'target_id' => $file_ids[$media_item_key],
+            ];
+            break;
         }
 
         $new_media = Media::create($fields);
@@ -78,6 +83,14 @@ class MediaFactory extends ContentFactory {
           case 'video_upload':
             if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_video_upload_preview', [
+                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : NULL,
+              ]);
+              $saved_entity->save();
+            }
+            break;
+          case 'audio':
+            if (!empty($media_item['preview']['image'])) {
+              $saved_entity->set('field_audio_preview', [
                 'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : NULL,
               ]);
               $saved_entity->save();

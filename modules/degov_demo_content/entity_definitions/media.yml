@@ -20,3 +20,9 @@ document_1:
   bundle: 'document'
   name: 'Demo document 1'
   file: 'dummy.pdf'
+audio_1:
+  bundle: 'audio'
+  name: 'Demo audio 1'
+  file: 'dummy.mp3'
+  preview:
+    image: 'image_2'
