@@ -6,15 +6,12 @@ use Drupal\media\Entity\Media;
 
 class MediaFactory extends ContentFactory {
 
-  private $demo_files_save_path = 'public://degov_demo_content';
-
   /**
-   * Constructs a new MediaFactory instance.
+   * The entity type we are working with.
+   *
+   * @var string
    */
-  public function __construct() {
-    parent::__construct();
-    file_prepare_directory($this->demo_files_save_path, FILE_CREATE_DIRECTORY);
-  }
+  protected $entityType = 'media';
 
   /**
    * Generates a set of media entities.
@@ -27,7 +24,7 @@ class MediaFactory extends ContentFactory {
 
     foreach ($media_to_generate as $media_item) {
       $image_data = file_get_contents($images_fixtures_path . '/' . $media_item['file']);
-      if (($saved_file = file_save_data($image_data, $this->demo_files_save_path . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
+      if (($saved_file = file_save_data($image_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
         $new_media = Media::create([
           'bundle' => $media_item['bundle'],
           'name'   => $media_item['name'],
@@ -44,12 +41,5 @@ class MediaFactory extends ContentFactory {
         $new_media->save();
       }
     }
-  }
-
-  /**
-   * Deletes the generated media entities.
-   */
-  public function deleteContent() {
-
   }
 }

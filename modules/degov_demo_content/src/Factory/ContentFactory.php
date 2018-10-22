@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_demo_content\Factory;
 
-use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\Yaml\Yaml;
 
 class ContentFactory {
@@ -15,18 +14,13 @@ class ContentFactory {
   protected $moduleHandler;
 
   /**
-   * The name of the vocabulary we are tagging our content with.
+   * The entity type we are working with.
+   *
+   * Overridden in the type-specific implementations.
    *
    * @var string
    */
-  protected $tagsVocabularyName = 'tags';
-
-  /**
-   * The name of the tag we are giving all our content.
-   *
-   * @var string
-   */
-  protected $demoContentTagName = 'degov_demo_content';
+  protected $entityType = '';
 
   /**
    * Constructs a new ContentFactory instance.
@@ -51,17 +45,24 @@ class ContentFactory {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function getDemoContentTagId() {
-    $tag_term = taxonomy_term_load_multiple_by_name($this->demoContentTagName, $this->tagsVocabularyName);
-    if (empty($tag_term)) {
-      $tag_term = Term::create([
-        'name' => $this->demoContentTagName,
-        'vid'  => $this->tagsVocabularyName,
-      ]);
-      $tag_term->save();
-    }
-    else {
+    $tag_term = taxonomy_term_load_multiple_by_name(DEGOV_DEMO_CONTENT_TAG_NAME, DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME);
+    if(!empty($tag_term)) {
       $tag_term = reset($tag_term);
+      return $tag_term->id();
     }
-    return $tag_term->id();
+    return null;
+  }
+
+  /**
+   * Deletes the generated entities.
+   */
+  public function deleteContent() {
+    $entities = \Drupal::entityTypeManager()->getStorage($this->entityType)->loadByProperties([
+      'field_tags' => $this->getDemoContentTagId(),
+    ]);
+
+    foreach($entities as $entity) {
+      $entity->delete();
+    }
   }
 }
