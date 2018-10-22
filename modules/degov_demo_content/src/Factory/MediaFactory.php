@@ -18,24 +18,12 @@ class MediaFactory extends ContentFactory {
    */
   public function generateContent() {
     $media_to_generate = $this->loadDefinitions('media.yml');
-    $fixtures_base_path = $this->moduleHandler->getModule('degov_demo_content')
+    $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
         ->getPath() . '/fixtures';
 
     // Save files first.
     $file_ids = [];
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      switch ($media_item['bundle']) {
-        case 'image':
-          $fixtures_path = $fixtures_base_path . '/images';
-          break;
-        case 'video_upload':
-          $fixtures_path = $fixtures_base_path . '/video';
-          break;
-        case 'document':
-          $fixtures_path = $fixtures_base_path . '/documents';
-          break;
-      }
-
       $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
       if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
         $file_ids[$media_item_key] = $saved_file->id();
