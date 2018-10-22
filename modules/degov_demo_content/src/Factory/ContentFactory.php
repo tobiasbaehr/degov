@@ -26,6 +26,21 @@ class ContentFactory {
    */
   protected $entityType = '';
 
+
+  /**
+   * Counter for the word generation. Makes generated content more static
+   *
+   * @var int
+   */
+  private $textCounter = 0;
+
+  /**
+   * Base string for text generation
+   *
+   * @var string
+   */
+  private const blindText = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
+
   /**
    * Constructs a new ContentFactory instance.
    */
@@ -71,5 +86,21 @@ class ContentFactory {
     foreach ($entities as $entity) {
       $entity->delete();
     }
+  }
+
+
+  public function generateBlindText(int $wordCount): string {
+    $phrase = [];
+    for ($i = 0; $i < $wordCount; $i++) {
+      $phrase[] = $this->getWord();
+    }
+    return implode(' ', $phrase);
+  }
+
+  protected function getWord(): string {
+    $words = explode(' ', self::blindText);
+    $this->textCounter++;
+    $index = $this->textCounter % count($words);
+    return $words[$index];
   }
 }

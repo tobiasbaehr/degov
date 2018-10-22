@@ -8,7 +8,9 @@ use Drupal\paragraphs\Entity\Paragraph;
 
 class NodeFactory extends ContentFactory {
 
-  private const blindText = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+
+
+  private $imageCounter = 0;
 
   /**
    * Generates a set of node entities.
@@ -40,7 +42,7 @@ class NodeFactory extends ContentFactory {
 
     foreach ($rawNodes as $key => $rawNode) {
 
-      $image = $this->getRandomImage();
+      $image = $this->getImage();
       $rawNode += [
         'field_tags' => [
           ['target_id' => $this->getDemoContentTagId()],
@@ -84,7 +86,6 @@ class NodeFactory extends ContentFactory {
       'field_sub_title' => $this->generateBlindText(3),
       'field_node_reference_viewmode' => 'slim',
       'field_node_reference_nodes' => $this->Ids,
-
     ]);
 
     $teasers[] = Paragraph::create([
@@ -115,39 +116,19 @@ class NodeFactory extends ContentFactory {
     $this->generateContent();
   }
 
-  protected function getImages(): ?array {
-    $rawMedias = $this->loadDefinitions('media.yml');
-    foreach ($rawMedias as $rawMedia) {
-      if ($rawMedia['bundle'] === 'image') {
-        $mediaIds = \Drupal::entityQuery('media')
-          ->condition('bundle', 'image')
-          ->condition('field_tags', $this->getDemoContentTagId())->execute();
-
-        return Media::loadMultiple($mediaIds);
-      }
-    }
-    return NULL;
+  protected function getImages(): array {
+    $mediaIds = \Drupal::entityQuery('media')
+      ->condition('bundle', 'image')
+      ->condition('field_tags', $this->getDemoContentTagId())->execute();
+    return $mediaIds;
   }
 
-  protected function getRandomImage(): Media {
+
+  protected function getImage(): Media {
     $images = $this->getImages();
-    $count = count($images);
-    if ($images > 0) {
-      return $images[random_int(0, $count - 1)];
-    }
-    return NULL;
-  }
-
-  public function generateBlindText(int $wordCount): string {
-    $phrase = [];
-    for ($i = 0; $i < $wordCount; $i++) {
-      $phrase[] = $this->getRandomWord();
-    }
-    return implode(' ', $phrase);
-  }
-
-  protected function getRandomWord(): string {
-    $words = explode(' ', self::blindText);
-    return $words[random_int(0, \count($words) - 1)];
+    $this->imageCounter++;
+    $index = $this->imageCounter % \count($images);
+    $keys = array_keys($images);
+    return Media::load($images[$keys[$index]]);
   }
 }

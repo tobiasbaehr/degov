@@ -100,4 +100,9 @@ class MediaFactory extends ContentFactory {
       }
     }
   }
+
+  public function resetContent() {
+    $this->deleteContent();
+    $this->generateContent();
+  }
 }
