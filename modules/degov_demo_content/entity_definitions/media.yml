@@ -1,22 +1,18 @@
 image_1:
   bundle: 'image'
   name: 'Demo image 1'
-  status: 1
   file: 'vladimir-riabinin-1058013-unsplash.jpg'
 image_2:
   bundle: 'image'
   name: 'Demo image 2'
-  status: 1
   file: 'humberto-chavez-1058365-unsplash.jpg'
 image_3:
   bundle: 'image'
   name: 'Demo image 3'
-  status: 1
   file: 'taneli-lahtinen-1058552-unsplash.jpg'
 video_1:
   bundle: 'video_upload'
   name: 'Demo video 1'
-  status: 1
   file: 'bokeh-video-of-leaves.mp4'
   preview:
     image: 'image_1'
