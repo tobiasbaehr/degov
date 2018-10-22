@@ -10,10 +10,9 @@ Feature: deGov - Media document access
 
   Scenario: I am accessing a restricted media document file as anonymous user
     Given I am on "/system/files/media/document/file/word-document.docx"
-    And I dump the HTML
-    And I should see text matching "Sie haben keine Zugriffsberechtigung für diese Seite." via translated text
+    And I should see text matching "You are not authorized to access this page." via translated text
 
   Scenario: I am accessing a restricted media document file as anonymous user
     Given I am logged in as a user with the "administrator" role
     And I am on "/system/files/media/document/file/word-document.docx"
-    And I should not see text matching "Sie haben keine Zugriffsberechtigung für diese Seite." via translated text
+    And I should not see text matching "You are not authorized to access this page." via translated text
