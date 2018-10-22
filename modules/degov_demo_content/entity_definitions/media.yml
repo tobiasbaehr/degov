@@ -2,7 +2,7 @@ image_1:
   bundle: 'image'
   name: 'Demo image'
   status: 1
-  file: 'alex-knight-778401-unsplash.jpg'
+  file: 'vladimir-riabinin-1058013-unsplash.jpg'
 image_2:
   bundle: 'image'
   name: 'Demo image 2'
