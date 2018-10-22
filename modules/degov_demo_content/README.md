@@ -1,0 +1,1 @@
+The images included in this module are free under the [Unsplash license](https://unsplash.com/license). 

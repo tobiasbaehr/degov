@@ -32,7 +32,7 @@ class ResetConsoleCommand extends ContainerAwareCommand {
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
     $this->getIo()->info('execute');
-    $this->container->get('degov_demo_content.content_generator')->resetMedia();
+    $this->container->get('degov_demo_content.content_generator')->resetContent();
     $this->getIo()->info($this->trans('commands.degov_demo_content.reset.messages.success'));
   }
 }

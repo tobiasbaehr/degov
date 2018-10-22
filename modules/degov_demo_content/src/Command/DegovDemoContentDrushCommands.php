@@ -21,7 +21,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcreg
    */
   public function resetContent() {
-    \Drupal::service('degov_demo_content.content_generator')->resetMedia();
+    \Drupal::service('degov_demo_content.content_generator')->resetContent();
     $this->logger()->success(dt('Media reset.'));
   }
 }

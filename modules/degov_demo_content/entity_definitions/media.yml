@@ -1,0 +1,10 @@
+image_1:
+  bundle: 'image'
+  name: 'Demo image'
+  status: 1
+  file: 'alex-knight-778401-unsplash.jpg'
+image_2:
+  bundle: 'image'
+  name: 'Demo image 2'
+  status: 1
+  file: 'humberto-chavez-1058365-unsplash.jpg'

@@ -2,7 +2,8 @@
 
 namespace Drupal\degov_demo_content\Service;
 
-use Drupal\Core\State\StateInterface;
+use Drupal\degov_demo_content\Factory\MediaFactory;
+use Drupal\degov_demo_content\Factory\NodeFactory;
 
 /**
  * Class ContentGenerator.
@@ -10,58 +11,48 @@ use Drupal\Core\State\StateInterface;
 class ContentGenerator {
 
   /**
-   * The Key/Value Store to use for state.
+   * Factory class to generate media entities.
    *
-   * @var \Drupal\Core\State\StateInterface
+   * @var \Drupal\degov_demo_content\Factory\MediaFactory
    */
-  protected $state;
+  private $mediaFactory;
 
   /**
-   * The key of our State variable
+   * Factory class to generate node entities.
    *
-   * @var string
+   * @var \Drupal\degov_demo_content\Factory\NodeFactory;
    */
-  private $state_content_generated_key = 'degov_demo_content.content_generated';
+  private $nodeFactory;
 
   /**
    * Constructs a new ContentGenerator object.
    */
-  public function __construct($state) {
-    $this->state = $state;
+  public function __construct() {
+    $this->mediaFactory = new MediaFactory();
+    $this->nodeFactory = new NodeFactory();
   }
 
   /**
    * Generates a set of media entities.
    */
-  public function generateMedia() {
-    error_log('generate');
-    error_log('content generated ' . $this->getGeneratedStatus());
-    $this->state->set($this->state_content_generated_key, TRUE);
-    error_log('content generated ' . $this->getGeneratedStatus());
+  public function generateContent() {
+    $this->mediaFactory->generateContent();
+    $this->nodeFactory->generateContent();
   }
 
   /**
    * Deletes the generated media entities.
    */
-  public function deleteMedia() {
-    error_log('delete');
-    error_log('content generated ' . $this->getGeneratedStatus());
-    $this->state->delete($this->state_content_generated_key);
-    error_log('content generated ' . $this->getGeneratedStatus());
+  public function deleteContent() {
+    $this->nodeFactory->deleteContent();
+    $this->mediaFactory->deleteContent();
   }
 
   /**
    * Deletes and re-generates the media entities.
    */
-  public function resetMedia() {
-    $this->deleteMedia();
-    $this->generateMedia();
-  }
-
-  /**
-   * Returns the current value of the generated-status State variable
-   */
-  public function getGeneratedStatus() {
-    return $this->state->get($this->state_content_generated_key, FALSE);
+  public function resetContent() {
+    $this->deleteContent();
+    $this->generateContent();
   }
 }
