@@ -37,9 +37,19 @@ class MediaFactory extends ContentFactory {
             'alt'       => $media_item['name'],
             'title'     => $media_item['name'],
           ],
+          'field_tags' => [
+            ['target_id' => $this->getDemoContentTagId()]
+          ],
         ]);
         $new_media->save();
       }
     }
+  }
+
+  /**
+   * Deletes the generated media entities.
+   */
+  public function deleteContent() {
+
   }
 }

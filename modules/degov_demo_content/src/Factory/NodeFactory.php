@@ -14,7 +14,7 @@ class NodeFactory extends ContentFactory {
   public function generateContent() {}
 
   /**
-   * Generates a set of node entities.
+   * Deleted the generated node entities.
    */
   public function deleteContent() {}
 }
