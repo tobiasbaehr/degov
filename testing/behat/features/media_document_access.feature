@@ -7,6 +7,7 @@ Feature: deGov - Media document access
       | permissions_by_entity |
       | degov_media_document  |
     Given I have a restricted document media entity
+    And the cache has been cleared
 
   Scenario: I am accessing a restricted media document file as anonymous user
     Given I am on "/system/files/media/document/file/word-document.docx"
