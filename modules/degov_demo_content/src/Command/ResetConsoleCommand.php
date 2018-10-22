@@ -15,7 +15,7 @@ use Drupal\Console\Annotations\DrupalCommand;
  *     extensionType="module"
  * )
  */
-class ResetCommand extends ContainerAwareCommand {
+class ResetConsoleCommand extends ContainerAwareCommand {
 
   /**
    * {@inheritdoc}
