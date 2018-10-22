@@ -10,5 +10,12 @@
     "issues": "https://www.drupal.org/project/issues/degov_demo_content",
     "source": "http://cgit.drupalcode.org/degov_demo_content"
   },
-  "require": { }
+  "require": { },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9"
+      }
+    }
+  }
 }
