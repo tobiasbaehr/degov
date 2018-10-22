@@ -1,0 +1,6 @@
+services:
+  degov_demo_content.degov_demo_content_reset:
+    class: Drupal\degov_demo_content\Command\ResetCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }
