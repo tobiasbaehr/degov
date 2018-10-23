@@ -16,8 +16,6 @@ regions:
   navigation: 'Header navigation'
   breadcrumb: Breadcrumbs
   content: 'Main content'
-  sidebar_first: 'Sidebar first'
-  sidebar_second: 'Sidebar second'
   footer: Footer
 
 libraries:

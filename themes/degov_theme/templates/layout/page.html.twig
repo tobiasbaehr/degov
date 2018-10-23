@@ -76,7 +76,7 @@
                   aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{ page.navigation }}
             {% if page.search_form %}
               <div class="seach-form-wrapper my-2 my-lg-0">
@@ -95,36 +95,22 @@
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  {% set sidebar_first_classes = page.sidebar_first ? ( page.sidebar_second ? 'col-sm-3' : 'col-sm-4' ) : ( page.sidebar_second ? 'col-sm-4' ) %}
-  {% set sidebar_second_classes = page.sidebar_first ? ( page.sidebar_second ? 'col-sm-3' : 'col-sm-4' ) : ( page.sidebar_second ? 'col-sm-4' ) %}
-  {% set content_classes = page.sidebar_first ? ( page.sidebar_second ? 'col-sm-6' : 'col-sm-8' ) : ( page.sidebar_second ? 'col-sm-6' : 'col-sm-12' ) %}
-
   <div class="container">
     {% if page.breadcrumb %}
       {{ page.breadcrumb }}
     {% endif %}
     <div class="row">
-      {% if page.sidebar_first %}
-        <div class="{{ sidebar_first_classes }}">
-          {{ page.sidebar_first }}
-        </div>
-      {% endif %}
-      <div class="{{ content_classes }}">
+      <div class="col-sm-12">
         {{ page.content }}
       </div>
-      {% if page.sidebar_second %}
-        <div class="{{ sidebar_second_classes }}">
-          {{ page.sidebar_second }}
-        </div>
-      {% endif %}
     </div>
   </div>
 </main>
 
 
 {% if page.footer %}
-  <footer class="text-muted">
-    <div class="pt-4 my-md-5 pt-md-5 border-top container">
+  <footer class="">
+    <div class="container">
       {{ page.footer }}
     </div>
   </footer>

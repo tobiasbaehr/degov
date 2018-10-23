@@ -18,13 +18,18 @@
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/tables";
 @import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/close";
 @import "../node_modules/bootstrap/scss/transitions";
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../node_modules/bootstrap/scss/bootstrap-reboot";
 
+
 //@import "../node_modules/bootstrap/scss/bootstrap";
 
 @import "components/navbar";
+@import "components/content";
+@import "components/foorter";
 @import "elements/site-logo";
 @import "elements/search-form";
 @import "region/top-header";
@@ -35,3 +40,5 @@
 //@import "modules/**";
 //@import "view-modes/**";
 //@import "views/**";
+
+

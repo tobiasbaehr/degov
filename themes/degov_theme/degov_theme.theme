@@ -104,13 +104,21 @@ function degov_theme_preprocess_menu__account(&$vars) {
     /** @var \Drupal\Core\Url $url */
     $url = $item['url'];
     if ($url->toString() === '/contact') {
-      $item['title'] = new Twig_Markup($item['title'] . ' ' . _degov_theme_fa_icon('paper-plane'), 'utf8');
+      $item['title'] =
+        '<span class="d-none d-lg-inline-block d-xl-inline-block d-md-none">'
+         . $item['title']
+         . '</span>';
+      $item['title'] = new Twig_Markup($item['title'] . ' '
+        . _degov_theme_fa_icon('paper-plane'), 'utf8');
     }
 
     if ($url->toString() === '/user/login') {
       $login_link_title = $item['title'];
       if (!\Drupal::currentUser()->isAnonymous()) {
-        $login_link_title = t('My Account');
+        $login_link_title =
+          '<span class="d-none d-lg-inline-block d-xl-inline-block d-md-none">'
+           . t('My Account')
+           . '</span>';
       }
       $item['title'] = new Twig_Markup($login_link_title . ' ' . _degov_theme_fa_icon('user'), 'utf8');
     }
