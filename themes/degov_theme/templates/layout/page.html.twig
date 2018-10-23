@@ -43,21 +43,46 @@
  */
 #}
 <header>
-  {{ page.header }}
 
-  <nav class="navbar navbar-expand-lg degov-navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
-      <div class="navbar-nav mr-auto">
-          {{ page.navigation }}
+  {% if page.top_header %}
+    <div class="top-header-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-expand-sm">
+          {{ page.top_header }}
+        </nav>
       </div>
     </div>
-  </nav>
+  {% endif %}
+
+  {% if page.bottom_header %}
+    <div class="container">
+      <nav class="bottom-header-wrapper mt-4 mb-4">
+        {{ page.bottom_header }}
+      </nav>
+    </div>
+  {% endif %}
+
+  {% if page.navigation %}
+    <div class="degov-navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg degov-navbar">
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse mr-auto mt-2" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                {{ page.navigation }}
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+  {% endif %}
+
 </header>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -126,7 +151,6 @@
     </div>
   </div>
 </main>
-
 
 
 {% if page.footer %}

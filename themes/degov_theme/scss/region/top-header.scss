@@ -1,0 +1,18 @@
+.top-header-wrapper {
+  height: $font-size-base * 4;
+  background-color: $blue;
+  color: $white;
+  a {
+    color: $white;
+  }
+  .dropdown-toggle {
+    &::after {
+      content: none;
+    }
+  }
+  .dropdown-menu {
+    background-color: $blue;
+
+
+  }
+}
