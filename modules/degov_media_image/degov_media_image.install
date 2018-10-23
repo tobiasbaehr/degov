@@ -117,3 +117,14 @@ function degov_media_image_update_8023() {
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '8023');
 }
+
+/**
+ * Add minimal size requirement for new images.
+ */
+function degov_media_image_update_8024() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8024');
+}
