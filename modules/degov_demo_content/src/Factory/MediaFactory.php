@@ -38,7 +38,8 @@ class MediaFactory extends ContentFactory {
           'bundle'      => $media_item['bundle'],
           'name'        => $media_item['name'],
           'field_title' => $media_item['name'],
-          'status'      => !empty($media_item['status']) ? $media_item['status'] : TRUE,
+          'status'      => $media_item['status'] ?? TRUE,
+          'uid'         => $media_item['user_id'] ?? 1,
           'field_tags'  => [
             ['target_id' => $this->getDemoContentTagId()],
           ],
@@ -52,8 +53,8 @@ class MediaFactory extends ContentFactory {
               'title'     => $media_item['name'],
             ];
             $fields['field_image_caption'] = $media_item['caption'] ?? '';
-            $fields['field_royalty_free'] = $media_item['royalty_free'] ?? false;
-            if(empty($media_item['royalty_free'])) {
+            $fields['field_royalty_free'] = $media_item['royalty_free'] ?? FALSE;
+            if (empty($media_item['royalty_free'])) {
               $fields['field_copyright'] = [
                 'target_id' => $this->getDemoContentCopyrightId(),
               ];
