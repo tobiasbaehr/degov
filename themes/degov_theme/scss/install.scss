@@ -1,5 +1,4 @@
 @import "variables";
-@import "mixins";
 
 .install-page {
   background-position: center;
@@ -7,7 +6,7 @@
 }
 
 .layout-container {
-  background-color: rgba(#ffffff, 0.975);
+  background-color: rgba($white, 0.975);
 }
 
 .page-title {
@@ -19,7 +18,7 @@
   }
 
   .site-version {
-    color: $color-blue;
+    color: $blue;
   }
 }
 
@@ -27,7 +26,7 @@
 .form-required {
   &::after {
     content: "*";
-    color: #ff0000;
+    color: $red;
     margin-left: 0.5em;
   }
 }
@@ -69,7 +68,7 @@ details {
 }
 
 input[type="submit"] {
-  background-color: $degov-blue;
+  background-color: $blue;
   background-image: none;
   border-radius: 0;
   color: #ffffff;
@@ -78,16 +77,16 @@ input[type="submit"] {
 
   &, &:hover, &:active, &:focus {
     background-image: none;
-    border-color: $degov-blue;
+    border-color: $blue;
   }
 
   &:hover, &:focus {
-    background-color: lighten($degov-blue, 20%);
-    box-shadow: 0 2px 4px rgba($degov-gray, 0.5);
+    background-color: lighten($blue, 20%);
+    box-shadow: 0 2px 4px rgba($gray, 0.5);
   }
 
   &:active {
-    background-color: lighten($degov-blue, 5%);
-    box-shadow: 0 0 2px rgba($degov-gray, 0.75);
+    background-color: lighten($blue, 5%);
+    box-shadow: 0 0 2px rgba($gray, 0.75);
   }
 }

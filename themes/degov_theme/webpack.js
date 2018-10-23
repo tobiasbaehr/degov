@@ -7,13 +7,17 @@ module.exports = {
   entry: {
     main: [
         // deGov theme
-        './scss/main.scss',
-        // Bootstrap
-        './node_modules/bootstrap/js/src/carousel.js',
-        './node_modules/bootstrap/scss/bootstrap-grid.scss',
-        // Font Awesome
-        './node_modules/@fortawesome/fontawesome-free/js/all.js',
-        './node_modules/@fortawesome/fontawesome-free/css/all.css',
+      './scss/main.scss',
+      // Bootstrap
+      './node_modules/@fortawesome/fontawesome-free/js/all.js',
+      './node_modules/bootstrap/js/src/carousel.js',
+      './node_modules/bootstrap/js/src/dropdown.js',
+      './node_modules/bootstrap/js/src/util.js',
+      // './node_modules/bootstrap/js/src/modal.js',
+      // './node_modules/bootstrap/js/src/tab.js',
+      './node_modules/bootstrap/js/src/collapse.js',
+      // Font Awesome
+      './node_modules/@fortawesome/fontawesome-free/css/all.css',
     ],
     install: [
         './scss/install.scss',
