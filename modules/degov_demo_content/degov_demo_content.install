@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * @file
+ * Install- and update hooks for the module.
+ */
+
 use Drupal\taxonomy\Entity\Term;
 
 /**
- * Implementation of hook_install().
+ * Implements hook_install().
  */
 function degov_demo_content_install() {
   $files_save_path = DEGOV_DEMO_CONTENT_FILES_SAVE_PATH;
@@ -23,7 +28,7 @@ function degov_demo_content_install() {
 }
 
 /**
- * Implementation of hook_uninstall().
+ * Implements hook_uninstall().
  */
 function degov_demo_content_uninstall() {
   \Drupal::service('degov_demo_content.node_generator')->deleteContent();

@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_demo_content\Factory;
 
-use Drupal\crop\Entity\Crop;
 use Drupal\media\Entity\Media;
 
 class MediaFactory extends ContentFactory {
@@ -234,12 +233,17 @@ class MediaFactory extends ContentFactory {
   }
 
   /**
-   * @param $image_dimensions
-   * @param $aspect_ratio_fragments
+   * Calculates a scape factor for the crop frame.
+   *
+   * @param array $image_dimensions
+   *   The dimensions of the image.
+   * @param array $aspect_ratio_fragments
+   *   The aspect ratio of the crop type.
    *
    * @return float|int
+   *   The factor to scale the image by.
    */
-  private function calculateScaleFactor($image_dimensions, $aspect_ratio_fragments) {
+  private function calculateScaleFactor(array $image_dimensions, array $aspect_ratio_fragments) {
     if ($image_dimensions[0] > $image_dimensions[1]) {
       $image_ratio = $image_dimensions[0] / $image_dimensions[1];
       $crop_ratio = $aspect_ratio_fragments[0] / $aspect_ratio_fragments[1];

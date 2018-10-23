@@ -4,5 +4,4 @@ degov_demo_content.content_generator_form:
     _form: '\Drupal\degov_demo_content\Form\ContentGeneratorForm'
     _title: 'ContentGeneratorForm'
   requirements:
-    _access: 'TRUE'
-  
+    _permission: 'administer nodes'
