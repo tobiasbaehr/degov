@@ -99,7 +99,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -118,7 +118,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -153,7 +153,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -176,7 +176,7 @@ Feature: deGov - Media creation
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.png" to "edit-input-file"
+    And I attach the file "images/dummy.jpg" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
