@@ -18,3 +18,9 @@ teaser4:
   type: 'normal_page'
   title: 'Page with content #4'
   status: 1
+node_with_banner:
+  type: 'normal_page'
+  title: 'Page with banner'
+  status: 1
+  field_header_paragraphs:
+    - header_banner

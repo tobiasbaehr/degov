@@ -85,12 +85,14 @@ class ContentFactory {
    * Deletes the generated entities.
    */
   public function deleteContent() {
-    if($this->getDemoContentTagId() === null) {
+    if ($this->getDemoContentTagId() === NULL) {
       return;
     }
-    $entities = \Drupal::entityTypeManager()->getStorage($this->entityType)->loadByProperties([
-      'field_tags' => $this->getDemoContentTagId(),
-    ]);
+    $entities = \Drupal::entityTypeManager()
+      ->getStorage($this->entityType)
+      ->loadByProperties([
+        'field_tags' => $this->getDemoContentTagId(),
+      ]);
 
     foreach ($entities as $entity) {
       $entity->delete();
@@ -111,5 +113,17 @@ class ContentFactory {
     $this->textCounter++;
     $index = $this->textCounter % count($words);
     return $words[$index];
+  }
+
+  protected function loadDefinitionByNameTag(string $defName, $tag) {
+    $def = $this->loadDefinitions($defName . '.yml');
+    return $def[$tag];
+  }
+
+  protected function loadDefinitionByNameType(string $defName, string $type) {
+    $def = $this->loadDefinitions($defName . '.yml');
+    return array_filter($def, function ($var) use ($type) {
+      return $var['type'] === $type;
+    });
   }
 }
