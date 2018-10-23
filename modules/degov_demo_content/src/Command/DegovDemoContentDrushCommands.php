@@ -35,7 +35,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    *   Usage description
    *
    * @command degov_demo_content:delete
-   * @aliases dcreg
+   * @aliases dcdel
    */
   public function deleteContent() {
     \Drupal::service('degov_demo_content.media_generator')->deleteContent();
@@ -51,7 +51,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    *   Usage description
    *
    * @command degov_demo_content:generate
-   * @aliases dcreg
+   * @aliases dcgen
    */
   public function createContent() {
     \Drupal::service('degov_demo_content.media_generator')->generateContent();
