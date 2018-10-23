@@ -9,15 +9,11 @@ use Drupal\paragraphs\Entity\Paragraph;
 class NodeFactory extends ContentFactory {
 
 
-
   private $imageCounter = 0;
 
   /**
    * Generates a set of node entities.
    */
-
-  private $Ids = NULL;
-
   protected $entityType = 'node';
 
   protected $mediaGenerator;
@@ -28,87 +24,73 @@ class NodeFactory extends ContentFactory {
   }
 
   public function generateContent(): void {
-    $rawNodes = $this->loadDefinitions('node.yml');
-
     $teaserPage = NULL;
+    $nodeIds = [];
 
-    $teaserLongText = Paragraph::create([
-      'type' => 'node_reference',
-      'field_title' => $this->generateBlindText(4),
-      'field_sub_title' => $this->generateBlindText(3),
-      'field_node_reference_viewmode' => 'long_text',
-    ]);
-    $teaserLongText->save();
+    foreach ($this->loadDefinitions('node.yml') as $rawNode) {
 
-    foreach ($rawNodes as $key => $rawNode) {
+      $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
+      $paragraphs['field_header_paragraphs'] = $rawNode['field_header_paragraphs'];
+      $paragraphs['field_sidebar_paragraphs'] = $rawNode['field_sidebar_paragraphs'];
+      $paragraphs = array_filter($paragraphs);
+      unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_paragraphs']);
 
-      $image = $this->getImage();
-      $rawNode += [
-        'field_tags' => [
-          ['target_id' => $this->getDemoContentTagId()],
-        ],
-        'field_teaser_image' => [
-          ['target_id' => $image->id()],
-        ],
-        'field_teaser_text' => [
-          $this->generateBlindText(50),
-        ],
-        'field_teaser_sub_title' => [
-          $this->generateBlindText(4),
-        ],
-      ];
-
-      $node = Node::create($rawNode);
+      $this->generateParagraphsForNode($paragraphs, $rawNode);
+      $node = Node::create($rawNode + $this->generateNodeExtras());
       $node->save();
 
-      if ($key !== 'teaser_page') {
-        $this->Ids[] = $node->id();
-      }
-      else {
+      /**
+       * Use first node for teasers
+       */
+      if ($teaserPage === NULL) {
         $teaserPage = $node;
       }
+      else {
+        $nodeIds[] = $node->id();
+      }
     }
-    $this->generateParagraphs($teaserPage);
+    $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
   }
 
-  protected function generateParagraphs(Node $teaserPage) {
-    $teasers[] = Paragraph::create([
-      'type' => 'node_reference',
-      'field_title' => 'Teaser - Long Text',
-      'field_sub_title' => $this->generateBlindText(3),
-      'field_node_reference_viewmode' => 'long_text',
-      'field_node_reference_nodes' => $this->Ids,
-    ]);
 
-    $teasers[] = Paragraph::create([
-      'type' => 'node_reference',
-      'field_title' => 'Teaser - Slim',
-      'field_sub_title' => $this->generateBlindText(3),
-      'field_node_reference_viewmode' => 'slim',
-      'field_node_reference_nodes' => $this->Ids,
-    ]);
+  protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode) {
+    foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
+      foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
+        $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
+        $this->prepareParagraphs($rawParagraph);
+        $paragraph = Paragraph::create($rawParagraph);
+        $paragraph->save();
+        $rawNode[$type][] = $paragraph;
+      }
+    }
+  }
 
-    $teasers[] = Paragraph::create([
-      'type' => 'node_reference',
-      'field_title' => 'Teaser - Small Image',
-      'field_sub_title' => $this->generateBlindText(3),
-      'field_node_reference_viewmode' => 'small_image',
-      'field_node_reference_nodes' => $this->Ids,
+  protected function prepareParagraphs(array &$rawParagraph) {
+    foreach ($rawParagraph as $index => $value) {
+      switch ($value) {
+        case '{{SUBTITLE}}':
+          $rawParagraph[$index] = $this->generateBlindText(5);
+          break;
+        case '{{MEDIA_IMAGE_ID}}':
+          $rawParagraph[$index] = ['target_id' => $this->getImage()->id()];
+          break;
+      }
+    }
+  }
 
-    ]);
 
-    $teasers[] = Paragraph::create([
-      'type' => 'node_reference',
-      'field_title' => 'Teaser - Preview',
-      'field_sub_title' => $this->generateBlindText(3),
-      'field_node_reference_viewmode' => 'preview',
-      'field_node_reference_nodes' => $this->Ids,
-    ]);
+  protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
+    $paragraphs = [];
+    foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
+      $rawParagraph['field_sub_title'] = $this->generateBlindText(3);
+      $rawParagraph['field_node_reference_nodes'] = $nodeIds;
+      $paragraph = Paragraph::create($rawParagraph);
+      $paragraph->save();
+      $paragraphs[] = $paragraph;
+    }
 
-    $teaserPage->set('field_content_paragraphs', $teasers);
+    $teaserPage->set('field_content_paragraphs', $paragraphs);
     $teaserPage->save();
-
-    return $teasers;
   }
 
   public function resetContent(): void {
@@ -131,4 +113,25 @@ class NodeFactory extends ContentFactory {
     $keys = array_keys($images);
     return Media::load($images[$keys[$index]]);
   }
+
+  protected function generateNodeExtras(): array {
+    return [
+      'field_tags'             => [
+        ['target_id' => $this->getDemoContentTagId()],
+      ],
+      'field_teaser_image'     => [
+        ['target_id' => $this->getImage()->id()],
+      ],
+      'field_teaser_text'      => [
+        $this->generateBlindText(50),
+      ],
+      'field_teaser_title'     => [
+        $this->generateBlindText(5),
+      ],
+      'field_teaser_sub_title' => [
+        $this->generateBlindText(4),
+      ],
+    ];
+  }
+
 }
