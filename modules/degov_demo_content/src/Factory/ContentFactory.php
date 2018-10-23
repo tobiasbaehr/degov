@@ -4,10 +4,6 @@ namespace Drupal\degov_demo_content\Factory;
 
 use Symfony\Component\Yaml\Yaml;
 
-define('DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME', 'tags');
-define('DEGOV_DEMO_CONTENT_TAG_NAME', 'degov_demo_content');
-define('DEGOV_DEMO_CONTENT_FILES_SAVE_PATH', 'public://degov_demo_content');
-
 class ContentFactory {
 
   /**
