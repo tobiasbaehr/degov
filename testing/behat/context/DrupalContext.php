@@ -595,14 +595,14 @@ class DrupalContext extends RawDrupalContext {
       $drupalFilesystem = \Drupal::service('file_system');
 
       $symfonyFilesystem->copy(
-        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.jpg',
+        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.jpg'
       );
 
       $imageFileEntity = File::create([
         'uid'      => 1,
-        'filename' => 'dummy.png',
-        'uri'      => 'public://dummy.png',
+        'filename' => 'dummy.jpg',
+        'uri'      => 'public://dummy.jpg',
         'status'   => 1,
       ]);
       $imageFileEntity->save();
