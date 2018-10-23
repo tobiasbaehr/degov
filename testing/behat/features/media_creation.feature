@@ -175,7 +175,6 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I should see text matching "320x320"
     And I attach the file "images/dummy.jpg" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
