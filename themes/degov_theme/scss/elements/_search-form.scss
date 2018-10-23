@@ -1,0 +1,35 @@
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+.seach-form-wrapper {
+  position: relative;
+  label {
+    display: none;
+  }
+  .form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+    input[type="text"] {
+      height: $fa-font-size-base * 2.5;
+    }
+  }
+  [data-drupal-selector="edit-actions"] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    button[type="submit"] {
+      @extend .fa;
+      &:before {
+        content: fa-content($fa-var-search);
+        font-size: $font-size-base * 1.2 ;
+      }
+
+      background: initial;
+      border: initial;
+      color: $black;
+      font-size: 0;
+    }
+  }
+}

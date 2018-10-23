@@ -1,5 +1,8 @@
 .site-logo {
   img {
-    width: $font-size-base * 17;
+    width: $font-size-base * 8;
+    @include media-breakpoint-up(lg) {
+      width: $font-size-base * 17;
+    }
   }
 }

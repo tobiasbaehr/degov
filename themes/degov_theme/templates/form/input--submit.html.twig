@@ -11,9 +11,5 @@
  */
 #}
 
-{% if attributes.hasClass('button') and not attributes.hasClass('field-add-more-submit') %}
-  <input{{ attributes.addClass('btn btn-primary') }} />
-{% else %}
-  <input{{ attributes.addClass('form-control') }} />
-{% endif %}
+<button{{ attributes.addClass('btn btn-primary')|without('value') }}>{{ attributes.value }}</button>
 {{ children }}

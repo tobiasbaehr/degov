@@ -133,3 +133,10 @@ function _degov_theme_fa_icon($name, $type = 'fas') {
   ];
   return \Drupal::service('renderer')->render($icon);
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function degov_theme_preprocess_page(&$vars) {
+  $vars['logo_url'] =  theme_get_setting('logo.url');
+}

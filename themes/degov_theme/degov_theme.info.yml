@@ -12,7 +12,7 @@ base theme: classy
 regions:
   top_header: 'Top Header'
   bottom_header: 'Bottom Header'
-  header: Header
+  search_form: 'Search Form'
   navigation: 'Header navigation'
   breadcrumb: Breadcrumbs
   content: 'Main content'
