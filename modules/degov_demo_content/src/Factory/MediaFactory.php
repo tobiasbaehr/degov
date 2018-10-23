@@ -14,26 +14,63 @@ class MediaFactory extends ContentFactory {
   protected $entityType = 'media';
 
   /**
+   * The ids of the Files we have saved.
+   *
+   * @var array
+   */
+  private $fileIds = [];
+
+  /**
+   * The ids of the Media entities we have saved.
+   *
+   * @var array
+   */
+  private $savedEntities = [];
+
+  /**
    * Generates a set of media entities.
    */
   public function generateContent() {
     $media_to_generate = $this->loadDefinitions('media.yml');
+
+    $this->saveFiles($media_to_generate);
+    $this->saveEntities($media_to_generate);
+    $this->saveEntityReferences($media_to_generate);
+
+  }
+
+  public function resetContent() {
+    $this->deleteContent();
+    $this->generateContent();
+  }
+
+  /**
+   * @param $media_to_generate
+   *
+   * @return array
+   */
+  private function saveFiles($media_to_generate): void {
     $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
         ->getPath() . '/fixtures';
 
-    // Save files first.
-    $file_ids = [];
     foreach ($media_to_generate as $media_item_key => $media_item) {
       $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
       if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
-        $file_ids[$media_item_key] = $saved_file->id();
+        $this->fileIds[$media_item_key] = $saved_file->id();
       }
     }
+  }
 
+  /**
+   * @param $media_to_generate
+   *
+   * @return array
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  private function saveEntities($media_to_generate): void {
     // Create the Media entities.
-    $saved_entities = [];
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      if (isset($file_ids[$media_item_key])) {
+      if (isset($this->fileIds[$media_item_key])) {
         $fields = [
           'bundle'      => $media_item['bundle'],
           'name'        => $media_item['name'],
@@ -48,7 +85,7 @@ class MediaFactory extends ContentFactory {
         switch ($media_item['bundle']) {
           case 'image':
             $fields['image'] = [
-              'target_id' => $file_ids[$media_item_key],
+              'target_id' => $this->fileIds[$media_item_key],
               'alt'       => $media_item['name'],
               'title'     => $media_item['name'],
             ];
@@ -62,36 +99,41 @@ class MediaFactory extends ContentFactory {
             break;
           case 'video_upload':
             $fields['field_video_upload_mp4'] = [
-              'target_id' => $file_ids[$media_item_key],
+              'target_id' => $this->fileIds[$media_item_key],
             ];
             break;
           case 'document':
             $fields['field_document'] = [
-              'target_id' => $file_ids[$media_item_key],
+              'target_id' => $this->fileIds[$media_item_key],
             ];
             break;
           case 'audio':
             $fields['field_audio_mp3'] = [
-              'target_id' => $file_ids[$media_item_key],
+              'target_id' => $this->fileIds[$media_item_key],
             ];
             break;
         }
 
         $new_media = Media::create($fields);
         $new_media->save();
-        $saved_entities[$media_item_key] = $new_media;
+        $this->savedEntities[$media_item_key] = $new_media;
       }
     }
+  }
 
+  /**
+   * @param $media_to_generate
+   */
+  private function saveEntityReferences($media_to_generate): void {
     // Create references between Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      if (!empty($saved_entities[$media_item_key])) {
-        $saved_entity = $saved_entities[$media_item_key];
+      if (!empty($this->savedEntities[$media_item_key])) {
+        $saved_entity = $this->savedEntities[$media_item_key];
         switch ($media_item['bundle']) {
           case 'video_upload':
             if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_video_upload_preview', [
-                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : NULL,
+                'target_id' => isset($this->savedEntities[$media_item['preview']['image']]) ? $this->savedEntities[$media_item['preview']['image']]->id() : NULL,
               ]);
               $saved_entity->save();
             }
@@ -99,7 +141,7 @@ class MediaFactory extends ContentFactory {
           case 'audio':
             if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_audio_preview', [
-                'target_id' => isset($saved_entities[$media_item['preview']['image']]) ? $saved_entities[$media_item['preview']['image']]->id() : NULL,
+                'target_id' => isset($this->savedEntities[$media_item['preview']['image']]) ? $this->savedEntities[$media_item['preview']['image']]->id() : NULL,
               ]);
               $saved_entity->save();
             }
@@ -107,10 +149,5 @@ class MediaFactory extends ContentFactory {
         }
       }
     }
-  }
-
-  public function resetContent() {
-    $this->deleteContent();
-    $this->generateContent();
   }
 }
