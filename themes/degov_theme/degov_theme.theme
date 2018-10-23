@@ -108,7 +108,11 @@ function degov_theme_preprocess_menu__account(&$vars) {
     }
 
     if ($url->toString() === '/user/login') {
-      $item['title'] = new Twig_Markup($item['title'] . ' ' . _degov_theme_fa_icon('user'), 'utf8');
+      $login_link_title = $item['title'];
+      if (!\Drupal::currentUser()->isAnonymous()) {
+        $login_link_title = t('My Account');
+      }
+      $item['title'] = new Twig_Markup($login_link_title . ' ' . _degov_theme_fa_icon('user'), 'utf8');
     }
   });
 }
