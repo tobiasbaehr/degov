@@ -4,6 +4,13 @@ namespace Drupal\degov_demo_content\Factory;
 
 use Drupal\media\Entity\Media;
 
+/**
+ * Class MediaFactory.
+ *
+ * Generates Media entities from a YAML definition file.
+ *
+ * @package Drupal\degov_demo_content\Factory
+ */
 class MediaFactory extends ContentFactory {
 
   /**
@@ -35,23 +42,24 @@ class MediaFactory extends ContentFactory {
 
     $this->saveFiles($media_to_generate);
     $this->saveEntities($media_to_generate);
-    $this->applyImageCrops($media_to_generate);
     $this->saveEntityReferences($media_to_generate);
+    $this->applyImageCrops();
   }
 
+  /**
+   * Deletes and regenerates all demo Media.
+   */
   public function resetContent() {
     $this->deleteContent();
     $this->generateContent();
   }
 
   /**
-   * @param $media_to_generate
-   *
-   * @return array
+   * Saves the files listed in the definitions as File entities.
    */
   private function saveFiles($media_to_generate): void {
     $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
-        ->getPath() . '/fixtures';
+      ->getPath() . '/fixtures';
 
     foreach ($media_to_generate as $media_item_key => $media_item) {
       $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
@@ -62,9 +70,8 @@ class MediaFactory extends ContentFactory {
   }
 
   /**
-   * @param $media_to_generate
+   * Saves the defined Media entities.
    *
-   * @return array
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function saveEntities($media_to_generate): void {
@@ -97,16 +104,19 @@ class MediaFactory extends ContentFactory {
               ];
             }
             break;
+
           case 'video_upload':
             $fields['field_video_upload_mp4'] = [
               'target_id' => $this->files[$media_item_key]->id(),
             ];
             break;
+
           case 'document':
             $fields['field_document'] = [
               'target_id' => $this->files[$media_item_key]->id(),
             ];
             break;
+
           case 'audio':
             $fields['field_audio_mp3'] = [
               'target_id' => $this->files[$media_item_key]->id(),
@@ -122,7 +132,7 @@ class MediaFactory extends ContentFactory {
   }
 
   /**
-   * @param $media_to_generate
+   * Store references between Media entities, e.g. preview images.
    */
   private function saveEntityReferences($media_to_generate): void {
     // Create references between Media entities.
@@ -138,6 +148,7 @@ class MediaFactory extends ContentFactory {
               $saved_entity->save();
             }
             break;
+
           case 'audio':
             if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_audio_preview', [
@@ -152,14 +163,12 @@ class MediaFactory extends ContentFactory {
   }
 
   /**
-   * @param $media_to_generate
+   * Apply all defined crop types to all image files in our definitions.
    */
-  private function applyImageCrops($media_to_generate): void {
-    // Get all crop types
+  private function applyImageCrops(): void {
     $crop_types = \Drupal::entityTypeManager()
       ->getStorage('crop_type')
       ->loadMultiple();
-    // for each file and every crop type store a new crop entity
     foreach ($this->files as $file) {
       if (preg_match("/^image\//", $file->getMimeType())) {
         foreach ($crop_types as $crop_type) {
@@ -203,12 +212,17 @@ class MediaFactory extends ContentFactory {
   }
 
   /**
-   * @param $crop_type
-   * @param $image_dimensions
+   * Calculate the height and width of the crop frame to be applied.
+   *
+   * @param object $crop_type
+   *   The Crop crop_type we want to apply.
+   * @param array $image_dimensions
+   *   The actual width and height of the image file.
    *
    * @return array
+   *   The desired height and width of the image.
    */
-  private function calculateCropDimensions($crop_type, $image_dimensions): array {
+  private function calculateCropDimensions($crop_type, array $image_dimensions): array {
     $aspect_ratio_fragments = explode(':', $crop_type->aspect_ratio);
     if (count($aspect_ratio_fragments) !== 2) {
       $aspect_ratio_fragments = [1, 1];
