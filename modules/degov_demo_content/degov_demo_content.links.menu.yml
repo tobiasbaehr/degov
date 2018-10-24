@@ -1,6 +1,0 @@
-degov_demo_content.content_generator_form:
-  title: 'Generate demo content'
-  description: 'Provides a form to generate, reset or delete demo content.'
-  parent: system.admin_config_development
-  route_name: degov_demo_content.content_generator_form
-  weight: 99

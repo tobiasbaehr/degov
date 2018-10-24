@@ -1,7 +1,0 @@
-degov_demo_content.content_generator_form:
-  path: '/admin/config/development/degov_demo_content/generate_content'
-  defaults:
-    _form: '\Drupal\degov_demo_content\Form\ContentGeneratorForm'
-    _title: 'ContentGeneratorForm'
-  requirements:
-    _permission: 'administer nodes'
