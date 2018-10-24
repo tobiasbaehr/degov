@@ -147,7 +147,7 @@ class MediaFactory extends ContentFactory {
               $media_item['address'] ?? [],
             ];
             if(!empty($media_item['location'])) {
-              $fields['field_address_location'] = \Drupal::service('geofield.wkt_generator')->wktBuildPoint($media_item['location']);
+              $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['location']);
             }
             $fields['field_address_title'] = $media_item['title'] ?? '';
             $fields['field_address_phone'] = $media_item['phone'] ?? '';
