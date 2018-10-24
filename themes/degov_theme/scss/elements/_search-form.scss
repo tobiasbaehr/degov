@@ -3,6 +3,9 @@
 
 .seach-form-wrapper {
   position: relative;
+  .contextual {
+    right: -30px;
+  }
   form {
     background-color: $white;
     width: 100%;
