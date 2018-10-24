@@ -6,3 +6,15 @@ package: 'deGov'
 
 dependencies:
   - pathauto:pathauto
+  - degov:degov_media_image
+  - degov:degov_media_video_upload
+  - degov:degov_media_document
+  - degov:degov_media_audio
+  - degov:degov_media_citation
+  - degov:degov_media_person
+  - degov:degov_media_contact
+  - degov:degov_media_gallery
+  - degov:degov_media_tweet
+  - degov:degov_media_instagram
+  - degov:degov_media_social_media_embed
+  - degov:degov_media_video
