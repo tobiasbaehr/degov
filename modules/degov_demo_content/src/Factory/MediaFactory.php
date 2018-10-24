@@ -77,6 +77,8 @@ class MediaFactory extends ContentFactory {
   private function saveEntities($media_to_generate): void {
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
+      $this->prepareValues($media_item);
+
       if (isset($this->files[$media_item_key])) {
         $fields = [
           'bundle'      => $media_item['bundle'],

@@ -99,6 +99,33 @@ class ContentFactory {
     }
   }
 
+  protected function prepareValues(array &$rawParagraph) {
+    foreach ($rawParagraph as $index => $value) {
+      switch(gettype($value)) {
+        case 'string':
+          switch ($value) {
+            case '{{SUBTITLE}}':
+              $rawParagraph[$index] = $this->generateBlindText(5);
+              break;
+            case '{{TEXT}}':
+              $rawParagraph[$index] = $this->generateBlindText(50);
+              break;
+            case '{{MEDIA_IMAGE_ID}}':
+              $rawParagraph[$index] = ['target_id' => $this->getImage()->id()];
+              break;
+            case '{{DEMOTAG}}':
+              $rawParagraph[$index] = ['target_id' => $this->getDemoContentTagId()];
+              break;
+          }
+          break;
+
+        case 'array':
+          $this->prepareValues($value);
+          $rawParagraph[$index] = $value;
+          break;
+      }
+    }
+  }
 
   public function generateBlindText(int $wordCount): string {
     $phrase = [];
