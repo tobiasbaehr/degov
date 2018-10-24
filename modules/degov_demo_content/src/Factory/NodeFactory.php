@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Factory;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\pathauto\PathautoState;
 
 class NodeFactory extends ContentFactory {
 
@@ -37,6 +38,7 @@ class NodeFactory extends ContentFactory {
 
       $this->generateParagraphsForNode($paragraphs, $rawNode);
       $this->prepareValues($rawNode);
+      $rawNode['path'] = ['alias' => '/degov-demo-content/' . \Drupal::service('pathauto.alias_cleaner')->cleanString($rawNode['title']), 'pathauto' => PathautoState::SKIP];
       $node = Node::create($rawNode);
       $node->save();
 
