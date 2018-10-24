@@ -147,4 +147,8 @@ function _degov_theme_fa_icon($name, $type = 'fas') {
  */
 function degov_theme_preprocess_page(&$vars) {
   $vars['logo_url'] =  theme_get_setting('logo.url');
+  $social_icons_settings = array_filter(theme_get_setting('social-icons'), function ($item) {
+    return !empty($item['url']) && !empty($item['font-awesome-classes']);
+  });
+  $vars['social_icons'] = $social_icons_settings;
 }

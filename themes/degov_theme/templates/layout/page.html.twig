@@ -50,6 +50,13 @@
       <div class="container">
         <nav class="navbar navbar-expand-sm">
           {{ page.top_header }}
+          {% if social_icons %}
+            <div class="float-right">
+              {% for social_icon in social_icons %}
+              <a href="{{ social_icon['url'] }}" target="_blank" class="mr-2"><i class="{{ social_icon['font-awesome-classes'] }}"></i></a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </nav>
       </div>
     </div>
