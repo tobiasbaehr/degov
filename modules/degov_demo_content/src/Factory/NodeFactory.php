@@ -36,7 +36,8 @@ class NodeFactory extends ContentFactory {
       unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_paragraphs']);
 
       $this->generateParagraphsForNode($paragraphs, $rawNode);
-      $node = Node::create($rawNode + $this->generateNodeExtras());
+      $this->prepareValues($rawNode);
+      $node = Node::create($rawNode);
       $node->save();
 
       /**
@@ -57,7 +58,7 @@ class NodeFactory extends ContentFactory {
     foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
-        $this->prepareParagraphs($rawParagraph);
+        $this->prepareValues($rawParagraph);
         $paragraph = Paragraph::create($rawParagraph);
         $paragraph->save();
         $rawNode[$type][] = $paragraph;
@@ -65,14 +66,20 @@ class NodeFactory extends ContentFactory {
     }
   }
 
-  protected function prepareParagraphs(array &$rawParagraph) {
+  protected function prepareValues(array &$rawParagraph) {
     foreach ($rawParagraph as $index => $value) {
       switch ($value) {
         case '{{SUBTITLE}}':
           $rawParagraph[$index] = $this->generateBlindText(5);
           break;
+        case '{{TEXT}}':
+          $rawParagraph[$index] = $this->generateBlindText(50);
+          break;
         case '{{MEDIA_IMAGE_ID}}':
           $rawParagraph[$index] = ['target_id' => $this->getImage()->id()];
+          break;
+        case '{{DEMOTAG}}':
+          $rawParagraph[$index] = ['target_id' => $this->getDemoContentTagId()];
           break;
       }
     }
@@ -113,25 +120,4 @@ class NodeFactory extends ContentFactory {
     $keys = array_keys($images);
     return Media::load($images[$keys[$index]]);
   }
-
-  protected function generateNodeExtras(): array {
-    return [
-      'field_tags'             => [
-        ['target_id' => $this->getDemoContentTagId()],
-      ],
-      'field_teaser_image'     => [
-        ['target_id' => $this->getImage()->id()],
-      ],
-      'field_teaser_text'      => [
-        $this->generateBlindText(50),
-      ],
-      'field_teaser_title'     => [
-        $this->generateBlindText(5),
-      ],
-      'field_teaser_sub_title' => [
-        $this->generateBlindText(4),
-      ],
-    ];
-  }
-
 }

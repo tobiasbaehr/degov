@@ -2,25 +2,46 @@ teaser_page:
   type: 'normal_page'
   title: 'Page with all teasers'
   status: 1
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
 teaser1:
   type: 'normal_page'
-  title: 'Page with content #1'
+  title: '{{SUBTITLE}}'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
 teaser2:
   type: 'normal_page'
-  title: 'Page with content #2'
+  title: '{{SUBTITLE}}'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
 teaser3:
   type: 'normal_page'
-  title: 'Page with content #3'
-  status: 1
-teaser4:
-  type: 'normal_page'
-  title: 'Page with content #4'
+  title: '{{SUBTITLE}}'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
 node_with_banner:
   type: 'normal_page'
   title: 'Page with banner'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
   field_header_paragraphs:
     - header_banner
