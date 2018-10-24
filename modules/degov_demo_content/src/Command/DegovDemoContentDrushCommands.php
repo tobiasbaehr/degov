@@ -57,4 +57,5 @@ class DegovDemoContentDrushCommands extends DrushCommands {
     \Drupal::service('degov_demo_content.media_generator')->generateContent();
     \Drupal::service('degov_demo_content.node_generator')->generateContent();
   }
+
 }

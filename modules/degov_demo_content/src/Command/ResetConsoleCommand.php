@@ -20,8 +20,7 @@ class ResetConsoleCommand extends ContainerAwareCommand {
   /**
    * {@inheritdoc}
    */
-  protected function configure(
-  ) {
+  protected function configure() {
     $this
       ->setName('degov_demo_content:reset')
       ->setDescription($this->trans('commands.degov_demo_content.reset.description'));
@@ -33,6 +32,8 @@ class ResetConsoleCommand extends ContainerAwareCommand {
   protected function execute(InputInterface $input, OutputInterface $output) {
     $this->container->get('degov_demo_content.media_generator')->resetContent();
     $this->container->get('degov_demo_content.node_generator')->resetContent();
-    $this->getIo()->info($this->trans('commands.degov_demo_content.reset.messages.success'));
+    $this->getIo()
+      ->info($this->trans('commands.degov_demo_content.reset.messages.success'));
   }
+
 }

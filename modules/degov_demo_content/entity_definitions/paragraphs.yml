@@ -26,5 +26,3 @@ header_banner:
   type: 'image_header'
   field_override_caption: '{{SUBTITLE}}'
   field_header_media: '{{MEDIA_IMAGE_ID}}'
-
-
