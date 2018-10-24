@@ -24,10 +24,9 @@
   We call a macro which calls itself to render the full tree.
   @see http://twig.sensiolabs.org/doc/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, '') }}
 
-<div class="row">
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, identifier) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
@@ -36,35 +35,65 @@
           {%
             set classes_list_item = [
             'flex-fill',
-            item.is_expanded ? 'dropdown',
+            'first-level'
           ]
           %}
           {%
             set classes_link = [
-            item.is_expanded ? 'dropdown-toggle',
-            item.is_collapsed ? 'dropdown-toggle',
+            'first-level-link',
             item.in_active_trail ? 'active',
           ]
           %}
-          {% set sdsd = [] %}
           <li{{ item.attributes.addClass(classes_list_item) }}>
             {% if item.below %}
-              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'dropdown' }) }}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {% set identifier = (item.title ~ item.url.toString())|replace({' ':'-'})|clean_class|lower %}
+              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
             {% else %}
               {{ link(item.title, item.url, { 'class': classes_link }) }}
             {% endif %}
           </li>
         {% endfor %}
       </ul>
-    {% else %}
-      <div class="dropdown-menu dropdown-menu-right">
+    {% elseif menu_level == 1  %}
+      <ul{{ attributes.removeClass('d-flex').addClass('mt-2')}}>
         {% for item in items %}
           {%
+            set classes_list_item = [
+              'secont-level'
+          ]
+          %}
+          {%
             set classes_link = [
-            'dropdown-item',
-            item.is_expanded ? 'dropdown-toggle',
-            item.is_collapsed ? 'dropdown-toggle',
+            'second-level-link',
+            item.in_active_trail ? 'active',
+          ]
+          %}
+          <li{{ item.attributes.addClass(classes_list_item) }}>
+            {% if item.below %}
+              {% set identifier = (item.title ~ item.url.toString())
+                |replace({' ':'-'})
+                |clean_class
+                |lower
+              %}
+              <i class="chevron fas fa-chevron-right"></i>
+              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
+            {% else %}
+              {{ link(item.title, item.url, { 'class': classes_link }) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+    {% else %}
+      <div class="collapse {{ identifier }}">
+        {% for item in items %}
+          {#'dropdown-item',#}
+          {%
+            set classes_link = [
+            'd-block',
+            'pl-3',
             item.in_active_trail ? 'active',
           ]
           %}
@@ -77,4 +106,3 @@
     {% endif %}
   {% endif %}
 {% endmacro %}
-</div>
