@@ -180,6 +180,10 @@ class MediaFactory extends ContentFactory {
             $fields['field_media_publish_date'] = $media_item['field_media_publish_date'];
             break;
 
+          case 'tweet':
+            $fields['embed_code'] = $media_item['embed_code'];
+            break;
+
         }
 
         $new_media = Media::create($fields);
