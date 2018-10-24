@@ -56,3 +56,12 @@ person_1:
   name: '{{SUBTITLE}}'
   field_person_image: 'image_3'
   field_person_info: '{{TEXT}}'
+contact_1:
+  bundle: 'contact'
+  name: '{{SUBTITLE}}'
+  field_contact_email: 'admin@example.com'
+  field_contact_fax: '0123456789'
+  field_contact_image: 'image_1'
+  field_contact_title: '{{SUBTITLE}}'
+  field_contact_position: '{{SUBTITLE}}'
+  field_contact_tel: '0123456789'

@@ -115,9 +115,9 @@ class MediaFactory extends ContentFactory {
               'alt'       => $media_item['name'],
               'title'     => $media_item['name'],
             ];
-            $fields['field_image_caption'] = $media_item['caption'] ?? '';
-            $fields['field_royalty_free'] = $media_item['royalty_free'] ?? FALSE;
-            if (empty($media_item['royalty_free'])) {
+            $fields['field_image_caption'] = $media_item['field_image_caption'] ?? '';
+            $fields['field_royalty_free'] = $media_item['field_royalty_free'] ?? FALSE;
+            if (empty($media_item['field_royalty_free'])) {
               $fields['field_copyright'] = [
                 'target_id' => $this->getDemoContentCopyrightId(),
               ];
@@ -164,6 +164,15 @@ class MediaFactory extends ContentFactory {
           case 'person':
             $fields['field_person_info'] = $media_item['field_person_info'];
             break;
+
+          case 'contact':
+            $fields['field_contact_email'] = $media_item['field_contact_email'];
+            $fields['field_contact_fax'] = $media_item['field_contact_fax'];
+            $fields['field_contact_title'] = $media_item['field_contact_title'];
+            $fields['field_contact_position'] = $media_item['field_contact_position'];
+            $fields['field_contact_tel'] = $media_item['field_contact_tel'];
+            break;
+
         }
 
         $new_media = Media::create($fields);
@@ -217,6 +226,16 @@ class MediaFactory extends ContentFactory {
               $saved_entity->save();
             }
             break;
+
+          case 'contact':
+            if (!empty($media_item['field_contact_image'])) {
+              $saved_entity->set('field_contact_image', [
+                'target_id' => isset($this->savedEntities[$media_item['field_contact_image']]) ? $this->savedEntities[$media_item['field_contact_image']]->id() : NULL,
+              ]);
+              $saved_entity->save();
+            }
+            break;
+
         }
       }
     }
