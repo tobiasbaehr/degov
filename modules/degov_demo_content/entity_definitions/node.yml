@@ -39,8 +39,8 @@ node_with_banner:
   title: 'Page with banner'
   field_teaser_text: '{{TEXT}}'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: '{{SUBTITLE}}'
-  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_title: 'Page with banner'
+  field_teaser_sub_title: 'A page with an image header'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
   field_header_paragraphs:
