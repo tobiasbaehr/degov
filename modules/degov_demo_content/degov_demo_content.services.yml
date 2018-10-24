@@ -4,4 +4,4 @@ services:
     arguments: [ '@degov_demo_content.media_generator', '@pathauto.alias_cleaner' ]
   degov_demo_content.media_generator:
     class: Drupal\degov_demo_content\Factory\MediaFactory
-    arguments: [ '@geofield.wkt_generator' ]
+    arguments: [ '@geofield.wkt_generator', '@degov_media_image.auto_cropper' ]
