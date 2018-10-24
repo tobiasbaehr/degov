@@ -5,12 +5,10 @@ namespace Drupal\degov_demo_content\Factory;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
 class NodeFactory extends ContentFactory {
-
-
-  private $imageCounter = 0;
 
   /**
    * Generates a set of node entities.
@@ -19,8 +17,18 @@ class NodeFactory extends ContentFactory {
 
   protected $mediaGenerator;
 
-  public function __construct(MediaFactory $mediaGenerator) {
+  private $imageCounter = 0;
+
+  /**
+   * The alias cleaner.
+   *
+   * @var \Drupal\pathauto\AliasCleanerInterface
+   */
+  protected $aliasCleaner;
+
+  public function __construct(MediaFactory $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     $this->mediaGenerator = $mediaGenerator;
+    $this->aliasCleaner = $aliasCleaner;
     parent::__construct();
   }
 
@@ -38,7 +46,7 @@ class NodeFactory extends ContentFactory {
 
       $this->generateParagraphsForNode($paragraphs, $rawNode);
       $this->prepareValues($rawNode);
-      $rawNode['path'] = ['alias' => '/degov-demo-content/' . \Drupal::service('pathauto.alias_cleaner')->cleanString($rawNode['title']), 'pathauto' => PathautoState::SKIP];
+      $rawNode['path'] = ['alias' => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']), 'pathauto' => PathautoState::SKIP];
       $node = Node::create($rawNode);
       $node->save();
 
