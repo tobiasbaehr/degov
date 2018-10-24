@@ -2,12 +2,12 @@ image_1:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'vladimir-riabinin-1058013-unsplash.jpg'
-  caption: 'The first image for demonstration purposes'
+  field_image_caption: 'The first image for demonstration purposes'
 image_2:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'humberto-chavez-1058365-unsplash.jpg'
-  royalty_free: 1
+  field_royalty_free: 1
 image_3:
   bundle: 'image'
   name: '{{SUBTITLE}}'
