@@ -160,6 +160,10 @@ class MediaFactory extends ContentFactory {
             $fields['field_citation_text'] = $media_item['field_citation_text'];
             $fields['field_citation_title'] = $media_item['field_citation_title'];
             break;
+
+          case 'person':
+            $fields['field_person_info'] = $media_item['field_person_info'];
+            break;
         }
 
         $new_media = Media::create($fields);
@@ -200,6 +204,15 @@ class MediaFactory extends ContentFactory {
             if (!empty($media_item['field_citation_image'])) {
               $saved_entity->set('field_citation_image', [
                 'target_id' => isset($this->savedEntities[$media_item['field_citation_image']]) ? $this->savedEntities[$media_item['field_citation_image']]->id() : NULL,
+              ]);
+              $saved_entity->save();
+            }
+            break;
+
+          case 'person':
+            if (!empty($media_item['field_person_image'])) {
+              $saved_entity->set('field_person_image', [
+                'target_id' => isset($this->savedEntities[$media_item['field_person_image']]) ? $this->savedEntities[$media_item['field_person_image']]->id() : NULL,
               ]);
               $saved_entity->save();
             }

@@ -51,3 +51,8 @@ citation_1:
   field_citation_image: 'image_2'
   field_citation_text: '{{TEXT}}'
   field_citation_title: '{{SUBTITLE}}'
+person_1:
+  bundle: 'person'
+  name: '{{SUBTITLE}}'
+  field_person_image: 'image_3'
+  field_person_info: '{{TEXT}}'
