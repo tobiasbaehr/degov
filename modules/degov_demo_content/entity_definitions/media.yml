@@ -31,19 +31,19 @@ audio_1:
 address_1:
   bundle: 'address'
   name: '{{SUBTITLE}}'
-  address:
+  field_address_address:
     country_code: 'DE'
     organization: '{{SUBTITLE}}'
     address_line1: '{{SUBTITLE}}'
     postal_code: 43210
     locality: '{{SUBTITLE}}'
-  location:
+  field_address_location:
     lat: '51.220780'
     lon: '6.772690'
-  title: '{{SUBTITLE}}'
-  phone: '0123456789'
-  fax: '0123456789'
-  email: 'admin@example.com'
+  field_address_title: '{{SUBTITLE}}'
+  field_address_phone: '0123456789'
+  field_address_fax: '0123456789'
+  field_address_email: 'admin@example.com'
 citation_1:
   bundle: 'citation'
   name: '{{SUBTITLE}}'

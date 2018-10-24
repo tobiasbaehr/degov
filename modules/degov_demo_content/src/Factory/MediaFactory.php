@@ -144,15 +144,15 @@ class MediaFactory extends ContentFactory {
 
           case 'address':
             $fields['field_address_address'] = [
-              $media_item['address'] ?? [],
+              $media_item['field_address_address'] ?? [],
             ];
-            if(!empty($media_item['location'])) {
-              $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['location']);
+            if(!empty($media_item['field_address_location'])) {
+              $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
             }
-            $fields['field_address_title'] = $media_item['title'] ?? '';
-            $fields['field_address_phone'] = $media_item['phone'] ?? '';
-            $fields['field_address_fax'] = $media_item['fax'] ?? '';
-            $fields['field_address_email'] = $media_item['email'] ?? '';
+            $fields['field_address_title'] = $media_item['field_address_title'] ?? '';
+            $fields['field_address_phone'] = $media_item['field_address_phone'] ?? '';
+            $fields['field_address_fax'] = $media_item['field_address_fax'] ?? '';
+            $fields['field_address_email'] = $media_item['field_address_email'] ?? '';
             break;
 
           case 'citation':
