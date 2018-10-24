@@ -80,3 +80,7 @@ tweet_1:
   bundle: 'tweet'
   name: '{{SUBTITLE}}'
   embed_code: '<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr"><a href="https://twitter.com/hashtag/Drupal?src=hash&amp;ref_src=twsrc%5Etfw">#Drupal</a> 9 soll 2020 <a href="https://twitter.com/hashtag/released?src=hash&amp;ref_src=twsrc%5Etfw">#released</a> werden, sodass <a href="https://twitter.com/hashtag/Nutzer?src=hash&amp;ref_src=twsrc%5Etfw">#Nutzer</a> ein Jahr lang Zeit haben von Drupal 8 darauf umzusteigen. Wie es mit allen Drupal Versionen weitergeht, lesen Sie hier: <a href="https://t.co/MYesgQoO33">https://t.co/MYesgQoO33</a> <a href="https://twitter.com/hashtag/CMS?src=hash&amp;ref_src=twsrc%5Etfw">#CMS</a> <a href="https://twitter.com/hashtag/developer?src=hash&amp;ref_src=twsrc%5Etfw">#developer</a> <a href="https://twitter.com/hashtag/software?src=hash&amp;ref_src=twsrc%5Etfw">#software</a></p>&mdash; publicplan GmbH (@publicplan_GmbH) <a href="https://twitter.com/publicplan_GmbH/status/1052804217973420032?ref_src=twsrc%5Etfw">18. Oktober 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
+instagram_1:
+  bundle: 'instagram'
+  name: '{{SUBTITLE}}'
+  embed_code: 'https://www.instagram.com/p/BZgLs7aFUkB/?taken-by=publicplan_gmbh'

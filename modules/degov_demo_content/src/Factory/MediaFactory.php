@@ -108,6 +108,10 @@ class MediaFactory extends ContentFactory {
           ],
         ];
 
+        if(isset($media_item['embed_code'])) {
+          $fields['embed_code'] = $media_item['embed_code'];
+        }
+
         switch ($media_item['bundle']) {
           case 'image':
             $fields['image'] = [
@@ -178,10 +182,6 @@ class MediaFactory extends ContentFactory {
             $fields['field_gallery_title'] = $media_item['field_gallery_title'];
             $fields['field_subtitle'] = $media_item['field_subtitle'];
             $fields['field_media_publish_date'] = $media_item['field_media_publish_date'];
-            break;
-
-          case 'tweet':
-            $fields['embed_code'] = $media_item['embed_code'];
             break;
 
         }
