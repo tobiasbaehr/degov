@@ -154,6 +154,12 @@ class MediaFactory extends ContentFactory {
             $fields['field_address_fax'] = $media_item['fax'] ?? '';
             $fields['field_address_email'] = $media_item['email'] ?? '';
             break;
+
+          case 'citation':
+            $fields['field_citation_date'] = $media_item['field_citation_date'];
+            $fields['field_citation_text'] = $media_item['field_citation_text'];
+            $fields['field_citation_title'] = $media_item['field_citation_title'];
+            break;
         }
 
         $new_media = Media::create($fields);
@@ -185,6 +191,15 @@ class MediaFactory extends ContentFactory {
             if (!empty($media_item['preview']['image'])) {
               $saved_entity->set('field_audio_preview', [
                 'target_id' => isset($this->savedEntities[$media_item['preview']['image']]) ? $this->savedEntities[$media_item['preview']['image']]->id() : NULL,
+              ]);
+              $saved_entity->save();
+            }
+            break;
+
+          case 'citation':
+            if (!empty($media_item['field_citation_image'])) {
+              $saved_entity->set('field_citation_image', [
+                'target_id' => isset($this->savedEntities[$media_item['field_citation_image']]) ? $this->savedEntities[$media_item['field_citation_image']]->id() : NULL,
               ]);
               $saved_entity->save();
             }
