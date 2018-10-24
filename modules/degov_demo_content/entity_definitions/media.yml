@@ -65,3 +65,14 @@ contact_1:
   field_contact_title: '{{SUBTITLE}}'
   field_contact_position: '{{SUBTITLE}}'
   field_contact_tel: '0123456789'
+gallery_1:
+  bundle: 'gallery'
+  name: '{{SUBTITLE}}'
+  field_description: '{{TEXT}}'
+  field_gallery_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_publish_date: '2018-01-01T00:00:00'
+  field_gallery_images:
+    - 'image_1'
+    - 'image_2'
+    - 'image_3'

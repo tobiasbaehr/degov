@@ -173,6 +173,13 @@ class MediaFactory extends ContentFactory {
             $fields['field_contact_tel'] = $media_item['field_contact_tel'];
             break;
 
+          case 'gallery':
+            $fields['field_description'] = $media_item['field_description'];
+            $fields['field_gallery_title'] = $media_item['field_gallery_title'];
+            $fields['field_subtitle'] = $media_item['field_subtitle'];
+            $fields['field_media_publish_date'] = $media_item['field_media_publish_date'];
+            break;
+
         }
 
         $new_media = Media::create($fields);
@@ -232,6 +239,21 @@ class MediaFactory extends ContentFactory {
               $saved_entity->set('field_contact_image', [
                 'target_id' => isset($this->savedEntities[$media_item['field_contact_image']]) ? $this->savedEntities[$media_item['field_contact_image']]->id() : NULL,
               ]);
+              $saved_entity->save();
+            }
+            break;
+
+          case 'gallery':
+            if (!empty($media_item['field_gallery_images'])) {
+              $image_target_ids = [];
+              foreach($media_item['field_gallery_images'] as $image_key) {
+                if(isset($this->savedEntities[$image_key])) {
+                  $image_target_ids[] = [
+                    'target_id' => $this->savedEntities[$image_key]->id(),
+                  ];
+                }
+              }
+              $saved_entity->set('field_gallery_images', $image_target_ids);
               $saved_entity->save();
             }
             break;
