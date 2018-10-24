@@ -112,6 +112,16 @@ class MediaFactory extends ContentFactory {
           $fields['embed_code'] = $media_item['embed_code'];
         }
 
+        if(isset($media_item['field_media_publish_date'])) {
+          $fields['field_media_publish_date'] = $media_item['field_media_publish_date'];
+        }
+
+        if (empty($media_item['field_royalty_free'])) {
+          $fields['field_copyright'] = [
+            'target_id' => $this->getDemoContentCopyrightId(),
+          ];
+        }
+
         switch ($media_item['bundle']) {
           case 'image':
             $fields['image'] = [
@@ -121,11 +131,6 @@ class MediaFactory extends ContentFactory {
             ];
             $fields['field_image_caption'] = $media_item['field_image_caption'] ?? '';
             $fields['field_royalty_free'] = $media_item['field_royalty_free'] ?? FALSE;
-            if (empty($media_item['field_royalty_free'])) {
-              $fields['field_copyright'] = [
-                'target_id' => $this->getDemoContentCopyrightId(),
-              ];
-            }
             break;
 
           case 'video_upload':
@@ -181,7 +186,22 @@ class MediaFactory extends ContentFactory {
             $fields['field_description'] = $media_item['field_description'];
             $fields['field_gallery_title'] = $media_item['field_gallery_title'];
             $fields['field_subtitle'] = $media_item['field_subtitle'];
+            break;
+
+          case 'some_embed':
+            $fields['field_some_embed_code'] = $media_item['field_some_embed_code'];
+            $fields['field_social_media_source'] = $media_item['field_social_media_source'];
+            break;
+
+          case 'video':
+            $fields['field_description'] = $media_item['field_description'];
+            $fields['field_video_caption'] = $media_item['field_video_caption'];
+            $fields['field_social_media_source'] = $media_item['field_social_media_source'];
+            $fields['field_media_transcription'] = $media_item['field_media_transcription'];
+            $fields['field_subtitle'] = $media_item['field_subtitle'];
             $fields['field_media_publish_date'] = $media_item['field_media_publish_date'];
+            $fields['field_media_duration'] = $media_item['field_media_duration'];
+            $fields['field_media_video_embed_field'] = $media_item['field_media_video_embed_field'];
             break;
 
         }
@@ -262,6 +282,14 @@ class MediaFactory extends ContentFactory {
             }
             break;
 
+          case 'video':
+            if (!empty($media_item['field_video_preview'])) {
+              $saved_entity->set('field_video_preview', [
+                'target_id' => isset($this->savedEntities[$media_item['field_video_preview']]) ? $this->savedEntities[$media_item['field_video_preview']]->id() : NULL,
+              ]);
+              $saved_entity->save();
+            }
+            break;
         }
       }
     }
