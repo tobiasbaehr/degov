@@ -35,6 +35,23 @@ class MediaFactory extends ContentFactory {
   private $savedEntities = [];
 
   /**
+   * The Geofield WktGenerator.
+   *
+   * @var \Drupal\geofield\WktGenerator
+   */
+  protected $wktGenerator;
+
+  /**
+   * Constructs a new ContentFactory instance.
+   *
+   * @param WktGenerator $wktGenerator
+   */
+  public function __construct($wktGenerator) {
+    parent::__construct();
+    $this->wktGenerator = $wktGenerator;
+  }
+
+  /**
    * Generates a set of media entities.
    */
   public function generateContent() {
@@ -123,6 +140,19 @@ class MediaFactory extends ContentFactory {
             $fields['field_audio_mp3'] = [
               'target_id' => $this->files[$media_item_key]->id(),
             ];
+            break;
+
+          case 'address':
+            $fields['field_address_address'] = [
+              $media_item['address'] ?? [],
+            ];
+            if(!empty($media_item['location'])) {
+              $fields['field_address_location'] = \Drupal::service('geofield.wkt_generator')->wktBuildPoint($media_item['location']);
+            }
+            $fields['field_address_title'] = $media_item['title'] ?? '';
+            $fields['field_address_phone'] = $media_item['phone'] ?? '';
+            $fields['field_address_fax'] = $media_item['fax'] ?? '';
+            $fields['field_address_email'] = $media_item['email'] ?? '';
             break;
         }
 

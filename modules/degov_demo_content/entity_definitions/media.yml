@@ -28,3 +28,19 @@ audio_1:
   file: 'dummy.mp3'
   preview:
     image: 'image_2'
+address_1:
+  bundle: 'address'
+  name: '{{SUBTITLE}}'
+  address:
+    country_code: 'DE'
+    organization: '{{SUBTITLE}}'
+    address_line1: '{{SUBTITLE}}'
+    postal_code: 43210
+    locality: '{{SUBTITLE}}'
+  location:
+    lat: '51.220780'
+    lon: '6.772690'
+  title: '{{SUBTITLE}}'
+  phone: '0123456789'
+  fax: '0123456789'
+  email: 'admin@example.com'
