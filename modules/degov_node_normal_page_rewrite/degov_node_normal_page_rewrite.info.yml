@@ -1,7 +1,0 @@
-name: 'deGov - Node Normal Page Rewrite'
-description: 'Config replacements for the degov_node_normal_page module.'
-type: module
-package: deGov
-core: 8.x
-dependencies:
-  - degov_node_normal_page

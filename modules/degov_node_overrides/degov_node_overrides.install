@@ -66,6 +66,17 @@ function degov_node_overrides_update_8014() {
 }
 
 /**
+ * Updating content view
+ */
+function degov_node_overrides_update_8015() {
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_node_overrides', '8015');
+}
+
+/**
  * #Issue-2998749 - Re-Import admin content view
  */
 function degov_node_overrides_update_8016() {

@@ -18,7 +18,7 @@ function degov_paragraph_node_reference_uninstall() {
 /**
  * Adds reference to press node content type in node reference paragraph type. Adds view modes.
  */
-function degov_paragraph_node_reference_update_8001() {
+function degov_paragraph_node_reference_update_8002() {
   /** @var DegovModuleUpdater $degovModuleUpdater */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_paragraph_node_reference', '8001');

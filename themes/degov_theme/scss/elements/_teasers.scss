@@ -1,0 +1,61 @@
+//All kinds of Teasers are here
+
+//Teaser small image
+article {
+  .small-image {
+    @include lighter-bg-color($degov-steel, 0.1);
+    width: 48%;
+    height: 190px;
+    margin: 0 20px 20px 0;
+    float: left;
+    display: flex;
+    justify-content: space-between;
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+
+    @media (max-width: $screen-lg) {
+      width: 100%;
+      margin-right: 0;
+      float: none;
+    }
+
+    a {
+      .teaser-image {
+        margin-right: 20px;
+        article {
+          picture {
+            img {
+              width: 190px;
+            }
+          }
+        }
+      }
+    }
+    .teaser-content {
+      margin-right: 20px;
+      .teaser-content-inner {
+        a {
+          color: $degov-black;
+          text-decoration: none;
+        }
+      }
+    }
+
+    a {
+      .normal-page__teaser-arrow {
+        background-color: $degov-blue;
+        width: 58px;
+        height: 190px;
+        padding-top: 85px;
+
+        svg {
+          color: $color-white;
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

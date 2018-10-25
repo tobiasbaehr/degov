@@ -5,8 +5,8 @@
  */
 
 use Drupal\field\Entity\FieldConfig;
+use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
