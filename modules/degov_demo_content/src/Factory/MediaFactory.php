@@ -2,6 +2,8 @@
 
 namespace Drupal\degov_demo_content\Factory;
 
+use Drupal\degov_media_image\Service\AutoCropper;
+use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
 
 /**

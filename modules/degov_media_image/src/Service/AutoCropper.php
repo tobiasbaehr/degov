@@ -2,6 +2,9 @@
 
 namespace Drupal\degov_media_image\Service;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystem;
 
@@ -43,48 +46,61 @@ class AutoCropper {
 
   /**
    * Apply all defined crop types to all image files in our definitions.
+   *
+   * @param \Drupal\file\Entity\File $file
+   *   The File entity the image crops should be applied to.
    */
   public function applyImageCrops($file): void {
-    $crop_types = $this->entityTypeManager
-      ->getStorage('crop_type')
-      ->loadMultiple();
-    if (preg_match("/^image\//", $file->getMimeType())) {
-      foreach ($crop_types as $crop_type) {
-        $image_dimensions = getimagesize($this->fileSystem
-          ->realpath($file->getFileUri()));
+    try {
+      $crop_types = $this->entityTypeManager
+        ->getStorage('crop_type')
+        ->loadMultiple();
+      if (preg_match("/^image\//", $file->getMimeType())) {
+        foreach ($crop_types as $crop_type) {
+          try {
+            $image_dimensions = getimagesize($this->fileSystem
+              ->realpath($file->getFileUri()));
 
-        $crop = $this->entityTypeManager
-          ->getStorage('crop')
-          ->loadByProperties([
-            'type' => $crop_type->id(),
-            'uri'  => $file->getFileUri(),
-          ]);
+            $crop = $this->entityTypeManager
+              ->getStorage('crop')
+              ->loadByProperties([
+                'type' => $crop_type->id(),
+                'uri'  => $file->getFileUri(),
+              ]);
 
-        $measurements = $this->calculateCropDimensions($crop_type, $image_dimensions);
+            $measurements = $this->calculateCropDimensions($crop_type, $image_dimensions);
 
-        if (empty($crop)) {
-          $crop_values = [
-            'type'        => $crop_type->id(),
-            'entity_id'   => $file->id(),
-            'entity_type' => 'file',
-            'uri'         => $file->getFileUri(),
-            'x'           => $image_dimensions[0] / 2,
-            'y'           => $image_dimensions[1] / 2,
-          ];
-          $crop_values += $measurements;
-          $crop = $this->entityTypeManager
-            ->getStorage('crop')
-            ->create($crop_values);
+            if (empty($crop)) {
+              $crop_values = [
+                'type'        => $crop_type->id(),
+                'entity_id'   => $file->id(),
+                'entity_type' => 'file',
+                'uri'         => $file->getFileUri(),
+                'x'           => $image_dimensions[0] / 2,
+                'y'           => $image_dimensions[1] / 2,
+              ];
+              $crop_values += $measurements;
+              $crop = $this->entityTypeManager
+                ->getStorage('crop')
+                ->create($crop_values);
+            }
+            else {
+              $crop = reset($crop);
+              $crop->set('x', $image_dimensions[0] / 2);
+              $crop->set('y', $image_dimensions[1] / 2);
+              $crop->set('width', $measurements['width']);
+              $crop->set('height', $measurements['height']);
+            }
+            $crop->save();
+          } catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
+            // Crop not found or crop save failed. Log and continue.
+            error_log($exception->getMessage());
+          }
         }
-        else {
-          $crop = reset($crop);
-          $crop->set('x', $image_dimensions[0] / 2);
-          $crop->set('y', $image_dimensions[1] / 2);
-          $crop->set('width', $measurements['width']);
-          $crop->set('height', $measurements['height']);
-        }
-        $crop->save();
       }
+    } catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
+      // No crop types found. Just log, otherwise do nothing.
+      error_log($exception->getMessage());
     }
   }
 
