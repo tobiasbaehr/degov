@@ -2,11 +2,10 @@ langcode: de
 status: true
 dependencies:
   config:
-  - field.storage.node.field_internal_title
+    - field.storage.node.field_internal_title
   module:
-  - content_moderation
-  - node
-  - user
+    - node
+    - user
 id: content
 label: Inhalt
 module: node
@@ -222,69 +221,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_internal_title:
-          id: field_internal_title
-          table: node__field_internal_title
-          field: field_internal_title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Interner Titel'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         type:
           id: type
           table: node_field_data
@@ -369,6 +305,28 @@ display:
           type: user_name
           entity_type: user
           entity_field: name
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          label: Status
+          exclude: false
+          alter:
+            alter_text: false
+          element_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: Veröffentlicht
+            format_custom_false: 'Nicht veröffentlicht'
+          plugin_id: field
+          entity_type: node
+          entity_field: status
         changed:
           id: changed
           table: node_field_data
@@ -391,14 +349,14 @@ display:
           plugin_id: field
           entity_type: node
           entity_field: changed
-        moderation_state:
-          id: moderation_state
-          table: node_field_data
-          field: moderation_state
+        field_internal_title:
+          id: field_internal_title
+          table: node__field_internal_title
+          field: field_internal_title
           relationship: none
           group_type: group
           admin_label: ''
-          label: Moderationsstatus
+          label: 'Interner Titel'
           exclude: false
           alter:
             alter_text: false
@@ -440,8 +398,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: content_moderation_state
-          settings: {  }
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -452,7 +411,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
           plugin_id: field
         operations:
           id: operations
@@ -589,6 +547,52 @@ display:
           plugin_id: bundle
           entity_type: node
           entity_field: type
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Status
+            description: ''
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: 'Status veröffentlicht'
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Veröffentlicht
+                operator: '='
+                value: '1'
+              2:
+                title: 'Nicht veröffentlicht'
+                operator: '='
+                value: '0'
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
         langcode:
           id: langcode
           table: node_field_data
@@ -639,49 +643,6 @@ display:
           plugin_id: node_status
           group: 1
           entity_type: node
-        moderation_state:
-          id: moderation_state
-          table: node_field_data
-          field: moderation_state
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: moderation_state_op
-            label: Moderationsstatus
-            description: ''
-            use_operator: false
-            operator: moderation_state_op
-            identifier: moderation_state
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              manager: '0'
-              editor: '0'
-              usermanager: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          plugin_id: moderation_state_filter
         field_internal_title_value:
           id: field_internal_title_value
           table: node__field_internal_title
@@ -689,7 +650,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
@@ -710,7 +671,6 @@ display:
               manager: '0'
               editor: '0'
               usermanager: '0'
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -747,8 +707,8 @@ display:
       filter_groups:
         operator: AND
         groups:
-        - AND
-        - AND
+          - AND
+          - AND
       display_extenders: {  }
     display_plugin: default
     display_title: Master
@@ -756,17 +716,16 @@ display:
     position: 0
     cache_metadata:
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - url.query_args
-      - user
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
       max-age: 0
       tags:
-      - 'config:field.storage.node.field_internal_title'
-      - 'config:workflow_list'
+        - 'config:field.storage.node.field_internal_title'
   page_1:
     display_options:
       path: admin/content/node
@@ -790,14 +749,13 @@ display:
     position: 1
     cache_metadata:
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - url.query_args
-      - user
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
       max-age: 0
       tags:
-      - 'config:field.storage.node.field_internal_title'
-      - 'config:workflow_list'
+        - 'config:field.storage.node.field_internal_title'

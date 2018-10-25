@@ -1,8 +1,8 @@
 <?php
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\degov_common\Common;
 use Drupal\views\ViewExecutable;
-use Drupal\Component\Utility\Unicode;
 
 /**
  * Implements hook_preprocess().

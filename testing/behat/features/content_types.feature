@@ -41,17 +41,29 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I choose "Content" via translation from tab menu
+    And I choose "Inhalt" from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
-    And I assert dropbutton actions with css selector ".ui-widget-content .paragraphs-add-dialog-list" contains the following name-value pairs:
-      | value                 | name                                              |
-      | FAQ                   | field-content-paragraphs-faq-add-more             |
-      | FAQ / Akkordion Liste | field-content-paragraphs-faq-list-add-more        |
-      | Banner                | field-content-paragraphs-image-header-add-more    |
-      | Medienreferenz        | field-content-paragraphs-media-reference-add-more |
-      | Inhaltsreferenz       | field-content-paragraphs-node-reference-add-more  |
-      | Slide                 | field-content-paragraphs-slide-add-more           |
-      | Slideshow             | field-content-paragraphs-slideshow-add-more       |
-      | Text                  | field-content-paragraphs-text-add-more            |
-      | Untertitel            | field-content-paragraphs-video-subtitle-add-more  |
-      | Webform               | field-content-paragraphs-webform-add-more         |
+    And I wait 10 seconds
+    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ / Akkordion Liste"
+    And I should see HTML content matching "Banner"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Slide"
+    And I should see HTML content matching "Slideshow"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Text"
+    And I should see HTML content matching "Untertitel"
+    And I should see HTML content matching "Webform"
+
+  Scenario: Admin Content page
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/content"
+    And I see the button "Filter"
+    And I press button with label "Show all columns" via translated text
+    And I should see "Titel"
+    And I should see "Inhaltstyp"
+    And I should see "Autor"
+    And I should see "Aktualisiert"
+    And I should see "Interner Titel"
+    And I should see "Aktionen"
+    And I should not see the text "Undefined index"

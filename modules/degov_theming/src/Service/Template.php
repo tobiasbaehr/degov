@@ -67,11 +67,9 @@ class Template {
       if ($entity_bundles) {
         if ($hook === 'media') {
           $entity = $variables['elements']['#media'];
-        }
-        elseif ($hook === 'taxonomy_term') {
+        } elseif ($hook === 'taxonomy_term') {
           $entity = $variables['term'];
-        }
-        else {
+        } else {
           $entity = $variables[$entity_type];
         }
         $entity_bundle = $entity->bundle();
@@ -79,8 +77,7 @@ class Template {
         if (\in_array($entity_bundle, $entity_bundles, TRUE)) {
           $add_suggestion = TRUE;
         }
-      }
-      else {
+      } else {
         // In case no entity bundles are defined, we still include the default template override.
         $add_suggestion = TRUE;
       }
@@ -96,23 +93,23 @@ class Template {
         // does the template exist in the active theme?
         $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
         $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
-        if(!$template_found) {
+        if (!$template_found) {
           // no? does the template exist in a base theme?
           $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
-          foreach($base_themes as $base_theme) {
-            if($base_theme->getPath() !== null) {
+          foreach ($base_themes as $base_theme) {
+            if ($base_theme->getPath() !== null) {
               $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
-              if($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
+              if ($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
                 $template_found = TRUE;
                 break;
               }
             }
           }
         }
-        if(!$template_found) {
+        if (!$template_found) {
           // no? does the template exist in a module?
           $module_path = $this->drupalPath->getPath('module', $module_name);
-          if($module_path) {
+          if ($module_path) {
             $module_templates_dirname = $this->buildPath($module_path, 'templates');
             $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
           }
@@ -139,9 +136,9 @@ class Template {
   private function addTemplateToArrayIfFileIsFound(array &$original_array, string $theme_path, string $template_filename, string $directory_name): bool
   {
     $template_filename_with_suffix = $template_filename . '.html.twig';
-    if($directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name)) {
-      foreach($directory_iterator as $file_in_directory) {
-        if($file_in_directory->getFilename() === $template_filename_with_suffix) {
+    if ($directory_iterator = $this->getFileSystemIteratorForDirectory($directory_name)) {
+      foreach ($directory_iterator as $file_in_directory) {
+        if ($file_in_directory->getFilename() === $template_filename_with_suffix) {
           $original_array = array_merge($original_array, [
             'template'   => $template_filename,
             'theme path' => $theme_path,

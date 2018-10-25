@@ -66,3 +66,24 @@ function degov_media_audio_update_8012() {
   $degovModuleUpdater->applyUpdates('degov_media_audio', '8012');
 }
 
+/**
+ * Add new field publish date
+ */
+function degov_media_audio_update_8013() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_audio', '8013');
+}
+
+/**
+ * Define a default value for publish date
+ */
+function degov_media_audio_update_8014() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_audio', '8014');
+}

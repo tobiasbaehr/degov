@@ -27,7 +27,7 @@ pipelines:
           - php composer-require-namespace.php
           - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
           - composer dump-autoload
-          - screen -dmS php-server php -S localhost:80 -t docroot &
+          - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
           - export PATH="$HOME/.composer/vendor/bin:$PATH"
           - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1
           - (cd docroot/profiles/contrib/degov && phpunit --testdox)
@@ -38,9 +38,7 @@ pipelines:
           - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
           - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
           - behat -c behat-no-drupal.yml -vvv
-          - bin/drush locale-check
-          - bin/drush locale-update -y
-          - bin/drush cr
+          - bin/drush locale-check && bin/drush locale-update && bin/drush cr
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
         services:
@@ -48,14 +46,12 @@ pipelines:
           - mysql
     - step:
         name: Deploy to platform.sh
-        image: alpine/git
         script:
           - git config --global push.default matching
           - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
           - git push platform $BITBUCKET_BRANCH
     - step:
         name: Push to drupal.org
-        image: alpine/git
         script:
           - git remote add drupal git@git.drupal.org:project/degov.git
           - git config --global push.default matching
@@ -77,7 +73,7 @@ pipelines:
             - php composer-require-namespace.php
             - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
-            - screen -dmS php-server php -S localhost:80 -t docroot &
+            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
             - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1
             - (cd docroot/profiles/contrib/degov && phpunit --testdox)
@@ -88,9 +84,7 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - bin/drush locale-check
-            - bin/drush locale-update -y
-            - bin/drush cr
+            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
           services:
@@ -98,14 +92,12 @@ pipelines:
             - mysql
       - step:
           name: Deploy to platform.sh
-          image: alpine/git
           script:
             - git config --global push.default matching
             - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
             - git push platform $BITBUCKET_BRANCH
       - step:
           name: Push dev to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -118,7 +110,6 @@ pipelines:
     '*':
       - step:
           name: Pushing tags to drupal.org
-          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching

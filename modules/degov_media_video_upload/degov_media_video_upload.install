@@ -48,7 +48,26 @@ function degov_media_video_upload_update_8011() {
 /**
  * Add missing view mode preview wide
  */
-function degov_media_video_upload_update_8012() {
+function degov_media_video_upload_update_8014() {
   \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_media_video_upload', '8012');
+    ->applyUpdates('degov_media_video_upload', '8014');
+}
+
+/**
+ * Adds new field publish date
+ */
+function degov_media_video_upload_update_8015() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media_video_upload', '8015');
+}
+
+/**
+ * Define a default value for publish date
+ */
+function degov_media_video_upload_update_8016() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_video_upload', '8016');
 }

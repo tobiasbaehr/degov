@@ -26,5 +26,5 @@ function degov_media_person_update_8010() {
  */
 function degov_media_person_update_8011() {
   \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_person_audio', '8011');
+    ->applyUpdates('degov_media_person', '8011');
 }
