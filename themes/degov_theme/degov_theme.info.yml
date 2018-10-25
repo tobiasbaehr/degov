@@ -17,6 +17,7 @@ regions:
   breadcrumb: Breadcrumbs
   content: 'Main content'
   footer: Footer
+  footer_bottom: "Footer bottom"
 
 libraries:
   - 'degov_theme/theme-assets'

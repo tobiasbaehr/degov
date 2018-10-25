@@ -116,9 +116,19 @@
 
 
 {% if page.footer %}
-  <footer class="">
+  <footer class="mt-3">
     <div class="container">
       {{ page.footer }}
     </div>
   </footer>
 {% endif %}
+
+{% if page.footer_bottom %}
+  <div class="footer-bottom-wrapper pt-4">
+    <div class="container">
+      {{ page.footer_bottom }}
+    </div>
+  </div>
+{% endif %}
+
+
