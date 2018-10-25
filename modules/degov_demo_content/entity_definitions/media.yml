@@ -12,6 +12,10 @@ image_3:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'taneli-lahtinen-1058552-unsplash.jpg'
+image_4:
+  bundle: 'image'
+  name: '{{SUBTITLE}}'
+  file: 'kari-shea-1066699-unsplash.jpg'
 video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
