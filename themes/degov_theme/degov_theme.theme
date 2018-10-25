@@ -1,5 +1,7 @@
 <?php
 
+use \Drupal\Core\Template\Attribute;
+
 /**
  * Implements theme_preprocess_html().
  */
@@ -7,7 +9,7 @@ function degov_theme_preprocess_html(&$vars) {
   /** @var \Drupal\Core\Template\Attribute $attributes */
   $attributes = $vars['attributes'];
   // TODO: review that code.
-  if (!empty($attributes) && $attributes->hasClass('install-page')) {
+  if ($attributes instanceof Attribute && $attributes->hasClass('install-page')) {
     if (count($vars['head_title']) === 1) {
       if (!empty($vars['page']['#title'])) {
         $vars['head_title']['title'] = $vars['page']['#title'];
@@ -84,14 +86,14 @@ function degov_theme_preprocess_install_page(&$vars) {
  * Implements hook_attachments_alter().
  */
 function degov_theme_page_attachments_alter(&$page) {
-  $viewport = array(
+  $viewport = [
     '#type' => 'html_tag',
     '#tag' => 'meta',
-    '#attributes' => array(
+    '#attributes' => [
       'name' => 'viewport',
       'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
-    ),
-  );
+    ],
+  ];
   $page['#attached']['html_head'][] = [$viewport, 'viewport'];
 }
 
@@ -103,24 +105,49 @@ function degov_theme_preprocess_menu__account(&$vars) {
   array_walk($vars['items'], function (&$item) {
     /** @var \Drupal\Core\Url $url */
     $url = $item['url'];
+    // We don't know in which way the contact page is build.
+    // Also, made a sugestion that it is on /contact url.
     if ($url->toString() === '/contact') {
-      $item['title'] =
-        '<span class="d-none d-lg-inline-block d-xl-inline-block d-md-none">'
-         . $item['title']
-         . '</span>';
-      $item['title'] = new Twig_Markup($item['title'] . ' '
+      $wrapped_title = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#value' => $item['title'],
+        '#attributes' => [
+          'class' => [
+            'd-none',
+            'd-lg-inline-block',
+            'd-xl-inline-block',
+            'd-md-none',
+          ],
+        ],
+      ];
+
+      $item['title'] = new Twig_Markup(\Drupal::service('renderer')
+          ->render($wrapped_title)
+        . ' '
         . _degov_theme_fa_icon('paper-plane'), 'utf8');
     }
 
-    if ($url->toString() === '/user/login') {
-      $login_link_title = $item['title'];
-      if (!\Drupal::currentUser()->isAnonymous()) {
-        $login_link_title =
-          '<span class="d-none d-lg-inline-block d-xl-inline-block d-md-none">'
-           . t('My Account')
-           . '</span>';
-      }
-      $item['title'] = new Twig_Markup($login_link_title . ' ' . _degov_theme_fa_icon('user'), 'utf8');
+    if (($url->isRouted()) && $url->getRouteName() === 'user.login') {
+      $login_link_title = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#value' => \Drupal::currentUser()->isAnonymous()
+          ? $item['title'] :  t('My Account'),
+        '#attributes' => [
+          'class' => [
+            'd-none',
+            'd-lg-inline-block',
+            'd-xl-inline-block',
+            'd-md-none',
+          ],
+        ],
+      ];
+
+      $item['title'] = new Twig_Markup(\Drupal::service('renderer')
+          ->render($login_link_title)
+        . ' '
+        . _degov_theme_fa_icon('user'), 'utf8');
     }
   });
 }
@@ -129,11 +156,14 @@ function degov_theme_preprocess_menu__account(&$vars) {
  * Helper function to build the fontawesome icon markup.
  *
  * @param $name
+ *   The icon name.
  * @param string $type
+ *   The fontawesome icon type.
  *
  * @return mixed
+ *  Rendered content of fontawesome markup.
  */
-function _degov_theme_fa_icon($name, $type = 'fas') {
+function _degov_theme_fa_icon($name, $type = 'fas'): string {
   $icon = [
     '#type' => 'html_tag',
     '#tag' => 'i',
