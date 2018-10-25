@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -34,4 +35,15 @@ function degov_node_normal_page_update_8010() {
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('normal_page');
+}
+
+/**
+ * Fixes bug regarding hidden text preview field in content type "normal_page".
+ */
+function degov_node_normal_page_update_8011() {
+  /**
+   * @var DegovModuleUpdater $moduleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_node_normal_page', '8011');
 }
