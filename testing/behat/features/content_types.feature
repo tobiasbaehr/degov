@@ -10,8 +10,6 @@ Feature: deGov - Content types
       | degov_paragraph_header    |
     Given I am installing the following Drupal modules:
       | degov_node_event          |
-
-  Scenario: Content type normal_page displays all required fields
     Given I proof content type "normal_page" has set the following fields for display:
       | field_teaser_title             |
       | field_teaser_text              |
