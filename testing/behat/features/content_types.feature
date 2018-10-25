@@ -16,7 +16,6 @@ Feature: deGov - Content types
       | content_moderation_control     |
       | field_header_paragraphs        |
       | field_sidebar_right_paragraphs |
-      | field_teaser_sub_title         |
       | title                          |
 
   Scenario: Content type normal_page has all required fields
