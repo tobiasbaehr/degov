@@ -74,7 +74,6 @@ class MediaFactory extends ContentFactory {
     $this->saveFiles($media_to_generate);
     $this->saveEntities($media_to_generate);
     $this->saveEntityReferences($media_to_generate);
-    $this->applyImageCrops();
   }
 
   /**
