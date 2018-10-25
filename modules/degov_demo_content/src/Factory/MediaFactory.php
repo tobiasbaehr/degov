@@ -51,10 +51,12 @@ class MediaFactory extends ContentFactory {
   /**
    * Constructs a new ContentFactory instance.
    *
-   * @param WktGenerator $wktGenerator
-   * @param AutoCropper $autoCropper
+   * @param \Drupal\geofield\WktGenerator $wktGenerator
+   *   The Geofield WktGenerator.
+   * @param \Drupal\degov_media_image\Service\AutoCropper $autoCropper
+   *   The degov_media_image AutoCropper.
    */
-  public function __construct($wktGenerator, $autoCropper) {
+  public function __construct(WktGenerator $wktGenerator, AutoCropper $autoCropper) {
     parent::__construct();
     $this->wktGenerator = $wktGenerator;
     $this->autoCropper = $autoCropper;
@@ -89,7 +91,7 @@ class MediaFactory extends ContentFactory {
       ->getPath() . '/fixtures';
 
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      if(isset($media_item['file'])) {
+      if (isset($media_item['file'])) {
         $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
         if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
           $this->files[$media_item_key] = $saved_file;
@@ -106,9 +108,9 @@ class MediaFactory extends ContentFactory {
   private function saveEntities($media_to_generate): void {
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      foreach($media_item as $media_item_field_key => $media_item_field_value) {
-        if($media_item_field_key === 'file') {
-          switch($media_item['bundle']) {
+      foreach ($media_item as $media_item_field_key => $media_item_field_value) {
+        if ($media_item_field_key === 'file') {
+          switch ($media_item['bundle']) {
             case 'image':
               $fields['image'] = [
                 'target_id' => $this->files[$media_item_key]->id(),
@@ -116,16 +118,19 @@ class MediaFactory extends ContentFactory {
                 'title'     => $media_item['name'],
               ];
               break;
+
             case 'document':
               $fields['field_document'] = [
                 'target_id' => $this->files[$media_item_key]->id(),
               ];
               break;
+
             case 'audio':
               $fields['field_audio_mp3'] = [
                 'target_id' => $this->files[$media_item_key]->id(),
               ];
               break;
+
             case 'video_upload':
               $fields['field_video_upload_mp4'] = [
                 'target_id' => $this->files[$media_item_key]->id(),
@@ -135,14 +140,14 @@ class MediaFactory extends ContentFactory {
           continue;
         }
 
-        if($media_item_field_key === 'field_address_address') {
+        if ($media_item_field_key === 'field_address_address') {
           $fields['field_address_address'] = [
             $media_item['field_address_address'] ?? [],
           ];
           continue;
         }
 
-        if($media_item_field_key === 'field_address_location') {
+        if ($media_item_field_key === 'field_address_location') {
           if (!empty($media_item['field_address_location'])) {
             $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
             continue;
@@ -251,8 +256,11 @@ class MediaFactory extends ContentFactory {
     }
   }
 
+  /**
+   * Uses the AutoCropper to apply image crops to all our new files.
+   */
   private function applyImageCrops() {
-    foreach($this->files as $file) {
+    foreach ($this->files as $file) {
       $this->autoCropper->applyImageCrops($file);
     }
   }
