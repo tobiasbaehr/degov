@@ -18,6 +18,7 @@
       &.form-type-textfield {
         width: 100%;
         input[type="text"] {
+          padding: 0.5rem !important;
           width: 100%;
           min-height: $fa-font-size-base * 2.5;
         }
@@ -35,7 +36,6 @@
           content: fa-content($fa-var-search);
           font-size: $font-size-base * 1.2 ;
         }
-
         background: initial;
         border: initial;
         color: $black;
