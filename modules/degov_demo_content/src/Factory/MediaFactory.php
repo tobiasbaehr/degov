@@ -3,6 +3,7 @@
 namespace Drupal\degov_demo_content\Factory;
 
 use Drupal\degov_media_image\Service\AutoCropper;
+use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
 
@@ -264,6 +265,26 @@ class MediaFactory extends ContentFactory {
     foreach ($this->files as $file) {
       $this->autoCropper->applyImageCrops($file);
     }
+  }
+
+
+  /**
+   * Deletes the generated entities.
+   */
+  public function deleteContent() {
+    $query = \Drupal::entityQuery('file');
+    $query->condition('uri', 'public://degov_demo_content/%', 'LIKE');
+    $query_results = $query->execute();
+
+    if(!empty($query_results)) {
+      $file_entities = File::loadMultiple($query_results);
+
+      foreach($file_entities as $file_entity) {
+        $file_entity->delete();
+      }
+    }
+
+    parent::deleteContent();
   }
 
 }
