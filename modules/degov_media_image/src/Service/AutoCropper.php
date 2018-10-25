@@ -1,28 +1,59 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marc
- * Date: 24.10.18
- * Time: 17:03
- */
 
 namespace Drupal\degov_media_image\Service;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystem;
 
+/**
+ * Class AutoCropper.
+ *
+ * Provides functions to automatically apply image crops to given files.
+ *
+ * @package Drupal\degov_media_image\Service
+ */
 class AutoCropper {
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The file system.
+   *
+   * @var \Drupal\Core\File\FileSystem
+   */
+  protected $fileSystem;
+
+  /**
+   * Constructs a new AutoCropper.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
+   * @param \Drupal\Core\File\FileSystem $file_system
+   *   The file system.
+   */
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system) {
+    $this->entityTypeManager = $entity_type_manager;
+    $this->fileSystem = $file_system;
+  }
+
   /**
    * Apply all defined crop types to all image files in our definitions.
    */
   public function applyImageCrops($file): void {
-    $crop_types = \Drupal::entityTypeManager()
+    $crop_types = $this->entityTypeManager
       ->getStorage('crop_type')
       ->loadMultiple();
     if (preg_match("/^image\//", $file->getMimeType())) {
       foreach ($crop_types as $crop_type) {
-        $image_dimensions = getimagesize(\Drupal::service('file_system')
+        $image_dimensions = getimagesize($this->fileSystem
           ->realpath($file->getFileUri()));
 
-        $crop = \Drupal::entityTypeManager()
+        $crop = $this->entityTypeManager
           ->getStorage('crop')
           ->loadByProperties([
             'type' => $crop_type->id(),
@@ -41,7 +72,7 @@ class AutoCropper {
             'y'           => $image_dimensions[1] / 2,
           ];
           $crop_values += $measurements;
-          $crop = \Drupal::entityTypeManager()
+          $crop = $this->entityTypeManager
             ->getStorage('crop')
             ->create($crop_values);
         }
@@ -117,4 +148,5 @@ class AutoCropper {
     }
     return 1;
   }
+
 }

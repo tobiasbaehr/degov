@@ -1,4 +1,4 @@
 services:
   degov_media_image.auto_cropper:
     class: Drupal\degov_media_image\Service\AutoCropper
-    arguments: []
+    arguments: [ '@entity_type.manager', '@file_system' ]
