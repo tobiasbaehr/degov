@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: deGov - Content types
 
   Background:
@@ -10,6 +10,16 @@ Feature: deGov - Content types
       | degov_paragraph_header    |
     Given I am installing the following Drupal modules:
       | degov_node_event          |
+
+  Scenario: Content type normal_page displays all required fields
+    Given I proof content type "normal_page" has set the following fields for display:
+      | field_teaser_title             |
+      | field_teaser_text              |
+      | content_moderation_control     |
+      | field_header_paragraphs        |
+      | field_sidebar_right_paragraphs |
+      | field_teaser_sub_title         |
+      | title                          |
 
   Scenario: Content type normal_page has all required fields
     Given I am logged in as a user with the "administrator" role
