@@ -3,9 +3,38 @@
 namespace Drupal\degov_paragraph_slideshow;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class PreprocessParagraph {
+class PreprocessParagraph implements ContainerInjectionInterface {
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * PreprocessParagraph constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   The entity type manager service.
+   */
+  public function __construct(EntityTypeManagerInterface $entityTypeManager) {
+    $this->entityTypeManager = $entityTypeManager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('entity_type.manager')
+    );
+  }
 
   /**
    * @param $variables
@@ -42,7 +71,7 @@ class PreprocessParagraph {
         if ($paragraph_slide->hasField('field_node_reference_nodes')) {
           // Every node reference should be included as a single slide.
           foreach ($paragraph_slide->field_node_reference_nodes->referencedEntities() as $node) {
-            $view_builder = \Drupal::entityManager()->getViewBuilder('node');
+            $view_builder = $this->entityTypeManager->getViewBuilder('node');
             $propagated_slides[] = $view_builder->view($node, 'slideshow');
           }
         }
@@ -50,7 +79,7 @@ class PreprocessParagraph {
           // Every node in a view reference should be included as a single slide.
           $result = views_get_view_result($paragraph_slide->field_view_reference_view->target_id, $paragraph_slide->field_view_reference_view->display_id);
           foreach ($result as $row) {
-            $view_builder = \Drupal::entityManager()->getViewBuilder('node');
+            $view_builder = $this->entityTypeManager->getViewBuilder('node');
             $propagated_slides[] = $view_builder->view($row->_entity, 'slideshow');
           }
         }
