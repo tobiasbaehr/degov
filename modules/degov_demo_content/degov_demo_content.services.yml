@@ -1,7 +1,7 @@
 services:
   degov_demo_content.node_generator:
     class: Drupal\degov_demo_content\Factory\NodeFactory
-    arguments: ['@degov_demo_content.media_generator']
+    arguments: [ '@degov_demo_content.media_generator', '@pathauto.alias_cleaner' ]
   degov_demo_content.media_generator:
     class: Drupal\degov_demo_content\Factory\MediaFactory
-    arguments: []
+    arguments: [ '@geofield.wkt_generator', '@degov_media_image.auto_cropper' ]

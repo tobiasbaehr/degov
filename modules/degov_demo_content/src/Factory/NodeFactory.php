@@ -5,11 +5,13 @@ namespace Drupal\degov_demo_content\Factory;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\pathauto\AliasCleanerInterface;
+use Drupal\pathauto\PathautoState;
 
 class NodeFactory extends ContentFactory {
 
 
-  private $imageCounter = 0;
+  private $mediaCounter = 0;
 
   /**
    * Generates a set of node entities.
@@ -18,8 +20,16 @@ class NodeFactory extends ContentFactory {
 
   protected $mediaGenerator;
 
-  public function __construct(MediaFactory $mediaGenerator) {
+  /**
+   * The alias cleaner.
+   *
+   * @var \Drupal\pathauto\AliasCleanerInterface
+   */
+  protected $aliasCleaner;
+
+  public function __construct(MediaFactory $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     $this->mediaGenerator = $mediaGenerator;
+    $this->aliasCleaner = $aliasCleaner;
     parent::__construct();
   }
 
@@ -37,6 +47,10 @@ class NodeFactory extends ContentFactory {
 
       $this->generateParagraphsForNode($paragraphs, $rawNode);
       $this->prepareValues($rawNode);
+      $rawNode['path'] = [
+        'alias' => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
+        'pathauto' => PathautoState::SKIP,
+      ];
       $node = Node::create($rawNode);
       $node->save();
 
@@ -69,8 +83,8 @@ class NodeFactory extends ContentFactory {
 
   protected function resolveEncapsulatedParagrahps(&$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {
-      if(is_array($rawField)) {
-        foreach($rawField as $innerIndex => $rawValue) {
+      if (is_array($rawField)) {
+        foreach ($rawField as $innerIndex => $rawValue) {
           $fieldName = str_replace('paragraph_reference_', '', $rawValue);
           if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
             $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
@@ -93,11 +107,20 @@ class NodeFactory extends ContentFactory {
         case '{{TEXT}}':
           $rawParagraph[$index] = $this->generateBlindText(50);
           break;
-        case '{{MEDIA_IMAGE_ID}}':
-          $rawParagraph[$index] = ['target_id' => $this->getImage()->id()];
-          break;
         case '{{DEMOTAG}}':
           $rawParagraph[$index] = ['target_id' => $this->getDemoContentTagId()];
+          break;
+        default:
+          if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
+            $mediaId = strtolower(str_replace([
+              '{{MEDIA_ID_',
+              '}}',
+            ], '', $value));
+            $rawParagraph[$index] = [
+              'target_id' => $this->getMedia($mediaId)
+                ->id(),
+            ];
+          }
           break;
       }
     }
@@ -123,19 +146,19 @@ class NodeFactory extends ContentFactory {
     $this->generateContent();
   }
 
-  protected function getImages(): array {
+  protected function getMedias(string $bundle): array {
     $mediaIds = \Drupal::entityQuery('media')
-      ->condition('bundle', 'image')
+      ->condition('bundle', $bundle)
       ->condition('field_tags', $this->getDemoContentTagId())->execute();
     return $mediaIds;
   }
 
 
-  protected function getImage(): Media {
-    $images = $this->getImages();
-    $this->imageCounter++;
-    $index = $this->imageCounter % \count($images);
-    $keys = array_keys($images);
-    return Media::load($images[$keys[$index]]);
+  protected function getMedia(string $bundle): Media {
+    $medias = $this->getMedias($bundle);
+    $this->mediaCounter++;
+    $index = $this->mediaCounter % \count($medias);
+    $keys = array_keys($medias);
+    return Media::load($medias[$keys[$index]]);
   }
 }

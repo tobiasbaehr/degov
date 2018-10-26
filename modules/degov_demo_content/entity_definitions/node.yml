@@ -7,23 +7,49 @@ teaser_page:
   field_teaser_title: '{{SUBTITLE}}'
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
-teaser1:
+page_with_text_paragraph:
   type: 'normal_page'
-  title: '{{SUBTITLE}}'
+  title: 'Page with text paragraph'
   field_teaser_text: '{{TEXT}}'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_title: 'Page with text paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
+  field_content_paragraphs:
+    - text_1
   status: 1
-teaser2:
+page_with_download_paragraph:
   type: 'normal_page'
-  title: '{{SUBTITLE}}'
+  title: 'Page with download paragraph'
   field_teaser_text: '{{TEXT}}'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_title: 'Page with download paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
+  field_content_paragraphs:
+  - download_1
+  status: 1
+page_with_faq_list_paragraph:
+  type: 'normal_page'
+  title: 'Page with FAQ-List paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with FAQ-List paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
+  field_content_paragraphs:
+    - faq_list_1
+  status: 1
+node_with_video_header:
+  type: 'normal_page'
+  title: 'Page with video header'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with video header'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_IMAGE_ID}}'
+  field_header_paragraphs:
+    - header_video
   status: 1
 node_with_slideshow:
   type: 'normal_page'

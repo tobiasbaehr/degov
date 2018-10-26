@@ -11,9 +11,9 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 function degov_media_image_preprocess(&$variables, $hook, &$info) {
   // Add template suggestions and libraries implemented in this module.
   Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_image',
-    'entity_type' => 'media',
-    'entity_bundles' => ['image'],
+    'module_name'       => 'degov_media_image',
+    'entity_type'       => 'media',
+    'entity_bundles'    => ['image'],
     'entity_view_modes' => [
       'thumbnail',
       'usage',
@@ -38,13 +38,14 @@ function degov_media_image_preprocess_media__image(&$variables) {
   // Add the download link only to full view mode.
   if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
     // Add media type name to display.
-    if(isset($variables['content']['media_type_label'])) {
+    if (isset($variables['content']['media_type_label'])) {
       $bundle_definition = $media->getSource()->getPluginDefinition();
       $variables['content']['media_type_label'] = $bundle_definition['label'];
     }
     // Check if the download of the video is allowed by media settings.
     $download_is_allowed = FALSE;
-    if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
+    if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')
+        ->isEmpty()) {
       $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
     }
     // If allowed let's prepare the links.
@@ -66,7 +67,7 @@ function degov_media_image_preprocess_media__image(&$variables) {
  * Implements hook_form_BASE_FORM_ID_alter().
  */
 function degov_media_image_form_media_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
-  if(in_array($form_id, ['media_image_add_form', 'media_image_edit_form'])) {
+  if (in_array($form_id, ['media_image_add_form', 'media_image_edit_form'])) {
     $form['#attached']['library'][] = 'degov_media_image/entity-form';
     $form['#validate'][] = 'degov_media_image_validate';
   }
@@ -78,9 +79,9 @@ function degov_media_image_form_media_form_alter(array &$form, FormStateInterfac
  */
 function degov_media_image_validate(array &$form, FormStateInterface $form_state) {
   $is_royalty_free_image_value = $form_state->getValue('field_royalty_free');
-  $is_royalty_free_image = (bool)$is_royalty_free_image_value['value'];
+  $is_royalty_free_image = (bool) $is_royalty_free_image_value['value'];
   $field_copyright_value = $form_state->getValue('field_copyright');
-  if(!$is_royalty_free_image && empty($field_copyright_value[0]['target_id'])) {
+  if (!$is_royalty_free_image && empty($field_copyright_value[0]['target_id'])) {
     $form_state->setError($form['field_copyright']['widget'][0]['target_id'], t('@name field is required.', ['@name' => $form['field_copyright']['widget'][0]['target_id']['#title']]));
   }
 }
@@ -89,9 +90,21 @@ function degov_media_image_validate(array &$form, FormStateInterface $form_state
  * Implements hook_ENTITY_TYPE_view().
  */
 function degov_media_image_media_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  if($entity->bundle() === 'image') {
-    if((bool)$entity->field_royalty_free->value === TRUE) {
+  if ($entity->bundle() === 'image') {
+    if ((bool) $entity->field_royalty_free->value === TRUE) {
       unset($build['field_copyright']);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function degov_media_image_entity_insert(EntityInterface $entity) {
+  if ($entity->bundle() === 'file') {
+    if (preg_match("/^image\//", $entity->getMimeType())) {
+      \Drupal::service('degov_media_image.auto_cropper')
+        ->applyImageCrops($entity);
     }
   }
 }
