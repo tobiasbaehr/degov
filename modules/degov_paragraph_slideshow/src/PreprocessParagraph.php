@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_paragraph_slideshow;
 
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Url;
 
 class PreprocessParagraph {
@@ -62,6 +63,8 @@ class PreprocessParagraph {
       }
       $variables['content']['field_slideshow_slides'] += $propagated_slides;
     }
+
+    $variables['slider_id'] = Html::getUniqueId('degov-slider');
   }
 
 }

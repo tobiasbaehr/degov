@@ -41,13 +41,15 @@
 
 {% if slide_link %}<a class="d-block w-100" href="{{ slide_link }}">{% endif %}
   <div class="d-block w-100">{{ content.field_slide_media|field_value }}</div>
-  <div class="carousel-caption d-none d-md-block">
-    {% if not paragraph.field_slide_text.isEmpty() %}
-      <h2>{{ content.field_slide_text|field_value }}</h2>
-    {% endif %}
-    {% if not paragraph.field_override_caption.isEmpty() %}
-      <p>{{ paragraph.field_override_caption[0].value }}</p>
-    {% endif %}
-  </div>
+  {% if not paragraph.field_slide_text.isEmpty() or not paragraph.field_override_caption.isEmpty() %}
+    <div class="carousel-caption d-none d-md-block w-100">
+      {% if not paragraph.field_slide_text.isEmpty() %}
+        <h2>{{ content.field_slide_text|field_value }}</h2>
+      {% endif %}
+      {% if not paragraph.field_override_caption.isEmpty() %}
+        <p>{{ paragraph.field_override_caption[0].value }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
 {% if slide_link %}</a>{% endif %}
 
