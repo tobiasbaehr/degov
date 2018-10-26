@@ -45,10 +45,12 @@
 <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
 
   <div id="{{ slider_id }}" class="degov-carousel carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
-        <li data-target="#{{ slider_id }}" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active'}} "></li>
-      {% endfor %}
+    {% if slideshow_type == 'type_1' %}
+      <ol class="carousel-indicators">
+        {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
+          <li data-target="#{{ slider_id }}" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active'}} "></li>
+        {% endfor %}
+      {% endif %}
     </ol>
 
     <div class="carousel-inner">
