@@ -18,3 +18,4 @@ dependencies:
   - degov:degov_media_instagram
   - degov:degov_media_social_media_embed
   - degov:degov_media_video
+  - degov:degov_auto_crop

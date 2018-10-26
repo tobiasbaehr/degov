@@ -1,12 +1,13 @@
 <?php
 
-namespace Drupal\degov_media_image\Service;
+namespace Drupal\degov_auto_crop\Service;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystem;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\crop\Entity\CropType;
 use Drupal\file\Entity\File;
 
@@ -15,7 +16,7 @@ use Drupal\file\Entity\File;
  *
  * Provides functions to automatically apply image crops to given files.
  *
- * @package Drupal\degov_media_image\Service
+ * @package Drupal\degov_auto_crop\Service
  */
 class AutoCropper {
 
@@ -34,16 +35,26 @@ class AutoCropper {
   protected $fileSystem;
 
   /**
+   * The logger channel factory.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelFactoryInterface
+   */
+  protected $logger;
+
+  /**
    * Constructs a new AutoCropper.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\File\FileSystem $file_system
    *   The file system.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
+   *   The logger channel factory.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger) {
     $this->entityTypeManager = $entity_type_manager;
     $this->fileSystem = $file_system;
+    $this->logger = $logger;
   }
 
   /**
@@ -97,14 +108,14 @@ class AutoCropper {
           }
           catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
             // Crop not found or crop save failed. Log and continue.
-            error_log($exception->getMessage());
+            $this->logger->get('degov_auto_crop')->error($exception->getMessage());
           }
         }
       }
     }
     catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
       // No crop types found. Just log, otherwise do nothing.
-      error_log($exception->getMessage());
+      $this->logger->get('degov_auto_crop')->error($exception->getMessage());
     }
   }
 
@@ -131,7 +142,7 @@ class AutoCropper {
       $aspect_ratio_fragments = [1, 1];
     }
 
-    $orientation = 'squared';
+    $orientation = 'square';
     if ($image_dimensions[0] > $image_dimensions[1]) {
       $orientation = 'landscape';
     }
@@ -149,24 +160,24 @@ class AutoCropper {
         break;
 
       case 'portrait':
-        // Portrait orientation.
+      case 'square':
+        // Portrait and square orientation.
         $crop_dimensions['height'] = (($image_dimensions[0] / $aspect_ratio_fragments[0]) * $aspect_ratio_fragments[1]) * $this->calculateScaleFactor($image_dimensions, $aspect_ratio_fragments);
         $crop_dimensions['width'] = $image_dimensions[0] * $this->calculateScaleFactor($image_dimensions, $aspect_ratio_fragments);
         break;
 
-      case 'squared':
-        $crop_dimensions['height'] = (($image_dimensions[0] / $aspect_ratio_fragments[0]) * $aspect_ratio_fragments[1]) * $this->calculateScaleFactor($image_dimensions, $aspect_ratio_fragments);
-        $crop_dimensions['width'] = $image_dimensions[0] * $this->calculateScaleFactor($image_dimensions, $aspect_ratio_fragments);
-        break;
     }
 
-    // @TODO Get offsets from the CropType.
     $offsets = [
       'left'   => 1,
       'right'  => 1,
       'top'    => 1,
       'bottom' => 1,
     ];
+    $stored_offsets = $crop_type->getThirdPartySetting('degov_auto_crop', 'offsets');
+    if (!empty($stored_offsets) && !empty($stored_offsets[$orientation])) {
+      $offsets = $stored_offsets[$orientation];
+    }
 
     $this->calculateCropCenterOffsets($offsets, $image_dimensions, $crop_dimensions);
 
@@ -210,24 +221,23 @@ class AutoCropper {
    *   A reference to the dimensions array, will be populated with the offsets.
    */
   private function calculateCropCenterOffsets(array $offsets, array $image_dimensions, array &$crop_dimensions) {
-
     $crop_dimensions['x'] = $image_dimensions[0] / 2;
     $crop_dimensions['y'] = $image_dimensions[1] / 2;
 
     $remaining_space['vertical'] = $image_dimensions[1] - $crop_dimensions['height'];
     $remaining_space['horizontal'] = $image_dimensions[0] - $crop_dimensions['width'];
 
-    if ($offsets['left'] >= 0 && $offsets['right'] >= 0) {
-      $offsets_sum = $offsets['left'] + $offsets['right'];
-      $required_padding['left'] = ($remaining_space['horizontal'] / $offsets_sum) * $offsets['left'];
-      $required_padding['right'] = ($remaining_space['horizontal'] / $offsets_sum) * $offsets['right'];
+    if (!empty($offsets['left']) && !empty($offsets['right'])) {
+      $offsets_sum = (int) $offsets['left'] + (int) $offsets['right'];
+      $required_padding['left'] = ($remaining_space['horizontal'] / $offsets_sum) * (int) $offsets['left'];
+      $required_padding['right'] = ($remaining_space['horizontal'] / $offsets_sum) * (int) $offsets['right'];
       $crop_dimensions['x'] += ($required_padding['left'] - $required_padding['right']) / 2;
     }
 
-    if ($offsets['top'] >= 0 && $offsets['bottom'] >= 0) {
-      $offsets_sum = $offsets['top'] + $offsets['bottom'];
-      $required_padding['top'] = ($remaining_space['vertical'] / $offsets_sum) * $offsets['top'];
-      $required_padding['bottom'] = ($remaining_space['vertical'] / $offsets_sum) * $offsets['bottom'];
+    if (!empty($offsets['top']) && !empty($offsets['bottom'])) {
+      $offsets_sum = (int) $offsets['top'] + (int) $offsets['bottom'];
+      $required_padding['top'] = ($remaining_space['vertical'] / $offsets_sum) * (int) $offsets['top'];
+      $required_padding['bottom'] = ($remaining_space['vertical'] / $offsets_sum) * (int) $offsets['bottom'];
       $crop_dimensions['y'] += ($required_padding['top'] - $required_padding['bottom']) / 2;
     }
   }
