@@ -25,15 +25,17 @@ teaser2:
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
-teaser3:
+node_with_slideshow:
   type: 'normal_page'
-  title: '{{SUBTITLE}}'
+  title: 'Page with slideshow'
   field_teaser_text: '{{TEXT}}'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: '{{SUBTITLE}}'
-  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_title: 'Page with slideshow'
+  field_teaser_sub_title: 'A page with an slideshow'
   field_teaser_image: '{{MEDIA_IMAGE_ID}}'
   status: 1
+  field_header_paragraphs:
+  - header_slideshow
 node_with_banner:
   type: 'normal_page'
   title: 'Page with banner'

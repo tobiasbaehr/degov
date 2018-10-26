@@ -59,9 +59,27 @@ class NodeFactory extends ContentFactory {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
         $this->prepareValues($rawParagraph);
+        $this->resolveEncapsulatedParagrahps($rawParagraph);
         $paragraph = Paragraph::create($rawParagraph);
         $paragraph->save();
         $rawNode[$type][] = $paragraph;
+      }
+    }
+  }
+
+  protected function resolveEncapsulatedParagrahps(&$rawParagraph): void {
+    foreach ($rawParagraph as $index => $rawField) {
+      if(is_array($rawField)) {
+        foreach($rawField as $innerIndex => $rawValue) {
+          $fieldName = str_replace('paragraph_reference_', '', $rawValue);
+          if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
+            $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
+            $this->prepareValues($rawInnerParagraph);
+            $innerParagraph = Paragraph::create($rawInnerParagraph);
+            $innerParagraph->save();
+            $rawParagraph[$index][$innerIndex] = $innerParagraph;
+          }
+        }
       }
     }
   }

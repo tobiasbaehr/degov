@@ -26,3 +26,25 @@ header_banner:
   type: 'image_header'
   field_override_caption: '{{SUBTITLE}}'
   field_header_media: '{{MEDIA_IMAGE_ID}}'
+header_slideshow:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_1'
+    - 'paragraph_reference_slide_2'
+    - 'paragraph_reference_slide_3'
+  field_slideshow_type: 'type_1'
+slide_1:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_IMAGE_ID}}'
+  field_slide_text: '{{TEXT}}'
+slide_2:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_IMAGE_ID}}'
+  field_slide_text: '{{TEXT}}'
+slide_3:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_IMAGE_ID}}'
+  field_slide_text: '{{TEXT}}'
