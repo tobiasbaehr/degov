@@ -38,22 +38,16 @@
  * @ingroup themeable
  */
 #}
-{%
-set classes = [
-  'paragraph',
-  paragraph.bundle|clean_class,
-  view_mode ? view_mode|clean_class,
-  'clearfix',
-]
-%}
-<div{{ attributes.addClass(classes) }}>
-  {{ content.contextual_links }}
-  <!-- <div class="row"> -->
-    {% if slide_link %}<a class="slide__link" href="{{ slide_link }}">{% endif %}
-      <div class="slide__media">{{ content.field_slide_media|field_value }}</div>
-      <div class="slide__text">
-        <div class="slide__text__sub"{{ content.field_slide_text|quickedit_attr }}>{{ content.field_slide_text|field_value }}</div>
-      </div>
-    {% if slide_link %}</a>{% endif %}
-  <!-- </div> -->
-</div>
+
+{% if slide_link %}<a class="d-block w-100" href="{{ slide_link }}">{% endif %}
+  <div class="d-block w-100">{{ content.field_slide_media|field_value }}</div>
+  <div class="carousel-caption d-none d-md-block">
+    {% if not paragraph.field_slide_text.isEmpty() %}
+      <h2>{{ content.field_slide_text|field_value }}</h2>
+    {% endif %}
+    {% if not paragraph.field_override_caption.isEmpty() %}
+      <p>{{ paragraph.field_override_caption[0].value }}</p>
+    {% endif %}
+  </div>
+{% if slide_link %}</a>{% endif %}
+
