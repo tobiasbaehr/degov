@@ -34,6 +34,7 @@
  *   is an administrator.
  *
  * @see template_preprocess_paragraph()
+ * @see degov_paragraph_slideshow_preprocess_paragraph()
  *
  * @ingroup themeable
  */
@@ -42,13 +43,15 @@
 {% if slide_link %}<a class="d-block w-100" href="{{ slide_link }}">{% endif %}
   <div class="d-block w-100">{{ content.field_slide_media|field_value }}</div>
   {% if not paragraph.field_slide_text.isEmpty() or not paragraph.field_override_caption.isEmpty() %}
-    <div class="carousel-caption d-none d-md-block w-100">
-      {% if not paragraph.field_slide_text.isEmpty() %}
-        <h2>{{ content.field_slide_text|field_value }}</h2>
-      {% endif %}
-      {% if not paragraph.field_override_caption.isEmpty() %}
-        <p>{{ paragraph.field_override_caption[0].value }}</p>
-      {% endif %}
+    <div class="carousel-caption d-none d-md-block w-100 pb-5">
+      <div class="container">
+        {% if not paragraph.field_slide_text.isEmpty() %}
+          <h2>{{ content.field_slide_text|field_value|render|striptags }}</h2>
+        {% endif %}
+        {% if not paragraph.field_override_caption.isEmpty() %}
+          <p>{{ paragraph.field_override_caption[0].value }}</p>
+        {% endif %}
+      </div>
     </div>
   {% endif %}
 {% if slide_link %}</a>{% endif %}

@@ -34,6 +34,7 @@
  *   is an administrator.
  *
  * @see template_preprocess_paragraph()
+ * @see degov_paragraph_slideshow_preprocess_paragraph()
  *
  * @ingroup themeable
  */
@@ -43,7 +44,7 @@
 <h3 class="visually-hidden">{{ 'Navigationshinweise zur Slideshow'|t }}</h3>
 <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
 
-  <div id="{{ slider_id }}" class="carousel slide" data-ride="carousel">
+  <div id="{{ slider_id }}" class="degov-carousel carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
         <li data-target="#{{ slider_id }}" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active'}} "></li>
@@ -60,12 +61,12 @@
 
     </div>
 
-    <a class="carousel-control-prev" href="#{{ slider_id }}" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <a class="carousel-control carousel-control-prev" href="#{{ slider_id }}" role="button" data-slide="prev">
+      <span class="carousel-control-icon carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">{{ 'Previous'|t }}</span>
     </a>
-    <a class="carousel-control-next" href="#{{ slider_id }}" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <a class="carousel-control carousel-control-next" href="#{{ slider_id }}" role="button" data-slide="next">
+      <span class="carousel-control-icon carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">{{ 'Next'|t }}</span>
     </a>
   </div>
