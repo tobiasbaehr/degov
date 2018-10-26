@@ -37,7 +37,10 @@ class PreprocessParagraph implements ContainerInjectionInterface {
   }
 
   /**
+   * Preprocess the paragraphs type "slide".
+   *
    * @param $variables
+   *   The theme preprocess function argument.
    */
   public function slide(&$variables): void {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
@@ -51,7 +54,10 @@ class PreprocessParagraph implements ContainerInjectionInterface {
   }
 
   /**
+   * Preprocess the paragraphs type "slide".
+   *
    * @param $variables.
+   *   The theme preprocess function argument.
    */
   public function slider(&$variables): void {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
