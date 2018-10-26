@@ -39,39 +39,35 @@
  */
 #}
 <section aria-label="{{ 'Slideshow'|t }}">
+
 <h3 class="visually-hidden">{{ 'Navigationshinweise zur Slideshow'|t }}</h3>
 <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
-{% if slideshow_type == "type_1" %}
-<div{{ create_attribute({'class': ['slideshow', 'default', 'slideshow--' ~ slideshow_type|clean_class ]}) }}>
-  <div class="row">
-    <div class="paragraph-slideshow">
-      <div class="paragraph slideshow__slides">
-      {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
-        {{ slideshow_slide }}
+
+  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
+        <li data-target="#carouselExampleIndicators2" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active'}} "></li>
       {% endfor %}
-      </div>
-      <div class="slick-controls">
-        <button class="slick__pause">{{ 'Pause'|t }}</button>
-        <button class="slick__play">{{ 'Play'|t }}</button>
-      </div>
-    </div>
-  </div>
-</div>
-{% else %}
-  <div{{ create_attribute({'class': ['slideshow-with-prev-next ' ~ slideshow_type|clean_class ]}) }}>
-    <div class="row">
-      <div class="paragraph-slideshow">
-        <div class="slides_prev_next">
-          {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
-            {{ slideshow_slide }}
-          {% endfor %}
+    </ol>
+
+    <div class="carousel-inner">
+
+      {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
+        <div class="carousel-item {{ key == 0 ? 'active' }}">
+          {{ slideshow_slide }}
         </div>
-        <div class="slick-controls">
-          <button class="slick__pause">{{ 'Pause'|t }}</button>
-          <button class="slick__play">{{ 'Play'|t }}</button>
-        </div>
-      </div>
+      {% endfor %}
+
     </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">{{ 'Previous'|t }}</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">{{ 'Next'|t }}</span>
+    </a>
   </div>
-{% endif %}
+
 </section>
