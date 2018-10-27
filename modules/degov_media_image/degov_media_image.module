@@ -96,15 +96,3 @@ function degov_media_image_media_view(array &$build, EntityInterface $entity, En
     }
   }
 }
-
-/**
- * Implements hook_entity_insert().
- */
-function degov_media_image_entity_insert(EntityInterface $entity) {
-  if ($entity->bundle() === 'file') {
-    if (preg_match("/^image\//", $entity->getMimeType())) {
-      \Drupal::service('degov_media_image.auto_cropper')
-        ->applyImageCrops($entity);
-    }
-  }
-}

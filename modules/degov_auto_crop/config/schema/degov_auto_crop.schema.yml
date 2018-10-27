@@ -1,0 +1,52 @@
+crop.type.*.third_party.offsets:
+  type: mapping
+  label: 'Offsets'
+  mapping:
+    landscape:
+      type: mapping
+      label: 'The offsets for landscape images'
+      mapping:
+        offset_top:
+          type: integer
+          label: 'Top'
+        offset_bottom:
+          type: integer
+          label: 'Bottom'
+        offset_left:
+          type: integer
+          label: 'Left'
+        offset_right:
+          type: integer
+          label: 'Right'
+    portrait:
+      type: mapping
+      label: 'The offsets for portrait images'
+      mapping:
+        offset_top:
+          type: integer
+          label: 'Top'
+        offset_bottom:
+          type: integer
+          label: 'Bottom'
+        offset_left:
+          type: integer
+          label: 'Left'
+        offset_right:
+          type: integer
+          label: 'Right'
+    square:
+      type: mapping
+      label: 'The offsets for square images'
+      mapping:
+        offset_top:
+          type: integer
+          label: 'Top'
+        offset_bottom:
+          type: integer
+          label: 'Bottom'
+        offset_left:
+          type: integer
+          label: 'Left'
+        offset_right:
+          type: integer
+          label: 'Right'

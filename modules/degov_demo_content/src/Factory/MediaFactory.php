@@ -45,24 +45,14 @@ class MediaFactory extends ContentFactory {
   protected $wktGenerator;
 
   /**
-   * The degov_media_image AutoCropper.
-   *
-   * @var \Drupal\degov_media_image\Service\AutoCropper
-   */
-  protected $autoCropper;
-
-  /**
    * Constructs a new ContentFactory instance.
    *
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
-   * @param \Drupal\degov_media_image\Service\AutoCropper $autoCropper
-   *   The degov_media_image AutoCropper.
    */
-  public function __construct(WktGenerator $wktGenerator, AutoCropper $autoCropper) {
+  public function __construct(WktGenerator $wktGenerator) {
     parent::__construct();
     $this->wktGenerator = $wktGenerator;
-    $this->autoCropper = $autoCropper;
   }
 
   /**
@@ -257,16 +247,6 @@ class MediaFactory extends ContentFactory {
       }
     }
   }
-
-  /**
-   * Uses the AutoCropper to apply image crops to all our new files.
-   */
-  private function applyImageCrops() {
-    foreach ($this->files as $file) {
-      $this->autoCropper->applyImageCrops($file);
-    }
-  }
-
 
   /**
    * Deletes the generated entities.
