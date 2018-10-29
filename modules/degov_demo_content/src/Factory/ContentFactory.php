@@ -121,10 +121,11 @@ class ContentFactory {
         break;
       default:
         if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-          $mediaTypeId = strtolower(str_replace([
-            '{{MEDIA_ID_',
-            '}}',
-          ], '', $value));
+          $mediaTypeId = strtolower(str_replace(
+            [
+              '{{MEDIA_ID_',
+              '}}',
+            ], '', $value));
           $mediaId = $this->getMedia($mediaTypeId)->id();
           $rawElement[$index] = [
             'target_id' => $mediaId,
@@ -140,7 +141,6 @@ class ContentFactory {
       ->condition('field_tags', $this->getDemoContentTagId())->execute();
     return $mediaIds;
   }
-
 
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);

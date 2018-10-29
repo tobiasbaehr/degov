@@ -93,7 +93,6 @@ class NodeFactory extends ContentFactory {
     }
   }
 
-
   protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
     $paragraphs = [];
     foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
@@ -103,7 +102,6 @@ class NodeFactory extends ContentFactory {
       $paragraph->save();
       $paragraphs[] = $paragraph;
     }
-
     $teaserPage->set('field_content_paragraphs', $paragraphs);
     $teaserPage->save();
   }
