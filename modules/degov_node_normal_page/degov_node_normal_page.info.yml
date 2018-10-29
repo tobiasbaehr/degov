@@ -9,6 +9,7 @@ dependencies:
   - degov_taxonomy_term_tags
   - degov_taxonomies
   - degov_node_overrides
+  - degov_metatags
   - entity_browser
   - entity_reference_revisions
   - field

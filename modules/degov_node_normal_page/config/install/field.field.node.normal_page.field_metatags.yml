@@ -6,9 +6,9 @@ dependencies:
     - node.type.normal_page
   enforced:
     module:
-      - degov_metatags
+      - degov_node_normal_page
   module:
-    - metatag
+    - degov_metatags
 id: node.normal_page.field_metatags
 field_name: field_metatags
 entity_type: node

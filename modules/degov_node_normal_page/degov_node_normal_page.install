@@ -13,7 +13,7 @@ function degov_node_normal_page_uninstall() {
 
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
-    'entity_type' => 'node',
+    'entity_type'    => 'node',
     'entity_bundles' => ['normal_page'],
   ]);
 }
@@ -47,7 +47,7 @@ function degov_node_normal_page_update_8012() {
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleInstaller = \Drupal::service('module_installer');
-  $moduleInstaller->install(['degov_taxonomies']);
-  $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default','degov_node_normal_page','install');
-  $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default','degov_node_normal_page','install');
+  $moduleInstaller->install(['degov_taxonomies', 'degov_metatags']);
+  $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default', 'degov_node_normal_page', 'install');
+  $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default', 'degov_node_normal_page', 'install');
 }
