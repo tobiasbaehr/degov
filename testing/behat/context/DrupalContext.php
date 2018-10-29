@@ -625,15 +625,27 @@ class DrupalContext extends RawDrupalContext {
        */
       $drupalFilesystem = \Drupal::service('file_system');
 
+      $fixtureImagePath = drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png';
+
+      if (!file_exists($fixtureImagePath)) {
+        throw new \Exception("Could not locate fixture image at $fixtureImagePath.");
+      }
+
+      $fixtureImageFilesFolderPath = $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png';
+
       $symfonyFilesystem->copy(
         drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-        $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png'
+        $fixtureImageFilesFolderPath
       );
+
+      if (!file_exists($fixtureImageFilesFolderPath)) {
+        throw new \Exception("Could not locate fixture image in files folder at $fixtureImageFilesFolderPath.");
+      }
 
       $imageFileEntity = File::create([
         'uid'      => 1,
         'filename' => 'dummy.png',
-        'uri'      => 'public://dummy.png',
+        'uri'      => file_default_scheme() . '://dummy.png',
         'status'   => 1,
       ]);
       $imageFileEntity->save();
@@ -643,4 +655,60 @@ class DrupalContext extends RawDrupalContext {
 
     return $imageFileEntity;
   }
+
+  /**
+   * @Then /^I have created an node normal page entity with a content reference in "([^"]*)" view mode$/
+   */
+  public function createNormalPageEntityWithContentReferenceInViewMode(string $viewMode): void {
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => 'Some copyright',
+      'field_image_caption' => 'Some image caption',
+      'image'               => $this->createDummyImageFileEntity()->id(),
+    ]);
+    $media->save();
+
+    $nodeForContentReference = Node::create([
+      'title'                   => 'Some node for reference',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_teaser_text'       => 'My nice teaser text.',
+      'field_teaser_image'      => [
+        [
+          'target_id' => $media->id()
+        ],
+      ]
+    ]);
+    $nodeForContentReference->save();
+
+    $contentReferenceParagraph = Paragraph::create([
+      'type'                          => 'node_reference',
+      'field_node_reference_nodes'    => [
+        [
+          'target_id' => $nodeForContentReference->id()
+        ],
+      ],
+      'field_node_reference_viewmode' => $viewMode,
+    ]);
+    $contentReferenceParagraph->save();
+
+    $node = Node::create([
+      'title'                    => 'An normal page with a content reference',
+      'type'                     => 'normal_page',
+      'moderation_state'         => 'published',
+      'field_content_paragraphs' => [
+        $contentReferenceParagraph
+      ],
+    ]);
+    $node->save();
+  }
+
+  /**
+   * @Then /^I visit an normal page entity with content reference$/
+   */
+  public function visitNormalPageEntityWithContentReference(): void {
+    $this->openNodeViewByTitle('An normal page with a content reference');
+  }
+
 }

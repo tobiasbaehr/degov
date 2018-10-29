@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -37,12 +38,13 @@ function degov_node_normal_page_update_8010() {
 }
 
 /**
- * Set paragraph form mode to experimental
+ * Set paragraph form mode to experimental. Fixes bug regarding hidden text
+ * preview field in content type "normal_page".
  */
 function degov_node_normal_page_update_8011() {
   /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   * @var DegovModuleUpdater $moduleUpdater
    */
-  $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_node_normal_page','8011');
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_node_normal_page', '8011');
 }
