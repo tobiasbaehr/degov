@@ -35,9 +35,16 @@ class NodeFactory extends ContentFactory {
     $nodeIds = [];
 
     foreach ($this->loadDefinitions('node.yml') as $rawNode) {
-      $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
-      $paragraphs['field_header_paragraphs'] = $rawNode['field_header_paragraphs'];
-      $paragraphs['field_sidebar_paragraphs'] = $rawNode['field_sidebar_paragraphs'];
+      if (isset($rawNode['field_content_paragraphs'])) {
+        $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
+      }
+      if (isset($rawNode['field_header_paragraphs'])) {
+        $paragraphs['field_header_paragraphs'] = $rawNode['field_header_paragraphs'];
+      }
+      if (isset($rawNode['field_sidebar_paragraphs'])) {
+        $paragraphs['field_sidebar_paragraphs'] = $rawNode['field_sidebar_paragraphs'];
+      }
+      
       $paragraphs = array_filter($paragraphs);
       unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_paragraphs']);
 
