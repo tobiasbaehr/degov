@@ -14,8 +14,6 @@ class NodeFactory extends ContentFactory {
   /**
    * Generates a set of node entities.
    */
-  protected $entityType = 'node';
-
   protected $mediaGenerator;
 
   /**
@@ -28,6 +26,7 @@ class NodeFactory extends ContentFactory {
   public function __construct(MediaFactory $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     $this->mediaGenerator = $mediaGenerator;
     $this->aliasCleaner = $aliasCleaner;
+    $this->entityType = 'node';
     parent::__construct();
   }
 
@@ -36,7 +35,6 @@ class NodeFactory extends ContentFactory {
     $nodeIds = [];
 
     foreach ($this->loadDefinitions('node.yml') as $rawNode) {
-
       $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
       $paragraphs['field_header_paragraphs'] = $rawNode['field_header_paragraphs'];
       $paragraphs['field_sidebar_paragraphs'] = $rawNode['field_sidebar_paragraphs'];
@@ -51,7 +49,6 @@ class NodeFactory extends ContentFactory {
       ];
       $node = Node::create($rawNode);
       $node->save();
-
       /**
        * Use first node for teasers
        */
@@ -66,7 +63,7 @@ class NodeFactory extends ContentFactory {
   }
 
 
-  protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode) {
+  protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode): void {
     foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);

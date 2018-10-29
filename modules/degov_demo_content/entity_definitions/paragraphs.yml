@@ -95,5 +95,3 @@ map_1:
   field_map_address_view_mode: 'osm_map'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
-block_reference_1:
-

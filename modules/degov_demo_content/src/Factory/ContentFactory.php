@@ -100,31 +100,37 @@ class ContentFactory {
     }
   }
 
-  protected function prepareValues(array &$rawElement) {
-    foreach ($rawElement as $index => $value) {
-      switch ($value) {
-        case '{{SUBTITLE}}':
-          $rawElement[$index] = $this->generateBlindText(5);
-          break;
-        case '{{TEXT}}':
-          $rawElement[$index] = $this->generateBlindText(50);
-          break;
-        case '{{DEMOTAG}}':
-          $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-          break;
-        default:
-          if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-            $mediaTypeId = strtolower(str_replace([
-              '{{MEDIA_ID_',
-              '}}',
-            ], '', $value));
-            $mediaId = $this->getMedia($mediaTypeId)->id();
-            $rawElement[$index] = [
-              'target_id' => $mediaId,
-            ];
-          }
-          break;
+  protected function prepareValues(array &$rawElement): void {
+    foreach ($rawElement as $index => &$value) {
+      if (!\is_array($value)) {
+        $this->replaceValues($rawElement, $value, $index);
       }
+    }
+  }
+
+  private function replaceValues(array &$rawElement, $value, string $index): void {
+    switch ($value) {
+      case '{{SUBTITLE}}':
+        $rawElement[$index] = $this->generateBlindText(5);
+        break;
+      case '{{TEXT}}':
+        $rawElement[$index] = $this->generateBlindText(50);
+        break;
+      case '{{DEMOTAG}}':
+        $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+        break;
+      default:
+        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
+          $mediaTypeId = strtolower(str_replace([
+            '{{MEDIA_ID_',
+            '}}',
+          ], '', $value));
+          $mediaId = $this->getMedia($mediaTypeId)->id();
+          $rawElement[$index] = [
+            'target_id' => $mediaId,
+          ];
+        }
+        break;
     }
   }
 

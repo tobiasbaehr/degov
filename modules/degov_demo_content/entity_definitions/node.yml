@@ -8,6 +8,7 @@ teaser_page:
   field_teaser_title: '{{SUBTITLE}}'
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  moderation_state: 'published'
 page_with_text_paragraph:
   type: 'normal_page'
   title: 'Page with text paragraph'
@@ -19,6 +20,7 @@ page_with_text_paragraph:
   field_content_paragraphs:
     - text_1
   status: 1
+  moderation_state: 'published'
 page_with_download_paragraph:
   type: 'normal_page'
   title: 'Page with download paragraph'
@@ -30,6 +32,7 @@ page_with_download_paragraph:
   field_content_paragraphs:
   - download_1
   status: 1
+  moderation_state: 'published'
 page_with_iframe_paragraph:
   type: 'normal_page'
   title: 'Page with iframe paragraph'
@@ -41,6 +44,7 @@ page_with_iframe_paragraph:
   field_content_paragraphs:
   - iframe_1
   status: 1
+  moderation_state: 'published'
 page_with_map_paragraph:
   type: 'normal_page'
   title: 'Page with map paragraph'
@@ -52,6 +56,7 @@ page_with_map_paragraph:
   field_content_paragraphs:
   - map_1
   status: 1
+  moderation_state: 'published'
 page_with_faq_list_paragraph:
   type: 'normal_page'
   title: 'Page with FAQ-List paragraph'
@@ -63,6 +68,7 @@ page_with_faq_list_paragraph:
   field_content_paragraphs:
     - faq_list_1
   status: 1
+  moderation_state: 'published'
 # header
 node_with_video_header:
   type: 'normal_page'
@@ -75,6 +81,7 @@ node_with_video_header:
   field_header_paragraphs:
     - header_video
   status: 1
+  moderation_state: 'published'
 node_with_slideshow:
   type: 'normal_page'
   title: 'Page with slideshow'
@@ -85,7 +92,8 @@ node_with_slideshow:
   field_teaser_image: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_header_paragraphs:
-  - header_slideshow
+    - header_slideshow
+  moderation_state: 'published'
 node_with_banner:
   type: 'normal_page'
   title: 'Page with banner'
@@ -97,3 +105,4 @@ node_with_banner:
   status: 1
   field_header_paragraphs:
     - header_banner
+  moderation_state: 'published'
