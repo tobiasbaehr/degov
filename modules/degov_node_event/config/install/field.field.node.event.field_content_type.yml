@@ -2,17 +2,17 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.node.field_view_control
-    - node.type.press
-    - taxonomy.vocabulary.view_control
+    - field.storage.node.field_content_type
+    - node.type.event
+    - taxonomy.vocabulary.content_type
   enforced:
     module:
-      - degov_taxonomies
-id: node.press.field_view_control
-field_name: field_view_control
+      - degov_node_event
+id: node.event.field_content_type
+field_name: field_content_type
 entity_type: node
-bundle: press
-label: Ansichtssteuerung
+bundle: event
+label: Inhaltstyp
 description: ''
 required: false
 translatable: true
@@ -22,7 +22,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      view_control: view_control
+      content_type: content_type
     sort:
       field: _none
     auto_create: false

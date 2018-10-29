@@ -2,27 +2,27 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.node.field_content_type
-    - node.type.event
-    - taxonomy.vocabulary.content_type
+    - field.storage.node.field_topic
+    - node.type.normal_page
+    - taxonomy.vocabulary.topic
   enforced:
     module:
-      - degov_taxonomies
-id: node.event.field_content_type
-field_name: field_content_type
+      - degov_node_normal_page
+id: node.normal_page.field_topic
+field_name: field_topic
 entity_type: node
-bundle: event
-label: Inhaltstyp
+bundle: normal_page
+label: Thema
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      content_type: content_type
+      topic: topic
     sort:
       field: _none
     auto_create: false
