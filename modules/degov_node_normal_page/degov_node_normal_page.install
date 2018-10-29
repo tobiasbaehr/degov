@@ -47,3 +47,10 @@ function degov_node_normal_page_update_8011() {
   $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default','degov_node_normal_page','install');
   $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default','degov_node_normal_page','install');
 }
+
+/**
+ * Enable degov_taxonomies module
+ */
+function degov_node_normal_page_update_8012() {
+  \Drupal::service('module_installer')->install(['degov_taxonomies']);
+}
