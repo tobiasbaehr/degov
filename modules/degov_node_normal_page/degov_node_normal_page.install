@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
