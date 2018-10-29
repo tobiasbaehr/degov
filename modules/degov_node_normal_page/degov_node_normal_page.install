@@ -48,6 +48,8 @@ function degov_node_normal_page_update_8012() {
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleInstaller = \Drupal::service('module_installer');
   $moduleInstaller->install(['degov_taxonomies', 'degov_metatags']);
+  \Drupal::service('degov_config.updater')
+    ->checkOptional(drupal_get_path('module', 'degov_node_normal_page') . '/config/install');
   $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default', 'degov_node_normal_page', 'install');
   $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default', 'degov_node_normal_page', 'install');
 }
