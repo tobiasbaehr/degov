@@ -11,8 +11,6 @@ use Drupal\pathauto\PathautoState;
 class NodeFactory extends ContentFactory {
 
 
-  private $mediaCounter = 0;
-
   /**
    * Generates a set of node entities.
    */
@@ -48,7 +46,7 @@ class NodeFactory extends ContentFactory {
       $this->generateParagraphsForNode($paragraphs, $rawNode);
       $this->prepareValues($rawNode);
       $rawNode['path'] = [
-        'alias' => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
+        'alias'    => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
         'pathauto' => PathautoState::SKIP,
       ];
       $node = Node::create($rawNode);
@@ -83,7 +81,7 @@ class NodeFactory extends ContentFactory {
 
   protected function resolveEncapsulatedParagrahps(&$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {
-      if (is_array($rawField)) {
+      if (\is_array($rawField)) {
         foreach ($rawField as $innerIndex => $rawValue) {
           $fieldName = str_replace('paragraph_reference_', '', $rawValue);
           if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
@@ -94,34 +92,6 @@ class NodeFactory extends ContentFactory {
             $rawParagraph[$index][$innerIndex] = $innerParagraph;
           }
         }
-      }
-    }
-  }
-
-  protected function prepareValues(array &$rawParagraph) {
-    foreach ($rawParagraph as $index => $value) {
-      switch ($value) {
-        case '{{SUBTITLE}}':
-          $rawParagraph[$index] = $this->generateBlindText(5);
-          break;
-        case '{{TEXT}}':
-          $rawParagraph[$index] = $this->generateBlindText(50);
-          break;
-        case '{{DEMOTAG}}':
-          $rawParagraph[$index] = ['target_id' => $this->getDemoContentTagId()];
-          break;
-        default:
-          if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-            $mediaId = strtolower(str_replace([
-              '{{MEDIA_ID_',
-              '}}',
-            ], '', $value));
-            $rawParagraph[$index] = [
-              'target_id' => $this->getMedia($mediaId)
-                ->id(),
-            ];
-          }
-          break;
       }
     }
   }
@@ -144,21 +114,5 @@ class NodeFactory extends ContentFactory {
   public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();
-  }
-
-  protected function getMedias(string $bundle): array {
-    $mediaIds = \Drupal::entityQuery('media')
-      ->condition('bundle', $bundle)
-      ->condition('field_tags', $this->getDemoContentTagId())->execute();
-    return $mediaIds;
-  }
-
-
-  protected function getMedia(string $bundle): Media {
-    $medias = $this->getMedias($bundle);
-    $this->mediaCounter++;
-    $index = $this->mediaCounter % \count($medias);
-    $keys = array_keys($medias);
-    return Media::load($medias[$keys[$index]]);
   }
 }

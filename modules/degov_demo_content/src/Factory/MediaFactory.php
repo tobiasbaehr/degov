@@ -159,7 +159,7 @@ class MediaFactory extends ContentFactory {
           'target_id' => $this->getDemoContentCopyrightId(),
         ];
       }
-
+      $this->prepareValues($fields);
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;

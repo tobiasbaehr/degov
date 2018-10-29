@@ -83,3 +83,17 @@ faq_list_1:
     - 'paragraph_reference_faq_1'
     - 'paragraph_reference_faq_2'
     - 'paragraph_reference_faq_3'
+iframe_1:
+  type: 'iframe'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_iframe_url: 'https://www.youtube.com/embed/z-qpyBRTJ2A'
+  field_iframe_height: 400
+map_1:
+  type: 'map'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS}}'
+  field_map_address_view_mode: 'osm_map'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+block_reference_1:
+

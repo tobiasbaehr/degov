@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_demo_content\Factory;
 
+use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
 
 class ContentFactory {
@@ -28,7 +29,7 @@ class ContentFactory {
    *
    * @var int
    */
-  private $textCounter = 0;
+  private $counter = 0;
 
   /**
    * Base string for text generation
@@ -99,32 +100,48 @@ class ContentFactory {
     }
   }
 
-  protected function prepareValues(array &$rawParagraph) {
-    foreach ($rawParagraph as $index => $value) {
-      switch(gettype($value)) {
-        case 'string':
-          switch ($value) {
-            case '{{SUBTITLE}}':
-              $rawParagraph[$index] = $this->generateBlindText(5);
-              break;
-            case '{{TEXT}}':
-              $rawParagraph[$index] = $this->generateBlindText(50);
-              break;
-            case '{{MEDIA_IMAGE_ID}}':
-              $rawParagraph[$index] = ['target_id' => $this->getImage()->id()];
-              break;
-            case '{{DEMOTAG}}':
-              $rawParagraph[$index] = ['target_id' => $this->getDemoContentTagId()];
-              break;
-          }
+  protected function prepareValues(array &$rawElement) {
+    foreach ($rawElement as $index => $value) {
+      switch ($value) {
+        case '{{SUBTITLE}}':
+          $rawElement[$index] = $this->generateBlindText(5);
           break;
-
-        case 'array':
-          $this->prepareValues($value);
-          $rawParagraph[$index] = $value;
+        case '{{TEXT}}':
+          $rawElement[$index] = $this->generateBlindText(50);
+          break;
+        case '{{DEMOTAG}}':
+          $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+          break;
+        default:
+          if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
+            $mediaTypeId = strtolower(str_replace([
+              '{{MEDIA_ID_',
+              '}}',
+            ], '', $value));
+            $mediaId = $this->getMedia($mediaTypeId)->id();
+            $rawElement[$index] = [
+              'target_id' => $mediaId,
+            ];
+          }
           break;
       }
     }
+  }
+
+  protected function getMedias(string $bundle): array {
+    $mediaIds = \Drupal::entityQuery('media')
+      ->condition('bundle', $bundle)
+      ->condition('field_tags', $this->getDemoContentTagId())->execute();
+    return $mediaIds;
+  }
+
+
+  protected function getMedia(string $bundle): Media {
+    $medias = $this->getMedias($bundle);
+    $this->counter++;
+    $index = $this->counter % \count($medias);
+    $keys = array_keys($medias);
+    return Media::load($medias[$keys[$index]]);
   }
 
   public function generateBlindText(int $wordCount): string {
@@ -137,8 +154,8 @@ class ContentFactory {
 
   protected function getWord(): string {
     $words = explode(' ', self::blindText);
-    $this->textCounter++;
-    $index = $this->textCounter % count($words);
+    $this->counter++;
+    $index = $this->counter % count($words);
     return $words[$index];
   }
 
