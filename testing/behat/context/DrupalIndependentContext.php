@@ -213,7 +213,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
     }
   }
-  
+
   /**
    * @Then /^I proof css "([^"]*)" contains text$/
    */

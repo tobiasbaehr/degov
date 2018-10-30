@@ -7,7 +7,6 @@ Feature: deGov - Demo Content
 
   Scenario: Check if all teasers will be displayed
     Given I am logged in as a user with the "administrator" role
-    Given I run drush "degov_demo_content:reset"
     And I am on "/degov-demo-content/page-all-teasers"
     And I should see "Page with text paragraph"
     And I should see "Page with download paragraph"
