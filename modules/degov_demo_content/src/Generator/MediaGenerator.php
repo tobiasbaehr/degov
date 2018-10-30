@@ -100,6 +100,7 @@ class MediaGenerator extends ContentGenerator {
   private function saveEntities($media_to_generate): void {
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
+      $this->prepareValues($media_item);
       foreach ($media_item as $media_item_field_key => $media_item_field_value) {
         if ($media_item_field_key === 'file') {
           switch ($media_item['bundle']) {
@@ -159,7 +160,6 @@ class MediaGenerator extends ContentGenerator {
           'target_id' => $this->getDemoContentCopyrightId(),
         ];
       }
-      $this->prepareValues($fields);
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;
