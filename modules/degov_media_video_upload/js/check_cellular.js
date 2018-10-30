@@ -7,8 +7,8 @@
             alert(Drupal.behaviors.checkCellular.check());
         },
         check: function () {
-            let isCellular = false;
-            let connection;
+            const maxLoadingTimeCellular = 2000;
+            let loadTime, isCellular, connection;
             if (typeof navigator.connection !== 'undefined') {
                 connection = navigator.connection;
             }else if(typeof navigator.mozConnection !== 'undefined'){
@@ -22,6 +22,9 @@
                 }else if(typeof connection.effectiveType !== 'undefined'){
                     isCellular = (connection.effectiveType !== '4g');
                 }
+            } else {
+                loadTime = new Date().valueOf() - window.performance.timing.requestStart;
+                isCellular = (loadTime > maxLoadingTimeCellular);
             }
             return isCellular;
         }
