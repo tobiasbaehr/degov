@@ -11,15 +11,15 @@ Feature: deGov view modes
       | degov_simplenews                  |
       | degov_node_blog                   |
       | degov_node_event                  |
+      | degov_demo_content                |
     Given I proof that the following Drupal modules are installed:
       | degov_node_normal_page |
       | degov_node_press       |
 
   Scenario: Content type normal page displays teaser small image with needed fields
-    Given I have created an node normal page entity with a content reference in "small_image" view mode
-    And I visit an normal page entity with content reference
-    And I proof xpath "//div[@class='normal-page__teaser-title teaser-title']/h3" contains text
-    And I proof xpath "//div[@class='normal-page__teaser-text']/a" contains text
+    Given I am on "/degov-demo-content/page-all-teasers"
+    And I proof css "div.normal-page__teaser-title h3" contains text
+    And I proof css "div.normal-page__teaser-text" contains text
     And I proof css selector ".normal-page__teaser-image picture" matches a DOM node
 
   Scenario: Content type normal_page has necessary view modes
