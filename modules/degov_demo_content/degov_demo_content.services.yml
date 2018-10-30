@@ -3,5 +3,5 @@ services:
     class: Drupal\degov_demo_content\Factory\NodeFactory
     arguments: [ '@degov_demo_content.media_generator', '@pathauto.alias_cleaner' ]
   degov_demo_content.media_generator:
-    class: Drupal\degov_demo_content\Factory\MediaFactory
+    class: Drupal\degov_demo_content\Generator\MediaGenerator
     arguments: [ '@geofield.wkt_generator' ]

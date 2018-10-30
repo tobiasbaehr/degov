@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_demo_content\Factory;
 
+use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -23,7 +24,7 @@ class NodeFactory extends ContentFactory {
    */
   protected $aliasCleaner;
 
-  public function __construct(MediaFactory $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
+  public function __construct(MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     $this->mediaGenerator = $mediaGenerator;
     $this->aliasCleaner = $aliasCleaner;
     $this->entityType = 'node';
