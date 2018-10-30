@@ -70,7 +70,7 @@ function degov_paragraph_block_reference_get_all_node_types(): array {
   return $nodeTypes;
 }
 
-function degov_paragraph_block_reference_get_all_fields($contentType) {
+function degov_paragraph_block_reference_get_all_fields($contentType): array {
   $entityManager = Drupal::service('entity.manager');
   $fields = [];
 

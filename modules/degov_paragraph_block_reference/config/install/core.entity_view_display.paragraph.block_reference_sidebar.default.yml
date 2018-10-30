@@ -9,7 +9,7 @@ dependencies:
     - paragraphs.paragraphs_type.block_reference_sidebar
   enforced:
     module:
-      - degov_paragraph_block_reference_sidebar
+      - degov_paragraph_block_reference
   module:
     - block_field
     - link
