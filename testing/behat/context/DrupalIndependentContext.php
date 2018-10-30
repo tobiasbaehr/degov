@@ -210,6 +210,20 @@ class DrupalIndependentContext extends RawMinkContext {
 
     if (empty(\trim(\strip_tags($xpathNode->getHtml())))) {
       throw new \Exception("Xpath $xpath does not contain any text.");
+
+    }
+  }
+  
+  /**
+   * @Then /^I proof css "([^"]*)" contains text$/
+   */
+  public function cssContainsText(string $css) {
+    $page = $this->getSession()->getPage();
+    /** @var $node \Behat\Mink\Element\NodeElement */
+    $node = $page->find('css', $css);
+
+    if (empty(\trim(\strip_tags($node->getHtml())))) {
+      throw new \Exception("CSS $css does not contain any text.");
     }
   }
 
