@@ -19,6 +19,8 @@ parameters:
     - '#Constant DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME not found.#'
     - '#Constant DEGOV_DEMO_CONTENT_FILES_SAVE_PATH not found.#'
     - '#Constant FILE_EXISTS_REPLACE not found.#'
+    - '#Function file_save_data not found.#'
+    - '#Function dt not found.#'
   excludes_analyse:
     - "./**/*.post_update.php"
     - "./**/*/WorkbenchMenuLinks.php"
