@@ -168,6 +168,7 @@ class FormContext extends RawMinkContext {
     $html = $node->getHtml();
 
     $htmlParts = explode('</option>', $html);
+    array_shift($htmlParts);
 
     array_pop($htmlParts);
 
@@ -216,23 +217,18 @@ class FormContext extends RawMinkContext {
 		// Remove last element which is empty
 		array_pop($htmlParts);
 
-		// Remove dropdown toggle
-		unset($htmlParts['1']);
-
 		if (count($htmlParts) !== count($rowsHash) - 1) {
 			throw new \Exception('Table items number does not match found option values number.');
 		}
 
-		\sort($htmlParts);
-
 		foreach ($rowsHash as $text => $value) {
 			$found = FALSE;
-			$htmlPartItems = count($htmlParts) - 1;
-			for ($i = 0; $i <= $htmlPartItems; ++$i) {
-				if (strpos($htmlParts[$i], $text) && strpos($htmlParts[$i], $value)) {
-					$found = TRUE;
-				}
-			}
+			foreach($htmlParts as $htmlPart) {
+        if (strpos($htmlPart, $text) && strpos($htmlPart, $value)) {
+          $found = TRUE;
+        }
+      }
+
 			if ($found === FALSE) {
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}

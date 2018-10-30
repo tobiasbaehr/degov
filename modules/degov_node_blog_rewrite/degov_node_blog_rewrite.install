@@ -1,8 +1,0 @@
-<?php
-
-/**
- * Disables merged module
- */
-function degov_node_normal_page_rewrite_update_801() {
-  \Drupal::service('module_installer')->uninstall(['degov_node_blog_rewrite']);
-}
