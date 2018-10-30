@@ -33,6 +33,7 @@ class NodeFactory extends ContentFactory {
   public function generateContent(): void {
     $teaserPage = NULL;
     $nodeIds = [];
+    $paragraphs = [];
 
     foreach ($this->loadDefinitions('node.yml') as $rawNode) {
       if (isset($rawNode['field_content_paragraphs'])) {
