@@ -16,7 +16,6 @@ parameters:
     - '#Function locale_translation_batch_update_build not found.#'
     - '#Constant DEGOV_DEMO_CONTENT_TAG_NAME not found.#'
     - '#Constant DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME not found.#'
-    - '#Constant DEGOV_DEMO_CONTENT_TAG_NAME not found.#'
     - '#Constant DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME not found.#'
     - '#Constant DEGOV_DEMO_CONTENT_FILES_SAVE_PATH not found.#'
     - '#Constant FILE_EXISTS_REPLACE not found.#'
