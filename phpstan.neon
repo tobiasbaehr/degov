@@ -2,6 +2,8 @@ parameters:
   bootstrap: docroot/core/tests/bootstrap.php
   ignoreErrors:
     - '#Function t not found.#'
+    - '#Function dt not found.#'
+    - '#Function file_save_data not found.#'
     - '#Function system_region_list not found.#'
     - '#Function drupal_set_message not found.#'
     - '#Function file_scan_directory not found.#'
