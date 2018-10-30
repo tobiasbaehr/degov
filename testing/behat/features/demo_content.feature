@@ -24,7 +24,7 @@ Feature: deGov - Demo Content
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role
-    And I am on "/degov-demo-content/page-with-banner"
+    And I am on "/degov-demo-content/page-banner"
     And I should see "Page with banner"
     And I should see "A page with an image header"
     And I should see "degov_demo_content"

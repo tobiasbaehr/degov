@@ -18,7 +18,7 @@ Feature: deGov view modes
   Scenario: Content type normal page displays teaser small image with needed fields
     Given I have created an node normal page entity with a content reference in "small_image" view mode
     And I visit an normal page entity with content reference
-    And I proof xpath "//div[@class='normal-page__teaser-title teaser-title']/h3" contains text
+    And I proof xpath "//div[@class='normal-page__teaser-title']/h3" contains text
     And I proof xpath "//div[@class='normal-page__teaser-text']/a" contains text
     And I proof css selector ".normal-page__teaser-image picture" matches a DOM node
 
