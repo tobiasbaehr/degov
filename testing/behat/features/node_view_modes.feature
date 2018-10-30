@@ -19,7 +19,7 @@ Feature: deGov view modes
     Given I have created an node normal page entity with a content reference in "small_image" view mode
     And I visit an normal page entity with content reference
     And I proof css "div.normal-page__teaser-title h3" contains text
-    And I proof css "div.normal-page__teaser-text a" contains text
+    And I proof css "div.normal-page__teaser-text" contains text
     And I proof css selector ".normal-page__teaser-image picture" matches a DOM node
 
   Scenario: Content type normal_page has necessary view modes
