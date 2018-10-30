@@ -232,7 +232,7 @@ function degov_update_dependencies() {
 /**
  * Install the Link Attributes module, if it's not already installed.
  */
-function degov_update_8501() {
+function degov_update_8502() {
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes'
