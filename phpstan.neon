@@ -19,3 +19,7 @@ parameters:
     - "./**/*/WorkbenchMenuLinks.php"
     - "./**/tests/**"
     - "./**/testing/**"
+  fileExtensions:
+    - php
+    - module
+    - inc
