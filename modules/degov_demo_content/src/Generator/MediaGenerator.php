@@ -4,7 +4,6 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
-use Drupal\degov_media_image\Service\AutoCropper;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
@@ -49,6 +48,10 @@ class MediaGenerator extends ContentGenerator {
   /**
    * Constructs a new ContentGenerator instance.
    *
+   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
+   *   The ModuleHandler.
+   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   *   The EntityTypeManager.
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
    */
@@ -82,7 +85,7 @@ class MediaGenerator extends ContentGenerator {
    */
   private function saveFiles($media_to_generate): void {
     $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
-        ->getPath() . '/fixtures';
+      ->getPath() . '/fixtures';
 
     foreach ($media_to_generate as $media_item_key => $media_item) {
       if (isset($media_item['file'])) {
@@ -196,8 +199,7 @@ class MediaGenerator extends ContentGenerator {
   /**
    * Deletes the generated entities.
    */
-  public
-  function deleteContent() {
+  public function deleteContent() {
     $query = \Drupal::entityQuery('file');
     $query->condition('uri', 'public://degov_demo_content/%', 'LIKE');
     $query_results = $query->execute();
@@ -209,7 +211,6 @@ class MediaGenerator extends ContentGenerator {
         $file_entity->delete();
       }
     }
-
     parent::deleteContent();
   }
 
