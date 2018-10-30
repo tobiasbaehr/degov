@@ -6,7 +6,7 @@ dependencies:
     - paragraphs.paragraphs_type.block_reference_sidebar
   enforced:
     module:
-      - degov_paragraph_block_reference_sidebar
+      - degov_paragraph_block_reference
   module:
     - link
 id: paragraph.block_reference_sidebar.field_title_link
