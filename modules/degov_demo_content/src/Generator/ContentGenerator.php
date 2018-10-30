@@ -2,6 +2,8 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
 
@@ -13,6 +15,13 @@ class ContentGenerator {
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
   protected $moduleHandler;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManager
+   */
+  protected $entityTypeManager;
 
   /**
    * The entity type we are working with.
@@ -40,9 +49,13 @@ class ContentGenerator {
 
   /**
    * Constructs a new ContentGenerator instance.
+   *
+   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
+   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
    */
-  public function __construct() {
-    $this->moduleHandler = \Drupal::service('module_handler');
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager) {
+    $this->moduleHandler = $moduleHandler;
+    $this->entityTypeManager = $entityTypeManager;
   }
 
   /**
@@ -61,7 +74,10 @@ class ContentGenerator {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function getDemoContentTagId() {
-    $tag_term = taxonomy_term_load_multiple_by_name(DEGOV_DEMO_CONTENT_TAG_NAME, DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME);
+    $tag_term = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
+      'vid' => DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME,
+    ]);
     if (!empty($tag_term)) {
       $tag_term = reset($tag_term);
       return $tag_term->id();
@@ -74,7 +90,10 @@ class ContentGenerator {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function getDemoContentCopyrightId() {
-    $tag_term = taxonomy_term_load_multiple_by_name(DEGOV_DEMO_CONTENT_TAG_NAME, DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME);
+    $tag_term = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
+      'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
+      'vid' => DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME,
+    ]);
     if (!empty($tag_term)) {
       $tag_term = reset($tag_term);
       return $tag_term->id();
