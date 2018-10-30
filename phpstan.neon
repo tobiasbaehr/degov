@@ -23,3 +23,5 @@ parameters:
     - php
     - module
     - inc
+    - install
+    - profile
