@@ -67,6 +67,7 @@ dependencies:
   - content_moderation
   - workflows
   - simplenews
+  - link_attributes
 
 themes:
   - degov_base_theme
