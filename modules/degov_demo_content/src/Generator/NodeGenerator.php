@@ -1,16 +1,14 @@
 <?php
 
-namespace Drupal\degov_demo_content\Factory;
+namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\degov_demo_content\Generator\MediaGenerator;
-use Drupal\media\Entity\Media;
+use Drupal\degov_demo_content\Factory\ContentFactory;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
-class NodeFactory extends ContentFactory {
-
+class NodeGenerator extends ContentFactory {
 
   /**
    * Generates a set of node entities.

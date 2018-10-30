@@ -1,6 +1,6 @@
 services:
   degov_demo_content.node_generator:
-    class: Drupal\degov_demo_content\Factory\NodeFactory
+    class: Drupal\degov_demo_content\Generator\NodeGenerator
     arguments: [ '@degov_demo_content.media_generator', '@pathauto.alias_cleaner' ]
   degov_demo_content.media_generator:
     class: Drupal\degov_demo_content\Generator\MediaGenerator
