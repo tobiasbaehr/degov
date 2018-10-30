@@ -61,36 +61,6 @@ function degov_media_video_upload_preprocess_media__video_upload(&$variables) {
     }
   }
 
-  if (!$media->get('field_video_upload_webm')->isEmpty()) {
-    /* @var \Drupal\file\Entity\File $file */
-    $file = $media->field_video_upload_webm->entity;
-    if (!empty($file)) {
-      $variables['video_webm'] = file_create_url($file->getFileUri());
-      // Add the download link only to full view mode.
-      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
-        // If allowed let's prepare the links.
-        if ($download_is_allowed) {
-          $variables['content']['download_webm'] = degov_common_file_download_render_array($file);
-        }
-      }
-    }
-  }
-
-  if (!$media->get('field_video_upload_ogg')->isEmpty()) {
-    /* @var \Drupal\file\Entity\File $file */
-    $file = $media->field_video_upload_ogg->entity;
-    if (!empty($file)) {
-      $variables['video_ogg'] = file_create_url($file->getFileUri());
-      // Add the download link only to full view mode.
-      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
-        // If allowed let's prepare the links.
-        if ($download_is_allowed) {
-          $variables['content']['download_ogg'] = degov_common_file_download_render_array($file);
-        }
-      }
-    }
-  }
-
   /* @var \Drupal\media\Entity\Media $poster */
   $image = $media->field_video_upload_preview->entity;
   if (!empty($image)) {

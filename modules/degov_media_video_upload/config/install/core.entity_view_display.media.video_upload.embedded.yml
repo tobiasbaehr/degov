@@ -7,17 +7,20 @@ dependencies:
     - field.field.media.video_upload.field_copyright
     - field.field.media.video_upload.field_description
     - field.field.media.video_upload.field_include_search
+    - field.field.media.video_upload.field_media_accessibility
     - field.field.media.video_upload.field_media_duration
+    - field.field.media.video_upload.field_media_generic_8
     - field.field.media.video_upload.field_media_in_library
+    - field.field.media.video_upload.field_media_language
+    - field.field.media.video_upload.field_media_publish_date
     - field.field.media.video_upload.field_media_transcription
+    - field.field.media.video_upload.field_subtitle
     - field.field.media.video_upload.field_tags
     - field.field.media.video_upload.field_title
     - field.field.media.video_upload.field_video_upload_caption
     - field.field.media.video_upload.field_video_upload_mp4
-    - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
-    - field.field.media.video_upload.field_video_upload_webm
     - image.style.thumbnail
     - media.type.video_upload
   enforced:
@@ -63,15 +66,18 @@ hidden:
   field_copyright: true
   field_description: true
   field_include_search: true
+  field_media_accessibility: true
   field_media_duration: true
+  field_media_generic_8: true
   field_media_in_library: true
+  field_media_language: true
+  field_media_publish_date: true
   field_media_transcription: true
+  field_subtitle: true
   field_tags: true
   field_video_upload_caption: true
   field_video_upload_mp4: true
-  field_video_upload_ogg: true
   field_video_upload_subtitle: true
-  field_video_upload_webm: true
   langcode: true
   name: true
   uid: true

@@ -2,20 +2,17 @@ langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_video_upload_mp4
+    - field.storage.media.field_mobile_video_upload_mp4
     - media.type.video_upload
-  enforced:
-    module:
-      - degov_media_video_upload
   module:
     - file
-id: media.video_upload.field_video_upload_mp4
-field_name: field_video_upload_mp4
+id: media.video_upload.field_mobile_video_upload_mp4
+field_name: field_mobile_video_upload_mp4
 entity_type: media
 bundle: video_upload
-label: 'Standard Video'
-description: '960 x 540'
-required: true
+label: 'Mobiles Video'
+description: '640 x 360'
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

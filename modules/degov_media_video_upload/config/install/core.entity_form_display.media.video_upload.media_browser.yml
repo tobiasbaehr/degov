@@ -8,24 +8,26 @@ dependencies:
     - field.field.media.video_upload.field_copyright
     - field.field.media.video_upload.field_description
     - field.field.media.video_upload.field_include_search
+    - field.field.media.video_upload.field_media_accessibility
     - field.field.media.video_upload.field_media_duration
     - field.field.media.video_upload.field_media_generic_8
     - field.field.media.video_upload.field_media_in_library
+    - field.field.media.video_upload.field_media_language
+    - field.field.media.video_upload.field_media_publish_date
     - field.field.media.video_upload.field_media_transcription
+    - field.field.media.video_upload.field_subtitle
     - field.field.media.video_upload.field_tags
     - field.field.media.video_upload.field_title
-    - field.field.media.video_upload.field_subtitle
     - field.field.media.video_upload.field_video_upload_caption
     - field.field.media.video_upload.field_video_upload_mp4
-    - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
-    - field.field.media.video_upload.field_video_upload_webm
     - media.type.video_upload
   enforced:
     module:
       - degov_media_video_upload
   module:
+    - content_moderation
     - entity_browser
     - field_group
     - file
@@ -180,6 +182,14 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_subtitle:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_tags:
     type: entity_reference_autocomplete
     weight: 9
@@ -197,14 +207,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_subtitle:
-    weight: 2
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_video_upload_caption:
     weight: 8
     settings:
@@ -214,13 +216,6 @@ content:
     type: string_textfield
     region: content
   field_video_upload_mp4:
-    weight: 5
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
-  field_video_upload_ogg:
     weight: 5
     settings:
       progress_indicator: throbber
@@ -253,19 +248,18 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_video_upload_webm:
-    weight: 6
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-    type: file_generic
-    region: content
   langcode:
     type: language_select
     weight: 8
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -292,4 +286,5 @@ hidden:
   created: true
   field_description: true
   field_media_generic_8: true
+  field_media_publish_date: true
   uid: true

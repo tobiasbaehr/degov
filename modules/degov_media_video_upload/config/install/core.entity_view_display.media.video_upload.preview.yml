@@ -7,26 +7,27 @@ dependencies:
     - field.field.media.video_upload.field_copyright
     - field.field.media.video_upload.field_description
     - field.field.media.video_upload.field_include_search
+    - field.field.media.video_upload.field_media_accessibility
     - field.field.media.video_upload.field_media_duration
+    - field.field.media.video_upload.field_media_generic_8
     - field.field.media.video_upload.field_media_in_library
+    - field.field.media.video_upload.field_media_language
+    - field.field.media.video_upload.field_media_publish_date
     - field.field.media.video_upload.field_media_transcription
+    - field.field.media.video_upload.field_subtitle
     - field.field.media.video_upload.field_tags
     - field.field.media.video_upload.field_title
     - field.field.media.video_upload.field_video_upload_caption
     - field.field.media.video_upload.field_video_upload_mp4
-    - field.field.media.video_upload.field_video_upload_ogg
     - field.field.media.video_upload.field_video_upload_preview
     - field.field.media.video_upload.field_video_upload_subtitle
-    - field.field.media.video_upload.field_video_upload_webm
-    - field.field.media.video_upload.field_media_publish_date
-    - image.style.large
     - media.type.video_upload
   enforced:
     module:
       - degov_media_video_upload
   module:
+    - datetime
     - degov_common
-    - media
 id: media.video_upload.preview
 targetEntityType: media
 bundle: video_upload
@@ -40,6 +41,15 @@ content:
     settings:
       link: false
     third_party_settings: {  }
+  field_media_publish_date:
+    weight: 11
+    label: above
+    settings:
+      format_type: date_medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_tags:
     type: taxonomy_term_search
     weight: 3
@@ -55,15 +65,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_media_publish_date:
-    weight: 11
-    label: above
-    settings:
-      format_type: date_medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
     region: content
   field_video_upload_preview:
     type: entity_reference_entity_view
@@ -81,14 +82,16 @@ hidden:
   field_allow_download: true
   field_description: true
   field_include_search: true
+  field_media_accessibility: true
   field_media_duration: true
+  field_media_generic_8: true
   field_media_in_library: true
+  field_media_language: true
   field_media_transcription: true
+  field_subtitle: true
   field_video_upload_caption: true
   field_video_upload_mp4: true
-  field_video_upload_ogg: true
   field_video_upload_subtitle: true
-  field_video_upload_webm: true
   langcode: true
   name: true
   thumbnail: true
