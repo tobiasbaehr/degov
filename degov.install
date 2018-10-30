@@ -61,14 +61,14 @@ function degov_update_8440() {
 }
 
 /**
- * Uninstalls the lightning API module. It will be removed in 2.1.x
+ * Uninstalls the lightning API module. It will be removed in 3.x
  */
 function degov_update_8441() {
   \Drupal::service('module_installer')->uninstall(['lightning_api']);
 }
 
 /**
- * Uninstalls the lightning workflow module. It will be removed in 2.1.x
+ * Uninstalls the lightning workflow module. It will be removed in 3.x
  */
 function degov_update_8442() {
   \Drupal::service('module_installer')->uninstall(['lightning_workflow']);
@@ -173,10 +173,41 @@ function degov_update_8449() {
 }
 
 /**
+ * Repair broken view modes
+ */
+function degov_update_8450() {
+
+  $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
+  foreach ($viewModes as $viewMode) {
+    $configurationName = 'core.entity_view_display.' . $viewMode;
+    if (\Drupal::config($configurationName)->get('id') === NULL) {
+      list($entityType, $viewModeId) = explode('.', $viewMode);
+      if ($entityType === 'node' || $entityType === 'media') {
+        $moduleName = 'degov_' . $entityType . '_' . $viewModeId;
+        if (\Drupal::moduleHandler()->moduleExists($moduleName)) {
+          $replace = Yaml::parse(file_get_contents(drupal_get_path('module', $moduleName) . '/config/install/' . $configurationName . '.yml'));
+          \Drupal::configFactory()
+            ->getEditable($configurationName)
+            ->setData($replace)
+            ->save(TRUE);
+        }
+      }
+    }
+  }
+}
+
+/**
  * Translate social media settings string into German.
  */
 function degov_update_8500() {
   degov_import_translations();
+}
+
+function degov_update_dependencies() {
+  $dependencies['field_group'][8301] = [
+    'degov' => 8450,
+  ];
+  return $dependencies;
 }
 
 /**

@@ -7,6 +7,8 @@ dependencies:
   enforced:
     module:
       - degov_node_overrides
+  module:
+    - degov_node_overrides
 id: node.normal_page.field_teaser_sub_title
 field_name: field_teaser_sub_title
 entity_type: node

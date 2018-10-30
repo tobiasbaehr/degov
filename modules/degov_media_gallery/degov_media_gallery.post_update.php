@@ -1,52 +1,85 @@
 <?php
 
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\media\Entity\Media;
+
 /**
- * Migrate field_gallery_title to field_title.
+ * Migrate field_media_published_date to field_media_publish_date.
  */
-function degov_media_gallery_post_update_migrate_field_title(&$sandbox) {
+function degov_media_gallery_post_update_migrate_field_date(&$sandbox) {
+
+  $oldFieldName = 'field_media_published_date';
+  $newFieldName = 'field_media_publish_date';
+  $bundle = 'gallery';
+
   // Initialize some variables during the first pass through.
   if (!isset($sandbox['total'])) {
-    $sandbox['is_index'] = FALSE;
     $max = \Drupal::entityQuery('media')
-      ->condition('bundle', 'gallery')
+      ->condition('bundle', $bundle)
       ->count()
       ->execute();
-    $sandbox['total'] = $max;
+    $sandbox['total'] = (int) $max;
     $sandbox['current'] = 0;
-    if (\Drupal::moduleHandler()->moduleExists('degov_search_media')) {
-      $index = \Drupal\search_api\Entity\Index::load('search_media');
-      if ($index) {
-        $index->setOption('index_directly', FALSE);
-        $index->save();
-        $sandbox['is_index'] = TRUE;
-      }
-    }
   }
 
-  $media_per_batch = 50;
+  if ($sandbox['total'] === 0) {
+    $sandbox['#finished'] = 1;
+
+    return t('@current media @bundle processed.', [
+      '@current' => $sandbox['current'],
+      '@bundle'  => $bundle,
+    ]);
+  }
+
+  $batchSize = 50;
 
   // Handle one pass through.
-  $mids = \Drupal::entityQuery('media')
-    ->condition('bundle', 'gallery')
-    ->range($sandbox['current'], $sandbox['current'] + $media_per_batch)
+  $Ids = \Drupal::entityQuery('media')
+    ->condition('bundle', $bundle)
+    ->range($sandbox['current'], $batchSize)
     ->execute();
-  $medias = \Drupal\media\Entity\Media::loadMultiple($mids);
-  foreach($medias as $media) {
-    if ($media->get('field_gallery_title')->isEmpty()) {
-      $sandbox['current']++;
-      continue;
+  $medias = \Drupal\media\Entity\Media::loadMultiple($Ids);
+  foreach ($medias as $media) {
+    /**
+     * @var $media Media
+     */
+
+    if ($media->hasField($oldFieldName)) {
+      $mediaDate = (new DrupalDateTime($media->get($oldFieldName)->value))
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      $mediaCreatedDate = DrupalDateTime::createFromTimestamp($media->get('created')->value)
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      if ($media->get($newFieldName)->isEmpty()) {
+        $mediaPublishedDate = $media->get($oldFieldName)->value === NULL ? $mediaCreatedDate : $mediaDate;
+        $media->set($newFieldName, $mediaPublishedDate);
+        $media->set($oldFieldName, NULL);
+        $media->save();
+      }
     }
-    $caption = $media->get('field_gallery_title')->getValue();
-    $media->set('field_title', $caption);
-    $media->save();
+    else {
+      $mediaCreatedDate = DrupalDateTime::createFromTimestamp($media->get('created')->value)
+        ->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+      if ($media->get($newFieldName)->isEmpty()) {
+        $media->set($newFieldName, $mediaCreatedDate);
+        $media->save();
+      }
+    }
     $sandbox['current']++;
   }
 
   $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
-  if ($sandbox['#finished'] == 1 && $sandbox['is_index']) {
-    $index = \Drupal\search_api\Entity\Index::load('search_media');
-    $index->setOption('index_directly', TRUE);
-    $index->save();
+
+  if ($sandbox['#finished'] === 1) {
+    $fieldConfig = FieldConfig::loadByName('media', $bundle, $oldFieldName);
+    if ($fieldConfig) {
+      $fieldConfig->delete();
+    }
   }
-  return t('@current media processed.', ['@current' => $sandbox['current']]);
+
+  return t('@current media @bundle processed.', [
+    '@current' => $sandbox['current'],
+    '@bundle'  => $bundle,
+  ]);
 }

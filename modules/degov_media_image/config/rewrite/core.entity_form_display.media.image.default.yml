@@ -6,7 +6,6 @@ dependencies:
     - field.field.media.image.field_copyright
     - field.field.media.image.field_description
     - field.field.media.image.field_image_caption
-    - field.field.media.image.field_image_date
     - field.field.media.image.field_image_height
     - field.field.media.image.field_image_mime
     - field.field.media.image.field_image_width
@@ -16,6 +15,7 @@ dependencies:
     - field.field.media.image.field_subtitle
     - field.field.media.image.field_title
     - field.field.media.image.field_tags
+    - field.field.media.image.field_media_publish_date
     - field.field.media.image.image
     - image.style.crop_thumbnail
     - media.type.image
@@ -257,6 +257,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_media_publish_date:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   path:
     type: path

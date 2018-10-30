@@ -1,10 +1,5 @@
 <?php
 
-
-#- 'use draft_draft transition'
-#- 'use draft_needs_review transition'
-#- 'use published_draft transition'
-
 /**
  * Updating permissions from workbench moderation to content moderation
  */
@@ -62,3 +57,30 @@ function degov_users_roles_update_8010() {
   }
 }
 
+/**
+ * Re-apply update hook 8001 with role configuration
+ */
+function degov_users_roles_update_8011() {
+  // Apply updates for workflows
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_users_roles', '8001');
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_users_roles_update_dependencies()
+{
+  $dependencies = [
+    'degov_users_roles' => [
+      8010 => [
+        'degov_common' => 8026,
+      ],
+      8011 => [
+        'degov_common' => 8026,
+      ],
+    ],
+  ];
+
+  return $dependencies;
+}

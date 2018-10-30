@@ -1,10 +1,10 @@
 dependencies:
   config:
-    - field.field.node.faq.field_publish
+    - field.field.node.faq.field_scheduled_publish
   module:
     - scheduled_publish
 content:
-  field_publish:
+  field_scheduled_publish:
     type: scheduled_publish
     weight: 11
     region: content

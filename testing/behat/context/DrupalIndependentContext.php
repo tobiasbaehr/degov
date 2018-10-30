@@ -2,7 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ElementTextException;
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
@@ -17,6 +17,9 @@ class DrupalIndependentContext extends RawMinkContext {
 	private const MAX_DURATION_SECONDS = 1200;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
 
+  /**
+   * @var HookDispatcher
+   */
   private $dispatcher;
 
   /**
@@ -195,4 +198,31 @@ class DrupalIndependentContext extends RawMinkContext {
     }
     throw new ResponseTextException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
   }
+
+  /**
+   * @Then /^I proof xpath "([^"]*)" contains text$/
+   */
+  public function xpathContainsText(string $xpath) {
+    $page = $this->getSession()->getPage();
+    /** @var $xpathNode \Behat\Mink\Element\NodeElement */
+    $xpathNode = $page->find('xpath', $xpath);
+
+    if (empty(\trim(\strip_tags($xpathNode->getHtml())))) {
+      throw new \Exception("Xpath $xpath does not contain any text.");
+    }
+  }
+
+  /**
+   * @Then /^I proof css selector "([^"]*)" matches a DOM node$/
+   */
+  public function cssSelectorMatchesDOMNode(string $css) {
+    $page = $this->getSession()->getPage();
+    /** @var $cssSelector NodeElement */
+    $cssSelector = $page->find('css', $css);
+
+    if (!$cssSelector instanceof NodeElement) {
+      throw new \Exception("CSS selector $css is not of expected object type NodeElement.");
+    }
+  }
+
 }

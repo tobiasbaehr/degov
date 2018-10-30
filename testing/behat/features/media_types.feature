@@ -49,6 +49,9 @@ Feature: deGov - Media types
     And I should see text matching "field_media_transcription"
     And I should see text matching "field_audio_preview"
     And I should see text matching "field_title"
+    And I should see text matching "field_media_publish_date"
+    Then I am on "/admin/structure/media/manage/audio/fields/media.audio.field_media_publish_date"
+    And the "edit-required" checkbox should be checked
 
   Scenario: Media type image has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -57,7 +60,7 @@ Feature: deGov - Media types
     And I should see text matching "field_image_caption"
     And I should see text matching "field_image_width"
     And I should see text matching "field_copyright"
-    And I should see text matching "field_image_date"
+    And I should see text matching "field_media_publish_date"
     And I should see text matching "field_allow_download"
     And I should see text matching "field_image_height"
     And I should see text matching "image"
@@ -67,6 +70,18 @@ Feature: deGov - Media types
     And I should see text matching "field_tags"
     And I should see text matching "field_subtitle"
     And I should see text matching "field_title"
+    Then I am on "/admin/structure/media/manage/image/fields/media.image.field_media_publish_date"
+    And the "edit-required" checkbox should be checked
+
+  Scenario: I verify that image media entities have copyright related fields
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/image"
+    And I choose "Beschreibung" from tab menu
+    Then I should see 1 form element with the label "Copyright" and a required input field
+    And I should see 1 form element with the label "Bild ist frei" and a "checkbox" field
+    And I check checkbox with id "edit-field-royalty-free-value"
+    Then I should see 0 form element with the label "Copyright" and a required input field
 
   Scenario: I verify that image media entities have copyright related fields
     Given I am logged in as an "Administrator"
@@ -89,6 +104,9 @@ Feature: deGov - Media types
     And I should see text matching "field_gallery_title"
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_title"
+    And I should see text matching "field_media_publish_date"
+    Then I am on "/admin/structure/media/manage/gallery/fields/media.gallery.field_media_publish_date"
+    And the "edit-required" checkbox should be checked
 
   Scenario: Media type document has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -157,6 +175,9 @@ Feature: deGov - Media types
     And I should see text matching "field_media_video_embed_field"
     And I should see text matching "field_video_preview"
     And I should see text matching "field_title"
+    And I should see text matching "field_media_publish_date"
+    Then I am on "/admin/structure/media/manage/video/fields/media.video.field_media_publish_date"
+    And the "edit-required" checkbox should be checked
 
    Scenario: Media type video_upload has all required fields
      Given I am logged in as a user with the "administrator" role
@@ -177,6 +198,9 @@ Feature: deGov - Media types
      And I should see text matching "field_video_upload_preview"
      And I should see text matching "field_video_upload_webm"
      And I should see text matching "field_title"
+     And I should see text matching "field_media_publish_date"
+     Then I am on "/admin/structure/media/manage/video_upload/fields/media.video_upload.field_media_publish_date"
+     And the "edit-required" checkbox should be checked
 
   Scenario: Media type citation has all required fields
     Given I am logged in as a user with the "administrator" role
@@ -190,6 +214,19 @@ Feature: deGov - Media types
     And I should see text matching "field_citation_text"
     And I should see text matching "field_citation_title"
     And I should see text matching "field_title"
+
+  Scenario: Check that media entity types with publish date field have a default value in said field
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/media/add/audio"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/image"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/gallery"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/video"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
+    And I am on "/media/add/video_upload"
+    Then I should see 2 elements with name matching "field_media_publish_date" and a not empty value
 
   Scenario: I am visiting the media entity type configuration pages
     Given I am on "/admin/structure/media/manage/address"

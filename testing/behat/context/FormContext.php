@@ -242,4 +242,20 @@ class FormContext extends RawMinkContext {
 		$this->getSession()->getPage()->pressButton($this->translateString($button));
 	}
 
+	/**
+   * @Then I should see the input with the name :input_name and the value :input_value checked
+   */
+	public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
+	  $radio_button = $this
+      ->getSession()
+      ->getPage()
+      ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
+
+	  if(count($radio_button) > 0) {
+	    return true;
+    }
+
+    throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
+  }
+
 }

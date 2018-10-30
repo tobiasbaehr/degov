@@ -22,7 +22,7 @@ widget:
   config:
     show_numbers: true
     default_option_label: Auswählen
-query_operator: and
+query_operator: or
 use_hierarchy: false
 expand_hierarchy: false
 enable_parent_when_child_gets_disabled: true
@@ -61,3 +61,4 @@ processor_configs:
     settings: {  }
 empty_behavior:
   behavior: none
+show_title: false

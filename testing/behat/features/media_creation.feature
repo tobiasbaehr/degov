@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: deGov - Media creation
 
   Background:
@@ -22,9 +22,8 @@ Feature: deGov - Media creation
     And I fill in "Düsseldorf" for "Stadt"
     And I click "General" via translation
     And I check the box "Mediathek"
-    Then I scroll to bottom
+    And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    Then I should see text matching "Example address" after a while
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
@@ -57,10 +56,12 @@ Feature: deGov - Media creation
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
     And I fill in the following:
-      | Öffentlicher Titel | Example video                               |
-      | Name               | Example video public                        |
-      | Video-URL          | https://www.youtube.com/watch?v=qREKP9oijWI |
-      | Quelle             | youtube                                     |
+      | Öffentlicher Titel     | Example video                               |
+      | Name                   | Example video public                        |
+      | Video-URL              | https://www.youtube.com/watch?v=qREKP9oijWI |
+      | Quelle                 | youtube                                     |
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
@@ -84,6 +85,8 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
@@ -100,6 +103,8 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
@@ -132,6 +137,8 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I attach the file "images/dummy.png" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
@@ -149,6 +156,8 @@ Feature: deGov - Media creation
     And I am logged in as an "Administrator"
     And I am on "/media/add/gallery"
     And I fill in "Name" with "Test1234"
+    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
+    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while

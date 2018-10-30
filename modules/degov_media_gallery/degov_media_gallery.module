@@ -24,6 +24,8 @@ function degov_media_gallery_preprocess(&$variables, $hook, &$info)
       'search',
       'embedded',
       'reference',
+      'full',
+      'preview_wide'
     ],
   ]);
 }
@@ -43,8 +45,8 @@ function degov_media_gallery_preprocess_media(&$variables)
       ->load('media.gallery.default');
     $component = $display->getComponent('field_gallery_images');
     $component['settings']['view_mode'] = 'teaser_squared_1_1';
-    $variables['content']['preview'] = $media->get('field_gallery_images')->view($component);
-    $variables['content']['totalImages'] = $media->get('field_gallery_images')->count();
+    $variables['content']['#preview'] = $media->get('field_gallery_images')->view($component);
+    $variables['content']['#totalImages'] = $media->get('field_gallery_images')->count();
     /* @var \Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem $item */
 
     foreach ($media->get('field_gallery_images') as $item) {

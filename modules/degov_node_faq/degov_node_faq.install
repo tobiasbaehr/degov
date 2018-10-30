@@ -30,26 +30,16 @@ function degov_node_faq_install() {
  * Enable workflow for content type
  */
 function degov_node_faq_update_8010() {
+  \Drupal::service('module_installer')->install(['degov_users_roles']);
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
   $workflowService->enableWorkflow('faq');
 }
 
 /**
- * Enable workflow for content type
- */
-function degov_node_faq_update_8011() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_faq', '8011');
-}
-
-/**
- * Set paragraph form mode to experimental
+ * Adds internal title field, Set paragraph form mode to experimental
  */
 function degov_node_faq_update_8012() {
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
-  $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_node_faq','8012');
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_faq', '8012');
 }
