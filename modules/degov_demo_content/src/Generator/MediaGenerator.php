@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\degov_demo_content\Factory\ContentFactory;
 use Drupal\degov_media_image\Service\AutoCropper;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
@@ -15,7 +14,7 @@ use Drupal\media\Entity\Media;
  *
  * @package Drupal\degov_demo_content\Factory
  */
-class MediaGenerator extends ContentFactory {
+class MediaGenerator extends ContentGenerator {
 
   /**
    * The entity type we are working with.
@@ -46,7 +45,7 @@ class MediaGenerator extends ContentFactory {
   protected $wktGenerator;
 
   /**
-   * Constructs a new ContentFactory instance.
+   * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.

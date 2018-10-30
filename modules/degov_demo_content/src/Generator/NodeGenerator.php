@@ -2,13 +2,12 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\degov_demo_content\Factory\ContentFactory;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
-class NodeGenerator extends ContentFactory {
+class NodeGenerator extends ContentGenerator {
 
   /**
    * Generates a set of node entities.
