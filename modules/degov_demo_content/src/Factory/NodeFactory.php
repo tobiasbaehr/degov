@@ -44,7 +44,7 @@ class NodeFactory extends ContentFactory {
       if (isset($rawNode['field_sidebar_paragraphs'])) {
         $paragraphs['field_sidebar_paragraphs'] = $rawNode['field_sidebar_paragraphs'];
       }
-      
+
       $paragraphs = array_filter($paragraphs);
       unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_paragraphs']);
 
