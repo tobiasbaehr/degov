@@ -13,9 +13,9 @@ Feature: deGov - Paragraphs
     And I am on "/node/add/normal_page#edit-group-content"
     And I fill in "testblockreferenz" for "Titel"
     And I click on togglebutton
-    And I press "edit-field-content-paragraphs-add-more-add-more-button-block-reference"
+    And I press "edit-field-content-paragraphs-add-more-add-more-button-block-reference-sidebar"
     And I should see text matching "Block Referenz" after a while
-    Given Select "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "degov_twitter_block degov_social_media_instagram degov_social_media_youtube degov_social_media_instagram views_block:press_latest_content-latest_press simplenews_subscription_block"
+    Given Select "field_sidebar_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block menu_block:main"
     And I select "simplenews_subscription_block" from "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
     And I should see text matching "Newsletter" after a while
     And I check checkbox by value "default" via JavaScript
