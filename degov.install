@@ -4,10 +4,7 @@
  * Install, update and uninstall hooks for the {{ profile }} subprofile.
  */
 
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\field\Entity\FieldConfig;
-use Drupal\lightning_core\ConfigHelper as Config;
-use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 
 /**
@@ -182,14 +179,13 @@ function degov_update_8500() {
   degov_import_translations();
 }
 
-function degov_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
+/**
+ * Install the Link Attributes module, if it's not already installed.
+ */
+function degov_update_8501() {
+  if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
+    \Drupal::service('module_installer')->install([
+      'link_attributes'
+    ]);
+  }
 }
