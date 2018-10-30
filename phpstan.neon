@@ -1,4 +1,10 @@
 parameters:
+  fileExtensions:
+    - php
+    - module
+    - inc
+    - install
+    - profile
   bootstrap: docroot/core/tests/bootstrap.php
   ignoreErrors:
     - '#Function t not found.#'
@@ -19,9 +25,3 @@ parameters:
     - "./**/*/WorkbenchMenuLinks.php"
     - "./**/tests/**"
     - "./**/testing/**"
-  fileExtensions:
-    - php
-    - module
-    - inc
-    - install
-    - profile
