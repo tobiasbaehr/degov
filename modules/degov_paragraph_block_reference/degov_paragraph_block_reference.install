@@ -6,19 +6,22 @@
 function degov_paragraph_block_reference_update_8006() {
 
   \Drupal::service('module_installer')->install([
-      'degov_node_press',
-      'degov_social_media_youtube',
-      'degov_social_media_instagram',
-      'degov_tweets',
-      'degov_simplenews_references',
-    ]);
+    'degov_node_press',
+    'degov_social_media_youtube',
+    'degov_social_media_instagram',
+    'degov_tweets',
+    'degov_simplenews_references',
+  ]);
+
+  \Drupal::service('degov_config.updater')
+    ->checkOptional(drupal_get_path('module', 'degov_paragraph_block_reference') . 'config/install');
 
   \Drupal::configFactory()
     ->getEditable('field.field.paragraph.block_reference.field_block_plugin')
     ->set('settings.plugin_ids', [
-      'degov_twitter_block'                           => 'degov_twitter_block',
-      'degov_social_media_instagram'                  => 'degov_social_media_instagram',
-      'degov_social_media_youtube'                    => 'degov_social_media_youtube',
+      'degov_twitter_block'          => 'degov_twitter_block',
+      'degov_social_media_instagram' => 'degov_social_media_instagram',
+      'degov_social_media_youtube'   => 'degov_social_media_youtube',
     ])
     ->save(TRUE);
 
