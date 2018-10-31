@@ -1,0 +1,33 @@
+menu_item_1:
+  node_title: Page with text paragraph
+  second_level:
+    - Page with iframe paragraph
+    - Page with FAQ-List paragraph
+    - Page with video header
+    - Page with text paragraph
+menu_item_2:
+  node_title: Page with video header
+  second_level:
+    - Page with text paragraph
+    - Page with map paragraph
+    - Page with video header
+menu_item_3:
+  node_title: Page with video header
+  second_level:
+    - Page with text paragraph
+    - Page with map paragraph
+    - Page with video header
+menu_item_4:
+  node_title: Page with banner
+  second_level:
+    - Page with text paragraph
+    - Page with map paragraph
+    - Page with video header
+menu_item_5:
+  node_title: Page with map paragraph
+  second_level:
+    - Page with text paragraph
+    - Page with map paragraph
+    - Page with video header
+menu_item_6:
+  node_title: Page with map paragraph

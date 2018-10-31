@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
@@ -57,6 +58,7 @@ class NodeGenerator extends ContentGenerator {
       ];
       $node = Node::create($rawNode);
       $node->save();
+
       /**
        * Use first node for teasers
        */

@@ -61,12 +61,14 @@ class ContentGenerator {
   /**
    * Looks for a file and reads the date stored within.
    */
-  protected function loadDefinitions($definitions_file_name) {
+  public function loadDefinitions(string $definitions_file_name): ?array {
     $definitions_file_path = $this->moduleHandler->getModule('degov_demo_content')
         ->getPath() . '/entity_definitions/' . $definitions_file_name;
     if (file_exists($definitions_file_path) && is_file($definitions_file_path) && is_readable($definitions_file_path)) {
       return Yaml::parseFile($definitions_file_path);
     }
+
+    throw new \Exception('Could not read definitions file from path ' . $definitions_file_path);
   }
 
   /**
@@ -195,4 +197,5 @@ class ContentGenerator {
       return $var['type'] === $type;
     });
   }
+
 }
