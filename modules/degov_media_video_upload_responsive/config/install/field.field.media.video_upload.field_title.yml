@@ -1,0 +1,21 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_title
+    - media.type.video_upload_responsive
+  enforced:
+    module:
+      - degov_media_video_upload_responsive
+id: media.video_upload_responsive.field_title
+field_name: field_title
+entity_type: media
+bundle: video_upload_responsive
+label: 'Öffentlicher Titel'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

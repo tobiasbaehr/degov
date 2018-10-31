@@ -1,0 +1,21 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_video_upload_responsive_caption
+    - media.type.video_upload_responsive
+  enforced:
+    module:
+      - degov_media_video_upload_responsive
+id: media.video_upload_responsive.field_video_upload_responsive_caption
+field_name: field_video_upload_responsive_caption
+entity_type: media
+bundle: video_upload_responsive
+label: Videounterschrift
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,26 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_ultrahd4k_video_upload_responsive_mp4
+    - media.type.video_upload_responsive
+  module:
+    - file
+id: media.video_upload_responsive.field_ultrahd4k_video_upload_responsive_mp4
+field_name: field_ultrahd4k_video_upload_responsive_mp4
+entity_type: media
+bundle: video_upload_responsive
+label: 'Ultra HD 4K Video'
+description: '3840 x 2160'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: media/video_upload_responsive
+  file_extensions: mp4
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
