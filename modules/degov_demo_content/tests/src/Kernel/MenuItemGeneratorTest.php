@@ -44,7 +44,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
      * @var MenuItemGenerator $menuItemGenerator
      */
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
-    $menuItemGenerator->generateMenuItems();
+    $menuItemGenerator->generateContent();
 
     /**
      * @var EntityTypeManager $entityTypeManager

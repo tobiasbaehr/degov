@@ -106,7 +106,7 @@ class ContentGenerator {
   /**
    * Deletes the generated entities.
    */
-  public function deleteContent() {
+  public function deleteContent(): void {
     if ($this->getDemoContentTagId() === NULL) {
       return;
     }

@@ -4,13 +4,13 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
-use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
-class NodeGenerator extends ContentGenerator {
+
+class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Generates a set of node entities.
