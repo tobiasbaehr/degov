@@ -1,8 +1,0 @@
-video_upload_responsive:
-  version: 1.0
-  js:
-    js/video_upload_responsive.js: {}
-check_cellular:
-  version: 1.0
-  js:
-    js/check_cellular.js: {}
