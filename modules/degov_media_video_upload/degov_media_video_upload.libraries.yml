@@ -2,7 +2,3 @@ video_upload:
   version: 1.0
   js:
     js/video_upload.js: {}
-check_cellular:
-  version: 1.0
-  js:
-    js/check_cellular.js: {}

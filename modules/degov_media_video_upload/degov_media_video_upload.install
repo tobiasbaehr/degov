@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\field\Entity\FieldConfig;
-
 /**
  * Implements hook_uninstall().
  */
@@ -72,36 +70,4 @@ function degov_media_video_upload_update_8016() {
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_video_upload', '8016');
-}
-
-/**
- * remove old video formats && add new types
- */
-function degov_media_video_upload_update_8017() {
-  $oggField = FieldConfig::loadByName('media','video_upload','field_video_upload_ogg');
-  if($oggField !== null){
-    $oggField->delete();
-  }
-
-  $webmField = FieldConfig::loadByName('media','video_upload','field_video_upload_webm');
-  if($webmField !== null){
-    $webmField->delete();
-  }
-
-
-  /**
-   * @var DegovModuleUpdater $degovModuleUpdater
-   */
-  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
-  $degovModuleUpdater->applyUpdates('degov_media_video_upload', '8017');
-  $degovModuleUpdater->reImport('core.entity_form_display.media.video_upload.default', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_form_display.media.video_upload.media_browser', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.default', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.embedded', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.preview', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.preview_wide', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.reference', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.search', 'degov_media_video_upload', 'install');
-  $degovModuleUpdater->reImport('core.entity_view_display.media.video_upload.usage', 'degov_media_video_upload', 'install');
-
 }
