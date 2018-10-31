@@ -1,0 +1,19 @@
+uuid: 3422283d-c5ef-4442-90ce-a79d4b6ff08f
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_govbot_question
+    - paragraphs.paragraphs_type.faq
+id: paragraph.faq.field_govbot_question
+field_name: field_govbot_question
+entity_type: paragraph
+bundle: faq
+label: 'GovBot Fragemöglichkeiten'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
