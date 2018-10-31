@@ -18,9 +18,9 @@
       &.form-type-textfield {
         width: 100%;
         input[type="text"] {
-          padding: 0.5rem !important;
+          padding: 0.5rem;
           width: 100%;
-          min-height: $fa-font-size-base * 2.5;
+          min-height: 2.5rem;
         }
       }
     }
