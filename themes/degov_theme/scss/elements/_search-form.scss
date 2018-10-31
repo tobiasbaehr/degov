@@ -26,20 +26,46 @@
     }
     [data-drupal-selector="edit-actions"] {
       position: absolute;
-      right: 3px;
-      top: 5px;
+      right: 16px;
+      top: 2px;
       margin-top: 0;
       margin-bottom: 0;
-      button[type="submit"] {
-        @extend .fa;
-        &:before {
-          content: fa-content($fa-var-search);
-          font-size: $font-size-base * 1.2 ;
+      width: 25px;
+      button[type="submit"].btn-primary {
+        &:focus {
+          width: 25px;
+          border: none;
+          background-color: transparent;
+          box-shadow: none;
         }
+        &:active {
+          color: $black;
+          background-color: transparent;
+          border-color: transparent;
+        }
+        .button-text {
+          text-indent: -9999px;
+          display: inline-block;
+          padding: 5px 0;
+        }
+        .fa-placeholder-left {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          @extend .fa;
+          &:before {
+            text-indent: 100%;
+            content: fa-content($fa-var-search);
+            font-size: 1.2rem;
+          }
+        }
+        transition: none;
+        border: none;
+        display: inline-block;
+        width: 25px;
         background: initial;
         border: initial;
         color: $black;
-        font-size: 0;
       }
     }
   }

@@ -11,5 +11,5 @@
  */
 #}
 
-<button{{ attributes.addClass('btn btn-primary')|without('value') }}>{{ attributes.value }}</button>
+<button{{ attributes.addClass('btn btn-primary')|without('value') }}><i class="fa-placeholder-left"></i><span class="button-text">{{ attributes.value }}</span><i class="fa-placeholder-right"></i></button>
 {{ children }}

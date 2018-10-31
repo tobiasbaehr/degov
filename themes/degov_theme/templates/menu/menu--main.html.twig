@@ -30,12 +30,11 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-  <ul{{ attributes.addClass(['navbar-nav', 'mr-auto', 'd-flex', 'col-9']) }}>
+  <ul{{ attributes.addClass(['navbar-nav', 'mr-auto', 'col-9']) }}>
       {% for item in items %}
         {%
           set classes_list_item = [
             'nav-item',
-            'flex-fill',
             item.is_expanded ? 'dropdown',
           ]
         %}
