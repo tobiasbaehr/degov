@@ -1,0 +1,8 @@
+video_mobile:
+  version: 1.0
+  js:
+    js/video_mobile.js: {}
+check_cellular:
+  version: 1.0
+  js:
+    js/check_cellular.js: {}

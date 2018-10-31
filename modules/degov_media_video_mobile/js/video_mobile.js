@@ -8,11 +8,11 @@
   /**
    * Behavior for Video Transcript acordion
    */
-  Drupal.behaviors.videoUploadResponsive = {
+  Drupal.behaviors.videoMobile = {
     attach: function (context, settings) {
-      $('.video-upload-responsive__transcription').once('video-upload-responsive-js').each(function(){
-        $('.video-upload-responsive__transcription__header').click(function(){
-          $('.video-upload-responsive__transcription__body').slideToggle();
+      $('.video-mobile__transcription').once('video-mobile-js').each(function(){
+        $('.video-mobile__transcription__header').click(function(){
+          $('.video-mobile__transcription__body').slideToggle();
           $('i', this).toggleClass('fa-caret-right fa-caret-down');
         });
       });
