@@ -30,7 +30,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('node');
     $this->installEntitySchema('user');
@@ -61,7 +61,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount($assertedInstanced, $menuItems);
   }
 
-  private function generateNodes() {
+  private function generateNodes(): void {
     /**
      * @var ContentGenerator $contentGenerator
      */
