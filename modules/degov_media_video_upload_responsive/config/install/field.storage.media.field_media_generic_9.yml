@@ -3,8 +3,8 @@ status: true
 dependencies:
   module:
     - media
-id: media.field_media_generic_8
-field_name: field_media_generic_8
+id: media.field_media_generic_9
+field_name: field_media_generic_9
 entity_type: media
 type: string
 settings:

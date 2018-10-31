@@ -9,7 +9,7 @@ dependencies:
     - field.field.media.video_upload_responsive.field_include_search
     - field.field.media.video_upload_responsive.field_media_accessibility
     - field.field.media.video_upload_responsive.field_media_duration
-    - field.field.media.video_upload_responsive.field_media_generic_8
+    - field.field.media.video_upload_responsive.field_media_generic_9
     - field.field.media.video_upload_responsive.field_media_in_library
     - field.field.media.video_upload_responsive.field_media_language
     - field.field.media.video_upload_responsive.field_media_publish_date
@@ -87,7 +87,7 @@ hidden:
   field_include_search: true
   field_media_accessibility: true
   field_media_duration: true
-  field_media_generic_8: true
+  field_media_generic_9: true
   field_media_in_library: true
   field_media_language: true
   field_media_publish_date: true

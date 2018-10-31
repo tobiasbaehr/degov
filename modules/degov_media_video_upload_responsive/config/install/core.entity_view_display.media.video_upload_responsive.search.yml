@@ -2,14 +2,14 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.usage
+    - core.entity_view_mode.media.search
     - field.field.media.video_upload_responsive.field_allow_download
     - field.field.media.video_upload_responsive.field_copyright
     - field.field.media.video_upload_responsive.field_description
     - field.field.media.video_upload_responsive.field_include_search
     - field.field.media.video_upload_responsive.field_media_accessibility
     - field.field.media.video_upload_responsive.field_media_duration
-    - field.field.media.video_upload_responsive.field_media_generic_8
+    - field.field.media.video_upload_responsive.field_media_generic_9
     - field.field.media.video_upload_responsive.field_media_in_library
     - field.field.media.video_upload_responsive.field_media_language
     - field.field.media.video_upload_responsive.field_media_publish_date
@@ -26,20 +26,37 @@ dependencies:
     module:
       - degov_media_video_upload_responsive
   module:
+    - datetime
     - degov_common
-    - entity_reference_revisions
-id: media.video_upload_responsive.usage
+id: media.video_upload_responsive.search
 targetEntityType: media
 bundle: video_upload_responsive
-mode: usage
+mode: search
 content:
-  field_tags:
-    type: taxonomy_term_search
+  field_copyright:
+    type: entity_reference_label
     weight: 2
     region: content
     label: hidden
     settings:
-      route_name: ''
+      link: false
+    third_party_settings: {  }
+  field_media_publish_date:
+    weight: 11
+    label: above
+    settings:
+      format_type: short
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_tags:
+    type: taxonomy_term_search
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      route_name: view.search_media.page
     third_party_settings: {  }
   field_title:
     weight: 0
@@ -51,40 +68,28 @@ content:
     region: content
   field_video_upload_responsive_preview:
     type: entity_reference_entity_view
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: content
-      view_mode: teaser_squared_1_1
-      link: true
-    third_party_settings: {  }
-  field_video_upload_responsive_subtitle:
-    type: entity_reference_revisions_entity_view
     weight: 0
     region: content
     label: hidden
     settings:
-      view_mode: default
-      link: ''
+      image_style: teaser_landscape_2_1_480
+      image_link: content
     third_party_settings: {  }
 hidden:
   created: true
   field_allow_download: true
-  field_copyright: true
   field_description: true
   field_include_search: true
   field_media_accessibility: true
   field_media_duration: true
-  field_media_generic_8: true
+  field_media_generic_9: true
   field_media_in_library: true
   field_media_language: true
-  field_media_publish_date: true
   field_media_transcription: true
   field_subtitle: true
   field_video_upload_responsive_caption: true
   field_video_upload_responsive_mp4: true
+  field_video_upload_responsive_subtitle: true
   langcode: true
   name: true
   thumbnail: true
