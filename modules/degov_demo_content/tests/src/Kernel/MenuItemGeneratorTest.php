@@ -3,7 +3,7 @@
 namespace Drupal\Tests\degov_demo_content\Kernel;
 
 use Drupal\Core\Entity\EntityTypeManager;
-use Drupal\degov_demo_content\Generator\ContentGenerator;
+use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
@@ -28,6 +28,16 @@ class MenuItemGeneratorTest extends KernelTestBase {
   ];
 
   /**
+   * @var MenuItemGenerator
+   */
+  private $menuItemGenerator;
+
+  /**
+   * @var SqlContentEntityStorage
+   */
+  private $menuLinkContentStorage;
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
@@ -35,22 +45,21 @@ class MenuItemGeneratorTest extends KernelTestBase {
     $this->installEntitySchema('node');
     $this->installEntitySchema('user');
     $this->installEntitySchema('menu_link_content');
-  }
 
-  public function testMenuItemsGeneration(): void {
-    $this->generateNodes();
-
-    /**
-     * @var MenuItemGenerator $menuItemGenerator
-     */
-    $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
-    $menuItemGenerator->generateContent();
+    $this->menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
 
     /**
      * @var EntityTypeManager $entityTypeManager
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
-    $menuItems = $entityTypeManager->getStorage('menu_link_content')->loadMultiple();
+    $this->menuLinkContentStorage = $entityTypeManager->getStorage('menu_link_content');
+  }
+
+  public function testMenuItemsGeneration(): void {
+    $this->generateNodes();
+    $this->menuItemGenerator->generateContent();
+
+    $menuItems = $this->menuLinkContentStorage->loadMultiple();
 
     $assertedInstanced = 0;
     foreach ($menuItems as $menuItem) {
@@ -61,13 +70,35 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount($assertedInstanced, $menuItems);
   }
 
-  private function generateNodes(): void {
-    /**
-     * @var ContentGenerator $contentGenerator
-     */
-    $contentGenerator = \Drupal::service('degov_demo_content.content_generator');
+  public function testDeleteDemoMenusOnly(): void {
+    $this->generateNodes();
+    $this->menuItemGenerator->generateContent();
 
-    $definitions = $contentGenerator->loadDefinitions('menu_item.yml');
+    $nonDemoMenuItem = MenuLinkContent::create([
+      'title' => 'Example.com',
+      'link' => [
+        'uri' => 'external:https://example.com',
+      ],
+      'menu_name' => 'main',
+      'expanded' => TRUE,
+    ]);
+    $nonDemoMenuItem->save();
+
+    $this->menuItemGenerator->deleteContent();
+
+    $expectedExistingMenuItems = $this->menuLinkContentStorage->loadByProperties([
+      'title' => 'Example.com'
+    ]);
+
+    self::assertCount(1, $expectedExistingMenuItems);
+    self::assertInstanceOf(MenuLinkContent::class, array_shift($expectedExistingMenuItems));
+
+    $allMenuItems = $this->menuLinkContentStorage->loadMultiple();
+    self::assertCount(1, $allMenuItems);
+  }
+
+  private function generateNodes(): void {
+    $definitions = $this->menuItemGenerator->loadDefinitions('menu_item.yml');
 
     foreach ($definitions as $definition) {
       $node = Node::create([

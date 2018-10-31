@@ -76,20 +76,43 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   public function deleteContent(): void {
-    if ($this->getDemoContentTagId() === NULL) {
-      return;
-    }
     $entities = \Drupal::entityTypeManager()
-      ->getStorage($this->entityType);
+      ->getStorage($this->entityType)
+      ->loadMultiple();
 
     foreach ($entities as $entity) {
-      $entity->delete();
+      if ($this->isDemoMenuItem($entity)) {
+        $entity->delete();
+      }
     }
   }
 
   public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();
+  }
+
+  private function isDemoMenuItem(MenuLinkContent $menuLinkItem): bool {
+    $isDemoMenuItem = FALSE;
+
+    $definitions = $this->loadDefinitions('menu_item.yml');
+
+    foreach ($definitions as $definition) {
+      if ($menuLinkItem->getTitle() === $definition['node_title']) {
+        return TRUE;
+      }
+
+      if (!empty($definition['second_level'])) {
+        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
+          if ($menuLinkItem->getTitle() === $secondLevelDefinitionNodeTitle) {
+            return TRUE;
+          }
+        }
+      }
+
+    }
+
+    return $isDemoMenuItem;
   }
 
 }
