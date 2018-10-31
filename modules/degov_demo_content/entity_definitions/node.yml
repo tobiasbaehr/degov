@@ -1,0 +1,108 @@
+# content
+teaser_page:
+  type: 'normal_page'
+  title: 'Page with all teasers'
+  status: 1
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  moderation_state: 'published'
+page_with_text_paragraph:
+  type: 'normal_page'
+  title: 'Page with text paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with text paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+    - text_1
+  status: 1
+  moderation_state: 'published'
+page_with_download_paragraph:
+  type: 'normal_page'
+  title: 'Page with download paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with download paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - download_1
+  status: 1
+  moderation_state: 'published'
+page_with_iframe_paragraph:
+  type: 'normal_page'
+  title: 'Page with iframe paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with iframe paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - iframe_1
+  status: 1
+  moderation_state: 'published'
+page_with_map_paragraph:
+  type: 'normal_page'
+  title: 'Page with map paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with map paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - map_1
+  status: 1
+  moderation_state: 'published'
+page_with_faq_list_paragraph:
+  type: 'normal_page'
+  title: 'Page with FAQ-List paragraph'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with FAQ-List paragraph'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+    - faq_list_1
+  status: 1
+  moderation_state: 'published'
+# header
+node_with_video_header:
+  type: 'normal_page'
+  title: 'Page with video header'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with video header'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_header_paragraphs:
+    - header_video
+  status: 1
+  moderation_state: 'published'
+node_with_slideshow:
+  type: 'normal_page'
+  title: 'Page with slideshow'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with slideshow'
+  field_teaser_sub_title: 'A page with an slideshow'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  status: 1
+  field_header_paragraphs:
+    - header_slideshow
+  moderation_state: 'published'
+node_with_banner:
+  type: 'normal_page'
+  title: 'Page with banner'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with banner'
+  field_teaser_sub_title: 'A page with an image header'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  status: 1
+  field_header_paragraphs:
+    - header_banner
+  moderation_state: 'published'

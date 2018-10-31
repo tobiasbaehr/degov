@@ -173,9 +173,17 @@ function degov_update_8449() {
 }
 
 /**
+ * Translate social media settings string into German.
+ */
+function degov_update_8500() {
+  degov_import_translations();
+}
+
+
+/**
  * Repair broken view modes
  */
-function degov_update_8450() {
+function degov_update_8501() {
 
   $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
   foreach ($viewModes as $viewMode) {
@@ -194,18 +202,29 @@ function degov_update_8450() {
       }
     }
   }
-}
 
-/**
- * Translate social media settings string into German.
- */
-function degov_update_8500() {
-  degov_import_translations();
+  $viewModes = \Drupal::entityQuery('entity_form_display')->execute();
+  foreach ($viewModes as $viewMode) {
+    $configurationName = 'core.entity_form_display.' . $viewMode;
+    if (\Drupal::config($configurationName)->get('id') === NULL) {
+      list($entityType, $viewModeId) = explode('.', $viewMode);
+      if ($entityType === 'node' || $entityType === 'media') {
+        $moduleName = 'degov_' . $entityType . '_' . $viewModeId;
+        if (\Drupal::moduleHandler()->moduleExists($moduleName)) {
+          $replace = Yaml::parse(file_get_contents(drupal_get_path('module', $moduleName) . '/config/install/' . $configurationName . '.yml'));
+          \Drupal::configFactory()
+            ->getEditable($configurationName)
+            ->setData($replace)
+            ->save(TRUE);
+        }
+      }
+    }
+  }
 }
 
 function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
-    'degov' => 8450,
+    'degov' => 8501,
   ];
   return $dependencies;
 }
@@ -213,7 +232,7 @@ function degov_update_dependencies() {
 /**
  * Install the Link Attributes module, if it's not already installed.
  */
-function degov_update_8501() {
+function degov_update_8502() {
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes'

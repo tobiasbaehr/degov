@@ -1,0 +1,5 @@
+services:
+  degov_demo_content.commands:
+    class: \Drupal\degov_demo_content\Command\DegovDemoContentDrushCommands
+    tags:
+      - { name: drush.command }

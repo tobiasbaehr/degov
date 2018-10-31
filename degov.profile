@@ -57,6 +57,7 @@ function degov_module_setup(&$install_state) {
     'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
     'degov_users_roles'                 => 'degov_users_roles',
     'degov_node_overrides'              => 'degov_node_overrides',
+    'degov_taxonomies'                  => 'degov_taxonomies',
     'degov_node_normal_page'            => 'degov_node_normal_page',
     'degov_paragraph_text'              => 'degov_paragraph_text',
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
@@ -176,7 +177,7 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
 
   // List all optional deGov modules.
   $degov_optional_modules = [
-    'degov_eu_cookie_compliance' => t('EU cookie compliance'),
+    'degov_demo_content'      => t('Demo Content'),
     'degov_scheduled_updates' => t('Scheduled Moderation'),
   ];
   $form['degov']['optional_modules'] = [
@@ -185,8 +186,7 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
     '#description'   => t('Checked features are recommended.'),
     '#options'       => $degov_optional_modules,
     '#default_value' => [
-      'degov_eu_cookie_compliance',
-      'degov_scheduled_updates'
+      'degov_scheduled_updates',
     ],
   ];
 
