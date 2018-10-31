@@ -70,7 +70,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount($assertedInstanced, $menuItems);
   }
 
-  public function testDeleteDemoMenusOnly(): void {
+  public function testDeleteDemoMenuItemsOnly(): void {
     $this->generateNodes();
     $this->menuItemGenerator->generateContent();
 
