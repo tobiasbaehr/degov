@@ -28,7 +28,11 @@
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <div class="video-mobile__video">
-    <video{{ video_attributes }} />
+    <video{{ video_attributes }}>
+      {% for key, subtitle in content.field_video_upload_subtitle if key|first != '#' %}
+        {{ subtitle }}
+      {% endfor %}
+    </video>
   </div>
   <div class="video__extra-info">
     <div class="video-mobile__top">
