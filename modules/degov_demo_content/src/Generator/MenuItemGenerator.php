@@ -29,12 +29,12 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
     foreach ($definitions as $definition) {
 
       $firstLevelMenuItem = MenuLinkContent::create([
-        'title' => $definition['node_title'],
-        'link' => [
+        'title'     => $definition['node_title'],
+        'link'      => [
           'uri' => 'internal:/node/' . $this->getNidByNodeTitle($definition['node_title']),
         ],
         'menu_name' => 'main',
-        'expanded' => TRUE,
+        'expanded'  => TRUE,
       ]);
       $firstLevelMenuItem->save();
 
@@ -44,11 +44,6 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
             'title' => $secondLevelDefinitionNodeTitle,
             'link' => [
               'uri' => 'internal:/node/' . $this->getNidByNodeTitle($secondLevelDefinitionNodeTitle),
-              'attributes' => [
-                'class' => [
-                  'fa-drupal'
-                ]
-              ],
             ],
             'parent' => $firstLevelMenuItem->getPluginId(),
             'expanded' => TRUE,
