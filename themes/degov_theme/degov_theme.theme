@@ -1,8 +1,14 @@
 <?php
 
-function degov_theme_preprocess_html(&$vars)
-{
-  if (in_array('install-page', $vars['attributes']['class'])) {
+use \Drupal\Core\Template\Attribute;
+
+/**
+ * Implements theme_preprocess_html().
+ */
+function degov_theme_preprocess_html(&$vars) {
+  /** @var \Drupal\Core\Template\Attribute $attributes */
+  $attributes = $vars['attributes'];
+  if ($attributes instanceof Attribute && $attributes->hasClass('install-page')) {
     if (count($vars['head_title']) === 1) {
       if (!empty($vars['page']['#title'])) {
         $vars['head_title']['title'] = $vars['page']['#title'];
@@ -70,8 +76,47 @@ function degov_theme_preprocess_html(&$vars)
   }
 }
 
-function degov_theme_preprocess_install_page(&$vars)
-{
+function degov_theme_preprocess_install_page(&$vars) {
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
   $vars['theme_logo'] = $active_theme->getLogo();
+}
+
+/**
+ * Implements hook_attachments_alter().
+ */
+function degov_theme_page_attachments_alter(&$page) {
+  $viewport = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_menu__account().
+ */
+function degov_theme_preprocess_menu__account(&$vars) {
+
+  array_walk($vars['items'], function (&$item) {
+    /** @var \Drupal\Core\Url $url */
+    $url = $item['url'];
+    if (($url->isRouted()) && $url->getRouteName() === 'user.login') {
+      $item['title'] = \Drupal::currentUser()->isAnonymous() ? $item['title'] :  t('My Account');
+    }
+  });
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function degov_theme_preprocess_page(&$vars) {
+  $vars['logo_url'] =  theme_get_setting('logo.url');
+  $social_icons_settings = array_filter(theme_get_setting('social-icons'), function ($item) {
+    return !empty($item['url']) && !empty($item['font-awesome-classes']);
+  });
+  $vars['social_icons'] = $social_icons_settings;
 }
