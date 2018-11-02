@@ -2,6 +2,7 @@ dependencies:
   config:
     - field.field.paragraph.faq.field_govbot_answer
     - field.field.paragraph.faq.field_govbot_question
+    - paragraphs.paragraphs_type.faq
 hidden:
   field_govbot_answer: true
   field_govbot_question: true

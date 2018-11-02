@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function degov_govbot_faq_install() {
+  $index_storage = \Drupal::entityTypeManager()
+    ->getStorage('search_api_index');
+  $index = $index_storage->load('search_content');
+  $index->save();
+}
