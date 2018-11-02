@@ -2,7 +2,12 @@
     'use strict';
     Drupal.behaviors.checkCellular = {
         attach: function (context, settings) {
-            //alert(Drupal.behaviors.checkCellular.check());
+          let videos = settings.degov_media_video_mobile.checkCellular;
+          if (true || (videos['video_mobile'] && Drupal.behaviors.checkCellular.check())){
+            jQuery('#'+videos['id']).replaceWith(function(){
+              return $(this).attr('src',videos['video_mobile']);
+            });
+          }
         },
         check: function () {
           const maxCellularLoadTime = 2000;
