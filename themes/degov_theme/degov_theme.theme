@@ -8,7 +8,6 @@ use \Drupal\Core\Template\Attribute;
 function degov_theme_preprocess_html(&$vars) {
   /** @var \Drupal\Core\Template\Attribute $attributes */
   $attributes = $vars['attributes'];
-  // TODO: review that code.
   if ($attributes instanceof Attribute && $attributes->hasClass('install-page')) {
     if (count($vars['head_title']) === 1) {
       if (!empty($vars['page']['#title'])) {

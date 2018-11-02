@@ -15,8 +15,6 @@ module.exports = {
       './node_modules/bootstrap/js/src/dropdown.js',
       './node_modules/bootstrap/js/src/alert.js',
       './node_modules/bootstrap/js/src/collapse.js',
-      // './node_modules/bootstrap/js/src/button.js',
-      // './node_modules/bootstrap/js/src/index.js',
       // Font Awesome
       './node_modules/@fortawesome/fontawesome-free/css/all.css',
     ],
