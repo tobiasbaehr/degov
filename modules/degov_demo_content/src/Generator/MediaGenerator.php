@@ -15,7 +15,7 @@ use Drupal\media\Entity\Media;
  *
  * @package Drupal\degov_demo_content\Factory
  */
-class MediaGenerator extends ContentGenerator {
+class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * The entity type we are working with.
@@ -63,7 +63,7 @@ class MediaGenerator extends ContentGenerator {
   /**
    * Generates a set of media entities.
    */
-  public function generateContent() {
+  public function generateContent(): void {
     $media_to_generate = $this->loadDefinitions('media.yml');
     $this->prepareValues($media_to_generate);
 
@@ -75,7 +75,7 @@ class MediaGenerator extends ContentGenerator {
   /**
    * Deletes and regenerates all demo Media.
    */
-  public function resetContent() {
+  public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();
   }
@@ -199,7 +199,7 @@ class MediaGenerator extends ContentGenerator {
   /**
    * Deletes the generated entities.
    */
-  public function deleteContent() {
+  public function deleteContent(): void {
     $query = \Drupal::entityQuery('file');
     $query->condition('uri', 'public://degov_demo_content/%', 'LIKE');
     $query_results = $query->execute();
