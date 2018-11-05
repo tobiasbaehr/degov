@@ -44,6 +44,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    *   The deGov Demo Content MenuItemGenerator.
    */
   public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator) {
+    parent::__construct();
     $this->mediaGenerator = $mediaGenerator;
     $this->nodeGenerator = $nodeGenerator;
     $this->menuItemGenerator = $menuItemGenerator;
