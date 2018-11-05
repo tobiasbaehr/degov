@@ -27,11 +27,18 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
     $definitions = $this->loadDefinitions('menu_item.yml');
 
     foreach ($definitions as $definition) {
-
+      xdebug_break();
       $firstLevelMenuItem = MenuLinkContent::create([
         'title'     => $definition['node_title'],
         'link'      => [
-          'uri' => 'internal:/node/' . $this->getNidByNodeTitle($definition['node_title']),
+          'uri'     => 'internal:/node/' . $this->getNidByNodeTitle($definition['node_title']),
+          'options' => [
+            'attributes' => [
+              'class' => [
+                $definition['fontawesome_css_class'],
+              ],
+            ],
+          ],
         ],
         'menu_name' => 'main',
         'expanded'  => TRUE,
