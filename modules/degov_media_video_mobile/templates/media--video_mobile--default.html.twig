@@ -53,12 +53,6 @@ set media_classes = [
       {% if content.download_mp4 %}
           {{ content.download_mp4 }}
       {% endif %}
-      {% if content.download_ogg %}
-          {{ content.download_ogg }}
-      {% endif %}
-      {% if content.download_webm %}
-          {{ content.download_webm }}
-      {% endif %}
     </div>
     {% if content.field_title %}
       <h2 class="video-mobile__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
