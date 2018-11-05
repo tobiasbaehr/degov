@@ -2,6 +2,9 @@
 
 namespace Drupal\degov_demo_content\Command;
 
+use Drupal\degov_demo_content\Generator\MediaGenerator;
+use Drupal\degov_demo_content\Generator\MenuItemGenerator;
+use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drush\Commands\DrushCommands;
 
 /**
@@ -10,52 +13,79 @@ use Drush\Commands\DrushCommands;
 class DegovDemoContentDrushCommands extends DrushCommands {
 
   /**
-   * Deletes and regenerates the demo content.
+   * The deGov Demo Content MediaGenerator.
    *
-   * @option option-name
-   *   Description
-   * @usage degov_demo_content-commandName foo
-   *   Usage description
+   * @var \Drupal\degov_demo_content\Generator\MediaGenerator
+   */
+  private $mediaGenerator;
+
+  /**
+   * The deGov Demo Content NodeGenerator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\NodeGenerator
+   */
+  private $nodeGenerator;
+
+  /**
+   * The deGov Demo Content MenuItemGenerator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\MenuItemGenerator
+   */
+  private $menuItemGenerator;
+
+  /**
+   * DegovDemoContentDrushCommands constructor.
+   *
+   * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
+   *   The deGov Demo Content MediaGenerator.
+   * @param \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator
+   *   The deGov Demo Content NodeGenerator.
+   * @param \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator
+   *   The deGov Demo Content MenuItemGenerator.
+   */
+  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator) {
+    parent::__construct();
+    $this->mediaGenerator = $mediaGenerator;
+    $this->nodeGenerator = $nodeGenerator;
+    $this->menuItemGenerator = $menuItemGenerator;
+  }
+
+  /**
+   * Deletes and regenerates the demo content.
    *
    * @command degov_demo_content:reset
    * @aliases dcreg
    */
   public function resetContent() {
-    \Drupal::service('degov_demo_content.media_generator')->resetContent();
-    \Drupal::service('degov_demo_content.node_generator')->resetContent();
-    $this->logger()->success(dt('Media & Node reset.'));
+    $this->mediaGenerator->resetContent();
+    $this->nodeGenerator->resetContent();
+    $this->menuItemGenerator->resetContent();
+
+    $this->logger()->success(dt('Media items & node items & menu items reset.'));
   }
 
   /**
    * Deletes the demo content.
    *
-   * @option option-name
-   *   Description
-   * @usage degov_demo_content-commandName foo
-   *   Usage description
-   *
    * @command degov_demo_content:delete
    * @aliases dcdel
    */
   public function deleteContent() {
-    \Drupal::service('degov_demo_content.media_generator')->deleteContent();
-    \Drupal::service('degov_demo_content.node_generator')->deleteContent();
+    $this->menuItemGenerator->deleteContent();
+    $this->nodeGenerator->deleteContent();
+    $this->mediaGenerator->deleteContent();
   }
 
   /**
    * Generates the demo content.
    *
-   * @option option-name
-   *   Description
-   * @usage degov_demo_content-commandName foo
-   *   Usage description
-   *
    * @command degov_demo_content:generate
    * @aliases dcgen
    */
   public function createContent() {
-    \Drupal::service('degov_demo_content.media_generator')->generateContent();
-    \Drupal::service('degov_demo_content.node_generator')->generateContent();
+    $this->mediaGenerator->generateContent();
+    $this->nodeGenerator->generateContent();
+    $this->menuItemGenerator->generateContent();
   }
 
 }
