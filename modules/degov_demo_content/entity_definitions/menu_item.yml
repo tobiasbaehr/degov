@@ -35,5 +35,5 @@ menu_item_5:
     - Page with map paragraph
     - Page with video header
 menu_item_6:
-  node_title: Page with map paragraph
+  node_title: Page with FAQ-List paragraph
   fontawesome_css_class: fa-battery-full
