@@ -138,8 +138,7 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I assert dropdown named "([^"]*)" contains the following
-   *   text-value pairs:$/
+   * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
    *
    * Provide data in the following format:
    *
@@ -190,8 +189,7 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains
-   *   the following name-value pairs:$/
+   * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains the following name-value pairs:$/
    *
    * Provide data in the following format:
    *
@@ -255,8 +253,7 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then I should see the input with the name :input_name and the value
-   *   :input_value checked
+   * @Then I should see the input with the name :input_name and the value :input_value checked
    */
   public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
     $radio_button = $this
