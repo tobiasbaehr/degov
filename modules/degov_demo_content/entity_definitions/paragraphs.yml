@@ -1,0 +1,97 @@
+teaser_small_image:
+  type: 'node_reference'
+  field_title: 'Teaser - Small Image'
+  field_sub_title: '{{SUBTILE}}'
+  field_node_reference_viewmode: 'small_image'
+  field_node_reference_nodes: '{{NIDS}}'
+teaser_long_text:
+  type: 'node_reference'
+  field_title: 'Teaser - Long Text'
+  field_sub_title: '{{SUBTILE}}'
+  field_node_reference_viewmode: 'long_text'
+  field_node_reference_nodes: '{{NIDS}}'
+teaser_preview:
+  type: 'node_reference'
+  field_title: 'Teaser - Preview'
+  field_sub_title: '{{SUBTILE}}'
+  field_node_reference_viewmode: 'preview'
+  field_node_reference_nodes: '{{NIDS}}'
+teaser_slim:
+  type: 'node_reference'
+  field_title: 'Teaser - Slim'
+  field_sub_title: '{{SUBTILE}}'
+  field_node_reference_viewmode: 'slim'
+  field_node_reference_nodes: '{{NIDS}}'
+header_banner:
+  type: 'image_header'
+  field_override_caption: '{{SUBTITLE}}'
+  field_header_media: '{{MEDIA_ID_IMAGE}}'
+header_slideshow:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_1'
+    - 'paragraph_reference_slide_2'
+    - 'paragraph_reference_slide_3'
+  field_slideshow_type: 'type_1'
+header_video:
+  type: 'video_header'
+  field_override_caption: '{{SUBTITLE}}'
+  field_header_media: '{{MEDIA_ID_VIDEO}}'
+  field_header_text: '{{SUBTITLE}}'
+slide_1:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_IMAGE}}'
+  field_slide_text: '{{TEXT}}'
+slide_2:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_IMAGE}}'
+  field_slide_text: '{{TEXT}}'
+slide_3:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_IMAGE}}'
+  field_slide_text: '{{TEXT}}'
+text_1:
+  type: 'text'
+  field_text_text: '{{TEXT}}'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+download_1:
+  type: 'downloads'
+  field_downloads_files: '{{MEDIA_ID_DOCUMENT}}'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+faq_1:
+  type: 'faq'
+  field_faq_text': '{{SUBTITLE}}'
+  field_faq_title: '{{SUBTITLE}}'
+faq_2:
+  type: 'faq'
+  field_faq_text': '{{SUBTITLE}}'
+  field_faq_title: '{{SUBTITLE}}'
+faq_3:
+  type: 'faq'
+  field_faq_text': '{{SUBTITLE}}'
+  field_faq_title: '{{SUBTITLE}}'
+faq_list_1:
+  type: 'faq_list'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_faq_list_inner_paragraphs:
+    - 'paragraph_reference_faq_1'
+    - 'paragraph_reference_faq_2'
+    - 'paragraph_reference_faq_3'
+iframe_1:
+  type: 'iframe'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_iframe_url: 'https://www.youtube.com/embed/z-qpyBRTJ2A'
+  field_iframe_height: 400
+map_1:
+  type: 'map'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS}}'
+  field_map_address_view_mode: 'osm_map'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
