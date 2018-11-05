@@ -26,3 +26,5 @@ parameters:
     - "./**/*/WorkbenchMenuLinks.php"
     - "./**/tests/**"
     - "./**/testing/**"
+    - "./**/*/*.module"
+    - "./**/*/theme-settings.php"
