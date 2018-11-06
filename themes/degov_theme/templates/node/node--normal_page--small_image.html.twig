@@ -73,6 +73,10 @@
     not node.isPublished() ? 'is-unpublished',
     view_mode ? view_mode|clean_class,
     'clearfix',
+    'col-sm-12',
+    'col-md-12',
+    'col-xl-6',
+    'pb-3',
   ]
 %}
 
@@ -96,7 +100,7 @@
   {% endif %}
 
   <div class="normal-page__teaser-content teaser-content {{ class_content }}">
-    <div class="teaser-content-inner">
+    <div class="teaser-content-inner p-md-3 p-2">
       {% if content.field_teaser_title %}
         <a href="{{ url }}" rel="bookmark">
           <div class="normal-page__teaser-title teaser-title">
@@ -111,7 +115,7 @@
         <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
           <a href="{{ url }}" rel="bookmark">
             {% autoescape false %}
-              {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
+              {{ node.field_teaser_text.value|length > 110 ? node.field_teaser_text.value|striptags|slice(0, 110) ~ '...' : node.field_teaser_text.value|striptags }}
             {% endautoescape %}
           </a>
         </div>
@@ -121,8 +125,8 @@
 
   {#Teaser Arrow link#}
   <a href="{{ url }}" rel="bookmark">
-    <div class="normal-page__teaser-arrow">
-      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    <div class="normal-page__teaser-arrow learn-more h-100 px-2 px-md-3">
+      <i class="fa fa-arrow-right my-auto" aria-hidden="true"></i>
     </div>
   </a>
 </article>

@@ -1,4 +1,5 @@
-.paragraph-node-reference-default {
+.paragraph-node-reference-node-view-mode-preview {
+  @extend .mt-5;
   .paragraph__header {
     color: $baltic-sea;
     h2 {
@@ -16,6 +17,7 @@
       display: flex;
       h3, h2 {
         font-size: $font-size-base * 1.4;
+        font-weight: bold;
       }
       a {
         &:hover {
@@ -29,7 +31,7 @@
         background-color: $blue;
         color: $white;
         font-size: $font-size-base * 1.11;
-        .fa-arrow-right {
+        .svg-inline--fa {
           vertical-align: sub;
           margin-left: 12px;
         }
@@ -50,3 +52,54 @@
     }
   }
 }
+
+.paragraph-node-reference-node-view-mode-small-image {
+  @extend .paragraph-node-reference-node-view-mode-preview;
+
+  .paragraph__content {
+    article {
+      flex-direction: row;
+      display: flex;
+      .teaser-content-inner {
+        font-size: .5rem;
+        h3, h2 {
+          font-size: .8rem;
+          margin-bottom: .3rem;
+          @include media-breakpoint-up(md) {
+            font-size: $h2-font-size * .7;
+          }
+        }
+        @include media-breakpoint-up(md) {
+          font-size: $font-size-base;
+        }
+      }
+      .learn-more {
+        display: inline-flex;
+        .svg-inline--fa {
+          margin-left: 0;
+        }
+      }
+      .normal-page__teaser-image {
+        picture {
+          > img {
+            max-width: 6rem;
+            width: 6rem;
+            @include media-breakpoint-up(md) {
+              width: 7rem;
+              max-width: 7rem;
+            }
+            @include media-breakpoint-up(lg) {
+              width: 8rem;
+              max-width: 8rem;
+            }
+            @include media-breakpoint-up(xl) {
+              max-width: 10rem;
+              width: 10rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
