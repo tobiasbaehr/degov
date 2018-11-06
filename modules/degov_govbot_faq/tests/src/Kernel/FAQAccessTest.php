@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\degov_govbot_faq\Kernel;
 
-use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\degov_govbot_faq\FAQAccess;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -12,7 +11,6 @@ use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
-use Drupal\Tests\views\Functional\Entity\FieldEntityTest;
 
 
 class FAQAccessTest extends KernelTestBase {

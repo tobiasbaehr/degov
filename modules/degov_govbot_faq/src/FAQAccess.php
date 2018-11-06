@@ -2,10 +2,10 @@
 
 namespace Drupal\degov_govbot_faq;
 
-use Drupal\Core\Field\FieldItemList;
 use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
+
 
 class FAQAccess {
 
