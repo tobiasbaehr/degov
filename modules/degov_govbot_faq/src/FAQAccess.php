@@ -2,6 +2,8 @@
 
 namespace Drupal\degov_govbot_faq;
 
+use Drupal\Core\Field\FieldItemList;
+use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
@@ -10,33 +12,57 @@ class FAQAccess {
   public function isAccessibleOnSite(NodeInterface $node): bool {
     $accessResult = TRUE;
 
-    $fieldFAQRelated = $node->get('field_faq_related');
+    $faqListParagraphs = $this->getFAQListParagraphs($node);
 
-    if ($fieldFAQRelated->getFieldDefinition()->get('field_type') !== 'entity_reference_revisions') {
-      throw new \LogicException('field_faq_related must be of type entity_reference_revisions to support paragraphs.');
-    }
+    foreach ($faqListParagraphs as $faqListParagraph) {
+      if ($faqListParagraph instanceof Paragraph) {
 
-    $paragraphFAQListItems = $fieldFAQRelated->getValue();
+        if (($fieldFAQListInnerParagraphs = $faqListParagraph->get('field_faq_list_inner_paragraphs')) instanceof EntityReferenceRevisionsFieldItemList) {
 
-    foreach ($paragraphFAQListItems as $paragraphFAQListItem) {
-      $paragraphFAQListItemEntity = Paragraph::load($paragraphFAQListItem['target_id']);
-      $paragraphFAQItems = $paragraphFAQListItemEntity->get('field_faq_list_inner_paragraphs')->getValue();
+          $paragraphFAQItems = $fieldFAQListInnerParagraphs->getValue();
 
-      foreach ($paragraphFAQItems as $paragraphFAQItem) {
-        $paragraphFAQItemEntity = Paragraph::load($paragraphFAQItem['target_id']);
+          foreach ($paragraphFAQItems as $paragraphFAQItem) {
+            $paragraphFAQItemEntity = Paragraph::load($paragraphFAQItem['target_id']);
 
-        $fieldFAQText = $paragraphFAQItemEntity->get('field_faq_text')->getValue();
-        $fieldFAQTitle = $paragraphFAQItemEntity->get('field_faq_title')->getValue();
+            $fieldFAQText = $paragraphFAQItemEntity->get('field_faq_text')->getValue();
+            $fieldFAQTitle = $paragraphFAQItemEntity->get('field_faq_title')->getValue();
 
-        if (empty($fieldFAQText['0']['value']) || empty($fieldFAQTitle['0']['value'])) {
-          return FALSE;
+            if (empty($fieldFAQText['0']['value']) || empty($fieldFAQTitle['0']['value'])) {
+              return FALSE;
+            }
+
+          }
         }
-
       }
 
     }
 
     return $accessResult;
+  }
+
+  private function getFAQListParagraphs(NodeInterface $node) {
+    $referencedParagraphs = [];
+
+    foreach ($node->getFields() as $field) {
+      if ($field->getDataDefinition()->getType() === 'entity_reference_revisions' && $field->getDataDefinition()->get('settings')['handler'] === 'default:paragraph') {
+        foreach ($field->getValue() as $paragraphReference) {
+          $referencedParagraph = Paragraph::load($paragraphReference['target_id']);
+          if ($referencedParagraph->getType() === 'faq_list') {
+            $referencedParagraphs[] = $referencedParagraph;
+          }
+        }
+      }
+    }
+
+    return $referencedParagraphs;
+  }
+
+  private function getReferencedFAQParagraphIds(FieldItemList $faqListParagraph): ?array {
+    $ids = [];
+
+    foreach ($faqListParagraph->getFields() as $field) {
+      xdebug_break();
+    }
   }
 
 }
