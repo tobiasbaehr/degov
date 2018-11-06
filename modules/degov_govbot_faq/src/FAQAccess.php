@@ -57,12 +57,4 @@ class FAQAccess {
     return $referencedParagraphs;
   }
 
-  private function getReferencedFAQParagraphIds(FieldItemList $faqListParagraph): ?array {
-    $ids = [];
-
-    foreach ($faqListParagraph->getFields() as $field) {
-      xdebug_break();
-    }
-  }
-
 }
