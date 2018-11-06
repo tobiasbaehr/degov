@@ -1,11 +1,9 @@
 @import "variables";
 
-// Mandatory.
+// Bootstrap.
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-
-// Optional.
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/images";
@@ -20,16 +18,17 @@
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/alert";
 @import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/transitions";
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../node_modules/bootstrap/scss/bootstrap-reboot";
 
-
-//@import "../node_modules/bootstrap/scss/bootstrap";
-
+// Theme scss.
 @import "components/navbar";
 @import "components/content";
 @import "components/foorter";
+@import "paragraph/paragraph__node_reference__default";
 @import "elements/site-logo";
 @import "elements/search-form";
 @import "region/top-header";
