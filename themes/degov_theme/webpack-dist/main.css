@@ -2301,7 +2301,7 @@ button.bg-dark:focus {
 .m-5 {
   margin: 3rem !important; }
 
-.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image,
+.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image, .paragraph-node-reference-node-view-mode-long-text,
 .my-5 {
   margin-top: 3rem !important; }
 
@@ -2415,7 +2415,7 @@ button.bg-dark:focus {
 .p-5, footer {
   padding: 3rem !important; }
 
-.pt-5,
+.pt-5, .paragraph-node-reference-node-view-mode-long-text,
 .py-5 {
   padding-top: 3rem !important; }
 
@@ -5549,72 +5549,94 @@ footer {
   footer .first-level .first-level-link {
     font-size: 1.3rem; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header {
+.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header {
   color: #1B181D; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2 {
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-long-text .paragraph__header .under-teasers-header-line {
     width: 50px;
     height: 2px;
     background-color: #CECECE; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article {
+.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
   flex-direction: column;
   display: flex; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h2 {
     font-size: 1.4rem;
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a {
     color: #2C2C2C; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a:hover {
       color: inherit;
       text-decoration: none; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more {
     background-color: #154575;
     color: #fff;
     font-size: 1.11rem; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa {
       vertical-align: sub;
       margin-left: 12px; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content {
     background-color: #F1F2F3;
     flex: 1 1 auto; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .normal-page__teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .normal-page__teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
     width: 100%; }
 
-.paragraph-node-reference-node-view-mode-small-image .paragraph__content article {
+.paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
   flex-direction: row;
   display: flex; }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner {
     font-size: .5rem; }
-    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2 {
+    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2 {
       font-size: .8rem;
       margin-bottom: .3rem; }
       @media (min-width: 768px) {
-        .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2 {
+        .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2 {
           font-size: 1.225rem; } }
     @media (min-width: 768px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner {
         font-size: 1rem; } }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more {
     display: inline-flex; }
-    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa {
+    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa {
       margin-left: 0; }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .normal-page__teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
     max-width: 6rem;
     width: 6rem; }
     @media (min-width: 768px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .normal-page__teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
         width: 7rem;
         max-width: 7rem; } }
     @media (min-width: 992px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .normal-page__teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
         width: 8rem;
         max-width: 8rem; } }
     @media (min-width: 1200px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .normal-page__teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
         max-width: 10rem;
         width: 10rem; } }
+
+.paragraph-node-reference-node-view-mode-long-text {
+  background-color: #E5E7E9; }
+  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
+    flex-direction: column; }
+    @media (min-width: 992px) {
+      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
+        flex-direction: row; } }
+    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content {
+      background-color: #fff; }
+    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+      max-width: 6rem;
+      width: 10rem; }
+      @media (min-width: 768px) {
+        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+          max-width: 7rem; } }
+      @media (min-width: 992px) {
+        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+          max-width: 8rem; } }
+      @media (min-width: 1200px) {
+        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+          max-width: 10rem; } }
 
 .site-logo img {
   width: 8rem; }
