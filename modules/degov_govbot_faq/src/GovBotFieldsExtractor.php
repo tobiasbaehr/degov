@@ -7,38 +7,39 @@ use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
 
-class FAQAccess {
+class GovBotFieldsExtractor {
 
-  public function isAccessibleOnSite(NodeInterface $node): bool {
-    $accessResult = TRUE;
+  public function compute(NodeInterface $node): array
+  {
     $faqListParagraphs = $this->getFAQListParagraphs($node);
 
-    if ($node->getType() === 'faq') {
+    $govBotFields = [];
 
-      foreach ($faqListParagraphs as $faqListParagraph) {
-        if ($faqListParagraph instanceof Paragraph && ($fieldFAQListInnerParagraphs = $faqListParagraph->get('field_faq_list_inner_paragraphs')) instanceof EntityReferenceRevisionsFieldItemList) {
+
+    foreach ($faqListParagraphs as $faqListParagraph) {
+      if ($faqListParagraph instanceof Paragraph) {
+
+        if (($fieldFAQListInnerParagraphs = $faqListParagraph->get('field_faq_list_inner_paragraphs')) instanceof EntityReferenceRevisionsFieldItemList) {
 
           $paragraphFAQItems = $fieldFAQListInnerParagraphs->getValue();
 
           foreach ($paragraphFAQItems as $paragraphFAQItem) {
             $paragraphFAQItemEntity = Paragraph::load($paragraphFAQItem['target_id']);
 
-            $fieldFAQText = $paragraphFAQItemEntity->get('field_faq_text')->getValue();
-            $fieldFAQTitle = $paragraphFAQItemEntity->get('field_faq_title')->getValue();
+            $fieldGovBotAnswer = $paragraphFAQItemEntity->get('field_govbot_answer')->getValue();
+            $fieldGovBotQuestion = $paragraphFAQItemEntity->get('field_govbot_question')->getValue();
 
-            if (empty($fieldFAQText['0']['value']) || empty($fieldFAQTitle['0']['value'])) {
-              return FALSE;
+            if (!empty($fieldGovBotAnswer['0']['value']) && !empty($fieldGovBotQuestion['0']['value'])) {
+              $govBotFields[] = new GovBotFieldsModel($fieldGovBotAnswer['0']['value'], $fieldGovBotQuestion['0']['value']);
             }
 
           }
-
         }
-
       }
 
     }
 
-    return $accessResult;
+    return $govBotFields;
   }
 
   private function getFAQListParagraphs(NodeInterface $node) {
@@ -57,5 +58,6 @@ class FAQAccess {
 
     return $referencedParagraphs;
   }
+
 
 }

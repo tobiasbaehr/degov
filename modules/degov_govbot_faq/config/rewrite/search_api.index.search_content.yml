@@ -1,83 +1,24 @@
-dependencies:
-  module:
-    - paragraphs
-  config:
-    - field.storage.node.field_press_date
-    - field.storage.node.field_topic
-    - field.storage.paragraph.field_faq_text
-    - field.storage.paragraph.field_faq_title
-    - field.storage.paragraph.field_govbot_answer
-    - field.storage.paragraph.field_govbot_question
 field_settings:
-  field_faq_text:
-    label: Antwort
-    datasource_id: 'entity:paragraph'
-    property_path: field_faq_text
+  nested_faq_paragraphs:
+    label: 'Nested FAQ paragraphs'
+    property_path: nested_faq_paragraphs
     type: text
-    dependencies:
-      config:
-        - field.storage.paragraph.field_faq_text
-  field_faq_title:
-    label: Frage
-    datasource_id: 'entity:paragraph'
-    property_path: field_faq_title
-    type: text
-    dependencies:
-      config:
-        - field.storage.paragraph.field_faq_title
-  field_govbot_answer:
-    label: 'GovBot Antwortmöglichkeiten'
-    datasource_id: 'entity:paragraph'
-    property_path: field_govbot_answer
-    type: text
-    dependencies:
-      config:
-        - field.storage.paragraph.field_govbot_answer
-  field_govbot_question:
-    label: 'GovBot Fragemöglichkeiten'
-    datasource_id: 'entity:paragraph'
-    property_path: field_govbot_question
-    type: text
-    dependencies:
-      config:
-        - field.storage.paragraph.field_govbot_question
 datasource_settings:
   'entity:node':
     bundles:
       selected:
         - faq
-  'entity:paragraph':
-    bundles:
-      default: false
-      selected:
-        - faq
-        - faq_list
-    languages:
-      default: true
-      selected: {  }
 processor_settings:
   html_filter:
     all_fields: true
     fields:
-      - field_faq_text
-      - field_faq_title
-      - field_govbot_answer
-      - field_govbot_question
+      - nested_faq_paragraphs
   ignorecase:
     fields:
-      - field_faq_text
-      - field_faq_title
-      - field_govbot_answer
-      - field_govbot_question
+      - nested_faq_paragraphs
   stopwords:
     fields:
-      - field_faq_text
-      - field_faq_title
-      - field_govbot_answer
-      - field_govbot_question
+      - nested_faq_paragraphs
   tokenizer:
     fields:
-      - field_faq_text
-      - field_faq_title
-      - field_govbot_answer
-      - field_govbot_question
+      - nested_faq_paragraphs
