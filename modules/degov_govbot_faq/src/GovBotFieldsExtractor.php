@@ -29,8 +29,10 @@ class GovBotFieldsExtractor {
             $fieldGovBotAnswer = $paragraphFAQItemEntity->get('field_govbot_answer')->getValue();
             $fieldGovBotQuestion = $paragraphFAQItemEntity->get('field_govbot_question')->getValue();
 
-            if (!empty($fieldGovBotAnswer['0']['value']) && !empty($fieldGovBotQuestion['0']['value'])) {
-              $govBotFields[] = new GovBotFieldsModel($fieldGovBotAnswer['0']['value'], $fieldGovBotQuestion['0']['value']);
+            for ($i = 0, $iMax = count($fieldGovBotAnswer) - 1; $i <= $iMax; ++$i) {
+              if (!empty($fieldGovBotAnswer[$i]['value']) && !empty($fieldGovBotQuestion[$i]['value'])) {
+                $govBotFields[] = new GovBotFieldsModel($fieldGovBotAnswer[$i]['value'], $fieldGovBotQuestion[$i]['value']);
+              }
             }
 
           }
