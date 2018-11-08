@@ -2,7 +2,7 @@ langcode: de
 status: true
 dependencies: {  }
 name: logo_slogan
-label: 'Logo oder Slogan (50h)'
+label: 'Logo oder Slogan (55h)'
 effects:
   8c585d9e-6e6e-4868-9b5d-c34cc5e58a72:
     uuid: 8c585d9e-6e6e-4868-9b5d-c34cc5e58a72
@@ -10,5 +10,5 @@ effects:
     weight: 1
     data:
       width: null
-      height: 50
+      height: 55
       upscale: false
