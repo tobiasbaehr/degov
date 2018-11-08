@@ -11,3 +11,8 @@ services:
   degov_theming.component_location:
     class: Drupal\degov_theming\Facade\ComponentLocation
     arguments: ['@library.discovery', '@degov_theming.filesystem_factory', '@degov_theming.drupal_path']
+  degov_theming.link_twig_extension:
+    class: Drupal\degov_theming\TwigExtension\LinkExtension
+    arguments: []
+    tags:
+    - { name: twig.extension }
