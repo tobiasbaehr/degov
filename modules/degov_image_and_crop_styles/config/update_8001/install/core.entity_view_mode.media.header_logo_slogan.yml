@@ -1,6 +1,9 @@
 langcode: de
 status: true
 dependencies:
+  enforced:
+    module:
+      - degov_image_and_crop_styles
   module:
     - lightning_core
     - media

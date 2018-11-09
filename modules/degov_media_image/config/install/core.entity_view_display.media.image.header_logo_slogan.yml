@@ -20,8 +20,14 @@ dependencies:
     - field.field.media.image.image
     - image.style.logo_slogan
     - media.type.image
+  enforced:
+    module:
+      - degov_media_image
   module:
+    - datetime
+    - degov_common
     - image
+    - text
 id: media.image.header_logo_slogan
 targetEntityType: media
 bundle: image

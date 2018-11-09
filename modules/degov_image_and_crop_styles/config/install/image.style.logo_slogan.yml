@@ -1,6 +1,9 @@
 langcode: de
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - degov_image_and_crop_styles
 name: logo_slogan
 label: 'Logo oder Slogan (55h)'
 effects:

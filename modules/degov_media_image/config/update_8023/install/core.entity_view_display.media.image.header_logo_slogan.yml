@@ -2,26 +2,32 @@ langcode: de
 status: true
 dependencies:
   config:
-  - core.entity_view_mode.media.header_logo_slogan
-  - field.field.media.image.field_allow_download
-  - field.field.media.image.field_copyright
-  - field.field.media.image.field_description
-  - field.field.media.image.field_image_caption
-  - field.field.media.image.field_image_height
-  - field.field.media.image.field_image_mime
-  - field.field.media.image.field_image_width
-  - field.field.media.image.field_include_search
-  - field.field.media.image.field_media_in_library
-  - field.field.media.image.field_media_publish_date
-  - field.field.media.image.field_royalty_free
-  - field.field.media.image.field_subtitle
-  - field.field.media.image.field_tags
-  - field.field.media.image.field_title
-  - field.field.media.image.image
-  - image.style.logo_slogan
-  - media.type.image
+    - core.entity_view_mode.media.header_logo_slogan
+    - field.field.media.image.field_allow_download
+    - field.field.media.image.field_copyright
+    - field.field.media.image.field_description
+    - field.field.media.image.field_image_caption
+    - field.field.media.image.field_image_height
+    - field.field.media.image.field_image_mime
+    - field.field.media.image.field_image_width
+    - field.field.media.image.field_include_search
+    - field.field.media.image.field_media_in_library
+    - field.field.media.image.field_media_publish_date
+    - field.field.media.image.field_royalty_free
+    - field.field.media.image.field_subtitle
+    - field.field.media.image.field_tags
+    - field.field.media.image.field_title
+    - field.field.media.image.image
+    - image.style.logo_slogan
+    - media.type.image
+  enforced:
+    module:
+      - degov_media_image
   module:
-  - image
+    - datetime
+    - degov_common
+    - image
+    - text
 id: media.image.header_logo_slogan
 targetEntityType: media
 bundle: image
