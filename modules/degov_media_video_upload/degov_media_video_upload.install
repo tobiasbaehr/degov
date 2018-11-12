@@ -79,10 +79,10 @@ function degov_media_video_upload_update_8016() {
  */
 function degov_media_video_upload_update_8017() {
   $configFactory = \Drupal::configFactory();
-  $configFactory->get('core.entity_form_display.media.video_upload.default')
+  $configFactory->getEditable('core.entity_form_display.media.video_upload.default')
     ->set('content.field_video_upload_subtitle.settings.edit_mode', 'closed')
     ->save();
-  $configFactory->get('core.entity_form_display.media.video_upload.media_browser')
+  $configFactory->getEditable('core.entity_form_display.media.video_upload.media_browser')
     ->set('content.field_video_upload_subtitle.settings.edit_mode', 'closed')
     ->save();
 }
