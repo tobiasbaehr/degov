@@ -9,7 +9,8 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
-class NodeGenerator extends ContentGenerator {
+
+class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Generates a set of node entities.
@@ -57,6 +58,7 @@ class NodeGenerator extends ContentGenerator {
       ];
       $node = Node::create($rawNode);
       $node->save();
+
       /**
        * Use first node for teasers
        */
