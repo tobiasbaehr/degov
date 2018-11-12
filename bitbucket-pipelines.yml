@@ -72,6 +72,9 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
+          services:
+            - docker
+            - mysql
     - step:
         name: Deploy to platform.sh
         script:
@@ -117,7 +120,7 @@ pipelines:
             - behat
           services:
             - docker
-            - mysql
+            - mysql2
       - step:
           name: Deploy to platform.sh
           script:
@@ -150,6 +153,12 @@ pipelines:
 definitions:
   services:
     mysql:
+      image: mysql:5.7
+      memory: 1024
+      environment:
+        MYSQL_ROOT_PASSWORD: testing
+        MYSQL_DATABASE: testing
+    mysql2:
       image: mysql:5.7
       memory: 1024
       environment:
