@@ -7,3 +7,4 @@ dependencies:
   - degov:degov_paragraph_faq
   - degov:degov_node_faq
   - degov:degov_search_base
+  - degov:degov_search_content

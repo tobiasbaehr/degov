@@ -8,6 +8,7 @@ Feature: deGov - GovBot FAQ
       | degov_paragraph_faq   |
       | degov_node_faq        |
       | degov_search_base     |
+      | degov_search_content  |
       | locale                |
       | search_api            |
 
