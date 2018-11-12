@@ -78,11 +78,21 @@ function degov_media_video_upload_update_8016() {
  * Close media video subtitle by default
  */
 function degov_media_video_upload_update_8017() {
+
   $configFactory = \Drupal::configFactory();
-  $configFactory->getEditable('core.entity_form_display.media.video_upload.default')
-    ->set('content.field_video_upload_subtitle.settings.edit_mode', 'closed')
-    ->save();
-  $configFactory->getEditable('core.entity_form_display.media.video_upload.media_browser')
-    ->set('content.field_video_upload_subtitle.settings.edit_mode', 'closed')
-    ->save();
+
+  $modifies = [
+    'content.field_video_upload_subtitle.settings.default_paragraph_type' => '_none',
+    'content.field_video_upload_subtitle.settings.edit_mode' => 'close',
+  ];
+  $configs = [
+    'core.entity_form_display.media.video_upload.default',
+    'core.entity_form_display.media.video_upload.media_browser',
+  ];
+
+  foreach ($configs as $config) {
+    foreach($modifies as $modify => $value) {
+      $configFactory->getEditable($config)->set($modify,$value)->save();
+    }
+  }
 }
