@@ -8,6 +8,7 @@ Feature: deGov - GovBot FAQ
       | degov_paragraph_faq |
       | degov_node_faq      |
       | locale              |
+      | search_api          |
 
   Scenario: Paragraph type FAQ contains necessary fields
     Given I am logged in as a user with the "administrator" role

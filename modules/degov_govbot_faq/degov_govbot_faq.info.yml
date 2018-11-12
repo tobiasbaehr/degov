@@ -6,4 +6,5 @@ core: 8.x
 dependencies:
   - degov:degov_paragraph_faq
   - degov:degov_node_faq
+  - search_api:search:api
 
