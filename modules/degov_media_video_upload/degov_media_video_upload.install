@@ -83,7 +83,7 @@ function degov_media_video_upload_update_8017() {
 
   $modifies = [
     'content.field_video_upload_subtitle.settings.default_paragraph_type' => '_none',
-    'content.field_video_upload_subtitle.settings.edit_mode' => 'close',
+    'content.field_video_upload_subtitle.settings.edit_mode'              => 'close',
   ];
   $configs = [
     'core.entity_form_display.media.video_upload.default',
@@ -91,8 +91,8 @@ function degov_media_video_upload_update_8017() {
   ];
 
   foreach ($configs as $config) {
-    foreach($modifies as $modify => $value) {
-      $configFactory->getEditable($config)->set($modify,$value)->save();
+    foreach ($modifies as $modify => $value) {
+      $configFactory->getEditable($config)->set($modify, $value)->save();
     }
   }
 }
