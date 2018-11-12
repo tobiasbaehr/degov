@@ -4,5 +4,6 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - degov_paragraph_faq
+  - degov:degov_paragraph_faq
+  - degov:degov_node_faq
 
