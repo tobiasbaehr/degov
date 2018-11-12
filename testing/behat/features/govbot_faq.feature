@@ -5,13 +5,13 @@ Feature: deGov - GovBot FAQ
     Given I am installing the following Drupal modules:
       | degov_govbot_faq |
     And I proof that the following Drupal modules are installed:
+      | degov_govbot_faq      |
       | degov_paragraph_faq   |
       | degov_node_faq        |
       | degov_search_base     |
       | degov_search_content  |
       | locale                |
       | search_api            |
-
 
   Scenario: Paragraph type FAQ contains necessary fields
     Given I am logged in as a user with the "administrator" role
@@ -25,3 +25,4 @@ Feature: deGov - GovBot FAQ
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/config/search/search-api/index/search_content/fields"
     Then I should see text matching "nested_faq_paragraphs"
+    And I dump the HTML
