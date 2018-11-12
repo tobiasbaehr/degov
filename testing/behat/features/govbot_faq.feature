@@ -5,10 +5,12 @@ Feature: deGov - GovBot FAQ
     Given I am installing the following Drupal modules:
       | degov_govbot_faq |
     And I proof that the following Drupal modules are installed:
-      | degov_paragraph_faq |
-      | degov_node_faq      |
-      | locale              |
-      | search_api          |
+      | degov_paragraph_faq   |
+      | degov_node_faq        |
+      | degov_search_api_base |
+      | locale                |
+      | search_api            |
+
 
   Scenario: Paragraph type FAQ contains necessary fields
     Given I am logged in as a user with the "administrator" role
