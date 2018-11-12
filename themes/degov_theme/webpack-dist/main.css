@@ -5618,25 +5618,22 @@ footer {
 
 .paragraph-node-reference-node-view-mode-long-text {
   background-color: #E5E7E9; }
-  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
-    flex-direction: column; }
-    @media (min-width: 992px) {
-      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article {
-        flex-direction: row; } }
-    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content {
-      background-color: #fff; }
-    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
-      max-width: 6rem;
-      width: 10rem; }
-      @media (min-width: 768px) {
-        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
-          max-width: 7rem; } }
+  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+    max-width: 10rem;
+    width: 10rem; }
+  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content {
+    background-color: #fff; }
+    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner {
+      font-size: .5rem; }
+      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2 {
+        font-size: .9rem;
+        margin-bottom: .4rem; }
+        @media (min-width: 992px) {
+          .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2 {
+            font-size: 1.575rem; } }
       @media (min-width: 992px) {
-        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
-          max-width: 8rem; } }
-      @media (min-width: 1200px) {
-        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
-          max-width: 10rem; } }
+        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner {
+          font-size: 1rem; } }
 
 .site-logo img {
   width: 8rem; }
