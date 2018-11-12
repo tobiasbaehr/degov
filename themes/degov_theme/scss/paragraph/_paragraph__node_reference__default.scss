@@ -109,27 +109,29 @@
   background-color: $gray-lighter;
   .paragraph__content {
     article {
-      flex-direction: column;
-      @include media-breakpoint-up(lg) {
-        flex-direction: row;
-      }
-      .teaser-content {
-        background-color: $white;
-      }
+
       .teaser-image {
         picture {
           > img {
-            max-width: 6rem;
+            max-width: 10rem;
             width: 10rem;
-            @include media-breakpoint-up(md) {
-              max-width: 7rem;
-            }
+          }
+        }
+      }
+      .teaser-content {
+        background-color: $white;
+        .teaser-content-inner {
+          font-size: .5rem;
+
+          h3, h2 {
+            font-size: .9rem;
+            margin-bottom: .4rem;
             @include media-breakpoint-up(lg) {
-              max-width: 8rem;
+              font-size: $h2-font-size * .9;
             }
-            @include media-breakpoint-up(xl) {
-              max-width: 10rem;
-            }
+          }
+          @include media-breakpoint-up(lg) {
+            font-size: $font-size-base;
           }
         }
       }
