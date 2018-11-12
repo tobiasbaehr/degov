@@ -7,7 +7,7 @@ Feature: deGov - GovBot FAQ
     And I proof that the following Drupal modules are installed:
       | degov_paragraph_faq   |
       | degov_node_faq        |
-      | degov_search_api_base |
+      | degov_search_base     |
       | locale                |
       | search_api            |
 
