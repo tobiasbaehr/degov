@@ -24,5 +24,5 @@ Feature: deGov - GovBot FAQ
   Scenario: Search content search index contains nested_faq_paragraphs field
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/config/search/search-api/index/search_content/fields"
-    Then I should see text matching "nested_faq_paragraphs"
     And I dump the HTML
+    Then I should see text matching "nested_faq_paragraphs"
