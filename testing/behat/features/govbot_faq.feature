@@ -20,6 +20,7 @@ Feature: deGov - GovBot FAQ
     And I should see text matching "field_faq_title"
     And I should see text matching "field_govbot_answer"
     And I should see text matching "field_govbot_question"
+    And I should see text matching "field_govbot_id"
 
   Scenario: Search content search index contains nested_faq_paragraphs field
     Given I am logged in as a user with the "administrator" role

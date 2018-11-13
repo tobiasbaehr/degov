@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.faq.field_faq_text
     - field.field.paragraph.faq.field_faq_title
     - paragraphs.paragraphs_type.faq
+    - field.field.paragraph.faq.field_govbot_id
   enforced:
     module:
       - degov_paragraph_faq
@@ -52,3 +53,4 @@ hidden:
   created: true
   status: true
   uid: true
+  field_govbot_id: true

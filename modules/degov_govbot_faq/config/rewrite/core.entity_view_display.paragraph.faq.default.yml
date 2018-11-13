@@ -3,6 +3,8 @@ dependencies:
     - field.field.paragraph.faq.field_govbot_answer
     - field.field.paragraph.faq.field_govbot_question
     - paragraphs.paragraphs_type.faq
+    - field.field.paragraph.faq.field_govbot_id
 hidden:
   field_govbot_answer: true
   field_govbot_question: true
+  field_govbot_id: true

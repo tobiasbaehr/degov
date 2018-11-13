@@ -1,0 +1,22 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_govbot_id
+    - paragraphs.paragraphs_type.faq
+id: paragraph.faq.field_govbot_id
+field_name: field_govbot_id
+entity_type: paragraph
+bundle: faq
+label: 'GovBot ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
