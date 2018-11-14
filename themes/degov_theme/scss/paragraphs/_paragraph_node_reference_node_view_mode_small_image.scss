@@ -6,7 +6,7 @@
       flex-direction: row;
       display: flex;
       .teaser-content-inner {
-        font-size: .5rem;
+        font-size: .8rem;
         h3, h2 {
           font-size: .8rem;
           margin-bottom: .3rem;
@@ -27,8 +27,8 @@
       .teaser-image {
         picture {
           > img {
-            max-width: 6rem;
-            width: 6rem;
+            max-width: 7rem;
+            width: 7rem;
             @include media-breakpoint-up(md) {
               width: 7rem;
               max-width: 7rem;
