@@ -15,4 +15,8 @@ services:
     class: Drupal\degov_theming\TwigExtension\LinkExtension
     arguments: []
     tags:
+<<<<<<< HEAD
     - { name: twig.extension }
+=======
+    - { name: twig.extension }
+>>>>>>> release/5.x
