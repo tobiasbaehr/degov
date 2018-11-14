@@ -3,6 +3,9 @@ status: true
 dependencies:
   module:
     - paragraphs
+  enforced:
+    module:
+      - degov_govbot_faq
 id: paragraph.field_govbot_question
 field_name: field_govbot_question
 entity_type: paragraph

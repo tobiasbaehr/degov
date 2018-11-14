@@ -9,3 +9,10 @@ function degov_govbot_faq_install() {
   $index = $index_storage->load('search_content');
   $index->save();
 }
+
+/**
+ * Implements hook_uninstall().
+ */
+function degov_govbot_faq_uninstall() {
+
+}

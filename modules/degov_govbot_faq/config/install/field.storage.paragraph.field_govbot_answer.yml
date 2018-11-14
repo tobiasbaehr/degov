@@ -4,6 +4,9 @@ dependencies:
   module:
     - paragraphs
     - text
+  enforced:
+    module:
+      - degov_govbot_faq
 id: paragraph.field_govbot_answer
 field_name: field_govbot_answer
 entity_type: paragraph

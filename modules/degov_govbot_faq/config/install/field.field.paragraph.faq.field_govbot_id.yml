@@ -4,6 +4,9 @@ dependencies:
   config:
     - field.storage.paragraph.field_govbot_id
     - paragraphs.paragraphs_type.faq
+  enforced:
+    module:
+      - degov_govbot_faq
 id: paragraph.faq.field_govbot_id
 field_name: field_govbot_id
 entity_type: paragraph
