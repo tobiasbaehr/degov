@@ -16,8 +16,18 @@
       .teaser-content {
         background-color: $white;
         .teaser-content-inner {
-          font-size: .5rem;
-
+          font-size: .7rem;
+          .teaser-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: $font-size-base;
+            height: $font-size-base * 5;
+            @include media-breakpoint-up(lg) {
+              line-height: $line-height-base;
+              font-size: $font-size-base;
+              height: $font-size-base * 8;
+            }
+          }
           h3, h2 {
             font-size: .9rem;
             margin-bottom: .4rem;
@@ -27,6 +37,7 @@
           }
           @include media-breakpoint-up(lg) {
             font-size: $font-size-base;
+            height: $font-size-base * 8;
           }
         }
       }
