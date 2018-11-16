@@ -101,14 +101,12 @@ function degov_media_image_validate(array &$form, FormStateInterface $form_state
     case 'entity_browser_media_browser_form':
       $values = $form_state->getValues();
       foreach ($values as $key => $value) {
-        if (is_array($value)) {
-          if (isset($value['field_copyright']) && isset($value['field_royalty_free'])) {
-            if (isset($form['widget']['entity'])) {
-              degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entity']['field_copyright']['widget'][0]['target_id'], $form_state);
-            } else {
-              if (isset($form['widget']['entities'][$key])) {
-                degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entities'][$key]['field_copyright']['widget'][0]['target_id'], $form_state);
-              }
+        if (is_array($value) && isset($value['field_copyright'], $value['field_royalty_free'])) {
+          if (isset($form['widget']['entity'])) {
+            degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entity']['field_copyright']['widget'][0]['target_id'], $form_state);
+          } else {
+            if (isset($form['widget']['entities'][$key])) {
+              degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entities'][$key]['field_copyright']['widget'][0]['target_id'], $form_state);
             }
           }
         }
