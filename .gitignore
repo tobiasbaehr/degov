@@ -11,7 +11,7 @@ nbproject
 tags
 !.gitkeep
 playbook.retry
-
+js/node_modules
 # OS generated files #
 ######################
 .DS_Store

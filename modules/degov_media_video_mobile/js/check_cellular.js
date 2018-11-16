@@ -1,8 +1,12 @@
+
 (function ($, Drupal, drupalSettings) {
+
     'use strict';
     Drupal.behaviors.checkCellular = {
       attach: function (context, settings) {
         let videos = settings.degov_media_video_mobile.checkCellular;
+        console.log(videos);
+
         if (videos['video_mobile'] && Drupal.behaviors.checkCellular.check()) {
           jQuery('#' + videos['id']).replaceWith(function () {
             return $(this).attr('src', videos['video_mobile']);
@@ -10,7 +14,10 @@
         }
       },
       check: function () {
-        let connection = this.getConnection(), isCellular;
+        let navi_connection = new navi();
+        let connection = navi_connection.getConnection(), isCellular, speedChecker = new speed_checker();
+        //let connection = this.getConnection(), isCellular;
+
         if (connection) {
           if (typeof connection.type !== 'undefined') {
             isCellular = (connection.type === 'cellular');
@@ -18,12 +25,14 @@
               isCellular = (connection.effectiveType !== '4g');
           }
         } else {
-          isCellular = this.checkSlowLoadTime();
+          //isCellular = this.checkSlowLoadTime();
+          isCellular = speedChecker.checkSlowLoadTime();
         }
-          return isCellular;
+
       },
       getConnection: function () {
         let connection;
+        console.log(navigator);
         if (typeof navigator.connection !== 'undefined') {
           connection = navigator.connection;
         } else if (typeof navigator.mozConnection !== 'undefined') {
