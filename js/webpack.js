@@ -1,19 +1,18 @@
 const path = require('path');
 const fs = require('fs');
-const $ = require("jquery");
-const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
-  entry: ['babel-polyfill','./src/drupal-behavior-function/node-form-client.js', 'jquery'],
+  entry: {
+    degov_media_video_mobile: [
+      'babel-polyfill',
+      './../modules/degov_media_video_mobile/js/drupal_behavior/check_cellular.js',
+    ],
+  },
   output: {
     path: path.join(__dirname, '/webpack-dist/'),
-    filename: 'bundle.js'
+    filename: "[name].entry.js"
   },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ],
   module: {
     rules: [
       {
@@ -27,5 +26,14 @@ module.exports = {
     ]
   },
   devtool: 'none',
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: './webpack-dist/degov_media_video_mobile.entry.js',
+        to: './../../modules/degov_media_video_mobile/js/',
+        toType: 'dir'
+      }
+    ])
+  ]
 };
 

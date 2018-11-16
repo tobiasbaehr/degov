@@ -1,8 +1,8 @@
-var navi = function() {
+const Navi = function(navigator) {
   this.navigator = navigator;
 };
 
-navi.prototype.getConnection = function() {
+Navi.prototype.getConnection = function() {
   let connection;
 
   if (typeof this.navigator.connection !== 'undefined') {
@@ -16,4 +16,4 @@ navi.prototype.getConnection = function() {
   return connection;
 };
 
-
+export default Navi;

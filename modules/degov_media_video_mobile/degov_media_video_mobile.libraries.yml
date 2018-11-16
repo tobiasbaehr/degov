@@ -5,4 +5,4 @@ video_mobile:
 check_cellular:
   version: 1.0
   js:
-    js/check_cellular.js: {}
+    js/degov_media_video_mobile.entry.js: {}
