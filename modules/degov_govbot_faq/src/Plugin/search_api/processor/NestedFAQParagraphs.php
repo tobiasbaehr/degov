@@ -103,9 +103,8 @@ class NestedFAQParagraphs extends ProcessorPluginBase {
    * {@inheritdoc}
    */
   public function addFieldValues(ItemInterface $item) {
-    $fields = $item->getFields(FALSE);
     $fields = $this->getFieldsHelper()
-      ->filterForPropertyPath($fields, NULL, $this->getPluginId());
+      ->filterForPropertyPath($item->getFields(FALSE), NULL, $this->getPluginId());
     foreach ($fields as $field) {
       if (($node = $item->getOriginalObject()->getValue()) instanceof NodeInterface && $node->getType() === 'faq') {
         $text = $this->getGovbotFieldsMerger()->computeText($this->getGovBotFieldsExtractor()->compute($node));
