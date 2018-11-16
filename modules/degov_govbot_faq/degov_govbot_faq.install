@@ -29,9 +29,9 @@ function degov_govbot_faq_install() {
         'region'               => 'content',
       ],
       'field_govbot_answer'   => [
-        'weight'               => 3,
+        'weight'               => 4,
         'settings'             => [
-          'rows'        => 5,
+          'rows'        => 3,
           'placeholder' => '',
         ],
         'third_party_settings' => [],
@@ -43,6 +43,9 @@ function degov_govbot_faq_install() {
     $config->get('hidden'),
     ['field_govbot_id' => TRUE]
   ));
+  $config->set('content.field_faq_title.weight', 1);
+  $config->set('content.field_faq_text.weight', 3);
+
   $config->save();
 
   $config = $configFactory->getEditable('core.entity_view_display.paragraph.faq.default');
@@ -128,6 +131,10 @@ function degov_govbot_faq_uninstall() {
 
   $config->set('content', $contentConfig);
   $config->set('hidden', $hiddenConfig);
+
+  $config->set('content.field_faq_title.weight', 1);
+  $config->set('content.field_faq_text.weight', 2);
+
   $config->save();
 
   $config = $configFactory->getEditable('core.entity_view_display.paragraph.faq.default');
