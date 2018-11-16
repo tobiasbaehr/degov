@@ -18,7 +18,7 @@ import SpeedChecker from './../speed_checker';
         let navi_connection = new Navi(navigator),
           connection = navi_connection.getConnection(),
           isCellular,
-          speedChecker = new SpeedChecker();
+          speedChecker = new SpeedChecker(window);
 
         if (connection) {
           if (typeof connection.type !== 'undefined') {

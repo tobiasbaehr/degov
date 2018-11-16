@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./test/connection-tests.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,6 +98,29 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst Navi = function(navigat
 
 /***/ }),
 
+/***/ "../modules/degov_media_video_mobile/js/speed_checker.js":
+/*!***************************************************************!*\
+  !*** ../modules/degov_media_video_mobile/js/speed_checker.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst SpeedChecker = function(window) {\n  this.window = window;\n};\n\nSpeedChecker.prototype.checkSlowLoadTime = function() {\n  const maxCellularLoadTime = 2000;\n  let loadTime = new Date().valueOf() - this.window.performance.timing.requestStart;\n  return (loadTime > maxCellularLoadTime);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (SpeedChecker);\n\n\n//# sourceURL=webpack:///../modules/degov_media_video_mobile/js/speed_checker.js?");
+
+/***/ }),
+
+/***/ "./src/mock-ups/mock-ups.js":
+/*!**********************************!*\
+  !*** ./src/mock-ups/mock-ups.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/mock-ups/mock-ups.js?");
+
+/***/ }),
+
 /***/ "./test/connection-tests.js":
 /*!**********************************!*\
   !*** ./test/connection-tests.js ***!
@@ -106,7 +129,42 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst Navi = function(navigat
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/navi */ \"../modules/degov_media_video_mobile/js/navi.js\");\n\n\nQUnit.test(\"Test type of Connections\", function(assert) {\n  const navigator =  {\n    connection: {\n      'onchange':null,\n      'effectiveType': \"4g\",\n      'rtt': 50,\n      'downlink':10,\n      'saveDate': false\n    }\n  };\n\n  const navi = new _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__[\"default\"](navigator);\n  navi.getConnection();\n\n  assert.equal('undefined', typeof navi.getConnection().type, \"We expect value to be undefined\");\n  assert.ok(typeof navi.getConnection().type,\"must be undefined\");\n  assert.ok(typeof navi.getConnection().effectiveType !== 'undefined', 'must be false');\n});\n\n\n//# sourceURL=webpack:///./test/connection-tests.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/navi */ \"../modules/degov_media_video_mobile/js/navi.js\");\n\n\n\nQUnit.test(\"Test Navigator Object\", function(assert) {\n\n  //established fake_navigator\n  const navigator =  {\n    connection: {\n      'onchange':null,\n      'effectiveType': \"4g\",\n      'rtt': 50,\n      'downlink':10,\n      'saveDate': false\n    }\n  };\n\n\n  const navi = new _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__[\"default\"](navigator);\n\n  assert.ok(typeof navi !== 'undefined', 'Navigator Object is available');\n  assert.ok(typeof navi.getConnection().effectiveType !== 'undefined', 'Expected: If effectiveType is given, then it is defined');\n  assert.equal(\"4g\", navi.getConnection().effectiveType, \"Expected: Connection is 4g\");\n  assert.notEqual(\"Slow 3g\", navi.getConnection().effectiveType, \"Expected: Connection is not Slow 3g\")\n  assert.equal('undefined', typeof navi.getConnection().type, \"Expected: If property navigator.connection.type (e.g) ist not define, we expect value to be undefined\");\n  assert.equal('undefined',typeof navi.getConnection().mozConnection, \"Expected: MozConnection expected to be undefined\");\n  assert.equal('undefined',typeof navi.getConnection().webkitConnection, \"Expected: webkitConnection expected to be undefined\");\n\n\n\n});\n\n\n//# sourceURL=webpack:///./test/connection-tests.js?");
+
+/***/ }),
+
+/***/ "./test/device-test.js":
+/*!*****************************!*\
+  !*** ./test/device-test.js ***!
+  \*****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/navi */ \"../modules/degov_media_video_mobile/js/navi.js\");\n/* harmony import */ var _modules_degov_media_video_mobile_js_speed_checker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/speed_checker */ \"../modules/degov_media_video_mobile/js/speed_checker.js\");\n\n\n\n\nQUnit.test('Cellular device test', function(assert) {\n\n  const navigator_1 =  {\n    connection: {\n      'onchange':null,\n      'effectiveType': \"4g\",\n      'rtt': 50,\n      'downlink':10,\n      'saveDate': false\n    }\n  };\n\n  const navigator_2 =  {\n    connection: {\n      'onchange':null,\n      'effectiveType': \"Slow 3G\",\n      'rtt': 50,\n      'downlink':10,\n      'saveDate': false\n    }\n  };\n\n  const navigator_3 =  {\n    connection: {\n      'onchange':null,\n      'effectiveType': \"Slow 3G\",\n      'type': \"cellular\",\n      'rtt': 50,\n      'downlink':10,\n      'saveDate': false\n    }\n  };\n\n  const fakeMozilla = {};\n\n  // slow 3g 1542381563475\n\n  // fast 3G 1542381613768\n\n  //create false window object\n\n  //fakewindow 1 with normal rate\n  const fakeWindowNormalRate = {};\n  fakeWindowNormalRate.performance = {};\n  fakeWindowNormalRate.performance.timing = {\n    'requestStart': 1542381447460\n  };\n\n  const fakeWindowslowRate = {};\n  fakeWindowslowRate.performance = {};\n  fakeWindowslowRate.performance.timing = {\n    'requestStart': 1542381563475\n  };\n\n  const speed_checker = new _modules_degov_media_video_mobile_js_speed_checker__WEBPACK_IMPORTED_MODULE_1__[\"default\"](fakeWindowNormalRate);\n\n  assert.equal(true, typeof(fakeMozilla.connection === 'undefined') && (speed_checker.checkSlowLoadTime()), \"Browser Mozilla at normal rate\");\n\n\n\n\n});\n\n\n//# sourceURL=webpack:///./test/device-test.js?");
+
+/***/ }),
+
+/***/ "./test/speed-test.js":
+/*!****************************!*\
+  !*** ./test/speed-test.js ***!
+  \****************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_degov_media_video_mobile_js_speed_checker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/speed_checker */ \"../modules/degov_media_video_mobile/js/speed_checker.js\");\n\n\nQUnit.test(\"Test device speed\", function(assert){\n\n  //normal 1542381447460\n\n  // slow 3g 1542381563475\n\n  // fast 3G 1542381613768\n\n  //create false window object\n\n  //fakewindow 1 with normal rate\n  const fakeWindowNormalRate = {};\n  fakeWindowNormalRate.performance = {};\n  fakeWindowNormalRate.performance.timing = {\n    'requestStart': 1542381447460\n  };\n\n  const fakeWindowslowRate = {};\n  fakeWindowslowRate.performance = {};\n  fakeWindowslowRate.performance.timing = {\n    'requestStart': 1542381563475\n  };\n\n\n  const speed_checker = new _modules_degov_media_video_mobile_js_speed_checker__WEBPACK_IMPORTED_MODULE_0__[\"default\"](fakeWindowNormalRate);\n  const speed_checker2 = new _modules_degov_media_video_mobile_js_speed_checker__WEBPACK_IMPORTED_MODULE_0__[\"default\"](fakeWindowslowRate);\n\n  assert.ok(typeof speed_checker !=='undefined', 'Object Speedchecker with FakeWindow 1 with normal rate is available');\n\n  assert.ok(typeof speed_checker2 !=='undefined', 'Object Speedchecker with FakeWindow 2 with slow 3G is available');\n\n  assert.equal(true, speed_checker.checkSlowLoadTime(), 'FakeWindow 1: Speed is normal rate');\n\n  assert.equal(true,speed_checker2.checkSlowLoadTime(), 'FakeWindow 2: Speed is at Slow 3G');\n\n\n\n\n\n});\n\n\n//# sourceURL=webpack:///./test/speed-test.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!**************************************************************************************************************!*\
+  !*** multi ./src/mock-ups/mock-ups.js ./test/connection-tests.js ./test/device-test.js ./test/speed-test.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! /home/rizkyridwan/projects/degov/docroot/profiles/contrib/degov/js/src/mock-ups/mock-ups.js */\"./src/mock-ups/mock-ups.js\");\n__webpack_require__(/*! /home/rizkyridwan/projects/degov/docroot/profiles/contrib/degov/js/test/connection-tests.js */\"./test/connection-tests.js\");\n__webpack_require__(/*! /home/rizkyridwan/projects/degov/docroot/profiles/contrib/degov/js/test/device-test.js */\"./test/device-test.js\");\nmodule.exports = __webpack_require__(/*! /home/rizkyridwan/projects/degov/docroot/profiles/contrib/degov/js/test/speed-test.js */\"./test/speed-test.js\");\n\n\n//# sourceURL=webpack:///multi_./src/mock-ups/mock-ups.js_./test/connection-tests.js_./test/device-test.js_./test/speed-test.js?");
 
 /***/ })
 
