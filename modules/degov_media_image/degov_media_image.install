@@ -138,6 +138,7 @@ function degov_media_image_update_8023() {
     ],
     'third_party_settings' => []
   ];
+  $content['field_description']['weight'] = 14;
   $editable_config->set('content', $content);
 
   $editable_config->save();
