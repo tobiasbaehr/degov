@@ -9,9 +9,19 @@ use Drupal\paragraphs\Entity\Paragraph;
 
 class FAQAccess {
 
+  /**
+   * @var ParagraphsExtractor
+   */
+  private $paragraphsExtractor;
+
+  public function __construct(ParagraphsExtractor $paragraphsExtractor)
+  {
+    $this->paragraphsExtractor = $paragraphsExtractor;
+  }
+
   public function isAccessibleOnSite(NodeInterface $node): bool {
     $accessResult = TRUE;
-    $faqListParagraphs = $this->getFAQListParagraphs($node);
+    $faqListParagraphs = $this->paragraphsExtractor->getFAQListParagraphs($node);
 
     if ($node->getType() === 'faq') {
 
@@ -39,23 +49,6 @@ class FAQAccess {
     }
 
     return $accessResult;
-  }
-
-  private function getFAQListParagraphs(NodeInterface $node) {
-    $referencedParagraphs = [];
-
-    foreach ($node->getFields() as $field) {
-      if ($field->getDataDefinition()->getType() === 'entity_reference_revisions' && $field->getDataDefinition()->get('settings')['handler'] === 'default:paragraph') {
-        foreach ($field->getValue() as $paragraphReference) {
-          $referencedParagraph = Paragraph::load($paragraphReference['target_id']);
-          if ($referencedParagraph->getType() === 'faq_list') {
-            $referencedParagraphs[] = $referencedParagraph;
-          }
-        }
-      }
-    }
-
-    return $referencedParagraphs;
   }
 
 }

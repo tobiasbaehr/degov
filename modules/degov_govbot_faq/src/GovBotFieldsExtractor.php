@@ -9,12 +9,21 @@ use Drupal\paragraphs\Entity\Paragraph;
 
 class GovBotFieldsExtractor {
 
+  /**
+   * @var ParagraphsExtractor
+   */
+  private $paragraphsExtractor;
+
+  public function __construct(ParagraphsExtractor $paragraphsExtractor)
+  {
+    $this->paragraphsExtractor = $paragraphsExtractor;
+  }
+
   public function compute(NodeInterface $node): array
   {
-    $faqListParagraphs = $this->getFAQListParagraphs($node);
+    $faqListParagraphs = $this->paragraphsExtractor->getFAQListParagraphs($node);
 
     $govBotFields = [];
-
 
     foreach ($faqListParagraphs as $faqListParagraph) {
       if ($faqListParagraph instanceof Paragraph) {
@@ -43,23 +52,5 @@ class GovBotFieldsExtractor {
 
     return $govBotFields;
   }
-
-  private function getFAQListParagraphs(NodeInterface $node) {
-    $referencedParagraphs = [];
-
-    foreach ($node->getFields() as $field) {
-      if ($field->getDataDefinition()->getType() === 'entity_reference_revisions' && $field->getDataDefinition()->get('settings')['handler'] === 'default:paragraph') {
-        foreach ($field->getValue() as $paragraphReference) {
-          $referencedParagraph = Paragraph::load($paragraphReference['target_id']);
-          if ($referencedParagraph->getType() === 'faq_list') {
-            $referencedParagraphs[] = $referencedParagraph;
-          }
-        }
-      }
-    }
-
-    return $referencedParagraphs;
-  }
-
 
 }
