@@ -63,8 +63,7 @@ function degov_module_setup(&$install_state) {
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
     'degov_paragraph_header'            => 'degov_paragraph_header',
     'degov_simplenews'                  => 'degov_simplenews',
-    'degov_simplenews_references'       => 'degov_simplenews_references'
-
+    'degov_simplenews_references'       => 'degov_simplenews_references',
   ];
 
   // Add a batch operation to install each module.
@@ -115,6 +114,7 @@ function degov_media_setup(&$install_state) {
     'degov_search_media'          => 'degov_search_media',
     'degov_media_overrides'       => 'degov_media_overrides',
     'degov_social_media_settings' => 'degov_social_media_settings',
+    'degov_media_video_mobile'    => 'degov_media_video_mobile'
   ];
 
   // Add a batch operation to install each module.
