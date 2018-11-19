@@ -64,6 +64,7 @@ function degov_module_setup(&$install_state) {
     'degov_paragraph_header'            => 'degov_paragraph_header',
     'degov_simplenews'                  => 'degov_simplenews',
     'degov_simplenews_references'       => 'degov_simplenews_references',
+    'degov_taxonomy_media_accessibility' => 'degov_taxonomy_media_accessibility'
   ];
 
   // Add a batch operation to install each module.
