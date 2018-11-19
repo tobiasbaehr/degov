@@ -45,7 +45,7 @@ pipelines:
           - bin/drush locale-check && bin/drush locale-update && bin/drush cr
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
-          - (cd js/ && npm install && npm run bat)
+          - (cd js && npm install && npm run bat)
         services:
           - docker
           - mysql
