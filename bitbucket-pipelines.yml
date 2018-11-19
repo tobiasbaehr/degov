@@ -21,6 +21,10 @@ pipelines:
           - composer create-project degov/degov-project --no-install
           - cd degov-project
           - rm composer.lock
+          - curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
+          - bash install_nvm.sh
+          - source ~/.profile
+          - nvm install 9.11.1
           - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
           - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
           - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
@@ -41,6 +45,7 @@ pipelines:
           - bin/drush locale-check && bin/drush locale-update && bin/drush cr
           - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
           - behat
+          - (cd js/ && npm install && npm run bat)
         services:
           - docker
           - mysql
