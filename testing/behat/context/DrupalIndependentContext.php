@@ -145,12 +145,16 @@ class DrupalIndependentContext extends RawMinkContext {
   /**
    * @Then /^I should not see HTML content matching "([^"]*)"$/
    */
-  public function iShouldNotSeeHTMLContent($html)
+  public function iShouldNotSeeHTMLContentMatching(string $content): ?bool
   {
-    $content = $this->getSession()->getPage()->getText();
-    if (substr_count($content, $html) === 0) {
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $content) === 0) {
       return true;
     }
+
+    throw new ResponseTextException(
+      sprintf('HTML does contain content "%s"', $content),
+      $this->getSession());
   }
 
   /**
