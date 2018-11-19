@@ -62,6 +62,16 @@ Feature: deGov - Media creation
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
 
+  Scenario: I am creating a video upload media entity
+    Given I am logged in as an "Administrator"
+    And I fill in "name[0][value]" with "Example video_upload"
+    And I fill in "field_title[0][value]" with "Example video_upload"
+    And I choose "Medien" from tab menu
+    And I attach the file "../../../modules/degov_demo_content/fixtures/bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Video Upload test wurde erstellt."
+
+
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
