@@ -64,8 +64,9 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a video upload media entity
     Given I am logged in as an "Administrator"
-    And I fill in "name[0][value]" with "Example video_upload"
-    And I fill in "field_title[0][value]" with "Example video_upload"
+    And I fill in the following:
+      | Name               | Video Example |
+      | Öffentlicher Titel | Video Example |
     And I choose "Medien" from tab menu
     And I attach the file "../../../modules/degov_demo_content/fixtures/bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I press button with label "Save" via translated text
