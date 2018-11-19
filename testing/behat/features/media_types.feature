@@ -55,6 +55,7 @@ Feature: deGov - Media types
 
   Scenario: Media type video upload has all required fields
     Given I am logged in as a user with the "administrator" role
+    Then I am installing the "degov_media_video_mobile" module
     And I am on "/admin/structure/media/manage/video_mobile/fields"
     Then I should see text matching "field_media_accessibility"
     And I should see text matching "field_description"
