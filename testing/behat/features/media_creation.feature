@@ -69,7 +69,7 @@ Feature: deGov - Media creation
     And I choose "Medien" from tab menu
     And I attach the file "../../../modules/degov_demo_content/fixtures/bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I press button with label "Save" via translated text
-    And I should see text matching "Video Upload test wurde erstellt."
+    And I should see text matching "Video Upload Video Example wurde erstellt."
 
 
   Scenario: I am creating a video media entity
