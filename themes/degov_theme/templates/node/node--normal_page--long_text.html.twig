@@ -114,7 +114,7 @@
       {% if content.field_teaser_text %}
         <div class="normal-page__teaser-text teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
           {% autoescape false %}
-            {{ node.field_teaser_text.value|length > 400 ? node.field_teaser_text.value|striptags|slice(0, 400) ~ '...' : node.field_teaser_text.value|striptags }}
+            {{ node.field_teaser_text.value|render|length > 400 ? node.field_teaser_text.value|render|striptags|slice(0, 400) ~ '...' : node.field_teaser_text.value|render|striptags }}
           {% endautoescape %}
         </div>
       {% endif %}
