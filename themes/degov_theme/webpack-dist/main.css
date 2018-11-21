@@ -2412,7 +2412,7 @@ button.bg-dark:focus {
 .px-4 {
   padding-left: 1.5rem !important; }
 
-.p-5, footer {
+.p-5, footer.site-footer {
   padding: 3rem !important; }
 
 .pt-5, .paragraph-node-reference-node-view-mode-long-text,
@@ -5536,17 +5536,17 @@ body {
   font-family: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
   color: #2C2C2C; }
 
-footer {
+footer.site-footer {
   background-color: #154575;
   color: #fff; }
-  footer .chevron {
+  footer.site-footer .chevron {
     font-size: 0.7rem; }
-  footer a {
+  footer.site-footer a {
     color: #fff; }
-    footer a:hover {
+    footer.site-footer a:hover {
       color: #fff;
       text-decoration: none; }
-  footer .first-level .first-level-link {
+  footer.site-footer .first-level .first-level-link {
     font-size: 1.3rem; }
 
 .paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
