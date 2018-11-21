@@ -66,6 +66,8 @@ dependencies:
   - content_moderation
   - workflows
   - simplenews
+  - link_attributes
+  - drupal:locale
 
 themes:
   - degov_base_theme

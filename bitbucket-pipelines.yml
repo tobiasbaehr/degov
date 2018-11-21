@@ -12,63 +12,102 @@ options:
 
 pipelines:
   default:
-    - step:
-        name: Build and test
-        caches:
-          - composer
-          - docker
-        script:
-          - composer create-project degov/degov-project --no-install
-          - cd degov-project
-          - rm composer.lock
-          - curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
-          - bash install_nvm.sh
-          - source ~/.profile
-          - nvm install 9.11.1
-          - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
-          - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
-          - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
-          - php composer-require-namespace.php
-          - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
-          - composer dump-autoload
-          - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
-          - export PATH="$HOME/.composer/vendor/bin:$PATH"
-          - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-          - (cd docroot/profiles/contrib/degov && phpunit --testdox)
-          - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-          - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
-          - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
-          - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-          - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
-          - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
-          - behat -c behat-no-drupal.yml -vvv
-          - bin/drush locale-check && bin/drush locale-update && bin/drush cr
-          - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
-          - behat
-          - (cd docroot/profiles/contrib/degov/js && npm install && npm run bat)
-        services:
-          - docker
-          - mysql
-    - step:
-        name: Deploy to platform.sh
-        script:
-          - git config --global push.default matching
-          - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
-          - git push platform $BITBUCKET_BRANCH
-    - step:
-        name: Push to drupal.org
-        script:
-          - git remote add drupal git@git.drupal.org:project/degov.git
-          - git config --global push.default matching
-          - git config --global user.name "SaschaHannes"
-          - git push drupal $BITBUCKET_BRANCH
-  branches:
-    release/5.x:
+    - parallel:
       - step:
-          name: Build and test
+          name: Build and test (PHP 7.2)
           caches:
             - composer
+            - docker
           script:
+            - composer create-project degov/degov-project --no-install
+            - cd degov-project
+            - rm composer.lock
+            - curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
+            - bash install_nvm.sh
+            - source ~/.profile
+            - nvm install 9.11.1
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+            - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+            - php composer-require-namespace.php
+            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
+            - composer dump-autoload
+            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
+            - export PATH="$HOME/.composer/vendor/bin:$PATH"
+            - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+            - (cd docroot/profiles/contrib/degov && phpunit --testdox)
+            - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+            - behat -c behat-no-drupal.yml -vvv
+            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+            - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+            - behat
+            - (cd docroot/profiles/contrib/degov/js && npm install && npm run bat)
+          services:
+            - docker
+            - mysql
+      - step:
+          name: Build and test (PHP 7.1)
+          image: derh4nnes/pipeline-behat:latest
+          script:
+            - composer create-project degov/degov-project --no-install
+            - cd degov-project
+            - rm composer.lock
+            - curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o install_nvm.sh
+            - bash install_nvm.sh
+            - source ~/.profile
+            - nvm install 9.11.1
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+            - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+            - php composer-require-namespace.php
+            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
+            - composer dump-autoload
+            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
+            - export PATH="$HOME/.composer/vendor/bin:$PATH"
+            - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+            - (cd docroot/profiles/contrib/degov && phpunit --testdox)
+            - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+            - behat -c behat-no-drupal.yml -vvv
+            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+            - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+            - behat
+            - (cd docroot/profiles/contrib/degov/js && npm install && npm run bat)
+          services:
+            - docker
+            - mysql
+    - parallel:
+      - step:
+          name: Deploy to platform.sh
+          script:
+            - git config --global push.default matching
+            - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
+            - git push platform $BITBUCKET_BRANCH
+      - step:
+          name: Push to drupal.org
+          script:
+            - git remote add drupal git@git.drupal.org:project/degov.git
+            - git config --global push.default matching
+            - git config --global user.name "SaschaHannes"
+            - git push drupal $BITBUCKET_BRANCH
+  branches:
+    release/5.x:
+      - parallel:
+        - step:
+            name: Build and test (PHP 7.2)
+            caches:
+            - composer
+            - docker
+            script:
             - composer create-project degov/degov-project --no-install
             - cd degov-project
             - rm composer.lock
@@ -92,25 +131,56 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
-          services:
+            services:
             - docker
             - mysql
-      - step:
-          name: Deploy to platform.sh
-          script:
-            - git config --global push.default matching
-            - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
-            - git push platform $BITBUCKET_BRANCH
-      - step:
-          name: Push dev to drupal.org
-          script:
-            - git remote add drupal git@git.drupal.org:project/degov.git
-            - git config --global push.default matching
-            - git config --global user.name "SaschaHannes"
-            - git fetch drupal
-            - git checkout 8.x-5.x -f
-            - git merge release/5.x
-            - git push drupal 8.x-5.x
+        - step:
+            name: Build and test (PHP 7.1)
+            image: derh4nnes/pipeline-behat:latest
+            script:
+            - composer create-project degov/degov-project --no-install
+            - cd degov-project
+            - rm composer.lock
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+            - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+            - php composer-require-namespace.php
+            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
+            - composer dump-autoload
+            - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
+            - export PATH="$HOME/.composer/vendor/bin:$PATH"
+            - phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+            - (cd docroot/profiles/contrib/degov && phpunit --testdox)
+            - cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+            - sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+            - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+            - behat -c behat-no-drupal.yml -vvv
+            - bin/drush locale-check && bin/drush locale-update && bin/drush cr
+            - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+            - behat
+            services:
+            - docker
+            - mysql
+      - parallel:
+        - step:
+            name: Deploy to platform.sh
+            script:
+              - git config --global push.default matching
+              - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
+              - git push platform $BITBUCKET_BRANCH
+        - step:
+            name: Push dev to drupal.org
+            script:
+              - git remote add drupal git@git.drupal.org:project/degov.git
+              - git config --global push.default matching
+              - git config --global user.name "SaschaHannes"
+              - git fetch drupal
+              - git checkout 8.x-5.x -f
+              - git merge release/5.x
+              - git push drupal 8.x-5.x
   tags:
     '*':
       - step:
