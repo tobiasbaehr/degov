@@ -1,6 +1,7 @@
 <?php
 
 use \Drupal\Core\Template\Attribute;
+use \Drupal\degov_theme\NumberFormatShort;
 
 /**
  * Implements theme_preprocess_html().
@@ -119,4 +120,21 @@ function degov_theme_preprocess_page(&$vars) {
     return !empty($item['url']) && !empty($item['font-awesome-classes']);
   });
   $vars['social_icons'] = $social_icons_settings;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function degov_theme_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_social_media_instagram') {
+    unset($variables['#attached']['library']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_degov_social_media_instagram().
+ */
+function degov_theme_preprocess_degov_social_media_instagram(&$variables) {
+  $variables['likes'] = NumberFormatShort::format($variables['likes']);
+  $variables['comments'] = NumberFormatShort::format($variables['comments']);
 }
