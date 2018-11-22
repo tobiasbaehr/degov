@@ -254,24 +254,32 @@ function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
       ->getInstanceFromDefinition(MediaFormAlter::class)
       ->formAlter($form, $form_state, $form_id);
   }
-  // Alter node forms.
-  if (method_exists($form_object, 'getBaseFormId') && $form_object->getBaseFormId() == 'node_form') {
-    // Add the novalidate attribute to node forms. Without this, it is difficult
-    // to find out why form validation failed (with required fields in hidden
-    // field groups).
-    $form['#attributes']['novalidate'] = TRUE;
+
+  if(method_exists($form_object, 'getBaseFormId')) {
+    // Alter node forms.
+    if ($form_object->getBaseFormId() == 'node_form') {
+      // Add the novalidate attribute to node forms. Without this, it is difficult
+      // to find out why form validation failed (with required fields in hidden
+      // field groups).
+      $form['#attributes']['novalidate'] = TRUE;
+    }
+
+    // Alter media forms.
+    if ($form_object->getBaseFormId() == 'media_form') {
+      // field_media_in_library now is deprecated, let's restrict access to it.
+      // @TODO the field comes from lightning, remove the code after eliminating the dependency on Lightning profile.
+      if (!empty($form['field_media_in_library'])) {
+        $form['field_media_in_library']['#access'] = FALSE;
+      }
+      // Add the novalidate attribute to media forms. Without this, it is difficult
+      // to find out why form validation failed (with required fields in hidden
+      // field groups).
+      $form['#attributes']['novalidate'] = TRUE;
+    }
   }
 
-  // Alter the media forms.
-  if (method_exists($form_object, 'getBaseFormId') && $form_object->getBaseFormId() == 'media_form') {
-    // field_media_in_library now is deprecated, let's restrict access to it.
-    // @TODO the field comes from lightning, remove the code after eliminating the dependency on Lightning profile.
-    if (!empty($form['field_media_in_library'])) {
-      $form['field_media_in_library']['#access'] = FALSE;
-    }
-    // Add the novalidate attribute to media forms. Without this, it is difficult
-    // to find out why form validation failed (with required fields in hidden
-    // field groups).
+  // Alter entity embed forms
+  if($form_id === 'entity_browser_media_browser_form') {
     $form['#attributes']['novalidate'] = TRUE;
   }
 }
