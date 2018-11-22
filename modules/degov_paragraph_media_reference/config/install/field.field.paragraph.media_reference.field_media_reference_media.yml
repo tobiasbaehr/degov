@@ -9,6 +9,7 @@ dependencies:
     - media.type.tweet
     - media.type.video
     - paragraphs.paragraphs_type.media_reference
+    - media.type.video_mobile
   enforced:
     module:
       - degov_paragraph_media_reference
@@ -40,6 +41,7 @@ settings:
       tweet: tweet
       video: video
       video_upload: video_upload
+      video_mobile: video_mobile
     sort:
       field: _none
     auto_create: false
