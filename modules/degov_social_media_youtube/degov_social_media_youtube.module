@@ -51,7 +51,6 @@ function degov_social_media_youtube_theme() {
       'render element' => 'elements',
       'variables' => [
         'title' => NULL,
-        'description' => NULL,
         'videoID' => NULL,
         'thumbnail' => NULL,
         'link_display' => NULL,
@@ -60,7 +59,6 @@ function degov_social_media_youtube_theme() {
         'views' => NULL,
         'comments' => NULL,
         'likes' => NULL,
-        'dislikes' => NULL,
       ],
     ],
   ];
