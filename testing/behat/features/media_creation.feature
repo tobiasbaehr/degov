@@ -35,6 +35,12 @@ Feature: deGov - Media creation
     And I am on "/admin/content"
     Then I should see text matching "Example normal page title" after a while
 
+  Scenario: I proof that longitude and latitude has been generated automatically
+    Given I am logged in as a user with the "Administrator" role
+    And I open address medias edit form from latest media with title "Example address public"
+    And I should see HTML content matching "51.220793"
+    And I should see HTML content matching "6.772623"
+
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
     And I am on "media/add/citation"
