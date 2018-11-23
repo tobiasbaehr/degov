@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -131,6 +132,15 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * @Given /^I click on Configbutton "([^"]*)"$/
+   */
+  public function iClickOnConfigbutton($arg1)
+  {
+    $this->getSession()
+      ->executeScript('jQuery("table#blocks tr td.block:contains('. $arg1 . ')").parent().find("td").find("ul li a")[0].click()');
+  }
+
+  /**
    * @Given /^I proof content type "([^"]*)" has set the following fields for display:$/
    */
   public function proofFieldsForDisplay(string $contentType, TableNode $table) {
@@ -151,5 +161,4 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       }
     }
   }
-
 }
