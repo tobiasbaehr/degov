@@ -54,7 +54,7 @@
         "drupal/paragraphs": "^1.2",
         "drupal/features": "^3.5",
         "drupal/scheduled_updates": "^1.0",
-        "degov/degov_base_theme": "dev-8.x-2.x-dev",
+        "degov/degov_base_theme": "dev-feature/DEGOV-279",
         "drupal/easy_breadcrumb": "~1.6",
         "drupal/twig_field_value": "^1.1",
         "drupal/field_group": "3.x-dev",
