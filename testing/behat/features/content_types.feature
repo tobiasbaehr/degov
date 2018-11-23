@@ -49,16 +49,17 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I assert dropbutton actions with css selector "#edit-field-content-paragraphs-wrapper ul.dropbutton" contains the following name-value pairs:
-      | value                      | name                                              |
-      | FAQ hinzufügen             | field_content_paragraphs_faq_add_more             |
-      | Banner hinzufügen          | field_content_paragraphs_image_header_add_more    |
-      | Medienreferenz hinzufügen  | field_content_paragraphs_media_reference_add_more |
-      | Inhaltsreferenz hinzufügen | field_content_paragraphs_node_reference_add_more  |
-      | Slide hinzufügen           | field_content_paragraphs_slide_add_more           |
-      | Slideshow hinzufügen       | field_content_paragraphs_slideshow_add_more       |
-      | Text hinzufügen            | field_content_paragraphs_text_add_more            |
-      | Untertitel hinzufügen      | field_content_paragraphs_video_subtitle_add_more  |
-      | Webform hinzufügen         | field_content_paragraphs_webform_add_more         |
+      | value                            | name                                              |
+      | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
+      | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
+      | Banner hinzufügen                | field_content_paragraphs_image_header_add_more    |
+      | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
+      | Inhaltsreferenz hinzufügen       | field_content_paragraphs_node_reference_add_more  |
+      | Slide hinzufügen                 | field_content_paragraphs_slide_add_more           |
+      | Slideshow hinzufügen             | field_content_paragraphs_slideshow_add_more       |
+      | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
+      | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
+      | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
 
   Scenario: Admin Content page
     Given I am logged in as a user with the "administrator" role
