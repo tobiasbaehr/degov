@@ -68,6 +68,8 @@ Feature: deGov - Media creation
     And I fill in the following:
       | Name               | Video Example |
       | Öffentlicher Titel | Video Example |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
