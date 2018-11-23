@@ -39,7 +39,6 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - touch docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/broken-video.mp4
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
@@ -70,7 +69,6 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - touch docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/broken-video.mp4
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
@@ -120,7 +118,6 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - touch docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/broken-video.mp4
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
@@ -151,7 +148,6 @@ pipelines:
             - sed -i 's/localhost/127.0.0.1/g' docroot/sites/default/settings.local.php
             - mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
             - behat -c behat-no-drupal.yml -vvv
-            - touch docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/broken-video.mp4
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
