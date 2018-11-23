@@ -142,7 +142,7 @@ Feature: deGov - Media types
     And I should see text matching "field_tags"
     And I should see text matching "field_title"
 
-  Scenario: Media type instragram has all required fields
+  Scenario: Media type instagram has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/instagram/fields"
     Then I should see text matching "embed_code"
@@ -266,7 +266,6 @@ Feature: deGov - Media types
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-address" has value "checked"
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-audio" has value "checked"
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-image" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-facts" has value "checked"
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-instagram" has value "checked"
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-contact" has value "checked"
     And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-person" has value "checked"
