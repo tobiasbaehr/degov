@@ -15,7 +15,7 @@ function degov_paragraph_media_reference_uninstall() {
 }
 
 /**
- * Install the deGov - Media video mobile module, if it's not already installed.
+ * Install the deGov - Media video mobile module and update existing config.
  */
 function degov_paragraph_media_reference_update_8001() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_media_video_mobile')) {
