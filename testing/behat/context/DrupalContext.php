@@ -2,8 +2,8 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
@@ -97,12 +97,36 @@ class DrupalContext extends RawDrupalContext {
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeViewByTitle($title) {
+  public function openNodeViewByTitle(string $title): void {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField());
+  }
+
+  /**
+   * @Then /^I open address medias edit form from latest media with title "([^"]*)"$/
+   */
+  public function openMediaEditFormByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+      'bundle'      => 'address',
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/edit');
   }
 
   /**
