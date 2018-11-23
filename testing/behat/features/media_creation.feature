@@ -69,7 +69,7 @@ Feature: deGov - Media creation
       | Name               | Video Example |
       | Öffentlicher Titel | Video Example |
     And I choose "Medien" from tab menu
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I attach the file "broken-video.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I dump the HTML
