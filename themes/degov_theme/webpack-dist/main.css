@@ -9373,7 +9373,7 @@ readers do not read off random characters that represent icons */
   min-height: 4rem;
   background-color: #E5E7E9; }
 
-.teaser-social-media-youtube .teaser-image {
+.block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
   min-height: 120px;
   width: 100%;
   background-repeat: no-repeat;
@@ -9381,9 +9381,9 @@ readers do not read off random characters that represent icons */
   background-position: center;
   position: relative; }
   @media (min-width: 768px) {
-    .teaser-social-media-youtube .teaser-image {
+    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
       width: 255px; } }
-  .teaser-social-media-youtube .teaser-image:before {
+  .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image:before {
     position: absolute;
     content: '';
     width: 100%;
@@ -9392,29 +9392,29 @@ readers do not read off random characters that represent icons */
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     transition: background-color .3s; }
-  .teaser-social-media-youtube .teaser-image:hover:before {
+  .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image:hover:before {
     background-color: rgba(0, 0, 0, 0.2); }
-  .teaser-social-media-youtube .teaser-image .play-icon {
+  .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image .play-icon {
     color: #fff;
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-    .teaser-social-media-youtube .teaser-image .play-icon i {
+    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image .play-icon i {
       font-size: 45px; }
-    .teaser-social-media-youtube .teaser-image .play-icon svg {
+    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image .play-icon svg {
       width: 45px;
       height: 45px; }
 
-.teaser-social-media-youtube .teaser-content {
+.block--degov-social-media-youtube .teaser-social-media-youtube .teaser-content {
   background-color: #F1F2F3;
   font-size: .8rem; }
   @media (min-width: 768px) {
-    .teaser-social-media-youtube .teaser-content {
+    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-content {
       font-size: 1rem; } }
 
-.teaser-social-media-youtube .learn-more {
+.block--degov-social-media-youtube .teaser-social-media-youtube .learn-more {
   bottom: 0;
   left: 0;
   width: 100%;
