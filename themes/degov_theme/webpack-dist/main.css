@@ -2301,7 +2301,7 @@ button.bg-dark:focus {
 .m-5 {
   margin: 3rem !important; }
 
-.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image, .paragraph-node-reference-node-view-mode-long-text, .block--degov-social-media-youtube, .paragraph-node-reference-node-view-mode-slim, .block--degov-social-media-instagram,
+.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image, .paragraph-node-reference-node-view-mode-long-text, .paragraph-media-reference-media-view-mode-preview, .block--degov-social-media-youtube, .paragraph-node-reference-node-view-mode-slim, .block--degov-social-media-instagram,
 .my-5 {
   margin-top: 3rem !important; }
 
@@ -2415,7 +2415,7 @@ button.bg-dark:focus {
 .p-5, footer {
   padding: 3rem !important; }
 
-.pt-5, .paragraph-node-reference-node-view-mode-long-text,
+.pt-5, .paragraph-node-reference-node-view-mode-long-text, .paragraph-media-reference-media-view-mode-preview,
 .py-5 {
   padding-top: 3rem !important; }
 
@@ -5549,100 +5549,100 @@ footer {
   footer .first-level .first-level-link {
     font-size: 1.3rem; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
+.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2, .block--degov-social-media-youtube .paragraph__header h2, .paragraph-node-reference-node-view-mode-slim .paragraph__header h2, .block--degov-social-media-instagram .paragraph__header h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2, .paragraph-media-reference-media-view-mode-preview .paragraph__header h2, .block--degov-social-media-youtube .paragraph__header h2, .paragraph-node-reference-node-view-mode-slim .paragraph__header h2, .block--degov-social-media-instagram .paragraph__header h2 {
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-long-text .paragraph__header .under-teasers-header-line, .block--degov-social-media-youtube .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-slim .paragraph__header .under-teasers-header-line, .block--degov-social-media-instagram .paragraph__header .under-teasers-header-line {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-long-text .paragraph__header .under-teasers-header-line, .paragraph-media-reference-media-view-mode-preview .paragraph__header .under-teasers-header-line, .block--degov-social-media-youtube .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-slim .paragraph__header .under-teasers-header-line, .block--degov-social-media-instagram .paragraph__header .under-teasers-header-line {
     width: 50px;
     height: 2px;
     background-color: #CECECE; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article, .paragraph-node-reference-node-view-mode-slim .paragraph__content article, .block--degov-social-media-instagram .paragraph__content article {
+.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .paragraph-media-reference-media-view-mode-preview .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article, .paragraph-node-reference-node-view-mode-slim .paragraph__content article, .block--degov-social-media-instagram .paragraph__content article {
   flex-direction: column;
   display: flex; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h3, .block--degov-social-media-youtube .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .block--degov-social-media-instagram .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h2, .block--degov-social-media-youtube .paragraph__content article h2, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2, .block--degov-social-media-instagram .paragraph__content article h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h3, .paragraph-media-reference-media-view-mode-preview .paragraph__content article h3, .block--degov-social-media-youtube .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .block--degov-social-media-instagram .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h2, .paragraph-media-reference-media-view-mode-preview .paragraph__content article h2, .block--degov-social-media-youtube .paragraph__content article h2, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2, .block--degov-social-media-instagram .paragraph__content article h2 {
     font-size: 1.4rem;
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a, .block--degov-social-media-youtube .paragraph__content article a, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a, .block--degov-social-media-instagram .paragraph__content article a {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a, .paragraph-media-reference-media-view-mode-preview .paragraph__content article a, .block--degov-social-media-youtube .paragraph__content article a, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a, .block--degov-social-media-instagram .paragraph__content article a {
     color: #2C2C2C; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a:hover, .block--degov-social-media-youtube .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a:hover, .block--degov-social-media-instagram .paragraph__content article a:hover {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a:hover, .paragraph-media-reference-media-view-mode-preview .paragraph__content article a:hover, .block--degov-social-media-youtube .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a:hover, .block--degov-social-media-instagram .paragraph__content article a:hover {
       color: inherit;
       text-decoration: none; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more, .block--degov-social-media-instagram .paragraph__content article .learn-more {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more, .block--degov-social-media-instagram .paragraph__content article .learn-more {
     background-color: #154575;
     color: #fff;
     font-size: 1.11rem; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-instagram .paragraph__content article .learn-more .svg-inline--fa {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-instagram .paragraph__content article .learn-more .svg-inline--fa {
       vertical-align: sub;
       margin-left: 12px; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content, .block--degov-social-media-youtube .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-content, .block--degov-social-media-instagram .paragraph__content article .teaser-content {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content, .block--degov-social-media-youtube .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-content, .block--degov-social-media-instagram .paragraph__content article .teaser-content {
     background-color: #F1F2F3;
     flex: 1 1 auto; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-image picture > img, .block--degov-social-media-instagram .paragraph__content article .teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-image picture > img, .block--degov-social-media-instagram .paragraph__content article .teaser-image picture > img {
     width: 100%; }
 
-.paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article {
+.paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .paragraph-media-reference-media-view-mode-preview .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article {
   flex-direction: row;
   display: flex; }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner {
     font-size: .8rem; }
-    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h2 {
+    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner h3, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner h2, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h2 {
       font-size: .8rem;
       margin-bottom: .3rem; }
       @media (min-width: 768px) {
-        .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h2 {
+        .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h3, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner h3, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner h2, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner h2, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner h2 {
           font-size: 1.225rem; } }
     @media (min-width: 768px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content-inner, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content-inner, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content-inner, .block--degov-social-media-youtube .paragraph__content article .teaser-content-inner {
         font-size: 1rem; } }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more {
     display: inline-flex; }
-    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa {
+    .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa {
       margin-left: 0; }
-  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
     max-width: 7rem;
     width: 7rem; }
     @media (min-width: 768px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
         width: 7rem;
         max-width: 7rem; } }
     @media (min-width: 992px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
         width: 8rem;
         max-width: 8rem; } }
     @media (min-width: 1200px) {
-      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
+      .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img {
         max-width: 10rem;
         width: 10rem; } }
 
-.paragraph-node-reference-node-view-mode-long-text {
+.paragraph-node-reference-node-view-mode-long-text, .paragraph-media-reference-media-view-mode-preview {
   background-color: #E5E7E9; }
-  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-image picture > img {
     max-width: 10rem;
     width: 10rem; }
-  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content {
+  .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content {
     background-color: #fff; }
-    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner {
+    .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner {
       font-size: .7rem; }
-      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner .teaser-text {
+      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner .teaser-text, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner .teaser-text {
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 1rem;
         height: 5rem; }
         @media (min-width: 992px) {
-          .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner .teaser-text {
+          .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner .teaser-text, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner .teaser-text {
             line-height: 1.5;
             font-size: 1rem;
             height: 8rem; } }
-      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2 {
+      .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner h2 {
         font-size: .9rem;
         margin-bottom: .4rem; }
         @media (min-width: 992px) {
-          .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2 {
+          .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner h2, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner h2 {
             font-size: 1.575rem; } }
       @media (min-width: 992px) {
-        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner {
+        .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content .teaser-content-inner, .paragraph-media-reference-media-view-mode-preview .paragraph__content article .teaser-content .teaser-content-inner {
           font-size: 1rem;
           height: 8rem; } }
 
@@ -5651,6 +5651,18 @@ footer {
   @media (min-width: 992px) {
     .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2 {
       font-size: 1.4rem; } }
+
+.paragraph-media-reference-media-view-mode-preview {
+  background-color: #E5E7E9; }
+  .paragraph-media-reference-media-view-mode-preview .paragraph__content .learn-more {
+    background-color: #154575;
+    font-size: 1.11rem; }
+    .paragraph-media-reference-media-view-mode-preview .paragraph__content .learn-more a {
+      color: #fff;
+      text-decoration: none; }
+      .paragraph-media-reference-media-view-mode-preview .paragraph__content .learn-more a .svg-inline--fa {
+        vertical-align: sub;
+        margin-left: 12px; }
 
 .site-logo img {
   width: 8rem; }
