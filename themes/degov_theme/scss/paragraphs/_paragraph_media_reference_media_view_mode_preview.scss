@@ -1,0 +1,19 @@
+.paragraph-media-reference-media-view-mode-preview {
+  @extend .paragraph-node-reference-node-view-mode-long-text;
+  background-color: $gray-lighter;
+
+  .paragraph__content {
+    .learn-more {
+      background-color: $blue;
+      font-size: 1.11rem;
+      a {
+        color: $white;
+        text-decoration: none;
+        .svg-inline--fa {
+          vertical-align: sub;
+          margin-left: 12px;
+        }
+      }
+    }
+  }
+}
