@@ -191,11 +191,11 @@ function degov_common_requirements($phase) {
     ];
 
     foreach (degov_common_check_integrity() as $index => $module) {
-      foreach ($module as $key => $message) {
+      foreach ($module as $key => $messages) {
         $requirements['degov_integrity_' . $key] = [
           'severity' => REQUIREMENT_WARNING,
           'title' => t('deGov integrity - @module', ['@module' => $key]),
-          'description' => degov_common_build_message($message),
+          'description' => degov_common_build_message($messages),
           'value' => t('Configuration is missing'),
         ];
       }
@@ -205,12 +205,12 @@ function degov_common_requirements($phase) {
 }
 
 function degov_common_build_message($messages) {
-  $mess = '';
+  $messageString = '';
   foreach ($messages as $message) {
-    $mess .= $message . '
+    $messageString .= $message . '
     ';
   }
-  return $mess;
+  return $messageString;
 }
 
 function degov_common_check_integrity() {
