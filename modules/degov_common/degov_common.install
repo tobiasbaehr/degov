@@ -207,8 +207,7 @@ function degov_common_requirements($phase) {
 function degov_common_build_message($messages) {
   $messageString = '';
   foreach ($messages as $message) {
-    $messageString .= $message . '
-    ';
+    $messageString .= $message . ' ';
   }
   return $messageString;
 }
