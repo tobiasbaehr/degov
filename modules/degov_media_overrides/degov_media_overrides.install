@@ -17,13 +17,20 @@ function degov_media_overrides_install() {
 
 /**
  * Add new media date publish field
+ *
+ * @throws \Exception
  */
-function degov_media_overrides_update_8001() {
+function degov_media_overrides_update_8002() {
   /**
    * @var $updater \Drupal\degov_common\DegovModuleUpdater
    */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_media_overrides', '8001');
+  $configName ='field.storage.media.field_media_publish_date';
+  $config = \Drupal::configFactory()->get($configName)->get('status');
+  if(empty($config)) {
+    throw new Exception(t('Configuration is not installed after update (@configName)',['@configName' => $configName]));
+  }
 }
 
 function degov_media_overrides_update_dependencies() {
@@ -81,6 +88,5 @@ function degov_media_overrides_update_dependencies() {
         'degov_search_media' => 8007,
       ],
     ],
-
   ];
 }
