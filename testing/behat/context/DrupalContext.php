@@ -2,8 +2,8 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
@@ -105,12 +105,36 @@ class DrupalContext extends RawDrupalContext {
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeViewByTitle($title) {
+  public function openNodeViewByTitle(string $title): void {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField());
+  }
+
+  /**
+   * @Then /^I open address medias edit form from latest media with title "([^"]*)"$/
+   */
+  public function openMediaEditFormByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+      'bundle'      => 'address',
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/edit');
   }
 
   /**
@@ -681,7 +705,7 @@ class DrupalContext extends RawDrupalContext {
        */
       $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
       /**
-       * @var \Symfony\Component\Filesystem\Filesystem $filesystem
+       * @var SymfonyFilesystem $filesystem
        */
       $symfonyFilesystem = $filesystemFactory->create();
 
@@ -724,6 +748,61 @@ class DrupalContext extends RawDrupalContext {
     }
 
     return $fileEntity;
+  }
+
+  /**
+   * @Then /^I have created an node normal page entity with a content reference in "([^"]*)" view mode$/
+   */
+  public function createNormalPageEntityWithContentReferenceInViewMode(string $viewMode): void {
+    $media = Media::create([
+      'bundle'              => 'image',
+      'field_title'         => 'Some image',
+      'field_copyright'     => 'Some copyright',
+      'field_image_caption' => 'Some image caption',
+      'image'               => $this->createDummyImageFileEntity()->id(),
+    ]);
+    $media->save();
+
+    $nodeForContentReference = Node::create([
+      'title'                   => 'Some node for reference',
+      'type'                    => 'normal_page',
+      'moderation_state'        => 'published',
+      'field_teaser_text'       => 'My nice teaser text.',
+      'field_teaser_image'      => [
+        [
+          'target_id' => $media->id()
+        ],
+      ]
+    ]);
+    $nodeForContentReference->save();
+
+    $contentReferenceParagraph = Paragraph::create([
+      'type'                          => 'node_reference',
+      'field_node_reference_nodes'    => [
+        [
+          'target_id' => $nodeForContentReference->id()
+        ],
+      ],
+      'field_node_reference_viewmode' => $viewMode,
+    ]);
+    $contentReferenceParagraph->save();
+
+    $node = Node::create([
+      'title'                    => 'An normal page with a content reference',
+      'type'                     => 'normal_page',
+      'moderation_state'         => 'published',
+      'field_content_paragraphs' => [
+        $contentReferenceParagraph
+      ],
+    ]);
+    $node->save();
+  }
+
+  /**
+   * @Then /^I visit an normal page entity with content reference$/
+   */
+  public function visitNormalPageEntityWithContentReference(): void {
+    $this->openNodeViewByTitle('An normal page with a content reference');
   }
 
 }

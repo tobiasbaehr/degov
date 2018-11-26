@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Element\NodeElement;
 use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
@@ -143,13 +144,18 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should not see HTML content matching "([^"]*)"$/
+   * @Then /^I should not see HTML content matching '([^']*)'$/
    */
-  public function iShouldNotSeeHTMLContent($html)
+  public function iShouldNotSeeHTMLContentMatching(string $content): ?bool
   {
-    $content = $this->getSession()->getPage()->getText();
-    if (substr_count($content, $html) === 0) {
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $content) === 0) {
       return true;
     }
+
+    throw new ResponseTextException(
+      sprintf('HTML does contain content "%s"', $content),
+      $this->getSession());
   }
 
   /**
@@ -197,6 +203,46 @@ class DrupalIndependentContext extends RawMinkContext {
    */
   public function waitSeconds($secondsNumber) {
     $this->getSession()->wait($secondsNumber * 1000);
+  }
+
+  /**
+   * @Then /^I proof xpath "([^"]*)" contains text$/
+   */
+  public function xpathContainsText(string $xpath) {
+    $page = $this->getSession()->getPage();
+    /** @var $xpathNode \Behat\Mink\Element\NodeElement */
+    $xpathNode = $page->find('xpath', $xpath);
+
+    if (empty(\trim(\strip_tags($xpathNode->getHtml())))) {
+      throw new \Exception("Xpath $xpath does not contain any text.");
+
+    }
+  }
+
+  /**
+   * @Then /^I proof css "([^"]*)" contains text$/
+   */
+  public function cssContainsText(string $css) {
+    $page = $this->getSession()->getPage();
+    /** @var $node \Behat\Mink\Element\NodeElement */
+    $node = $page->find('css', $css);
+
+    if (empty(\trim(\strip_tags($node->getHtml())))) {
+      throw new \Exception("CSS $css does not contain any text.");
+    }
+  }
+
+  /**
+   * @Then /^I proof css selector "([^"]*)" matches a DOM node$/
+   */
+  public function cssSelectorMatchesDOMNode(string $css) {
+    $page = $this->getSession()->getPage();
+    /** @var $cssSelector NodeElement */
+    $cssSelector = $page->find('css', $css);
+
+    if (!$cssSelector instanceof NodeElement) {
+      throw new \Exception("CSS selector $css is not of expected object type NodeElement.");
+    }
   }
 
 }

@@ -66,6 +66,8 @@ dependencies:
   - content_moderation
   - workflows
   - simplenews
+  - link_attributes
+  - drupal:locale
   - permissions_by_term
   - permissions_by_term_redirect
   - degov_email_login

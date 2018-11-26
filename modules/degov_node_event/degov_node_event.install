@@ -38,3 +38,11 @@ function degov_node_event_update_8012() {
   $workflowService->enableWorkflow('event');
 
 }
+
+/**
+ * deGov Update 8.5.33 - Apply config to use the landscape_to_squared image style.
+ */
+function degov_node_event_update_850033() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_event', '8014');
+}

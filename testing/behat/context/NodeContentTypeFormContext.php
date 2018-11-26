@@ -2,6 +2,8 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Gherkin\Node\TableNode;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\node\Entity\Node;
@@ -113,7 +115,6 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
   /**
    * @Given /^I proof content with title "([^"]*)" has moderation state "([^"]*)"$/
-   *   "([^"]*)"$/
    */
   public function iProofContentWithTitleHasModerationState($title, $state) {
     $Ids = \Drupal::entityQuery('node')
@@ -127,6 +128,28 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     }
     throw new \Exception("No content with title '$title' and moderation state '$state'");
 
+  }
+
+  /**
+   * @Given /^I proof content type "([^"]*)" has set the following fields for display:$/
+   */
+  public function proofFieldsForDisplay(string $contentType, TableNode $table) {
+    $rowsHash = $table->getRowsHash();
+    $expectedFieldNames = array_keys($rowsHash);
+
+    $displayoptions = EntityViewDisplay::load('node.' . $contentType . '.default');
+
+    $hiddenFields = $displayoptions->get('hidden');
+
+    foreach ($expectedFieldNames as $fieldName) {
+      if (\array_key_exists($fieldName, $hiddenFields) && ($hiddenFields[$fieldName] === 'true' || $fieldName === true)) {
+        throw new \Exception("Field named '$fieldName' is set to hidden, but is expected to be visible.");
+      }
+
+      if (!\array_key_exists($fieldName, $displayoptions->get('content'))) {
+        throw new \Exception("Field named '$fieldName' is not configured in the content.");
+      }
+    }
   }
 
 }
