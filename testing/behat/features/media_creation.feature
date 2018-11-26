@@ -178,7 +178,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
     Then I should see HTML content matching "Datei" after a while
-    And I attach the file "images/dummy.png" to "edit-input-file"
+    And I attach the file "images/dummy.jpg" to "edit-input-file"
     Then I should see HTML content matching "Name" after a while
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
