@@ -10,7 +10,7 @@ cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
 composer dump-autoload
-(cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini)
+(cd docroot && screen -dmS php-server php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
 (cd docroot/profiles/contrib/degov && phpunit --testdox)
