@@ -108,12 +108,16 @@ function degov_media_image_update_8022() {
 }
 
 /**
- * Add the royalty-free checkbox to the entity browser display as well.
+ * deGov Update: 8.5.33 - Add the royalty-free checkbox to the entity browser display as well., Add a new display mode with a responsive teaser image style., Add minimal size requirement for new images.
  */
-function degov_media_image_update_8023() {
+function degov_media_image_update_850033() {
   /**
    * @var DegovModuleUpdater $degovModuleUpdater
    */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8023');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8024');
+
   $editable_config = \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser');
   $dependencies = $editable_config->get('dependencies.config');
 

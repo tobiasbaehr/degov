@@ -22,7 +22,7 @@ pipelines:
             - composer create-project degov/degov-project --no-install
             - cd degov-project
             - rm composer.lock
-            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
@@ -52,7 +52,7 @@ pipelines:
             - composer create-project degov/degov-project --no-install
             - cd degov-project
             - rm composer.lock
-            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
@@ -101,7 +101,7 @@ pipelines:
             - composer create-project degov/degov-project --no-install
             - cd degov-project
             - rm composer.lock
-            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
@@ -131,7 +131,7 @@ pipelines:
             - composer create-project degov/degov-project --no-install
             - cd degov-project
             - rm composer.lock
-            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT
+            - composer require degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT --update-with-dependencies
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
