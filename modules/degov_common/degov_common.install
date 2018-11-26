@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\config_replace\Exception\NonexistentInitialConfigException;
+use Drupal\degov_common\DeGovModuleIntegrity;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -190,12 +191,16 @@ function degov_common_requirements($phase) {
       'value' => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
     ];
 
-    foreach (degov_common_check_integrity() as $index => $module) {
+    $deGovIntegrity = \Drupal::service('degov_common.module_integrity');
+    /**
+     * @var $deGovIntegrity DeGovModuleIntegrity
+     */
+    foreach ($deGovIntegrity->checkIntegrity() as $index => $module) {
       foreach ($module as $key => $messages) {
         $requirements['degov_integrity_' . $key] = [
           'severity' => REQUIREMENT_WARNING,
           'title' => t('deGov integrity - @module', ['@module' => $key]),
-          'description' => degov_common_build_message($messages),
+          'description' => $deGovIntegrity->buildMessage($messages),
           'value' => t('Configuration is missing'),
         ];
       }
@@ -204,26 +209,5 @@ function degov_common_requirements($phase) {
   return $requirements;
 }
 
-function degov_common_build_message($messages) {
-  $messageString = '';
-  foreach ($messages as $message) {
-    $messageString .= $message . ' ';
-  }
-  return $messageString;
-}
 
-function degov_common_check_integrity() {
-  $messages = [];
-  $deGovIntegrity = \Drupal::service('degov_common.module_integrity');
-  /**
-   * @var $moduleHandler \Drupal\Core\Extension\ModuleHandler
-   */
-  $moduleHandler = \Drupal::service('module_handler');
-  $modules = $moduleHandler->getModuleList();
 
-  foreach ($modules as $module) {
-    $messages[] = $deGovIntegrity->checkModule($module->getName());
-  }
-
-  return $messages;
-}

@@ -2,12 +2,23 @@
 
 namespace Drupal\degov_common;
 
+use Drupal\Core\Extension\ModuleHandlerInterface;
+
 /**
  * Class DeGovModuleIntegrity
  *
  * @package Drupal\degov_common
  */
 class DeGovModuleIntegrity {
+
+  /**
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  private $moduleHandler;
+
+  public function __construct(ModuleHandlerInterface $moduleHandler) {
+    $this->moduleHandler = $moduleHandler;
+  }
 
   public function checkModule($moduleName): array {
     $missingConfiguration = [];
@@ -24,5 +35,28 @@ class DeGovModuleIntegrity {
     }
 
     return $missingConfiguration;
+  }
+
+  public function buildMessage($messages): string {
+    $messageString = '';
+    foreach ($messages as $message) {
+      $messageString .= $message . ' ';
+    }
+    return $messageString;
+  }
+
+  public function checkIntegrity(): array {
+    $messages = [];
+    /**
+     * @var $moduleHandler \Drupal\Core\Extension\ModuleHandler
+     */
+    $moduleHandler = \Drupal::service('module_handler');
+    $modules = $this->moduleHandler->getModuleList();
+
+    foreach ($modules as $module) {
+      $messages[] = $this->checkModule($module->getName());
+    }
+
+    return $messages;
   }
 }
