@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-PHPVERSION = $1
+PHPVERSION=$1
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
