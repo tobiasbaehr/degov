@@ -78,9 +78,9 @@ function degov_node_press_update_8014() {
 }
 
 /**
- * Apply config to use the landscape_to_squared image style
+ * deGov Update 8.5.33 - Apply config to use the landscape_to_squared image style.
  */
-function degov_node_press_update_8015() {
+function degov_node_press_update_850033() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_press', '8015');
 }

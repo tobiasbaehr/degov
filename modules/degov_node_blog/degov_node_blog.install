@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -36,19 +37,15 @@ function degov_node_blog_update_8010() {
   $workflowService->enableWorkflow('blog');
 }
 
-/**
- * Adds missing view modes
- */
-function degov_node_blog_update_8011() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_blog', '8011');
-}
-
 
 /**
- * Apply config to use the landscape_to_squared image style
+ * deGov Update 8.5.33 - Apply config to use the landscape_to_squared image style., Adds missing view modes.
  */
-function degov_node_blog_update_8012() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_blog', '8012');
+function degov_node_blog_update_850033() {
+  /**
+   * @var $deGovModuleUpdater DegovModuleUpdater
+   */
+  $deGovModuleUpdater =   \Drupal::service('degov_config.module_updater');
+  $deGovModuleUpdater->applyUpdates('degov_node_blog', '8012');
+  $deGovModuleUpdater->applyUpdates('degov_node_blog', '8011');
 }
