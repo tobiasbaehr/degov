@@ -39,9 +39,9 @@ function degov_node_blog_update_8010() {
 
 
 /**
- * deGov Update 8.5.33 - Apply config to use the landscape_to_squared image style., Adds missing view modes.
+ * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style., Adds missing view modes.
  */
-function degov_node_blog_update_850033() {
+function degov_node_blog_update_850100() {
   /**
    * @var $deGovModuleUpdater DegovModuleUpdater
    */

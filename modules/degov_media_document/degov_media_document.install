@@ -33,9 +33,9 @@ function degov_media_document_upload_uninstall() {
 }
 
 /**
- * deGov Udpate 8.5.33 - Configuration updates for restricted files.
+ * deGov Udpate 5.1.0 - Configuration updates for restricted files.
  */
-function degov_media_document_update_850033() {
+function degov_media_document_update_850100() {
   /**
    * @var DegovModuleUpdater $updater
    */
