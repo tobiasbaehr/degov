@@ -90,7 +90,6 @@ function degov_common_update_8023() {
  */
 function degov_common_update_8026() {
   //Remove workbench_moderation dependency from configuration
-
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
     ->getBundleInfo('media');
   $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -208,6 +207,3 @@ function degov_common_requirements($phase) {
   }
   return $requirements;
 }
-
-
-

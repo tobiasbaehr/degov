@@ -2,10 +2,11 @@
 
 namespace Drupal\degov_common;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
- * Class DeGovModuleIntegrity
+ * Class DeGovModuleIntegrity.
  *
  * @package Drupal\degov_common
  */
@@ -16,11 +17,22 @@ class DeGovModuleIntegrity {
    */
   private $moduleHandler;
 
-  public function __construct(ModuleHandlerInterface $moduleHandler) {
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  private $configFactory;
+
+  public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory) {
     $this->moduleHandler = $moduleHandler;
+    $this->configFactory = $configFactory;
   }
 
-  public function checkModule($moduleName): array {
+  /**
+   * @param string $moduleName
+   *
+   * @return array
+   */
+  public function checkModule(string $moduleName): array {
     $missingConfiguration = [];
     if (strpos($moduleName, 'degov') === FALSE) {
       return $missingConfiguration;
@@ -29,7 +41,7 @@ class DeGovModuleIntegrity {
     foreach ($files as $file) {
       $fileName = $file->filename;
       $configName = str_replace('.yml', '', $fileName);
-      if (empty(\Drupal::configFactory()->get($configName)->getRawData())) {
+      if (empty($this->configFactory->get($configName)->getRawData())) {
         $missingConfiguration[$moduleName][] = $configName;
       }
     }
@@ -37,7 +49,12 @@ class DeGovModuleIntegrity {
     return $missingConfiguration;
   }
 
-  public function buildMessage($messages): string {
+  /**
+   * @param array $messages
+   *
+   * @return string
+   */
+  public function buildMessage(array $messages): string {
     $messageString = '';
     foreach ($messages as $message) {
       $messageString .= $message . ' ';
@@ -45,12 +62,11 @@ class DeGovModuleIntegrity {
     return $messageString;
   }
 
+  /**
+   * @return array
+   */
   public function checkIntegrity(): array {
     $messages = [];
-    /**
-     * @var $moduleHandler \Drupal\Core\Extension\ModuleHandler
-     */
-    $moduleHandler = \Drupal::service('module_handler');
     $modules = $this->moduleHandler->getModuleList();
 
     foreach ($modules as $module) {
@@ -59,4 +75,5 @@ class DeGovModuleIntegrity {
 
     return $messages;
   }
+
 }
