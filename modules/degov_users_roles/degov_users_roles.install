@@ -67,6 +67,25 @@ function degov_users_roles_update_8011() {
 }
 
 /**
+ * deGov Update 5.1.0 - Give managers default permissions on the permissions by term module.
+ */
+function degov_users_roles_update_850100() {
+  // Add new permissions
+  $managerPermissions = [
+    'access pbt settings',
+    'show term permission form on term page',
+    'show term permissions on node edit page',
+  ];
+
+  /** @var \Drupal\degov_common\Entity\ConfigAdder $configAdder */
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach ($managerPermissions as $permission) {
+    $configAdder->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function degov_users_roles_update_dependencies()

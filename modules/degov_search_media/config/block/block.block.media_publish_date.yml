@@ -19,4 +19,9 @@ settings:
   provider: facets
   label_display: visible
   block_id: media_publish_date
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /mediathek
+    negate: false
+    context_mapping: {  }
