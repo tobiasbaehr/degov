@@ -67,9 +67,9 @@ function degov_users_roles_update_8011() {
 }
 
 /**
- * Give managers default permissions on the permissions by term module.
+ * deGov Update 8.5.33 - Give managers default permissions on the permissions by term module.
  */
-function degov_users_roles_update_8012() {
+function degov_users_roles_update_850033() {
   // Add new permissions
   $managerPermissions = [
     'access pbt settings',
