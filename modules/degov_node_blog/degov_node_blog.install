@@ -46,6 +46,6 @@ function degov_node_blog_update_850033() {
    * @var $deGovModuleUpdater DegovModuleUpdater
    */
   $deGovModuleUpdater =   \Drupal::service('degov_config.module_updater');
-  $deGovModuleUpdater->applyUpdates('degov_node_blog', '8012');
   $deGovModuleUpdater->applyUpdates('degov_node_blog', '8011');
+  $deGovModuleUpdater->applyUpdates('degov_node_blog', '8012');
 }
