@@ -243,7 +243,8 @@ class FormContext extends RawMinkContext {
 	 * @When /^I press button with label "([^"]*)" via translated text$/
 	 */
 	public function pressButtonTranslate(string $button) {
-		$this->getSession()->getPage()->pressButton($this->translateString($button));
+
+		$this->getSession()->getPage()->pressButton($this->translatString($button));
 	}
 
 	/**
