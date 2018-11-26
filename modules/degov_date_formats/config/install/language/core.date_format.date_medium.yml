@@ -1,6 +1,0 @@
-status: true
-dependencies: {  }
-id: date_medium
-label: 'Date medium long'
-locked: false
-pattern: 'd. F Y'
