@@ -45,7 +45,7 @@
         "drupal/webform": "^5.0@beta",
         "drupal/entity_reference_display": "^1.0",
         "drupal/search_api_solr": "^1.0",
-        "drupal/core": "^8.5.7",
+        "drupal/core": "^8.5.8",
         "drupal/lightning_api": "^2.0",
         "drupal/lightning_core": "2.9.0",
         "drupal/lightning_layout": "^1.1",
@@ -101,7 +101,8 @@
         "drupal/module_status": "^1.0@alpha",
         "drush/drush": "^9.3",
         "drupal/scheduled_publish": "^2.4",
-        "drupal/degov_simplenews": "^1.5"
+        "drupal/degov_simplenews": "^1.5",
+        "drupal/link_attributes": "^1.1"
     },
     "repositories": {
         "drupal": {
@@ -228,9 +229,6 @@
             },
             "drupal/core": {
                 "Issue 2937543 - Updating symfony": "https://www.drupal.org/files/issues/2018-08-01/2937543.patch"
-            },
-            "drupal/pathauto": {
-                "Issue 2961850 - Duplicated keys in schema": "https://www.drupal.org/files/issues/2018-05-11/pathauto-duplicate_ignore_words_config_schema-2961850-8.patch"
             },
             "drupal/simplenews": {
                 "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"

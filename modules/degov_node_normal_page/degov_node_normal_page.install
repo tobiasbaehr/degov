@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -12,7 +13,7 @@ function degov_node_normal_page_uninstall() {
 
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
-    'entity_type' => 'node',
+    'entity_type'    => 'node',
     'entity_bundles' => ['normal_page'],
   ]);
 }
@@ -37,9 +38,20 @@ function degov_node_normal_page_update_8010() {
 }
 
 /**
- * Apply config to use the landscape_to_squared image style
+ * deGov Update 8.5.33 - Re-Import Form and display mode default for content type normal_page., Apply config to use the landscape_to_squared image style.
  */
-function degov_node_normal_page_update_8011() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_normal_page', '8011');
+function degov_node_normal_page_update_850033() {
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   * @var $moduleInstaller \Drupal\Core\Extension\ModuleInstaller
+   */
+
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_node_normal_page', '8011');
+  $moduleInstaller = \Drupal::service('module_installer');
+  $moduleInstaller->install(['degov_taxonomies', 'degov_metatags']);
+  \Drupal::service('degov_config.updater')
+    ->checkOptional(drupal_get_path('module', 'degov_node_normal_page') . '/config/install');
+  $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default', 'degov_node_normal_page', 'install');
+  $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default', 'degov_node_normal_page', 'install');
 }

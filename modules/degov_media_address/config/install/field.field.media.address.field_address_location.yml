@@ -12,10 +12,11 @@ dependencies:
     - geofield
 third_party_settings:
   geocoder_field:
+    geocode_field: field_address_address
     method: source
     field: field_address_address
     plugins:
-      - googlemaps
+      - openstreetmap
     dumper: wkt
     delta_handling: m_to_s
     failure:
