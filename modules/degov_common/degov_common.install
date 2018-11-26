@@ -198,7 +198,7 @@ function degov_common_requirements($phase) {
     foreach ($deGovIntegrity->checkIntegrity() as $index => $module) {
       foreach ($module as $key => $messages) {
         $requirements['degov_integrity_' . $key] = [
-          'severity' => REQUIREMENT_WARNING,
+          'severity' => REQUIREMENT_ERROR,
           'title' => t('deGov integrity - @module', ['@module' => $key]),
           'description' => $deGovIntegrity->buildMessage($messages),
           'value' => t('Configuration is missing'),
