@@ -40,14 +40,3 @@ function degov_search_media_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_search_media', '8008');
 }
-
-/**
- * Implements hook_update_dependencies
- */
-function degov_search_media_update_dependencies() {
-  $dependencies['degov_search_media'][8007] = [
-    'degov_media_overrides' => 8001,
-  ];
-
-  return $dependencies;
-}
