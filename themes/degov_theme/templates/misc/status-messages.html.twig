@@ -32,7 +32,8 @@
       type == 'status' ? 'alert-success',
       'alert-dismissible',
       'fade',
-      'show'
+      'show',
+      'container',
     ]
   %}
   <div aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('aria-label') }} role="alert">
