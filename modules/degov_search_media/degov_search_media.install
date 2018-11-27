@@ -20,7 +20,9 @@ function degov_search_media_update_8007() {
    */
 
   $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_search_media', '8007');
+  if(\Drupal::config('facets.facet.search_media_publish_date')->get() === null) {
+    $updater->applyUpdates('degov_search_media', '8007');
+  }
   $updater->reImport('views.view.search_media', 'degov_search_media', 'install');
   $updater->reImport('search_api.index.search_media', 'degov_search_media', 'install');
 
