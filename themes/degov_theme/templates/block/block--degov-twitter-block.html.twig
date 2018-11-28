@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme override for block--degov-social-media-youtube.
+ */
+#}
+{% block content %}
+  {{ subject }}
+  <div class="block--degov-social-media-twitter ">
+    <div class="container">
+      <div class="paragraph__header mb-5">
+        <h2>
+          {{ "Teaser social media"|t }}
+        </h2>
+        <h3 class="sub-title">{{ "Twitter Teaser"|t }}</h3>
+        <div class="under-teasers-header-line mt-4"></div>
+      </div>
+
+      <div class="paragraph__content row">
+        {% if content %}
+          {{ content }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
