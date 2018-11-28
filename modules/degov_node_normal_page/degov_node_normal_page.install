@@ -50,7 +50,7 @@ function degov_node_normal_page_update_850100() {
    * @var $moduleInstaller ModuleInstaller
    * @var $moduleHandler   ModuleHandler
    * @var $updater         DegovConfigUpdate
-   * @var $existingConfig  Drupal\Core\Config\Config
+   * @var $existingConfig  Config
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->applyUpdates('degov_node_normal_page', '8011');
