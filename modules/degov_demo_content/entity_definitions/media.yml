@@ -24,7 +24,7 @@ video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
   file: 'bokeh-video-of-leaves.mp4'
-  field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
+  field_video_upload_preview: 'image_1'
   status: 1
 document_1:
   bundle: 'document'
@@ -35,7 +35,7 @@ audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'
   file: 'dummy.mp3'
-  field_audio_preview: '{{MEDIA_ID_IMAGE}}'
+  field_audio_preview: 'image_1'
   status: 1
 address_1:
   bundle: 'address'
@@ -58,14 +58,14 @@ citation_1:
   bundle: 'citation'
   name: '{{SUBTITLE}}'
   field_citation_date: '2018-01-01'
-  field_citation_image: '{{MEDIA_ID_IMAGE}}'
+  field_citation_image: 'image_1'
   field_citation_text: '{{TEXT}}'
   field_citation_title: '{{SUBTITLE}}'
   status: 1
 person_1:
   bundle: 'person'
   name: '{{SUBTITLE}}'
-  field_person_image: '{{MEDIA_ID_IMAGE}}'
+  field_person_image: 'image_1'
   field_person_info: '{{TEXT}}'
   status: 1
 contact_1:
@@ -73,7 +73,7 @@ contact_1:
   name: '{{SUBTITLE}}'
   field_contact_email: 'admin@example.com'
   field_contact_fax: '0123456789'
-  field_contact_image: '{{MEDIA_ID_IMAGE}}'
+  field_contact_image: 'image_1'
   field_contact_title: '{{SUBTITLE}}'
   field_contact_position: '{{SUBTITLE}}'
   field_contact_tel: '0123456789'
@@ -117,5 +117,5 @@ video_1:
   field_subtitle: '{{SUBTITLE}}'
   field_media_publish_date: '2018-01-01T00:00:00'
   field_media_video_embed_field: 'https://www.youtube.com/watch?v=z-qpyBRTJ2A&t=65s'
-  field_video_preview: '{{MEDIA_ID_IMAGE}}'
+  field_video_preview: 'image_1'
   status: 1
