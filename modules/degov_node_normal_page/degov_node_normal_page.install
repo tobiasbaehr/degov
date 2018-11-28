@@ -55,11 +55,15 @@ function degov_node_normal_page_update_850100() {
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->applyUpdates('degov_node_normal_page', '8011');
   $moduleInstaller = \Drupal::service('module_installer');
+  $moduleHandler = \Drupal::service('module_handler');
   $updater = \Drupal::service('degov_config.updater');
-  $existingConfig = \Drupal::service('config.factory')->getEditable('field.storage.media.field_topic');
 
-  if ($existingConfig instanceof Config) {
-    $existingConfig->delete();
+  if (!$moduleHandler->moduleExists('degov_taxonomies')) {
+    $existingConfig = \Drupal::service('config.factory')->getEditable('field.storage.media.field_topic');
+
+    if ($existingConfig instanceof Config) {
+      $existingConfig->delete();
+    }
   }
 
   $moduleInstaller->install(['degov_taxonomies', 'degov_metatags']);
