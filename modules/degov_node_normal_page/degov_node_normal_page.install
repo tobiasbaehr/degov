@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Config\Config;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\Extension\ModuleInstaller;
 use Drupal\degov_common\Common;
@@ -56,7 +57,10 @@ function degov_node_normal_page_update_850100() {
   $moduleInstaller = \Drupal::service('module_installer');
   $updater = \Drupal::service('degov_config.updater');
   $existingConfig = \Drupal::service('config.factory')->getEditable('field.storage.media.field_topic');
-  $existingConfig->delete();
+
+  if ($existingConfig instanceof Config) {
+    $existingConfig->delete();
+  }
 
   $moduleInstaller->install(['degov_taxonomies', 'degov_metatags']);
   $updater->checkOptional(drupal_get_path('module', 'degov_node_normal_page') . '/config/install');
