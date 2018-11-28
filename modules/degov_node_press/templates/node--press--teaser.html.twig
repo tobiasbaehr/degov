@@ -124,7 +124,7 @@
                 </div>
             {% endif %}
             <!-- Teaser text -->
-            {% if content.field_teaser_text|render %}
+            {% if content.field_teaser_text %}
                 <a href="{{ url }}" rel="bookmark">
                     <div class="press__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
                         {% autoescape false %}
