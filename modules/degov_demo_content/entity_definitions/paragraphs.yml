@@ -65,15 +65,15 @@ download_1:
   field_subtitle: '{{SUBTITLE}}'
 faq_1:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_2:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_3:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_list_1:
   type: 'faq_list'
