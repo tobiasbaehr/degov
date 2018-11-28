@@ -123,37 +123,40 @@ class ContentGenerator {
 
   protected function prepareValues(array &$rawElement): void {
     foreach ($rawElement as $index => &$value) {
-      if (!\is_array($value)) {
+      if(is_string($value)) {
         $this->replaceValues($rawElement, $value, $index);
+      } else {
+        if(is_array($value)) {
+          $this->prepareValues($rawElement[$index]);
+        }
       }
     }
   }
 
   private function replaceValues(array &$rawElement, $value, string $index): void {
-    switch ($value) {
-      case '{{SUBTITLE}}':
-        $rawElement[$index] = $this->generateBlindText(5);
-        break;
-      case '{{TEXT}}':
-        $rawElement[$index] = $this->generateBlindText(50);
-        break;
-      case '{{DEMOTAG}}':
-        $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-        break;
-      default:
-        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-          $mediaTypeId = strtolower(str_replace(
-            [
-              '{{MEDIA_ID_',
-              '}}',
-            ], '', $value));
-          $mediaId = $this->getMedia($mediaTypeId)->id();
-          $rawElement[$index] = [
-            'target_id' => $mediaId,
-          ];
-        }
-        break;
+    while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
+      $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
     }
+
+    while(strpos($value, '{{TEXT}}') !== FALSE) {
+      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
+    }
+
+    if($value === '{{DEMOTAG}}') {
+      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+      return;
+    }
+
+    if(preg_match('/\{\{MEDIA_ID\_([a-zA-Z]*)\}\}/', $value, $mediaTypeId)) {
+      $mediaTypeId = strtolower($mediaTypeId[1]);
+      $mediaId = $this->getMedia($mediaTypeId)->id();
+      $rawElement[$index] = [
+        'target_id' => $mediaId,
+      ];
+      return;
+    }
+
+    $rawElement[$index] = $value;
   }
 
   protected function getMedias(string $bundle): array {
