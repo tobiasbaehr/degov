@@ -134,6 +134,20 @@ class ContentGenerator {
   }
 
   private function replaceValues(array &$rawElement, $value, string $index): void {
+    if($value === '{{DEMOTAG}}') {
+      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+      return;
+    }
+
+    if(preg_match('/^\{\{MEDIA_ID\_([a-zA-Z]*)\}\}$/', $value, $mediaTypeId)) {
+      $mediaTypeId = strtolower($mediaTypeId[1]);
+      $mediaId = $this->getMedia($mediaTypeId)->id();
+      $rawElement[$index] = [
+        'target_id' => $mediaId,
+      ];
+      return;
+    }
+
     while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
       $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
     }
@@ -142,18 +156,11 @@ class ContentGenerator {
       $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
     }
 
-    if($value === '{{DEMOTAG}}') {
-      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-      return;
-    }
-
-    if(preg_match('/\{\{MEDIA_ID\_([a-zA-Z]*)\}\}/', $value, $mediaTypeId)) {
+    while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_EMBED\}\}/', $value, $mediaTypeId)) {
       $mediaTypeId = strtolower($mediaTypeId[1]);
-      $mediaId = $this->getMedia($mediaTypeId)->id();
-      $rawElement[$index] = [
-        'target_id' => $mediaId,
-      ];
-      return;
+      $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
+      $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
+      $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_EMBED\}\}/', $embed_string, $value, 1);
     }
 
     $rawElement[$index] = $value;

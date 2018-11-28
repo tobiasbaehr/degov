@@ -58,6 +58,27 @@ text_1:
   field_text_text: '{{TEXT}}'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
+text_2:
+  type: 'text'
+  field_text_text:
+    value: >
+      <h1>{{SUBTITLE}}</h1>
+      <p>{{TEXT}}</p>
+      <p><strong>{{SUBTITLE}}</strong> {{SUBTITLE}} <em>{{SUBTITLE}}</em> {{SUBTITLE}} <a href="/">{{SUBTITLE}}</a> {{SUBTITLE}}</p>
+      <h2>{{SUBTITLE}}</h2>
+      <p>{{TEXT}}</p>
+      {{MEDIA_ID_IMAGE_EMBED}}
+      <h3>{{SUBTITLE}}</h3>
+      <p>{{TEXT}}</p>
+      <h4>{{SUBTITLE}}</h4>
+      <p>{{TEXT}}</p>
+      <h5>{{SUBTITLE}}</h5>
+      <p>{{TEXT}}</p>
+      <h6>{{SUBTITLE}}</h6>
+      <p>{{TEXT}}</p>
+    format: 'rich_html'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
 download_1:
   type: 'downloads'
   field_downloads_files: '{{MEDIA_ID_DOCUMENT}}'
