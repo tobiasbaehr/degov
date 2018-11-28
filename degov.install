@@ -46,6 +46,18 @@ function degov_install() {
   degov_import_translations();
 }
 
+function degov_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
+}
+
 function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
@@ -222,20 +234,33 @@ function degov_update_8501() {
   }
 }
 
-function degov_update_dependencies() {
-  $dependencies['field_group'][8301] = [
-    'degov' => 8501,
-  ];
-  return $dependencies;
-}
-
 /**
- * Install the Link Attributes module, if it's not already installed.
+ * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
-function degov_update_8502() {
+function degov_update_850100() {
+
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes'
     ]);
   }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
+    \Drupal::service('module_installer')->install(['degov_email_login']);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['workbench_access']);
+  }
+}
+
+function degov_update_dependencies() {
+  $dependencies['field_group'][8301] = [
+    'degov' => 8501,
+  ];
+  return $dependencies;
 }

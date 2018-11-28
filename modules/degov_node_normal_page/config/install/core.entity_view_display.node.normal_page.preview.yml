@@ -32,8 +32,8 @@ content:
     region: content
     label: hidden
     settings:
+      view_mode: teaser_landscape_squared
       link: false
-      view_mode: teaser_squared_1_1
     third_party_settings: {  }
   field_teaser_text:
     type: text_trimmed

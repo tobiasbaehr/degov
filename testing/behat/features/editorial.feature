@@ -9,12 +9,6 @@ Feature: deGov - Editorial
     Given I proof that Drupal module "degov_node_normal_page" is installed
 
   Scenario: "I am creating content with role 'Redakteur' and publisheding it with the 'Chefredakteur' role"
-    Given I am logged in as a user with the "Administrator" role
-    Then I am on "/admin/config/workflow/workbench_access/sections/section/users"
-    And I fill in "edit-editors-add" with "editor"
-    And I press button with label "Add" via translated text
-    And I fill in "edit-editors-add" with "manager"
-    And I press button with label "Add" via translated text
     Then I am logged in as "editor"
     And I am on "/node/add/normal_page"
     And I fill in "Titel" with "Test1234"

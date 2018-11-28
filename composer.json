@@ -94,7 +94,10 @@
         "drupal/diff": "^1.0@RC",
         "drupal/entity_block": "^1.0@beta",
         "drupal/degov_simplenews": "^1.5",
-        "drupal/link_attributes": "^1.1"
+        "drupal/link_attributes": "^1.1",
+        "drupal/permissions_by_term": "^2.0",
+        "drupal/permissions_by_term_redirect": "^1.0",
+        "drupal/mail_login": "^1.0"
     },
     "repositories": {
         "drupal": {

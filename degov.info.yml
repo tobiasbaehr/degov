@@ -68,6 +68,10 @@ dependencies:
   - workflows
   - simplenews
   - link_attributes
+  - drupal:locale
+  - permissions_by_term
+  - permissions_by_term_redirect
+  - degov_email_login
 
 themes:
   - degov_base_theme
