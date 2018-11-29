@@ -121,25 +121,25 @@ class ContentGenerator {
     }
   }
 
-  protected function prepareValues(array &$rawElement, bool $resolveMediaReferences = TRUE): void {
+  protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
     foreach ($rawElement as $index => &$value) {
       if(is_string($value)) {
-        $this->replaceValues($rawElement, $value, $index, $resolveMediaReferences);
+        $this->replaceValues($rawElement, $value, $index, $resolveReferences);
       } else {
         if(is_array($value)) {
-          $this->prepareValues($rawElement[$index], $resolveMediaReferences);
+          $this->prepareValues($rawElement[$index], $resolveReferences);
         }
       }
     }
   }
 
-  private function replaceValues(array &$rawElement, $value, string $index, bool $resolveMediaReferences = TRUE): void {
+  private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
     if($value === '{{DEMOTAG}}') {
       $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
       return;
     }
 
-    if($resolveMediaReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
+    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
       $mediaTypeId = strtolower($mediaTypeId[1]);
       $mediaId = $this->getMedia($mediaTypeId)->id();
       $rawElement[$index] = [
@@ -156,7 +156,7 @@ class ContentGenerator {
       $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
     }
 
-    if($resolveMediaReferences) {
+    if($resolveReferences) {
       while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
         $mediaTypeId = strtolower($mediaTypeId[1]);
         $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
