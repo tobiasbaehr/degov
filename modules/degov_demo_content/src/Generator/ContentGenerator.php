@@ -139,7 +139,7 @@ class ContentGenerator {
       return;
     }
 
-    if(preg_match('/^\{\{MEDIA_ID\_([a-zA-Z]*)\}\}$/', $value, $mediaTypeId)) {
+    if(preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
       $mediaTypeId = strtolower($mediaTypeId[1]);
       $mediaId = $this->getMedia($mediaTypeId)->id();
       $rawElement[$index] = [
@@ -156,11 +156,11 @@ class ContentGenerator {
       $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
     }
 
-    while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_EMBED\}\}/', $value, $mediaTypeId)) {
+    while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
       $mediaTypeId = strtolower($mediaTypeId[1]);
       $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
       $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
-      $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_EMBED\}\}/', $embed_string, $value, 1);
+      $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $embed_string, $value, 1);
     }
 
     $rawElement[$index] = $value;
