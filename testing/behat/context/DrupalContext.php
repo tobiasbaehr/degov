@@ -689,7 +689,7 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
-      $imageFileEntity = $this->createFileEntity('dummy.png');
+      $imageFileEntity = $this->createFileEntity('vladimir-riabinin-1058013-unsplash.jpg');
       $this->dummyImageFileEntityId = $imageFileEntity->id();
     }
 
