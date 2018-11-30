@@ -9438,7 +9438,8 @@ readers do not read off random characters that represent icons */
 .block--degov-social-media-twitter .tweet__actions {
   background-color: #154575; }
   .block--degov-social-media-twitter .tweet__actions li {
-    display: inline-block; }
+    display: inline-block;
+    min-width: 5rem; }
   .block--degov-social-media-twitter .tweet__actions a {
     color: #fff; }
 

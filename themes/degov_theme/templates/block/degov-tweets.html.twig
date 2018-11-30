@@ -32,20 +32,20 @@
         </div>
       </div>
       <div class="bottom">
-        <ul class="tweet__actions list-inline py-1 pr-2 pr-md-5 text-right">
+        <ul class="tweet__actions list-inline py-1 pr-4 pr-md-5 text-right">
           <li class="list-inline-item pl-3"><a
               href="https://twitter.com/intent/tweet?in_reply_to={{ tweet.id }}">
-              <i class="fas fa-comment"></i>
+              {{ tweet.followers_count }} <i class="fas fa-comment"></i>
             </a>
           </li>
           <li class="list-inline-item pl-3"><a
               href="https://twitter.com/intent/favorite?tweet_id={{ tweet.id }}">
-              <i class="fas fa-heart"></i>
+              {{ tweet.favourites_count }} <i class="fas fa-heart"></i>
             </a>
           </li>
           <li class="list-inline-item pl-3"><a
               href="https://twitter.com/intent/retweet?tweet_id={{ tweet.id }}">
-              <i class="fas fa-retweet"></i>
+              {{ tweet.retweet_count }} <i class="fas fa-retweet"></i>
             </a>
           </li>
         </ul>
