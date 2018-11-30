@@ -718,7 +718,7 @@ class DrupalContext extends RawDrupalContext {
         $drupalFilePath = 'public://';
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
         );
       } else {
@@ -731,7 +731,7 @@ class DrupalContext extends RawDrupalContext {
         }
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $documentFilesUri . '/' . $filename
         );
       }
