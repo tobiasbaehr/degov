@@ -36,6 +36,6 @@ echo "### Installing drupal with Behat"
 behat -c behat-no-drupal.yml -vvv
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
-drush "### Running Behat tests"
+echo "### Running Behat tests"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 behat
