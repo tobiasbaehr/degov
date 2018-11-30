@@ -1,0 +1,147 @@
+.row{
+  margin-left: 0;
+  margin-right: 0;
+  .col-sm-12:not(article){
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* Breakpoint for extra-small viewport */
+@include media-breakpoint-up(xs) {
+  .degov-carousel {
+    .carousel-inner{
+      max-height: 491px;
+    }
+    article.image{
+      max-height: 291px;
+    }
+    .carousel-control {
+      .carousel-control-icon {
+        width: 25px;
+        height: 50px;
+      }
+    }
+    .carousel-caption {
+      display: none!important;
+    }
+  }
+}
+
+/* Breakpoint for small viewport */
+@include media-breakpoint-up(sm) {
+  .degov-carousel {
+    .carousel-inner{
+      max-height: 591px;
+    }
+    article.image{
+      max-height: 391px;
+    }
+    .carousel-control {
+      .carousel-control-icon {
+        width: 25px;
+        height: 50px;
+      }
+    }
+    .carousel-caption {
+      h2 {
+        margin-bottom: 0;
+        font-size: $font-size-base * 0.9;
+        color: #2c2c2c;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 0;
+        font-size: $font-size-base * 0.9;
+      }
+      padding-top: 1.3rem;
+      background-color: $gray;
+      opacity: .9;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      color: $gray-dark;
+      text-align: left;
+      display: block!important;
+    }
+  }
+}
+/* Breakpoint for medium viewport */
+@include media-breakpoint-up(md) {
+  .degov-carousel {
+    .carousel-inner{
+      max-height: 691px;
+    }
+    article.image{
+      max-height: 491px;
+    }
+    .carousel-control {
+      .carousel-control-icon {
+        width: 25px;
+        height: 50px;
+      }
+    }
+    .carousel-caption {
+      display: block!important;
+      h2 {
+        margin-bottom: 0;
+        font-size: $font-size-base;
+        color: #2c2c2c;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 0;
+        font-size: $font-size-base *0.9;
+      }
+      padding-top: 2.3rem;
+      background-color: $gray;
+      opacity: .9;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      color: $gray-dark;
+      text-align: left;
+    }
+  }
+
+
+}
+/* Breakpoint for large viewport */
+@include media-breakpoint-up(lg) {
+  .degov-carousel {
+    .carousel-inner{
+      max-height: 791px;
+    }
+    article.image{
+      max-height: 591px;
+    }
+    .carousel-control {
+      .carousel-control-icon {
+        width: 25px;
+        height: 50px;
+      }
+    }
+    .carousel-caption {
+      h2 {
+        margin-bottom: 0;
+        font-size: $font-size-base * 1.1;
+        color: #2c2c2c;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 0;
+        font-size: $font-size-base;
+      }
+      padding-top: 2.3rem;
+      background-color: $gray;
+      opacity: .9;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      color: $gray-dark;
+      text-align: left;
+      display: block!important;
+    }
+  }
+}
+

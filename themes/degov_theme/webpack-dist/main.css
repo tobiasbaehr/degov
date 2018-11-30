@@ -5844,6 +5844,13 @@ footer {
   footer .first-level .first-level-link {
     font-size: 1.3rem; }
 
+.degov-carousel .carousel-inner {
+  max-height: 991px; }
+
+.degov-carousel article.image {
+  max-height: 801px;
+  contain: size; }
+
 .degov-carousel .carousel-control .carousel-control-icon {
   width: 25px;
   height: 50px; }
@@ -5858,10 +5865,13 @@ footer {
   color: #2C2C2C;
   text-align: left; }
   .degov-carousel .carousel-caption h2 {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    color: #2c2c2c;
+    font-weight: bold; }
   .degov-carousel .carousel-caption p {
     margin-bottom: 0;
-    font-size: 1.3rem; }
+    font-size: 1rem; }
 
 .paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }
@@ -9761,6 +9771,111 @@ readers do not read off random characters that represent icons */
     margin-left: 5px;
     font-size: 1rem;
     vertical-align: text-top; }
+
+.row {
+  margin-left: 0;
+  margin-right: 0; }
+  .row .col-sm-12:not(article) {
+    padding-left: 0;
+    padding-right: 0; }
+
+/* Breakpoint for extra-small viewport */
+.degov-carousel .carousel-inner {
+  max-height: 491px; }
+
+.degov-carousel article.image {
+  max-height: 291px; }
+
+.degov-carousel .carousel-control .carousel-control-icon {
+  width: 25px;
+  height: 50px; }
+
+.degov-carousel .carousel-caption {
+  display: none !important; }
+
+/* Breakpoint for small viewport */
+@media (min-width: 576px) {
+  .degov-carousel .carousel-inner {
+    max-height: 591px; }
+  .degov-carousel article.image {
+    max-height: 391px; }
+  .degov-carousel .carousel-control .carousel-control-icon {
+    width: 25px;
+    height: 50px; }
+  .degov-carousel .carousel-caption {
+    padding-top: 1.3rem;
+    background-color: #CCCCCC;
+    opacity: .9;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #2C2C2C;
+    text-align: left;
+    display: block !important; }
+    .degov-carousel .carousel-caption h2 {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+      font-weight: bold; }
+    .degov-carousel .carousel-caption p {
+      margin-bottom: 0;
+      font-size: 0.9rem; } }
+
+/* Breakpoint for medium viewport */
+@media (min-width: 768px) {
+  .degov-carousel .carousel-inner {
+    max-height: 691px; }
+  .degov-carousel article.image {
+    max-height: 491px; }
+  .degov-carousel .carousel-control .carousel-control-icon {
+    width: 25px;
+    height: 50px; }
+  .degov-carousel .carousel-caption {
+    display: block !important;
+    padding-top: 2.3rem;
+    background-color: #CCCCCC;
+    opacity: .9;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #2C2C2C;
+    text-align: left; }
+    .degov-carousel .carousel-caption h2 {
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: #2c2c2c;
+      font-weight: bold; }
+    .degov-carousel .carousel-caption p {
+      margin-bottom: 0;
+      font-size: 0.9rem; } }
+
+/* Breakpoint for large viewport */
+@media (min-width: 992px) {
+  .degov-carousel .carousel-inner {
+    max-height: 791px; }
+  .degov-carousel article.image {
+    max-height: 591px; }
+  .degov-carousel .carousel-control .carousel-control-icon {
+    width: 25px;
+    height: 50px; }
+  .degov-carousel .carousel-caption {
+    padding-top: 2.3rem;
+    background-color: #CCCCCC;
+    opacity: .9;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #2C2C2C;
+    text-align: left;
+    display: block !important; }
+    .degov-carousel .carousel-caption h2 {
+      margin-bottom: 0;
+      font-size: 1.1rem;
+      color: #2c2c2c;
+      font-weight: bold; }
+    .degov-carousel .carousel-caption p {
+      margin-bottom: 0;
+      font-size: 1rem; } }
 
 /*!
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
