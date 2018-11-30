@@ -249,14 +249,6 @@ function degov_update_850100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
     \Drupal::service('module_installer')->install(['degov_email_login']);
   }
-
-  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
-    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
-  }
-
-  if (\Drupal::moduleHandler()->moduleExists('workbench_access')) {
-    \Drupal::service('module_installer')->uninstall(['workbench_access']);
-  }
 }
 
 function degov_update_dependencies() {
