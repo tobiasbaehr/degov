@@ -138,3 +138,14 @@ function degov_theme_preprocess_degov_social_media_instagram(&$variables) {
   $variables['likes'] = NumberFormatShort::format($variables['likes']);
   $variables['comments'] = NumberFormatShort::format($variables['comments']);
 }
+
+/**
+ * Implements hook_preprocess_degov_social_media_instagram().
+ */
+function degov_theme_preprocess_degov_tweets(&$variables) {
+  foreach ($variables['items'] as &$tweet){
+    $tweet['favourites_count'] = NumberFormatShort::format($tweet['favourites_count']);
+    $tweet['followers_count'] = NumberFormatShort::format($tweet['followers_count']);
+    $tweet['retweet_count'] = NumberFormatShort::format($tweet['retweet_count']);
+  }
+}

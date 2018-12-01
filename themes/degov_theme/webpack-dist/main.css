@@ -9439,7 +9439,7 @@ readers do not read off random characters that represent icons */
   background-color: #154575; }
   .block--degov-social-media-twitter .tweet__actions li {
     display: inline-block;
-    min-width: 5rem; }
+    min-width: 4rem; }
   .block--degov-social-media-twitter .tweet__actions a {
     color: #fff; }
 
