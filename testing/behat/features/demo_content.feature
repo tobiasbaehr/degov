@@ -28,3 +28,9 @@ Feature: deGov - Demo Content
     And I should see "A page with an image header"
     And I should see "degov_demo_content"
 
+  Scenario: Front page should be set to the teaser overview page
+    Given I am on "/"
+    Then I should see "TEASER - SMALL IMAGE"
+    And I should see "TEASER - LONG TEXT"
+    And I should see "TEASER - SLIM"
+    And I should see "TEASER - PREVIEW"
