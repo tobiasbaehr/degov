@@ -11,6 +11,7 @@ menu_item_2:
   fontawesome_css_class: fa-bluetooth
   second_level:
     - Page with text paragraph
+    - Page with text paragraph in sidebar
     - Page with map paragraph
     - Page with video header
 menu_item_3:
