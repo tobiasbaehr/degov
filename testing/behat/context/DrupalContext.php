@@ -720,7 +720,7 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
-      $imageFileEntity = $this->createFileEntity('dummy.png');
+      $imageFileEntity = $this->createFileEntity('vladimir-riabinin-1058013-unsplash.jpg');
       $this->dummyImageFileEntityId = $imageFileEntity->id();
     }
 
@@ -749,7 +749,7 @@ class DrupalContext extends RawDrupalContext {
         $drupalFilePath = 'public://';
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
         );
       } else {
@@ -762,7 +762,7 @@ class DrupalContext extends RawDrupalContext {
         }
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $documentFilesUri . '/' . $filename
         );
       }

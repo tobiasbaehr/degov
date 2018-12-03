@@ -58,6 +58,20 @@ Feature: deGov - Media creation
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
 
+  Scenario: I am creating a video upload media entity
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/video_upload"
+    And I fill in the following:
+      | Name               | Video Example |
+      | Öffentlicher Titel | Video Example |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Video Upload Video Example wurde erstellt."
+
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
@@ -95,7 +109,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -114,7 +128,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -149,7 +163,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
-    And I attach the file "images/dummy.jpg" to "edit-image-0-upload"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -168,7 +182,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
     Then I should see HTML content matching "Datei" after a while
-    And I attach the file "images/dummy.jpg" to "edit-input-file"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
     Then I should see HTML content matching "Name" after a while
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -193,7 +207,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I attach the file "images/dummy.jpg" to "edit-input-file"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
