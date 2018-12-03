@@ -4,9 +4,9 @@ type: module
 core: 8.x
 package: deGov
 dependencies:
-  - block
-  - degov_search_base
-  - media
-  - system
-  - user
-  - views
+  - 'drupal:block'
+  - 'degov:degov_search_base'
+  - 'drupal:media'
+  - 'drupal:system'
+  - 'drupal:user'
+  - 'drupal:views'
