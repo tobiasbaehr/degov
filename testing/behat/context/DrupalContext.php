@@ -12,8 +12,11 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\permissions_by_term\Service\AccessStorage;
+use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
+use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
@@ -31,6 +34,11 @@ class DrupalContext extends RawDrupalContext {
    * @var null|int
    */
   private $dummyImageFileEntityId = null;
+
+  /**
+   * @var null|int
+   */
+  private $dummyDocumentFileEntityId = null;
 
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
@@ -205,7 +213,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
-  public function normalPageWithSlideshow() {
+  public function createNormalPageWithSlideshow(): void {
     $media = Media::create([
       'bundle'              => 'image',
       'field_title'         => 'Some image',
@@ -241,7 +249,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a banner paragraph$/
    */
-  public function normalPageWithBanner() {
+  public function createNormalPageWithBanner(): void {
     $copyrightTerm = Term::create([
       'name' => 'Some copyright',
       'vid'  => 'copyright',
@@ -270,6 +278,48 @@ class DrupalContext extends RawDrupalContext {
       'field_header_paragraphs' => [$paragraphSlideshow],
     ]);
     $node->save();
+  }
+
+  /**
+   * @Given /^I have a restricted document media entity$/
+   */
+  public function createRestrictedDocument(): void {
+    /**
+     * @var TermHandler $termHandler
+     */
+    $termHandler = \Drupal::service('permissions_by_term.term_handler');
+    if (empty($termHandler->getTermIdByName('Admin role only - restricted media document'))) {
+      $term = Term::create([
+        'name' => 'Admin role only - restricted media document',
+        'vid' => 'section',
+      ]);
+      $term->save();
+
+      $termId = $term->id();
+
+      /**
+       * @var AccessStorage $accessStorage
+       */
+      $accessStorage = \Drupal::service('permissions_by_term.access_storage');
+      $accessStorage->addTermPermissionsByRoleIds(['administrator'], $termId);
+
+      Media::create([
+        'title'          => 'Restricted Word document',
+        'field_title'    => 'Restricted Word document',
+        'bundle'         => 'document',
+        'field_section'  => [
+          [
+            'target_id' => $termId,
+          ],
+        ],
+        'field_document' => [
+          [
+            'target_id' => $this->createPrivateDocumentFileEntity()->id(),
+          ],
+        ],
+      ])->save();
+    }
+
   }
 
   /**
@@ -421,7 +471,25 @@ class DrupalContext extends RawDrupalContext {
 		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
 	}
 
-	/**
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text$/
+   */
+  public function assertPageNotMatchesText(string $text)
+  {
+    if (ctype_upper($text)) {
+      $translatedText = mb_strtoupper($this->translateString($text));
+    } else {
+      $translatedText = $this->translateString($text);
+    }
+
+    $content = $this->getSession()->getPage()->getText();
+    if (substr_count($content, $translatedText) === 0) {
+      return true;
+    }
+  }
+
+
+  /**
 	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
 	 */
 	public function assertPageMatchesTextUppercase(string $text)
@@ -592,8 +660,25 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
-  private function createDummyImageFileEntity(): File
-  {
+  private function createPrivateDocumentFileEntity(): File {
+    $documentFileEntity = null;
+
+    if (is_numeric($this->dummyDocumentFileEntityId)) {
+      /**
+       * @var File $documentFileEntity
+       */
+      $documentFileEntity = File::load($this->dummyDocumentFileEntityId);
+    }
+
+    if (!($documentFileEntity instanceof File)) {
+      $documentFileEntity = $this->createFileEntity('word-document.docx', 'private');
+      $this->dummyDocumentFileEntityId = $documentFileEntity->id();
+    }
+
+    return $documentFileEntity;
+  }
+
+  private function createDummyImageFileEntity(): File {
     $imageFileEntity = null;
 
     if (is_numeric($this->dummyImageFileEntityId)) {
@@ -604,6 +689,17 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
+      $imageFileEntity = $this->createFileEntity('vladimir-riabinin-1058013-unsplash.jpg');
+      $this->dummyImageFileEntityId = $imageFileEntity->id();
+    }
+
+    return $imageFileEntity;
+  }
+
+  private function createFileEntity(string $filename, string $fileSchemeMode = 'public'): File {
+    $fileEntity = null;
+
+    if (!($fileEntity instanceof File)) {
       /**
        * @var FilesystemFactory $symfonyFilesystem
        */
@@ -618,35 +714,40 @@ class DrupalContext extends RawDrupalContext {
        */
       $drupalFilesystem = \Drupal::service('file_system');
 
-      $fixtureImagePath = drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png';
+      if ($fileSchemeMode === 'public') {
+        $drupalFilePath = 'public://';
 
-      if (!file_exists($fixtureImagePath)) {
-        throw new \Exception("Could not locate fixture image at $fixtureImagePath.");
+        $symfonyFilesystem->copy(
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
+          $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
+        );
+      } else {
+        $drupalFilePath = 'private://media/document/file';
+
+        $documentFilesUri = $drupalFilesystem->realpath('private://') . '/media/document/file';
+
+        if (!$symfonyFilesystem->exists($documentFilesUri)) {
+          $symfonyFilesystem->mkdir($documentFilesUri);
+        }
+
+        $symfonyFilesystem->copy(
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
+          $documentFilesUri . '/' . $filename
+        );
       }
 
-      $fixtureImageFilesFolderPath = $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png';
-
-      $symfonyFilesystem->copy(
-        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-        $fixtureImageFilesFolderPath
-      );
-
-      if (!file_exists($fixtureImageFilesFolderPath)) {
-        throw new \Exception("Could not locate fixture image in files folder at $fixtureImageFilesFolderPath.");
-      }
-
-      $imageFileEntity = File::create([
+      $fileEntity = File::create([
         'uid'      => 1,
-        'filename' => 'dummy.png',
-        'uri'      => file_default_scheme() . '://dummy.png',
+        'filename' => $filename,
+        'uri'      => $drupalFilePath . '/' . $filename,
         'status'   => 1,
       ]);
-      $imageFileEntity->save();
+      $fileEntity->save();
 
-      $this->dummyImageFileEntityId = $imageFileEntity->id();
+      $this->dummyImageFileEntityId = $fileEntity->id();
     }
 
-    return $imageFileEntity;
+    return $fileEntity;
   }
 
   /**
