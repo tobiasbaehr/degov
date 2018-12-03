@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @javascript
 Feature: deGov - Media creation
 
   Background:
@@ -35,6 +35,12 @@ Feature: deGov - Media creation
     And I am on "/admin/content"
     Then I should see text matching "Example normal page title" after a while
 
+  Scenario: I proof that longitude and latitude has been generated automatically
+    Given I am logged in as a user with the "Administrator" role
+    And I open address medias edit form from latest media with title "Example address public"
+    And I should see HTML content matching "51.220793"
+    And I should see HTML content matching "6.772623"
+
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
     And I am on "media/add/citation"
@@ -61,6 +67,20 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
+
+  Scenario: I am creating a video upload media entity
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/video_upload"
+    And I fill in the following:
+      | Name               | Video Example |
+      | Öffentlicher Titel | Video Example |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Video Upload Video Example wurde erstellt."
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
@@ -98,7 +118,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -116,7 +137,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -150,7 +172,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -159,6 +182,28 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
+
+  Scenario: I try to create an image from the CKEditor entity embed dialog to check if the copyright field is present and can be emptied
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/node/add/faq"
+    And I click by CSS class "cke_button__media_browser"
+    Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I click "Hochladen"
+    Then I should see HTML content matching "Datei" after a while
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
+    Then I should see HTML content matching "Name" after a while
+    And I fill in "Copyright" with "Test1234"
+    And I scroll to element with id "edit-submit"
+    And I press the "Place" button
+    Then I should see text matching "ist erforderlich." after a while
+    And I should see 1 form element with the label "Copyright" and the value "Test1234"
+    And I click by selector "input[data-drupal-selector=edit-entity-field-royalty-free-value]" via JavaScript
+    And I scroll to element with id "edit-submit"
+    And I press the "Place" button
+    Then I should see "ist erforderlich."
+    And I should see 0 form element with the label "Copyright" and the value "Test1234"
 
   Scenario: I am creating an media gallery entity
     Given I am on "/"
@@ -172,7 +217,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I attach the file "images/dummy.png" to "edit-input-file"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"

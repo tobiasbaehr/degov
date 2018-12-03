@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Common;
 
 /**
@@ -19,4 +20,21 @@ function degov_media_address_uninstall() {
 function degov_media_address_update_8010() {
   \Drupal::configFactory()->getEditable('media.type.address')
     ->set('source_configuration.source_field', 'field_media_generic')->save();
+}
+
+/**
+ * Set settings for automatic latitude and longitude calculation.
+ */
+function degov_media_address_update_8011() {
+  /**
+   * @var ConfigFactory $configFactory
+   */
+  $configFactory = \Drupal::service('config.factory');
+  /**
+   * @var Drupal\Core\Config\Config $config
+   */
+  $config = $configFactory->getEditable('field.field.media.address.field_address_location');
+  $config->set('third_party_settings.geocoder_field.geocode_field', 'field_address_address');
+  $config->set('third_party_settings.geocoder_field.plugins', ['openstreetmap']);
+  $config->save();
 }
