@@ -9806,6 +9806,31 @@ readers do not read off random characters that represent icons */
   min-height: 4rem;
   background-color: #E5E7E9; }
 
+.srmedia__image {
+  overflow: hidden;
+  height: 255px; }
+  .srmedia__image img {
+    height: 100%;
+    width: auto; }
+
+.srmedia__type {
+  background-color: #fff;
+  color: #154575;
+  top: 1rem;
+  left: 1rem; }
+
+.srmedia__copyright {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #154575;
+  bottom: 1rem;
+  left: 1rem; }
+
+.srmedia__date {
+  min-height: 1.5rem; }
+
+.srmedia__title {
+  min-height: 1.5rem; }
+
 .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
   min-height: 120px;
   width: 100%;

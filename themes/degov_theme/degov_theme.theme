@@ -1,6 +1,6 @@
 <?php
 
-use \Drupal\degov_theme\NumberFormatShort;
+use Drupal\degov_theme\NumberFormatShort;
 use \Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use \Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 
@@ -220,21 +220,90 @@ function degov_theme_preprocess_paragraph(&$vars) {
 /**
  * Implements hook_preprocess_media().
  */
-function degov_theme_preprocess_media(&$vars) {
+function degov_theme_preprocess_media(&$variables) {
   /** @var \Drupal\media\Entity\Media $media */
-  $media = $vars['media'];
+  $media = $variables['media'];
   if ($media->hasField('field_gallery_images')) {
     $media_images = $media->get('field_gallery_images')->referencedEntities();
     if ($media_images) {
       foreach ($media_images as $media_image) {
         if($media_image->image->entity instanceof \Drupal\Core\Entity\EntityInterface) {
-          $vars['gallery_images'][] = [
+          $variables['gallery_images'][] = [
             '#theme' => 'image_style',
             '#style_name' => 'teaser_squared_1_1_320',
             '#uri' => $media_image->image->entity->getFileUri(),
           ];
         }
       }
+    }
+  }
+
+  if ($variables['view_mode'] == 'search') {
+    /** @var \Drupal\media\Entity\Media $media */
+    $media = $variables['media'];
+    $img = [
+      '#theme' => 'image_style',
+      '#style_name' => 'teaser_squared_1_1_320',
+    ];
+
+    switch ($media->bundle()) {
+
+      case 'image':
+        if (!$media->get('image')->isEmpty()) {
+          $img['#uri'] = $media->image->entity->getFileUri();
+          $img['#alt'] = $media->image->alt;
+          $img['#title'] = $media->image->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      case 'audio':
+        if (!$media->get('field_audio_preview')->isEmpty()) {
+          $img['#uri'] = $media->get('field_audio_preview')->entity->get('image')->entity->getFileUri();
+          $img['#alt'] = $media->get('field_audio_preview')->entity->get('image')->alt;
+          $img['#title'] = $media->get('field_audio_preview')->entity->get('image')->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      case 'video_upload':
+        if (!$media->get('field_video_upload_preview')->isEmpty()) {
+          $img['#uri'] = $media->get('field_video_upload_preview')->entity->get('image')->entity->getFileUri();
+          $img['#alt'] = $media->get('field_video_upload_preview')->entity->get('image')->alt;
+          $img['#title'] = $media->get('field_video_upload_preview')->entity->get('image')->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      case 'video':
+        if (!$media->get('field_video_preview')->isEmpty()) {
+          $img['#uri'] = $media->get('field_video_preview')->entity->get('image')->entity->getFileUri();
+          $img['#alt'] = $media->get('field_video_preview')->entity->get('image')->alt;
+          $img['#title'] = $media->get('field_video_preview')->entity->get('image')->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      case 'gallery':
+        if (!$media->get('field_gallery_images')->isEmpty()) {
+          $img['#uri'] = $media->get('field_gallery_images')->entity->get('image')->entity->getFileUri();
+          $img['#alt'] = $media->get('field_gallery_images')->entity->get('image')->alt;
+          $img['#title'] = $media->get('field_gallery_images')->entity->get('image')->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      case 'person':
+        if (!$media->get('field_person_image')->isEmpty()) {
+          $img['#uri'] = $media->get('field_person_image')->entity->get('image')->entity->getFileUri();
+          $img['#alt'] = $media->get('field_person_image')->entity->get('image')->alt;
+          $img['#title'] = $media->get('field_person_image')->entity->get('image')->title;
+          $variables['teaser_image'] = $img;
+        }
+        break;
+
+      default:
+        break;
     }
   }
 }
