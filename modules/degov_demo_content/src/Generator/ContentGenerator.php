@@ -7,6 +7,11 @@ use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * Class ContentGenerator.
+ *
+ * @package Drupal\degov_demo_content\Generator
+ */
 class ContentGenerator {
 
   /**
@@ -32,7 +37,6 @@ class ContentGenerator {
    */
   protected $entityType = '';
 
-
   /**
    * Counter for the word generation. Makes generated content more static
    *
@@ -41,11 +45,11 @@ class ContentGenerator {
   private $counter = 0;
 
   /**
-   * Base string for text generation
+   * Base string for text generation.
    *
    * @var string
    */
-  private const blindText = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
+  private const BLINDTEXT = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
 
   /**
    * Constructs a new ContentGenerator instance.
@@ -121,7 +125,12 @@ class ContentGenerator {
     }
   }
 
-  protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
+  /**
+   * @param array $rawElement
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function prepareValues(array &$rawElement): void {
     foreach ($rawElement as $index => &$value) {
       if(is_string($value)) {
         $this->replaceValues($rawElement, $value, $index, $resolveReferences);
@@ -133,27 +142,40 @@ class ContentGenerator {
     }
   }
 
-  private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
-    if($value === '{{DEMOTAG}}') {
-      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-      return;
-    }
+  /**
+   * @param array $rawElement
+   * @param $value
+   * @param string $index
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  private function replaceValues(array &$rawElement, $value, string $index): void {
+    switch ($value) {
+      case '{{SUBTITLE}}':
+        $rawElement[$index] = $this->generateBlindText(5);
+        break;
 
-    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
-      $mediaTypeId = strtolower($mediaTypeId[1]);
-      $mediaId = $this->getMedia($mediaTypeId)->id();
-      $rawElement[$index] = [
-        'target_id' => $mediaId,
-      ];
-      return;
-    }
+      case '{{TEXT}}':
+        $rawElement[$index] = $this->generateBlindText(50);
+        break;
 
-    while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
-      $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
-    }
+      case '{{DEMOTAG}}':
+        $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+        break;
 
-    while(strpos($value, '{{TEXT}}') !== FALSE) {
-      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
+      default:
+        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
+          $mediaTypeId = strtolower(str_replace(
+            [
+              '{{MEDIA_ID_',
+              '}}',
+            ], '', $value));
+          $mediaId = $this->getMedia($mediaTypeId)->id();
+          $rawElement[$index] = [
+            'target_id' => $mediaId,
+          ];
+        }
+        break;
     }
 
     if($resolveReferences) {
@@ -168,6 +190,12 @@ class ContentGenerator {
     $rawElement[$index] = $value;
   }
 
+  /**
+   * @param string $bundle
+   *
+   * @return array
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function getMedias(string $bundle): array {
     $mediaIds = \Drupal::entityQuery('media')
       ->condition('bundle', $bundle)
@@ -175,6 +203,11 @@ class ContentGenerator {
     return $mediaIds;
   }
 
+  /**
+   * @param string $bundle
+   *
+   * @return \Drupal\media\Entity\Media
+   */
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
@@ -183,6 +216,11 @@ class ContentGenerator {
     return Media::load($medias[$keys[$index]]);
   }
 
+  /**
+   * @param int $wordCount
+   *
+   * @return string
+   */
   public function generateBlindText(int $wordCount): string {
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
@@ -191,19 +229,41 @@ class ContentGenerator {
     return implode(' ', $phrase);
   }
 
+  /**
+   * @return string
+   */
   protected function getWord(): string {
-    $words = explode(' ', self::blindText);
+    $words = explode(' ', self::BLINDTEXT);
     $this->counter++;
     $index = $this->counter % count($words);
     return $words[$index];
   }
 
+  /**
+   * @param string $defName
+   * @param $tag
+   *
+   * @return mixed
+   * @throws \Exception
+   */
   protected function loadDefinitionByNameTag(string $defName, $tag) {
     $def = $this->loadDefinitions($defName . '.yml');
     return $def[$tag];
   }
 
-  protected function loadDefinitionByNameType(string $defName, string $type) {
+  /**
+   * Loads a specific definition by type.
+   *
+   * @param string $defName
+   *   The definition file name.
+   * @param string $type
+   *   The type of definition to load.
+   *
+   * @return array
+   *   The filtered definitions.
+   * @throws \Exception
+   */
+  protected function loadDefinitionByNameType(string $defName, string $type): array {
     $def = $this->loadDefinitions($defName . '.yml');
     return array_filter($def, function ($var) use ($type) {
       return $var['type'] === $type;

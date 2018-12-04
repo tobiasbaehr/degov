@@ -33,3 +33,9 @@ Feature: deGov - Demo Content
     Then I proof css ".faq_question" contains text
     And I proof css ".faq_answer" contains text
 
+  Scenario: Front page should be set to the teaser overview page
+    Given I am on "/"
+    Then I should see "TEASER - SMALL IMAGE"
+    And I should see "TEASER - LONG TEXT"
+    And I should see "TEASER - SLIM"
+    And I should see "TEASER - PREVIEW"
