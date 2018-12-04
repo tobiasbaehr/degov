@@ -127,15 +127,16 @@ class ContentGenerator {
 
   /**
    * @param array $rawElement
+   * @param bool $resolveReferences
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function prepareValues(array &$rawElement): void {
+  protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
     foreach ($rawElement as $index => &$value) {
-      if(is_string($value)) {
+      if(\is_string($value)) {
         $this->replaceValues($rawElement, $value, $index, $resolveReferences);
       } else {
-        if(is_array($value)) {
+        if(\is_array($value)) {
           $this->prepareValues($rawElement[$index], $resolveReferences);
         }
       }
@@ -146,10 +147,11 @@ class ContentGenerator {
    * @param array $rawElement
    * @param $value
    * @param string $index
+   * @param bool $resolveReferences
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function replaceValues(array &$rawElement, $value, string $index): void {
+  private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
     switch ($value) {
       case '{{SUBTITLE}}':
         $rawElement[$index] = $this->generateBlindText(5);
