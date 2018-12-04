@@ -3,48 +3,54 @@
 namespace Drupal\degov\Behat\Context;
 
 
-
+use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 
 class SmokeTestContext extends DrupalContext {
 
-  private $customParameters;
+  use ErrorTrait;
 
-  public function __construct($parameters) {
+  /**
+   * @var string
+   */
+  private $username;
 
-    $this->customParameters = !empty($parameters) ? $parameters : [];
+  /**
+   * @var string
+   */
+  private $password;
+
+  public function __construct(array $parameters) {
+    $this->username = $parameters['admin_account_credentials']['0'];
+    $this->password = $parameters['admin_account_credentials']['1'];
 
     parent::__construct();
   }
 
-  public function loginByCustomParameters() {
-
-    xdebug_break();
-
-    // Check if logged in.
-    if ($this->loggedIn()) {
-      $this->logout();
-    }
-
+  /**
+   * @Given /^I am logged in as user with the account details from Behat config file$/
+   */
+  public function loginByCustomParameters(): void {
     $this->getSession()->visit($this->locatePath('/user'));
     $element = $this->getSession()->getPage();
-    $element->fillField($this->getDrupalText('username_field'), $user->name);
-    $element->fillField($this->getDrupalText('password_field'), $user->pass);
-    $submit = $element->findButton($this->getDrupalText('log_in'));
+    $element->fillField('edit-name', $this->username);
+    $element->fillField('edit-pass', $this->password);
+
+    $submit = $element->findButton('edit-submit');
     if (empty($submit)) {
       throw new \Exception(sprintf("No submit button at %s", $this->getSession()->getCurrentUrl()));
     }
-
-    // Log in.
     $submit->click();
 
     if (!$this->loggedIn()) {
-      if (isset($user->role)) {
-        throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s' with role '%s'", $user->name, $user->role));
-      }
-      else {
-        throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s'", $user->name));
-      }
+      throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s'", $this->username));
     }
+  }
+
+  /**
+   * @AfterStep
+   */
+  public function assertNoErrors() {
+    $this->checkErrors();
   }
 
 }

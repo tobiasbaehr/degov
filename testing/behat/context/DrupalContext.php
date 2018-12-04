@@ -499,7 +499,10 @@ class DrupalContext extends RawDrupalContext {
 			$translatedText = $this->translateString($text);
 		}
 
-		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $translatedText) > 0) {
+      return true;
+    }
 	}
 
   /**
