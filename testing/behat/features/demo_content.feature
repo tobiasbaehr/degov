@@ -28,6 +28,11 @@ Feature: deGov - Demo Content
     And I should see "A page with an image header"
     And I should see "degov_demo_content"
 
+  Scenario: Check that FAQ paragraphs have answers
+    Given I am on "/degov-demo-content/page-faq-list-paragraph"
+    Then I proof css ".faq_question" contains text
+    And I proof css ".faq_answer" contains text
+
   Scenario: Front page should be set to the teaser overview page
     Given I am on "/"
     Then I should see "TEASER - SMALL IMAGE"

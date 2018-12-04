@@ -65,9 +65,9 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    */
   public function generateContent(): void {
     $media_to_generate = $this->loadDefinitions('media.yml');
-    $this->prepareValues($media_to_generate);
 
     $this->saveFiles($media_to_generate);
+    $this->saveEntities($media_to_generate, FALSE);
     $this->saveEntities($media_to_generate);
     $this->saveEntityReferences($media_to_generate);
   }
@@ -102,10 +102,12 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function saveEntities($media_to_generate): void {
+  private function saveEntities($media_to_generate, $fullSave = TRUE): void {
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      $this->prepareValues($media_item);
+      $this->prepareValues($media_item, $fullSave);
+      $fields = [];
+
       foreach ($media_item as $media_item_field_key => $media_item_field_value) {
         if ($media_item_field_key === 'file') {
           switch ($media_item['bundle']) {
@@ -155,24 +157,33 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
         $fields[$media_item_field_key] = $media_item_field_value;
       }
 
+      if ($media_item['bundle'] === 'image' && empty($media_item['field_royalty_free'])) {
+        $fields['field_copyright'] = [
+          'target_id' => $this->getDemoContentCopyrightId(),
+        ];
+      }
+
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
       $fields['field_tags'] = [
         ['target_id' => $this->getDemoContentTagId()],
       ];
-      if (empty($media_item['field_royalty_free'])) {
-        $fields['field_copyright'] = [
-          'target_id' => $this->getDemoContentCopyrightId(),
-        ];
+
+      if(empty($this->savedEntities[$media_item_key])) {
+        $new_media = Media::create($fields);
+        $new_media->save();
+        $this->savedEntities[$media_item_key] = $new_media;
+      } else {
+        foreach($fields as $field => $value) {
+          $this->savedEntities[$media_item_key]->set($field, $value);
+        }
+        $this->savedEntities[$media_item_key]->save();
       }
-      $new_media = Media::create($fields);
-      $new_media->save();
-      $this->savedEntities[$media_item_key] = $new_media;
     }
   }
 
   /**
-   * Store references between Media entities, e.g. preview images.
+   * Resolve Media entity references, for example in preview image fields
    */
   private function saveEntityReferences($media_to_generate): void {
     // Create references between Media entities.
@@ -190,7 +201,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
           }
           $saved_entity->set('field_gallery_images', $image_target_ids);
           $saved_entity->save();
-
         }
       }
     }

@@ -51,9 +51,9 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   public function generateContent(): void {
     $teaserPage = NULL;
     $nodeIds = [];
-    $paragraphs = [];
 
     foreach ($this->loadDefinitions('node.yml') as $rawNode) {
+      $paragraphs = [];
       if (isset($rawNode['field_content_paragraphs'])) {
         $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
       }

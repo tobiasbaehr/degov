@@ -99,7 +99,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
     $nid = $query->execute()->fetchField();
 
     if (empty($nid) || !is_numeric($nid)) {
-      throw new \Exception('No node has been found by node title.');
+      throw new \Exception(sprintf('No node has been found by node title "%s"', $nodeTitle));
     }
 
     return $nid;

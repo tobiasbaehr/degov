@@ -127,13 +127,18 @@ class ContentGenerator {
 
   /**
    * @param array $rawElement
+   * @param bool $resolveReferences
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function prepareValues(array &$rawElement): void {
+  protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
     foreach ($rawElement as $index => &$value) {
-      if (!\is_array($value)) {
-        $this->replaceValues($rawElement, $value, $index);
+      if(\is_string($value)) {
+        $this->replaceValues($rawElement, $value, $index, $resolveReferences);
+      } else {
+        if(\is_array($value)) {
+          $this->prepareValues($rawElement[$index], $resolveReferences);
+        }
       }
     }
   }
@@ -142,37 +147,43 @@ class ContentGenerator {
    * @param array $rawElement
    * @param $value
    * @param string $index
+   * @param bool $resolveReferences
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function replaceValues(array &$rawElement, $value, string $index): void {
-    switch ($value) {
-      case '{{SUBTITLE}}':
-        $rawElement[$index] = $this->generateBlindText(5);
-        break;
-
-      case '{{TEXT}}':
-        $rawElement[$index] = $this->generateBlindText(50);
-        break;
-
-      case '{{DEMOTAG}}':
-        $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-        break;
-
-      default:
-        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-          $mediaTypeId = strtolower(str_replace(
-            [
-              '{{MEDIA_ID_',
-              '}}',
-            ], '', $value));
-          $mediaId = $this->getMedia($mediaTypeId)->id();
-          $rawElement[$index] = [
-            'target_id' => $mediaId,
-          ];
-        }
-        break;
+  private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
+    if($value === '{{DEMOTAG}}') {
+      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+      return;
     }
+
+    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
+      $mediaTypeId = strtolower($mediaTypeId[1]);
+      $mediaId = $this->getMedia($mediaTypeId)->id();
+      $rawElement[$index] = [
+        'target_id' => $mediaId,
+      ];
+      return;
+    }
+
+    while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
+      $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
+    }
+
+    while(strpos($value, '{{TEXT}}') !== FALSE) {
+      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
+    }
+
+    if($resolveReferences) {
+      while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
+        $mediaTypeId = strtolower($mediaTypeId[1]);
+        $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
+        $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
+        $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $embed_string, $value, 1);
+      }
+    }
+
+    $rawElement[$index] = $value;
   }
 
   /**
