@@ -152,32 +152,26 @@ class ContentGenerator {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
-    switch ($value) {
-      case '{{SUBTITLE}}':
-        $rawElement[$index] = $this->generateBlindText(5);
-        break;
+    if($value === '{{DEMOTAG}}') {
+      $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
+      return;
+    }
 
-      case '{{TEXT}}':
-        $rawElement[$index] = $this->generateBlindText(50);
-        break;
+    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
+      $mediaTypeId = strtolower($mediaTypeId[1]);
+      $mediaId = $this->getMedia($mediaTypeId)->id();
+      $rawElement[$index] = [
+        'target_id' => $mediaId,
+      ];
+      return;
+    }
 
-      case '{{DEMOTAG}}':
-        $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
-        break;
+    while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
+      $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
+    }
 
-      default:
-        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
-          $mediaTypeId = strtolower(str_replace(
-            [
-              '{{MEDIA_ID_',
-              '}}',
-            ], '', $value));
-          $mediaId = $this->getMedia($mediaTypeId)->id();
-          $rawElement[$index] = [
-            'target_id' => $mediaId,
-          ];
-        }
-        break;
+    while(strpos($value, '{{TEXT}}') !== FALSE) {
+      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
     }
 
     if($resolveReferences) {
