@@ -3,6 +3,7 @@
 namespace Drupal\degov_common;
 
 use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\locale\Gettext;
 
 /**
  * Class DegovLocaleUpdate
@@ -57,4 +58,5 @@ class DegovLocaleUpdate {
     $batch = locale_translation_batch_update_build(array(), $langcodes, $options);
     batch_set($batch);
   }
+
 }

@@ -10,7 +10,8 @@ use Drupal\user\RoleInterface;
 /**
  * Implements hook_install().
  */
-function degov_install() {
+function degov_install()
+{
   // Assign user 1 the "administrator" role.
   $user = \Drupal\user\Entity\User::load(1);
   $user->roles[] = 'administrator';
@@ -44,6 +45,18 @@ function degov_install() {
     ->save(TRUE);
 
   degov_import_translations();
+}
+
+function degov_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 function degov_update_8440() {

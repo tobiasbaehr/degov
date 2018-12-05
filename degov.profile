@@ -157,11 +157,11 @@ function degov_theme_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Set the default theme to be deGov.
-  $themes = ['degov_base_theme', 'bartik'];
+  $themes = ['degov_theme', 'bartik'];
   \Drupal::service('theme_handler')->install($themes);
   \Drupal::configFactory()
     ->getEditable('system.theme')
-    ->set('default', 'degov_base_theme')
+    ->set('default', 'degov_theme')
     ->save();
   \Drupal::service('theme.manager')->resetActiveTheme();
 }
@@ -231,16 +231,4 @@ function degov_finalize_setup() {
   }
 
   return $batch;
-}
-
-function degov_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
 }
