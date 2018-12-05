@@ -45,6 +45,9 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
+            - bin/drush upwd admin admin
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
+            - behat -c behat-smoke-tests.yml
           services:
             - docker
             - mysql
@@ -78,6 +81,9 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
+            - bin/drush upwd admin admin
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
+            - behat -c behat-smoke-tests.yml
           services:
             - docker
             - mysql
@@ -130,6 +136,9 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
+            - bin/drush upwd admin admin
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
+            - behat -c behat-smoke-tests.yml
             services:
             - docker
             - mysql
@@ -163,6 +172,9 @@ pipelines:
             - bin/drush locale-check && bin/drush locale-update && bin/drush cr
             - mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
             - behat
+            - bin/drush upwd admin admin
+            - mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
+            - behat -c behat-smoke-tests.yml
             services:
             - docker
             - mysql
