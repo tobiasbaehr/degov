@@ -28,7 +28,7 @@ trait ErrorTrait {
     foreach (self::$errorTexts as $errorText) {
       $pageText = $this->getSession()->getPage()->getText();
       if (substr_count(strtolower($pageText), strtolower($errorText)) > 0) {
-        throw new ResponseTextException(
+        throw new TextNotFoundException(
           sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
           $this->getSession()
         );
