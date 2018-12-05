@@ -19,11 +19,8 @@ Feature: deGov - Smoke tests
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/block"
     And I should see text matching "Header" via translated text
-    And I should see text matching "Top Header"
-    And I should see text matching "Bottom Header"
-    And I should see text matching "Header navigation"
     And I should see text matching "Breadcrumbs" via translated text
-    And I should see text matching "Main content"
+    And I should see text matching "Main content" via translated text
     And I click by CSS id "edit-blocks-region-top-header-title"
     Then I should see text matching "Add custom block" via translated text after a while
 

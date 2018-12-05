@@ -75,6 +75,10 @@ In der o.g. Behat Konfigurationsdatei kann mit dem `base_url` Attributwert die U
 Auch werden in jener Konfigurationsdatei die Admin-Zugangsdaten der deGov Instanz hinterlegt. Sodass sich Behat auf der
 (Live-)Website anmelden und das Backend überprüfen kann.
 
+Zum Ausführen der Behat Smoke Tests, müssen die Tests aus einer deGov Instanz gestartet werden, deren `docroot`
+Verzeichnis in der Behat-Konfigurationsdatei mittels dem Schlüssel `files_path` verwiesen wird. Denn es wird ein Drupal
+Bootstrap durchgeführt, um die Testumgebung zu laden.
+
 ## Troubleshooting
 
 ### Chrome DevTools während der Testausführung benutzen

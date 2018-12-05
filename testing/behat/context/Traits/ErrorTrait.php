@@ -2,7 +2,7 @@
 
 namespace Drupal\degov\Behat\Context\Traits;
 
-use Behat\Mink\Exception\ResponseTextException;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 
 /**
  * Trait ErrorTrait

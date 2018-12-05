@@ -3,7 +3,6 @@
 namespace Drupal\degov_common;
 
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\locale\Gettext;
 
 /**
  * Class DegovLocaleUpdate
