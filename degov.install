@@ -49,7 +49,7 @@ function degov_install()
 
 function degov_import_translations(): void {
   $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
   $file->langcode = 'de';
 
   Drupal\locale\Gettext::fileToDatabase($file, [
