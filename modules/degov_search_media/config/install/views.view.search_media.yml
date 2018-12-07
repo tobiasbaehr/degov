@@ -1,3 +1,4 @@
+uuid: null
 langcode: de
 status: true
 dependencies:
@@ -274,62 +275,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_string
-        search_api_fulltext:
-          id: search_api_fulltext
-          table: search_api_index_search_media
-          field: search_api_fulltext
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: and
-          value: ''
-          group: 2
-          exposed: true
-          expose:
-            operator_id: search_api_fulltext_op
-            label: Volltextsuche
-            description: ''
-            use_operator: false
-            operator: search_api_fulltext_op
-            identifier: volltext
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              page_creator: '0'
-              layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              media_creator: '0'
-              media_manager: '0'
-              event_creator: '0'
-              event_reviewer: '0'
-              normal_page_creator: '0'
-              normal_page_reviewer: '0'
-              press_creator: '0'
-              press_reviewer: '0'
-              blog_creator: '0'
-              blog_reviewer: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          parse_mode: terms
-          min_length: null
-          fields: {  }
-          plugin_id: search_api_fulltext
         bundle_3:
           id: bundle_3
           table: search_api_index_search_media
@@ -417,7 +362,7 @@ display:
           admin_label: ''
           operator: '='
           value: '1'
-          group: 1
+          group: 2
           exposed: false
           expose:
             operator_id: ''
@@ -444,6 +389,62 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_api_boolean
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_search_media
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: ''
+          group: 2
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Volltextsuche
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            identifier: volltext
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              page_creator: '0'
+              layout_manager: '0'
+              page_reviewer: '0'
+              landing_page_creator: '0'
+              landing_page_reviewer: '0'
+              media_creator: '0'
+              media_manager: '0'
+              event_creator: '0'
+              event_reviewer: '0'
+              normal_page_creator: '0'
+              normal_page_reviewer: '0'
+              press_creator: '0'
+              press_reviewer: '0'
+              blog_creator: '0'
+              blog_reviewer: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
       sorts:
         field_media_publish_date:
           id: field_media_publish_date
@@ -462,7 +463,6 @@ display:
         groups:
           1: OR
           2: AND
-          3: AND
     cache_metadata:
       max-age: -1
       contexts:

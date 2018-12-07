@@ -6,6 +6,7 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\user\RoleInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -248,14 +249,19 @@ function degov_update_850100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
     \Drupal::service('module_installer')->install(['degov_email_login']);
   }
+}
 
-  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
-    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
-  }
+/**
+ * Re-Import search_media view.
+ */
+function degov_update_850102() {
 
-  if (\Drupal::moduleHandler()->moduleExists('workbench_access')) {
-    \Drupal::service('module_installer')->uninstall(['workbench_access']);
-  }
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.search_media','degov_search_media','rewrite');
+
 }
 
 function degov_update_dependencies() {

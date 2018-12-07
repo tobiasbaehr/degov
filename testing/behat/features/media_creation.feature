@@ -206,3 +206,16 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
+
+  Scenario: Check if media full display is working if field_include_search is unchecked
+    Given I am installing the "degov_demo_content" module
+    And I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/1/edit"
+    And I choose "Allgemein" from tab menu
+    And I uncheck the box "edit-field-include-search-value"
+    And I scroll to element with id "edit-submit"
+    And I press "Speichern"
+    And I am on "/ipsum-dolor-sit-amet-consetetur"
+    And I dump the HTML
+    And I should see "ipsum dolor sit amet consetetur"
