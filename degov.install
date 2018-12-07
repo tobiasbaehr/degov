@@ -10,8 +10,7 @@ use Drupal\user\RoleInterface;
 /**
  * Implements hook_install().
  */
-function degov_install()
-{
+function degov_install() {
   // Assign user 1 the "administrator" role.
   $user = \Drupal\user\Entity\User::load(1);
   $user->roles[] = 'administrator';
