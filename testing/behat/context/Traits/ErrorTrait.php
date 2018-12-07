@@ -2,7 +2,7 @@
 
 namespace Drupal\degov\Behat\Context\Traits;
 
-use Behat\Mink\Exception\ResponseTextException;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 
 /**
  * Trait ErrorTrait
@@ -28,7 +28,7 @@ trait ErrorTrait {
     foreach (self::$errorTexts as $errorText) {
       $pageText = $this->getSession()->getPage()->getText();
       if (substr_count(strtolower($pageText), strtolower($errorText)) > 0) {
-        throw new ResponseTextException(
+        throw new TextNotFoundException(
           sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
           $this->getSession()
         );

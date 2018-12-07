@@ -2,8 +2,9 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystem as DrupalFilesystem;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
@@ -16,9 +17,7 @@ use Drupal\permissions_by_term\Service\AccessStorage;
 use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
-use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
 
 class DrupalContext extends RawDrupalContext {
@@ -446,7 +445,7 @@ class DrupalContext extends RawDrupalContext {
     if (\count($header) > 0) {
       return true;
     } else {
-      throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
+      throw new TextNotFoundException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
     }
   }
 
@@ -458,7 +457,7 @@ class DrupalContext extends RawDrupalContext {
       return true;
     }
 
-    throw new ResponseTextException(
+    throw new TextNotFoundException(
       sprintf('Could not find "%s" local task items', $number),
       $this->getSession()
     );
@@ -475,7 +474,7 @@ class DrupalContext extends RawDrupalContext {
     if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
       return TRUE;
     }
-    throw new ResponseTextException(
+    throw new TextNotFoundException(
       sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
       $this->getSession()
     );
@@ -499,7 +498,10 @@ class DrupalContext extends RawDrupalContext {
 			$translatedText = $this->translateString($text);
 		}
 
-		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $translatedText) > 0) {
+      return true;
+    }
 	}
 
   /**
@@ -542,7 +544,7 @@ class DrupalContext extends RawDrupalContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -607,7 +609,7 @@ class DrupalContext extends RawDrupalContext {
           }
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
+      throw new TextNotFoundException(
         sprintf('Could not find element titled %s with entries within %s seconds.', $title, self::MAX_DURATION_SECONDS),
         $this->getSession()
       );
