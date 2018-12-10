@@ -219,4 +219,3 @@ Feature: deGov - Media creation
     And I am on "/ipsum-dolor-sit-amet-consetetur"
     And I should not see "Mitglied seit"
     And I should see HTML content matching "media--view-mode-full"
-    And I should see "ipsum dolor sit amet consetetur"
