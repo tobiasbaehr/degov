@@ -216,6 +216,7 @@ Feature: deGov - Media creation
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
+    And I am on "/ipsum-dolor-sit-amet-consetetur"
     And I should not see "Mitglied seit"
     And I should see HTML content matching "media--view-mode-full"
     And I should see "ipsum dolor sit amet consetetur"
