@@ -77,17 +77,25 @@ function degov_node_press_update_8014() {
 
 }
 
+function degov_node_press_update_dependencies() {
+  $dependencies['degov_node_press'][8013] = [
+    'degov_common' => 8029,
+  ];
+  return $dependencies;
+}
+
+/**
+ * Update paragraph experimental
+ */
+function degov_node_press_update_8015() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8015');
+}
+
 /**
  * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style.
  */
 function degov_node_press_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_press', '8015');
-}
-
-function degov_node_press_update_dependencies() {
-  $dependencies['degov_node_press'][8013] = [
-    'degov_common' => 8029,
-  ];
-  return $dependencies;
 }

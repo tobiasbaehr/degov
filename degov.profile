@@ -100,22 +100,25 @@ function degov_media_setup(&$install_state) {
 
   // Define all required base deGov modules and features.
   $modules = [
-    'degov_media_video'           => 'degov_media_video',
-    'degov_media_video_upload'    => 'degov_media_video_upload',
-    'degov_media_address'         => 'degov_media_address',
-    'degov_media_audio'           => 'degov_media_audio',
-    'degov_media_caption_helper'  => 'degov_media_caption_helper',
-    'degov_media_citation'        => 'degov_media_citation',
-    'degov_media_contact'         => 'degov_media_contact',
-    'degov_media_document'        => 'degov_media_document',
-    'degov_media_gallery'         => 'degov_media_gallery',
-    'degov_media_image'           => 'degov_media_image',
-    'degov_media_instagram'       => 'degov_media_instagram',
-    'degov_media_person'          => 'degov_media_person',
-    'degov_media_tweet'           => 'degov_media_tweet',
-    'degov_search_media'          => 'degov_search_media',
-    'degov_media_overrides'       => 'degov_media_overrides',
-    'degov_social_media_settings' => 'degov_social_media_settings',
+    'degov_media_video'               => 'degov_media_video',
+    'degov_media_video_upload'        => 'degov_media_video_upload',
+    'degov_media_address'             => 'degov_media_address',
+    'degov_media_audio'               => 'degov_media_audio',
+    'degov_media_caption_helper'      => 'degov_media_caption_helper',
+    'degov_media_citation'            => 'degov_media_citation',
+    'degov_media_contact'             => 'degov_media_contact',
+    'degov_media_document'            => 'degov_media_document',
+    'degov_media_gallery'             => 'degov_media_gallery',
+    'degov_media_image'               => 'degov_media_image',
+    'degov_media_instagram'           => 'degov_media_instagram',
+    'degov_media_person'              => 'degov_media_person',
+    'degov_media_tweet'               => 'degov_media_tweet',
+    'degov_search_media'              => 'degov_search_media',
+    'degov_media_overrides'           => 'degov_media_overrides',
+    'degov_social_media_settings'     => 'degov_social_media_settings',
+    'degov_paragraph_media_reference' => 'degov_paragraph_media_reference',
+    'degov_simplenews'                => 'degov_simplenews',
+    'degov_simplenews_references'     => 'degov_simplenews_references',
   ];
 
   // Add a batch operation to install each module.
@@ -228,4 +231,16 @@ function degov_finalize_setup() {
   }
 
   return $batch;
+}
+
+function degov_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }

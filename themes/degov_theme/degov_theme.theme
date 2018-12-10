@@ -1,0 +1,122 @@
+<?php
+
+use \Drupal\Core\Template\Attribute;
+
+/**
+ * Implements theme_preprocess_html().
+ */
+function degov_theme_preprocess_html(&$vars) {
+  /** @var \Drupal\Core\Template\Attribute $attributes */
+  $attributes = $vars['attributes'];
+  if ($attributes instanceof Attribute && $attributes->hasClass('install-page')) {
+    if (count($vars['head_title']) === 1) {
+      if (!empty($vars['page']['#title'])) {
+        $vars['head_title']['title'] = $vars['page']['#title'];
+        $vars['head_title']['name'] = drupal_install_profile_distribution_name();
+      }
+    }
+
+    $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
+
+    if ($background_images_dir_handle) {
+      $background_image_filenames = [];
+      while ($filename = readdir($background_images_dir_handle)) {
+        if (preg_match("/^[a-zA-Z0-9\-_]+\.(jpg|jpeg|png)$/", $filename)) {
+          $background_image_filenames[] = $filename;
+        }
+      }
+      closedir($background_images_dir_handle);
+
+      $css = sprintf(
+        'body.install-page{background-image:url(/%s/images/installer/%s);}',
+        drupal_get_path('theme', 'degov_theme'),
+        $background_image_filenames[rand(0, count($background_image_filenames) - 1)]
+      );
+      $vars['page']['#attached']['html_head'][] = [
+        [
+          '#tag'    => 'style',
+          '#value'  => $css,
+          '#weight' => 1,
+        ],
+        'installer-background-images-css',
+      ];
+    }
+
+    // Animated Favicon goes here…
+//    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_spinning';
+    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_ticker';
+//    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_turning';
+    $animation_frames_filenames = [];
+    if ($favicon_frames_dir_handle = opendir($favicon_frames_path)) {
+      while ($filename = readdir($favicon_frames_dir_handle)) {
+        if (!preg_match("/^\.\.?$/", $filename)) {
+          $animation_frames_filenames[] = '/' . $favicon_frames_path . '/' . $filename;
+        }
+      }
+      closedir($favicon_frames_dir_handle);
+
+      sort($animation_frames_filenames);
+      $animation_frames_array_javascript = 'var favicon_animation_frames = new Array();';
+      foreach ($animation_frames_filenames as $key => $filename) {
+        $animation_frames_array_javascript .= sprintf(
+          'favicon_animation_frames[%s] = "%s";',
+          $key,
+          $filename
+        );
+      }
+      $vars['page']['#attached']['html_head'][] = [
+        [
+          '#tag'    => 'script',
+          '#value'  => $animation_frames_array_javascript,
+          '#weight' => 1,
+        ],
+        'favicon-animation-frames-array-javascript',
+      ];
+    }
+  }
+}
+
+function degov_theme_preprocess_install_page(&$vars) {
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $vars['theme_logo'] = $active_theme->getLogo();
+}
+
+/**
+ * Implements hook_attachments_alter().
+ */
+function degov_theme_page_attachments_alter(&$page) {
+  $viewport = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_menu__account().
+ */
+function degov_theme_preprocess_menu__account(&$vars) {
+
+  array_walk($vars['items'], function (&$item) {
+    /** @var \Drupal\Core\Url $url */
+    $url = $item['url'];
+    if (($url->isRouted()) && $url->getRouteName() === 'user.login') {
+      $item['title'] = \Drupal::currentUser()->isAnonymous() ? $item['title'] :  t('My Account');
+    }
+  });
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function degov_theme_preprocess_page(&$vars) {
+  $vars['logo_url'] =  theme_get_setting('logo.url');
+  $social_icons_settings = array_filter(theme_get_setting('social-icons'), function ($item) {
+    return !empty($item['url']) && !empty($item['font-awesome-classes']);
+  });
+  $vars['social_icons'] = $social_icons_settings;
+}
