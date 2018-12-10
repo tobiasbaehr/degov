@@ -6,18 +6,6 @@
 
 use Drupal\field\Entity\FieldConfig;
 
-function degov_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
-}
-
 function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
@@ -148,7 +136,7 @@ function degov_update_8449() {
  * Translate social media settings string into German.
  */
 function degov_update_8500() {
-  degov_import_translations();
+  degov_common_import_translations();
 }
 
 
