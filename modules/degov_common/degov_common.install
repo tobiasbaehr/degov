@@ -8,6 +8,26 @@ use Symfony\Component\Yaml\Yaml;
  * Implements hook_install().
  */
 function degov_common_install() {
+  // Restrict user registration to admin role creation.
+  \Drupal::configFactory()
+    ->getEditable('user.settings')
+    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
+    ->save(TRUE);
+
+  // Set the default and admin theme.
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('default', 'bartik')
+    ->set('admin', 'seven')
+    ->save(TRUE);
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+
+  degov_import_translations();
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();

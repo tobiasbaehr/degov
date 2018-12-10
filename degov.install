@@ -7,45 +7,6 @@
 use Drupal\field\Entity\FieldConfig;
 use Drupal\user\RoleInterface;
 
-/**
- * Implements hook_install().
- */
-function degov_install() {
-  // Assign user 1 the "administrator" role.
-  $user = \Drupal\user\Entity\User::load(1);
-  $user->roles[] = 'administrator';
-  $user->save();
-
-  // Don't do anything else during config sync.
-  if (\Drupal::isConfigSyncing()) {
-    return;
-  }
-
-  // Restrict user registration to admin role creation.
-  \Drupal::configFactory()
-    ->getEditable('user.settings')
-    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
-    ->save(TRUE);
-
-  // Allow authenticated users to use shortcuts.
-  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
-
-  // Set the default and admin theme.
-  \Drupal::configFactory()
-    ->getEditable('system.theme')
-    ->set('default', 'bartik')
-    ->set('admin', 'seven')
-    ->save(TRUE);
-
-  // Enable the admin theme.
-  \Drupal::configFactory()
-    ->getEditable('node.settings')
-    ->set('use_admin_theme', TRUE)
-    ->save(TRUE);
-
-  degov_import_translations();
-}
-
 function degov_import_translations(): void {
   $file = new \stdClass();
   $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
