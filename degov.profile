@@ -162,14 +162,7 @@ function degov_theme_setup(&$install_state) {
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'degov_theme')
-    ->set('admin', 'seven')
     ->save();
-
-  // Enable the admin theme.
-  \Drupal::configFactory()
-    ->getEditable('node.settings')
-    ->set('use_admin_theme', TRUE)
-    ->save(TRUE);
 
   \Drupal::service('theme.manager')->resetActiveTheme();
 }

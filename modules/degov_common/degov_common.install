@@ -8,6 +8,18 @@ use Symfony\Component\Yaml\Yaml;
  * Implements hook_install().
  */
 function degov_common_install() {
+  // Set the admin theme
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('admin', 'seven')
+    ->save();
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+
   // Restrict user registration to admin role creation.
   \Drupal::configFactory()
     ->getEditable('user.settings')
