@@ -66,6 +66,8 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Video Example |
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
+    And I choose "Beschreibung" from tab menu
+    And I press button with label "Remove" via translated text
     And I choose "Medien" from tab menu
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
@@ -179,7 +181,7 @@ Feature: deGov - Media creation
     And I am on "/node/add/faq"
     And I click by CSS class "cke_button__media_browser"
     Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
-    And I focus on the Iframe with ID "entity_browser_iframe_ckeditor_media_browser"
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
     Then I should see HTML content matching "Datei" after a while
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
