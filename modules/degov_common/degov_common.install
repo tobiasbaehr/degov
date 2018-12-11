@@ -14,19 +14,6 @@ function degov_common_install() {
     ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
     ->save(TRUE);
 
-  // Set the default and admin theme.
-  \Drupal::configFactory()
-    ->getEditable('system.theme')
-    ->set('default', 'bartik')
-    ->set('admin', 'seven')
-    ->save(TRUE);
-
-  // Enable the admin theme.
-  \Drupal::configFactory()
-    ->getEditable('node.settings')
-    ->set('use_admin_theme', TRUE)
-    ->save(TRUE);
-
   degov_common_import_translations();
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
