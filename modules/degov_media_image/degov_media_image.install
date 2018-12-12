@@ -34,6 +34,19 @@ function degov_media_image_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ *
+ * @return array
+ */
+function degov_media_image_update_dependencies(): array {
+  $dependencies['degov_media_image'][850100] = [
+    'degov_image_and_crop_styles' => 850100,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Migrate image field type from image_immutable to image_image.
  */
 function degov_media_image_update_8001() {

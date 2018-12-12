@@ -258,5 +258,24 @@ function degov_common_requirements(string $phase): array {
       ];
     }
   }
+
+  if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    $requirements['degov_integrity_access_modules_issue_1'] = [
+      'title'       => t('Content access issue'),
+      'description' => t("The Workbench Access module is being used in this Drupal instance. It's discouraged to use the Workbench Access module. The preferred module is Permissions by Term. Uninstall the Workbench Access and deGov Workbench Access modules. Add your settings into the Permissions by Term configuration."),
+      'severity'    => REQUIREMENT_ERROR,
+      'value'       => t('Usage of module without a stable release, which is deprecated in deGov'),
+    ];
+
+    if (\Drupal::moduleHandler()->moduleExists('permissions_by_term')) {
+      $requirements['degov_integrity_access_modules_issue_2'] = [
+        'title'       => t('Content access issue'),
+        'description' => t("The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."),
+        'severity'    => REQUIREMENT_ERROR,
+        'value'       => t('Duplication of content access modules'),
+      ];
+    }
+  }
+
   return $requirements;
 }

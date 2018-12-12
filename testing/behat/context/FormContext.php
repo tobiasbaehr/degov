@@ -220,7 +220,8 @@ class FormContext extends RawMinkContext {
 		array_pop($htmlParts);
 
 		if (count($htmlParts) !== count($rowsHash) - 1) {
-			throw new \Exception('Table items number does not match found option values number.');
+      print_r($htmlParts);
+      throw new \Exception(sprintf('Table items number does not match found option values number. (expected: %s, found: %s)', (count($rowsHash) - 1), count($htmlParts)));
 		}
 
 		foreach ($rowsHash as $text => $value) {
