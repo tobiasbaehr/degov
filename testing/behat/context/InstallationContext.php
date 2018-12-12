@@ -2,7 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ResponseTextException;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 use WebDriver\Exception\StaleElementReference;
@@ -42,7 +42,7 @@ class InstallationContext extends RawMinkContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
+      throw new TextNotFoundException(
         sprintf('Task "%s" could not been finished after %s seconds', $text, self::MAX_DURATION_SECONDS),
         $this->getSession()
       );
