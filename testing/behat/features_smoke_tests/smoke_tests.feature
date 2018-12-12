@@ -18,7 +18,8 @@ Feature: deGov - Smoke tests
   Scenario: Block administration page contains necessary items
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/block"
-    And I should see text matching "Header" via translated text
+    And I should see text matching "Top Header" after a while
+    And I should see text matching "Bottom Header" after a while
     And I should see text matching "Breadcrumbs" via translated text
     And I should see text matching "Main content" via translated text
     And I click by CSS id "edit-blocks-region-top-header-title"
@@ -62,17 +63,17 @@ Feature: deGov - Smoke tests
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/paragraphs_type"
     And I should see HTML content matching "Icon"
-    And I should see text matching "Label" via translated text
-    And I should see text matching "Machine name" via translated text
-    And I should see text matching "Description" via translated text
-    And I should see text matching "Operations" via translated text
+    And I should see text matching "Label" via translated text in uppercase
+    And I should see text matching "Machine name" via translated text in uppercase
+    And I should see text matching "Description" via translated text in uppercase
+    And I should see text matching "Operations" via translated text in uppercase
 
   Scenario: Media types administration page contains necessary items
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/media"
     And I should see HTML content matching "Name"
-    And I should see text matching "Description" via translated text
-    And I should see text matching "Operations" via translated text
+    And I should see text matching "Description" via translated text in uppercase
+    And I should see text matching "Operations" via translated text in uppercase
     And I should see text matching "Add media type" via translated text
 
   Scenario: Taxonomy administration page contains necessary items
