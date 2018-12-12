@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -118,7 +119,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    */
   public function iProofContentWithTitleHasModerationState($title, $state) {
     $Ids = \Drupal::entityQuery('node')
-      ->condition('title', $title)->execute();
+      ->condition('title', $title)->accessCheck(FALSE)->execute();
 
     foreach($Ids as $Id) {
       $NodeState = Node::load($Id)->moderation_state->value;
@@ -128,6 +129,15 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     }
     throw new \Exception("No content with title '$title' and moderation state '$state'");
 
+  }
+
+  /**
+   * @Given /^I click on Configbutton "([^"]*)"$/
+   */
+  public function iClickOnConfigbutton($arg1)
+  {
+    $this->getSession()
+      ->executeScript('jQuery("table#blocks tr td.block:contains('. $arg1 . ')").parent().find("td").find("ul li a")[0].click()');
   }
 
   /**
@@ -151,5 +161,4 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       }
     }
   }
-
 }

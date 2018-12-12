@@ -8,8 +8,7 @@ use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
 use Symfony\Component\Filesystem\Filesystem;
 
-class Template
-{
+class Template {
 
   /**
    * @var ThemeManager
@@ -47,16 +46,14 @@ class Template
     $this->twig = $twig;
   }
 
-  private function getInheritedTheme()
-  {
+  private function getInheritedTheme() {
     $activeTheme = $this->themeManager->getActiveTheme();
     $baseThemes = $activeTheme->getBaseThemes();
 
     return array_shift($baseThemes);
   }
 
-  public function suggest(array &$variables, $hook, array &$info, array $options)
-  {
+  public function suggest(array &$variables, $hook, array &$info, array $options) {
 
     $entity_type = $options['entity_type'];
     $entity_bundles = $options['entity_bundles'];
@@ -193,8 +190,7 @@ class Template
     ];
   }
 
-  public function render(string $module, string $templatePath, array $variables = [])
-  {
+  public function render(string $module, string $templatePath, array $variables = []) {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 

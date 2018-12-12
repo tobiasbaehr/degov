@@ -9,4 +9,3 @@ dependencies:
   - field
   - node
   - taxonomy
-  - workbench_access

@@ -14,7 +14,6 @@ Feature: deGov - Media creation
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role
     And I am on "/media/add/address"
-    And I should see text matching "Adresse hinzufügen"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
     And I should see HTML content matching "Straße" after a while
@@ -23,17 +22,14 @@ Feature: deGov - Media creation
     And I fill in "Düsseldorf" for "Stadt"
     And I click "General" via translation
     And I check the box "Mediathek"
-    Then I scroll to bottom
+    And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    Then I should see text matching "Example address" after a while
-    Then I am on "/node/add/normal_page"
-    And I fill in "Example normal page title" for "Titel"
-    And I click by selector ".vertical-tabs__menu-item.last a" via JavaScript
-    And I click by selector "#edit-field-content-paragraphs button" via JavaScript
-    Then I scroll to bottom
-    And I press button with label "Save" via translated text
-    And I am on "/admin/content"
-    Then I should see text matching "Example normal page title" after a while
+
+  Scenario: I proof that longitude and latitude has been generated automatically
+    Given I am logged in as a user with the "Administrator" role
+    And I open address medias edit form from latest media with title "Example address public"
+    And I should see HTML content matching "51.220793"
+    And I should see HTML content matching "6.772623"
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
@@ -61,6 +57,20 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
+
+  Scenario: I am creating a video upload media entity
+    Given I am logged in as an "Administrator"
+    And I am on "/media/add/video_upload"
+    And I fill in the following:
+      | Name               | Video Example |
+      | Öffentlicher Titel | Video Example |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Video Upload Video Example wurde erstellt."
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
@@ -98,7 +108,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -116,7 +127,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -150,7 +162,8 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
-    And I attach the file "images/dummy.png" to "edit-image-0-upload"
+    And I should see text matching "320x320"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "Alternative Bildbeschreibung" with "Test1234"
     And I choose "Beschreibung" from tab menu
@@ -169,7 +182,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
     Then I should see HTML content matching "Datei" after a while
-    And I attach the file "images/dummy.png" to "edit-input-file"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
     Then I should see HTML content matching "Name" after a while
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -180,7 +193,7 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press the "Place" button
     Then I should see "ist erforderlich."
-    And I should see 0 form element with the label "Copyright" and the value "Test1234"
+    And I verify that field "#edit-entity-field-copyright-0-target-id" has the value ""
 
   Scenario: I am creating an media gallery entity
     Given I am on "/"
@@ -194,7 +207,7 @@ Feature: deGov - Media creation
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
-    And I attach the file "images/dummy.png" to "edit-input-file"
+    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
     And I should see HTML content matching "Alternative Bildbeschreibung" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"

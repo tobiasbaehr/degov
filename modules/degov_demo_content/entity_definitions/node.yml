@@ -21,6 +21,20 @@ page_with_text_paragraph:
     - text_1
   status: 1
   moderation_state: 'published'
+page_with_text_sidebar:
+  type: 'normal_page'
+  title: 'Page with text paragraph in sidebar'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with text paragraph in sidebar'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+    - text_1
+  field_sidebar_right_paragraphs:
+    - text_1
+  status: 1
+  moderation_state: 'published'
 page_with_download_paragraph:
   type: 'normal_page'
   title: 'Page with download paragraph'

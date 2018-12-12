@@ -48,18 +48,19 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I assert dropbutton actions with css selector "#edit-field-content-paragraphs-wrapper ul.dropbutton" contains the following name-value pairs:
-      | value                            | name                                              |
-      | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
-      | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
-      | Banner hinzufügen                | field_content_paragraphs_image_header_add_more    |
-      | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
-      | Inhaltsreferenz hinzufügen       | field_content_paragraphs_node_reference_add_more  |
-      | Slide hinzufügen                 | field_content_paragraphs_slide_add_more           |
-      | Slideshow hinzufügen             | field_content_paragraphs_slideshow_add_more       |
-      | Text hinzufügen                  | field_content_paragraphs_text_add_more            |
-      | Untertitel hinzufügen            | field_content_paragraphs_video_subtitle_add_more  |
-      | Webform hinzufügen               | field_content_paragraphs_webform_add_more         |
+    And I choose "Inhalt" from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 10 seconds
+    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ / Akkordion Liste"
+    And I should see HTML content matching "Banner"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Slide"
+    And I should see HTML content matching "Slideshow"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Text"
+    And I should see HTML content matching "Untertitel"
+    And I should see HTML content matching "Webform"
 
   Scenario: Admin Content page
     Given I am logged in as a user with the "administrator" role

@@ -2,11 +2,13 @@ name: 'deGov'
 type: profile
 distribution:
   name: deGov
+  install:
+    theme: degov_theme
 description: 'deGov - Drupal 8 for Government'
-version: 8.x-5.x
+version: 8.x-6.x
 core: '8.x'
 project: degov
-dependencies:
+install:
   - block_content
   - breakpoint
   - ckeditor
@@ -17,7 +19,6 @@ dependencies:
   - quickedit
   - editor
   - entity_reference
-  - entity_block
   - help
   - history
   - menu_ui
@@ -67,9 +68,12 @@ dependencies:
   - workflows
   - simplenews
   - link_attributes
-  - drupal:locale
+  - locale
+  - permissions_by_term
+  - permissions_by_term_redirect
+  - degov_email_login
 
 themes:
-  - degov_base_theme
+  - degov_theme
   - seven
   - bartik

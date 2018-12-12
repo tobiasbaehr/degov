@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * deGov Update 5.1.0 - Update the Preview view mode.
+ */
+function degov_node_external_teaser_update_850100() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_external_teaser', '8001');
+}

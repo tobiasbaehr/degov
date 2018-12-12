@@ -1,7 +1,0 @@
-langcode: de
-status: true
-dependencies: {  }
-id: date_medium
-label: 'Datum Mittellang'
-locked: false
-pattern: 'd. F Y'
