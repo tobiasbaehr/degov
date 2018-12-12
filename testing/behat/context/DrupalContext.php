@@ -179,7 +179,7 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
+   * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
   public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();

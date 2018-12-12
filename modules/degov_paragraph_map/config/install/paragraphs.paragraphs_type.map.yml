@@ -5,5 +5,5 @@ dependencies:
     module:
       - degov_paragraph_map
 id: map
-label: 'Map '
+label: 'Map'
 behavior_plugins: {  }
