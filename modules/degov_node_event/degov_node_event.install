@@ -38,3 +38,34 @@ function degov_node_event_update_8012() {
   $workflowService->enableWorkflow('event');
 
 }
+
+/**
+ * Updated view display modes
+ */
+function degov_node_event_update_8013() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_node_event','8013');
+}
+
+
+/**
+ * Set paragraph form mode to experimental
+ */
+function degov_node_event_update_8014() {
+  /**
+   * @var $updater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_node_faq','8014');
+}
+
+/**
+ * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style.
+ */
+function degov_node_event_update_850100() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_event', '8014');
+}

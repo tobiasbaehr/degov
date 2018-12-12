@@ -13,3 +13,5 @@ dependencies:
   - file
   - media
   - taxonomy
+  - permissions_by_term
+  - permissions_by_entity

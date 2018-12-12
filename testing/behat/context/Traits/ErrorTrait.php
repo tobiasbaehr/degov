@@ -4,6 +4,11 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
 
+/**
+ * Trait ErrorTrait
+ *
+ * @package Drupal\degov\Behat\Context\Traits
+ */
 trait ErrorTrait {
 
   private static $errorTexts = [
@@ -13,6 +18,7 @@ trait ErrorTrait {
     'The import failed due for the following reasons:',
     'Es wurde eine nicht erlaubte Auswahl entdeckt.',
     'An AJAX HTTP error occurred.',
+    'Nicht erfüllte Systemvoraussetzungen'
   ];
 
   /**
