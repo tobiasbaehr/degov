@@ -163,6 +163,7 @@ function degov_theme_setup(&$install_state) {
     ->getEditable('system.theme')
     ->set('default', 'degov_theme')
     ->save();
+
   \Drupal::service('theme.manager')->resetActiveTheme();
 }
 

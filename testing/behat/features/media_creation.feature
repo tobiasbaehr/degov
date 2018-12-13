@@ -193,7 +193,7 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press the "Place" button
     Then I should see "ist erforderlich."
-    And I should see 0 form element with the label "Copyright" and the value "Test1234"
+    And I verify that field "#edit-entity-field-copyright-0-target-id" has the value ""
 
   Scenario: I am creating an media gallery entity
     Given I am on "/"
