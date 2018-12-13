@@ -28,6 +28,7 @@
 
 // Theme scss.
 @import "fonts";
+
 @import "components/navbar";
 @import "components/content";
 @import "components/foorter";
@@ -37,13 +38,16 @@
 @import "paragraphs/paragraph_node_reference_node_view_mode_small_image";
 @import "paragraphs/paragraph_node_reference_node_view_mode_long_text";
 @import "paragraphs/paragraph_node_reference_node_view_mode_slim";
-@import "paragraphs/paragraph_media_reference_media_view_mode_preview";
+@import "paragraphs/_paragraph_media_reference_media_view_mode_preview";
+
+@import "media/citation";
 
 @import "elements/site-logo";
 @import "elements/search-form";
+
 @import "region/top-header";
 @import "region/footer_bottom";
+
 @import "blocks/degov_social-media-youtube";
 @import "blocks/degov_social-media-twitter";
-
 @import "blocks/instagram-feed";
