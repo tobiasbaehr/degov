@@ -9,3 +9,4 @@ dependencies:
   - dropzonejs_eb_widget
   - lightning_media
   - degov_theming
+  - degov_users_roles

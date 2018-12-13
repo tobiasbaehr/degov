@@ -74,10 +74,11 @@ function degov_media_image_preprocess_media__image(&$variables) {
  *   The ID of the current form.
  */
 function degov_media_image_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
-  if (in_array($form_id, [
+  if (\in_array($form_id, [
     'media_image_add_form',
     'media_image_edit_form',
     'entity_browser_media_browser_form',
+    'entity_browser_ckeditor_media_browser_form',
   ])) {
     $form['#attached']['library'][] = 'degov_media_image/entity-form';
     $form['#validate'][] = 'degov_media_image_validate';
