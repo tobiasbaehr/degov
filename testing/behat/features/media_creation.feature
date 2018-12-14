@@ -236,3 +236,15 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
+
+  Scenario: I verify that the video upload dropzone plugin has been removed
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
+    And I am on "/node/add/normal_page"
+    And I choose "Inhalt" from tab menu
+    And I should see text matching "Inhaltsbereich"
+    And I click by selector "#edit-field-content-paragraphs-wrapper .paragraph-type-add-modal-button" via JavaScript
+    And I click by XPath "//input[@name='field_content_paragraphs_media_reference_add_more']"
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    Then I should not see text matching "Video Hochladen" after a while
