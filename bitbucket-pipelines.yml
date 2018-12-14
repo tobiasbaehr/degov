@@ -26,7 +26,6 @@ pipelines:
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
-            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -62,7 +61,6 @@ pipelines:
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
-            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -117,7 +115,6 @@ pipelines:
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
-            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -153,7 +150,6 @@ pipelines:
             - docker run -d --name="testing" -p 4444:4444 --net="host" -v $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/ -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
             - cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
             - php composer-require-namespace.php
-            - rm docroot/modules/contrib/lightning_core/tests/contexts/WatchdogContext.behat.inc
             - composer dump-autoload
             - (cd docroot && screen -dmS php-server php -S localhost:80 .ht.router.php)
             - export PATH="$HOME/.composer/vendor/bin:$PATH"
