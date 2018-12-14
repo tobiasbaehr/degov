@@ -28,3 +28,4 @@ parameters:
     - "./**/testing/**"
     - "./**/*/*.module"
     - "./**/*/theme-settings.php"
+    - "./**/lightning*/**"
