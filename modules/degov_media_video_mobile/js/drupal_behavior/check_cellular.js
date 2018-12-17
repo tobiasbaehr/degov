@@ -7,7 +7,7 @@ import SpeedChecker from './../speed_checker';
     attach: function (context, settings) {
       let videos = settings.degov_media_video_mobile;
 
-      if (Drupal.behaviors.checkCellular.isCellular()) {
+      if (Drupal.behaviors.checkCellular.check()) {
         for (let id in videos) {
           let video = videos[id];
           if (typeof video['files']['video_mobile'] === 'string') {
@@ -18,7 +18,7 @@ import SpeedChecker from './../speed_checker';
         }
       }
     },
-    isCellular: function () {
+    check: function () {
       let navi_connection = new Navi(navigator),
         connection = navi_connection.getConnection(),
         isCellular,
