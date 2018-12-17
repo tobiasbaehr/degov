@@ -88,7 +88,7 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 1 wurde erstellt."
 
-  Scenario: I create a complete mobile video media entity
+  Scenario: I create a complete mobile video media entity and check that the mobile video quality switcher works
     Given I am logged in as an "Administrator"
     And I am on "/media/add/video_mobile"
     And I fill in the following:
@@ -109,10 +109,8 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 2 wurde erstellt."
-
-  Scenario: I check that the mobile video quality switcher works
-    Given I am on "/mobile-video-example-2"
-    Then I should see 1 "video" elements
+    Then I am on "/mobile-video-example-2"
+    And I should see 1 "video" elements
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
     And I should see 5 ".video-mobile__quality select option" elements
     Then I select index 4 in dropdown named "video-mobile-quality"
