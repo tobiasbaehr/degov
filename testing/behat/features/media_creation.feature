@@ -110,6 +110,7 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 2 wurde erstellt."
     Then I am on "/mobile-video-example-2"
+    Then I dump the HTML
     And I should see 1 "video" elements
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
     And I should see 5 ".video-mobile__quality select option" elements
