@@ -50,8 +50,7 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 
   // Check if the download of the video is allowed by media settings.
   $download_is_allowed = FALSE;
-  if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')
-      ->isEmpty()) {
+  if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
     $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
   }
   if (!$media->get('field_mobile_video_mobile_mp4')->isEmpty()) {
@@ -110,8 +109,7 @@ function degov_media_video_mobile_media_presave(EntityInterface $entity) {
      * There is no need to check the duration again and again if it is
      * already set.
      */
-    if ($entity->hasField('field_media_duration') && $entity->get('field_media_duration')
-        ->isEmpty()) {
+    if ($entity->hasField('field_media_duration') && $entity->get('field_media_duration')->isEmpty()) {
       /** @var \Drupal\degov_common\VideoUtils $videoUtils */
       $videoUtils = \Drupal::service('degov_common.video_utils');
       $duration = $videoUtils->getVideoDuration($entity);
