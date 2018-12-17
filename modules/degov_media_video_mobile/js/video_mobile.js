@@ -23,11 +23,9 @@ import SpeedChecker from './speed_checker';
       $('.video-mobile__quality').once('video-mobile-js').each(function(){
         if($(this).find('select > option').length > 2) {
           $(this).find('select').on('change', function(event){
-            if(event.originalEvent) {
-              let selected_file = $(this).val();
-              Drupal.behaviors.videoMobile.setVideoSource('#' + $(this).data('for-video'), selected_file);
-              Drupal.behaviors.videoMobile.syncVideoSourceAndQualitySwitcher($(this).data('for-video'));
-            }
+            let selected_file = $(this).val();
+            Drupal.behaviors.videoMobile.setVideoSource('#' + $(this).data('for-video'), selected_file);
+            Drupal.behaviors.videoMobile.syncVideoSourceAndQualitySwitcher($(this).data('for-video'));
           });
           $(this).show();
         }
