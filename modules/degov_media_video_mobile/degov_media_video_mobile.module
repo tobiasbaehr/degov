@@ -58,9 +58,11 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_mobile_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_mobile_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_mobile_mp4'] = $file_url;
       $variables['video_attributes']->setAttribute('src', $variables['video_mobile_mp4']);
       $javascriptData['files']['video_mobile'] = $variables['video_mobile_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_mobile_video_mobile_mp4')->getFieldDefinition()->getLabel();
     }
   }
 
@@ -68,9 +70,11 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_mp4'] = $file_url;
       $variables['video_attributes']->setAttribute('src', $variables['video_mp4']);
       $javascriptData['files']['video_default'] = $variables['video_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_video_mobile_mp4')->getFieldDefinition()->getLabel();
       // Add the download link only to full view mode.
       if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
         // If allowed let's prepare the links.
@@ -85,8 +89,10 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_hdready_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_hdready_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_hdready_mp4'] = $file_url;
       $javascriptData['files']['video_hdready'] = $variables['video_hdready_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_hdready_video_mobile_mp4')->getFieldDefinition()->getLabel();
     }
   }
 
@@ -94,8 +100,10 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_fullhd_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_fullhd_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_fullhd_mp4'] = $file_url;
       $javascriptData['files']['video_fullhd'] = $variables['video_fullhd_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_fullhd_video_mobile_mp4')->getFieldDefinition()->getLabel();
     }
   }
 
@@ -103,8 +111,10 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_ultrahd4k_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_ultrahd4k_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_ultrahd4k_mp4'] = $file_url;
       $javascriptData['files']['video_ultrahd4k'] = $variables['video_ultrahd4k_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_ultrahd4k_video_mobile_mp4')->getFieldDefinition()->getLabel();
     }
   }
 

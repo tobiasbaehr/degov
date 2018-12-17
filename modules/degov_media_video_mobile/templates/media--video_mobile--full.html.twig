@@ -34,6 +34,16 @@
       {% endfor %}
     </video>
   </div>
+  <div class="video-mobile__quality">
+    <label>
+      {{ 'Choose quality:'|trans }}
+      <select data-for-video="{{ video_attributes.id }}">
+        {% for quality_key, quality_label in video_qualities %}
+          <option value="{{ quality_key }}">{{ quality_label }}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
   <div class="video__extra-info">
     <div class="video-mobile__top">
       {% if content.field_media_accessibility|field_value%}

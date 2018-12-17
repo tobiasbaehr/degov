@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     degov_media_video_mobile: [
       'babel-polyfill',
-      './../modules/degov_media_video_mobile/js/drupal_behavior/check_cellular.js',
+      './../modules/degov_media_video_mobile/js/video_mobile.js',
     ],
   },
   output: {
