@@ -88,7 +88,7 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 1 wurde erstellt."
 
-  Scenario: I create a complete mobile video media entity and check that the mobile video quality switcher works
+  Scenario: I create a mobile video media entity with HD videos
     Given I am logged in as an "Administrator"
     And I am on "/media/add/video_mobile"
     And I fill in the following:
@@ -97,7 +97,7 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
-    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
     And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
     And I wait 3 seconds
@@ -105,18 +105,18 @@ Feature: deGov - Media creation
     And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
     And I wait 3 seconds
-    And I attach the file "pexels-videos-1409899-4k.mp4" to "files[field_ultrahd4k_video_mobile_mp4_0]"
-    And I wait 60 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 2 wurde erstellt."
-    Then I am on "/mobile-video-example-2"
+
+  Scenario: I verify that the quality switcher works
+    Given I am on "/mobile-video-example-2"
     Then I dump the HTML
     And I should see 1 "video" elements
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
-    And I should see 5 ".video-mobile__quality select option" elements
-    Then I select index 4 in dropdown named "video-mobile-quality"
-    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-4k"
+    And I should see 4 ".video-mobile__quality select option" elements
+    Then I select index 3 in dropdown named "video-mobile-quality"
+    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-full-hd"
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
