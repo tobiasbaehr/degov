@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * @file
+ * Responsive Video media module.
+ */
+
 use Drupal\degov_common\Common;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Implements hook_preprocess().
@@ -9,9 +15,9 @@ use Drupal\Core\Template\Attribute;
 function degov_media_video_mobile_preprocess(&$variables, $hook, &$info) {
   // Add template suggestions and libraries implemented in this module.
   Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name' => 'degov_media_video_mobile',
-    'entity_type' => 'media',
-    'entity_bundles' => ['video_mobile'],
+    'module_name'       => 'degov_media_video_mobile',
+    'entity_type'       => 'media',
+    'entity_bundles'    => ['video_mobile'],
     'entity_view_modes' => [
       'usage',
       'preview',
@@ -24,7 +30,6 @@ function degov_media_video_mobile_preprocess(&$variables, $hook, &$info) {
   ]);
 }
 
-
 /**
  * Implements hook_preprocess_HOOK().
  */
@@ -36,8 +41,8 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 
   $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
-    'id' => 'video-upload-' . $media->id(),
-    'preload' => 'metadata',
+    'id'       => 'video-upload-' . $media->id(),
+    'preload'  => 'metadata',
     'controls' => 'controls',
   ]);
 
@@ -48,12 +53,11 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
     $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
   }
+
   if (!$media->get('field_mobile_video_mobile_mp4')->isEmpty()) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_mobile_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_mobile_mp4'] = file_create_url($file->getFileUri());
-      $variables['video_attributes']->setAttribute('src' , $variables['video_mobile_mp4']);
       $javascriptData['video_mobile'] = $variables['video_mobile_mp4'];
       // Add the download link only to full view mode.
       if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
@@ -62,15 +66,21 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
           $variables['content']['download_mp4'] = degov_common_file_download_render_array($file);
         }
       }
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_mobile_mp4'] = $file_url;
+      $variables['video_attributes']->setAttribute('src', $variables['video_mobile_mp4']);
     }
   }
+
   if (!$media->get('field_video_mobile_mp4')->isEmpty()) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $variables['video_mp4'] = file_create_url($file->getFileUri());
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_mp4'] = $file_url;
       $variables['video_attributes']->setAttribute('src', $variables['video_mp4']);
-      $javascriptData['video_default'] = $variables['video_mp4'];
+      $javascriptData['files']['video_default'] = $variables['video_mp4'];
+      $variables['video_qualities'][$file_url] = $media->get('field_video_mobile_mp4')->getFieldDefinition()->getLabel();
       // Add the download link only to full view mode.
       if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
         // If allowed let's prepare the links.
@@ -82,6 +92,32 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   }
   $variables['#attached']['drupalSettings']['degov_media_video_mobile']['checkCellular'] = $javascriptData;
 
+  if (!$media->get('field_hdready_video_mobile_mp4')->isEmpty()) {
+    /* @var \Drupal\file\Entity\File $file */
+    $file = $media->field_hdready_video_mobile_mp4->entity;
+    if (!empty($file)) {
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_hdready_mp4'] = $file_url;
+    }
+  }
+
+  if (!$media->get('field_fullhd_video_mobile_mp4')->isEmpty()) {
+    /* @var \Drupal\file\Entity\File $file */
+    $file = $media->field_fullhd_video_mobile_mp4->entity;
+    if (!empty($file)) {
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_fullhd_mp4'] = $file_url;
+    }
+  }
+
+  if (!$media->get('field_ultrahd4k_video_mobile_mp4')->isEmpty()) {
+    /* @var \Drupal\file\Entity\File $file */
+    $file = $media->field_ultrahd4k_video_mobile_mp4->entity;
+    if (!empty($file)) {
+      $file_url = file_create_url($file->getFileUri());
+      $variables['video_ultrahd4k_mp4'] = $file_url;
+    }
+  }
   /* @var \Drupal\media\Entity\Media $poster */
   $image = $media->field_video_mobile_preview->entity;
   if (!empty($image)) {
@@ -95,11 +131,15 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function degov_media_video_mobile_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function degov_media_video_mobile_media_presave(EntityInterface $entity) {
   $bundle = $entity->bundle();
   if ($bundle == 'video_mobile') {
-    // Check if the field for duration is enabled for the media bundle and that it is empty.
-    // There is no need to check the duration again and again if it is already set.
+    /*
+     * Check if the field for duration is enabled for the media bundle and
+     * that it is empty.
+     * There is no need to check the duration again and again if it is
+     * already set.
+     */
     if ($entity->hasField('field_media_duration') && $entity->get('field_media_duration')->isEmpty()) {
       /** @var \Drupal\degov_common\VideoUtils $videoUtils */
       $videoUtils = \Drupal::service('degov_common.video_utils');
@@ -108,3 +148,4 @@ function degov_media_video_mobile_media_presave(Drupal\Core\Entity\EntityInterfa
     }
   }
 }
+
