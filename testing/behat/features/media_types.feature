@@ -20,6 +20,7 @@ Feature: deGov - Media types
     And I should see text matching "Tweet"
     And I should see text matching "Video"
     And I should see text matching "Video Upload"
+    And I should see text matching "Responsive Videos"
     And I should see text matching "Zitat"
 
   Scenario: Media type address has all required fields
@@ -58,7 +59,7 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/audio/fields/media.audio.field_media_publish_date"
     And the "edit-required" checkbox should be checked
 
-  Scenario: Media type video upload has all required fields
+  Scenario: Media type video_mobile has all required fields
     Given I am logged in as a user with the "administrator" role
     Then I am installing the "degov_media_video_mobile" module
     Then I am on "/admin/structure/media/manage/video_mobile/fields"
@@ -69,6 +70,10 @@ Feature: deGov - Media types
     And I should see text matching "field_media_generic_9"
     And I should see text matching "field_hdready_video_mobile_mp4"
     And I should see text matching "field_allow_download"
+    And I should see text matching "field_allow_download_mobile"
+    And I should see text matching "field_allow_download_hdready"
+    And I should see text matching "field_allow_download_fullhd"
+    And I should see text matching "field_allow_download_4k"
     And I should see text matching "field_media_duration"
     And I should see text matching "field_include_search"
     And I should see text matching "field_mobile_video_mobile_mp4"
@@ -84,7 +89,6 @@ Feature: deGov - Media types
     And I should see text matching "field_video_mobile_caption"
     And I should see text matching "field_video_mobile_preview"
     And I should see text matching "field_title"
-
     Then I am on "/admin/structure/media/manage/video_mobile/fields/media.video_mobile.field_video_mobile_mp4"
     And the "edit-required" checkbox should be checked
 
