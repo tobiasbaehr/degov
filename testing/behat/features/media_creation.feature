@@ -111,7 +111,6 @@ Feature: deGov - Media creation
 
   Scenario: I verify that the quality switcher works
     Given I am on "/mobile-video-example-2"
-    Then I dump the HTML
     And I should see 1 "video" elements
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
     And I should see 4 ".video-mobile__quality select option" elements
