@@ -106,6 +106,7 @@ Feature: deGov - Media creation
     And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
     And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-4k.mp4" to "files[field_ultrahd4k_video_mobile_mp4_0]"
+    And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Mobile Video Example 2 wurde erstellt."
