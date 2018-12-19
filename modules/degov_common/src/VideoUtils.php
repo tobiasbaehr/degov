@@ -96,10 +96,10 @@ class VideoUtils {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
         $getId3 = new GetID3();
+        $getId3->option_md5_data = true;
+        $getId3->option_md5_data_source = true;
+        $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
-          ->setOptionMD5Data(true)
-          ->setOptionMD5DataSource(true)
-          ->setEncoding('UTF-8')
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
@@ -120,10 +120,10 @@ class VideoUtils {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
         $getId3 = new GetID3();
+        $getId3->option_md5_data = true;
+        $getId3->option_md5_data_source = true;
+        $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
-          ->setOptionMD5Data(true)
-          ->setOptionMD5DataSource(true)
-          ->setEncoding('UTF-8')
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the audio duration. Please check site logs.'));
