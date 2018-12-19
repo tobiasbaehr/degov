@@ -1,7 +1,10 @@
 <?php
 
+use Drupal\file\Entity\File;
 use Drupal\degov_common\Common;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess().
@@ -95,7 +98,7 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function degov_media_video_mobile_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function degov_media_video_mobile_media_presave(EntityInterface $entity) {
   $bundle = $entity->bundle();
   if ($bundle == 'video_mobile') {
     // Check if the field for duration is enabled for the media bundle and that it is empty.
@@ -107,4 +110,50 @@ function degov_media_video_mobile_media_presave(Drupal\Core\Entity\EntityInterfa
       $entity->set('field_media_duration', [0 => ['value' => $duration]]);
     }
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function degov_media_video_mobile_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if(\in_array($form_id, ['media_video_mobile_add_form', 'media_video_mobile_edit_form'])) {
+    $form['#validate'][] = 'degov_media_video_mobile_validate_video_specs';
+  }
+}
+
+function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterface $form_state) {
+  $video_fields = [
+    'field_fullhd_video_mobile_mp4',
+    'field_hdready_video_mobile_mp4',
+    'field_mobile_video_mobile_mp4',
+    'field_ultrahd4k_video_mobile_mp4',
+    'field_video_mobile_mp4',
+  ];
+
+  // Iterate over video fields
+  foreach($video_fields as $field_name) {
+    $value = $form_state->getValue($field_name);
+    if(!empty($value[0]['fids'][0])) {
+      // Get uploaded file
+      $uploaded_file = File::load($value[0]['fids'][0]);
+      $uploaded_file_path = \Drupal::service('file_system')->realpath($uploaded_file->getFileUri());
+      // Get info on file
+      $file_info = \Drupal::service('degov_common.video_utils')->getFileInfo($uploaded_file_path);
+      error_log('validate');
+      // Check file type
+      if(empty($file_info['fileformat'])) {
+        \Drupal::service('messenger')->addMessage('File format!');
+      }
+      if($file_info['fileformat'] !== 'mp4') {
+        \Drupal::service('messenger')->addMessage('File format!');
+      }
+      // Check file pixel dimensions
+      \Drupal::service('messenger')->addMessage(print_r($file_info['video'], 1));
+      // Check file aspect ratio
+      \Drupal::service('messenger')->addMessage(print_r($file_info['video'], 1));
+      // Check file codec
+      \Drupal::service('messenger')->addMessage($file_info['video']['fourcc']);
+    }
+  }
+  $form_state->setError($form, 'FNA');
 }

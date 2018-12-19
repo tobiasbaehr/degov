@@ -209,4 +209,19 @@ class VideoUtils {
     }
     return 0;
   }
+
+  /**
+   * @param string $file_path
+   *
+   * @return array
+   */
+  public function getFileInfo(string $file_path): array {
+    $getId3 = new GetId3();
+    $id3Info = $getId3
+      ->setOptionMD5Data(true)
+      ->setOptionMD5DataSource(true)
+      ->setEncoding('UTF-8')
+      ->analyze($file_path);
+    return $id3Info;
+  }
 }
