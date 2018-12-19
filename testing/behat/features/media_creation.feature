@@ -82,11 +82,38 @@ Feature: deGov - Media creation
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 5 seconds
+    And I wait 3 seconds
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Video Example wurde erstellt."
+
+  Scenario: I verify that a mobile video entity has multiple download options
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I fill in the following:
+      | Name               | Video Example 2 |
+      | Öffentlicher Titel | Video Example 2 |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I check checkbox with id "edit-field-allow-download-mobile-value"
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_mobile_mp4_0]"
+    And I uncheck checkbox with id "edit-field-allow-download-value"
+    And I wait 3 seconds
+    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
+    And I check checkbox with id "edit-field-allow-download-fullhd-value"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Responsive Videos Video Example 2 wurde erstellt."
+    Then I am on "/video-example-2"
+    And I should see 1 "video" elements
+    And I should see 2 ".video-mobile__downloads .file--download" elements
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
