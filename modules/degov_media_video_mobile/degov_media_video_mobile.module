@@ -48,27 +48,20 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 
   $javascriptData['id'] = 'video-upload-' . $media->id();
 
-  // Check if the download of the video is allowed by media settings.
-  $download_is_allowed = FALSE;
-  if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {
-    $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
-  }
-
   if (!$media->get('field_mobile_video_mobile_mp4')->isEmpty()) {
     /* @var \Drupal\file\Entity\File $file */
     $file = $media->field_mobile_video_mobile_mp4->entity;
     if (!empty($file)) {
-      $javascriptData['video_mobile'] = $variables['video_mobile_mp4'];
-      // Add the download link only to full view mode.
-      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
-        // If allowed let's prepare the links.
-        if ($download_is_allowed) {
-          $variables['content']['download_mp4'] = degov_common_file_download_render_array($file);
-        }
-      }
       $file_url = file_create_url($file->getFileUri());
       $variables['video_mobile_mp4'] = $file_url;
       $variables['video_attributes']->setAttribute('src', $variables['video_mobile_mp4']);
+      $javascriptData['video_mobile'] = $variables['video_mobile_mp4'];
+
+      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
+        if (!empty($media->get('field_allow_download_mobile')->value)) {
+          $variables['content']['downloads']['mobile'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_mobile_video_mobile_mp4')->getLabel());
+        }
+      }
     }
   }
 
@@ -79,18 +72,15 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
       $file_url = file_create_url($file->getFileUri());
       $variables['video_mp4'] = $file_url;
       $variables['video_attributes']->setAttribute('src', $variables['video_mp4']);
-      $javascriptData['files']['video_default'] = $variables['video_mp4'];
-      $variables['video_qualities'][$file_url] = $media->get('field_video_mobile_mp4')->getFieldDefinition()->getLabel();
-      // Add the download link only to full view mode.
+      $javascriptData['video_default'] = $variables['video_mp4'];
+
       if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
-        // If allowed let's prepare the links.
-        if ($download_is_allowed) {
-          $variables['content']['download_mp4'] = degov_common_file_download_render_array($file);
+        if (!empty($media->get('field_allow_download')->value)) {
+          $variables['content']['downloads']['standard'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_video_mobile_mp4')->getLabel());
         }
       }
     }
   }
-  $variables['#attached']['drupalSettings']['degov_media_video_mobile']['checkCellular'] = $javascriptData;
 
   if (!$media->get('field_hdready_video_mobile_mp4')->isEmpty()) {
     /* @var \Drupal\file\Entity\File $file */
@@ -98,6 +88,12 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     if (!empty($file)) {
       $file_url = file_create_url($file->getFileUri());
       $variables['video_hdready_mp4'] = $file_url;
+
+      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
+        if (!empty($media->get('field_allow_download_hdready')->value)) {
+          $variables['content']['downloads']['hdready'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_hdready_video_mobile_mp4')->getLabel());
+        }
+      }
     }
   }
 
@@ -107,6 +103,12 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     if (!empty($file)) {
       $file_url = file_create_url($file->getFileUri());
       $variables['video_fullhd_mp4'] = $file_url;
+
+      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
+        if (!empty($media->get('field_allow_download_fullhd')->value)) {
+          $variables['content']['downloads']['fullhd'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_fullhd_video_mobile_mp4')->getLabel());
+        }
+      }
     }
   }
 
@@ -116,6 +118,12 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     if (!empty($file)) {
       $file_url = file_create_url($file->getFileUri());
       $variables['video_ultrahd4k_mp4'] = $file_url;
+
+      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
+        if (!empty($media->get('field_allow_download_4k')->value)) {
+          $variables['content']['downloads']['4k'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_ultrahd4k_video_mobile_mp4')->getLabel());
+        }
+      }
     }
   }
   /* @var \Drupal\media\Entity\Media $poster */
@@ -126,6 +134,8 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
       $variables['video_attributes']['poster'] = file_create_url($file->getFileUri());
     }
   }
+
+  $variables['#attached']['drupalSettings']['degov_media_video_mobile']['checkCellular'] = $javascriptData;
 }
 
 /**
