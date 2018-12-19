@@ -116,11 +116,18 @@ function degov_media_video_mobile_media_presave(EntityInterface $entity) {
  * Implements hook_form_alter().
  */
 function degov_media_video_mobile_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if(\in_array($form_id, ['media_video_mobile_add_form', 'media_video_mobile_edit_form'])) {
+  if (\in_array($form_id, [
+    'media_video_mobile_add_form',
+    'media_video_mobile_edit_form',
+  ])) {
     $form['#validate'][] = 'degov_media_video_mobile_validate_video_specs';
   }
 }
 
+/**
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ */
 function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterface $form_state) {
   $video_fields = [
     'field_fullhd_video_mobile_mp4',
@@ -130,29 +137,96 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
     'field_video_mobile_mp4',
   ];
 
-  // Iterate over video fields
-  foreach($video_fields as $field_name) {
+  foreach ($video_fields as $field_name) {
     $value = $form_state->getValue($field_name);
-    if(!empty($value[0]['fids'][0])) {
-      // Get uploaded file
+    if (!empty($value[0]['fids'][0])) {
       $uploaded_file = File::load($value[0]['fids'][0]);
-      $uploaded_file_path = \Drupal::service('file_system')->realpath($uploaded_file->getFileUri());
-      // Get info on file
-      $file_info = \Drupal::service('degov_common.video_utils')->getFileInfo($uploaded_file_path);
-      error_log('validate');
+      $uploaded_file_path = \Drupal::service('file_system')
+        ->realpath($uploaded_file->getFileUri());
+
+      $file_info = \Drupal::service('degov_common.video_utils')
+        ->getFileInfo($uploaded_file_path);
+
       // Check file type
-      if(empty($file_info['fileformat'])) {
-        \Drupal::service('messenger')->addMessage('File format!');
+      if (empty($file_info['fileformat'])) {
+        \Drupal::service('messenger')->addMessage(
+          t(
+            '@field_name: The file format could not be determined.',
+            [
+              '@field_name' => $form[$field_name]['widget'][0]['#title'],
+            ]
+          )
+        );
       }
-      if($file_info['fileformat'] !== 'mp4') {
-        \Drupal::service('messenger')->addMessage('File format!');
+      if ($file_info['fileformat'] !== 'mp4') {
+        \Drupal::service('messenger')->addMessage(
+          t(
+            '@field_name: Expected an MP4 file. Got "@format" instead.',
+            [
+              '@field_name' => $form[$field_name]['widget'][0]['#title'],
+              '@format'     => $file_info['fileformat'],
+            ]
+          )
+        );
       }
+
       // Check file pixel dimensions
-      \Drupal::service('messenger')->addMessage(print_r($file_info['video'], 1));
+      $field_definitions = \Drupal::service('entity_field.manager')
+        ->getFieldDefinitions('media', 'video_mobile');
+      if (isset($field_definitions[$field_name])) {
+        $current_field_definition = $field_definitions[$field_name];
+        if (!empty($current_field_definition->getDescription()) && preg_match("/^([0-9]+) ?x ?([0-9]+)$/", $current_field_definition->getDescription(), $dimensions) && count($dimensions) === 3) {
+          if ((int) $file_info['video']['resolution_x'] !== (int) $dimensions[1] || (int) $file_info['video']['resolution_y'] !== (int) $dimensions[2]) {
+            \Drupal::service('messenger')->addMessage(
+              t(
+                '@field_name: Expected @dimensions video dimensions. Got "@resolution_x x @resolution_y" instead.',
+                [
+                  '@field_name' => $form[$field_name]['widget'][0]['#title'],
+                  '@dimensions' => $current_field_definition->getDescription(),
+                  '@resolution_x' => $file_info['video']['resolution_x'],
+                  '@resolution_y' => $file_info['video']['resolution_y'],
+                ]
+              )
+            );
+          }
+        }
+      }
+
       // Check file aspect ratio
-      \Drupal::service('messenger')->addMessage(print_r($file_info['video'], 1));
+      $ratio_y = 0;
+      if (!empty($file_info['video']['resolution_y']) && !empty($file_info['video']['resolution_x'])) {
+        $ratio_y = $file_info['video']['resolution_y'] / ($file_info['video']['resolution_x'] / 16);
+      }
+      if ($ratio_y !== 9) {
+        \Drupal::service('messenger')->addMessage(
+          t(
+            '@field_name: Expected aspect ratio of 16:9. Got "16:@ratio_y" instead.',
+            [
+              '@field_name' => $form[$field_name]['widget'][0]['#title'],
+              '@ratio_y'    => $ratio_y,
+            ]
+          )
+        );
+      }
+
       // Check file codec
-      \Drupal::service('messenger')->addMessage($file_info['video']['fourcc']);
+      if (empty($file_info['video']['fourcc']) || !in_array($file_info['video']['fourcc'], [
+          'avc1',
+          'davc',
+          'h264',
+          'x264',
+          'vssh',
+        ])) {
+        \Drupal::service('messenger')->addMessage(
+          t(
+            '@field_name: Expected H.264 encoded video. Got "@fourcc" instead.',
+            [
+              '@field_name' => $form[$field_name]['widget'][0]['#title'],
+              '@fourcc'     => $file_info['video']['fourcc'],
+            ]
+          )
+        );
+      }
     }
   }
   $form_state->setError($form, 'FNA');
