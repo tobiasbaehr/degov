@@ -229,5 +229,4 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
       }
     }
   }
-  $form_state->setError($form, 'FNA');
 }
