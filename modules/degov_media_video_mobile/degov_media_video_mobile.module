@@ -149,7 +149,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
 
       // Check file type
       if (empty($file_info['fileformat'])) {
-        \Drupal::service('messenger')->addMessage(
+        \Drupal::service('messenger')->addWarning(
           t(
             '@field_name: The file format could not be determined.',
             [
@@ -159,7 +159,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         );
       }
       if ($file_info['fileformat'] !== 'mp4') {
-        \Drupal::service('messenger')->addMessage(
+        \Drupal::service('messenger')->addWarning(
           t(
             '@field_name: Expected an MP4 file. Got "@format" instead.',
             [
@@ -177,7 +177,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         $current_field_definition = $field_definitions[$field_name];
         if (!empty($current_field_definition->getDescription()) && preg_match("/^([0-9]+) ?x ?([0-9]+)$/", $current_field_definition->getDescription(), $dimensions) && count($dimensions) === 3) {
           if ((int) $file_info['video']['resolution_x'] !== (int) $dimensions[1] || (int) $file_info['video']['resolution_y'] !== (int) $dimensions[2]) {
-            \Drupal::service('messenger')->addMessage(
+            \Drupal::service('messenger')->addWarning(
               t(
                 '@field_name: Expected @dimensions video dimensions. Got "@resolution_x x @resolution_y" instead.',
                 [
@@ -198,7 +198,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         $ratio_y = $file_info['video']['resolution_y'] / ($file_info['video']['resolution_x'] / 16);
       }
       if ($ratio_y !== 9) {
-        \Drupal::service('messenger')->addMessage(
+        \Drupal::service('messenger')->addWarning(
           t(
             '@field_name: Expected aspect ratio of 16:9. Got "16:@ratio_y" instead.',
             [
@@ -217,7 +217,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
           'x264',
           'vssh',
         ])) {
-        \Drupal::service('messenger')->addMessage(
+        \Drupal::service('messenger')->addWarning(
           t(
             '@field_name: Expected H.264 encoded video. Got "@fourcc" instead.',
             [
