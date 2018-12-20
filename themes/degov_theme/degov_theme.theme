@@ -1,15 +1,13 @@
 <?php
 
-use \Drupal\Core\Template\Attribute;
 use \Drupal\degov_theme\NumberFormatShort;
 
 /**
- * Implements theme_preprocess_html().
+ * Implements hook_preprocess_html().
  */
 function degov_theme_preprocess_html(&$vars) {
-  /** @var \Drupal\Core\Template\Attribute $attributes */
-  $attributes = $vars['attributes'];
-  if ($attributes instanceof Attribute && $attributes->hasClass('install-page')) {
+  if ((is_array($vars['attributes']['class']))
+    && in_array('install-page', $vars['attributes']['class'])) {
     if (count($vars['head_title']) === 1) {
       if (!empty($vars['page']['#title'])) {
         $vars['head_title']['title'] = $vars['page']['#title'];
@@ -77,6 +75,9 @@ function degov_theme_preprocess_html(&$vars) {
   }
 }
 
+/**
+ * Implements hook_reprocess_install_page().
+ */
 function degov_theme_preprocess_install_page(&$vars) {
   $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
   $vars['theme_logo'] = $active_theme->getLogo();
