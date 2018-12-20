@@ -10,6 +10,7 @@ Feature: deGov - Search
     Given I am installing the "degov_search_media_manager" module
 
   Scenario: Check if media search is working properly
+    Given I am installing the "degov_search_content" module
     Given I am installing the "degov_demo_content" module
     And I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
