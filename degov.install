@@ -205,13 +205,13 @@ function degov_update_850100() {
 /**
  * Re-Import search_media view.
  */
-function degov_update_850102() {
+function degov_update_860000() {
 
   /**
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
-  $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'rewrite');
+  $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'install');
 
 }
 
