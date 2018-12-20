@@ -1091,7 +1091,7 @@ input[type="button"].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem; }
-  .navbar > .container,
+  .navbar > .container, .path-user .navbar > #block-mainpagecontent,
   .navbar > .container-fluid {
     display: flex;
     flex-wrap: wrap;
@@ -1154,7 +1154,7 @@ input[type="button"].btn-block {
   background-size: 100% 100%; }
 
 @media (max-width: 575.98px) {
-  .navbar-expand-sm > .container,
+  .navbar-expand-sm > .container, .path-user .navbar-expand-sm > #block-mainpagecontent,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
@@ -1170,7 +1170,7 @@ input[type="button"].btn-block {
       .navbar-expand-sm .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-sm > .container,
+    .navbar-expand-sm > .container, .path-user .navbar-expand-sm > #block-mainpagecontent,
     .navbar-expand-sm > .container-fluid {
       flex-wrap: nowrap; }
     .navbar-expand-sm .navbar-collapse {
@@ -1180,7 +1180,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 767.98px) {
-  .navbar-expand-md > .container,
+  .navbar-expand-md > .container, .path-user .navbar-expand-md > #block-mainpagecontent,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
@@ -1196,7 +1196,7 @@ input[type="button"].btn-block {
       .navbar-expand-md .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-md > .container,
+    .navbar-expand-md > .container, .path-user .navbar-expand-md > #block-mainpagecontent,
     .navbar-expand-md > .container-fluid {
       flex-wrap: nowrap; }
     .navbar-expand-md .navbar-collapse {
@@ -1206,7 +1206,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 991.98px) {
-  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container, .path-user .navbar-expand-lg > #block-mainpagecontent,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
@@ -1222,7 +1222,7 @@ input[type="button"].btn-block {
       .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-lg > .container,
+    .navbar-expand-lg > .container, .path-user .navbar-expand-lg > #block-mainpagecontent,
     .navbar-expand-lg > .container-fluid {
       flex-wrap: nowrap; }
     .navbar-expand-lg .navbar-collapse {
@@ -1232,7 +1232,7 @@ input[type="button"].btn-block {
       display: none; } }
 
 @media (max-width: 1199.98px) {
-  .navbar-expand-xl > .container,
+  .navbar-expand-xl > .container, .path-user .navbar-expand-xl > #block-mainpagecontent,
   .navbar-expand-xl > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
@@ -1248,7 +1248,7 @@ input[type="button"].btn-block {
       .navbar-expand-xl .navbar-nav .nav-link {
         padding-right: 0.5rem;
         padding-left: 0.5rem; }
-    .navbar-expand-xl > .container,
+    .navbar-expand-xl > .container, .path-user .navbar-expand-xl > #block-mainpagecontent,
     .navbar-expand-xl > .container-fluid {
       flex-wrap: nowrap; }
     .navbar-expand-xl .navbar-collapse {
@@ -1260,7 +1260,7 @@ input[type="button"].btn-block {
 .navbar-expand {
   flex-flow: row nowrap;
   justify-content: flex-start; }
-  .navbar-expand > .container,
+  .navbar-expand > .container, .path-user .navbar-expand > #block-mainpagecontent,
   .navbar-expand > .container-fluid {
     padding-right: 0;
     padding-left: 0; }
@@ -1271,7 +1271,7 @@ input[type="button"].btn-block {
     .navbar-expand .navbar-nav .nav-link {
       padding-right: 0.5rem;
       padding-left: 0.5rem; }
-  .navbar-expand > .container,
+  .navbar-expand > .container, .path-user .navbar-expand > #block-mainpagecontent,
   .navbar-expand > .container-fluid {
     flex-wrap: nowrap; }
   .navbar-expand .navbar-collapse {
@@ -4430,23 +4430,23 @@ html {
 *::after {
   box-sizing: inherit; }
 
-.container {
+.container, .path-user #block-mainpagecontent {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
   @media (min-width: 576px) {
-    .container {
+    .container, .path-user #block-mainpagecontent {
       max-width: 540px; } }
   @media (min-width: 768px) {
-    .container {
+    .container, .path-user #block-mainpagecontent {
       max-width: 720px; } }
   @media (min-width: 992px) {
-    .container {
+    .container, .path-user #block-mainpagecontent {
       max-width: 960px; } }
   @media (min-width: 1200px) {
-    .container {
+    .container, .path-user #block-mainpagecontent {
       max-width: 1140px; } }
 
 .container-fluid {
