@@ -88,6 +88,18 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Video Example wurde erstellt."
 
+  Scenario: I test that the server-side video analysis works
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I attach the file "portait-mode-mpeg4.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see HTML content matching 'Standard Video: Expected 960 x 540 video dimensions. Got "480 x 720" instead.'
+    Then I should see HTML content matching 'Standard Video: Expected aspect ratio of 16:9. Got "16:24" instead.'
+    Then I should see HTML content matching 'Standard Video: Expected H.264 encoded video. Got "mp4v" instead.'
+
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
     When I go to "/media/add/video"
