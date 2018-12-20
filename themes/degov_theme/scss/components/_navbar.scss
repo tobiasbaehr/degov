@@ -1,0 +1,15 @@
+.degov-navbar-wrapper {
+  min-height: $font-size-base * 3.5;
+  background-color: $gray-light;
+  color: $gray-dark;
+  a {
+    color: $gray-dark;
+  }
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+    .navbar-toggler-icon {
+      background-image: $navbar-light-toggler-icon-bg;
+    }
+  }
+}

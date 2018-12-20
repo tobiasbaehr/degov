@@ -37,6 +37,9 @@ if [[ $tag =~ $regex ]]; then
     suffix=""
 
     if [ $minor == "0" ]; then
+        if [ $patch -lt 10 ]; then
+            $patch="0${patch}"
+        fi
         merged=$patch
     else
         merged="${minor}${patch}"

@@ -34,58 +34,61 @@ function degov_node_overrides_modules_installed($modules) {
  * Implements hook_preprocess().
  */
 function degov_node_overrides_preprocess(&$variables, $hook, &$info) {
-  // Add template suggestions for blog.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name'       => 'degov_node_overrides',
-    'entity_type'       => 'node',
-    'entity_bundles'    => ['blog'],
-    'entity_view_modes' => [
-      'full',
-      'long_text',
-      'preview',
-      'slim',
-      'small_image',
-    ],
+  /** @var \Drupal\degov_theming\Service\Template $templateService */
+  $templateService = \Drupal::service('degov_theming.template');
+
+  $templateService->suggest($variables, $hook, $info,  [
+    'module_name' => 'degov_node_overrides',
+    'entity_type' => 'node',
+    'entity_bundles' => ['blog'],
+    'entity_view_modes' => ['full', 'long_text', 'preview', 'slim', 'small_image']
   ]);
-  // Add template suggestions for event.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name'       => 'degov_node_overrides',
-    'entity_type'       => 'node',
-    'entity_bundles'    => ['event'],
-    'entity_view_modes' => [
-      'full',
-      'latest',
-      'long_text',
-      'preview',
-      'slim',
-      'small_image',
-    ],
+
+  $templateService->suggest($variables, $hook, $info,  [
+    'module_name' => 'degov_node_overrides',
+    'entity_type' => 'node',
+    'entity_bundles' => ['event'],
+    'entity_view_modes' => ['full', 'latest', 'long_text', 'preview', 'slim', 'small_image']
   ]);
-  // Add template suggestions for normal page.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name'       => 'degov_node_overrides',
-    'entity_type'       => 'node',
-    'entity_bundles'    => ['normal_page'],
-    'entity_view_modes' => [
-      'full',
-      'long_text',
-      'preview',
-      'slim',
-      'small_image',
-    ],
+
+  $templateService->suggest($variables, $hook, $info,  [
+    'module_name' => 'degov_node_overrides',
+    'entity_type' => 'node',
+    'entity_bundles' => ['normal_page'],
+    'entity_view_modes' => ['full', 'long_text', 'preview', 'slim', 'small_image']
   ]);
-  // Add template suggestions for press.
-  Common::addThemeSuggestions($variables, $hook, $info, [
-    'module_name'       => 'degov_node_overrides',
-    'entity_type'       => 'node',
-    'entity_bundles'    => ['press'],
-    'entity_view_modes' => [
-      'full',
-      'latest',
-      'long_text',
-      'preview',
-      'slim',
-      'small_image',
-    ],
+
+  $templateService->suggest($variables, $hook, $info,  [
+    'module_name' => 'degov_node_overrides',
+    'entity_type' => 'node',
+    'entity_bundles' => ['press'],
+    'entity_view_modes' => ['full', 'long_text', 'preview', 'slim', 'small_image']
   ]);
+}
+
+/**
+ * Preprocess paragraphs.
+ */
+function degov_node_overrides_preprocess_paragraph(&$variables) {
+  if (!empty($variables['paragraph'])) {
+    /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+    $paragraph = $variables['paragraph'];
+    if ($paragraph instanceof \Drupal\paragraphs\Entity\Paragraph && $paragraph->bundle() == 'image_header' && $paragraph->getParentEntity() && $paragraph->getParentEntity()
+        ->bundle() == ('normal_page' || 'press' || 'events')) {
+      unset($variables['content']['field_header_text']);
+    }
+  }
+}
+
+/**
+ * Implements hook_node_presave().
+ */
+function degov_node_overrides_node_presave(NodeInterface $node) {
+  // Set node title as teaser title of teaser title is empty.
+  if ($node->hasField('field_teaser_title')) {
+    $value = trim($node->field_teaser_title->value);
+    if (empty($value)) {
+      $node->set('field_teaser_title', $node->getTitle());
+    }
+  }
 }

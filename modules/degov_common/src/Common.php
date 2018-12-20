@@ -48,11 +48,10 @@ class Common {
   }
 
   public static function removeContent(array $options): void {
-    /* @var $entity_type string */
-    /* @var $entity_bundles array */
-    extract($options);
+    $entity_type = $options['entity_type'];
+    $entity_bundles = $options['entity_bundles'];
 
-    if (in_array($entity_type, ['paragraph', 'node'])) {
+    if (\in_array($entity_type, ['paragraph', 'node'])) {
       foreach ($entity_bundles as $entity_bundle) {
         self::removeEntities($entity_type, $entity_bundle, 'type');
       }

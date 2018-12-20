@@ -11,6 +11,7 @@ menu_item_2:
   fontawesome_css_class: fa-bluetooth
   second_level:
     - Page with text paragraph
+    - Page with text paragraph in sidebar
     - Page with map paragraph
     - Page with video header
 menu_item_3:
@@ -40,3 +41,7 @@ menu_item_6:
 menu_item_7:
   node_title: Page with references to all types of media
   fontawesome_css_class: fa-photo
+  second_level:
+  - Page with text paragraph
+  - Page with map paragraph
+  - Page with video header

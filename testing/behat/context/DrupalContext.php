@@ -201,13 +201,44 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
    */
   public function iShouldSeeTheOptionIn(string $value, string $id) {
+    $this->iShouldSeeTheOptionInWithStatus($value, $id);
+  }
+
+  /**
+   * @Given /^I should see the option "([^"]*)" in "([^"]*)" with status "([^"]*)"$/
+   */
+  public function iShouldSeeTheOptionInWithStatus(string $value, string $id, string $status = null) {
     $page = $this->getSession()->getPage();
     /** @var $selectElement \Behat\Mink\Element\NodeElement */
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    $element = $selectElement->find('css', 'option[value=' . $value . ']');
-    if (!$element) {
-      throw new \Exception("There is no option with the value '$value' in the select '$id'");
+    switch($status) {
+      case 'enabled':
+        $element = $selectElement->find('css', 'option[value=' . $value . ']:not([disabled])');
+        break;
+      case 'disabled':
+        $element = $selectElement->find('css', 'option[value=' . $value . '][disabled]');
+        break;
+      default:
+        $element = $selectElement->find('css', 'option[value=' . $value . ']');
     }
+    if (!$element) {
+      throw new \Exception("There is no option with the value '$value'" . ($status !== null ? " and status '" . $status . "'" : '') . " in the select '$id'");
+    }
+  }
+
+  /**
+   * @Then I should see an :arg1 element with the translated :arg2 attribute :arg3
+   */
+  public function iShouldSeeAnElementWithTheTranslatedAttribute(string $selector, string $attribute_name, string $attribute_value) {
+    $this->assertSession()->elementExists(
+      'css',
+      sprintf(
+        "%s[%s=%s]",
+        $selector,
+        $attribute_name,
+        $this->translateString($attribute_value)
+      )
+    );
   }
 
   /**
@@ -689,7 +720,7 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
-      $imageFileEntity = $this->createFileEntity('dummy.png');
+      $imageFileEntity = $this->createFileEntity('vladimir-riabinin-1058013-unsplash.jpg');
       $this->dummyImageFileEntityId = $imageFileEntity->id();
     }
 
@@ -718,7 +749,7 @@ class DrupalContext extends RawDrupalContext {
         $drupalFilePath = 'public://';
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
         );
       } else {
@@ -731,7 +762,7 @@ class DrupalContext extends RawDrupalContext {
         }
 
         $symfonyFilesystem->copy(
-          drupal_get_path('profile', 'degov') . '/testing/fixtures/' . $filename,
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $documentFilesUri . '/' . $filename
         );
       }
