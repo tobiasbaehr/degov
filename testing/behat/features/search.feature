@@ -20,11 +20,11 @@ Feature: deGov - Search
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
-    And I should see "ipsum dolor sit amet consetetur"
+    And I should see "demo image with a fixed title"
     And I am on "/media/1/edit"
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
-    And I should not see "ipsum dolor sit amet consetetur"
+    And I should not see "demo image with a fixed title"
