@@ -173,11 +173,11 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       if(empty($this->savedEntities[$media_item_key])) {
         $new_media = Media::create($fields);
         $new_media->save();
-        $indexes = ContentEntity::getIndexesForEntity($new_media);
-        foreach($indexes as $index) {
-          $index->trackItemsInserted('entity:media', [$new_media->id() . ':' . $new_media->language()->getId()]);
-          $index->indexItems();
-        }
+//        $indexes = ContentEntity::getIndexesForEntity($new_media);
+//        foreach($indexes as $index) {
+//          $index->trackItemsInserted('entity:media', [$new_media->id() . ':' . $new_media->language()->getId()]);
+//          $index->indexItems();
+//        }
         $this->savedEntities[$media_item_key] = $new_media;
       } else {
         foreach($fields as $field => $value) {
