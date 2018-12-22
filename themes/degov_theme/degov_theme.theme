@@ -163,19 +163,19 @@ function degov_theme_suggestions_paragraph(array $variables) {
   if ($paragraph->hasField('field_media_reference_media')) {
     $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
     $medias = $paragraph->get('field_media_reference_media')->referencedEntities();
-    $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
-    if ($media_view_mode) {
-      $suggestions[] = 'paragraph__'
-        . $paragraph->bundle() . '__'
-        . $sanitized_view_mode . '__'
-        . $medias[0]->bundle();
 
-      $suggestions[] = 'paragraph__'
-        . $paragraph->bundle() . '__'
-        . $sanitized_view_mode . '__'
-        . $medias[0]->bundle() . '__'
-        . $media_view_mode;
-    }
+    $suggestions[] = 'paragraph__'
+      . $paragraph->bundle() . '__'
+      . $sanitized_view_mode . '__'
+      . $medias[0]->bundle();
+
+    $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value ?: 'default';
+
+    $suggestions[] = 'paragraph__'
+      . $paragraph->bundle() . '__'
+      . $sanitized_view_mode . '__'
+      . $medias[0]->bundle() . '__'
+      . $media_view_mode;
   }
 
   return $suggestions;
