@@ -2,6 +2,9 @@
   @extend .paragraph-node-reference-node-view-mode-preview;
 
   .paragraph__content {
+    .video-title {
+      font-weight: bold;
+    }
     .video-preview {
       position: relative;
       .play-icon {

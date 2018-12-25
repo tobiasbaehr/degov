@@ -5972,6 +5972,9 @@ footer.site-footer {
 .paragraph-media-reference-media-gallery-view-mode-preview {
   background-color: #E5E7E9; }
 
+.paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-title {
+  font-weight: bold; }
+
 .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview {
   position: relative; }
   .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview .play-icon .faicon {
@@ -9732,6 +9735,7 @@ readers do not read off random characters that represent icons */
       vertical-align: sub;
       margin-left: 12px; }
     .action-button a i, .action-button button i {
+      vertical-align: middle;
       margin-left: 12px; }
 
 .top-header-wrapper {

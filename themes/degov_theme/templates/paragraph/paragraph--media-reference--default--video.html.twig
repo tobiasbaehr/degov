@@ -84,9 +84,9 @@
       <div class="col-6">
         <div class="video-pub-date">
           <i class="fas fa-calendar-alt"></i>
-          {{ media_view.field_media_publish_date.value|date('U')|format_date('custom', 'd. F Y') }}
+          <span class="ml-3 video-pub-date-inline d-inline-block">{{ media_view.field_media_publish_date.value|date('U')|format_date('custom', 'd. F Y') }}</span>
         </div>
-        <h3>{{ media_view.field_title|field_value }}</h3>
+        <h3 class="video-title mt-2">{{ media_view.field_title|field_value }}</h3>
         <p>{{ media_view.field_description|field_value }}</p>
         <div class="action-button bg-blue mt-2 float-left">
           <button class="py-3 px-4 d-inline-block"> watch video <i class="fa fa-video my-auto" aria-hidden="true"></i></button>
