@@ -1,0 +1,14 @@
+.paragraph-media-reference-media-video-view-mode-preview {
+  @extend .paragraph-node-reference-node-view-mode-preview;
+
+  .paragraph__content {
+    .video-preview {
+      position: relative;
+      .play-icon {
+        .faicon {
+          font-size: 4.8rem;
+        }
+      }
+    }
+  }
+}

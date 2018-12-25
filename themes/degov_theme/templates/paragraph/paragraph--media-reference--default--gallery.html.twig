@@ -44,7 +44,8 @@
   'paragraph',
   'paragraph-media-reference',
   'paragraph-media-reference-' ~ (view_mode ? view_mode|clean_class),
-  'paragraph-media-reference-media-view-mode-' ~ paragraph.field_media_reference_view_mode[0].value|clean_class,
+  'paragraph-media-reference-media-view-mode-' ~ (paragraph.field_media_reference_view_mode[0].value|clean_class ?: 'default'),
+  'paragraph-media-reference-media-gallery-view-mode-' ~ (paragraph.field_media_reference_view_mode[0].value|clean_class ?: 'default'),
   'clearfix',
   'pb-5'
 ]

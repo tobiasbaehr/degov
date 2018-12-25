@@ -38,12 +38,15 @@
 @import "paragraphs/paragraph_node_reference_node_view_mode_small_image";
 @import "paragraphs/paragraph_node_reference_node_view_mode_long_text";
 @import "paragraphs/paragraph_node_reference_node_view_mode_slim";
-@import "paragraphs/_paragraph_media_reference_media_view_mode_preview";
+@import "paragraphs/paragraph_media_reference_media_gallery_view_mode_preview";
+@import "paragraphs/paragraph_media_reference_media_video_view_mode_preview";
 
 @import "media/citation";
 
 @import "elements/site-logo";
 @import "elements/search-form";
+@import "elements/play-icon";
+@import "elements/action-button";
 
 @import "region/top-header";
 @import "region/footer_bottom";

@@ -28,9 +28,12 @@
       }
 
       .learn-more {
-        background-color: $blue;
         color: $white;
         font-size: $font-size-base * 1.11;
+        i {
+          vertical-align: middle;
+          margin-left: 12px;
+        }
         .svg-inline--fa {
           vertical-align: sub;
           margin-left: 12px;

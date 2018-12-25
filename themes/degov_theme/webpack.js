@@ -9,7 +9,6 @@ module.exports = {
         // deGov theme
       './scss/main.scss',
       // Bootstrap
-      // './node_modules/@fortawesome/fontawesome-free/js/all.js',
       './node_modules/bootstrap/js/src/util.js',
       './node_modules/bootstrap/js/src/carousel.js',
       './node_modules/bootstrap/js/src/dropdown.js',
@@ -18,6 +17,7 @@ module.exports = {
       './node_modules/bootstrap/js/src/button.js',
       // Font Awesome
       './node_modules/@fortawesome/fontawesome-free/css/all.css',
+      './node_modules/@fortawesome/fontawesome-free/js/all.js',
     ],
     install: [
         './scss/install.scss',

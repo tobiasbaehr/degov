@@ -1,0 +1,15 @@
+.action-button {
+  font-size: 1.11rem;
+  a, button {
+    background-color: transparent;
+    color: $white;
+    text-decoration: none;
+    .svg-inline--fa {
+      vertical-align: sub;
+      margin-left: 12px;
+    }
+    i {
+      margin-left: 12px;
+    }
+  }
+}

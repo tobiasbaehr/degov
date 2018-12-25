@@ -8,3 +8,7 @@ html, body {
     @extend .container;
   }
 }
+
+.bg-blue {
+  background-color: $blue;
+}
