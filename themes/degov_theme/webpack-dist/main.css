@@ -5977,8 +5977,17 @@ footer.site-footer {
 
 .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview {
   position: relative; }
-  .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview .play-icon .faicon {
-    font-size: 4.8rem; }
+  .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview .video-iframe-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    visibility: hidden; }
+  .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview .video-preview-image {
+    position: relative; }
+    .paragraph-media-reference-media-video-view-mode-preview .paragraph__content .video-preview .video-preview-image .play-icon .faicon {
+      font-size: 4.8rem; }
 
 .media-citation {
   background-color: #E6E8EA; }
@@ -9713,6 +9722,9 @@ readers do not read off random characters that represent icons */
             font-size: 1.2rem; }
 
 .play-icon {
+  background-color: transparent;
+  border: none;
+  outline: none;
   color: #fff;
   position: absolute;
   left: 50%;

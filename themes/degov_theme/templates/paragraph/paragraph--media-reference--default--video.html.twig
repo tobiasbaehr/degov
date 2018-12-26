@@ -39,6 +39,8 @@
  */
 #}
 
+{{ attach_library('degov_theme/video-control') }}
+
 {%
   set classes = [
   'paragraph',
@@ -74,11 +76,12 @@
     <div class="paragraph__content row">
       <div class="col-6">
         <div class="video-preview">
-          {#<iframe width="560" height="315" src="https://www.youtube.com/embed/CLqG6coGUzk?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>#}
-          {{ video_preview }}
-          <div class="play-icon ">
-            <i class="fa fa-play-circle faicon"></i>
+          <div class="video-preview-image">{{ video_preview }}
+            <button class="video-play-btn play-icon">
+              <i class="fa fa-play-circle faicon"></i>
+            </button>
           </div>
+          <div class="video-iframe-wrapper">{{ media_view.field_media_video_embed_field }}</div>
         </div>
       </div>
       <div class="col-6">
@@ -89,7 +92,7 @@
         <h3 class="video-title mt-2">{{ media_view.field_title|field_value }}</h3>
         <p>{{ media_view.field_description|field_value }}</p>
         <div class="action-button bg-blue mt-2 float-left">
-          <button class="py-3 px-4 d-inline-block"> watch video <i class="fa fa-video my-auto" aria-hidden="true"></i></button>
+          <button class="video-play-btn py-3 px-4 d-inline-block"> watch video <i class="fa fa-video my-auto" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
