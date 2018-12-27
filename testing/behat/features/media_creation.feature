@@ -246,5 +246,4 @@ Feature: deGov - Media creation
     Then I am on "/media/1/delete"
     And I click by CSS id "edit-submit"
     Then I am on "/sites/default/files/degov_demo_content/vladimir-riabinin-1058013-unsplash.jpg?1"
-    And I wait 60 seconds
     And I should see HTML content matching "404 Not Found"
