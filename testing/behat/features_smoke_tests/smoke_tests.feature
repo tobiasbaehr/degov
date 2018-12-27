@@ -2,8 +2,10 @@
 Feature: deGov - Smoke tests
 
   Scenario: Content administration overview contains necessary items
-    Given I am logged in as user with the account details from Behat config file
-    And I should be on "/user/1"
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as user with the account details from Behat config file
+    Then I should be on "/user/1"
     And I am on "/admin/content"
     Then I should see text matching "Title" via translated text
     And I should see text matching "Content type" via translated text
@@ -16,8 +18,10 @@ Feature: deGov - Smoke tests
     And I should see text matching "Media" via translated text
 
   Scenario: Block administration page contains necessary items
-    Given I am logged in as user with the account details from Behat config file
-    And I am on "/admin/structure/block"
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as user with the account details from Behat config file
+    Then I am on "/admin/structure/block"
     And I should see text matching "Top Header" after a while
     And I should see text matching "Bottom Header" after a while
     And I should see text matching "Breadcrumbs" via translated text
@@ -26,8 +30,10 @@ Feature: deGov - Smoke tests
     Then I should see text matching "Add custom block" via translated text after a while
 
   Scenario: User administration page contains necessary items
-    Given I am logged in as user with the account details from Behat config file
-    And I am on "/admin/people"
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as user with the account details from Behat config file
+    Then I am on "/admin/people"
     And I should see text matching "List" via translated text
     And I should see text matching "Permissions" via translated text
     And I should see text matching "Roles" via translated text
@@ -37,12 +43,16 @@ Feature: deGov - Smoke tests
     Then I should see text matching "This web page allows administrators to register new users. Users' email addresses and usernames must be unique." via translated text
 
   Scenario: I can visit a status page with necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/reports/status"
     And I should see text matching "Status report" via translated text
     And I should see text matching "Last Cron Run" via translated text
 
   Scenario: I can visit the recent log messages page with necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/reports/dblog"
     And I should see text matching "The Database Logging module logs system events in the Drupal database. Monitor your site or debug site problems on this page." via translated text
@@ -51,8 +61,10 @@ Feature: deGov - Smoke tests
     And I should see text matching "Severity" via translated text
 
   Scenario: I can visit the views administration page with necessary items
-    Given I am logged in as user with the account details from Behat config file
-    And I am on "/admin/structure/views"
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as user with the account details from Behat config file
+    Then I am on "/admin/structure/views"
     And I should see text matching "Mediathek"
     And I should see text matching "Inhalt"
     And I should see text matching "Medien"
@@ -60,6 +72,8 @@ Feature: deGov - Smoke tests
     And I should see text matching "Abonnenten"
 
   Scenario: Paragraphs types administration page contains necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/paragraphs_type"
     And I should see HTML content matching "Icon"
@@ -69,6 +83,8 @@ Feature: deGov - Smoke tests
     And I should see text matching "Operations" via translated text in uppercase
 
   Scenario: Media types administration page contains necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/media"
     And I should see HTML content matching "Name"
@@ -77,6 +93,8 @@ Feature: deGov - Smoke tests
     And I should see text matching "Add media type" via translated text
 
   Scenario: Taxonomy administration page contains necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/taxonomy"
     And I should see text matching "Area" via translated text
@@ -88,6 +106,8 @@ Feature: deGov - Smoke tests
     And I should see HTML content matching "Schlagworte"
 
   Scenario: Content types administration page contains necessary items
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/types"
     And I should see HTML content matching "Blog-Artikel"
