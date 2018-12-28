@@ -84,7 +84,6 @@ class Template {
     }
 
     if ($add_suggestion) {
-      $template_path = $info['theme path']; #substr($info['theme path'], 0, 14);
       $path_to_active_theme = $this->themeManager->getActiveTheme()->getPath();
 
       list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);

@@ -76,7 +76,7 @@ class TemplateTest extends UnitTestCase
     $activeThemeStub = $this->prophesize(ActiveTheme::class);
 
     $baseTheme = $this->prophesize(ActiveTheme::class);
-    $baseTheme->getPath()->willReturn('themes/custom/base_theme/');
+    $baseTheme->getPath()->willReturn('themes/contrib/base_theme/');
 
     $projectTheme = $this->prophesize(ActiveTheme::class);
     $projectTheme->getBaseThemes()->willReturn([
@@ -136,6 +136,8 @@ class TemplateTest extends UnitTestCase
               ],
             ],
           ],
+        ],
+        'contrib' => [
           'base_theme'    => [
             'templates' => [
               'node--normal_page--preview.html.twig' => 'Foo',
@@ -315,7 +317,7 @@ class TemplateTest extends UnitTestCase
         'type'           => 'base_theme',
         'theme path'     => 'themes',
         'template'       => 'node--normal_page--full',
-        'path'           => 'themes/custom/base_theme/templates',
+        'path'           => 'themes/contrib/base_theme/templates',
       ],
       $info
     );
