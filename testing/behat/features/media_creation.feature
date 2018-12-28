@@ -96,9 +96,9 @@ Feature: deGov - Media creation
     And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    Then I should see HTML content matching 'Standard Video: Expected 960 x 540 video dimensions. Got "480 x 720" instead.'
-    Then I should see HTML content matching 'Standard Video: Expected aspect ratio of 16:9. Got "16:24" instead.'
-    Then I should see HTML content matching 'Standard Video: Expected H.264 encoded video. Got "mp4v" instead.'
+    Then I should see HTML content matching 'Standard Video: Videomaße von 960 x 540 erwartet. Stattdessen vorgefunden: "480 x 720“.'
+    Then I should see HTML content matching 'Standard Video: Seitenverhältnis von 16:9 erwartet. Stattdessen vorgefunden: "16:24".'
+    Then I should see HTML content matching 'Standard Video: H.264 codiertes Video erwartet. Stattdessen vorgefunden: "mp4v".'
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
