@@ -127,15 +127,15 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
     And I wait 3 seconds
     And I check checkbox with id "edit-field-allow-download-mobile-value"
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_mobile_mp4_0]"
+    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
     And I uncheck checkbox with id "edit-field-allow-download-value"
+    And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
     And I wait 3 seconds
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
     And I check checkbox with id "edit-field-allow-download-fullhd-value"
-    And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsive Videos Video Example 2 wurde erstellt."
