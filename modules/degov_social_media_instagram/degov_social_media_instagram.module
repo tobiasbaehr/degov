@@ -50,6 +50,7 @@ function degov_social_media_instagram_theme() {
       'render element' => 'elements',
       'variables' => [
         'imageUrl' => NULL,
+        'instagramUser' => NULL,
         'type' => NULL,
         'link' => NULL,
         'caption' => NULL,
