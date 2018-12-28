@@ -13,6 +13,15 @@ use Drupal\Core\Entity\EntityInterface;
  */
 function degov_media_entity_delete(EntityInterface $entity) {
   if ($entity->getEntityTypeId() === 'media') {
+    $skip_paths = [];
+    if (\Drupal::service('config.storage')->exists('media.settings')) {
+      $media_settings = \Drupal::service('config.storage')
+        ->read('media.settings');
+      if (!empty($media_settings['icon_base_uri']) && is_string($media_settings['icon_base_uri'])) {
+        $skip_paths[] = $media_settings['icon_base_uri'];
+      }
+    }
+
     // Get field definitions for entity type / bundle.
     $bundleFields = \Drupal::service('entity_field.manager')
       ->getFieldDefinitions($entity->getEntityTypeId(), $entity->bundle());
@@ -24,6 +33,11 @@ function degov_media_entity_delete(EntityInterface $entity) {
         if (!empty($fieldValue[0]['target_id'])) {
           $referencedFile = File::load($fieldValue[0]['target_id']);
           if ($referencedFile instanceof File) {
+            foreach ($skip_paths as $skip_path) {
+              if (strpos($referencedFile->getFileUri(), $skip_path) !== FALSE) {
+                return;
+              }
+            }
             $referencedFile->delete();
           }
         }
