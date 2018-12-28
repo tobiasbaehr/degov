@@ -45,6 +45,7 @@ class InstagramFeedBlock extends BlockBase {
       $build['degov_social_media_instagram'][] = [
         '#theme' => 'degov_social_media_instagram',
         '#imageUrl' => $media->getImageThumbnailUrl(),
+        '#instagramUser' => $instagram->getAccount($user)->getFullName(),
         '#link' => $media->getLink(),
         '#link_display' => $this->_shortDescription($media->getLink(),32,'...'),
         '#type' => $media->getType(),

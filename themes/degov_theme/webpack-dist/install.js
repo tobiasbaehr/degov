@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -109,7 +109,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./scss
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*******************************************************************!*\
   !*** multi ./scss/install.scss ./javascript/favicon_animation.js ***!
   \*******************************************************************/

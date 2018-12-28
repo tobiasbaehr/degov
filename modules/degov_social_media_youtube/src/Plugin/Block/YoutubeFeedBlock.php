@@ -44,7 +44,9 @@ class YoutubeFeedBlock extends BlockBase {
       $build['degov_social_media_youtube'][] = [
         '#theme' => 'degov_social_media_youtube',
         '#title' => $video->snippet->title,
+        '#description' => $this->_shortDescription($video->snippet->description, 123, '...'),
         '#likes' => $info->statistics->likeCount,
+        '#dislikes' => $info->statistics->dislikeCount,
         '#views' => $info->statistics->viewCount,
         '#comments' => (property_exists($info->statistics, 'commentCount')) ? $info->statistics->commentCount : NULL,
         '#videoID' => $video->id->videoId,
