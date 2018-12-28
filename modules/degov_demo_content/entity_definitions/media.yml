@@ -23,7 +23,7 @@ image_4:
 video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
-  file: 'bokeh-video-of-leaves.mp4'
+  file: 'pexels-videos-1409899-standard.mp4'
   field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
 document_1:
