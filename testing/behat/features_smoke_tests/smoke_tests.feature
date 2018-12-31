@@ -79,8 +79,8 @@ Feature: deGov - Smoke tests
   Scenario: Taxonomy administration page contains necessary items
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/taxonomy"
-    And I should see text matching "Area" via translated text
-    And I should see text matching "Topic" via translated text
+    And I should see text matching "Bereich"
+    And I should see text matching "Thema"
     And I should see HTML content matching "Copyright"
     And I should see text matching "Content type" via translated text
     And I should see HTML content matching "Medien Barrierefreiheit"
