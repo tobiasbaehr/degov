@@ -233,3 +233,17 @@ Feature: deGov - Media creation
     And I am on "/ipsum-dolor-sit-amet-consetetur"
     And I should not see "Mitglied seit"
     And I should see HTML content matching "media--view-mode-full"
+
+  Scenario: I verify that a deleted Media's file is actually gone
+    Given I am installing the "degov_demo_content" module
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/content/media"
+    Then I am on "/eirmod-tempor-invidunt-ut-labore"
+    And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
+    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
+    Then I am on "/media/3/delete"
+    And I click by CSS id "edit-submit"
+    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
+    And I should see HTML content matching "404 Not Found"
