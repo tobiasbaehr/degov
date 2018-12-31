@@ -5,59 +5,6 @@
  */
 
 use Drupal\field\Entity\FieldConfig;
-use Drupal\user\RoleInterface;
-use Symfony\Component\Yaml\Yaml;
-
-/**
- * Implements hook_install().
- */
-function degov_install() {
-  // Assign user 1 the "administrator" role.
-  $user = \Drupal\user\Entity\User::load(1);
-  $user->roles[] = 'administrator';
-  $user->save();
-
-  // Don't do anything else during config sync.
-  if (\Drupal::isConfigSyncing()) {
-    return;
-  }
-
-  // Restrict user registration to admin role creation.
-  \Drupal::configFactory()
-    ->getEditable('user.settings')
-    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
-    ->save(TRUE);
-
-  // Allow authenticated users to use shortcuts.
-  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
-
-  // Set the default and admin theme.
-  \Drupal::configFactory()
-    ->getEditable('system.theme')
-    ->set('default', 'bartik')
-    ->set('admin', 'seven')
-    ->save(TRUE);
-
-  // Enable the admin theme.
-  \Drupal::configFactory()
-    ->getEditable('node.settings')
-    ->set('use_admin_theme', TRUE)
-    ->save(TRUE);
-
-  degov_import_translations();
-}
-
-function degov_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de_de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
-}
 
 function degov_update_8440() {
   // Read the configuration.
@@ -185,6 +132,12 @@ function degov_update_8449() {
     ->save();
 }
 
+/**
+ * Translate social media settings string into German.
+ */
+function degov_update_8500() {
+  degov_common_import_translations();
+}
 
 /**
  * Repair broken view modes
@@ -229,11 +182,35 @@ function degov_update_8501() {
 }
 
 /**
- * Translate social media settings string into German., Install block reference paragraph.
+ * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
-function degov_update_850025() {
-  degov_import_translations();
-  \Drupal::service('module_installer')->install(['degov_paragraph_block_reference']);
+function degov_update_850100() {
+  if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
+    \Drupal::service('module_installer')->install([
+      'link_attributes',
+    ]);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
+    \Drupal::service('module_installer')->install(['degov_email_login']);
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
+  }
+}
+
+/**
+ * Re-Import search_media view.
+ */
+function degov_update_860000() {
+
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'install');
+
 }
 
 function degov_update_dependencies() {
@@ -241,15 +218,4 @@ function degov_update_dependencies() {
     'degov' => 8501,
   ];
   return $dependencies;
-}
-
-/**
- * Install the Link Attributes module, if it's not already installed.
- */
-function degov_update_850028() {
-  if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
-    \Drupal::service('module_installer')->install([
-      'link_attributes'
-    ]);
-  }
 }

@@ -45,6 +45,23 @@ Feature: deGov - Content types
     And I should see text matching "field_teaser_title"
     And I should see text matching "field_teaser_sub_title"
 
+  Scenario: Content type normal page references specified content types in field_content_paragraphs
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I choose "Inhalt" from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 10 seconds
+    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ / Akkordion Liste"
+    And I should see HTML content matching "Banner"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Slide"
+    And I should see HTML content matching "Slideshow"
+    And I should see HTML content matching "Inhaltsreferenz"
+    And I should see HTML content matching "Text"
+    And I should see HTML content matching "Untertitel"
+    And I should see HTML content matching "Webform"
+
   Scenario: Admin Content page
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/content"

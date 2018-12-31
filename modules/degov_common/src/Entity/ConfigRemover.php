@@ -2,8 +2,7 @@
 
 namespace Drupal\degov_common\Entity;
 
-use Drupal\Core\Config\ConfigFactory;
-use Drupal\Core\Logger\LoggerChannelInterface;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 
 class ConfigRemover {
@@ -13,7 +12,7 @@ class ConfigRemover {
    */
   private $configFactory;
 
-  public function __construct(ConfigFactory $configFactory) {
+  public function __construct(ConfigFactoryInterface $configFactory) {
     $this->configFactory = $configFactory;
   }
 

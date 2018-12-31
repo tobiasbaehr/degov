@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\Core\Config\Config;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\degov_common\Common;
 
 /**
@@ -37,9 +39,28 @@ function degov_node_faq_update_8010() {
 }
 
 /**
- * Adds internal title field
+ * Adds internal title field, set paragraph form mode to experimental
  */
 function degov_node_faq_update_8012() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_faq', '8012');
+}
+
+/**
+ * Remove FAQs own search index and search page view.
+ */
+function degov_node_faq_update_8013() {
+  /**
+   * @var ConfigFactoryInterface $configFactory
+   */
+  $configFactory = \Drupal::configFactory();
+
+  if (($searchFAQIndex = $configFactory->getEditable('search_api.index.search_faq')) instanceof Config) {
+    $searchFAQIndex->delete();
+  }
+
+  if (($searchFAQView = $configFactory->getEditable('views.view.search_faq')) instanceof Config) {
+    $searchFAQView->delete();
+  }
+
 }
