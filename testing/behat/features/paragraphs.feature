@@ -8,11 +8,12 @@ Feature: deGov - Paragraphs
     And I should see text matching "field_override_caption"
     And I should see text matching "field_header_media"
 
-  Scenario: Paragraph bock reference has correct blocks and can create an instance
+  Scenario: Paragraph block reference has correct blocks and can create an instance
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page#edit-group-righ"
     And I fill in "testblockreferenz" for "Titel"
     And I click on togglebutton
+    And I press the "edit-field-sidebar-right-paragraphs-add-more-add-modal-form-area-add-more" button
     And I press "field_sidebar_right_paragraphs_block_reference_sidebar_add_more"
     And I should see text matching "Block Referenz Seitenleiste" after a while
     Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
