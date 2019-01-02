@@ -41,9 +41,10 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 
   $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
-    'id'       => 'video-upload-' . $media->id(),
-    'preload'  => 'metadata',
-    'controls' => 'controls',
+    'id'           => 'video-upload-' . $media->id(),
+    'preload'      => 'metadata',
+    'controls'     => 'controls',
+    'controlslist' => 'nodownload',
   ]);
 
   $javascriptData['id'] = 'video-upload-' . $media->id();
