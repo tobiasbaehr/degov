@@ -33,9 +33,10 @@ function degov_media_video_upload_preprocess_media__video_upload(&$variables) {
 
   $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
-    'id' => 'video-upload-' . $media->id(),
-    'preload' => 'metadata',
-    'controls' => 'controls',
+    'id'           => 'video-upload-' . $media->id(),
+    'preload'      => 'metadata',
+    'controls'     => 'controls',
+    'controlslist' => 'nodownload',
   ]);
 
   // Check if the download of the video is allowed by media settings.
