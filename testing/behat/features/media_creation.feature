@@ -200,8 +200,8 @@ Feature: deGov - Media creation
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
-    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I should see HTML content matching "Alternativer Text" after a while
+    And I fill in "Alternativer Text" with "Test1234"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
@@ -235,8 +235,8 @@ Feature: deGov - Media creation
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
-    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I should see HTML content matching "Alternativer Text" after a while
+    And I fill in "Alternativer Text" with "Test1234"
     And I choose "Beschreibung" from tab menu
     And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
@@ -279,7 +279,7 @@ Feature: deGov - Media creation
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I should see HTML content matching "Alternativer Text" after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
