@@ -1,0 +1,46 @@
+.media-citation {
+  background-color: $gray-light;
+  &.row {
+    margin: 0;
+  }
+  .citation-image {
+    &.col-lg-6 {
+      padding: 0;
+    }
+    max-height: 307px;
+    overflow: hidden;
+  }
+  .citation-content {
+    .citation-title {
+      font-weight: bold;
+      font-size: $h3-font-size;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+    .citation-text {
+      font-size: $h4-font-size;
+      font-style: italic;
+      color: $gray-dark;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+      &:before {
+        content: '„';
+      }
+      &:after{
+        content: '“';
+      }
+    }
+    .blockquote-footer {
+      color: $gray-dark;
+      cite.citation-source-title {
+        text-decoration: none;
+        font-style: normal;
+        &:after {
+          content: ",";
+        }
+      }
+    }
+  }
+}
