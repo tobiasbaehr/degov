@@ -12,9 +12,3 @@ dependencies:
   - media
   - options
   - paragraphs
-  - degov:degov_media_video_mobile
-  - degov:degov_media_tweet
-  - degov:degov_media_document
-  - degov:degov_media_instagram
-  - degov:degov_media_video
-  - degov:degov_media_image
