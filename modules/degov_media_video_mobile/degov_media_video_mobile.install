@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * The deGov Media Video Mobile install file.
+ */
+
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_uninstall().
+ */
+function degov_media_video_mobile_uninstall() {
+  Common::removeContent([
+    'entity_type'    => 'media',
+    'entity_bundles' => [
+      'video_mobile',
+    ],
+  ]);
+}
