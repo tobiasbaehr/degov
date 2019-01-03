@@ -117,6 +117,18 @@ Feature: deGov - Media creation
     Then I select index 3 in dropdown named "video-mobile-quality"
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-full-hd"
 
+  Scenario: I test that the server-side video analysis works
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I attach the file "portait-mode-mpeg4.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see HTML content matching 'Standard Video: Videomaße von 960 x 540 erwartet. Stattdessen vorgefunden: "480 x 720“.'
+    Then I should see HTML content matching 'Standard Video: Seitenverhältnis von 16:9 erwartet. Stattdessen vorgefunden: "16:24".'
+    Then I should see HTML content matching 'Standard Video: H.264 codiertes Video erwartet. Stattdessen vorgefunden: "mp4v".'
+
   Scenario: I verify that a mobile video entity has multiple download options
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
