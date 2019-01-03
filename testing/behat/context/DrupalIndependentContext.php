@@ -14,7 +14,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
 	use TranslationTrait;
 
-	private const MAX_DURATION_SECONDS = 1200;
+	private const MAX_DURATION_SECONDS = 600;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /**
