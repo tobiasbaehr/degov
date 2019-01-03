@@ -23,3 +23,17 @@ Feature: deGov - Paragraphs
     And I select "published" from "edit-moderation-state-0-state"
     And I press button with label "Save" via translated text
     And I should see text matching "Simplenews Abonnement"
+
+  Scenario: Blocks in sidebar block reference have reduced title options
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I click "Seitenleiste rechts"
+    And I press the "edit-field-sidebar-right-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I press "field_sidebar_right_paragraphs_block_reference_sidebar_add_more"
+    And I should see text matching "Block Referenz Seitenleiste" after a while
+    Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
+    And I select "views_block:press_latest_content-latest_press" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
+    Then I should see text matching "Inhalt: ID" after a while
+    And I should not see text matching "Titel anzeigen" after a while
+    And I should not see text matching "Titel übersteuern" after a while
+    And I should not see HTML content matching "edit-field-sidebar-right-paragraphs-0-subform-field-block-plugin-0-settings-views-label-fieldset"
