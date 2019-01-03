@@ -80,4 +80,5 @@ class JavaScriptContext extends RawMinkContext {
   public function exitFrame() {
     $this->getSession()->switchToWindow();
   }
+
 }

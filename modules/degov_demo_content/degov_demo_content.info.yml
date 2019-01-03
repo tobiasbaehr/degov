@@ -28,3 +28,4 @@ dependencies:
   - degov:degov_paragraph_media_reference
   - degov:degov_paragraph_slideshow
   - degov:degov_paragraph_text
+  - degov:degov_auto_crop

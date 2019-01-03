@@ -4,6 +4,11 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
 
+/**
+ * Trait ErrorTrait
+ *
+ * @package Drupal\degov\Behat\Context\Traits
+ */
 trait ErrorTrait {
 
   private static $errorTexts = [

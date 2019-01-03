@@ -24,7 +24,7 @@ class DegovLocaleUpdate {
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    */
   public function __construct(ModuleHandlerInterface $module_handler) {
-    $this->module_handler = $module_handler;
+    $this->moduleHandler = $module_handler;
   }
 
   /**
@@ -34,8 +34,8 @@ class DegovLocaleUpdate {
    * And needs to implement hook_locale_translation_projects_alter().
    */
   public function localeUpdate() {
-    $this->module_handler->loadInclude('locale', 'fetch.inc');
-    $this->module_handler->loadInclude('locale', 'bulk.inc');
+    $this->moduleHandler->loadInclude('locale', 'fetch.inc');
+    $this->moduleHandler->loadInclude('locale', 'bulk.inc');
 
     $langcodes = [];
     foreach (locale_translation_get_status() as $project_id => $project) {
