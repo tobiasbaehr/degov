@@ -118,6 +118,9 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+
+      print_r($this->getSession()->getPage()->getContent());
+
 			throw new ResponseTextException(
 				sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
 				$this->getSession()
@@ -171,6 +174,9 @@ class DrupalIndependentContext extends RawMinkContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+
+      print_r($this->getSession()->getPage()->getContent());
+
       throw new ResponseTextException(
         sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
         $this->getSession()
