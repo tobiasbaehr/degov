@@ -22,7 +22,7 @@ Feature: deGov - Paragraphs
     And I check checkbox by value "default" via JavaScript
     And I select "published" from "edit-moderation-state-0-state"
     And I press button with label "Save" via translated text
-    And I should see text matching "Simplenews Abonnement"
+    And I should see HTML content matching "simplenews-subscriber-form"
 
   Scenario: Blocks in sidebar block reference have reduced title options
     Given I am logged in as a user with the "administrator" role
