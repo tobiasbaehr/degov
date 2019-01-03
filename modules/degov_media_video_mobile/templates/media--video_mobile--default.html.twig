@@ -60,8 +60,10 @@ set media_classes = [
       {% endif %}
     </div>
     <div class="video-mobile__downloads">
-      {% if content.download_mp4 %}
-          {{ content.download_mp4 }}
+      {% if content.downloads %}
+        {% for key, download in content.downloads %}
+          {{ download }}
+        {% endfor %}
       {% endif %}
     </div>
     {% if content.field_title %}

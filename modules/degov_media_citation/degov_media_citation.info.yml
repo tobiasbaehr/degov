@@ -6,6 +6,7 @@ package: deGov
 dependencies:
   - datetime
   - degov_common
+  - degov_media
   - degov_content_types_shared_fields
   - degov_taxonomy_term_tags
   - degov_image_and_crop_styles

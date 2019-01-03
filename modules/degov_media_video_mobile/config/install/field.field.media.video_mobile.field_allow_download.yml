@@ -7,7 +7,7 @@ id: media.video_mobile.field_allow_download
 field_name: field_allow_download
 entity_type: media
 bundle: video_mobile
-label: 'Herunterladen zulassen'
+label: 'Herunterladen zulassen (Standard)'
 description: ''
 required: false
 translatable: false

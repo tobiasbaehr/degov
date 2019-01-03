@@ -189,13 +189,30 @@ function degov_update_850100() {
 
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
-      'link_attributes'
+      'link_attributes',
     ]);
   }
 
   if (!\Drupal::moduleHandler()->moduleExists('degov_email_login')) {
     \Drupal::service('module_installer')->install(['degov_email_login']);
   }
+
+  if (\Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    \Drupal::service('module_installer')->uninstall(['degov_workbench_access']);
+  }
+}
+
+/**
+ * Re-Import search_media view.
+ */
+function degov_update_860000() {
+
+  /**
+   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'install');
+
 }
 
 function degov_update_dependencies() {

@@ -3,6 +3,10 @@ dependencies:
   config:
     - entity_browser.browser.media_browser
     - field.field.media.video_mobile.field_allow_download
+    - field.field.media.video_mobile.field_allow_download_4k
+    - field.field.media.video_mobile.field_allow_download_fullhd
+    - field.field.media.video_mobile.field_allow_download_hdready
+    - field.field.media.video_mobile.field_allow_download_mobile
     - field.field.media.video_mobile.field_copyright
     - field.field.media.video_mobile.field_description
     - field.field.media.video_mobile.field_fullhd_video_mobile_mp4
@@ -58,11 +62,15 @@ third_party_settings:
       children:
         - field_video_mobile_preview
         - field_mobile_video_mobile_mp4
+        - field_allow_download_mobile
         - field_video_mobile_mp4
-        - field_hdready_video_mobile_mp4
-        - field_fullhd_video_mobile_mp4
-        - field_ultrahd4k_video_mobile_mp4
         - field_allow_download
+        - field_hdready_video_mobile_mp4
+        - field_allow_download_hdready
+        - field_fullhd_video_mobile_mp4
+        - field_allow_download_fullhd
+        - field_ultrahd4k_video_mobile_mp4
+        - field_allow_download_4k
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -131,7 +139,35 @@ bundle: video_mobile
 mode: default
 content:
   field_allow_download:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_allow_download_4k:
+    weight: 14
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_allow_download_fullhd:
+    weight: 12
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_allow_download_hdready:
     weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_allow_download_mobile:
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
@@ -155,14 +191,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_fullhd_video_mobile_mp4:
-    weight: 8
+    weight: 11
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
     region: content
   field_hdready_video_mobile_mp4:
-    weight: 7
+    weight: 9
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -249,7 +285,7 @@ content:
     type: string_textfield
     region: content
   field_ultrahd4k_video_mobile_mp4:
-    weight: 9
+    weight: 13
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -264,7 +300,7 @@ content:
     type: string_textfield
     region: content
   field_video_mobile_mp4:
-    weight: 6
+    weight: 7
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -293,7 +329,7 @@ content:
       edit_mode: closed
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: '_none'
+      default_paragraph_type: _none
     third_party_settings: {  }
     region: content
   langcode:
