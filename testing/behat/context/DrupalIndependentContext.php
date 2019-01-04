@@ -3,9 +3,9 @@
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Element\NodeElement;
-use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
@@ -56,7 +56,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -80,7 +80,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -102,10 +102,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-
-      print_r($this->getSession()->getPage()->getContent());
-
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -124,7 +121,7 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new ResponseTextException(
+    throw new TextNotFoundException(
       sprintf('HTML does not contain content "%s"', $content),
       $this->getSession());
   }
@@ -140,7 +137,7 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new ResponseTextException(
+    throw new TextNotFoundException(
       sprintf('HTML does contain content "%s"', $content),
       $this->getSession());
   }
@@ -158,10 +155,7 @@ class DrupalIndependentContext extends RawMinkContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-
-      print_r($this->getSession()->getPage()->getContent());
-
-      throw new ResponseTextException(
+      throw new TextNotFoundException(
         sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
         $this->getSession()
       );
@@ -182,7 +176,7 @@ class DrupalIndependentContext extends RawMinkContext {
 				return true;
 			}
 		} while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
-		throw new ResponseTextException(
+		throw new TextNotFoundException(
 			sprintf('Could find text %s after %s seconds', $text, self::MAX_SHORT_DURATION_SECONDS),
 			$this->getSession()
 		);
@@ -207,7 +201,7 @@ class DrupalIndependentContext extends RawMinkContext {
     if(preg_match($pattern, $element->getHtml())) {
       return true;
     }
-    throw new ResponseTextException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+    throw new TextNotFoundException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
   }
 
   /**

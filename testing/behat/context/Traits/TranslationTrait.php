@@ -14,7 +14,7 @@ trait TranslationTrait {
 		$translatedString = \Drupal::translation()->translateString($translateableMarkup);
 
 		if ($text === $translatedString) {
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Task failed, because text "%s" could not be translated.', $text),
 				$this->getSession()
 			);

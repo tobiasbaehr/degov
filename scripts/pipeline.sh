@@ -39,3 +39,7 @@ bin/drush locale-check && bin/drush locale-update && bin/drush cr
 echo "### Running Behat tests"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 behat
+echo "### Running Behat smoke tests"
+bin/drush upwd admin admin
+mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
+behat -c behat-smoke-tests.yml

@@ -5,10 +5,10 @@ distribution:
   install:
     theme: degov_theme
 description: 'deGov - Drupal 8 for Government'
-version: 8.x-6.x
+version: 8.x-6.0-beta2
 core: '8.x'
 project: degov
-dependencies:
+install:
   - block_content
   - breakpoint
   - ckeditor
@@ -74,6 +74,6 @@ dependencies:
   - degov_email_login
 
 themes:
-  - degov_base_theme
+  - degov_theme
   - seven
   - bartik

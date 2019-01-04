@@ -9,3 +9,6 @@ msgstr ""
 
 msgid "Social Media Settings"
 msgstr "Social Media Einstellungen"
+
+msgid "Main content"
+msgstr "Haupt-Seiteninhalt"

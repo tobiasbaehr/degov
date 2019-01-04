@@ -168,12 +168,14 @@ class FormContext extends RawMinkContext {
     $html = $node->getHtml();
 
     $htmlParts = explode('</option>', $html);
-    array_shift($htmlParts);
-
+    if(strpos($html, 'value="_none"')) {
+      array_shift($htmlParts);
+    }
     array_pop($htmlParts);
 
     if (count($htmlParts) !== count($rowsHash)) {
-      throw new \Exception('Table items number does not match found option values number.');
+      print_r($rowsHash);
+      throw new \Exception(sprintf('Table items number does not match found option values number. Expected %s, found %s', count($rowsHash), count($htmlParts)));
     }
 
     foreach ($rowsHash as $text => $value) {
@@ -185,7 +187,7 @@ class FormContext extends RawMinkContext {
         }
       }
       if ($found === FALSE) {
-        throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        throw new \Exception(sprintf("Text '$text' and value '$value' not found in given options. Found: %s", print_r($htmlParts, 1)));
       }
     }
   }
@@ -231,6 +233,7 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
+        print_r($htmlParts);
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}

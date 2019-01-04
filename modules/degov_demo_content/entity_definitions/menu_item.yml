@@ -38,3 +38,7 @@ menu_item_5:
 menu_item_6:
   node_title: Page with FAQ-List paragraph
   fontawesome_css_class: fa-battery-full
+  second_level:
+  - Page with text paragraph
+  - Page with map paragraph
+  - Page with video header
