@@ -187,7 +187,7 @@ class FormContext extends RawMinkContext {
         }
       }
       if ($found === FALSE) {
-        throw new \Exception(sprintf("Text '$text' and value '$value' not found in given options. Found: %s", print_r($htmlParts, 1)));
+        throw new \Exception("Text '$text' and value '$value' not found in given options.");
       }
     }
   }
@@ -233,7 +233,6 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
-        print_r($htmlParts);
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}
