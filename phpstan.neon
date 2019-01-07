@@ -28,3 +28,5 @@ parameters:
     - "./**/testing/**"
     - "./**/*/*.module"
     - "./**/*/theme-settings.php"
+    - "./*/lightning_media/*"
+    - "./*/lightning_core/*"
