@@ -4,6 +4,7 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 
 trait TranslationTrait {
 
