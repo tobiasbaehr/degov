@@ -5,10 +5,6 @@
 
 namespace Drupal\degov_theme\Preprocess;
 
-
-use Drupal\Core\Render\Markup;
-use Drupal\Core\Template\Attribute;
-
 /**
  * Class MenuFaIcons
  *
@@ -57,6 +53,7 @@ class MenuFaIcons {
       foreach ($classes as $index => $class) {
         if (stripos($class,'fa-') !== FALSE) {
           $fa_classes[] = $classes[$index];
+          $fa_classes[] = self::getFaPack($class);
           unset($classes[$index]);
           $attributes = $url->getOption('attributes');
           $url->setOption('attributes', ['class' => $classes] + $attributes);
@@ -78,5 +75,26 @@ class MenuFaIcons {
         self::preprocess($item['below'], $menu_name);
       }
     }
+  }
+
+  /**
+   * Map the fa-class to FA pack (solid, regular, brand).
+   *
+   * @param string $icon
+   *  The FA icon class.
+   *
+   * @return mixed|null
+   *
+   */
+  static function getFaPack(string $icon) {
+    $mapping = [
+      'fa-drupal' => 'fab',
+      'fa-bluetooth' => 'fab',
+      'fa-bicycle' => 'fas',
+      'fa-book' => 'fas',
+      'fa-bell' => 'fas',
+      'fa-battery-full' => 'fas',
+    ];
+    return isset($mapping[$icon]) ? $mapping[$icon] : NULL;
   }
 }
