@@ -110,8 +110,8 @@ Feature: deGov - Media creation
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
-    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I should see text matching "Alternative text" via translation after a while
+    And I fill in "Alternative text" via translated text with "Test1234"
     And I choose "Beschreibung" from tab menu
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
@@ -129,8 +129,8 @@ Feature: deGov - Media creation
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
-    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I should see text matching "Alternative text" via translation after a while
+    And I fill in "Alternative text" via translated text with "Test1234"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
@@ -164,8 +164,8 @@ Feature: deGov - Media creation
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I should see text matching "320x320"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
-    And I fill in "Alternative Bildbeschreibung" with "Test1234"
+    And I should see text matching "Alternative text" via translation after a while
+    And I fill in "Alternative text" via translated text with "Test1234"
     And I choose "Beschreibung" from tab menu
     And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
@@ -208,7 +208,7 @@ Feature: deGov - Media creation
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
-    And I should see HTML content matching "Alternative Bildbeschreibung" after a while
+    And I should see text matching "Alternative text" via translation after a while
     And I fill in "entity[field_title][0][value]" with "Test1234"
     And I fill in "entity[name][0][value]" with "Test1234"
     And I fill in "entity[image][0][alt]" with "Test1234"
@@ -220,3 +220,30 @@ Feature: deGov - Media creation
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
+
+  Scenario: Check if media full display is working if field_include_search is unchecked
+    Given I am installing the "degov_demo_content" module
+    And I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/1/edit"
+    And I choose "Allgemein" from tab menu
+    And I uncheck the box "edit-field-include-search-value"
+    And I scroll to element with id "edit-submit"
+    And I press "Speichern"
+    And I am on "/ipsum-dolor-sit-amet-consetetur"
+    And I should not see "Mitglied seit"
+    And I should see HTML content matching "media--view-mode-full"
+
+  Scenario: I verify that a deleted Media's file is actually gone
+    Given I am installing the "degov_demo_content" module
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/content/media"
+    Then I am on "/eirmod-tempor-invidunt-ut-labore"
+    And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
+    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
+    Then I am on "/media/3/delete"
+    And I click by CSS id "edit-submit"
+    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
+    And I should see HTML content matching "404 Not Found"

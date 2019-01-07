@@ -71,8 +71,11 @@ class AutoCropper {
       if (preg_match("/^image\//", $file->getMimeType())) {
         foreach ($crop_types as $crop_type) {
           try {
-            $image_dimensions = getimagesize($this->fileSystem
-              ->realpath($file->getFileUri()));
+            $file_realpath = $this->fileSystem->realpath($file->getFileUri());
+            if (!file_exists($file_realpath)) {
+              continue;
+            }
+            $image_dimensions = getimagesize($file_realpath);
 
             $crop = $this->entityTypeManager
               ->getStorage('crop')
@@ -105,15 +108,14 @@ class AutoCropper {
               $crop->set('height', $crop_dimensions['height']);
             }
             $crop->save();
-          }
-          catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
+          } catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
             // Crop not found or crop save failed. Log and continue.
-            $this->logger->get('degov_auto_crop')->error($exception->getMessage());
+            $this->logger->get('degov_auto_crop')
+              ->error($exception->getMessage());
           }
         }
       }
-    }
-    catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
+    } catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
       // No crop types found. Just log, otherwise do nothing.
       $this->logger->get('degov_auto_crop')->error($exception->getMessage());
     }

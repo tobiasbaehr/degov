@@ -1,11 +1,9 @@
 @import "variables";
 
-// Mandatory.
+// Bootstrap.
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-
-// Optional.
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/images";
@@ -20,20 +18,41 @@
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/alert";
 @import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/transitions";
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../node_modules/bootstrap/scss/bootstrap-reboot";
 
-
-//@import "../node_modules/bootstrap/scss/bootstrap";
+// Theme scss.
+@import "fonts";
 
 @import "components/navbar";
 @import "components/content";
 @import "components/foorter";
+@import "components/carousel";
+
+@import "paragraphs/paragraph_node_reference_node_view_mode_preview";
+@import "paragraphs/paragraph_node_reference_node_view_mode_small_image";
+@import "paragraphs/paragraph_node_reference_node_view_mode_long_text";
+@import "paragraphs/paragraph_node_reference_node_view_mode_slim";
+@import "paragraphs/paragraph_media_reference_media_gallery_view_mode_preview";
+@import "paragraphs/paragraph_media_reference_media_video_view_mode_preview";
+
+@import "media/citation";
+
 @import "elements/site-logo";
 @import "elements/search-form";
+@import "elements/play-icon";
+@import "elements/action-button";
+
 @import "region/top-header";
 @import "region/footer_bottom";
 
+@import "blocks/degov_social-media-youtube";
+@import "blocks/degov_social-media-twitter";
+@import "blocks/instagram-feed";
 
-
+@import "global";

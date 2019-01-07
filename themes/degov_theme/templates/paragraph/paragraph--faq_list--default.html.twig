@@ -38,10 +38,34 @@
  * @ingroup themeable
  */
 #}
-<div{{ create_attribute({'class': ['paragraph', 'slideshow', 'preview']}) }}>
-    <div class="slideshow__slides">
-    {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
-      {{ slideshow_slide }}
-    {% endfor %}
+{%
+  set classes = [
+  'paragraph',
+  'faq-list',
+  paragraph.bundle|clean_class,
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'container',
+]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ content.contextual_links }}
+  {% if content.field_title|field_value or content.field_sub_title|field_value %}
+    <div class="paragraph__header">
+      {% if content.field_title_link|field_value %}
+      <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
+        {% endif %}
+        <h2{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}
+          {% if content.field_sub_title|field_value %}
+            <span class="sub-title"{{ content.field_sub_title|quickedit_attr }}>{{ content.field_sub_title|field_value }}</span>
+          {% endif %}
+        </h2>
+        {% if content.field_title_link|field_value %}
+      </a>
+      {% endif %}
     </div>
+  {% endif %}
+  <div class="paragraph__content">
+    {{ content.field_faq_list_inner_paragraphs }}
+  </div>
 </div>
