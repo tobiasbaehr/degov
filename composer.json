@@ -96,7 +96,8 @@
         "drupal/link_attributes": "^1.1",
         "drupal/permissions_by_term": "^2.0",
         "drupal/permissions_by_term_redirect": "^1.0",
-        "drupal/mail_login": "^1.0"
+        "drupal/mail_login": "^1.0",
+        "drupal/fontawesome_menu_icons": "^1.5"
     },
     "repositories": {
         "drupal": {
