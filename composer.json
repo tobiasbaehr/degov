@@ -20,8 +20,7 @@
         "phpdocumentor/reflection-docblock": "^3.0.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "kgaut/potx": "dev-8.x-1.x",
-        "phpunit/phpunit": "^6",
-        "weitzman/drupal-test-traits": "^1.0@beta"
+        "phpunit/phpunit": "^6"
     },
     "require": {
         "composer/installers": "^1.0",
@@ -112,7 +111,8 @@
         "bower-asset/dropzone": "^5.1",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/image_widget_crop": "^2.1",
-        "bower-asset/cropper": "^2.3"
+        "bower-asset/cropper": "^2.3",
+        "weitzman/drupal-test-traits": "1.0.0-alpha.1"
     },
     "repositories": {
         "drupal": {
