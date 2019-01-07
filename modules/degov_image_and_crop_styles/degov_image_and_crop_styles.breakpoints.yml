@@ -17,11 +17,20 @@ degov_image_and_crop_styles.media.sm:
     - 2x
   group: degov_image_and_crop_styles.media
 degov_image_and_crop_styles.media.md:
-  label: "Medium and up"
-  mediaQuery: 'all and (min-width: 992px)'
+  label: "Medium"
+  mediaQuery: 'all and (min-width: 720px)'
   weight: 2
   multipliers:
     - 1x
     - 1.5x
     - 2x
+  group: degov_image_and_crop_styles.media
+degov_image_and_crop_styles.media.lg:
+  label: "Large and up"
+  mediaQuery: 'all and (min-width: 992px)'
+  weight: 2
+  multipliers:
+  - 1x
+  - 1.5x
+  - 2x
   group: degov_image_and_crop_styles.media

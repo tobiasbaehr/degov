@@ -81,4 +81,14 @@ class JavaScriptContext extends RawMinkContext {
     $this->getSession()->switchToWindow();
   }
 
+  /**
+   * @Then I verify that field :selector has the value :value
+   */
+  public function iVerifyThatFieldHasTheValue($selector, $value) {
+    if($this->getSession()->evaluateScript("jQuery('" . $selector . "').val()") === $value) {
+      return true;
+    }
+    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
+  }
+
 }

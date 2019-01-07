@@ -12,7 +12,7 @@ function degov_node_press_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_node_press',
     'entity_type' => 'node',
     'entity_bundles' => ['press'],
-    'entity_view_modes' => ['teaser', 'latest', 'slideshow']
+    'entity_view_modes' => ['teaser', 'latest', 'slideshow', 'full']
   ]);
 }
 

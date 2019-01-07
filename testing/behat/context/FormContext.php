@@ -168,12 +168,14 @@ class FormContext extends RawMinkContext {
     $html = $node->getHtml();
 
     $htmlParts = explode('</option>', $html);
-    array_shift($htmlParts);
-
+    if(strpos($html, 'value="_none"')) {
+      array_shift($htmlParts);
+    }
     array_pop($htmlParts);
 
     if (count($htmlParts) !== count($rowsHash)) {
-      throw new \Exception('Table items number does not match found option values number.');
+      print_r($rowsHash);
+      throw new \Exception(sprintf('Table items number does not match found option values number. Expected %s, found %s', count($rowsHash), count($htmlParts)));
     }
 
     foreach ($rowsHash as $text => $value) {
@@ -185,7 +187,7 @@ class FormContext extends RawMinkContext {
         }
       }
       if ($found === FALSE) {
-        throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        throw new \Exception(sprintf("Text '$text' and value '$value' not found in given options. Found: %s", print_r($htmlParts, 1)));
       }
     }
   }
@@ -218,7 +220,8 @@ class FormContext extends RawMinkContext {
 		array_pop($htmlParts);
 
 		if (count($htmlParts) !== count($rowsHash) - 1) {
-			throw new \Exception('Table items number does not match found option values number.');
+      print_r($htmlParts);
+      throw new \Exception(sprintf('Table items number does not match found option values number. (expected: %s, found: %s)', (count($rowsHash) - 1), count($htmlParts)));
 		}
 
 		foreach ($rowsHash as $text => $value) {
@@ -230,6 +233,7 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
+        print_r($htmlParts);
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}
@@ -258,4 +262,31 @@ class FormContext extends RawMinkContext {
     throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
   }
 
+  /**
+   * Fills in form field with specified id|name|label|value
+   * Example: When I fill in "username" with: "bwayne"
+   * Example: And I fill in "bwayne" for "username"
+   *
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with "(?P<value>(?:[^"]|\\")*)"$/
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with:$/
+   * @When /^(?:|I )fill in "(?P<value>(?:[^"]|\\")*)" via translated text for "(?P<field>(?:[^"]|\\")*)"$/
+   */
+  public function fillField($field, $value)
+  {
+    $field = $this->fixStepArgument($this->translateString($field, false));
+    $value = $this->fixStepArgument($value);
+    $this->getSession()->getPage()->fillField($field, $value);
+  }
+
+  /**
+   * Returns fixed step argument (with \\" replaced back to ")
+   *
+   * @param string $argument
+   *
+   * @return string
+   */
+  protected function fixStepArgument($argument)
+  {
+    return str_replace('\\"', '"', $argument);
+  }
 }

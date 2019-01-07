@@ -57,4 +57,5 @@ class DegovLocaleUpdate {
     $batch = locale_translation_batch_update_build(array(), $langcodes, $options);
     batch_set($batch);
   }
+
 }

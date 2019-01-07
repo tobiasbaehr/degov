@@ -34,6 +34,19 @@ function degov_media_image_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ *
+ * @return array
+ */
+function degov_media_image_update_dependencies(): array {
+  $dependencies['degov_media_image'][850100] = [
+    'degov_image_and_crop_styles' => 850100,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Migrate image field type from image_immutable to image_image.
  */
 function degov_media_image_update_8001() {
@@ -105,4 +118,48 @@ function degov_media_image_update_8022() {
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '8022');
+}
+
+/**
+ * deGov Update: 5.1.0 - Add the royalty-free checkbox to the entity browser display as well., Add a new display mode with a responsive teaser image style., Add minimal size requirement for new images.
+ */
+function degov_media_image_update_850100() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8023');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8024');
+
+  $editable_config = \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser');
+  $dependencies = $editable_config->get('dependencies.config');
+
+  $dependencies[] = 'field.field.media.image.field_royalty_free';
+  $editable_config->set('dependencies.config', $dependencies);
+
+  $editable_config->set('third_party_settings.field_group.group_description.children', [
+    'field_image_date',
+    'field_image_caption',
+    'field_copyright',
+    'field_royalty_free',
+    'field_description',
+  ]);
+
+  $content = $editable_config->get('content');
+  $content['field_image_date']['weight'] = 10;
+  $content['field_image_caption']['weight'] = 11;
+  $content['field_copyright']['weight'] = 12;
+  $content['field_royalty_free'] = [
+    'type' => 'boolean_checkbox',
+    'weight' => 13,
+    'region' => 'content',
+    'settings' => [
+      'display_label' => true
+    ],
+    'third_party_settings' => []
+  ];
+  $content['field_description']['weight'] = 14;
+  $editable_config->set('content', $content);
+
+  $editable_config->save();
 }
