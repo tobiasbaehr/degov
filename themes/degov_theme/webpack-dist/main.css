@@ -5867,7 +5867,7 @@ footer {
   .degov-carousel .carousel-caption h2 {
     margin-bottom: 0;
     font-size: 1.2rem;
-    color: #2c2c2c;
+    color: #2C2C2C;
     font-weight: bold; }
   .degov-carousel .carousel-caption p {
     margin-bottom: 0;
@@ -9771,13 +9771,6 @@ readers do not read off random characters that represent icons */
     margin-left: 5px;
     font-size: 1rem;
     vertical-align: text-top; }
-
-.row {
-  margin-left: 0;
-  margin-right: 0; }
-  .row .col-sm-12:not(article) {
-    padding-left: 0;
-    padding-right: 0; }
 
 /* Breakpoint for extra-small viewport */
 .degov-carousel .carousel-inner {

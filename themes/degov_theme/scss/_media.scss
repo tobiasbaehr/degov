@@ -1,12 +1,3 @@
-.row{
-  margin-left: 0;
-  margin-right: 0;
-  .col-sm-12:not(article){
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
 /* Breakpoint for extra-small viewport */
 @include media-breakpoint-up(xs) {
   .degov-carousel {
