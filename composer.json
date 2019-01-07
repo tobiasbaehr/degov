@@ -19,8 +19,9 @@
         "drupal/twig_xdebug": "^1.0",
         "phpdocumentor/reflection-docblock": "^3.0.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
-        "phpunit/phpunit": "4.8.36",
-        "kgaut/potx": "dev-8.x-1.x"
+        "kgaut/potx": "dev-8.x-1.x",
+        "phpunit/phpunit": "^6",
+        "weitzman/drupal-test-traits": "^1.0@beta"
     },
     "require": {
         "composer/installers": "^1.0",
@@ -44,7 +45,6 @@
         "drupal/entity_reference_display": "^1.0",
         "drupal/search_api_solr": "^1.0",
         "drupal/core": "^8.6.5",
-        "drupal/lightning_media": "3.0",
         "drupal/paragraphs": "^1.3",
         "drupal/features": "^3.5",
         "drupal/easy_breadcrumb": "~1.6",
@@ -227,9 +227,6 @@
             ],
             "docroot/libraries/{$name}": [
                 "type:drupal-library"
-            ],
-            "docroot/modules/degov": [
-                "degov/modules"
             ]
         },
         "enable-patching": true,
@@ -264,11 +261,11 @@
     "autoload-dev": {
         "psr-4": {
             "Drupal\\degov\\Behat\\Context\\": "docroot/profiles/contrib/degov/testing/behat/context",
-            "Drupal\\Tests\\lightning_media\\": "tests/src"
+            "Drupal\\Tests\\lightning_media\\": "docroot/profiles/contrib/degov/modules/lightning_media/tests/src"
         }
     },
     "autoload": {
-        "classmap": ["tests/contexts/AwaitTrait.inc"]
+        "classmap": ["docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/AwaitTrait.inc"]
     }
 }
 }
