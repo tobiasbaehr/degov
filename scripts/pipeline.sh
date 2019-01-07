@@ -6,7 +6,7 @@ echo "### Setting up project folder"
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
-composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits --update-with-dependencies
 echo "### Starting chrome container"
 docker run -d --name="testing" -p 4444:4444 --net="host" -v "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/" -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
 echo "Setting up project"
