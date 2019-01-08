@@ -1,6 +1,8 @@
 <?php
 
 use \Drupal\degov_theme\NumberFormatShort;
+use \Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
+use \Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 
 /**
  * Implements hook_preprocess_html().
@@ -100,20 +102,6 @@ function degov_theme_page_attachments_alter(&$page) {
     ],
   ];
   $page['#attached']['html_head'][] = [$viewport, 'viewport'];
-}
-
-/**
- * Implements hook_preprocess_menu__account().
- */
-function degov_theme_preprocess_menu__account(&$vars) {
-
-  array_walk($vars['items'], function (&$item) {
-    /** @var \Drupal\Core\Url $url */
-    $url = $item['url'];
-    if (($url->isRouted()) && $url->getRouteName() === 'user.login') {
-      $item['title'] = \Drupal::currentUser()->isAnonymous() ? $item['title'] :  t('My Account');
-    }
-  });
 }
 
 /**
@@ -250,4 +238,12 @@ function degov_theme_preprocess_degov_social_media_youtube(&$variables) {
   $variables['likes'] = NumberFormatShort::format($variables['likes']);
   $variables['dislikes'] = NumberFormatShort::format($variables['dislikes']);
   $variables['views'] = NumberFormatShort::format($variables['views']);
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function degov_theme_preprocess_menu(&$vars) {
+  MenuFaIconsPreprocess::preprocess($vars['items'], $vars['menu_name']);
+  MenuAccountPreprocess::preprocess($vars);
 }

@@ -19,10 +19,8 @@ Feature: deGov - Users
 
   Scenario: As a system configurator I should be able to only access language blocks
     Given I am logged in as a user with the "Systemkonfigurator" role
-    And I am on "/admin/structure/block/"
+    And I am on "/admin/structure/block/list/degov_theme"
     Then I should not see text matching "Access denied" via translated text
-    And I should see text matching "deGov Theme"
-    And I click "deGov Theme"
     And I should see 1 "table#blocks" elements
     And I should see 0 "div.dropbutton-widget" elements
     And I should not see text matching "Language switcher" via translated text
