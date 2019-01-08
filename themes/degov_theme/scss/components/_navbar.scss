@@ -2,6 +2,7 @@
   min-height: $font-size-base * 3.5;
   background-color: $gray-light;
   color: $gray-dark;
+  border-bottom: $alto 2px solid;
   a {
     color: $gray-dark;
   }
@@ -11,5 +12,8 @@
     .navbar-toggler-icon {
       background-image: $navbar-light-toggler-icon-bg;
     }
+  }
+  .dropdown-toggle::after {
+    content: none;
   }
 }
