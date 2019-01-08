@@ -34,6 +34,19 @@ function degov_media_image_uninstall() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ *
+ * @return array
+ */
+function degov_media_image_update_dependencies(): array {
+  $dependencies['degov_media_image'][850100] = [
+    'degov_image_and_crop_styles' => 850100,
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Migrate image field type from image_immutable to image_image.
  */
 function degov_media_image_update_8001() {
@@ -108,9 +121,16 @@ function degov_media_image_update_8022() {
 }
 
 /**
- * Add the royalty-free checkbox to the entity browser display as well.
+ * deGov Update: 5.1.0 - Add the royalty-free checkbox to the entity browser display as well., Add a new display mode with a responsive teaser image style., Add minimal size requirement for new images.
  */
-function degov_media_image_update_8023() {
+function degov_media_image_update_850100() {
+  /**
+   * @var DegovModuleUpdater $degovModuleUpdater
+   */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8023');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '8024');
+
   $editable_config = \Drupal::configFactory()->getEditable('core.entity_form_display.media.image.media_browser');
   $dependencies = $editable_config->get('dependencies.config');
 
@@ -142,15 +162,4 @@ function degov_media_image_update_8023() {
   $editable_config->set('content', $content);
 
   $editable_config->save();
-}
-
-/**
- * Define a new view mode to only display the image file.
- */
-function degov_media_image_update_8024() {
-  /**
-   * @var DegovModuleUpdater $degovModuleUpdater
-   */
-  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
-  $degovModuleUpdater->applyUpdates('degov_media_image', '8023');
 }

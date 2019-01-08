@@ -6,7 +6,6 @@ package: 'deGov'
 dependencies:
   - role_delegation
   - workbench
-  - workbench_access
   - degov_rich_text_format_settings
   - content_moderation
   - workflows

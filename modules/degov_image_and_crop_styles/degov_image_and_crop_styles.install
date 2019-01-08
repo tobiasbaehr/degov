@@ -1,15 +1,9 @@
 <?php
 
-use Drupal\degov_common\DegovModuleUpdater;
-use Drupal\field\Entity\FieldConfig;
-
 /**
- * Add an image style for logo / slogan files in the header.
+ * deGov Update 5.1.0 - Add a new responsive image style
  */
-function degov_image_and_crop_styles_update_8001() {
-  /**
-   * @var DegovModuleUpdater $degovModuleUpdater
-   */
-  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
-  $degovModuleUpdater->applyUpdates('degov_image_and_crop_styles', '8001');
+function degov_image_and_crop_styles_update_850100() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_image_and_crop_styles', '8001');
 }

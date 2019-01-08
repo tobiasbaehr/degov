@@ -1,0 +1,253 @@
+<?php
+
+use \Drupal\degov_theme\NumberFormatShort;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function degov_theme_preprocess_html(&$vars) {
+  if ((is_array($vars['attributes'])
+    && !empty($vars['attributes']['class']))) {
+
+    if (in_array('install-page', $vars['attributes']['class'])) {
+
+      if (count($vars['head_title']) === 1) {
+        if (!empty($vars['page']['#title'])) {
+          $vars['head_title']['title'] = $vars['page']['#title'];
+          $vars['head_title']['name'] = drupal_install_profile_distribution_name();
+        }
+      }
+
+      $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
+
+      if ($background_images_dir_handle) {
+        $background_image_filenames = [];
+        while ($filename = readdir($background_images_dir_handle)) {
+          if (preg_match("/^[a-zA-Z0-9\-_]+\.(jpg|jpeg|png)$/", $filename)) {
+            $background_image_filenames[] = $filename;
+          }
+        }
+        closedir($background_images_dir_handle);
+
+        $css = sprintf(
+          'body.install-page{background-image:url(/%s/images/installer/%s);}',
+          drupal_get_path('theme', 'degov_theme'),
+          $background_image_filenames[rand(0, count($background_image_filenames) - 1)]
+        );
+        $vars['page']['#attached']['html_head'][] = [
+          [
+            '#tag'    => 'style',
+            '#value'  => $css,
+            '#weight' => 1,
+          ],
+          'installer-background-images-css',
+        ];
+      }
+
+      // Animated Favicon goes here…
+  //    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_spinning';
+      $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_ticker';
+  //    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_turning';
+      $animation_frames_filenames = [];
+      if ($favicon_frames_dir_handle = opendir($favicon_frames_path)) {
+        while ($filename = readdir($favicon_frames_dir_handle)) {
+          if (!preg_match("/^\.\.?$/", $filename)) {
+            $animation_frames_filenames[] = '/' . $favicon_frames_path . '/' . $filename;
+          }
+        }
+        closedir($favicon_frames_dir_handle);
+
+        sort($animation_frames_filenames);
+        $animation_frames_array_javascript = 'var favicon_animation_frames = new Array();';
+        foreach ($animation_frames_filenames as $key => $filename) {
+          $animation_frames_array_javascript .= sprintf(
+            'favicon_animation_frames[%s] = "%s";',
+            $key,
+            $filename
+          );
+        }
+        $vars['page']['#attached']['html_head'][] = [
+          [
+            '#tag'    => 'script',
+            '#value'  => $animation_frames_array_javascript,
+            '#weight' => 1,
+          ],
+          'favicon-animation-frames-array-javascript',
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_reprocess_install_page().
+ */
+function degov_theme_preprocess_install_page(&$vars) {
+  $active_theme = \Drupal::service('theme.manager')->getActiveTheme();
+  $vars['theme_logo'] = $active_theme->getLogo();
+}
+
+/**
+ * Implements hook_attachments_alter().
+ */
+function degov_theme_page_attachments_alter(&$page) {
+  $viewport = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements hook_preprocess_menu__account().
+ */
+function degov_theme_preprocess_menu__account(&$vars) {
+
+  array_walk($vars['items'], function (&$item) {
+    /** @var \Drupal\Core\Url $url */
+    $url = $item['url'];
+    if (($url->isRouted()) && $url->getRouteName() === 'user.login') {
+      $item['title'] = \Drupal::currentUser()->isAnonymous() ? $item['title'] :  t('My Account');
+    }
+  });
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function degov_theme_preprocess_page(&$vars) {
+  $vars['logo_url'] =  theme_get_setting('logo.url');
+  $social_icons_settings = array_filter(theme_get_setting('social-icons'), function ($item) {
+    return !empty($item['url']) && !empty($item['font-awesome-classes']);
+  });
+  $vars['social_icons'] = $social_icons_settings;
+}
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function degov_theme_preprocess_image(&$vars) {
+  $vars['attributes']['class'][] = 'img-fluid';
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function degov_theme_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id'])
+    && $variables['elements']['#base_plugin_id'] == 'degov_social_media_instagram') {
+    unset($variables['#attached']['library']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_degov_social_media_instagram().
+ */
+function degov_theme_preprocess_degov_social_media_instagram(&$variables) {
+  $variables['likes'] = NumberFormatShort::format($variables['likes']);
+  $variables['comments'] = NumberFormatShort::format($variables['comments']);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function degov_theme_suggestions_paragraph(array $variables) {
+  $suggestions = [];
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['elements']['#paragraph'];
+
+  if ($paragraph->hasField('field_media_reference_media')) {
+    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+    $medias = $paragraph->get('field_media_reference_media')->referencedEntities();
+
+    $suggestions[] = 'paragraph__'
+      . $paragraph->bundle() . '__'
+      . $sanitized_view_mode . '__'
+      . $medias[0]->bundle();
+
+    $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value ?: 'default';
+
+    $suggestions[] = 'paragraph__'
+      . $paragraph->bundle() . '__'
+      . $sanitized_view_mode . '__'
+      . $medias[0]->bundle() . '__'
+      . $media_view_mode;
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements theme_preprocess_paragraph().
+ */
+function degov_theme_preprocess_paragraph(&$vars) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $vars['paragraph'];
+  if ($paragraph->bundle() === 'media_reference') {
+    if ($medias = $paragraph->get('field_media_reference_media')->referencedEntities()) {
+      /** @var \Drupal\media\Entity\Media $media */
+      $media = $medias[0];
+      $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
+      /** @var \Drupal\Core\Entity\EntityViewBuilder $entity_view_builder */
+      $entity_view_builder = \Drupal::entityTypeManager()->getViewBuilder('media');
+      $media_view = $entity_view_builder->view($media, $media_view_mode);
+      $vars['media_view'] = $entity_view_builder->build($media_view);
+      $vars['media'] = $media;
+      if ($media->hasField('field_video_preview')) {
+        if ($media_video_preview_images = $media->get('field_video_preview')->referencedEntities()) {
+          foreach ($media_video_preview_images as $media_video_preview_image) {
+            $vars['video_preview'][] = [
+              '#type' => 'responsive_image',
+              '#responsive_image_style_id' => 'teaser_landscape',
+              '#uri' => $media_video_preview_image->image->entity->getFileUri(),
+            ];
+          }
+        }
+      }
+    };
+  }
+}
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function degov_theme_preprocess_media(&$vars) {
+  /** @var \Drupal\media\Entity\Media $media */
+  $media = $vars['media'];
+  if ($media->hasField('field_gallery_images')) {
+    $media_images = $media->get('field_gallery_images')->referencedEntities();
+    if ($media_images) {
+      foreach ($media_images as $media_image) {
+        $vars['gallery_images'][] = [
+          '#theme' => 'image_style',
+          '#style_name' => 'teaser_squared_1_1_320',
+          '#uri' => $media_image->image->entity->getFileUri(),
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_degov_social_media_instagram().
+ */
+function degov_theme_preprocess_degov_tweets(&$variables) {
+  foreach ($variables['items'] as &$tweet){
+    $tweet['favourites_count'] = NumberFormatShort::format($tweet['favourites_count']);
+    $tweet['followers_count'] = NumberFormatShort::format($tweet['followers_count']);
+    $tweet['retweet_count'] = NumberFormatShort::format($tweet['retweet_count']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_degov_social_media_youtube().
+ */
+function degov_theme_preprocess_degov_social_media_youtube(&$variables) {
+  $variables['likes'] = NumberFormatShort::format($variables['likes']);
+  $variables['dislikes'] = NumberFormatShort::format($variables['dislikes']);
+  $variables['views'] = NumberFormatShort::format($variables['views']);
+}

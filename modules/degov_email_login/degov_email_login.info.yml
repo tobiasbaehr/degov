@@ -1,0 +1,7 @@
+name: 'deGov - Email Login'
+description: 'This module enables the login by email address.'
+type: module
+package: deGov
+core: 8.x
+dependencies:
+  - mail_login

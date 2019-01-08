@@ -1,12 +1,32 @@
 <?php
 
 use Drupal\config_replace\Exception\NonexistentInitialConfigException;
+use Drupal\degov_common\DeGovModuleIntegrity;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
  */
 function degov_common_install() {
+  // Set the admin theme
+  \Drupal::configFactory()
+    ->getEditable('system.theme')
+    ->set('admin', 'seven')
+    ->save();
+
+  // Enable the admin theme.
+  \Drupal::configFactory()
+    ->getEditable('node.settings')
+    ->set('use_admin_theme', TRUE)
+    ->save(TRUE);
+
+  // Restrict user registration to admin role creation.
+  \Drupal::configFactory()
+    ->getEditable('user.settings')
+    ->set('register', USER_REGISTER_ADMINISTRATORS_ONLY)
+    ->save(TRUE);
+
+  degov_common_import_translations();
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
@@ -19,6 +39,18 @@ function degov_common_uninstall() {
   \Drupal::configFactory()
     ->getEditable('degov_common.default_settings')
     ->delete();
+}
+
+function degov_common_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 function degov_common_update_8016() {
@@ -89,7 +121,6 @@ function degov_common_update_8023() {
  */
 function degov_common_update_8026() {
   //Remove workbench_moderation dependency from configuration
-
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
     ->getBundleInfo('media');
   $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -170,8 +201,12 @@ function degov_common_update_8032() {
   }
 }
 
-
-function degov_common_update_dependencies() {
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @return array
+ */
+function degov_common_update_dependencies(): array {
   $dependencies['degov'][8450] = [
     'degov_common' => 8032,
   ];
@@ -179,4 +214,68 @@ function degov_common_update_dependencies() {
   return $dependencies;
 }
 
+/**
+ * Implements hook_requirements().
+ *
+ * @param string $phase
+ *
+ * @return array
+ */
+function degov_common_requirements(string $phase): array {
+  $requirements = [];
+  if ($phase === 'runtime') {
 
+    $requirements['degov_common'] = [
+      'severity'    => REQUIREMENT_OK,
+      'title'       => t('deGov version'),
+      'description' => t('Version of deGov'),
+      'value'       => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
+    ];
+
+    /**
+     * @var $deGovIntegrity DeGovModuleIntegrity
+     */
+    $deGovIntegrity = \Drupal::service('degov_common.module_integrity');
+    $degov_integrity_maintained = TRUE;
+    foreach ($deGovIntegrity->checkIntegrity() as $index => $module) {
+      foreach ($module as $key => $messages) {
+        $requirements['degov_integrity_' . $key] = [
+          'severity'    => REQUIREMENT_ERROR,
+          'title'       => t('deGov integrity - @module', ['@module' => $key]),
+          'description' => $deGovIntegrity->buildMessage($messages),
+          'value'       => t('Configuration is missing'),
+        ];
+        $degov_integrity_maintained = FALSE;
+      }
+    }
+
+    if($degov_integrity_maintained) {
+      $requirements['degov_integrity'] = [
+        'severity'    => REQUIREMENT_OK,
+        'title'       => t('deGov integrity'),
+        'description' => t('All expected configurations appear to be present.'),
+        'value'       => t('Configurations checked'),
+      ];
+    }
+  }
+
+  if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    $requirements['degov_integrity_access_modules_issue_1'] = [
+      'title'       => t('Content access issue'),
+      'description' => t("The Workbench Access module is being used in this Drupal instance. It's discouraged to use the Workbench Access module. The preferred module is Permissions by Term. Uninstall the Workbench Access and deGov Workbench Access modules. Add your settings into the Permissions by Term configuration."),
+      'severity'    => REQUIREMENT_ERROR,
+      'value'       => t('Usage of module without a stable release, which is deprecated in deGov'),
+    ];
+
+    if (\Drupal::moduleHandler()->moduleExists('permissions_by_term')) {
+      $requirements['degov_integrity_access_modules_issue_2'] = [
+        'title'       => t('Content access issue'),
+        'description' => t("The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."),
+        'severity'    => REQUIREMENT_ERROR,
+        'value'       => t('Duplication of content access modules'),
+      ];
+    }
+  }
+
+  return $requirements;
+}
