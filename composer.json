@@ -96,24 +96,9 @@
         "drupal/link_attributes": "^1.1",
         "drupal/permissions_by_term": "^2.0",
         "drupal/permissions_by_term_redirect": "^1.0",
-        "drupal/mail_login": "^1.0",
-        "drupal/fontawesome_menu_icons": "^1.5",
-        "farbelous/fontawesome-iconpicker": "^3.2"
+        "drupal/mail_login": "^1.0"
     },
     "repositories": {
-        "farbelous/fontawesome-iconpicker": {
-            "type": "package",
-            "package": {
-                "name": "farbelous/fontawesome-iconpicker",
-                "version": "3.2.0",
-                "type": "drupal-library",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/farbelous/fontawesome-iconpicker.git",
-                    "reference": "master"
-                }
-            }
-        },
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
