@@ -35,14 +35,13 @@ Feature: deGov Simplenews
 
   Scenario: I can set a custom consent message
     Given I configure and place the Simplenews signup block
+    And I set the privacy policy page for all languages
     And I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/config/degov/simplenews"
-    And I fill in "Privacy policy page (de)" with "Page with all teasers (1)"
     And I fill in "Consent message (de)" with "ConsentTest1234"
     And I scroll to element with id "edit-submit"
     And I click by CSS id "edit-submit"
     Then I should see text matching "The configuration options have been saved." via translation after a while
     Then I am on "/degov-demo-content/page-all-teasers"
-    And I dump the HTML
     And I should see text matching "ConsentTest1234"

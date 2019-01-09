@@ -836,4 +836,16 @@ class DrupalContext extends RawDrupalContext {
     $this->openNodeViewByTitle('An normal page with a content reference');
   }
 
+  /**
+   * @Given I set the privacy policy page for all languages
+   */
+  public function setThePrivacyPolicyPageForAllLanguages() {
+    $degov_simplenews_settings = \Drupal::service('config.factory')->getEditable('degov_simplenews.settings');
+    $all_languages = \Drupal::service('language_manager')->getLanguages();
+    $privacy_policies = [];
+    foreach($all_languages as $language) {
+      $privacy_policies[$language->getId()] = 1;
+    }
+    $degov_simplenews_settings->set('privacy_policy', $privacy_policies)->save();
+  }
 }
