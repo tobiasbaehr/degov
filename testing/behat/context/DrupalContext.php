@@ -840,12 +840,20 @@ class DrupalContext extends RawDrupalContext {
    * @Given I set the privacy policy page for all languages
    */
   public function setThePrivacyPolicyPageForAllLanguages() {
-    $degov_simplenews_settings = \Drupal::service('config.factory')->getEditable('degov_simplenews.settings');
+    $degov_simplenews_settings = \Drupal::service('config.factory')
+      ->getEditable('degov_simplenews.settings');
     $all_languages = \Drupal::service('language_manager')->getLanguages();
-    $privacy_policies = [];
-    foreach($all_languages as $language) {
-      $privacy_policies[$language->getId()] = 1;
+    $page_with_all_teasers_nid = \Drupal::entityQuery('node')
+      ->execute();
+    if (!empty($page_with_all_teasers_nid)) {
+      $page_with_all_teasers_nid = reset($page_with_all_teasers_nid);
+
+      $privacy_policies = [];
+      foreach ($all_languages as $language) {
+        $privacy_policies[$language->getId()] = $page_with_all_teasers_nid;
+      }
+      $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
+        ->save();
     }
-    $degov_simplenews_settings->set('privacy_policy', $privacy_policies)->save();
   }
 }
