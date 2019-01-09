@@ -22558,8 +22558,9 @@ __webpack_require__(/*! fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js
 
   Drupal.behaviors.iconPicker = {
     attach: function attach() {
-      jQuery('.form-item-link-0-options-attributes-class input').iconpicker();
-      console.log('Muh!');
+      jQuery('.form-item-link-0-options-attributes-class input').iconpicker().show(function () {
+        console.log('hello');
+      });
     }
   };
 })(jQuery);
@@ -22567,15 +22568,14 @@ __webpack_require__(/*! fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js
 /***/ }),
 
 /***/ 0:
-/*!********************************************************************************************************************!*\
-  !*** multi babel-polyfill ./src/script.js ./node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js ***!
-  \********************************************************************************************************************/
+/*!********************************************!*\
+  !*** multi babel-polyfill ./src/script.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! babel-polyfill */"./node_modules/babel-polyfill/lib/index.js");
-__webpack_require__(/*! ./src/script.js */"./src/script.js");
-module.exports = __webpack_require__(/*! ./node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js */"./node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js");
+module.exports = __webpack_require__(/*! ./src/script.js */"./src/script.js");
 
 
 /***/ })

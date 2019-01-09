@@ -9,8 +9,7 @@ import 'fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js';
    */
   Drupal.behaviors.iconPicker = {
     attach: () => {
-      jQuery('.form-item-link-0-options-attributes-class input').iconpicker();
-      console.log('Muh!');
+      jQuery('.form-item-link-0-options-attributes-class input').iconpicker().show(() => { console.log('hello') });
     }
   };
 

@@ -1,12 +1,12 @@
 const path = require('path')
-  fs = require('fs')
-  MiniCssExtractPlugin = require("mini-css-extract-plugin");
+      fs = require('fs')
+      MiniCssExtractPlugin = require("mini-css-extract-plugin")
+      CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    './src/script.js',
-    './node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js'
+    './src/script.js'
   ],
   output: {
     path: path.join(__dirname, '/webpack-dist/'),
@@ -18,7 +18,21 @@ module.exports = {
       // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: './node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js',
+        to: './fontawesome-iconpicker.js',
+      },
+      {
+        from: './node_modules/fontawesome/',
+        to: './fontawesome/',
+      },
+      {
+        from: './node_modules/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.css',
+        to: './fontawesome-iconpicker.css',
+      },
+    ]),
   ],
   module: {
     rules: [
