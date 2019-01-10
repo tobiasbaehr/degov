@@ -175,15 +175,15 @@ function degov_theme_suggestions_paragraph(array $variables) {
 function degov_theme_preprocess_paragraph(&$vars) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $vars['paragraph'];
+  $entity_view_builder = \Drupal::entityTypeManager();
   if ($paragraph->bundle() === 'media_reference') {
     if ($medias = $paragraph->get('field_media_reference_media')->referencedEntities()) {
       /** @var \Drupal\media\Entity\Media $media */
       $media = $medias[0];
       $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
-      /** @var \Drupal\Core\Entity\EntityViewBuilder $entity_view_builder */
-      $entity_view_builder = \Drupal::entityTypeManager()->getViewBuilder('media');
-      $media_view = $entity_view_builder->view($media, $media_view_mode);
-      $vars['media_view'] = $entity_view_builder->build($media_view);
+      $media_view_builder = $entity_view_builder->getViewBuilder('media');
+      $media_view = $media_view_builder->view($media, $media_view_mode);
+      $vars['media_view'] = $media_view_builder->build($media_view);
       $vars['media'] = $media;
       if ($media->hasField('field_video_preview')) {
         if ($media_video_preview_images = $media->get('field_video_preview')->referencedEntities()) {
@@ -196,6 +196,23 @@ function degov_theme_preprocess_paragraph(&$vars) {
           }
         }
       }
+    };
+  }
+
+  if ($paragraph->bundle() === 'slide') {
+    /** @var \Drupal\media\Entity\Media $slide */
+    if ($slides = $paragraph->get('field_slide_media')->referencedEntities()) {
+      $slide = $slides[0];
+      $media_view_builder = $entity_view_builder->getViewBuilder('media');
+      $paragraph_view = $media_view_builder->view($slide);
+      $vars['slide'] = $media_view_builder->build($paragraph_view);
+
+      if (($slide->hasField('image')) && !$slide->image->isEmpty())
+      $vars['slide_responsive_image'] = [
+        '#type' => 'responsive_image',
+        '#responsive_image_style_id' => 'slider_main',
+        '#uri' => $slide->image->entity->getFileUri(),
+      ];
     };
   }
 }
