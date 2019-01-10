@@ -119,3 +119,10 @@ video_1:
   field_media_video_embed_field: 'https://www.youtube.com/watch?v=z-qpyBRTJ2A&t=65s'
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
+video_mobile_1:
+  bundle: 'video_mobile'
+  name: '{{SUBTITLE}}'
+  field_title: '{{SUBTITLE}}'
+  file: 'pexels-videos-1409899-standard.mp4'
+  status: 1
+  field_media_publish_date: '2018-01-01T00:00:00'

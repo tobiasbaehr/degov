@@ -95,3 +95,8 @@ map_1:
   field_map_address_view_mode: 'osm_map'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
+media_reference:
+  type: 'media_reference'
+  field_override_caption: '{{SUBTITLE}}'
+  field_media_reference_media: '{{MEDIA_ID_VIDEO_MOBILE}}'
+  title: '{{SUBTITLE}}'

@@ -120,3 +120,14 @@ node_with_banner:
   field_header_paragraphs:
     - header_banner
   moderation_state: 'published'
+node_with_video_mobile:
+  type: 'normal_page'
+  title: 'Page with video mobile'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with video mobile'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_content_paragraphs:
+    - media_reference
+  status: 1
+  moderation_state: 'published'

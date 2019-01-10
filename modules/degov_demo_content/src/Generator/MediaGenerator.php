@@ -134,6 +134,12 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
                 'target_id' => $this->files[$media_item_key]->id(),
               ];
               break;
+
+            case 'video_mobile':
+              $fields['field_video_mobile_mp4'] = [
+                'target_id' => $this->files[$media_item_key]->id(),
+              ];
+              break;
           }
           continue;
         }
