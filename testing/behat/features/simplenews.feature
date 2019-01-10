@@ -45,6 +45,6 @@ Feature: deGov Simplenews
     And I click by CSS id "edit-submit"
     Then wait 5 seconds
     Then I dump the HTML
-#    Then I should see text matching "The configuration options have been saved." via translation after a while
+    Then I should see text matching "The configuration options have been saved." via translation after a while
 #    Then I am on "/degov-demo-content/page-all-teasers"
 #    And I should see text matching "ConsentTest1234"
