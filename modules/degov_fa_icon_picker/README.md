@@ -15,7 +15,7 @@ REQUIREMENTS
 ------------
 
 This module requires no Drupal modules outside of Drupal core. Libraries on which this module is based:
-* [Font Awesome Icon Picker](https://farbelous.io/fontawesome-iconpicker/): An icon picker, which is based on [Bootstrap Popover Picker](https://farbelous.io/bootstrap-popover-picker/)
+* [Font Awesome Icon Picker](https://farbelous.io/fontawesome-iconpicker/): An icon picker, which is based on [Bootstrap Popover Picker](https://farbelous.io/bootstrap-popover-picker/). For supporting Font Awesome in version 4, version 1.4.1 of Font Awesome Icon Picker must be installed.
 
 See JavaScript library dependencies in `js/package.json`.
 
