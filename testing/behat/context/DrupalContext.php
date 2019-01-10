@@ -581,7 +581,8 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iHaveDismissedTheCookieBannerIfNecessary()
   {
-    $this->getSession()->visit('/');
+
+    $this->getSession()->visit($this->locatePath('/'));
     if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
