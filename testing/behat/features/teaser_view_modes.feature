@@ -5,8 +5,7 @@ Feature: deGov - Teaser view modes
     Given I am installing the "degov_paragraph_node_reference" module
 
   Scenario: I proof paragraph type node reference offers the specified view modes
-    Given I am on the homepage
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     Then I choose "Inhalt" from tab menu
