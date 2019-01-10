@@ -272,7 +272,7 @@ class FormContext extends RawMinkContext {
    */
   public function fillField($field, $value)
   {
-    $field = $this->fixStepArgument($this->translateString($field, false));
+    $field = $this->fixStepArgument($this->translateString($field));
     $value = $this->fixStepArgument($value);
     $this->getSession()->getPage()->fillField($field, $value);
   }

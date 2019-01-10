@@ -10,11 +10,11 @@ trait TranslationTrait {
 
 	private $langcode = 'de';
 
-	public function translateString(string $text, bool $failOnMissingTranslation = TRUE): string {
+	public function translateString(string $text): string {
 		$translateableMarkup = new TranslatableMarkup($text, [], []);
 		$translatedString = \Drupal::translation()->translateString($translateableMarkup);
 
-		if ($failOnMissingTranslation && $text === $translatedString) {
+		if ($text === $translatedString) {
 			throw new TextNotFoundException(
 				sprintf('Task failed, because text "%s" could not be translated.', $text),
 				$this->getSession()
