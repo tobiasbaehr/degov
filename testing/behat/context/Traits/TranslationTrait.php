@@ -13,14 +13,6 @@ trait TranslationTrait {
 	public function translateString(string $text): string {
 		$translateableMarkup = new TranslatableMarkup($text, [], []);
 		$translatedString = \Drupal::translation()->translateString($translateableMarkup);
-
-		if ($text === $translatedString) {
-			throw new TextNotFoundException(
-				sprintf('Task failed, because text "%s" could not be translated.', $text),
-				$this->getSession()
-			);
-		}
-
 		return $translatedString;
 	}
 
