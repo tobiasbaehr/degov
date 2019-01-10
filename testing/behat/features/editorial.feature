@@ -5,7 +5,7 @@ Feature: deGov - Editorial
     Given users:
       | name    | mail               | pass     | roles   |
       | editor  | editor@example.com | password | editor  |
-      | manager | editor@example.com | password | manager |d
+      | manager | editor@example.com | password | manager |
     Given I proof that Drupal module "degov_node_normal_page" is installed
 
   Scenario: "I am creating content with role 'Redakteur' and publisheding it with the 'Chefredakteur' role"
