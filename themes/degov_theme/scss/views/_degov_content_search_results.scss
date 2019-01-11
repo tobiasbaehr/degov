@@ -4,4 +4,9 @@
   .row-content:nth-child(odd) {
     background-color: $gray-light;
   }
+  article {
+    .middle .bundle {
+      color: $blue;
+    }
+  }
 }

@@ -77,27 +77,48 @@
   node.isSticky() ? 'node--sticky',
   not node.isPublished() ? 'node--unpublished',
   view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'py-3',
 ] %}
 
 {% set teaser_text = content.field_teaser_text|field_value|render|striptags %}
 
 <article{{ attributes.addClass(classes) }}>
 
-  <a href="{{ url }}" rel="bookmark" class="row">
+  <div class="row py-5">
+
 
     {% if content.field_teaser_image|field_value %}
-      <div class="col">
-        {{ content.field_teaser_image }}
+      <div class="col-md-3">
+        <a href="{{ url }}" rel="bookmark" class="d-block text-center mb-4 mb-md-0">
+          {{ content.field_teaser_image }}
+        </a>
       </div>
     {% endif %}
 
     <div class="col">
-      <div class="top">
+      <div class="top row pb-4">
+        <div class="col-lg">
+          <span>{{ bundle }}</span>
+          <span class="separator px-2">|</span>
+          <span>{{ date }}</span>
+        </div>
+        <div class="col-lg text-right-md">
+          <span class="pr-2">{{ 'Author'|t }}: {{ author_name }}</span>
+          {# Nodes doesn't have comment field that can be counted, leaving placeholder here. #}
+          <span class="comments d-inline-block">
+            <span class="pr-2">|</span>
+            <i class="fas fa-comment pr-1"></i> 0 {{ 'Comments'|t }}</span>
+          {# End comments counter #}
+        </div>
+
       </div>
       <div class="middle">
-        <h2 class="title">{{ label }}</h2>
+        <a href="{{ url }}" rel="bookmark">
+          <h2 class="title">{{ label }}</h2>
+        </a>
         {{ teaser_text|length > 400 ? teaser_text|slice(0, 400) ~ '...' : teaser_text }}
+        <div class="bundle pt-4"><i class="fas fa-tags pr-2"></i> {{ bundle }}</div>
       </div>
     </div>
-  </a>
+  </div>
 </article>

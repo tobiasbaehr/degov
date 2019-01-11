@@ -9834,6 +9834,9 @@ readers do not read off random characters that represent icons */
 .degov-content-search-results .row-content:nth-child(odd) {
   background-color: #E6E8EA; }
 
+.degov-content-search-results article .middle .bundle {
+  color: #154575; }
+
 .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
   min-height: 120px;
   width: 100%;
