@@ -18,6 +18,7 @@ permissions:
   - 'access media_browser entity browser pages'
   - 'access toolbar'
   - 'administer menu'
+  - 'administer simplenews settings'
   - 'administer themes'
   - 'create media'
   - 'configure color schema ui'
