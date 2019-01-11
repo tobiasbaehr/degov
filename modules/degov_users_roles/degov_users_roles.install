@@ -104,6 +104,8 @@ function degov_users_roles_update_850100() {
  * deGov Update 5.1.1 Add a role system_configurator
  */
 function degov_users_roles_update_850101() {
+  \Drupal::service('module_installer')->install(['block_permissions']);
+
   // Apply updates for workflows
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_users_roles', '8012');
