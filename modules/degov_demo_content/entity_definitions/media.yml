@@ -131,3 +131,6 @@ video_mobile_1:
     field_ultrahd4k_video_mobile_mp4: 'pexels-videos-1409899-4k.mp4'
   status: 1
   field_media_publish_date: '2018-01-01T00:00:00'
+  field_allow_download_4k: 1
+  field_allow_download_mobile: 1
+  field_allow_download_hdready: 1

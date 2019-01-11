@@ -68,7 +68,6 @@ class MediaFileHandlerTest extends UnitTestCase {
 
     $mappedFields = null;
 
-    // ToDo: Test for single file
     foreach ($mediaDemoData as $customMediaKey => $mediaData) {
       $mappedFields = $mediaFileHandler->mapFileFields($mediaData, $customMediaKey);
     }
@@ -118,14 +117,26 @@ class MediaFileHandlerTest extends UnitTestCase {
         ],
         'expectedMapping' => [
           'bundle' => 'video_mobile',
-          'name'   => '{{SUBTITLE}}',
-          'files'  =>
-            array(
-              'field_fullhd_video_mobile_mp4'    => 'pexels-videos-1409899-full-hd.mp4',
-              'field_hdready_video_mobile_mp4'   => 'pexels-videos-1409899-hd-ready.mp4',
-              'field_mobile_video_mobile_mp4'    => 'pexels-videos-1409899-standard.mp4',
-              'field_video_mobile_mp4'           => 'pexels-videos-1409899-mobile.mp4',
-              'field_ultrahd4k_video_mobile_mp4' => 'pexels-videos-1409899-4k.mp4',
+          'name' => '{{SUBTITLE}}',
+          'field_fullhd_video_mobile_mp4' =>
+            array (
+              'target_id' => 5,
+            ),
+          'field_hdready_video_mobile_mp4' =>
+            array (
+              'target_id' => 5,
+            ),
+          'field_mobile_video_mobile_mp4' =>
+            array (
+              'target_id' => 5,
+            ),
+          'field_video_mobile_mp4' =>
+            array (
+              'target_id' => 5,
+            ),
+          'field_ultrahd4k_video_mobile_mp4' =>
+            array (
+              'target_id' => 5,
             ),
           'status' => 1,
         ],

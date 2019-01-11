@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\MediaFileHandler;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
@@ -51,6 +52,11 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   private $fixturesPath;
 
   /**
+   * @var MediaFileHandler
+   */
+  private $mediaFileHandler;
+
+  /**
    * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
@@ -60,10 +66,10 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
     parent::__construct($moduleHandler, $entityTypeManager);
     $this->wktGenerator = $wktGenerator;
-    $fixturesPath = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
+    $this->mediaFileHandler = $mediaFileHandler;
   }
 
   /**
@@ -73,7 +79,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
     $media_to_generate = $this->loadDefinitions('media.yml');
     $this->prepareValues($media_to_generate);
 
-    $this->saveFiles($media_to_generate, $fixturesPath);
+    $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
+    $this->mediaFileHandler->saveFiles($media_to_generate, $fixtures_path);
     $this->saveEntities($media_to_generate);
     $this->saveEntityReferences($media_to_generate);
   }
@@ -86,18 +93,18 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
     $this->generateContent();
   }
 
-
-
   /**
    * Saves the defined Media entities.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function saveEntities($media_to_generate): void {
+    $fields = null;
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
       $this->prepareValues($media_item);
-      list($fields, $media_item) = $this->mapFileFields($media_item, $media_item_key, $fields);
+
+      $fields = $this->mediaFileHandler->mapFileFields($media_item, $media_item_key);
 
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
@@ -109,6 +116,21 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
           'target_id' => $this->getDemoContentCopyrightId(),
         ];
       }
+
+      if ($media_item_key === 'field_address_address') {
+        $fields['field_address_address'] = [
+          $media_item['field_address_address'] ?? [],
+        ];
+        continue;
+      }
+
+      if ($media_item_key === 'field_address_location') {
+        if (!empty($media_item['field_address_location'])) {
+          $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
+          continue;
+        }
+      }
+
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;
