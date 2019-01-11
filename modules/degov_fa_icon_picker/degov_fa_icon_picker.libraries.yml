@@ -1,0 +1,9 @@
+degov_fa_icon_picker:
+  js:
+    ./js/webpack-dist/fontawesome-iconpicker.js: {}
+    ./js/webpack-dist/bundle.js: {}
+    ./js/webpack-dist/fontawesome/index.js: {}
+  css:
+    theme:
+      ./js/webpack-dist/fontawesome-iconpicker.css: {}
+      ./js/css/font-awesome.min.css: {}
