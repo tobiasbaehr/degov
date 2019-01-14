@@ -86,7 +86,7 @@ Feature: deGov - Media creation
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    And I should see text matching "Responsive Videos Mobile Video Example 1 wurde erstellt."
+    And I should see text matching "Responsives Video Mobile Video Example 1 wurde erstellt."
 
   Scenario: I create a mobile video media entity with HD videos
     Given I am logged in as an "Administrator"
@@ -107,7 +107,7 @@ Feature: deGov - Media creation
     And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    And I should see text matching "Responsive Videos Mobile Video Example 2 wurde erstellt."
+    And I should see text matching "Responsives Video Mobile Video Example 2 wurde erstellt."
 
   Scenario: I verify that the quality switcher works
     Given I am on "/mobile-video-example-2"
@@ -150,7 +150,7 @@ Feature: deGov - Media creation
     And I check checkbox with id "edit-field-allow-download-fullhd-value"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
-    And I should see text matching "Responsive Videos Video Example 2 wurde erstellt."
+    And I should see text matching "Responsives Video Video Example 2 wurde erstellt."
     Then I am on "/video-example-2"
     And I should see 1 "video" elements
     And I should see 2 ".video-mobile__downloads .file--download" elements
