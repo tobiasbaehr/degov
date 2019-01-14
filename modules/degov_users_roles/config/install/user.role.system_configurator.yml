@@ -2,11 +2,10 @@ langcode: de
 status: true
 dependencies:
   module:
-      - lightning_core
+    - lightning_core
   enforced:
     module:
       - degov_users_roles
-third_party_settings: {}
 id: system_configurator
 label: Systemkonfigurator
 weight: 18
@@ -20,6 +19,7 @@ permissions:
   - 'administer block settings for all themes'
   - 'administer blocks'
   - 'administer blocks provided by language'
+  - 'administer blocks provided by menu_block'
   - 'administer menu'
   - 'administer simplenews settings'
   - 'administer themes'
