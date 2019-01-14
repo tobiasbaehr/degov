@@ -2,10 +2,10 @@ langcode: de
 status: true
 dependencies:
   module:
-    - lightning_core
+      - lightning_core
   enforced:
     module:
-    - degov_users_roles
+      - degov_users_roles
 third_party_settings: {}
 id: system_configurator
 label: Systemkonfigurator
@@ -17,6 +17,9 @@ permissions:
   - 'access image_browser entity browser pages'
   - 'access media_browser entity browser pages'
   - 'access toolbar'
+  - 'administer block settings for all themes'
+  - 'administer blocks'
+  - 'administer blocks provided by language'
   - 'administer menu'
   - 'administer simplenews settings'
   - 'administer themes'
