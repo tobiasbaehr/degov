@@ -2,9 +2,6 @@ services:
   degov_theming.template:
     class: Drupal\degov_theming\Service\Template
     arguments: ['@theme.manager', '@degov_theming.component_location', '@twig']
-  degov_theming.filesystem_factory:
-    class: Drupal\degov_theming\Factory\FilesystemFactory
-    arguments: []
   degov_theming.drupal_path:
     class: Drupal\degov_theming\Service\DrupalPath
     arguments: []
@@ -16,3 +13,6 @@ services:
     arguments: []
     tags:
     - { name: twig.extension }
+  degov_theming.filesystem_factory:
+    class: Drupal\degov_theming\Factory\FilesystemFactory
+    arguments: []

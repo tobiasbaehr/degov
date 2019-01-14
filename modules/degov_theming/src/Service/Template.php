@@ -190,7 +190,10 @@ class Template {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 
-    return $twigTemplate->render($variables);
+    /*
+     * @TODO Added empty array due to bug in Twig 1.37.0, remove on fix.
+     */
+    return $twigTemplate->render($variables, []);
   }
 
 }
