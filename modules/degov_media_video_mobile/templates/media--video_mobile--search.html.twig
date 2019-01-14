@@ -19,8 +19,8 @@
 ] %}
 <article{{ attributes.addClass(media_classes) }}>
   <div class="media--search__type-text">{{ 'Video'|t }}</div>
-  {% if content.field_video_upload_preview|field_value %}
-    <div class="video-mobile__video">{{ content.field_video_upload_preview|field_value }}</div>
+  {% if content.field_video_mobile_preview|field_value %}
+    <div class="video-mobile__video">{{ content.field_video_mobile_preview|field_value }}</div>
   {% else %}
     <a href="{{ video_url }}">
       <div class="media--search__dummy"></div>
