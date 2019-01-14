@@ -5818,7 +5818,8 @@ template {
 .degov-navbar-wrapper {
   min-height: 3.5rem;
   background-color: #E6E8EA;
-  color: #2C2C2C; }
+  color: #2C2C2C;
+  border-bottom: #CECECE 2px solid; }
   .degov-navbar-wrapper a {
     color: #2C2C2C; }
   .degov-navbar-wrapper .navbar-toggler {
@@ -5826,6 +5827,8 @@ template {
     border-color: rgba(0, 0, 0, 0.1); }
     .degov-navbar-wrapper .navbar-toggler .navbar-toggler-icon {
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+  .degov-navbar-wrapper .dropdown-toggle::after {
+    content: none; }
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -5849,8 +5852,14 @@ footer.site-footer {
   width: 25px;
   height: 50px; }
 
-.degov-carousel .carousel-caption {
-  padding-top: 2.3rem;
+.degov-carousel .carousel-indicators {
+  display: none; }
+  @media (min-width: 768px) {
+    .degov-carousel .carousel-indicators {
+      display: flex; } }
+
+.degov-carousel .carousel-inner .carousel-caption {
+  padding-top: .4rem;
   background-color: #CCCCCC;
   opacity: .9;
   right: 0;
@@ -5858,11 +5867,25 @@ footer.site-footer {
   bottom: 0;
   color: #2C2C2C;
   text-align: left; }
-  .degov-carousel .carousel-caption h2 {
-    margin-bottom: 0; }
-  .degov-carousel .carousel-caption p {
+  @media (min-width: 768px) {
+    .degov-carousel .carousel-inner .carousel-caption {
+      padding-top: 2.3rem; } }
+  .degov-carousel .carousel-inner .carousel-caption h2::first-letter, .degov-carousel .carousel-inner .carousel-caption p::first-letter {
+    text-transform: capitalize; }
+  .degov-carousel .carousel-inner .carousel-caption h2 {
     margin-bottom: 0;
-    font-size: 1.3rem; }
+    color: #2C2C2C;
+    font-weight: bold;
+    font-size: 1rem; }
+    @media (min-width: 768px) {
+      .degov-carousel .carousel-inner .carousel-caption h2 {
+        font-size: 1.2rem; } }
+  .degov-carousel .carousel-inner .carousel-caption p {
+    margin-bottom: 0;
+    font-size: .9rem; }
+    @media (min-width: 768px) {
+      .degov-carousel .carousel-inner .carousel-caption p {
+        font-size: 1rem; } }
 
 .paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }

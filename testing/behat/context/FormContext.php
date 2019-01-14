@@ -187,7 +187,7 @@ class FormContext extends RawMinkContext {
         }
       }
       if ($found === FALSE) {
-        throw new \Exception(sprintf("Text '$text' and value '$value' not found in given options. Found: %s", print_r($htmlParts, 1)));
+        throw new \Exception("Text '$text' and value '$value' not found in given options.");
       }
     }
   }
@@ -233,7 +233,6 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
-        print_r($htmlParts);
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}
@@ -262,4 +261,31 @@ class FormContext extends RawMinkContext {
     throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
   }
 
+  /**
+   * Fills in form field with specified id|name|label|value
+   * Example: When I fill in "username" with: "bwayne"
+   * Example: And I fill in "bwayne" for "username"
+   *
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with "(?P<value>(?:[^"]|\\")*)"$/
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with:$/
+   * @When /^(?:|I )fill in "(?P<value>(?:[^"]|\\")*)" via translated text for "(?P<field>(?:[^"]|\\")*)"$/
+   */
+  public function fillField($field, $value)
+  {
+    $field = $this->fixStepArgument($this->translateString($field));
+    $value = $this->fixStepArgument($value);
+    $this->getSession()->getPage()->fillField($field, $value);
+  }
+
+  /**
+   * Returns fixed step argument (with \\" replaced back to ")
+   *
+   * @param string $argument
+   *
+   * @return string
+   */
+  protected function fixStepArgument($argument)
+  {
+    return str_replace('\\"', '"', $argument);
+  }
 }
