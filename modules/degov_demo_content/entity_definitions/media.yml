@@ -43,7 +43,7 @@ address_1:
   field_address_address:
     country_code: 'DE'
     organization: 'publicplan'
-    address_line1: 'Bikerstraße 29'
+    address_line1: 'Bilkerstraße 29'
     postal_code: 40213
     locality: 'Düsseldorf'
   field_address_location:
