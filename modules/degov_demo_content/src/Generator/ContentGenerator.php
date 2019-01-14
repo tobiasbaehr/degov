@@ -141,7 +141,7 @@ class ContentGenerator {
         $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
         break;
       default:
-        if (!\is_array($value) && preg_match('/\\{\\{MEDIA_ID\\_[a-zA-Z]*\\}\\}/', $value)) {
+        if (!\is_array($value) && \is_numeric(strpos($value, '{{MEDIA_ID'))) {
           $mediaTypeId = strtolower(str_replace(
             [
               '{{MEDIA_ID_',
@@ -166,7 +166,11 @@ class ContentGenerator {
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
-    $index = $this->counter % \count($medias);
+    try {
+      $index = $this->counter % \count($medias);
+    } catch(\DivisionByZeroError $exception) {
+      throw new \Exception('Media is missing. May the field definitions of your entity definitions for demo content are wrong?');
+    }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);
   }
