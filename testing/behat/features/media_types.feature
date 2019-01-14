@@ -20,7 +20,7 @@ Feature: deGov - Media types
     And I should see text matching "Tweet"
     And I should see text matching "Video"
     And I should see text matching "Video Upload"
-    And I should see text matching "Responsive Videos"
+    And I should see text matching "Responsives Video"
     And I should see text matching "Zitat"
 
   Scenario: Media type address has all required fields
