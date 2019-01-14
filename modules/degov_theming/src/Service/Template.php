@@ -190,7 +190,7 @@ class Template {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 
-    return $twigTemplate->render($variables);
+    return $twigTemplate->render($variables, []);
   }
 
 }
