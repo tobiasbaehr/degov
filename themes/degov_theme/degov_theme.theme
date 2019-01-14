@@ -21,7 +21,7 @@ function degov_theme_preprocess_html(&$vars) {
           $vars['head_title']['name'] = drupal_install_profile_distribution_name();
         }
       }
-
+      // TODO: Use file_scan_directory.
       $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
 
       if ($background_images_dir_handle) {
@@ -265,4 +265,10 @@ function degov_theme_preprocess_node(&$variables) {
 function degov_theme_preprocess_menu(&$vars) {
   MenuFaIconsPreprocess::preprocess($vars['items'], $vars['menu_name']);
   MenuAccountPreprocess::preprocess($vars);
+}
+
+function degov_theme_preprocess_block__facet_block__search_content_changed(&$vars) {
+////block--facet-block--search-content-changed
+//  $scd = '';
+//  $vars["content"][0]["date_filter_wrapper"]["actions"]["submit"]["#attributes"]["class"][] = 'd-none';
 }
