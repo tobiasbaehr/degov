@@ -189,6 +189,18 @@ function degov_common_update_8032() {
   }
 }
 
+function degov_common_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
+}
+
 /**
  * Implements hook_update_dependencies().
  *

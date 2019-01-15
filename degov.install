@@ -12,7 +12,15 @@ use Drupal\field\Entity\FieldConfig;
  * @throws \Exception
  */
 function degov_install() {
-  degov_common_import_translations();
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 function degov_update_8440() {
@@ -226,7 +234,15 @@ function degov_update_860000() {
  * Update translations.
  */
 function degov_update_860100() {
-  degov_common_import_translations();
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 function degov_update_dependencies() {
