@@ -4,6 +4,8 @@ theme-assets:
       webpack-dist/main.css: {}
   js:
     webpack-dist/main.js: {}
+  dependencies:
+    - core/jquery
 
 install-page:
   css:

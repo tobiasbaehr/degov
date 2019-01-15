@@ -41,15 +41,26 @@
 #}
 
 {% if slide_link %}<a class="d-block w-100" href="{{ slide_link }}">{% endif %}
-  <div class="d-block w-100">{{ content.field_slide_media|field_value }}</div>
+  <div class="d-block w-100 text-center">
+    {% if slide_responsive_image %}
+      {{ slide_responsive_image }}
+    {% elseif slide.field_media_video_embed_field %}
+      {{ slide.field_media_video_embed_field }}
+    {% endif %}
+  </div>
   {% if not paragraph.field_slide_text.isEmpty() or not paragraph.field_override_caption.isEmpty() %}
-    <div class="carousel-caption d-block w-100 pb-5">
+    <div class="carousel-caption  d-none d-lg-inline-block d-xl-inline-block d-md-none w-100 pb-1 pb-md-2 pb-lg-5 pb-xl-5">
       <div class="container">
         {% if not paragraph.field_slide_text.isEmpty() %}
-          <h2>{{ content.field_slide_text|field_value|render|striptags }}</h2>
+          <h2>
+            {{ content.field_slide_text|render|striptags|length > 150 ? content.field_slide_text|render|striptags|slice(0, 150) ~ '...' : content.field_slide_text|render|striptags }}
+          </h2>
         {% endif %}
         {% if not paragraph.field_override_caption.isEmpty() %}
-          <p>{{ paragraph.field_override_caption[0].value }}</p>
+          <p>
+            {#{{ paragraph.field_override_caption[0].value }}#}
+            {{ paragraph.field_override_caption[0].value|render|striptags|length > 200 ? paragraph.field_override_caption[0].value|render|striptags|slice(0, 200) ~ '...' : paragraph.field_override_caption[0].value|render|striptags }}
+          </p>
         {% endif %}
       </div>
     </div>

@@ -581,6 +581,8 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iHaveDismissedTheCookieBannerIfNecessary()
   {
+
+    $this->getSession()->visit($this->locatePath('/'));
     if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
@@ -836,4 +838,24 @@ class DrupalContext extends RawDrupalContext {
     $this->openNodeViewByTitle('An normal page with a content reference');
   }
 
+  /**
+   * @Given I set the privacy policy page for all languages
+   */
+  public function setThePrivacyPolicyPageForAllLanguages() {
+    $degov_simplenews_settings = \Drupal::service('config.factory')
+      ->getEditable('degov_simplenews.settings');
+    $all_languages = \Drupal::service('language_manager')->getLanguages();
+    $page_with_all_teasers_nid = \Drupal::entityQuery('node')
+      ->execute();
+    if (!empty($page_with_all_teasers_nid)) {
+      $page_with_all_teasers_nid = reset($page_with_all_teasers_nid);
+
+      $privacy_policies = [];
+      foreach ($all_languages as $language) {
+        $privacy_policies[$language->getId()] = $page_with_all_teasers_nid;
+      }
+      $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
+        ->save();
+    }
+  }
 }

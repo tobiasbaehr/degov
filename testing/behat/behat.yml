@@ -8,6 +8,7 @@ default:
         - Drupal\DrupalExtension\Context\DrushContext
         - Drupal\degov\Behat\Context\DrupalContext
         - Drupal\degov\Behat\Context\FormContext
+        - Drupal\degov\Behat\Context\BlockContext
         - Drupal\degov\Behat\Context\DrupalIndependentContext
         - Drupal\degov\Behat\Context\NodeContentTypeFormContext
         - Drupal\degov\Behat\Context\ModuleContext
