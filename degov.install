@@ -6,6 +6,15 @@
 
 use Drupal\field\Entity\FieldConfig;
 
+/**
+ * Implements hook_install().
+ *
+ * @throws \Exception
+ */
+function degov_install() {
+  degov_common_import_translations();
+}
+
 function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
@@ -206,13 +215,18 @@ function degov_update_850100() {
  * Re-Import search_media view.
  */
 function degov_update_860000() {
-
   /**
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'install');
+}
 
+/**
+ * Update translations.
+ */
+function degov_update_860100() {
+  degov_common_import_translations();
 }
 
 function degov_update_dependencies() {
