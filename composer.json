@@ -238,9 +238,6 @@
             "drupal/simplenews": {
                 "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch"
             },
-            "drupal/paragraphs": {
-                "Issue 2976891 - PHP 7.2 Throws countable error": "https://www.drupal.org/files/issues/2018-08-30/paragraphs_0.patch"
-            },
             "drupal/core": {
                 "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
                 "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
