@@ -10,7 +10,8 @@ Feature: deGov - Users
     Then I should not see text matching "Warning"
 
   Scenario: I am installing the degov user roles module
-    Given I am logged in as a user with the "Administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
     Then I am installing the "degov_users_roles" module
     Then I am on "/admin/people/roles"
     And I should see "Chefredakteur"
