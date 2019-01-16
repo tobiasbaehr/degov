@@ -16,3 +16,14 @@ Feature: deGov - Users
     And I should see "Chefredakteur"
     And I should see "Redakteur"
     And I should see "Benutzerverwaltung"
+
+  Scenario: As a system configurator I should be able to only access language blocks
+    Given I am logged in as a user with the "Systemkonfigurator" role
+    And I am on "/admin/structure/block/list/degov_theme"
+    Then I should not see text matching "Access denied" via translated text
+    And I should see 1 "table#blocks" elements
+    And I should see 0 "div.dropbutton-widget" elements
+    And I should not see text matching "Language switcher" via translated text
+    Then I click by selector "a#edit-blocks-region-top-header-title" via JavaScript
+    And I should see text matching "Language switcher" via translated text after a while
+    And I should see 1 "table.block-add-table tbody tr" elements
