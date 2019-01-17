@@ -5887,6 +5887,18 @@ footer.site-footer {
       .degov-carousel .carousel-inner .carousel-caption p {
         font-size: 1rem; } }
 
+.shariff-button {
+  position: relative; }
+  .shariff-button .sharing-overlay {
+    background-color: rgba(200, 200, 200, 0.5);
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2; }
+
 .paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }
   .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header h2, .block--degov-social-media-youtube .paragraph__header h2, .block--degov-social-media-twitter .paragraph__header h2, .paragraph-node-reference-node-view-mode-slim .paragraph__header h2, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header h2, .block--degov-social-media-instagram .paragraph__header h2 {
