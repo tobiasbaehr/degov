@@ -16,7 +16,8 @@ Feature: deGov Social Media Sharing
     Then I open node edit form by node title "Page with all teasers"
     And I choose "General" via translation from tab menu
     Then I check checkbox with id "edit-field-social-media-value"
-    And I scroll to element with id "edit-submit"
+#    And I scroll to element with id "edit-submit"
+#    And I wait 60 seconds
     And I click by CSS id "edit-submit"
     Then I should see HTML content matching "alert-status" after a while
     And I should see 3 "li.shariff-button" elements via JavaScript
@@ -27,7 +28,7 @@ Feature: deGov Social Media Sharing
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/config/services/shariff"
     And I check checkbox with id "edit-enable-1-click-sharing"
-    And I scroll to element with id "edit-submit"
+#    And I scroll to element with id "edit-submit"
     And I click by CSS id "edit-submit"
     Then I should see text matching "The configuration options have been saved." via translation after a while
     Then I open node edit form by node title "Page with all teasers"
