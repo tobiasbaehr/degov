@@ -5,6 +5,7 @@
  */
 
 use Drupal\field\Entity\FieldConfig;
+use Drupal\media\Entity\MediaType;
 
 function degov_update_8440() {
   // Read the configuration.
@@ -36,7 +37,8 @@ function degov_update_8442() {
 }
 
 /**
- * Installing Bartik theme to prevent configuration errors created by block imports
+ * Installing Bartik theme to prevent configuration errors created by block
+ * imports
  */
 function degov_update_8443() {
   \Drupal::service('theme_installer')->install(['bartik']);
@@ -183,7 +185,9 @@ function degov_update_8501() {
 }
 
 /**
- * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
+ * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of
+ * deGov Email Login module., Install the Link Attributes module, if it's not
+ * already installed.
  */
 function degov_update_850100() {
 
@@ -203,7 +207,7 @@ function degov_update_850100() {
 }
 
 /**
- * Re-Import search_media view.
+ * Re-Import search_media view., Remove media type video_file if there is no content.
  */
 function degov_update_860000() {
 
@@ -213,6 +217,13 @@ function degov_update_860000() {
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->reImport('views.view.search_media', 'degov_search_media', 'install');
 
+
+  if (!\Drupal::entityQuery('media')
+    ->condition('bundle', 'video_file')
+    ->accessCheck(FALSE)
+    ->execute()) {
+    MediaType::load('video_file')->delete();
+  }
 }
 
 function degov_update_dependencies() {
