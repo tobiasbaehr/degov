@@ -37,8 +37,7 @@ function degov_update_8442() {
 }
 
 /**
- * Installing Bartik theme to prevent configuration errors created by block
- * imports
+ * Installing Bartik theme to prevent configuration errors created by block imports
  */
 function degov_update_8443() {
   \Drupal::service('theme_installer')->install(['bartik']);
@@ -185,9 +184,7 @@ function degov_update_8501() {
 }
 
 /**
- * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of
- * deGov Email Login module., Install the Link Attributes module, if it's not
- * already installed.
+ * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
 function degov_update_850100() {
 
