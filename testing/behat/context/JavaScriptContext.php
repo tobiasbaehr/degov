@@ -91,4 +91,15 @@ class JavaScriptContext extends RawMinkContext {
     throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
   }
 
+  /**
+   * @Then I should see :number :selector elements via JavaScript
+   */
+  public function iShouldSeeElementsViaJavaScript(int $number, string $selector) {
+    $numberOfElementsFound = (int)$this->getSession()->evaluateScript("document.querySelectorAll('" . $selector . "').length");
+    if($numberOfElementsFound === $number) {
+      return true;
+    }
+    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+  }
+
 }
