@@ -14,7 +14,7 @@ Feature: deGov Social Media Sharing
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/node/1/edit"
-    And I choose "Common" via translation from tab menu
+    And I choose "General" via translation from tab menu
     Then I check checkbox with id "edit-field-social-media-value"
     And I scroll to element with id "edit-submit"
     And I click by CSS id "edit-submit"
@@ -31,7 +31,7 @@ Feature: deGov Social Media Sharing
     And I click by CSS id "edit-submit"
     Then I should see text matching "The configuration options have been saved." via translation after a while
     Then I am on "/node/1/edit"
-    And I choose "Common" via translation from tab menu
+    And I choose "General" via translation from tab menu
     Then I check checkbox with id "edit-field-social-media-value"
     And I scroll to element with id "edit-submit"
     And I click by CSS id "edit-submit"
