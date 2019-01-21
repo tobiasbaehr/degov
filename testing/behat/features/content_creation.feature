@@ -29,7 +29,7 @@ Feature: deGov - Content creation
     And I should see "Vorschau Titel"
     And I should see "Vorschau Untertitel"
     And I should see "Vorschau Text"
-    And I choose "Common" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     And I should see "Schlagworte"
     And I should see "Sprache"
     And I should see "Thema"
@@ -44,7 +44,7 @@ Feature: deGov - Content creation
     And I should see "Add Paragraph"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see "Add Paragraph"
+    And I should see text matching "Add Paragrap" via translated text
 
   Scenario: I see all form fields in blog content type
     Given I am logged in as a user with the "administrator" role
@@ -56,7 +56,7 @@ Feature: deGov - Content creation
     And I should see "Vorschau Titel"
     And I should see "Vorschau Untertitel"
     And I should see "Vorschau Text"
-    And I choose "Common" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     And I should see "Schlagworte"
     And I should see "Social Media Buttons anzeigen"
     And I choose "Header" via translation from tab menu
@@ -67,7 +67,7 @@ Feature: deGov - Content creation
     And I should see "Add Paragraph"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see "Add Paragraph"
+    And I should see text matching "Add Paragrap" via translated text
 
   Scenario: I see all form fields in faq content type
     Given I am logged in as a user with the "administrator" role
@@ -80,7 +80,7 @@ Feature: deGov - Content creation
     And I should see "INHALTSBEREICH"
     And I should see "Add Paragraph"
     And I should see "VERWANTE FAQ"
-    And I choose "Common" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     And I should see "Bereich"
 
   Scenario: I see all form fields in newsletter content type
@@ -99,7 +99,7 @@ Feature: deGov - Content creation
     And I should see "Vorschau Titel"
     And I should see "Vorschau Untertitel"
     And I should see "Vorschau Text"
-    And I choose "Common" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     And I should see "Schlagworte"
     And I should see "Social Media Buttons anzeigen"
     And I should see "Sprache"
@@ -134,7 +134,7 @@ Feature: deGov - Content creation
     And I should see "Vorschau Titel"
     And I should see "Vorschau Untertitel"
     And I should see "Vorschau Text"
-    And I choose "Common" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     And I should see "Schlagworte"
     And I should see "Social Media Buttons anzeigen"
     And I should see "Sprache"
