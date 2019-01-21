@@ -38,13 +38,13 @@ Feature: deGov - Content creation
     And I should see "Ansichtssteuerung"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in blog content type
     Given I am logged in as a user with the "administrator" role
@@ -61,13 +61,13 @@ Feature: deGov - Content creation
     And I should see "Social Media Buttons anzeigen"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in faq content type
     Given I am logged in as a user with the "administrator" role
@@ -78,7 +78,7 @@ Feature: deGov - Content creation
     And I should see "Beschreibung"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I should see "VERWANTE FAQ"
     And I choose "Allgemein" from tab menu
     And I should see "Bereich"
@@ -109,13 +109,13 @@ Feature: deGov - Content creation
     And I should see "Ansichtssteuerung"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in event content type
     Given I am logged in as a user with the "administrator" role
@@ -144,10 +144,10 @@ Feature: deGov - Content creation
     And I should see "Ansichtssteuerung"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see text matching "Add Paragraph" via translated text
+    And I should see text matching "Paragraph hinzufügen"
