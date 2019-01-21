@@ -56,6 +56,7 @@ function degov_module_setup(&$install_state) {
     'degov_pathauto'                    => 'degov_pathauto',
     'degov_rich_text_format_settings'   => 'degov_rich_text_format_settings',
     'degov_users_roles'                 => 'degov_users_roles',
+    'degov_metatags'                    => 'degov_metatags',
     'degov_node_overrides'              => 'degov_node_overrides',
     'degov_taxonomies'                  => 'degov_taxonomies',
     'degov_node_normal_page'            => 'degov_node_normal_page',
