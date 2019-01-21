@@ -1,5 +1,0 @@
-<?php
-
-function degov_scheduled_updates_rewrite_update_8001() {
-  \Drupal::service('module_installer')->uninstall(['degov_scheduled_updates_rewrite']);
-}
