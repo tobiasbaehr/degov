@@ -79,7 +79,7 @@ Feature: deGov - Content creation
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
     And I should see HTML content matching "Paragraph hinzufügen"
-    And I should see "VERWANTE FAQ"
+    And I should see "VERWANDTE FAQ"
     And I choose "Allgemein" from tab menu
     And I should see "Bereich"
 
