@@ -24,3 +24,4 @@ dependencies:
   - user
   - views
   - degov_node_overrides
+  - degov_metatags
