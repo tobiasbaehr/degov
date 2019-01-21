@@ -1,4 +1,3 @@
-uuid: 35d5f696-fc64-4545-9a9f-ace2b466a379
 langcode: de
 status: true
 dependencies:
@@ -150,8 +149,6 @@ third_party_settings:
         required_fields: true
       label: Content
       region: content
-_core:
-  default_config_hash: pvGvBv9yL1Emj5a7rjehaaidlRvJE4ht1lwTMNSvZg8
 id: node.event.default
 targetEntityType: node
 bundle: event

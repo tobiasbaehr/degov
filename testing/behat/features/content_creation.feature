@@ -3,7 +3,11 @@ Feature: deGov - Content creation
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | degov_node_press |
+      | degov_node_press            |
+      | degov_node_event            |
+      | degov_node_blog             |
+      | degov_node_normal_page      |
+      | degov_simplenews_references |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
