@@ -5,7 +5,7 @@ use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
 use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
-
+use Drupal\degov_theme\Preprocess\ViewsSearchContent as ViewsSearchContentPreprocess;
 /**
  * Implements hook_preprocess_html().
  */
@@ -267,8 +267,10 @@ function degov_theme_preprocess_menu(&$vars) {
   MenuAccountPreprocess::preprocess($vars);
 }
 
-function degov_theme_preprocess_block__facet_block__search_content_changed(&$vars) {
-////block--facet-block--search-content-changed
-//  $scd = '';
-//  $vars["content"][0]["date_filter_wrapper"]["actions"]["submit"]["#attributes"]["class"][] = 'd-none';
+/**
+ * Implements hook_preprocess_menu().
+ */
+function degov_theme_preprocess_views_view(&$vars, $hook) {
+  Drupal::classResolver(ViewsSearchContentPreprocess::class)
+    ->preprocess($vars, $hook);
 }

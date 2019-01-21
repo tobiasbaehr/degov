@@ -21,3 +21,7 @@ install-page:
 video-control:
   js:
     javascript/video-control.js: {}
+
+search-sorts-improvements:
+  js:
+    javascript/search-sorts-improvements.js: {}

@@ -1,12 +1,20 @@
 // Content search results
+@import "search_sorts_bar";
 
-.degov-content-search-results {
-  .row-content:nth-child(odd) {
-    background-color: $gray-light;
-  }
-  article {
-    .middle .bundle {
-      color: $blue;
+.view-search-content {
+  @include sort_bar();
+  @extend .mt-md-5;
+  .view-content {
+    .degov-content-search-results {
+      .row-content:nth-child(odd) {
+        background-color: $gray-light;
+      }
+      article {
+        .middle .bundle {
+          color: $blue;
+        }
+      }
     }
   }
 }
+

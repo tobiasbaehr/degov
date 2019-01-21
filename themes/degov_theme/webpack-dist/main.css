@@ -1522,7 +1522,7 @@ button.bg-dark:focus {
 .d-none {
   display: none !important; }
 
-.d-inline {
+.d-inline, .view-search-content .sorts-current-search-wrapper h2 {
   display: inline !important; }
 
 .d-inline-block {
@@ -2382,7 +2382,7 @@ button.bg-dark:focus {
 .py-3 {
   padding-top: 1rem !important; }
 
-.pr-3,
+.pr-3, .view-search-content .sorts-current-search-wrapper h2,
 .px-3 {
   padding-right: 1rem !important; }
 
@@ -2708,7 +2708,7 @@ button.bg-dark:focus {
     margin-left: 1.5rem !important; }
   .m-md-5 {
     margin: 3rem !important; }
-  .mt-md-5,
+  .mt-md-5, .view-search-content,
   .my-md-5 {
     margin-top: 3rem !important; }
   .mr-md-5,
@@ -5021,7 +5021,7 @@ html {
 .d-none {
   display: none !important; }
 
-.d-inline {
+.d-inline, .view-search-content .sorts-current-search-wrapper h2 {
   display: inline !important; }
 
 .d-inline-block {
@@ -9831,10 +9831,34 @@ readers do not read off random characters that represent icons */
 .srmedia__title {
   min-height: 1.5rem; }
 
-.degov-content-search-results .row-content:nth-child(odd) {
+.view-search-content .sorts-current-search-wrapper {
+  color: #fff; }
+  .view-search-content .sorts-current-search-wrapper a {
+    color: #fff; }
+  .view-search-content .sorts-current-search-wrapper h2 {
+    font-size: 1.2rem;
+    font-weight: 900; }
+  .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
+    background-color: #fff;
+    text-decoration: none;
+    color: #2C2C2C;
+    position: relative; }
+    .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder .fas {
+      position: absolute;
+      right: 15px;
+      top: 9px; }
+    @media (max-width: 991.98px) {
+      .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
+        width: 100%; } }
+  .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts {
+    color: #2C2C2C; }
+    .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts a {
+      color: #2C2C2C; }
+
+.view-search-content .view-content .degov-content-search-results .row-content:nth-child(odd) {
   background-color: #E6E8EA; }
 
-.degov-content-search-results article .middle .bundle {
+.view-search-content .view-content .degov-content-search-results article .middle .bundle {
   color: #154575; }
 
 .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
@@ -9914,7 +9938,7 @@ html, body {
   max-width: 100%;
   overflow-x: hidden; }
 
-.bg-blue {
+.bg-blue, .view-search-content .sorts-current-search-wrapper {
   background-color: #154575; }
 
 /*!
