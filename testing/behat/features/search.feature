@@ -32,5 +32,9 @@ Feature: deGov - Search
   Scenario: I verify that the content type filter shows labels, not machine names
     Given I am installing the "degov_search_content" module
     Given I am installing the "degov_demo_content" module
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/config/search/search-api/index/search_content"
+    And I press button with label "Index now" via translated text
+    Then I should see text matching "Successfully indexed" after a while
     And I am on "/suche"
     Then I should see an ".facet-item__value" element with the content "Inhaltsseite" via translation
