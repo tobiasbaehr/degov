@@ -871,6 +871,25 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then I should see an :selector element with the content :content
+   */
+  public function iShouldSeeAnElementWithTheContent($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $content) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
    * @Then I should see an :selector element with the content :content via translation
    */
   public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
@@ -884,7 +903,7 @@ class DrupalContext extends RawDrupalContext {
         }
       }
 
-      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
     }
 
     throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
