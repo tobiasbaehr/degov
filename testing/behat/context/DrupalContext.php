@@ -101,6 +101,18 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I open media edit form by media name "([^"]*)"$/
+   * @param string $name
+   */
+  public function openMediaEditFormByName(string $name) {
+    $query = \Drupal::service('database')->select('media_field_data', 'mfd')
+      ->fields('mfd', ['mid'])
+      ->condition('mfd.name', $name);
+
+    $this->visitPath('/media/' . $query->execute()->fetchField() . '/edit');
+  }
+
+  /**
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
