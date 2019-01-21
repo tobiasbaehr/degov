@@ -16,7 +16,6 @@ use Drupal\permissions_by_term\Service\AccessStorage;
 use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
@@ -857,5 +856,25 @@ class DrupalContext extends RawDrupalContext {
       $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
         ->save();
     }
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content via translation
+   */
+  public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $translatedContent = $this->translateString($content);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $translatedContent) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
   }
 }

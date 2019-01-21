@@ -28,3 +28,9 @@ Feature: deGov - Search
     And I press "Speichern"
     And I am on "/mediathek"
     And I should not see "ipsum dolor sit amet consetetur"
+
+  Scenario: I verify that the content type filter shows labels, not machine names
+    Given I am installing the "degov_search_content" module
+    Given I am installing the "degov_demo_content" module
+    And I am on "/suche"
+    Then I should see an ".facet-item__value" element with the content "Inhaltsseite" via translation
