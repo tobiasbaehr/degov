@@ -128,7 +128,6 @@ Feature: deGov - Content creation
     And I should see "ADRESSE"
     And I should see "Land"
     And I should see "Firma"
-    And I should see text matching "Street address" via translated text
     And I should see text matching "Postal code" via translated text
     And I should see text matching "City" via translated text
     And I should see "Vorschau Titel"
