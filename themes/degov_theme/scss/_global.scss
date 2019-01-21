@@ -1,0 +1,14 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.path-user {
+  #block-mainpagecontent {
+    @extend .container;
+  }
+}
+
+.bg-blue {
+  background-color: $blue;
+}

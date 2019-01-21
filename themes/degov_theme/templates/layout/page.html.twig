@@ -53,7 +53,7 @@
         <nav class="navbar navbar-expand-sm">
           {{ page.top_header }}
           {% if social_icons %}
-            <div class="float-right">
+            <div class="float-right d-none d-lg-inline-block d-xl-inline-block d-md-none">
               {% for social_icon in social_icons %}
               <a href="{{ social_icon['url'] }}" target="_blank" class="mr-2"><i class="{{ social_icon['font-awesome-classes'] }}"></i></a>
               {% endfor %}
@@ -103,22 +103,19 @@
 
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-  <div class="container">
-    {% if page.breadcrumb %}
-      {{ page.breadcrumb }}
-    {% endif %}
-    <div class="row">
-      <div class="col-sm-12">
-        {{ page.content }}
-      </div>
+  {% if page.breadcrumb %}
+    {{ page.breadcrumb }}
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-12">
+      {{ page.content }}
     </div>
   </div>
 </main>
 
 
 {% if page.footer %}
-  <footer class="mt-3">
+  <footer class="site-footer mt-3">
     <div class="container">
       {{ page.footer }}
     </div>

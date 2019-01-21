@@ -16,7 +16,6 @@ use Drupal\permissions_by_term\Service\AccessStorage;
 use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
@@ -99,6 +98,18 @@ class DrupalContext extends RawDrupalContext {
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField() . '/edit');
+  }
+
+  /**
+   * @Then /^I open media edit form by media name "([^"]*)"$/
+   * @param string $name
+   */
+  public function openMediaEditFormByName(string $name) {
+    $query = \Drupal::service('database')->select('media_field_data', 'mfd')
+      ->fields('mfd', ['mid'])
+      ->condition('mfd.name', $name);
+
+    $this->visitPath('/media/' . $query->execute()->fetchField() . '/edit');
   }
 
   /**
@@ -581,6 +592,8 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iHaveDismissedTheCookieBannerIfNecessary()
   {
+
+    $this->getSession()->visit($this->locatePath('/'));
     if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
@@ -836,4 +849,63 @@ class DrupalContext extends RawDrupalContext {
     $this->openNodeViewByTitle('An normal page with a content reference');
   }
 
+  /**
+   * @Given I set the privacy policy page for all languages
+   */
+  public function setThePrivacyPolicyPageForAllLanguages() {
+    $degov_simplenews_settings = \Drupal::service('config.factory')
+      ->getEditable('degov_simplenews.settings');
+    $all_languages = \Drupal::service('language_manager')->getLanguages();
+    $page_with_all_teasers_nid = \Drupal::entityQuery('node')
+      ->execute();
+    if (!empty($page_with_all_teasers_nid)) {
+      $page_with_all_teasers_nid = reset($page_with_all_teasers_nid);
+
+      $privacy_policies = [];
+      foreach ($all_languages as $language) {
+        $privacy_policies[$language->getId()] = $page_with_all_teasers_nid;
+      }
+      $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
+        ->save();
+    }
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content
+   */
+  public function iShouldSeeAnElementWithTheContent($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $content) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content via translation
+   */
+  public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $translatedContent = $this->translateString($content);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $translatedContent) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
 }

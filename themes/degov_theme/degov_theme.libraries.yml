@@ -4,6 +4,8 @@ theme-assets:
       webpack-dist/main.css: {}
   js:
     webpack-dist/main.js: {}
+  dependencies:
+    - core/jquery
 
 install-page:
   css:
@@ -15,3 +17,7 @@ install-page:
     - seven/install-page
     - classy/progress
     - classy/user
+
+video-control:
+  js:
+    javascript/video-control.js: {}

@@ -1,37 +1,5 @@
-/**
- * Variable Overrides.
- */
-/* roboto-regular - latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/roboto-v18-latin-regular.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto"), local("Roboto-Regular"), url("../fonts/roboto-v18-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v18-latin-regular.woff2") format("woff2"), url("../fonts/roboto-v18-latin-regular.woff") format("woff"), url("../fonts/roboto-v18-latin-regular.ttf") format("truetype"), url("../fonts/roboto-v18-latin-regular.svg#Roboto") format("svg");
-  /* Legacy iOS */ }
-
-/* roboto-italic - latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: italic;
-  font-weight: 400;
-  src: url("../fonts/roboto-v18-latin-italic.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto Italic"), local("Roboto-Italic"), url("../fonts/roboto-v18-latin-italic.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v18-latin-italic.woff2") format("woff2"), url("../fonts/roboto-v18-latin-italic.woff") format("woff"), url("../fonts/roboto-v18-latin-italic.ttf") format("truetype"), url("../fonts/roboto-v18-latin-italic.svg#Roboto") format("svg");
-  /* Legacy iOS */ }
-
-/* roboto-700 - latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/roboto-v18-latin-700.eot");
-  /* IE9 Compat Modes */
-  src: local("Roboto Bold"), local("Roboto-Bold"), url("../fonts/roboto-v18-latin-700.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto-v18-latin-700.woff2") format("woff2"), url("../fonts/roboto-v18-latin-700.woff") format("woff"), url("../fonts/roboto-v18-latin-700.ttf") format("truetype"), url("../fonts/roboto-v18-latin-700.svg#Roboto") format("svg");
-  /* Legacy iOS */ }
-
 .install-page {
+  background-attachment: fixed;
   background-position: center;
   background-size: cover; }
 
@@ -44,12 +12,12 @@
     height: auto;
     width: 35%; }
   .page-title .site-version {
-    color: #004473; }
+    color: #154575; }
 
 /* Forms */
 .form-required::after {
   content: "*";
-  color: #ff0000;
+  color: #dc3545;
   margin-left: 0.5em; }
 
 fieldset legend {
@@ -87,8 +55,8 @@ input[type="submit"] {
     border-color: #154575; }
   input[type="submit"]:hover, input[type="submit"]:focus {
     background-color: #2578cb;
-    box-shadow: 0 2px 4px rgba(44, 44, 44, 0.5); }
+    box-shadow: 0 2px 4px rgba(204, 204, 204, 0.5); }
   input[type="submit"]:active {
     background-color: #19528b;
-    box-shadow: 0 0 2px rgba(44, 44, 44, 0.75); }
+    box-shadow: 0 0 2px rgba(204, 204, 204, 0.75); }
 
