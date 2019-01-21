@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.event.field_event_location
     - field.field.node.event.field_header_paragraphs
     - field.field.node.event.field_internal_title
-    - field.field.node.event.field_scheduled_publish
     - field.field.node.event.field_section
     - field.field.node.event.field_sidebar_right_paragraphs
     - field.field.node.event.field_social_media
@@ -34,7 +33,6 @@ dependencies:
     - field_group
     - paragraphs
     - path
-    - scheduled_publish
     - text
 third_party_settings:
   field_group:
@@ -241,12 +239,6 @@ content:
   field_metatags:
     type: metatag_firehose
     weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_scheduled_publish:
-    type: scheduled_publish
-    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
