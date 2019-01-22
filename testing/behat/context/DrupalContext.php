@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -907,5 +908,25 @@ class DrupalContext extends RawDrupalContext {
     }
 
     throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Given /^I rebuild the "([^"]*)" index$/
+   */
+  public function iRebuildTheIndex($indexId) {
+    $index_storage = \Drupal::entityTypeManager()
+      ->getStorage('search_api_index');
+    /** @var \Drupal\search_api\IndexInterface $index */
+    $index = $index_storage->load($indexId);
+    $index->reindex();
+    $index->indexItems();
+  }
+
+  /**
+   * @Given /^I clear the cache$/
+   */
+  public function iClearTheCache() {
+    drupal_flush_all_caches();
+
   }
 }
