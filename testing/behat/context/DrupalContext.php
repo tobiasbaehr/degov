@@ -916,11 +916,9 @@ class DrupalContext extends RawDrupalContext {
   public function iRebuildTheIndex($indexId) {
     $index_storage = \Drupal::entityTypeManager()
       ->getStorage('search_api_index');
-    /**
-     * @var $index \Drupal\search\Plugin\SearchIndexingInterface
-     */
+    /** @var \Drupal\search_api\IndexInterface $index */
     $index = $index_storage->load($indexId);
-    $index->updateIndex();
+    $index->reindex();
   }
 
   /**
