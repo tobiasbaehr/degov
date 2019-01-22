@@ -24,6 +24,12 @@ image_4:
   file: 'kari-shea-1066699-unsplash.jpg'
   status: 1
   field_include_search: 1
+image_5:
+  bundle: 'image'
+  name: 'This image will be deleted'
+  file: 'taneli-lahtinen-1058552-unsplash.jpg'
+  status: 1
+  field_include_search: 1
 video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
