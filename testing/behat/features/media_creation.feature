@@ -225,14 +225,14 @@ Feature: deGov - Media creation
     Given I am installing the "degov_demo_content" module
     And I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
-    And I am on "/media/1/edit"
+    And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I am on "/ipsum-dolor-sit-amet-consetetur"
+    And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
-    And I should see HTML content matching "media--view-mode-full"
+    And I should see HTML content matching "image--full"
 
   Scenario: I verify that a deleted Media's file is actually gone
     Given I am installing the "degov_demo_content" module
