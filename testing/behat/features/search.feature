@@ -34,6 +34,8 @@ Feature: deGov - Search
     Given I am installing the "degov_demo_content" module
     Then I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
+    And I rebuild the "search_content" index
+    And I clear the cache
     Then I am on "/suche"
     And I should see an ".facet-item__value" element with the content "Inhaltsseite"
 
