@@ -227,11 +227,13 @@ function degov_theme_preprocess_media(&$vars) {
     $media_images = $media->get('field_gallery_images')->referencedEntities();
     if ($media_images) {
       foreach ($media_images as $media_image) {
-        $vars['gallery_images'][] = [
-          '#theme' => 'image_style',
-          '#style_name' => 'teaser_squared_1_1_320',
-          '#uri' => $media_image->image->entity->getFileUri(),
-        ];
+        if($media_image->image->entity instanceof \Drupal\Core\Entity\EntityInterface) {
+          $vars['gallery_images'][] = [
+            '#theme' => 'image_style',
+            '#style_name' => 'teaser_squared_1_1_320',
+            '#uri' => $media_image->image->entity->getFileUri(),
+          ];
+        }
       }
     }
   }
