@@ -139,7 +139,7 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
 
       if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
         if (!empty($media->get('field_allow_download_4k')->value)) {
-          $variables['content']['downloads']['fullhd'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_ultrahd4k_video_mobile_mp4')->getLabel());
+          $variables['content']['downloads']['4k'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_ultrahd4k_video_mobile_mp4')->getLabel());
         }
       }
     }
@@ -149,20 +149,6 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
     (int)$media->id() => $javascriptData
   ];
 
-  if (!$media->get('field_ultrahd4k_video_mobile_mp4')->isEmpty()) {
-    /* @var \Drupal\file\Entity\File $file */
-    $file = $media->field_ultrahd4k_video_mobile_mp4->entity;
-    if (!empty($file)) {
-      $file_url = file_create_url($file->getFileUri());
-      $variables['video_ultrahd4k_mp4'] = $file_url;
-
-      if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
-        if (!empty($media->get('field_allow_download_4k')->value)) {
-          $variables['content']['downloads']['4k'] = degov_common_file_download_render_array($file, $media->getFieldDefinition('field_ultrahd4k_video_mobile_mp4')->getLabel());
-        }
-      }
-    }
-  }
   /* @var \Drupal\media\Entity\Media $poster */
   $image = $media->field_video_mobile_preview->entity;
   if (!empty($image)) {
