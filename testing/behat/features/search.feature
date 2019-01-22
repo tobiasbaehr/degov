@@ -14,14 +14,14 @@ Feature: deGov - Search
     Given I am installing the "degov_demo_content" module
     And I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
-    And I am on "/media/1/edit"
+    And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
     And I should see "demo image with a fixed title"
-    And I am on "/media/1/edit"
+    And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
