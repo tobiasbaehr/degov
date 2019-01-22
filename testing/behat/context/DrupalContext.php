@@ -919,6 +919,7 @@ class DrupalContext extends RawDrupalContext {
     /** @var \Drupal\search_api\IndexInterface $index */
     $index = $index_storage->load($indexId);
     $index->reindex();
+    $index->indexItems();
   }
 
   /**
@@ -926,5 +927,6 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iClearTheCache() {
     drupal_flush_all_caches();
+
   }
 }
