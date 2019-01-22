@@ -34,6 +34,12 @@ Feature: deGov - Search
     Given I am installing the "degov_demo_content" module
     Then I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
+    Then I am on "/admin/config/search/search-api/index/search_content"
+    And I press button with label "Clear all indexed data" via translated text
+    And I press button with label "Confirm" via translated text
+    Then I should see text matching "All items were successfully deleted" after a while
+    And I press button with label "Index now" via translated text
+    And I should see text matching "Successfully indexed" after a while
     Then I am on "/suche"
     And I should see an ".facet-item__value" element with the content "Inhaltsseite"
 
@@ -42,16 +48,22 @@ Feature: deGov - Search
     Given I am installing the "degov_demo_content" module
     Then I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
-    And I open media edit form by media name "ipsum dolor sit amet consetetur"
+    And I open media edit form by media name "et dolore magna aliquyam erat"
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I open media edit form by media name "sed diam voluptua At vero"
+    And I open media edit form by media name "duo dolores et ea rebum"
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
+    Then I am on "/admin/config/search/search-api/index/search_media"
+    And I press button with label "Clear all indexed data" via translated text
+    And I press button with label "Confirm" via translated text
+    Then I should see text matching "All items were successfully deleted" after a while
+    And I press button with label "Index now" via translated text
+    And I should see text matching "Successfully indexed" after a while
     Then I am on "/mediathek"
     And I should see an ".facet-item__value" element with the content "Bild"
     And I should see an ".facet-item__value" element with the content "Video Upload"
