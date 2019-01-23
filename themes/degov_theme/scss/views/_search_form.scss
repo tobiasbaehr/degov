@@ -6,7 +6,7 @@
     background-color: $gray-light;
     padding: 14px;
 
-    h2{
+    h2 {
       font-size: 1.2rem;
       font-weight: normal;
       font-style: normal;
@@ -121,6 +121,69 @@
     .details-wrapper {
       padding-right: 0;
       padding-left: 0;
+    }
+  }
+}
+
+.block-full-text-search-page {
+  form {
+    .search-page-full-text-search-form {
+      @extend .d-flex, .flex-row;
+      position: relative;
+      margin-right: -15px;
+      margin-left: -15px;
+
+      .form-item-volltext {
+        width: 100%;
+        @include media-breakpoint-up(lg) {
+          width: 83.8%;
+        }
+        border: solid $gray-light 3px;
+        .field-suffix {
+          color: $regent-grey;
+        }
+        [data-drupal-selector*="edit-volltext"] {
+          border: none;
+          width: calc(100% - 30px);
+          height: 50px;
+          outline: none;
+          font-size: 1.2rem;
+          &::placeholder {
+            color: $regent-grey;
+          }
+        }
+      }
+      [data-drupal-selector*="edit-actions"] {
+        position: absolute;
+        right: 0;
+        top: 5px;
+        @include media-breakpoint-up(lg) {
+          position: relative;
+          top: 0;
+          right: 0;
+        }
+        button {
+          height: 56px;
+          margin-top: -5px;
+
+          @include media-breakpoint-up(lg) {
+            margin-top: 0;
+          }
+          .button-text {
+            @extend .d-none, .d-lg-inline-block, .d-xl-inline-block;
+          }
+          .fa-placeholder-left {
+            @extend .d-inline-block, .d-lg-none, .d-xl-none, .fa;
+            width: 25px;
+            height: 25px;
+            &:before {
+              text-indent: 100%;
+              content: fa-content($fa-var-search);
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
     }
   }
 }
