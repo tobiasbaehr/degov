@@ -73,6 +73,11 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/image/fields/media.image.field_media_publish_date"
     And the "edit-required" checkbox should be checked
 
+  Scenario: Media type image has max. image file size of 10 MB
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/media/manage/image/fields/media.image.image"
+    Then I verify that field "#edit-settings-max-filesize" has the value "10 MB"
+
   Scenario: I verify that image media entities have copyright related fields
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
