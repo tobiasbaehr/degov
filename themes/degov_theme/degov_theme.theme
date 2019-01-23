@@ -6,6 +6,7 @@ use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
 use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
 use Drupal\degov_theme\Preprocess\ViewsSearchContent as ViewsSearchContentPreprocess;
+use Drupal\degov_theme\Preprocess\ViewsExposedFormSearchPageFulltext as ViewsExposedFormSearchPageFulltextPreprocess;
 /**
  * Implements hook_preprocess_html().
  */
@@ -272,5 +273,13 @@ function degov_theme_preprocess_menu(&$vars) {
  */
 function degov_theme_preprocess_views_view(&$vars, $hook) {
   Drupal::classResolver(ViewsSearchContentPreprocess::class)
+    ->preprocess($vars, $hook);
+}
+
+/**
+ * Implements hook_preprocess_views_exposed_form().
+ */
+function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
+  Drupal::classResolver(ViewsExposedFormSearchPageFulltextPreprocess::class)
     ->preprocess($vars, $hook);
 }
