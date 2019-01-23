@@ -17,8 +17,7 @@
     "es6-promise": "^4.2.5",
     "qunit": "^2.6.1",
     "sinon": "^5.0.10",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.0"
+    "webpack": "^4.20.2"
   },
   "scripts": {
     "test": "npx qunit webpack-dist/bundle-test.js",
@@ -30,5 +29,7 @@
     "webpack-test": "npx webpack --entry ./src/**/*.js ./test/*.js --output ./webpack-dist/bundle-test.js --mode development",
     "bat": "npm run-script build-and-test"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack-cli": "^3.2.1"
+  }
 }

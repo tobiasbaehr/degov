@@ -36,11 +36,14 @@ function degov_media_video_mobile_preprocess(&$variables, $hook, &$info) {
  * Implements hook_preprocess_HOOK().
  */
 function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+
   $javascriptData = [];
-  $variables['#attached']['library'][] = 'degov_media_video_mobile/check_cellular';
   /* @var \Drupal\media\Entity\Media $media */
   $media = $variables['elements']['#media'];
-
+  $variables['#attached']['library'][] = 'degov_media_video_mobile/degov_media_video_mobile';
   $variables['video_url'] = $media->url();
   $variables['video_attributes'] = new Attribute([
     'id'           => 'video-upload-' . $media->id(),
@@ -50,13 +53,6 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   ]);
 
   $javascriptData['id'] = 'video-upload-' . $media->id();
-
-  // Check if the download of the video is allowed by media settings.
-  $download_is_allowed = FALSE;
-  if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')
-      ->isEmpty()) {
-    $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
-  }
 
   if (!$media->get('field_mobile_video_mobile_mp4')->isEmpty()) {
     /* @var \Drupal\file\Entity\File $file */

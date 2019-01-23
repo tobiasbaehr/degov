@@ -110,17 +110,6 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst SpeedChecker = function
 
 /***/ }),
 
-/***/ "./src/mock-ups/mock-ups.js":
-/*!**********************************!*\
-  !*** ./src/mock-ups/mock-ups.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/mock-ups/mock-ups.js?");
-
-/***/ }),
-
 /***/ "./test/connection-tests.js":
 /*!**********************************!*\
   !*** ./test/connection-tests.js ***!
@@ -158,13 +147,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************************************!*\
-  !*** multi ./src/mock-ups/mock-ups.js ./test/connection-tests.js ./test/device-test.js ./test/speed-test.js ***!
-  \**************************************************************************************************************/
+/*!***********************************************************************************!*\
+  !*** multi ./test/connection-tests.js ./test/device-test.js ./test/speed-test.js ***!
+  \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/src/mock-ups/mock-ups.js */\"./src/mock-ups/mock-ups.js\");\n__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/connection-tests.js */\"./test/connection-tests.js\");\n__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/device-test.js */\"./test/device-test.js\");\nmodule.exports = __webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/speed-test.js */\"./test/speed-test.js\");\n\n\n//# sourceURL=webpack:///multi_./src/mock-ups/mock-ups.js_./test/connection-tests.js_./test/device-test.js_./test/speed-test.js?");
+eval("__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/connection-tests.js */\"./test/connection-tests.js\");\n__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/device-test.js */\"./test/device-test.js\");\nmodule.exports = __webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/speed-test.js */\"./test/speed-test.js\");\n\n\n//# sourceURL=webpack:///multi_./test/connection-tests.js_./test/device-test.js_./test/speed-test.js?");
 
 /***/ })
 
