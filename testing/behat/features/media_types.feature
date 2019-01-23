@@ -73,7 +73,7 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/image/fields/media.image.field_media_publish_date"
     And the "edit-required" checkbox should be checked
 
-  Scenario: Media type image has max. image file size of 10 MB
+  Scenario: Media type image has max. image file size of 10 MB, for not exceeding PHP's memory limit on image upload
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/image/fields/media.image.image"
     Then I verify that field "#edit-settings-max-filesize" has the value "10 MB"
