@@ -163,7 +163,6 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
-      - bundle
       - name
     ignorable: '[''¿¡!?,.:;]'
     strip:
