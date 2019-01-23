@@ -37,10 +37,13 @@
 
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
-  {% endif %}
+    <div class="paragraph__header mb-5">
+      <h2{{ title_attributes }}>{{ "Search"|t }}</h2>
+      <h3 class="sub-title"}> {{ "It will be as simple as Occidental"|t }}</h3>
+      <div class="under-teasers-header-line mt-4"></div>
+    </div>
   {{ title_suffix }}
+
   {% block content %}
     {{ content }}
   {% endblock %}
