@@ -150,3 +150,17 @@ Feature: deGov - Content creation
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
     And I should see HTML content matching "Paragraph hinzufügen"
+
+  Scenario: I can select a view mode for views reference paragraphs
+    Given I am logged in as a user with the "administrator" role
+    And I am installing the "degov_paragraph_view_reference" module
+    And I am on "/node/add/normal_page"
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 2 seconds
+    And I click by CSS id "field-content-paragraphs-view-reference-add-more"
+    Then I should see text matching "Ansichtsreferenz" via translation after a while
+    And I should see 1 ".viewreference_target_id" element
+    And I set the value of element ".viewreference_target_id" to "latest_events" via JavaScript
+    And wait 2 seconds
+    And I should see 1 ".viewsreference_view_mode:visible" elements via jQuery
