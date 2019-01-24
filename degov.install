@@ -5,6 +5,7 @@
  */
 
 use Drupal\field\Entity\FieldConfig;
+use Drupal\media\Entity\MediaType;
 
 function degov_update_8440() {
   // Read the configuration.
@@ -203,7 +204,7 @@ function degov_update_850100() {
 }
 
 /**
- * Re-Import search_media view., Adds missing fields to forms
+ * Re-Import search_media view., Remove media type video_file if there is no content., Adds missing fields to forms.
  */
 function degov_update_860000() {
 
@@ -217,9 +218,17 @@ function degov_update_860000() {
   $moduleUpdater->reImport('core.entity_form_display.node.blog.default', 'degov_node_blog', 'install');
   $moduleUpdater->reImport('core.entity_form_display.node.press.default', 'degov_node_press', 'install');
 
+
+  if (!\Drupal::entityQuery('media')
+    ->condition('bundle', 'video_file')
+    ->accessCheck(FALSE)
+    ->execute()) {
+    MediaType::load('video_file')->delete();
+  }
+
   // Re-apply scheduled updates fields.
   if (\Drupal::moduleHandler()->moduleExists('degov_scheduled_updates')) {
-    $moduleUpdater->applyUpdates('degov_scheduled_updates', '8001');
+    $moduleUpdater->applyRewrites('degov_scheduled_updates', '8001');
   }
 }
 
