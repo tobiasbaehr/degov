@@ -17,3 +17,12 @@ Feature: deGov - Users
     And I should see "Chefredakteur"
     And I should see "Redakteur"
     And I should see "Benutzerverwaltung"
+
+  Scenario: I try to create a new user with simplenews abonnement
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/people/create"
+    And I fill in "Username" via translated text with "test"
+    And I fill in "Password" via translated text with "test"
+    And I fill in "Confirm password" via translated text with "test"
+    And I press button with label "Create new account" via translated text
+    Then I should be on "/admin/people/create"
