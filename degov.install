@@ -223,7 +223,10 @@ function degov_update_860000() {
     ->condition('bundle', 'video_file')
     ->accessCheck(FALSE)
     ->execute()) {
-    MediaType::load('video_file')->delete();
+    $mediaType = MediaType::load('video_file');
+    if ($mediaType) {
+      $mediaType->delete();
+    }
   }
 
   // Re-apply scheduled updates fields.
