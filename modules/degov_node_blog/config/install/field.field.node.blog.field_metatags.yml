@@ -6,7 +6,7 @@ dependencies:
     - node.type.blog
   enforced:
     module:
-      - degov_metatags
+      - degov_node_blog
   module:
     - metatag
 id: node.blog.field_metatags

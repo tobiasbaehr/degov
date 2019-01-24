@@ -4,9 +4,6 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - degov_node_blog
-  - degov_node_faq
-  - degov_node_normal_page
   - field
   - metatag
   - metatag_dc

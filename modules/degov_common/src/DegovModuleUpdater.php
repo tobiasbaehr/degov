@@ -13,24 +13,26 @@ use Symfony\Component\Yaml\Yaml;
  */
 class DegovModuleUpdater extends ConfigReplacer {
 
-  public function applyUpdates(string $module, string $version) {
+  public function applyUpdates(string $module, string $version): void {
     $source_dir = drupal_get_path('module', $module) . '/config/update_' . $version;
     $this->manageConfig($module, $source_dir);
   }
 
-  public function reImport(string $configurationName, string $moduleName, string $folderName) {
-    $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$configurationName.yml");
-    $this->configFactory->getEditable($configurationName)
-      ->setData($parsedConfiguration)
-      ->save();
+  public function reImport(string $configurationName, string $moduleName, string $folderName, bool $force = FALSE): void {
+    if ($force || \Drupal::moduleHandler()->moduleExists($moduleName)) {
+      $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$configurationName.yml");
+      $this->configFactory->getEditable($configurationName)
+        ->setData($parsedConfiguration)
+        ->save();
+    }
   }
 
-  public function onModuleInstalled($module, $installed_module) {
+  public function onModuleInstalled($module, $installed_module): void {
     $source_dir = drupal_get_path('module', $module) . '/config/' . $installed_module;
     $this->manageConfig($module, $source_dir);
   }
 
-  private function manageConfig(string $module, string $source_dir) {
+  private function manageConfig(string $module, string $source_dir): void {
     if (file_exists($source_dir)) {
       // Are there any new installs?
       $install_dir = $source_dir . '/install';
@@ -53,6 +55,14 @@ class DegovModuleUpdater extends ConfigReplacer {
         $extension = $this->moduleHandler->getModule($module);
         $this->rewriteDirectoryConfig($extension, $updates_dir);
       }
+    }
+  }
+
+  public function applyRewrites(string $module, string $version): void {
+    $rewriteDir = drupal_get_path('module', $module) . '/config/update_' . $version . '/rewrite';
+    if (file_exists($rewriteDir)) {
+      $extension = $this->moduleHandler->getModule($module);
+      $this->rewriteDirectoryConfig($extension, $rewriteDir);
     }
   }
 
