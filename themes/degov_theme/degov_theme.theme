@@ -283,3 +283,7 @@ function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
   Drupal::classResolver(ViewsExposedFormSearchPageFulltextPreprocess::class)
     ->preprocess($vars, $hook);
 }
+
+function degov_theme_form_alter(&$form, $form_state) {
+  $form1 = '';
+}

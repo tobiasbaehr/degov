@@ -53,12 +53,12 @@
       <div class="sorts-current-search-inner container">
         <div class="row">
           {% if header.result %}
-            <div class="search-current-search col-md-6 pt-2">{{ header.result }}</div>
+            <div class="search-current-search col-md-12 col-lg-6 pt-2">{{ header.result }}</div>
           {% endif %}
           {% if header.sorts %}
-            <div class="search-sorts col-md-6 list-unstyled">
+            <div class="search-sorts col-md-12 col-lg-6 list-unstyled mb-3 mb-lg-0">
               <div class="float-lg-right pt-1">
-                <label class="pr-4">{{ "Sort by:"|t }}</label>
+                <label class="pr-4 d-none d-lg-inline-block">{{ "Sort by:"|t }}</label>
                 <a class="dropdown-title-holder d-inline-block py-1 pr-5 pl-3" href="#" role="button" id="searchSortsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="dropdown-title-holder-text">{{ header.active_sort_label }}</span>
                   <i class="fas fa-sort" aria-hidden="true"></i>
