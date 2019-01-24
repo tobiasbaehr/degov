@@ -58,4 +58,12 @@ class DegovModuleUpdater extends ConfigReplacer {
     }
   }
 
+  public function applyRewrites(string $module, string $version): void {
+    $rewriteDir = drupal_get_path('module', $module) . '/config/update_' . $version . '/rewrite';
+    if (file_exists($rewriteDir)) {
+      $extension = $this->moduleHandler->getModule($module);
+      $this->rewriteDirectoryConfig($extension, $rewriteDir);
+    }
+  }
+
 }
