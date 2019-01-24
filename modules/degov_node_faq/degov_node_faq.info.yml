@@ -17,3 +17,4 @@ dependencies:
   - path
   - user
   - views
+  - degov_metatags

@@ -927,6 +927,5 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iClearTheCache() {
     drupal_flush_all_caches();
-
   }
 }
