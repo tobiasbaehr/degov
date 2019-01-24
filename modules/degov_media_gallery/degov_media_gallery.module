@@ -63,14 +63,16 @@ function degov_media_gallery_preprocess_media(&$variables)
       }
 
       $imageFile = $item->entity->image->get(0)->entity;
-      $urlString = degov_common_file_download_link($imageFile, ['attributes' => ['type' => $imageFile->getMimeType() . '; length=' . $imageFile->getSize()]]);
+      if (!empty($imageFile)) {
+        $urlString = degov_common_file_download_link($imageFile, ['attributes' => ['type' => $imageFile->getMimeType() . '; length=' . $imageFile->getSize()]]);
 
-      $imageData[] = [
-        'uri'                  => $urlString->toString(),
-        'width'                => $item->entity->image->get(0)->width,
-        'height'               => $item->entity->image->get(0)->height,
-        'field_allow_download' => $fieldAllowDownload,
-      ];
+        $imageData[] = [
+          'uri'                  => $urlString->toString(),
+          'width'                => $item->entity->image->get(0)->width,
+          'height'               => $item->entity->image->get(0)->height,
+          'field_allow_download' => $fieldAllowDownload,
+        ];
+      }
     }
     $imageDataArray[] = $imageData;
     $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'] = $imageDataArray;
