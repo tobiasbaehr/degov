@@ -12,7 +12,7 @@ entity_type: media
 bundle: document
 label: Datei
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

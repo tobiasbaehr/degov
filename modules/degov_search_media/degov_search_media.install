@@ -65,3 +65,20 @@ function degov_search_media_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_search_media', '8008');
 }
+
+/**
+ * deGov Update 6.0.0 - Remove the "Ignore characters" filter from the media bundle field
+ */
+function degov_search_media_update_860000() {
+  $config = \Drupal::configFactory()->getEditable('search_api.index.search_media');
+  $ignoreCharacterFieldsSettings = $config->get('processor_settings.ignore_character.fields');
+
+  if(!empty($ignoreCharacterFieldsSettings)) {
+    $unsetKey = array_search('bundle', $ignoreCharacterFieldsSettings, FALSE);
+    if($unsetKey !== FALSE) {
+      unset($ignoreCharacterFieldsSettings[$unsetKey]);
+      $config->set('processor_settings.ignore_character.fields', $ignoreCharacterFieldsSettings)->save();
+      return t('The Search API configuration for the media index has been updated. Please perform a reindex!');
+    }
+  }
+}
