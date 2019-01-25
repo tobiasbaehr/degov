@@ -102,4 +102,23 @@ class JavaScriptContext extends RawMinkContext {
     throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
   }
 
+  /**
+   * @Then I set the value of element :selector to :value via JavaScript
+   */
+  public function iSetTheValueOfElementViaJavascript(string $selector, string $value)
+  {
+    $this->getSession()->evaluateScript(sprintf("jQuery('%s').val('%s').trigger('change');", $selector, $value));
+  }
+
+  /**
+   * @Then I should see :number :selector elements via jQuery
+   */
+  public function iShouldSeeElementsViaJquery(int $number, string $selector)
+  {
+    $numberOfElementsFound = (int)$this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+    if($numberOfElementsFound === $number) {
+      return true;
+    }
+    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+  }
 }
