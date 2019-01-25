@@ -5832,6 +5832,21 @@ body {
   font-family: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
   color: #2C2C2C; }
 
+article.full h1 {
+  font-weight: 600;
+  line-height: 1.14;
+  margin-bottom: .1rem; }
+
+article.full .date {
+  font-size: 1.2rem; }
+  article.full .date:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CECECE;
+    margin-top: 20px; }
+
 footer.site-footer {
   background-color: #154575;
   color: #fff; }

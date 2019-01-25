@@ -84,9 +84,11 @@
       {{ content.field_header_paragraphs }}
     {% endif %}
     {% if not is_front %}
-      <div class="content-header__text">
-        <div class="content-header__media-info"></div>
-        <h1 class="container mt-md-4 mt-lg-5">{{ label }}</h1>
+      <div class="content-header__text mb-5">
+        <h1 class="container mt-md-4 mt-lg-5 h2">{{ label }}</h1>
+        <div class="container date">
+          {{ node.createdtime|format_date('custom', 'd.m.Y') }}
+        </div>
         {% if content.field_teaser_sub_title %}
           <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
             {{ content.field_teaser_sub_title|field_value }}
