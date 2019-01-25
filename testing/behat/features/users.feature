@@ -3,6 +3,8 @@ Feature: deGov - Users
 
   Background:
     Given I proof that Drupal module "degov_users_roles" is installed
+    Given I proof that Drupal module "degov_simplenews_references" is installed
+
 
   Scenario: I am on the frontpage
     Given I am on "/"
@@ -17,3 +19,14 @@ Feature: deGov - Users
     And I should see "Chefredakteur"
     And I should see "Redakteur"
     And I should see "Benutzerverwaltung"
+
+  Scenario: I try to create a new user without an email but with a Simplenews subscription
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/people/create"
+    And I fill in "Username" via translated text with "test"
+    And I fill in "Password" via translated text with "test"
+    And I fill in "Confirm password" via translated text with "test"
+    And I press button with label "Create new account" via translated text
+    Then I should be on "/admin/people/create"
+    And I should see 1 ".messages--status" element
