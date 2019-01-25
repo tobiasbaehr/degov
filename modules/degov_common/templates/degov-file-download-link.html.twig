@@ -30,9 +30,7 @@
     'file',
     'file--download',
     'file--mime-' ~ file.getMimeType()|clean_class,
-    'file--' ~ icon|clean_class,
-    'download-button',
-    'row'
+    'file--' ~ icon|clean_class
   ]
 %}
 <div {{ attributes.addClass(classes) }}>
