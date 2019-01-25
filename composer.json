@@ -113,8 +113,7 @@
         "drupal/image_widget_crop": "^2.1",
         "bower-asset/cropper": "^2.3",
         "weitzman/drupal-test-traits": "1.0.0-alpha.1",
-        "ext-json": "*",
-        "drupal/block_permissions": "^1.0"
+        "ext-json": "*"
     },
     "repositories": {
         "drupal": {
