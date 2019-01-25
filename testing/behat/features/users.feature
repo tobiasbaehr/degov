@@ -21,6 +21,7 @@ Feature: deGov - Users
     And I should see "Benutzerverwaltung"
 
   Scenario: I try to create a new user with simplenews abonnement
+    Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/people/create"
     And I fill in "Username" via translated text with "test"
