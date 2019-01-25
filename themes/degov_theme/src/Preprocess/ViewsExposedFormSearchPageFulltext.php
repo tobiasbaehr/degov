@@ -10,7 +10,7 @@ class ViewsExposedFormSearchPageFulltext {
   use StringTranslationTrait;
 
   public function preprocess(array &$vars, $hook): void {
-    if (!in_array($hook, ['views_exposed_form__search_content'])) {
+    if (!in_array($hook, ['views_exposed_form__search_content', 'views_exposed_form__search_media'])) {
       return;
     }
     $vars['form']['volltext']['#title_display'] = 'invisible';

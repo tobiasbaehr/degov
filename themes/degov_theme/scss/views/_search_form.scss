@@ -22,7 +22,7 @@
     .block-facet-blocksearch-content-tags {
       @extend .mt-2, .mt-lg-0;
     }
-    .block-facet-blocksearch-content-changed {
+    .block-filter__date-filter {
       .form-type-date {
         @extend .fa, .col-6;
 
@@ -186,4 +186,12 @@
       }
     }
   }
+}
+
+.block-degov-search-media-filter {
+  @extend .block-full-text-search-page;
+}
+
+.block-degov-search-media-filter {
+  @extend .block-degov-search-content-filter;
 }

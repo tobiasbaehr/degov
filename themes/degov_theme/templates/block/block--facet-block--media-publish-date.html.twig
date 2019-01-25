@@ -25,8 +25,22 @@
  * @see template_preprocess_block()
  */
 #}
+{%
+  set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+  'col-xl-12',
+  'col-lg-12',
+  'col-md-12',
+  'col-sm-12',
+  'col-xs-12',
+  'block-filter__date-filter',
+]
+%}
 
-{% set pageTitle = "Search"|t %}
-{% set pageSubTitle = "It will be as simple as Occidental"|t %}
-
-{% include '@degov_theme/block/exposed-filter-block--search-pages.html.twig' %}
+<div{{ attributes.addClass(classes) }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

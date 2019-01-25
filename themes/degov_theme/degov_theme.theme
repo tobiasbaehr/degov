@@ -5,7 +5,7 @@ use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
 use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
-use Drupal\degov_theme\Preprocess\ViewsSearchContent as ViewsSearchContentPreprocess;
+use Drupal\degov_theme\Preprocess\ViewsSearchContentAndMediaSorts as ViewsSearchContentAndMediaSortsPreprocess;
 use Drupal\degov_theme\Preprocess\ViewsExposedFormSearchPageFulltext as ViewsExposedFormSearchPageFulltextPreprocess;
 /**
  * Implements hook_preprocess_html().
@@ -272,7 +272,7 @@ function degov_theme_preprocess_menu(&$vars) {
  * Implements hook_preprocess_menu().
  */
 function degov_theme_preprocess_views_view(&$vars, $hook) {
-  Drupal::classResolver(ViewsSearchContentPreprocess::class)
+  Drupal::classResolver(ViewsSearchContentAndMediaSortsPreprocess::class)
     ->preprocess($vars, $hook);
 }
 
@@ -282,8 +282,4 @@ function degov_theme_preprocess_views_view(&$vars, $hook) {
 function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
   Drupal::classResolver(ViewsExposedFormSearchPageFulltextPreprocess::class)
     ->preprocess($vars, $hook);
-}
-
-function degov_theme_form_alter(&$form, $form_state) {
-  $form1 = '';
 }

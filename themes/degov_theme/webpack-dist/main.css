@@ -1519,13 +1519,14 @@ button.bg-dark:focus {
   clear: both;
   content: ""; }
 
-.d-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+.d-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
   display: none !important; }
 
-.d-inline, .view-search-content .sorts-current-search-wrapper h2 {
+.d-inline, .view-search-content .sorts-current-search-wrapper h2,
+.view-search-media .sorts-current-search-wrapper h2 {
   display: inline !important; }
 
-.d-inline-block, .block-degov-search-content-filter .filter-search-content .form-submit, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+.d-inline-block, .block-degov-search-content-filter .filter-search-content .form-submit, .block-degov-search-media-filter .filter-search-content .form-submit, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
   display: inline-block !important; }
 
 .d-block {
@@ -1540,7 +1541,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex, .block-full-text-search-page form .search-page-full-text-search-form {
+.d-flex, .block-full-text-search-page form .search-page-full-text-search-form, .block-degov-search-media-filter form .search-page-full-text-search-form {
   display: flex !important; }
 
 .d-inline-flex {
@@ -1587,11 +1588,11 @@ button.bg-dark:focus {
     display: inline-flex !important; } }
 
 @media (min-width: 992px) {
-  .d-lg-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+  .d-lg-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
     display: none !important; }
   .d-lg-inline {
     display: inline !important; }
-  .d-lg-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+  .d-lg-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
     display: inline-block !important; }
   .d-lg-block {
     display: block !important; }
@@ -1607,11 +1608,11 @@ button.bg-dark:focus {
     display: inline-flex !important; } }
 
 @media (min-width: 1200px) {
-  .d-xl-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+  .d-xl-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
     display: none !important; }
   .d-xl-inline {
     display: inline !important; }
-  .d-xl-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+  .d-xl-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
     display: inline-block !important; }
   .d-xl-block {
     display: block !important; }
@@ -1680,7 +1681,7 @@ button.bg-dark:focus {
 .embed-responsive-1by1::before {
   padding-top: 100%; }
 
-.flex-row, .block-full-text-search-page form .search-page-full-text-search-form {
+.flex-row, .block-full-text-search-page form .search-page-full-text-search-form, .block-degov-search-media-filter form .search-page-full-text-search-form {
   flex-direction: row !important; }
 
 .flex-column {
@@ -2245,7 +2246,7 @@ button.bg-dark:focus {
 .m-2 {
   margin: 0.5rem !important; }
 
-.mt-2, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-tags,
+.mt-2, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-tags, .block-degov-search-media-filter .filter-search-content .block-facet-blocksearch-content-tags,
 .my-2 {
   margin-top: 0.5rem !important; }
 
@@ -2272,7 +2273,7 @@ button.bg-dark:focus {
 .mx-3 {
   margin-right: 1rem !important; }
 
-.mb-3, .block-degov-search-content-filter,
+.mb-3, .block-degov-search-content-filter, .block-degov-search-media-filter,
 .my-3 {
   margin-bottom: 1rem !important; }
 
@@ -2302,7 +2303,7 @@ button.bg-dark:focus {
 .m-5 {
   margin: 3rem !important; }
 
-.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image, .paragraph-node-reference-node-view-mode-long-text, .paragraph-media-reference-media-gallery-view-mode-preview, .block--degov-social-media-youtube, .block--degov-social-media-twitter, .paragraph-node-reference-node-view-mode-slim, .paragraph-media-reference-media-video-view-mode-preview, .block-full-text-search-page, .block--degov-social-media-instagram,
+.mt-5, .paragraph-node-reference-node-view-mode-preview, .paragraph-node-reference-node-view-mode-small-image, .paragraph-node-reference-node-view-mode-long-text, .paragraph-media-reference-media-gallery-view-mode-preview, .block--degov-social-media-youtube, .block--degov-social-media-twitter, .paragraph-node-reference-node-view-mode-slim, .paragraph-media-reference-media-video-view-mode-preview, .block-full-text-search-page, .block-degov-search-media-filter, .block--degov-social-media-instagram,
 .my-5 {
   margin-top: 3rem !important; }
 
@@ -2383,6 +2384,7 @@ button.bg-dark:focus {
   padding-top: 1rem !important; }
 
 .pr-3, .view-search-content .sorts-current-search-wrapper h2,
+.view-search-media .sorts-current-search-wrapper h2,
 .px-3 {
   padding-right: 1rem !important; }
 
@@ -2709,6 +2711,7 @@ button.bg-dark:focus {
   .m-md-5 {
     margin: 3rem !important; }
   .mt-md-5, .view-search-content,
+  .view-search-media,
   .my-md-5 {
     margin-top: 3rem !important; }
   .mr-md-5,
@@ -2822,7 +2825,7 @@ button.bg-dark:focus {
 @media (min-width: 992px) {
   .m-lg-0 {
     margin: 0 !important; }
-  .mt-lg-0, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-tags,
+  .mt-lg-0, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-tags, .block-degov-search-media-filter .filter-search-content .block-facet-blocksearch-content-tags,
   .my-lg-0 {
     margin-top: 0 !important; }
   .mr-lg-0,
@@ -2898,7 +2901,7 @@ button.bg-dark:focus {
   .mr-lg-5,
   .mx-lg-5 {
     margin-right: 3rem !important; }
-  .mb-lg-5, .block-degov-search-content-filter,
+  .mb-lg-5, .block-degov-search-content-filter, .block-degov-search-media-filter,
   .my-lg-5 {
     margin-bottom: 3rem !important; }
   .ml-lg-5,
@@ -4470,7 +4473,7 @@ html {
     padding-right: 0;
     padding-left: 0; }
 
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
 .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
@@ -4512,7 +4515,7 @@ html {
   flex: 0 0 41.66667%;
   max-width: 41.66667%; }
 
-.col-6, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date {
+.col-6, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date {
   flex: 0 0 50%;
   max-width: 50%; }
 
@@ -5018,13 +5021,14 @@ html {
   .offset-xl-11 {
     margin-left: 91.66667%; } }
 
-.d-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+.d-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
   display: none !important; }
 
-.d-inline, .view-search-content .sorts-current-search-wrapper h2 {
+.d-inline, .view-search-content .sorts-current-search-wrapper h2,
+.view-search-media .sorts-current-search-wrapper h2 {
   display: inline !important; }
 
-.d-inline-block, .block-degov-search-content-filter .filter-search-content .form-submit, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+.d-inline-block, .block-degov-search-content-filter .filter-search-content .form-submit, .block-degov-search-media-filter .filter-search-content .form-submit, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
   display: inline-block !important; }
 
 .d-block {
@@ -5039,7 +5043,7 @@ html {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex, .block-full-text-search-page form .search-page-full-text-search-form {
+.d-flex, .block-full-text-search-page form .search-page-full-text-search-form, .block-degov-search-media-filter form .search-page-full-text-search-form {
   display: flex !important; }
 
 .d-inline-flex {
@@ -5086,11 +5090,11 @@ html {
     display: inline-flex !important; } }
 
 @media (min-width: 992px) {
-  .d-lg-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+  .d-lg-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
     display: none !important; }
   .d-lg-inline {
     display: inline !important; }
-  .d-lg-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+  .d-lg-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
     display: inline-block !important; }
   .d-lg-block {
     display: block !important; }
@@ -5106,11 +5110,11 @@ html {
     display: inline-flex !important; } }
 
 @media (min-width: 1200px) {
-  .d-xl-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+  .d-xl-none, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
     display: none !important; }
   .d-xl-inline {
     display: inline !important; }
-  .d-xl-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
+  .d-xl-inline-block, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .button-text {
     display: inline-block !important; }
   .d-xl-block {
     display: block !important; }
@@ -5145,7 +5149,7 @@ html {
   .d-print-inline-flex {
     display: inline-flex !important; } }
 
-.flex-row, .block-full-text-search-page form .search-page-full-text-search-form {
+.flex-row, .block-full-text-search-page form .search-page-full-text-search-form, .block-degov-search-media-filter form .search-page-full-text-search-form {
   flex-direction: row !important; }
 
 .flex-column {
@@ -5934,39 +5938,39 @@ footer.site-footer {
     width: 100%;
     z-index: 2; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header, .block-full-text-search-page .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
+.paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header, .block-full-text-search-page .paragraph__header, .block-degov-search-media-filter .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header h2, .block--degov-social-media-youtube .paragraph__header h2, .block--degov-social-media-twitter .paragraph__header h2, .paragraph-node-reference-node-view-mode-slim .paragraph__header h2, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header h2, .block-full-text-search-page .paragraph__header h2, .block--degov-social-media-instagram .paragraph__header h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__header h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__header h2, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header h2, .block--degov-social-media-youtube .paragraph__header h2, .block--degov-social-media-twitter .paragraph__header h2, .paragraph-node-reference-node-view-mode-slim .paragraph__header h2, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header h2, .block-full-text-search-page .paragraph__header h2, .block-degov-search-media-filter .paragraph__header h2, .block--degov-social-media-instagram .paragraph__header h2 {
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-long-text .paragraph__header .under-teasers-header-line, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header .under-teasers-header-line, .block--degov-social-media-youtube .paragraph__header .under-teasers-header-line, .block--degov-social-media-twitter .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-slim .paragraph__header .under-teasers-header-line, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header .under-teasers-header-line, .block-full-text-search-page .paragraph__header .under-teasers-header-line, .block--degov-social-media-instagram .paragraph__header .under-teasers-header-line {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-small-image .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-long-text .paragraph__header .under-teasers-header-line, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header .under-teasers-header-line, .block--degov-social-media-youtube .paragraph__header .under-teasers-header-line, .block--degov-social-media-twitter .paragraph__header .under-teasers-header-line, .paragraph-node-reference-node-view-mode-slim .paragraph__header .under-teasers-header-line, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header .under-teasers-header-line, .block-full-text-search-page .paragraph__header .under-teasers-header-line, .block-degov-search-media-filter .paragraph__header .under-teasers-header-line, .block--degov-social-media-instagram .paragraph__header .under-teasers-header-line {
     width: 50px;
     height: 2px;
     background-color: #CECECE; }
 
-.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article, .block--degov-social-media-twitter .paragraph__content article, .paragraph-node-reference-node-view-mode-slim .paragraph__content article, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article, .block-full-text-search-page .paragraph__content article, .block--degov-social-media-instagram .paragraph__content article {
+.paragraph-node-reference-node-view-mode-preview .paragraph__content article, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article, .block--degov-social-media-twitter .paragraph__content article, .paragraph-node-reference-node-view-mode-slim .paragraph__content article, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article, .block-full-text-search-page .paragraph__content article, .block-degov-search-media-filter .paragraph__content article, .block--degov-social-media-instagram .paragraph__content article {
   flex-direction: column;
   display: flex; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h3, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article h3, .block--degov-social-media-youtube .paragraph__content article h3, .block--degov-social-media-twitter .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article h3, .block-full-text-search-page .paragraph__content article h3, .block--degov-social-media-instagram .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h2, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article h2, .block--degov-social-media-youtube .paragraph__content article h2, .block--degov-social-media-twitter .paragraph__content article h2, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article h2, .block-full-text-search-page .paragraph__content article h2, .block--degov-social-media-instagram .paragraph__content article h2 {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article h3, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h3, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h3, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article h3, .block--degov-social-media-youtube .paragraph__content article h3, .block--degov-social-media-twitter .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article h3, .block-full-text-search-page .paragraph__content article h3, .block-degov-search-media-filter .paragraph__content article h3, .block--degov-social-media-instagram .paragraph__content article h3, .paragraph-node-reference-node-view-mode-preview .paragraph__content article h2, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article h2, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article h2, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article h2, .block--degov-social-media-youtube .paragraph__content article h2, .block--degov-social-media-twitter .paragraph__content article h2, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article h2, .block-full-text-search-page .paragraph__content article h2, .block-degov-search-media-filter .paragraph__content article h2, .block--degov-social-media-instagram .paragraph__content article h2 {
     font-size: 1.4rem;
     font-weight: bold; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article a, .block--degov-social-media-youtube .paragraph__content article a, .block--degov-social-media-twitter .paragraph__content article a, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article a, .block-full-text-search-page .paragraph__content article a, .block--degov-social-media-instagram .paragraph__content article a {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article a, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article a, .block--degov-social-media-youtube .paragraph__content article a, .block--degov-social-media-twitter .paragraph__content article a, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article a, .block-full-text-search-page .paragraph__content article a, .block-degov-search-media-filter .paragraph__content article a, .block--degov-social-media-instagram .paragraph__content article a {
     color: #2C2C2C; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a:hover, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article a:hover, .block--degov-social-media-youtube .paragraph__content article a:hover, .block--degov-social-media-twitter .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a:hover, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article a:hover, .block-full-text-search-page .paragraph__content article a:hover, .block--degov-social-media-instagram .paragraph__content article a:hover {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article a:hover, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article a:hover, .block--degov-social-media-youtube .paragraph__content article a:hover, .block--degov-social-media-twitter .paragraph__content article a:hover, .paragraph-node-reference-node-view-mode-slim .paragraph__content article a:hover, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article a:hover, .block-full-text-search-page .paragraph__content article a:hover, .block-degov-search-media-filter .paragraph__content article a:hover, .block--degov-social-media-instagram .paragraph__content article a:hover {
       color: inherit;
       text-decoration: none; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more, .block--degov-social-media-twitter .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more, .block-full-text-search-page .paragraph__content article .learn-more, .block--degov-social-media-instagram .paragraph__content article .learn-more {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more, .block--degov-social-media-youtube .paragraph__content article .learn-more, .block--degov-social-media-twitter .paragraph__content article .learn-more, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more, .block-full-text-search-page .paragraph__content article .learn-more, .block-degov-search-media-filter .paragraph__content article .learn-more, .block--degov-social-media-instagram .paragraph__content article .learn-more {
     color: #fff;
     font-size: 1.11rem; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more i, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more i, .block--degov-social-media-youtube .paragraph__content article .learn-more i, .block--degov-social-media-twitter .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more i, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more i, .block-full-text-search-page .paragraph__content article .learn-more i, .block--degov-social-media-instagram .paragraph__content article .learn-more i {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more i, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more i, .block--degov-social-media-youtube .paragraph__content article .learn-more i, .block--degov-social-media-twitter .paragraph__content article .learn-more i, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more i, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more i, .block-full-text-search-page .paragraph__content article .learn-more i, .block-degov-search-media-filter .paragraph__content article .learn-more i, .block--degov-social-media-instagram .paragraph__content article .learn-more i {
       vertical-align: middle;
       margin-left: 12px; }
-    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-twitter .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block-full-text-search-page .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-instagram .paragraph__content article .learn-more .svg-inline--fa {
+    .paragraph-node-reference-node-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-youtube .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-twitter .paragraph__content article .learn-more .svg-inline--fa, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .learn-more .svg-inline--fa, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .learn-more .svg-inline--fa, .block-full-text-search-page .paragraph__content article .learn-more .svg-inline--fa, .block-degov-search-media-filter .paragraph__content article .learn-more .svg-inline--fa, .block--degov-social-media-instagram .paragraph__content article .learn-more .svg-inline--fa {
       vertical-align: sub;
       margin-left: 12px; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .teaser-content, .block--degov-social-media-youtube .paragraph__content article .teaser-content, .block--degov-social-media-twitter .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-content, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .teaser-content, .block-full-text-search-page .paragraph__content article .teaser-content, .block--degov-social-media-instagram .paragraph__content article .teaser-content {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-content, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .teaser-content, .block--degov-social-media-youtube .paragraph__content article .teaser-content, .block--degov-social-media-twitter .paragraph__content article .teaser-content, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-content, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .teaser-content, .block-full-text-search-page .paragraph__content article .teaser-content, .block-degov-search-media-filter .paragraph__content article .teaser-content, .block--degov-social-media-instagram .paragraph__content article .teaser-content {
     background-color: #F1F2F3;
     flex: 1 1 auto; }
-  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img, .block--degov-social-media-twitter .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .teaser-image picture > img, .block-full-text-search-page .paragraph__content article .teaser-image picture > img, .block--degov-social-media-instagram .paragraph__content article .teaser-image picture > img {
+  .paragraph-node-reference-node-view-mode-preview .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-small-image .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article .teaser-image picture > img, .block--degov-social-media-youtube .paragraph__content article .teaser-image picture > img, .block--degov-social-media-twitter .paragraph__content article .teaser-image picture > img, .paragraph-node-reference-node-view-mode-slim .paragraph__content article .teaser-image picture > img, .paragraph-media-reference-media-video-view-mode-preview .paragraph__content article .teaser-image picture > img, .block-full-text-search-page .paragraph__content article .teaser-image picture > img, .block-degov-search-media-filter .paragraph__content article .teaser-image picture > img, .block--degov-social-media-instagram .paragraph__content article .teaser-image picture > img {
     width: 100%; }
 
 .paragraph-node-reference-node-view-mode-small-image .paragraph__content article, .paragraph-node-reference-node-view-mode-long-text .paragraph__content article, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__content article, .block--degov-social-media-youtube .paragraph__content article, .block--degov-social-media-twitter .paragraph__content article {
@@ -6101,7 +6105,7 @@ footer.site-footer {
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas,
 .far,
 .fal,
@@ -6184,14 +6188,14 @@ footer.site-footer {
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
+.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
 .fas.fa-pull-left,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
+.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
 .fas.fa-pull-right,
 .far.fa-pull-right,
 .fal.fa-pull-right,
@@ -9731,7 +9735,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-solid-900.eot");
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
@@ -9869,41 +9873,51 @@ readers do not read off random characters that represent icons */
 .srmedia__title {
   min-height: 1.5rem; }
 
-.view-search-content .sorts-current-search-wrapper {
+.view-search-content .sorts-current-search-wrapper,
+.view-search-media .sorts-current-search-wrapper {
   color: #fff; }
-  .view-search-content .sorts-current-search-wrapper a {
+  .view-search-content .sorts-current-search-wrapper a,
+  .view-search-media .sorts-current-search-wrapper a {
     color: #fff; }
-  .view-search-content .sorts-current-search-wrapper h2 {
+  .view-search-content .sorts-current-search-wrapper h2,
+  .view-search-media .sorts-current-search-wrapper h2 {
     font-size: 1.2rem;
     font-weight: 900; }
-  .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
+  .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder,
+  .view-search-media .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
     background-color: #fff;
     text-decoration: none;
     color: #2C2C2C;
     position: relative; }
-    .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder .fas {
+    .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder .fas,
+    .view-search-media .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder .fas {
       position: absolute;
       right: 15px;
       top: 9px; }
     @media (max-width: 991.98px) {
-      .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
+      .view-search-content .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder,
+      .view-search-media .sorts-current-search-wrapper .search-sorts a.dropdown-title-holder {
         width: 100%; } }
-  .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts {
+  .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts,
+  .view-search-media .sorts-current-search-wrapper .search-sorts .search-api-sorts {
     color: #2C2C2C; }
-    .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts a {
+    .view-search-content .sorts-current-search-wrapper .search-sorts .search-api-sorts a,
+    .view-search-media .sorts-current-search-wrapper .search-sorts .search-api-sorts a {
       color: #2C2C2C; }
 
-.view-search-content .view-content .degov-content-search-results .row-content:nth-child(odd) {
+.view-search-content .view-content .degov-content-search-results .row-content:nth-child(odd),
+.view-search-media .view-content .degov-content-search-results .row-content:nth-child(odd) {
   background-color: #E6E8EA; }
 
-.view-search-content .view-content .degov-content-search-results article .middle .bundle {
+.view-search-content .view-content .degov-content-search-results article .middle .bundle,
+.view-search-media .view-content .degov-content-search-results article .middle .bundle {
   color: #154575; }
 
 /*!
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas,
 .far,
 .fal,
@@ -9986,14 +10000,14 @@ readers do not read off random characters that represent icons */
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
+.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
 .fas.fa-pull-left,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
+.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
 .fas.fa-pull-right,
 .far.fa-pull-right,
 .fal.fa-pull-right,
@@ -13533,15 +13547,15 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-solid-900.eot");
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
-.block-degov-search-content-filter .filter-search-content {
+.block-degov-search-content-filter .filter-search-content, .block-degov-search-media-filter .filter-search-content {
   background-color: #E6E8EA;
   padding: 14px 14px 0 14px; }
-  .block-degov-search-content-filter .filter-search-content h2 {
+  .block-degov-search-content-filter .filter-search-content h2, .block-degov-search-media-filter .filter-search-content h2 {
     font-size: 1.2rem;
     font-weight: normal;
     font-style: normal;
@@ -13550,9 +13564,9 @@ readers do not read off random characters that represent icons */
     letter-spacing: normal;
     text-align: left;
     color: #2C2C2C; }
-  .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date {
+  .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date {
     position: relative; }
-    .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date input {
+    .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date input, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date input {
       width: 100%;
       height: 53px;
       border: none;
@@ -13563,7 +13577,7 @@ readers do not read off random characters that represent icons */
       color: #818D96;
       font-weight: normal;
       font-size: 16px; }
-    .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date:before {
+    .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date:before, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date:before {
       display: inline-block;
       position: absolute;
       right: 20px;
@@ -13574,14 +13588,14 @@ readers do not read off random characters that represent icons */
       color: #818D96;
       font-size: 1rem;
       pointer-events: none; }
-    .block-degov-search-content-filter .filter-search-content .block-facet-blocksearch-content-changed .form-type-date.date-to-wrapper:before {
+    .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date.date-to-wrapper:before, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date.date-to-wrapper:before {
       right: 25px; }
-  .block-degov-search-content-filter .filter-search-content .form-submit {
+  .block-degov-search-content-filter .filter-search-content .form-submit, .block-degov-search-media-filter .filter-search-content .form-submit {
     padding: 10px;
     width: 100%;
     clear: both;
     margin: 5px 0 0 0; }
-  .block-degov-search-content-filter .filter-search-content select {
+  .block-degov-search-content-filter .filter-search-content select, .block-degov-search-media-filter .filter-search-content select {
     width: 100%;
     height: 53px;
     border: none;
@@ -13601,10 +13615,10 @@ readers do not read off random characters that represent icons */
     /* for IE */
     -ms-appearance: none;
     appearance: none !important; }
-  .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown {
+  .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown {
     position: relative;
     width: 100%; }
-    .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown:before {
+    .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown:before, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown:before {
       display: inline-block;
       position: absolute;
       right: 5px;
@@ -13615,54 +13629,54 @@ readers do not read off random characters that represent icons */
       color: #818D96;
       font-size: 1rem;
       pointer-events: none; }
-  .block-degov-search-content-filter .filter-search-content select::-ms-expand {
+  .block-degov-search-content-filter .filter-search-content select::-ms-expand, .block-degov-search-media-filter .filter-search-content select::-ms-expand {
     display: none; }
-  .block-degov-search-content-filter .filter-search-content .details-wrapper {
+  .block-degov-search-content-filter .filter-search-content .details-wrapper, .block-degov-search-media-filter .filter-search-content .details-wrapper {
     padding-right: 0;
     padding-left: 0; }
 
-.block-full-text-search-page .paragraph__header {
+.block-full-text-search-page .paragraph__header, .block-degov-search-media-filter .paragraph__header {
   margin-left: -15px; }
 
-.block-full-text-search-page form .search-page-full-text-search-form {
+.block-full-text-search-page form .search-page-full-text-search-form, .block-degov-search-media-filter form .search-page-full-text-search-form {
   position: relative;
   margin-right: -15px;
   margin-left: -15px; }
-  .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext {
+  .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext, .block-degov-search-media-filter form .search-page-full-text-search-form .form-item-volltext {
     width: 100%;
     border: solid #E6E8EA 3px; }
     @media (min-width: 992px) {
-      .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext {
+      .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext, .block-degov-search-media-filter form .search-page-full-text-search-form .form-item-volltext {
         width: 85%; } }
-    .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext .field-suffix {
+    .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext .field-suffix, .block-degov-search-media-filter form .search-page-full-text-search-form .form-item-volltext .field-suffix {
       color: #818D96; }
-    .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"] {
+    .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"], .block-degov-search-media-filter form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"] {
       border: none;
       width: calc(100% - 30px);
       height: 50px;
       outline: none;
       font-size: 1.2rem; }
-      .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"]::placeholder {
+      .block-full-text-search-page form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"]::placeholder, .block-degov-search-media-filter form .search-page-full-text-search-form .form-item-volltext [data-drupal-selector*="edit-volltext"]::placeholder {
         color: #818D96; }
-  .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] {
+  .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"], .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] {
     position: absolute;
     right: 0;
     top: 5px; }
     @media (min-width: 992px) {
-      .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] {
+      .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"], .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] {
         position: relative;
         top: 0;
         right: 0; } }
-    .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button {
+    .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button {
       height: 56px;
       margin-top: -5px; }
       @media (min-width: 992px) {
-        .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button {
+        .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button {
           margin-top: 0; } }
-      .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
+      .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left {
         width: 25px;
         height: 25px; }
-        .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left:before {
+        .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left:before, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left:before {
           text-indent: 100%;
           content: "\F002";
           font-size: 1.2rem; }
@@ -13744,7 +13758,8 @@ html, body {
   max-width: 100%;
   overflow-x: hidden; }
 
-.bg-blue, .view-search-content .sorts-current-search-wrapper {
+.bg-blue, .view-search-content .sorts-current-search-wrapper,
+.view-search-media .sorts-current-search-wrapper {
   background-color: #154575; }
 
 /*!

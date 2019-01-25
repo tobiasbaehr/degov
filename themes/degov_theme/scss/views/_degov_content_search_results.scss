@@ -1,7 +1,8 @@
 // Content search results
 @import "search_sorts_bar";
 
-.view-search-content {
+.view-search-content,
+.view-search-media {
   @include sort_bar();
   @extend .mt-md-5;
   .view-content {
