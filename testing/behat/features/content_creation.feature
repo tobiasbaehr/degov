@@ -164,3 +164,10 @@ Feature: deGov - Content creation
     And I set the value of element ".viewreference_target_id" to "latest_events" via JavaScript
     And wait 2 seconds
     And I should see 1 ".viewsreference_view_mode:visible" elements via jQuery
+    Then I assert dropdown named "field_content_paragraphs[0][subform][field_view_reference_view][0][options][view_mode]" contains the following text-value pairs:
+      | text                   | value       |
+      | As defined in the view |             |
+      | Teaser kleines Bild    | small_image |
+      | Teaser langer Text     | long_text   |
+      | Teaser schmal          | slim        |
+      | Teaser Preview         | preview     |
