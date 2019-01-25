@@ -29,3 +29,4 @@ Feature: deGov - Users
     And I fill in "Confirm password" via translated text with "test"
     And I press button with label "Create new account" via translated text
     Then I should be on "/admin/people/create"
+    And I should see 1 ".messages--status" element
