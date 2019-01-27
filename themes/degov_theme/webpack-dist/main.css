@@ -5832,14 +5832,14 @@ body {
   font-family: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
   color: #2C2C2C; }
 
-article.full h1 {
+article.node.full h1 {
   font-weight: 600;
   line-height: 1.14;
   margin-bottom: .1rem; }
 
-article.full .date {
+article.node.full .date {
   font-size: 1.2rem; }
-  article.full .date:after {
+  article.node.full .date:after {
     content: '';
     display: block;
     width: 50px;
