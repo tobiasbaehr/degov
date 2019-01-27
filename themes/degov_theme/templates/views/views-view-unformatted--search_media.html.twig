@@ -21,8 +21,10 @@
 <div class="container degov-media-search-results pt-5">
   <div class="row justify-content-center">
     {% for row in rows %}
-      <div class="flex-grow-0 col col-sm-6 col-md-4 col-xl-3 pb-5">
-        {{- row.content -}}
+      <div class="flex-grow-0 col-12 col-sm-6 col-md-4 col-xl-3 pb-5 text-center">
+        <div class="d-inline-block">
+          {{- row.content -}}
+        </div>
       </div>
     {% endfor %}
   </div>
