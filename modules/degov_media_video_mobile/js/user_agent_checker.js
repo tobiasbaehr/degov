@@ -3,7 +3,7 @@ const UserAgentChecker = function(window) {
 };
 
 UserAgentChecker.prototype.isMobile = function() {
-  return window.navigator.userAgent.search(/mobile/i) !== -1;
+  return this.window.navigator.userAgent.search(/mobile/i) !== -1;
 };
 
 export default UserAgentChecker;
