@@ -33,42 +33,27 @@ set media_classes = [
       {% endfor %}
     </video>
   </div>
-  <section class="col-sm-12">
-    <div class="video-mobile__quality">
-      <label>
-        {{ 'Choose quality:'|trans }}
-        <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}">
-          {% for quality_key, quality_label in video_qualities %}
-            <option value="{{ quality_key }}">{{ quality_label }}</option>
-          {% endfor %}
-        </select>
-      </label>
-    </div>
-    <div class="video__extra-info">
-      <div class="video-mobile__top">
-        {% if content.field_media_accessibility|field_value %}
-          <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
-            {{ content.field_media_accessibility|field_value }}
-          </div>
-        {% else %}
-          <div class="media__type-label">{{ 'Video'|t }}</div>
-        {% endif %}
-        {% if content.field_copyright|field_value %}
-          <span class="video-mobile__copyright">
-            <span class="video-mobile__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-              {{ content.field_copyright|field_value }}
-          </span>
-        {% endif %}
-      </div>
-      <div class="video-mobile__downloads">
-        {% if content.downloads %}
-          {% for key, download in content.downloads %}
-            {{ download }}
-          {% endfor %}
-        {% endif %}
+  <div class="row below-video">
+    <div class="col-sm-8">
+      <div class="video__extra-info">
+        <div class="video-mobile__top">
+          {% if content.field_media_accessibility|field_value %}
+            <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+              {{ content.field_media_accessibility|field_value }}
+            </div>
+          {% else %}
+            <div class="media__type-label">{{ 'Video'|t }}</div>
+          {% endif %}
+        </div>
       </div>
       {% if content.field_title %}
         <h2 class="video-mobile__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
+      {% endif %}
+      {% if content.field_copyright|field_value %}
+        <span class="video-mobile__copyright">
+            <span class="video-mobile__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
+          {{ content.field_copyright|field_value }}
+          </span>
       {% endif %}
       {% if content.field_video_upload_caption|field_value %}
         <span class="video-mobile__caption"{{ content.field_video_upload_caption|quickedit_attr }}>{{ content.field_video_upload_caption|field_value }}</span>
@@ -104,5 +89,24 @@ set media_classes = [
         </div>
       {% endif %}
     </div>
-  </section>
+    <div class="col-sm-4">
+      <div class="video-mobile__quality">
+        <label>
+          {{ 'Choose quality:'|trans }}
+          <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}">
+            {% for quality_key, quality_label in video_qualities %}
+              <option value="{{ quality_key }}">{{ quality_label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      </div>
+      <div class="video-mobile__downloads">
+        {% if content.downloads %}
+          {% for key, download in content.downloads %}
+            {{ download }}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </article>
