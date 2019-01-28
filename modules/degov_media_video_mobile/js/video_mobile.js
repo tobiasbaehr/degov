@@ -1,5 +1,6 @@
 import Navi from './navi';
 import SpeedChecker from './speed_checker';
+import UserAgentChecker from './user_agent_checker';
 
 /**
  * Defines the behavior of the media bundle video mobile.
@@ -58,7 +59,8 @@ import SpeedChecker from './speed_checker';
       let navi_connection = new Navi(navigator),
         connection = navi_connection.getConnection(),
         isCellular,
-        speedChecker = new SpeedChecker(window);
+        speedChecker = new SpeedChecker(window),
+        userAgentChecker = new UserAgentChecker(window);
 
       if (connection) {
         if (typeof connection.type !== 'undefined') {
@@ -67,7 +69,11 @@ import SpeedChecker from './speed_checker';
           isCellular = (connection.effectiveType !== '4g');
         }
       } else {
-        isCellular = speedChecker.checkSlowLoadTime();
+        isCellular = userAgentChecker.isMobile();
+
+        if(!isCellular) {
+          isCellular = speedChecker.checkSlowLoadTime();
+        }
       }
 
       return isCellular;
