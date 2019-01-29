@@ -106,7 +106,19 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst Navi = function(navigat
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst SpeedChecker = function(window) {\n  this.window = window;\n};\n\nSpeedChecker.prototype.checkSlowLoadTime = function() {\n  const maxCellularLoadTime = 2000;\n  let loadTime = new Date().valueOf() - this.window.performance.timing.requestStart;\n  return (loadTime > maxCellularLoadTime);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (SpeedChecker);\n\n\n//# sourceURL=webpack:///../modules/degov_media_video_mobile/js/speed_checker.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst SpeedChecker = function(window) {\n  this.window = window;\n};\n\nSpeedChecker.prototype.checkSlowLoadTime = function() {\n  const maxCellularLoadTime = 5000;\n  let loadTime = new Date().valueOf() - this.window.performance.timing.requestStart;\n  return (loadTime > maxCellularLoadTime);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (SpeedChecker);\n\n\n//# sourceURL=webpack:///../modules/degov_media_video_mobile/js/speed_checker.js?");
+
+/***/ }),
+
+/***/ "../modules/degov_media_video_mobile/js/user_agent_checker.js":
+/*!********************************************************************!*\
+  !*** ../modules/degov_media_video_mobile/js/user_agent_checker.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst UserAgentChecker = function(window) {\n  this.window = window;\n};\n\nUserAgentChecker.prototype.isMobile = function() {\n  return this.window.navigator.userAgent.search(/mobile/i) !== -1;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (UserAgentChecker);\n\n\n//# sourceURL=webpack:///../modules/degov_media_video_mobile/js/user_agent_checker.js?");
 
 /***/ }),
 
@@ -146,14 +158,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 
 /***/ }),
 
+/***/ "./test/useragent-test.js":
+/*!********************************!*\
+  !*** ./test/useragent-test.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_degov_media_video_mobile_js_navi__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/navi */ \"../modules/degov_media_video_mobile/js/navi.js\");\n/* harmony import */ var _modules_degov_media_video_mobile_js_user_agent_checker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../modules/degov_media_video_mobile/js/user_agent_checker */ \"../modules/degov_media_video_mobile/js/user_agent_checker.js\");\n\n\n\n\nQUnit.test('User agent string test', function(assert) {\n\n  // Chrome on Mac\n  const navigator1 =  {\n    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'\n  };\n\n  // Mobile Safari\n  const navigator2 =  {\n    userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B137 Safari/601.1'\n  };\n\n  // Android Browser\n  const navigator3 =  {\n    userAgent: 'Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'\n  };\n\n  const fakeWindow1 = {};\n  fakeWindow1.navigator = navigator1;\n  const userAgentChecker1 = new _modules_degov_media_video_mobile_js_user_agent_checker__WEBPACK_IMPORTED_MODULE_1__[\"default\"](fakeWindow1);\n  assert.equal(false, userAgentChecker1.isMobile(), \"Chrome on Mac should report as not mobile.\");\n\n  const fakeWindow2 = {};\n  fakeWindow2.navigator = navigator2;\n  const userAgentChecker2 = new _modules_degov_media_video_mobile_js_user_agent_checker__WEBPACK_IMPORTED_MODULE_1__[\"default\"](fakeWindow2);\n  assert.equal(true, userAgentChecker2.isMobile(), \"Mobile Safari should report as mobile.\");\n\n  const fakeWindow3 = {};\n  fakeWindow3.navigator = navigator3;\n  const userAgentChecker3 = new _modules_degov_media_video_mobile_js_user_agent_checker__WEBPACK_IMPORTED_MODULE_1__[\"default\"](fakeWindow3);\n  assert.equal(true, userAgentChecker3.isMobile(), \"Android should report as mobile.\");\n});\n\n\n//# sourceURL=webpack:///./test/useragent-test.js?");
+
+/***/ }),
+
 /***/ 0:
-/*!***********************************************************************************!*\
-  !*** multi ./test/connection-tests.js ./test/device-test.js ./test/speed-test.js ***!
-  \***********************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** multi ./test/connection-tests.js ./test/device-test.js ./test/speed-test.js ./test/useragent-test.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/connection-tests.js */\"./test/connection-tests.js\");\n__webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/device-test.js */\"./test/device-test.js\");\nmodule.exports = __webpack_require__(/*! /Users/peter/Dev/deGov/nrw-project-test/docroot/profiles/contrib/degov/js/test/speed-test.js */\"./test/speed-test.js\");\n\n\n//# sourceURL=webpack:///multi_./test/connection-tests.js_./test/device-test.js_./test/speed-test.js?");
+eval("__webpack_require__(/*! /Users/marc/workspace/nrwgov-responsive-videos/docroot/profiles/contrib/degov/js/test/connection-tests.js */\"./test/connection-tests.js\");\n__webpack_require__(/*! /Users/marc/workspace/nrwgov-responsive-videos/docroot/profiles/contrib/degov/js/test/device-test.js */\"./test/device-test.js\");\n__webpack_require__(/*! /Users/marc/workspace/nrwgov-responsive-videos/docroot/profiles/contrib/degov/js/test/speed-test.js */\"./test/speed-test.js\");\nmodule.exports = __webpack_require__(/*! /Users/marc/workspace/nrwgov-responsive-videos/docroot/profiles/contrib/degov/js/test/useragent-test.js */\"./test/useragent-test.js\");\n\n\n//# sourceURL=webpack:///multi_./test/connection-tests.js_./test/device-test.js_./test/speed-test.js_./test/useragent-test.js?");
 
 /***/ })
 
