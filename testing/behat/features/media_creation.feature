@@ -224,14 +224,14 @@ Feature: deGov - Media creation
     Given I am installing the "degov_demo_content" module
     And I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
-    And I am on "/media/1/edit"
+    And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I am on "/ipsum-dolor-sit-amet-consetetur"
+    And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
-    And I should see HTML content matching "media--view-mode-full"
+    And I should see HTML content matching "image--full"
 
   Scenario: I verify that a deleted Media's file is actually gone
     Given I am installing the "degov_demo_content" module
@@ -239,10 +239,10 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/content/media"
-    Then I am on "/eirmod-tempor-invidunt-ut-labore"
+    Then I am on "/image-will-be-deleted"
     And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
-    Then I am on "/media/3/delete"
+    Then I am on "/media/5/delete"
     And I click by CSS id "edit-submit"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
     And I should see HTML content matching "404 Not Found"

@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
 use Drupal\field\Entity\FieldConfig;
 
@@ -31,6 +32,11 @@ function degov_media_image_uninstall() {
       ->set('widgets', $widgets)
       ->save(TRUE);
   }
+  //Remove content
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['image'],
+  ]);
 }
 
 /**
