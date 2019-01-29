@@ -20,7 +20,7 @@ class MenuAccount {
   static public function preprocess(array &$vars) {
     if ($vars['menu_name'] === 'account') {
       array_walk($vars['items'], function (&$item) {
-        if (!empty($item['title']['icon'])) {
+        if (is_array($item['title']) && !empty($item['title']['icon'])) {
           $item['title']['icon']['#attributes']['class'][] = 'ml-2';
         }
 
