@@ -47,8 +47,8 @@ Feature: deGov Simplenews
     And I should see text matching "ConsentTest1234"
 
   Scenario: Consent messages for multiple languages can be saved
-    Given I am logged in as a user with the "administrator" role
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
     Then I am on "/admin/config/regional/language/add"
     And I select "Englisch" in "edit-predefined-langcode"
     And I press button with label "Add language" via translated text
