@@ -1,6 +1,8 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\facets\Entity\Facet;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -64,4 +66,72 @@ function degov_search_media_update_850100() {
   // Apply updates for workflows
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_search_media', '8008');
+}
+
+/**
+ * deGov update 6.0.0 - Add video_mobile media type to search_media view as a filter.
+ */
+function degov_search_media_update_860000() {
+  /**
+   * @var ConfigFactory $configFactory
+   */
+  $configFactory = \Drupal::service('config.factory');
+  /**
+   * @var Drupal\Core\Config\Config $config
+   */
+  $config = $configFactory->getEditable('views.view.search_media');
+
+  $viewsFilterConfig = <<<HERE
+bundle_5:
+  id: bundle_5
+  table: search_api_index_search_media
+  field: bundle
+  relationship: none
+  group_type: group
+  admin_label: ''
+  operator: '='
+  value:
+    min: ''
+    max: ''
+    value: video_mobile
+  group: 1
+  exposed: false
+  expose:
+    operator_id: ''
+    label: ''
+    description: ''
+    use_operator: false
+    operator: ''
+    identifier: ''
+    required: false
+    remember: false
+    multiple: false
+    remember_roles:
+      authenticated: authenticated
+    placeholder: ''
+    min_placeholder: ''
+    max_placeholder: ''
+  is_grouped: false
+  group_info:
+    label: ''
+    description: ''
+    identifier: ''
+    optional: true
+    widget: select
+    multiple: false
+    remember: false
+    default_group: All
+    default_group_multiple: {  }
+    group_items: {  }
+  plugin_id: search_api_string
+HERE;
+
+  if (!empty($config->get('display.default.display_options.filters'))) {
+    $config->set('display.default.display_options.filters', array_merge(
+      $config->get('display.default.display_options.filters'),
+      Yaml::parse($viewsFilterConfig)
+    ));
+    $config->save();
+  }
+
 }
