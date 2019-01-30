@@ -3,11 +3,12 @@ Feature: deGov - Content types
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | degov_node_overrides      |
-      | degov_node_normal_page    |
-      | degov_paragraph_webform   |
-      | degov_paragraph_slideshow |
-      | degov_paragraph_header    |
+      | degov_node_overrides       |
+      | degov_node_normal_page     |
+      | degov_paragraph_webform    |
+      | degov_paragraph_slideshow  |
+      | degov_paragraph_header     |
+      | degov_node_external_teaser |
     Given I am installing the following Drupal modules:
       | degov_node_event          |
     Given I proof content type "normal_page" has set the following fields for display:
