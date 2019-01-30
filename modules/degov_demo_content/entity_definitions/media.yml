@@ -144,3 +144,4 @@ video_mobile_1:
   field_allow_download_mobile: 1
   field_allow_download_hdready: 1
   field_include_search: 1
+  field_video_mobile_preview: '{{MEDIA_ID_IMAGE}}'
