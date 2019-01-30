@@ -134,4 +134,34 @@ HERE;
     $config->save();
   }
 
+  $viewModesConfig = <<<HERE
+'entity:media':
+  address: search
+  audio: search
+  citation: search
+  contact: search
+  document: search
+  facts: search
+  gallery: search
+  image: search
+  instagram: search
+  person: search
+  some_embed: search
+  tweet: search
+  video: search
+  video_file: search
+  video_mobile: search
+  video_upload: search
+HERE;
+
+  if(!empty($config->get('display.default.display_options.row.options.view_modes'))) {
+    $viewModes = $config->get('display.default.display_options.row.options.view_modes');
+
+    $config->set('display.default.display_options.row.options.view_modes', array_merge(
+      $viewModes,
+      Yaml::parse($viewModesConfig)
+    ));
+    $config->save();
+  }
+
 }

@@ -79,15 +79,15 @@ display:
               citation: search
               contact: search
               document: search
-              facts: default
+              facts: search
               gallery: search
               image: search
               instagram: search
               person: search
-              some_embed: default
+              some_embed: search
               tweet: search
               video: search
-              video_file: default
+              video_file: search
               video_mobile: search
               video_upload: search
       fields:
