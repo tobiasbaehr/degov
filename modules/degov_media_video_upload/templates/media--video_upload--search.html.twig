@@ -19,13 +19,13 @@
 ] %}
 <article{{ attributes.addClass(media_classes) }}>
   <div class="media--search__type-text">{{ 'Video'|t }}</div>
-  {% if content.field_video_upload_preview|field_value %}
-    <div class="video-upload__video">{{ content.field_video_upload_preview|field_value }}</div>
-  {% else %}
-    <a href="{{ video_url }}">
+  <a href="{{ video_url }}">
+    {% if content.field_video_upload_preview|field_value %}
+      <div class="video-upload__video">{{ content.field_video_upload_preview|field_value }}</div>
+    {% else %}
       <div class="media--search__dummy"></div>
-    </a>
-  {% endif %}
+    {% endif %}
+  </a>
   {% if content.field_title %}
     <div class="media--search__info">
       <div class="media--search__date video_upload__date">
