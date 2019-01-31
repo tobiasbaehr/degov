@@ -4,22 +4,10 @@ dependencies:
   config:
     - image.style.teaser_squared_1_1_120
     - image.style.teaser_squared_1_1_240
-    - image.style.teaser_squared_1_1_480
-    - image.style.teaser_squared_1_1_120
-    - image.style.teaser_squared_1_1_240
-    - image.style.teaser_squared_1_1_480
-    - image.style.teaser_squared_1_1_720
-    - image.style.teaser_squared_1_1_120
     - image.style.teaser_squared_1_1_320
     - image.style.teaser_squared_1_1_480
-  enforced:
-    module:
-      - degov_image_and_crop_styles
-      - degov_image_and_crop_styles
-      - degov_image_and_crop_styles
+    - image.style.teaser_squared_1_1_720
   module:
-    - degov_image_and_crop_styles
-    - degov_image_and_crop_styles
     - degov_image_and_crop_styles
   enforced:
     module:

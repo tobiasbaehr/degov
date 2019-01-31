@@ -5,15 +5,7 @@ dependencies:
     - image.style.teaser_landscape_2_1_1280
     - image.style.teaser_landscape_2_1_480
     - image.style.teaser_landscape_2_1_960
-    - image.style.teaser_landscape_2_1_1280
-    - image.style.teaser_landscape_2_1_480
-    - image.style.teaser_landscape_2_1_960
-  enforced:
-    module:
-      - degov_image_and_crop_styles
-      - degov_image_and_crop_styles
   module:
-    - degov_image_and_crop_styles
     - degov_image_and_crop_styles
   enforced:
     module:
