@@ -23,5 +23,26 @@ article.node.full {
       margin-top: 20px;
     }
   }
+  .user-info {
+    .user-avatar {
+      overflow: hidden;
+      border-radius: 50%;
+      min-height: 50px;
+      min-width: 50px;
+      background-color: $alto;
+      line-height: 50px;
+      i {
+        color: $regent-grey;
+        margin-left: 18px;
+      }
+      img {
+        width: auto;
+        height: 50px;
+      }
+    }
+    .title {
+      font-size: .8rem;
+    }
+  }
 
 }

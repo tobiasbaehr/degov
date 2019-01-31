@@ -5847,6 +5847,23 @@ article.node.full .date {
     background-color: #CECECE;
     margin-top: 20px; }
 
+article.node.full .user-info .user-avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  min-height: 50px;
+  min-width: 50px;
+  background-color: #CECECE;
+  line-height: 50px; }
+  article.node.full .user-info .user-avatar i {
+    color: #818D96;
+    margin-left: 18px; }
+  article.node.full .user-info .user-avatar img {
+    width: auto;
+    height: 50px; }
+
+article.node.full .user-info .title {
+  font-size: .8rem; }
+
 footer.site-footer {
   background-color: #154575;
   color: #fff; }

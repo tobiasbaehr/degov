@@ -89,6 +89,17 @@
         {% if content.field_press_date|field_value %}
           <div class="container date"{{ content.field_press_date|quickedit_attr }}>{{ content.field_press_date|field_value }}</div>
         {% endif %}
+        <div class="user-info container clearfix mt-4">
+          <div class="user-avatar float-left mr-3">
+            {% if author_picture %}
+              {{ author_picture }}
+            {% else %}
+              <i class="fas fa-user"></i>
+            {% endif %}
+          </div>
+          <div class="name font-weight-bold mb-1">{{ author_name|striptags|trim }}</div>
+          <div class="title"></div>
+        </div>
 
         {% if teaser %}
           <h2>{{ label }}</h2>
