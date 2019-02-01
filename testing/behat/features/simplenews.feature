@@ -45,3 +45,20 @@ Feature: deGov Simplenews
     Then I should see text matching "The configuration options have been saved." via translation after a while
     Then I am on "/degov-demo-content/page-all-teasers"
     And I should see text matching "ConsentTest1234"
+
+  Scenario: Consent messages for multiple languages can be saved
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/config/regional/language/add"
+    And I select "Englisch" in "edit-predefined-langcode"
+    And I press button with label "Add language" via translated text
+    Then I should see text matching "Add language" via translation after a while
+    Then I set the privacy policy page for all languages
+    Then I am on "/admin/config/degov/simplenews"
+    And I fill in "Consent message (de)" with "ConsentTest1234"
+    And I fill in "Consent message (en)" with "ConsentTest5678"
+    And I scroll to element with id "edit-submit"
+    And I click by CSS id "edit-submit"
+    Then I should see text matching "The configuration options have been saved." via translation after a while
+    And I should see HTML content matching "ConsentTest1234"
+    And I should see HTML content matching "ConsentTest5678"
