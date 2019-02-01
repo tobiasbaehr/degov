@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\nrw_menu\Plugin\Block;
+namespace Drupal\degov_copyright_block\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 /**
  * Provides a copyright block with the current year and the site name.
  * @Block(
- *   id = "nrw_menu_copyright_block",
+ *   id = "degov_copyright_block",
  *   admin_label = @Translation("Copyright"),
  * )
  */
@@ -48,7 +48,7 @@ class Copyright extends BlockBase implements BlockPluginInterface {
     $blockConfiguration = $this->getConfiguration();
 
     $block = [
-      '#theme'            => 'nrw_menu_copyright_block',
+      '#theme'            => 'degov_copyright_block',
       '#date'             => date('Y'),
       '#copyright_holder' => $blockConfiguration['copyright_text'] ?? \Drupal::config('system.site')
           ->get('name'),
