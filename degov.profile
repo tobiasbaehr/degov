@@ -67,6 +67,7 @@ function degov_module_setup(&$install_state) {
     'degov_simplenews_references'       => 'degov_simplenews_references',
     'degov_email_login'                 => 'degov_email_login',
     'degov_fa_icon_picker'              => 'degov_fa_icon_picker',
+    'degov_copyright_block'             => 'degov_copyright_block',
   ];
 
   // Add a batch operation to install each module.
