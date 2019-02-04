@@ -150,6 +150,29 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I open medias delete url by title "([^"]*)"$/
+   */
+  public function openMediaDeleteUrlByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/delete');
+  }
+
+  /**
    * @Then /^I click by CSS class "([^"]*)"$/
    * @param string $class
    */

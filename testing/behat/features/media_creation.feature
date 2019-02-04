@@ -243,7 +243,7 @@ Feature: deGov - Media creation
     Then I am on "/image-will-be-deleted"
     And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
-    Then I am on "/media/5/delete"
+    Then I open medias delete url by title "This image will be deleted"
     And I click by CSS id "edit-submit"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
     And I should see HTML content matching "404 Not Found"
