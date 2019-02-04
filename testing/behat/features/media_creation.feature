@@ -177,7 +177,8 @@ Feature: deGov - Media creation
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
     And I am on "/node/add/faq"
-    And I click by CSS class "cke_button__media_browser"
+    And I should see HTML content matching "cke_button__media_browser" after a while
+    And I click by selector ".cke_button__media_browser" via JavaScript
     Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
