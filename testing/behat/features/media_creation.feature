@@ -9,11 +9,11 @@ Feature: deGov - Media creation
       | degov_paragraph_text   |
       | degov_media_image      |
       | degov_media_gallery    |
-      | degov_demo_content     |
     Given I am installing the "degov_paragraph_media_reference" module
 
   Scenario: I am creating a address media entity
-    Given I am logged in as a user with the "Administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "Administrator" role
     And I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
@@ -24,17 +24,18 @@ Feature: deGov - Media creation
     And I click "General" via translation
     And I check the box "Mediathek"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
 
   Scenario: I proof that longitude and latitude has been generated automatically
-    Given I am logged in as a user with the "Administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "Administrator" role
     And I open address medias edit form from latest media with title "Example address public"
     And I should see HTML content matching "51.220793"
     And I should see HTML content matching "6.772623"
 
   Scenario: I am creating a quote media entity
-    Given I am logged in as a user with the "Administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "Administrator" role
     And I am on "media/add/citation"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -43,13 +44,13 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example quote public       |
       | Text               | Example text. Lorem ipsum. |
     Then I scroll to bottom
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example quote" after a while
 
   Scenario: I am creating a person media entity
-    Given I am logged in as a user with the "Administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "Administrator" role
     And I am on "media/add/person"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -57,13 +58,13 @@ Feature: deGov - Media creation
       | Name               | Example person        |
       | Öffentlicher Titel | Example person public |
     Then I scroll to bottom
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
 
   Scenario: I am creating a video upload media entity
-    Given I am logged in as an "Administrator"
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/video_upload"
     And I fill in the following:
       | Name               | Video Example |
@@ -73,12 +74,12 @@ Feature: deGov - Media creation
     And I choose "Medien" from tab menu
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I should see text matching "Video Upload Video Example wurde erstellt."
 
   Scenario: I am creating a video media entity
-    Given I am logged in as an "Administrator"
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     When I go to "/media/add/video"
     And I fill in the following:
       | Öffentlicher Titel     | Example video                               |
@@ -88,13 +89,13 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
     And I should see "Video Example video public wurde erstellt."
 
   Scenario: I am creating an Instagram media entity
-    Given I am logged in as an "Administrator"
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     When I go to "media/add/instagram"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
@@ -102,14 +103,13 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example Instagram public               |
       | Instagram post     | https://www.instagram.com/p/JUvux9iFRY |
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
 
   Scenario: I am creating an media image entity with copyright
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
@@ -122,14 +122,13 @@ Feature: deGov - Media creation
     And I choose "Beschreibung" from tab menu
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
 
   Scenario: I try and fail to create a licensed image without copyright info
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
@@ -140,13 +139,12 @@ Feature: deGov - Media creation
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
 
   Scenario: I try to create an image just to check if the copyright field is emptied when I set the image to be royalty free
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/image"
     And I choose "Beschreibung" from tab menu
     And I fill in "Copyright" with "Test1234"
@@ -161,11 +159,10 @@ Feature: deGov - Media creation
     Then I should see "ist erforderlich."
     And I choose "Beschreibung" from tab menu
     And I should see 0 form element with the label "Copyright" and the value "Test1234"
-    And I should see 1 form element with the label "Copyright" and the value ""
 
   Scenario: I am creating an media image entity without copyright
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
@@ -178,17 +175,15 @@ Feature: deGov - Media creation
     And I choose "Beschreibung" from tab menu
     And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
 
   Scenario: I try to create an image from the CKEditor entity embed dialog to check if the copyright field is present and can be emptied
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
     And I am on "/node/add/faq"
-    And I should see HTML content matching "cke_button__media_browser" after a while
-    And I click by selector ".cke_button__media_browser" via JavaScript
+    And I click by CSS class "cke_button__media_browser"
     Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I click "Hochladen"
@@ -207,8 +202,7 @@ Feature: deGov - Media creation
     And I verify that field "#edit-entity-field-copyright-0-target-id" has the value ""
 
   Scenario: I am creating an media gallery entity
-    Given I am on "/"
-    And I have dismissed the cookie banner if necessary
+    Given I have dismissed the cookie banner if necessary
     And I am logged in as an "Administrator"
     And I am on "/media/add/gallery"
     And I fill in "Name" with "Test1234"
@@ -229,19 +223,17 @@ Feature: deGov - Media creation
     And I go back to the main window
     And I should see the details container titled "Current selections" with entries after a while
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
 
   Scenario: Check if media full display is working if field_include_search is unchecked
     Given I am installing the "degov_demo_content" module
+    Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I have dismissed the cookie banner if necessary
     And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
-    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
@@ -249,8 +241,8 @@ Feature: deGov - Media creation
 
   Scenario: I verify that a deleted Media's file is actually gone
     Given I am installing the "degov_demo_content" module
-    Given I am on "/"
     And I have dismissed the cookie banner if necessary
+    Given I am on "/"
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/content/media"
     Then I am on "/image-will-be-deleted"
