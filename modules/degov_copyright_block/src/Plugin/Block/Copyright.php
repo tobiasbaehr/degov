@@ -50,8 +50,7 @@ class Copyright extends BlockBase implements BlockPluginInterface {
     $block = [
       '#theme'            => 'degov_copyright_block',
       '#date'             => date('Y'),
-      '#copyright_holder' => !empty(trim($blockConfiguration['copyright_text'])) ? $blockConfiguration['copyright_text'] : \Drupal::config('system.site')
-          ->get('name'),
+      '#copyright_holder' => !empty(trim($blockConfiguration['copyright_text'])) ? $blockConfiguration['copyright_text'] : \Drupal::config('system.site')->get('name'),
     ];
 
     return $block;
