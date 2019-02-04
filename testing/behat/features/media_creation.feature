@@ -87,7 +87,7 @@ Feature: deGov - Media creation
       | Quelle                 | youtube                                     |
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
-    And I scroll to element with id "edit-submit
+    And I scroll to element with id "edit-submit"
     And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
