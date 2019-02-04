@@ -9,6 +9,7 @@ Feature: deGov - Media creation
       | degov_paragraph_text   |
       | degov_media_image      |
       | degov_media_gallery    |
+      | degov_demo_content     |
     Given I am installing the "degov_paragraph_media_reference" module
 
   Scenario: I am creating a address media entity
@@ -23,6 +24,7 @@ Feature: deGov - Media creation
     And I click "General" via translation
     And I check the box "Mediathek"
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
 
   Scenario: I proof that longitude and latitude has been generated automatically
@@ -41,6 +43,7 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example quote public       |
       | Text               | Example text. Lorem ipsum. |
     Then I scroll to bottom
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example quote" after a while
@@ -54,6 +57,7 @@ Feature: deGov - Media creation
       | Name               | Example person        |
       | Öffentlicher Titel | Example person public |
     Then I scroll to bottom
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I am on "/admin/content/media"
     Then I should see text matching "Example person" after a while
@@ -69,6 +73,7 @@ Feature: deGov - Media creation
     And I choose "Medien" from tab menu
     And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I should see text matching "Video Upload Video Example wurde erstellt."
 
@@ -82,7 +87,8 @@ Feature: deGov - Media creation
       | Quelle                 | youtube                                     |
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
-    And I scroll to element with id "edit-submit"
+    And I scroll to element with id "edit-submit
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     And I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
     And I should see "Video Example video public wurde erstellt."
@@ -96,6 +102,7 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Example Instagram public               |
       | Instagram post     | https://www.instagram.com/p/JUvux9iFRY |
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "Example Instagram wurde erstellt."
@@ -115,6 +122,7 @@ Feature: deGov - Media creation
     And I choose "Beschreibung" from tab menu
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
@@ -132,6 +140,7 @@ Feature: deGov - Media creation
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
 
@@ -169,6 +178,7 @@ Feature: deGov - Media creation
     And I choose "Beschreibung" from tab menu
     And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
@@ -219,6 +229,7 @@ Feature: deGov - Media creation
     And I go back to the main window
     And I should see the details container titled "Current selections" with entries after a while
     And I scroll to element with id "edit-submit"
+    And I have dismissed the cookie banner if necessary
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
 
@@ -230,7 +241,8 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
-    And I press "Speichern"
+    And I have dismissed the cookie banner if necessary
+    And I press button with label "Save" via translated text
     And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
     And I should see HTML content matching "image--full"
