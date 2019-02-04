@@ -113,6 +113,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)"$/
+   * @Then /^I should see HTML content matching '([^']*)'$/
    */
   public function iShouldSeeHTMLContentMatching(string $content)
   {
