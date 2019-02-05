@@ -35,11 +35,23 @@ function degov_common_views_data_alter(array &$data) {
  * Implements hook_theme().
  */
 function degov_common_theme() {
-  return array(
-    'degov_file_download_link' => array(
-      'variables' => array('file' => NULL, 'download_link' => NULL, 'icon' => '', 'file_size' => NULL, 'attributes' => NULL),
-    ),
-  );
+  return [
+    'degov_file_download_link' => [
+      'variables' => [
+        'file'          => NULL,
+        'download_link' => NULL,
+        'icon'          => '',
+        'file_size'     => NULL,
+        'attributes'    => NULL,
+      ],
+    ],
+    'degov_user_profile_link'  => [
+      'variables' => [
+        'logged_in' => FALSE,
+      ],
+      'template'  => 'degov-user-profile-link',
+    ],
+  ];
 }
 
 /**
