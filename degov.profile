@@ -51,6 +51,7 @@ function degov_module_setup(&$install_state) {
   $modules = [
     'degov_common'                      => 'degov_common',
     'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+    'degov_config_integrity'            => 'degov_config_integrity',
     'degov_image_and_crop_styles'       => 'degov_image_and_crop_styles',
     'degov_date_formats'                => 'degov_date_formats',
     'degov_pathauto'                    => 'degov_pathauto',
