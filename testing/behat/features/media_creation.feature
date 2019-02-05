@@ -234,20 +234,21 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
-    And I press "Speichern"
+    And I press button with label "Save" via translated text
     And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
     And I should see HTML content matching "image--full"
 
   Scenario: I verify that a deleted Media's file is actually gone
     Given I am installing the "degov_demo_content" module
-    Given I have dismissed the cookie banner if necessary
+    And I have dismissed the cookie banner if necessary
+    Given I am on "/"
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/content/media"
     Then I am on "/image-will-be-deleted"
     And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
-    Then I am on "/media/5/delete"
+    Then I open medias delete url by title "This image will be deleted"
     And I click by CSS id "edit-submit"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
     And I should see HTML content matching "404 Not Found"
