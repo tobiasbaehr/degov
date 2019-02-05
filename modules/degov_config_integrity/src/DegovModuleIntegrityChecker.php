@@ -1,16 +1,16 @@
 <?php
 
-namespace Drupal\degov_common;
+namespace Drupal\degov_config_integrity;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
- * Class DeGovModuleIntegrity.
+ * Class DegovModuleIntegrityChecker.
  *
- * @package Drupal\degov_common
+ * @package Drupal\degov_config_integrity
  */
-class DeGovModuleIntegrity {
+class DegovModuleIntegrityChecker {
 
   /**
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
