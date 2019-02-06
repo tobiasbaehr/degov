@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_config_integrity\Command;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\degov_config_integrity\DegovModuleIntegrityChecker;
 use Drush\Commands\DrushCommands;
 
@@ -11,6 +12,8 @@ use Drush\Commands\DrushCommands;
  * @package Drupal\degov_config_integrity\Command
  */
 class DegovConfigIntegrityDrushCommands extends DrushCommands {
+
+  use StringTranslationTrait;
 
   /**
    * The ModuleIntegrityChecker.
@@ -36,20 +39,20 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    * @command config:diff:installed-modules
    */
   public function checkConfigOfInstalledModules() {
-    drush_print(t('deGov Configuration Integrity Check running…'));
+    drush_print($this->t('deGov Configuration Integrity Check running…'));
     $configurationIntegrityIntact = TRUE;
-    foreach ($this->moduleIntegrityChecker->checkIntegrity() as $index => $module) {
-      foreach ($module as $key => $messages) {
-        drush_print(t('Module @module', ['@module' => $key]), 2);
-        drush_print(t('Configuration is missing'), 4);
-        foreach($messages as $message) {
-          drush_print($message, 6);
+    foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
+      foreach ($module as $moduleName => $missingConfigs) {
+        drush_print($this->t('Module @module', ['@module' => $moduleName]), 2);
+        drush_print($this->t('Configuration is missing'), 4);
+        foreach ($missingConfigs as $missingConfig) {
+          drush_print($missingConfig, 6);
         }
         $configurationIntegrityIntact = FALSE;
       }
     }
-    if($configurationIntegrityIntact) {
-      drush_print(t('All expected configuration seems to be in place.'));
+    if ($configurationIntegrityIntact) {
+      drush_print($this->t('All expected configuration seems to be in place.'));
     }
   }
 
