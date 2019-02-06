@@ -49,7 +49,7 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output): void {
-    $this->getIo()->info($this->t('deGov Configuration Integrity Check running…'));
+    $this->getIo()->info($this->t('deGov configuration integrity check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
       foreach ($module as $key => $messages) {
