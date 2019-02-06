@@ -39,7 +39,7 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
   /**
    * {@inheritdoc}
    */
-  protected function configure() {
+  protected function configure(): void {
     $this
       ->setName('config:diff:installed-modules')
       ->setDescription($this->t('Check for missing configuration.'));
@@ -48,7 +48,7 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
   /**
    * {@inheritdoc}
    */
-  protected function execute(InputInterface $input, OutputInterface $output) {
+  protected function execute(InputInterface $input, OutputInterface $output): void {
     $this->getIo()->info($this->t('deGov Configuration Integrity Check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {

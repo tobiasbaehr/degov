@@ -38,7 +38,7 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    *
    * @command config:diff:installed-modules
    */
-  public function checkConfigOfInstalledModules() {
+  public function checkConfigOfInstalledModules(): void {
     drush_print($this->t('deGov Configuration Integrity Check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
