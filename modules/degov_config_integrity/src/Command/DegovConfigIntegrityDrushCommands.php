@@ -16,16 +16,12 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
   use StringTranslationTrait;
 
   /**
-   * The ModuleIntegrityChecker.
-   *
-   * @var \Drupal\degov_config_integrity\DegovModuleIntegrityChecker
+   * @var DegovModuleIntegrityChecker
    */
   private $moduleIntegrityChecker;
 
   /**
-   * DegovConfigIntegrityDrushCommands constructor.
-   *
-   * @param \Drupal\degov_config_integrity\DegovModuleIntegrityChecker $moduleIntegrityChecker
+   * @param DegovModuleIntegrityChecker $moduleIntegrityChecker
    *   The ModuleIntegrityChecker.
    */
   public function __construct(DegovModuleIntegrityChecker $moduleIntegrityChecker) {
@@ -39,7 +35,7 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    * @command config:diff:installed-modules
    */
   public function checkConfigOfInstalledModules(): void {
-    drush_print($this->t('deGov Configuration Integrity Check running…'));
+    drush_print($this->t('deGov configuration integrity check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
       foreach ($module as $moduleName => $missingConfigs) {

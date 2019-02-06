@@ -10,8 +10,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Annotations\DrupalCommand;
 
 /**
- * Class ResetCommand.
- *
  * @DrupalCommand (
  *     extension="degov_config_integrity",
  *     extensionType="module"
@@ -24,7 +22,7 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
   /**
    * The module integrity checker.
    *
-   * @var \Drupal\degov_config_integrity\DegovModuleIntegrityChecker
+   * @var DegovModuleIntegrityChecker
    */
   private $moduleIntegrityChecker;
 
@@ -49,7 +47,7 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output): void {
-    $this->getIo()->info($this->t('deGov Configuration Integrity Check running…'));
+    $this->getIo()->info($this->t('deGov configuration integrity check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
       foreach ($module as $key => $messages) {
