@@ -6,11 +6,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\degov_config_integrity\DegovModuleIntegrityChecker;
 use Drush\Commands\DrushCommands;
 
-/**
- * Class DegovConfigIntegrityDrushCommands.
- *
- * @package Drupal\degov_config_integrity\Command
- */
+
 class DegovConfigIntegrityDrushCommands extends DrushCommands {
 
   use StringTranslationTrait;
@@ -20,10 +16,6 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    */
   private $moduleIntegrityChecker;
 
-  /**
-   * @param DegovModuleIntegrityChecker $moduleIntegrityChecker
-   *   The ModuleIntegrityChecker.
-   */
   public function __construct(DegovModuleIntegrityChecker $moduleIntegrityChecker) {
     parent::__construct();
     $this->moduleIntegrityChecker = $moduleIntegrityChecker;

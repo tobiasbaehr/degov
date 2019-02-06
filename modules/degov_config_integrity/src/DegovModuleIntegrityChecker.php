@@ -5,49 +5,24 @@ namespace Drupal\degov_config_integrity;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
-/**
- * Class DegovModuleIntegrityChecker.
- *
- * @package Drupal\degov_config_integrity
- */
+
 class DegovModuleIntegrityChecker {
 
   /**
-   * The ModuleHandler.
-   *
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   * @var ModuleHandlerInterface
    */
   private $moduleHandler;
 
   /**
-   * The ConfigFactory.
-   *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   * @var ConfigFactoryInterface
    */
   private $configFactory;
 
-  /**
-   * DegovModuleIntegrityChecker constructor.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
-   *   The ModuleHandler.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
-   *   The ConfigFactory.
-   */
   public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory) {
     $this->moduleHandler = $moduleHandler;
     $this->configFactory = $configFactory;
   }
 
-  /**
-   * Checks if the install-configs for a given module are in storage.
-   *
-   * @param string $moduleName
-   *   The name of the module to check configs for.
-   *
-   * @return array
-   *   The list of missing configs for this module.
-   */
   public function checkModule(string $moduleName): array {
     $missingConfiguration = [];
     if (strpos($moduleName, 'degov') === FALSE) {

@@ -20,15 +20,10 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
   use StringTranslationTrait;
 
   /**
-   * The module integrity checker.
-   *
    * @var DegovModuleIntegrityChecker
    */
   private $moduleIntegrityChecker;
 
-  /**
-   * ResetConsoleCommand constructor.
-   */
   public function __construct(DegovModuleIntegrityChecker $moduleIntegrityChecker) {
     parent::__construct();
     $this->moduleIntegrityChecker = $moduleIntegrityChecker;
