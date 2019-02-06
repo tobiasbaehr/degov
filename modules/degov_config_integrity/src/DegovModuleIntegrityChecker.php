@@ -75,11 +75,7 @@ class DegovModuleIntegrityChecker {
    *   Values of $messages in one line with spaces.
    */
   public function buildMessage(array $messages): string {
-    $messageString = '';
-    foreach ($messages as $message) {
-      $messageString .= $message . ' ';
-    }
-    return $messageString;
+    return implode(' ', $messages);
   }
 
   /**
