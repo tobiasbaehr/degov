@@ -25,7 +25,6 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
    */
   private $moduleIntegrityChecker;
 
-
   /**
    * ResetConsoleCommand constructor.
    */

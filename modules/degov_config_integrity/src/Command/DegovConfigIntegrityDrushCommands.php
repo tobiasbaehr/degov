@@ -6,11 +6,14 @@ use Drupal\degov_config_integrity\DegovModuleIntegrityChecker;
 use Drush\Commands\DrushCommands;
 
 /**
+ * Class DegovConfigIntegrityDrushCommands.
+ *
+ * @package Drupal\degov_config_integrity\Command
  */
 class DegovConfigIntegrityDrushCommands extends DrushCommands {
 
   /**
-   * The module integrity checker.
+   * The ModuleIntegrityChecker.
    *
    * @var \Drupal\degov_config_integrity\DegovModuleIntegrityChecker
    */
@@ -20,6 +23,7 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    * DegovConfigIntegrityDrushCommands constructor.
    *
    * @param \Drupal\degov_config_integrity\DegovModuleIntegrityChecker $moduleIntegrityChecker
+   *   The ModuleIntegrityChecker.
    */
   public function __construct(DegovModuleIntegrityChecker $moduleIntegrityChecker) {
     parent::__construct();

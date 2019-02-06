@@ -13,24 +13,40 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 class DegovModuleIntegrityChecker {
 
   /**
+   * The ModuleHandler.
+   *
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
   private $moduleHandler;
 
   /**
+   * The ConfigFactory.
+   *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   private $configFactory;
 
+  /**
+   * DegovModuleIntegrityChecker constructor.
+   *
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
+   *   The ModuleHandler.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   *   The ConfigFactory.
+   */
   public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory) {
     $this->moduleHandler = $moduleHandler;
     $this->configFactory = $configFactory;
   }
 
   /**
+   * Checks if the install-configs for a given module are in storage.
+   *
    * @param string $moduleName
+   *   The name of the module to check configs for.
    *
    * @return array
+   *   The list of missing configs for this module.
    */
   public function checkModule(string $moduleName): array {
     $missingConfiguration = [];
@@ -50,9 +66,13 @@ class DegovModuleIntegrityChecker {
   }
 
   /**
+   * Combines an array of strings into one message string.
+   *
    * @param array $messages
+   *   The array of strings to be combined into one message.
    *
    * @return string
+   *   Values of $messages in one line with spaces.
    */
   public function buildMessage(array $messages): string {
     $messageString = '';
@@ -63,7 +83,10 @@ class DegovModuleIntegrityChecker {
   }
 
   /**
+   * Runs through all modules and checks their configurations.
+   *
    * @return array
+   *   The list of missing configs by module.
    */
   public function checkIntegrity(): array {
     $messages = [];
