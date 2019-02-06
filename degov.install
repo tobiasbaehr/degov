@@ -236,7 +236,7 @@ function degov_update_860000() {
 }
 
 /**
- * Re-Import search_media view., Remove media type video_file if there is no content., Adds missing fields to forms.
+ * Install the degov_config_integrity module.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
