@@ -7,10 +7,9 @@
 
 namespace Drupal\degov_file_management\Plugin\views\field;
 
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\NodeType;
-use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
+use Drupal\views\Plugin\views\field\LinkBase;
+use Drupal\Core\Url;
 
 /**
  * Field handler to flag the node type.
@@ -19,55 +18,26 @@ use Drupal\views\ResultRow;
  *
  * @ViewsField("degov_file_management_file_delete_link")
  */
-class FileDeleteLink extends FieldPluginBase {
+class FileDeleteLink extends LinkBase {
 
   /**
-   * @{inheritdoc}
+   * {@inheritdoc}
    */
-  public function query() {
-    // Leave empty to avoid a query on this field.
-  }
-
-  /**
-   * Define the available options
-   * @return array
-   */
-  protected function defineOptions() {
-    $options = parent::defineOptions();
-    $options['node_type'] = array('default' => 'article');
-
-    return $options;
-  }
-
-  /**
-   * Provide the options form.
-   */
-  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
-    $types = NodeType::loadMultiple();
-    $options = [];
-    foreach ($types as $key => $type) {
-      $options[$key] = $type->label();
-    }
-    $form['node_type'] = array(
-      '#title' => $this->t('Which node type should be flagged?'),
-      '#type' => 'select',
-      '#default_value' => $this->options['node_type'],
-      '#options' => $options,
+  protected function getUrlInfo(ResultRow $row) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $file = $this->getEntity($row);
+    return Url::fromRoute(
+      'degov_file_management.file_delete_confirm',
+      [
+        'fid' => $file->id(),
+      ]
     );
-
-    parent::buildOptionsForm($form, $form_state);
   }
 
   /**
-   * @{inheritdoc}
+   * {@inheritdoc}
    */
-  public function render(ResultRow $values) {
-    $node = $values->_entity;
-    if ($node->bundle() == $this->options['node_type']) {
-      return $this->t('Hey, I\'m of the type: @type', array('@type' => $this->options['node_type']));
-    }
-    else {
-      return $this->t('Hey, I\'m something else.');
-    }
+  protected function getDefaultLabel() {
+    return $this->t('Delete');
   }
 }
