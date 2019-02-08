@@ -14,10 +14,11 @@ Feature: deGov - File management
   Scenario: A logged in user with insufficient permissions must not be able to delete a file
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "usermanager" role
-#    Given I am logged in as a user with the "administrator" role
-#    And I am on "/system/files/media/document/file/word-document.docx"
-#    And I should not see text matching "You are not authorized to access this page." via translated text
+    Then I visit the delete form for the unused file entity
+    And I should see text matching "You are not authorized to access this page." via translated text
 
   Scenario: A user with the editor role should be able to delete a file
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "editor" role
+    Then I visit the delete form for the unused file entity
+    And I should not see text matching "You are not authorized to access this page." via translated text

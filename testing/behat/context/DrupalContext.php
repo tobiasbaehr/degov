@@ -877,9 +877,8 @@ class DrupalContext extends RawDrupalContext {
    * @Then /^I visit the delete form for the unused file entity$/
    */
   public function iVisitTheDeleteFormForTheUnusedFileEntity() {
-    if(is_int($this->dummyImageFileEntityId)) {
+    if(preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
       $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
-      print $this->dummyImageFileEntityId;
     }
   }
 
