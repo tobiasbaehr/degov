@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Implementations of views-related hooks.
+ */
+
+/**
  * Implements hook_views_data_alter().
  */
 function degov_file_management_views_data_alter(array &$data) {

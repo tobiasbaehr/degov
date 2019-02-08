@@ -1,18 +1,14 @@
 <?php
 
-/**
- * @file
- * Definition of Drupal\d8views\Plugin\views\field\FileDeleteLink
- */
-
 namespace Drupal\degov_file_management\Plugin\views\field;
 
 use Drupal\views\ResultRow;
 use Drupal\views\Plugin\views\field\LinkBase;
 use Drupal\Core\Url;
+use Drupal\views\Annotation\ViewsField;
 
 /**
- * Field handler to flag the node type.
+ * Field handler to add a file delete link.
  *
  * @ingroup views_field_handlers
  *
@@ -40,4 +36,5 @@ class FileDeleteLink extends LinkBase {
   protected function getDefaultLabel() {
     return $this->t('Delete');
   }
+
 }
