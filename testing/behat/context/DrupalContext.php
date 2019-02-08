@@ -867,6 +867,23 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I have created an unused file entity$/
+   */
+  public function iHaveCreatedAnUnusedFileEntity() {
+    $this->createDummyImageFileEntity();
+  }
+
+  /**
+   * @Then /^I visit the delete form for the unused file entity$/
+   */
+  public function iVisitTheDeleteFormForTheUnusedFileEntity() {
+    if(is_int($this->dummyImageFileEntityId)) {
+      $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
+      print $this->dummyImageFileEntityId;
+    }
+  }
+
+  /**
    * @Then /^I visit an normal page entity with content reference$/
    */
   public function visitNormalPageEntityWithContentReference(): void {
