@@ -4,8 +4,4 @@ degov_file_management.file_delete_confirm:
     _form: '\Drupal\degov_file_management\Form\FileDeleteForm'
     _title: 'Delete file'
   requirements:
-    _permission: 'access content'
-#    _access_node_revision: 'delete'
-#    node: \d+
-#  options:
-#    _node_operation_route: TRUE
+    _permission: 'delete files'
