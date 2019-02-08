@@ -79,7 +79,7 @@ class FileDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return Url::fromUri('/admin/content/files');
+    return Url::fromUri('internal:/admin/content/files');
   }
 
   /**
@@ -103,26 +103,15 @@ class FileDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-//    $this->nodeStorage->deleteRevision($this->revision->getRevisionId());
-//
-//    $this->logger('content')->notice('@type: deleted %title revision %revision.', ['@type' => $this->revision->bundle(), '%title' => $this->revision->label(), '%revision' => $this->revision->getRevisionId()]);
-//    $node_type = $this->nodeTypeStorage->load($this->revision->bundle())->label();
-//    $this->messenger()
-//      ->addStatus($this->t('Revision from %revision-date of @type %title has been deleted.', [
-//        '%revision-date' => format_date($this->revision->getRevisionCreationTime()),
-//        '@type' => $node_type,
-//        '%title' => $this->revision->label(),
-//      ]));
-//    $form_state->setRedirect(
-//      'entity.node.canonical',
-//      ['node' => $this->revision->id()]
-//    );
-//    if ($this->connection->query('SELECT COUNT(DISTINCT vid) FROM {node_field_revision} WHERE nid = :nid', [':nid' => $this->revision->id()])->fetchField() > 1) {
-//      $form_state->setRedirect(
-//        'entity.node.version_history',
-//        ['node' => $this->revision->id()]
-//      );
-//    }
+    $this->file->delete();
+
+    $this->logger('content')->notice('%username deleted file %filename.', ['%username' => $this->currentUser()->getAccountName(), '%filename' => $this->file->getFilename()]);
+    $this->messenger()
+      ->addStatus($this->t('File %filename has been deleted.', [
+        '%filename' => $this->file->getFilename(),
+      ]));
+
+    $form_state->setRedirectUrl($this->getCancelUrl());
   }
 
 }
