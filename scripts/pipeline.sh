@@ -6,6 +6,17 @@ echo "### Setting up project folder"
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
+
+echo "### Wait for packagist"
+doWhile="0"
+while [ $doWhile -eq "0" ]; do
+   GREP=`wget -q -O - https://packagist.org/packages/degov/degov | grep ">dev-$BITBUCKET_BRANCH<"`
+   if [ -n "$GREP" ]; then
+        doWhile=1
+   fi
+   sleep 1
+done
+
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "### Starting chrome container"
 docker run -d --name="testing" -p 4444:4444 --net="host" -v "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/" -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
