@@ -101,6 +101,31 @@ function degov_users_roles_update_850100() {
 }
 
 /**
+ * deGov Update 6.1.0 - Give editors and managers access to the media library
+ */
+function degov_users_roles_update_860100() {
+  // Add new permissions
+  $permissions = [
+    'access content overview',
+    'access media overview',
+  ];
+
+  $roles = [
+    'user.role.editor',
+    'user.role.manager',
+  ];
+
+  /** @var \Drupal\degov_common\Entity\ConfigAdder $configAdder */
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach ($roles as $role) {
+    foreach ($permissions as $permission) {
+      $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
+    }
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function degov_users_roles_update_dependencies()
