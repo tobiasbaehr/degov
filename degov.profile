@@ -68,6 +68,7 @@ function degov_module_setup(&$install_state) {
     'degov_simplenews_references'       => 'degov_simplenews_references',
     'degov_email_login'                 => 'degov_email_login',
     'degov_node_external_teaser'        => 'degov_node_external_teaser',
+    'degov_auto_crop'                   => 'degov_auto_crop',
   ];
 
   // Add a batch operation to install each module.

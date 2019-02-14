@@ -236,11 +236,15 @@ function degov_update_860000() {
 }
 
 /**
- * Install the degov_config_integrity module.
+ * Install the degov_config_integrity module. Enable degov_auto_crop by default.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
     \Drupal::service('module_installer')->install('degov_config_integrity');
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
+    \Drupal::service('module_installer')->install('degov_auto_crop');
   }
 }
 
