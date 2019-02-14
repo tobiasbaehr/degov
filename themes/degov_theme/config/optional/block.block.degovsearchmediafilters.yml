@@ -16,7 +16,7 @@ settings:
   id: degov_search_media_filter
   label: 'DeGov search media filters'
   provider: degov_search_media
-  label_display: visible
+  label_display: '0'
 visibility:
   request_path:
     id: request_path
