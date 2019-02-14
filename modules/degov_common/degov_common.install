@@ -202,6 +202,17 @@ function degov_common_update_8032() {
 }
 
 /**
+ * Change media browser from inline to modal.
+ */
+function degov_common_update_8033() {
+  $configuration = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
+  if (!$configuration->isNew()) {
+    $configuration->set('display', 'modal')->save();
+    $configuration->set('display_configuration.auto_open', false)->save();
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  *
  * @return array

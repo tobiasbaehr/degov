@@ -1,3 +1,4 @@
+display: modal
 selection_display: degov_multi_step_display
 selection_display_configuration:
   entity_type: media
@@ -8,3 +9,5 @@ selection_display_configuration:
   selection_hidden: 0
   view: null
   view_display: null
+display_configuration:
+  auto_open: false
