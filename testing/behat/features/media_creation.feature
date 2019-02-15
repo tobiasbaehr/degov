@@ -209,6 +209,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
+    And I click by CSS id "edit-field-gallery-images-entity-browser-entity-browser-open-modal"
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
