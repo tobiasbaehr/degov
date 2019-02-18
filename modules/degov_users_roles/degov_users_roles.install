@@ -101,7 +101,7 @@ function degov_users_roles_update_850100() {
 }
 
 /**
- * deGov Update 6.1.0 - Give editors and upwards the permission to delete files
+ * deGov Update 6.1.0 - Give editors and upwards the permission to delete files and access media
  */
 function degov_users_roles_update_860100() {
   // Add new permissions
