@@ -108,6 +108,7 @@ function degov_users_roles_update_860100() {
   $permissions = [
     'access content overview',
     'access files overview',
+    'access media overview',
     'delete any file',
   ];
   $roles = [
