@@ -244,4 +244,17 @@ class DrupalIndependentContext extends RawMinkContext {
     }
   }
 
+  /**
+   * @Then I should see :number element(s) with the selector :selector and the translated text :text
+   */
+  public function iShouldSeeElementsWithSelectorAndText(int $expectedNumberOfElements, string $selector, string $text): void {
+    $page = $this->getSession()->getPage();
+    $matchedElements = $page->findAll('css', $selector);
+
+    $matchedElementsCount = \count($matchedElements);
+    if($expectedNumberOfElements !== $matchedElementsCount) {
+      throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
+    }
+  }
+
 }

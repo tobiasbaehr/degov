@@ -236,11 +236,15 @@ function degov_update_860000() {
 }
 
 /**
- * Install the degov_config_integrity module.
+ * Install the degov_config_integrity and degov_file_management modules.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
-    \Drupal::service('module_installer')->install('degov_config_integrity');
+    \Drupal::service('module_installer')->install(['degov_config_integrity']);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_file_management')) {
+    \Drupal::service('module_installer')->install(['degov_file_management']);
   }
 }
 
