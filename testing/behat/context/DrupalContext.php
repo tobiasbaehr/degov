@@ -551,6 +551,8 @@ class DrupalContext extends RawDrupalContext {
     $content = $this->getSession()->getPage()->getText();
     if (substr_count($content, $translatedText) === 0) {
       return true;
+    } else {
+      throw new \Exception("Text '$translatedText' found on page.");
     }
   }
 
