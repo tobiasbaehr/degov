@@ -1,24 +1,20 @@
 <?php
 
-namespace Drupal\degov_common;
+namespace Drupal\degov_config_integrity;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
-/**
- * Class DeGovModuleIntegrity.
- *
- * @package Drupal\degov_common
- */
-class DeGovModuleIntegrity {
+
+class DegovModuleIntegrityChecker {
 
   /**
-   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   * @var ModuleHandlerInterface
    */
   private $moduleHandler;
 
   /**
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   * @var ConfigFactoryInterface
    */
   private $configFactory;
 
@@ -27,11 +23,6 @@ class DeGovModuleIntegrity {
     $this->configFactory = $configFactory;
   }
 
-  /**
-   * @param string $moduleName
-   *
-   * @return array
-   */
   public function checkModule(string $moduleName): array {
     $missingConfiguration = [];
     if (strpos($moduleName, 'degov') === FALSE) {
@@ -50,20 +41,23 @@ class DeGovModuleIntegrity {
   }
 
   /**
+   * Combines an array of strings into one message string.
+   *
    * @param array $messages
+   *   The array of strings to be combined into one message.
    *
    * @return string
+   *   Values of $messages in one line with spaces.
    */
   public function buildMessage(array $messages): string {
-    $messageString = '';
-    foreach ($messages as $message) {
-      $messageString .= $message . ' ';
-    }
-    return $messageString;
+    return implode(' ', $messages);
   }
 
   /**
+   * Runs through all modules and checks their configurations.
+   *
    * @return array
+   *   The list of missing configs by module.
    */
   public function checkIntegrity(): array {
     $messages = [];
