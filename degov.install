@@ -236,7 +236,7 @@ function degov_update_860000() {
 }
 
 /**
- * Install the degov_config_integrity and degov_file_management modules.
+ * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
@@ -245,6 +245,10 @@ function degov_update_860100() {
 
   if (!\Drupal::moduleHandler()->moduleExists('degov_file_management')) {
     \Drupal::service('module_installer')->install(['degov_file_management']);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
+    \Drupal::service('module_installer')->install('degov_auto_crop');
   }
 }
 
