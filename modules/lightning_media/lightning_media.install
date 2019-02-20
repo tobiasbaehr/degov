@@ -309,6 +309,17 @@ function lightning_media_update_8018() {
 }
 
 /**
+ * Set the CKEditor entity browser for the CKEditor media button.
+ */
+function lightning_media_update_8019() {
+  $embed_button_config = \Drupal::configFactory()->getEditable('embed.button.media_browser');
+  if (!$embed_button_config->isNew()) {
+    $embed_button_config->set('type_settings.entity_browser', 'ckeditor_media_browser');
+    $embed_button_config->save();
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function lightning_media_update_dependencies() {
@@ -320,6 +331,9 @@ function lightning_media_update_dependencies() {
       8018 => [
         'media_entity' => 8201,
       ],
+      8019 => [
+        'degov_common' => 8034,
+      ]
     ],
     'media_entity' => [
       8201 => [
