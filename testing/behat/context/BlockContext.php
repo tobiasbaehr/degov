@@ -16,7 +16,7 @@ class BlockContext extends RawDrupalContext {
   public function configureAndPlaceSocialMediaSettings() {
     $block = Block::create([
       'id' => 'social_media_settings_block',
-      'theme' => 'degov_base_theme',
+      'theme' => 'degov_theme',
       'weight' => 0,
       'status' => TRUE,
       'region' => 'header',
@@ -43,7 +43,7 @@ class BlockContext extends RawDrupalContext {
 
     $block = Block::create([
       'id' => 'instagramfeedblock',
-      'theme' => 'degov_base_theme',
+      'theme' => 'degov_theme',
       'weight' => 0,
       'status' => TRUE,
       'region' => 'content',

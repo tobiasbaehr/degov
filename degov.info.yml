@@ -70,6 +70,6 @@ dependencies:
   - link_attributes
 
 themes:
-  - degov_base_theme
+  - degov_theme
   - seven
   - bartik

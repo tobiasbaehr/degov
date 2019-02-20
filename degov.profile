@@ -156,11 +156,11 @@ function degov_theme_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Set the default theme to be deGov.
-  $themes = ['degov_base_theme', 'bartik'];
+  $themes = ['degov_theme', 'bartik'];
   \Drupal::service('theme_handler')->install($themes);
   \Drupal::configFactory()
     ->getEditable('system.theme')
-    ->set('default', 'degov_base_theme')
+    ->set('default', 'degov_theme')
     ->save();
   \Drupal::service('theme.manager')->resetActiveTheme();
 }
