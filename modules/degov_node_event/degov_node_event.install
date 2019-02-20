@@ -61,3 +61,11 @@ function degov_node_event_update_8014() {
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_node_faq','8014');
 }
+
+/**
+ * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style.
+ */
+function degov_node_event_update_850100() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_event', '8014');
+}

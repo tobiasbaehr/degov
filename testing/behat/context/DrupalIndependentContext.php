@@ -3,9 +3,9 @@
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Element\NodeElement;
-use Behat\Mink\Exception\ResponseTextException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
@@ -56,7 +56,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -80,7 +80,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -102,7 +102,7 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
+			throw new TextNotFoundException(
 				sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
 				$this->getSession()
 			);
@@ -121,20 +121,25 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new ResponseTextException(
+    throw new TextNotFoundException(
       sprintf('HTML does not contain content "%s"', $content),
       $this->getSession());
   }
 
   /**
    * @Then /^I should not see HTML content matching "([^"]*)"$/
+   * @Then /^I should not see HTML content matching '([^']*)'$/
    */
-  public function iShouldNotSeeHTMLContent($html)
+  public function iShouldNotSeeHTMLContentMatching(string $content): ?bool
   {
-    $content = $this->getSession()->getPage()->getText();
-    if (substr_count($content, $html) === 0) {
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $content) === 0) {
       return true;
     }
+
+    throw new TextNotFoundException(
+      sprintf('HTML does contain content "%s"', $content),
+      $this->getSession());
   }
 
   /**
@@ -150,7 +155,7 @@ class DrupalIndependentContext extends RawMinkContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
+      throw new TextNotFoundException(
         sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
         $this->getSession()
       );
@@ -171,7 +176,7 @@ class DrupalIndependentContext extends RawMinkContext {
 				return true;
 			}
 		} while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
-		throw new ResponseTextException(
+		throw new TextNotFoundException(
 			sprintf('Could find text %s after %s seconds', $text, self::MAX_SHORT_DURATION_SECONDS),
 			$this->getSession()
 		);
@@ -196,7 +201,7 @@ class DrupalIndependentContext extends RawMinkContext {
     if(preg_match($pattern, $element->getHtml())) {
       return true;
     }
-    throw new ResponseTextException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+    throw new TextNotFoundException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
   }
 
   /**
@@ -236,6 +241,19 @@ class DrupalIndependentContext extends RawMinkContext {
 
     if (!$cssSelector instanceof NodeElement) {
       throw new \Exception("CSS selector $css is not of expected object type NodeElement.");
+    }
+  }
+
+  /**
+   * @Then I should see :number element(s) with the selector :selector and the translated text :text
+   */
+  public function iShouldSeeElementsWithSelectorAndText(int $expectedNumberOfElements, string $selector, string $text): void {
+    $page = $this->getSession()->getPage();
+    $matchedElements = $page->findAll('css', $selector);
+
+    $matchedElementsCount = \count($matchedElements);
+    if($expectedNumberOfElements !== $matchedElementsCount) {
+      throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
     }
   }
 

@@ -1,8 +1,3 @@
-degov_workbench_access.settings:
-  title: 'Workbench Access'
-  description: 'Configure settings for Workbench Access.'
-  parent: entity.user.collection
-  route_name: workbench_access.sections
 degov_taxonomy.overview:
   title: 'Taxonomies'
   description: 'View vocabularies.'

@@ -2,8 +2,9 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Mink\Exception\ElementNotFoundException;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
@@ -12,6 +13,8 @@ use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\permissions_by_term\Service\AccessStorage;
+use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
@@ -31,6 +34,11 @@ class DrupalContext extends RawDrupalContext {
    * @var null|int
    */
   private $dummyImageFileEntityId = null;
+
+  /**
+   * @var null|int
+   */
+  private $dummyDocumentFileEntityId = null;
 
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
@@ -94,15 +102,74 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I open media edit form by media name "([^"]*)"$/
+   * @param string $name
+   */
+  public function openMediaEditFormByName(string $name) {
+    $query = \Drupal::service('database')->select('media_field_data', 'mfd')
+      ->fields('mfd', ['mid'])
+      ->condition('mfd.name', $name);
+
+    $this->visitPath('/media/' . $query->execute()->fetchField() . '/edit');
+  }
+
+  /**
    * @Then /^I open node view by node title "([^"]*)"$/
    * @param string $title
    */
-  public function openNodeViewByTitle($title) {
+  public function openNodeViewByTitle(string $title): void {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
       ->fields('nfd', ['nid'])
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField());
+  }
+
+  /**
+   * @Then /^I open address medias edit form from latest media with title "([^"]*)"$/
+   */
+  public function openMediaEditFormByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+      'bundle'      => 'address',
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/edit');
+  }
+
+  /**
+   * @Then /^I open medias delete url by title "([^"]*)"$/
+   */
+  public function openMediaDeleteUrlByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/delete');
   }
 
   /**
@@ -212,7 +279,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
-  public function normalPageWithSlideshow() {
+  public function createNormalPageWithSlideshow(): void {
     $media = Media::create([
       'bundle'              => 'image',
       'field_title'         => 'Some image',
@@ -248,7 +315,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Given /^I have an normal_page with a banner paragraph$/
    */
-  public function normalPageWithBanner() {
+  public function createNormalPageWithBanner(): void {
     $copyrightTerm = Term::create([
       'name' => 'Some copyright',
       'vid'  => 'copyright',
@@ -277,6 +344,48 @@ class DrupalContext extends RawDrupalContext {
       'field_header_paragraphs' => [$paragraphSlideshow],
     ]);
     $node->save();
+  }
+
+  /**
+   * @Given /^I have a restricted document media entity$/
+   */
+  public function createRestrictedDocument(): void {
+    /**
+     * @var TermHandler $termHandler
+     */
+    $termHandler = \Drupal::service('permissions_by_term.term_handler');
+    if (empty($termHandler->getTermIdByName('Admin role only - restricted media document'))) {
+      $term = Term::create([
+        'name' => 'Admin role only - restricted media document',
+        'vid' => 'section',
+      ]);
+      $term->save();
+
+      $termId = $term->id();
+
+      /**
+       * @var AccessStorage $accessStorage
+       */
+      $accessStorage = \Drupal::service('permissions_by_term.access_storage');
+      $accessStorage->addTermPermissionsByRoleIds(['administrator'], $termId);
+
+      Media::create([
+        'title'          => 'Restricted Word document',
+        'field_title'    => 'Restricted Word document',
+        'bundle'         => 'document',
+        'field_section'  => [
+          [
+            'target_id' => $termId,
+          ],
+        ],
+        'field_document' => [
+          [
+            'target_id' => $this->createPrivateDocumentFileEntity()->id(),
+          ],
+        ],
+      ])->save();
+    }
+
   }
 
   /**
@@ -428,7 +537,27 @@ class DrupalContext extends RawDrupalContext {
 		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
 	}
 
-	/**
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text$/
+   */
+  public function assertPageNotMatchesText(string $text)
+  {
+    if (ctype_upper($text)) {
+      $translatedText = mb_strtoupper($this->translateString($text));
+    } else {
+      $translatedText = $this->translateString($text);
+    }
+
+    $content = $this->getSession()->getPage()->getText();
+    if (substr_count($content, $translatedText) === 0) {
+      return true;
+    } else {
+      throw new \Exception("Text '$translatedText' found on page.");
+    }
+  }
+
+
+  /**
 	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
 	 */
 	public function assertPageMatchesTextUppercase(string $text)
@@ -489,6 +618,8 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iHaveDismissedTheCookieBannerIfNecessary()
   {
+
+    $this->getSession()->visit($this->locatePath('/'));
     if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
@@ -599,8 +730,25 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
-  private function createDummyImageFileEntity(): File
-  {
+  private function createPrivateDocumentFileEntity(): File {
+    $documentFileEntity = null;
+
+    if (is_numeric($this->dummyDocumentFileEntityId)) {
+      /**
+       * @var File $documentFileEntity
+       */
+      $documentFileEntity = File::load($this->dummyDocumentFileEntityId);
+    }
+
+    if (!($documentFileEntity instanceof File)) {
+      $documentFileEntity = $this->createFileEntity('word-document.docx', 'private');
+      $this->dummyDocumentFileEntityId = $documentFileEntity->id();
+    }
+
+    return $documentFileEntity;
+  }
+
+  private function createDummyImageFileEntity(): File {
     $imageFileEntity = null;
 
     if (is_numeric($this->dummyImageFileEntityId)) {
@@ -611,6 +759,17 @@ class DrupalContext extends RawDrupalContext {
     }
 
     if (!($imageFileEntity instanceof File)) {
+      $imageFileEntity = $this->createFileEntity('vladimir-riabinin-1058013-unsplash.jpg');
+      $this->dummyImageFileEntityId = $imageFileEntity->id();
+    }
+
+    return $imageFileEntity;
+  }
+
+  private function createFileEntity(string $filename, string $fileSchemeMode = 'public'): File {
+    $fileEntity = null;
+
+    if (!($fileEntity instanceof File)) {
       /**
        * @var FilesystemFactory $symfonyFilesystem
        */
@@ -625,35 +784,40 @@ class DrupalContext extends RawDrupalContext {
        */
       $drupalFilesystem = \Drupal::service('file_system');
 
-      $fixtureImagePath = drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png';
+      if ($fileSchemeMode === 'public') {
+        $drupalFilePath = 'public://';
 
-      if (!file_exists($fixtureImagePath)) {
-        throw new \Exception("Could not locate fixture image at $fixtureImagePath.");
+        $symfonyFilesystem->copy(
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
+          $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
+        );
+      } else {
+        $drupalFilePath = 'private://media/document/file';
+
+        $documentFilesUri = $drupalFilesystem->realpath('private://') . '/media/document/file';
+
+        if (!$symfonyFilesystem->exists($documentFilesUri)) {
+          $symfonyFilesystem->mkdir($documentFilesUri);
+        }
+
+        $symfonyFilesystem->copy(
+          drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
+          $documentFilesUri . '/' . $filename
+        );
       }
 
-      $fixtureImageFilesFolderPath = $drupalFilesystem->realpath(file_default_scheme() . "://") . '/dummy.png';
-
-      $symfonyFilesystem->copy(
-        drupal_get_path('profile', 'degov') . '/testing/fixtures/images/dummy.png',
-        $fixtureImageFilesFolderPath
-      );
-
-      if (!file_exists($fixtureImageFilesFolderPath)) {
-        throw new \Exception("Could not locate fixture image in files folder at $fixtureImageFilesFolderPath.");
-      }
-
-      $imageFileEntity = File::create([
+      $fileEntity = File::create([
         'uid'      => 1,
-        'filename' => 'dummy.png',
-        'uri'      => file_default_scheme() . '://dummy.png',
+        'filename' => $filename,
+        'uri'      => $drupalFilePath . '/' . $filename,
         'status'   => 1,
       ]);
-      $imageFileEntity->save();
+      $fileEntity->save();
 
-      $this->dummyImageFileEntityId = $imageFileEntity->id();
+      $this->dummyImageFileEntityId = $fileEntity->id();
     }
 
-    return $imageFileEntity;
+    return $fileEntity;
   }
 
   /**
@@ -705,10 +869,104 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I have created an unused file entity$/
+   */
+  public function iHaveCreatedAnUnusedFileEntity() {
+    $this->createDummyImageFileEntity();
+  }
+
+  /**
+   * @Then /^I visit the delete form for the unused file entity$/
+   */
+  public function iVisitTheDeleteFormForTheUnusedFileEntity() {
+    if(preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
+      $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
+    }
+  }
+
+  /**
    * @Then /^I visit an normal page entity with content reference$/
    */
   public function visitNormalPageEntityWithContentReference(): void {
     $this->openNodeViewByTitle('An normal page with a content reference');
   }
 
+  /**
+   * @Given I set the privacy policy page for all languages
+   */
+  public function setThePrivacyPolicyPageForAllLanguages() {
+    $degov_simplenews_settings = \Drupal::service('config.factory')
+      ->getEditable('degov_simplenews.settings');
+    $all_languages = \Drupal::service('language_manager')->getLanguages();
+    $page_with_all_teasers_nid = \Drupal::entityQuery('node')
+      ->execute();
+    if (!empty($page_with_all_teasers_nid)) {
+      $page_with_all_teasers_nid = reset($page_with_all_teasers_nid);
+
+      $privacy_policies = [];
+      foreach ($all_languages as $language) {
+        $privacy_policies[$language->getId()] = $page_with_all_teasers_nid;
+      }
+      $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
+        ->save();
+    }
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content
+   */
+  public function iShouldSeeAnElementWithTheContent($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $content) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content via translation
+   */
+  public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $translatedContent = $this->translateString($content);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $translatedContent) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Given /^I rebuild the "([^"]*)" index$/
+   */
+  public function iRebuildTheIndex($indexId) {
+    $index_storage = \Drupal::entityTypeManager()
+      ->getStorage('search_api_index');
+    /** @var \Drupal\search_api\IndexInterface $index */
+    $index = $index_storage->load($indexId);
+    $index->reindex();
+    $index->indexItems();
+  }
+
+  /**
+   * @Given /^I clear the cache$/
+   */
+  public function iClearTheCache() {
+    drupal_flush_all_caches();
+  }
 }

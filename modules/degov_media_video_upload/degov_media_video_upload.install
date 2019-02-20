@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
+
 /**
  * Implements hook_uninstall().
  */
@@ -27,6 +30,10 @@ function degov_media_video_upload_uninstall() {
       ->set("widgets", $widgets)
       ->save(TRUE);
   }
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['video_upload'],
+  ]);
 }
 
 /**
@@ -70,4 +77,27 @@ function degov_media_video_upload_update_8016() {
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_video_upload', '8016');
+}
+
+/**
+ * Close media video subtitle by default
+ */
+function degov_media_video_upload_update_8017() {
+
+  $configFactory = \Drupal::configFactory();
+
+  $modifies = [
+    'content.field_video_upload_subtitle.settings.default_paragraph_type' => '_none',
+    'content.field_video_upload_subtitle.settings.edit_mode'              => 'close',
+  ];
+  $configs = [
+    'core.entity_form_display.media.video_upload.default',
+    'core.entity_form_display.media.video_upload.media_browser',
+  ];
+
+  foreach ($configs as $config) {
+    foreach ($modifies as $modify => $value) {
+      $configFactory->getEditable($config)->set($modify, $value)->save();
+    }
+  }
 }

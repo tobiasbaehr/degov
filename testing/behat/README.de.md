@@ -59,6 +59,26 @@ zu einer Config Datei übergeben werden.
 ./behat -vvv --strict --config /var/www/project/docroot/behat.yml
 ```
 
+## Smoke Tests
+
+Grundsätzlich: Smoke Testing ist auch bekannt als "Build Verification Testing". Das Smoke Testing wird in deGov mit 
+Behat Tests durchgeführt. Damit kann nach einem Build-Vorgang des Projektes (wie z.B. nach Software-Updates) schnell
+überprüft werden, ob die wichtigsten Funktionen der deGov Instanz funktionieren. Da keine Inhalte angelegt oder
+verändert werden, können sogar Live- oder Stage-Instanzen getestet werden.
+
+Beispielkommando zum Ausführen der Smoke Tests:
+```
+./behat -vvv --strict --config behat-smoke-tests.yml
+```
+
+In der o.g. Behat Konfigurationsdatei kann mit dem `base_url` Attributwert die URL der Website eingestellt werden.
+Auch werden in jener Konfigurationsdatei die Admin-Zugangsdaten der deGov Instanz hinterlegt. Sodass sich Behat auf der
+(Live-)Website anmelden und das Backend überprüfen kann.
+
+Zum Ausführen der Behat Smoke Tests, müssen die Tests aus einer deGov Instanz gestartet werden, deren `docroot`
+Verzeichnis in der Behat-Konfigurationsdatei mittels dem Schlüssel `files_path` verwiesen wird. Denn es wird ein Drupal
+Bootstrap durchgeführt, um die Testumgebung zu laden.
+
 ## Troubleshooting
 
 ### Chrome DevTools während der Testausführung benutzen
@@ -88,3 +108,4 @@ Hierbei prüfen ob die `behat.yml` Datei im `project` und nicht im `docroot` Ver
 * Drupal Extension für Behat und Mink: http://behat-drupal-extension.readthedocs.io/en/3.1/index.html
 * Behat Projekt: http://behat.org/en/latest/
 * Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/downloads
+* Smoke Testing: http://softwaretestingfundamentals.com/smoke-testing/

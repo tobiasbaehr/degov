@@ -4,55 +4,35 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\block\Entity\Block;
-use Drupal\Core\Config\Config;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\Core\Config\ConfigFactory;
 
 class BlockContext extends RawDrupalContext {
 
   /**
-   * @Then /^I configure and place the deGov social media settings block$/
+   * @Then /^I configure and place the Simplenews signup block$/
    */
-  public function configureAndPlaceSocialMediaSettings() {
-    $block = Block::create([
-      'id' => 'social_media_settings_block',
-      'theme' => 'degov_theme',
-      'weight' => 0,
-      'status' => TRUE,
-      'region' => 'header',
-      'plugin' => 'social_media_settings_block',
-      'settings' => [
-        'id'            => 'social_media_settings_block',
-        'label'         => 'Social Media Settings',
-        'provider'      => 'degov_social_media_settings',
-        'label_display' => FALSE,
-      ],
-      'visibility' => [],
-    ]);
-    $block->save();
-  }
-
-  /**
-   * @Then /^I configure and place the Instagram feed block$/
-   */
-  public function configureAndPlaceInstagram() {
+  public function configureAndPlaceSimplenewsSignup() {
     /** @var ConfigFactory $configFactory $configFactory */
     $configFactory = \Drupal::service('config.factory');
     $config = $configFactory->getEditable('degov_social_media_instagram.settings');
     $config->set('user', 'ig_bundestag')->save();
 
     $block = Block::create([
-      'id' => 'instagramfeedblock',
+      'id' => 'simplenewsabonnement',
+      'uniqueId' => '1234',
       'theme' => 'degov_theme',
       'weight' => 0,
       'status' => TRUE,
       'region' => 'content',
-      'plugin' => 'degov_social_media_instagram',
+      'plugin' => 'simplenews_subscription_block',
       'settings' => [
-        'id'            => 'degov_social_media_instagram',
-        'label'         => 'Instagram feed block',
-        'provider'      => 'degov_social_media_instagram',
+        'id'            => 'simplenews_subscription_block',
+        'label'         => 'Simplenews Abonnement',
+        'provider'      => 'simplenews',
         'label_display' => 'visible',
+        'newsletters'   => ['default' => 'default'],
+        'unique_id' => 'test1234',
       ],
       'visibility' => [],
     ]);

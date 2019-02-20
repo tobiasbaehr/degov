@@ -1,5 +1,9 @@
 <?php
 
+use Drupal\degov_common\Common;
+use Drupal\degov_common\DegovModuleUpdater;
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Implements hook_uninstall().
  */
@@ -26,5 +30,36 @@ function degov_media_document_upload_uninstall() {
     \Drupal::configFactory()->getEditable("entity_browser.browser.media_browser")
       ->set("widgets", $widgets)
       ->save(TRUE);
+  }
+  // Remove content
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['document'],
+  ]);
+}
+
+/**
+ * deGov Udpate 5.1.0 - Configuration updates for restricted files.
+ */
+function degov_media_document_update_850100() {
+  /**
+   * @var DegovModuleUpdater $updater
+   */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->reImport('field.field.media.document.field_section', 'degov_media_document', 'install');
+  $updater->reImport('field.storage.media.field_section', 'degov_media_document', 'install');
+  $updater->rewriteModuleConfig('degov_media_document');
+}
+
+/**
+ * deGov Update 6.0.0
+ * Make document field required
+ */
+function degov_media_document_update_860000() {
+  $fieldDocumentConfig = \Drupal::configFactory()
+    ->getEditable('field.field.media.document.field_document');
+  if (!empty($fieldDocumentConfig)) {
+    $fieldDocumentConfig->set('required', TRUE);
+    $fieldDocumentConfig->save();
   }
 }

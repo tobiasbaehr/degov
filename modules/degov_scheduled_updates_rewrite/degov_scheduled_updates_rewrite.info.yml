@@ -1,7 +1,0 @@
-name: 'deGov - Scheduled Updates Rewrite'
-description: "Config replacements regarding scheduled updates options."
-package: deGov
-type: module
-core: 8.x
-dependencies:
-  - node
