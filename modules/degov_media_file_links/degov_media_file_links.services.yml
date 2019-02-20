@@ -1,0 +1,12 @@
+services:
+  degov_media_file_links.file_field_mapper:
+    class: Drupal\degov_media_file_links\Service\MediaFileFieldMapper
+    arguments: [ ]
+
+  degov_media_file_links.file_link_resolver:
+    class: Drupal\degov_media_file_links\Service\MediaFileLinkResolver
+    arguments: [ '@degov_media_file_links.file_field_mapper' ]
+
+  degov_media_file_links.file_suggester:
+    class: Drupal\degov_media_file_links\Service\MediaFileSuggester
+    arguments: [ '@degov_media_file_links.file_field_mapper' ]
