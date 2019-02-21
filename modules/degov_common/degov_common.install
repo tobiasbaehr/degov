@@ -202,20 +202,9 @@ function degov_common_update_8032() {
 }
 
 /**
- * Change media browser from inline to modal.
- */
-function degov_common_update_8033() {
-  $configuration = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
-  if (!$configuration->isNew()) {
-    $configuration->set('display', 'modal')->save();
-    $configuration->set('display_configuration.auto_open', false)->save();
-  }
-}
-
-/**
  * Replace the CKEditor entity browser settings with the default media browser.
  */
-function degov_common_update_8034() {
+function degov_common_update_8033() {
   $media_browser_config = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
   $media_browser_ckeditor_config = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   if (!empty($media_browser_config) && (!$media_browser_ckeditor_config->isNew())) {
@@ -228,6 +217,7 @@ function degov_common_update_8034() {
     $media_browser_ckeditor_config->set('label', 'CKEditor Media Browser');
     $media_browser_ckeditor_config->set('display', 'iframe');
     $media_browser_ckeditor_config->set('display_configuration.auto_open', true);
+    $media_browser_ckeditor_config->set('display_configuration.height', '1200')->save();
     $media_browser_ckeditor_config->save(TRUE);
   }
 }

@@ -309,9 +309,19 @@ function lightning_media_update_8018() {
 }
 
 /**
- * Set the CKEditor entity browser for the CKEditor media button.
+ * Change media browser from inline to modal.
  */
 function lightning_media_update_8019() {
+  $configuration = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
+  $configuration->set('display', 'modal')->save();
+  $configuration->set('display_configuration.height', '1200')->save();
+  $configuration->set('display_configuration.auto_open', false)->save();
+}
+
+/**
+ * Set the CKEditor entity browser for the CKEditor media button.
+ */
+function lightning_media_update_8020() {
   $embed_button_config = \Drupal::configFactory()->getEditable('embed.button.media_browser');
   if (!$embed_button_config->isNew()) {
     $embed_button_config->set('type_settings.entity_browser', 'ckeditor_media_browser');
@@ -331,8 +341,8 @@ function lightning_media_update_dependencies() {
       8018 => [
         'media_entity' => 8201,
       ],
-      8019 => [
-        'degov_common' => 8034,
+      8020 => [
+        'degov_common' => 8033,
       ]
     ],
     'media_entity' => [

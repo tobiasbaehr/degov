@@ -5,12 +5,12 @@ dependencies:
     - lightning_media
 name: media_browser
 label: 'Media browser'
-display: iframe
+display: modal
 display_configuration:
-  width: 100%
+  width: '1200'
   height: '640'
   link_text: 'Select entities'
-  auto_open: true
+  auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
