@@ -23,9 +23,20 @@ class MediaFileFieldMapper {
   public function getFileFieldForBundle(string $bundle): string {
     $fileFieldMappings = $this->getBundleFileFieldMappings();
     if (isset($fileFieldMappings[$bundle])) {
-      return $fileFieldMappings;
+      return $fileFieldMappings[$bundle];
     }
     return FALSE;
+  }
+
+  /**
+   * Returns an array of all supported Media bundles.
+   *
+   * @return array
+   *   The supported Media bundles.
+   */
+  public function getEnabledBundles(): array {
+    $bundles = $this->getBundleFileFieldMappings();
+    return array_keys($bundles);
   }
 
   /**
@@ -37,9 +48,10 @@ class MediaFileFieldMapper {
    * @return array
    *   The array of bundle / field pairs.
    */
-  private function getBundleFileFieldMappings(): array {
+  public function getBundleFileFieldMappings(): array {
     return [
       'document' => 'field_document',
+      'image' => 'image',
     ];
   }
 
