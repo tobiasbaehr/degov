@@ -28,7 +28,7 @@ default:
         wd_host: "http://testing:4444/wd/hub"
         browser: "chrome"
         capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--disable-dev-shm-usage", "--headless","--disable-gpu"] } }
-      base_url: http://app
+      base_url: http://127.0.0.1:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:
