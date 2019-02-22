@@ -10,6 +10,11 @@ options:
   docker: true
   size: 2x
 
+.install_docker_compose: &install_docker_compose |
+  apt-get update
+  apt-get install -y python-pip
+  pip install docker-compose
+
 pipelines:
   default:
     - parallel:
@@ -19,6 +24,7 @@ pipelines:
             - composer
             - docker
           script:
+            - *install_docker_compose
             - docker-compose up -d
             - docker exec -it app scripts/pipeline.sh 7.2
           services:
