@@ -41,7 +41,7 @@ mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
-wget -O - http://app:80
+wget -O - http://127.0.0.1:80
 echo "####"
 echo "####"
 echo "####"
