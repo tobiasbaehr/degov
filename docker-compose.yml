@@ -13,7 +13,7 @@ services:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
     entrypoint: /bin/bash
-    command: /opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/scripts/pipeline.sh 7.2
+    command: /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh 7.2
     volumes:
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
   mysql:
