@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-cat /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh
 set -e
 PHPVERSION=$1
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
@@ -42,7 +41,7 @@ mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
-wget -O http://app:80
+wget -O - http://app:80
 echo "####"
 echo "####"
 echo "####"
@@ -50,7 +49,7 @@ echo "####"
 echo "####"
 echo "####"
 echo "####"
-wget -O http://127.0.0.1:80
+wget -O - http://127.0.0.1:80
 echo "### Installing drupal with Behat"
 behat -c behat-no-drupal.yml -vvv
 echo "### Updating translation"
