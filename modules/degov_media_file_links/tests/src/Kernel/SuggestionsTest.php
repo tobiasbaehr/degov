@@ -102,33 +102,17 @@ class SuggestionsTest extends KernelTestBase {
 
   public function testFindSupportedMediaByTitle(): void {
     $searchResult = $this->fileSuggester->findBySearchString('document');
-    self::assertEquals(
-      [
-        [
-      'id' => '1',
-      'title' => 'Test document',
-      'bundle' => 'document',
-      'mimetype' => 'application/pdf',
-        ]
-      ], $searchResult);
+    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","mimetype":"application\/pdf"}]', $searchResult);
   }
 
   public function testUnsupportedMediaCannotBeFoundByTitle(): void {
     $searchResult = $this->fileSuggester->findBySearchString('foo');
-    self::assertEquals([], $searchResult);
+    self::assertEquals('[]', $searchResult);
   }
 
   public function testFindOnlySupportedMediaByFilename(): void {
     $searchResult = $this->fileSuggester->findBySearchString('dummy');
-    self::assertEquals(
-      [
-        [
-          'id' => '1',
-          'title' => 'Test document',
-          'bundle' => 'document',
-          'mimetype' => 'application/pdf',
-        ]
-      ], $searchResult);
+    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","mimetype":"application\/pdf"}]', $searchResult);
 
   }
 }

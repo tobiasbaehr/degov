@@ -34,11 +34,11 @@ class MediaFileSuggester {
    *
    * @return array
    */
-  public function findBySearchString(string $search): array {
+  public function findBySearchString(string $search): string {
     if (\strlen($search) < 3) {
       return [];
     }
-    return array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
+    return json_encode(array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search)));
   }
 
   /**
