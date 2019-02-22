@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cat /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh
 set -e
 PHPVERSION=$1
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
