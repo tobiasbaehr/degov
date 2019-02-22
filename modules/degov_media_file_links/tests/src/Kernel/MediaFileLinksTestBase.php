@@ -29,7 +29,10 @@ class MediaFileLinksTestBase extends KernelTestBase {
   ];
 
   protected $supportedMediaId;
+
   protected $unsupportedMediaId;
+
+  protected $fileIds = [];
 
   /**
    * {@inheritdoc}
@@ -44,7 +47,10 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $this->installEntitySchema('media');
 
     // Save a document file
-    $file = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FILE_EXISTS_REPLACE);
+    $pdfFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FILE_EXISTS_REPLACE);
+    $this->fileIds['pdf'] = $pdfFile->id();
+    $wordFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/word-document.docx'), 'public://word-document.docx', FILE_EXISTS_REPLACE);
+    $this->fileIds['word'] = $wordFile->id();
 
     // Create a supported document entity
     $documentType = $this->createMediaType('test', ['id' => 'document']);
@@ -66,7 +72,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
       'bundle'         => $documentType->id(),
       'name'           => 'Test document',
       'field_document' => [
-        'target_id' => $file->id(),
+        'target_id' => $this->fileIds['pdf'],
       ],
     ]);
     $newDocument->save();
@@ -92,7 +98,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
       'bundle'    => $fooType->id(),
       'name'      => 'Test foo',
       'field_foo' => [
-        'target_id' => $file->id(),
+        'target_id' => $this->fileIds['pdf'],
       ],
     ]);
     $newFoo->save();

@@ -2,6 +2,8 @@
 
 namespace Drupal\Tests\degov_media_file_links\Kernel;
 
+use Drupal\media\Entity\Media;
+
 /**
  * Class LinkResolutionTestTest.
  *
@@ -37,5 +39,16 @@ class LinkResolutionTest extends MediaFileLinksTestBase {
   public function testLinkResolutionWithNonexistentMedia(): void {
     $urlString = $this->fileLinkResolver->getFileUrlString(99);
     self::assertEquals('', $urlString);
+  }
+
+  public function testChangingTheFileResultsInUpdatedLink(): void {
+    $media = Media::load($this->supportedMediaId);
+    $media->set('field_document', [
+      'target_id' => $this->fileIds['word'],
+    ]);
+    $media->save();
+
+    $urlString = $this->fileLinkResolver->getFileUrlString($this->supportedMediaId);
+    self::assertContains('word-document.docx', $urlString);
   }
 }

@@ -33,6 +33,6 @@ class SuggestionsTest extends MediaFileLinksTestBase {
   public function testFindOnlySupportedMediaByFilename(): void {
     $searchResult = $this->fileSuggester->findBySearchString('dummy');
     self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","mimetype":"application\/pdf"}]', $searchResult);
-
   }
+
 }
