@@ -12,3 +12,13 @@ services:
     environment:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: testing
+      MYSQL_DATABASE: testing
+  mysql2:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: testing
+      MYSQL_DATABASE: testing
