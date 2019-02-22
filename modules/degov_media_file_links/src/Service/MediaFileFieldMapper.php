@@ -51,7 +51,6 @@ class MediaFileFieldMapper {
   public function getBundleFileFieldMappings(): array {
     return [
       'document' => 'field_document',
-      'image' => 'image',
     ];
   }
 
