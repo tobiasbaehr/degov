@@ -6,9 +6,9 @@ echo "### Setting up project folder"
 
 echo "### Wait for packagist"
 doWhile="0"
-while [ $doWhile -eq "0" ]; do
+while [[ $doWhile -eq "0" ]]; do
    GREP=`wget -q -O - https://packagist.org/packages/degov/degov | grep ">dev-$BITBUCKET_BRANCH<"`
-   if [ ! -z "$GREP" ]; then
+   if [[ ! -z "$GREP" ]]; then
         doWhile=1
    fi
    sleep 1
@@ -24,7 +24,7 @@ echo "### Starting chrome container"
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y pip
+apt-get install -y python-pip
 pip install docker-compose
 
 docker-compose up -d
