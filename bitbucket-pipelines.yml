@@ -93,6 +93,8 @@ pipelines:
 
 definitions:
   services:
+    docker:
+      memory: 2048
     mysql:
       image: mysql:5.7
       memory: 1024
