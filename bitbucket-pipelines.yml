@@ -25,12 +25,8 @@ pipelines:
             - docker
           script:
             - *install_docker_compose
-            - docker-compose up -d
-            - | #
-                docker-compose run \
-                  --rm --entrypoint=/bin/bash \
-                  app \
-                  /opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/scripts/pipeline.sh 7.2
+            - docker-compose up -d testing mysql
+            - docker-compose up app
           services:
             - docker
             - mysql
