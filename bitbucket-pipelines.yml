@@ -26,7 +26,7 @@ pipelines:
           script:
             - *install_docker_compose
             - docker-compose up -d
-            - docker exec -it app scripts/pipeline.sh 7.2
+            - docker exec app scripts/pipeline.sh 7.2
           services:
             - docker
             - mysql

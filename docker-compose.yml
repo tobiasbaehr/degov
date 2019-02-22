@@ -9,3 +9,6 @@ services:
   app:
     image: "derh4nnes/pipeline-behat:feature_php-7.2"
     container_name: "app"
+    environment:
+      BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
+      BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
