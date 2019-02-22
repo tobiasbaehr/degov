@@ -6,10 +6,10 @@ echo "### Setting up project folder"
 
 echo "### Wait for packagist"
 doWhile="0"
-while [[ $doWhile -eq "0" ]]; do
+while [[ "$doWhile" = "0" ]]; do
    GREP=`wget -q -O - https://packagist.org/packages/degov/degov | grep ">dev-$BITBUCKET_BRANCH<"`
    if [[ ! -z "$GREP" ]]; then
-        doWhile=1
+        doWhile="1"
    fi
    sleep 1
 done
@@ -18,16 +18,6 @@ composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
-echo "### Starting chrome container"
-
-#docker run -d --name="testing" -p 4444:4444 --net="host" -v "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/" -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
-
-export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y python-pip
-pip install docker-compose
-
-docker-compose up -d
 
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .

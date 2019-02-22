@@ -1,23 +1,11 @@
 version: "2"
 services:
   testing:
+    container_name: "testing"
     image: "derh4nnes/selenium-chrome-headless"
     volumes:
       - "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
-    ports:
-      - "4444:4444"
-    networks:
-      testnetwork:
-        ipv4_address: 192.168.0.2
-
-networks:
-  testnetwork:
-    ipam:
-      config:
-        - subnet: "192.168.0.0/24"
-          gateway: 192.168.0.1
-
-    #docker run -d --name="testing" -p 4444:4444 --net="host"
-    #-v "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
-    #-v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
+  app:
+    image: "derh4nnes/pipeline-behat:feature_php-7.2"
+    container_name: "app"
