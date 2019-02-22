@@ -25,7 +25,8 @@ pipelines:
             - docker
           script:
             - *install_docker_compose
-            - docker-compose up -d && sleep 3 && docker ps && docker exec app scripts/pipeline.sh 7.2
+            - docker-compose up -d
+            - docker-compose run --rm --entrypoint=/bin/bash app scripts/pipeline.sh 7.2
           services:
             - docker
             - mysql
