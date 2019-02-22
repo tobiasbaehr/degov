@@ -5,6 +5,7 @@ namespace Drupal\degov_media_file_links\Service;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
 
 /**
  * Class MediaFileLinkResolver.
@@ -35,13 +36,17 @@ class MediaFileLinkResolver {
    */
   public function getFileUrlString(int $mediaId): string {
     $media = Media::load($mediaId);
-    $mediaBundle = $media->bundle();
-    $fileFieldName = $this->fileFieldMapper->getFileFieldForBundle($mediaBundle);
-    $value = $media->get($fileFieldName)->getValue();
-    if (isset($value[0]['target_id'])) {
-      $file = File::load($value[0]['target_id']);
-      $uri = $file->getFileUri();
-      return Url::fromUri(file_create_url($uri))->toString();
+    if($media instanceof MediaInterface) {
+      $mediaBundle = $media->bundle();
+      $fileFieldName = $this->fileFieldMapper->getFileFieldForBundle($mediaBundle);
+      if(!empty($fileFieldName)) {
+        $value = $media->get($fileFieldName)->getValue();
+        if (isset($value[0]['target_id'])) {
+          $file = File::load($value[0]['target_id']);
+          $uri = $file->getFileUri();
+          return Url::fromUri(file_create_url($uri))->toString();
+        }
+      }
     }
     return '';
   }
