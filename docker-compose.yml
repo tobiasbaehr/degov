@@ -3,12 +3,16 @@ services:
   testing:
     container_name: "testing"
     image: "derh4nnes/selenium-chrome-headless"
+    ports:
+      - "4444:4444"
     volumes:
       - "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
   app:
     image: "derh4nnes/pipeline-behat:feature_php-7.2"
     container_name: "app"
+    ports:
+      - "80:80"
     environment:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
@@ -22,8 +26,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: testing
       MYSQL_DATABASE: testing
-  mysql2:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: testing
-      MYSQL_DATABASE: testing
+    ports:
+      - "3306:3306"
