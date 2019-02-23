@@ -42,5 +42,5 @@ networks:
   backend:
     ipam:
       config:
-        gateway: 172.16.31.1
         - subnet: 172.16.31.0/24
+          gateway: 172.16.31.1
