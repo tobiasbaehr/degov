@@ -29,7 +29,6 @@ pipelines:
             - docker-compose up --exit-code-from=app app
           services:
             - docker
-            - mysql
       - step:
           name: Build and test (PHP 7.1)
           image: derh4nnes/pipeline-behat:latest
@@ -39,7 +38,6 @@ pipelines:
             - docker-compose up --exit-code-from=app app
           services:
             - docker
-            - mysql
     - parallel:
       - step:
           name: Push to drupal.org
@@ -62,7 +60,6 @@ pipelines:
               - docker-compose up --exit-code-from=app app
             services:
               - docker
-              - mysql
         - step:
             name: Build and test (PHP 7.1)
             image: derh4nnes/pipeline-behat:latest
@@ -72,7 +69,6 @@ pipelines:
               - docker-compose up --exit-code-from=app app
             services:
               - docker
-              - mysql
       - parallel:
         - step:
             name: Push dev to drupal.org
