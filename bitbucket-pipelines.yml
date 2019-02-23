@@ -34,7 +34,9 @@ pipelines:
           name: Build and test (PHP 7.1)
           image: derh4nnes/pipeline-behat:latest
           script:
-            - scripts/pipeline.sh 7.1
+            - *install_docker_compose
+            - docker-compose up -d testing mysql
+            - docker-compose up --exit-code-from=app app
           services:
             - docker
             - mysql
@@ -55,7 +57,9 @@ pipelines:
               - composer
               - docker
             script:
-              - scripts/pipeline.sh 7.2
+              - *install_docker_compose
+              - docker-compose up -d testing mysql
+              - docker-compose up --exit-code-from=app app
             services:
               - docker
               - mysql
@@ -63,7 +67,9 @@ pipelines:
             name: Build and test (PHP 7.1)
             image: derh4nnes/pipeline-behat:latest
             script:
-              - scripts/pipeline.sh 7.1
+              - *install_docker_compose
+              - docker-compose up -d testing mysql
+              - docker-compose up --exit-code-from=app app
             services:
               - docker
               - mysql
