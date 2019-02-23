@@ -8,6 +8,8 @@ services:
     volumes:
       - "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
+    networks:
+      - backend
   app:
     image: "derh4nnes/pipeline-behat:feature_php-7.2"
     container_name: "app"
@@ -20,6 +22,8 @@ services:
     command: /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh 7.2
     volumes:
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
+    networks:
+      - backend
   mysql:
     image: mysql:5.7
     container_name: "mysql"
@@ -28,3 +32,7 @@ services:
       MYSQL_DATABASE: testing
     ports:
       - "3306:3306"
+    networks:
+      - backend
+networks:
+  backend:
