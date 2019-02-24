@@ -16,7 +16,7 @@ Feature: Installation via webbrowser
     Then I submit the form
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
-    And I dump the HTML
+    And i test
     And task "Website installieren" is done
     And the HTML title should show the page title and the distribution title
     And task "Übersetzungen konfigurieren" is done
