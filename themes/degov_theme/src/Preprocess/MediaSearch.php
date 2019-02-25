@@ -5,6 +5,8 @@
 
 namespace Drupal\degov_theme\Preprocess;
 
+use Drupal\file\Entity\File;
+
 /**
  * Class MediaSearch
  *
@@ -29,7 +31,7 @@ class MediaSearch {
       switch ($media->bundle()) {
 
         case 'image':
-          if (!$media->get('image')->isEmpty()) {
+          if ($media->get('image')->entity instanceof File) {
             $img['#uri'] = $media->image->entity->getFileUri();
             $img['#alt'] = $media->image->alt;
             $img['#title'] = $media->image->title;
