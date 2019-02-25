@@ -16,12 +16,12 @@ use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 class MediaSearch {
 
   /**
-   * Preprocess media for search.
+   * Preprocess media for media search result list.
    *
    * @param array $variables
    */
   static public function preprocess(array &$variables) {
-    if ($variables['view_mode'] == 'search') {
+    if ($variables['view_mode'] === 'search') {
       /** @var \Drupal\media\Entity\Media $media */
       $media = $variables['media'];
       $img = [
