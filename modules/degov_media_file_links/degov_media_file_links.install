@@ -1,1 +1,29 @@
-<?php ?>
+<?php
+
+/**
+ * @file
+ * Install and update functions for the deGov Media file links module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_file_links_install() {
+  $configsToUpdate = ['filter.format.rich_html', 'filter.format.rich_text'];
+
+  foreach($configsToUpdate as $configToUpdate) {
+    $config = \Drupal::configFactory()->getEditable($configToUpdate);
+    $filters = $config->get('filters');
+    if(empty($filters['filter_mediafilelinks'])) {
+      $filters['filter_mediafilelinks'] = [
+        'id' => 'filter_mediafilelinks',
+        'provider' => 'degov_media_file_links',
+        'status' => TRUE,
+        'weight' => 10,
+        'settings' => [],
+      ];
+
+      $config->set('filters', $filters)->save();
+    }
+  }
+}
