@@ -180,7 +180,7 @@ Feature: deGov - Content creation
     And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
     And I open node edit form by node title "Page with text paragraph"
     And I enter the placeholder for a "document" media file in textarea
-    And I scroll to bottom
+    And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
     And I am on "/degov-demo-content/page-text-paragraph"
     And I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
