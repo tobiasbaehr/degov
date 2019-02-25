@@ -21,7 +21,7 @@ class FilterMediaFileLinks extends FilterBase {
    */
   public function process($text, $langcode) {
     $linkResolver = \Drupal::service('degov_media_file_links.file_link_resolver');
-    while (preg_match('/\[media\:file\:([0-9]+)\]/', $text, $matches)) {
+    while (preg_match('/\[media\:file\:(\d+)\]/', $text, $matches)) {
       if (!empty($matches[1]) && is_numeric($matches[1])) {
         $fileUrl = $linkResolver->getFileUrlString($matches[1]);
         $text = str_replace($matches[0], $fileUrl, $text);
