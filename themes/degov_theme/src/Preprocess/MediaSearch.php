@@ -6,6 +6,7 @@
 namespace Drupal\degov_theme\Preprocess;
 
 use Drupal\file\Entity\File;
+use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 
 /**
  * Class MediaSearch
@@ -40,7 +41,7 @@ class MediaSearch {
           break;
 
         case 'audio':
-          if (!$media->get('field_audio_preview')->isEmpty()) {
+          if (!$media->get('field_audio_preview')->isEmpty() && $media->get('field_audio_preview')->entity->get('image') instanceof FileFieldItemList) {
             $img['#uri'] = $media->get('field_audio_preview')->entity->get('image')->entity->getFileUri();
             $img['#alt'] = $media->get('field_audio_preview')->entity->get('image')->alt;
             $img['#title'] = $media->get('field_audio_preview')->entity->get('image')->title;
@@ -49,7 +50,7 @@ class MediaSearch {
           break;
 
         case 'video_upload':
-          if (!$media->get('field_video_upload_preview')->isEmpty()) {
+          if (!$media->get('field_video_upload_preview')->isEmpty() && $media->get('field_video_upload_preview')->entity->get('image') instanceof FileFieldItemList) {
             $img['#uri'] = $media->get('field_video_upload_preview')->entity->get('image')->entity->getFileUri();
             $img['#alt'] = $media->get('field_video_upload_preview')->entity->get('image')->alt;
             $img['#title'] = $media->get('field_video_upload_preview')->entity->get('image')->title;
@@ -58,7 +59,7 @@ class MediaSearch {
           break;
 
         case 'video':
-          if (!$media->get('field_video_preview')->isEmpty()) {
+          if (!$media->get('field_video_preview')->isEmpty() && $media->get('field_video_preview')->entity->get('image') instanceof FileFieldItemList) {
             $img['#uri'] = $media->get('field_video_preview')->entity->get('image')->entity->getFileUri();
             $img['#alt'] = $media->get('field_video_preview')->entity->get('image')->alt;
             $img['#title'] = $media->get('field_video_preview')->entity->get('image')->title;
@@ -67,7 +68,7 @@ class MediaSearch {
           break;
 
         case 'gallery':
-          if (!$media->get('field_gallery_images')->isEmpty()) {
+          if (!$media->get('field_gallery_images')->isEmpty() && $media->get('field_gallery_images')->entity->get('image') instanceof FileFieldItemList) {
             $img['#uri'] = $media->get('field_gallery_images')->entity->get('image')->entity->getFileUri();
             $img['#alt'] = $media->get('field_gallery_images')->entity->get('image')->alt;
             $img['#title'] = $media->get('field_gallery_images')->entity->get('image')->title;
@@ -76,7 +77,7 @@ class MediaSearch {
           break;
 
         case 'person':
-          if (!$media->get('field_person_image')->isEmpty()) {
+          if (!$media->get('field_person_image')->isEmpty() && $media->get('field_person_image')->entity->get('image') instanceof FileFieldItemList) {
             $img['#uri'] = $media->get('field_person_image')->entity->get('image')->entity->getFileUri();
             $img['#alt'] = $media->get('field_person_image')->entity->get('image')->alt;
             $img['#title'] = $media->get('field_person_image')->entity->get('image')->title;
