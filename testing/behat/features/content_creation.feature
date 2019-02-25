@@ -2,7 +2,8 @@
 Feature: deGov - Content creation
 
   Background:
-    Given I am installing the "degov_demo_content" module
+    Given I am installing the following Drupal modules:
+      | degov_demo_content          |
     Given I proof that the following Drupal modules are installed:
       | degov_node_press            |
       | degov_node_event            |
@@ -180,8 +181,8 @@ Feature: deGov - Content creation
     And I am on "/degov-demo-content/page-text-paragraph"
     And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
     And I open node edit form by node title "Page with text paragraph"
+    And wait 2 seconds
     And I enter the placeholder for a "document" media file in textarea
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
-    And I am on "/degov-demo-content/page-text-paragraph"
-    And I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
+    And I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
