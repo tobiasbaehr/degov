@@ -14,7 +14,6 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-composer global require "hirak/prestissimo:^0.3"
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
