@@ -23,6 +23,7 @@ Feature: deGov - Search
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
+    And I dump the HTML
     Then I should see HTML content matching "demo image with a fixed title" after a while
     And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
@@ -56,6 +57,7 @@ Feature: deGov - Search
     And I rebuild the "search_media" index
     And I clear the cache
     Then I am on "/mediathek"
+    And I dump the HTML
     And I should see HTML content matching "Video Upload" after a while
     And I should see HTML content matching "Bild" after a while
     And I should see an ".facet-item__value" element with the content "Bild"
