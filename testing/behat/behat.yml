@@ -14,7 +14,7 @@ default:
         - Drupal\degov\Behat\Context\ModuleContext
         - Drupal\degov\Behat\Context\JavaScriptContext
       paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features/search.feature'
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
           locale: de
   extensions:
