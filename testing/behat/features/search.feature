@@ -5,8 +5,9 @@ Feature: deGov - Search
     Given I proof that the following Drupal modules are installed:
       | degov_search_content       |
       | degov_search_media         |
+    And I am installing the following Drupal modules:
       | degov_search_media_manager |
-    And I am installing the "degov_demo_content" module
+      | degov_demo_content         |
 
   Scenario: Verify that search is configured for partial word matching
     Given I am logged in as a user with the "administrator" role
