@@ -23,6 +23,7 @@ Feature: deGov - Search
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
+    Then I dump the HTML
     And I should see "demo image with a fixed title"
     And I open media edit form by media name "demo image with a fixed title"
     And I choose "Allgemein" from tab menu
