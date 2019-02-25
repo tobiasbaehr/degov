@@ -91,7 +91,7 @@ class MediaSearch {
     }
   }
 
-  static private function itemListContainsFileEntityInstance($parentEntity): bool {
+  private static function itemListContainsFileEntityInstance($parentEntity): bool {
     if (!$parentEntity->isEmpty() && $parentEntity->entity->get('image') instanceof FileFieldItemList && $parentEntity->entity->get('image')->entity instanceof File) {
       return TRUE;
     }
