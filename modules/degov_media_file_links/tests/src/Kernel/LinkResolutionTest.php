@@ -51,4 +51,5 @@ class LinkResolutionTest extends MediaFileLinksTestBase {
     $urlString = $this->fileLinkResolver->getFileUrlString($this->supportedMediaId);
     self::assertContains('word-document.docx', $urlString);
   }
+
 }

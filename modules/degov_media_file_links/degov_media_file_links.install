@@ -11,15 +11,15 @@
 function degov_media_file_links_install() {
   $configsToUpdate = ['filter.format.rich_html', 'filter.format.rich_text'];
 
-  foreach($configsToUpdate as $configToUpdate) {
+  foreach ($configsToUpdate as $configToUpdate) {
     $config = \Drupal::configFactory()->getEditable($configToUpdate);
     $filters = $config->get('filters');
-    if(empty($filters['filter_mediafilelinks'])) {
+    if (empty($filters['filter_mediafilelinks'])) {
       $filters['filter_mediafilelinks'] = [
-        'id' => 'filter_mediafilelinks',
+        'id'       => 'filter_mediafilelinks',
         'provider' => 'degov_media_file_links',
-        'status' => TRUE,
-        'weight' => 10,
+        'status'   => TRUE,
+        'weight'   => 10,
         'settings' => [],
       ];
 
