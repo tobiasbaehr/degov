@@ -178,10 +178,11 @@ Feature: deGov - Content creation
   Scenario: I verify that Media file link placeholders in text get transformed into actual links
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I am on "/degov-demo-content/page-text-paragraph"
+    Then I am on "/degov-demo-content/page-text-paragraph"
     And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
-    And I open node edit form by node title "Page with text paragraph"
+    Then I open node edit form by node title "Page with text paragraph"
+    And I should see HTML content matching "node-normal-page-edit-form" after a while
     And I enter the placeholder for a "document" media file in textarea
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
-    And I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
+    Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
