@@ -5,3 +5,15 @@
  * The deGov Media file links module.
  */
 
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_media_file_links_locale_translation_projects_alter(&$projects) {
+  $projects['degov_media_file_links'] = [
+    'info' => [
+      'name'                                 => 'deGov - Media file links',
+      'interface translation project'        => 'degov_media_file_links',
+      'interface translation server pattern' => drupal_get_path('module', 'degov_media_file_links') . '/translations/%language.po',
+    ],
+  ];
+}
