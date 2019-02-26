@@ -88,8 +88,9 @@ Feature: deGov - Media creation
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 5 seconds
+    Then I should see 1 ".file--video" element after a while
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    Then I should see 2 ".file--video" element after a while
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsives Video Mobile Video Example 1 wurde erstellt."
@@ -105,13 +106,13 @@ Feature: deGov - Media creation
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 1 ".file--video" element after a while
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 2 ".file--video" elements after a while
     And I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_hdready_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 3 ".file--video" elements after a while
     And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 4 ".file--video" elements after a while
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsives Video Mobile Video Example 2 wurde erstellt."
@@ -129,7 +130,7 @@ Feature: deGov - Media creation
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_mobile"
     And I attach the file "portait-mode-mpeg4.mp4" to "files[field_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 1 ".file--video" element after a while
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should see HTML content matching 'Standard Video: Videomaße von 960 x 540 erwartet. Stattdessen vorgefunden: "480 x 720“.'
@@ -142,12 +143,12 @@ Feature: deGov - Media creation
     And I am on "/media/add/video_mobile"
     And I choose "Medien" from tab menu
     Then I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 3 seconds
-    Then I should see 1 ".messages--warning" elements
+    Then I should see 1 ".file--video" element after a while
+    And I should see 1 ".messages--warning" elements
     And I should see 0 ".messages--warning .messages__list" elements
     Then I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_video_mobile_mp4_0]"
-    And I wait 3 seconds
-    Then I should see 2 ".messages--warning" elements
+    Then I should see 2 ".file--video" elements after a while
+    And I should see 2 ".messages--warning" elements
     And I should see 0 ".messages--warning .messages__list" elements
 
   Scenario: I verify that a mobile video entity has multiple download options
@@ -161,13 +162,13 @@ Feature: deGov - Media creation
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 1 ".file--video" element after a while
     And I check checkbox with id "edit-field-allow-download-mobile-value"
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 2 ".file--video" elements after a while
     And I uncheck checkbox with id "edit-field-allow-download-value"
     And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
-    And I wait 3 seconds
+    Then I should see 3 ".file--video" elements after a while
     And I check checkbox with id "edit-field-allow-download-fullhd-value"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
