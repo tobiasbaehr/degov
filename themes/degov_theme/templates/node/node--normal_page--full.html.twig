@@ -99,18 +99,17 @@
           <div class="title"></div>
         </div>
 
-        {% if teaser %}
-          {% if content.field_teaser_sub_title %}
-            <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
-              {{ content.field_teaser_sub_title|field_value }}
-            </h3>
-          {% endif %}
-          {% if content.field_teaser_text %}
-            <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-              {{ content.field_teaser_text|field_value }}
-            </div>
-          {% endif %}
+        {% if content.field_teaser_sub_title %}
+          <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
+            {{ content.field_teaser_sub_title|field_value }}
+          </h3>
         {% endif %}
+        {% if content.field_teaser_text %}
+          <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+            {{ content.field_teaser_text|field_value }}
+          </div>
+        {% endif %}
+
       </div>
     {% endif %}
   </div>
