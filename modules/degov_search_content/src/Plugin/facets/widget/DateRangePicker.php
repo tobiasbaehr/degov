@@ -94,6 +94,9 @@ class DateRangePicker extends WidgetPluginBase {
       '#date_timezone' => $timezone,
       '#date_year_range' => '-10:+3',
       '#default_value' => (!empty($startDate)) ? DrupalDateTime::createFromTimestamp(strtotime($startDate)) : '',
+      '#wrapper_attributes' => [
+        'class' => ['date-from-wrapper'],
+      ],
       // Set the attributes to get the datepicker.
       '#attributes' => [
         'data-drupal-date-format' => 'd.m.Y',
@@ -112,6 +115,9 @@ class DateRangePicker extends WidgetPluginBase {
       '#date_timezone' => $timezone,
       '#date_year_range' => '-10:+3',
       '#default_value' => (!empty($endDate)) ? DrupalDateTime::createFromTimestamp(strtotime($endDate)) : '',
+      '#wrapper_attributes' => [
+        'class' => ['date-to-wrapper'],
+      ],
       // Set the attributes to get the datepicker.
       '#attributes' => [
         'data-drupal-date-format' => 'dd.mm.yy',

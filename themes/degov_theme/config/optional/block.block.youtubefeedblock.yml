@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - degov_social_media_youtube
+  theme:
+    - degov_theme
+id: youtubefeedblock
+theme: degov_theme
+region: content
+weight: -5
+provider: null
+plugin: degov_social_media_youtube
+settings:
+  id: degov_social_media_youtube
+  label: 'Youtube Feed Block'
+  provider: degov_social_media_youtube
+  label_display: '0'
+visibility: {  }

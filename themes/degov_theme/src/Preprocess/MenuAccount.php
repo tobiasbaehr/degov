@@ -20,7 +20,9 @@ class MenuAccount {
   static public function preprocess(array &$vars) {
     if ($vars['menu_name'] === 'account') {
       array_walk($vars['items'], function (&$item) {
-        if (!empty($item['title']['icon'])) {
+        if ((is_array($item))
+          && (is_array($item['title']))
+          && !empty($item['title']['icon'])) {
           $item['title']['icon']['#attributes']['class'][] = 'ml-2';
         }
 
@@ -28,7 +30,9 @@ class MenuAccount {
         $url = $item['url'];
         if (($url->isRouted())
           && $url->getRouteName() === 'user.login'
-          && !\Drupal::currentUser()->isAnonymous()) {
+          && !\Drupal::currentUser()->isAnonymous()
+          && (is_array($item))
+        ) {
           if (isset($item['title']['#markup'])) {
             $item['title']['#markup'] = t('My Account');
           }
