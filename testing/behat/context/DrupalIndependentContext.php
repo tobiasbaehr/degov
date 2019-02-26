@@ -262,7 +262,7 @@ class DrupalIndependentContext extends RawMinkContext {
         return;
       }
     } while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
-    throw new Exception(
+    throw new \Exception(
       sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, self::MAX_SHORT_DURATION_SECONDS, $actualNumberOfElements),
       $this->getSession()
     );
