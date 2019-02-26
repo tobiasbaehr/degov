@@ -108,6 +108,7 @@ Feature: deGov - Media creation
     And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
     Then I should see 1 ".file--video" element after a while
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I dump the HTML
     Then I should see 2 ".file--video" elements after a while
     And I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_hdready_video_mobile_mp4_0]"
     Then I should see 3 ".file--video" elements after a while
