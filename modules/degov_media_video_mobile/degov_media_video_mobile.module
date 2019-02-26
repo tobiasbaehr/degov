@@ -203,13 +203,6 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
     'field_video_mobile_mp4',
   ];
 
-  $triggeringElement = $form_state->getTriggeringElement();
-  if($triggeringElement['#id'] !== 'edit-submit') {
-    if(!empty($triggeringElement['#parents'][0]) && in_array($triggeringElement['#parents'][0], $video_fields)) {
-      $video_fields = [$triggeringElement['#parents'][0]];
-    }
-  }
-
   foreach ($video_fields as $field_name) {
     $value = $form_state->getValue($field_name);
     if (!empty($value[0]['fids'][0])) {
