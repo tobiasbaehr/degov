@@ -129,6 +129,20 @@ Feature: deGov - Media creation
     Then I should see HTML content matching 'Standard Video: Seitenverhältnis von 16:9 erwartet. Stattdessen vorgefunden: "16:24".'
     Then I should see HTML content matching 'Standard Video: H.264 codiertes Video erwartet. Stattdessen vorgefunden: "mp4v".'
 
+  Scenario: I test that messages from the video analysis don't repeat
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
+    And I am on "/media/add/video_mobile"
+    And I choose "Medien" from tab menu
+    Then I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    Then I should see 1 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+    Then I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    Then I should see 2 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+
   Scenario: I verify that a mobile video entity has multiple download options
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
