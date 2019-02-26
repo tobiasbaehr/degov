@@ -254,6 +254,7 @@ class DrupalIndependentContext extends RawMinkContext {
    */
   public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
     $startTime = time();
+    $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
     do {
       $actualElements = $this->getSession()->getPage()->findAll('css', $selector);
       $actualNumberOfElements = \count($actualElements);
@@ -261,9 +262,9 @@ class DrupalIndependentContext extends RawMinkContext {
       if($actualNumberOfElements === $expectedNumberOfElements) {
         return;
       }
-    } while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
+    } while (time() - $startTime < $wait);
     throw new \Exception(
-      sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, self::MAX_SHORT_DURATION_SECONDS, $actualNumberOfElements)
+      sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, $wait, $actualNumberOfElements)
     );
   }
 
