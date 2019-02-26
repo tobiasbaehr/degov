@@ -13,6 +13,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
@@ -27,12 +28,14 @@ Feature: deGov - Media creation
 
   Scenario: I proof that longitude and latitude has been generated automatically
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I open address medias edit form from latest media with title "Example address public"
     And I should see HTML content matching "51.220793"
     And I should see HTML content matching "6.772623"
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "media/add/citation"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -47,6 +50,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a person media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "media/add/person"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -60,6 +64,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a video upload media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_upload"
     And I fill in the following:
       | Name               | Video Example |
@@ -74,6 +79,7 @@ Feature: deGov - Media creation
 
   Scenario: I create a rudimentary mobile video media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_mobile"
     And I fill in the following:
       | Name               | Mobile Video Example 1 |
@@ -90,6 +96,7 @@ Feature: deGov - Media creation
 
   Scenario: I create a mobile video media entity with HD videos
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_mobile"
     And I fill in the following:
       | Name               | Mobile Video Example 2 |
@@ -171,6 +178,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     When I go to "/media/add/video"
     And I fill in the following:
       | Öffentlicher Titel     | Example video                               |
@@ -186,6 +194,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating an Instagram media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     When I go to "media/add/instagram"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
