@@ -13,6 +13,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a address media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
@@ -27,12 +28,14 @@ Feature: deGov - Media creation
 
   Scenario: I proof that longitude and latitude has been generated automatically
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I open address medias edit form from latest media with title "Example address public"
     And I should see HTML content matching "51.220793"
     And I should see HTML content matching "6.772623"
 
   Scenario: I am creating a quote media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "media/add/citation"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -47,6 +50,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a person media entity
     Given I am logged in as a user with the "Administrator" role
+    And I have dismissed the cookie banner if necessary
     And I am on "media/add/person"
     And I click "Beschreibung"
     Then I should see text matching "Öffentlicher Titel" after a while
@@ -60,6 +64,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a video upload media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_upload"
     And I fill in the following:
       | Name               | Video Example |
@@ -74,6 +79,7 @@ Feature: deGov - Media creation
 
   Scenario: I create a rudimentary mobile video media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_mobile"
     And I fill in the following:
       | Name               | Mobile Video Example 1 |
@@ -82,14 +88,16 @@ Feature: deGov - Media creation
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
     And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 5 seconds
+    And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Responsives Video Mobile Video Example 1 wurde erstellt."
 
   Scenario: I create a mobile video media entity with HD videos
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     And I am on "/media/add/video_mobile"
     And I fill in the following:
       | Name               | Mobile Video Example 2 |
@@ -97,9 +105,9 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
-    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
     And I wait 3 seconds
     And I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_hdready_video_mobile_mp4_0]"
     And I wait 3 seconds
@@ -129,6 +137,20 @@ Feature: deGov - Media creation
     Then I should see HTML content matching 'Standard Video: Seitenverhältnis von 16:9 erwartet. Stattdessen vorgefunden: "16:24".'
     Then I should see HTML content matching 'Standard Video: H.264 codiertes Video erwartet. Stattdessen vorgefunden: "mp4v".'
 
+  Scenario: I test that messages from the video analysis don't repeat
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
+    And I am on "/media/add/video_mobile"
+    And I choose "Medien" from tab menu
+    Then I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I should see 1 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+    Then I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I should see 2 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+
   Scenario: I verify that a mobile video entity has multiple download options
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
@@ -157,6 +179,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating a video media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     When I go to "/media/add/video"
     And I fill in the following:
       | Öffentlicher Titel     | Example video                               |
@@ -172,6 +195,7 @@ Feature: deGov - Media creation
 
   Scenario: I am creating an Instagram media entity
     Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
     When I go to "media/add/instagram"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:

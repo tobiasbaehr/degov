@@ -203,6 +203,17 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
     'field_video_mobile_mp4',
   ];
 
+  /*
+   * If validation is triggered by a file upload to a specific field,
+   * only validate that field.
+   */
+  $triggeringElement = $form_state->getTriggeringElement();
+  if($triggeringElement['#id'] !== 'edit-submit') {
+    if(!empty($triggeringElement['#parents'][0]) && in_array($triggeringElement['#parents'][0], $video_fields)) {
+      $video_fields = [$triggeringElement['#parents'][0]];
+    }
+  }
+
   foreach ($video_fields as $field_name) {
     $value = $form_state->getValue($field_name);
     if (!empty($value[0]['fids'][0])) {
@@ -241,7 +252,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         ->getFieldDefinitions('media', 'video_mobile');
       if (isset($field_definitions[$field_name])) {
         $current_field_definition = $field_definitions[$field_name];
-        if (!empty($current_field_definition->getDescription()) && preg_match("/^([0-9]+) ?x ?([0-9]+)$/", $current_field_definition->getDescription(), $dimensions) && count($dimensions) === 3) {
+        if (!empty($current_field_definition->getDescription()) && preg_match("/^(\d+) ?x ?(\d+)$/", $current_field_definition->getDescription(), $dimensions) && count($dimensions) === 3) {
           if ((int) $file_info['video']['resolution_x'] !== (int) $dimensions[1] || (int) $file_info['video']['resolution_y'] !== (int) $dimensions[2]) {
             \Drupal::service('messenger')->addWarning(
               t(
