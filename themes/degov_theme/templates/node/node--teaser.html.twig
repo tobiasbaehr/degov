@@ -5,9 +5,16 @@
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
-     Only "getter" methods (method names starting with "get", "has", or "is")
-     and a few common methods such as "id" and "label" are available. Calling
-     other methods (such as node.delete) will result in an exception.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
  * - label: The title of the node.
  * - content: All node items. Use {{ content }} to print them all,
  *   or print a subset such as {{ content.field_example }}. Use
@@ -56,8 +63,6 @@
  * - is_admin: Flag for admin user status. Will be true when the current user
  *   is an administrator.
  *
- * @ingroup templates
- *
  * @see template_preprocess_node()
  *
  * @todo Remove the id attribute (or make it a class), because if that gets
@@ -65,83 +70,55 @@
  *   in different view modes.
  */
 #}
+{% set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  'py-3',
+] %}
 
-{%
-  set classes = [
-    'event__teaser',
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-  ]
-%}
-
-{% if content.field_teaser_image|field_value %}
-  {% set class_sidebar = 'col-sm-3'  %}
-  {% set class_content = 'col-sm-9' %}
-
-{% else %}
-  {%  set class_sidebar = 'invisible' %}
-  {%  set class_content = 'col-sm-12' %}
-  {%  set class_teaser_text = 'row' %}
-{% endif %}
-
+{% set teaser_text = content.field_teaser_text|field_value|render|striptags %}
 
 <article{{ attributes.addClass(classes) }}>
-  {{ title_suffix }}
 
-  <!-- teaser image -->
-  <div class="event__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
-    <div class="event__teaser__day">{% if start_date_timestamp is not empty %}{{ start_date_timestamp|format_date('custom', 'd') }}{% endif %}</div>
-    <div class="event__teaser__location">{{ content.field_event_location.0.locality}}</div>
-    <div class="event__teaser__time">{% if node.field_event_display_time.value == true %}{{ start_date_timestamp|format_date('custom', 'G:i') }}{% endif %}</div>
-  </div>
+  <div class="row py-5">
 
-  <div class="event__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
-    <!-- teaser date -->
-    {% if content.field_tags %}
-      {% spaceless %}{{ content.field_tags }}{% endspaceless %}
-    {% endif %}
-    {% if content.field_event_date %}
-      <div class="event__teaser__month"{{ content.field_event_date|quickedit_attr }}>
-        {{ content.field_event_date|field_value }}
-      </div>
-    {% endif %}
-    {% if content.field_content_type %}
-      <div class="event__teaser-content-type">
-        <span{{ content.field_content_type|quickedit_attr }}>{{ content.field_content_type }}</span>
-      </div>
-    {% endif %}
-    <!-- teaser title -->
-    {% if content.field_teaser_title %}
-      <a href="{{ url }}" rel="bookmark">
-        <div class="event__teaser-title teaser-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ content.field_teaser_title|field_value }}
-          </h3>
-        </div>
-      </a>
-    {% endif %}
-    <div class="{{ class_teaser_text }}">
-      {% if content.field_teaser_image %}
-        <div class="event__teaser__img {{ class_sidebar }}"{{ content.field_teaser_image|quickedit_attr }}>
-          <a href="{{ url }}" rel="bookmark">
-            {{ content.field_teaser_image|field_value }}
-          </a>
-        </div>
-      {% endif %}
-      <!-- Teaser text -->
-      {% if content.field_teaser_text %}
-        <a href="{{ url }}" rel="bookmark">
-          <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
-            {% autoescape false %}
-              {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
-            {% endautoescape %}
-          </div>
+
+    {% if content.field_teaser_image|field_value %}
+      <div class="col-md-3">
+        <a href="{{ url }}" rel="bookmark" class="d-block text-center mb-4 mb-md-0">
+          {{ content.field_teaser_image }}
         </a>
-      {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="col">
+      <div class="top row pb-4">
+        <div class="col-lg">
+          <span>{{ bundle }}</span>
+          <span class="separator px-2">|</span>
+          <span>{{ date }}</span>
+        </div>
+        <div class="col-lg text-right-md">
+          <span class="pr-2">{{ 'Author'|t }}: {{ author_name }}</span>
+          {# Nodes doesn't have comment field that can be counted, leaving placeholder here. #}
+          <span class="comments d-inline-block">
+            <span class="pr-2">|</span>
+            <i class="fas fa-comment pr-1"></i> 0 {{ 'Comments'|t }}</span>
+          {# End comments counter #}
+        </div>
+
+      </div>
+      <div class="middle">
+        <a href="{{ url }}" rel="bookmark">
+          <h2 class="title">{{ label }}</h2>
+        </a>
+        {{ teaser_text|length > 400 ? teaser_text|slice(0, 400) ~ '...' : teaser_text }}
+        <div class="bundle pt-4"><i class="fas fa-tags pr-2"></i> {{ bundle }}</div>
+      </div>
     </div>
   </div>
 </article>
