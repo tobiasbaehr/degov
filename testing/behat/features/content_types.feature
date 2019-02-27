@@ -66,10 +66,10 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/content"
     And I see the button "Filter"
-    And I should see HTML content matching "Autor" after a while
-    And I should see "Titel"
-    And I should see "Inhaltstyp"
-    And I should see "Aktualisiert"
-    And I should see "Interner Titel"
-    And I should see "Aktionen"
+    And I should see HTML content matching "Autor"
+    And I should see HTML content matching "Titel"
+    And I should see HTML content matching "Inhaltstyp"
+    And I should see HTML content matching "Aktualisiert"
+    And I should see HTML content matching "Interner Titel"
+    And I should see HTML content matching "Aktionen"
     And I should not see the text "Undefined index"
