@@ -66,7 +66,7 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/content"
     And I see the button "Filter"
-    And I should see text matching "AUTOR" after a while
+    And I should see HTML content matching "Autor" after a while
     And I should see "Titel"
     And I should see "Inhaltstyp"
     And I should see "Aktualisiert"
