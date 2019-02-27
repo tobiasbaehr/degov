@@ -1,4 +1,4 @@
-name: 'deGov - Media file links'
+name: 'Media file links'
 description: 'Link to files contained in Media entities from the editor and menu entries.'
 type: module
 package: deGov

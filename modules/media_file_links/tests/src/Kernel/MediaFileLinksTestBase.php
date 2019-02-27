@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\degov_media_file_links\Kernel;
+namespace Drupal\Tests\media_file_links\Kernel;
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -11,14 +11,14 @@ use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
 /**
  * Class SuggestionsTest.
  *
- * @package Drupal\Tests\degov_media_file_links\Kernel
+ * @package Drupal\Tests\media_file_links\Kernel
  */
 class MediaFileLinksTestBase extends KernelTestBase {
 
   use MediaTypeCreationTrait;
 
   public static $modules = [
-    'degov_media_file_links',
+    'media_file_links',
     'field',
     'file',
     'image',

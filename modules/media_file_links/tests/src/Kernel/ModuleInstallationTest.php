@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\Tests\degov_media_file_links\Kernel;
+namespace Drupal\Tests\media_file_links\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Class ModuleInstallationTest.
  *
- * @package Drupal\Tests\degov_media_file_links\Kernel
+ * @package Drupal\Tests\media_file_links\Kernel
  */
 class ModuleInstallationTest extends KernelTestBase {
 
@@ -15,7 +15,7 @@ class ModuleInstallationTest extends KernelTestBase {
    * {@inheritdoc}
    */
   public static $modules = [
-    'degov_media_file_links',
+    'media_file_links',
   ];
 
   /**
@@ -23,7 +23,7 @@ class ModuleInstallationTest extends KernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installConfig(['degov_media_file_links']);
+    $this->installConfig(['media_file_links']);
   }
 
   /**
@@ -31,8 +31,8 @@ class ModuleInstallationTest extends KernelTestBase {
    */
   public function testSetup(): void {
     $moduleHandler = \Drupal::service('module_handler');
-    self::assertTrue($moduleHandler->moduleExists('degov_media_file_links'));
-    self::assertTrue($moduleHandler->getModule('degov_media_file_links'));
+    self::assertTrue($moduleHandler->moduleExists('media_file_links'));
+    self::assertTrue($moduleHandler->getModule('media_file_links'));
   }
 
 }

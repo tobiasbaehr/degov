@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\degov_media_file_links\Service;
+namespace Drupal\media_file_links\Service;
 
 /**
  * Class MediaFileFieldMapper.
  *
  * Maps Media bundles to their primary file fields.
  *
- * @package Drupal\degov_media_file_links\Service
+ * @package Drupal\media_file_links\Service
  */
 class MediaFileFieldMapper {
 
