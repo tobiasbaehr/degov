@@ -46,13 +46,13 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('media');
 
-    // Save a document file
+    // Save a document file.
     $pdfFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FILE_EXISTS_REPLACE);
     $this->fileIds['pdf'] = $pdfFile->id();
     $wordFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/word-document.docx'), 'public://word-document.docx', FILE_EXISTS_REPLACE);
     $this->fileIds['word'] = $wordFile->id();
 
-    // Create a supported document entity
+    // Create a supported document entity.
     $documentType = $this->createMediaType('test', ['id' => 'document']);
 
     $fieldDocumentStorage = FieldStorageConfig::create([
@@ -78,7 +78,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $newDocument->save();
     $this->supportedMediaId = $newDocument->id();
 
-    // Create an unsupported foo entity
+    // Create an unsupported foo entity.
     $fooType = $this->createMediaType('test', ['id' => 'foo']);
 
     $fieldFooStorage = FieldStorageConfig::create([

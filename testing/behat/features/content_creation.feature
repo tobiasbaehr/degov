@@ -2,12 +2,15 @@
 Feature: deGov - Content creation
 
   Background:
+    Given I am installing the following Drupal modules:
+      | degov_demo_content          |
     Given I proof that the following Drupal modules are installed:
       | degov_node_press            |
       | degov_node_event            |
       | degov_node_blog             |
       | degov_node_normal_page      |
       | degov_simplenews_references |
+      | media_file_links            |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
@@ -171,3 +174,15 @@ Feature: deGov - Content creation
       | Teaser langer Text     | long_text   |
       | Teaser schmal          | slim        |
       | Teaser Preview         | preview     |
+
+  Scenario: I verify that Media file link placeholders in text get transformed into actual links
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/degov-demo-content/page-text-paragraph"
+    And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
+    Then I open node edit form by node title "Page with text paragraph"
+    And I should see HTML content matching "node-normal-page-edit-form" after a while
+    And I enter the placeholder for a "document" media file in textarea
+    And I scroll to the "#edit-submit" element
+    And I press button with label "Save" via translated text
+    Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while

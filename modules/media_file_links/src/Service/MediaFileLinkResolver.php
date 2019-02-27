@@ -36,10 +36,10 @@ class MediaFileLinkResolver {
    */
   public function getFileUrlString(int $mediaId): string {
     $media = Media::load($mediaId);
-    if($media instanceof MediaInterface) {
+    if ($media instanceof MediaInterface) {
       $mediaBundle = $media->bundle();
       $fileFieldName = $this->fileFieldMapper->getFileFieldForBundle($mediaBundle);
-      if(!empty($fileFieldName)) {
+      if (!empty($fileFieldName)) {
         $value = $media->get($fileFieldName)->getValue();
         if (isset($value[0]['target_id'])) {
           $file = File::load($value[0]['target_id']);
