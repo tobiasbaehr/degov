@@ -1,18 +1,18 @@
 <?php
 
-namespace Drupal\Tests\degov_media_file_links\Kernel;
+namespace Drupal\Tests\media_file_links\Kernel;
 
 use Drupal\media\Entity\Media;
 
 /**
  * Class LinkResolutionTestTest.
  *
- * @package Drupal\Tests\degov_media_file_links\Kernel
+ * @package Drupal\Tests\media_file_links\Kernel
  */
 class LinkResolutionTest extends MediaFileLinksTestBase {
 
   /**
-   * @var \Drupal\degov_media_file_links\Service\MediaFileLinkResolver
+   * @var \Drupal\media_file_links\Service\MediaFileLinkResolver
    *   $fileLinkResolver
    */
   private $fileLinkResolver;
@@ -23,7 +23,7 @@ class LinkResolutionTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->fileLinkResolver = \Drupal::service('degov_media_file_links.file_link_resolver');
+    $this->fileLinkResolver = \Drupal::service('media_file_links.file_link_resolver');
   }
 
   public function testLinkResolutionWithExistingSupportedMedia(): void {

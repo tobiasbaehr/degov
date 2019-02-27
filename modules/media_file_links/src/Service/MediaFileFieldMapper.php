@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\degov_media_file_links\Service;
+namespace Drupal\media_file_links\Service;
 
 /**
  * Class MediaFileFieldMapper.
  *
  * Maps Media bundles to their primary file fields.
  *
- * @package Drupal\degov_media_file_links\Service
+ * @package Drupal\media_file_links\Service
  */
 class MediaFileFieldMapper {
 
@@ -20,12 +20,12 @@ class MediaFileFieldMapper {
    * @return string
    *   The machine name of the main file field associated with the bundle.
    */
-  public function getFileFieldForBundle(string $bundle): string {
+  public function getFileFieldForBundle(string $bundle): ?string {
     $fileFieldMappings = $this->getBundleFileFieldMappings();
     if (isset($fileFieldMappings[$bundle])) {
       return $fileFieldMappings[$bundle];
     }
-    return FALSE;
+    return NULL;
   }
 
   /**

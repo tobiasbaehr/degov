@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\Tests\degov_media_file_links\Kernel;
+namespace Drupal\Tests\media_file_links\Kernel;
 
 /**
  * Class SuggestionsTest.
  *
- * @package Drupal\Tests\degov_media_file_links\Kernel
+ * @package Drupal\Tests\media_file_links\Kernel
  */
 class SuggestionsTest extends MediaFileLinksTestBase {
 
@@ -17,7 +17,7 @@ class SuggestionsTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->fileSuggester = \Drupal::service('degov_media_file_links.file_suggester');
+    $this->fileSuggester = \Drupal::service('media_file_links.file_suggester');
   }
 
   public function testFindSupportedMediaByTitle(): void {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_media_file_links\Service;
+namespace Drupal\media_file_links\Service;
 
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
@@ -12,7 +12,7 @@ use Drupal\node\NodeInterface;
  * Accepts a (partial) search string and finds matching Media by title and
  * filename.
  *
- * @package Drupal\degov_media_file_links\Service
+ * @package Drupal\media_file_links\Service
  */
 class MediaFileSuggester {
 
@@ -21,7 +21,7 @@ class MediaFileSuggester {
   /**
    * MediaFileSuggester constructor.
    *
-   * @param \Drupal\degov_media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
+   * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
    */
   public function __construct(MediaFileFieldMapper $fileFieldMapper) {
     $this->fileFieldMapper = $fileFieldMapper;
@@ -122,10 +122,12 @@ class MediaFileSuggester {
    */
   private function getFileTypeForEntity(Media $media): string {
     $fileField = $this->fileFieldMapper->getFileFieldForBundle($media->bundle());
-    $value = $media->get($fileField)->getValue();
-    if (isset($value[0]['target_id'])) {
-      $file = File::load($value[0]['target_id']);
-      return $file->getMimeType();
+    if(!empty($fileField)) {
+      $value = $media->get($fileField)->getValue();
+      if (isset($value[0]['target_id'])) {
+        $file = File::load($value[0]['target_id']);
+        return $file->getMimeType();
+      }
     }
     return '';
   }
