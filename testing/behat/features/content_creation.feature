@@ -10,7 +10,7 @@ Feature: deGov - Content creation
       | degov_node_blog             |
       | degov_node_normal_page      |
       | degov_simplenews_references |
-      | degov_media_file_links      |
+      | media_file_links            |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
