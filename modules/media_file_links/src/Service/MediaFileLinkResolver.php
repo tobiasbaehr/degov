@@ -49,7 +49,7 @@ class MediaFileLinkResolver {
       }
     }
     \Drupal::logger('media_file_links')->warning(
-      t('Requested file for Media ID %id from %source could not be found.', ['%id' => $mediaId, '%source' => 'FNA'])
+      t('Requested file for Media ID %id could not be found.', ['%id' => $mediaId])
     );
     return '';
   }
