@@ -20,12 +20,12 @@ class MediaFileFieldMapper {
    * @return string
    *   The machine name of the main file field associated with the bundle.
    */
-  public function getFileFieldForBundle(string $bundle): string {
+  public function getFileFieldForBundle(string $bundle): ?string {
     $fileFieldMappings = $this->getBundleFileFieldMappings();
     if (isset($fileFieldMappings[$bundle])) {
       return $fileFieldMappings[$bundle];
     }
-    return FALSE;
+    return NULL;
   }
 
   /**

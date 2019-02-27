@@ -122,10 +122,12 @@ class MediaFileSuggester {
    */
   private function getFileTypeForEntity(Media $media): string {
     $fileField = $this->fileFieldMapper->getFileFieldForBundle($media->bundle());
-    $value = $media->get($fileField)->getValue();
-    if (isset($value[0]['target_id'])) {
-      $file = File::load($value[0]['target_id']);
-      return $file->getMimeType();
+    if(!empty($fileField)) {
+      $value = $media->get($fileField)->getValue();
+      if (isset($value[0]['target_id'])) {
+        $file = File::load($value[0]['target_id']);
+        return $file->getMimeType();
+      }
     }
     return '';
   }
