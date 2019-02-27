@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_media_file_links\Plugin\Filter;
+namespace Drupal\media_file_links\Plugin\Filter;
 
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
@@ -20,7 +20,7 @@ class FilterMediaFileLinks extends FilterBase {
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
-    $linkResolver = \Drupal::service('degov_media_file_links.file_link_resolver');
+    $linkResolver = \Drupal::service('media_file_links.file_link_resolver');
     while (preg_match('/\[media\:file\:(\d+)\]/', $text, $matches)) {
       if (!empty($matches[1]) && is_numeric($matches[1])) {
         $fileUrl = $linkResolver->getFileUrlString($matches[1]);

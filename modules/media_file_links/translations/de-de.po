@@ -3,7 +3,7 @@
 # German translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
-#  degov_media_file_links.info.yml: n/a
+#  media_file_links.info.yml: n/a
 #  src/Plugin/Filter/FilterMediaFileLinks.php: n/a
 #
 msgid ""
@@ -20,18 +20,22 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 2.2\n"
 
-#: degov_media_file_links.info.yml:0
+#: media_file_links.info.yml:0
 msgid "deGov - Media file links"
 msgstr ""
 
-#: degov_media_file_links.info.yml:0
+#: media_file_links.info.yml:0
 msgid "Link to files contained in Media entities from the editor and menu entries."
 msgstr "Aus dem Editor und Menüeinträgen auf in Medien-Entitäten enthaltene Dateien verlinken."
 
-#: degov_media_file_links.info.yml:0
+#: media_file_links.info.yml:0
 msgid "deGov"
 msgstr ""
 
 #: src/Plugin/Filter/FilterMediaFileLinks.php:8
 msgid "Resolve links to media files"
 msgstr "Links zu Dateien aus Medien-Entitäten auflösen"
+
+#: src/Service/MediaFileLinkResolver.php:52
+msgid "Requested file for Media ID %id could not be found."
+msgstr "Angefragte Datei für Media ID %id konnte nicht gefunden werden."

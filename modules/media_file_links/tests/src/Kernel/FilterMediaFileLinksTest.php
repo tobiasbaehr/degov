@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\Tests\degov_media_file_links\Kernel;
+namespace Drupal\Tests\media_file_links\Kernel;
 
-use Drupal\degov_media_file_links\Plugin\Filter\FilterMediaFileLinks;
+use Drupal\media_file_links\Plugin\Filter\FilterMediaFileLinks;
 use Drupal\filter\FilterProcessResult;
 
 /**
  * Class SuggestionsTest.
  *
- * @package Drupal\Tests\degov_media_file_links\Kernel
+ * @package Drupal\Tests\media_file_links\Kernel
  */
 class FilterMediaFileLinksTest extends MediaFileLinksTestBase {
 
