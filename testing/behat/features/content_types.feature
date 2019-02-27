@@ -51,8 +51,7 @@ Feature: deGov - Content types
     And I am on "/node/add/normal_page"
     And I choose "Inhalt" from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
-    And I wait 10 seconds
-    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ" after a while
     And I should see HTML content matching "FAQ / Akkordion Liste"
     And I should see HTML content matching "Banner"
     And I should see HTML content matching "Inhaltsreferenz"
@@ -67,11 +66,10 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/content"
     And I see the button "Filter"
-    And I press button with label "Show all columns" via translated text
-    And I should see "Titel"
-    And I should see "Inhaltstyp"
-    And I should see "Autor"
-    And I should see "Aktualisiert"
-    And I should see "Interner Titel"
-    And I should see "Aktionen"
+    And I should see HTML content matching "Autor"
+    And I should see HTML content matching "Titel"
+    And I should see HTML content matching "Inhaltstyp"
+    And I should see HTML content matching "Aktualisiert"
+    And I should see HTML content matching "Interner Titel"
+    And I should see HTML content matching "Aktionen"
     And I should not see the text "Undefined index"

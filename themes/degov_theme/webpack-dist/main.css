@@ -5839,6 +5839,38 @@ body {
   font-family: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
   color: #2C2C2C; }
 
+article.node.full h1 {
+  font-weight: 600;
+  line-height: 1.14;
+  margin-bottom: .1rem; }
+
+article.node.full .date {
+  font-size: 1.2rem; }
+  article.node.full .date:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: #CECECE;
+    margin-top: 20px; }
+
+article.node.full .user-info .user-avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  min-height: 50px;
+  min-width: 50px;
+  background-color: #CECECE;
+  line-height: 50px; }
+  article.node.full .user-info .user-avatar i {
+    color: #818D96;
+    margin-left: 18px; }
+  article.node.full .user-info .user-avatar img {
+    width: auto;
+    height: 50px; }
+
+article.node.full .user-info .title {
+  font-size: .8rem; }
+
 footer.site-footer {
   background-color: #154575;
   color: #fff; }
