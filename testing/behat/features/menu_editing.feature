@@ -21,4 +21,5 @@ Feature: deGov - Menu editing
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
     And I am on the homepage
+    And I dump the HTML
     Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
