@@ -24,5 +24,6 @@ Feature: deGov - Menu editing
     And I enter the menu placeholder for a "document" media file in "#edit-link-0-uri"
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
+    And I dump the HTML
     And I am on the homepage
     Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
