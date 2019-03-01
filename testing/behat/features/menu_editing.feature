@@ -5,6 +5,7 @@ Feature: deGov - Menu editing
     Given I proof that the following Drupal modules are installed:
       | link_attributes             |
       | media_file_links            |
+      | menu_block                  |
 
   Scenario: Checking CSS class specification in menu items
     Given I have dismissed the cookie banner if necessary

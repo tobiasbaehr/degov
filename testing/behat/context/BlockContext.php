@@ -43,6 +43,10 @@ class BlockContext extends RawDrupalContext {
    * @Then /^I configure and place the main menu block$/
    */
   public function configureAndPlaceMainMenu() {
+    if(!\Drupal::moduleHandler()->moduleExists('menu_block')) {
+      \Drupal::service('module_installer')->install(['menu_block']);
+    }
+
     /** @var ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
