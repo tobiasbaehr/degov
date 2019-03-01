@@ -4,23 +4,24 @@
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
 #  media_file_links.info.yml: n/a
-#  src/Service/MediaFileLinkResolver.php: n/a
+#  src/Plugin/Filter/FilterMediaFileLinks.php: n/a
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-02-27 11:10+0100\n"
-"PO-Revision-Date: 2019-02-27 11:10+0100\n"
+"POT-Creation-Date: 2019-02-25 11:45+0100\n"
+"PO-Revision-Date: 2019-02-25 11:46+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2\n"
 
 #: media_file_links.info.yml:0
-msgid "Media file links"
+msgid "deGov - Media file links"
 msgstr ""
 
 #: media_file_links.info.yml:0
@@ -31,6 +32,10 @@ msgstr "Aus dem Editor und Menüeinträgen auf in Medien-Entitäten enthaltene D
 msgid "deGov"
 msgstr ""
 
+#: src/Plugin/Filter/FilterMediaFileLinks.php:8
+msgid "Resolve links to media files"
+msgstr "Links zu Dateien aus Medien-Entitäten auflösen"
+
 #: src/Service/MediaFileLinkResolver.php:52
 msgid "Requested file for Media ID %id could not be found."
-msgstr "Angefragte Datei for Media ID %id konnte nicht gefunden werden."
+msgstr "Angefragte Datei für Media ID %id konnte nicht gefunden werden."
