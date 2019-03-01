@@ -2,7 +2,9 @@
 Feature: deGov - Menu editing
 
   Background:
-    Given I proof that Drupal module "link_attributes" is installed
+    Given I proof that the following Drupal modules are installed:
+      | link_attributes             |
+      | media_file_links            |
 
   Scenario: Checking CSS class specification in menu items
     Given I have dismissed the cookie banner if necessary
@@ -11,7 +13,8 @@ Feature: deGov - Menu editing
     Then I should see HTML content matching "link[0][options][attributes][class]"
 
   Scenario: I check that menu items can contain Media file links and that they are resolved
-    Given I have dismissed the cookie banner if necessary
+    Given I configure and place the main menu block
+    And I have dismissed the cookie banner if necessary
     And I am on the homepage
     Then I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
     Then I am logged in as a user with the "administrator" role
@@ -21,5 +24,4 @@ Feature: deGov - Menu editing
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
     And I am on the homepage
-    And I dump the HTML
     Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
