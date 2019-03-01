@@ -46,28 +46,30 @@ class BlockContext extends RawDrupalContext {
     /** @var ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
-    if(empty($block) || $block->isNew()) {
-      $block = Block::create([
-        'id' => 'main_menu',
-        'uniqueId' => '2345',
-        'theme' => 'degov_theme',
-        'weight' => 0,
-        'status' => TRUE,
-        'region' => 'navigation',
-        'plugin' => 'menu_block:main',
-        'settings' => [
-          'id'            => 'menu_block:main',
-          'label'         => 'Main menu',
-          'provider'      => 'menu_block',
-          'label_display' => FALSE,
-          'parent'        => 'main:',
-          'suggestion'    => 'main',
-          'unique_id' => 'test2345',
-        ],
-        'visibility' => [],
-      ]);
-      $block->save();
+    if(!empty($block) && $block instanceof Block) {
+      $block->delete();
     }
+
+    $block = Block::create([
+      'id' => 'main_menu',
+      'uniqueId' => '2345',
+      'theme' => 'degov_theme',
+      'weight' => 0,
+      'status' => TRUE,
+      'region' => 'navigation',
+      'plugin' => 'menu_block:main',
+      'settings' => [
+        'id'            => 'menu_block:main',
+        'label'         => 'Main menu',
+        'provider'      => 'menu_block',
+        'label_display' => FALSE,
+        'parent'        => 'main:',
+        'suggestion'    => 'main',
+        'unique_id' => 'test2345',
+      ],
+      'visibility' => [],
+    ]);
+    $block->save();
   }
 
   /**
