@@ -2,6 +2,7 @@
 
 namespace Drupal\media_file_links\Plugin\Field\FieldWidget;
 
+use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\link_attributes\Plugin\Field\FieldWidget\LinkWithAttributesWidget;
 

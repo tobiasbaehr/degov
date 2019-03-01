@@ -12,7 +12,7 @@ use Drupal\link\Plugin\Field\FieldType\LinkItem;
  *   id = "media_file_link",
  *   label = @Translation("Link"),
  *   description = @Translation("Stores a URL string, optional varchar link text, and optional blob of attributes to assemble a link."),
- *   default_widget = "link_default",
+ *   default_widget = "link_mediafilelinks",
  *   default_formatter = "link",
  *   constraints = {"LinkType" = {}, "LinkAccess" = {}, "LinkExternalProtocols" = {}, "LinkNotExistingInternal" = {}}
  * )

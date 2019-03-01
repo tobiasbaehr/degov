@@ -34,7 +34,7 @@ function media_file_links_entity_base_field_info_alter(&$fields, EntityTypeInter
         'title'     => DRUPAL_DISABLED,
       ])
       ->setDisplayOptions('form', [
-        'type'   => 'link_default',
+        'type'   => 'link_mediafilelinks',
         'weight' => -2,
       ])
       ->setProvider('menu_link_content')
