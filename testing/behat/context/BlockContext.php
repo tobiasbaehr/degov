@@ -46,7 +46,7 @@ class BlockContext extends RawDrupalContext {
     /** @var ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
-    if($block->isNew()) {
+    if(empty($block) || $block->isNew()) {
       $block = Block::create([
         'id' => 'main_menu',
         'uniqueId' => '2345',
