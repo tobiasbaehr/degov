@@ -43,11 +43,7 @@ class BlockContext extends RawDrupalContext {
    * @Then /^I configure and place the main menu block$/
    */
   public function configureAndPlaceMainMenu() {
-    if(!\Drupal::moduleHandler()->moduleExists('menu_block')) {
-      \Drupal::service('module_installer')->install(['menu_block']);
-    }
-
-    /** @var ConfigFactory $configFactory $configFactory */
+   /** @var ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
     if(!empty($block) && $block instanceof Block) {
@@ -61,15 +57,14 @@ class BlockContext extends RawDrupalContext {
       'weight' => 0,
       'status' => TRUE,
       'region' => 'navigation',
-      'plugin' => 'menu_block:main',
+      'plugin' => 'system_menu_block:main',
       'settings' => [
-        'id'            => 'menu_block:main',
+        'id'            => 'system_menu_block:main',
         'label'         => 'Main menu',
-        'provider'      => 'menu_block',
+        'provider'      => 'system',
         'label_display' => FALSE,
-        'parent'        => 'main:',
-        'suggestion'    => 'main',
-        'unique_id' => 'test2345',
+        'level'         => 1,
+        'depth'         => 0,
       ],
       'visibility' => [],
     ]);
