@@ -68,10 +68,10 @@ Feature: deGov - Content types
     And I am on "/admin/content"
     And I see the button "Filter"
     And I press button with label "Show all columns" via translated text
-    And I should see "Titel"
-    And I should see "Inhaltstyp"
-    And I should see "Autor"
-    And I should see "Aktualisiert"
+    And I should see text matching "Title" via translated text in uppercase
+    And I should see text matching "Content type" via translated text in uppercase
+    And I should see text matching "Author" via translated text in uppercase
+    And I should see text matching "Updated" via translated text in uppercase
+    And I should see text matching "Operations" via translated text in uppercase
     And I should see "Interner Titel"
-    And I should see "Aktionen"
     And I should not see the text "Undefined index"
