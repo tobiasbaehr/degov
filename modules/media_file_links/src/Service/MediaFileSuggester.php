@@ -31,14 +31,18 @@ class MediaFileSuggester {
    * Runs searches on Media titles and filenames, returns the merged results.
    *
    * @param string $search
+   * @param bool $returnJson
    *
    * @return array
    */
-  public function findBySearchString(string $search): string {
-    if (\strlen($search) < 3) {
-      return [];
+  public function findBySearchString(string $search, bool $returnJson = TRUE) {
+    $results = array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
+
+    if($returnJson) {
+      return $this->resultsToJson($results);
     }
-    return json_encode(array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search)));
+
+    return $results;
   }
 
   /**
@@ -54,7 +58,10 @@ class MediaFileSuggester {
       ->condition('bundle', $this->fileFieldMapper->getEnabledBundles(), 'IN')
       ->condition('name', $search, 'CONTAINS');
     $mediaIds = $mediaQuery->execute();
-    return $this->prepareResultsFromIds($mediaIds);
+    if (\count($mediaIds) > 0) {
+      return Media::loadMultiple($mediaIds);
+    }
+    return [];
   }
 
   /**
@@ -84,21 +91,23 @@ class MediaFileSuggester {
       ->condition('bundle', $this->fileFieldMapper->getEnabledBundles(), 'IN')
       ->condition($fieldValueCombinationsGroup);
     $mediaIds = $mediaQuery->execute();
-    return $this->prepareResultsFromIds($mediaIds);
+    if (\count($mediaIds) > 0) {
+      return Media::loadMultiple($mediaIds);
+    }
+    return [];
   }
 
   /**
-   * Turns an array of entity ids into an array of search results.
+   * Turns an array of search results into a json string.
    *
-   * @param array $ids
+   * @param array $results
    *
-   * @return array
+   * @return string
    */
-  private function prepareResultsFromIds(array $ids): array {
+  private function resultsToJson(array $results): string {
     $preparedResults = [];
-    if (\count($ids) > 0) {
-      $entities = Media::loadMultiple($ids);
-      foreach ($entities as $entity) {
+    if (\count($results) > 0) {
+      foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
         $preparedResults[] = [
           'id'       => $entity->id(),
@@ -108,7 +117,7 @@ class MediaFileSuggester {
         ];
       }
     }
-    return $preparedResults;
+    return json_encode($preparedResults);
   }
 
   /**
