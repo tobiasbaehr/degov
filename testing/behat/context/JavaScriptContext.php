@@ -121,4 +121,11 @@ class JavaScriptContext extends RawMinkContext {
     }
     throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
   }
+
+  /**
+   * @Then I trigger the :event event on :selector
+   */
+  public function iTriggerEventOnElement($event, $selector) {
+    $this->getSession()->evaluateScript('jQuery("' . $selector . '").trigger("' . $event . '")');
+  }
 }
