@@ -217,7 +217,8 @@ function degov_common_update_861000() {
     $media_browser_ckeditor_config->set('label', 'CKEditor Media Browser');
     $media_browser_ckeditor_config->set('display', 'iframe');
     $media_browser_ckeditor_config->set('display_configuration.auto_open', true);
-    $media_browser_ckeditor_config->set('display_configuration.height', '1200')->save();
+    $media_browser_ckeditor_config->set('display_configuration.width', '100%')->save();
+    $media_browser_ckeditor_config->set('display_configuration.height', '640')->save();
     $media_browser_ckeditor_config->save(TRUE);
   }
 }

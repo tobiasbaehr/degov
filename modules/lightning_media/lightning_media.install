@@ -314,7 +314,8 @@ function lightning_media_update_8018() {
 function lightning_media_update_861000() {
   $configuration = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
   $configuration->set('display', 'modal')->save();
-  $configuration->set('display_configuration.height', '1200')->save();
+  $configuration->set('display_configuration.width', '1200')->save();
+  $configuration->set('display_configuration.height', '640')->save();
   $configuration->set('display_configuration.auto_open', false)->save();
 }
 
