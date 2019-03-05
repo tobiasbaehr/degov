@@ -248,7 +248,7 @@ function degov_update_860100() {
   }
 
   if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
-    \Drupal::service('module_installer')->install('degov_auto_crop');
+    \Drupal::service('module_installer')->install(['degov_auto_crop']);
   }
 }
 

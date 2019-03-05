@@ -86,6 +86,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    label: hidden
   field_teaser_sub_title:
     type: string
     weight: 5
@@ -94,6 +95,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    label: hidden
 hidden:
   field_blog_author: true
   field_metatags: true
