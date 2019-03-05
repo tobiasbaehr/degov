@@ -204,7 +204,7 @@ function degov_common_update_8032() {
 /**
  * Replace the CKEditor entity browser settings with the default media browser.
  */
-function degov_common_update_8033() {
+function degov_common_update_861000() {
   $media_browser_config = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
   $media_browser_ckeditor_config = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   if (!empty($media_browser_config) && (!$media_browser_ckeditor_config->isNew())) {
