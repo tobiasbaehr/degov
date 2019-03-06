@@ -18,7 +18,6 @@ use Drupal\filter\Plugin\FilterBase;
  *   settings = {
  *     "disallowed_html" = "<script>",
  *     "filter_html_disallow_help" = TRUE,
- *     "filter_html_disallow_nofollow" = FALSE
  *   },
  *   weight = -10
  * )
@@ -30,7 +29,7 @@ class FilterHtmlDisallow extends FilterBase {
    *
    * @var array
    */
-  protected $restrictions;
+  protected $removals;
 
   /**
    * {@inheritdoc}
@@ -41,21 +40,11 @@ class FilterHtmlDisallow extends FilterBase {
       '#title' => $this->t('Disallowed HTML tags'),
       '#default_value' => $this->settings['disallowed_html'],
       '#description' => $this->t('A list of HTML tags that will be removed.'),
-//      '#attached' => [
-//        'library' => [
-//          'filter/drupal.filter.filter_html.admin',
-//        ],
-//      ],
     ];
     $form['filter_html_disallow_help'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Display basic HTML help in long filter tips'),
       '#default_value' => $this->settings['filter_html_disallow_help'],
-    ];
-    $form['filter_html_disallow_nofollow'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Add rel="nofollow" to all links'),
-      '#default_value' => $this->settings['filter_html_disallow_nofollow'],
     ];
     return $form;
   }
@@ -72,181 +61,48 @@ class FilterHtmlDisallow extends FilterBase {
     }
     parent::setConfiguration($configuration);
     // Force restrictions to be calculated again.
-    $this->restrictions = NULL;
+    $this->removals = NULL;
   }
 
   /**
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
-    $restrictions = $this->getHtmlRestrictions();
-    // Split the work into two parts. For filtering HTML tags out of the content
-    // we rely on the well-tested Xss::filter() code. Since there is no '*' tag
-    // that needs to be removed from the list.
-    unset($restrictions['allowed']['*']);
-    $text = Xss::filter($text, array_keys($restrictions['allowed']));
-    // After we've done tag filtering, we do attribute and attribute value
-    // filtering as the second part.
-    // $this->filterAttributes($text)
+    $removals = $this->getHTMLRemovals();
+    foreach($removals['disallowed'] as $removal) {
+      $text = $this->stripHtmlTag($text, $removal);
+    }
     return new FilterProcessResult($text);
   }
 
   /**
-   * Provides filtering of tag attributes into accepted HTML.
-   *
-   * @param string $text
-   *   The HTML text string to be filtered.
+   * @param string $htmlContent
+   * @param string $tag
    *
    * @return string
-   *   Filtered HTML with attributes filtered according to the settings.
    */
-//  public function filterAttributes($text) {
-//    $restrictions = $this->getHTMLRestrictions();
-//    $global_allowed_attributes = array_filter($restrictions['allowed']['*']);
-//    unset($restrictions['allowed']['*']);
-//
-//    // Apply attribute restrictions to tags.
-//    $html_dom = Html::load($text);
-//    $xpath = new \DOMXPath($html_dom);
-//    foreach ($restrictions['allowed'] as $allowed_tag => $tag_attributes) {
-//      // By default, no attributes are allowed for a tag, but due to the
-//      // globally whitelisted attributes, it is impossible for a tag to actually
-//      // completely disallow attributes.
-//      if ($tag_attributes === FALSE) {
-//        $tag_attributes = [];
-//      }
-//      $allowed_attributes = ['exact' => [], 'prefix' => []];
-//      foreach (($global_allowed_attributes + $tag_attributes) as $name => $values) {
-//        // A trailing * indicates wildcard, but it must have some prefix.
-//        if (substr($name, -1) === '*' && $name[0] !== '*') {
-//          $allowed_attributes['prefix'][str_replace('*', '', $name)] = $this->prepareAttributeValues($values);
-//        }
-//        else {
-//          $allowed_attributes['exact'][$name] = $this->prepareAttributeValues($values);
-//        }
-//      }
-//      krsort($allowed_attributes['prefix']);
-//
-//      // Find all matching elements that have any attributes and filter the
-//      // attributes by name and value.
-//      foreach ($xpath->query('//' . $allowed_tag . '[@*]') as $element) {
-//        $this->filterElementAttributes($element, $allowed_attributes);
-//      }
-//    }
-//
-//    if ($this->settings['filter_html_nofollow']) {
-//      $links = $html_dom->getElementsByTagName('a');
-//      foreach ($links as $link) {
-//        $link->setAttribute('rel', 'nofollow');
-//      }
-//    }
-//    $text = Html::serialize($html_dom);
-//
-//    return trim($text);
-//  }
-
-  /**
-   * Filter attributes on an element by name and value according to a whitelist.
-   *
-   * @param \DOMElement $element
-   *   The element to be processed.
-   * @param array $allowed_attributes
-   *   The attributes whitelist as an array of names and values.
-   */
-//  protected function filterElementAttributes(\DOMElement $element, array $allowed_attributes) {
-//    $modified_attributes = [];
-//    foreach ($element->attributes as $name => $attribute) {
-//      // Remove attributes not in the whitelist.
-//      $allowed_value = $this->findAllowedValue($allowed_attributes, $name);
-//      if (empty($allowed_value)) {
-//        $modified_attributes[$name] = FALSE;
-//      }
-//      elseif ($allowed_value !== TRUE) {
-//        // Check the attribute values whitelist.
-//        $attribute_values = preg_split('/\s+/', $attribute->value, -1, PREG_SPLIT_NO_EMPTY);
-//        $modified_attributes[$name] = [];
-//        foreach ($attribute_values as $value) {
-//          if ($this->findAllowedValue($allowed_value, $value)) {
-//            $modified_attributes[$name][] = $value;
-//          }
-//        }
-//      }
-//    }
-//    // If the $allowed_value was TRUE for an attribute name, it does not
-//    // appear in this array so the value on the DOM element is left unchanged.
-//    foreach ($modified_attributes as $name => $values) {
-//      if ($values) {
-//        $element->setAttribute($name, implode(' ', $values));
-//      }
-//      else {
-//        $element->removeAttribute($name);
-//      }
-//    }
-//  }
-
-  /**
-   * Helper function to handle prefix matching.
-   *
-   * @param array $allowed
-   *   Array of allowed names and prefixes.
-   * @param string $name
-   *   The name to find or match against a prefix.
-   *
-   * @return bool|array
-   */
-//  protected function findAllowedValue(array $allowed, $name) {
-//    if (isset($allowed['exact'][$name])) {
-//      return $allowed['exact'][$name];
-//    }
-//    // Handle prefix (wildcard) matches.
-//    foreach ($allowed['prefix'] as $prefix => $value) {
-//      if (strpos($name, $prefix) === 0) {
-//        return $value;
-//      }
-//    }
-//    return FALSE;
-//  }
-
-  /**
-   * Helper function to prepare attribute values including wildcards.
-   *
-   * Splits the values into two lists, one for values that must match exactly
-   * and the other for values that are wildcard prefixes.
-   *
-   * @param bool|array $attribute_values
-   *   TRUE, FALSE, or an array of allowed values.
-   *
-   * @return bool|array
-   */
-//  protected function prepareAttributeValues($attribute_values) {
-//    if ($attribute_values === TRUE || $attribute_values === FALSE) {
-//      return $attribute_values;
-//    }
-//    $result = ['exact' => [], 'prefix' => []];
-//    foreach ($attribute_values as $name => $allowed) {
-//      // A trailing * indicates wildcard, but it must have some prefix.
-//      if (substr($name, -1) === '*' && $name[0] !== '*') {
-//        $result['prefix'][str_replace('*', '', $name)] = $allowed;
-//      }
-//      else {
-//        $result['exact'][$name] = $allowed;
-//      }
-//    }
-//    krsort($result['prefix']);
-//    return $result;
-//  }
+  public function stripHtmlTag(string $htmlContent, string $tag): string {
+    $dom = new \DOMDocument();
+    $dom->loadHTML($htmlContent);
+    $xPath = new \DOMXPath($dom);
+    $nodes = $xPath->query('//' . $tag);
+    foreach($nodes as $index => $node) {
+      $node->parentNode->removeChild($nodes->item($index));
+    }
+    return $dom->saveHTML();
+  }
 
   /**
    * {@inheritdoc}
    */
-  public function getHTMLRestrictions() {
-    if ($this->restrictions) {
-      return $this->restrictions;
+  public function getHTMLRemovals() {
+    if ($this->removals) {
+      return $this->removals;
     }
 
     // Parse the allowed HTML setting, and gradually make the whitelist more
     // specific.
-    $restrictions = ['disallowed' => []];
+    $removals = ['disallowed' => []];
 
     // Make all the tags self-closing, so they will be parsed into direct
     // children of the body tag in the DomDocument.
@@ -263,70 +119,14 @@ class FilterHtmlDisallow extends FilterBase {
         continue;
       }
       $tag = $node->tagName;
-      if ($node->hasAttributes()) {
-        // Mark the tag as allowed, assigning TRUE for each attribute name if
-        // all values are allowed, or an array of specific allowed values.
-        $restrictions['allowed'][$tag] = [];
-        // Iterate over any attributes, and mark them as allowed.
-        foreach ($node->attributes as $name => $attribute) {
-          // Put back any trailing * on wildcard attribute name.
-          $name = str_replace($star_protector, '*', $name);
-
-          // Put back any trailing * on wildcard attribute value and parse out
-          // the allowed attribute values.
-          $allowed_attribute_values = preg_split('/\s+/', str_replace($star_protector, '*', $attribute->value), -1, PREG_SPLIT_NO_EMPTY);
-
-          // Sanitize the attribute value: it lists the allowed attribute values
-          // but one allowed attribute value that some may be tempted to use
-          // is specifically nonsensical: the asterisk. A prefix is required for
-          // allowed attribute values with a wildcard. A wildcard by itself
-          // would mean whitelisting all possible attribute values. But in that
-          // case, one would not specify an attribute value at all.
-          $allowed_attribute_values = array_filter($allowed_attribute_values, function ($value) use ($star_protector) {
-            return $value !== '*';
-          });
-
-          if (empty($allowed_attribute_values)) {
-            // If the value is the empty string all values are allowed.
-            $restrictions['disallowed'][$tag][$name] = TRUE;
-          }
-          else {
-            // A non-empty attribute value is assigned, mark each of the
-            // specified attribute values as allowed.
-            foreach ($allowed_attribute_values as $value) {
-              $restrictions['disallowed'][$tag][$name][$value] = TRUE;
-            }
-          }
-        }
-      }
-      else {
-        // Mark the tag as allowed, but with no attributes allowed.
-        $restrictions['disallowed'][$tag] = FALSE;
-      }
+      // Mark the tag as allowed, but with no attributes allowed.
+      $removals['disallowed'][] = $tag;
     }
 
-    // The 'style' and 'on*' ('onClick' etc.) attributes are always forbidden,
-    // and are removed by Xss::filter().
-    // The 'lang', and 'dir' attributes apply to all elements and are always
-    // allowed. The value whitelist for the 'dir' attribute is enforced by
-    // self::filterAttributes().  Note that those two attributes are in the
-    // short list of globally usable attributes in HTML5. They are always
-    // allowed since the correct values of lang and dir may only be known to
-    // the content author. Of the other global attributes, they are not usually
-    // added by hand to content, and especially the class attribute can have
-    // undesired visual effects by allowing content authors to apply any
-    // available style, so specific values should be explicitly whitelisted.
-    // @see http://www.w3.org/TR/html5/dom.html#global-attributes
-    $restrictions['allowed']['*'] = [
-      'style' => FALSE,
-      'on*' => FALSE,
-      'lang' => TRUE,
-      'dir' => ['ltr' => TRUE, 'rtl' => TRUE],
-    ];
     // Save this calculated result for re-use.
-    $this->restrictions = $restrictions;
+    $this->removals = $removals;
 
-    return $restrictions;
+    return $removals;
   }
 
   /**
@@ -338,13 +138,13 @@ class FilterHtmlDisallow extends FilterBase {
     if (!($allowed_html = $this->settings['disallowed_html'])) {
       return;
     }
-    $output = $this->t('Allowed HTML tags: @tags', ['@tags' => $allowed_html]);
+    $output = $this->t('Disallowed HTML tags: @tags', ['@tags' => $allowed_html]);
     if (!$long) {
       return $output;
     }
 
     $output = '<p>' . $output . '</p>';
-    if (!$this->settings['filter_html_help']) {
+    if (!$this->settings['filter_html_disallow_help']) {
       return $output;
     }
 
