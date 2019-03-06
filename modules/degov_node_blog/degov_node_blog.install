@@ -1,7 +1,9 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\Core\Config\Config;
 
 /**
  * Implements hook_uninstall().
@@ -49,6 +51,41 @@ function degov_node_blog_update_850100() {
   $deGovModuleUpdater->applyUpdates('degov_node_blog', '8011');
   $deGovModuleUpdater->applyUpdates('degov_node_blog', '8012');
 }
+
+/**
+ * deGov Update 6.1.0 - Add missing label keys, for preventing warnings on blog node display.
+ */
+function degov_node_blog_update_860100() {
+  /**
+   * @var ConfigFactory $configFactory
+   */
+  $configFactory = \Drupal::service('config.factory');
+  /**
+   * @var Config $config
+   */
+  $config = $configFactory->getEditable('core.entity_view_display.node.blog.default');
+
+  $changes = FALSE;
+
+  $fieldInternalTitleConfig = $config->get('content.field_internal_title');
+  if (!empty($fieldInternalTitleConfig) && !array_key_exists('label', $fieldInternalTitleConfig)) {
+    $fieldInternalTitleConfig['label'] = 'hidden';
+    $config->set('content.field_internal_title', $fieldInternalTitleConfig);
+    $changes = TRUE;
+  }
+
+  $fieldTeaserSubTitleConfig = $config->get('content.field_teaser_sub_title');
+  if (!empty($fieldTeaserSubTitleConfig) && !array_key_exists('label', $fieldTeaserSubTitleConfig)) {
+    $fieldTeaserSubTitleConfig['label'] = 'hidden';
+    $config->set('content.field_teaser_sub_title', $fieldTeaserSubTitleConfig);
+    $changes = TRUE;
+  }
+
+  if ($changes) {
+    $config->save();
+  }
+}
+
 
 /**
  * Set paragraph form mode to experimental

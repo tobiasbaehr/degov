@@ -135,6 +135,7 @@ blog_post:
   - text_2
   status: 1
   field_social_media: 1
+  field_blog_author: '{{MEDIA_ID_PERSON}}'
   moderation_state: 'published'
 event:
   type: 'event'

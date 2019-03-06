@@ -51,6 +51,7 @@ function degov_module_setup(&$install_state) {
   $modules = [
     'degov_common'                      => 'degov_common',
     'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+    'degov_config_integrity'            => 'degov_config_integrity',
     'degov_image_and_crop_styles'       => 'degov_image_and_crop_styles',
     'degov_date_formats'                => 'degov_date_formats',
     'degov_pathauto'                    => 'degov_pathauto',
@@ -68,6 +69,9 @@ function degov_module_setup(&$install_state) {
     'degov_email_login'                 => 'degov_email_login',
     'degov_fa_icon_picker'              => 'degov_fa_icon_picker',
     'degov_copyright_block'             => 'degov_copyright_block',
+    'degov_node_external_teaser'        => 'degov_node_external_teaser',
+    'degov_auto_crop'                   => 'degov_auto_crop',
+    'degov_file_management'             => 'degov_file_management',
   ];
 
   // Add a batch operation to install each module.
