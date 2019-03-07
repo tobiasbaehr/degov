@@ -71,6 +71,7 @@ function degov_module_setup(&$install_state) {
     'degov_auto_crop'                   => 'degov_auto_crop',
     'degov_file_management'             => 'degov_file_management',
     'degov_search_content'              => 'degov_search_content',
+    'filter_disallow'                   => 'filter_disallow',
   ];
 
   // Add a batch operation to install each module.
