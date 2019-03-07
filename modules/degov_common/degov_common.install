@@ -205,21 +205,20 @@ function degov_common_update_8032() {
  * Replace the CKEditor entity browser settings with the default media browser.
  */
 function degov_common_update_861000() {
-  $media_browser_config = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
-  $media_browser_ckeditor_config = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
-  if (!empty($media_browser_config) && (!$media_browser_ckeditor_config->isNew())) {
+  $mediaBrowserConfig = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
+  $mediaBrowserCkeditorConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$mediaBrowserCkeditorConfig->isNew()) {
     // Override individual settings for the CKEditor entity browser.
-    unset($media_browser_config['uuid']);
-    unset($media_browser_config['_core']);
-    unset($media_browser_config['langcode']);
-    $media_browser_ckeditor_config->setData($media_browser_config);
-    $media_browser_ckeditor_config->set('name', 'ckeditor_media_browser');
-    $media_browser_ckeditor_config->set('label', 'CKEditor Media Browser');
-    $media_browser_ckeditor_config->set('display', 'iframe');
-    $media_browser_ckeditor_config->set('display_configuration.auto_open', true);
-    $media_browser_ckeditor_config->set('display_configuration.width', '100%')->save();
-    $media_browser_ckeditor_config->set('display_configuration.height', '640')->save();
-    $media_browser_ckeditor_config->save(TRUE);
+    unset($mediaBrowserConfig['_core']);
+    unset($mediaBrowserConfig['langcode']);
+    $mediaBrowserCkeditorConfig->setData($mediaBrowserConfig);
+    $mediaBrowserCkeditorConfig->set('name', 'ckeditor_media_browser');
+    $mediaBrowserCkeditorConfig->set('label', 'CKEditor Media Browser');
+    $mediaBrowserCkeditorConfig->set('display', 'iframe');
+    $mediaBrowserCkeditorConfig->set('display_configuration.auto_open', true);
+    $mediaBrowserCkeditorConfig->set('display_configuration.width', '100%')->save();
+    $mediaBrowserCkeditorConfig->set('display_configuration.height', '640')->save();
+    $mediaBrowserCkeditorConfig->save(TRUE);
   }
 }
 
