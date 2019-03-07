@@ -88,6 +88,9 @@ class FilterHtmlDisallow extends FilterBase {
     $dom->loadHTML($htmlContent);
     $xPath = new \DOMXPath($dom);
     $nodes = $xPath->query('//' . $tag);
+    if(\count($nodes) > 0) {
+      \Drupal::messenger()->addWarning(t('The text you entered contains <code>:element</code> tags. These are not permitted here and will be stripped from the output.', [':element' => $tag]));
+    }
     foreach ($nodes as $index => $node) {
       $node->parentNode->removeChild($nodes->item($index));
     }
