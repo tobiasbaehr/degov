@@ -83,6 +83,8 @@ class FilterHtmlDisallow extends FilterBase {
    */
   public function stripHtmlTag(string $htmlContent, string $tag): string {
     $dom = new \DOMDocument();
+    // Prevent warnings on HTML5 elements.
+    libxml_use_internal_errors(true);
     $dom->loadHTML($htmlContent);
     $xPath = new \DOMXPath($dom);
     $nodes = $xPath->query('//' . $tag);
