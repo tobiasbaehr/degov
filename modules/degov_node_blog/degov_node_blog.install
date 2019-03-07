@@ -68,14 +68,14 @@ function degov_node_blog_update_860100() {
   $changes = FALSE;
 
   $fieldInternalTitleConfig = $config->get('content.field_internal_title');
-  if (!array_key_exists('label', $fieldInternalTitleConfig)) {
+  if (!empty($fieldInternalTitleConfig) && !array_key_exists('label', $fieldInternalTitleConfig)) {
     $fieldInternalTitleConfig['label'] = 'hidden';
     $config->set('content.field_internal_title', $fieldInternalTitleConfig);
     $changes = TRUE;
   }
 
   $fieldTeaserSubTitleConfig = $config->get('content.field_teaser_sub_title');
-  if (!array_key_exists('label', $fieldTeaserSubTitleConfig)) {
+  if (!empty($fieldTeaserSubTitleConfig) && !array_key_exists('label', $fieldTeaserSubTitleConfig)) {
     $fieldTeaserSubTitleConfig['label'] = 'hidden';
     $config->set('content.field_teaser_sub_title', $fieldTeaserSubTitleConfig);
     $changes = TRUE;
