@@ -12,17 +12,16 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    'content-header',
-  ]
-%}
+{% set classes = [
+  node.bundle|clean_class,
+  node.isPromoted() ? 'is-promoted',
+  node.isSticky() ? 'is-sticky',
+  not node.isPublished() ? 'is-unpublished',
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'content-header',
+  'node',
+] %}
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
@@ -32,24 +31,36 @@
     </div>
   {% endif %}
 
-  <div class="content-header__text">
-    <div class="content-header__media-info"></div>
-    {# date #}
-    <div class="blog__header-date"{{ content.field_blog_date|quickedit_attr }}>{{ content.field_blog_date|field_value }}</div>
-
-    <div class="blog__header header">
-      <h2>{{ label }}</h2>
-      {% if content.field_teaser_sub_title %}
-        <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
-          {{ content.field_teaser_sub_title|field_value }}
-        </h3>
-      {% endif %}
-      {% if content.field_teaser_text %}
-        <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-          {{ content.field_teaser_text|field_value }}
-        </div>
-      {% endif %}
+  <div class="content-header__text mb-5">
+    <h1 class="container mt-md-4 mt-lg-5 h2">{{ label }}</h1>
+    <div class="container date"{{ content.field_blog_date|quickedit_attr }}>{{ content.field_blog_date|field_value }}</div>
+    <div class="user-info container clearfix mt-4">
+      <div class="user-avatar float-left mr-3">
+        {% if author_picture %}
+          {{ author_picture }}
+        {% else %}
+          <i class="fas fa-user"></i>
+        {% endif %}
+      </div>
+      <div class="name font-weight-bold mb-1">{{ author_name|striptags|trim }}</div>
+      <div class="title"></div>
     </div>
+
+    {% if teaser %}
+      <div class="blog__header header">
+        <h2>{{ label }}</h2>
+        {% if content.field_teaser_sub_title %}
+          <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
+            {{ content.field_teaser_sub_title|field_value }}
+          </h3>
+        {% endif %}
+        {% if content.field_teaser_text %}
+          <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+            {{ content.field_teaser_text|field_value }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
 
     {# Tags #}
     {% if content.field_tags|field_value %}
