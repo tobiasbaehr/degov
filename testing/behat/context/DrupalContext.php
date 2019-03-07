@@ -551,6 +551,8 @@ class DrupalContext extends RawDrupalContext {
     $content = $this->getSession()->getPage()->getText();
     if (substr_count($content, $translatedText) === 0) {
       return true;
+    } else {
+      throw new \Exception("Text '$translatedText' found on page.");
     }
   }
 
@@ -864,6 +866,22 @@ class DrupalContext extends RawDrupalContext {
       ],
     ]);
     $node->save();
+  }
+
+  /**
+   * @Then /^I have created an unused file entity$/
+   */
+  public function iHaveCreatedAnUnusedFileEntity() {
+    $this->createDummyImageFileEntity();
+  }
+
+  /**
+   * @Then /^I visit the delete form for the unused file entity$/
+   */
+  public function iVisitTheDeleteFormForTheUnusedFileEntity() {
+    if(preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
+      $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
+    }
   }
 
   /**
