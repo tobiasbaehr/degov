@@ -2,6 +2,24 @@
 
 use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_audio_install() {
+  // Adds the audio tab upon installation to the CKEditor media browser.
+  $CkeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$CkeditorMediaBrowserConfig->isNew()) {
+    $filtersConfig = $CkeditorMediaBrowserConfig->get('widgets');
+    $partialFile = drupal_get_path('module', 'degov_media_audio') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
+    if (file_exists($partialFile)) {
+      $filtersConfig += Yaml::parseFile($partialFile);
+      $CkeditorMediaBrowserConfig->set('widgets', $filtersConfig);
+      $CkeditorMediaBrowserConfig->save();
+    }
+  }
+}
 
 /**
  * Implements hook_uninstall().
