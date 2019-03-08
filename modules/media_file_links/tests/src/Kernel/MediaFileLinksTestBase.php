@@ -53,7 +53,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $this->fileIds['word'] = $wordFile->id();
 
     // Create a supported document entity.
-    $documentType = $this->createMediaType('test', ['id' => 'document']);
+    $documentType = $this->createMediaType('test', ['id' => 'document', 'label' => 'Document']);
 
     $fieldDocumentStorage = FieldStorageConfig::create([
       'entity_type' => 'media',
@@ -79,7 +79,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $this->supportedMediaId = $newDocument->id();
 
     // Create an unsupported foo entity.
-    $fooType = $this->createMediaType('test', ['id' => 'foo']);
+    $fooType = $this->createMediaType('test', ['id' => 'foo', 'label' => 'Foo']);
 
     $fieldFooStorage = FieldStorageConfig::create([
       'entity_type' => 'media',
