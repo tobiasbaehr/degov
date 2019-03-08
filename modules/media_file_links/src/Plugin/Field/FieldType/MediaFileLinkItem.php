@@ -26,7 +26,7 @@ class MediaFileLinkItem extends LinkItem {
     if (preg_match('/<media:file:([\d])+>/', $this->uri, $matches) && !empty($matches[1]) && preg_match('/^[\d]+$/', $matches[1])) {
       $fileUrl = \Drupal::service('media_file_links.file_link_resolver')
         ->getFileUrlString($matches[1]);
-      if(empty($fileUrl)) {
+      if (empty($fileUrl)) {
         return Url::fromRoute('<nolink>');
       }
       return Url::fromUri($fileUrl);

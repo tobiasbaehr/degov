@@ -6,7 +6,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
 
 /**
- * Class EntityAutocompleteMatcher
+ * Class EntityAutocompleteMatcher.
  *
  * @package Drupal\media_file_links
  */
@@ -28,8 +28,8 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
     $handler = $this->selectionManager->getInstance($options);
 
     // See: https://www.chapterthree.com/blog/how-alter-entity-autocomplete-results-drupal-8
-    // Search defined entities
-    if ($string !== null) {
+    // Search defined entities.
+    if ($string !== NULL) {
       // Get an array of matching entities.
       $match_operator = !empty($selection_settings['match_operator']) ? $selection_settings['match_operator'] : 'CONTAINS';
       $entity_labels = $handler->getReferenceableEntities($string, $match_operator, 10);
@@ -37,8 +37,11 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
       // Loop through the entities and convert them into autocomplete output.
       foreach ($entity_labels as $values) {
         foreach ($values as $entity_id => $label) {
-          $entity = \Drupal::entityTypeManager()->getStorage($target_type)->load($entity_id);
-          $entity = \Drupal::entityManager()->getTranslationFromContext($entity);
+          $entity = \Drupal::entityTypeManager()
+            ->getStorage($target_type)
+            ->load($entity_id);
+          $entity = \Drupal::entityManager()
+            ->getTranslationFromContext($entity);
 
           $type = !empty($entity->type->entity) ? $entity->type->entity->label() : $entity->bundle();
           $status = '';
@@ -55,11 +58,12 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
     }
 
     // If previous search was not for Media, run a search on linkable Media now.
-    if($target_type !== 'media') {
-      $mediaResults = \Drupal::service('media_file_links.file_suggester')->findBySearchString($string, FALSE);
+    if ($target_type !== 'media') {
+      $mediaResults = \Drupal::service('media_file_links.file_suggester')
+        ->findBySearchString($string, FALSE);
 
-      if(!empty($mediaResults)) {
-        foreach($mediaResults as $mediaEntity) {
+      if (!empty($mediaResults)) {
+        foreach ($mediaResults as $mediaEntity) {
           $key = $mediaEntity['title'] . ' <media:file:' . $mediaEntity['id'] . '>';
           $label = '<i class="' . $mediaEntity['iconClass'] . '" /> ' . $mediaEntity['title'] . ' [' . $mediaEntity['bundleLabel'] . ']';
           $matches[] = ['value' => $key, 'label' => $label];

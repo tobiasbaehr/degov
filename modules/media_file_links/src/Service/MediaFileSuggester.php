@@ -24,6 +24,7 @@ class MediaFileSuggester {
    * MediaFileSuggester constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
+   * @param \Drupal\media_file_links\Service\MediaFileLinkResolver $fileLinkResolver
    */
   public function __construct(MediaFileFieldMapper $fileFieldMapper, MediaFileLinkResolver $fileLinkResolver) {
     $this->fileFieldMapper = $fileFieldMapper;
@@ -42,7 +43,7 @@ class MediaFileSuggester {
     $results = array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
     $preparedResults = $this->prepareResults($results);
 
-    if($returnJson) {
+    if ($returnJson) {
       return json_encode($preparedResults);
     }
 
@@ -110,7 +111,8 @@ class MediaFileSuggester {
    */
   private function prepareResults(array $results): array {
     $preparedResults = [];
-    $mediaBundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
+    $mediaBundles = \Drupal::service('entity_type.bundle.info')
+      ->getBundleInfo('media');
     if (\count($results) > 0) {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
@@ -130,16 +132,16 @@ class MediaFileSuggester {
 
   private function getIconClassForFile(string $filename) {
     $iconClasses = [
-      'fas fa-file-alt' => [ 'doc', 'docx', 'odt' ],
-      'fas fa-file-excel' => [ 'xls', 'xlsx', 'csv', 'ods' ],
-      'fas fa-file-powerpoint' => [ 'ppt', 'pptx', 'odp' ],
-      'fas fa-file-pdf' => [ 'pdf' ],
+      'fas fa-file-alt'        => ['doc', 'docx', 'odt'],
+      'fas fa-file-excel'      => ['xls', 'xlsx', 'csv', 'ods'],
+      'fas fa-file-powerpoint' => ['ppt', 'pptx', 'odp'],
+      'fas fa-file-pdf'        => ['pdf'],
     ];
 
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-    foreach($iconClasses as $iconClass => $extensions) {
-      if(in_array($extension, $extensions)) {
+    foreach ($iconClasses as $iconClass => $extensions) {
+      if (in_array($extension, $extensions)) {
         return $iconClass;
       }
     }

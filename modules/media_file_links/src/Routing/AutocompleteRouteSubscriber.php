@@ -6,7 +6,7 @@ use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Class AutocompleteRouteSubscriber
+ * Class AutocompleteRouteSubscriber.
  *
  * @package Drupal\media_file_links\Routing
  */

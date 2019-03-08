@@ -37,7 +37,7 @@ class MediaFileLinkResolver {
    */
   public function getFileUrlString(int $mediaId): string {
     $file = $this->getFileForMedia($mediaId);
-    if($file instanceof FileInterface) {
+    if ($file instanceof FileInterface) {
       $uri = $file->getFileUri();
       return Url::fromUri(file_create_url($uri))->toString();
     }
@@ -56,7 +56,7 @@ class MediaFileLinkResolver {
   public function getFileNameString(int $mediaId): string {
     $file = $this->getFileForMedia($mediaId);
 
-    if($file instanceof FileInterface) {
+    if ($file instanceof FileInterface) {
       return $file->getFilename();
     }
 
@@ -67,6 +67,8 @@ class MediaFileLinkResolver {
   }
 
   /**
+   * Accepts a Media id and returns the primary file of the entity.
+   *
    * @param int $mediaId
    *
    * @return \Drupal\file\FileInterface|null
