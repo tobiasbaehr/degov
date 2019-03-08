@@ -20,6 +20,17 @@ use Drupal\link_attributes\Plugin\Field\FieldWidget\LinkWithAttributesWidget;
 class MediaFileLinkWidget extends LinkWithAttributesWidget {
 
   /**
+   * {@inheritdoc}
+   */
+  public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
+    $element = parent::formElement($items, $delta, $element, $form, $form_state);
+
+    $element['#attached']['library'][] = 'media_file_links/fontawesome';
+
+    return $element;
+  }
+
+  /**
    * Form element validation handler for the 'uri' element.
    *
    * Disallows saving inaccessible or untrusted URLs.

@@ -18,13 +18,16 @@ class MediaFileSuggester {
 
   private $fileFieldMapper;
 
+  private $fileLinkResolver;
+
   /**
    * MediaFileSuggester constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
    */
-  public function __construct(MediaFileFieldMapper $fileFieldMapper) {
+  public function __construct(MediaFileFieldMapper $fileFieldMapper, MediaFileLinkResolver $fileLinkResolver) {
     $this->fileFieldMapper = $fileFieldMapper;
+    $this->fileLinkResolver = $fileLinkResolver;
   }
 
   /**
@@ -37,12 +40,13 @@ class MediaFileSuggester {
    */
   public function findBySearchString(string $search, bool $returnJson = TRUE) {
     $results = array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
+    $preparedResults = $this->prepareResults($results);
 
     if($returnJson) {
-      return $this->resultsToJson($results);
+      return json_encode($preparedResults);
     }
 
-    return $results;
+    return $preparedResults;
   }
 
   /**
@@ -104,20 +108,43 @@ class MediaFileSuggester {
    *
    * @return string
    */
-  private function resultsToJson(array $results): string {
+  private function prepareResults(array $results): array {
     $preparedResults = [];
+    $mediaBundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
     if (\count($results) > 0) {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
+        $iconClass = $this->getIconClassForFile($this->fileLinkResolver->getFileNameString($entity->id()));
         $preparedResults[] = [
-          'id'       => $entity->id(),
-          'title'    => $nameValue[0]['value'] ?? '',
-          'bundle'   => $entity->bundle(),
-          'mimetype' => $this->getFileTypeForEntity($entity),
+          'id'          => $entity->id(),
+          'title'       => $nameValue[0]['value'] ?? '',
+          'bundle'      => $entity->bundle(),
+          'bundleLabel' => $mediaBundles[$entity->bundle()]['label'] ?? $entity->bundle(),
+          'mimetype'    => $this->getFileTypeForEntity($entity),
+          'iconClass'   => $iconClass,
         ];
       }
     }
-    return json_encode($preparedResults);
+    return $preparedResults;
+  }
+
+  private function getIconClassForFile(string $filename) {
+    $iconClasses = [
+      'fas fa-file-alt' => [ 'doc', 'docx', 'odt' ],
+      'fas fa-file-excel' => [ 'xls', 'xlsx', 'csv', 'ods' ],
+      'fas fa-file-powerpoint' => [ 'ppt', 'pptx', 'odp' ],
+      'fas fa-file-pdf' => [ 'pdf' ],
+    ];
+
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    foreach($iconClasses as $iconClass => $extensions) {
+      if(in_array($extension, $extensions)) {
+        return $iconClass;
+      }
+    }
+
+    return '';
   }
 
   /**

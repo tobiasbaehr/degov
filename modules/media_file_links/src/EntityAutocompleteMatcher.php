@@ -59,10 +59,9 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
       $mediaResults = \Drupal::service('media_file_links.file_suggester')->findBySearchString($string, FALSE);
 
       if(!empty($mediaResults)) {
-        $mediaBundles = \Drupal::service('entity_type.bundle.info')->getBundleInfo('media');
         foreach($mediaResults as $mediaEntity) {
-          $key = $mediaEntity->getName() . ' <media:file:' . $mediaEntity->id() . '>';
-          $label = $mediaEntity->getName() . ' [' . ($mediaBundles[$mediaEntity->bundle()]['label'] ?? $mediaEntity->bundle()) . ']';
+          $key = $mediaEntity['title'] . ' <media:file:' . $mediaEntity['id'] . '>';
+          $label = '<i class="' . $mediaEntity['iconClass'] . '" /> ' . $mediaEntity['title'] . ' [' . $mediaEntity['bundleLabel'] . ']';
           $matches[] = ['value' => $key, 'label' => $label];
         }
       }
