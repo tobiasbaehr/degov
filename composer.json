@@ -53,7 +53,7 @@
         "kenwheeler/slick": "1.7.1",
         "zenopopovici/DoubleTapToGo": "0.3",
         "drupal/shariff": "^1.0",
-        "drupal/eu_cookie_compliance": "^1.0@beta",
+        "drupal/eu_cookie_compliance": "^1.5",
         "drupal/swiftmailer": "^1.0-beta1",
         "drupal/mailsystem": "^4.1",
         "drupal/address": "^1.0",
