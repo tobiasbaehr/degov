@@ -30,6 +30,12 @@ function degov_common_install() {
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
+
+  // Disable Webform CDN and SPAM protection warnings in the status overview page.
+  \Drupal::configFactory()->getEditable('webform.settings')
+    ->set('requirements.cdn', false)
+    ->set('requirements.spam', false)
+    ->save(TRUE);
 }
 
 /**
@@ -199,6 +205,16 @@ function degov_common_update_8032() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_node_overrides')) {
     \Drupal::service('module_installer')->install(['degov_node_overrides']);
   }
+}
+
+/**
+ * Disable Webform CDN and SPAM protection warnings in the status overview page.
+ */
+function degov_common_update_862000() {
+  \Drupal::configFactory()->getEditable('webform.settings')
+    ->set('requirements.cdn', false)
+    ->set('requirements.spam', false)
+    ->save(TRUE);
 }
 
 /**
