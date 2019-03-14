@@ -9,14 +9,14 @@ use Symfony\Component\Yaml\Yaml;
  */
 function degov_media_document_install() {
   // Adds the document tab upon installation to the CKEditor media browser.
-  $CkeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
-  if (!$CkeditorMediaBrowserConfig->isNew()) {
-    $filtersConfig = $CkeditorMediaBrowserConfig->get('widgets');
-    $partialFile = drupal_get_path('module', 'degov_media_document') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
+  $ckeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$ckeditorMediaBrowserConfig->isNew()) {
+    $filtersConfig = $ckeditorMediaBrowserConfig->get('widgets');
+    $partialFile = \Drupal::service('extension.list.module')->getPath('degov_media_document') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
     if (file_exists($partialFile)) {
       $filtersConfig += Yaml::parseFile($partialFile);
-      $CkeditorMediaBrowserConfig->set('widgets', $filtersConfig);
-      $CkeditorMediaBrowserConfig->save();
+      $ckeditorMediaBrowserConfig->set('widgets', $filtersConfig);
+      $ckeditorMediaBrowserConfig->save();
     }
   }
 }
