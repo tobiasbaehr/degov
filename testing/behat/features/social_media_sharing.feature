@@ -41,4 +41,4 @@ Feature: deGov Social Media Sharing
   Scenario: I see no error on updates page for degov_tweets
     Given I am logged in as a user with the "administrator" role
     Given I am on "/admin/reports/updates"
-    And I should not see HTML content matching "Unbekannt"
+    And I should not see HTML content matching " Unbekannt"
