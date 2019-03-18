@@ -17,7 +17,7 @@ Feature: Installation via webbrowser
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
     And i test
-    And wait 600 seconds
+    And wait 200 seconds
     And i test
     And task "Website installieren" is done
     And the HTML title should show the page title and the distribution title
