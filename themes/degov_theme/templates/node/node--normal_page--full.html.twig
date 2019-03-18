@@ -65,16 +65,16 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-  ]
-%}
+{% set classes = [
+  node.bundle|clean_class,
+  node.isPromoted() ? 'is-promoted',
+  node.isSticky() ? 'is-sticky',
+  not node.isPublished() ? 'is-unpublished',
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'node',
+  'container'
+] %}
 
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
@@ -84,9 +84,21 @@
       {{ content.field_header_paragraphs }}
     {% endif %}
     {% if not is_front %}
-      <div class="content-header__text">
-        <div class="content-header__media-info"></div>
-        <h1 class="container mt-md-4 mt-lg-5">{{ label }}</h1>
+      <div class="content-header__text mb-5">
+        <h1 class="container mt-md-4 mt-lg-5 h2">{{ label }}</h1>
+        <div class="container date">{{ node.createdtime|format_date('custom', 'd.m.Y') }}</div>
+        <div class="user-info container clearfix mt-4">
+          <div class="user-avatar float-left mr-3">
+            {% if author_picture %}
+              {{ author_picture }}
+            {% else %}
+              <i class="fas fa-user"></i>
+            {% endif %}
+          </div>
+          <div class="name font-weight-bold mb-1">{{ author_name|striptags|trim }}</div>
+          <div class="title"></div>
+        </div>
+
         {% if content.field_teaser_sub_title %}
           <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
             {{ content.field_teaser_sub_title|field_value }}
@@ -97,6 +109,7 @@
             {{ content.field_teaser_text|field_value }}
           </div>
         {% endif %}
+
       </div>
     {% endif %}
   </div>

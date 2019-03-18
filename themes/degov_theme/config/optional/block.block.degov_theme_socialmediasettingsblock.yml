@@ -1,0 +1,22 @@
+langcode: de
+status: false
+dependencies:
+  enforced:
+    module:
+      - degov_social_media_settings
+  module:
+    - degov_social_media_settings
+  theme:
+    - degov_theme
+id: degov_theme_socialmediasettingsblock
+theme: degov_theme
+region: content
+weight: 1
+provider: null
+plugin: social_media_settings_block
+settings:
+  id: social_media_settings_block
+  label: 'Social media settings block'
+  provider: degov_social_media_settings
+  label_display: '0'
+visibility: {  }

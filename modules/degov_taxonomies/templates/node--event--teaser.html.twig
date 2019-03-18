@@ -94,7 +94,7 @@
 
   <!-- teaser image -->
   <div class="event__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
-    <div class="event__teaser__day">{{ start_date_timestamp|format_date('custom', 'd') }}</div>
+    <div class="event__teaser__day">{% if start_date_timestamp is not empty %}{{ start_date_timestamp|format_date('custom', 'd') }}{% endif %}</div>
     <div class="event__teaser__location">{{ content.field_event_location.0.locality}}</div>
     <div class="event__teaser__time">{% if node.field_event_display_time.value == true %}{{ start_date_timestamp|format_date('custom', 'G:i') }}{% endif %}</div>
   </div>

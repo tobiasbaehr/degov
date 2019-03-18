@@ -37,3 +37,8 @@ Feature: deGov Social Media Sharing
     And I should see 3 "li.shariff-button" elements via JavaScript
     And I wait 1 seconds
     And I should see 0 "div.sharing-overlay" elements via JavaScript
+
+  Scenario: I see no error on updates page for degov_tweets
+    Given I am logged in as a user with the "administrator" role
+    Given I am on "/admin/reports/updates"
+    And I should not see HTML content matching " Unbekannt"
