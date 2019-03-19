@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 set -e
-PHPVERSION=$1
+if [ ! -z "$BITBUCKET_PARALLEL_STEP"];
+then
+    PHPVERSION=7.1
+else
+    PHPVERSION=7.2
+fi
+echo $PHPVERSION
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
-
-echo "### Wait for packagist"
-doWhile="0"
-while [[ "$doWhile" = "0" ]]; do
-   GREP=`wget -q -O - https://packagist.org/packages/degov/degov | grep ">dev-$BITBUCKET_BRANCH<"`
-   if [[ ! -z "$GREP" ]]; then
-        doWhile="1"
-   fi
-   sleep 1
-done
-
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock

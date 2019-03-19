@@ -20,8 +20,9 @@ services:
     environment:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
+      BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
     entrypoint: /bin/bash
-    command: /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh 7.2
+    command: /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh
     volumes:
       - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
     networks:
