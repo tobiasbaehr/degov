@@ -72,7 +72,7 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I attach the file "/opt/atlassian/pipelines/agent/build/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Video Upload Video Example wurde erstellt."
