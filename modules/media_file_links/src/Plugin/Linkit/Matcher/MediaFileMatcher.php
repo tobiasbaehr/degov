@@ -12,7 +12,7 @@ use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
  *
  * @Matcher(
  *   id = "entity:media_file_links",
- *   label = @Translation("Your custom content entity"),
+ *   label = @Translation("Media file links"),
  *   target_entity = "media",
  *   provider = "media_file_links"
  * )
@@ -91,7 +91,7 @@ class MediaFileMatcher extends EntityMatcher {
     if(!empty($mediaMatches)) {
       foreach($mediaMatches as $mediaMatch) {
         $returnMatches[] = [
-          'title' => $mediaMatch['title'],
+          'title' => '<i>Hallo?</i> ' . $mediaMatch['title'],
           'description' => '',
           'path' => '[media:file' . $mediaMatch['id'] . ']',
           'group' => $mediaMatch['bundle'],
