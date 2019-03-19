@@ -117,7 +117,8 @@ class MediaFileSuggester {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
         if(!empty($nameValue[0]['value'])) {
-          $iconClass = $this->getIconClassForFile($this->fileLinkResolver->getFileNameString($entity->id()));
+          $filename = $this->fileLinkResolver->getFileNameString($entity->id());
+          $iconClass = $this->getIconClassForFile($filename);
           $preparedResults[] = [
             'id'          => $entity->id(),
             'title'       => $nameValue[0]['value'],
@@ -125,6 +126,7 @@ class MediaFileSuggester {
             'bundleLabel' => $mediaBundles[$entity->bundle()]['label'] ?? $entity->bundle(),
             'mimetype'    => $this->getFileTypeForEntity($entity),
             'iconClass'   => $iconClass,
+            'filename'    => $filename,
           ];
         }
       }
