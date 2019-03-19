@@ -3,6 +3,7 @@ services:
   testing:
     container_name: "testing"
     image: "derh4nnes/selenium-chrome-headless"
+    working_dir: "/opt/atlassian/pipelines/agent/build"
     ports:
       - "4444:4444"
     volumes:

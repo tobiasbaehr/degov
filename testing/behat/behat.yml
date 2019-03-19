@@ -47,7 +47,7 @@ default:
         locale: de
   extensions:
     Behat\MinkExtension:
-      files_path: '%behat.paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
+      files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
       browser_name: chrome
       javascript_session: selenium2
       default_session: selenium2
