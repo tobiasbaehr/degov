@@ -24,7 +24,7 @@ cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-#(cd docroot && screen -dmS php-server php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
+php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini -t=docroot -S 0.0.0.0:80 .ht.router.php
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Checking code standards"
 phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
