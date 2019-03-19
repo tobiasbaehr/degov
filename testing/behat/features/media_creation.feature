@@ -173,6 +173,7 @@ Feature: deGov - Media creation
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
     And I choose "Beschreibung" from tab menu
+    And I scroll to element with id "edit-field-royalty-free-value"
     And I check checkbox with id "edit-field-royalty-free-value"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
