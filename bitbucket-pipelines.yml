@@ -26,7 +26,7 @@ pipelines:
           script:
             - *install_docker_compose
             - docker-compose up -d testing mysql
-            - docker-compose up --exit-code-from=app app | true
+            - docker-compose up --exit-code-from=app app || true
             - docker logs app && false
           services:
             - docker
