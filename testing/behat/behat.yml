@@ -41,10 +41,10 @@ default:
             - admin_account_credentials:
                 - admin
                 - admin
-        paths:
-          features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_smoke_tests'
-        translation:
-          locale: de
+      paths:
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_smoke_tests'
+      translation:
+        locale: de
   extensions:
     Behat\MinkExtension:
       files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
