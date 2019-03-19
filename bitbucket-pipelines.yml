@@ -15,6 +15,13 @@ options:
   apt-get install -y python-pip
   pip install docker-compose
 
+.runner: &runner |
+  docker-compose up -d testing mysql
+  docker-compose up --exit-code-from=app app 2>/dev/null || true
+  docker logs app
+  docker ps && false
+
+
 pipelines:
   default:
     - parallel:
@@ -25,10 +32,9 @@ pipelines:
             - docker
           script:
             - *install_docker_compose
-            - docker-compose up -d testing mysql
-            - docker-compose up --exit-code-from=app app 2>/dev/null || true
-            - docker logs app
-            - docker ps -a && false
+            - *runner
+          artifacts:
+            - /app/dump.sql.gz
           services:
             - docker
       - step:
@@ -36,8 +42,7 @@ pipelines:
           image: derh4nnes/pipeline-behat:latest
           script:
             - *install_docker_compose
-            - docker-compose up -d testing mysql
-            - docker-compose up --exit-code-from=app app
+            - *runner
           artifacts:
             - /app/dump.sql.gz
           services:
