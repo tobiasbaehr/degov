@@ -71,7 +71,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
             $mediaEntity['filename'],
             $mediaEntity['id']
           );
-          $label = '<i class="' . $mediaEntity['iconClass'] . '" />' . $key;
+          $label = '<i class="' . $mediaEntity['iconClass'] . '" /> ' . $key;
           $matches[] = ['value' => $key, 'label' => $label];
         }
       }
