@@ -50,7 +50,7 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     }
   }
 
-  public static function isMediaFilePlaceholder(string $inputString) {
+  public static function isMediaFilePlaceholder(string $inputString): bool {
     return preg_match('/<media:file:[\d]+>/', $inputString);
   }
 
