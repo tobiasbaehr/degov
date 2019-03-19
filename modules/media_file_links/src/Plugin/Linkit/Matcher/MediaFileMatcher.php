@@ -85,16 +85,21 @@ class MediaFileMatcher extends EntityMatcher {
    * {@inheritdoc}
    */
   public function getMatches($string): array {
-    $mediaMatches = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), true);
+    $mediaEntities = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), true);
     $returnMatches = [];
 
-    if(!empty($mediaMatches)) {
-      foreach($mediaMatches as $mediaMatch) {
-        $returnMatches[] = [
-          'title' => '<i>Hallo?</i> ' . $mediaMatch['title'],
-          'description' => '',
-          'path' => '[media:file' . $mediaMatch['id'] . ']',
-          'group' => $mediaMatch['bundle'],
+    if(!empty($mediaEntities)) {
+      foreach($mediaEntities as $mediaEntity) {
+        $returnMatches[$mediaEntity['id']] = [
+          'title' => $mediaEntity['title'],
+          'description' => sprintf(
+            '<i class="%s" /> %s, %s',
+            $mediaEntity['iconClass'],
+            $mediaEntity['bundleLabel'],
+            $mediaEntity['filename']
+          ),
+          'path' => '[media:file' . $mediaEntity['id'] . ']',
+          'group' => $this->t('Media file links'),
         ];
       }
     }

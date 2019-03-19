@@ -9,4 +9,4 @@ services:
 
   media_file_links.file_suggester:
     class: Drupal\media_file_links\Service\MediaFileSuggester
-    arguments: [ '@media_file_links.file_field_mapper' ]
+    arguments: [ '@media_file_links.file_field_mapper', '@media_file_links.file_link_resolver' ]
