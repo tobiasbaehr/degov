@@ -116,15 +116,17 @@ class MediaFileSuggester {
     if (\count($results) > 0) {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
-        $iconClass = $this->getIconClassForFile($this->fileLinkResolver->getFileNameString($entity->id()));
-        $preparedResults[] = [
-          'id'          => $entity->id(),
-          'title'       => $nameValue[0]['value'] ?? '',
-          'bundle'      => $entity->bundle(),
-          'bundleLabel' => $mediaBundles[$entity->bundle()]['label'] ?? $entity->bundle(),
-          'mimetype'    => $this->getFileTypeForEntity($entity),
-          'iconClass'   => $iconClass,
-        ];
+        if(!empty($nameValue[0]['value'])) {
+          $iconClass = $this->getIconClassForFile($this->fileLinkResolver->getFileNameString($entity->id()));
+          $preparedResults[] = [
+            'id'          => $entity->id(),
+            'title'       => $nameValue[0]['value'],
+            'bundle'      => $entity->bundle(),
+            'bundleLabel' => $mediaBundles[$entity->bundle()]['label'] ?? $entity->bundle(),
+            'mimetype'    => $this->getFileTypeForEntity($entity),
+            'iconClass'   => $iconClass,
+          ];
+        }
       }
     }
     return $preparedResults;
