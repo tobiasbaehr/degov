@@ -2,6 +2,7 @@
 
 namespace Drupal\media_file_links\Plugin\Linkit\Matcher;
 
+use Drupal\Core\Database\TransactionNameNonUniqueException;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
 
@@ -22,10 +23,9 @@ class MediaFileMatcher extends EntityMatcher {
   /**
    * {@inheritdoc}
    */
-  public function defaultConfiguration() {
+  public function defaultConfiguration(): array {
     return parent::defaultConfiguration() + [
         'result_description' => '',
-        'bundles' => [],
         'group_by_bundle' => FALSE,
       ];
   }
@@ -33,7 +33,30 @@ class MediaFileMatcher extends EntityMatcher {
   /**
    * {@inheritdoc}
    */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
+  public function getSummary(): array {
+    $summary = [];
+    $entity_type = $this->entityManager->getDefinition($this->target_type);
+
+    $result_description = $this->configuration['result_description'];
+    if (!empty($result_description)) {
+      $summary[] = $this->t('Result description: @result_description', [
+        '@result_description' => $result_description
+      ]);
+    }
+
+    if ($entity_type->hasKey('bundle')) {
+      $summary[] = $this->t('Group by bundle: @bundle_grouping', [
+        '@bundle_grouping' => $this->configuration['group_by_bundle'] ? $this->t('Yes') : $this->t('No'),
+      ]);
+    }
+
+    return $summary;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
     $entity_type = $this->entityManager->getDefinition($this->target_type);
     $form['result_description'] = [
       '#title' => $this->t('Result description'),
@@ -61,7 +84,22 @@ class MediaFileMatcher extends EntityMatcher {
   /**
    * {@inheritdoc}
    */
-  public function execute($string) {
-    error_log('suggest!');
+  public function getMatches($string): array {
+    $mediaMatches = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), true);
+    $returnMatches = [];
+
+    if(!empty($mediaMatches)) {
+      foreach($mediaMatches as $mediaMatch) {
+        $returnMatches[] = [
+          'title' => $mediaMatch['title'],
+          'description' => '',
+          'path' => '[media:file' . $mediaMatch['id'] . ']',
+          'group' => $mediaMatch['bundle'],
+        ];
+      }
+    }
+
+    return $returnMatches;
   }
+
 }
