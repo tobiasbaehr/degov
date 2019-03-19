@@ -72,6 +72,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
               'uri' => 'internal:/node/' . $this->getNidByNodeTitle($secondLevelDefinitionNodeTitle),
             ],
             'parent' => $firstLevelMenuItem->getPluginId(),
+            'menu_name' => 'main',
             'expanded' => TRUE,
           ]);
           $secondLevelMenuItem->save();
