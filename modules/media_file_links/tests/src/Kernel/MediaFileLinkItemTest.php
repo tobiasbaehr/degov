@@ -39,6 +39,16 @@ class MediaFileLinkItemTest extends MediaFileLinksTestBase {
     $this->mediaFileLinkItem = new MediaFileLinkItem($data_definition, null, null);
   }
 
+  public function testLinkItemMediaIdResolutionSingleDigit(): void {
+    $mediaId = $this->mediaFileLinkItem->getMediaIdFromMediaFilePattern('<media:file:1>');
+    self::assertEquals(1, $mediaId);
+  }
+
+  public function testLinkItemMediaIdResolutionDoubleDigit(): void {
+    $mediaId = $this->mediaFileLinkItem->getMediaIdFromMediaFilePattern('<media:file:12>');
+    self::assertEquals(12, $mediaId);
+  }
+
   public function testLinkResolutionWithExistingSupportedMedia(): void {
     $this->mediaFileLinkItem->uri = '<media:file:' . $this->supportedMediaId . '>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();

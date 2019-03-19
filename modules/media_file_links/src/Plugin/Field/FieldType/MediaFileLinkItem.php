@@ -23,9 +23,11 @@ class MediaFileLinkItem extends LinkItem {
    * {@inheritdoc}
    */
   public function getUrl() {
-    if (preg_match('/<media:file:([\d])+>/', $this->uri, $matches) && !empty($matches[1]) && preg_match('/^[\d]+$/', $matches[1])) {
+    $mediaId = $this->getMediaIdFromMediaFilePattern($this->uri);
+
+    if($mediaId !== FALSE) {
       $fileUrl = \Drupal::service('media_file_links.file_link_resolver')
-        ->getFileUrlString($matches[1]);
+        ->getFileUrlString($mediaId);
       if (empty($fileUrl)) {
         return Url::fromRoute('<nolink>');
       }
@@ -33,6 +35,13 @@ class MediaFileLinkItem extends LinkItem {
     }
 
     return Url::fromUri($this->uri, (array) $this->options);
+  }
+
+  public function getMediaIdFromMediaFilePattern(string $pattern) {
+    if (preg_match('/<media:file:([\d]+)>/', $pattern, $matches) && !empty($matches[1]) && preg_match('/^[\d]+$/', $matches[1])) {
+      return $matches[1];
+    }
+    return FALSE;
   }
 
 }
