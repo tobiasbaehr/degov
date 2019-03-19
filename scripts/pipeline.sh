@@ -43,6 +43,8 @@ echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 echo "### Installing drupal with Behat"
 behat --suite=no-drupal --strict
+mkdir /app || true
+bin/drush sql-dump --gzip --result-file=/app/dump.sql
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 echo "### Running Behat tests"

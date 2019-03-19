@@ -37,6 +37,8 @@ pipelines:
             - *install_docker_compose
             - docker-compose up -d testing mysql
             - docker-compose up --exit-code-from=app app
+          artifacts:
+            - /app/dump.sql.gz
           services:
             - docker
     - parallel:
