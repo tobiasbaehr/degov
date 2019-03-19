@@ -13,7 +13,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-database" with "testing"
     And I fill in "edit-mysql-username" with "root"
     And I fill in "edit-mysql-password" with "testing"
-    And I click "Erweiterte Optionen"
+    And I click by CSS id "edit-mysql--2"
     And I fill in "edit-mysql-host" with "172.16.31.2"
     Then I submit the form
     And I should not see "Fehler"
