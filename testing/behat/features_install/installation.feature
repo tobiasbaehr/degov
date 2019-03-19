@@ -13,6 +13,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-database" with "testing"
     And I fill in "edit-mysql-username" with "root"
     And I fill in "edit-mysql-password" with "testing"
+    And i test
     And I click by selector "*[aria-controls=edit-mysql--2]" via JavaScript
     And I fill in "edit-mysql-host" with "172.16.31.2"
     Then I submit the form
