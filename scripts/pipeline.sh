@@ -40,15 +40,13 @@ echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroo
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
-mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 echo "### Installing drupal with Behat"
-behat -c behat-no-drupal.yml --strict
+behat --suite=no-drupal --strict
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 echo "### Running Behat tests"
-mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
-behat --strict
+behat --suite=default --strict
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
-mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
-behat -c behat-smoke-tests.yml --strict
+behat --suite=smoke-tests --strict

@@ -15,8 +15,6 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-password" with "testing"
     Then I submit the form
     And I should not see "Fehler"
-    And wait 5 seconds
-    And i test
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
     And task "Website installieren" is done
