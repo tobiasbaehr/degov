@@ -13,12 +13,12 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-database" with "testing"
     And I fill in "edit-mysql-username" with "root"
     And I fill in "edit-mysql-password" with "testing"
+    And I click "Erweiterte Optionen"
+    And I fill in "edit-mysql-host" with "172.16.31.2"
     Then I submit the form
+    And I should not see "Fehler"
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
-    And i test
-    And wait 200 seconds
-    And i test
     And task "Website installieren" is done
     And the HTML title should show the page title and the distribution title
     And task "Übersetzungen konfigurieren" is done
