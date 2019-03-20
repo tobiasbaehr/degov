@@ -18,27 +18,36 @@ class MediaFileSuggester {
 
   private $fileFieldMapper;
 
+  private $fileLinkResolver;
+
   /**
    * MediaFileSuggester constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
+   * @param \Drupal\media_file_links\Service\MediaFileLinkResolver $fileLinkResolver
    */
-  public function __construct(MediaFileFieldMapper $fileFieldMapper) {
+  public function __construct(MediaFileFieldMapper $fileFieldMapper, MediaFileLinkResolver $fileLinkResolver) {
     $this->fileFieldMapper = $fileFieldMapper;
+    $this->fileLinkResolver = $fileLinkResolver;
   }
 
   /**
    * Runs searches on Media titles and filenames, returns the merged results.
    *
    * @param string $search
+   * @param bool $returnJson
    *
    * @return array
    */
-  public function findBySearchString(string $search): string {
-    if (\strlen($search) < 3) {
-      return [];
+  public function findBySearchString(string $search, bool $returnJson = TRUE) {
+    $results = array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
+    $preparedResults = $this->prepareResults($results);
+
+    if ($returnJson) {
+      return json_encode($preparedResults);
     }
-    return json_encode(array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search)));
+
+    return $preparedResults;
   }
 
   /**
@@ -54,7 +63,10 @@ class MediaFileSuggester {
       ->condition('bundle', $this->fileFieldMapper->getEnabledBundles(), 'IN')
       ->condition('name', $search, 'CONTAINS');
     $mediaIds = $mediaQuery->execute();
-    return $this->prepareResultsFromIds($mediaIds);
+    if (\count($mediaIds) > 0) {
+      return Media::loadMultiple($mediaIds);
+    }
+    return [];
   }
 
   /**
@@ -84,31 +96,61 @@ class MediaFileSuggester {
       ->condition('bundle', $this->fileFieldMapper->getEnabledBundles(), 'IN')
       ->condition($fieldValueCombinationsGroup);
     $mediaIds = $mediaQuery->execute();
-    return $this->prepareResultsFromIds($mediaIds);
+    if (\count($mediaIds) > 0) {
+      return Media::loadMultiple($mediaIds);
+    }
+    return [];
   }
 
   /**
-   * Turns an array of entity ids into an array of search results.
+   * Turns an array of search results into a json string.
    *
-   * @param array $ids
+   * @param array $results
    *
-   * @return array
+   * @return string
    */
-  private function prepareResultsFromIds(array $ids): array {
+  private function prepareResults(array $results): array {
     $preparedResults = [];
-    if (\count($ids) > 0) {
-      $entities = Media::loadMultiple($ids);
-      foreach ($entities as $entity) {
+    $mediaBundles = \Drupal::service('entity_type.bundle.info')
+      ->getBundleInfo('media');
+    if (\count($results) > 0) {
+      foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
-        $preparedResults[] = [
-          'id'       => $entity->id(),
-          'title'    => $nameValue[0]['value'] ?? '',
-          'bundle'   => $entity->bundle(),
-          'mimetype' => $this->getFileTypeForEntity($entity),
-        ];
+        if(!empty($nameValue[0]['value'])) {
+          $filename = $this->fileLinkResolver->getFileNameString($entity->id());
+          $iconClass = $this->getIconClassForFile($filename);
+          $preparedResults[] = [
+            'id'          => $entity->id(),
+            'title'       => $nameValue[0]['value'],
+            'bundle'      => $entity->bundle(),
+            'bundleLabel' => $mediaBundles[$entity->bundle()]['label'] ?? $entity->bundle(),
+            'mimetype'    => $this->getFileTypeForEntity($entity),
+            'iconClass'   => $iconClass,
+            'filename'    => $filename,
+          ];
+        }
       }
     }
     return $preparedResults;
+  }
+
+  private function getIconClassForFile(string $filename) {
+    $iconClasses = [
+      'fas fa-file-alt'        => ['doc', 'docx', 'odt'],
+      'fas fa-file-excel'      => ['xls', 'xlsx', 'csv', 'ods'],
+      'fas fa-file-powerpoint' => ['ppt', 'pptx', 'odp'],
+      'fas fa-file-pdf'        => ['pdf'],
+    ];
+
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+    foreach ($iconClasses as $iconClass => $extensions) {
+      if (in_array($extension, $extensions)) {
+        return $iconClass;
+      }
+    }
+
+    return '';
   }
 
   /**
@@ -122,7 +164,7 @@ class MediaFileSuggester {
    */
   private function getFileTypeForEntity(Media $media): string {
     $fileField = $this->fileFieldMapper->getFileFieldForBundle($media->bundle());
-    if(!empty($fileField)) {
+    if (!empty($fileField)) {
       $value = $media->get($fileField)->getValue();
       if (isset($value[0]['target_id'])) {
         $file = File::load($value[0]['target_id']);
