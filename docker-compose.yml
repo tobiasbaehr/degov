@@ -11,8 +11,6 @@ services:
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     ports:
       - "4444:4444"
-    volumes_from:
-      - app
     networks:
       backend:
         ipv4_address: 172.16.31.3
