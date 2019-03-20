@@ -2,6 +2,7 @@ langcode: de
 status: true
 dependencies:
   module:
+    - media_file_links
     - node
 id: full_text
 label: 'Full text'
@@ -27,3 +28,11 @@ matchers:
       bundles: {  }
       group_by_bundle: true
       include_unpublished: true
+  ab9eee11-ab60-4471-8bb9-c799e4e08da7:
+    uuid: ab9eee11-ab60-4471-8bb9-c799e4e08da7
+    id: 'entity:media_file_links'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: null
+      group_by_bundle: false
