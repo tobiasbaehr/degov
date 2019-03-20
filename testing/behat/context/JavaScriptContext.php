@@ -147,7 +147,7 @@ class JavaScriptContext extends RawMinkContext {
         return true;
       }
     } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' .$number);
   }
 
   /**
