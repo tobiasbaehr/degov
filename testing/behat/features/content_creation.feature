@@ -193,7 +193,7 @@ Feature: deGov - Content creation
     Then I am on "/node/add/normal_page"
     And I should see 1 ".cke" elements via jQuery after a while
     And I click by selector ".cke_button__linkit" via JavaScript
-    Then I should see 1 "#linkit-editor-dialog-form" elements via jQuery after a while
+    Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
     And I fill in "Link" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
     Then I should see HTML content matching "linkit-result" after a while
