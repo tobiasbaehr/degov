@@ -34,6 +34,8 @@ sed -i 's/{{ mysql_host }}/172.16.31.4/g' docroot/sites/default/settings.local.p
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
+echo "### Syncing files ###"
+docker cp -a $BITBUTCKET_CLONE_DIR testing:$BITBUCKET_CLONE_DIR
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 echo "### Installing drupal with Behat"
