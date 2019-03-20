@@ -17,7 +17,7 @@ options:
 
 .runner: &runner |
   docker-compose up -d testing mysql
-  docker exec testing "mkdir -p $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov"
+  docker exec testing -c "mkdir -p $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov"
   docker cp . testing:$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov
   docker-compose up --exit-code-from=app app 2>/dev/null || true
   docker logs app
