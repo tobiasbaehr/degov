@@ -191,8 +191,8 @@ Feature: deGov - Content creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"
-    And I wait 5 seconds
-    And I should see 1 ".cke" elements via jQuery after a while
+    And I wait 3 seconds
+    And I should see 1 ".cke" elements via jQuery
     And I click by selector ".cke_button__linkit" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
     And I fill in "Link" with "dummy"
