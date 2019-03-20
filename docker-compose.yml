@@ -11,9 +11,8 @@ services:
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     ports:
       - "4444:4444"
-    volumes:
-      - "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
-      - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
+    volumes_from:
+      - app
     networks:
       backend:
         ipv4_address: 172.16.31.3
