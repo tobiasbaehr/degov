@@ -3,7 +3,6 @@ services:
   testing:
     container_name: "testing"
     image: "derh4nnes/selenium-chrome-headless"
-    working_dir: "$BITBUCKET_CLONE_DIR/degov-project"
     environment:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
