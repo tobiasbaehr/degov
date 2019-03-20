@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 set -e
-if [[ ! -z "$BITBUCKET_PARALLEL_STEP"]];
+if [ -z "$BITBUCKET_PARALLEL_STEP" ];
 then
     PHPVERSION=7.1
 else
     PHPVERSION=7.2
 fi
+exit
 echo $BITBUCKET_PARALLEL_STEP
 echo $PHPVERSION
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
