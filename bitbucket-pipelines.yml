@@ -19,6 +19,8 @@ options:
   docker-compose up -d testing mysql
   docker-compose up --exit-code-from=app app 2>/dev/null || true
   docker logs app
+  docker exec testing ls $BITBUCKET_CLONE_DIR
+  docker exec testing ls $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures
   docker ps && false
 
 
