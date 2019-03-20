@@ -7,6 +7,8 @@ use Behat\MinkExtension\Context\RawMinkContext;
 
 class JavaScriptContext extends RawMinkContext {
 
+  private const MAX_DURATION_SECONDS = 1200;
+
   /**
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
@@ -130,6 +132,21 @@ class JavaScriptContext extends RawMinkContext {
     if($numberOfElementsFound === $number) {
       return true;
     }
+    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+  }
+
+  /**
+   * @Then I should see :number :selector elements via jQuery after a while
+   */
+  public function iShouldSeeElementsViaJqueryAfterAWhile(int $number, string $selector)
+  {
+    $startTime = time();
+    do {
+      $numberOfElementsFound = (int)$this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+      if($numberOfElementsFound === $number) {
+        return true;
+      }
+    } while (time() - $startTime < self::MAX_DURATION_SECONDS);
     throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
   }
 
