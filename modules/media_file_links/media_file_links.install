@@ -5,6 +5,8 @@
  * Install and update functions for the deGov Media file links module.
  */
 
+use \Symfony\Component\Yaml\Yaml;
+
 /**
  * Implements hook_install().
  */
@@ -25,5 +27,62 @@ function media_file_links_install() {
 
       $config->set('filters', $filters)->save();
     }
+  }
+
+  $configsToUpdate = ['linkit.linkit_profile.full_text'];
+
+  foreach ($configsToUpdate as $configToUpdate) {
+    $config = \Drupal::configFactory()->getEditable($configToUpdate);
+
+    $dependencies = $config->get('dependencies');
+    if (!\in_array('media_file_links', $dependencies['module'], TRUE)) {
+      $dependencies['module'][] = 'media_file_links';
+      $config->set('dependencies', $dependencies)->save();
+    }
+
+    $matchers = $config->get('matchers');
+    $addMediaFileLinksMatcher = TRUE;
+    foreach ($matchers as $matcher) {
+      if ($matcher['id'] === 'entity:media_file_links') {
+        $addMediaFileLinksMatcher = FALSE;
+      }
+    }
+    if ($addMediaFileLinksMatcher) {
+      $newMatcher = Yaml::parseFile(\Drupal::service('extension.list.module')
+          ->getPath('media_file_links') . '/config/partial/linkit_matcher.yml');
+      if (!empty($newMatcher['uuid'])) {
+        $matchers[$newMatcher['uuid']] = $newMatcher;
+        $config->set('matchers', $matchers)->save();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function media_file_links_uninstall() {
+  $configsToUpdate = ['linkit.linkit_profile.full_text'];
+
+  foreach ($configsToUpdate as $configToUpdate) {
+    $config = \Drupal::configFactory()->getEditable($configToUpdate);
+
+    $dependencies = $config->get('dependencies');
+    if (\in_array('media_file_links', $dependencies['module'], TRUE)) {
+      foreach ($dependencies['module'] as $key => $module) {
+        if ($module === 'media_file_links') {
+          unset($dependencies['module'][$key]);
+        }
+      }
+      $config->set('dependencies', $dependencies)->save();
+    }
+
+    $matchers = $config->get('matchers');
+    foreach ($matchers as $key => $matcher) {
+      if ($matcher['id'] === 'entity:media_file_links') {
+        unset($matchers[$key]);
+      }
+    }
+    $config->set('matchers', $matchers)->save();
   }
 }
