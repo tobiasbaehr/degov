@@ -3,12 +3,17 @@ services:
   testing:
     container_name: "testing"
     image: "derh4nnes/selenium-chrome-headless"
-    working_dir: "/opt/atlassian/pipelines/agent/build/degov-project"
+    working_dir: "$BITBUCKET_CLONE_DIR/degov-project"
+    environment:
+      BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
+      BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
+      BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
+      BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     ports:
       - "4444:4444"
     volumes:
-      - "/opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
-      - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
+      - "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/"
+      - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
     networks:
       backend:
         ipv4_address: 172.16.31.3
@@ -21,10 +26,11 @@ services:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
+      BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     entrypoint: /bin/bash
-    command: /opt/atlassian/pipelines/agent/build/scripts/pipeline.sh
+    command: $BITBUCKET_CLONE_DIR/scripts/pipeline.sh
     volumes:
-      - "/opt/atlassian/pipelines/agent/build:/opt/atlassian/pipelines/agent/build"
+      - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
     networks:
       backend:
         ipv4_address: 172.16.31.2
