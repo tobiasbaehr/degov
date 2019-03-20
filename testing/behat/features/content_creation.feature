@@ -192,7 +192,8 @@ Feature: deGov - Content creation
     And I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"
     And I click by selector ".cke_button__linkit" via JavaScript
-    Then I should see 1 "#linkit-editor-dialog-form" elements
+    Then wait 3 seconds
+    Then I should see 1 "#linkit-editor-dialog-form" elements via JavaScript
     And I fill in "Link" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
     Then I should see HTML content matching "linkit-result" after a while
