@@ -6,7 +6,6 @@ then
 else
     PHPVERSION=7.2
 fi
-exit
 echo $BITBUCKET_PARALLEL_STEP
 echo $PHPVERSION
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
