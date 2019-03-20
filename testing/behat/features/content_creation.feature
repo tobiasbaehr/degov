@@ -186,3 +186,15 @@ Feature: deGov - Content creation
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
     Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
+
+  Scenario: I verify that I can enter Media file links using linkit
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/node/add/normal_page"
+    And I click by selector ".cke_button__linkit" via JavaScript
+    Then I should see HTML content matching "editor-linkit-dialog" after a while
+    And I fill in "Link" with "dummy"
+    And I trigger the "keydown" event on ".form-linkit-autocomplete"
+    Then I should see HTML content matching "linkit-result" after a while
+    And I click by selector ".linkit-result" via JavaScript
+    Then I verify that field value of ".form-linkit-autocomplete" matches "\[media:file:[\d]+\]"
