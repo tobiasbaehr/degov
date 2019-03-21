@@ -55,6 +55,54 @@ function media_file_links_install() {
 }
 
 /**
+ * Implements hook_schema().
+ */
+function media_file_links_schema(): array {
+  $schema['media_file_links_usage'] = [
+    'description' => 'Tracks the usage of Media through media_file_links placeholders.',
+    'fields' => [
+      'referencing_entity_id' => [
+        'description' => 'The ID of the referencing entity, e.g. a node, a menu item, etc.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'referencing_entity_type' => [
+        'description' => 'The type of the referencing entity.',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'referencing_entity_field' => [
+        'description' => 'The name of the field the reference is located in.',
+        'type' => 'varchar_ascii',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'referencing_entity_langcode' => [
+        'description' => 'The langcode of the referencing entity.',
+        'type' => 'varchar_ascii',
+        'length' => 12,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'media_entity_id' => [
+        'description' => 'The ID of the referenced media entity.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
  * Implements hook_uninstall().
  */
 function media_file_links_uninstall() {
@@ -63,7 +111,7 @@ function media_file_links_uninstall() {
     ->execute();
   $mediaFileMenuLinks = MenuLinkContent::loadMultiple($mediaFileMenuLinksIds);
   foreach ($mediaFileMenuLinks as $mediaFileMenuLink) {
-    if (preg_match('/<media:file:[\d]+>/', $mediaFileMenuLink->link->first()->uri)) {
+    if(\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($mediaFileMenuLink->link->first()->uri))
       $mediaFileMenuLink->link->first()->uri = 'internal:' . Url::fromRoute('system.404')->toString();
       $mediaFileMenuLink->save();
     }
