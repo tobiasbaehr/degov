@@ -18,7 +18,9 @@ options:
 .runner: &runner |
   docker-compose up -d testing mysql
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=app app 2>/dev/null)"
-  docker logs app && docker logs testing && echo $COMPOSE_RESULT
+  docker logs app
+  docker logs testing
+  echo $COMPOSE_RESULT
   docker ps -a && false
 
 
