@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 services:
   testing:
     container_name: "testing"
@@ -8,8 +8,8 @@ services:
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
-    volumes_from:
-      - app:ro
+    volumes:
+      - "data:$BITBUCKET_CLONE_DIR"
     ports:
       - "4444:4444"
     networks:
@@ -28,7 +28,7 @@ services:
     entrypoint: /bin/bash
     command: $BITBUCKET_CLONE_DIR/scripts/pipeline.sh
     volumes:
-      - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
+      - "data:$BITBUCKET_CLONE_DIR"
     networks:
       backend:
         ipv4_address: 172.16.31.2
@@ -43,10 +43,11 @@ services:
     networks:
       backend:
         ipv4_address: 172.16.31.4
-
+volumes:
+  data:
 networks:
   backend:
     ipam:
       config:
-        - subnet: 172.16.31.0/24
-          gateway: 172.16.31.1
+      -
+        subnet: 172.16.31.0/24
