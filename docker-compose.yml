@@ -9,7 +9,7 @@ services:
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     volumes_from:
-      - app:$BITBUCKET_CLONE_DIR
+      - app:ro
     ports:
       - "4444:4444"
     networks:
