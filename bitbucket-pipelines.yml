@@ -20,8 +20,8 @@ options:
   docker exec testing bash -c 'sudo mkdir -p /opt/atlassian/pipelines/agent/build/degov-project/docroot/profiles/contrib/degov'
   docker cp . testing:$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov
   docker exec testing ls $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures/humberto-chavez-1058365-unsplash.jpg
-  docker-compose up --exit-code-from=app app 2>/dev/null || true
-  docker logs app
+  export $COMPOSE_RESULT="$(docker-compose up --exit-code-from=app app 2>/dev/null)"
+  if [[ $COMPOSE_RESULT ]] then docker logs app; fi
   docker ps -a && false
 
 
