@@ -3,6 +3,5 @@ description: "Erlaubt die Anzeige von Twitternachrichten als feed."
 package: deGov
 type: module
 core: 8.x
-project: 'degov_tweets'
 dependencies:
   - degov_common

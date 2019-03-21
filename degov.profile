@@ -70,6 +70,7 @@ function degov_module_setup(&$install_state) {
     'degov_node_external_teaser'        => 'degov_node_external_teaser',
     'degov_auto_crop'                   => 'degov_auto_crop',
     'degov_file_management'             => 'degov_file_management',
+    'degov_search_content'              => 'degov_search_content',
     'media_file_links'                  => 'media_file_links',
   ];
 

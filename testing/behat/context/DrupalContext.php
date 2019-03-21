@@ -6,6 +6,9 @@ use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
+use Drupal\degov_demo_content\Generator\MediaGenerator;
+use Drupal\degov_demo_content\Generator\MenuItemGenerator;
+use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
@@ -985,4 +988,26 @@ class DrupalContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * @Given /^I reset the demo content$/
+   */
+  public function resetDemoContent() {
+    /**
+     * @var MediaGenerator $mediaGenerator
+     */
+    $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
+    $mediaGenerator->resetContent();
+
+    /**
+     * @var NodeGenerator $nodeGenerator
+     */
+    $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
+    $nodeGenerator->resetContent();
+
+    /**
+     * @var MenuItemGenerator $menuItemGenerator
+     */
+    $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
+    $menuItemGenerator->resetContent();
+  }
 }

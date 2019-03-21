@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - degov_social_media_instagram
+  theme:
+    - degov_theme
+id: instagramfeedblock
+theme: degov_theme
+region: content
+weight: -6
+provider: null
+plugin: degov_social_media_instagram
+settings:
+  id: degov_social_media_instagram
+  label: 'Instagram Feed Block'
+  provider: degov_social_media_instagram
+  label_display: '0'
+visibility: {  }

@@ -21,8 +21,7 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     Then I should see HTML content matching "01.01.2018" after a while
-    And I should see "Test1234" in the ".press__header-paragraphs h2" element
-    And I should see "Test1234" in the ".press__header-paragraphs .press__teaser-text" element
+    And I should see "Test1234" in the ".press__header-paragraphs" element
 
   Scenario: I see all form fields in normal_page content type
     Given I am logged in as a user with the "administrator" role
