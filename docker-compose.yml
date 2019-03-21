@@ -9,7 +9,7 @@ services:
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
     volumes:
-      - "app:$BITBUCKET_CLONE_DIR"
+      - app:$BITBUCKET_CLONE_DIR
     ports:
       - "4444:4444"
     networks:
@@ -28,7 +28,7 @@ services:
     entrypoint: /bin/bash
     command: $BITBUCKET_CLONE_DIR/scripts/pipeline.sh
     volumes:
-      - "data:$BITBUCKET_CLONE_DIR"
+      - "app:$BITBUCKET_CLONE_DIR"
       - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
     networks:
       backend:
@@ -45,7 +45,7 @@ services:
       backend:
         ipv4_address: 172.16.31.4
 volumes:
-  data:
+  app:
 networks:
   backend:
     ipam:
