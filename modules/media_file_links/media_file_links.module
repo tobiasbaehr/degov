@@ -18,7 +18,7 @@ function media_file_links_locale_translation_projects_alter(&$projects) {
     'info' => [
       'name'                                 => 'Media file links',
       'interface translation project'        => 'media_file_links',
-      'interface translation server pattern' => drupal_get_path('module', 'media_file_links') . '/translations/%language.po',
+      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('media_file_links') . '/translations/%language.po',
     ],
   ];
 }
@@ -62,4 +62,11 @@ function media_file_links_form_menu_link_content_menu_link_content_form_alter(&$
       'validateUriElement',
     ];
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_file_links_form_linkit_editor_dialog_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#attached']['library'][] = 'media_file_links/fontawesome';
 }

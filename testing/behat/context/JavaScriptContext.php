@@ -7,6 +7,8 @@ use Behat\MinkExtension\Context\RawMinkContext;
 
 class JavaScriptContext extends RawMinkContext {
 
+  private const MAX_DURATION_SECONDS = 1200;
+
   /**
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
@@ -92,6 +94,17 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * @Then I verify that field value of :selector matches :value
+   */
+  public function iVerifyThatFieldValueMatches(string $selector, string $value): bool {
+    $actualValue = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
+    if(preg_match('/' . $value . '/', $actualValue)) {
+      return true;
+    }
+    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
+  }
+
+  /**
    * @Then I should see :number :selector elements via JavaScript
    */
   public function iShouldSeeElementsViaJavaScript(int $number, string $selector) {
@@ -123,9 +136,24 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * @Then I should see :number :selector elements via jQuery after a while
+   */
+  public function iShouldSeeElementsViaJqueryAfterAWhile(int $number, string $selector)
+  {
+    $startTime = time();
+    do {
+      $numberOfElementsFound = (int)$this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+      if($numberOfElementsFound === $number) {
+        return true;
+      }
+    } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' .$number);
+  }
+
+  /**
    * @Then I trigger the :event event on :selector
    */
-  public function iTriggerEventOnElement($event, $selector) {
+  public function iTriggerEventOnElement(string $event, string $selector): void {
     $this->getSession()->evaluateScript('jQuery("' . $selector . '").trigger("' . $event . '")');
   }
 }
