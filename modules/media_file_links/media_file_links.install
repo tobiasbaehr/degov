@@ -111,7 +111,7 @@ function media_file_links_uninstall() {
     ->execute();
   $mediaFileMenuLinks = MenuLinkContent::loadMultiple($mediaFileMenuLinksIds);
   foreach ($mediaFileMenuLinks as $mediaFileMenuLink) {
-    if(\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($mediaFileMenuLink->link->first()->uri))
+    if(\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($mediaFileMenuLink->link->first()->uri)) {
       $mediaFileMenuLink->link->first()->uri = 'internal:' . Url::fromRoute('system.404')->toString();
       $mediaFileMenuLink->save();
     }

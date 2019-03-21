@@ -35,14 +35,18 @@ class MediaFileLinkUsageTracker {
   }
 
   private function trackMediaUsageInNode(NodeInterface $node): void {
-    //    foreach($node->getFields() as $field) {
-    //      \Drupal::service('media_file_links.usage_tracker')->trackUsage([
-    //        'referencing_entity_id' => $node->id(),
-    //        'referencing_entity_type' => 'node',
-    //        'referencing_entity_langcode' => $node->get('langcode')->getString(),
-    //        'media_entity_id' => $field->getString(),
-    //      ]);
-    //    }
+    foreach ($node->getFields() as $field) {
+      $fieldValue = $field->getString();
+      if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
+        $this->storeUsage([
+          'referencing_entity_id'       => $node->id(),
+          'referencing_entity_type'     => 'node',
+          'referencing_entity_field'    => $field->getName(),
+          'referencing_entity_langcode' => $node->get('langcode')->getString(),
+          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
+        ]);
+      }
+    }
   }
 
   private function trackMediaUsageInMenuLinkContent(MenuLinkContentInterface $menuLinkContent): void {
@@ -52,26 +56,33 @@ class MediaFileLinkUsageTracker {
         'referencing_entity_id'       => $menuLinkContent->id(),
         'referencing_entity_type'     => 'menu_link_content',
         'referencing_entity_field'    => 'link',
-        'referencing_entity_langcode' => $menuLinkContent->get('langcode')->getString(),
+        'referencing_entity_langcode' => $menuLinkContent->get('langcode')
+          ->getString(),
         'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($linkValue[0]['uri']),
       ]);
     }
   }
 
   private function trackMediaUsageInParagraph(ParagraphInterface $paragraph): void {
-    //    foreach($node->getFields() as $field) {
-    //      \Drupal::service('media_file_links.usage_tracker')->trackUsage([
-    //        'referencing_entity_id' => $node->id(),
-    //        'referencing_entity_type' => 'node',
-    //        'referencing_entity_langcode' => $node->get('langcode')->getString(),
-    //        'media_entity_id' => $field->getString(),
-    //      ]);
-    //    }
+    foreach ($paragraph->getFields() as $field) {
+      $fieldValue = $field->getString();
+      if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
+        $this->storeUsage([
+          'referencing_entity_id'       => $paragraph->id(),
+          'referencing_entity_type'     => 'paragraph',
+          'referencing_entity_field'    => $field->getName(),
+          'referencing_entity_langcode' => $paragraph->get('langcode')->getString(),
+          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
+        ]);
+      }
+    }
   }
 
   private function storeUsage(array $values): void {
-    error_log(print_r($values, 1));
-    \Drupal::database()->insert('media_file_links_usage')->fields($values)->execute();
+    \Drupal::database()
+      ->insert('media_file_links_usage')
+      ->fields($values)
+      ->execute();
   }
 
 }

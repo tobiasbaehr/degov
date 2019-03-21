@@ -72,16 +72,13 @@ function media_file_links_form_linkit_editor_dialog_form_alter(&$form, FormState
 }
 
 function media_file_links_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
-  error_log('entity insert');
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
 }
 
 function media_file_links_entity_update(\Drupal\Core\Entity\EntityInterface $entity) {
-  error_log('entity update');
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
 }
 
 function media_file_links_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
-  error_log('entity delete');
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
 }
