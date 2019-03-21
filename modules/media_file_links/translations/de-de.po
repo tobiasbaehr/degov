@@ -9,28 +9,58 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2019-02-25 11:45+0100\n"
-"PO-Revision-Date: 2019-02-25 11:46+0100\n"
+"POT-Creation-Date: 2019-03-05 16:06+0100\n"
+"PO-Revision-Date: 2019-03-05 16:08+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: German <EMAIL@ADDRESS>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de\n"
 "X-Generator: Poedit 2.2\n"
 
+#: media_file_links.module:29
+#: src/Plugin/Field/FieldType/MediaFileLinkItem.php:8
+msgid "Link"
+msgstr ""
+
+#: media_file_links.module:30
+msgid "The location this menu link points to."
+msgstr "Das Ziel, auf das dieser Menü-Link verweist."
+
 #: media_file_links.info.yml:0
-msgid "deGov - Media file links"
+msgid "Media file links"
 msgstr ""
 
 #: media_file_links.info.yml:0
-msgid "Link to files contained in Media entities from the editor and menu entries."
-msgstr "Aus dem Editor und Menüeinträgen auf in Medien-Entitäten enthaltene Dateien verlinken."
+msgid ""
+"Link to files contained in Media entities from the editor and menu entries."
+msgstr ""
+"Aus dem Editor und Menüeinträgen auf in Medien-Entitäten enthaltene Dateien "
+"verlinken."
 
 #: media_file_links.info.yml:0
 msgid "deGov"
 msgstr ""
+
+#: src/Plugin/Field/FieldType/MediaFileLinkItem.php:8
+msgid ""
+"Stores a URL string, optional varchar link text, and optional blob of "
+"attributes to assemble a link."
+msgstr ""
+
+#: src/Plugin/Field/FieldWidget/MediaFileLinkWidget.php:37
+msgid ""
+"Manually entered paths should start with /, ? or #, or match &lt;media:file:"
+"ID&gt;."
+msgstr ""
+"Manuell eingegebene Pfade sollten mit /, ? oder # beginnen, oder dem Muster "
+"&lt;media:file:ID&gt; entsprechen."
+
+#: src/Plugin/Field/FieldWidget/MediaFileLinkWidget.php:9
+msgid "Link (with Media support)"
+msgstr "Link (Unterstützung für Medien-Verlinkung)"
 
 #: src/Plugin/Filter/FilterMediaFileLinks.php:8
 msgid "Resolve links to media files"

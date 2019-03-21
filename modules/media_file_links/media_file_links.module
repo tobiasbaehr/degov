@@ -6,6 +6,9 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\link\LinkItemInterface;
 
 /**
  * Implements hook_locale_translation_projects_alter().
@@ -15,9 +18,50 @@ function media_file_links_locale_translation_projects_alter(&$projects) {
     'info' => [
       'name'                                 => 'Media file links',
       'interface translation project'        => 'media_file_links',
-      'interface translation server pattern' => drupal_get_path('module', 'media_file_links') . '/translations/%language.po',
+      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('media_file_links') . '/translations/%language.po',
     ],
   ];
+}
+
+/**
+ * Implements hook_entity_base_field_info_alter().
+ */
+function media_file_links_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() === 'menu_link_content' && isset($fields['link'])) {
+    $fields['link'] = BaseFieldDefinition::create('media_file_link')
+      ->setLabel(t('Link'))
+      ->setDescription(t('The location this menu link points to.'))
+      ->setRequired(TRUE)
+      ->setSettings([
+        'link_type' => LinkItemInterface::LINK_GENERIC,
+        'title'     => DRUPAL_DISABLED,
+      ])
+      ->setDisplayOptions('form', [
+        'type'   => 'link_mediafilelinks',
+        'weight' => -2,
+      ])
+      ->setProvider('menu_link_content')
+      ->setName('link')
+      ->setTargetEntityTypeId('menu_link_content')
+      ->setTargetBundle(NULL);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_file_links_form_menu_link_content_menu_link_content_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!empty($form['link']['widget'][0]['uri']['#element_validate']) && is_array($form['link']['widget'][0]['uri']['#element_validate'])) {
+    foreach ($form['link']['widget'][0]['uri']['#element_validate'] as $key => $validator) {
+      if (is_array($validator) && in_array('validateUriElement', $validator)) {
+        unset($form['link']['widget'][0]['uri']['#element_validate'][$key]);
+      }
+    }
+    $form['link']['widget'][0]['uri']['#element_validate'][] = [
+      'Drupal\media_file_links\Plugin\Field\FieldWidget\MediaFileLinkWidget',
+      'validateUriElement',
+    ];
+  }
 }
 
 /**

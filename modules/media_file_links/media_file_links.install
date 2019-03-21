@@ -5,6 +5,8 @@
  * Install and update functions for the deGov Media file links module.
  */
 
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\Core\Url;
 use \Symfony\Component\Yaml\Yaml;
 
 /**
@@ -56,6 +58,18 @@ function media_file_links_install() {
  * Implements hook_uninstall().
  */
 function media_file_links_uninstall() {
+  // Set existing menu items to point to the system 404 page.
+  $mediaFileMenuLinksIds = \Drupal::entityQuery('menu_link_content')
+    ->execute();
+  $mediaFileMenuLinks = MenuLinkContent::loadMultiple($mediaFileMenuLinksIds);
+  foreach ($mediaFileMenuLinks as $mediaFileMenuLink) {
+    if (preg_match('/<media:file:[\d]+>/', $mediaFileMenuLink->link->first()->uri)) {
+      $mediaFileMenuLink->link->first()->uri = 'internal:' . Url::fromRoute('system.404')->toString();
+      $mediaFileMenuLink->save();
+    }
+  }
+
+  // Remove Media file link matchers from Linkit profiles.
   $configsToUpdate = ['linkit.linkit_profile.full_text'];
 
   foreach ($configsToUpdate as $configToUpdate) {

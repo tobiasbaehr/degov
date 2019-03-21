@@ -40,6 +40,38 @@ class BlockContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I configure and place the main menu block$/
+   */
+  public function configureAndPlaceMainMenu() {
+   /** @var ConfigFactory $configFactory $configFactory */
+    $block = Block::load('main_menu');
+
+    if(!empty($block) && $block instanceof Block) {
+      $block->delete();
+    }
+
+    $block = Block::create([
+      'id' => 'main_menu',
+      'uniqueId' => '2345',
+      'theme' => 'degov_theme',
+      'weight' => 0,
+      'status' => TRUE,
+      'region' => 'navigation',
+      'plugin' => 'system_menu_block:main',
+      'settings' => [
+        'id'            => 'system_menu_block:main',
+        'label'         => 'Main menu',
+        'provider'      => 'system',
+        'label_display' => FALSE,
+        'level'         => 1,
+        'depth'         => 0,
+      ],
+      'visibility' => [],
+    ]);
+    $block->save();
+  }
+
+  /**
    * @Then /^I delete any existing blocks with comma separated ids "([^"]*)"$/
    */
   public function deleteBlocks(string $blockIds) {

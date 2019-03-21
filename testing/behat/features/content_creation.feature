@@ -184,6 +184,7 @@ Feature: deGov - Content creation
     And I enter the placeholder for a "document" media file in textarea
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
+    Then I am on "/degov-demo-content/page-text-paragraph"
     Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
 
   Scenario: I verify that I can enter Media file links using linkit
