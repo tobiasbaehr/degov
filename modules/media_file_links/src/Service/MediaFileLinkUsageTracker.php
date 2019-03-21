@@ -43,13 +43,7 @@ class MediaFileLinkUsageTracker {
     foreach ($node->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage([
-          'referencing_entity_id'       => $node->id(),
-          'referencing_entity_type'     => 'node',
-          'referencing_entity_field'    => $field->getName(),
-          'referencing_entity_langcode' => $node->get('langcode')->getString(),
-          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
-        ]);
+        $this->storeUsage($node->id(), 'node', $field->getName(), $node->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
@@ -57,14 +51,7 @@ class MediaFileLinkUsageTracker {
   private function trackMediaUsageInMenuLinkContent(MenuLinkContentInterface $menuLinkContent): void {
     $linkValue = $menuLinkContent->get('link')->getValue();
     if (!empty($linkValue[0]['uri']) && $this->placeholderHandler->isValidMediaFileLinkPlaceholder($linkValue[0]['uri'])) {
-      $this->storeUsage([
-        'referencing_entity_id'       => $menuLinkContent->id(),
-        'referencing_entity_type'     => 'menu_link_content',
-        'referencing_entity_field'    => 'link',
-        'referencing_entity_langcode' => $menuLinkContent->get('langcode')
-          ->getString(),
-        'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($linkValue[0]['uri']),
-      ]);
+      $this->storeUsage($menuLinkContent->id(), 'menu_link_content', 'link', $menuLinkContent->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($linkValue[0]['uri']));
     }
   }
 
@@ -72,13 +59,7 @@ class MediaFileLinkUsageTracker {
     foreach ($paragraph->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage([
-          'referencing_entity_id'       => $paragraph->id(),
-          'referencing_entity_type'     => 'paragraph',
-          'referencing_entity_field'    => $field->getName(),
-          'referencing_entity_langcode' => $paragraph->get('langcode')->getString(),
-          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
-        ]);
+        $this->storeUsage($paragraph->id(), 'paragraph', $field->getName(), $paragraph->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
@@ -87,21 +68,21 @@ class MediaFileLinkUsageTracker {
     foreach ($media->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage([
-          'referencing_entity_id'       => $media->id(),
-          'referencing_entity_type'     => 'media',
-          'referencing_entity_field'    => $field->getName(),
-          'referencing_entity_langcode' => $media->get('langcode')->getString(),
-          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
-        ]);
+        $this->storeUsage($media->id(), 'media', $field->getName(), $media->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
 
-  private function storeUsage(array $values): void {
+  private function storeUsage(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode, int $mediaEntityId): void {
     \Drupal::database()
       ->insert('media_file_links_usage')
-      ->fields($values)
+      ->fields([
+        'referencing_entity_id'       => $referencingEntityId,
+        'referencing_entity_type'     => $referencingEntityType,
+        'referencing_entity_field'    => $referencingEntityField,
+        'referencing_entity_langcode' => $referencingEntityLangcode,
+        'media_entity_id'             => $mediaEntityId,
+      ])
       ->execute();
   }
 
