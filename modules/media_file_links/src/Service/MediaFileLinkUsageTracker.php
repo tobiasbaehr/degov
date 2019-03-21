@@ -3,6 +3,7 @@
 namespace Drupal\media_file_links\Service;
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\media\MediaInterface;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
@@ -31,6 +32,10 @@ class MediaFileLinkUsageTracker {
 
     if ($entity instanceof ParagraphInterface) {
       $this->trackMediaUsageInParagraph($entity);
+    }
+
+    if ($entity instanceof MediaInterface) {
+      $this->trackMediaUsageInMedia($entity);
     }
   }
 
@@ -72,6 +77,21 @@ class MediaFileLinkUsageTracker {
           'referencing_entity_type'     => 'paragraph',
           'referencing_entity_field'    => $field->getName(),
           'referencing_entity_langcode' => $paragraph->get('langcode')->getString(),
+          'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
+        ]);
+      }
+    }
+  }
+
+  private function trackMediaUsageInMedia(MediaInterface $media): void {
+    foreach ($media->getFields() as $field) {
+      $fieldValue = $field->getString();
+      if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
+        $this->storeUsage([
+          'referencing_entity_id'       => $media->id(),
+          'referencing_entity_type'     => 'media',
+          'referencing_entity_field'    => $field->getName(),
+          'referencing_entity_langcode' => $media->get('langcode')->getString(),
           'media_entity_id'             => $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue),
         ]);
       }
