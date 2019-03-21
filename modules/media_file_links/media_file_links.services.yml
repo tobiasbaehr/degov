@@ -13,6 +13,10 @@ services:
 
   media_file_links.usage_tracker:
     class: Drupal\media_file_links\Service\MediaFileLinkUsageTracker
+    arguments: [ '@media_file_links.placeholder_handler' ]
+
+  media_file_links.placeholder_handler:
+    class: Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler
     arguments: [ ]
 
   media_file_links.route_subscriber:
@@ -23,4 +27,3 @@ services:
   media_file_links.autocomplete_matcher:
     class: Drupal\media_file_links\EntityAutocompleteMatcher
     arguments: ['@plugin.manager.entity_reference_selection']
-

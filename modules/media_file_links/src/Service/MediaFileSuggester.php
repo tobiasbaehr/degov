@@ -134,7 +134,7 @@ class MediaFileSuggester {
     return $preparedResults;
   }
 
-  private function getIconClassForFile(string $filename) {
+  private function getIconClassForFile(string $filename): string {
     $iconClasses = [
       'fas fa-file-alt'        => ['doc', 'docx', 'odt'],
       'fas fa-file-excel'      => ['xls', 'xlsx', 'csv', 'ods'],
@@ -145,7 +145,7 @@ class MediaFileSuggester {
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
     foreach ($iconClasses as $iconClass => $extensions) {
-      if (in_array($extension, $extensions)) {
+      if (\in_array($extension, $extensions, TRUE)) {
         return $iconClass;
       }
     }
