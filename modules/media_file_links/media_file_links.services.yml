@@ -11,6 +11,10 @@ services:
     class: Drupal\media_file_links\Service\MediaFileSuggester
     arguments: [ '@media_file_links.file_field_mapper', '@media_file_links.file_link_resolver' ]
 
+  media_file_links.usage_tracker:
+    class: Drupal\media_file_links\Service\MediaFileLinkUsageTracker
+    arguments: [ ]
+
   media_file_links.route_subscriber:
     class: Drupal\media_file_links\Routing\AutocompleteRouteSubscriber
     tags:
@@ -19,3 +23,4 @@ services:
   media_file_links.autocomplete_matcher:
     class: Drupal\media_file_links\EntityAutocompleteMatcher
     arguments: ['@plugin.manager.entity_reference_selection']
+
