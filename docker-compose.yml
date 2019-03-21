@@ -8,6 +8,8 @@ services:
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
+    volumes_from:
+      - app:ro
     ports:
       - "4444:4444"
     networks:
