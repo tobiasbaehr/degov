@@ -74,6 +74,8 @@ class MediaFileLinkUsageTracker {
   }
 
   private function storeUsage(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode, int $mediaEntityId): void {
+    $this->deletePriorUsages($referencingEntityId, $referencingEntityType, $referencingEntityField, $referencingEntityLangcode);
+
     \Drupal::database()
       ->insert('media_file_links_usage')
       ->fields([
@@ -83,6 +85,16 @@ class MediaFileLinkUsageTracker {
         'referencing_entity_langcode' => $referencingEntityLangcode,
         'media_entity_id'             => $mediaEntityId,
       ])
+      ->execute();
+  }
+
+  private function deletePriorUsages(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode): void {
+    \Drupal::database()
+      ->delete('media_file_links_usage')
+      ->condition('referencing_entity_id', $referencingEntityId)
+      ->condition('referencing_entity_type', $referencingEntityType)
+      ->condition('referencing_entity_field', $referencingEntityField)
+      ->condition('referencing_entity_langcode', $referencingEntityLangcode)
       ->execute();
   }
 
