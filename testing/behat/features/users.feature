@@ -31,7 +31,6 @@ Feature: deGov - Users
     Then I should be on "/admin/people/create"
     And I should see 1 ".messages--status" element
 
-  @fail
   Scenario: I prove that only editors, managers, and admins may access the media library
     Given I have dismissed the cookie banner if necessary
     Then I am on "/admin/content/media"

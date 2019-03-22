@@ -91,15 +91,3 @@ function degov_media_audio_media_presave(Drupal\Core\Entity\EntityInterface $ent
     }
   }
 }
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_media_audio_locale_translation_projects_alter(&$projects) {
-  $projects['degov_media_audio'] = [
-    'info' => [
-      'interface translation project' => 'degov_media_audio',
-      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('degov_media_audio') . '/translations/%language.po',
-    ],
-  ];
-}
