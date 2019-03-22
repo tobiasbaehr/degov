@@ -66,44 +66,45 @@
  */
 #}
 {% set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    'col-sm-12',
-    'col-md-6',
-    'col-lg-3',
-    'mb-4'
+  node.bundle|clean_class,
+  node.isPromoted() ? 'is-promoted',
+  node.isSticky() ? 'is-sticky',
+  not node.isPublished() ? 'is-unpublished',
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'col-sm-12',
+  'col-md-6',
+  'col-lg-3',
+  'mb-4'
 ] %}
 <article{{ attributes.addClass(classes) }}>
-    {{ title_suffix }}
+  {{ title_suffix }}
 
-    {% if content.field_teaser_image %}
-        <a class="img-top" href="{{ url }}" rel="bookmark">
-            <div class="press__teaser-image teaser-image">
-                {{ content.field_teaser_image|field_value }}
-            </div>
-        </a>
+  {% if content.field_teaser_image %}
+    <a class="img-top" href="{{ url }}" rel="bookmark">
+      <div class="press__teaser-image teaser-image">
+        {{ content.field_teaser_image|field_value }}
+      </div>
+    </a>
+  {% endif %}
+
+  <div class="press-page__teaser-content teaser-content p-3">
+    {% if content.field_teaser_title %}
+      <a href="{{ url }}" rel="bookmark">
+        <div class="press__teaser-title teaser-title">
+          <h3 class="text-align-center" {{ content.field_teaser_title|quickedit_attr }}>
+            {{ content.field_teaser_title|field_value }}
+          </h3>
+        </div>
+      </a>
     {% endif %}
 
-    <div class="press-page__teaser-content teaser-content p-3">
-        {% if content.field_teaser_title %}
-            <a href="{{ url }}" rel="bookmark">
-                <div class="press__teaser-title teaser-title">
-                    <h3 class="text-align-center" {{ content.field_teaser_title|quickedit_attr }}>
-                        {{ content.field_teaser_title|field_value }}
-                    </h3>
-                </div>
-            </a>
-        {% endif %}
+  </div>
 
-    </div>
-
-    <a href="{{ url }}" rel="bookmark">
-        <div class="learn-more bg-blue text-align-center p-2">learn more <i class="fas fa-arrow-right"
-                                                                            aria-hidden="true"></i></div>
-    </a>
+  <a href="{{ url }}" rel="bookmark">
+    <div class="learn-more bg-blue text-align-center p-2">learn more <i
+          class="fas fa-arrow-right"
+          aria-hidden="true"></i></div>
+  </a>
 
 </article>

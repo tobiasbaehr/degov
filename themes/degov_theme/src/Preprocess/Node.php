@@ -17,7 +17,7 @@ class Node {
    *
    * @param array $variables
    */
-  static public function preprocess(array &$variables) {
+  static public function preprocess(array &$variables): void {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $variables['node'];
     // Add created time to the search teaser template.
@@ -31,10 +31,14 @@ class Node {
     // image we need in our teaser. Set it here.
     if ($node->bundle() === 'event') {
       $responsive_image_style_id = '';
-      if (in_array($variables['view_mode'], ['long_text', 'preview',])) {
+      if (in_array($variables['view_mode'], [
+        'long_text',
+        'preview',
+        'small_image',
+      ])) {
         $responsive_image_style_id = 'teaser_squared';
       }
-      elseif (in_array($variables['view_mode'], ['small_image', 'slim',])) {
+      elseif ($variables['view_mode']  === 'slim') {
         $responsive_image_style_id = 'teaser_landscape';
       }
       if ($medias = $node->get('field_teaser_image')->referencedEntities()) {
