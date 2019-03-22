@@ -5,7 +5,6 @@ Feature: deGov - Webforms
     Given I proof that the following Drupal modules are installed:
       | webform |
 
-    @fail
   Scenario: Verify that no Webform warnings are shown on the status page
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
