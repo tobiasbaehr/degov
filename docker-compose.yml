@@ -12,9 +12,6 @@ services:
       - app:ro
     ports:
       - "4444:4444"
-    networks:
-      backend:
-        ipv4_address: 172.16.31.3
   app:
     image: "derh4nnes/pipeline-behat:feature_php-7.2"
     container_name: "app"
@@ -29,9 +26,6 @@ services:
     command: $BITBUCKET_CLONE_DIR/scripts/pipeline.sh
     volumes:
       - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
-    networks:
-      backend:
-        ipv4_address: 172.16.31.2
   mysql:
     image: mechtecs/docker_big_mysql
     container_name: "mysql"
@@ -40,12 +34,6 @@ services:
       MYSQL_DATABASE: testing
     ports:
       - "3306:3306"
-    networks:
-      backend:
-        ipv4_address: 172.16.31.4
 networks:
-  backend:
-    ipam:
-      config:
-      -
-        subnet: 172.16.31.0/24
+  default:
+    driver: bridge

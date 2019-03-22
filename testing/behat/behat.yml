@@ -53,10 +53,10 @@ default:
       default_session: selenium2
       goutte: ~
       selenium2:
-        wd_host: "http://172.16.31.3:4444/wd/hub"
+        wd_host: "http://testing:4444/wd/hub"
         browser: "chrome"
         capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--headless","--disable-gpu"] } }
-      base_url: http://172.16.31.2:80
+      base_url: http://app:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:
