@@ -595,7 +595,7 @@ class DrupalContext extends RawDrupalContext {
    */
   public function assertPageNotMatchesTextUppercase(string $text)
   {
-    $this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+    $this->assertSession()->pageTextNotMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
   }
 
 	/**
