@@ -510,11 +510,37 @@ class DrupalContext extends RawDrupalContext {
    */
   public function assertSelectorContainsText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
-    if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
-      return TRUE;
+    if (!empty($resultset)) {
+      foreach ($resultset as $resultrow) {
+        if (is_numeric(strpos($resultrow->getText(), $text))) {
+          return TRUE;
+        }
+      }
     }
     throw new ResponseTextException(
       sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
+      $this->getSession()
+    );
+  }
+
+  /**
+   * @Then /^I should see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
+   *
+   * Example:
+   *  I should see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   */
+  public function assertSelectorContainsTranslatedText($text, $selectorType, $selector) {
+    $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
+    $translatedText = $this->translateString($text);
+    if (!empty($resultset)) {
+      foreach ($resultset as $resultrow) {
+        if (is_numeric(stripos($resultrow->getText(), $translatedText))) {
+          return TRUE;
+        }
+      }
+    }
+    throw new ResponseTextException(
+      sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
       $this->getSession()
     );
   }
