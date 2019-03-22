@@ -510,12 +510,8 @@ class DrupalContext extends RawDrupalContext {
    */
   public function assertSelectorContainsText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
-    if (!empty($resultset)) {
-      foreach($resultset as $resultRow) {
-        if (is_numeric(strpos($resultRow->getText(), $text))) {
-          return TRUE;
-        }
-      }
+    if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
+      return TRUE;
     }
     throw new ResponseTextException(
       sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
@@ -524,17 +520,17 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I should see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
+   * @Then /^I should not see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
    *
    * Example:
-   *  I should see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   *  I should not see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
    */
-  public function assertSelectorContainsTranslatedText($text, $selectorType, $selector) {
+  public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     $translatedText = $this->translateString($text);
     if (!empty($resultset)) {
       foreach($resultset as $resultRow) {
-        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
+        if (is_numeric(!stripos($resultRow->getText(), $translatedText))) {
           return TRUE;
         }
       }
@@ -593,6 +589,14 @@ class DrupalContext extends RawDrupalContext {
 	{
 		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
 	}
+
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in uppercase$/
+   */
+  public function assertPageNotMatchesTextUppercase(string $text)
+  {
+    $this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+  }
 
 	/**
 	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/
