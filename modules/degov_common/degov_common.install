@@ -32,10 +32,13 @@ function degov_common_install() {
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
 
   // Disable Webform CDN and SPAM protection warnings in the status overview page.
-  \Drupal::configFactory()->getEditable('webform.settings')
-    ->set('requirements.cdn', false)
-    ->set('requirements.spam', false)
-    ->save(TRUE);
+  if (\Drupal::moduleHandler()->moduleExists('webform')) {
+    \Drupal::configFactory()->getEditable('webform.settings')
+      ->set('requirements.cdn', FALSE)
+      ->set('requirements.bootstrap', FALSE)
+      ->set('requirements.spam', FALSE)
+      ->save(TRUE);
+  }
 }
 
 /**
@@ -232,10 +235,13 @@ function degov_common_update_861000() {
  * Disable Webform CDN and SPAM protection warnings in the status overview page.
  */
 function degov_common_update_862000() {
-  \Drupal::configFactory()->getEditable('webform.settings')
-    ->set('requirements.cdn', false)
-    ->set('requirements.spam', false)
-    ->save(TRUE);
+  if (\Drupal::moduleHandler()->moduleExists('webform')) {
+    \Drupal::configFactory()->getEditable('webform.settings')
+      ->set('requirements.cdn', FALSE)
+      ->set('requirements.bootstrap', FALSE)
+      ->set('requirements.spam', FALSE)
+      ->save(TRUE);
+  }
 }
 
 /**
