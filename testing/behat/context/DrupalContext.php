@@ -511,8 +511,8 @@ class DrupalContext extends RawDrupalContext {
   public function assertSelectorContainsText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     if (!empty($resultset)) {
-      foreach ($resultset as $resultrow) {
-        if (is_numeric(strpos($resultrow->getText(), $text))) {
+      foreach($resultset as $resultRow) {
+        if (is_numeric(strpos($resultRow->getText(), $text))) {
           return TRUE;
         }
       }
@@ -533,8 +533,8 @@ class DrupalContext extends RawDrupalContext {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     $translatedText = $this->translateString($text);
     if (!empty($resultset)) {
-      foreach ($resultset as $resultrow) {
-        if (is_numeric(stripos($resultrow->getText(), $translatedText))) {
+      foreach($resultset as $resultRow) {
+        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
           return TRUE;
         }
       }
