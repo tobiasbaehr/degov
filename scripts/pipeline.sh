@@ -10,6 +10,7 @@ echo $BITBUCKET_PARALLEL_STEP
 echo $PHPVERSION
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
+echo $(pwd)
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
