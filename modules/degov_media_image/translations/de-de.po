@@ -1,2 +1,0 @@
-msgid "Upload images"
-msgstr "Bilder Hochladen"

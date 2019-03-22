@@ -115,15 +115,3 @@ function degov_media_video_upload_media_presave(Drupal\Core\Entity\EntityInterfa
     }
   }
 }
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_media_video_upload_locale_translation_projects_alter(&$projects) {
-  $projects['degov_media_video_upload'] = [
-    'info' => [
-      'interface translation project' => 'degov_media_video_upload',
-      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('degov_media_video_upload') . '/translations/%language.po',
-    ],
-  ];
-}

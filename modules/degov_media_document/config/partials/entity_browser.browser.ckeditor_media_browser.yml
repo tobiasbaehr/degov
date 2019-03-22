@@ -9,5 +9,5 @@
     submit_text: 'Select entities'
   uuid: 88a662a5-10c0-4229-b807-07b76e36b771
   weight: -8
-  label: 'Upload documents'
+  label: 'Dokumente Hochladen'
   id: dropzonejs_media_entity_inline_entity_form

@@ -1,2 +1,0 @@
-msgid "Upload video"
-msgstr "Video Hochladen"

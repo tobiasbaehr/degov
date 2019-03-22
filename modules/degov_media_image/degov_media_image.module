@@ -144,15 +144,3 @@ function degov_media_image_media_view(array &$build, EntityInterface $entity, En
     }
   }
 }
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_media_image_locale_translation_projects_alter(&$projects) {
-  $projects['degov_media_image'] = [
-    'info' => [
-      'interface translation project' => 'degov_media_image',
-      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('degov_media_image') . '/translations/%language.po',
-    ],
-  ];
-}

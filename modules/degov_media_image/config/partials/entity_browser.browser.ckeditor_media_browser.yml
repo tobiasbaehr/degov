@@ -9,5 +9,5 @@ cf5d9a31-e053-413a-8666-a2c3fedbc4a0:
     submit_text: 'Select entities'
   uuid: cf5d9a31-e053-413a-8666-a2c3fedbc4a0
   weight: -9
-  label: 'Upload images'
+  label: 'Bilder hochladen'
   id: dropzonejs_media_entity_inline_entity_form

@@ -9,5 +9,5 @@ d6d67ff3-ab4f-482c-bf0f-aa21ef912d26:
     submit_text: 'Select entities'
   uuid: d6d67ff3-ab4f-482c-bf0f-aa21ef912d26
   weight: -7
-  label: 'Upload video'
+  label: 'Video Hochladen'
   id: dropzonejs_media_entity_inline_entity_form

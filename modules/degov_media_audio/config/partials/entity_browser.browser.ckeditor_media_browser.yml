@@ -9,5 +9,5 @@
     submit_text: 'Select entities'
   uuid: 0858526f-05e0-4b00-b8db-e9283a437a1c
   weight: -7
-  label: 'Upload audio'
+  label: 'Audio hochladen'
   id: dropzonejs_media_entity_inline_entity_form
