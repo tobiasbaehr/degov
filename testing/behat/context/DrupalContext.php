@@ -528,15 +528,20 @@ class DrupalContext extends RawDrupalContext {
   public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     $translatedText = $this->translateString($text);
+    $isFound = FALSE;
     if (!empty($resultset)) {
       foreach($resultset as $resultRow) {
-        if (is_numeric(!stripos($resultRow->getText(), $translatedText))) {
-          return TRUE;
+        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
+          $isFound = TRUE;
+          break;
         }
       }
     }
+    if (!$isFound) {
+      return TRUE;
+    }
     throw new ResponseTextException(
-      sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
+      sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
       $this->getSession()
     );
   }
