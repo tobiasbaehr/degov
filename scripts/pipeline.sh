@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-$PHPVERSION=7.2
+PHPVERSION=7.2
 
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
