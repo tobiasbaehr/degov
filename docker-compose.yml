@@ -8,13 +8,9 @@ services:
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
       BITBUCKET_PARALLEL_STEP: "$BITBUCKET_PARALLEL_STEP"
       BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
-    ports:
-      - "4444:4444"
   app:
     image: "derh4nnes/pipeline-behat:feature_php-7.2"
     container_name: "app"
-    ports:
-      - "80:80"
     environment:
       BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
       BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
@@ -30,8 +26,3 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: testing
       MYSQL_DATABASE: testing
-    ports:
-      - "3306:3306"
-networks:
-  default:
-    driver: bridge

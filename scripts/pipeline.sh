@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 set -e
-if [ -z "$BITBUCKET_PARALLEL_STEP" ];
-then
-    PHPVERSION=7.1
-else
-    PHPVERSION=7.2
-fi
-echo $BITBUCKET_PARALLEL_STEP
-echo $PHPVERSION
+
+$PHPVERSION=7.2
+
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
 composer create-project degov/degov-project --no-install
@@ -41,10 +36,16 @@ echo "### Installing drupal with Behat"
 behat --suite=no-drupal --strict
 mkdir /app || true
 bin/drush sql-dump --gzip --result-file=/app/dump.sql
+
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
+
 echo "### Running Behat tests"
 behat --suite=default --strict
+
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
 behat --suite=smoke-tests --strict
+
+# echo "### Running Behat upload tests"
+# behat --suite=tests-with-file-upload --strict
