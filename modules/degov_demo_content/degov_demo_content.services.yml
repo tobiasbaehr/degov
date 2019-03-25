@@ -1,7 +1,7 @@
 services:
   degov_demo_content.content_generator:
     class: Drupal\degov_demo_content\Generator\ContentGenerator
-    arguments: [ '@module_handler', '@entity_type.manager']
+    arguments: [ '@module_handler', '@entity_type.manager', '@degov_demo_content.media_bundle']
   degov_demo_content.node_generator:
     class: Drupal\degov_demo_content\Generator\NodeGenerator
     parent: degov_demo_content.content_generator
@@ -9,8 +9,11 @@ services:
   degov_demo_content.media_generator:
     class: Drupal\degov_demo_content\Generator\MediaGenerator
     parent: degov_demo_content.content_generator
-    arguments: [ '@geofield.wkt_generator' ]
+    arguments: [ '@geofield.wkt_generator']
   degov_demo_content.menu_item_generator:
     class: Drupal\degov_demo_content\Generator\MenuItemGenerator
     parent: degov_demo_content.content_generator
     arguments: ['@database']
+  degov_demo_content.media_bundle:
+    class: Drupal\degov_demo_content\MediaBundle
+    arguments: ['@entity_field.manager']

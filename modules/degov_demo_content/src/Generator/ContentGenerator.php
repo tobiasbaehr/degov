@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\MediaBundle;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
 
@@ -52,14 +53,14 @@ class ContentGenerator {
   private const BLINDTEXT = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
 
   /**
-   * Constructs a new ContentGenerator instance.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @var \Drupal\degov_demo_content\MediaBundle
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager) {
+  protected $mediaBundle;
+
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle) {
     $this->moduleHandler = $moduleHandler;
     $this->entityTypeManager = $entityTypeManager;
+    $this->mediaBundle = $mediaBundle;
   }
 
   /**
@@ -194,8 +195,16 @@ class ContentGenerator {
    */
   protected function getMedias(string $bundle): array {
     $mediaIds = \Drupal::entityQuery('media')
-      ->condition('bundle', $bundle)
-      ->condition('field_tags', $this->getDemoContentTagId())->execute();
+      ->condition('bundle', $bundle);
+
+    if ($this->mediaBundle->bundleHasField('field_tags', $bundle)) {
+      $mediaIds->condition('field_tags', $this->getDemoContentTagId());
+    }
+
+    if (\count($mediaIds = $mediaIds->execute()) === '0') {
+      throw new \Exception('Could not retrieve any media ids.');
+    }
+
     return $mediaIds;
   }
 
@@ -205,6 +214,11 @@ class ContentGenerator {
    * @return \Drupal\media\Entity\Media
    */
   protected function getMedia(string $bundle): Media {
+//    if ($bundle == 'facts') {
+//      xdebug_break();
+//    }
+
+
     $medias = $this->getMedias($bundle);
     $this->counter++;
     $index = $this->counter % \count($medias);

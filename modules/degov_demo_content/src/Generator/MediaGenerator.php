@@ -2,12 +2,13 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
+use Drupal\Core\Entity\EntityFieldManager;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\MediaBundle;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
-use Drupal\search_api\Plugin\search_api\datasource\ContentEntity;
 
 /**
  * Class MediaGenerator.
@@ -46,18 +47,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    */
   protected $wktGenerator;
 
-  /**
-   * Constructs a new ContentGenerator instance.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   The ModuleHandler.
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
-   *   The EntityTypeManager.
-   * @param \Drupal\geofield\WktGenerator $wktGenerator
-   *   The Geofield WktGenerator.
-   */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator) {
-    parent::__construct($moduleHandler, $entityTypeManager);
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, WktGenerator $wktGenerator) {
+    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle);
     $this->wktGenerator = $wktGenerator;
   }
 
@@ -166,18 +157,16 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
-      $fields['field_tags'] = [
-        ['target_id' => $this->getDemoContentTagId()],
-      ];
+
+      if ($this->mediaBundle->bundleHasField('field_tags', $media_item['bundle'])) {
+        $fields['field_tags'] = [
+          ['target_id' => $this->getDemoContentTagId()],
+        ];
+      }
 
       if(empty($this->savedEntities[$media_item_key])) {
         $new_media = Media::create($fields);
         $new_media->save();
-//        $indexes = ContentEntity::getIndexesForEntity($new_media);
-//        foreach($indexes as $index) {
-//          $index->trackItemsInserted('entity:media', [$new_media->id() . ':' . $new_media->language()->getId()]);
-//          $index->indexItems();
-//        }
         $this->savedEntities[$media_item_key] = $new_media;
       } else {
         foreach($fields as $field => $value) {

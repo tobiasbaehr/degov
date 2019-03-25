@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\MediaBundle;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
@@ -20,18 +21,8 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    */
   private $database;
 
-  /**
-   * MenuItemGenerator constructor.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   The module handler.
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
-   *   The entity type manager.
-   * @param \Drupal\Core\Database\Connection $database
-   *   The database connection.
-   */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, Connection $database) {
-    parent::__construct($moduleHandler, $entityTypeManager);
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, Connection $database) {
+    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle);
 
     $this->database = $database;
     $this->entityType = 'menu_link_content';

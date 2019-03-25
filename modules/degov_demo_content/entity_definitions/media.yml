@@ -141,3 +141,11 @@ video_1:
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
+facts_1:
+  bundle: 'facts'
+  name: '{{SUBTITLE}}'
+  field_facts_image: '{{MEDIA_ID_IMAGE}}'
+  field_facts_fact: '{{SUBTITLE}}'
+  field_facts_text: '{{TEXT}}'
+  field_title: '{{SUBTITLE}}'
+  status: 1
