@@ -86,7 +86,7 @@ Feature: deGov - Media creation
     And I am on "/node/add/faq"
     And I click by CSS class "cke_button__media_browser"
     Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I switch to the "entity_browser_iframe_ckeditor_media_browser" frame
     And I click "Hochladen"
     Then I should see HTML content matching "Datei" after a while
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
@@ -110,6 +110,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
+    And I click by CSS id "edit-field-gallery-images-entity-browser-entity-browser-open-modal"
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"

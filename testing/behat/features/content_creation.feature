@@ -86,6 +86,7 @@ Feature: deGov - Content creation
     And I should see "Bereich"
 
   Scenario: I see all form fields in newsletter content type
+    Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/simplenews_issue"
     And I should see "Titel"
