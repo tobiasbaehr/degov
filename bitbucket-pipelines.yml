@@ -39,6 +39,7 @@ pipelines:
           - docker
     - step:
         name: Push to drupal.org
+        image: alpine/git
         script:
           - git remote add drupal git@git.drupal.org:project/degov.git
           - git config --global push.default matching
@@ -59,6 +60,7 @@ pipelines:
             - docker
       - step:
           name: Push dev to drupal.org
+          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
@@ -71,6 +73,7 @@ pipelines:
     '*':
       - step:
           name: Pushing tags to drupal.org
+          image: alpine/git
           script:
             - git remote add drupal git@git.drupal.org:project/degov.git
             - git config --global push.default matching
