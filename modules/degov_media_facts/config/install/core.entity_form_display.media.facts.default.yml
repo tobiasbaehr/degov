@@ -8,12 +8,15 @@ dependencies:
     - field.field.media.facts.field_facts_text
     - field.field.media.facts.field_media_generic_4
     - field.field.media.facts.field_media_in_library
+    - field.field.media.facts.field_tags
     - field.field.media.facts.field_title
+    - field.field.media.facts.field_topic
     - media.type.facts
   enforced:
     module:
       - degov_media_facts
   module:
+    - content_moderation
     - entity_browser
     - field_group
     - path
@@ -35,6 +38,7 @@ third_party_settings:
       region: content
     group_common:
       children:
+        - field_topic
         - langcode
         - field_media_in_library
       parent_name: group_vertical
@@ -89,6 +93,7 @@ content:
       field_widget_display_settings:
         view_mode: thumbnail
       open: true
+      field_widget_replace: false
     region: content
     third_party_settings: {  }
   field_facts_text:
@@ -114,12 +119,27 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_topic:
+    weight: 24
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 25
     region: content
     settings:
       include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 5
+    settings: {  }
+    region: content
     third_party_settings: {  }
   name:
     type: string_textfield
@@ -131,7 +151,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -139,10 +159,11 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 100
+    weight: 4
     region: content
     third_party_settings: {  }
 hidden:
   created: true
   field_media_generic_4: true
+  field_tags: true
   uid: true

@@ -194,12 +194,13 @@ class ContentGenerator {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function getMedias(string $bundle): array {
-    $mediaIds = \Drupal::entityQuery('media')
-      ->condition('bundle', $bundle);
-
-    if ($this->mediaBundle->bundleHasField('field_tags', $bundle)) {
-      $mediaIds->condition('field_tags', $this->getDemoContentTagId());
+    if (!$this->mediaBundle->bundleHasField('field_tags', $bundle)) {
+      throw new \Exception('Found media without field_tags. Media needs this field, otherwise demo content cannot be reset.');
     }
+
+    $mediaIds = \Drupal::entityQuery('media')
+      ->condition('bundle', $bundle)
+      ->condition('field_tags', $this->getDemoContentTagId();
 
     if (\count($mediaIds = $mediaIds->execute()) === '0') {
       throw new \Exception('Could not retrieve any media ids.');
