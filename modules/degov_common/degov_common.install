@@ -204,13 +204,12 @@ function degov_common_update_8032() {
 /**
  * Replace the CKEditor entity browser settings with the default media browser.
  */
-function degov_common_update_861000() {
+function degov_common_update_862000() {
   $mediaBrowserConfig = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
   $mediaBrowserCkeditorConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   if (!$mediaBrowserCkeditorConfig->isNew()) {
     // Override individual settings for the CKEditor entity browser.
-    unset($mediaBrowserConfig['_core']);
-    unset($mediaBrowserConfig['langcode']);
+    unset($mediaBrowserConfig['langcode'], $mediaBrowserConfig['_core']);
     $mediaBrowserCkeditorConfig->setData($mediaBrowserConfig);
     $mediaBrowserCkeditorConfig->set('name', 'ckeditor_media_browser');
     $mediaBrowserCkeditorConfig->set('label', 'CKEditor Media Browser');
