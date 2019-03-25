@@ -19,8 +19,9 @@ services:
     volumes:
       - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
   mysql:
-    image: mechtecs/docker_big_mysql
+    image: mysql:5.7
     container_name: "mysql"
     environment:
       MYSQL_ROOT_PASSWORD: testing
       MYSQL_DATABASE: testing
+    command: " --max_allowed_packet=1024M"
