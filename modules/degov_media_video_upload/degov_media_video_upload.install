@@ -119,3 +119,16 @@ function degov_media_video_upload_update_8017() {
     }
   }
 }
+
+/**
+ * Remove not working video upload widget in entity browser.
+ */
+function degov_media_video_upload_update_862000() {
+  $config = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
+  if (!$config->isNew()) {
+    $widgets = $config->get('widgets');
+    unset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26']);
+    $config->set('widgets', $widgets);
+    $config->save(TRUE);
+  }
+}
