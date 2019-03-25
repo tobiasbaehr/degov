@@ -200,7 +200,7 @@ class ContentGenerator {
 
     $mediaIds = \Drupal::entityQuery('media')
       ->condition('bundle', $bundle)
-      ->condition('field_tags', $this->getDemoContentTagId();
+      ->condition('field_tags', $this->getDemoContentTagId());
 
     if (\count($mediaIds = $mediaIds->execute()) === '0') {
       throw new \Exception('Could not retrieve any media ids.');
@@ -209,21 +209,12 @@ class ContentGenerator {
     return $mediaIds;
   }
 
-  /**
-   * @param string $bundle
-   *
-   * @return \Drupal\media\Entity\Media
-   */
   protected function getMedia(string $bundle): Media {
-//    if ($bundle == 'facts') {
-//      xdebug_break();
-//    }
-
-
     $medias = $this->getMedias($bundle);
     $this->counter++;
     $index = $this->counter % \count($medias);
     $keys = array_keys($medias);
+
     return Media::load($medias[$keys[$index]]);
   }
 
