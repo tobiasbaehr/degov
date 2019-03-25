@@ -18,9 +18,7 @@ Feature: deGov Social Media Sharing
     Then I check checkbox with id "edit-field-social-media-value"
     And I click by CSS id "edit-submit"
     Then I should see HTML content matching "alert-status" after a while
-    And I should see 3 "li.shariff-button" elements via JavaScript
-    And I wait 1 seconds
-    And I should see 3 "div.sharing-overlay" elements via JavaScript
+    And I should see 2 "li.shariff-button" elements via JavaScript
 
   Scenario: I check that I can disable 2-click-sharing
     Given I have dismissed the cookie banner if necessary
@@ -34,9 +32,7 @@ Feature: deGov Social Media Sharing
     Then I check checkbox with id "edit-field-social-media-value"
     And I click by CSS id "edit-submit"
     Then I should see HTML content matching "alert-status" after a while
-    And I should see 3 "li.shariff-button" elements via JavaScript
-    And I wait 1 seconds
-    And I should see 0 "div.sharing-overlay" elements via JavaScript
+    And I should see 2 "li.shariff-button" elements via JavaScript
 
   Scenario: I see no error on updates page for degov_tweets
     Given I am logged in as a user with the "administrator" role
