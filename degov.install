@@ -252,6 +252,15 @@ function degov_update_860100() {
   }
 }
 
+/**
+ * Install the filter_disallow module.
+ */
+function degov_update_999999() {
+  if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
+    \Drupal::service('module_installer')->install(['filter_disallow']);
+  }
+}
+
 function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
     'degov' => 8501,

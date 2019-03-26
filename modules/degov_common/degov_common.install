@@ -224,6 +224,26 @@ function degov_common_update_862000() {
 }
 
 /**
+ * Replace the CKEditor entity browser settings with the default media browser.
+ */
+function degov_common_update_862001() {
+  $mediaBrowserConfig = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
+  $mediaBrowserCkeditorConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$mediaBrowserCkeditorConfig->isNew()) {
+    // Override individual settings for the CKEditor entity browser.
+    unset($mediaBrowserConfig['langcode'], $mediaBrowserConfig['_core']);
+    $mediaBrowserCkeditorConfig->setData($mediaBrowserConfig);
+    $mediaBrowserCkeditorConfig->set('name', 'ckeditor_media_browser');
+    $mediaBrowserCkeditorConfig->set('label', 'CKEditor Media Browser');
+    $mediaBrowserCkeditorConfig->set('display', 'iframe');
+    $mediaBrowserCkeditorConfig->set('display_configuration.auto_open', true);
+    $mediaBrowserCkeditorConfig->set('display_configuration.width', '100%')->save();
+    $mediaBrowserCkeditorConfig->set('display_configuration.height', '640')->save();
+    $mediaBrowserCkeditorConfig->save(TRUE);
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  *
  * @return array

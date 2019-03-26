@@ -2,12 +2,15 @@
 Feature: deGov - Content creation
 
   Background:
+    Given I am installing the following Drupal modules:
+      | degov_demo_content          |
     Given I proof that the following Drupal modules are installed:
       | degov_node_press            |
       | degov_node_event            |
       | degov_node_blog             |
       | degov_node_normal_page      |
       | degov_simplenews_references |
+      | filter_disallow             |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
@@ -83,6 +86,7 @@ Feature: deGov - Content creation
     And I should see "Bereich"
 
   Scenario: I see all form fields in newsletter content type
+    Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/simplenews_issue"
     And I should see "Titel"
@@ -170,3 +174,18 @@ Feature: deGov - Content creation
       | Teaser langer Text     | long_text   |
       | Teaser schmal          | slim        |
       | Teaser Preview         | preview     |
+
+  Scenario: I verify that script tags are removed from output
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with text paragraph"
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 2 seconds
+    And I click by CSS id "field-content-paragraphs-text-add-more"
+    Then I should see text matching "Text format" via translated text after a while
+    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<script>document.write(\'scripttest1234\');</script>" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    And I should not see text matching "scripttest1234"
