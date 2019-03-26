@@ -257,4 +257,4 @@ Feature: deGov - Media creation
   Scenario: I proof that media browser does not provide video upload
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/config/content/entity_browser/media_browser/widgets"
-    And I should not see HTML content matching "mp4"
+    And I should not see HTML content matching "d6d67ff3-ab4f-482c-bf0f-aa21ef912d26"
