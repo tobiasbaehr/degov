@@ -5,7 +5,6 @@ dependencies:
     - field.field.media.facts.field_facts_fact
     - field.field.media.facts.field_facts_image
     - field.field.media.facts.field_facts_text
-    - field.field.media.facts.field_media_generic_4
     - field.field.media.facts.field_media_in_library
     - field.field.media.facts.field_tags
     - field.field.media.facts.field_title

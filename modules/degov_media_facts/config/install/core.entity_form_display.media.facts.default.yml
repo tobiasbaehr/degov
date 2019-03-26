@@ -21,6 +21,7 @@ dependencies:
     - field_group
     - path
     - text
+    - degov_taxonomies
 third_party_settings:
   field_group:
     group_vertical:
