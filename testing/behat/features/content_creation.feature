@@ -200,3 +200,11 @@ Feature: deGov - Content creation
     Then I should see HTML content matching "linkit-result" after a while
     And I click by selector ".linkit-result" via JavaScript
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media:file:[\d]+\]"
+
+  Scenario: I verify that trying to delete a referenced Media item will cause warning messages
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "clita kasd gubergren no sea"
+    And I scroll to bottom
+    And I click by selector "#edit-delete" via JavaScript
+    Then I should see HTML content matching "messages--warning" after a while
