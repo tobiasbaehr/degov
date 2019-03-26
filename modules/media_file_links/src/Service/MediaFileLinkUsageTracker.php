@@ -27,7 +27,7 @@ class MediaFileLinkUsageTracker {
   }
 
   public function trackMediaUsage(EntityInterface $entity): void {
-    $this->deletePriorUsages($entity->id());
+    $this->deletePriorUsages((int)$entity->id());
 
     if ($entity instanceof NodeInterface) {
       $this->trackMediaUsageInNode($entity);
@@ -104,7 +104,7 @@ class MediaFileLinkUsageTracker {
       ->execute();
   }
 
-  public function getUsagesByMediaIds(array $mediaIds): array {
+  public function getUsagesByMediaIds(array $mediaIds, bool $loadFullEntities = TRUE): array {
     $queryResultsStatement = \Drupal::database()
       ->select('media_file_links_usage', 'mflu')
       ->fields('mflu')
@@ -115,7 +115,6 @@ class MediaFileLinkUsageTracker {
 
     if (!empty($usages)) {
       foreach ($usages as $usageKey => &$usage) {
-        $usage['media_entity'] = Media::load($usage['media_entity_id']);
 
         $referencingEntity = NULL;
         switch ($usage['referencing_entity_type']) {
@@ -132,10 +131,14 @@ class MediaFileLinkUsageTracker {
             $referencingEntity = MenuLinkContent::load($usage['referencing_entity_id']);
             break;
         }
-        $usage['referencing_entity'] = $referencingEntity;
-        $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])
-          ->getFieldDefinition()
-          ->getLabel();
+
+        if($loadFullEntities) {
+          $usage['media_entity'] = Media::load($usage['media_entity_id']);
+          $usage['referencing_entity'] = $referencingEntity;
+          $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])
+            ->getFieldDefinition()
+            ->getLabel();
+        }
       }
     }
 

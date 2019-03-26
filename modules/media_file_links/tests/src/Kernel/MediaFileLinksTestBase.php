@@ -7,6 +7,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\media\Entity\Media;
 use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
+use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
  * Class SuggestionsTest.
@@ -16,6 +17,7 @@ use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
 class MediaFileLinksTestBase extends KernelTestBase {
 
   use MediaTypeCreationTrait;
+  use NodeCreationTrait;
 
   public static $modules = [
     'media_file_links',
@@ -24,8 +26,11 @@ class MediaFileLinksTestBase extends KernelTestBase {
     'image',
     'media',
     'media_test_source',
+    'menu_link_content',
     'system',
     'user',
+    'node',
+    'filter',
   ];
 
   protected $supportedMediaId;
@@ -41,10 +46,16 @@ class MediaFileLinksTestBase extends KernelTestBase {
     parent::setUp();
 
     $this->installSchema('file', ['file_usage']);
+    $this->installSchema('media_file_links', ['media_file_links_usage']);
+    $this->installSchema('node', ['node_access']);
+
+    $this->installConfig(['filter']);
 
     $this->installEntitySchema('file');
     $this->installEntitySchema('user');
     $this->installEntitySchema('media');
+    $this->installEntitySchema('menu_link_content');
+    $this->installEntitySchema('node');
 
     // Save a document file.
     $pdfFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FILE_EXISTS_REPLACE);
