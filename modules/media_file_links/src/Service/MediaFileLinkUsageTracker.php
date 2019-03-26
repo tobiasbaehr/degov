@@ -27,6 +27,8 @@ class MediaFileLinkUsageTracker {
   }
 
   public function trackMediaUsage(EntityInterface $entity): void {
+    $this->deletePriorUsages($entity->id());
+
     if ($entity instanceof NodeInterface) {
       $this->trackMediaUsageInNode($entity);
     }
@@ -48,7 +50,8 @@ class MediaFileLinkUsageTracker {
     foreach ($node->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage($node->id(), 'node', $field->getName(), $node->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
+        $this->storeUsage($node->id(), 'node', $field->getName(), $node->get('langcode')
+          ->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
@@ -56,7 +59,8 @@ class MediaFileLinkUsageTracker {
   private function trackMediaUsageInMenuLinkContent(MenuLinkContentInterface $menuLinkContent): void {
     $linkValue = $menuLinkContent->get('link')->getValue();
     if (!empty($linkValue[0]['uri']) && $this->placeholderHandler->isValidMediaFileLinkPlaceholder($linkValue[0]['uri'])) {
-      $this->storeUsage($menuLinkContent->id(), 'menu_link_content', 'link', $menuLinkContent->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($linkValue[0]['uri']));
+      $this->storeUsage($menuLinkContent->id(), 'menu_link_content', 'link', $menuLinkContent->get('langcode')
+        ->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($linkValue[0]['uri']));
     }
   }
 
@@ -64,7 +68,8 @@ class MediaFileLinkUsageTracker {
     foreach ($paragraph->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage($paragraph->id(), 'paragraph', $field->getName(), $paragraph->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
+        $this->storeUsage($paragraph->id(), 'paragraph', $field->getName(), $paragraph->get('langcode')
+          ->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
@@ -73,14 +78,13 @@ class MediaFileLinkUsageTracker {
     foreach ($media->getFields() as $field) {
       $fieldValue = $field->getString();
       if ($this->placeholderHandler->isValidMediaFileLinkPlaceholder($fieldValue)) {
-        $this->storeUsage($media->id(), 'media', $field->getName(), $media->get('langcode')->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
+        $this->storeUsage($media->id(), 'media', $field->getName(), $media->get('langcode')
+          ->getString(), $this->placeholderHandler->getMediaIdFromPlaceholder($fieldValue));
       }
     }
   }
 
   private function storeUsage(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode, int $mediaEntityId): void {
-    $this->deletePriorUsages($referencingEntityId, $referencingEntityType, $referencingEntityField, $referencingEntityLangcode);
-
     \Drupal::database()
       ->insert('media_file_links_usage')
       ->fields([
@@ -93,30 +97,28 @@ class MediaFileLinkUsageTracker {
       ->execute();
   }
 
-  private function deletePriorUsages(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode): void {
+  public function deletePriorUsages(int $referencingEntityId): void {
     \Drupal::database()
       ->delete('media_file_links_usage')
       ->condition('referencing_entity_id', $referencingEntityId)
-      ->condition('referencing_entity_type', $referencingEntityType)
-      ->condition('referencing_entity_field', $referencingEntityField)
-      ->condition('referencing_entity_langcode', $referencingEntityLangcode)
       ->execute();
   }
 
   public function getUsagesByMediaIds(array $mediaIds): array {
-    $queryResultsStatement = \Drupal::database()->select('media_file_links_usage', 'mflu')
+    $queryResultsStatement = \Drupal::database()
+      ->select('media_file_links_usage', 'mflu')
       ->fields('mflu')
       ->condition('media_entity_id', $mediaIds, 'IN')
       ->execute();
 
     $usages = $queryResultsStatement->fetchAll(\PDO::FETCH_ASSOC);
 
-    if(!empty($usages)) {
-      foreach($usages as $usageKey => &$usage) {
+    if (!empty($usages)) {
+      foreach ($usages as $usageKey => &$usage) {
         $usage['media_entity'] = Media::load($usage['media_entity_id']);
 
-        $referencingEntity = null;
-        switch($usage['referencing_entity_type']) {
+        $referencingEntity = NULL;
+        switch ($usage['referencing_entity_type']) {
           case 'media':
             $referencingEntity = Media::load($usage['referencing_entity_id']);
             break;
@@ -131,7 +133,9 @@ class MediaFileLinkUsageTracker {
             break;
         }
         $usage['referencing_entity'] = $referencingEntity;
-        $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])->getFieldDefinition()->getLabel();
+        $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])
+          ->getFieldDefinition()
+          ->getLabel();
       }
     }
 
