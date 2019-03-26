@@ -2,10 +2,15 @@
 
 namespace Drupal\media_file_links\Service;
 
+use Drupal\Core\Entity\Entity;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\menu_link_content\MenuLinkContentInterface;
+use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\ParagraphInterface;
 
 /**
@@ -96,6 +101,41 @@ class MediaFileLinkUsageTracker {
       ->condition('referencing_entity_field', $referencingEntityField)
       ->condition('referencing_entity_langcode', $referencingEntityLangcode)
       ->execute();
+  }
+
+  public function getUsagesByMediaIds(array $mediaIds): array {
+    $queryResultsStatement = \Drupal::database()->select('media_file_links_usage', 'mflu')
+      ->fields('mflu')
+      ->condition('media_entity_id', $mediaIds, 'IN')
+      ->execute();
+
+    $usages = $queryResultsStatement->fetchAll(\PDO::FETCH_ASSOC);
+
+    if(!empty($usages)) {
+      foreach($usages as $usageKey => &$usage) {
+        $usage['media_entity'] = Media::load($usage['media_entity_id']);
+
+        $referencingEntity = null;
+        switch($usage['referencing_entity_type']) {
+          case 'media':
+            $referencingEntity = Media::load($usage['referencing_entity_id']);
+            break;
+          case 'node':
+            $referencingEntity = Node::load($usage['referencing_entity_id']);
+            break;
+          case 'paragraph':
+            $referencingEntity = Paragraph::load($usage['referencing_entity_id']);
+            break;
+          case 'menu_link_content':
+            $referencingEntity = MenuLinkContent::load($usage['referencing_entity_id']);
+            break;
+        }
+        $usage['referencing_entity'] = $referencingEntity;
+        $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])->getFieldDefinition()->getLabel();
+      }
+    }
+
+    return $usages;
   }
 
 }

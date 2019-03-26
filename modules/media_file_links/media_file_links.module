@@ -9,6 +9,12 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\link\LinkItemInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\media\MediaInterface;
+use Drupal\node\NodeInterface;
+use Drupal\paragraphs\ParagraphInterface;
+use Drupal\menu_link_content\MenuLinkContentInterface;
 
 /**
  * Implements hook_locale_translation_projects_alter().
@@ -18,7 +24,8 @@ function media_file_links_locale_translation_projects_alter(&$projects) {
     'info' => [
       'name'                                 => 'Media file links',
       'interface translation project'        => 'media_file_links',
-      'interface translation server pattern' => \Drupal::service('extension.list.module')->getPath('media_file_links') . '/translations/%language.po',
+      'interface translation server pattern' => \Drupal::service('extension.list.module')
+          ->getPath('media_file_links') . '/translations/%language.po',
     ],
   ];
 }
@@ -71,14 +78,98 @@ function media_file_links_form_linkit_editor_dialog_form_alter(&$form, FormState
   $form['#attached']['library'][] = 'media_file_links/fontawesome';
 }
 
-function media_file_links_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
+/**
+ * Implements hook_entity_insert().
+ */
+function media_file_links_entity_insert(EntityInterface $entity) {
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
 }
 
-function media_file_links_entity_update(\Drupal\Core\Entity\EntityInterface $entity) {
+/**
+ * Implements hook_entity_update().
+ */
+function media_file_links_entity_update(EntityInterface $entity) {
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
 }
 
-function media_file_links_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
+/**
+ * Implements hook_entity_delete().
+ */
+function media_file_links_entity_delete(EntityInterface $entity) {
   \Drupal::service('media_file_links.usage_tracker')->trackMediaUsage($entity);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function media_file_links_form_alter($form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, [
+    'media_document_delete_form',
+    'media_delete_multiple_confirm_form',
+  ])) {
+    $deleteEntitiesIds = [];
+
+    switch ($form_id) {
+      case 'media_document_delete_form':
+        $entity = \Drupal::routeMatch()->getParameter('media');
+        if ($entity instanceof \Drupal\media\MediaInterface) {
+          $deleteEntitiesIds[] = $entity->id();
+        }
+        break;
+      case 'media_delete_multiple_confirm_form':
+        if (!empty($form['entities']['#items'])) {
+          foreach ($form['entities']['#items'] as $itemKey => $itemTitle) {
+            if (preg_match("/^([\d]+):[a-zA-Z]+$/", $itemKey, $itemKeyParts) && count($itemKeyParts) === 2) {
+              $deleteEntitiesIds[] = $itemKeyParts[1];
+            }
+          }
+        }
+        break;
+    }
+
+    if (count($deleteEntitiesIds) > 0) {
+      $mediaUsages = \Drupal::service('media_file_links.usage_tracker')
+        ->getUsagesByMediaIds($deleteEntitiesIds);
+
+      if (!empty($mediaUsages)) {
+        foreach ($mediaUsages as $mediaUsage) {
+          switch (TRUE) {
+            case $mediaUsage['referencing_entity'] instanceof MediaInterface:
+              $message = new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the media <i>:referencingMediaName</i> in field <i>:referencingFieldName</i>. <a href="/media/:referencingMediaId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
+                [
+                  ':mediaName'            => $mediaUsage['media_entity']->getName(),
+                  ':referencingMediaName' => $mediaUsage['referencing_entity']->getName(),
+                  ':referencingFieldName' => $mediaUsage['referencing_entity_field_label'],
+                  ':referencingMediaId'   => $mediaUsage['referencing_entity']->id(),
+                ]
+              );
+              break;
+            case $mediaUsage['referencing_entity'] instanceof NodeInterface:
+              $message = new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the node <i>:referencingNodeTitle</i> in field <i>:referencingFieldName</i>. <a href="/node/:referencingNodeId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
+                [
+                  ':mediaName'            => $mediaUsage['media_entity']->getName(),
+                  ':referencingNodeTitle' => $mediaUsage['referencing_entity']->getTitle(),
+                  ':referencingFieldName' => $mediaUsage['referencing_entity_field_label'],
+                  ':referencingNodeId'    => $mediaUsage['referencing_entity']->id(),
+                ]
+              );
+              break;
+            case $mediaUsage['referencing_entity'] instanceof MenuLinkContentInterface:
+              $message = new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the menu entry <i>:referencingMenuLinkTitle</i>. <a href="/admin/structure/menu/item/:referencingMenuLinkId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
+                [
+                  ':mediaName'                => $mediaUsage['media_entity']->getName(),
+                  ':referencingMenuLinkTitle' => $mediaUsage['referencing_entity']->getTitle(),
+                  ':referencingMenuLinkId'    => $mediaUsage['referencing_entity']->id(),
+                ]
+              );
+              break;
+          }
+
+          if (!empty($message)) {
+            \Drupal::messenger()->addWarning($message);
+          }
+        }
+      }
+    }
+  }
 }
