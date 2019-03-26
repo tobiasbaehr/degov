@@ -644,7 +644,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Then I should see exactly :arg1 instances of the element with the selector :arg2
    */
-  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($numberOfInstances, $elementSelector)
   {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
