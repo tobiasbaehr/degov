@@ -248,7 +248,16 @@ function degov_update_860100() {
   }
 
   if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
-    \Drupal::service('module_installer')->install('degov_auto_crop');
+    \Drupal::service('module_installer')->install(['degov_auto_crop']);
+  }
+}
+
+/**
+ * Install the filter_disallow module.
+ */
+function degov_update_860200() {
+  if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
+    \Drupal::service('module_installer')->install(['filter_disallow']);
   }
 }
 

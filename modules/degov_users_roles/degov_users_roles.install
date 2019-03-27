@@ -126,6 +126,27 @@ function degov_users_roles_update_860100() {
 }
 
 /**
+ * Give managers permission to view filter_disallow messages.
+ */
+function degov_users_roles_update_860200() {
+  // Add new permissions
+  $permissions = [
+    'view filter_disallow messages',
+  ];
+  $roles = [
+    'user.role.manager',
+  ];
+
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach($roles as $role) {
+    foreach($permissions as $permission) {
+      $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
+    }
+  }
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function degov_users_roles_update_dependencies()
