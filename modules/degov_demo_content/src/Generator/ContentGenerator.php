@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\Logger\LoggerChannelFactory;
 use Drupal\degov_demo_content\MediaBundle;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
@@ -56,11 +57,16 @@ class ContentGenerator {
    * @var \Drupal\degov_demo_content\MediaBundle
    */
   protected $mediaBundle;
+  /**
+   * @var LoggerChannelFactory
+   */
+  private $loggerChannelFactory;
 
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, LoggerChannelFactory $loggerChannelFactory) {
     $this->moduleHandler = $moduleHandler;
     $this->entityTypeManager = $entityTypeManager;
     $this->mediaBundle = $mediaBundle;
+    $this->loggerChannelFactory = $loggerChannelFactory;
   }
 
   /**
@@ -158,9 +164,12 @@ class ContentGenerator {
       return;
     }
 
-    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
-      $mediaTypeId = strtolower($mediaTypeId[1]);
-      $mediaId = $this->getMedia($mediaTypeId)->id();
+    if ($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaBundle)) {
+      $mediaBundle = strtolower($mediaBundle[1]);
+      if (!$this->hasBundle($mediaBundle)) {
+        return;
+      }
+      $mediaId = $this->getMedia($mediaBundle)->id();
       $rawElement[$index] = [
         'target_id' => $mediaId,
       ];
@@ -176,9 +185,12 @@ class ContentGenerator {
     }
 
     if($resolveReferences) {
-      while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
-        $mediaTypeId = strtolower($mediaTypeId[1]);
-        $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
+      while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaBundle)) {
+        $mediaBundle = strtolower($mediaBundle[1]);
+        if (!$this->hasBundle($mediaBundle)) {
+          continue;
+        }
+        $mediaUuid = $this->getMedia($mediaBundle)->uuid();
         $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
         $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $embed_string, $value, 1);
       }
@@ -270,6 +282,22 @@ class ContentGenerator {
     return array_filter($def, function ($var) use ($type) {
       return $var['type'] === $type;
     });
+  }
+
+  protected function hasBundle(string $bundle) {
+    if (!$this->mediaBundle->bundleExistsInStorage($bundle)) {
+      $this->loggerChannelFactory->get('degov_demo_content')
+        ->notice(
+          sprintf(
+            'Bundle named %s does not exist in storage. You might want to install an additional module for it. Therefor bypassing content creation for that bundle.',
+            $bundle
+          )
+        );
+
+      return FALSE;
+    }
+
+    return TRUE;
   }
 
 }

@@ -1,7 +1,7 @@
 services:
   degov_demo_content.content_generator:
     class: Drupal\degov_demo_content\Generator\ContentGenerator
-    arguments: [ '@module_handler', '@entity_type.manager', '@degov_demo_content.media_bundle']
+    arguments: [ '@module_handler', '@entity_type.manager', '@degov_demo_content.media_bundle', '@logger.factory']
   degov_demo_content.node_generator:
     class: Drupal\degov_demo_content\Generator\NodeGenerator
     parent: degov_demo_content.content_generator
@@ -16,4 +16,4 @@ services:
     arguments: ['@database']
   degov_demo_content.media_bundle:
     class: Drupal\degov_demo_content\MediaBundle
-    arguments: ['@entity_field.manager']
+    arguments: ['@entity_field.manager', '@entity_type.bundle.info']

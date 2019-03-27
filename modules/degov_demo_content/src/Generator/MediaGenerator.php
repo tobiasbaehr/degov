@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Entity\EntityFieldManager;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\degov_demo_content\MediaBundle;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
@@ -46,9 +47,13 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @var \Drupal\geofield\WktGenerator
    */
   protected $wktGenerator;
+  /**
+   * @var LoggerChannelFactoryInterface
+   */
+  private $loggerChannelFactory;
 
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, WktGenerator $wktGenerator) {
-    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle);
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, LoggerChannelFactoryInterface $loggerChannelFactory, WktGenerator $wktGenerator) {
+    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle, $loggerChannelFactory);
     $this->wktGenerator = $wktGenerator;
   }
 
@@ -97,6 +102,10 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   private function saveEntities($media_to_generate, $fullSave = TRUE): void {
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
+      if (!$this->hasBundle($media_item['bundle'])) {
+        continue;
+      }
+
       $this->prepareValues($media_item, $fullSave);
       $fields = [];
 

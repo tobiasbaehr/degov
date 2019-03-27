@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\degov_demo_content\MediaBundle;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -31,8 +32,8 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    */
   protected $aliasCleaner;
 
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
-    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle);
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, LoggerChannelFactoryInterface $loggerChannelFactory, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
+    parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle, $loggerChannelFactory);
     $this->mediaGenerator = $mediaGenerator;
     $this->aliasCleaner = $aliasCleaner;
     $this->entityType = 'node';
