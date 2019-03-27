@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function filter_disallow_locale_translation_projects_alter(&$projects) {
+  $projects['filter_disallow'] = [
+    'info' => [
+      'name'                                 => 'Filter disallow',
+      'interface translation project'        => 'filter_disallow',
+      'interface translation server pattern' => drupal_get_path('module', 'filter_disallow') . '/translations/%language.po',
+    ],
+  ];
+}
