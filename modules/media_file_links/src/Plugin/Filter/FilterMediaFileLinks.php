@@ -23,8 +23,8 @@ class FilterMediaFileLinks extends FilterBase {
     $linkResolver = \Drupal::service('media_file_links.file_link_resolver');
     $placeholderHandler = \Drupal::service('media_file_links.placeholder_handler');
     while (($mediaId = $placeholderHandler->getMediaIdFromPlaceholder($text)) !== NULL) {
-        $fileUrl = $linkResolver->getFileUrlString($mediaId);
-        $text = str_replace($placeholderHandler->getPlaceholderForMediaId($mediaId), $fileUrl, $text);
+      $fileUrl = $linkResolver->getFileUrlString($mediaId);
+      $text = str_replace($placeholderHandler->getPlaceholderForMediaId($mediaId), $fileUrl, $text);
     }
     return new FilterProcessResult($text);
   }
