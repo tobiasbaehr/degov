@@ -27,7 +27,7 @@ class MediaFileLinkUsageTracker {
   }
 
   public function trackMediaUsage(EntityInterface $entity): void {
-    $this->deletePriorUsages((int)$entity->id());
+    $this->deletePriorUsages($entity);
 
     if ($entity instanceof NodeInterface) {
       $this->trackMediaUsageInNode($entity);
@@ -97,11 +97,35 @@ class MediaFileLinkUsageTracker {
       ->execute();
   }
 
-  public function deletePriorUsages(int $referencingEntityId): void {
-    \Drupal::database()
+  public function deletePriorUsages(EntityInterface $entity): void {
+    $deleteQuery = \Drupal::database()
       ->delete('media_file_links_usage')
-      ->condition('referencing_entity_id', $referencingEntityId)
-      ->execute();
+      ->condition('referencing_entity_id', $entity->id())
+      ->condition('referencing_entity_langcode', $entity->get('langcode')->getString());
+
+    if ($entity instanceof NodeInterface) {
+      $deleteQuery
+        ->condition('referencing_entity_type', 'node')
+        ->execute();
+    }
+
+    if ($entity instanceof MenuLinkContentInterface) {
+      $deleteQuery
+        ->condition('referencing_entity_type', 'menu_link_content')
+        ->execute();
+    }
+
+    if ($entity instanceof ParagraphInterface) {
+      $deleteQuery
+        ->condition('referencing_entity_type', 'paragraph')
+        ->execute();
+    }
+
+    if ($entity instanceof MediaInterface) {
+      $deleteQuery
+        ->condition('referencing_entity_type', 'media')
+        ->execute();
+    }
   }
 
   public function getUsagesByMediaIds(array $mediaIds, bool $loadFullEntities = TRUE): array {

@@ -96,7 +96,7 @@ function media_file_links_entity_update(EntityInterface $entity) {
  * Implements hook_entity_delete().
  */
 function media_file_links_entity_delete(EntityInterface $entity) {
-  \Drupal::service('media_file_links.usage_tracker')->deletePriorUsages($entity->id());
+  \Drupal::service('media_file_links.usage_tracker')->deletePriorUsages($entity);
 }
 
 /**
