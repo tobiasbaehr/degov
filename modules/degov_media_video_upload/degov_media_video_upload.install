@@ -2,24 +2,6 @@
 
 use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
-use Symfony\Component\Yaml\Yaml;
-
-/**
- * Implements hook_install().
- */
-function degov_media_video_upload_install() {
-  // Adds the video upload tab upon installation to the CKEditor media browser.
-  $ckeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
-  if (!$ckeditorMediaBrowserConfig->isNew()) {
-    $filtersConfig = $ckeditorMediaBrowserConfig->get('widgets');
-    $partialFile = \Drupal::service('extension.list.module')->getPath('degov_media_video_upload') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
-    if (file_exists($partialFile)) {
-      $filtersConfig += Yaml::parseFile($partialFile);
-      $ckeditorMediaBrowserConfig->set('widgets', $filtersConfig);
-      $ckeditorMediaBrowserConfig->save();
-    }
-  }
-}
 
 /**
  * Implements hook_uninstall().
@@ -127,8 +109,10 @@ function degov_media_video_upload_update_862000() {
   $config = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
   if (!$config->isNew()) {
     $widgets = $config->get('widgets');
-    unset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26']);
-    $config->set('widgets', $widgets);
-    $config->save(TRUE);
+    if (isset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26'])) {
+      unset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26']);
+      $config->set('widgets', $widgets);
+      $config->save(TRUE);
+    }
   }
 }
