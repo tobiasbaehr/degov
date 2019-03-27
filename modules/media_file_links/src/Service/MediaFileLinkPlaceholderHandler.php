@@ -21,7 +21,7 @@ class MediaFileLinkPlaceholderHandler {
     return NULL;
   }
 
-  public function getPlaceholderForMediaId(int $mediaId, $usage = 'node') {
+  public function getPlaceholderForMediaId(int $mediaId, $usage = 'node'): ?string {
     switch($usage) {
       case 'node':
       case 'paragraph':
@@ -29,6 +29,7 @@ class MediaFileLinkPlaceholderHandler {
       case 'menu_link_content':
         return sprintf('<media:file:%s>', $mediaId);
     }
+    return NULL;
   }
 
 }
