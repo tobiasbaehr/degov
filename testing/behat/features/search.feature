@@ -9,6 +9,7 @@ Feature: deGov - Search
       | degov_search_media_manager |
       | degov_demo_content         |
     And I reset the demo content
+    And I rebuild the "search_media" index
 
   Scenario: Verify that search is configured for partial word matching
     Given I am logged in as a user with the "administrator" role
@@ -30,6 +31,7 @@ Feature: deGov - Search
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
+    And I rebuild the "search_media" index
     And I am on "/mediathek"
     And I should not see "demo image with a fixed title"
 
