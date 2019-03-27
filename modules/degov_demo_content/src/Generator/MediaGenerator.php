@@ -47,10 +47,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @var \Drupal\geofield\WktGenerator
    */
   protected $wktGenerator;
-  /**
-   * @var LoggerChannelFactoryInterface
-   */
-  private $loggerChannelFactory;
 
   public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaBundle $mediaBundle, LoggerChannelFactoryInterface $loggerChannelFactory, WktGenerator $wktGenerator) {
     parent::__construct($moduleHandler, $entityTypeManager, $mediaBundle, $loggerChannelFactory);
@@ -86,8 +82,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
     foreach ($media_to_generate as $media_item_key => $media_item) {
       if (isset($media_item['file'])) {
-        $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
-        if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
+        $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']['file_name']);
+        if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file']['file_name'], FILE_EXISTS_REPLACE)) !== FALSE) {
           $this->files[$media_item_key] = $saved_file;
         }
       }
@@ -111,41 +107,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
       foreach ($media_item as $media_item_field_key => $media_item_field_value) {
         if ($media_item_field_key === 'file') {
-          switch ($media_item['bundle']) {
-            case 'image':
-              $fields['image'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-                'alt'       => $media_item['name'],
-                'title'     => $media_item['name'],
-              ];
-              break;
+          $fields = array_merge($fields, $this->mediaBundle->computeReferenceFieldArray($media_item, $media_item_key, $this->files));
 
-            case 'document':
-              $fields['field_document'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-
-            case 'audio':
-              $fields['field_audio_mp3'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-
-            case 'video_upload':
-              $fields['field_video_upload_mp4'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-
-            case 'facts':
-              $fields['field_facts_image'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-                'alt'       => $media_item['name'],
-                'title'     => $media_item['name'],
-              ];
-              break;
-          }
           continue;
         }
 
@@ -165,6 +128,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
         $fields[$media_item_field_key] = $media_item_field_value;
       }
+
+
 
       if ($media_item['bundle'] === 'image' && empty($media_item['field_royalty_free'])) {
         $fields['field_copyright'] = [

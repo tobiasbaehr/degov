@@ -4,6 +4,8 @@ namespace Drupal\degov_demo_content;
 
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\field\Entity\FieldConfig;
 
 class MediaBundle {
 
@@ -33,5 +35,34 @@ class MediaBundle {
 
     return FALSE;
   }
+
+  public function computeReferenceFieldArray(array $mediaItem, string $mediaItemKey, array $files): array {
+    /**
+     * @var FieldConfig $fieldDefinitions
+     */
+    $fieldDefinitions = $this->entityFieldManager->getFieldDefinitions('media', $mediaItem['bundle']);
+
+    foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
+      $type = $fieldDefinition->getType();
+      switch ($type) {
+        case 'image':
+          $field[$mediaItem['file']['field_name']] = [
+            'target_id' => $files[$mediaItemKey]->id(),
+            'alt'       => $mediaItem['name'],
+            'title'     => $mediaItem['name'],
+          ];
+
+          return $field;
+        case 'entity_reference':
+          $field[$mediaItem['file']['field_name']] = [
+            'target_id' => $files[$mediaItemKey]->id(),
+          ];
+
+          return $field;
+      }
+    }
+  }
+
+
 
 }
