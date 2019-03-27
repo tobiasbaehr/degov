@@ -2,13 +2,13 @@
 
 namespace Drupal\degov_demo_content\Command;
 
+use Drupal\Console\Annotations\DrupalCommand;
+use Drupal\Console\Core\Command\ContainerAwareCommand;
 use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Drupal\Console\Core\Command\ContainerAwareCommand;
-use Drupal\Console\Annotations\DrupalCommand;
 
 /**
  * Class ResetCommand.

@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityFieldManager;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
@@ -107,7 +106,7 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
       foreach ($media_item as $media_item_field_key => $media_item_field_value) {
         if ($media_item_field_key === 'file') {
-          $fields = array_merge($fields, $this->mediaBundle->computeReferenceFieldArray($media_item, $media_item_key, $this->files));
+          $fields += $this->mediaBundle->computeReferenceFieldArray($media_item, $media_item_key, $this->files);
 
           continue;
         }

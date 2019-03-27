@@ -2,12 +2,10 @@
 
 namespace Drupal\Tests\degov_demo_content\Unit;
 
-use Drupal\Core\Entity\EntityFieldManager;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\degov_demo_content\MediaBundle;
 use Drupal\field\Entity\FieldConfig;
-use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
