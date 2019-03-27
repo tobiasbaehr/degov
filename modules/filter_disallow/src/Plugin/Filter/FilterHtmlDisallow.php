@@ -97,7 +97,7 @@ class FilterHtmlDisallow extends FilterBase {
       }
     }
     $body = $xPath->query('/html/body');
-    return str_replace(['<body>', '</body>'], '', $dom->saveXML($body->item(0)));
+    return str_replace(['<body>', '</body>'], '', $dom->saveHTML($body->item(0)));
   }
 
   /**
