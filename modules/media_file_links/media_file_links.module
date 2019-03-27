@@ -135,7 +135,7 @@ function media_file_links_form_alter($form, FormStateInterface $form_state, $for
         foreach ($mediaUsages as $mediaUsage) {
           $message = _media_file_links_get_usage_message($mediaUsage);
 
-          if (!empty($message)) {
+          if ($message instanceof TranslatableMarkup) {
             \Drupal::messenger()->addWarning($message);
           }
         }
