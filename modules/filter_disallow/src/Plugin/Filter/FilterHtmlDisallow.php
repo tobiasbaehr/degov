@@ -96,8 +96,7 @@ class FilterHtmlDisallow extends FilterBase {
         $node->parentNode->removeChild($nodes->item($index));
       }
     }
-    $body = $xPath->query('/html/body');
-    return str_replace(['<body>', '</body>'], '', $dom->saveHTML($body->item(0)));
+    return preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $dom->saveHTML());
   }
 
   /**
