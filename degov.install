@@ -255,7 +255,7 @@ function degov_update_860100() {
 /**
  * Install the filter_disallow module.
  */
-function degov_update_999999() {
+function degov_update_860200() {
   if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
     \Drupal::service('module_installer')->install(['filter_disallow']);
   }
