@@ -98,33 +98,38 @@ class MediaFileLinkUsageTracker {
   }
 
   public function deletePriorUsages(EntityInterface $entity): void {
-    $deleteQuery = \Drupal::database()
-      ->delete('media_file_links_usage')
-      ->condition('referencing_entity_id', $entity->id())
-      ->condition('referencing_entity_langcode', $entity->get('langcode')->getString());
-
-    if ($entity instanceof NodeInterface) {
-      $deleteQuery
-        ->condition('referencing_entity_type', 'node')
-        ->execute();
+    switch(TRUE) {
+      case $entity instanceof NodeInterface:
+      case $entity instanceof MenuLinkContentInterface:
+      case $entity instanceof ParagraphInterface:
+      case $entity instanceof MediaInterface:
+        $deleteQuery = \Drupal::database()
+          ->delete('media_file_links_usage')
+          ->condition('referencing_entity_id', $entity->id())
+          ->condition('referencing_entity_langcode', $entity->get('langcode')->getString());
     }
 
-    if ($entity instanceof MenuLinkContentInterface) {
-      $deleteQuery
-        ->condition('referencing_entity_type', 'menu_link_content')
-        ->execute();
+    switch(TRUE) {
+      case $entity instanceof NodeInterface:
+        $deleteQuery
+          ->condition('referencing_entity_type', 'node');
+        break;
+      case $entity instanceof MenuLinkContentInterface:
+        $deleteQuery
+          ->condition('referencing_entity_type', 'menu_link_content');
+        break;
+      case $entity instanceof ParagraphInterface:
+        $deleteQuery
+          ->condition('referencing_entity_type', 'paragraph');
+        break;
+      case $entity instanceof MediaInterface:
+        $deleteQuery
+          ->condition('referencing_entity_type', 'media');
+        break;
     }
 
-    if ($entity instanceof ParagraphInterface) {
-      $deleteQuery
-        ->condition('referencing_entity_type', 'paragraph')
-        ->execute();
-    }
-
-    if ($entity instanceof MediaInterface) {
-      $deleteQuery
-        ->condition('referencing_entity_type', 'media')
-        ->execute();
+    if(!empty($deleteQuery)) {
+      $deleteQuery->execute();
     }
   }
 
