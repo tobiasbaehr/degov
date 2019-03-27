@@ -44,14 +44,20 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     // URI , ensure the raw value begins with '/', '?' or '#'.
     // @todo '<front>' is valid input for BC reasons, may be removed by
     //   https://www.drupal.org/node/2421941
-    if (parse_url($uri, PHP_URL_SCHEME) === 'internal' && !in_array($element['#value'][0], ['/', '?', '#'], TRUE) && substr($element['#value'], 0, 7) !== '<front>' && !static::isMediaFilePlaceholder($element['#value'])) {
+    if (!self::validateInternalUriFormat($uri, $element['#value'])) {
       $form_state->setError($element, t('Manually entered paths should start with /, ? or #, or match &lt;media:file:ID&gt;.'));
       return;
     }
   }
 
-  public static function isMediaFilePlaceholder(string $inputString): bool {
-    return preg_match('/<media:file:[\d]+>/', $inputString);
+  private static function validateInternalUriFormat(string $uri, string $inputElementValue): bool {
+    if(parse_url($uri, PHP_URL_SCHEME) === 'internal'
+      && strpos($inputElementValue, '<front>') !== 0
+      && !\in_array($inputElementValue[0], ['/', '?', '#'], TRUE)
+      && !\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($inputElementValue)) {
+      return FALSE;
+    }
+    return TRUE;
   }
 
 }
