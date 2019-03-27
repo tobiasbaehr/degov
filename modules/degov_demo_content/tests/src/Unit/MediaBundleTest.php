@@ -108,7 +108,7 @@ class MediaBundleTest extends UnitTestCase {
     $mediaBundle = new MediaBundle($entityFieldManager->reveal(), $entityBundleInfo->reveal());
 
     $mediaItem = array(
-      'bundle' => 'image',
+      'bundle' => 'document',
       'name' => 'demo pdf with a fixed title',
       'file' =>
         array (

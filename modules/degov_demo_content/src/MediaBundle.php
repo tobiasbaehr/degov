@@ -42,23 +42,24 @@ class MediaBundle {
     $fieldDefinitions = $this->entityFieldManager->getFieldDefinitions('media', $mediaItem['bundle']);
 
     foreach ($fieldDefinitions as $fieldName => $fieldDefinition) {
-      $type = $fieldDefinition->getType();
-      switch ($type) {
-        case 'image':
-          $field[$mediaItem['file']['field_name']] = [
-            'target_id' => $files[$mediaItemKey]->id(),
-            'alt'       => $mediaItem['name'],
-            'title'     => $mediaItem['name'],
-          ];
+      if ($mediaItem['bundle'] === 'image') {
+        $field[$mediaItem['file']['field_name']] = [
+          'target_id' => $files[$mediaItemKey]->id(),
+          'alt'       => $mediaItem['name'],
+          'title'     => $mediaItem['name'],
+        ];
 
-          return $field;
-        case 'entity_reference':
-          $field[$mediaItem['file']['field_name']] = [
-            'target_id' => $files[$mediaItemKey]->id(),
-          ];
-
-          return $field;
+        return $field;
       }
+
+      if ($fieldDefinition->getType() === 'entity_reference') {
+        $field[$mediaItem['file']['field_name']] = [
+          'target_id' => $files[$mediaItemKey]->id(),
+        ];
+
+        return $field;
+      }
+
     }
   }
 
