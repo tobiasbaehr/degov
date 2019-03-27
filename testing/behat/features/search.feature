@@ -31,7 +31,6 @@ Feature: deGov - Search
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I rebuild the "search_media" index
     And I am on "/mediathek"
     And I should not see "demo image with a fixed title"
 
