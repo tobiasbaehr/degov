@@ -58,25 +58,26 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
  * Implements hook_file_download().
  */
 function degov_media_document_file_download($uri) {
-  $files = \Drupal::entityTypeManager()
-    ->getStorage('file')
-    ->loadByProperties(['uri' => $uri]);
+  if (\Drupal::service('module_handler')->moduleExists('permissions_by_entity')) {
+    $files = \Drupal::entityTypeManager()
+      ->getStorage('file')
+      ->loadByProperties(['uri' => $uri]);
 
-  foreach ($files as $file) {
-    $multipleMedia = \Drupal::entityTypeManager()
-      ->getStorage('media')
-      ->loadByProperties(['field_document' => $file->id()]);
+    foreach ($files as $file) {
+      $multipleMedia = \Drupal::entityTypeManager()
+        ->getStorage('media')
+        ->loadByProperties(['field_document' => $file->id()]);
 
-    $oneMedia = array_shift($multipleMedia);
+      $oneMedia = array_shift($multipleMedia);
 
-    if ($oneMedia instanceof Media) {
-      /**
-       * @var AccessChecker $accessChecker
-       */
-      $accessChecker = \Drupal::service('permissions_by_entity.access_checker');
-      $accessChecker->isAccessAllowed($oneMedia);
+      if ($oneMedia instanceof Media) {
+        /**
+         * @var AccessChecker $accessChecker
+         */
+        $accessChecker = \Drupal::service('permissions_by_entity.access_checker');
+        $accessChecker->isAccessAllowed($oneMedia);
+      }
+
     }
-
   }
-
 }
