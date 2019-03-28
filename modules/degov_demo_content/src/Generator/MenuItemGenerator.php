@@ -47,12 +47,13 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
       if (!empty($definition['second_level'])) {
         foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
           $secondLevelMenuItem = MenuLinkContent::create([
-            'title' => $secondLevelDefinitionNodeTitle,
-            'link' => [
+            'title'     => $secondLevelDefinitionNodeTitle,
+            'link'      => [
               'uri' => 'internal:/node/' . $this->getNidByNodeTitle($secondLevelDefinitionNodeTitle),
             ],
-            'parent' => $firstLevelMenuItem->getPluginId(),
-            'expanded' => TRUE,
+            'parent'    => $firstLevelMenuItem->getPluginId(),
+            'menu_name' => 'main',
+            'expanded'  => TRUE,
           ]);
           $secondLevelMenuItem->save();
         }

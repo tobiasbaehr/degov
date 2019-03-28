@@ -228,6 +228,32 @@ function degov_update_860100() {
   ]);
 }
 
+/**
+ * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules.
+ */
+function degov_update_860100() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
+    \Drupal::service('module_installer')->install(['degov_config_integrity']);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_file_management')) {
+    \Drupal::service('module_installer')->install(['degov_file_management']);
+  }
+
+  if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
+    \Drupal::service('module_installer')->install(['degov_auto_crop']);
+  }
+}
+
+/**
+ * Install the filter_disallow module.
+ */
+function degov_update_860200() {
+  if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
+    \Drupal::service('module_installer')->install(['filter_disallow']);
+  }
+}
+
 function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
     'degov' => 8501,

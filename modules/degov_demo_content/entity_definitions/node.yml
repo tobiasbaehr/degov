@@ -83,6 +83,81 @@ page_with_faq_list_paragraph:
     - faq_list_1
   status: 1
   moderation_state: 'published'
+page_with_all_media:
+  type: 'normal_page'
+  title: 'Page with references to all types of media'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with references to all media'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+    - media_reference_image
+    - media_reference_gallery
+    - media_reference_video_upload
+    - media_reference_video
+    - media_reference_document
+    - media_reference_audio
+    - media_reference_address
+    - media_reference_citation
+    - media_reference_person
+    - media_reference_contact
+    - media_reference_tweet
+    - media_reference_instagram
+    - media_reference_some_embed
+  status: 1
+  moderation_state: 'published'
+press_release:
+  type: 'press'
+  title: 'Eine Pressemitteilung'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Eine Pressemitteilung'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+blog_post:
+  type: 'blog'
+  title: 'Ein Blogpost'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Ein Blogpost'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  status: 1
+  field_social_media: 1
+  field_blog_author: '{{MEDIA_ID_PERSON}}'
+  moderation_state: 'published'
+event:
+  type: 'event'
+  title: 'Eine Veranstaltung'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Eine Veranstaltung'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  field_event_date: '2018-01-01 09:00:00'
+  field_event_date_end: '2018-01-01 16:00:00'
+  field_event_location:
+    country_code: 'DE'
+    organization: 'publicplan'
+    address_line1: 'Bilker Straße 29'
+    postal_code: 40213
+    locality: 'Düsseldorf'
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
 # header
 node_with_video_header:
   type: 'normal_page'

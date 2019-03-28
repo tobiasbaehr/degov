@@ -1,25 +1,28 @@
 <?php
 
-use \Drupal\degov_theme\NumberFormatShort;
-use \Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
-use \Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
+use Drupal\degov_theme\NumberFormatShort;
+use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
+use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
+use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
+use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
+use Drupal\degov_theme\Preprocess\ViewsSearchContentAndMediaSorts as ViewsSearchContentAndMediaSortsPreprocess;
+use Drupal\degov_theme\Preprocess\ViewsExposedFormSearchPageFulltext as ViewsExposedFormSearchPageFulltextPreprocess;
 
 /**
  * Implements hook_preprocess_html().
  */
 function degov_theme_preprocess_html(&$vars) {
-  if ((is_array($vars['attributes'])
+  if (is_array($vars['attributes']
     && !empty($vars['attributes']['class']))) {
 
     if (in_array('install-page', $vars['attributes']['class'])) {
-
       if (count($vars['head_title']) === 1) {
         if (!empty($vars['page']['#title'])) {
           $vars['head_title']['title'] = $vars['page']['#title'];
           $vars['head_title']['name'] = drupal_install_profile_distribution_name();
         }
       }
-
+      // TODO: Use file_scan_directory.
       $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
 
       if ($background_images_dir_handle) {
@@ -47,9 +50,7 @@ function degov_theme_preprocess_html(&$vars) {
       }
 
       // Animated Favicon goes here…
-  //    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_spinning';
       $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_ticker';
-  //    $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_turning';
       $animation_frames_filenames = [];
       if ($favicon_frames_dir_handle = opendir($favicon_frames_path)) {
         while ($filename = readdir($favicon_frames_dir_handle)) {
@@ -94,10 +95,10 @@ function degov_theme_preprocess_install_page(&$vars) {
  */
 function degov_theme_page_attachments_alter(&$page) {
   $viewport = [
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
+    '#type'       => 'html_tag',
+    '#tag'        => 'meta',
     '#attributes' => [
-      'name' => 'viewport',
+      'name'    => 'viewport',
       'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
     ],
   ];
@@ -108,7 +109,7 @@ function degov_theme_page_attachments_alter(&$page) {
  * Implements hook_preprocess_page().
  */
 function degov_theme_preprocess_page(&$vars) {
-  $vars['logo_url'] =  theme_get_setting('logo.url');
+  $vars['logo_url'] = theme_get_setting('logo.url');
   $social_icons_settings = array_filter(theme_get_setting('social-icons'), function ($item) {
     return !empty($item['url']) && !empty($item['font-awesome-classes']);
   });
@@ -150,7 +151,8 @@ function degov_theme_suggestions_paragraph(array $variables) {
 
   if ($paragraph->hasField('field_media_reference_media')) {
     $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
-    $medias = $paragraph->get('field_media_reference_media')->referencedEntities();
+    $medias = $paragraph->get('field_media_reference_media')
+      ->referencedEntities();
 
     $suggestions[] = 'paragraph__'
       . $paragraph->bundle() . '__'
@@ -177,7 +179,8 @@ function degov_theme_preprocess_paragraph(&$vars) {
   $paragraph = $vars['paragraph'];
   $entity_view_builder = \Drupal::entityTypeManager();
   if ($paragraph->bundle() === 'media_reference') {
-    if ($medias = $paragraph->get('field_media_reference_media')->referencedEntities()) {
+    if ($medias = $paragraph->get('field_media_reference_media')
+      ->referencedEntities()) {
       /** @var \Drupal\media\Entity\Media $media */
       $media = $medias[0];
       $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
@@ -186,12 +189,13 @@ function degov_theme_preprocess_paragraph(&$vars) {
       $vars['media_view'] = $media_view_builder->build($media_view);
       $vars['media'] = $media;
       if ($media->hasField('field_video_preview')) {
-        if ($media_video_preview_images = $media->get('field_video_preview')->referencedEntities()) {
+        if ($media_video_preview_images = $media->get('field_video_preview')
+          ->referencedEntities()) {
           foreach ($media_video_preview_images as $media_video_preview_image) {
             $vars['video_preview'][] = [
-              '#type' => 'responsive_image',
+              '#type'                      => 'responsive_image',
               '#responsive_image_style_id' => 'teaser_landscape',
-              '#uri' => $media_video_preview_image->image->entity->getFileUri(),
+              '#uri'                       => $media_video_preview_image->image->entity->getFileUri(),
             ];
           }
         }
@@ -207,12 +211,13 @@ function degov_theme_preprocess_paragraph(&$vars) {
       $paragraph_view = $media_view_builder->view($slide);
       $vars['slide'] = $media_view_builder->build($paragraph_view);
 
-      if (($slide->hasField('image')) && !$slide->image->isEmpty())
-      $vars['slide_responsive_image'] = [
-        '#type' => 'responsive_image',
-        '#responsive_image_style_id' => 'slider_main',
-        '#uri' => $slide->image->entity->getFileUri(),
-      ];
+      if (($slide->hasField('image')) && !$slide->image->isEmpty()) {
+        $vars['slide_responsive_image'] = [
+          '#type'                      => 'responsive_image',
+          '#responsive_image_style_id' => 'slider_main',
+          '#uri'                       => $slide->image->entity->getFileUri(),
+        ];
+      }
     };
   }
 }
@@ -220,28 +225,16 @@ function degov_theme_preprocess_paragraph(&$vars) {
 /**
  * Implements hook_preprocess_media().
  */
-function degov_theme_preprocess_media(&$vars) {
-  /** @var \Drupal\media\Entity\Media $media */
-  $media = $vars['media'];
-  if ($media->hasField('field_gallery_images')) {
-    $media_images = $media->get('field_gallery_images')->referencedEntities();
-    if ($media_images) {
-      foreach ($media_images as $media_image) {
-        $vars['gallery_images'][] = [
-          '#theme' => 'image_style',
-          '#style_name' => 'teaser_squared_1_1_320',
-          '#uri' => $media_image->image->entity->getFileUri(),
-        ];
-      }
-    }
-  }
+function degov_theme_preprocess_media(&$variables) {
+  MediaGalleryPreprocess::preprocess($variables);
+  MediaSearchPreprocess::preprocess($variables);
 }
 
 /**
  * Implements hook_preprocess_degov_social_media_instagram().
  */
 function degov_theme_preprocess_degov_tweets(&$variables) {
-  foreach ($variables['items'] as &$tweet){
+  foreach ($variables['items'] as &$tweet) {
     $tweet['favourites_count'] = NumberFormatShort::format($tweet['favourites_count']);
     $tweet['followers_count'] = NumberFormatShort::format($tweet['followers_count']);
     $tweet['retweet_count'] = NumberFormatShort::format($tweet['retweet_count']);
@@ -258,9 +251,36 @@ function degov_theme_preprocess_degov_social_media_youtube(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_node().
+ */
+function degov_theme_preprocess_node(&$variables) {
+  if ($variables['view_mode'] == 'teaser') {
+    $variables['bundle'] = $variables['node']->type->entity->label();
+    $variables['date'] = \Drupal::service('date.formatter')
+      ->format($variables['node']->getCreatedTime(), 'custom', 'd.m.Y');
+  }
+}
+
+/**
  * Implements hook_preprocess_menu().
  */
 function degov_theme_preprocess_menu(&$vars) {
   MenuFaIconsPreprocess::preprocess($vars['items'], $vars['menu_name']);
   MenuAccountPreprocess::preprocess($vars);
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ */
+function degov_theme_preprocess_views_view(&$vars, $hook) {
+  Drupal::classResolver(ViewsSearchContentAndMediaSortsPreprocess::class)
+    ->preprocess($vars, $hook);
+}
+
+/**
+ * Implements hook_preprocess_views_exposed_form().
+ */
+function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
+  Drupal::classResolver(ViewsExposedFormSearchPageFulltextPreprocess::class)
+    ->preprocess($vars, $hook);
 }

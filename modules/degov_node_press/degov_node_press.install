@@ -62,7 +62,6 @@ function degov_node_press_update_8014() {
 		'core.entity_view_display.node.press.slideshow',
 		'core.entity_view_display.node.press.slim',
 		'core.entity_view_display.node.press.small_image',
-		'core.entity_view_display.node.press.teaser',
 	];
 
 	foreach ($configNamespaces as $namespace) {

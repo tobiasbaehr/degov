@@ -256,16 +256,31 @@ class DrupalIndependentContext extends RawMinkContext {
     $startTime = time();
     $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
     do {
-      $actualElements = $this->getSession()->getPage()->findAll('css', $selector);
+      $actualElements = $this->getSession()
+        ->getPage()
+        ->findAll('css', $selector);
       $actualNumberOfElements = \count($actualElements);
 
-      if($actualNumberOfElements === $expectedNumberOfElements) {
+      if ($actualNumberOfElements === $expectedNumberOfElements) {
         return;
       }
     } while (time() - $startTime < $wait);
     throw new \Exception(
       sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, $wait, $actualNumberOfElements)
     );
+  }
+
+  /**
+   * @Then I should see :number element(s) with the selector :selector and the translated text :text
+   */
+  public function iShouldSeeElementsWithSelectorAndText(int $expectedNumberOfElements, string $selector, string $text): void {
+    $page = $this->getSession()->getPage();
+    $matchedElements = $page->findAll('css', $selector);
+
+    $matchedElementsCount = \count($matchedElements);
+    if($expectedNumberOfElements !== $matchedElementsCount) {
+      throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
+    }
   }
 
 }

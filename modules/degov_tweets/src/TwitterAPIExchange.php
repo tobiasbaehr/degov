@@ -241,12 +241,12 @@ class TwitterAPIExchange {
     $getfield = $this->getGetfield();
     $postfields = $this->getPostfields();
     $options = [
-      CURLOPT_HTTPHEADER => $header,
-      CURLOPT_HEADER => FALSE,
-      CURLOPT_URL => $this->url,
-      CURLOPT_RETURNTRANSFER => TRUE,
-      CURLOPT_TIMEOUT => 10,
-    ] + $curlOptions;
+        CURLOPT_HTTPHEADER => $header,
+        CURLOPT_HEADER => FALSE,
+        CURLOPT_URL => $this->url,
+        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_TIMEOUT => 10,
+      ] + $curlOptions;
     if (!is_null($postfields)) {
       $options[CURLOPT_POSTFIELDS] = http_build_query($postfields);
     }
@@ -259,10 +259,15 @@ class TwitterAPIExchange {
     curl_setopt_array($feed, $options);
     $json = curl_exec($feed);
     if (($error = curl_error($feed)) !== '') {
-      curl_close($feed);
-      throw new \Exception($error);
+      \Drupal::logger('degov_tweets')->notice($error);
+      if ($feed === 'ressource') {
+        curl_close($feed);
+      }
+
     }
-    curl_close($feed);
+    if ($feed === 'ressource') {
+      curl_close($feed);
+    }
     return $json;
   }
 

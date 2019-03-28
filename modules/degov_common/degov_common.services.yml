@@ -38,6 +38,3 @@ services:
   degov_common.config_adder:
     class: \Drupal\degov_common\Entity\ConfigAdder
     arguments: ['@config.factory']
-  degov_common.module_integrity:
-    class: \Drupal\degov_common\DeGovModuleIntegrity
-    arguments: ['@module_handler', '@config.factory']

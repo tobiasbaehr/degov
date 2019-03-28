@@ -28,7 +28,7 @@ type_settings:
       published: false
       default_revision: false
       label: 'Needs review'
-      weight: 6:
+      weight: 6
   transitions:
     archive:
       label: Archive

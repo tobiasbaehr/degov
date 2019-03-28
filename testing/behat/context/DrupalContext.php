@@ -5,6 +5,9 @@ namespace Drupal\degov\Behat\Context;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
+use Drupal\degov_demo_content\Generator\MediaGenerator;
+use Drupal\degov_demo_content\Generator\MenuItemGenerator;
+use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
@@ -135,6 +138,29 @@ class DrupalContext extends RawDrupalContext {
     }
 
     $this->visitPath('/media/' . $mediaEntity->id() . '/edit');
+  }
+
+  /**
+   * @Then /^I open medias delete url by title "([^"]*)"$/
+   */
+  public function openMediaDeleteUrlByTitle(string $title): void {
+    /**
+     * @var EntityTypeManagerInterface $entityTypeManager
+     */
+    $entityTypeManager = \Drupal::service('entity_type.manager');
+    $mediaEntityStorage = $entityTypeManager->getStorage('media');
+
+    $mediaEntities = $mediaEntityStorage->loadByProperties([
+      'field_title' => $title,
+    ]);
+
+    $mediaEntity = \end($mediaEntities);
+
+    if (!$mediaEntity instanceof Media) {
+      throw new \Exception('Could not retrieve media entity by provided title.');
+    }
+
+    $this->visitPath('/media/' . $mediaEntity->id() . '/delete');
   }
 
   /**
@@ -482,6 +508,33 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
+   *
+   * Example:
+   *  I should not see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   */
+  public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
+    $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
+    $translatedText = $this->translateString($text);
+    $isFound = FALSE;
+    if (!empty($resultset)) {
+      foreach($resultset as $resultRow) {
+        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
+          $isFound = TRUE;
+          break;
+        }
+      }
+    }
+    if (!$isFound) {
+      return TRUE;
+    }
+    throw new ResponseTextException(
+      sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
+      $this->getSession()
+    );
+  }
+
+  /**
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
@@ -516,6 +569,8 @@ class DrupalContext extends RawDrupalContext {
     $content = $this->getSession()->getPage()->getText();
     if (substr_count($content, $translatedText) === 0) {
       return true;
+    } else {
+      throw new \Exception("Text '$translatedText' found on page.");
     }
   }
 
@@ -527,6 +582,14 @@ class DrupalContext extends RawDrupalContext {
 	{
 		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
 	}
+
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in uppercase$/
+   */
+  public function assertPageNotMatchesTextUppercase(string $text)
+  {
+    $this->assertSession()->pageTextNotMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+  }
 
 	/**
 	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/
@@ -832,6 +895,22 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I have created an unused file entity$/
+   */
+  public function iHaveCreatedAnUnusedFileEntity() {
+    $this->createDummyImageFileEntity();
+  }
+
+  /**
+   * @Then /^I visit the delete form for the unused file entity$/
+   */
+  public function iVisitTheDeleteFormForTheUnusedFileEntity() {
+    if(preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
+      $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
+    }
+  }
+
+  /**
    * @Then /^I visit an normal page entity with content reference$/
    */
   public function visitNormalPageEntityWithContentReference(): void {
@@ -857,5 +936,86 @@ class DrupalContext extends RawDrupalContext {
       $degov_simplenews_settings->set('privacy_policy', $privacy_policies)
         ->save();
     }
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content
+   */
+  public function iShouldSeeAnElementWithTheContent($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $content) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Then I should see an :selector element with the content :content via translation
+   */
+  public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $translatedContent = $this->translateString($content);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if ($element->getHtml() === $translatedContent) {
+          return TRUE;
+        }
+      }
+
+      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
+    }
+
+    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+  }
+
+  /**
+   * @Given /^I rebuild the "([^"]*)" index$/
+   */
+  public function iRebuildTheIndex($indexId) {
+    $index_storage = \Drupal::entityTypeManager()
+      ->getStorage('search_api_index');
+    /** @var \Drupal\search_api\IndexInterface $index */
+    $index = $index_storage->load($indexId);
+    $index->reindex();
+    $index->indexItems();
+  }
+
+  /**
+   * @Given /^I clear the cache$/
+   */
+  public function iClearTheCache() {
+    drupal_flush_all_caches();
+  }
+
+  /**
+   * @Given /^I reset the demo content$/
+   */
+  public function resetDemoContent() {
+    /**
+     * @var MediaGenerator $mediaGenerator
+     */
+    $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
+    $mediaGenerator->resetContent();
+
+    /**
+     * @var NodeGenerator $nodeGenerator
+     */
+    $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
+    $nodeGenerator->resetContent();
+
+    /**
+     * @var MenuItemGenerator $menuItemGenerator
+     */
+    $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
+    $menuItemGenerator->resetContent();
   }
 }
