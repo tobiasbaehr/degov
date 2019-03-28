@@ -97,18 +97,18 @@ function _views_argument_field_info($argument) {
  * @param $context
  */
 function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
-  $allowedViewModes = [
-    'small_image',
-    'long_text',
-    'slim',
-    'preview',
-  ];
-
   /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
   $items = $context['items'];
   // Get the field definition.
   $field_definition = $items->getFieldDefinition();
-  if ($field_definition->getType() == 'viewsreference') {
+  if ($field_definition->getType() === 'viewsreference') {
+    $allowedViewModes = [
+      'small_image',
+      'long_text',
+      'slim',
+      'preview',
+    ];
+
     // Get configuration settings for the form widget.
     $config = \Drupal::service('config.factory')
       ->getEditable('degov_paragraph_view_reference.views_helper_settings');
