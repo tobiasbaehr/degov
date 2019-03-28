@@ -23,6 +23,9 @@ class ViewsReferenceOverride extends ViewsReferenceItem {
     if (isset($values['view_mode'])) {
       $additional_settings['view_mode'] = $values['view_mode'];
     }
+    if (isset($values['options']['view_mode'])) {
+      $additional_settings['view_mode'] = $values['options']['view_mode'];
+    }
     if (!empty($additional_settings)) {
       $values['data'] = serialize($additional_settings);
     }
