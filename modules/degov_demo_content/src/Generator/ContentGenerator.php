@@ -233,17 +233,22 @@ class ContentGenerator {
    * @return string
    */
   protected function getWord(): string {
-    $words = explode(' ', self::blindText);
+    $words = explode(' ', self::BLINDTEXT);
     $this->counter++;
     $index = $this->counter % count($words);
     return $words[$index];
   }
 
   /**
-   * @param string $defName
-   * @param $tag
+   * Loads a specific definition by type.
    *
-   * @return mixed
+   * @param string $defName
+   *   The definition file name.
+   * @param string $type
+   *   The type of definition to load.
+   *
+   * @return array
+   *   The filtered definitions.
    * @throws \Exception
    */
   protected function loadDefinitionByNameTag(string $defName, $tag) {

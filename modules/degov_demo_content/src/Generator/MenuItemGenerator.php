@@ -8,7 +8,7 @@ use Drupal\Core\Extension\ModuleHandler;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 
 /**
- * Class MenuItemGenerator
+ * Class MenuItemGenerator.
  *
  * @package Drupal\degov_demo_content\Generator
  */

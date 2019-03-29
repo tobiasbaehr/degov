@@ -110,7 +110,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * @param array $rawParagraphReferences
-  * @param $rawNode
+   * @param $rawNode
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
