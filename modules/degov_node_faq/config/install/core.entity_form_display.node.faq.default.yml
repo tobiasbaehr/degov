@@ -2,27 +2,27 @@ langcode: en
 status: true
 dependencies:
   config:
-  - field.field.node.faq.field_content_paragraphs
-  - field.field.node.faq.field_faq_description
-  - field.field.node.faq.field_faq_related
-  - field.field.node.faq.field_internal_title
-  - field.field.node.faq.field_section
-  - node.type.faq
+    - field.field.node.faq.field_content_paragraphs
+    - field.field.node.faq.field_faq_description
+    - field.field.node.faq.field_faq_related
+    - field.field.node.faq.field_internal_title
+    - field.field.node.faq.field_section
+    - node.type.faq
   enforced:
     module:
-    - degov_node_faq
+      - degov_node_faq
   module:
-  - content_moderation
-  - field_group
-  - paragraphs
-  - path
+    - content_moderation
+    - field_group
+    - paragraphs
+    - path
 third_party_settings:
   field_group:
     group_vertical:
       children:
-      - group_description
-      - group_content
-      - group_common
+        - group_description
+        - group_content
+        - group_common
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -34,7 +34,7 @@ third_party_settings:
       region: content
     group_description:
       children:
-      - field_faq_description
+        - field_faq_description
       parent_name: group_vertical
       weight: 2
       format_type: tab
@@ -48,8 +48,8 @@ third_party_settings:
       region: content
     group_content:
       children:
-      - field_content_paragraphs
-      - field_faq_related
+        - field_content_paragraphs
+        - field_faq_related
       parent_name: group_vertical
       weight: 3
       format_type: tab
@@ -63,8 +63,8 @@ third_party_settings:
       region: content
     group_common:
       children:
-      - langcode
-      - field_section
+        - langcode
+        - field_section
       parent_name: group_vertical
       weight: 4
       format_type: tab

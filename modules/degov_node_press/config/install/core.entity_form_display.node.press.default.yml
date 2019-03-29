@@ -2,45 +2,45 @@ langcode: en
 status: true
 dependencies:
   config:
-  - entity_browser.browser.media_browser
-  - field.field.node.press.field_content_paragraphs
-  - field.field.node.press.field_content_type
-  - field.field.node.press.field_header_paragraphs
-  - field.field.node.press.field_internal_title
-  - field.field.node.press.field_metatags
-  - field.field.node.press.field_press_date
-  - field.field.node.press.field_section
-  - field.field.node.press.field_sidebar_right_paragraphs
-  - field.field.node.press.field_social_media
-  - field.field.node.press.field_tags
-  - field.field.node.press.field_teaser_image
-  - field.field.node.press.field_teaser_sub_title
-  - field.field.node.press.field_teaser_text
-  - field.field.node.press.field_teaser_title
-  - field.field.node.press.field_topic
-  - field.field.node.press.field_view_control
-  - node.type.press
+    - entity_browser.browser.media_browser
+    - field.field.node.press.field_content_paragraphs
+    - field.field.node.press.field_content_type
+    - field.field.node.press.field_header_paragraphs
+    - field.field.node.press.field_internal_title
+    - field.field.node.press.field_metatags
+    - field.field.node.press.field_press_date
+    - field.field.node.press.field_section
+    - field.field.node.press.field_sidebar_right_paragraphs
+    - field.field.node.press.field_social_media
+    - field.field.node.press.field_tags
+    - field.field.node.press.field_teaser_image
+    - field.field.node.press.field_teaser_sub_title
+    - field.field.node.press.field_teaser_text
+    - field.field.node.press.field_teaser_title
+    - field.field.node.press.field_topic
+    - field.field.node.press.field_view_control
+    - node.type.press
   enforced:
     module:
-    - degov_node_press
+      - degov_node_press
   module:
-  - content_moderation
-  - datetime
-  - entity_browser
-  - field_group
-  - metatag
-  - paragraphs
-  - path
-  - text
+    - content_moderation
+    - datetime
+    - entity_browser
+    - field_group
+    - metatag
+    - paragraphs
+    - path
+    - text
 third_party_settings:
   field_group:
     group_vertical:
       children:
-      - group_preview
-      - group_common
-      - group_header
-      - group_right_sidebar
-      - group_content
+        - group_preview
+        - group_common
+        - group_header
+        - group_right_sidebar
+        - group_content
       parent_name: ''
       weight: 3
       format_type: tabs
@@ -52,13 +52,13 @@ third_party_settings:
       region: content
     group_common:
       children:
-      - field_tags
-      - field_social_media
-      - field_section
-      - langcode
-      - field_content_type
-      - field_topic
-      - field_view_control
+        - field_tags
+        - field_social_media
+        - field_section
+        - langcode
+        - field_content_type
+        - field_topic
+        - field_view_control
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -72,10 +72,10 @@ third_party_settings:
       region: content
     group_preview:
       children:
-      - field_teaser_title
-      - field_teaser_sub_title
-      - field_teaser_text
-      - field_teaser_image
+        - field_teaser_title
+        - field_teaser_sub_title
+        - field_teaser_text
+        - field_teaser_image
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -89,7 +89,7 @@ third_party_settings:
       region: content
     group_right_sidebar:
       children:
-      - field_sidebar_right_paragraphs
+        - field_sidebar_right_paragraphs
       parent_name: group_vertical
       weight: 17
       format_type: tab
@@ -103,7 +103,7 @@ third_party_settings:
       region: content
     group_content:
       children:
-      - field_content_paragraphs
+        - field_content_paragraphs
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -117,7 +117,7 @@ third_party_settings:
       region: content
     group_header:
       children:
-      - field_header_paragraphs
+        - field_header_paragraphs
       parent_name: group_vertical
       weight: 16
       format_type: tab
