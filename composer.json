@@ -63,7 +63,6 @@
     "php-coord/php-coord": "^2.1",
     "leaflet/leaflet": "1.1.0",
     "enyo/dropzone": "4.2.0",
-    "phansys/getid3": "^2.1@dev",
     "drupal/metatag": "^1.1",
     "drupal/date_popup": "^1.0",
     "drupal/calendar": "1.x-dev",
@@ -113,7 +112,8 @@
     "drupal/image_widget_crop": "^2.1",
     "bower-asset/cropper": "^2.3",
     "weitzman/drupal-test-traits": "1.0.0-alpha.1",
-    "ext-json": "*"
+    "ext-json": "*",
+    "james-heinrich/getid3": "^1.9"
   },
   "repositories": {
     "drupal": {
