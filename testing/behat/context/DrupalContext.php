@@ -19,7 +19,6 @@ use Drupal\permissions_by_term\Service\AccessStorage;
 use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\user\Entity\Role;
 use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
 use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
@@ -102,6 +101,18 @@ class DrupalContext extends RawDrupalContext {
       ->condition('nfd.title', $title);
 
     $this->visitPath('/node/' . $query->execute()->fetchField() . '/edit');
+  }
+
+  /**
+   * @Then /^I open media edit form by media name "([^"]*)"$/
+   * @param string $name
+   */
+  public function openMediaEditFormByName(string $name) {
+    $query = \Drupal::service('database')->select('media_field_data', 'mfd')
+      ->fields('mfd', ['mid'])
+      ->condition('mfd.name', $name);
+
+    $this->visitPath('/media/' . $query->execute()->fetchField() . '/edit');
   }
 
   /**

@@ -360,7 +360,7 @@ Feature: deGov - Media creation
     Given I am on "/"
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/content/media"
-    Then I am on "/eirmod-tempor-invidunt-ut-labore"
+    Then I am on "/image-will-be-deleted"
     And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
     Then I open medias delete url by title "This image will be deleted"
