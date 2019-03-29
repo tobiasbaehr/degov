@@ -86,15 +86,15 @@ download_1:
   field_subtitle: '{{SUBTITLE}}'
 faq_1:
   type: 'faq'
-  field_faq_text': '{{TEXT}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_2:
   type: 'faq'
-  field_faq_text': '{{TEXT}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_3:
   type: 'faq'
-  field_faq_text': '{{TEXT}}'
+  field_faq_text: '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_list_1:
   type: 'faq_list'
@@ -154,6 +154,7 @@ media_reference_citation:
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_CITATION}}'
 media_reference_person:
+  type: 'media_reference'
   field_title: 'Vorschau eines Person-Mediums'
   field_subtitle: '{{SUBTITLE}}'
   field_media_reference_view_mode: 'preview'
