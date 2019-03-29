@@ -2,43 +2,43 @@ langcode: de
 status: true
 dependencies:
   config:
-  - entity_browser.browser.media_browser
-  - field.field.node.normal_page.field_content_paragraphs
-  - field.field.node.normal_page.field_content_type
-  - field.field.node.normal_page.field_header_paragraphs
-  - field.field.node.normal_page.field_internal_title
-  - field.field.node.normal_page.field_metatags
-  - field.field.node.normal_page.field_section
-  - field.field.node.normal_page.field_sidebar_right_paragraphs
-  - field.field.node.normal_page.field_social_media
-  - field.field.node.normal_page.field_tags
-  - field.field.node.normal_page.field_teaser_image
-  - field.field.node.normal_page.field_teaser_sub_title
-  - field.field.node.normal_page.field_teaser_text
-  - field.field.node.normal_page.field_teaser_title
-  - field.field.node.normal_page.field_topic
-  - field.field.node.normal_page.field_view_control
-  - node.type.normal_page
+    - entity_browser.browser.media_browser
+    - field.field.node.normal_page.field_content_paragraphs
+    - field.field.node.normal_page.field_content_type
+    - field.field.node.normal_page.field_header_paragraphs
+    - field.field.node.normal_page.field_internal_title
+    - field.field.node.normal_page.field_metatags
+    - field.field.node.normal_page.field_section
+    - field.field.node.normal_page.field_sidebar_right_paragraphs
+    - field.field.node.normal_page.field_social_media
+    - field.field.node.normal_page.field_tags
+    - field.field.node.normal_page.field_teaser_image
+    - field.field.node.normal_page.field_teaser_sub_title
+    - field.field.node.normal_page.field_teaser_text
+    - field.field.node.normal_page.field_teaser_title
+    - field.field.node.normal_page.field_topic
+    - field.field.node.normal_page.field_view_control
+    - node.type.normal_page
   enforced:
     module:
-    - degov_node_normal_page
+      - degov_node_normal_page
   module:
-  - content_moderation
-  - entity_browser
-  - field_group
-  - metatag
-  - paragraphs
-  - path
-  - text
+    - content_moderation
+    - entity_browser
+    - field_group
+    - metatag
+    - paragraphs
+    - path
+    - text
 third_party_settings:
   field_group:
     group_vertical:
       children:
-      - group_preview
-      - group_common
-      - group_header
-      - group_righ
-      - group_content
+        - group_preview
+        - group_common
+        - group_header
+        - group_righ
+        - group_content
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -50,10 +50,10 @@ third_party_settings:
       region: content
     group_preview:
       children:
-      - field_teaser_title
-      - field_teaser_sub_title
-      - field_teaser_text
-      - field_teaser_image
+        - field_teaser_title
+        - field_teaser_sub_title
+        - field_teaser_text
+        - field_teaser_image
       parent_name: group_vertical
       weight: 14
       format_type: tab
@@ -67,10 +67,10 @@ third_party_settings:
       region: content
     group_common:
       children:
-      - field_tags
-      - langcode
-      - field_social_media
-      - field_section
+        - field_tags
+        - langcode
+        - field_social_media
+        - field_section
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -84,7 +84,7 @@ third_party_settings:
       region: content
     group_content:
       children:
-      - field_content_paragraphs
+       - field_content_paragraphs
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -98,7 +98,7 @@ third_party_settings:
       region: content
     group_righ:
       children:
-      - field_sidebar_right_paragraphs
+        - field_sidebar_right_paragraphs
       parent_name: group_vertical
       weight: 17
       format_type: tab
@@ -112,7 +112,7 @@ third_party_settings:
       region: content
     group_header:
       children:
-      - field_header_paragraphs
+         - field_header_paragraphs
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -315,8 +315,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_content_type: true
-  field_internal_title: true
-  field_topic: true
-  field_view_control: true
+hidden: {}
