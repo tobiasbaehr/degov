@@ -3,6 +3,7 @@ Feature: deGov - Users
 
   Background:
     Given I proof that Drupal module "degov_users_roles" is installed
+    Given I proof that Drupal module "degov_simplenews_references" is installed
 
   Scenario: I am on the frontpage
     Given I am on "/"
