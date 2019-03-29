@@ -40,7 +40,7 @@ third_party_settings:
         - group_righ
         - group_content
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: tabs
       format_settings:
         id: ''
@@ -154,6 +154,14 @@ content:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
         add_above: add_above
+      closed_mode: summary
+      closed_mode_threshold: 0
+    region: content
+  field_content_type:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_header_paragraphs:
     weight: 2
@@ -171,10 +179,20 @@ content:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
         add_above: add_above
+      closed_mode: summary
+      closed_mode_threshold: 0
     region: content
+  field_internal_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_metatags:
     type: metatag_firehose
-    weight: 7
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -185,21 +203,21 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
-    weight: 7
+    weight: 4
     type: paragraphs
     third_party_settings: {  }
     settings:
-     title: Paragraph
-     title_plural: Paragraphs
-     edit_mode: closed
-     autocollapse: none
-     add_mode: modal
-     form_display_mode: default
-     default_paragraph_type: _none
-     features:
-       duplicate: duplicate
-       collapse_edit_all: collapse_edit_all
-       add_above: add_above
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      autocollapse: none
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: add_above
     region: content
   field_social_media:
     weight: 7
@@ -318,4 +336,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {}
+hidden: {  }
