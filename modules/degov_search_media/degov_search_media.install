@@ -1,6 +1,5 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
 use Drupal\facets\Entity\Facet;
 use Symfony\Component\Yaml\Yaml;
 
@@ -69,9 +68,26 @@ function degov_search_media_update_850100() {
 }
 
 /**
- * deGov update 6.0.0 - Add video_mobile media type to search_media view as a filter.
+ * deGov Update 6.0.0 - Remove the "Ignore characters" filter from the media bundle field
  */
 function degov_search_media_update_860000() {
+  $config = \Drupal::configFactory()->getEditable('search_api.index.search_media');
+  $ignoreCharacterFieldsSettings = $config->get('processor_settings.ignore_character.fields');
+
+  if(!empty($ignoreCharacterFieldsSettings)) {
+    $unsetKey = array_search('bundle', $ignoreCharacterFieldsSettings, FALSE);
+    if($unsetKey !== FALSE) {
+      unset($ignoreCharacterFieldsSettings[$unsetKey]);
+      $config->set('processor_settings.ignore_character.fields', $ignoreCharacterFieldsSettings)->save();
+      return t('The Search API configuration for the media index has been updated. Please perform a reindex!');
+    }
+  }
+}
+
+/**
+ * deGov update 6.3.0 - Add video_mobile media type to search_media view as a filter.
+ */
+function degov_search_media_update_860300() {
   /**
    * @var ConfigFactory $configFactory
    */

@@ -30,3 +30,20 @@ function degov_search_content_update_8010() {
     $facet->delete();
   }
 }
+
+/**
+ * deGov Update 6.0.0 - Remove the "Ignore characters" filter from the content type field
+ */
+function degov_search_content_update_860000() {
+  $config = \Drupal::configFactory()->getEditable('search_api.index.search_content');
+  $ignoreCharacterFieldsSettings = $config->get('processor_settings.ignore_character.fields');
+
+  if(!empty($ignoreCharacterFieldsSettings)) {
+    $unsetKey = array_search('type', $ignoreCharacterFieldsSettings, FALSE);
+    if($unsetKey !== FALSE) {
+      unset($ignoreCharacterFieldsSettings[$unsetKey]);
+      $config->set('processor_settings.ignore_character.fields', $ignoreCharacterFieldsSettings)->save();
+      return t('The Search API configuration for the content index has been updated. Please perform a reindex!');
+    }
+  }
+}
