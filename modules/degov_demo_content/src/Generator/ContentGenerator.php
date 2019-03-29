@@ -240,6 +240,18 @@ class ContentGenerator {
   }
 
   /**
+   * @param string $defName
+   * @param $tag
+   *
+   * @return mixed
+   * @throws \Exception
+   */
+  protected function loadDefinitionByNameTag(string $defName, $tag) {
+    $def = $this->loadDefinitions($defName . '.yml');
+    return $def[$tag];
+  }
+
+  /**
    * Loads a specific definition by type.
    *
    * @param string $defName
@@ -249,18 +261,6 @@ class ContentGenerator {
    *
    * @return array
    *   The filtered definitions.
-   * @throws \Exception
-   */
-  protected function loadDefinitionByNameTag(string $defName, $tag) {
-    $def = $this->loadDefinitions($defName . '.yml');
-    return $def[$tag];
-  }
-
-  /**
-   * @param string $defName
-   * @param string $type
-   *
-   * @return array
    * @throws \Exception
    */
   protected function loadDefinitionByNameType(string $defName, string $type): array {
