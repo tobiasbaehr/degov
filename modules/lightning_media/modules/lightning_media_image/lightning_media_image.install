@@ -146,6 +146,22 @@ function lightning_media_image_update_8006() {
 }
 
 /**
+ * Setting max. image media entity's image file size, for not exceeding PHP memory limit.
+ */
+function lightning_media_image_update_8007() {
+  /**
+   * @var ConfigFactory $configFactory
+   */
+  $configFactory = \Drupal::service('config.factory');
+  /**
+   * @var Drupal\Core\Config\Config $config
+   */
+  $config = $configFactory->getEditable('field.field.media.image.image');
+  $config->set('settings.max_filesize', '10 MB');
+  $config->save();
+}
+
+/**
  * Implements hook_update_dependencies().
  */
 function lightning_media_image_update_dependencies() {
