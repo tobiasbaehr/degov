@@ -84,31 +84,36 @@ class Template {
     }
 
     if ($add_suggestion) {
+      $template_path = $info['theme path']; #substr($info['theme path'], 0, 14);
       $path_to_active_theme = $this->themeManager->getActiveTheme()->getPath();
 
-      list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
-      // does the template exist in the active theme?
-      $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
-      $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
-      if (!$template_found) {
-        // no? does the template exist in a base theme?
-        $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
-        foreach ($base_themes as $base_theme) {
-          if ($base_theme->getPath() !== null) {
-            $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
-            if ($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
-              $template_found = TRUE;
-              break;
+      if (strpos($template_path, 'profiles/contrib') === 0 ||
+        strpos($template_path, 'themes/contrib') === 0 ||
+        (strpos($template_path, $path_to_active_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
+        list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
+        // does the template exist in the active theme?
+        $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
+        $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
+        if (!$template_found) {
+          // no? does the template exist in a base theme?
+          $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
+          foreach ($base_themes as $base_theme) {
+            if ($base_theme->getPath() !== null) {
+              $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');
+              if ($this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname)) {
+                $template_found = TRUE;
+                break;
+              }
             }
           }
         }
-      }
-      if (!$template_found) {
-        // no? does the template exist in a module?
-        $module_path = $this->drupalPath->getPath('module', $module_name);
-        if ($module_path) {
-          $module_templates_dirname = $this->buildPath($module_path, 'templates');
-          $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+        if (!$template_found) {
+          // no? does the template exist in a module?
+          $module_path = $this->drupalPath->getPath('module', $module_name);
+          if ($module_path) {
+            $module_templates_dirname = $this->buildPath($module_path, 'templates');
+            $this->addTemplateToArrayIfFileIsFound($info, "modules", $template_filename, $module_templates_dirname);
+          }
         }
       }
     }
@@ -190,10 +195,7 @@ class Template {
     $path = $this->drupalPath->getPath('module', $module) . '/' . $templatePath;
     $twigTemplate = $this->twig->load($path);
 
-    /*
-     * @TODO Added empty array due to bug in Twig 1.37.0, remove on fix.
-     */
-    return $twigTemplate->render($variables, []);
+    return $twigTemplate->render($variables);
   }
 
 }

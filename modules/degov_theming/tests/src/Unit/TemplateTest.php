@@ -7,7 +7,7 @@ use Drupal\Core\Entity\Entity;
 use Drupal\Core\Theme\ActiveTheme;
 use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
-use Drupal\degov_common\Factory\FilesystemFactory;
+use Drupal\degov_theming\Factory\FilesystemFactory
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
@@ -76,7 +76,7 @@ class TemplateTest extends UnitTestCase
     $activeThemeStub = $this->prophesize(ActiveTheme::class);
 
     $baseTheme = $this->prophesize(ActiveTheme::class);
-    $baseTheme->getPath()->willReturn('themes/contrib/base_theme/');
+    $baseTheme->getPath()->willReturn('themes/custom/base_theme/');
 
     $projectTheme = $this->prophesize(ActiveTheme::class);
     $projectTheme->getBaseThemes()->willReturn([
@@ -136,8 +136,6 @@ class TemplateTest extends UnitTestCase
               ],
             ],
           ],
-        ],
-        'contrib' => [
           'base_theme'    => [
             'templates' => [
               'node--normal_page--preview.html.twig' => 'Foo',
@@ -317,7 +315,7 @@ class TemplateTest extends UnitTestCase
         'type'           => 'base_theme',
         'theme path'     => 'themes',
         'template'       => 'node--normal_page--full',
-        'path'           => 'themes/contrib/base_theme/templates',
+        'path'           => 'themes/custom/base_theme/templates',
       ],
       $info
     );
