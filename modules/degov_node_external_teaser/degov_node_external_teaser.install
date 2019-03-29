@@ -1,9 +1,21 @@
 <?php
 
+use Drupal\degov_common\Common;
+
 /**
  * deGov Update 5.1.0 - Update the Preview view mode.
  */
 function degov_node_external_teaser_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_external_teaser', '8001');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function degov_node_external_teaser_uninstall() {
+  Common::removeContent([
+    'entity_type' => 'node',
+    'entity_bundles' => ['external_teaser'],
+  ]);
 }
