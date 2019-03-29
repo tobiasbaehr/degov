@@ -113,7 +113,7 @@
     "bower-asset/cropper": "^2.3",
     "weitzman/drupal-test-traits": "1.0.0-alpha.1",
     "ext-json": "*",
-    "james-heinrich/getid3": "^1.9"
+    "james-heinrich/getid3": "^2.0"
   },
   "repositories": {
     "drupal": {
