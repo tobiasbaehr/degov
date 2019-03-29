@@ -7,7 +7,7 @@ use Drupal\Core\Entity\Entity;
 use Drupal\Core\Theme\ActiveTheme;
 use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
-use Drupal\degov_theming\Factory\FilesystemFactory
+use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
