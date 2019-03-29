@@ -40,7 +40,7 @@ third_party_settings:
         - group_righ
         - group_content
       parent_name: ''
-      weight: 1
+      weight: 3
       format_type: tabs
       format_settings:
         id: ''
@@ -70,7 +70,10 @@ third_party_settings:
         - field_tags
         - langcode
         - field_social_media
+        - field_topic
+        - field_content_type
         - field_section
+        - field_view_control
       parent_name: group_vertical
       weight: 15
       format_type: tab
@@ -84,7 +87,7 @@ third_party_settings:
       region: content
     group_content:
       children:
-       - field_content_paragraphs
+        - field_content_paragraphs
       parent_name: group_vertical
       weight: 18
       format_type: tab
@@ -112,7 +115,7 @@ third_party_settings:
       region: content
     group_header:
       children:
-         - field_header_paragraphs
+        - field_header_paragraphs
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -131,7 +134,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -140,34 +143,34 @@ content:
     type: paragraphs
     third_party_settings: {  }
     settings:
-     title: Paragraph
-     title_plural: Paragraphs
-     edit_mode: closed
-     autocollapse: none
-     add_mode: modal
-     form_display_mode: default
-     default_paragraph_type: _none
-     features:
-       duplicate: duplicate
-       collapse_edit_all: collapse_edit_all
-       add_above: add_above
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      autocollapse: none
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: add_above
     region: content
   field_header_paragraphs:
     weight: 2
     type: paragraphs
     third_party_settings: {  }
     settings:
-     title: Paragraph
-     title_plural: Paragraphs
-     edit_mode: closed
-     autocollapse: none
-     add_mode: modal
-     form_display_mode: default
-     default_paragraph_type: _none
-     features:
-       duplicate: duplicate
-       collapse_edit_all: collapse_edit_all
-       add_above: add_above
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      autocollapse: none
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: add_above
     region: content
   field_metatags:
     type: metatag_firehose
@@ -182,7 +185,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sidebar_right_paragraphs:
-    weight: 4
+    weight: 7
     type: paragraphs
     third_party_settings: {  }
     settings:
