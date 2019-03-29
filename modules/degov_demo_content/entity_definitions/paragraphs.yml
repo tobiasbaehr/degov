@@ -58,6 +58,27 @@ text_1:
   field_text_text: '{{TEXT}}'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
+text_2:
+  type: 'text'
+  field_text_text:
+    value: >
+      <h1>{{SUBTITLE}}</h1>
+      <p>{{TEXT}}</p>
+      <p><strong>{{SUBTITLE}}</strong> {{SUBTITLE}} <em>{{SUBTITLE}}</em> {{SUBTITLE}} <a href="/">{{SUBTITLE}}</a> {{SUBTITLE}}</p>
+      <h2>{{SUBTITLE}}</h2>
+      <p>{{TEXT}}</p>
+      {{MEDIA_ID_IMAGE_ENTITY_EMBED}}
+      <h3>{{SUBTITLE}}</h3>
+      <p>{{TEXT}}</p>
+      <h4>{{SUBTITLE}}</h4>
+      <p>{{TEXT}}</p>
+      <h5>{{SUBTITLE}}</h5>
+      <p>{{TEXT}}</p>
+      <h6>{{SUBTITLE}}</h6>
+      <p>{{TEXT}}</p>
+    format: 'rich_html'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
 download_1:
   type: 'downloads'
   field_downloads_files: '{{MEDIA_ID_DOCUMENT}}'
@@ -65,15 +86,15 @@ download_1:
   field_subtitle: '{{SUBTITLE}}'
 faq_1:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text': '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_2:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text': '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_3:
   type: 'faq'
-  field_faq_text': '{{SUBTITLE}}'
+  field_faq_text': '{{TEXT}}'
   field_faq_title: '{{SUBTITLE}}'
 faq_list_1:
   type: 'faq_list'
@@ -95,7 +116,85 @@ map_1:
   field_map_address_view_mode: 'osm_map'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
-media_reference:
+## Media References
+media_reference_image:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Bild-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_IMAGE}}'
+media_reference_video_upload:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Video-Upload-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_VIDEO_UPLOAD}}'
+media_reference_document:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Dokument-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_DOCUMENT}}'
+media_reference_audio:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Audio-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_AUDIO}}'
+media_reference_address:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Adresse-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_ADDRESS}}'
+media_reference_citation:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Zitat-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_CITATION}}'
+media_reference_person:
+  field_title: 'Vorschau eines Person-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_PERSON}}'
+media_reference_contact:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Kontakt-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_CONTACT}}'
+media_reference_gallery:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Galerie-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_GALLERY}}'
+media_reference_tweet:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Tweet-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_TWEET}}'
+media_reference_instagram:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Instagram-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_INSTAGRAM}}'
+media_reference_some_embed:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Social Media Embed Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_SOME_EMBED}}'
+media_reference_video:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Video-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_VIDEO}}'
+media_reference_responsive_video:
   type: 'media_reference'
   field_override_caption: '{{SUBTITLE}}'
   field_media_reference_media: '{{MEDIA_ID_VIDEO_MOBILE}}'

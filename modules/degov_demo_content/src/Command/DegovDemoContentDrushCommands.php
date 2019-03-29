@@ -71,9 +71,9 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcdel
    */
   public function deleteContent() {
+    $this->menuItemGenerator->deleteContent();
     $this->nodeGenerator->deleteContent();
     $this->mediaGenerator->deleteContent();
-    $this->menuItemGenerator->deleteContent();
   }
 
   /**

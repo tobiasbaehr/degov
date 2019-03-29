@@ -19,6 +19,7 @@ page_with_text_paragraph:
   field_teaser_image: '{{MEDIA_ID_IMAGE}}'
   field_content_paragraphs:
     - text_1
+    - text_2
   status: 1
   moderation_state: 'published'
 page_with_text_sidebar:
@@ -105,6 +106,7 @@ page_with_all_media:
     - media_reference_tweet
     - media_reference_instagram
     - media_reference_some_embed
+    - media_reference_responsive_video
   status: 1
   moderation_state: 'published'
 press_release:
@@ -203,6 +205,6 @@ node_with_video_mobile:
   field_teaser_title: 'Page with responsive video'
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_content_paragraphs:
-    - media_reference
+    - media_reference_responsive_video
   status: 1
   moderation_state: 'published'

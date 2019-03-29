@@ -10,16 +10,16 @@ function degov_content_types_shared_fields_preprocess_node(&$variables) {
   // enabled on the node. Appears on the bottom of both header/content paragraph.
   // Default is 2-click-sharing. Admins can enable 1-click-sharing in settings.
 
-    /* @var \Drupal\node\NodeInterface $node */
+  /* @var \Drupal\node\NodeInterface $node */
   $node = $variables['elements']['#node'];
   $shariff_settings = \Drupal::configFactory()->get('shariff.settings');
 
   if ($node->hasField('field_social_media')
     && $node->field_social_media->value == '1'
     && !empty($variables['content']['shariff_field']) && !$shariff_settings->get('enable_1_click_sharing')) {
-      $variables['content']['shariff_field']['#attached']['library'] = ['degov_content_types_shared_fields/shariff-2click'];
-    }
- }
+    $variables['content']['shariff_field']['#attached']['library'] = ['degov_content_types_shared_fields/shariff-2click'];
+  }
+}
 
 /**
  * Implements hook_form_alter().
