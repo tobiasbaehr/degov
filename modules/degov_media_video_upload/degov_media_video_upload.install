@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
 use Symfony\Component\Yaml\Yaml;
 
@@ -47,6 +48,10 @@ function degov_media_video_upload_uninstall() {
       ->set("widgets", $widgets)
       ->save(TRUE);
   }
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['video_upload'],
+  ]);
 }
 
 /**
