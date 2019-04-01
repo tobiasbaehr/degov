@@ -50,18 +50,6 @@ function degov_common_uninstall() {
     ->delete();
 }
 
-function degov_common_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
-}
-
 function degov_common_update_8016() {
   $query = \Drupal::database()->delete('key_value');
   $query->condition('collection', 'system.schema');
@@ -208,6 +196,18 @@ function degov_common_update_8032() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_node_overrides')) {
     \Drupal::service('module_installer')->install(['degov_node_overrides']);
   }
+}
+
+function degov_common_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 /**

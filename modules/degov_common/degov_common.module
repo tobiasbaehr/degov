@@ -35,11 +35,18 @@ function degov_common_views_data_alter(array &$data) {
  * Implements hook_theme().
  */
 function degov_common_theme() {
-  return array(
-    'degov_file_download_link' => array(
-      'variables' => array('file' => NULL, 'download_link' => NULL, 'icon' => '', 'file_size' => NULL, 'attributes' => NULL),
-    ),
-  );
+  return [
+    'degov_file_download_link' => [
+      'variables' => [
+        'file'                   => NULL,
+        'download_link'          => NULL,
+        'icon'                   => '',
+        'file_size'              => NULL,
+        'attributes'             => NULL,
+        'additional_information' => NULL,
+      ],
+    ],
+  ];
 }
 
 /**
@@ -79,7 +86,7 @@ function degov_common_preprocess_degov_file_download_link(&$variables) {
  *
  * @return array
  */
-function degov_common_file_download_render_array($file) {
+function degov_common_file_download_render_array($file, $additional_information = '') {
   if ($file instanceof \Drupal\file\FileInterface) {
     // Prepare the attributes for the main container of the template.
     $attributes = new \Drupal\Core\Template\Attribute();
@@ -87,12 +94,13 @@ function degov_common_file_download_render_array($file) {
     $mime_type = $file->getMimeType();
     $download_url = degov_common_file_download_link($file, ['attributes' => ['type' => $mime_type . '; length=' . $file->getSize()]]);
     return [
-      '#theme' => 'degov_file_download_link',
-      '#file' => $file,
-      '#download_link' => \Drupal\Core\Link::fromTextAndUrl(t('Download'), $download_url),
-      '#icon' => file_icon_class($mime_type),
-      '#attributes' => $attributes,
-      '#file_size' => format_size($file->getSize()),
+      '#theme'                  => 'degov_file_download_link',
+      '#file'                   => $file,
+      '#download_link'          => \Drupal\Core\Link::fromTextAndUrl(t('Download'), $download_url),
+      '#icon'                   => file_icon_class($mime_type),
+      '#attributes'             => $attributes,
+      '#file_size'              => format_size($file->getSize()),
+      '#additional_information' => $additional_information,
     ];
   }
 }

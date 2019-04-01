@@ -204,10 +204,9 @@ function degov_update_850100() {
 }
 
 /**
- * Re-Import search_media view., Remove media type video_file if there is no content., Adds missing fields to forms.
+ * Re-Import search_media view, Remove media type video_file if there is no content., Adds missing fields to forms.
  */
 function degov_update_860000() {
-
   /**
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
@@ -217,7 +216,6 @@ function degov_update_860000() {
   $moduleUpdater->reImport('core.entity_form_display.node.event.default', 'degov_node_event', 'install');
   $moduleUpdater->reImport('core.entity_form_display.node.blog.default', 'degov_node_blog', 'install');
   $moduleUpdater->reImport('core.entity_form_display.node.press.default', 'degov_node_press', 'install');
-
 
   if (!\Drupal::entityQuery('media')
     ->condition('bundle', 'video_file')
@@ -236,7 +234,7 @@ function degov_update_860000() {
 }
 
 /**
- * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules.
+ * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules, update translations.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
@@ -250,6 +248,16 @@ function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
     \Drupal::service('module_installer')->install(['degov_auto_crop']);
   }
+
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 /**

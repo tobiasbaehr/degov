@@ -72,10 +72,110 @@ Feature: deGov - Media creation
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I choose "Medien" from tab menu
-    And I attach the file "bokeh-video-of-leaves.mp4" to "files[field_video_upload_mp4_0]"
+    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     And I should see text matching "Video Upload Video Example wurde erstellt."
+
+  Scenario: I create a rudimentary mobile video media entity
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I fill in the following:
+      | Name               | Mobile Video Example 1 |
+      | Öffentlicher Titel | Mobile Video Example 1 |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Responsives Video Mobile Video Example 1 wurde erstellt."
+
+  Scenario: I create a mobile video media entity with HD videos
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I fill in the following:
+      | Name               | Mobile Video Example 2 |
+      | Öffentlicher Titel | Mobile Video Example 2 |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_hdready_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Responsives Video Mobile Video Example 2 wurde erstellt."
+
+  Scenario: I verify that the quality switcher works
+    Given I am on "/mobile-video-example-2"
+    And I should see 1 "video" elements
+    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
+    And I should see 4 ".video-mobile__quality select option" elements
+    Then I select index 3 in dropdown named "video-mobile-quality"
+    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-full-hd"
+
+  Scenario: I test that the server-side video analysis works
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I attach the file "portait-mode-mpeg4.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    Then I should see HTML content matching 'Standard Video: Videomaße von 960 x 540 erwartet. Stattdessen vorgefunden: "480 x 720“.'
+    Then I should see HTML content matching 'Standard Video: Seitenverhältnis von 16:9 erwartet. Stattdessen vorgefunden: "16:24".'
+    Then I should see HTML content matching 'Standard Video: H.264 codiertes Video erwartet. Stattdessen vorgefunden: "mp4v".'
+
+  Scenario: I test that messages from the video analysis don't repeat
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
+    And I am on "/media/add/video_mobile"
+    And I choose "Medien" from tab menu
+    Then I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I should see 1 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+    Then I attach the file "pexels-videos-1409899-hd-ready.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I should see 2 ".messages--warning" elements
+    And I should see 0 ".messages--warning .messages__list" elements
+
+  Scenario: I verify that a mobile video entity has multiple download options
+    Given I am logged in as an "Administrator"
+    And I have dismissed the cookie banner if necessary
+    And I am on "/media/add/video_mobile"
+    And I fill in the following:
+      | Name               | Video Example 2 |
+      | Öffentlicher Titel | Video Example 2 |
+    And I choose "Allgemein" from tab menu
+    And I check the box "edit-field-include-search-value"
+    And I choose "Medien" from tab menu
+    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I check checkbox with id "edit-field-allow-download-mobile-value"
+    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I uncheck checkbox with id "edit-field-allow-download-value"
+    And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
+    And I wait 3 seconds
+    And I check checkbox with id "edit-field-allow-download-fullhd-value"
+    And I scroll to element with id "edit-submit"
+    And I press button with label "Save" via translated text
+    And I should see text matching "Responsives Video Video Example 2 wurde erstellt."
+    Then I am on "/video-example-2"
+    And I should see 1 "video" elements
+    And I should see 2 ".video-mobile__downloads .file--download" elements
 
   Scenario: I am creating a video media entity
     Given I have dismissed the cookie banner if necessary
@@ -138,6 +238,8 @@ Feature: deGov - Media creation
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
+    And I should see HTML content matching "Alternativer Text" after a while
+    And I fill in "Alternativer Text" with "Test1234"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
@@ -210,7 +312,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I click by CSS id "edit-field-gallery-images-entity-browser-entity-browser-open-modal"
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I switch to the "entity_browser_iframe_media_browser" frame
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
@@ -227,6 +329,19 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
 
+  Scenario: I verify that the video upload dropzone plugin has been removed
+    Given I am on "/"
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as an "Administrator"
+    And I am on "/node/add/normal_page"
+    And I choose "Inhalt" from tab menu
+    And I should see text matching "Inhaltsbereich"
+    And I click by selector "#edit-field-content-paragraphs-wrapper .paragraph-type-add-modal-button" via JavaScript
+    And I click by XPath "//input[@name='field_content_paragraphs_media_reference_add_more']"
+    And I click by selector ".button.entity-browser-processed" via JavaScript
+    And I switch to the "entity_browser_iframe_media_browser" frame
+    Then I should not see text matching "Video Hochladen" after a while
+
   Scenario: Check if media full display is working if field_include_search is unchecked
     Given I am installing the "degov_demo_content" module
     Given I have dismissed the cookie banner if necessary
@@ -238,7 +353,7 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     And I am on "/demo-image-fixed-title"
     And I should not see "Mitglied seit"
-    And I should see HTML content matching "image--full"
+    And I should see HTML content matching "media--view-mode-full"
 
   Scenario: I verify that a deleted Media's file is actually gone
     Given I am installing the "degov_demo_content" module
