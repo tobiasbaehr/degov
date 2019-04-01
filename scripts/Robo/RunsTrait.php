@@ -79,7 +79,10 @@ trait RunsTrait {
   protected function runBaseThemeNpmPackageUpdate(): void {
     $this->say('Installing NPM packages in NRW base theme.');
 
-    $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/nrw/nrw_base_theme && nvm install 6.11.3 && npm i');
+    $this->taskExecStack()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+      ->exec('cd ' . $this->rootFolder . '&& cd docroot/themes/nrw/nrw_base_theme && nvm install 6.11.3 && npm i')
+      ->run();
 
     $this->say('Finished installation of NPM packages in NRW base theme.');
   }
@@ -100,11 +103,11 @@ trait RunsTrait {
 
   }
 
-  protected function checkRequirements(): void {
+  protected function checkRequirements(string $distro): void {
     $projectStructure = new ProjectStructure();
 
     try {
-      if ($projectStructure->isCorrectProjectStructure()) {
+      if ($projectStructure->isCorrectProjectStructure($distro)) {
         $this->say('Project structure is correct.');
       }
     } catch (WrongFolderLocation $exception) {
