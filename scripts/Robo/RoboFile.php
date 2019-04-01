@@ -2,11 +2,6 @@
 
 namespace degov\Scripts\Robo;
 
-use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
-use degov\Scripts\Robo\Exception\WrongFolderLocation;
-use Robo\Contract\VerbosityThresholdInterface;
-use Symfony\Component\Yaml\Yaml;
-
 
 /**
  * This is project's console commands configuration for Robo task runner.

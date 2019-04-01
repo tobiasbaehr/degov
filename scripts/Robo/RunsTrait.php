@@ -2,7 +2,10 @@
 
 namespace degov\Scripts\Robo;
 
+use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
+use degov\Scripts\Robo\Exception\WrongFolderLocation;
 use Robo\Contract\VerbosityThresholdInterface;
+use Symfony\Component\Yaml\Yaml;
 
 trait RunsTrait {
 
@@ -102,7 +105,7 @@ trait RunsTrait {
       }
     } catch (WrongFolderLocation $exception) {
       $this->say($exception->getMessage());
-      throw new Exception('Aborting update.');
+      throw new \Exception('Aborting update.');
     }
 
     $requiredApplications = new RequiredApplications();
@@ -113,7 +116,7 @@ trait RunsTrait {
       }
     } catch (ApplicationRequirementFail $exception) {
       $this->say($exception->getMessage());
-      throw new Exception('Aborting update.');
+      throw new \Exception('Aborting update.');
     }
   }
 
