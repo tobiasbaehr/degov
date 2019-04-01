@@ -79,7 +79,11 @@ trait RunsTrait {
   protected function runBaseThemeNpmPackageUpdate(): void {
     $this->say('Installing NPM packages in NRW base theme.');
 
-    $pathToNpm = $this->_exec('which npm')->getMessage();
+    $pathToNpm = $this->taskExecStack()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+      ->exec('which npm')
+      ->run()
+      ->getMessage();
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
@@ -96,7 +100,11 @@ trait RunsTrait {
     if (file_exists($pathToCustomThemeConfig)) {
       $themeConfig = Yaml::parse($pathToCustomThemeConfig);
       if ($themeConfig['default'] !== 'nrw_base_theme') {
-        $pathToNpm = $this->_exec('which npm')->getMessage();
+        $pathToNpm = $this->taskExecStack()
+          ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+          ->exec('which npm')
+          ->run()
+          ->getMessage();
         $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && ' . $pathToNpm . ' i');
       }
       $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
