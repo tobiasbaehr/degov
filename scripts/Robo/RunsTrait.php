@@ -79,9 +79,11 @@ trait RunsTrait {
   protected function runBaseThemeNpmPackageUpdate(): void {
     $this->say('Installing NPM packages in NRW base theme.');
 
+    $pathToNpm = $this->_exec('which npm')->getMessage();
+
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& cd docroot/themes/nrw/nrw_base_theme && nvm install 6.11.3 && npm i')
+      ->exec('cd ' . $this->rootFolder . '&& cd docroot/themes/nrw/nrw_base_theme && ' . $pathToNpm . ' i')
       ->run();
 
     $this->say('Finished installation of NPM packages in NRW base theme.');
@@ -94,7 +96,8 @@ trait RunsTrait {
     if (file_exists($pathToCustomThemeConfig)) {
       $themeConfig = Yaml::parse($pathToCustomThemeConfig);
       if ($themeConfig['default'] !== 'nrw_base_theme') {
-        $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && nvm install 6.11.3 && npm i');
+        $pathToNpm = $this->_exec('which npm')->getMessage();
+        $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && ' . $pathToNpm . ' i');
       }
       $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
     } else {
