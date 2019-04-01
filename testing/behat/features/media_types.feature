@@ -273,20 +273,3 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/video_upload"
     Then I am on "/admin/structure/media/manage/person"
     Then I am on "/admin/structure/media/manage/audio"
-
-  Scenario: Proof that media reference paragraph type references expected media types
-    Given I am logged in as a user with the "administrator" role
-    And I am on "/admin/structure/paragraphs_type/media_reference/fields/paragraph.media_reference.field_media_reference_media"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-address" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-audio" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-image" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-instagram" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-contact" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-person" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-video-mobile" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-some-embed" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-tweet" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-video" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-video-file" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-video-upload" has value "checked"
-    And I proof Checkbox with id "edit-settings-handler-settings-target-bundles-citation" has value "checked"
