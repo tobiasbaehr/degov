@@ -87,13 +87,17 @@ trait RunsTrait {
   protected function runCustomThemeUpdate(): void {
     $this->say('Installing NPM packages and re-compiling JS/CSS assets in custom theme.');
 
-    $themeConfig = Yaml::parse(file_get_contents('config' . DIRECTORY_SEPARATOR . 'sync' . DIRECTORY_SEPARATOR . 'system.theme.yml'));
-
-    if ($themeConfig['default'] !== 'nrw_base_theme') {
-      $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && nvm install 6.11.3 && npm i');
+    $pathToCustomThemeConfig = 'config' . DIRECTORY_SEPARATOR . 'sync' . DIRECTORY_SEPARATOR . 'system.theme.yml';
+    if (file_exists($pathToCustomThemeConfig)) {
+      $themeConfig = Yaml::parse($pathToCustomThemeConfig);
+      if ($themeConfig['default'] !== 'nrw_base_theme') {
+        $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && nvm install 6.11.3 && npm i');
+      }
+      $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
+    } else {
+      $this->say('No custom theme detected. Bypassing installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
     }
 
-    $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
   }
 
   protected function checkRequirements(): void {
