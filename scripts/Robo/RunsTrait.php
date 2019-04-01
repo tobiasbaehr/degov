@@ -103,7 +103,7 @@ trait RunsTrait {
 
   }
 
-  protected function checkRequirements(string $distro): void {
+  protected function checkRequirements(string $distro = 'degov'): void {
     $projectStructure = new ProjectStructure();
 
     try {

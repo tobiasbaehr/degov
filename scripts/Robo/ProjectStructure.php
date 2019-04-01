@@ -6,7 +6,7 @@ use degov\Scripts\Robo\Exception\WrongFolderLocation;
 
 class ProjectStructure extends \Robo\Tasks {
 
-  public function checkCorrectProjectStructure(string $distro = 'degov'): void {
+  public function checkCorrectProjectStructure(string $distro): void {
     $this->checkBaseDistroFolder();
     $this->checkDistroFolder($distro);
     $this->checkDocrootFolder();
