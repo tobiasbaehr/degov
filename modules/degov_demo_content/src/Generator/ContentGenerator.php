@@ -210,7 +210,7 @@ class ContentGenerator {
     try {
       $index = $this->counter % \count($medias);
     } catch(\DivisionByZeroError $exception) {
-      throw new \Exception('Media is missing. May the field definitions of your entity definitions for demo content are wrong?');
+      throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
     }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);

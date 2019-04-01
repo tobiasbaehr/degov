@@ -77,7 +77,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    */
   public function generateContent(): void {
     $media_to_generate = $this->loadDefinitions('media.yml');
-    $this->prepareValues($media_to_generate);
 
     $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
     $this->mediaFileHandler->saveFiles($media_to_generate, $fixtures_path);
@@ -179,7 +178,5 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
     }
     parent::deleteContent();
   }
-
-
 
 }
