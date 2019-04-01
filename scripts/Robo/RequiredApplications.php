@@ -2,13 +2,13 @@
 
 namespace degov\Scripts\Robo;
 
+use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
+
 class RequiredApplications {
 
-  public function isApplicationRequirementFulfilled(): bool {
+  public function checkApplicationRequirementFulfilled(): void {
     if ($this->isNpmInstalled() && $this->isDrushInstalled()) {
-      return TRUE;
-    } else {
-      return FALSE;
+      throw new ApplicationRequirementFail();
     }
   }
 

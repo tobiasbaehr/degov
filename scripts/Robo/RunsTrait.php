@@ -118,7 +118,7 @@ trait RunsTrait {
     $requiredApplications = new RequiredApplications();
 
     try {
-      if ($requiredApplications->isApplicationRequirementFulfilled()) {
+      if ($requiredApplications->checkApplicationRequirementFulfilled()) {
         $this->say('Applications requirement is fulfilled.');
       }
     } catch (ApplicationRequirementFail $exception) {

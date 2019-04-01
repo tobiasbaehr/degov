@@ -7,10 +7,7 @@ use degov\Scripts\Robo\Exception\WrongFolderLocation;
 class ProjectStructure extends \Robo\Tasks {
 
   public function isCorrectProjectStructure(string $distro = 'degov'): void {
-    if ($distro !== 'degov') {
-      $this->checkDistroFolder('degov');
-    }
-
+    $this->checkBaseDistroFolder();
     $this->checkDistroFolder($distro);
     $this->checkDocrootFolder();
   }
@@ -23,6 +20,10 @@ class ProjectStructure extends \Robo\Tasks {
     } else {
       throw new WrongFolderLocation('docroot folder is in wrong location.');
     }
+  }
+
+  private function checkBaseDistroFolder(): void {
+    $this->checkDistroFolder('degov');
   }
 
   private function checkDistroFolder(string $distro): bool {
