@@ -107,7 +107,7 @@ trait RunsTrait {
     $projectStructure = new ProjectStructure();
 
     try {
-      if ($projectStructure->isCorrectProjectStructure($distro)) {
+      if ($projectStructure->checkCorrectProjectStructure($distro)) {
         $this->say('Project structure is correct.');
       }
     } catch (WrongFolderLocation $exception) {

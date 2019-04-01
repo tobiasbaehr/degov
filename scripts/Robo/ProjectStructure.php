@@ -6,18 +6,16 @@ use degov\Scripts\Robo\Exception\WrongFolderLocation;
 
 class ProjectStructure extends \Robo\Tasks {
 
-  public function isCorrectProjectStructure(string $distro = 'degov'): void {
+  public function checkCorrectProjectStructure(string $distro = 'degov'): void {
     $this->checkBaseDistroFolder();
     $this->checkDistroFolder($distro);
     $this->checkDocrootFolder();
   }
 
-  private function checkDocrootFolder(): bool {
+  private function checkDocrootFolder(): void {
     $command = 'ls ../../../../../../ | grep docroot';
     exec($command, $output);
-    if (!empty($output)) {
-      return TRUE;
-    } else {
+    if (empty($output)) {
       throw new WrongFolderLocation('docroot folder is in wrong location.');
     }
   }
@@ -26,12 +24,10 @@ class ProjectStructure extends \Robo\Tasks {
     $this->checkDistroFolder('degov');
   }
 
-  private function checkDistroFolder(string $distro): bool {
+  private function checkDistroFolder(string $distro): void {
     $command = 'ls ../../../../../../docroot/profiles/contrib | grep ' . $distro;
     exec($command, $output);
-    if (!empty($output)) {
-      return TRUE;
-    } else {
+    if (empty($output)) {
       throw new WrongFolderLocation($distro . ' folder is in wrong location.');
     }
   }

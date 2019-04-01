@@ -7,7 +7,7 @@ use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
 class RequiredApplications {
 
   public function checkApplicationRequirementFulfilled(): void {
-    if ($this->isNpmInstalled() && $this->isDrushInstalled()) {
+    if (!$this->isNpmInstalled() || !$this->isDrushInstalled()) {
       throw new ApplicationRequirementFail();
     }
   }
