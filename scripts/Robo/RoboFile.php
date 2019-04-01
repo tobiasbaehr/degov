@@ -1,5 +1,7 @@
 <?php
 
+use degov\Scripts\Robo\RunsTrait;
+
 /**
  * This is project's console commands configuration for Robo task runner.
  *
