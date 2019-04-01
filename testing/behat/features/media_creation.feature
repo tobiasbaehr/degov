@@ -312,7 +312,7 @@ Feature: deGov - Media creation
     And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
     And I fill in "Öffentlicher Titel" with "Test1234"
     And I click by CSS id "edit-field-gallery-images-entity-browser-entity-browser-open-modal"
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I switch to the "entity_browser_iframe_media_browser" frame
     And I should see HTML content matching "Hochladen" after a while
     And I click "Hochladen"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
@@ -338,7 +338,8 @@ Feature: deGov - Media creation
     And I should see text matching "Inhaltsbereich"
     And I click by selector "#edit-field-content-paragraphs-wrapper .paragraph-type-add-modal-button" via JavaScript
     And I click by XPath "//input[@name='field_content_paragraphs_media_reference_add_more']"
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I click by selector ".button.entity-browser-processed" via JavaScript
+    And I switch to the "entity_browser_iframe_media_browser" frame
     Then I should not see text matching "Video Hochladen" after a while
 
   Scenario: Check if media full display is working if field_include_search is unchecked
