@@ -31,11 +31,7 @@ class RoboFile extends \Robo\Tasks
 
     $this->runConfigurationExportIntoFilesystem();
 
-    $this->runBaseThemeNpmPackageUpdate();
-
-    $this->runCustomThemeUpdate();
-
-    $this->say('Congratulation! Finished nrwGOV update.');
+    $this->say('Congratulations! Finished the deGov update.');
   }
 
 }
