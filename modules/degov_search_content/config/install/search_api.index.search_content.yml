@@ -192,7 +192,6 @@ processor_settings:
       - field_teaser_title
       - rendered_item
       - title
-      - type
     ignorable: '[''¿¡!?,.:;1234567890]'
     strip:
       character_sets:
