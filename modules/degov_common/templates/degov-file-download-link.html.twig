@@ -33,9 +33,16 @@
     'file--' ~ icon|clean_class
   ]
 %}
-<span {{ attributes.addClass(classes) }}>
-  <i class="fa fa-download"></i>
-  {{ download_link }}
-  <span class="file-type">{{ file_type }}</span>
-  <span class="file-size">{{ file_size }}</span>
-</span>
+<div {{ attributes.addClass(classes) }}>
+  <div class="icon">
+    <i class="fa fa-download"></i>
+  </div>
+  <div class="info">
+    {{ download_link }}
+    <span class="file-type">{{ file_type }}</span>
+    <span class="file-size">{{ file_size }}</span>
+    {% if (additional_information) %}
+      <span class="file-additional-information">({{ additional_information }})</span>
+    {% endif %}
+  </div>
+</div>

@@ -191,7 +191,7 @@ class FormContext extends RawMinkContext {
       $found = FALSE;
       $htmlPartItems = count($htmlParts) - 1;
       for ($i = 0; $i <= $htmlPartItems; ++$i) {
-        if ((empty($text) || strpos($htmlParts[$i], $text)) && (empty($value) || strpos($htmlParts[$i], $value))) {
+        if (strpos($htmlParts[$i], $text) && (empty($value) || strpos($htmlParts[$i], $value))) {
           $found = TRUE;
         }
       }

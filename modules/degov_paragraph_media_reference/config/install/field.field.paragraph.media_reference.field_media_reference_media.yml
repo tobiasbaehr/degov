@@ -3,11 +3,6 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_media_reference_media
-    - media.type.document
-    - media.type.image
-    - media.type.instagram
-    - media.type.tweet
-    - media.type.video
     - paragraphs.paragraphs_type.media_reference
   enforced:
     module:
@@ -40,6 +35,7 @@ settings:
       tweet: tweet
       video: video
       video_upload: video_upload
+      video_mobile: video_mobile
     sort:
       field: _none
     auto_create: false

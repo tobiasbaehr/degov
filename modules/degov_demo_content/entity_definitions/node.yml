@@ -107,6 +107,7 @@ page_with_all_media:
     - media_reference_instagram
     - media_reference_some_embed
     - media_reference_facts
+    - media_reference_responsive_video
   status: 1
   moderation_state: 'published'
 press_release:
@@ -196,4 +197,15 @@ node_with_banner:
   status: 1
   field_header_paragraphs:
     - header_banner
+  moderation_state: 'published'
+node_with_video_mobile:
+  type: 'normal_page'
+  title: 'Page with responsive video'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with responsive video'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_content_paragraphs:
+    - media_reference_responsive_video
+  status: 1
   moderation_state: 'published'
