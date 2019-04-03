@@ -1,68 +1,52 @@
 image_1:
   bundle: 'image'
   name: 'demo image with a fixed title'
-  file:
-    file_name: 'vladimir-riabinin-1058013-unsplash.jpg'
-    field_name: 'image'
+  file: 'vladimir-riabinin-1058013-unsplash.jpg'
   field_image_caption: 'The first image for demonstration purposes'
   status: 1
   field_include_search: 1
 image_2:
   bundle: 'image'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'humberto-chavez-1058365-unsplash.jpg'
-    field_name: 'image'
+  file: 'humberto-chavez-1058365-unsplash.jpg'
   status: 1
   field_royalty_free: 1
   field_include_search: 1
 image_3:
   bundle: 'image'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'taneli-lahtinen-1058552-unsplash.jpg'
-    field_name: 'image'
+  file: 'taneli-lahtinen-1058552-unsplash.jpg'
   status: 1
   field_include_search: 1
 image_4:
   bundle: 'image'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'kari-shea-1066699-unsplash.jpg'
-    field_name: 'image'
+  file: 'kari-shea-1066699-unsplash.jpg'
   status: 1
   field_include_search: 1
 image_5:
   bundle: 'image'
   name: 'This image will be deleted'
-  file:
-    file_name: 'taneli-lahtinen-1058552-unsplash.jpg'
-    field_name: 'image'
+  file: 'taneli-lahtinen-1058552-unsplash.jpg'
   status: 1
   field_include_search: 1
 video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'pexels-videos-1409899-standard.mp4'
-    field_name: 'field_video_upload_mp4'
+  file: 'bokeh-video-of-leaves.mp4'
   field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
 document_1:
   bundle: 'document'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'dummy.pdf'
-    field_name: 'field_document'
+  file: 'dummy.pdf'
   status: 1
   field_include_search: 1
 audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'
-  file:
-    file_name: 'dummy.mp3'
-    field_name: 'field_audio_mp3'
+  file: 'dummy.mp3'
   field_audio_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
@@ -157,28 +141,3 @@ video_1:
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
-video_mobile_1:
-  bundle: 'video_mobile'
-  name: '{{SUBTITLE}}'
-  field_title: '{{SUBTITLE}}'
-  files:
-    field_mobile_video_mobile_mp4: 'pexels-videos-1409899-mobile.mp4'
-    field_video_mobile_mp4: 'pexels-videos-1409899-standard.mp4'
-    field_hdready_video_mobile_mp4: 'pexels-videos-1409899-hd-ready.mp4'
-    field_fullhd_video_mobile_mp4: 'pexels-videos-1409899-full-hd.mp4'
-    field_ultrahd4k_video_mobile_mp4: 'pexels-videos-1409899-4k.mp4'
-  status: 1
-  field_media_publish_date: '2018-01-01T00:00:00'
-  field_allow_download_4k: 1
-  field_allow_download_mobile: 1
-  field_allow_download_hdready: 1
-  field_include_search: 1
-  field_video_mobile_preview: '{{MEDIA_ID_IMAGE}}'
-facts_1:
-  bundle: 'facts'
-  name: '{{SUBTITLE}}'
-  field_facts_image: '{{MEDIA_ID_IMAGE}}'
-  field_facts_fact: '{{SUBTITLE}}'
-  field_facts_text: '{{TEXT}}'
-  field_title: '{{SUBTITLE}}'
-  status: 1

@@ -195,14 +195,3 @@ media_reference_video:
   field_subtitle: '{{SUBTITLE}}'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_VIDEO}}'
-media_reference_facts:
-  type: 'media_reference'
-  field_title: 'Vorschau eines Fakten-Mediums'
-  field_subtitle: '{{SUBTITLE}}'
-  field_media_reference_media: '{{MEDIA_ID_FACTS}}'
-media_reference_responsive_video:
-  type: 'media_reference'
-  field_title: 'Vorschau eines Responsiven Video-Mediums'
-  field_subtitle: '{{SUBTITLE}}'
-  field_media_reference_view_mode: 'preview'
-  field_media_reference_media: '{{MEDIA_ID_VIDEO_MOBILE}}'
