@@ -2,7 +2,6 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -217,7 +216,7 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
+   * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
   public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();
@@ -520,6 +519,33 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
+   *
+   * Example:
+   *  I should not see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   */
+  public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
+    $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
+    $translatedText = $this->translateString($text);
+    $isFound = FALSE;
+    if (!empty($resultset)) {
+      foreach($resultset as $resultRow) {
+        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
+          $isFound = TRUE;
+          break;
+        }
+      }
+    }
+    if (!$isFound) {
+      return TRUE;
+    }
+    throw new ResponseTextException(
+      sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
+      $this->getSession()
+    );
+  }
+
+  /**
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
@@ -567,6 +593,14 @@ class DrupalContext extends RawDrupalContext {
 	{
 		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
 	}
+
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in uppercase$/
+   */
+  public function assertPageNotMatchesTextUppercase(string $text)
+  {
+    $this->assertSession()->pageTextNotMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+  }
 
 	/**
 	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/

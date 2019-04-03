@@ -207,7 +207,11 @@ class ContentGenerator {
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
-    $index = $this->counter % \count($medias);
+    try {
+      $index = $this->counter % \count($medias);
+    } catch(\DivisionByZeroError $exception) {
+      throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
+    }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);
   }

@@ -11,7 +11,7 @@ use Drupal\video_embed_field\ProviderManager;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\Serializer\Encoder\JsonDecode;
-use GetId3\GetId3Core as GetId3;
+use JamesHeinrich\GetID3\GetID3;
 
 /**
  * Class VideoUtils
@@ -95,11 +95,11 @@ class VideoUtils {
         if ($file_uri != '') {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
-        $getId3 = new GetId3();
+        $getId3 = new GetID3();
+        $getId3->option_md5_data = true;
+        $getId3->option_md5_data_source = true;
+        $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
-          ->setOptionMD5Data(true)
-          ->setOptionMD5DataSource(true)
-          ->setEncoding('UTF-8')
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
@@ -119,11 +119,11 @@ class VideoUtils {
         if ($file_uri != '') {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
-        $getId3 = new GetId3();
+        $getId3 = new GetID3();
+        $getId3->option_md5_data = true;
+        $getId3->option_md5_data_source = true;
+        $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
-          ->setOptionMD5Data(true)
-          ->setOptionMD5DataSource(true)
-          ->setEncoding('UTF-8')
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
           drupal_set_message(t('There was a problem getting the audio duration. Please check site logs.'));
@@ -208,5 +208,20 @@ class VideoUtils {
       }
     }
     return 0;
+  }
+
+  /**
+   * @param string $file_path
+   *
+   * @return array
+   */
+  public function getFileInfo(string $file_path): array {
+    $getId3 = new GetID3();
+    $getId3->option_md5_data = true;
+    $getId3->option_md5_data_source = true;
+    $getId3->encoding = 'UTF-8';
+    $id3Info = $getId3
+      ->analyze($file_path);
+    return $id3Info;
   }
 }
