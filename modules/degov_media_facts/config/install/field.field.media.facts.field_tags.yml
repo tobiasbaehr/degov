@@ -1,30 +1,29 @@
+uuid: 49dffe66-aea0-4ffa-8f70-c7a2037f731f
 langcode: de
 status: true
 dependencies:
   config:
-    - field.storage.media.field_topic
+    - field.storage.media.field_tags
     - media.type.facts
-    - taxonomy.vocabulary.topic
-  enforced:
-    module:
-      - degov_taxonomies
-id: media.facts.field_topic
-field_name: field_topic
+    - taxonomy.vocabulary.tags
+id: media.facts.field_tags
+field_name: field_tags
 entity_type: media
 bundle: facts
-label: Thema
+label: Schlagwörter
 description: ''
-required: true
-translatable: false
+required: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      topic: topic
+      tags: tags
     sort:
-      field: _none
+      field: name
+      direction: asc
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

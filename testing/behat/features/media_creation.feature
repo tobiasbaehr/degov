@@ -368,3 +368,8 @@ Feature: deGov - Media creation
     And I click by CSS id "edit-submit"
     Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
     And I should see HTML content matching "404 Not Found"
+
+  Scenario: I proof that media browser does not provide video upload
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/config/content/entity_browser/media_browser/widgets"
+    And I should not see HTML content matching "d6d67ff3-ab4f-482c-bf0f-aa21ef912d26"

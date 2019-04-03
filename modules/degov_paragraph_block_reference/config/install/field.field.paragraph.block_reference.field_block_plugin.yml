@@ -20,6 +20,5 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  plugin_ids:
-    degov_twitter_block: degov_twitter_block
+  plugin_ids: {}
 field_type: block_field
