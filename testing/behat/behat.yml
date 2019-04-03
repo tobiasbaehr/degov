@@ -17,18 +17,61 @@ default:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
           locale: de
+    no-drupal:
+      contexts:
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\degov\Behat\Context\InstallationContext
+        - Drupal\degov\Behat\Context\DrupalIndependentContext
+        - Drupal\degov\Behat\Context\FormContext
+        - Drupal\degov\Behat\Context\JavaScriptContext
+      paths:
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
+    smoke-tests:
+      contexts:
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - Drupal\degov\Behat\Context\FormContext
+        - Drupal\degov\Behat\Context\DrupalIndependentContext
+        - Drupal\degov\Behat\Context\NodeContentTypeFormContext
+        - Drupal\degov\Behat\Context\ModuleContext
+        - Drupal\degov\Behat\Context\JavaScriptContext
+        - Drupal\degov\Behat\Context\SmokeTestContext:
+            - admin_account_credentials:
+                - admin
+                - admin
+      paths:
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_smoke_tests'
+      translation:
+        locale: de
+    tests-with-file-upload:
+      contexts:
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+        - Drupal\degov\Behat\Context\DrupalContext
+        - Drupal\degov\Behat\Context\FormContext
+        - Drupal\degov\Behat\Context\BlockContext
+        - Drupal\degov\Behat\Context\DrupalIndependentContext
+        - Drupal\degov\Behat\Context\NodeContentTypeFormContext
+        - Drupal\degov\Behat\Context\ModuleContext
+        - Drupal\degov\Behat\Context\JavaScriptContext
+      paths:
+        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/feature_file_upload'
   extensions:
     Behat\MinkExtension:
-      files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
+      files_path: '/degov-project/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
       browser_name: chrome
       javascript_session: selenium2
       default_session: selenium2
       goutte: ~
       selenium2:
-        wd_host: "http://localhost:4444/wd/hub"
+        wd_host: "http://testing:4444/wd/hub"
         browser: "chrome"
-        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--disable-dev-shm-usage", "--headless","--disable-gpu"] } }
-      base_url: http://127.0.0.1:80
+        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--headless","--disable-gpu"] } }
+      base_url: http://app:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:
