@@ -283,12 +283,4 @@ class DrupalIndependentContext extends RawMinkContext {
     }
   }
 
-  /**
-   * @Then I debug logs
-   */
-  public function iDebugLogs() {
-    var_dump(shell_exec('php -i | grep php.ini'));
-    var_dump(shell_exec('tail -f /var/log/*.log'));
-  }
-
 }
