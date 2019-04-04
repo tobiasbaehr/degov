@@ -14,6 +14,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-username" with "root"
     And I fill in "edit-mysql-password" with "testing"
     Then I submit the form
+    And I debug logs
     And I should not see "Fehler"
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
