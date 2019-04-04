@@ -27,6 +27,9 @@ pipelines:
   default:
     - step:
         name: Build and test (PHP 7.2)
+        caches:
+          - composer
+          - docker
         script:
           - *install_docker_compose
           - *runner
