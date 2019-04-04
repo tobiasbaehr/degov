@@ -21,28 +21,23 @@ pipelines:
           script:
             - scripts/pipeline.sh 7.2
           services:
-            - docker
             - mysql
+            - testing
       - step:
           name: Build and test (PHP 7.1)
           image: derh4nnes/pipeline-behat:latest
           script:
             - scripts/pipeline.sh 7.1
           services:
-            - docker
             - mysql
+            - testing
 
 definitions:
   services:
     mysql:
       image: mysql:5.7
-      memory: 1024
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: testing
-    mysql2:
-      image: mysql:5.7
-      memory: 1024
-      environment:
-        MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
+    testing:
+      image: darksolar/selenium-chrome-headless
