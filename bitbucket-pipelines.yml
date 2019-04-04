@@ -3,7 +3,7 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: derh4nnes/pipeline-behat:feature_php-7.2
+image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
 options:
