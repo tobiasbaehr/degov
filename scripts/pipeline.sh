@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-apt-install mysql-client
+apt install mysql-client
 set -e
 PHPVERSION=$1
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
