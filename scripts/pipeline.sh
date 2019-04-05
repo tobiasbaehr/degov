@@ -3,7 +3,8 @@ set -e
 PHPVERSION=$1
 
 echo '### cat php.ini file'
-cat /etc/php/$PHPVERSION/cli/php_more_upload.ini
+echo $PHPVERSION
+cat /etc/php/7.1/cli/php_more_upload.ini
 
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
