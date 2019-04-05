@@ -20,20 +20,7 @@ cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "### Starting chrome container"
-
-
-echo "### Test folder content 1"
-ls docroot/profiles/contrib/degov/modules/degov_demo_content/
-
-
-
-
 docker run -d --name="testing" -p 4444:4444 --net="host" -v "$BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/fixtures:/home/headless/" -v $BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR derh4nnes/selenium-chrome-headless
-
-echo "### Test folder content 2"
-ls docroot/profiles/contrib/degov/modules/degov_demo_content/
-
-
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
