@@ -2,10 +2,6 @@
 set -e
 PHPVERSION=$1
 
-echo '### cat php.ini file'
-echo $PHPVERSION
-cat /etc/php/7.1/cli/php_more_upload.ini
-
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
 
@@ -30,7 +26,7 @@ cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-(cd docroot && screen -dmS php-server php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Checking code standards"
 phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
