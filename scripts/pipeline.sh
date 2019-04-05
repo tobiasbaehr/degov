@@ -2,6 +2,10 @@
 set -e
 PHPVERSION=$1
 
+echo "### Check PHP version"
+php -v
+
+
 echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
 
