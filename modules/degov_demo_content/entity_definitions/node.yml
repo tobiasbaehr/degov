@@ -109,6 +109,19 @@ page_with_all_media:
     - media_reference_responsive_video
   status: 1
   moderation_state: 'published'
+page_with_all_views_references:
+  type: 'normal_page'
+  title: 'Page with views references'
+  field_teaser_text: '{{TEXT}}'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with views references'
+  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_content_paragraphs:
+  - views_reference_latest_content
+  - views_reference_latest_press
+  status: 1
+  moderation_state: 'published'
 press_release:
   type: 'press'
   title: 'Eine Pressemitteilung'
