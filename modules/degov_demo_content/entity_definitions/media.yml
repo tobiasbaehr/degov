@@ -43,6 +43,12 @@ document_1:
   file: 'dummy.pdf'
   status: 1
   field_include_search: 1
+document_2:
+  bundle: 'document'
+  name: '{{SUBTITLE}}'
+  file: 'word-document.docx'
+  status: 1
+  field_include_search: 1
 audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'
