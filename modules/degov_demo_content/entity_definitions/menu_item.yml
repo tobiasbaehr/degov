@@ -19,6 +19,7 @@ menu_item_3:
   node_title: Page with text paragraph
   fontawesome_css_class: fa-bicycle
   second_level:
+    - Page with responsive video
     - Page with text paragraph
     - Page with map paragraph
     - Page with video header

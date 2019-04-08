@@ -13,8 +13,7 @@ class JavaScriptContext extends RawMinkContext {
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
   public function selectIndexInDropdown($index, $name) {
-    $this->getSession()
-      ->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
+    $this->getSession()->executeScript('jQuery("[name=' . $name . ']:first option").removeProp("selected"); jQuery("[name=' . $name . ']:first option:eq(' . $index . ')").prop("selected", "selected").trigger("change");');
   }
 
   /**
@@ -37,6 +36,18 @@ class JavaScriptContext extends RawMinkContext {
   public function clickBySelector(string $selector)
   {
     $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+  }
+
+  /**
+   * @Then /^I prove css selector "([^"]*)" has HTML attribute "([^"]*)" that matches value "([^"]*)"$/
+   */
+  public function cssSelectorHasHtmlAttributeThatMatchesValue($selector, $attribute, $value) {
+    if (preg_match("/$value/", $this->getSession()->evaluateScript("jQuery('$selector').attr('$attribute')"))) {
+      return true;
+    }
+    else {
+      throw new \Exception("CSS selector $selector does not have attribute '$attribute' matching '$value'");
+    }
   }
 
   /**

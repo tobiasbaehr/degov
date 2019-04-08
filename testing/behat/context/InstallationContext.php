@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
@@ -50,6 +51,13 @@ class InstallationContext extends RawMinkContext {
       return TRUE;
     }
 
+  }
+
+  /**
+   * @Given /^i test$/
+   */
+  public function iTest() {
+    print_r($this->getSession()->getPage()->getContent());
   }
 
 }

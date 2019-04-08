@@ -9,6 +9,7 @@ Feature: deGov - Search
       | degov_search_media_manager |
       | degov_demo_content         |
     And I reset the demo content
+    And I rebuild the "search_media" index
 
   Scenario: Verify that search is configured for partial word matching
     Given I am logged in as a user with the "administrator" role
@@ -49,7 +50,7 @@ Feature: deGov - Search
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I open media edit form by media name "duo dolores et ea rebum"
+    And I open media edit form by media name "ipsum dolor sit amet consetetur"
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"

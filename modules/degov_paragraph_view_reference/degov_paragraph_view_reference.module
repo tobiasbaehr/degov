@@ -296,4 +296,3 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     unset($element['argument'], $element['view_mode']);
   }
 }
-
