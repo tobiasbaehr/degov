@@ -189,3 +189,14 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     And I should not see text matching "scripttest1234"
+
+  Scenario: I proof that I can select blocks in block reference paragraph type
+    Given I am logged in as a user with the "administrator" role
+    And I am installing the "degov_paragraph_block_reference" module
+    And I am on "/node/add/normal_page"
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I should see HTML content matching "field_content_paragraphs_block_reference_add_more" after a while
+    And I click by CSS id "field-content-paragraphs-block-reference-add-more"
+    And I should see HTML content matching "edit-field-content-paragraphs-0-subform-field-block-plugin-0-plugin-id" after a while
+    Then I select "Shariff-Teilen-Buttons" by name "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]"

@@ -1,0 +1,27 @@
+version: "2"
+services:
+  testing:
+    container_name: "testing"
+    image: "derh4nnes/selenium-chrome-headless"
+    environment:
+      BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
+      BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
+      BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
+  app:
+    image: "derh4nnes/pipeline-behat:feature_php-7.2"
+    container_name: "app"
+    environment:
+      BITBUCKET_BRANCH: "$BITBUCKET_BRANCH"
+      BITBUCKET_COMMIT: "$BITBUCKET_COMMIT"
+      BITBUCKET_CLONE_DIR: "$BITBUCKET_CLONE_DIR"
+    entrypoint: /bin/bash
+    command: $BITBUCKET_CLONE_DIR/scripts/pipeline.sh
+    volumes:
+      - "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR"
+  mysql:
+    image: mysql:5.7
+    container_name: "mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: testing
+      MYSQL_DATABASE: testing
+    command: " --max_allowed_packet=1024M"

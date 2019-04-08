@@ -140,6 +140,15 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select "([^"]*)" by name "([^"]*)"$/
+   */
+  public function selectOptionByName(string $label, string $name): void {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@name = "' . $name . '"]');
+    $selectElement->selectOption($label);
+  }
+
+  /**
    * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
    *
    * Provide data in the following format:
@@ -182,7 +191,7 @@ class FormContext extends RawMinkContext {
       $found = FALSE;
       $htmlPartItems = count($htmlParts) - 1;
       for ($i = 0; $i <= $htmlPartItems; ++$i) {
-        if ((empty($text) || strpos($htmlParts[$i], $text)) && (empty($value) || strpos($htmlParts[$i], $value))) {
+        if (strpos($htmlParts[$i], $text) && (empty($value) || strpos($htmlParts[$i], $value))) {
           $found = TRUE;
         }
       }
