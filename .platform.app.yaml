@@ -101,7 +101,7 @@ disk: 2048
 # directory paths, relative to the application root. The values are strings such as
 # 'shared:files/NAME', where NAME is just a unique name for the mount.
 mounts:
-    '/project/docroot/sites/default/files': 'shared:files/files'
+    '/docroot/sites/default/files': 'shared:files/files'
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/drush-backups': 'shared:files/drush-backups'
