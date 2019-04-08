@@ -113,7 +113,7 @@ hooks:
       curl -sS https://platform.sh/cli/installer | php
       git clone https://bitbucket.org/publicplan/degov_project.git project
       cd project
-      composer update degov/degov
+      composer update
       rm -rf docroot/profiles/contrib/degov/*
       cd ..
       cp -r `ls -A | grep -v "project"` project/docroot/profiles/contrib/degov/
