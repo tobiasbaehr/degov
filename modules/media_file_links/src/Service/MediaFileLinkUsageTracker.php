@@ -55,6 +55,10 @@ class MediaFileLinkUsageTracker {
           \Drupal::service('plugin.manager.menu.link')->rebuild();
           $menuCacheCleared = TRUE;
         }
+
+        if(\in_array($mediaUsage['referencing_entity_type'], ['media', 'node', 'paragraph'])) {
+          \Drupal::service('cache_tags.invalidator')->invalidateTags([$mediaUsage['referencing_entity_type'] . ':' . $mediaUsage['referencing_entity_id']]);
+        }
       }
     }
   }
