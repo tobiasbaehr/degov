@@ -24,6 +24,9 @@
     <testsuite name="deGov">
       <directory>./modules/</directory>
     </testsuite>
+    <testsuite name="Robo">
+      <directory>./scripts/Robo/Test/</directory>
+    </testsuite>
   </testsuites>
 
 </phpunit>
