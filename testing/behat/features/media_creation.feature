@@ -18,6 +18,8 @@ Feature: deGov - Media creation
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
     And I should see HTML content matching "Straße" after a while
+    And I select "DE" in "edit-field-address-address-0-address-country-code--2"
+    And I should see text matching "Postleitzahl" after a while
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"

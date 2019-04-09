@@ -266,5 +266,8 @@
                 "docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/AwaitTrait.inc"
             ]
         }
+    },
+    "conflict": {
+        "symfony/http-foundation": "3.4.24"
     }
 }

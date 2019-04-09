@@ -6,6 +6,7 @@ menu_item_1:
     - Page with FAQ-List paragraph
     - Page with video header
     - Page with text paragraph
+    - Page with views references
 menu_item_2:
   node_title: Page with video header
   fontawesome_css_class: fa-bluetooth
