@@ -35,12 +35,12 @@ Feature: deGov - Menu editing
     And I open media edit form by media name "takimata sanctus est Lorem ipsum"
     And I trigger the "mousedown" event on "#edit-field-document-0-remove-button"
     And I wait 3 seconds
-    And I attach the file "word-document.docx" to "files[field_document_0]"
+    And I attach the file "word-document-2.docx" to "files[field_document_0]"
     And I wait 3 seconds
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I am on the homepage
-    And I should see HTML content matching "word-document.docx"
+    And I should see HTML content matching "word-document-2.docx"
 
   Scenario: I check that menu item autocomplete suggestions include Media entities
     Given I have dismissed the cookie banner if necessary
