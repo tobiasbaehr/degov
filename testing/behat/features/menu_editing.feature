@@ -46,9 +46,9 @@ Feature: deGov - Menu editing
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/menu/manage/main/add"
-    And I should not see HTML content matching "clita kasd gubergren no sea [Dokument, dummy.pdf]"
+    And I should not see HTML content matching "dolor sit amet Lorem ipsum [Dokument, dummy.pdf]"
     And I should not see HTML content matching "fa-file-pdf"
-    And I fill in "edit-link-0-uri" with "sea"
+    And I fill in "edit-link-0-uri" with "ipsum"
     And I trigger the "keydown" event on "#edit-link-0-uri"
-    Then I should see HTML content matching "clita kasd gubergren no sea [Dokument, dummy.pdf]" after a while
+    Then I should see HTML content matching "dolor sit amet Lorem ipsum [Dokument, dummy.pdf]" after a while
     And I should see HTML content matching "fa-file-pdf"
