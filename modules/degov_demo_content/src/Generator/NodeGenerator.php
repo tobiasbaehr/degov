@@ -119,7 +119,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
         $this->prepareValues($rawParagraph);
-        $this->resolveEncapsulatedParagrahps($rawParagraph);
+        $this->resolveEncapsulatedParagraphs($rawParagraph);
         $paragraph = Paragraph::create($rawParagraph);
         $paragraph->save();
         $rawNode[$type][] = $paragraph;
@@ -132,7 +132,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function resolveEncapsulatedParagrahps(&$rawParagraph): void {
+  protected function resolveEncapsulatedParagraphs(&$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {
       if (\is_array($rawField)) {
         foreach ($rawField as $innerIndex => $rawValue) {
