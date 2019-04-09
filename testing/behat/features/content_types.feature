@@ -3,11 +3,12 @@ Feature: deGov - Content types
 
   Background:
     Given I proof that the following Drupal modules are installed:
-      | degov_node_overrides      |
-      | degov_node_normal_page    |
-      | degov_paragraph_webform   |
-      | degov_paragraph_slideshow |
-      | degov_paragraph_header    |
+      | degov_node_overrides       |
+      | degov_node_normal_page     |
+      | degov_paragraph_webform    |
+      | degov_paragraph_slideshow  |
+      | degov_paragraph_header     |
+      | degov_node_external_teaser |
     Given I am installing the following Drupal modules:
       | degov_node_event |
     Given I proof content type "normal_page" has set the following fields for display:
@@ -50,8 +51,7 @@ Feature: deGov - Content types
     And I am on "/node/add/normal_page"
     And I choose "Inhalt" from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
-    And I wait 10 seconds
-    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ" after a while
     And I should see HTML content matching "FAQ / Akkordion Liste"
     And I should see HTML content matching "Banner"
     And I should see HTML content matching "Inhaltsreferenz"
@@ -67,10 +67,10 @@ Feature: deGov - Content types
     And I am on "/admin/content"
     And I see the button "Filter"
     And I press button with label "Show all columns" via translated text
-    And I should see "Titel"
-    And I should see "Inhaltstyp"
-    And I should see "Autor"
-    And I should see "Aktualisiert"
+    And I should see text matching "Title" via translated text in uppercase
+    And I should see text matching "Content type" via translated text in uppercase
+    And I should see text matching "Author" via translated text in uppercase
+    And I should see text matching "Updated" via translated text in uppercase
+    And I should see text matching "Operations" via translated text in uppercase
     And I should see "Interner Titel"
-    And I should see "Aktionen"
     And I should not see the text "Undefined index"

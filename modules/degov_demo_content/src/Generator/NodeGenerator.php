@@ -9,11 +9,17 @@ use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
-
+/**
+ * Class NodeGenerator.
+ *
+ * @package Drupal\degov_demo_content\Generator
+ */
 class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Generates a set of node entities.
+   *
+   * @var \Drupal\degov_demo_content\Generator\MediaGenerator
    */
   protected $mediaGenerator;
 
@@ -24,6 +30,14 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    */
   protected $aliasCleaner;
 
+  /**
+   * NodeGenerator constructor.
+   *
+   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
+   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
+   * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
+   */
   public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     parent::__construct($moduleHandler, $entityTypeManager);
     $this->mediaGenerator = $mediaGenerator;
@@ -31,12 +45,15 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     $this->entityType = 'node';
   }
 
+  /**
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   public function generateContent(): void {
     $teaserPage = NULL;
     $nodeIds = [];
-    $paragraphs = [];
 
     foreach ($this->loadDefinitions('node.yml') as $rawNode) {
+      $paragraphs = [];
       if (isset($rawNode['field_content_paragraphs'])) {
         $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
       }
@@ -64,6 +81,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
        */
       if ($teaserPage === NULL) {
         $teaserPage = $node;
+        $this->setFrontPage('/node/' . $teaserPage->id());
       }
       else {
         $nodeIds[] = $node->id();
@@ -72,13 +90,36 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
   }
 
+  private function setFrontPage($path_to_set) {
+    $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
+    if(empty($original_front_page)) {
+      // save original front page
+      $front = \Drupal::config('system.site')->get('page.front');
+      \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
+    }
+    \Drupal::configFactory()->getEditable('system.site')->set('page.front', $path_to_set)->save();
+  }
 
+  private function resetFrontPage() {
+    $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
+    if(!empty($original_front_page)) {
+      $this->setFrontPage($original_front_page);
+      \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
+    }
+  }
+
+  /**
+   * @param array $rawParagraphReferences
+   * @param $rawNode
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode): void {
     foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
         $this->prepareValues($rawParagraph);
-        $this->resolveEncapsulatedParagrahps($rawParagraph);
+        $this->resolveEncapsulatedParagraphs($rawParagraph);
         $paragraph = Paragraph::create($rawParagraph);
         $paragraph->save();
         $rawNode[$type][] = $paragraph;
@@ -86,7 +127,12 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     }
   }
 
-  protected function resolveEncapsulatedParagrahps(&$rawParagraph): void {
+  /**
+   * @param $rawParagraph
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function resolveEncapsulatedParagraphs(&$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {
       if (\is_array($rawField)) {
         foreach ($rawField as $innerIndex => $rawValue) {
@@ -103,6 +149,12 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     }
   }
 
+  /**
+   * @param \Drupal\node\Entity\Node $teaserPage
+   * @param array $nodeIds
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
     $paragraphs = [];
     foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
@@ -116,6 +168,17 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     $teaserPage->save();
   }
 
+  /**
+   * Deletes the generated content.
+   */
+  public function deleteContent(): void {
+    parent::deleteContent();
+    $this->resetFrontPage();
+  }
+
+  /**
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
   public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();

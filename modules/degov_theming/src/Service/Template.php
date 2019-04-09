@@ -87,7 +87,8 @@ class Template {
       $template_path = $info['theme path']; #substr($info['theme path'], 0, 14);
       $path_to_active_theme = $this->themeManager->getActiveTheme()->getPath();
 
-      if (strpos($template_path, 'themes/contrib') === 0 ||
+      if (strpos($template_path, 'profiles/contrib') === 0 ||
+        strpos($template_path, 'themes/contrib') === 0 ||
         (strpos($template_path, $path_to_active_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
         list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
         // does the template exist in the active theme?

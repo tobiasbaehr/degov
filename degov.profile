@@ -51,6 +51,7 @@ function degov_module_setup(&$install_state) {
   $modules = [
     'degov_common'                      => 'degov_common',
     'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
+    'degov_config_integrity'            => 'degov_config_integrity',
     'degov_image_and_crop_styles'       => 'degov_image_and_crop_styles',
     'degov_date_formats'                => 'degov_date_formats',
     'degov_pathauto'                    => 'degov_pathauto',
@@ -67,6 +68,11 @@ function degov_module_setup(&$install_state) {
     'degov_simplenews'                  => 'degov_simplenews',
     'degov_simplenews_references'       => 'degov_simplenews_references',
     'degov_email_login'                 => 'degov_email_login',
+    'degov_node_external_teaser'        => 'degov_node_external_teaser',
+    'degov_auto_crop'                   => 'degov_auto_crop',
+    'degov_file_management'             => 'degov_file_management',
+    'degov_search_content'              => 'degov_search_content',
+    'filter_disallow'                   => 'filter_disallow',
   ];
 
   // Add a batch operation to install each module.
@@ -117,6 +123,7 @@ function degov_media_setup(&$install_state) {
     'degov_search_media'              => 'degov_search_media',
     'degov_media_overrides'           => 'degov_media_overrides',
     'degov_social_media_settings'     => 'degov_social_media_settings',
+    'degov_media_video_mobile'        => 'degov_media_video_mobile',
     'degov_paragraph_media_reference' => 'degov_paragraph_media_reference',
     'degov_simplenews'                => 'degov_simplenews',
     'degov_simplenews_references'     => 'degov_simplenews_references',

@@ -17,7 +17,6 @@ module.exports = {
       './node_modules/bootstrap/js/src/button.js',
       // Font Awesome
       './node_modules/@fortawesome/fontawesome-free/css/all.css',
-      // './node_modules/@fortawesome/fontawesome-free/js/all.js',
     ],
     install: [
         './scss/install.scss',

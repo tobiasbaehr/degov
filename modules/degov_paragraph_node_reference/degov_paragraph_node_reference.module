@@ -19,12 +19,14 @@ function degov_paragraph_node_reference_preprocess(&$variables, $hook, &$info) {
 
 /**
  * Implements hook_modules_installed().
+ *
  * @param $modules
  */
 function degov_paragraph_node_reference_modules_installed($modules) {
-  if (in_array('degov_paragraph_node_reference', $modules)) {
-    // Set target bundles.
-    _degov_node_reference_bundle_list();
+  foreach ($modules as $moduleName) {
+    if ($moduleName === 'degov_paragraph_node_reference' || strpos($moduleName, 'degov_node_') === 0) {
+      _degov_node_reference_bundle_list();
+    }
   }
 }
 

@@ -10,7 +10,7 @@ function degov_users_roles_install() {
   $user = \Drupal\user\Entity\User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
-  
+
   // Allow authenticated users to use shortcuts.
   user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 }
@@ -97,6 +97,52 @@ function degov_users_roles_update_850100() {
 
   foreach ($managerPermissions as $permission) {
     $configAdder->addListItemFromConfiguration('user.role.manager', 'permissions', $permission);
+  }
+}
+
+/**
+ * deGov Update 6.1.0 - Give editors and upwards the permission to delete files and access media
+ */
+function degov_users_roles_update_860100() {
+  // Add new permissions
+  $permissions = [
+    'access content overview',
+    'access files overview',
+    'access media overview',
+    'delete any file',
+  ];
+  $roles = [
+    'user.role.editor',
+    'user.role.manager',
+  ];
+
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach($roles as $role) {
+    foreach($permissions as $permission) {
+      $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
+    }
+  }
+}
+
+/**
+ * Give managers permission to view filter_disallow messages.
+ */
+function degov_users_roles_update_860200() {
+  // Add new permissions
+  $permissions = [
+    'view filter_disallow messages',
+  ];
+  $roles = [
+    'user.role.manager',
+  ];
+
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach($roles as $role) {
+    foreach($permissions as $permission) {
+      $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
+    }
   }
 }
 

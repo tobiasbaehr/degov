@@ -1,5 +1,17 @@
 <?php
 
+use Drupal\degov_common\Common;
+
+/**
+ * Implements hook_uninstall
+ */
+function degov_media_video_uninstall() {
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['video'],
+  ]);
+}
+
 /**
  * Fix fields config.
  */

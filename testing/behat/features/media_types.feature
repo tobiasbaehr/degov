@@ -1,6 +1,11 @@
 @api @drupal
 Feature: deGov - Media types
 
+  Background:
+    Given I proof that the following Drupal modules are installed:
+      | degov_paragraph_media_reference |
+      | degov_media_video_mobile        |
+
   Scenario: Checking available media types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media"
@@ -15,6 +20,7 @@ Feature: deGov - Media types
     And I should see text matching "Tweet"
     And I should see text matching "Video"
     And I should see text matching "Video Upload"
+    And I should see text matching "Responsives Video"
     And I should see text matching "Zitat"
 
   Scenario: Media type address has all required fields
@@ -51,6 +57,39 @@ Feature: deGov - Media types
     And I should see text matching "field_title"
     And I should see text matching "field_media_publish_date"
     Then I am on "/admin/structure/media/manage/audio/fields/media.audio.field_media_publish_date"
+    And the "edit-required" checkbox should be checked
+
+  Scenario: Media type video_mobile has all required fields
+    Given I am logged in as a user with the "administrator" role
+    Then I am installing the "degov_media_video_mobile" module
+    Then I am on "/admin/structure/media/manage/video_mobile/fields"
+    Then I should see text matching "field_media_accessibility"
+    And I should see text matching "field_description"
+    And I should see text matching "field_copyright"
+    And I should see text matching "field_fullhd_video_mobile_mp4"
+    And I should see text matching "field_media_generic_9"
+    And I should see text matching "field_hdready_video_mobile_mp4"
+    And I should see text matching "field_allow_download"
+    And I should see text matching "field_allow_download_mobile"
+    And I should see text matching "field_allow_download_hdready"
+    And I should see text matching "field_allow_download_fullhd"
+    And I should see text matching "field_allow_download_4k"
+    And I should see text matching "field_media_duration"
+    And I should see text matching "field_include_search"
+    And I should see text matching "field_mobile_video_mobile_mp4"
+    And I should see text matching "field_media_in_library"
+    And I should see text matching "field_tags"
+    And I should see text matching "field_media_language"
+    And I should see text matching "field_video_mobile_mp4"
+    And I should see text matching "field_media_transcription"
+    And I should see text matching "field_ultrahd4k_video_mobile_mp4"
+    And I should see text matching "field_video_mobile_subtitle"
+    And I should see text matching "field_subtitle"
+    And I should see text matching "field_media_publish_date"
+    And I should see text matching "field_video_mobile_caption"
+    And I should see text matching "field_video_mobile_preview"
+    And I should see text matching "field_title"
+    Then I am on "/admin/structure/media/manage/video_mobile/fields/media.video_mobile.field_video_mobile_mp4"
     And the "edit-required" checkbox should be checked
 
   Scenario: Media type image has all required fields
@@ -117,7 +156,7 @@ Feature: deGov - Media types
     And I should see text matching "field_tags"
     And I should see text matching "field_title"
 
-  Scenario: Media type instragram has all required fields
+  Scenario: Media type instagram has all required fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/instagram/fields"
     Then I should see text matching "embed_code"

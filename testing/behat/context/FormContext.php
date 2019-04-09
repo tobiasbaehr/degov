@@ -4,14 +4,13 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ElementNotFoundException;
-use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\MinkExtension\Context\RawMinkContext;
-use Behat\MinkExtension\ServiceContainer\MinkExtension;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
+
 
 class FormContext extends RawMinkContext {
 
-  use TranslationTrait;
+	use TranslationTrait;
 
   /**
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
@@ -137,6 +136,15 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select "([^"]*)" by name "([^"]*)"$/
+   */
+  public function selectOptionByName(string $label, string $name): void {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@name = "' . $name . '"]');
+    $selectElement->selectOption($label);
+  }
+
+  /**
    * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
    *
    * Provide data in the following format:
@@ -180,12 +188,12 @@ class FormContext extends RawMinkContext {
       $found = FALSE;
       $htmlPartItems = count($htmlParts) - 1;
       for ($i = 0; $i <= $htmlPartItems; ++$i) {
-        if (strpos($htmlParts[$i], $text) && strpos($htmlParts[$i], $value)) {
+        if (strpos($htmlParts[$i], $text) && (empty($value) || strpos($htmlParts[$i], $value))) {
           $found = TRUE;
         }
       }
       if ($found === FALSE) {
-        throw new \Exception(sprintf("Text '$text' and value '$value' not found in given options. Found: %s", print_r($htmlParts, 1)));
+        throw new \Exception("Text '$text' and value '$value' not found in given options.");
       }
     }
   }
@@ -231,7 +239,6 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
-        print_r($htmlParts);
 				throw new \Exception("Text '$text' and value '$value' not found in given options.");
 			}
 		}
@@ -247,8 +254,8 @@ class FormContext extends RawMinkContext {
 	/**
    * @Then I should see the input with the name :input_name and the value :input_value checked
    */
-  public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
-    $radio_button = $this
+	public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
+	  $radio_button = $this
       ->getSession()
       ->getPage()
       ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
@@ -277,5 +284,33 @@ class FormContext extends RawMinkContext {
         throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
       }
     }
+  }
+
+  /**
+   * Fills in form field with specified id|name|label|value
+   * Example: When I fill in "username" with: "bwayne"
+   * Example: And I fill in "bwayne" for "username"
+   *
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with "(?P<value>(?:[^"]|\\")*)"$/
+   * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with:$/
+   * @When /^(?:|I )fill in "(?P<value>(?:[^"]|\\")*)" via translated text for "(?P<field>(?:[^"]|\\")*)"$/
+   */
+  public function fillField($field, $value)
+  {
+    $field = $this->fixStepArgument($this->translateString($field));
+    $value = $this->fixStepArgument($value);
+    $this->getSession()->getPage()->fillField($field, $value);
+  }
+
+  /**
+   * Returns fixed step argument (with \\" replaced back to ")
+   *
+   * @param string $argument
+   *
+   * @return string
+   */
+  protected function fixStepArgument($argument)
+  {
+    return str_replace('\\"', '"', $argument);
   }
 }

@@ -1,7 +1,25 @@
 <?php
 
+use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
-use Drupal\field\Entity\FieldConfig;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_image_install() {
+  // Adds the image upload tab upon installation to the CKEditor media browser.
+  $ckeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$ckeditorMediaBrowserConfig->isNew()) {
+    $filtersConfig = $ckeditorMediaBrowserConfig->get('widgets');
+    $partialFile = \Drupal::service('extension.list.module')->getPath('degov_media_image') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
+    if (file_exists($partialFile)) {
+      $filtersConfig += Yaml::parseFile($partialFile);
+      $ckeditorMediaBrowserConfig->set('widgets', $filtersConfig);
+      $ckeditorMediaBrowserConfig->save();
+    }
+  }
+}
 
 /**
  * Implements hook_uninstall().
@@ -31,6 +49,12 @@ function degov_media_image_uninstall() {
       ->set('widgets', $widgets)
       ->save(TRUE);
   }
+
+  //Remove content
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['image'],
+  ]);
 }
 
 /**

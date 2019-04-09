@@ -1,49 +1,62 @@
 image_1:
   bundle: 'image'
-  name: '{{SUBTITLE}}'
+  name: 'demo image with a fixed title'
   file: 'vladimir-riabinin-1058013-unsplash.jpg'
   field_image_caption: 'The first image for demonstration purposes'
   status: 1
+  field_include_search: 1
 image_2:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'humberto-chavez-1058365-unsplash.jpg'
   status: 1
   field_royalty_free: 1
+  field_include_search: 1
 image_3:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'taneli-lahtinen-1058552-unsplash.jpg'
   status: 1
+  field_include_search: 1
 image_4:
   bundle: 'image'
   name: '{{SUBTITLE}}'
   file: 'kari-shea-1066699-unsplash.jpg'
   status: 1
+  field_include_search: 1
+image_5:
+  bundle: 'image'
+  name: 'This image will be deleted'
+  file: 'taneli-lahtinen-1058552-unsplash.jpg'
+  status: 1
+  field_include_search: 1
 video_upload_1:
   bundle: 'video_upload'
   name: '{{SUBTITLE}}'
-  file: 'bokeh-video-of-leaves.mp4'
+  file: 'pexels-videos-1409899-standard.mp4'
   field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
+  field_include_search: 1
 document_1:
   bundle: 'document'
   name: '{{SUBTITLE}}'
   file: 'dummy.pdf'
   status: 1
+  field_include_search: 1
 audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'
   file: 'dummy.mp3'
   field_audio_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
+  field_include_search: 1
 address_1:
   bundle: 'address'
   name: '{{SUBTITLE}}'
   field_address_address:
     country_code: 'DE'
     organization: 'publicplan'
-    address_line1: 'Bikerstraße 29'
+    address_line1: 'Bilker Straße 29'
     postal_code: 40213
     locality: 'Düsseldorf'
   field_address_location:
@@ -54,6 +67,7 @@ address_1:
   field_address_fax: '0123456789'
   field_address_email: 'admin@example.com'
   status: 1
+  field_include_search: 1
 citation_1:
   bundle: 'citation'
   name: '{{SUBTITLE}}'
@@ -62,12 +76,14 @@ citation_1:
   field_citation_text: '{{TEXT}}'
   field_citation_title: '{{SUBTITLE}}'
   status: 1
+  field_include_search: 1
 person_1:
   bundle: 'person'
   name: '{{SUBTITLE}}'
   field_person_image: '{{MEDIA_ID_IMAGE}}'
   field_person_info: '{{TEXT}}'
   status: 1
+  field_include_search: 1
 contact_1:
   bundle: 'contact'
   name: '{{SUBTITLE}}'
@@ -78,6 +94,7 @@ contact_1:
   field_contact_position: '{{SUBTITLE}}'
   field_contact_tel: '0123456789'
   status: 1
+  field_include_search: 1
 gallery_1:
   bundle: 'gallery'
   name: '{{SUBTITLE}}'
@@ -90,22 +107,26 @@ gallery_1:
     - 'image_2'
     - 'image_3'
   status: 1
+  field_include_search: 1
 tweet_1:
   bundle: 'tweet'
   name: '{{SUBTITLE}}'
-  embed_code: '<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr"><a href="https://twitter.com/hashtag/Drupal?src=hash&amp;ref_src=twsrc%5Etfw">#Drupal</a> 9 soll 2020 <a href="https://twitter.com/hashtag/released?src=hash&amp;ref_src=twsrc%5Etfw">#released</a> werden, sodass <a href="https://twitter.com/hashtag/Nutzer?src=hash&amp;ref_src=twsrc%5Etfw">#Nutzer</a> ein Jahr lang Zeit haben von Drupal 8 darauf umzusteigen. Wie es mit allen Drupal Versionen weitergeht, lesen Sie hier: <a href="https://t.co/MYesgQoO33">https://t.co/MYesgQoO33</a> <a href="https://twitter.com/hashtag/CMS?src=hash&amp;ref_src=twsrc%5Etfw">#CMS</a> <a href="https://twitter.com/hashtag/developer?src=hash&amp;ref_src=twsrc%5Etfw">#developer</a> <a href="https://twitter.com/hashtag/software?src=hash&amp;ref_src=twsrc%5Etfw">#software</a></p>&mdash; publicplan GmbH (@publicplan_GmbH) <a href="https://twitter.com/publicplan_GmbH/status/1052804217973420032?ref_src=twsrc%5Etfw">18. Oktober 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
+  embed_code: '<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr">Beim 3. Anwendertag haben unser GF <a href="https://twitter.com/cknebel79?ref_src=twsrc%5Etfw">@cknebel79</a> und einer unserer <a href="https://twitter.com/hashtag/deGov?src=hash&amp;ref_src=twsrc%5Etfw">#deGov</a> Solution Architects  <a href="https://twitter.com/netzor?ref_src=twsrc%5Etfw">@netzor</a> einen Blick in die Zukunft der <a href="https://twitter.com/hashtag/Open?src=hash&amp;ref_src=twsrc%5Etfw">#Open</a>-Source-Software <a href="https://twitter.com/Drupal_deGov?ref_src=twsrc%5Etfw">@Drupal_deGov</a> für die <a href="https://twitter.com/hashtag/%C3%96ffentlicheVerwaltung?src=hash&amp;ref_src=twsrc%5Etfw">#ÖffentlicheVerwaltung</a> gewagt: <a href="https://t.co/C3c1EMnbr9">https://t.co/C3c1EMnbr9</a> <a href="https://twitter.com/hashtag/drupal?src=hash&amp;ref_src=twsrc%5Etfw">#drupal</a> <a href="https://twitter.com/hashtag/drupal4egov?src=hash&amp;ref_src=twsrc%5Etfw">#drupal4egov</a></p>&mdash; publicplan GmbH (@publicplan_GmbH) <a href="https://twitter.com/publicplan_GmbH/status/1062721818073710600?ref_src=twsrc%5Etfw">14. November 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
   status: 1
+  field_include_search: 1
 instagram_1:
   bundle: 'instagram'
   name: '{{SUBTITLE}}'
-  embed_code: 'https://www.instagram.com/p/BZgLs7aFUkB/?taken-by=publicplan_gmbh'
+  embed_code: 'https://www.instagram.com/p/BY50w44FBNE/?taken-by=publicplan_gmbh'
   status: 1
+  field_include_search: 1
 embed_1:
   bundle: 'some_embed'
   name: '{{SUBTITLE}}'
   status: 1
   field_some_embed_code: '<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr"><a href="https://twitter.com/hashtag/Drupal?src=hash&amp;ref_src=twsrc%5Etfw">#Drupal</a> 9 soll 2020 <a href="https://twitter.com/hashtag/released?src=hash&amp;ref_src=twsrc%5Etfw">#released</a> werden, sodass <a href="https://twitter.com/hashtag/Nutzer?src=hash&amp;ref_src=twsrc%5Etfw">#Nutzer</a> ein Jahr lang Zeit haben von Drupal 8 darauf umzusteigen. Wie es mit allen Drupal Versionen weitergeht, lesen Sie hier: <a href="https://t.co/MYesgQoO33">https://t.co/MYesgQoO33</a> <a href="https://twitter.com/hashtag/CMS?src=hash&amp;ref_src=twsrc%5Etfw">#CMS</a> <a href="https://twitter.com/hashtag/developer?src=hash&amp;ref_src=twsrc%5Etfw">#developer</a> <a href="https://twitter.com/hashtag/software?src=hash&amp;ref_src=twsrc%5Etfw">#software</a></p>&mdash; publicplan GmbH (@publicplan_GmbH) <a href="https://twitter.com/publicplan_GmbH/status/1052804217973420032?ref_src=twsrc%5Etfw">18. Oktober 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
   field_social_media_source: 'twitter'
+  field_include_search: 1
 video_1:
   bundle: 'video'
   name: '{{SUBTITLE}}'
@@ -119,3 +140,21 @@ video_1:
   field_media_video_embed_field: 'https://www.youtube.com/watch?v=z-qpyBRTJ2A&t=65s'
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
+  field_include_search: 1
+video_mobile_1:
+  bundle: 'video_mobile'
+  name: '{{SUBTITLE}}'
+  field_title: '{{SUBTITLE}}'
+  files:
+    field_mobile_video_mobile_mp4: 'pexels-videos-1409899-mobile.mp4'
+    field_video_mobile_mp4: 'pexels-videos-1409899-standard.mp4'
+    field_hdready_video_mobile_mp4: 'pexels-videos-1409899-hd-ready.mp4'
+    field_fullhd_video_mobile_mp4: 'pexels-videos-1409899-full-hd.mp4'
+    field_ultrahd4k_video_mobile_mp4: 'pexels-videos-1409899-4k.mp4'
+  status: 1
+  field_media_publish_date: '2018-01-01T00:00:00'
+  field_allow_download_4k: 1
+  field_allow_download_mobile: 1
+  field_allow_download_hdready: 1
+  field_include_search: 1
+  field_video_mobile_preview: '{{MEDIA_ID_IMAGE}}'

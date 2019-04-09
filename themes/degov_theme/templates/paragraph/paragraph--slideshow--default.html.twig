@@ -39,12 +39,13 @@
  * @ingroup themeable
  */
 #}
-<section aria-label="{{ 'Slideshow'|t }}">
+
+<section class="pb-3 pb-md-0 pb-lg-0" aria-label="{{ 'Slideshow'|t }} ">
 
 <h3 class="visually-hidden">{{ 'Navigationshinweise zur Slideshow'|t }}</h3>
 <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
 
-  <div id="{{ slider_id }}" class="degov-carousel carousel slide" data-ride="carousel">
+  <div id="{{ slider_id }}" class="degov-carousel carousel slide container" data-ride="carousel">
     {% if slideshow_type == 'type_1' %}
       <ol class="carousel-indicators">
         {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
@@ -54,7 +55,6 @@
     </ol>
 
     <div class="carousel-inner">
-
       {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
         <div class="carousel-item {{ key == 0 ? 'active' }}">
           {{ slideshow_slide }}

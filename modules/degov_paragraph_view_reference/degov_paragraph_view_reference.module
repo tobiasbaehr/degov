@@ -101,7 +101,14 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
   $items = $context['items'];
   // Get the field definition.
   $field_definition = $items->getFieldDefinition();
-  if ($field_definition->getType() == 'viewsreference') {
+  if ($field_definition->getType() === 'viewsreference') {
+    $allowedViewModes = [
+      'small_image',
+      'long_text',
+      'slim',
+      'preview',
+    ];
+
     // Get configuration settings for the form widget.
     $config = \Drupal::service('config.factory')
       ->getEditable('degov_paragraph_view_reference.views_helper_settings');
@@ -265,8 +272,13 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     $element['argument']['#suffix'] = '</details>';
     $view_modes = ['' => t('As defined in the view')] + \Drupal::service('entity_display.repository')
       ->getViewModeOptions($entity_type);
-    if (!in_array($extra_data['view_mode'], array_keys($view_modes))) {
-      $extra_data['view_mode'] = 'default';
+    if (!array_key_exists($extra_data['view_mode'], $view_modes)) {
+      $extra_data['view_mode'] = '';
+    }
+    foreach($view_modes as $key => $viewMode) {
+      if (strlen($key) > 0 && !in_array($key, $allowedViewModes, TRUE)) {
+        unset($view_modes[$key]);
+      }
     }
     $element['view_mode'] = [
       '#type' => 'select',
@@ -281,8 +293,6 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     $element['options']['#weight'] = 100;
     $element['options']['argument'] = $element['argument'];
     $element['options']['view_mode'] = $element['view_mode'];
-    unset($element['argument']);
-    unset($element['view_mode']);
+    unset($element['argument'], $element['view_mode']);
   }
 }
-

@@ -1,9 +1,4 @@
-# This is a sample build configuration for PHP.
-# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-image: derh4nnes/pipeline-behat:feature_php-7.2
+image: derh4nnes/pipeline-behat:latest
 clone:
   depth: full
 options:
@@ -21,92 +16,21 @@ pipelines:
           script:
             - scripts/pipeline.sh 7.2
           services:
-            - docker
             - mysql
+            - docker
       - step:
           name: Build and test (PHP 7.1)
           image: derh4nnes/pipeline-behat:latest
           script:
             - scripts/pipeline.sh 7.1
           services:
-            - docker
             - mysql
-    - parallel:
-      - step:
-          name: Deploy to platform.sh
-          script:
-            - git config --global push.default matching
-            - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
-            - git push platform $BITBUCKET_BRANCH
-      - step:
-          name: Push to drupal.org
-          script:
-            - git remote add drupal git@git.drupal.org:project/degov.git
-            - git config --global push.default matching
-            - git config --global user.name "SaschaHannes"
-            - git push drupal $BITBUCKET_BRANCH
-  branches:
-    release/6.x:
-      - parallel:
-        - step:
-            name: Build and test (PHP 7.2)
-            caches:
-              - composer
-              - docker
-            script:
-              - scripts/pipeline.sh 7.2
-            services:
-              - docker
-              - mysql
-        - step:
-            name: Build and test (PHP 7.1)
-            image: derh4nnes/pipeline-behat:latest
-            script:
-              - scripts/pipeline.sh 7.1
-            services:
-              - docker
-              - mysql
-      - parallel:
-        - step:
-            name: Deploy to platform.sh
-            script:
-              - git config --global push.default matching
-              - git remote add platform e5wm7rpj4nlbs@git.eu.platform.sh:e5wm7rpj4nlbs.git
-              - git push platform $BITBUCKET_BRANCH
-        - step:
-            name: Push dev to drupal.org
-            script:
-              - git remote add drupal git@git.drupal.org:project/degov.git
-              - git config --global push.default matching
-              - git config --global user.name "SaschaHannes"
-              - git fetch drupal
-              - git checkout 8.x-6.x -f
-              - git merge release/6.x
-              - git push drupal 8.x-6.x
-  tags:
-    '*':
-      - step:
-          name: Pushing tags to drupal.org
-          script:
-            - git remote add drupal git@git.drupal.org:project/degov.git
-            - git config --global push.default matching
-            - git config --global user.name "SaschaHannes"
-            - git fetch drupal
-            - git checkout drupal/8.x-6.x -f
-            - git tag $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
-            - git push drupal $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
+            - docker
 
 definitions:
   services:
     mysql:
       image: mysql:5.7
-      memory: 1024
-      environment:
-        MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
-    mysql2:
-      image: mysql:5.7
-      memory: 1024
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: testing

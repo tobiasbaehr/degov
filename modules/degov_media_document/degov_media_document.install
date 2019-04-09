@@ -1,7 +1,25 @@
 <?php
 
+use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
 use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function degov_media_document_install() {
+  // Adds the document tab upon installation to the CKEditor media browser.
+  $ckeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  if (!$ckeditorMediaBrowserConfig->isNew()) {
+    $filtersConfig = $ckeditorMediaBrowserConfig->get('widgets');
+    $partialFile = \Drupal::service('extension.list.module')->getPath('degov_media_document') . '/config/partials/entity_browser.browser.ckeditor_media_browser.yml';
+    if (file_exists($partialFile)) {
+      $filtersConfig += Yaml::parseFile($partialFile);
+      $ckeditorMediaBrowserConfig->set('widgets', $filtersConfig);
+      $ckeditorMediaBrowserConfig->save();
+    }
+  }
+}
 
 /**
  * Implements hook_uninstall().
@@ -30,6 +48,11 @@ function degov_media_document_upload_uninstall() {
       ->set("widgets", $widgets)
       ->save(TRUE);
   }
+  // Remove content
+  Common::removeContent([
+    'entity_type' => 'media',
+    'entity_bundles' => ['document'],
+  ]);
 }
 
 /**
@@ -43,4 +66,17 @@ function degov_media_document_update_850100() {
   $updater->reImport('field.field.media.document.field_section', 'degov_media_document', 'install');
   $updater->reImport('field.storage.media.field_section', 'degov_media_document', 'install');
   $updater->rewriteModuleConfig('degov_media_document');
+}
+
+/**
+ * deGov Update 6.0.0
+ * Make document field required
+ */
+function degov_media_document_update_860000() {
+  $fieldDocumentConfig = \Drupal::configFactory()
+    ->getEditable('field.field.media.document.field_document');
+  if (!empty($fieldDocumentConfig)) {
+    $fieldDocumentConfig->set('required', TRUE);
+    $fieldDocumentConfig->save();
+  }
 }
