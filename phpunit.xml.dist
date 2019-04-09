@@ -21,11 +21,11 @@
   </php>
 
   <testsuites>
-    <testsuite name="deGov">
-      <directory>./modules/</directory>
-    </testsuite>
     <testsuite name="Robo">
       <directory>./scripts/Robo/Test/</directory>
+    </testsuite>
+    <testsuite name="deGov">
+      <directory>./modules/</directory>
     </testsuite>
   </testsuites>
 
