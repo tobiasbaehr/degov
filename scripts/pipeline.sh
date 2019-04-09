@@ -24,6 +24,9 @@ docker run -d --name="testing" -p 4444:4444 --net="host" -v "$BITBUCKET_CLONE_DI
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
+rm composer-require-namespace.php
+cp docroot/profiles/contrib/degov/scripts/Robo/composer-require-namespace.php .
+php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
 (cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
