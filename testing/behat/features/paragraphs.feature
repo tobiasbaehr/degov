@@ -1,11 +1,6 @@
 @api @drupal
 Feature: deGov - Paragraphs
 
-  Background:
-    Given I am installing the following Drupal modules:
-      | degov_demo_content |
-    Given I proof that Drupal module "degov_simplenews" is installed
-
   Scenario: Banner paragraph should contain expected fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/paragraphs_type/image_header/fields"
@@ -15,8 +10,6 @@ Feature: deGov - Paragraphs
 
   Scenario: Paragraph block reference has correct blocks and can create an instance
     Given I have dismissed the cookie banner if necessary
-    And I proof that Drupal module "degov_demo_content" is installed
-    Then I set newsletter privacy policy page
     And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page#edit-group-righ"
     And I fill in "testblockreferenz" for "Titel"
@@ -29,7 +22,7 @@ Feature: deGov - Paragraphs
     And I check checkbox by value "default" via JavaScript
     And I select "published" from "edit-moderation-state-0-state"
     And I press button with label "Save" via translated text
-    And I should see HTML content matching "simplenews-subscriber-form"
+    And I should see HTML content matching "block-simplenews-subscription-block"
 
   Scenario: Blocks in sidebar block reference have reduced title options
     Given I am logged in as a user with the "administrator" role
