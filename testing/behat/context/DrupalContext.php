@@ -1029,4 +1029,15 @@ class DrupalContext extends RawDrupalContext {
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
   }
+
+  /**
+   * @Then I set newsletter privacy policy page
+   */
+  public function setNewsletterPrivacyPolicyPage() {
+    \Drupal::configFactory()
+      ->getEditable('degov_simplenews.settings')
+      ->set('privacy_policy', ['de' => '1'])
+      ->save();
+  }
+
 }

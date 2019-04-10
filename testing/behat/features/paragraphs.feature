@@ -9,7 +9,8 @@ Feature: deGov - Paragraphs
     And I should see text matching "field_header_media"
 
   Scenario: Paragraph block reference has correct blocks and can create an instance
-    Given I am logged in as a user with the "administrator" role
+    Given I set newsletter privacy policy page
+    And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page#edit-group-righ"
     And I fill in "testblockreferenz" for "Titel"
     And I click on togglebutton
@@ -33,7 +34,6 @@ Feature: deGov - Paragraphs
     And I should see text matching "Block Referenz Seitenleiste" after a while
     Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
     And I select "views_block:press_latest_content-latest_press" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
-    Then I should see text matching "Inhalt: ID" after a while
     And I should not see text matching "Titel anzeigen" after a while
     And I should not see text matching "Titel übersteuern" after a while
     And I should not see HTML content matching "edit-field-sidebar-right-paragraphs-0-subform-field-block-plugin-0-settings-views-label-fieldset"
