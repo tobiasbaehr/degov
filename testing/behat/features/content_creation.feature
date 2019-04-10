@@ -216,7 +216,7 @@ Feature: deGov - Content creation
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
     Then I should see HTML content matching "linkit-result" after a while
     And I click by selector ".linkit-result" via JavaScript
-    Then I verify that field value of ".form-linkit-autocomplete" matches "\[media:file:[\d]+\]"
+    Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
 
   Scenario: I verify that trying to delete a referenced Media item will cause warning messages
     Given I have dismissed the cookie banner if necessary

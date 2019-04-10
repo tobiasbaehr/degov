@@ -65,7 +65,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
       if (!empty($mediaResults)) {
         foreach ($mediaResults as $mediaEntity) {
           $key = sprintf(
-            '%s [%s, %s] <media:file:%s>',
+            '%s [%s, %s] <media/file/%s>',
             $mediaEntity['title'],
             $mediaEntity['bundleLabel'],
             $mediaEntity['filename'],

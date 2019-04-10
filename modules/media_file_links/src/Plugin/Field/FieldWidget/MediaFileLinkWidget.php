@@ -45,7 +45,7 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     // @todo '<front>' is valid input for BC reasons, may be removed by
     //   https://www.drupal.org/node/2421941
     if (!self::validateInternalUriFormat($uri, $element['#value'])) {
-      $form_state->setError($element, t('Manually entered paths should start with /, ? or #, or match &lt;media:file:ID&gt;.'));
+      $form_state->setError($element, t('Manually entered paths should start with /, ? or #, or match &lt;media/file/ID&gt;.'));
       return;
     }
   }

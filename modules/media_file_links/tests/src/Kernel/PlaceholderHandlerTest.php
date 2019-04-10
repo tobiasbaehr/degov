@@ -38,22 +38,22 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
   }
 
   public function testMenuPlaceholderIsPlaceholder(): void {
-    $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here <media:file:1>');
+    $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here <media/file/1>');
     self::assertEquals(TRUE, $result);
   }
 
   public function testTextPlaceholderIsPlaceholder(): void {
-    $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here [media:file:1]');
+    $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here [media/file/1]');
     self::assertEquals(TRUE, $result);
   }
 
   public function testLinkItemMediaIdResolutionSingleDigit(): void {
-    $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media:file:1>');
+    $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media/file/1>');
     self::assertEquals(1, $mediaId);
   }
 
   public function testLinkItemMediaIdResolutionDoubleDigit(): void {
-    $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media:file:12>');
+    $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media/file/12>');
     self::assertEquals(12, $mediaId);
   }
 

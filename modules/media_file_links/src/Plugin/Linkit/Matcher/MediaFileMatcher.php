@@ -98,7 +98,7 @@ class MediaFileMatcher extends EntityMatcher {
             $mediaEntity['bundleLabel'],
             $mediaEntity['filename']
           ),
-          'path' => '[media:file:' . $mediaEntity['id'] . ']',
+          'path' => '[media/file/' . $mediaEntity['id'] . ']',
           'group' => $this->t('Media file links'),
         ];
       }
