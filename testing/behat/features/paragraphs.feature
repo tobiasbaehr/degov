@@ -23,7 +23,7 @@ Feature: deGov - Paragraphs
     And I press the "edit-field-sidebar-right-paragraphs-add-more-add-modal-form-area-add-more" button
     And I press "field_sidebar_right_paragraphs_block_reference_sidebar_add_more"
     And I should see text matching "Block Referenz Seitenleiste" after a while
-    Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block menu_block:main"
+    Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
     And I select "simplenews_subscription_block" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
     And I should see text matching "Newsletter" after a while
     And I check checkbox by value "default" via JavaScript
