@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal
 Feature: deGov - Content creation
 
   Background:
