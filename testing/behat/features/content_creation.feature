@@ -191,7 +191,8 @@ Feature: deGov - Content creation
     And I should not see text matching "scripttest1234"
 
   Scenario: I verify that the selected views reference view mode is preserved in the form
-    Given I have dismissed the cookie banner if necessary
+    Given I reset the demo content
+    And I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I open node edit form by node title "Page with views references"
     And I choose "Content" via translation from tab menu
