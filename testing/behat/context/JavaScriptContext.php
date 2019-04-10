@@ -156,4 +156,13 @@ class JavaScriptContext extends RawMinkContext {
   public function iTriggerEventOnElement(string $event, string $selector): void {
     $this->getSession()->evaluateScript('jQuery("' . $selector . '").trigger("' . $event . '")');
   }
+
+  /**
+   * @Given I enter the placeholder for a :mediaBundle media file in textarea
+   */
+  public function iEnterThePlaceholderForAMediaFile(string $mediaBundle): void {
+    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+      $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper:first iframe").contents().find("p").text("[media:file:' . $id . ']")');
+    }
+  }
 }
