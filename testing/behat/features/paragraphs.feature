@@ -1,6 +1,10 @@
 @api @drupal
 Feature: deGov - Paragraphs
 
+  Background:
+    Given I am installing the following Drupal modules:
+      | degov_demo_content |
+
   Scenario: Banner paragraph should contain expected fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/paragraphs_type/image_header/fields"
@@ -9,8 +13,9 @@ Feature: deGov - Paragraphs
     And I should see text matching "field_header_media"
 
   Scenario: Paragraph block reference has correct blocks and can create an instance
-    Given I set newsletter privacy policy page
-    And I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "administrator" role
+    And I proof that Drupal module "degov_demo_content" is installed
+    Then I set newsletter privacy policy page
     And I am on "/node/add/normal_page#edit-group-righ"
     And I fill in "testblockreferenz" for "Titel"
     And I click on togglebutton
