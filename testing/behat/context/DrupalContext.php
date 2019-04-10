@@ -1017,18 +1017,6 @@ class DrupalContext extends RawDrupalContext {
     }
   }
 
-  private function getMediaItemId($mediaBundle): ?int {
-    $mediaResult = \Drupal::entityQuery('media')
-      ->condition('bundle', $mediaBundle)
-      ->condition('status', 1)
-      ->range(0, 1)
-      ->execute();
-    if (\is_array($mediaResult) && \count($mediaResult) === 1) {
-      return reset($mediaResult);
-    }
-    return NULL;
-  }
-
   /**
    * @Given /^I reset the demo content$/
    */
