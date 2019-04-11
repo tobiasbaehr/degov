@@ -28,7 +28,6 @@ pipelines:
           services:
             - mysql
             - docker
-          - parallel:
       - step:
           name: Acceptance tests (new install - PHP 7.1)
           caches:
