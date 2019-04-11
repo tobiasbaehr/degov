@@ -9,20 +9,59 @@ pipelines:
   default:
     - parallel:
       - step:
-          name: Build and test (PHP 7.2)
+          name: Acceptance tests (new install - PHP 7.2)
           caches:
             - composer
             - docker
           script:
-            - scripts/pipeline.sh 7.2
+            - scripts/pipeline_behat_db_dump.sh 7.2
           services:
             - mysql
             - docker
       - step:
-          name: Build and test (PHP 7.1)
+          name: Acceptance tests (from db-dump - PHP 7.2)
+          caches:
+            - composer
+            - docker
+          script:
+            - scripts/pipeline_behat_new_install.sh 7.2
+          services:
+            - mysql
+            - docker
+          - parallel:
+      - step:
+          name: Acceptance tests (new install - PHP 7.1)
+          caches:
+            - composer
+            - docker
+          script:
+            - scripts/pipeline_behat_db_dump.sh 7.1
+          services:
+            - mysql
+            - docker
+      - step:
+          name: Acceptance tests (from db-dump - PHP 7.1)
+          caches:
+            - composer
+            - docker
+          script:
+            - scripts/pipeline_behat_new_install.sh 7.1
+          services:
+            - mysql
+            - docker
+      - step:
+          name: Unit/functional tests and static code analysis (PHP 7.1)
           image: derh4nnes/pipeline-behat:latest
           script:
-            - scripts/pipeline.sh 7.1
+            - scripts/pipeline_code_tests.sh 7.1
+          services:
+            - mysql
+            - docker
+      - step:
+          name: Unit/functional tests and static code analysis (PHP 7.2)
+          image: derh4nnes/pipeline-behat:latest
+          script:
+            - scripts/pipeline_code_tests.sh 7.2
           services:
             - mysql
             - docker
