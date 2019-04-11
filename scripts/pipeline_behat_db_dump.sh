@@ -34,10 +34,12 @@ sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.ph
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
+sed '/settings['hash_salt']/d' docroot/sites/default/settings.local.php
+echo "\$settings['hash_salt'] = 'DzA2xwyDCQmyft-LG2Rbs4a1EeiBlBaYO8ZHQ-JxKt86ocZZ6AKPD4mjCxin0pE6nLAc1E7i9A';" >> docroot/sites/default/settings.local.php
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
-zcat docroot/profiles/contrib/degov/testing/behat/nrwgov-6.3.x-dev.sql.gz | bin/drush sql:cli
+zcat docroot/profiles/contrib/degov/testing/behat/degov-6.3.x-dev.sql.gz | bin/drush sql:cli
 echo "### Updating"
 bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update
 echo "### Running Behat tests"
