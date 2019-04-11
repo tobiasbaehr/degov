@@ -41,13 +41,6 @@ echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
-
-
-echo '## Drush status'
-bin/drush status
-echo 'settings.local output'
-cat docroot/sites/default/settings.local.php
-
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
