@@ -6,6 +6,18 @@ use Drupal\Core\Field\FieldConfigInterface;
  * Update block reference paragraph
  */
 function degov_paragraph_block_reference_update_8007() {
+  /**
+   * @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater
+   */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->importConfigFile('core.entity_view_display.paragraph.block_reference_sidebar.default.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('core.entity_view_display.paragraph.block_reference_sidebar.preview.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('core.entity_form_display.paragraph.block_reference_sidebar.default.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('field.field.paragraph.block_reference_sidebar.field_block_plugin.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('field.field.paragraph.block_reference_sidebar.field_sub_title.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('field.field.paragraph.block_reference_sidebar.field_title_link.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('paragraphs.paragraphs_type.block_reference_sidebar.yml', 'degov_paragraph_block_reference', 'install');
+  $moduleUpdater->importConfigFile('field.field.paragraph.block_reference_sidebar.field_title.yml', 'degov_paragraph_block_reference', 'install');
 
   \Drupal::service('module_installer')->install([
     'degov_node_press',

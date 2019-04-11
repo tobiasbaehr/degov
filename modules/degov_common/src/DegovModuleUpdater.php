@@ -27,6 +27,11 @@ class DegovModuleUpdater extends ConfigReplacer {
     }
   }
 
+  public function importConfigFile(string $ymlConfigFilename, string $moduleName, string $folderName, bool $force = FALSE): void {
+    $configurationName = str_replace('.yml', '', $ymlConfigFilename);
+    $this->reImport($configurationName, $moduleName, $folderName, $force);
+  }
+
   public function onModuleInstalled($module, $installed_module): void {
     $source_dir = drupal_get_path('module', $module) . '/config/' . $installed_module;
     $this->manageConfig($module, $source_dir);
