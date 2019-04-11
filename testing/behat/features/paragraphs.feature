@@ -1,6 +1,9 @@
 @api @drupal
 Feature: deGov - Paragraphs
 
+  Background:
+    Given I am installing the "degov_paragraph_block_reference" module
+
   Scenario: Banner paragraph should contain expected fields
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/paragraphs_type/image_header/fields"
