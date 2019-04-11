@@ -35,7 +35,7 @@ sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
 sed '/settings['hash_salt']/d' docroot/sites/default/settings.local.php
-echo "\$settings['hash_salt'] = 'DzA2xwyDCQmyft-LG2Rbs4a1EeiBlBaYO8ZHQ-JxKt86ocZZ6AKPD4mjCxin0pE6nLAc1E7i9A';" >> docroot/sites/default/settings.local.php
+echo "\$settings['hash_salt'] = 'P3QB9CRcjE7O2q8soMprrPzVhckOGnNefUl4Bz0G-JuNv5lYUxmevcfIDyRW_5uFd4B1DGB59g';" >> docroot/sites/default/settings.local.php
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
