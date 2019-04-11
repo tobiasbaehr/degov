@@ -34,13 +34,20 @@ echo '### Setting connection to database'
 sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting hash salt'
 echo "\$settings['hash_salt'] = 'P3QB9CRcjE7O2q8soMprrPzVhckOGnNefUl4Bz0G-JuNv5lYUxmevcfIDyRW_5uFd4B1DGB59g';" >> docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
+
+
+echo '## Drush status'
+bin/drush status
+echo 'settings.local output'
+cat docroot/sites/default/settings.local.php
+
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 chmod 777 -R docroot/sites/default/files/
