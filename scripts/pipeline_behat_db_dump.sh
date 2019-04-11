@@ -44,7 +44,6 @@ echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/de
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
-cp docroot/profiles/contrib/degov/testing/behat/htaccess-private-filesystem.txt docroot/sites/default/files/private/.htaccess
 chmod 777 -R docroot/sites/default/files/
 zcat docroot/profiles/contrib/degov/testing/behat/degov-6.3.x-dev.sql.gz | bin/drush sql:cli
 echo "### Updating"

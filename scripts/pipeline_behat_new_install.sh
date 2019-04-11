@@ -40,6 +40,7 @@ echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/d
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
+mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
