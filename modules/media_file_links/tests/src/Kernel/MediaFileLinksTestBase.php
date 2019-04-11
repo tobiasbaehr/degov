@@ -31,6 +31,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
     'user',
     'node',
     'filter',
+    'filter_test',
   ];
 
   protected $supportedMediaId;
