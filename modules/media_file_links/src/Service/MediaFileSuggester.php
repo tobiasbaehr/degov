@@ -130,6 +130,7 @@ class MediaFileSuggester {
           ];
         }
       }
+      $preparedResults = array_unique($preparedResults, SORT_REGULAR);
     }
     return $preparedResults;
   }
