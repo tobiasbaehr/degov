@@ -1031,6 +1031,26 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given /^I should see the "([^"]*)" in "([^"]*)"$/
+   */
+  public function iShouldSeeTheImageIn($selector1, $selector2) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector2);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if (!$element->has('css', $selector1)) {
+          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)', $selector1, $selector2));
+        }
+
+      }
+    }
+    else {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+    }
+    return TRUE;
+  }
+
+  /**
    * @Then I set newsletter privacy policy page
    */
   public function setNewsletterPrivacyPolicyPage() {
