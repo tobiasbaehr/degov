@@ -5,7 +5,6 @@
  * Contains install and update routines for Lightning Media Image.
  */
 
-use Drupal\Core\Config\ConfigFactory;
 use Drupal\lightning_core\ConfigHelper as Config;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
 

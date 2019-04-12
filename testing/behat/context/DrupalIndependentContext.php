@@ -113,6 +113,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)"$/
+   * @Then /^I should see HTML content matching '([^']*)'$/
    */
   public function iShouldSeeHTMLContentMatching(string $content)
   {
@@ -242,6 +243,31 @@ class DrupalIndependentContext extends RawMinkContext {
     if (!$cssSelector instanceof NodeElement) {
       throw new \Exception("CSS selector $css is not of expected object type NodeElement.");
     }
+  }
+
+  /**
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Example: Then I should see 5 "div" elements after a while
+   * Example: And I should see 5 "div" elements after a while
+   *
+   * @Then /^(?:|I )should see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
+   */
+  public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
+    $startTime = time();
+    $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
+    do {
+      $actualElements = $this->getSession()
+        ->getPage()
+        ->findAll('css', $selector);
+      $actualNumberOfElements = \count($actualElements);
+
+      if ($actualNumberOfElements === $expectedNumberOfElements) {
+        return;
+      }
+    } while (time() - $startTime < $wait);
+    throw new \Exception(
+      sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, $wait, $actualNumberOfElements)
+    );
   }
 
   /**

@@ -5,7 +5,6 @@ Feature: deGov - Users
     Given I proof that Drupal module "degov_users_roles" is installed
     Given I proof that Drupal module "degov_simplenews_references" is installed
 
-
   Scenario: I am on the frontpage
     Given I am on "/"
     Then I should not see text matching "Error"
