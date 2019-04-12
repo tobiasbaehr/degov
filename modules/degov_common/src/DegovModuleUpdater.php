@@ -28,7 +28,12 @@ class DegovModuleUpdater extends ConfigReplacer {
   }
 
   public function importConfigFile(string $ymlConfigFilename, string $moduleName, string $folderName, bool $force = FALSE): void {
-    $configurationName = str_replace('.yml', '', $ymlConfigFilename);
+    if (substr($ymlConfigFilename, -4) !== '.yml') {
+      throw new \Exception('Config file must be a yml file. Given config filename is not ending with ".yml".');
+    }
+
+    $configurationName = substr_replace($ymlConfigFilename ,'', -4);
+
     $this->reImport($configurationName, $moduleName, $folderName, $force);
   }
 
