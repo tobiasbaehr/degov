@@ -4,6 +4,7 @@ namespace Drupal\media_file_links\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\link_attributes\Plugin\Field\FieldWidget\LinkWithAttributesWidget;
 
 /**
@@ -26,6 +27,8 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
 
     $element['#attached']['library'][] = 'media_file_links/fontawesome';
+
+    $element['uri']['#description']['#items'][] = new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.');
 
     return $element;
   }
