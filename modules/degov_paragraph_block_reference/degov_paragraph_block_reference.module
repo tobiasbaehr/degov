@@ -13,6 +13,13 @@ function degov_paragraph_block_reference_preprocess(&$variables, $hook, &$info) 
     'entity_bundles'    => ['block_reference'],
     'entity_view_modes' => ['default', 'preview'],
   ]);
+
+  Common::addThemeSuggestions($variables, $hook, $info, [
+    'module_name' => 'degov_paragraph_block_reference',
+    'entity_type' => 'paragraph',
+    'entity_bundles' => ['block_reference_sidebar'],
+    'entity_view_modes' => ['default', 'preview'],
+  ]);
 }
 
 /**
