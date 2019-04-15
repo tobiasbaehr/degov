@@ -16,12 +16,6 @@ use Drupal\media_file_links\Plugin\Field\FieldType\MediaFileLinkItem;
  */
 class MediaFileLinkItemTest extends MediaFileLinksTestBase {
 
-  /**
-   * @var \Drupal\media_file_links\Service\MediaFileLinkResolver
-   *   $fileLinkResolver
-   */
-  private $fileLinkResolver;
-
   private $mediaFileLinkItem;
 
   /**
@@ -40,19 +34,19 @@ class MediaFileLinkItemTest extends MediaFileLinksTestBase {
   }
 
   public function testLinkResolutionWithExistingSupportedMedia(): void {
-    $this->mediaFileLinkItem->uri = '<media:file:' . $this->supportedMediaId . '>';
+    $this->mediaFileLinkItem->uri = '<media/file/' . $this->supportedMediaId . '>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('dummy.pdf', $urlString);
   }
 
   public function testLinkResolutionWithExistingUnupportedMedia(): void {
-    $this->mediaFileLinkItem->uri = '<media:file:' . $this->unsupportedMediaId . '>';
+    $this->mediaFileLinkItem->uri = '<media/file/' . $this->unsupportedMediaId . '>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('', $urlString);
   }
 
   public function testLinkResolutionWithNonexistentMedia(): void {
-    $this->mediaFileLinkItem->uri = '<media:file:999>';
+    $this->mediaFileLinkItem->uri = '<media/file/999>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('', $urlString);
   }

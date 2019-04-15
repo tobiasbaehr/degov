@@ -1009,20 +1009,20 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Given I enter the placeholder for a :mediaBundle media file in textarea
-   */
-  public function iEnterThePlaceholderForAMediaFile(string $mediaBundle): void {
-    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
-      $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("[media:file:' . $id . ']")');
-    }
-  }
-
-  /**
    * @Given I enter the menu placeholder for a :mediaBundle media file in :fieldSelector
    */
   public function iEnterTheMenuPlaceholderForAMediaFileInSpecificField(string $mediaBundle, string $fieldSelector): void {
     if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
-      $this->getSession()->getPage()->find('css', $fieldSelector)->setValue('<media:file:' . $id . '>');
+      $this->getSession()->getPage()->find('css', $fieldSelector)->setValue('<media/file/' . $id . '>');
+    }
+  }
+
+  /**
+   * @Given I enter the placeholder for a :mediaBundle media file in textarea
+   */
+  public function iEnterThePlaceholderForAMediaFile(string $mediaBundle): void {
+    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+      $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper:first iframe").contents().find("p").text("[media/file/' . $id . ']")');
     }
   }
 

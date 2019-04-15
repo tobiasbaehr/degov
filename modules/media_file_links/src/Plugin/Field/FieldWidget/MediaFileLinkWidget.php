@@ -4,6 +4,7 @@ namespace Drupal\media_file_links\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\link_attributes\Plugin\Field\FieldWidget\LinkWithAttributesWidget;
 
 /**
@@ -27,6 +28,8 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
 
     $element['#attached']['library'][] = 'media_file_links/fontawesome';
 
+    $element['uri']['#description']['#items'][] = new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.');
+
     return $element;
   }
 
@@ -45,7 +48,7 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     // @todo '<front>' is valid input for BC reasons, may be removed by
     //   https://www.drupal.org/node/2421941
     if (!self::validateInternalUriFormat($uri, $element['#value'])) {
-      $form_state->setError($element, t('Manually entered paths should start with /, ? or #, or match &lt;media:file:ID&gt;.'));
+      $form_state->setError($element, t('Manually entered paths should start with /, ? or #, or match &lt;media/file/ID&gt;.'));
       return;
     }
   }

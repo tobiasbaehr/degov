@@ -17,10 +17,13 @@ Feature: deGov - Media creation
     And I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
+    Then I fill in "DE" for "Land"
+    And I wait 1 seconds
     And I should see HTML content matching "Straße" after a while
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"
+    And I scroll to top
     And I click "General" via translation
     And I check the box "Mediathek"
     And I scroll to element with id "edit-submit"

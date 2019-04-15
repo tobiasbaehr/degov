@@ -14,7 +14,7 @@ class MediaFileLinkPlaceholderHandler {
   }
 
   public function getMediaIdFromPlaceholder(string $placeholder): ?int {
-    if(preg_match('/[\[<]media:file:([\d]+)[\]>]/', $placeholder, $matches) && !empty($matches[1]) && preg_match('/^[\d]+$/', $matches[1])) {
+    if(preg_match('/[\[<]media\/file\/([\d]+)[\]>]/', $placeholder, $matches) && !empty($matches[1]) && preg_match('/^[\d]+$/', $matches[1])) {
       return $matches[1];
     }
 
@@ -25,9 +25,9 @@ class MediaFileLinkPlaceholderHandler {
     switch($usage) {
       case 'node':
       case 'paragraph':
-        return sprintf('[media:file:%s]', $mediaId);
+        return sprintf('[media/file/%s]', $mediaId);
       case 'menu_link_content':
-        return sprintf('<media:file:%s>', $mediaId);
+        return sprintf('<media/file/%s>', $mediaId);
     }
     return NULL;
   }

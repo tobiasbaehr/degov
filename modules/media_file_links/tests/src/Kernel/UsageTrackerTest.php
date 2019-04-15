@@ -73,7 +73,7 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     $menuItem = MenuLinkContent::create([
       'title'     => 'Fna',
       'link'      => [
-        'uri' => 'internal:<media:file:' . $this->supportedMediaId . '>',
+        'uri' => 'internal:<media/file/' . $this->supportedMediaId . '>',
       ],
       'menu_name' => 'main',
       'expanded'  => TRUE,

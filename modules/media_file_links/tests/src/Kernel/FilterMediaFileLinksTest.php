@@ -21,7 +21,7 @@ class FilterMediaFileLinksTest extends MediaFileLinksTestBase {
 
   public function testInputFilterOutputsResolvedUrl(): void {
     $inputFilter = new FilterMediaFileLinks([], '', ['provider' => '']);
-    $formattedText = $inputFilter->process('[media:file:' . $this->supportedMediaId . ']', \Drupal::languageManager()->getCurrentLanguage());
+    $formattedText = $inputFilter->process('[media/file/' . $this->supportedMediaId . ']', \Drupal::languageManager()->getCurrentLanguage());
     self::assertInstanceOf(FilterProcessResult::class, $formattedText);
     self::assertContains('dummy.pdf', $formattedText->getProcessedText());
   }

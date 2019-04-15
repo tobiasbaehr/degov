@@ -2,6 +2,7 @@
 
 namespace Drupal\media_file_links\Service;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\Entity;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\media\Entity\Media;
@@ -43,6 +44,22 @@ class MediaFileLinkUsageTracker {
 
     if ($entity instanceof MediaInterface) {
       $this->trackMediaUsageInMedia($entity);
+
+      // This is kind of a stupid workaround, actively watching the referenced entity for updates, then invalidating the referencing entities' caches.
+      // If this issue https://www.drupal.org/project/drupal/issues/2537588 is ever merged, we might be able to use cache tags to achieve this more efficiently.
+      $mediaUsages = $this->getUsagesByMediaIds([$entity->id()]);
+
+      $menuCacheCleared = FALSE;
+      foreach($mediaUsages as $mediaUsage) {
+        if(!$menuCacheCleared && $mediaUsage['referencing_entity_type'] === 'menu_link_content') {
+          \Drupal::service('plugin.manager.menu.link')->rebuild();
+          $menuCacheCleared = TRUE;
+        }
+
+        if(\in_array($mediaUsage['referencing_entity_type'], ['media', 'node', 'paragraph'])) {
+          \Drupal::service('cache_tags.invalidator')->invalidateTags([$mediaUsage['referencing_entity_type'] . ':' . $mediaUsage['referencing_entity_id']]);
+        }
+      }
     }
   }
 

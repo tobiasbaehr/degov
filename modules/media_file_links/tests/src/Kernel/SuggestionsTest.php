@@ -35,4 +35,9 @@ class SuggestionsTest extends MediaFileLinksTestBase {
     self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
   }
 
+  public function testQueryShouldOnlyReturnOneSuggestionPerEntity(): void {
+    $searchResult = $this->fileSuggester->findBySearchString('um');
+    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
+  }
+
 }
