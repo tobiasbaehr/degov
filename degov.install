@@ -158,7 +158,6 @@ function degov_update_8500() {
   degov_common_import_translations();
 }
 
-
 /**
  * Repair broken view modes
  */
@@ -205,7 +204,6 @@ function degov_update_8501() {
  * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
 function degov_update_850100() {
-
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes',
