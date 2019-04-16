@@ -240,3 +240,16 @@ function degov_finalize_setup() {
 
   return $batch;
 }
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_locale_translation_projects_alter(&$projects) {
+  $projects['degov'] = [
+    'info' => [
+      'name'                                 => 'deGov',
+      'interface translation project'        => 'degov',
+      'interface translation server pattern' => drupal_get_path('profile', 'degov') . '/translations/%language.po',
+    ],
+  ];
+}
