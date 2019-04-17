@@ -637,7 +637,7 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
   {
-    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances(2, "table#field-overview tbody > tr");
   }
 
 
