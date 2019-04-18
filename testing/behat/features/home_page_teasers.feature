@@ -4,8 +4,6 @@ Feature: deGov - home page teasers
   Background:
     Given I am installing the following Drupal modules:
       | degov_demo_content |
-    Given I proof that the following Drupal modules are installed:
-      | degov_demo_content |
     Given I reset the demo content
     Given I clear the cache
     Given I am on homepage
