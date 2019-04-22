@@ -39,36 +39,6 @@ class Node {
       }
     }
 
-    // Special treatment for media_reference with video_mobile Media.
-    if ($node->hasField('field_content_paragraphs')
-      && !$node->field_content_paragraphs->isEmpty()) {
-      $responsive_image_style_id = $this->determineResponsiveImageStyle($variables['view_mode']);
-      $paragraphs = $node->get('field_content_paragraphs')->referencedEntities();
-      if (is_array($paragraphs) && count($paragraphs)) {
-        /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
-        foreach ($paragraphs as $paragraph) {
-          if ($paragraph->bundle() === 'media_reference') {
-            if (!$paragraph->get('field_media_reference_media')->isEmpty()) {
-              /** @var \Drupal\media\Entity\Media $video_media */
-              if ($video_media = $paragraph->get('field_media_reference_media')->entity) {
-                if ($video_media->bundle() === 'video_mobile') {
-                  if (!$video_media->get('field_video_mobile_preview')->isEmpty()) {
-                    /** @var \Drupal\media\Entity\Media $image_media */
-                    if ($image_media = $video_media->get('field_video_mobile_preview')->entity) {
-                      $variables['content']['field_teaser_image'] = [
-                        '#type' => 'responsive_image',
-                        '#responsive_image_style_id' => $responsive_image_style_id,
-                        '#uri' => $image_media->image->entity->getFileUri(),
-                      ];
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 
   /**
