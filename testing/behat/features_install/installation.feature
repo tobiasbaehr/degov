@@ -2,6 +2,8 @@ Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
+    And I should see 1 ".installer-background-images-css" element
+    And I should see 1 ".favicon-animation-frames-array-javascript" element
     Then I should see HTML content matching "themes/degov_theme"
     And the HTML title should show the page title and the distribution title
     And I select "Deutsch" in "edit-langcode"
