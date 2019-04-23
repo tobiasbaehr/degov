@@ -221,7 +221,7 @@ function degov_theme_preprocess_paragraph(&$vars) {
       if (($slide->hasField('image')) && !$slide->image->isEmpty()) {
         $vars['slide_responsive_image'] = [
           '#type'                      => 'responsive_image',
-          '#responsive_image_style_id' => 'slider_main',
+          '#responsive_image_style_id' => 'slider_full_width',
           '#uri'                       => $slide->image->entity->getFileUri(),
         ];
       }
