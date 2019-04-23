@@ -18,8 +18,10 @@ function degov_preprocess_html__installation(&$vars) {
       $vars['head_title']['name'] = drupal_install_profile_distribution_name();
     }
   }
+
+  $theme_path = drupal_get_path('theme', 'degov_theme');
   // TODO: Use file_scan_directory.
-  $background_images_dir_handle = opendir(drupal_get_path('theme', 'degov_theme') . '/images/installer');
+  $background_images_dir_handle = opendir($theme_path . '/images/installer');
 
   if ($background_images_dir_handle) {
     $background_image_filenames = [];
@@ -32,7 +34,7 @@ function degov_preprocess_html__installation(&$vars) {
 
     $css = sprintf(
       'body.install-page{background-image:url(/%s/images/installer/%s);}',
-      drupal_get_path('theme', 'degov_theme'),
+      $theme_path,
       $background_image_filenames[rand(0, count($background_image_filenames) - 1)]
     );
     $vars['page']['#attached']['html_head'][] = [
@@ -51,7 +53,7 @@ function degov_preprocess_html__installation(&$vars) {
   }
 
   // Animated Favicon goes here…
-  $favicon_frames_path = drupal_get_path('theme', 'degov_theme') . '/images/favicon_animated_ticker';
+  $favicon_frames_path = $theme_path . '/images/favicon_animated_ticker';
   $animation_frames_filenames = [];
   if ($favicon_frames_dir_handle = opendir($favicon_frames_path)) {
     while ($filename = readdir($favicon_frames_dir_handle)) {
@@ -290,12 +292,12 @@ function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
 }
 
 /**
- * Implements hook_theme_suggestions_html_alter.
+ * Implements hook_theme_suggestions_hook_alter.
  *
  * {@inheritDoc}
  */
 function degov_theme_suggestions_html_alter(array &$suggestions) {
   if (drupal_installation_attempted()) {
-    $suggestions[] = 'html__' . 'installation';
+    $suggestions[] = 'html__installation';
   }
 }
