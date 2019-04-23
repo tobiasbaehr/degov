@@ -5,6 +5,7 @@ use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
 use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
+use Drupal\degov_theme\Preprocess\Node as NodePreprocess;
 use Drupal\degov_theme\Preprocess\ViewsSearchContentAndMediaSorts as ViewsSearchContentAndMediaSortsPreprocess;
 use Drupal\degov_theme\Preprocess\ViewsExposedFormSearchPageFulltext as ViewsExposedFormSearchPageFulltextPreprocess;
 
@@ -254,11 +255,7 @@ function degov_theme_preprocess_degov_social_media_youtube(&$variables) {
  * Implements hook_preprocess_node().
  */
 function degov_theme_preprocess_node(&$variables) {
-  if ($variables['view_mode'] == 'teaser') {
-    $variables['bundle'] = $variables['node']->type->entity->label();
-    $variables['date'] = \Drupal::service('date.formatter')
-      ->format($variables['node']->getCreatedTime(), 'custom', 'd.m.Y');
-  }
+  Drupal::classResolver(NodePreprocess::class)->preprocess($variables);
 }
 
 /**

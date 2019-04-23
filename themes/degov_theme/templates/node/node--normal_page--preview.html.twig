@@ -86,7 +86,7 @@
   {% if content.field_teaser_image %}
     <a class="img-top" href="{{ url }}" rel="bookmark">
       <div class="normal-page__teaser-image teaser-image">
-        {{ content.field_teaser_image|field_value }}
+        {{ content.field_teaser_image }}
       </div>
     </a>
   {% endif %}
@@ -106,7 +106,8 @@
       <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         <a href="{{ url }}" rel="bookmark">
           {% autoescape false %}
-            {{ node.field_teaser_text.value|render|striptags|length > 140 ? node.field_teaser_text.value|render|striptags|slice(0, 140) ~ '...' : node.field_teaser_text.value|render|striptags }}
+            {% set teaser_text = content.field_teaser_text[0]|render|striptags %}
+            {{ teaser_text|length > 140 ? teaser_text|slice(0, 140) ~ '...' : teaser_text }}
           {% endautoescape %}
         </a>
       </div>
