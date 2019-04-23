@@ -217,7 +217,6 @@ node_with_video_mobile:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with responsive video'
   field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
   field_content_paragraphs:
     - media_reference_responsive_video
   status: 1
