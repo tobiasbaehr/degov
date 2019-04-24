@@ -28,14 +28,6 @@ composer dump-autoload
 echo "### Configuring PHP"
 (cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-<<<<<<< HEAD:scripts/pipeline.sh
-echo "### Checking code standards"
-phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-echo "### Running PHPUnit and KernelBase tests"
-# Unit tests are problematic right now. Let's see how far we can get without them.
-# (cd docroot/profiles/contrib/degov && phpunit --testdox -vvv)
-=======
->>>>>>> release/6.3.x-dev:scripts/pipeline_behat_new_install.sh
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
