@@ -237,7 +237,7 @@
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             },
             "drupal/simplenews": {
-                "3028084 - Check if user has email address": "https://www.drupal.org/files/issues/2019-01-24/check-if-user-has-mail-address.patch"
+                "3028084 - Check if user has email address": "https://www.drupal.org/files/issues/2019-04-24/simplenews-3028084-user-without-email.patch"
             },
             "drupal/core": {
                 "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
