@@ -39,39 +39,33 @@
  */
 #}
 {%
-  set classes = [
+set classes = [
   'paragraph',
-  'paragraph-node-reference',
-  'paragraph-node-reference-' ~ (view_mode ? view_mode|clean_class),
-  'paragraph-node-reference-node-view-mode-' ~ paragraph.field_node_reference_viewmode[0].value|clean_class,
+  paragraph.bundle|clean_class,
+  view_mode ? view_mode|clean_class,
   'clearfix',
+  'content-header',
 ]
 %}
-
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
-  <div class="container">
-    {% if content.field_title|field_value or content.field_sub_title|field_value %}
-      <div class="paragraph__header mb-5">
-        {% if content.field_title_link|field_value %}
+  {% if content.field_title|field_value or content.field_sub_title|field_value %}
+    <div class="paragraph__header">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      {% if content.field_title_link|field_value %}
         <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
-          {% endif %}
-          <h2{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
-          {% if content.field_sub_title|field_value %}
-            <h3 class="sub-title"{{ content.field_sub_title|quickedit_attr }}>{{ content.field_sub_title|field_value }}</h3>
-          {% endif %}
-          {% if content.field_title_link|field_value %}
-        </a>
+      {% endif %}
+      <h2{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}
+        {% if content.field_sub_title|field_value %}
+          <span class="sub-title"{{ content.field_sub_title|quickedit_attr }}>{{ content.field_sub_title|field_value }}</span>
         {% endif %}
-        <div class="under-teasers-header-line mt-4"></div>
-      </div>
-    {% endif %}
-
-    <div class="paragraph__content row">
-      {% for key, teaser in content.field_node_reference_nodes if key|first != '#' %}
-        {{ teaser }}
-      {% endfor %}
+      </h2>
+      {% if content.field_title_link|field_value %}
+        </a>
+      {% endif %}
     </div>
+  {% endif %}
+  <div class="paragraph__content">
+    {{ content.field_block_plugin|field_value }}
   </div>
 </div>
-

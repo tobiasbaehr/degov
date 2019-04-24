@@ -64,6 +64,7 @@ function degov_module_setup(&$install_state) {
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
     'degov_paragraph_header'            => 'degov_paragraph_header',
+    'degov_paragraph_block_reference'   => 'degov_paragraph_block_reference',
     'degov_simplenews'                  => 'degov_simplenews',
     'degov_simplenews_references'       => 'degov_simplenews_references',
     'degov_email_login'                 => 'degov_email_login',
@@ -84,7 +85,7 @@ function degov_module_setup(&$install_state) {
   $batch = [
     'operations'    => $operations,
     'title'         => t('Install deGov modules'),
-    'error_message' => t('An error occured during deGov module installation.'),
+    'error_message' => t('An error occurred during deGov module installation.'),
   ];
 
   return $batch;
@@ -138,7 +139,7 @@ function degov_media_setup(&$install_state) {
   $batch = [
     'operations'    => $operations,
     'title'         => t('Install deGov - Media'),
-    'error_message' => t('An error occured during deGov - Media installation.'),
+    'error_message' => t('An error occurred during deGov - Media installation.'),
   ];
 
   return $batch;
@@ -239,4 +240,17 @@ function degov_finalize_setup() {
   }
 
   return $batch;
+}
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_locale_translation_projects_alter(&$projects) {
+  $projects['degov'] = [
+    'info' => [
+      'name'                                 => 'deGov',
+      'interface translation project'        => 'degov',
+      'interface translation server pattern' => drupal_get_path('profile', 'degov') . '/translations/%language.po',
+    ],
+  ];
 }

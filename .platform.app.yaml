@@ -111,12 +111,6 @@ hooks:
 
     build: |
       curl -sS https://platform.sh/cli/installer | php
-      git clone https://bitbucket.org/publicplan/degov_project.git project
-      cd project
-      composer update degov/degov
-      rm -rf docroot/profiles/contrib/degov/*
-      cd ..
-      cp -r `ls -A | grep -v "project"` project/docroot/profiles/contrib/degov/
 
     # The deploy hook runs after your application has been deployed and started.
     deploy: |

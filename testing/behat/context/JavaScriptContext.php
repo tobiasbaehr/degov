@@ -98,10 +98,11 @@ class JavaScriptContext extends RawMinkContext {
    * @Then I verify that field :selector has the value :value
    */
   public function iVerifyThatFieldHasTheValue($selector, $value) {
-    if($this->getSession()->evaluateScript("jQuery('" . $selector . "').val()") === $value) {
+    $actual_value = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
+    if($actual_value === $value) {
       return true;
     }
-    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
+    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'. Has: $actual_value");
   }
 
   /**

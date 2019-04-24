@@ -10,3 +10,8 @@ dependencies:
   - block
   - block_field
   - paragraphs
+  - degov_node_press
+  - degov_social_media_youtube
+  - degov_social_media_instagram
+  - degov_tweets
+  - degov_simplenews_references

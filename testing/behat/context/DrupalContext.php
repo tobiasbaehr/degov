@@ -637,14 +637,14 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
   {
-    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances(2, "table#field-overview tbody > tr");
   }
 
 
   /**
    * @Then I should see exactly :arg1 instances of the element with the selector :arg2
    */
-  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($numberOfInstances, $elementSelector)
   {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
@@ -1029,4 +1029,35 @@ class DrupalContext extends RawDrupalContext {
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
   }
+
+  /**
+   * @Given /^I should see the "([^"]*)" in "([^"]*)"$/
+   */
+  public function iShouldSeeTheImageIn($selector1, $selector2) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector2);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if (!$element->has('css', $selector1)) {
+          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)', $selector1, $selector2));
+        }
+
+      }
+    }
+    else {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+    }
+    return TRUE;
+  }
+
+  /**
+   * @Then I set newsletter privacy policy page
+   */
+  public function setNewsletterPrivacyPolicyPage() {
+    \Drupal::configFactory()
+      ->getEditable('degov_simplenews.settings')
+      ->set('privacy_policy', ['de' => '1'])
+      ->save();
+  }
+
 }

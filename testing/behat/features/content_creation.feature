@@ -191,7 +191,8 @@ Feature: deGov - Content creation
     And I should not see text matching "scripttest1234"
 
   Scenario: I verify that the selected views reference view mode is preserved in the form
-    Given I have dismissed the cookie banner if necessary
+    Given I reset the demo content
+    And I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I open node edit form by node title "Page with views references"
     And I choose "Content" via translation from tab menu
@@ -206,14 +207,3 @@ Feature: deGov - Content creation
     And I trigger the "mousedown" event on ".paragraphs-icon-button-edit"
     Then I should see text matching "Views row view mode" via translated text after a while
     And I verify that field ".viewsreference_view_mode" has the value "small_image"
-
-  Scenario: I proof that I can select blocks in block reference paragraph type
-    Given I am logged in as a user with the "administrator" role
-    And I am installing the "degov_paragraph_block_reference" module
-    And I am on "/node/add/normal_page"
-    And I choose "Content" via translation from tab menu
-    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
-    And I should see HTML content matching "field_content_paragraphs_block_reference_add_more" after a while
-    And I click by CSS id "field-content-paragraphs-block-reference-add-more"
-    And I should see HTML content matching "edit-field-content-paragraphs-0-subform-field-block-plugin-0-plugin-id" after a while
-    Then I select "Shariff-Teilen-Buttons" by name "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]"

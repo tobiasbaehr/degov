@@ -28,7 +28,13 @@ class YoutubeFeedBlock extends BlockBase {
     $channelName = $config->get('channel');
     $numberOfVideos = $config->get('number_of_videos');
 
-    $youtube = new Youtube(['key' => $apiKey]);
+    try {
+      $youtube = new Youtube(['key' => $apiKey]);
+    } catch(\InvalidArgumentException $exception) {
+      \Drupal::logger('degov_social_media_youtube')->warning('No valid YouTube api key. Therefor no twig template variables created.');
+      return $build;
+    }
+
     $channelID = NULL;
     if (!empty($youtube->getChannelByName($channelName))) {
       $channelID = $youtube->getChannelByName($channelName)->id;

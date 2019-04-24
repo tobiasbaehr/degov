@@ -7,6 +7,24 @@
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
 
+/**
+ * Implements hook_requirements().
+ */
+function degov_requirements(string $phase) {
+  $privateFilePath = \Drupal::service('file_system')->realpath('private://');
+  if (empty($privateFilePath) || preg_match("/private\:$/", $privateFilePath)) {
+    return [
+      'file_private_path' => [
+        'title'       => t('Private file system'),
+        'value'       => t('Not configured'),
+        'description' => t('The installation profile requires the private file system to be configured. Please <a href=":settings_howto" target="_blank">edit</a> your settings.php accordingly.', [':settings_howto' => 'https://www.drupal.org/docs/8/core/modules/file/overview#private-file-system']),
+        'severity'    => REQUIREMENT_ERROR,
+      ],
+    ];
+  }
+  return [];
+}
+
 function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
@@ -140,7 +158,6 @@ function degov_update_8500() {
   degov_common_import_translations();
 }
 
-
 /**
  * Repair broken view modes
  */
@@ -187,7 +204,6 @@ function degov_update_8501() {
  * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
 function degov_update_850100() {
-
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes',
