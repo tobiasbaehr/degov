@@ -237,7 +237,6 @@
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             },
             "drupal/simplenews": {
-                "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch",
                 "3028084 - Check if user has email address": "https://www.drupal.org/files/issues/2019-01-24/check-if-user-has-mail-address.patch"
             },
             "drupal/core": {
