@@ -28,7 +28,6 @@ Feature: deGov - Users
     And I fill in "Confirm password" via translated text with "test"
     And I press button with label "Create new account" via translated text
     Then I should be on "/admin/people/create"
-    And I dump the HTML
     And I should see 1 ".messages--status" element
 
   Scenario: I prove that only editors, managers, and admins may access the media library
