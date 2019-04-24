@@ -238,7 +238,7 @@
             },
             "drupal/simplenews": {
                 "Issue 2993026 - Duplicated key status": "https://www.drupal.org/files/issues/2018-08-16/Issue-2993026_duplicate_key_status_0.patch",
-                "3028084 - Check if user has email address": "https://www.drupal.org/files/issues/2019-01-24/check-if-user-has-mail-address.patch"
+                "3031919 - Bugs if user has blank email address": "https://www.drupal.org/files/issues/2019-02-10/simplenews.2892047-query-condition-8.patch"
             },
             "drupal/core": {
                 "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",
