@@ -28,7 +28,6 @@ Feature: deGov Simplenews
     Then I should see an "optgroup" element with the translated "label" attribute "Hidden"
     Then I should see an "optgroup" element with the translated "label" attribute "Single"
     Then I fill in "Name" with "My great newsletter"
-    Then I fill in "Systemname" with "my_great_newsletter"
     Then I select "Doppelt" in "edit-opt-inout"
     And I press button with label "Save" via translated text
     Then I should see "My great newsletter" in the "td" element
