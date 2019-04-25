@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
  * Redirect to front page if user should not be allowed to access
  * canonical route of media entity.
  */
-class MediaManagerSubscriber implements EventSubscriberInterface {
+class MediaAccessSubscriber implements EventSubscriberInterface {
 
   /**
    * @var  AccountInterface
