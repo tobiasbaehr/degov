@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\degov_common\EventSubscriber;
+namespace Drupal\degov_media\EventSubscriber;
 
 use Drupal\Core\Cache\CacheableRedirectResponse;
 use Drupal\Core\Session\AccountInterface;
