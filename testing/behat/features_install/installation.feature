@@ -30,6 +30,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-account-pass-pass2" with "password"
     And I fill in "edit-account-mail" with "admin@example.com"
     And I select "Deutschland" in "edit-site-default-country"
+    And I check checkbox with id "edit-optional-modules-degov-demo-content" by JavaScript
     And I submit the form
     Then task "Website konfigurieren" is done
     And the HTML title should show the page title and the distribution title
