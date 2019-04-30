@@ -20,6 +20,7 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
+    And I should see 56 ".paragraph__content article .image" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role
