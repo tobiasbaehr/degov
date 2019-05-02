@@ -165,19 +165,6 @@
                 }
             }
         },
-        "doubletaptogo": {
-            "type": "package",
-            "package": {
-                "name": "zenopopovici/DoubleTapToGo",
-                "version": "0.3",
-                "type": "drupal-library",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/zenopopovici/DoubleTapToGo",
-                    "reference": "master"
-                }
-            }
-        },
         "leaflet": {
             "type": "package",
             "package": {
