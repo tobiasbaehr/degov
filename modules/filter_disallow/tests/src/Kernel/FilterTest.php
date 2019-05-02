@@ -24,6 +24,8 @@ class FilterTest extends KernelTestBase {
 
   private $textWithUnwantedHtml;
 
+  private $textWithUnwantedHtmlStripped;
+
   private $cleanText;
 
   /**
@@ -40,13 +42,14 @@ class FilterTest extends KernelTestBase {
     $user = $this->createUser(['view filter_disallow messages']);
     \Drupal::currentUser()->setAccount($user);
 
-    $this->textWithUnwantedHtml = '<p>In this text there is <script>a script tag</script> that should be removed</p>';
-    $this->cleanText = '<p>In this text there is nothing that should be removed</p>';
+    $this->textWithUnwantedHtml = '<p>In this text there is <script>a script tag</script> that should be removed äöüÄÖÜßßß</p>';
+    $this->textWithUnwantedHtmlStripped = '<p>In this text there is  that should be removed äöüÄÖÜßßß</p>';
+    $this->cleanText = '<p>In this text there is nothing that should be removed äöüÄÖÜßßß</p>';
   }
 
   public function testFilterTagIsRemoved(): void {
     $filteredText = $this->filter->stripHtmlTag($this->textWithUnwantedHtml, 'script');
-    self::assertEquals('<p>In this text there is  that should be removed</p>', $filteredText);
+    self::assertEquals($this->textWithUnwantedHtmlStripped, $filteredText);
   }
 
   public function testFilterTagIsNotRemoved(): void {

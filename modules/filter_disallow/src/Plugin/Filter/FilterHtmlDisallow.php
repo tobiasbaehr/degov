@@ -85,7 +85,7 @@ class FilterHtmlDisallow extends FilterBase {
     $dom = new \DOMDocument();
     // Prevent warnings on HTML5 elements.
     libxml_use_internal_errors(TRUE);
-    $dom->loadHTML($htmlContent);
+    $dom->loadHTML(utf8_decode($htmlContent));
     $xPath = new \DOMXPath($dom);
     $nodes = $xPath->query('//' . $tag);
     if ($nodes->length > 0) {
@@ -96,7 +96,7 @@ class FilterHtmlDisallow extends FilterBase {
         $node->parentNode->removeChild($nodes->item($index));
       }
     }
-    return preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $dom->saveHTML());
+    return preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $dom->saveHTML($dom->documentElement));
   }
 
   /**
