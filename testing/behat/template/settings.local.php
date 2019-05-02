@@ -112,7 +112,7 @@ $settings['rebuild_access'] = TRUE;
  * user pulling in the changes won't have permissions to modify files in the
  * directory.
  */
-$settings['skip_permissions_hardening'] = TRUE;
+$settings['skip_permissions_hardening'] = FALSE;
 $databases['default']['default'] = array(
   'database' => '{{ mysql_auth.db }}',
   'username' => '{{ mysql_auth.user }}',
@@ -124,3 +124,6 @@ $databases['default']['default'] = array(
   'driver' => 'mysql',
 );
 $settings['install_profile'] = 'nrwgov';
+$settings["trusted_host_patterns"] = array(
+  "^127.0.0.1$", "^localhost$"
+);
