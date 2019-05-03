@@ -6,18 +6,17 @@ use Drupal\media\Entity\MediaType;
  * Implements hook_install().
  */
 function degov_media_install() {
-  \Drupal::configFactory()
-    ->getEditable('media.settings')
-    ->set('standalone_url', TRUE)
-    ->save(TRUE);
-
-  \Drupal::service('router.builder')->rebuild();
+  degov_media_reactivate_media_standalone_url_setting();
 }
 
 /**
  * deGov 7.0.0 - Make sure media entities remain accessible.
  */
 function degov_media_update_999999() {
+  degov_media_reactivate_media_standalone_url_setting();
+}
+
+function degov_media_reactivate_media_standalone_url_setting() {
   \Drupal::configFactory()
     ->getEditable('media.settings')
     ->set('standalone_url', TRUE)
