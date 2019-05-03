@@ -14,7 +14,6 @@ function degov_media_install() {
   \Drupal::service('router.builder')->rebuild();
 }
 
-
 /**
  * deGov 7.0.0 - Make sure media entities remain accessible.
  */
