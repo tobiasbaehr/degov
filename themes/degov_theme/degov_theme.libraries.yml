@@ -3,7 +3,8 @@ theme-assets:
     theme:
       webpack-dist/main.css: {}
   js:
-    webpack-dist/main.js: {}
+    webpack-dist/main.js:
+      preprocess: false
   dependencies:
     - core/jquery
 
