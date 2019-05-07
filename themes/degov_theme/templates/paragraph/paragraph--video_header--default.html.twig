@@ -53,7 +53,7 @@
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
   <div class="header-video__video content-header__video">{{ content.field_header_media }}</div>
-  {% if content.field_header_text|field_value|trim %}
+  {% if content.field_header_text|field_value %}
     <div class="header-video__text content-header__text"{{ content.field_header_text|quickedit_attr }}>
       {{ content.field_header_text|field_value }}
     </div>
