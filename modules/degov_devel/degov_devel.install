@@ -8,13 +8,6 @@ function degov_devel_install() {
 }
 
 /**
- * Implements hook_uninstall().
- */
-function degov_devel_uninstall() {
-  \Drupal::service('module_installer')->uninstall(['webprofiler', 'devel']);
-}
-
-/**
  * Implements hook_requirements().
  */
 function degov_devel_requirements(string $phase) {
