@@ -1,0 +1,9 @@
+name: 'deGov - Developer'
+type: module
+description: 'Enables development tools'
+core: 8.x
+package: 'deGov'
+
+dependencies:
+- drupal:devel
+- drupal:webprofiler
