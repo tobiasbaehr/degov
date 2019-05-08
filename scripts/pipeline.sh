@@ -17,10 +17,10 @@ composer dump-autoload
 echo "### Configuring PHP"
 (cd docroot && php -c /etc/php/$PHPVERSION/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php 2>/dev/null&)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-echo "### Checking code standards"
+#echo "### Checking code standards"
 #phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-echo "### Running PHPUnit and KernelBase tests"
-(cd docroot/profiles/contrib/degov && phpunit --testdox)
+#echo "### Running PHPUnit and KernelBase tests"
+#(cd docroot/profiles/contrib/degov && phpunit --testdox)
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
