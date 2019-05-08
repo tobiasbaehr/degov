@@ -61,6 +61,9 @@ content:
     region: content
   thumbnail:
     type: responsive_image
+    weight: 3
+    region: content
+    label: hidden
     settings:
       responsive_image_style: slider_main
       image_link: ''
