@@ -53,15 +53,11 @@ pipelines:
           image: derh4nnes/pipeline-behat:latest
           script:
             - scripts/pipeline_code_tests.sh 7.1
-          artifacts:
-            - docroot/profiles/contrib/degov/scripts/**
       - step:
           name: Unit/functional tests and static code analysis (PHP 7.2)
           image: derh4nnes/pipeline-behat:latest
           script:
             - scripts/pipeline_code_tests.sh 7.2
-          artifacts:
-            - docroot/profiles/contrib/degov/scripts/**
 
 definitions:
   services:
