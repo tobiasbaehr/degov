@@ -50,6 +50,9 @@ class ContentRoleTest extends KernelTestBase {
 
     $node_type->delete();
     $this->assertEmpty(Role::loadMultiple($role_ids));
+
+    // TEMP!!!
+    $this->assertEquals(true, false);
   }
 
 }
