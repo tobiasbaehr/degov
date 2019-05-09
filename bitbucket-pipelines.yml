@@ -11,9 +11,9 @@ options:
   pip install docker-compose
 
 .unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  docker-compose up -d testing mysql
-  docker exec testing bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . testing:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up -d selenium-chrome-headless mysql
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=unit_tests_analysis unit_tests_analysis)"
   docker logs unit_tests_analysis
   if [[ $(docker ps -a|grep "Exit(1)") -eq "" ]] ; then exit 0 ; else exit 1; fi
