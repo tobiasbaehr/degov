@@ -11,9 +11,7 @@ options:
   pip install docker-compose
 
 .unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  export COMPOSE_RESULT="$(docker-compose up --exit-code-from=unit_tests_analysis unit_tests_analysis)"
-  docker logs unit_tests_analysis
-  if [[ $(docker ps -a|grep "Exit(1)") -eq "" ]] ; then exit 0 ; else exit 1; fi
+  docker-compose up unit_tests_analysis
 
 .behat_existing_install_runner: &behat_existing_install_runner |
   docker-compose up -d selenium-chrome-headless mysql
