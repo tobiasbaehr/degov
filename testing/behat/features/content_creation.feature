@@ -189,3 +189,21 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     And I should not see text matching "scripttest1234"
+
+  Scenario: I verify that the selected views reference view mode is preserved in the form
+    Given I reset the demo content
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on ".paragraphs-icon-button-edit"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "preview"
+    And I set the value of element ".viewsreference_view_mode" to "small_image" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on ".paragraphs-icon-button-edit"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "small_image"

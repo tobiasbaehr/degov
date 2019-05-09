@@ -84,17 +84,19 @@ class FilterHtmlDisallow extends FilterBase {
   public function stripHtmlTag(string $htmlContent, string $tag): string {
     $dom = new \DOMDocument();
     // Prevent warnings on HTML5 elements.
-    libxml_use_internal_errors(true);
-    $dom->loadHTML($htmlContent);
+    libxml_use_internal_errors(TRUE);
+    $dom->loadHTML(utf8_decode($htmlContent));
     $xPath = new \DOMXPath($dom);
     $nodes = $xPath->query('//' . $tag);
-    if(\count($nodes) > 0 && \Drupal::currentUser()->hasPermission('view filter_disallow messages')) {
-      \Drupal::messenger()->addWarning(t('The text you entered contains <code>:element</code> tags. These are not permitted here and will be stripped from the output.', [':element' => $tag]));
+    if ($nodes->length > 0) {
+      if (\Drupal::currentUser()->hasPermission('view filter_disallow messages')) {
+        \Drupal::messenger()->addWarning(t('The text you entered contains <code>:element</code> tags. These are not permitted here and will be stripped from the output.', [':element' => $tag]));
+      }
+      foreach ($nodes as $index => $node) {
+        $node->parentNode->removeChild($nodes->item($index));
+      }
     }
-    foreach ($nodes as $index => $node) {
-      $node->parentNode->removeChild($nodes->item($index));
-    }
-    return $dom->saveHTML();
+    return preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $dom->saveHTML($dom->documentElement));
   }
 
   /**

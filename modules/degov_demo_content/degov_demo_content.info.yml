@@ -19,6 +19,9 @@ dependencies:
   - degov:degov_media_social_media_embed
   - degov:degov_media_video
   - degov:degov_node_normal_page
+  - degov:degov_node_press
+  - degov:degov_node_blog
+  - degov:degov_node_event
   - degov:degov_paragraph_downloads
   - degov:degov_paragraph_faq
   - degov:degov_paragraph_header
@@ -26,6 +29,7 @@ dependencies:
   - degov:degov_paragraph_iframe
   - degov:degov_paragraph_map
   - degov:degov_paragraph_media_reference
+  - degov:degov_paragraph_view_reference
   - degov:degov_paragraph_slideshow
   - degov:degov_paragraph_text
   - degov:degov_auto_crop

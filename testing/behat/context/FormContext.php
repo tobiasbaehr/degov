@@ -4,9 +4,7 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ElementNotFoundException;
-use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Behat\MinkExtension\Context\RawMinkContext;
-use Behat\MinkExtension\ServiceContainer\MinkExtension;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
 
@@ -30,8 +28,7 @@ class FormContext extends RawMinkContext {
    * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
    * @param string $selector
    */
-  public function checkCheckboxBySelector(string $selector)
-  {
+  public function checkCheckboxBySelector(string $selector) {
     $this->getSession()->executeScript(
       "
                 document.querySelector('" . $selector . "').checked = true;
@@ -43,8 +40,7 @@ class FormContext extends RawMinkContext {
    * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
    * @param string $value
    */
-  public function checkCheckboxByValue(string $value)
-  {
+  public function checkCheckboxByValue(string $value) {
     $this->getSession()->executeScript(
       "
                 document.querySelector('input[value=" . $value . "]').checked = true;
@@ -55,10 +51,10 @@ class FormContext extends RawMinkContext {
   /**
    * @Given /^I fill in Textarea with "([^"]*)"$/
    */
-  public function iFillInTextareaWith($arg1)
-  {
+  public function iFillInTextareaWith($arg1) {
 
-    $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
+    $this->getSession()
+      ->executeScript('jQuery("div.form-textarea-wrapper iframe").contents().find("p").text("' . $arg1 . '")');
 
   }
 
@@ -113,16 +109,16 @@ class FormContext extends RawMinkContext {
   /**
    * @Then /^I submit the form$/
    */
-  public function iSubmitTheForm()
-  {
+  public function iSubmitTheForm() {
     $session = $this->getSession(); // get the mink session
     $element = $session->getPage()->find(
       'xpath',
-      $session->getSelectorsHandler()->selectorToXpath('xpath', '//*[@type="submit"]')
+      $session->getSelectorsHandler()
+        ->selectorToXpath('xpath', '//*[@type="submit"]')
     ); // runs the actual query and returns the element
 
     // errors must not pass silently
-    if (null === $element) {
+    if (NULL === $element) {
       throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
     }
 
@@ -140,6 +136,15 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select "([^"]*)" by name "([^"]*)"$/
+   */
+  public function selectOptionByName(string $label, string $name): void {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@name = "' . $name . '"]');
+    $selectElement->selectOption($label);
+  }
+
+  /**
    * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
    *
    * Provide data in the following format:
@@ -150,19 +155,20 @@ class FormContext extends RawMinkContext {
    * | Teaser schmal       | slim        |
    * | Vorschau            | preview     |
    */
-  public function assertDropdown(string $nameAttributeValue , TableNode $table): void {
+  public function assertDropdown(string $nameAttributeValue, TableNode $table): void {
     $rowsHash = $table->getRowsHash();
     unset($rowsHash['text']);
 
     $selector = "select[name='$nameAttributeValue']";
     $node = $this->getSession()->getPage()->find('css', $selector);
 
-    if (null === $node) {
+    if (NULL === $node) {
       if (is_array($selector)) {
         $selector = implode(' ', $selector);
       }
 
-      throw new ElementNotFoundException($this->getSession()->getDriver(), 'element', 'css', $selector);
+      throw new ElementNotFoundException($this->getSession()
+        ->getDriver(), 'element', 'css', $selector);
     }
 
     $html = $node->getHtml();
@@ -182,7 +188,7 @@ class FormContext extends RawMinkContext {
       $found = FALSE;
       $htmlPartItems = count($htmlParts) - 1;
       for ($i = 0; $i <= $htmlPartItems; ++$i) {
-        if ((empty($text) || strpos($htmlParts[$i], $text)) && (empty($value) || strpos($htmlParts[$i], $value))) {
+        if (strpos($htmlParts[$i], $text) && (empty($value) || strpos($htmlParts[$i], $value))) {
           $found = TRUE;
         }
       }
@@ -254,11 +260,30 @@ class FormContext extends RawMinkContext {
       ->getPage()
       ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
 
-	  if(count($radio_button) > 0) {
-	    return true;
+    if (count($radio_button) > 0) {
+      return TRUE;
     }
 
     throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
+  }
+
+  /**
+   * @Given /^Select "([^"]*)" has following options "([^"]*)"$/
+   * @throws \Behat\Mink\Exception\ElementNotFoundException
+   */
+  public function selectHasFollowingOptions($select, $optionsRaw) {
+
+    $select = $this->getSession()
+      ->getPage()
+      ->find('css', 'select[name="' . $select . '"]');
+
+    $options = explode(' ', $optionsRaw);
+    foreach ($options as $option) {
+      $element = $select->find('css', 'option[value="' . $option . '"]');
+      if (!$element) {
+        throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
+      }
+    }
   }
 
   /**

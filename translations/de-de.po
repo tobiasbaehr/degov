@@ -12,3 +12,18 @@ msgstr "Social Media Einstellungen"
 
 msgid "Main content"
 msgstr "Haupt-Seiteninhalt"
+
+msgid "Choose quality:"
+msgstr "Qualität auswählen:"
+
+#: degov.install:18
+msgid "Private file system"
+msgstr "Privates Dateisystem"
+
+#: degov.install:19
+msgid "Not configured"
+msgstr "Nicht konfiguriert"
+
+#: degov.install:20
+msgid "The installation profile requires the private file system to be configured. Please <a href=\":settings_howto\" target=\"_blank\">edit</a> your settings.php accordingly."
+msgstr "Das Installationsprofil setzt voraus, dass das private Dateisystem konfiguriert ist. Bitte  <a href=\":settings_howto\" target=\"_blank\">bearbeiten</a> Sie Ihre settings.php entsprechend."

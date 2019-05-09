@@ -116,6 +116,23 @@ map_1:
   field_map_address_view_mode: 'osm_map'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
+## View references
+views_reference_latest_content:
+  type: 'view_reference'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_view_reference_view:
+    target_id: 'content_recent'
+    display_id: 'block_1'
+    view_mode: 'preview'
+views_reference_latest_press:
+  type: 'view_reference'
+  field_title: '{{SUBTITLE}}'
+  field_subtitle: '{{SUBTITLE}}'
+  field_view_reference_view:
+    target_id: 'press_latest_content'
+    display_id: 'latest_press'
+    view_mode: 'preview'
 ## Media References
 media_reference_image:
   type: 'media_reference'
@@ -195,3 +212,9 @@ media_reference_video:
   field_subtitle: '{{SUBTITLE}}'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_VIDEO}}'
+media_reference_responsive_video:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Responsiven Video-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'full'
+  field_media_reference_media: '{{MEDIA_ID_VIDEO_MOBILE}}'

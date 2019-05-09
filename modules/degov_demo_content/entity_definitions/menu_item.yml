@@ -6,6 +6,7 @@ menu_item_1:
     - Page with FAQ-List paragraph
     - Page with video header
     - Page with text paragraph
+    - Page with views references
 menu_item_2:
   node_title: Page with video header
   fontawesome_css_class: fa-bluetooth
@@ -18,6 +19,7 @@ menu_item_3:
   node_title: Page with text paragraph
   fontawesome_css_class: fa-bicycle
   second_level:
+    - Page with responsive video
     - Page with text paragraph
     - Page with map paragraph
     - Page with video header

@@ -340,8 +340,8 @@ function lightning_media_update_dependencies() {
       8018 => [
         'media_entity' => 8201,
       ],
-      861001 => [
-        'degov_common' => 861000,
+      862000 => [
+        'degov_common' => 862000,
       ]
     ],
     'media_entity' => [

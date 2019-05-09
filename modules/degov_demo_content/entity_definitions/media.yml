@@ -14,10 +14,10 @@ image_2:
   field_include_search: 1
 image_3:
   bundle: 'image'
-  name: '{{SUBTITLE}}'
+  name: 'Image that cannot be accessed directly'
   file: 'taneli-lahtinen-1058552-unsplash.jpg'
   status: 1
-  field_include_search: 1
+  field_include_search: 0
 image_4:
   bundle: 'image'
   name: '{{SUBTITLE}}'
@@ -32,8 +32,8 @@ image_5:
   field_include_search: 1
 video_upload_1:
   bundle: 'video_upload'
-  name: '{{SUBTITLE}}'
-  file: 'bokeh-video-of-leaves.mp4'
+  name: 'A video upload'
+  file: 'pexels-videos-1409899-standard.mp4'
   field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
@@ -141,3 +141,20 @@ video_1:
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1
+video_mobile_1:
+  bundle: 'video_mobile'
+  name: '{{SUBTITLE}}'
+  field_title: '{{SUBTITLE}}'
+  files:
+    field_mobile_video_mobile_mp4: 'pexels-videos-1409899-mobile.mp4'
+    field_video_mobile_mp4: 'pexels-videos-1409899-standard.mp4'
+    field_hdready_video_mobile_mp4: 'pexels-videos-1409899-hd-ready.mp4'
+    field_fullhd_video_mobile_mp4: 'pexels-videos-1409899-full-hd.mp4'
+    field_ultrahd4k_video_mobile_mp4: 'pexels-videos-1409899-4k.mp4'
+  status: 1
+  field_media_publish_date: '2018-01-01T00:00:00'
+  field_allow_download_4k: 1
+  field_allow_download_mobile: 1
+  field_allow_download_hdready: 1
+  field_include_search: 1
+  field_video_mobile_preview: '{{MEDIA_ID_IMAGE}}'

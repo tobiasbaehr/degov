@@ -8,9 +8,12 @@ use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
+use Drupal\Tests\user\Traits\UserCreationTrait;
 
 
 class MenuItemGeneratorTest extends KernelTestBase {
+
+  use UserCreationTrait;
 
   /**
    * {@inheritdoc}
@@ -46,6 +49,8 @@ class MenuItemGeneratorTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('menu_link_content');
 
+    $this->installSchema('system', ['sequences']);
+
     $this->menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
 
     /**
@@ -53,6 +58,9 @@ class MenuItemGeneratorTest extends KernelTestBase {
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
     $this->menuLinkContentStorage = $entityTypeManager->getStorage('menu_link_content');
+
+    $user = $this->createUser([], NULL, TRUE);
+    \Drupal::currentUser()->setAccount($user);
   }
 
   public function testMenuItemsGeneration(): void {

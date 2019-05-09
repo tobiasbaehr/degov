@@ -2,7 +2,6 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -217,7 +216,7 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
+   * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
   public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();
@@ -520,6 +519,33 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
+   *
+   * Example:
+   *  I should not see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   */
+  public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
+    $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
+    $translatedText = $this->translateString($text);
+    $isFound = FALSE;
+    if (!empty($resultset)) {
+      foreach($resultset as $resultRow) {
+        if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
+          $isFound = TRUE;
+          break;
+        }
+      }
+    }
+    if (!$isFound) {
+      return TRUE;
+    }
+    throw new ResponseTextException(
+      sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
+      $this->getSession()
+    );
+  }
+
+  /**
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
@@ -568,6 +594,14 @@ class DrupalContext extends RawDrupalContext {
 		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
 	}
 
+  /**
+   * @Then /^I should not see text matching "([^"]*)" via translated text in uppercase$/
+   */
+  public function assertPageNotMatchesTextUppercase(string $text)
+  {
+    $this->assertSession()->pageTextNotMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+  }
+
 	/**
 	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/
 	 */
@@ -603,14 +637,14 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
   {
-    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances(2, "table#field-overview tbody > tr");
   }
 
 
   /**
    * @Then I should see exactly :arg1 instances of the element with the selector :arg2
    */
-  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($numberOfInstances, $elementSelector)
   {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
@@ -995,4 +1029,35 @@ class DrupalContext extends RawDrupalContext {
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
   }
+
+  /**
+   * @Given /^I should see the "([^"]*)" in "([^"]*)"$/
+   */
+  public function iShouldSeeTheImageIn($selector1, $selector2) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector2);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if (!$element->has('css', $selector1)) {
+          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)', $selector1, $selector2));
+        }
+
+      }
+    }
+    else {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+    }
+    return TRUE;
+  }
+
+  /**
+   * @Then I set newsletter privacy policy page
+   */
+  public function setNewsletterPrivacyPolicyPage() {
+    \Drupal::configFactory()
+      ->getEditable('degov_simplenews.settings')
+      ->set('privacy_policy', ['de' => '1'])
+      ->save();
+  }
+
 }

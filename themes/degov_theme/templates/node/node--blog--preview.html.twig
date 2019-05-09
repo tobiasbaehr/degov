@@ -65,39 +65,31 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
-    node.bundle|clean_class,
-    node.isPromoted() ? 'is-promoted',
-    node.isSticky() ? 'is-sticky',
-    not node.isPublished() ? 'is-unpublished',
-    view_mode ? view_mode|clean_class,
-    'clearfix',
-    'col-sm-12 col-md-6'
-  ]
-%}
-
-{% if content.field_teaser_image|field_value %}
-  {% set class_sidebar = 'col-xs-12 col-sm-6' %}
-  {% set class_content = 'col-xs-12 col-sm-6' %}
-{% else %}
-  {% set class_sidebar = 'invisible' %}
-  {% set class_content = 'col-xs-12 col-sm-12' %}
-{% endif %}
-
+{% set classes = [
+  node.bundle|clean_class,
+  node.isPromoted() ? 'is-promoted',
+  node.isSticky() ? 'is-sticky',
+  not node.isPublished() ? 'is-unpublished',
+  view_mode ? view_mode|clean_class,
+  'clearfix',
+  'col-sm-12',
+  'col-md-6',
+  'col-lg-3',
+  'mb-4'
+] %}
 
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
   {% if content.field_teaser_image %}
-    <a href="{{ url }}" rel="bookmark">
-      <div class="blog__teaser-image teaser-image {{ class_sidebar }} arrow">
+    <a class="img-top" href="{{ url }}" rel="bookmark">
+      <div class="blog__teaser-image teaser-image">
         {{ content.field_teaser_image|field_value }}
       </div>
     </a>
   {% endif %}
 
-  <div class="blog__teaser-content teaser-content {{ class_content }}">
+  <div class="blog__teaser-content teaser-content p-3">
     {% if content.field_teaser_title %}
       <a href="{{ url }}" rel="bookmark">
         <div class="blog__teaser-title teaser-title">
@@ -109,14 +101,22 @@
     {% endif %}
 
     {% if content.field_teaser_text %}
-      <div class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+      <div
+          class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         <a href="{{ url }}" rel="bookmark">
           {% autoescape false %}
-            {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
+            {% set teaser_text = content.field_teaser_text[0]|render|striptags %}
+            {{ teaser_text|length > 140 ? teaser_text|slice(0, 140) ~ '...' : teaser_text }}
           {% endautoescape %}
         </a>
       </div>
     {% endif %}
   </div>
+
+  <a href="{{ url }}" rel="bookmark">
+    <div class="learn-more bg-blue  text-align-center p-2">learn more <i
+          class="fas fa-arrow-right"
+          aria-hidden="true"></i></div>
+  </a>
 
 </article>

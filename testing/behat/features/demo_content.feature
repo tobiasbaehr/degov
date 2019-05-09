@@ -20,6 +20,7 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
+    And I should see 56 ".paragraph__content article .image" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role
@@ -28,14 +29,10 @@ Feature: deGov - Demo Content
     And I should see "A page with an image header"
     And I should see "degov_demo_content"
 
-  Scenario: Check that FAQ paragraphs have answers
-    Given I am on "/degov-demo-content/page-faq-list-paragraph"
-    Then I proof css ".faq_question" contains text
-    And I proof css ".faq_answer" contains text
+  Scenario: Check page with video mobile
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/degov-demo-content/page-responsive-video"
+    Then I should see text matching "Page with responsive video"
+    And I should see text matching "Choose quality:" via translated text
+    And I should see text matching "Download" via translated text
 
-  Scenario: Front page should be set to the teaser overview page
-    Given I am on "/"
-    Then I should see "TEASER - SMALL IMAGE"
-    And I should see "TEASER - LONG TEXT"
-    And I should see "TEASER - SLIM"
-    And I should see "TEASER - PREVIEW"

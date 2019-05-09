@@ -30,6 +30,15 @@ function degov_common_install() {
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
   \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
+
+  // Disable Webform CDN and SPAM protection warnings in the status overview page.
+  if (\Drupal::moduleHandler()->moduleExists('webform')) {
+    \Drupal::configFactory()->getEditable('webform.settings')
+      ->set('requirements.cdn', FALSE)
+      ->set('requirements.bootstrap', FALSE)
+      ->set('requirements.spam', FALSE)
+      ->save(TRUE);
+  }
 }
 
 /**
@@ -39,18 +48,6 @@ function degov_common_uninstall() {
   \Drupal::configFactory()
     ->getEditable('degov_common.default_settings')
     ->delete();
-}
-
-function degov_common_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
 }
 
 function degov_common_update_8016() {
@@ -201,10 +198,35 @@ function degov_common_update_8032() {
   }
 }
 
+function degov_common_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
+}
+
+/**
+ * Disable Webform CDN and SPAM protection warnings in the status overview page.
+ */
+function degov_common_update_862000() {
+  if (\Drupal::moduleHandler()->moduleExists('webform')) {
+    \Drupal::configFactory()->getEditable('webform.settings')
+      ->set('requirements.cdn', FALSE)
+      ->set('requirements.bootstrap', FALSE)
+      ->set('requirements.spam', FALSE)
+      ->save(TRUE);
+  }
+}
+
 /**
  * Replace the CKEditor entity browser settings with the default media browser.
  */
-function degov_common_update_862000() {
+function degov_common_update_862001() {
   $mediaBrowserConfig = \Drupal::config('entity_browser.browser.media_browser')->getRawData();
   $mediaBrowserCkeditorConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   if (!$mediaBrowserCkeditorConfig->isNew()) {
