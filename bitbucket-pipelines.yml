@@ -15,7 +15,6 @@ options:
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=unit_tests_analysis unit_tests_analysis)"
-#  docker logs unit_tests_analysis
   echo "## display compose result - begin $COMPOSE_RESULT ## display compose result - end"
   docker ps -a
 
