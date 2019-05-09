@@ -11,7 +11,7 @@ options:
   pip install docker-compose
 
 .unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  docker-compose up -d --exit-code-from=unit_tests_analysis unit_tests_analysis)"
+  docker-compose up -d --exit-code-from=unit_tests_analysis unit_tests_analysis
   docker-compose logs -f -t unit_tests_analysis
   if [[ $(docker ps -a|grep "Exit(1)") -eq "" ]] ; then exit 0 ; else exit 1; fi
 
