@@ -17,7 +17,7 @@ options:
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=unit_tests_analysis unit_tests_analysis)"
   docker logs unit_tests_analysis
   echo ## display compose result - begin
-  echo COMPOSE_RESULT
+  echo "$COMPOSE_RESULT"
   echo ## display compose result - end
   exit COMPOSE_RESULT
 
