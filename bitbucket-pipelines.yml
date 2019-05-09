@@ -11,7 +11,7 @@ options:
   pip install docker-compose
 
 .unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  docker-compose up -d -f unit_tests_analysis
+  docker-compose up unit_tests_analysis
 
 .behat_existing_install_runner: &behat_existing_install_runner |
   docker-compose up -d selenium-chrome-headless mysql
