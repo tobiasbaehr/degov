@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -e
-PHPVERSION=$1
 
-echo "### Executing Pipeline script with PHP: $PHPVERSION"
 echo "### Setting up project folder"
 
 echo "### Wait for packagist"
