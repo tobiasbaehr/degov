@@ -15,7 +15,7 @@
       var $slideshow = $('.slideshow.default', context);
       if ($slideshow.length >= 1) {
         var $slider = $('.slideshow__slides', $slideshow);
-        if($slider.find('.slide').length > 1) {
+        if($slider.children().length > 1) {
           $slider.once().slick({
             dots: true,
             autoplay: false,
