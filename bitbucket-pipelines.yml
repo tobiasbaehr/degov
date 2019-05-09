@@ -1,8 +1,3 @@
-# This is a sample build configuration for PHP.
-# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
 image: debian:stretch
 clone:
   depth: full
@@ -24,7 +19,6 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=behat_existing_install behat_existing_install)"
     docker logs behat_existing_install
   if [[ $(docker ps -a|grep "Exit(1)") -eq "" ]] ; then exit 0 ; else exit 1; fi
@@ -33,7 +27,6 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-
   export COMPOSE_RESULT="$(docker-compose up --exit-code-from=behat_new_install behat_new_install)"
   docker logs behat_new_install
   if [[ $(docker ps -a|grep "Exit(1)") -eq "" ]] ; then exit 0 ; else exit 1; fi
