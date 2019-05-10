@@ -48,8 +48,8 @@ echo "### Updating"
 bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
 echo "### Running Behat tests"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
-behat --suite=default --strict
+behat -c behat-db-dump.yml --suite=default --strict
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
 mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
-behat -c behat-smoke-tests.yml
+behat -c behat-smoke-tests.yml --suite=smoke-tests --strict

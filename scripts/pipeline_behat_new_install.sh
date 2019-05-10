@@ -43,16 +43,16 @@ chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
 echo "### Installing drupal with Behat"
-behat -c behat-no-drupal.yml -vvv
+behat -c behat-new-install.yml --suite=no-drupal -vvv
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
 echo "### Running Behat tests"
-behat --suite=default --strict
+behat -c behat-new-install.yml --suite=default --strict
 
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
-behat --suite=smoke-tests --strict
+behat -c behat-new-install.yml --suite=smoke-tests --strict
 
 # echo "### Running Behat upload tests"
 # behat --suite=tests-with-file-upload --strict
