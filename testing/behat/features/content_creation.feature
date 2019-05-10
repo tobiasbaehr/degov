@@ -13,9 +13,6 @@ Feature: deGov - Content creation
       | filter_disallow             |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
-    Given I am on "/"
-    And I dump the HTML
-
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/press"
     And I fill in "Titel" with "Test1234"
