@@ -19,15 +19,6 @@ options:
   docker ps -a
   if [[ $(docker ps -a|grep "Exited (1)") -eq "" ]] ; then exit 1; else exit 0; fi
 
-.behat_existing_install_runner: &behat_existing_install_runner |
-  docker-compose up -d selenium-chrome-headless mysql
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up -d behat_existing_install
-  docker logs -f behat_existing_install
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
 .behat_new_install_runner: &behat_new_install_runner |
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
