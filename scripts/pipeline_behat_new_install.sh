@@ -24,14 +24,14 @@ cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-(cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S localhost:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_host }}/mysql/g' docroot/sites/default/settings.local.php
 
 
 echo '### Show settings file'
