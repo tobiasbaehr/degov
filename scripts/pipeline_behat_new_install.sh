@@ -41,7 +41,7 @@ mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
-mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
+mv docroot/profiles/contrib/degov/testing/behat/behat-new-install.yml .
 echo "### Installing drupal with Behat"
 behat -c behat-new-install.yml --suite=no-drupal -vvv
 echo "### Updating translation"
