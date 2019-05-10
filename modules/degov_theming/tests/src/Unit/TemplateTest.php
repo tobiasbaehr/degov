@@ -412,5 +412,9 @@ class TemplateTest extends UnitTestCase
       ],
       $info
     );
+
+
+    // TEMP!!!
+    $this->assertEquals(true, false);
   }
 }
