@@ -24,7 +24,7 @@ cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-(cd docroot && screen -dmS php-server php -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -d memory_limit=256M -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
