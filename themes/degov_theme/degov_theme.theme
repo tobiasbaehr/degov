@@ -5,6 +5,7 @@ use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
 use Drupal\degov_theme\Preprocess\MediaSearch as MediaSearchPreprocess;
 use Drupal\degov_theme\Preprocess\MediaGallery as MediaGalleryPreprocess;
+use Drupal\degov_theme\Preprocess\FooterBlock as FooterBlockPreprocess;
 use Drupal\degov_theme\Preprocess\Node as NodePreprocess;
 use Drupal\degov_theme\Preprocess\ViewsSearchContentAndMediaSorts as ViewsSearchContentAndMediaSortsPreprocess;
 use Drupal\degov_theme\Preprocess\ViewsExposedFormSearchPageFulltext as ViewsExposedFormSearchPageFulltextPreprocess;
@@ -292,4 +293,11 @@ function degov_theme_suggestions_html_alter(array &$suggestions) {
   if (drupal_installation_attempted()) {
     $suggestions[] = 'html__installation';
   }
+}
+
+/**
+ * Implements hook_preprocess_block__footer.
+ */
+function degov_theme_preprocess_block__footer(array &$variables) {
+  FooterBlockPreprocess::preprocess($variables);
 }
