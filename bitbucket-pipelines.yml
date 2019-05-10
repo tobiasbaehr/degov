@@ -14,7 +14,7 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  export COMPOSE_RESULT="$(docker-compose up --exit-code-from=unit_tests_analysis unit_tests_analysis)"
+  docker-compose up unit_tests_analysis
   docker logs unit_tests_analysis
   docker ps -a
   if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
@@ -23,7 +23,7 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  export COMPOSE_RESULT="$(docker-compose up -d behat_existing_install)"
+  docker-compose up behat_existing_install
   docker-compose logs -f -t behat_existing_install
   if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
 
@@ -31,7 +31,7 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  export COMPOSE_RESULT="$(docker-compose up behat_new_install)"
+  docker-compose up behat_new_install
   docker logs behat_new_install
   if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
 
