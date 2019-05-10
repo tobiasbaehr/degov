@@ -124,6 +124,9 @@ $databases['default']['default'] = [
   'driver'    => 'mysql',
 ];
 $settings['install_profile'] = 'nrwgov';
-$settings["trusted_host_patterns"] = array(
-  "^127.0.0.1$", "^localhost$"
-);
+$settings['trusted_host_patterns'] = [
+  '^127.0.0.1$',
+  '^localhost$',
+  '^behat_existing_install$',
+  '^behat_new_install$',
+];
