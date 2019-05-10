@@ -14,9 +14,6 @@ options:
   docker-compose up -d selenium-chrome-headless
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-# Run docker container as daemon, if you want to follow the logs output for debugging:
-# docker-compose up -d unit_tests_analysis
-# docker logs -f unit_tests_analysis
   docker-compose up unit_tests_analysis
   docker logs unit_tests_analysis
   docker ps -a
@@ -26,9 +23,6 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-# Run docker container as daemon, if you want to follow the logs output for debugging:
-# docker-compose up -d behat_existing_install
-# docker logs -f behat_existing_install
   docker-compose up -d behat_existing_install
   docker logs -f behat_existing_install
   docker ps -a
@@ -38,9 +32,6 @@ options:
   docker-compose up -d selenium-chrome-headless mysql
   docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
   docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-# Run docker container as daemon, if you want to follow the logs output for debugging:
-# docker-compose up -d behat_new_install
-# docker logs -f behat_new_install
   docker-compose up -d behat_new_install
   docker logs -f behat_new_install
   docker ps -a
