@@ -113,16 +113,16 @@ $settings['rebuild_access'] = FALSE;
  * directory.
  */
 $settings['skip_permissions_hardening'] = FALSE;
-$databases['default']['default'] = array(
-  'database' => '{{ mysql_auth.db }}',
-  'username' => '{{ mysql_auth.user }}',
-  'password' => '{{ mysql_auth.password }}',
-  'prefix' => '',
-  'host' => '{{ mysql_host }}',
-  'port' => '3306',
+$databases['default']['default'] = [
+  'database'  => '{{ mysql_auth.db }}',
+  'username'  => '{{ mysql_auth.user }}',
+  'password'  => '{{ mysql_auth.password }}',
+  'prefix'    => '',
+  'host'      => '{{ mysql_host }}',
+  'port'      => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+  'driver'    => 'mysql',
+];
 $settings['install_profile'] = 'nrwgov';
 $settings["trusted_host_patterns"] = array(
   "^127.0.0.1$", "^localhost$"
