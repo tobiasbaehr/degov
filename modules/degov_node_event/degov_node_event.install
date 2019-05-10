@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Set Monday as the first day of the week.
@@ -68,4 +69,23 @@ function degov_node_event_update_8014() {
 function degov_node_event_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_event', '8014');
+}
+
+/**
+ * deGov update 7.0 - Show only upcoming events in the latest events block.
+ */
+function degov_node_event_update_870000() {
+  $latestEventsConfig = \Drupal::configFactory()->getEditable('views.view.latest_events');
+
+  if (!$latestEventsConfig->isNew()) {
+    $filtersConfig = $latestEventsConfig->get('display.default.display_options.filters');
+
+    if (!empty($filtersConfig)) {
+      $partialConfigFile = drupal_get_path('module', 'degov_node_event') . '/config/partial/views.view.latest_events.yml';
+      if(file_exists($partialConfigFile)) {
+        $filtersConfig += Yaml::parseFile($partialConfigFile);
+        $latestEventsConfig->set('display.default.display_options.filters', $filtersConfig)->save();
+      }
+    }
+  }
 }
