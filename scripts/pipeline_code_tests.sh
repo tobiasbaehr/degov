@@ -30,5 +30,3 @@ echo "### Checking code standards"
 phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
 echo "### Running PHPUnit and KernelBase tests"
 (cd docroot/profiles/contrib/degov && phpunit --testdox)
-
-trap true SIGTERM
