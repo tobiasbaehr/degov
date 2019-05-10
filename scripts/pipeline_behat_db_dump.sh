@@ -33,6 +33,10 @@ sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.ph
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
+
+echo '### Show settings file'
+cat docroot/sites/default/settings.local.php
+
 echo '### Setting hash salt'
 echo "\$settings['hash_salt'] = 'P3QB9CRcjE7O2q8soMprrPzVhckOGnNefUl4Bz0G-JuNv5lYUxmevcfIDyRW_5uFd4B1DGB59g';" >> docroot/sites/default/settings.local.php
 echo '### Setting file system paths'

@@ -32,6 +32,11 @@ sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.ph
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/0.0.0.0/g' docroot/sites/default/settings.local.php
+
+
+echo '### Show settings file'
+cat docroot/sites/default/settings.local.php
+
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
