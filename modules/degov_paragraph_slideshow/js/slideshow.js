@@ -14,21 +14,25 @@
     attach: function (context, settings) {
       var $slideshow = $('.slideshow.default', context);
       if ($slideshow.length >= 1) {
-          var $slider = $('.slideshow__slides', $slideshow);
+        var $slider = $('.slideshow__slides', $slideshow);
+        if($slider.children().length > 1) {
           $slider.once().slick({
-              dots: true,
-              autoplay: false,
-              speed: 500
+            dots: true,
+            autoplay: false,
+            speed: 500
           });
 
           $('.slick__pause', $slideshow).on('click', function () {
-              $slider.slick('slickPause');
-              $(this).hide().siblings('.slick__play').show().focus();
+            $slider.slick('slickPause');
+            $(this).hide().siblings('.slick__play').show().focus();
           }).hide();
           $('.slick__play', $slideshow).on('click', function () {
-              $slider.slick('slickPlay');
-              $(this).hide().siblings('.slick__pause').show().focus();
+            $slider.slick('slickPlay');
+            $(this).hide().siblings('.slick__pause').show().focus();
           }).show();
+        } else {
+          $slideshow.find('.paragraph-slideshow').addClass('single-slide');
+        }
       }
 
       // Slick slider for prev/next thumbnails images
