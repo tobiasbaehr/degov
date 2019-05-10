@@ -119,7 +119,7 @@ map_1:
 ## View references
 views_reference_latest_content:
   type: 'view_reference'
-  field_title: '{{SUBTITLE}}'
+  field_title: 'A view displaying the latest content'
   field_subtitle: '{{SUBTITLE}}'
   field_view_reference_view:
     target_id: 'content_recent'
@@ -127,11 +127,19 @@ views_reference_latest_content:
     view_mode: 'preview'
 views_reference_latest_press:
   type: 'view_reference'
-  field_title: '{{SUBTITLE}}'
+  field_title: 'A view displaying the latest press releases'
   field_subtitle: '{{SUBTITLE}}'
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
+    view_mode: 'preview'
+views_reference_latest_events:
+  type: 'view_reference'
+  field_title: 'A view displaying the upcoming events'
+  field_subtitle: '{{SUBTITLE}}'
+  field_view_reference_view:
+    target_id: 'latest_events'
+    display_id: 'latest_event'
     view_mode: 'preview'
 ## Media References
 media_reference_image:
