@@ -51,5 +51,4 @@ mv docroot/profiles/contrib/degov/testing/behat/behat-db-dump.yml .
 behat -c behat-db-dump.yml --suite=default --strict
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
-mv docroot/profiles/contrib/degov/testing/behat/behat-smoke-tests.yml .
 behat -c behat-smoke-tests.yml --suite=smoke-tests --strict
