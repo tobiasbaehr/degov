@@ -7,7 +7,7 @@ options:
 
 .install_docker_compose: &install_docker_compose |
   apt-get update
-  apt-get install -y python-pip screen
+  apt-get install -y python-pip
   pip install docker-compose
 
 .unit_tests_analysis_runner: &unit_tests_analysis_runner |
