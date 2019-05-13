@@ -42,20 +42,28 @@ slide_1:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
-  field_slide_text: '{{TEXT}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
 slide_2:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
-  field_slide_text: '{{TEXT}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
 slide_3:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
-  field_slide_text: '{{TEXT}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
 text_1:
   type: 'text'
-  field_text_text: '{{TEXT}}'
+  field_text_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
 text_2:
@@ -86,15 +94,21 @@ download_1:
   field_subtitle: '{{SUBTITLE}}'
 faq_1:
   type: 'faq'
-  field_faq_text: '{{TEXT}}'
+  field_faq_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_faq_title: '{{SUBTITLE}}'
 faq_2:
   type: 'faq'
-  field_faq_text: '{{TEXT}}'
+  field_faq_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_faq_title: '{{SUBTITLE}}'
 faq_3:
   type: 'faq'
-  field_faq_text: '{{TEXT}}'
+  field_faq_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_faq_title: '{{SUBTITLE}}'
 faq_list_1:
   type: 'faq_list'
