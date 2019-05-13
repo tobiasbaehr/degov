@@ -185,47 +185,42 @@ function degov_theme_preprocess_paragraph(&$vars) {
   /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
   $paragraph = $vars['paragraph'];
   $entity_view_builder = \Drupal::entityTypeManager();
-  if ($paragraph->bundle() === 'media_reference') {
-    if ($medias = $paragraph->get('field_media_reference_media')
+  if ($paragraph->bundle() === 'media_reference' && $medias = $paragraph->get('field_media_reference_media')
       ->referencedEntities()) {
-      /** @var \Drupal\media\Entity\Media $media */
-      $media = $medias[0];
-      $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
-      $media_view_builder = $entity_view_builder->getViewBuilder('media');
-      $media_view = $media_view_builder->view($media, $media_view_mode);
-      $vars['media_view'] = $media_view_builder->build($media_view);
-      $vars['media'] = $media;
-      if ($media->hasField('field_video_preview')) {
-        if ($media_video_preview_images = $media->get('field_video_preview')
-          ->referencedEntities()) {
-          foreach ($media_video_preview_images as $media_video_preview_image) {
-            $vars['video_preview'][] = [
-              '#type'                      => 'responsive_image',
-              '#responsive_image_style_id' => 'teaser_landscape',
-              '#uri'                       => $media_video_preview_image->image->entity->getFileUri(),
-            ];
-          }
-        }
-      }
-    };
-  }
-
-  if ($paragraph->bundle() === 'slide') {
-    /** @var \Drupal\media\Entity\Media $slide */
-    if ($slides = $paragraph->get('field_slide_media')->referencedEntities()) {
-      $slide = $slides[0];
-      $media_view_builder = $entity_view_builder->getViewBuilder('media');
-      $paragraph_view = $media_view_builder->view($slide);
-      $vars['slide'] = $media_view_builder->build($paragraph_view);
-
-      if (($slide->hasField('image')) && !$slide->image->isEmpty()) {
-        $vars['slide_responsive_image'] = [
+    /** @var \Drupal\media\Entity\Media $media */
+    $media = $medias[0];
+    $media_view_mode = $paragraph->get('field_media_reference_view_mode')->value;
+    $media_view_builder = $entity_view_builder->getViewBuilder('media');
+    $media_view = $media_view_builder->view($media, $media_view_mode);
+    $vars['media_view'] = $media_view_builder->build($media_view);
+    $vars['media'] = $media;
+    if ($media->hasField('field_video_preview') && $media_video_preview_images = $media->get('field_video_preview')
+        ->referencedEntities()) {
+      foreach ($media_video_preview_images as $media_video_preview_image) {
+        $vars['video_preview'][] = [
           '#type'                      => 'responsive_image',
-          '#responsive_image_style_id' => 'slider_full_width',
-          '#uri'                       => $slide->image->entity->getFileUri(),
+          '#responsive_image_style_id' => 'teaser_landscape',
+          '#uri'                       => $media_video_preview_image->image->entity->getFileUri(),
         ];
       }
-    };
+    }
+  }
+
+  if ($paragraph->bundle() === 'slide' && $slides = $paragraph->get('field_slide_media')
+      ->referencedEntities()) {
+    /** @var \Drupal\media\Entity\Media $slide */
+    $slide = $slides[0];
+    $media_view_builder = $entity_view_builder->getViewBuilder('media');
+    $paragraph_view = $media_view_builder->view($slide);
+    $vars['slide'] = $media_view_builder->build($paragraph_view);
+
+    if ($slide->hasField('image') && !$slide->image->isEmpty()) {
+      $vars['slide_responsive_image'] = [
+        '#type'                      => 'responsive_image',
+        '#responsive_image_style_id' => 'slider_full_width',
+        '#uri'                       => $slide->image->entity->getFileUri(),
+      ];
+    }
   }
 }
 
