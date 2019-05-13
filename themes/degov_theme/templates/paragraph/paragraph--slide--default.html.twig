@@ -42,15 +42,11 @@
 
 {% if slide_link %}<a class="d-block w-100" href="{{ slide_link }}">{% endif %}
   <div class="d-block w-100 text-center">
-      BEFORE MEDIA
-      {% if slide_responsive_image %}
-          IMAGE
-          {{ slide_responsive_image }}
-      {% elseif slide.field_media_video_embed_field %}
-          VIDEO
-          {{ slide.field_media_video_embed_field }}
-      {% endif %}
-      AFTER MEDIA
+    {% if slide_responsive_image %}
+      {{ slide_responsive_image }}
+    {% elseif slide.field_media_video_embed_field %}
+      {{ slide.field_media_video_embed_field }}
+    {% endif %}
   </div>
   {% if not paragraph.field_slide_text.isEmpty() or not paragraph.field_override_caption.isEmpty() %}
     <div class="carousel-caption  d-none d-lg-inline-block d-xl-inline-block d-md-none w-100 pb-1 pb-md-2 pb-lg-5 pb-xl-5">
