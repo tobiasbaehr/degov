@@ -11,18 +11,28 @@ use Drupal\media\Entity\MediaType;
  * Implements hook_requirements().
  */
 function degov_requirements(string $phase) {
-  $privateFilePath = \Drupal::service('file_system')->realpath('private://');
-  if (empty($privateFilePath) || preg_match("/private\:$/", $privateFilePath)) {
-    return [
-      'file_private_path' => [
-        'title'       => t('Private file system'),
-        'value'       => t('Not configured'),
-        'description' => t('The installation profile requires the private file system to be configured. Please <a href=":settings_howto" target="_blank">edit</a> your settings.php accordingly.', [':settings_howto' => 'https://www.drupal.org/docs/8/core/modules/file/overview#private-file-system']),
-        'severity'    => REQUIREMENT_ERROR,
-      ],
+  $requirements = [];
+
+  if ($phase === 'runtime') {
+    $requirements['degov_common'] = [
+      'severity'    => REQUIREMENT_OK,
+      'title'       => t('deGov version'),
+      'description' => t('Version of deGov'),
+      'value'       => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
     ];
   }
-  return [];
+
+  $privateFilePath = \Drupal::service('file_system')->realpath('private://');
+  if (empty($privateFilePath) || preg_match("/private\:$/", $privateFilePath)) {
+    $requirements['file_private_path'] = [
+      'title'       => t('Private file system'),
+      'value'       => t('Not configured'),
+      'description' => t('The installation profile requires the private file system to be configured. Please <a href=":settings_howto" target="_blank">edit</a> your settings.php accordingly.', [':settings_howto' => 'https://www.drupal.org/docs/8/core/modules/file/overview#private-file-system']),
+      'severity'    => REQUIREMENT_ERROR,
+    ];
+  }
+
+  return $requirements;
 }
 
 function degov_update_8440() {

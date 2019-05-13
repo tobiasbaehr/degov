@@ -69,13 +69,13 @@ class MenuItemGeneratorTest extends KernelTestBase {
 
     $menuItems = $this->menuLinkContentStorage->loadMultiple();
 
-    $assertedInstanced = 0;
+    $assertedInstances = 0;
     foreach ($menuItems as $menuItem) {
       self::assertInstanceOf(MenuLinkContent::class, $menuItem);
-      $assertedInstanced++;
+      $assertedInstances++;
     }
 
-    self::assertCount($assertedInstanced, $menuItems);
+    self::assertCount($assertedInstances, $menuItems);
   }
 
   public function testDeleteDemoMenuItemsOnly(): void {

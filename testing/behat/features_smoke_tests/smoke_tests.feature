@@ -45,6 +45,7 @@ Feature: deGov - Smoke tests
     And I am on "/admin/reports/status"
     And I should see text matching "Status report" via translated text
     And I should see text matching "Last Cron Run" via translated text
+    And I should see text matching "deGov version" via translated text in uppercase
 
   Scenario: I can visit the recent log messages page with necessary items
     Given I have dismissed the cookie banner if necessary

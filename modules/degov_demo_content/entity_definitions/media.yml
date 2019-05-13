@@ -73,7 +73,7 @@ citation_1:
   name: '{{SUBTITLE}}'
   field_citation_date: '2018-01-01'
   field_citation_image: '{{MEDIA_ID_IMAGE}}'
-  field_citation_text: '{{TEXT}}'
+  field_citation_text: '{{TEXT_PLAIN}}'
   field_citation_title: '{{SUBTITLE}}'
   status: 1
   field_include_search: 1
@@ -81,7 +81,9 @@ person_1:
   bundle: 'person'
   name: '{{SUBTITLE}}'
   field_person_image: '{{MEDIA_ID_IMAGE}}'
-  field_person_info: '{{TEXT}}'
+  field_person_info:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   status: 1
   field_include_search: 1
 contact_1:
@@ -98,7 +100,9 @@ contact_1:
 gallery_1:
   bundle: 'gallery'
   name: '{{SUBTITLE}}'
-  field_description: '{{TEXT}}'
+  field_description:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_gallery_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
   field_media_publish_date: '2018-01-01T00:00:00'
@@ -130,11 +134,15 @@ embed_1:
 video_1:
   bundle: 'video'
   name: '{{SUBTITLE}}'
-  field_description: '{{TEXT}}'
+  field_description:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_video_caption: '{{SUBTITLE}}'
   field_media_duration: '3:16'
   field_social_media_source: 'youtube'
-  field_media_transcription: '{{TEXT}}'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_subtitle: '{{SUBTITLE}}'
   field_media_publish_date: '2018-01-01T00:00:00'
   field_media_video_embed_field: 'https://www.youtube.com/watch?v=z-qpyBRTJ2A&t=65s'
