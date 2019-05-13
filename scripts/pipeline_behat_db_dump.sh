@@ -43,7 +43,7 @@ echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
-zcat docroot/profiles/contrib/degov/testing/behat/degov-6.3.x-dev.sql.gz | bin/drush sql:cli
+zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
 echo "### Updating"
 bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
 echo "### Running Behat tests"
