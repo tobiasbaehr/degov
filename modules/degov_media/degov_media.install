@@ -12,7 +12,7 @@ function degov_media_install() {
 /**
  * deGov 7.0.0 - Make sure media entities remain accessible.
  */
-function degov_media_update_999999() {
+function degov_media_update_870000() {
   degov_media_reactivate_media_standalone_url_setting();
 }
 
