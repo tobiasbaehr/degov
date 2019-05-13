@@ -9,7 +9,7 @@ Feature: deGov - home page teasers
 
   Scenario: Confirm that Homepage teasers and slider are in place
     And I should see the "div#degov-slider" in ".block-block-content"
-    And I wait 10 seconds
+    And I dump the HTML
     And I should see the "img" in "div#degov-slider div.carousel-item"
     And I should see 2 "div#degov-slider a.carousel-control" elements
 
