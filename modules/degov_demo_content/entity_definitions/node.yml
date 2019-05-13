@@ -155,15 +155,10 @@ page_with_events_views_reference:
   moderation_state: 'published'
 press_release:
   type: 'press'
-<<<<<<< HEAD
   title: 'A press release'
-  field_teaser_text: '{{TEXT}}'
-=======
-  title: 'Eine Pressemitteilung'
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'
->>>>>>> release/7.x-dev
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'A press release'
   field_teaser_sub_title: '{{SUBTITLE}}'
