@@ -1060,4 +1060,28 @@ class DrupalContext extends RawDrupalContext {
       ->save();
   }
 
+  /**
+   * @Then I fill in the autocomplete :autocomplete with :label via javascript
+   */
+  public function fillInDrupalAutocomplete($autocomplete, string $text) {
+    try {
+      $this->getSession()->evaluateScript(sprintf("jQuery('%s').val('%s').trigger('keydown');", $autocomplete, $text));
+      $startTime = time();
+      do {
+        $page = $this->getSession()->getPage();
+        $node = $page->find('css', '.ui-menu li a');
+        if ($node) {
+          // Fixed selector usage, can be swapped by a selector in case necessary later on.
+          $this->getSession()->evaluateScript("jQuery('.ui-menu li a').click();");
+          return true;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+      throw new ResponseTextException(
+        sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (StaleElementReference $e) {
+      return false;
+    }
+  }
 }
