@@ -265,14 +265,6 @@ function degov_common_update_dependencies(): array {
  */
 function degov_common_requirements(string $phase): array {
   $requirements = [];
-  if ($phase === 'runtime') {
-    $requirements['degov_common'] = [
-      'severity'    => REQUIREMENT_OK,
-      'title'       => t('deGov version'),
-      'description' => t('Version of deGov'),
-      'value'       => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
-    ];
-  }
 
   if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
     $requirements['degov_integrity_access_modules_issue_1'] = [

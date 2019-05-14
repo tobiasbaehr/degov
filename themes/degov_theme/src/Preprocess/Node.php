@@ -2,12 +2,54 @@
 
 namespace Drupal\degov_theme\Preprocess;
 
+use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Path\PathMatcherInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 /**
  * Class Node.
  *
  * @package Drupal\degov_theme\Preprocess
  */
-class Node {
+class Node implements ContainerInjectionInterface {
+
+  /**
+   * Definition of DateFormatter.
+   *
+   * @var \Drupal\Core\Datetime\DateFormatterInterface
+   */
+  private $dateFormatter;
+
+  /**
+   * Definition of PathMatcher.
+   *
+   * @var \Drupal\Core\Path\PathMatcherInterface
+   */
+  private $pathMatcher;
+
+  /**
+   * Node constructor.
+   *
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter
+   *   Date formatter object.
+   * @param \Drupal\Core\Path\PathMatcherInterface $pathMatcher
+   *   Path Matcher object.
+   */
+  public function __construct(DateFormatterInterface $dateFormatter, PathMatcherInterface $pathMatcher) {
+    $this->dateFormatter = $dateFormatter;
+    $this->pathMatcher = $pathMatcher;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  static public function create(ContainerInterface $container) {
+    return new static(
+      $container->get('date.formatter'),
+      $container->get('path.matcher')
+    );
+  }
 
   /**
    * Preprocess node theme.
@@ -20,7 +62,7 @@ class Node {
     // Add created time to the search teaser template.
     if ($variables['view_mode'] == 'teaser') {
       $variables['bundle'] = $variables['node']->type->entity->label();
-      $variables['date'] = \Drupal::service('date.formatter')
+      $variables['date'] = $this->dateFormatter
         ->format($node->getCreatedTime(), 'custom', 'd.m.Y');
     }
 
@@ -39,6 +81,7 @@ class Node {
       }
     }
 
+    $variables['is_front'] = $this->pathMatcher->isFrontPage();
   }
 
   /**

@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+label: '12 to 5'
+id: 12_to_5
+description: '12:5 cropping, for example for Full Width  slider'
+aspect_ratio: '12:5'
+soft_limit_width: 480
+soft_limit_height: 200
+hard_limit_width: null
+hard_limit_height: null
