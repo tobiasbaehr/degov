@@ -1,68 +1,81 @@
-image: derh4nnes/pipeline-behat:latest
+image: debian:stretch
 clone:
   depth: full
 options:
   docker: true
   size: 2x
 
+.install_docker_compose: &install_docker_compose |
+  apt-get update
+  apt-get install -y python-pip
+  pip install docker-compose
+
+.unit_tests_analysis_runner: &unit_tests_analysis_runner |
+  docker-compose up -d selenium-chrome-headless
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up unit_tests_analysis
+  docker logs unit_tests_analysis
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
+.behat_existing_install_runner: &behat_existing_install_runner |
+  docker-compose up -d selenium-chrome-headless mysql
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up -d behat_existing_install
+  docker logs -f behat_existing_install
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
+.behat_new_install_runner: &behat_new_install_runner |
+  docker-compose up -d selenium-chrome-headless mysql
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up -d behat_new_install
+  docker logs -f behat_new_install
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
 pipelines:
   default:
     - parallel:
       - step:
-          name: Acceptance tests (new install - PHP 7.2)
+          name: Unit tests and analysis (PHP 7.2)
           caches:
             - composer
             - docker
           script:
-            - scripts/pipeline_behat_new_install.sh
+            - *install_docker_compose
+            - *unit_tests_analysis_runner
           services:
-            - mysql
             - docker
       - step:
-          name: Acceptance tests (from db-dump - PHP 7.2)
+          name: Behat existing install (PHP 7.2)
           caches:
             - composer
             - docker
           script:
-            - scripts/pipeline_behat_db_dump.sh
+            - *install_docker_compose
+            - *behat_existing_install_runner
+          artifacts:
+            - /app/dump.sql.gz
           services:
-            - mysql
             - docker
       - step:
-          name: Acceptance tests (new install - PHP 7.1)
+          name: Behat new install (PHP 7.2)
           caches:
             - composer
             - docker
           script:
-            - scripts/pipeline_behat_new_install.sh
+            - *install_docker_compose
+            - *behat_new_install_runner
+          artifacts:
+            - /app/dump.sql.gz
           services:
-            - mysql
             - docker
-      - step:
-          name: Acceptance tests (from db-dump - PHP 7.1)
-          caches:
-            - composer
-            - docker
-          script:
-            - scripts/pipeline_behat_db_dump.sh
-          services:
-            - mysql
-            - docker
-      - step:
-          name: Unit/functional tests and static code analysis (PHP 7.1)
-          image: derh4nnes/pipeline-behat:latest
-          script:
-            - scripts/pipeline_code_tests.sh 7.1
-      - step:
-          name: Unit/functional tests and static code analysis (PHP 7.2)
-          image: derh4nnes/pipeline-behat:latest
-          script:
-            - scripts/pipeline_code_tests.sh 7.2
 
 definitions:
   services:
-    mysql:
-      image: mysql:5.7
-      environment:
-        MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
+    docker:
+      memory: 6000

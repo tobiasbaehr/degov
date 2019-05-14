@@ -31,7 +31,7 @@ class ContentRoleTest extends KernelTestBase {
     $this->installEntitySchema('user');
   }
 
-  public function test() {
+  public function testContentRole() {
     $node_type = NodeType::create([
       'type' => $this->randomMachineName(),
     ]);

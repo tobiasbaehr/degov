@@ -46,7 +46,7 @@ menu_item_6:
   - Page with video header
 menu_item_7:
   node_title: Page with references to all types of media
-  fontawesome_css_class: fa-photo
+  fontawesome_css_class: fa-image
   second_level:
   - Page with text paragraph
   - Page with map paragraph

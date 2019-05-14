@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Command;
 use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\degov_demo_content\Generator\NodeGenerator;
+use Drupal\degov_demo_content\Generator\BlockContentGenerator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Core\Command\ContainerAwareCommand;
@@ -42,20 +43,30 @@ class ResetConsoleCommand extends ContainerAwareCommand {
   private $menuItemGenerator;
 
   /**
+   * The deGov Demo Content BlockContentGenerator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\BlockContentGenerator
+   */
+  private $blockContentGenerator;
+
+  /**
    * ResetConsoleCommand constructor.
    *
-   * @param \Drupal\degov_demo_content\Command\MediaGenerator $mediaGenerator
+   * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
    *   The deGov Demo Content MediaGenerator.
-   * @param \Drupal\degov_demo_content\Command\NodeGenerator $nodeGenerator
+   * @param \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator
    *   The deGov Demo Content NodeGenerator.
-   * @param \Drupal\degov_demo_content\Command\MenuItemGenerator $menuItemGenerator
+   * @param \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator
    *   The deGov Demo Content MenuItemGenerator.
+   * @param \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator
+   *   The deGov Demo Content BlockContentGenerator.
    */
-  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator) {
+  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator, BlockContentGenerator $blockContentGenerator) {
     parent::__construct();
     $this->mediaGenerator = $mediaGenerator;
     $this->nodeGenerator = $nodeGenerator;
     $this->menuItemGenerator = $menuItemGenerator;
+    $this->blockContentGenerator = $blockContentGenerator;
   }
 
   /**
@@ -74,6 +85,7 @@ class ResetConsoleCommand extends ContainerAwareCommand {
     $this->mediaGenerator->resetContent();
     $this->nodeGenerator->resetContent();
     $this->menuItemGenerator->resetContent();
+    $this->blockContentGenerator->resetContent();
     $this->getIo()
       ->info($this->trans('commands.degov_demo_content.reset.messages.success'));
   }

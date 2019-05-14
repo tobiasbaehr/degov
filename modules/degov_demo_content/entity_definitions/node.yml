@@ -3,7 +3,9 @@ teaser_page:
   type: 'normal_page'
   title: 'Page with all teasers'
   status: 1
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: '{{SUBTITLE}}'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -12,7 +14,9 @@ teaser_page:
 page_with_text_paragraph:
   type: 'normal_page'
   title: 'Page with text paragraph'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with text paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -25,7 +29,9 @@ page_with_text_paragraph:
 page_with_text_sidebar:
   type: 'normal_page'
   title: 'Page with text paragraph in sidebar'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with text paragraph in sidebar'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -39,7 +45,9 @@ page_with_text_sidebar:
 page_with_download_paragraph:
   type: 'normal_page'
   title: 'Page with download paragraph'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with download paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -51,7 +59,9 @@ page_with_download_paragraph:
 page_with_iframe_paragraph:
   type: 'normal_page'
   title: 'Page with iframe paragraph'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with iframe paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -63,7 +73,9 @@ page_with_iframe_paragraph:
 page_with_map_paragraph:
   type: 'normal_page'
   title: 'Page with map paragraph'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with map paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -75,7 +87,9 @@ page_with_map_paragraph:
 page_with_faq_list_paragraph:
   type: 'normal_page'
   title: 'Page with FAQ-List paragraph'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with FAQ-List paragraph'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -87,7 +101,9 @@ page_with_faq_list_paragraph:
 page_with_all_media:
   type: 'normal_page'
   title: 'Page with references to all types of media'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with references to all media'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -112,7 +128,9 @@ page_with_all_media:
 page_with_all_views_references:
   type: 'normal_page'
   title: 'Page with views references'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with views references'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -125,7 +143,9 @@ page_with_all_views_references:
 press_release:
   type: 'press'
   title: 'Eine Pressemitteilung'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Eine Pressemitteilung'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -139,7 +159,9 @@ press_release:
 blog_post:
   type: 'blog'
   title: 'Ein Blogpost'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Ein Blogpost'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -154,7 +176,9 @@ blog_post:
 event:
   type: 'event'
   title: 'Eine Veranstaltung'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Eine Veranstaltung'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -177,7 +201,9 @@ event:
 node_with_video_header:
   type: 'normal_page'
   title: 'Page with video header'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with video header'
   field_teaser_sub_title: '{{SUBTITLE}}'
@@ -189,7 +215,9 @@ node_with_video_header:
 node_with_slideshow:
   type: 'normal_page'
   title: 'Page with slideshow'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with slideshow'
   field_teaser_sub_title: 'A page with an slideshow'
@@ -201,7 +229,9 @@ node_with_slideshow:
 node_with_banner:
   type: 'normal_page'
   title: 'Page with banner'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with banner'
   field_teaser_sub_title: 'A page with an image header'
@@ -213,7 +243,9 @@ node_with_banner:
 node_with_video_mobile:
   type: 'normal_page'
   title: 'Page with responsive video'
-  field_teaser_text: '{{TEXT}}'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with responsive video'
   field_teaser_sub_title: '{{SUBTITLE}}'

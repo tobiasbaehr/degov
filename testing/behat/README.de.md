@@ -109,3 +109,11 @@ Hierbei prüfen ob die `behat.yml` Datei im `project` und nicht im `docroot` Ver
 * Behat Projekt: http://behat.org/en/latest/
 * Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/downloads
 * Smoke Testing: http://softwaretestingfundamentals.com/smoke-testing/
+
+### Tip für das Debugging der Pipelines
+
+Run docker container as daemon, if you want to follow the logs output for debugging. E.g.:****
+```
+docker-compose up -d unit_tests_analysis
+docker logs -f unit_tests_analysis
+```
