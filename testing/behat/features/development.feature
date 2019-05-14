@@ -11,3 +11,4 @@ Feature: deGov - Development
     And I proof that Drupal module "degov_devel" is installed
     Then I am on the homepage
     And I should see 1 ".sf-toolbar" elements
+    Then I uninstall the "devel" module
