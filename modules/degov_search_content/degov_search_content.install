@@ -47,3 +47,13 @@ function degov_search_content_update_860000() {
     }
   }
 }
+
+/**
+ * deGov Update 7.0.0 - Update the search content tags facet block name.
+ */
+function degov_search_content_update_870000() {
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('facets.facet.search_content_tags');
+  $config->set('name', 'Neuste Pressemitteilung (Slider)');
+  $config->save(TRUE);
+}
