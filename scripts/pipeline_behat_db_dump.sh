@@ -27,7 +27,8 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
 echo '### Setting connection to database'
-sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+mysql -u root -ptesting -h 127.0.0.1 -e "CREATE DATABASE db_dump"
+sed -i 's/{{ mysql_auth.db }}/db_dump/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
