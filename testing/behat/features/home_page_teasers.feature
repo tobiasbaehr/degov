@@ -8,9 +8,7 @@ Feature: deGov - home page teasers
     Given I am on the homepage
 
   Scenario: Confirm that Homepage teasers and slider are in place
-    And I should see HTML content matching '<div id="degov-slider"' after a while
     And I should see the "div#degov-slider" in ".block-block-content"
-    And I should see the "img" in "div#degov-slider div.carousel-item"
     And I should see 2 "div#degov-slider a.carousel-control" elements
 
     And I should see the "h2" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__header"
