@@ -68,10 +68,10 @@ default:
       default_session: selenium2
       goutte: ~
       selenium2:
-        wd_host: "http://selenium-chrome-headless:4444/wd/hub"
+        wd_host: "http://127.0.0.1:4444/wd/hub"
         browser: "chrome"
         capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--headless","--disable-gpu"] } }
-      base_url: http://behat_new_install:80
+      base_url: http://127.0.0.1:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:

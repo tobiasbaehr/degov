@@ -12,36 +12,30 @@ pipelines:
           name: Unit tests and analysis (PHP 7.2)
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *unit_tests_analysis_runner
-          services:
-            - docker
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
           name: Behat existing install (PHP 7.2)
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *behat_existing_install_runner
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat_db_dump.sh
           artifacts:
             - /app/dump.sql.gz
           services:
-            - docker
+            - mysql
+            - testing
       - step:
           name: Behat new install (PHP 7.2)
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *behat_new_install_runner
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat_new_install.sh
           artifacts:
             - /app/dump.sql.gz
           services:
-            - docker
+            - mysql
+            - testing
 
 definitions:
   services:
