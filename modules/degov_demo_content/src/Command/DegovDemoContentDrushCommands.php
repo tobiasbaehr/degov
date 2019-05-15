@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Command;
 use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\degov_demo_content\Generator\NodeGenerator;
+use Drupal\degov_demo_content\Generator\BlockContentGenerator;
 use Drush\Commands\DrushCommands;
 
 /**
@@ -34,6 +35,13 @@ class DegovDemoContentDrushCommands extends DrushCommands {
   private $menuItemGenerator;
 
   /**
+   * The deGov Demo Content BlockContentGenerator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\BlockContentGenerator
+   */
+  private $blockContentGenerator;
+
+  /**
    * DegovDemoContentDrushCommands constructor.
    *
    * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
@@ -42,12 +50,15 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    *   The deGov Demo Content NodeGenerator.
    * @param \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator
    *   The deGov Demo Content MenuItemGenerator.
+   * @param \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator
+   *   The deGov Demo Content BlockContentGenerator.
    */
-  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator) {
+  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator, BlockContentGenerator $blockContentGenerator) {
     parent::__construct();
     $this->mediaGenerator = $mediaGenerator;
     $this->nodeGenerator = $nodeGenerator;
     $this->menuItemGenerator = $menuItemGenerator;
+    $this->blockContentGenerator = $blockContentGenerator;
   }
 
   /**
@@ -60,8 +71,9 @@ class DegovDemoContentDrushCommands extends DrushCommands {
     $this->mediaGenerator->resetContent();
     $this->nodeGenerator->resetContent();
     $this->menuItemGenerator->resetContent();
+    $this->blockContentGenerator->resetContent();
 
-    $this->logger()->success(dt('Media items & node items & menu items reset.'));
+    $this->logger()->success(dt('Media items & node items & menu items reset & block items.'));
   }
 
   /**
@@ -74,6 +86,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
     $this->menuItemGenerator->deleteContent();
     $this->nodeGenerator->deleteContent();
     $this->mediaGenerator->deleteContent();
+    $this->blockContentGenerator->deleteContent();
   }
 
   /**
@@ -86,6 +99,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
     $this->mediaGenerator->generateContent();
     $this->nodeGenerator->generateContent();
     $this->menuItemGenerator->generateContent();
+    $this->blockContentGenerator->generateContent();
   }
 
 }

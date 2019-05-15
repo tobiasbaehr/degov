@@ -187,8 +187,8 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
 
   // List all optional deGov modules.
   $degov_optional_modules = [
-    'degov_demo_content'      => t('Demo Content'),
     'degov_scheduled_updates' => t('Scheduled Moderation'),
+    'degov_demo_content'      => t('Demo Content'),
   ];
   $form['degov']['optional_modules'] = [
     '#type'          => 'checkboxes',

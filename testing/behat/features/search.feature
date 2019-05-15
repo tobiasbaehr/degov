@@ -44,7 +44,7 @@ Feature: deGov - Search
     And I clear the cache
     Then I am on "/suche"
     And I should see an ".facet-item__value" element with the content "Inhaltsseite"
-#
+
   Scenario: I verify that the media bundle filter shows labels, not machine names
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role

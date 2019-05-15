@@ -100,7 +100,7 @@ $settings['extension_discovery_scan_tests'] = TRUE;
  * be gained by generating a query string from rebuild_token_calculator.sh and
  * using these parameters in a request to rebuild.php.
  */
-$settings['rebuild_access'] = TRUE;
+$settings['rebuild_access'] = FALSE;
 
 /**
  * Skip file system permissions hardening.
@@ -112,15 +112,21 @@ $settings['rebuild_access'] = TRUE;
  * user pulling in the changes won't have permissions to modify files in the
  * directory.
  */
-$settings['skip_permissions_hardening'] = TRUE;
-$databases['default']['default'] = array(
-  'database' => '{{ mysql_auth.db }}',
-  'username' => '{{ mysql_auth.user }}',
-  'password' => '{{ mysql_auth.password }}',
-  'prefix' => '',
-  'host' => '{{ mysql_host }}',
-  'port' => '3306',
+$settings['skip_permissions_hardening'] = FALSE;
+$databases['default']['default'] = [
+  'database'  => '{{ mysql_auth.db }}',
+  'username'  => '{{ mysql_auth.user }}',
+  'password'  => '{{ mysql_auth.password }}',
+  'prefix'    => '',
+  'host'      => '{{ mysql_host }}',
+  'port'      => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+  'driver'    => 'mysql',
+];
 $settings['install_profile'] = 'nrwgov';
+$settings['trusted_host_patterns'] = [
+  '^127.0.0.1$',
+  '^localhost$',
+  '^behat_existing_install$',
+  '^behat_new_install$',
+];

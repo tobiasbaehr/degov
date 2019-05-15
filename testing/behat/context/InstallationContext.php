@@ -34,6 +34,7 @@ class InstallationContext extends RawMinkContext {
           'Install deGov - Theme'            => 'body > div > div > aside > ol > li:nth-child(9).done',
           'Finalize installation'            => 'body > div > div > aside > ol > li:nth-child(13).done',
           'Übersetzungen abschließen'        => 'body > div > div > aside > ol > li:nth-child(14).done',
+          'deGov wurde erfolgreich installiert.' => 'body.path-frontpage'
         ];
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
