@@ -22,7 +22,7 @@ pipelines:
           artifacts:
             - /app/dump.sql.gz
           services:
-            - mysql
+            - mysql_1
             - testing
       - step:
           name: Behat new install (PHP 7.2)
@@ -33,14 +33,19 @@ pipelines:
           artifacts:
             - /app/dump.sql.gz
           services:
-            - mysql
+            - mysql_2
             - testing
 
 definitions:
   services:
     testing:
       image: darksolar/selenium-chrome-headless
-    mysql:
+    mysql_1:
+      image: mysql:5.7
+      variables:
+        MYSQL_ROOT_PASSWORD: testing
+        MYSQL_DATABASE: testing
+    mysql_2:
       image: mysql:5.7
       variables:
         MYSQL_ROOT_PASSWORD: testing
