@@ -1,41 +1,9 @@
-image: debian:stretch
+image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
   docker: true
   size: 2x
-
-.install_docker_compose: &install_docker_compose |
-  apt-get update
-  apt-get install -y python-pip
-  pip install docker-compose
-
-.unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  docker-compose up -d selenium-chrome-headless
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up unit_tests_analysis
-  docker logs unit_tests_analysis
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
-.behat_existing_install_runner: &behat_existing_install_runner |
-  docker-compose up -d selenium-chrome-headless mysql
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up -d behat_existing_install
-  docker logs -f behat_existing_install
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
-.behat_new_install_runner: &behat_new_install_runner |
-  docker-compose up -d selenium-chrome-headless mysql
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up -d behat_new_install
-  docker logs -f behat_new_install
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
 
 pipelines:
   default:
@@ -77,5 +45,10 @@ pipelines:
 
 definitions:
   services:
-    docker:
-      memory: 6000
+    testing:
+      image: darksolar/selenium-chrome-headless
+    mysql:
+      image: mysql:5.7
+      variables:
+        MYSQL_ROOT_PASSWORD: testing
+        MYSQL_DATABASE: testing
