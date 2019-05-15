@@ -10,3 +10,4 @@ dependencies:
   - lightning_media
   - degov_theming
   - degov_users_roles
+  - video_embed_field

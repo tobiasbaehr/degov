@@ -45,7 +45,7 @@
 <h3 class="visually-hidden">{{ 'Navigationshinweise zur Slideshow'|t }}</h3>
 <p class="visually-hidden">{{ 'Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow'|t }}</p>
 
-  <div id="{{ slider_id }}" class="degov-carousel carousel slide container" data-ride="carousel">
+  <div id="{{ slider_id }}" class="degov-carousel carousel slide m-auto" data-ride="carousel">
     {% if slideshow_type == 'type_1' %}
       <ol class="carousel-indicators">
         {% for key in content.field_slideshow_slides|keys if key|first != '#' %}

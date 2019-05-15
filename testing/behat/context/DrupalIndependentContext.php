@@ -145,6 +145,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)" after a while$/
+   * @Then /^I should see HTML content matching '([^']*)' after a while$/
    */
   public function iShouldSeeHTMLContentMatchingAfterWhile($text)
   {
@@ -167,6 +168,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
 	/**
 	 * @Then /^I should not see text matching "([^"]*)" after a while$/
+   * @Then /^I should not see text matching '([^']*)' after a while$/
 	 */
 	public function iShouldNotSeeTextAfterAWhile($text)
 	{

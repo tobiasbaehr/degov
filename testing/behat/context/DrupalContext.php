@@ -1039,7 +1039,7 @@ class DrupalContext extends RawDrupalContext {
     if (!empty($elements)) {
       foreach ($elements as $element) {
         if (!$element->has('css', $selector1)) {
-          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)', $selector1, $selector2));
+          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)' . "\r\n" . $element->getHtml(), $selector1, $selector2));
         }
 
       }
