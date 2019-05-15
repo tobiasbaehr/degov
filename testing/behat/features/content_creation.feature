@@ -209,3 +209,10 @@ Feature: deGov - Content creation
     Then I should see text matching "Views row view mode" via translated text after a while
     And I verify that field ".viewsreference_view_mode" has the value "small_image"
     And I verify that field value of ".form-item-field-content-paragraphs-1-subform-field-view-reference-view-0-options-argument-0 input" matches "degov_demo_content"
+
+  Scenario: I verify that the taxonomy filter is working in the views reference paragraph
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I created a content page named "A Press release without a tag" with a media "tweet"
+    Then I open node view by node title "Page with views references"
+    Then I should not see text matching "A press release without a tag" via translated text in "css" selector ".view-press-latest-content"
