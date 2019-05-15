@@ -2,7 +2,6 @@ image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
-  docker: true
   size: 2x
 
 pipelines:

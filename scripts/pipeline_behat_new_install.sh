@@ -29,7 +29,7 @@ cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docr
 sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/mysql/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
