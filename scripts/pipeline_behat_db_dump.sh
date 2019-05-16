@@ -46,9 +46,11 @@ chmod 777 -R docroot/sites/default/files/
 zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
 echo "### Updating"
 bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
+
 echo "### Running Behat tests"
 mv docroot/profiles/contrib/degov/testing/behat/behat-db-dump.yml .
 behat -c behat-db-dump.yml --suite=default --strict
+
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
-behat --suite=smoke-tests --strict
+behat -c behat-db-dump.yml --suite=smoke-tests --strict
