@@ -170,8 +170,12 @@ class ContentGenerator {
       $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
     }
 
+    while(strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
+      $value = preg_replace('/\{\{TEXT_PLAIN\}\}/', $this->generateBlindText(50), $value, 1);
+    }
+
     while(strpos($value, '{{TEXT}}') !== FALSE) {
-      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
+      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50, TRUE), $value, 1);
     }
 
     if($resolveReferences) {
@@ -207,7 +211,11 @@ class ContentGenerator {
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
-    $index = $this->counter % \count($medias);
+    try {
+      $index = $this->counter % \count($medias);
+    } catch(\DivisionByZeroError $exception) {
+      throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
+    }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);
   }
@@ -217,10 +225,14 @@ class ContentGenerator {
    *
    * @return string
    */
-  public function generateBlindText(int $wordCount): string {
+  public function generateBlindText(int $wordCount, bool $addLinks = FALSE): string {
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
-      $phrase[] = $this->getWord();
+      $word = $this->getWord();
+      if ($addLinks && $i !== 0 && $i % random_int(3, 5) === 0) {
+        $word = '<a href="/">' . $word . '</a>';
+      }
+      $phrase[] = $word;
     }
     return implode(' ', $phrase);
   }

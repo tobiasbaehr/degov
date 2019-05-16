@@ -101,3 +101,32 @@ function degov_media_video_upload_update_8017() {
     }
   }
 }
+
+/**
+ * Remove the video dropzone from the media browser
+ */
+function degov_media_video_upload_update_860000() {
+  $configFactory = \Drupal::configFactory();
+  $mediaBrowserConfig = $configFactory->getEditable('entity_browser.browser.media_browser');
+
+  $widgets = $mediaBrowserConfig->get('widgets');
+  if (!empty($widgets) && isset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26'])) {
+    unset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26']);
+    $mediaBrowserConfig->set('widgets', $widgets)->save();
+  }
+}
+
+/**
+ * Remove not working video upload widget in entity browser.
+ */
+function degov_media_video_upload_update_862000() {
+  $config = \Drupal::configFactory()->getEditable('entity_browser.browser.media_browser');
+  if (!$config->isNew()) {
+    $widgets = $config->get('widgets');
+    if (isset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26'])) {
+      unset($widgets['d6d67ff3-ab4f-482c-bf0f-aa21ef912d26']);
+      $config->set('widgets', $widgets);
+      $config->save(TRUE);
+    }
+  }
+}

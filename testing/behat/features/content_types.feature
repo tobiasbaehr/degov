@@ -10,7 +10,7 @@ Feature: deGov - Content types
       | degov_paragraph_header     |
       | degov_node_external_teaser |
     Given I am installing the following Drupal modules:
-      | degov_node_event          |
+      | degov_node_event |
     Given I proof content type "normal_page" has set the following fields for display:
       | field_teaser_title             |
       | field_teaser_text              |
@@ -51,8 +51,7 @@ Feature: deGov - Content types
     And I am on "/node/add/normal_page"
     And I choose "Inhalt" from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
-    And I wait 10 seconds
-    And I should see HTML content matching "FAQ"
+    And I should see HTML content matching "FAQ" after a while
     And I should see HTML content matching "FAQ / Akkordion Liste"
     And I should see HTML content matching "Banner"
     And I should see HTML content matching "Inhaltsreferenz"

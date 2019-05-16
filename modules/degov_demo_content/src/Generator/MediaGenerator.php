@@ -4,10 +4,10 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\MediaFileHandler;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
 use Drupal\media\Entity\Media;
-use Drupal\search_api\Plugin\search_api\datasource\ContentEntity;
 
 /**
  * Class MediaGenerator.
@@ -47,6 +47,16 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   protected $wktGenerator;
 
   /**
+   * @var string
+   */
+  private $fixturesPath;
+
+  /**
+   * @var MediaFileHandler
+   */
+  private $mediaFileHandler;
+
+  /**
    * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
@@ -56,9 +66,10 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
     parent::__construct($moduleHandler, $entityTypeManager);
     $this->wktGenerator = $wktGenerator;
+    $this->mediaFileHandler = $mediaFileHandler;
   }
 
   /**
@@ -67,8 +78,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   public function generateContent(): void {
     $media_to_generate = $this->loadDefinitions('media.yml');
 
-    $this->saveFiles($media_to_generate);
-    $this->saveEntities($media_to_generate, FALSE);
+    $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
+    $this->mediaFileHandler->saveFiles($media_to_generate, $fixtures_path);
     $this->saveEntities($media_to_generate);
     $this->saveEntityReferences($media_to_generate);
   }
@@ -82,114 +93,51 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
-   * Saves the files listed in the definitions as File entities.
-   */
-  private function saveFiles($media_to_generate): void {
-    $fixtures_path = $this->moduleHandler->getModule('degov_demo_content')
-      ->getPath() . '/fixtures';
-
-    foreach ($media_to_generate as $media_item_key => $media_item) {
-      if (isset($media_item['file'])) {
-        $file_data = file_get_contents($fixtures_path . '/' . $media_item['file']);
-        if (($saved_file = file_save_data($file_data, DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $media_item['file'], FILE_EXISTS_REPLACE)) !== FALSE) {
-          $this->files[$media_item_key] = $saved_file;
-        }
-      }
-    }
-  }
-
-  /**
    * Saves the defined Media entities.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function saveEntities($media_to_generate, $fullSave = TRUE): void {
+  private function saveEntities($media_to_generate): void {
+    $fields = null;
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
-      $this->prepareValues($media_item, $fullSave);
-      $fields = [];
+      $this->prepareValues($media_item);
 
-      foreach ($media_item as $media_item_field_key => $media_item_field_value) {
-        if ($media_item_field_key === 'file') {
-          switch ($media_item['bundle']) {
-            case 'image':
-              $fields['image'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-                'alt'       => $media_item['name'],
-                'title'     => $media_item['name'],
-              ];
-              break;
-
-            case 'document':
-              $fields['field_document'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-
-            case 'audio':
-              $fields['field_audio_mp3'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-
-            case 'video_upload':
-              $fields['field_video_upload_mp4'] = [
-                'target_id' => $this->files[$media_item_key]->id(),
-              ];
-              break;
-          }
-          continue;
-        }
-
-        if ($media_item_field_key === 'field_address_address') {
-          $fields['field_address_address'] = [
-            $media_item['field_address_address'] ?? [],
-          ];
-          continue;
-        }
-
-        if ($media_item_field_key === 'field_address_location') {
-          if (!empty($media_item['field_address_location'])) {
-            $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
-            continue;
-          }
-        }
-
-        $fields[$media_item_field_key] = $media_item_field_value;
-      }
-
-      if ($media_item['bundle'] === 'image' && empty($media_item['field_royalty_free'])) {
-        $fields['field_copyright'] = [
-          'target_id' => $this->getDemoContentCopyrightId(),
-        ];
-      }
+      $fields = $this->mediaFileHandler->mapFileFields($media_item, $media_item_key);
 
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
       $fields['field_tags'] = [
         ['target_id' => $this->getDemoContentTagId()],
       ];
-
-      if(empty($this->savedEntities[$media_item_key])) {
-        $new_media = Media::create($fields);
-        $new_media->save();
-//        $indexes = ContentEntity::getIndexesForEntity($new_media);
-//        foreach($indexes as $index) {
-//          $index->trackItemsInserted('entity:media', [$new_media->id() . ':' . $new_media->language()->getId()]);
-//          $index->indexItems();
-//        }
-        $this->savedEntities[$media_item_key] = $new_media;
-      } else {
-        foreach($fields as $field => $value) {
-          $this->savedEntities[$media_item_key]->set($field, $value);
-        }
-        $this->savedEntities[$media_item_key]->save();
+      if (empty($media_item['field_royalty_free'])) {
+        $fields['field_copyright'] = [
+          'target_id' => $this->getDemoContentCopyrightId(),
+        ];
       }
+
+      if ($media_item_key === 'field_address_address') {
+        $fields['field_address_address'] = [
+          $media_item['field_address_address'] ?? [],
+        ];
+        continue;
+      }
+
+      if ($media_item_key === 'field_address_location') {
+        if (!empty($media_item['field_address_location'])) {
+          $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
+          continue;
+        }
+      }
+
+      $new_media = Media::create($fields);
+      $new_media->save();
+      $this->savedEntities[$media_item_key] = $new_media;
     }
   }
 
   /**
-   * Resolve Media entity references, for example in preview image fields
+   * Store references between Media entities, e.g. preview images.
    */
   private function saveEntityReferences($media_to_generate): void {
     // Create references between Media entities.
@@ -207,6 +155,7 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
           }
           $saved_entity->set('field_gallery_images', $image_target_ids);
           $saved_entity->save();
+
         }
       }
     }

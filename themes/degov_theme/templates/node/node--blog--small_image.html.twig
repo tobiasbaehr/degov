@@ -65,16 +65,18 @@
  *   in different view modes.
  */
 #}
-{%
-  set classes = [
+{% set classes = [
   node.bundle|clean_class,
   node.isPromoted() ? 'is-promoted',
   node.isSticky() ? 'is-sticky',
   not node.isPublished() ? 'is-unpublished',
   view_mode ? view_mode|clean_class,
   'clearfix',
-]
-%}
+  'col-sm-12',
+  'col-md-12',
+  'col-xl-6',
+  'pb-3',
+] %}
 
 {% if content.field_teaser_image|field_value %}
   {% set class_sidebar = 'col-xs-2' %}
@@ -96,25 +98,35 @@
   {% endif %}
 
   <div class="blog__teaser-content teaser-content {{ class_content }}">
-    {% if content.field_teaser_title %}
-      <a href="{{ url }}" rel="bookmark">
-        <div class="blog__teaser-title teaser-title">
-          <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ content.field_teaser_title|field_value }}
-          </h3>
-        </div>
-      </a>
-    {% endif %}
-
-    {% if content.field_teaser_text %}
-      <div class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+    <div class="teaser-content-inner p-md-3 p-2">
+      {% if content.field_teaser_title %}
         <a href="{{ url }}" rel="bookmark">
-          {% autoescape false %}
-            {{ node.field_teaser_text.value|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
-          {% endautoescape %}
+          <div class="blog__teaser-title teaser-title">
+            <h3{{ content.field_teaser_title|quickedit_attr }}>
+              {{ content.field_teaser_title|field_value }}
+            </h3>
+          </div>
         </a>
-      </div>
-    {% endif %}
+      {% endif %}
+
+      {% if node.field_teaser_text.value is not empty %}
+        <div
+            class="blog__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+          <a href="{{ url }}" rel="bookmark">
+            {% autoescape false %}
+              {{ node.field_teaser_text.value|render|length > 110 ? node.field_teaser_text.value|render|striptags|slice(0, 110) ~ '...' : node.field_teaser_text.value|render|striptags }}
+            {% endautoescape %}
+          </a>
+        </div>
+      {% endif %}
+    </div>
   </div>
 
+  {#Teaser Arrow link#}
+  <a href="{{ url }}" rel="bookmark">
+    <div
+        class="normal-page__teaser-arrow learn-more bg-blue h-100 px-2 px-md-3">
+      <i class="fa fa-arrow-right my-auto" aria-hidden="true"></i>
+    </div>
+  </a>
 </article>

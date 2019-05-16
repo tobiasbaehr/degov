@@ -94,6 +94,7 @@ class MenuFaIcons {
       'fa-book' => 'fas',
       'fa-bell' => 'fas',
       'fa-battery-full' => 'fas',
+      'fa-image' => 'fa',
     ];
     return isset($mapping[$icon]) ? $mapping[$icon] : NULL;
   }

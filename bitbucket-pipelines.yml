@@ -1,100 +1,81 @@
-# This is a sample build configuration for PHP.
-# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-image: derh4nnes/pipeline-behat:feature_php-7.2
+image: debian:stretch
 clone:
   depth: full
 options:
   docker: true
   size: 2x
 
+.install_docker_compose: &install_docker_compose |
+  apt-get update
+  apt-get install -y python-pip
+  pip install docker-compose
+
+.unit_tests_analysis_runner: &unit_tests_analysis_runner |
+  docker-compose up -d selenium-chrome-headless
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up unit_tests_analysis
+  docker logs unit_tests_analysis
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
+.behat_existing_install_runner: &behat_existing_install_runner |
+  docker-compose up -d selenium-chrome-headless mysql
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up -d behat_existing_install
+  docker logs -f behat_existing_install
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
+.behat_new_install_runner: &behat_new_install_runner |
+  docker-compose up -d selenium-chrome-headless mysql
+  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
+  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
+  docker-compose up -d behat_new_install
+  docker logs -f behat_new_install
+  docker ps -a
+  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
+
 pipelines:
   default:
     - parallel:
       - step:
-          name: Build and test (PHP 7.2)
+          name: Unit tests and analysis (PHP 7.2)
           caches:
             - composer
             - docker
           script:
-            - scripts/pipeline.sh 7.2
+            - *install_docker_compose
+            - *unit_tests_analysis_runner
           services:
             - docker
-            - mysql
       - step:
-          name: Build and test (PHP 7.1)
-          image: derh4nnes/pipeline-behat:latest
+          name: Behat existing install (PHP 7.2)
+          caches:
+            - composer
+            - docker
           script:
-            - scripts/pipeline.sh 7.1
+            - *install_docker_compose
+            - *behat_existing_install_runner
+          artifacts:
+            - /app/dump.sql.gz
           services:
             - docker
-            - mysql
-    - parallel:
       - step:
-          name: Push to drupal.org
+          name: Behat new install (PHP 7.2)
+          caches:
+            - composer
+            - docker
           script:
-            - git remote add drupal git@git.drupal.org:project/degov.git
-            - git config --global push.default matching
-            - git config --global user.name "SaschaHannes"
-            - git push drupal $BITBUCKET_BRANCH
-  branches:
-    release/6.x:
-      - parallel:
-        - step:
-            name: Build and test (PHP 7.2)
-            caches:
-              - composer
-              - docker
-            script:
-              - scripts/pipeline.sh 7.2
-            services:
-              - docker
-              - mysql
-        - step:
-            name: Build and test (PHP 7.1)
-            image: derh4nnes/pipeline-behat:latest
-            script:
-              - scripts/pipeline.sh 7.1
-            services:
-              - docker
-              - mysql
-      - parallel:
-        - step:
-            name: Push dev to drupal.org
-            script:
-              - git remote add drupal git@git.drupal.org:project/degov.git
-              - git config --global push.default matching
-              - git config --global user.name "SaschaHannes"
-              - git fetch drupal
-              - git checkout 8.x-6.x -f
-              - git merge release/6.x
-              - git push drupal 8.x-6.x
-  tags:
-    '*':
-      - step:
-          name: Pushing tags to drupal.org
-          script:
-            - git remote add drupal git@git.drupal.org:project/degov.git
-            - git config --global push.default matching
-            - git config --global user.name "SaschaHannes"
-            - git fetch drupal
-            - git checkout drupal/8.x-6.x -f
-            - git tag $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
-            - git push drupal $(./scripts/transform.sh --tag=$BITBUCKET_TAG)
+            - *install_docker_compose
+            - *behat_new_install_runner
+          artifacts:
+            - /app/dump.sql.gz
+          services:
+            - docker
 
 definitions:
   services:
-    mysql:
-      image: mysql:5.7
-      memory: 1024
-      environment:
-        MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
-    mysql2:
-      image: mysql:5.7
-      memory: 1024
-      environment:
-        MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
+    docker:
+      memory: 6000

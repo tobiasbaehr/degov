@@ -2,6 +2,8 @@ Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
     Given I am on "/core/install.php"
+    And I should see 1 ".installer-background-images-css" element
+    And I should see 1 ".favicon-animation-frames-array-javascript" element
     Then I should see HTML content matching "themes/degov_theme"
     And the HTML title should show the page title and the distribution title
     And I select "Deutsch" in "edit-langcode"
@@ -14,6 +16,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-mysql-username" with "root"
     And I fill in "edit-mysql-password" with "testing"
     Then I submit the form
+    And I should not see "Fehler"
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
     And task "Website installieren" is done
@@ -29,6 +32,7 @@ Feature: Installation via webbrowser
     And I fill in "edit-account-pass-pass2" with "password"
     And I fill in "edit-account-mail" with "admin@example.com"
     And I select "Deutschland" in "edit-site-default-country"
+    And I check checkbox with id "edit-optional-modules-degov-demo-content" by JavaScript
     And I submit the form
     Then task "Website konfigurieren" is done
     And the HTML title should show the page title and the distribution title

@@ -126,9 +126,30 @@ function degov_users_roles_update_860100() {
 }
 
 /**
- * deGov Update 6.2.0 Add a role system_configurator
+ * deGov Update 6.2.0 - Give managers permission to view filter_disallow messages.
  */
-function degov_users_roles_update_999999() {
+function degov_users_roles_update_860200() {
+  // Add new permissions
+  $permissions = [
+    'view filter_disallow messages',
+  ];
+  $roles = [
+    'user.role.manager',
+  ];
+
+  $configAdder = \Drupal::service('degov_common.config_adder');
+
+  foreach($roles as $role) {
+    foreach($permissions as $permission) {
+      $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
+    }
+  }
+}
+
+/**
+* deGov Update 7.1.0 - Add a role system_configurator
+*/
+function degov_users_roles_update_870100() {
   \Drupal::service('module_installer')->install(['block_permissions']);
 
   // Apply updates for workflows

@@ -2,12 +2,15 @@
 Feature: deGov - Content creation
 
   Background:
+    Given I am installing the following Drupal modules:
+      | degov_demo_content          |
     Given I proof that the following Drupal modules are installed:
       | degov_node_press            |
       | degov_node_event            |
       | degov_node_blog             |
       | degov_node_normal_page      |
       | degov_simplenews_references |
+      | filter_disallow             |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
@@ -18,8 +21,7 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     Then I should see HTML content matching "01.01.2018" after a while
-    And I should see "Test1234" in the ".press__header-paragraphs h2" element
-    And I should see "Test1234" in the ".press__header-paragraphs .press__teaser-text" element
+    And I should see "Test1234" in the ".press__header-paragraphs" element
 
   Scenario: I see all form fields in normal_page content type
     Given I am logged in as a user with the "administrator" role
@@ -84,6 +86,7 @@ Feature: deGov - Content creation
     And I should see "Bereich"
 
   Scenario: I see all form fields in newsletter content type
+    Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/simplenews_issue"
     And I should see "Titel"
@@ -171,3 +174,36 @@ Feature: deGov - Content creation
       | Teaser langer Text     | long_text   |
       | Teaser schmal          | slim        |
       | Teaser Preview         | preview     |
+
+  Scenario: I verify that script tags are removed from output
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with text paragraph"
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 2 seconds
+    And I click by CSS id "field-content-paragraphs-text-add-more"
+    Then I should see text matching "Text format" via translated text after a while
+    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<script>document.write(\'scripttest1234\');</script>" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    And I should not see text matching "scripttest1234"
+
+  Scenario: I verify that the selected views reference view mode is preserved in the form
+    Given I reset the demo content
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on ".paragraphs-icon-button-edit"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "preview"
+    And I set the value of element ".viewsreference_view_mode" to "small_image" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on ".paragraphs-icon-button-edit"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "small_image"
