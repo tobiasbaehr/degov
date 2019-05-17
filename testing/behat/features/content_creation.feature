@@ -213,6 +213,6 @@ Feature: deGov - Content creation
   Scenario: I verify that the taxonomy filter is working in the views reference paragraph
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I created a content page named "A Press release without a tag" with a media "tweet"
+    And I created a content page of type "press" named "A Press release without a tag" with a media "tweet"
     Then I open node view by node title "Page with views references"
-    Then I should not see text matching "A press release without a tag" via translated text in "css" selector ".view-press-latest-content"
+    Then I should not see text matching "A press release without a tag" via translated text in "css" selector ".paragraph.view-reference:nth-child(2)"

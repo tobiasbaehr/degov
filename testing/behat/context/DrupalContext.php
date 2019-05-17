@@ -438,6 +438,16 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedPageWithMedia($pageName, $mediaType) {
+    self::iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
+  }
+
+  /**
+   * Creates a page with given entity type and with a specific media
+   * Example: Given I created a content page of type "event" named "videoPage" with a media "video"
+   *
+   * @Given /^(?:|I )created a content page of type "([^"]*)" named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   */
+  public function iCreatedTypePageWithMedia($entityType, $pageName, $mediaType) {
     $media = $this->iCreateAMediaOfType($mediaType);
 
     $mediaParagraph = Paragraph::create([
@@ -448,7 +458,7 @@ class DrupalContext extends RawDrupalContext {
     $this->trash[$mediaParagraph->getEntityTypeId()][] = $mediaParagraph->id();
 
     $node = Node::create([
-      'type'                     => 'normal_page',
+      'type'                     => $entityType,
       'title'                    => $pageName,
       'moderation_state'         => 'published',
       'field_content_paragraphs' => [$mediaParagraph],
