@@ -54,6 +54,6 @@ function degov_search_content_update_860000() {
 function degov_search_content_update_870000() {
   $configFactory = \Drupal::service('config.factory');
   $config = $configFactory->getEditable('facets.facet.search_content_tags');
-  $config->set('name', 'Neuste Pressemitteilung (Slider)');
+  $config->set('name', 'Schlagworte (Inhalt)');
   $config->save(TRUE);
 }
