@@ -13,6 +13,7 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
+mysqld --max_allowed_packet=32M
 composer create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock

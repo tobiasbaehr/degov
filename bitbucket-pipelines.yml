@@ -45,4 +45,3 @@ definitions:
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: new_install
-      command: " --max_allowed_packet=1024M"
