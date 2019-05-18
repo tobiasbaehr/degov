@@ -42,6 +42,7 @@ Feature: deGov - Smoke tests
   Scenario: I can visit a status page with necessary items
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
+    And I set the privacy policy page for all languages
     And I am on "/admin/reports/status"
     And I should see text matching "Status report" via translated text
     And I should see text matching "Last Cron Run" via translated text
