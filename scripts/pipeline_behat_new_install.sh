@@ -13,7 +13,7 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-composer create-project degov/degov-project --no-install
+composer create-project degov/degov-project --no-install degov-project-new-install
 cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
@@ -26,7 +26,7 @@ echo "### Configuring PHP"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.db }}/new_install/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php

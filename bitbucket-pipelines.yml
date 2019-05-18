@@ -44,4 +44,4 @@ definitions:
       image: mysql:5.7
       environment:
         MYSQL_ROOT_PASSWORD: testing
-        MYSQL_DATABASE: testing
+        MYSQL_DATABASE: new_install
