@@ -14,17 +14,6 @@ pipelines:
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
-          name: Behat existing install (PHP 7.2)
-          caches:
-            - composer
-          script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat_db_dump.sh
-          artifacts:
-            - /app/dump.sql.gz
-          services:
-            - mysql
-            - testing
-      - step:
           name: Behat new install (PHP 7.2)
           caches:
             - composer
