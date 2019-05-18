@@ -51,6 +51,3 @@ behat -c behat-new-install.yml --suite=default --strict
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
 behat -c behat-new-install.yml --suite=smoke-tests --strict
-
-# echo "### Running Behat upload tests"
-# behat --suite=tests-with-file-upload --strict
