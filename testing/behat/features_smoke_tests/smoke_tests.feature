@@ -71,7 +71,7 @@ Feature: deGov - Smoke tests
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/paragraphs_type"
-    And I should see HTML content matching "Icon"
+    And I should see text matching "Icon" via translated text in uppercase
     And I should see text matching "Label" via translated text in uppercase
     And I should see text matching "Machine name" via translated text in uppercase
     And I should see text matching "Description" via translated text in uppercase
