@@ -14,6 +14,8 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=testing -e MYSQL_DATABASE=new_install -p 3306:3306 -d mysql/mysql-server:5.7
+
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
 rm composer.lock
