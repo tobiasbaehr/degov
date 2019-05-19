@@ -36,9 +36,10 @@ sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
-echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
+echo '$config["system.file"]["path"]["temporary"] = "sites/default/files/tmp";' >> docroot/sites/default/settings.local.php
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
+mkdir docroot/sites/default/files/tmp
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
