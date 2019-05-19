@@ -31,6 +31,7 @@ definitions:
       image: darksolar/selenium-chrome-headless
     mysql:
       image: mysql:5.7
+      memory: 1024
       environment:
         MYSQL_ROOT_PASSWORD: testing
         MYSQL_DATABASE: new_install
