@@ -12,7 +12,7 @@ pipelines:
           caches:
             - composer
           artifacts:
-            - ./*.php
+            - $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
