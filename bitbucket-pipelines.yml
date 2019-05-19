@@ -31,7 +31,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db_dump
           services:
             - docker
-            - docker
             - testing
       - step:
           name: Access features
