@@ -1,4 +1,4 @@
-@api @drupal @paragraphs
+@api @drupal @entities
 Feature: deGov - Paragraphs
 
   Background:

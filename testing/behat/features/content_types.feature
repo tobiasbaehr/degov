@@ -1,4 +1,4 @@
-@api @drupal @content_types
+@api @drupal @content
 Feature: deGov - Content types
 
   Background:

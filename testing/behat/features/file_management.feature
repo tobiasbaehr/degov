@@ -1,4 +1,4 @@
-@api @drupal @file_management
+@api @drupal @access
 Feature: deGov - File management
 
   Background:

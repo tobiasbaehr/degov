@@ -1,4 +1,4 @@
-@api @drupal @demo_content
+@api @drupal @demo
 Feature: deGov - Demo Content
 
   Background:

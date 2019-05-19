@@ -1,4 +1,4 @@
-@api @drupal @login
+@api @drupal @access
 Feature: deGov - Login
 
   Background:

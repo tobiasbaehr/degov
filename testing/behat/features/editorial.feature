@@ -1,4 +1,4 @@
-@api @drupal @editorial
+@api @drupal @entities
 Feature: deGov - Editorial
 
   Background:

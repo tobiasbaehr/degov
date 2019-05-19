@@ -1,4 +1,4 @@
-@api @drupal @search
+@api @drupal @form
 Feature: deGov - Search
 
   Background:

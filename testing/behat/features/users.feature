@@ -1,4 +1,4 @@
-@api @drupal @users
+@api @drupal @entities
 Feature: deGov - Users
 
   Background:

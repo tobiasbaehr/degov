@@ -1,4 +1,4 @@
-@api @drupal @govbot_faq
+@api @drupal @form
 Feature: deGov - GovBot FAQ
 
   Background:
