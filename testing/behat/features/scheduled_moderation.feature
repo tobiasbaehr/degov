@@ -13,7 +13,7 @@
       And I press button with label "Save" via translated text
       And I am on "/admin/content"
       And I run the cron
-      And wait 5 seconds
+      And wait 10 seconds
       And I click "Test"
       And I should see HTML content matching "Test" after a while
       And I proof content with title "Test" has moderation state "published"
