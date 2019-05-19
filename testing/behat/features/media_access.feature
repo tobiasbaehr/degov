@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @media_access
 Feature: deGov - Media access
 
   Background:

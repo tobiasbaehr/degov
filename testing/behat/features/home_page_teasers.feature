@@ -1,4 +1,4 @@
-@api @drupal @homePageTeasers
+@api @drupal @home_page_teasers
 Feature: deGov - home page teasers
 
   Background:

@@ -17,7 +17,7 @@ default:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
           locale: de
-    no-drupal:
+    installation:
       contexts:
         - Drupal\DrupalExtension\Context\MinkContext
         - Drupal\degov\Behat\Context\InstallationContext

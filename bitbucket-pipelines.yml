@@ -14,11 +14,55 @@ pipelines:
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
-          name: Acceptance tests
+          name: content_creation.feature
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh content_creation
+          artifacts:
+            - ./*
+          services:
+            - mysql
+            - testing
+      - step:
+          name: content_types.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh content_types
+          artifacts:
+            - ./*
+          services:
+            - mysql
+            - testing
+      - step:
+          name: demo_content.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh demo_content
+          artifacts:
+            - ./*
+          services:
+            - mysql
+            - testing
+      - step:
+          name: editorial.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh editorial
+          artifacts:
+            - ./*
+          services:
+            - mysql
+            - testing
+      - step:
+          name: file_management.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh file_management
           artifacts:
             - ./*
           services:

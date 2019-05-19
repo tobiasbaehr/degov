@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @menu_editing
 Feature: deGov - Menu editing
 
   Background:

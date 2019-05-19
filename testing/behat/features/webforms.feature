@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @webforms
 Feature: deGov - Webforms
 
   Background:

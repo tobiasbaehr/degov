@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @node_view_modes
 Feature: deGov view modes
 
   Background:

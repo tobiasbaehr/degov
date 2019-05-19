@@ -1,3 +1,4 @@
+@install
 Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser

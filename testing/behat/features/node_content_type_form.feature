@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @node_content_type_form
 Feature: deGov - Content type form
 
   Background:

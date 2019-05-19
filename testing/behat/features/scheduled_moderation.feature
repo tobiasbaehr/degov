@@ -1,4 +1,4 @@
-@api @drupal @javascript @scheduledModeration
+@api @drupal @javascript @scheduled_moderation
   Feature: deGov Scheduled moderation
 
     Scenario: Creating node with scheduled publish - Needs update
