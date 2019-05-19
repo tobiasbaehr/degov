@@ -13,8 +13,8 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-composer create-project degov/degov-project --no-install degov-project-new-install
-cd degov-project-new-install
+composer create-project degov/degov-project --no-install degov-project
+cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
