@@ -14,6 +14,7 @@
       And I run the cron
       And I am on "/admin/content"
       And I click "Test"
+      And I should see HTML content matching "Test" after a while
       And I proof content with title "Test" has moderation state "published"
 
     Scenario: deGov Creating node with scheduled publish - No update

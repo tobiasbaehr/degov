@@ -11,8 +11,6 @@ pipelines:
           name: Unit/functional tests and static code analysis
           caches:
             - composer
-          artifacts:
-            - $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
