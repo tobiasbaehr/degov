@@ -52,4 +52,4 @@ echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
 behat -c behat.yml --suite=smoke-tests --strict
 
-drush sql:dump > ~/dump.sql && gzip ~/dump.sql
+bin/drush sql:dump > ~/dump.sql && gzip ~/dump.sql
