@@ -12,11 +12,6 @@ Feature: Installation via webbrowser
     Then task "Sprache auswählen" is done
     And the HTML title should show the page title and the distribution title
     And task "Systemvoraussetzungen überprüfen" is done
-    Then I should see text matching "Datenbankkonfiguration" after a while
-    And I fill in "edit-mysql-database" with "degov"
-    And I fill in "edit-mysql-username" with "testing"
-    And I fill in "edit-mysql-password" with "testing"
-    Then I submit the form
     And I should not see "Fehler"
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title

@@ -29,12 +29,10 @@ echo "### Configuring PHP"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-if [[ "$2" == "db_dump" ]]; then
-  sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
-  sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
-  sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-  sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
-fi
+sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
