@@ -40,10 +40,27 @@ mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
-echo "### Installing drupal with Behat"
-behat -c behat.yml --suite=installation -vvv
+
+if [[ $2 -eq 'new-install' ]] ; then
+    echo "### Installing anew"
+    behat -c behat.yml --suite=installation -vvv
+fi
+
+if [[ $2 -eq 'db-dump' ]] ; then
+    echo "### Installing from db dump"
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | drush sql:cli
+fi
+
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
-echo "### Running Behat tests"
-behat -c behat.yml --suite=default --tags="$1" --strict
+if [[ $1 -eq 'smoke_tests' ]] ; then
+    echo "### Running Behat smoke tests"
+    bin/drush upwd admin admin
+    drush watchdog:delete all -y
+    behat -c behat.yml --suite=smoke-tests --strict
+else
+    echo "### Running Behat tests by tags"
+    behat -c behat.yml --suite=default --tags="$1" --strict
+fi
+
