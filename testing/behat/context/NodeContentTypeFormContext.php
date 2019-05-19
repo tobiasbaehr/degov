@@ -125,7 +125,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       throw new \Exception('Expected one item, got multiple.');
     }
 
-    $nid = reset($idArray);
+    $nid = reset($nidArray);
 
     $node = Node::load($nid);
 
