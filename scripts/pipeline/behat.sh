@@ -45,6 +45,8 @@ chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
+echo "### Setup database by new installation or database dump"
+
 if [[ "$2" == "new_install" ]]; then
     echo "### Installing anew"
     behat -c behat.yml --suite=installation -vvv
@@ -66,7 +68,7 @@ if [[ "$1" == "smoke_tests" ]]; then
     bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
 else
-    echo "### Running Behat tests by tags"
+    echo "### Running Behat features by tags"
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 
