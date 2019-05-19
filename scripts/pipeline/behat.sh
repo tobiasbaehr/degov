@@ -48,7 +48,7 @@ fi
 
 if [[ $2 -eq 'db-dump' ]] ; then
     echo "### Installing from db dump"
-    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | drush sql:cli
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
 fi
 
 echo "### Updating translation"
