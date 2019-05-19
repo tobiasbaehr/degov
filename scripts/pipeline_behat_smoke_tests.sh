@@ -47,4 +47,5 @@ bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
 echo "### Running Behat smoke tests"
 bin/drush upwd admin admin
+drush watchdog:delete all -y
 behat -c behat.yml --suite=smoke-tests --strict
