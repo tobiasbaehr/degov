@@ -18,7 +18,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat_new_install.sh
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh
           artifacts:
             - /app/dump.sql.gz
           services:
