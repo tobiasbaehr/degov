@@ -41,14 +41,12 @@ chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
-if [[ "$2" == "new_install" ]]
-then
+if [[ "$2" == "new_install" ]]; then
     echo "### Installing anew"
     behat -c behat.yml --suite=installation -vvv
 fi
 
-if [[ "$2" == "db_dump" ]]
-then
+if [[ "$2" == "db_dump" ]]; then
     echo "### Importing db dump"
     zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
     echo "### Updating"
@@ -58,8 +56,7 @@ fi
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
-if [[ "$1" == "smoke_tests" ]]
-then
+if [[ "$1" == "smoke_tests" ]]; then
     echo "### Running Behat smoke tests"
     bin/drush upwd admin admin
     drush watchdog:delete all -y
