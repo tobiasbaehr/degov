@@ -20,7 +20,7 @@ pipelines:
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh
           artifacts:
-            - *.sql.gz
+            - ./*.sql.gz
           services:
             - mysql
             - testing
