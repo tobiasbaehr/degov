@@ -63,7 +63,7 @@ bin/drush locale-check && bin/drush locale-update && bin/drush cr
 if [[ "$1" == "smoke_tests" ]]; then
     echo "### Running Behat smoke tests"
     bin/drush upwd admin admin
-    drush watchdog:delete all -y
+    bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
 else
     echo "### Running Behat tests by tags"
