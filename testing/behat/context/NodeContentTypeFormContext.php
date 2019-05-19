@@ -127,12 +127,12 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
     $id = reset($idArray);
 
-    $NodeState = Node::load($id)->moderation_state->value;
-    if($state === $NodeState) {
+    $nodeState = Node::load($id)->moderation_state->value;
+    if($state === $nodeState) {
       return;
     }
 
-    throw new \Exception("No content with title '$title' and moderation state '$state'");
+    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$nodeState'.");
 
   }
 
