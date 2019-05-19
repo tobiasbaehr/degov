@@ -124,6 +124,10 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     foreach($Ids as $Id) {
       $NodeState = Node::load($Id)->moderation_state->value;
       if($state === $NodeState) {
+
+        var_dump('debug state');
+        var_dump($state);
+
         return;
       }
     }
