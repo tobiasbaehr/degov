@@ -18,7 +18,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content db_dump
           services:
             - mysql
             - testing
@@ -27,7 +27,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db_dump
           services:
             - mysql
             - testing
@@ -36,7 +36,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access db_dump
           services:
             - mysql
             - testing
@@ -45,7 +45,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode db_dump
           services:
             - mysql
             - testing
@@ -54,7 +54,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form db_dump
           services:
             - mysql
             - testing
@@ -63,7 +63,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews db_dump
           services:
             - mysql
             - testing
@@ -72,7 +72,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing db_dump
           services:
             - mysql
             - testing
@@ -81,7 +81,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms db_dump
           services:
             - mysql
             - testing
@@ -90,7 +90,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests db-dump
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests db_dump
           services:
             - mysql
             - testing
@@ -108,7 +108,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new_install
             services:
               - mysql
               - testing
@@ -117,7 +117,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new_install
             services:
               - mysql
               - testing
@@ -126,7 +126,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new_install
             services:
               - mysql
               - testing
@@ -135,7 +135,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new_install
             services:
               - mysql
               - testing
@@ -144,7 +144,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new_install
             services:
               - mysql
               - testing
@@ -153,7 +153,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new_install
             services:
               - mysql
               - testing
@@ -162,7 +162,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new_install
             services:
               - mysql
               - testing
@@ -171,7 +171,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new_install
             services:
               - mysql
               - testing
@@ -180,7 +180,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new-install
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new_install
             services:
               - mysql
               - testing
