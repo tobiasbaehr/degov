@@ -122,7 +122,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       ->condition('title', $title)->accessCheck(FALSE)->execute();
 
     if (\count($nidArray) > 1) {
-      throw new \Exception('Expected one item, got multiple.');
+      throw new \Exception('Expected array with one nid, got array with multiple items.');
     }
 
     $nid = reset($nidArray);
@@ -140,7 +140,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       return;
     }
 
-    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'.");
+    throw new \Exception("No node with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'.");
   }
 
   /**
