@@ -129,23 +129,18 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
     $node = Node::load($nid);
 
-    // Get all of the revision ids.
-    $revision_ids = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
+    $allRevisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
 
-    // Check if the last item in the revisions is the loaded one.
-    $last_revision_id = end($revision_ids);
+    $latestRevisionId = end($allRevisionIds);
 
-    // Load the revision.
-    $last_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($last_revision_id);
-    // Get the revisions moderation state.
-    $last_revision_state = $last_revision->get('moderation_state')->getString();
+    $nodeLastRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($latestRevisionId);
+    $latestRevisionState = $nodeLastRevision->get('moderation_state')->getString();
 
-    if($state === $last_revision_state) {
+    if($state === $latestRevisionState) {
       return;
     }
 
-    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$last_revision_state'.");
-
+    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'.");
   }
 
   /**
