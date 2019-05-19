@@ -13,6 +13,7 @@ default:
         - Drupal\degov\Behat\Context\NodeContentTypeFormContext
         - Drupal\degov\Behat\Context\ModuleContext
         - Drupal\degov\Behat\Context\JavaScriptContext
+        - Acquia\LightningExtension\Context\DebugContext
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
