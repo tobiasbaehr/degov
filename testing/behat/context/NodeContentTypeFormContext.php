@@ -118,21 +118,33 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    * @Given /^I proof content with title "([^"]*)" has moderation state "([^"]*)"$/
    */
   public function iProofContentWithTitleHasModerationState(string $title, string $state) {
-    $idArray = \Drupal::entityQuery('node')
+    $nidArray = \Drupal::entityQuery('node')
       ->condition('title', $title)->accessCheck(FALSE)->execute();
 
-    if (\count($idArray) > 1) {
+    if (\count($nidArray) > 1) {
       throw new \Exception('Expected one item, got multiple.');
     }
 
-    $id = reset($idArray);
+    $nid = reset($idArray);
 
-    $nodeState = Node::load($id)->moderation_state->value;
-    if($state === $nodeState) {
+    $node = Node::load($nid);
+
+    // Get all of the revision ids.
+    $revision_ids = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
+
+    // Check if the last item in the revisions is the loaded one.
+    $last_revision_id = end($revision_ids);
+
+    // Load the revision.
+    $last_revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($last_revision_id);
+    // Get the revisions moderation state.
+    $last_revision_state = $last_revision->get('moderation_state')->getString();
+
+    if($state === $last_revision_state) {
       return;
     }
 
-    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$nodeState'.");
+    throw new \Exception("No content with title '$title' and moderation state '$state'. Instead got state '$last_revision_state'.");
 
   }
 
