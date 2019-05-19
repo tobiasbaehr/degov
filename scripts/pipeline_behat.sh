@@ -47,7 +47,3 @@ bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
 echo "### Running Behat tests"
 behat -c behat.yml --suite=default --tags="$1" --strict
-
-echo "### Running Behat smoke tests"
-bin/drush upwd admin admin
-behat -c behat.yml --strict

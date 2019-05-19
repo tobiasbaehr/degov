@@ -11,6 +11,8 @@ pipelines:
           name: Unit/functional tests and static code analysis
           caches:
             - composer
+          artifacts:
+            - ./**
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_code_tests.sh
       - step:
@@ -19,8 +21,6 @@ pipelines:
             - composer
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh content_creation
-          artifacts:
-            - ./*
           services:
             - mysql
             - testing
@@ -30,8 +30,6 @@ pipelines:
             - composer
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh content_types
-          artifacts:
-            - ./*
           services:
             - mysql
             - testing
@@ -41,8 +39,6 @@ pipelines:
             - composer
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh demo_content
-          artifacts:
-            - ./*
           services:
             - mysql
             - testing
@@ -52,8 +48,6 @@ pipelines:
             - composer
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh editorial
-          artifacts:
-            - ./*
           services:
             - mysql
             - testing
@@ -63,8 +57,159 @@ pipelines:
             - composer
           script:
             - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh file_management
-          artifacts:
-            - ./*
+          services:
+            - mysql
+            - testing
+      - step:
+          name: govbot_faq.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh govbot_faq
+          services:
+            - mysql
+            - testing
+      - step:
+          name: home_page_teasers.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh home_page_teasers
+          services:
+            - mysql
+            - testing
+      - step:
+          name: login.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh login
+          services:
+            - mysql
+            - testing
+      - step:
+          name: media_access.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh media_access
+          services:
+            - mysql
+            - testing
+      - step:
+          name: media_types.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh media_types
+          services:
+            - mysql
+            - testing
+      - step:
+          name: menu_editing.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh menu_editing
+          services:
+            - mysql
+            - testing
+      - step:
+          name: node_content_type_form.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh node_content_type_form
+          services:
+            - mysql
+            - testing
+      - step:
+          name: node_view_modes.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh node_view_modes
+          services:
+            - mysql
+            - testing
+      - step:
+          name: paragraphs.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh paragraphs
+          services:
+            - mysql
+            - testing
+      - step:
+          name: scheduled_moderation.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh scheduled_moderation
+          services:
+            - mysql
+            - testing
+      - step:
+          name: search.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh search
+          services:
+            - mysql
+            - testing
+      - step:
+          name: simplenews.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh simplenews
+          services:
+            - mysql
+            - testing
+      - step:
+          name: social_media_sharing.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh social_media_sharing
+          services:
+            - mysql
+            - testing
+      - step:
+          name: teaser_view_modes.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh teaser_view_modes
+          services:
+            - mysql
+            - testing
+      - step:
+          name: users.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh users
+          services:
+            - mysql
+            - testing
+      - step:
+          name: webforms.feature
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat.sh webforms
+          services:
+            - mysql
+            - testing
+      - step:
+          name: Smoke tests
+          caches:
+            - composer
+          script:
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline_behat_smoke_tests.sh
           services:
             - mysql
             - testing
