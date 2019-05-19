@@ -11,6 +11,9 @@
       And I fill in "010000AM" for "edit-field-scheduled-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
+
+      And I dump the HTML
+
       And I am on "/admin/content"
       And I run the cron
       And I click "Creating node with scheduled publish"
