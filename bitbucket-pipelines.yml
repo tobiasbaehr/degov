@@ -12,7 +12,7 @@ pipelines:
           caches:
             - composer
           script:
-            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/pipeline_code_tests.sh
+            - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
       - step:
           name: Content features
           caches:
@@ -102,7 +102,7 @@ pipelines:
             caches:
               - composer
             script:
-              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/pipeline_code_tests.sh
+              - sh $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
         - step:
             name: Content features
             caches:
