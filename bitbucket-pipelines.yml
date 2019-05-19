@@ -2,6 +2,7 @@ image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
+  docker: true
   size: 2x
 
 pipelines:
@@ -20,7 +21,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Entities features
@@ -29,7 +30,8 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db_dump
           services:
-            - mysql
+            - docker
+            - docker
             - testing
       - step:
           name: Access features
@@ -38,7 +40,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: View mode features
@@ -47,7 +49,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Form features
@@ -56,7 +58,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Simplenews feature
@@ -65,7 +67,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Social media sharing feature
@@ -74,7 +76,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Webforms feature
@@ -83,7 +85,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms db_dump
           services:
-            - mysql
+            - docker
             - testing
       - step:
           name: Smoke tests
@@ -92,7 +94,7 @@ pipelines:
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests db_dump
           services:
-            - mysql
+            - docker
             - testing
   branches:
     release/*:
@@ -110,7 +112,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Entities features
@@ -119,7 +121,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Access features
@@ -128,7 +130,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: View mode features
@@ -137,7 +139,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Form features
@@ -146,7 +148,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Simplenews feature
@@ -155,7 +157,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Social media sharing feature
@@ -164,7 +166,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Webforms feature
@@ -173,7 +175,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new_install
             services:
-              - mysql
+              - docker
               - testing
         - step:
             name: Smoke tests
@@ -182,7 +184,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new_install
             services:
-              - mysql
+              - docker
               - testing
 
 definitions:
