@@ -47,16 +47,12 @@ mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 echo "### Setup database by new installation or database dump"
 
 if [[ "$2" == "new_install" ]]; then
-    echo "### Drop any existing db"
-    bin/drush sql:drop -y
     echo "### Installing anew"
     behat -c behat.yml --suite=installation -vvv
 fi
 
 if [[ "$2" == "db_dump" ]]; then
     echo '$settings["hash_salt"] = "7asdiugasd8f623gjwgasgf7a8stfasjdfsdafasdfasdfasdf";' >> docroot/sites/default/settings.local.php
-    echo "### Drop any existing db"
-    bin/drush sql:drop -y
     echo "### Importing db dump"
     zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
     echo "### Updating"
