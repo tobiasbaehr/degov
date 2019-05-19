@@ -285,4 +285,11 @@ class DrupalIndependentContext extends RawMinkContext {
     }
   }
 
+  /**
+   * @Then I dump the HTML of the current page
+   */
+  public function dumpHTML() {
+    print_r($this->getSession()->getPage()->getContent());
+  }
+
 }

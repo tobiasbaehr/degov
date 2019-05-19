@@ -12,7 +12,7 @@
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
 
-      And I dump the HTML
+      And I dump the HTML of the current page
 
       And I am on "/admin/content"
       And I run the cron
