@@ -14,7 +14,7 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-docker run --name mysql -e MYSQL_ROOT_PASSWORD=testing -e MYSQL_DATABASE=new_install -p 3306:3306 -d mysql/mysql-server:5.7
+docker run --name mysql -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
@@ -29,8 +29,8 @@ echo "### Configuring PHP"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.db }}/new_install/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
