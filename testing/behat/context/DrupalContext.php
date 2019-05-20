@@ -549,7 +549,9 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
-    \Drupal::service('cron')->run();
+    if (TRUE !== \Drupal::service('cron')->run()) {
+      throw new \Exception('Cron did not run successfully.');
+    }
   }
 
 	/**

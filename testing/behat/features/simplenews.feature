@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @simplenews
 Feature: deGov Simplenews
   In order to ensure we have a GDPR-compliant newsletter setup
   As an administrator
