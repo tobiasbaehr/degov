@@ -123,7 +123,6 @@ $databases['default']['default'] = [
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver'    => 'mysql',
 ];
-$settings['install_profile'] = 'nrwgov';
 $settings['trusted_host_patterns'] = [
   '^127.0.0.1$',
   '^localhost$',

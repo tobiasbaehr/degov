@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal @javascript @social_media_sharing
 Feature: deGov Social Media Sharing
   To ensure that user's privacy is protected
   As an administrator

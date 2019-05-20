@@ -16,6 +16,15 @@ Feature: deGov - Smoke tests
     And I should see text matching "Newsletter issues" via translated text
     And I should see text matching "Media" via translated text
 
+  Scenario: I can visit the recent log messages page with necessary items
+    Given I have dismissed the cookie banner if necessary
+    Given I am logged in as user with the account details from Behat config file
+    And I am on "/admin/reports/dblog"
+    And I should see text matching "The Database Logging module logs system events in the Drupal database. Monitor your site or debug site problems on this page." via translated text
+    And I should see text matching "Recent log messages" via translated text
+    And I should see text matching "Type" via translated text
+    And I should see text matching "Severity" via translated text
+
   Scenario: Block administration page contains necessary items
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
@@ -42,19 +51,11 @@ Feature: deGov - Smoke tests
   Scenario: I can visit a status page with necessary items
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
+    And I set the privacy policy page for all languages
     And I am on "/admin/reports/status"
     And I should see text matching "Status report" via translated text
     And I should see text matching "Last Cron Run" via translated text
     And I should see text matching "deGov version" via translated text in uppercase
-
-  Scenario: I can visit the recent log messages page with necessary items
-    Given I have dismissed the cookie banner if necessary
-    Given I am logged in as user with the account details from Behat config file
-    And I am on "/admin/reports/dblog"
-    And I should see text matching "The Database Logging module logs system events in the Drupal database. Monitor your site or debug site problems on this page." via translated text
-    And I should see text matching "Recent log messages" via translated text
-    And I should see text matching "Type" via translated text
-    And I should see text matching "Severity" via translated text
 
   Scenario: I can visit the views administration page with necessary items
     Given I have dismissed the cookie banner if necessary
@@ -70,7 +71,7 @@ Feature: deGov - Smoke tests
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as user with the account details from Behat config file
     And I am on "/admin/structure/paragraphs_type"
-    And I should see HTML content matching "Icon"
+    And I should see text matching "Icon" via translated text in uppercase
     And I should see text matching "Label" via translated text in uppercase
     And I should see text matching "Machine name" via translated text in uppercase
     And I should see text matching "Description" via translated text in uppercase

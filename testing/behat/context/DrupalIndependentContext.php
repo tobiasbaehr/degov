@@ -145,6 +145,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)" after a while$/
+   * @Then /^I should see HTML content matching '([^']*)' after a while$/
    */
   public function iShouldSeeHTMLContentMatchingAfterWhile($text)
   {
@@ -167,6 +168,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
 	/**
 	 * @Then /^I should not see text matching "([^"]*)" after a while$/
+   * @Then /^I should not see text matching '([^']*)' after a while$/
 	 */
 	public function iShouldNotSeeTextAfterAWhile($text)
 	{
@@ -281,6 +283,13 @@ class DrupalIndependentContext extends RawMinkContext {
     if($expectedNumberOfElements !== $matchedElementsCount) {
       throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
     }
+  }
+
+  /**
+   * @Then I dump the HTML of the current page
+   */
+  public function dumpHTML() {
+    print_r($this->getSession()->getPage()->getContent());
   }
 
 }
