@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
-set -e
-PHPVERSION=$1
+#!/bin/bash
 
-echo "### Executing Pipeline script with PHP: $PHPVERSION"
+set -e
+
 echo "### Setting up project folder"
 
 echo "### Wait for packagist"
@@ -15,7 +14,9 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-composer create-project degov/degov-project --no-install
+docker run --name mysql -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
+
+composer create-project degov/degov-project --no-install degov-project
 cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
@@ -28,10 +29,10 @@ echo "### Configuring PHP"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.user }}/root/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
 sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/mysql/g' docroot/sites/default/settings.local.php
+sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
@@ -41,18 +42,36 @@ mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
-mv docroot/profiles/contrib/degov/testing/behat/behat-new-install.yml .
-echo "### Installing drupal with Behat"
-behat -c behat-new-install.yml --suite=no-drupal -vvv
+mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+
+echo "### Setup database by new installation or database dump"
+
+if [[ "$2" == "new_install" ]]; then
+    echo "### Installing anew"
+    behat -c behat.yml --suite=installation -vvv
+fi
+
+if [[ "$2" == "db_dump" ]]; then
+    echo '$settings["install_profile"] = "degov";' >> docroot/sites/default/settings.local.php
+    echo '$settings["hash_salt"] = "7asdiugasd8f623gjwgasgf7a8stfasjdfsdafasdfasdfasdf";' >> docroot/sites/default/settings.local.php
+    echo "### Drop any existing db"
+    bin/drush sql:drop -y
+    echo "### Importing db dump"
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
+    echo "### Updating"
+    bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
+fi
+
 echo "### Updating translation"
 bin/drush locale-check && bin/drush locale-update && bin/drush cr
 
-echo "### Running Behat tests"
-behat -c behat-new-install.yml --suite=default --strict
+if [[ "$1" == "smoke_tests" ]]; then
+    echo "### Running Behat smoke tests"
+    bin/drush upwd admin admin
+    bin/drush watchdog:delete all -y
+    behat -c behat.yml --suite=smoke-tests --strict
+else
+    echo "### Running Behat features by tags"
+    behat -c behat.yml --suite=default --tags="$1" --strict
+fi
 
-echo "### Running Behat smoke tests"
-bin/drush upwd admin admin
-behat -c behat-new-install.yml --suite=smoke-tests --strict
-
-# echo "### Running Behat upload tests"
-# behat --suite=tests-with-file-upload --strict

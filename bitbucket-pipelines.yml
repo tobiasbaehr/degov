@@ -1,81 +1,192 @@
-image: debian:stretch
+image: derh4nnes/pipeline-behat:feature_php-7.2
 clone:
   depth: full
 options:
   docker: true
   size: 2x
 
-.install_docker_compose: &install_docker_compose |
-  apt-get update
-  apt-get install -y python-pip
-  pip install docker-compose
-
-.unit_tests_analysis_runner: &unit_tests_analysis_runner |
-  docker-compose up -d selenium-chrome-headless
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up unit_tests_analysis
-  docker logs unit_tests_analysis
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
-.behat_existing_install_runner: &behat_existing_install_runner |
-  docker-compose up -d selenium-chrome-headless mysql
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up -d behat_existing_install
-  docker logs -f behat_existing_install
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
-.behat_new_install_runner: &behat_new_install_runner |
-  docker-compose up -d selenium-chrome-headless mysql
-  docker exec selenium-chrome-headless bash -c 'sudo mkdir -p /degov-project/docroot/profiles/contrib/degov && sudo chown -R headless:headless /degov-project'
-  docker cp . selenium-chrome-headless:/degov-project/docroot/profiles/contrib/degov
-  docker-compose up -d behat_new_install
-  docker logs -f behat_new_install
-  docker ps -a
-  if [[ $(docker ps -a|grep "Exited (0)") -eq "" ]] ; then exit 1; else exit 0; fi
-
 pipelines:
   default:
     - parallel:
       - step:
-          name: Unit tests and analysis (PHP 7.2)
+          name: Unit/functional tests and static code analysis
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *unit_tests_analysis_runner
-          services:
-            - docker
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
       - step:
-          name: Behat existing install (PHP 7.2)
+          name: Content features
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *behat_existing_install_runner
-          artifacts:
-            - /app/dump.sql.gz
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content db_dump
           services:
             - docker
+            - testing
       - step:
-          name: Behat new install (PHP 7.2)
+          name: Entities features
           caches:
             - composer
-            - docker
           script:
-            - *install_docker_compose
-            - *behat_new_install_runner
-          artifacts:
-            - /app/dump.sql.gz
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db_dump
           services:
             - docker
+            - testing
+      - step:
+          name: Access features
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: View mode features
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: Form features
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: Simplenews feature
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: Social media sharing feature
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: Webforms feature
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms db_dump
+          services:
+            - docker
+            - testing
+      - step:
+          name: Smoke tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests db_dump
+          services:
+            - docker
+            - testing
+  branches:
+    release/*:
+      - parallel:
+        - step:
+            name: Unit/functional tests and static code analysis
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
+        - step:
+            name: Content features
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Entities features
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Access features
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: View mode features
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Form features
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Simplenews feature
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Social media sharing feature
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Webforms feature
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new_install
+            services:
+              - docker
+              - testing
+        - step:
+            name: Smoke tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new_install
+            services:
+              - docker
+              - testing
 
 definitions:
   services:
-    docker:
-      memory: 6000
+    testing:
+      image: darksolar/selenium-chrome-headless

@@ -438,6 +438,16 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedPageWithMedia($pageName, $mediaType) {
+    self::iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
+  }
+
+  /**
+   * Creates a page with given entity type and with a specific media
+   * Example: Given I created a content page of type "event" named "videoPage" with a media "video"
+   *
+   * @Given /^(?:|I )created a content page of type "([^"]*)" named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   */
+  public function iCreatedTypePageWithMedia($entityType, $pageName, $mediaType) {
     $media = $this->iCreateAMediaOfType($mediaType);
 
     $mediaParagraph = Paragraph::create([
@@ -448,7 +458,7 @@ class DrupalContext extends RawDrupalContext {
     $this->trash[$mediaParagraph->getEntityTypeId()][] = $mediaParagraph->id();
 
     $node = Node::create([
-      'type'                     => 'normal_page',
+      'type'                     => $entityType,
       'title'                    => $pageName,
       'moderation_state'         => 'published',
       'field_content_paragraphs' => [$mediaParagraph],
@@ -549,7 +559,9 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
-    \Drupal::service('cron')->run();
+    if (TRUE !== \Drupal::service('cron')->run()) {
+      throw new \Exception('Cron did not run successfully.');
+    }
   }
 
 	/**
@@ -1060,4 +1072,28 @@ class DrupalContext extends RawDrupalContext {
       ->save();
   }
 
+  /**
+   * @Then I fill in the autocomplete :autocomplete with :label via javascript
+   */
+  public function fillInDrupalAutocomplete($autocomplete, string $text) {
+    try {
+      $this->getSession()->evaluateScript(sprintf("jQuery('%s').val('%s').trigger('keydown');", $autocomplete, $text));
+      $startTime = time();
+      do {
+        $page = $this->getSession()->getPage();
+        $node = $page->find('css', '.ui-menu li a');
+        if ($node) {
+          // Fixed selector usage, can be swapped by a selector in case necessary later on.
+          $this->getSession()->evaluateScript("jQuery('.ui-menu li a').click();");
+          return true;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+      throw new ResponseTextException(
+        sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (StaleElementReference $e) {
+      return false;
+    }
+  }
 }
