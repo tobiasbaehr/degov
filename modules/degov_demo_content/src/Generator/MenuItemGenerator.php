@@ -5,7 +5,9 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManager;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\Menu\MenuLinkInterface;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\menu_link_content\MenuLinkContentInterface;
 
 /**
  * Class MenuItemGenerator.
@@ -43,44 +45,51 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function generateContent(): void {
-
     $definitions = $this->loadDefinitions('menu_item.yml');
 
-    foreach ($definitions as $definition) {
-      $firstLevelMenuItem = MenuLinkContent::create([
-        'title'     => $definition['node_title'],
+    $this->generateMenuItems($definitions);
+  }
+
+  /**
+   * Generates menu items from YAML definitions recursively for menus as deep as we want.
+   *
+   * @param array $menuItemDefinitions
+   * @param \Drupal\Core\Menu\MenuLinkInterface|NULL $parentMenuLink
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
+    foreach ($menuItemDefinitions as $menuItemDefinition) {
+      $menuLinkParameters = [
+        'title'     => $menuItemDefinition['node_title'],
         'link'      => [
-          'uri'     => 'internal:/node/' . $this->getNidByNodeTitle($definition['node_title']),
-          'options' => [
-            'attributes' => [
-              'class' => [
-                $definition['fontawesome_css_class'],
-              ],
-            ],
-          ],
+          'uri' => 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']),
         ],
         'menu_name' => 'main',
         'expanded'  => TRUE,
-      ]);
-      $firstLevelMenuItem->save();
+      ];
 
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          $secondLevelMenuItem = MenuLinkContent::create([
-            'title'     => $secondLevelDefinitionNodeTitle,
-            'link'      => [
-              'uri' => 'internal:/node/' . $this->getNidByNodeTitle($secondLevelDefinitionNodeTitle),
-            ],
-            'parent'    => $firstLevelMenuItem->getPluginId(),
-            'menu_name' => 'main',
-            'expanded'  => TRUE,
-          ]);
-          $secondLevelMenuItem->save();
-        }
+      if (!empty($parentMenuLink)) {
+        $menuLinkParameters['parent'] = $parentMenuLink->getPluginId();
       }
 
-    }
+      if (empty($parentMenuLink) && !empty($definition['fontawesome_css_class'])) {
+        $menuLinkParameters['link']['options'] = [
+          'attributes' => [
+            'class' => [
+              $definition['fontawesome_css_class'],
+            ],
+          ],
+        ];
+      }
 
+      $menuItem = MenuLinkContent::create($menuLinkParameters);
+      $menuItem->save();
+
+      if (!empty($menuItemDefinition['children'])) {
+        $this->generateMenuItems($menuItemDefinition['children'], $menuItem);
+      }
+    }
   }
 
   /**
