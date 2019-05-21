@@ -1102,17 +1102,19 @@ class DrupalContext extends RawDrupalContext {
    */
   public function eachHtmlContentElementWithCssSelectorIsUnique($selector) {
     $elements = $this->getSession()->getPage()->findAll('css', $selector);
-    $duplicate = '';
+    $elementText = '';
+    $duplicate = FALSE;
     $values = [];
     foreach ($elements as $element) {
-      if (isset($values[$element->getText()])) {
-        $duplicate = $element->getText();
+      $elementText = $element->getText();
+      if (isset($values[$elementText])) {
+        $duplicate = TRUE;
         break;
       }
-      $values[$element->getText()] = $element->getText();
+      $values[$elementText] = $elementText;
     }
     if ($duplicate) {
-      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $duplicate, $selector));
+      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
     }
   }
 }
