@@ -58,7 +58,7 @@ if [[ "$2" == "db_dump" ]]; then
     echo "### Drop any existing db"
     bin/drush sql:drop -y
     echo "### Importing db dump"
-    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting testing
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting -ptesting testing
     echo "### Updating"
     bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
 fi
