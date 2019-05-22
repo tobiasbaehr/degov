@@ -296,11 +296,14 @@ function degov_update_860200() {
 }
 
 /**
- * deGov Update 7.1.0 - Enable the deGov copyright module
+ * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker
  */
 function degov_update_870100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_copyright_block')) {
     \Drupal::service('module_installer')->install(['degov_copyright_block']);
+  }
+  if (!\Drupal::moduleHandler()->moduleExists('degov_fa_icon_picker')) {
+    \Drupal::service('module_installer')->install(['degov_fa_icon_picker']);
   }
 }
 
