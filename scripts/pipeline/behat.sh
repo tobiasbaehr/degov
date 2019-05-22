@@ -28,15 +28,10 @@ echo "### Configuring PHP"
 (cd docroot && screen -dmS php-server php -d memory_limit=256M -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
-cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
-echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
-echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
-echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
+echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
+echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
+echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
@@ -52,6 +47,11 @@ if [[ "$2" == "new_install" ]]; then
 fi
 
 if [[ "$2" == "db_dump" ]]; then
+    cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
     echo '$settings["install_profile"] = "degov";' >> docroot/sites/default/settings.local.php
     echo '$settings["hash_salt"] = "7asdiugasd8f623gjwgasgf7a8stfasjdfsdafasdfasdfasdf";' >> docroot/sites/default/settings.local.php
     echo "### Drop any existing db"
