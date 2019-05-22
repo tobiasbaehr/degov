@@ -16,6 +16,8 @@ Feature: Installation via webbrowser
     Then I fill in "edit-mysql-database" with "degov"
     Then I fill in "edit-mysql-username" with "testing"
     Then I fill in "edit-mysql-password" with "testing"
+    And I click by selector "#edit-mysql--2 .seven-details__summary" via JavaScript
+    Then I fill in "edit-mysql-host" with "127.0.0.1"
     Then I submit the form
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
