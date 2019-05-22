@@ -216,3 +216,11 @@ Feature: deGov - Content creation
     And I created a content page of type "press" named "A Press release without a tag" with a media "tweet"
     Then I open node view by node title "Page with views references"
     Then I should not see text matching "A press release without a tag" via translated text in "css" selector ".paragraph.view-reference:nth-child(2)"
+
+  Scenario: I confirm there are no duplicates in the block layout selection table
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/block"
+    And I click by selector "a#edit-blocks-region-content-title" via JavaScript
+    Then I should see text matching "Place block" via translation after a while
+    And each HTML content element with css selector ".block-filter-text-source" is unique

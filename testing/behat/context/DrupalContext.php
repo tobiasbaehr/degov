@@ -1096,4 +1096,25 @@ class DrupalContext extends RawDrupalContext {
       return false;
     }
   }
+
+  /**
+   * @Then each HTML content element with css selector :selector is unique
+   */
+  public function eachHtmlContentElementWithCssSelectorIsUnique($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $elementText = '';
+    $duplicate = FALSE;
+    $values = [];
+    foreach ($elements as $element) {
+      $elementText = $element->getText();
+      if (isset($values[$elementText])) {
+        $duplicate = TRUE;
+        break;
+      }
+      $values[$elementText] = $elementText;
+    }
+    if ($duplicate) {
+      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
+    }
+  }
 }
