@@ -37,13 +37,14 @@ mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
+mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
 echo "### Setup database by new installation or database dump"
 
 if [[ "$2" == "new_install" ]]; then
     echo "### Installing anew"
-    behat -c behat.yml --suite=installation -vvv
+    behat -c behat-no-drupal.yml -vvv
 fi
 
 if [[ "$2" == "db_dump" ]]; then

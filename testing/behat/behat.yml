@@ -17,15 +17,6 @@ default:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
       translation:
           locale: de
-    installation:
-      contexts:
-        - Drupal\DrupalExtension\Context\MinkContext
-        - Drupal\degov\Behat\Context\InstallationContext
-        - Drupal\degov\Behat\Context\DrupalIndependentContext
-        - Drupal\degov\Behat\Context\FormContext
-        - Drupal\degov\Behat\Context\JavaScriptContext
-      paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
     smoke-tests:
       contexts:
         - Drupal\DrupalExtension\Context\DrupalContext
