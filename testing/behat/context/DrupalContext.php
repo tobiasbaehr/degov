@@ -1073,6 +1073,30 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given I should not see the element with css selector :selector
+   */
+  public function iShouldNotSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if ($element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is visible.");
+      }
+    }
+  }
+
+  /**
+   * @Given I should see the element with css selector :selector
+   */
+  public function iShouldSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if (!$element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is not visible.");
+      }
+    }
+  }
+
+  /**
    * @Then I fill in the autocomplete :autocomplete with :label via javascript
    */
   public function fillInDrupalAutocomplete($autocomplete, string $text) {
