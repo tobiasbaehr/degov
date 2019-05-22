@@ -14,7 +14,7 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
+docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
@@ -49,7 +49,7 @@ fi
 
 if [[ "$2" == "db_dump" ]]; then
     cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-    sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
@@ -58,7 +58,7 @@ if [[ "$2" == "db_dump" ]]; then
     echo "### Drop any existing db"
     bin/drush sql:drop -y
     echo "### Importing db dump"
-    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting testing
     echo "### Updating"
     bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
 fi
