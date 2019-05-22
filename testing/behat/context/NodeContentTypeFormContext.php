@@ -129,8 +129,11 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
     $node = Node::load($nid);
 
-    $allRevisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
+    var_dump('Node moderation state:');
+		var_dump($node->moderation_state->value);
 
+    $allRevisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
+    $numRevisionIds = \count($allRevisionIds);
     $latestRevisionId = end($allRevisionIds);
 
     $nodeLastRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($latestRevisionId);
@@ -140,7 +143,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       return;
     }
 
-    throw new \Exception("No node with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'.");
+    throw new \Exception("No node with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'. Got '$numRevisionIds' revision ids.");
   }
 
   /**
