@@ -14,7 +14,7 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-docker run --name mysql -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
+docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
@@ -28,30 +28,31 @@ echo "### Configuring PHP"
 (cd docroot && screen -dmS php-server php -d memory_limit=256M -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
-cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
-sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
 echo '### Setting file system paths'
-echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.local.php
-echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.local.php
-echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.local.php
+echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
+echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
+echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
 chmod 777 -R docroot/sites/default/files/
 echo "### Setting up Behat"
+mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
 echo "### Setup database by new installation or database dump"
 
 if [[ "$2" == "new_install" ]]; then
     echo "### Installing anew"
-    behat -c behat.yml --suite=installation -vvv
+    behat -c behat-no-drupal.yml -vvv
 fi
 
 if [[ "$2" == "db_dump" ]]; then
+    cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
     echo '$settings["install_profile"] = "degov";' >> docroot/sites/default/settings.local.php
     echo '$settings["hash_salt"] = "7asdiugasd8f623gjwgasgf7a8stfasjdfsdafasdfasdfasdf";' >> docroot/sites/default/settings.local.php
     echo "### Drop any existing db"
