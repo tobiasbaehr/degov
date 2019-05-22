@@ -10,7 +10,7 @@ dependencies:
   module:
     - search_api
 id: search_content_tags
-name: Schlagworte
+name: Schlagworte (Inhalt)
 url_alias: tags
 weight: 0
 min_count: 1
