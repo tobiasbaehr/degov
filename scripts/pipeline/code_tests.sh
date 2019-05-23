@@ -18,6 +18,7 @@ cd degov-project
 rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Checking code standards"
 phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
 echo "### Running PHPUnit and KernelBase tests"
