@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+# Temp! Do not fail at first error
+#set -e
 
 echo "### Setting up project folder"
 
