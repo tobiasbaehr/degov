@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
+# on the first error.
 set -e
 
 echo "### Setting up project folder"
@@ -14,18 +16,17 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=degov -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
+docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
-rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-(cd docroot && screen -dmS php-server php -d memory_limit=256M -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -d memory_limit=256M -d error_log=$BITBUCKET_CLONE_DIR/php_error.log -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 echo '### Setting file system paths'
@@ -42,14 +43,14 @@ mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
 echo "### Setup database by new installation or database dump"
 
-if [[ "$2" == "new_install" ]]; then
+if [[ "$2" == "install" ]]; then
     echo "### Installing anew"
     behat -c behat-no-drupal.yml -vvv
 fi
 
 if [[ "$2" == "db_dump" ]]; then
     cp docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
-    sed -i 's/{{ mysql_auth.db }}/degov/g' docroot/sites/default/settings.local.php
+    sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
     sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
@@ -58,7 +59,7 @@ if [[ "$2" == "db_dump" ]]; then
     echo "### Drop any existing db"
     bin/drush sql:drop -y
     echo "### Importing db dump"
-    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | bin/drush sql:cli
+    zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting -ptesting testing
     echo "### Updating"
     bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
 fi
@@ -76,3 +77,5 @@ else
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 
+# For debugging via db dump
+#bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
