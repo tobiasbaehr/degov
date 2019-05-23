@@ -76,4 +76,4 @@ else
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 
-bin/drush sql:dump > $BITBUCKET_CLONE_DIR/dump.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
+bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
