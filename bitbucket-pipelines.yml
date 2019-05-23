@@ -25,6 +25,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Entities features
           caches:
@@ -36,6 +37,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Access features
           caches:
@@ -59,6 +61,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Form features
           caches:
@@ -70,6 +73,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Simplenews feature
           caches:
@@ -81,6 +85,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Social media sharing feature
           caches:
@@ -92,6 +97,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Webforms feature
           caches:
@@ -103,6 +109,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
       - step:
           name: Smoke tests
           caches:
@@ -114,6 +121,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
+            - "*.sql.gz"
   branches:
     release/*:
       - parallel:
@@ -136,6 +144,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Entities features
             caches:
@@ -147,6 +156,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Access features
             caches:
@@ -158,6 +168,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: View mode features
             caches:
@@ -169,6 +180,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Form features
             caches:
@@ -180,6 +192,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Simplenews feature
             caches:
@@ -191,6 +204,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Social media sharing feature
             caches:
@@ -202,6 +216,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Webforms feature
             caches:
@@ -213,6 +228,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
         - step:
             name: Smoke tests
             caches:
@@ -224,6 +240,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
+              - "*.sql.gz"
 
 definitions:
   services:
