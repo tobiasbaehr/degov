@@ -129,7 +129,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content install
             services:
               - docker
               - testing
@@ -140,7 +140,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities install
             services:
               - docker
               - testing
@@ -151,7 +151,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access install
             services:
               - docker
               - testing
@@ -162,7 +162,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode install
             services:
               - docker
               - testing
@@ -173,7 +173,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form install
             services:
               - docker
               - testing
@@ -184,7 +184,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews install
             services:
               - docker
               - testing
@@ -195,7 +195,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing install
             services:
               - docker
               - testing
@@ -206,7 +206,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms install
             services:
               - docker
               - testing
@@ -217,7 +217,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests install
             services:
               - docker
               - testing

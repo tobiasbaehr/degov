@@ -42,7 +42,7 @@ mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
 
 echo "### Setup database by new installation or database dump"
 
-if [[ "$2" == "new_install" ]]; then
+if [[ "$2" == "install" ]]; then
     echo "### Installing anew"
     behat -c behat-no-drupal.yml -vvv
 fi
