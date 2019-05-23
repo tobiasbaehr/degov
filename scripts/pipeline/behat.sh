@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Temp! Do not fail at first error
-#set -e
+# Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
+# on the first error.
+set -e
 
 echo "### Setting up project folder"
 
@@ -76,4 +77,5 @@ else
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 
-bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
+# For debugging via db dump
+#bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
