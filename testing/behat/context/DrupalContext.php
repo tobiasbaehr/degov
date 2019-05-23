@@ -1023,23 +1023,21 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I reset the demo content$/
    */
   public function resetDemoContent() {
-    /**
-     * @var MediaGenerator $mediaGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator */
     $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
     $mediaGenerator->resetContent();
 
-    /**
-     * @var NodeGenerator $nodeGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator */
     $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
     $nodeGenerator->resetContent();
 
-    /**
-     * @var MenuItemGenerator $menuItemGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator */
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
+
+    /** @var \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator */
+    $blockContentGenerator = \Drupal::service('degov_demo_content.block_content_generator');
+    $blockContentGenerator->resetContent();
   }
 
   /**
