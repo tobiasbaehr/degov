@@ -129,9 +129,6 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
     $node = Node::load($nid);
 
-    var_dump('Node moderation state:');
-		var_dump($node->moderation_state->value);
-
     $allRevisionIds = \Drupal::entityTypeManager()->getStorage('node')->revisionIds($node);
     $numRevisionIds = \count($allRevisionIds);
     $latestRevisionId = end($allRevisionIds);
