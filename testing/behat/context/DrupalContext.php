@@ -562,7 +562,6 @@ class DrupalContext extends RawDrupalContext {
     if (TRUE !== \Drupal::service('cron')->run()) {
       throw new \Exception('Cron did not run successfully.');
     }
-		$this->getSession()->wait(20 * 1000);
   }
 
 	/**

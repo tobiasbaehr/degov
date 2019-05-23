@@ -24,7 +24,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Entities features
           caches:
@@ -35,7 +35,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Access features
           caches:
@@ -46,7 +46,8 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: View mode features
           caches:
@@ -57,7 +58,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Form features
           caches:
@@ -68,7 +69,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Simplenews feature
           caches:
@@ -79,7 +80,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Social media sharing feature
           caches:
@@ -90,7 +91,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Webforms feature
           caches:
@@ -101,7 +102,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
       - step:
           name: Smoke tests
           caches:
@@ -112,7 +113,7 @@ pipelines:
             - docker
             - testing
           artifacts:
-            - degov-project/php_error.log
+            - php_error.log
   branches:
     release/*:
       - parallel:
@@ -123,7 +124,7 @@ pipelines:
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Content features
             caches:
@@ -134,7 +135,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Entities features
             caches:
@@ -145,7 +146,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Access features
             caches:
@@ -156,7 +157,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: View mode features
             caches:
@@ -167,7 +168,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Form features
             caches:
@@ -178,7 +179,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Simplenews feature
             caches:
@@ -189,7 +190,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Social media sharing feature
             caches:
@@ -200,7 +201,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Webforms feature
             caches:
@@ -211,7 +212,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
         - step:
             name: Smoke tests
             caches:
@@ -222,7 +223,7 @@ pipelines:
               - docker
               - testing
             artifacts:
-              - degov-project/php_error.log
+              - php_error.log
 
 definitions:
   services:
