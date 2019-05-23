@@ -15,8 +15,12 @@ done
 
 composer create-project degov/degov-project --no-install
 cd degov-project
+rm composer.lock
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
+cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
+php composer-require-namespace.php
+rm composer-require-namespace.php
 cp docroot/profiles/contrib/degov/scripts/Robo/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
