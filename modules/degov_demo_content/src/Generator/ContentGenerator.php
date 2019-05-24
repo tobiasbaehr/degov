@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
@@ -55,9 +55,9 @@ class ContentGenerator {
    * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager) {
     $this->moduleHandler = $moduleHandler;
     $this->entityTypeManager = $entityTypeManager;
   }

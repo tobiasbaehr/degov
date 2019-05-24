@@ -4,7 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\block\Entity\Block;
 use Drupal\block_content\Entity\BlockContent;
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 
 /**
@@ -44,7 +44,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    *
    * {@inheritDoc}
    */
-  public function __construct(ModuleHandler $module_handler, EntityTypeManager $entity_type_manager) {
+  public function __construct(ModuleHandler $module_handler, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($module_handler, $entity_type_manager);
     $this->entityType = 'block_content';
     $this->blockType = 'basic';
