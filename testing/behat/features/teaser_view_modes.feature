@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @view_mode
 Feature: deGov - Teaser view modes
 
   Background:

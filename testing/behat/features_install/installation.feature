@@ -1,3 +1,4 @@
+@install
 Feature: Installation via webbrowser
 
   Scenario: I want to install deGov via webbrowser
@@ -12,11 +13,11 @@ Feature: Installation via webbrowser
     And the HTML title should show the page title and the distribution title
     And task "Systemvoraussetzungen überprüfen" is done
     Then I should see text matching "Datenbankkonfiguration" after a while
-    And I fill in "edit-mysql-database" with "testing"
-    And I fill in "edit-mysql-username" with "root"
-    And I fill in "edit-mysql-password" with "testing"
+    Then I fill in "edit-mysql-database" with "testing"
+    Then I fill in "edit-mysql-username" with "testing"
+    Then I fill in "edit-mysql-password" with "testing"
+    Then I fill in "edit-mysql-host" with "127.0.0.1"
     Then I submit the form
-    And I should not see "Fehler"
     And task "Datenbank einrichten" is done
     And the HTML title should show the page title and the distribution title
     And task "Website installieren" is done

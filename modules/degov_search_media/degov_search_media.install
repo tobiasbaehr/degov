@@ -181,3 +181,13 @@ HERE;
   }
 
 }
+
+/**
+ * deGov Update 7.0.0 - Update the search media tags facet block name.
+ */
+function degov_search_media_update_870000() {
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('facets.facet.search_media_tags');
+  $config->set('name', 'Schlagworte (Media)');
+  $config->save(TRUE);
+}

@@ -6130,6 +6130,11 @@ footer.site-footer {
       .media-citation .citation-content .blockquote-footer cite.citation-source-title:after {
         content: ","; }
 
+.video__transcription__header,
+.video-upload__transcription__header,
+.video-responsive__transcription__header {
+  cursor: pointer; }
+
 .site-logo img {
   width: 8rem; }
   @media (min-width: 992px) {

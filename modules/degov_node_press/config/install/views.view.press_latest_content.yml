@@ -306,7 +306,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      block_description: 'Neuste Pressemitteilung'
+      block_description: 'Neuste Pressemitteilung (Slider)'
       display_description: ''
       allow:
         items_per_page: true
