@@ -168,4 +168,18 @@ class JavaScriptContext extends RawMinkContext {
   public function iTriggerEventOnElement(string $event, string $selector): void {
     $this->getSession()->evaluateScript('jQuery("' . $selector . '").trigger("' . $event . '")');
   }
+
+  /**
+   * @Then element :elementSelector has the style attribute :styleAttribute with value :styleValue
+   */
+  public function elementHasTheStyleAttributeWithValue($elementSelector, $styleAttribute, $styleValue)
+  {
+    $actualValue = $this->getSession()->evaluateScript('jQuery(\'' . $elementSelector . '\').css(\'' . $styleAttribute . '\');');
+
+    if($styleValue === $actualValue) {
+      return TRUE;
+    }
+
+    throw new \Exception("Expected element " . $elementSelector . " to have CSS " . $styleAttribute . "=" . $styleValue . ", actual value was " . $actualValue);
+  }
 }
