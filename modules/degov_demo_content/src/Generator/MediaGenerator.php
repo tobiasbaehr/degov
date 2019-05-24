@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\degov_demo_content\MediaFileHandler;
 use Drupal\file\Entity\File;
@@ -61,12 +61,12 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
    *   The ModuleHandler.
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The EntityTypeManager.
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
     parent::__construct($moduleHandler, $entityTypeManager);
     $this->wktGenerator = $wktGenerator;
     $this->mediaFileHandler = $mediaFileHandler;

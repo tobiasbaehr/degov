@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -34,11 +34,11 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    * NodeGenerator constructor.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
    * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     parent::__construct($moduleHandler, $entityTypeManager);
     $this->mediaGenerator = $mediaGenerator;
     $this->aliasCleaner = $aliasCleaner;
