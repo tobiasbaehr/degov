@@ -2,7 +2,7 @@
 
 # Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
 # on the first error.
-#set -e
+set -e
 
 echo "### Setting up project folder"
 
@@ -79,4 +79,4 @@ else
 fi
 
 # For debugging via db dump
-bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
+#bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
