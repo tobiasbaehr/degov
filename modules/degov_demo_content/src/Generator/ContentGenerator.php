@@ -49,7 +49,7 @@ class ContentGenerator {
    *
    * @var string
    */
-  private const BLINDTEXT = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
+  private const BLINDTEXT = 'Lorem ipsum äöü ÄÖÜß àéîøū dolor sit amet consetetur äöüÄ ÖÜßà éîøū sadipscing elitr sed diam äöüÄÖ Üßàé îøū nonumy eirmod tempor invidunt äöüÄÖÜ ßàéîøū ut labore et dolore magna aliquyam erat sed ä öüÄ ÖÜ ßàé îøū diam voluptua At vero eos et accusam et justo duo äö üÄÖÜ ßàéî øū dolores et ea rebum Stet clita kasd gubergren no sea äöüÄ ÖÜßàé îøū takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet äö üÄÖ Üßàé îøū consetetur sadipscing elitr sed ä ö ü Ä Ö Ü ß à é î ø ū diam nonumy eirmod tempor invidunt ut labore et äöü ÄÖÜß àéîøū dolore magna aliquyam erat sed diam äöü ÄÖÜß àéîøū voluptua At vero eos et accusam äöü ÄÖÜß àéîøū et justo duo dolores et ea äöü ÄÖÜß àéîøū rebum Stet clita kasd gubergren äöü ÄÖÜß àéîøū no sea takimata sanctus est äöü ÄÖÜß àéîøū Lorem ipsum dolor sit amet';
 
   /**
    * Constructs a new ContentGenerator instance.
