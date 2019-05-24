@@ -2,7 +2,7 @@
 
 # Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
 # on the first error.
-set -e
+#set -e
 
 echo "### Setting up project folder"
 
@@ -33,6 +33,7 @@ echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
+echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$"];' >> docroot/sites/default/settings.php
 echo '### Creating file system folders'
 mkdir docroot/sites/default/files/
 mkdir docroot/sites/default/files/private/
@@ -78,4 +79,4 @@ else
 fi
 
 # For debugging via db dump
-#bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
+bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
