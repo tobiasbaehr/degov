@@ -47,11 +47,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   protected $wktGenerator;
 
   /**
-   * @var string
-   */
-  private $fixturesPath;
-
-  /**
    * @var MediaFileHandler
    */
   private $mediaFileHandler;
