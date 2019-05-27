@@ -23,6 +23,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Entities features
           caches:
@@ -32,6 +35,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Access features
           caches:
@@ -41,6 +47,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: View mode features
           caches:
@@ -50,6 +59,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Form features
           caches:
@@ -59,6 +71,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Simplenews feature
           caches:
@@ -68,6 +83,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Social media sharing feature
           caches:
@@ -77,6 +95,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Webforms feature
           caches:
@@ -86,6 +107,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
       - step:
           name: Smoke tests
           caches:
@@ -95,6 +119,9 @@ pipelines:
           services:
             - docker
             - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
   branches:
     release/*:
       - parallel:
@@ -104,87 +131,116 @@ pipelines:
               - composer
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
+            artifacts:
+              - php_error.log
         - step:
             name: Content features
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Entities features
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Access features
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: View mode features
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Form features
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Simplenews feature
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Social media sharing feature
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Webforms feature
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
         - step:
             name: Smoke tests
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests new_install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests install
             services:
               - docker
               - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
 
 definitions:
   services:

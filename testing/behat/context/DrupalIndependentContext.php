@@ -29,7 +29,22 @@ class DrupalIndependentContext extends RawMinkContext {
 		$this->dispatcher = $dispatcher;
 	}
 
-	/**
+  /**
+   * @BeforeScenario
+   */
+  public function beforeScenario() {
+    $this->iSetWindowSizeWidthHeight();
+  }
+
+  /**
+   * @Then I set the window size to :width width and :height height
+   * @Then I reset the window size
+   */
+  public function iSetWindowSizeWidthHeight(string $width = "1440px", string $height = "900px"): void {
+    $this->getSession()->resizeWindow((int)$width, (int)$height);
+  }
+
+  /**
 	 * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
 	 */
 	public function iShouldSeeTextSoManyTimes($sText, $iExpected)

@@ -20,7 +20,7 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
-    And I should see 56 ".paragraph__content article .image" elements
+    And I should see 60 ".paragraph__content article .image" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role
@@ -36,3 +36,10 @@ Feature: deGov - Demo Content
     And I should see text matching "Choose quality:" via translated text
     And I should see text matching "Download" via translated text
 
+  Scenario: Check that the transcription toggle is working correctly.
+    Given I am on "/video-upload"
+    Then I should see HTML content matching "fa-caret-right"
+    And I should not see the element with css selector ".video-upload__transcription__body"
+    When I click by selector ".video-upload__transcription__header" via JavaScript
+    Then I should see HTML content matching "fa-caret-down"
+    And I should see the element with css selector ".video-upload__transcription__body"

@@ -49,6 +49,13 @@ class ModuleContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I uninstall the "([^"]*)" module$/
+   */
+  public function iUninstallTheModule(string $moduleName): void {
+    $this->getModuleInstaller()->uninstall([$moduleName], TRUE);
+  }
+
+  /**
    * Installs multiple Drupal modules
    *
    * Provide module data in the following format:

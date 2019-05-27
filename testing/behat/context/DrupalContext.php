@@ -1023,23 +1023,21 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I reset the demo content$/
    */
   public function resetDemoContent() {
-    /**
-     * @var MediaGenerator $mediaGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator */
     $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
     $mediaGenerator->resetContent();
 
-    /**
-     * @var NodeGenerator $nodeGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator */
     $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
     $nodeGenerator->resetContent();
 
-    /**
-     * @var MenuItemGenerator $menuItemGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator */
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
+
+    /** @var \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator */
+    $blockContentGenerator = \Drupal::service('degov_demo_content.block_content_generator');
+    $blockContentGenerator->resetContent();
   }
 
   /**
@@ -1073,6 +1071,30 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given I should not see the element with css selector :selector
+   */
+  public function iShouldNotSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if ($element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is visible.");
+      }
+    }
+  }
+
+  /**
+   * @Given I should see the element with css selector :selector
+   */
+  public function iShouldSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if (!$element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is not visible.");
+      }
+    }
+  }
+
+  /**
    * @Then I fill in the autocomplete :autocomplete with :label via javascript
    */
   public function fillInDrupalAutocomplete($autocomplete, string $text) {
@@ -1094,6 +1116,27 @@ class DrupalContext extends RawDrupalContext {
       );
     } catch (StaleElementReference $e) {
       return false;
+    }
+  }
+
+  /**
+   * @Then each HTML content element with css selector :selector is unique
+   */
+  public function eachHtmlContentElementWithCssSelectorIsUnique($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $elementText = '';
+    $duplicate = FALSE;
+    $values = [];
+    foreach ($elements as $element) {
+      $elementText = $element->getText();
+      if (isset($values[$elementText])) {
+        $duplicate = TRUE;
+        break;
+      }
+      $values[$elementText] = $elementText;
+    }
+    if ($duplicate) {
+      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
     }
   }
 }
