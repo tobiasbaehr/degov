@@ -153,26 +153,29 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Exception
    */
   private function isDemoMenuItem(MenuLinkContent $menuLinkItem): bool {
-    $isDemoMenuItem = FALSE;
-
     $definitions = $this->loadDefinitions('menu_item.yml');
-
-    foreach ($definitions as $definition) {
-      if ($menuLinkItem->getTitle() === $definition['node_title']) {
-        return TRUE;
-      }
-
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          if ($menuLinkItem->getTitle() === $secondLevelDefinitionNodeTitle) {
-            return TRUE;
-          }
-        }
-      }
-
-    }
-
-    return $isDemoMenuItem;
+    return \in_array($menuLinkItem->getTitle(), $this->getMenuTitlesFromDefinition($definitions), TRUE);
   }
 
+  /**
+   * Recursively checks if a menu item title is contained in the definitions array.
+   *
+   * @param string $title
+   * @param array $definitions
+   *
+   * @return bool
+   */
+  private function getMenuTitlesFromDefinition(array $definitions): array {
+    $titlesArray = [];
+
+    foreach ($definitions as $definition) {
+      $titlesArray[$definition['node_title']] = $definition['node_title'];
+
+      if(!empty($definition['children'])) {
+        $titlesArray = array_merge($titlesArray, $this->getMenuTitlesFromDefinition($definition['children']));
+      }
+    }
+
+    return $titlesArray;
+  }
 }
