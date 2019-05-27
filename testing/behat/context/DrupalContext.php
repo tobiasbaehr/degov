@@ -1139,4 +1139,16 @@ class DrupalContext extends RawDrupalContext {
       throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
     }
   }
+
+  /**
+   * Counts the amount of open windows.
+   * @Then there should be a total of :number window(s)
+   */
+  public function thereShouldBeATotalOfWindow($total) {
+    $totalWindows = count($this->getSession()->getWindowNames());
+    if ($totalWindows == $total) {
+      return TRUE;
+    }
+    throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
+  }
 }
