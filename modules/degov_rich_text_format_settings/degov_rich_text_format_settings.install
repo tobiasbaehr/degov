@@ -3,7 +3,7 @@
 /**
  * Removes or replaces the CKEditor DrupalLink button for a Linkit button.
  */
-function degov_rich_text_format_settings_update_870000() {
+function degov_rich_text_format_settings_update_870100() {
   // Check if the Linkit module is enabled.
   if (!\Drupal::moduleHandler()->moduleExists('linkit')) {
     return;
