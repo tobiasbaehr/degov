@@ -6,9 +6,9 @@ set -e
 
 echo "### Setting up project folder"
 
-php -i
+cat /etc/php/7.2/cli/php.ini
 
-
+#sed -i 's/{{ mysql_auth.db }}/testing/g' /etc/php/7.2/cli/php.ini
 
 echo "### Wait for packagist"
 doWhile="0"
