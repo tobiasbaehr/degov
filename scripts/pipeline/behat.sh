@@ -2,13 +2,13 @@
 
 # Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
 # on the first error.
-set -e
+#set -e
 
 echo "### Setting up project folder"
 
+echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
+echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
 cat /etc/php/7.2/cli/php.ini
-
-#sed -i 's/{{ mysql_auth.db }}/testing/g' /etc/php/7.2/cli/php.ini
 
 echo "### Wait for packagist"
 doWhile="0"
