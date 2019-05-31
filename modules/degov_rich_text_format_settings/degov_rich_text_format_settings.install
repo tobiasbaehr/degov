@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * Removes or replaces the CKEditor DrupalLink button for a Linkit button.
+ */
+function degov_rich_text_format_settings_update_871000() {
+  // Check if the Linkit module is enabled.
+  if (!\Drupal::moduleHandler()->moduleExists('linkit')) {
+    return;
+  }
+  $editorConfigList = ['editor.editor.rich_html', 'editor.editor.rich_text'];
+  // Each deGov CKEditor configuration file will need to be checked.
+  foreach ($editorConfigList as $editorConfig) {
+    // In case the configuration does not exist anymore, skip it.
+    $config = \Drupal::service('config.factory')->getEditable($editorConfig);
+    if(empty($config)) {
+      continue;
+    }
+    $linkitKeyFound = false;
+    $drupalLinkKeyFound = false;
+    $drupalLinkKey = [];
+
+    // Check each CKEditor button, to check in case we have a DrupalLink and/or Linkit field.
+    $configRows = $config->get('settings.toolbar.rows');
+    foreach ($configRows as $configRowKey => $configRow) {
+      foreach ($configRow as $configGroupKey => $configGroup) {
+        // In case a DrupalLink button is found, we keep its position in the array.
+        if (!$drupalLinkKeyFound && is_numeric($key=array_search('DrupalLink', $configGroup['items']))) {
+          $drupalLinkKeyFound = true;
+          $drupalLinkKey = [
+            'row' => $configRowKey,
+            'group' => $configGroupKey,
+            'key' => $key
+          ];
+        }
+        // In case a Linkit button is found, we just flag it.
+        if (!$linkitKeyFound && is_numeric(array_search('Linkit', $configGroup['items']))) {
+          $linkitKeyFound = true;
+        }
+        // In case both buttons are found we exit the loop faster.
+        if ($linkitKeyFound && $drupalLinkKeyFound) {
+          break 2;
+        }
+      }
+    }
+
+    if ($drupalLinkKeyFound && $linkitKeyFound) {
+      // Both buttons were found, so we remove the normal DrupalLink button.
+      unset($configRows[$drupalLinkKey['row']][$drupalLinkKey['group']]['items'][$drupalLinkKey['key']]);
+    } elseif ($drupalLinkKeyFound && !$linkitKeyFound) {
+      // Only the DrupalLink button is found, so we replace it with the Linkit button.
+      $configRows[$drupalLinkKey['row']][$drupalLinkKey['group']]['items'][$drupalLinkKey['key']] = 'Linkit';
+    } // Any other reason we assume it has been done on purpose by the site administrator.
+
+    $configRows[$drupalLinkKey['row']][$drupalLinkKey['group']]['items'] = array_values($configRows[$drupalLinkKey['row']][$drupalLinkKey['group']]['items']);
+    $config->set('settings.toolbar.rows', $configRows)->save(TRUE);
+  }
+}

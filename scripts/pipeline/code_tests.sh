@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+touch $BITBUCKET_CLONE_DIR/php_error.log
+echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
+echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
+
 echo "### Setting up project folder"
 
 echo "### Wait for packagist"

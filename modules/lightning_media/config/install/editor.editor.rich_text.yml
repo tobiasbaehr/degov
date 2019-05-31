@@ -24,7 +24,6 @@ settings:
         -
           name: Linking
           items:
-            - DrupalLink
             - DrupalUnlink
         -
           name: Lists
