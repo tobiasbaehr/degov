@@ -6,6 +6,10 @@ set -e
 
 echo "### Setting up project folder"
 
+php -i
+
+
+
 echo "### Wait for packagist"
 doWhile="0"
 while [ $doWhile -eq "0" ]; do
