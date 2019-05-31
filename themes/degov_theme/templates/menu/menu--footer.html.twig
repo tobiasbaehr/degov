@@ -32,24 +32,22 @@
     {% if menu_level == 0 %}
       <ul{{ attributes.addClass(['row', 'list-unstyled']) }}>
         {% for item in items %}
-          {%
-            set classes_list_item = [
+          {% set classes_list_item = [
             'col-sm-6',
             'col-md-4',
             'col-lg-2',
             'col-12',
-            'first-level'
-          ]
-          %}
-          {%
-            set classes_link = [
+            'first-level',
+            'pt-4'
+          ] %}
+          {% set classes_link = [
             'first-level-link',
-            item.in_active_trail ? 'active',
-          ]
-          %}
+            item.in_active_trail ? 'active'
+          ] %}
           <li{{ item.attributes.addClass(classes_list_item) }}>
             {% if item.below %}
-              {% set identifier = (item.title ~ item.url.toString())|replace({' ':'-'})|clean_class|lower %}
+              {% set title_url = item.title.toString ~ item.url.toString %}
+              {% set identifier = title_url|replace({' ':'-'})|clean_class|lower %}
               {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
             {% else %}
@@ -58,27 +56,20 @@
           </li>
         {% endfor %}
       </ul>
-    {% elseif menu_level == 1  %}
-      <ul{{ attributes.removeClass('d-flex', 'row').addClass('mt-2')}}>
+    {% elseif menu_level == 1 %}
+      <ul{{ attributes.removeClass('d-flex', 'row').addClass(['mt-2', 'mt-md-3']) }}>
         {% for item in items %}
-          {%
-            set classes_list_item = [
-              'secont-level'
-          ]
-          %}
-          {%
-            set classes_link = [
+          {% set classes_list_item = [
+            'secont-level'
+          ] %}
+          {% set classes_link = [
             'second-level-link',
-            item.in_active_trail ? 'active',
-          ]
-          %}
+            item.in_active_trail ? 'active'
+          ] %}
           <li{{ item.attributes.addClass(classes_list_item) }}>
             {% if item.below %}
-              {% set identifier = (item.title ~ item.url.toString())
-                |replace({' ':'-'})
-                |clean_class
-                |lower
-              %}
+              {% set title_url = item.title.toString ~ item.url.toString %}
+              {% set identifier = title_url|replace({' ':'-'})|clean_class|lower %}
               <i class="chevron fas fa-chevron-right"></i>
               {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
@@ -93,13 +84,11 @@
       <div class="collapse {{ identifier }}">
         {% for item in items %}
           {#'dropdown-item',#}
-          {%
-            set classes_link = [
+          {% set classes_link = [
             'd-block',
             'pl-3',
-            item.in_active_trail ? 'active',
-          ]
-          %}
+            item.in_active_trail ? 'active'
+          ] %}
           {{ link(item.title, item.url, { 'class': classes_link }) }}
           {% if item.below %}
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
