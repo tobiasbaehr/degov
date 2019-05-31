@@ -269,7 +269,7 @@ class DrupalIndependentContext extends RawMinkContext {
    *
    * @Then /^(?:|I )should see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
    */
-  public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
+  public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector, bool $negate = FALSE): void {
     $startTime = time();
     $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
     do {
@@ -278,13 +278,31 @@ class DrupalIndependentContext extends RawMinkContext {
         ->findAll('css', $selector);
       $actualNumberOfElements = \count($actualElements);
 
-      if ($actualNumberOfElements === $expectedNumberOfElements) {
-        return;
+      if (!$negate) {
+        if ($actualNumberOfElements === $expectedNumberOfElements) {
+          return;
+        }
+      } else {
+        if ($actualNumberOfElements !== $expectedNumberOfElements) {
+          return;
+        }
       }
+
     } while (time() - $startTime < $wait);
     throw new \Exception(
       sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, $wait, $actualNumberOfElements)
     );
+  }
+
+  /**
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Example: Then I should not see 5 "div" elements after a while
+   * Example: And I should not see 5 "div" elements after a while
+   *
+   * @Then /^(?:|I )should not see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
+   */
+  public function iShouldNotSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
+    self::iShouldSeeNumberOfElementsAfterAWhile($expectedNumberOfElements, $selector, true);
   }
 
   /**
