@@ -136,6 +136,15 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select "([^"]*)" via translation in "([^"]*)"$/
+   */
+  public function selectOptionViaTranslation($label, $id) {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
+    $selectElement->selectOption($this->translateString($label));
+  }
+
+  /**
    * @Then /^I select "([^"]*)" by name "([^"]*)"$/
    */
   public function selectOptionByName(string $label, string $name): void {
@@ -246,6 +255,7 @@ class FormContext extends RawMinkContext {
 
 	/**
 	 * @When /^I press button with label "([^"]*)" via translated text$/
+	 * @When /^I click button with label "([^"]*)" via translated text$/
 	 */
 	public function pressButtonTranslate(string $button) {
 		$this->getSession()->getPage()->pressButton($this->translateString($button));

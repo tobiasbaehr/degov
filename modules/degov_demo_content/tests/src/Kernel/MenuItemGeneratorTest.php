@@ -64,7 +64,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
   }
 
   public function testMenuItemsGeneration(): void {
-    $this->generateNodes();
+    $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
 
     $menuItems = $this->menuLinkContentStorage->loadMultiple();
@@ -79,7 +79,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
   }
 
   public function testDeleteDemoMenuItemsOnly(): void {
-    $this->generateNodes();
+    $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
 
     $nonDemoMenuItem = MenuLinkContent::create([
@@ -105,9 +105,13 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount(1, $allMenuItems);
   }
 
-  private function generateNodes(): void {
+  private function generateNodesFromDefinitions(): void {
     $definitions = $this->menuItemGenerator->loadDefinitions('menu_item.yml');
 
+    $this->generateNodes($definitions);
+  }
+
+  private function generateNodes(array $definitions): void {
     foreach ($definitions as $definition) {
       $node = Node::create([
         'type'  => 'article',
@@ -115,17 +119,9 @@ class MenuItemGeneratorTest extends KernelTestBase {
       ]);
       $node->save();
 
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          $node = Node::create([
-            'type' => 'article',
-            'title' => $secondLevelDefinitionNodeTitle,
-          ]);
-          $node->save();
-        }
+      if (!empty($definition['children'])) {
+        $this->generateNodes($definition['children']);
       }
-
     }
   }
-
 }

@@ -1,53 +1,81 @@
 menu_item_1:
   node_title: Page with all teasers
   fontawesome_css_class: fa-drupal
-  second_level:
-    - Page with iframe paragraph
-    - Page with FAQ-List paragraph
-    - Page with video header
-    - Page with text paragraph
-    - Page with views references
+  children:
+    - node_title: Page with iframe paragraph
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with FAQ-List paragraph
+    - node_title: Page with video header
+    - node_title: Page with text paragraph
+    - node_title: Page with views references
 menu_item_2:
   node_title: Page with video header
   fontawesome_css_class: fa-bluetooth
-  second_level:
-    - Page with text paragraph
-    - Page with text paragraph in sidebar
-    - Page with map paragraph
-    - Page with video header
+  children:
+    - node_title: Page with text paragraph
+    - node_title: Page with text paragraph in sidebar
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+    - node_title: Page with video header
 menu_item_3:
   node_title: Page with text paragraph
   fontawesome_css_class: fa-bicycle
-  second_level:
-    - Page with responsive video
-    - Page with text paragraph
-    - Page with map paragraph
-    - Page with video header
+  children:
+    - node_title: Page with responsive video
+    - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with video header
 menu_item_4:
   node_title: Page with banner
   fontawesome_css_class: fa-book
-  second_level:
-    - Page with text paragraph
-    - Page with map paragraph
-    - Page with video header
+  children:
+    - node_title: Page with text paragraph
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+    - node_title: Page with video header
 menu_item_5:
   node_title: Page with map paragraph
   fontawesome_css_class: fa-bell
-  second_level:
-    - Page with text paragraph
-    - Page with map paragraph
-    - Page with video header
+  children:
+    - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with video header
 menu_item_6:
   node_title: Page with FAQ-List paragraph
   fontawesome_css_class: fa-battery-full
-  second_level:
-  - Page with text paragraph
-  - Page with map paragraph
-  - Page with video header
+  children:
+    - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+    - node_title: Page with video header
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
 menu_item_7:
   node_title: Page with references to all types of media
   fontawesome_css_class: fa-image
-  second_level:
-  - Page with text paragraph
-  - Page with map paragraph
-  - Page with video header
+  children:
+    - node_title: Page with text paragraph
+      children:
+        - node_title: Page with FAQ-List paragraph
+        - node_title: Page with video header
+        - node_title: Page with text paragraph
+    - node_title: Page with map paragraph
+    - node_title: Page with video header

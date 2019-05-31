@@ -244,6 +244,13 @@ function degov_common_update_862001() {
 }
 
 /**
+ * Update translations.
+ */
+function degov_common_update_860100() {
+  degov_common_import_translations();
+}
+
+/**
  * Implements hook_update_dependencies().
  *
  * @return array

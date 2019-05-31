@@ -13,6 +13,9 @@ msgstr "Social Media Einstellungen"
 msgid "Main content"
 msgstr "Haupt-Seiteninhalt"
 
+msgid "Log in / Sign up"
+msgstr "Anmelden / Registrieren"
+
 msgid "Choose quality:"
 msgstr "Qualität auswählen:"
 
