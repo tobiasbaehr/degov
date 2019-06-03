@@ -126,8 +126,14 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       }
 
       $new_media = Media::create($fields);
-      $new_media->save();
-      $this->savedEntities[$media_item_key] = $new_media;
+      if (!empty($new_media)) {
+        $new_media->save();
+        $this->savedEntities[$media_item_key] = $new_media;
+      }
+      else {
+        \Drupal::logger('degov_demo_content')
+          ->error('Failed to create Media entity with these fields: ' . print_r($fields, 1));
+      }
     }
   }
 
