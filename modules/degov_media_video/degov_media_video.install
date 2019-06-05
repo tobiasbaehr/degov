@@ -2,7 +2,6 @@
 
 use Drupal\degov_common\Common;
 
-
 /**
  * Implements hook_uninstall
  */

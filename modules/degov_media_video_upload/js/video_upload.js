@@ -14,7 +14,7 @@
     attach: function (context, settings) {
       $('.video-upload__transcription').once('video-upload-js').each(function(){
         $('.video-upload__transcription__header').click(function(){
-          $('.video-upload__transcription__body').slideToggle();
+          $('.video-upload__transcription__body').toggleClass('hidden');
           $('i', this).toggleClass('fa-caret-right fa-caret-down');
         });
       });

@@ -2,7 +2,6 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -217,7 +216,7 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I proof Checkbox with id "([^"]*)" has value"([^"]*)"$/
+   * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
   public function iProofCheckboxWithIdHasValue($id, $checkfor) {
     $Page = $this->getSession()->getPage();
@@ -439,6 +438,16 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedPageWithMedia($pageName, $mediaType) {
+    self::iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
+  }
+
+  /**
+   * Creates a page with given entity type and with a specific media
+   * Example: Given I created a content page of type "event" named "videoPage" with a media "video"
+   *
+   * @Given /^(?:|I )created a content page of type "([^"]*)" named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
+   */
+  public function iCreatedTypePageWithMedia($entityType, $pageName, $mediaType) {
     $media = $this->iCreateAMediaOfType($mediaType);
 
     $mediaParagraph = Paragraph::create([
@@ -449,7 +458,7 @@ class DrupalContext extends RawDrupalContext {
     $this->trash[$mediaParagraph->getEntityTypeId()][] = $mediaParagraph->id();
 
     $node = Node::create([
-      'type'                     => 'normal_page',
+      'type'                     => $entityType,
       'title'                    => $pageName,
       'moderation_state'         => 'published',
       'field_content_paragraphs' => [$mediaParagraph],
@@ -550,7 +559,9 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I run the cron$/
    */
   public function iRunTheCron() {
-    \Drupal::service('cron')->run();
+    if (TRUE !== \Drupal::service('cron')->run()) {
+      throw new \Exception('Cron did not run successfully.');
+    }
   }
 
 	/**
@@ -638,14 +649,14 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
   {
-    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances("table#field-overview tbody > tr", 2);
+    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances(2, "table#field-overview tbody > tr");
   }
 
 
   /**
    * @Then I should see exactly :arg1 instances of the element with the selector :arg2
    */
-  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($elementSelector, $numberOfInstances)
+  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($numberOfInstances, $elementSelector)
   {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
@@ -1042,22 +1053,132 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^I reset the demo content$/
    */
   public function resetDemoContent() {
-    /**
-     * @var MediaGenerator $mediaGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator */
     $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
     $mediaGenerator->resetContent();
 
-    /**
-     * @var NodeGenerator $nodeGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator */
     $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
     $nodeGenerator->resetContent();
 
-    /**
-     * @var MenuItemGenerator $menuItemGenerator
-     */
+    /** @var \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator */
     $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
     $menuItemGenerator->resetContent();
+
+    /** @var \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator */
+    $blockContentGenerator = \Drupal::service('degov_demo_content.block_content_generator');
+    $blockContentGenerator->resetContent();
+  }
+
+  /**
+   * @Given /^I should see the "([^"]*)" in "([^"]*)"$/
+   */
+  public function iShouldSeeTheImageIn($selector1, $selector2) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector2);
+
+    if (!empty($elements)) {
+      foreach ($elements as $element) {
+        if (!$element->has('css', $selector1)) {
+          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)' . "\r\n" . $element->getHtml(), $selector1, $selector2));
+        }
+
+      }
+    }
+    else {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+    }
+    return TRUE;
+  }
+
+  /**
+   * @Then I set newsletter privacy policy page
+   */
+  public function setNewsletterPrivacyPolicyPage() {
+    \Drupal::configFactory()
+      ->getEditable('degov_simplenews.settings')
+      ->set('privacy_policy', ['de' => '1'])
+      ->save();
+  }
+
+  /**
+   * @Given I should not see the element with css selector :selector
+   */
+  public function iShouldNotSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if ($element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is visible.");
+      }
+    }
+  }
+
+  /**
+   * @Given I should see the element with css selector :selector
+   */
+  public function iShouldSeeTheElementWithCssSelector($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    foreach ($elements as $element) {
+      if (!$element->isVisible()) {
+        throw new \Exception("The element with selector \"$selector\" is not visible.");
+      }
+    }
+  }
+
+  /**
+   * @Then I fill in the autocomplete :autocomplete with :label via javascript
+   */
+  public function fillInDrupalAutocomplete($autocomplete, string $text) {
+    try {
+      $this->getSession()->evaluateScript(sprintf("jQuery('%s').val('%s').trigger('keydown');", $autocomplete, $text));
+      $startTime = time();
+      do {
+        $page = $this->getSession()->getPage();
+        $node = $page->find('css', '.ui-menu li a');
+        if ($node) {
+          // Fixed selector usage, can be swapped by a selector in case necessary later on.
+          $this->getSession()->evaluateScript("jQuery('.ui-menu li a').click();");
+          return true;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+      throw new ResponseTextException(
+        sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (StaleElementReference $e) {
+      return false;
+    }
+  }
+
+  /**
+   * @Then each HTML content element with css selector :selector is unique
+   */
+  public function eachHtmlContentElementWithCssSelectorIsUnique($selector) {
+    $elements = $this->getSession()->getPage()->findAll('css', $selector);
+    $elementText = '';
+    $duplicate = FALSE;
+    $values = [];
+    foreach ($elements as $element) {
+      $elementText = $element->getText();
+      if (isset($values[$elementText])) {
+        $duplicate = TRUE;
+        break;
+      }
+      $values[$elementText] = $elementText;
+    }
+    if ($duplicate) {
+      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
+    }
+  }
+
+  /**
+   * Counts the amount of open windows.
+   * @Then there should be a total of :number window(s)
+   */
+  public function thereShouldBeATotalOfWindow($total) {
+    $totalWindows = count($this->getSession()->getWindowNames());
+    if ($totalWindows == $total) {
+      return TRUE;
+    }
+    throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
   }
 }

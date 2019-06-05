@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Behat\Tester\Exception\PendingException;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
@@ -33,6 +34,7 @@ class InstallationContext extends RawMinkContext {
           'Install deGov - Theme'            => 'body > div > div > aside > ol > li:nth-child(9).done',
           'Finalize installation'            => 'body > div > div > aside > ol > li:nth-child(13).done',
           'Übersetzungen abschließen'        => 'body > div > div > aside > ol > li:nth-child(14).done',
+          'deGov wurde erfolgreich installiert.' => 'body.path-frontpage'
         ];
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
@@ -50,6 +52,13 @@ class InstallationContext extends RawMinkContext {
       return TRUE;
     }
 
+  }
+
+  /**
+   * @Given /^i test$/
+   */
+  public function iTest() {
+    print_r($this->getSession()->getPage()->getContent());
   }
 
 }

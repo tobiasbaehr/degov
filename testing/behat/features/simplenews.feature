@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @simplenews
 Feature: deGov Simplenews
   In order to ensure we have a GDPR-compliant newsletter setup
   As an administrator
@@ -28,7 +28,8 @@ Feature: deGov Simplenews
     Then I should see an "optgroup" element with the translated "label" attribute "Hidden"
     Then I should see an "optgroup" element with the translated "label" attribute "Single"
     Then I fill in "Name" with "My great newsletter"
-    Then I fill in "Maschinenlesbarer Name" with "my_great_newsletter"
+    And I trigger the "change" event on "#edit-name"
+    And I should see text matching "my_great_newsletter" after a while
     Then I select "Doppelt" in "edit-opt-inout"
     And I press button with label "Save" via translated text
     Then I should see "My great newsletter" in the "td" element

@@ -1,6 +1,9 @@
 shariff-2click:
   js:
     js/shariff-2click.js: { }
+  css:
+    theme:
+      css/shariff-2click.css: {}
   dependencies:
     - core/jquery
     - core/drupal

@@ -13,8 +13,7 @@ class JavaScriptContext extends RawMinkContext {
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
   public function selectIndexInDropdown($index, $name) {
-    $this->getSession()
-      ->evaluateScript('document.getElementsByName("' . $name . '")[0].selectedIndex = ' . $index . ';');
+    $this->getSession()->executeScript('jQuery("[name=' . $name . ']:first option").removeProp("selected"); jQuery("[name=' . $name . ']:first option:eq(' . $index . ')").prop("selected", "selected").trigger("change");');
   }
 
   /**
@@ -37,6 +36,18 @@ class JavaScriptContext extends RawMinkContext {
   public function clickBySelector(string $selector)
   {
     $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+  }
+
+  /**
+   * @Then /^I prove css selector "([^"]*)" has HTML attribute "([^"]*)" that matches value "([^"]*)"$/
+   */
+  public function cssSelectorHasHtmlAttributeThatMatchesValue($selector, $attribute, $value) {
+    if (preg_match("/$value/", $this->getSession()->evaluateScript("jQuery('$selector').attr('$attribute')"))) {
+      return true;
+    }
+    else {
+      throw new \Exception("CSS selector $selector does not have attribute '$attribute' matching '$value'");
+    }
   }
 
   /**
@@ -87,7 +98,19 @@ class JavaScriptContext extends RawMinkContext {
    * @Then I verify that field :selector has the value :value
    */
   public function iVerifyThatFieldHasTheValue($selector, $value) {
-    if($this->getSession()->evaluateScript("jQuery('" . $selector . "').val()") === $value) {
+    $actual_value = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
+    if($actual_value === $value) {
+      return true;
+    }
+    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'. Has: $actual_value");
+  }
+
+  /**
+   * @Then I verify that field value of :selector matches :value
+   */
+  public function iVerifyThatFieldValueMatches(string $selector, string $value): bool {
+    $actualValue = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
+    if(preg_match('/' . $value . '/', $actualValue)) {
       return true;
     }
     throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
@@ -155,5 +178,19 @@ class JavaScriptContext extends RawMinkContext {
    */
   public function iTriggerEventOnElement(string $event, string $selector): void {
     $this->getSession()->evaluateScript('jQuery("' . $selector . '").trigger("' . $event . '")');
+  }
+
+  /**
+   * @Then element :elementSelector has the style attribute :styleAttribute with value :styleValue
+   */
+  public function elementHasTheStyleAttributeWithValue($elementSelector, $styleAttribute, $styleValue)
+  {
+    $actualValue = $this->getSession()->evaluateScript('jQuery(\'' . $elementSelector . '\').css(\'' . $styleAttribute . '\');');
+
+    if($styleValue === $actualValue) {
+      return TRUE;
+    }
+
+    throw new \Exception("Expected element " . $elementSelector . " to have CSS " . $styleAttribute . "=" . $styleValue . ", actual value was " . $actualValue);
   }
 }

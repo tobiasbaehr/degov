@@ -5878,50 +5878,59 @@ footer.site-footer {
     font-size: 0.7rem; }
   footer.site-footer a {
     color: #fff; }
-    footer.site-footer a:hover {
-      color: #fff;
-      text-decoration: none; }
+  footer.site-footer a.first-level-link {
+    text-decoration: none; }
   footer.site-footer .first-level .first-level-link {
-    font-size: 1.3rem; }
+    font-size: 1.1rem;
+    font-weight: bold; }
+    footer.site-footer .first-level .first-level-link i {
+      display: none; }
+  footer.site-footer .under-block-header-line {
+    width: 50px;
+    height: 2px;
+    background-color: #fff; }
 
-.degov-carousel .carousel-control .carousel-control-icon {
-  width: 25px;
-  height: 50px; }
-
-.degov-carousel .carousel-indicators {
-  display: none; }
-  @media (min-width: 768px) {
-    .degov-carousel .carousel-indicators {
-      display: flex; } }
-
-.degov-carousel .carousel-inner .carousel-caption {
-  padding-top: .4rem;
-  background-color: #CCCCCC;
-  opacity: .9;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  color: #2C2C2C;
-  text-align: left; }
-  @media (min-width: 768px) {
-    .degov-carousel .carousel-inner .carousel-caption {
-      padding-top: 2.3rem; } }
-  .degov-carousel .carousel-inner .carousel-caption h2::first-letter, .degov-carousel .carousel-inner .carousel-caption p::first-letter {
-    text-transform: capitalize; }
-  .degov-carousel .carousel-inner .carousel-caption h2 {
-    margin-bottom: 0;
+.degov-carousel {
+  height: calc(100vw/2.4); }
+  .degov-carousel .carousel-control .carousel-control-icon {
+    width: 25px;
+    height: 50px; }
+  .degov-carousel .carousel-indicators {
+    display: none; }
+    @media (min-width: 768px) {
+      .degov-carousel .carousel-indicators {
+        display: flex; } }
+  .degov-carousel .carousel-inner img {
+    height: calc(100vw/2.4); }
+  .degov-carousel .carousel-inner .carousel-caption {
+    padding-top: .4rem;
+    background-color: #CCCCCC;
+    opacity: .9;
+    right: 0;
+    left: 0;
+    bottom: 0;
     color: #2C2C2C;
-    font-weight: bold;
-    font-size: 1rem; }
+    text-align: left;
+    height: calc(100%/4.2); }
     @media (min-width: 768px) {
-      .degov-carousel .carousel-inner .carousel-caption h2 {
-        font-size: 1.2rem; } }
-  .degov-carousel .carousel-inner .carousel-caption p {
-    margin-bottom: 0;
-    font-size: .9rem; }
-    @media (min-width: 768px) {
-      .degov-carousel .carousel-inner .carousel-caption p {
-        font-size: 1rem; } }
+      .degov-carousel .carousel-inner .carousel-caption {
+        padding-top: 2.3rem; } }
+    .degov-carousel .carousel-inner .carousel-caption h2::first-letter, .degov-carousel .carousel-inner .carousel-caption p::first-letter {
+      text-transform: capitalize; }
+    .degov-carousel .carousel-inner .carousel-caption h2 {
+      margin-bottom: 0;
+      color: #2C2C2C;
+      font-weight: bold;
+      font-size: 1rem; }
+      @media (min-width: 768px) {
+        .degov-carousel .carousel-inner .carousel-caption h2 {
+          font-size: 1.2rem; } }
+    .degov-carousel .carousel-inner .carousel-caption p {
+      margin-bottom: 0;
+      font-size: .9rem; }
+      @media (min-width: 768px) {
+        .degov-carousel .carousel-inner .carousel-caption p {
+          font-size: 1rem; } }
 
 .pager .pager__item {
   padding: 0.5rem 0.5rem 0.5rem 0.8rem;
@@ -6126,6 +6135,11 @@ footer.site-footer {
       font-style: normal; }
       .media-citation .citation-content .blockquote-footer cite.citation-source-title:after {
         content: ","; }
+
+.video__transcription__header,
+.video-upload__transcription__header,
+.video-responsive__transcription__header {
+  cursor: pointer; }
 
 .site-logo img {
   width: 8rem; }

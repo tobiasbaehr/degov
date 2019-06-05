@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @content
 Feature: deGov - Content creation
 
   Background:
@@ -225,3 +225,38 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I click by selector "#edit-delete" via JavaScript
     Then I should see HTML content matching "messages--warning" after a while
+
+  Scenario: I verify that the selected views reference values are preserved in the form
+    Given I reset the demo content
+    And I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "preview"
+    And I set the value of element ".viewsreference_view_mode" to "small_image" via JavaScript
+    Then I fill in the autocomplete ".form-item-field-content-paragraphs-1-subform-field-view-reference-view-0-options-argument-0 input" with "degov_demo_content" via javascript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    Then I open node edit form by node title "Page with views references"
+    And I choose "Content" via translation from tab menu
+    And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
+    Then I should see text matching "Views row view mode" via translated text after a while
+    And I verify that field ".viewsreference_view_mode" has the value "small_image"
+    And I verify that field value of ".form-item-field-content-paragraphs-1-subform-field-view-reference-view-0-options-argument-0 input" matches "degov_demo_content"
+
+  Scenario: I verify that the taxonomy filter is working in the views reference paragraph
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I created a content page of type "press" named "A Press release without a tag" with a media "tweet"
+    Then I open node view by node title "Page with views references"
+    Then I should not see text matching "A press release without a tag" via translated text in "css" selector ".paragraph.view-reference:nth-child(2)"
+
+  Scenario: I confirm there are no duplicates in the block layout selection table
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/block"
+    And I click by selector "a#edit-blocks-region-content-title" via JavaScript
+    Then I should see text matching "Place block" via translation after a while
+    And each HTML content element with css selector ".block-filter-text-source" is unique

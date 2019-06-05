@@ -23,11 +23,14 @@ class ViewsReferenceOverride extends ViewsReferenceItem {
     if (isset($values['view_mode'])) {
       $additional_settings['view_mode'] = $values['view_mode'];
     }
+    if (isset($values['options']['view_mode'])) {
+      $additional_settings['view_mode'] = $values['options']['view_mode'];
+    }
     if (!empty($additional_settings)) {
       $values['data'] = serialize($additional_settings);
     }
-    if (!empty($values['argument']) && is_array($values['argument'])) {
-      $values['argument'] = implode('/', $values['argument']);
+    if (!empty($values['options']['argument']) && is_array($values['options']['argument'])) {
+      $values['argument'] = implode('/', $values['options']['argument']);
     }
     parent::setValue($values, FALSE);
   }

@@ -50,18 +50,6 @@ function degov_common_uninstall() {
     ->delete();
 }
 
-function degov_common_import_translations(): void {
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
-}
-
 function degov_common_update_8016() {
   $query = \Drupal::database()->delete('key_value');
   $query->condition('collection', 'system.schema');
@@ -210,6 +198,18 @@ function degov_common_update_8032() {
   }
 }
 
+function degov_common_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
+}
+
 /**
  * Disable Webform CDN and SPAM protection warnings in the status overview page.
  */
@@ -244,6 +244,13 @@ function degov_common_update_862001() {
 }
 
 /**
+ * Update translations.
+ */
+function degov_common_update_860100() {
+  degov_common_import_translations();
+}
+
+/**
  * Implements hook_update_dependencies().
  *
  * @return array
@@ -265,14 +272,6 @@ function degov_common_update_dependencies(): array {
  */
 function degov_common_requirements(string $phase): array {
   $requirements = [];
-  if ($phase === 'runtime') {
-    $requirements['degov_common'] = [
-      'severity'    => REQUIREMENT_OK,
-      'title'       => t('deGov version'),
-      'description' => t('Version of deGov'),
-      'value'       => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
-    ];
-  }
 
   if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
     $requirements['degov_integrity_access_modules_issue_1'] = [

@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @content
 Feature: deGov - Content types
 
   Background:
@@ -10,7 +10,7 @@ Feature: deGov - Content types
       | degov_paragraph_header     |
       | degov_node_external_teaser |
     Given I am installing the following Drupal modules:
-      | degov_node_event          |
+      | degov_node_event |
     Given I proof content type "normal_page" has set the following fields for display:
       | field_teaser_title             |
       | field_teaser_text              |
@@ -66,6 +66,7 @@ Feature: deGov - Content types
     Given I am logged in as a user with the "administrator" role
     And I am on "/admin/content"
     And I see the button "Filter"
+    And I set the window size to "960px" width and "900px" height
     And I press button with label "Show all columns" via translated text
     And I should see text matching "Title" via translated text in uppercase
     And I should see text matching "Content type" via translated text in uppercase

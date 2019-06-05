@@ -1,5 +1,5 @@
 langcode: de
-status: false
+status: true
 dependencies:
   enforced:
     module:

@@ -98,3 +98,13 @@ function degov_node_press_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_press', '8015');
 }
+
+/**
+ * deGov Update 7.0.0 - Update the latest press release view block description.
+ */
+function degov_node_press_update_870000() {
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('views.view.press_latest_content');
+  $config->set('display.press_slider.display_options.block_description', 'Neuste Pressemitteilung (Slider)');
+  $config->save(TRUE);
+}

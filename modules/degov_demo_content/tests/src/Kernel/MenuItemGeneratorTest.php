@@ -8,9 +8,12 @@ use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
+use Drupal\Tests\user\Traits\UserCreationTrait;
 
 
 class MenuItemGeneratorTest extends KernelTestBase {
+
+  use UserCreationTrait;
 
   /**
    * {@inheritdoc}
@@ -46,6 +49,8 @@ class MenuItemGeneratorTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installEntitySchema('menu_link_content');
 
+    $this->installSchema('system', ['sequences']);
+
     $this->menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
 
     /**
@@ -53,25 +58,28 @@ class MenuItemGeneratorTest extends KernelTestBase {
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
     $this->menuLinkContentStorage = $entityTypeManager->getStorage('menu_link_content');
+
+    $user = $this->createUser([], NULL, TRUE);
+    \Drupal::currentUser()->setAccount($user);
   }
 
   public function testMenuItemsGeneration(): void {
-    $this->generateNodes();
+    $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
 
     $menuItems = $this->menuLinkContentStorage->loadMultiple();
 
-    $assertedInstanced = 0;
+    $assertedInstances = 0;
     foreach ($menuItems as $menuItem) {
       self::assertInstanceOf(MenuLinkContent::class, $menuItem);
-      $assertedInstanced++;
+      $assertedInstances++;
     }
 
-    self::assertCount($assertedInstanced, $menuItems);
+    self::assertCount($assertedInstances, $menuItems);
   }
 
   public function testDeleteDemoMenuItemsOnly(): void {
-    $this->generateNodes();
+    $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
 
     $nonDemoMenuItem = MenuLinkContent::create([
@@ -97,9 +105,13 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount(1, $allMenuItems);
   }
 
-  private function generateNodes(): void {
+  private function generateNodesFromDefinitions(): void {
     $definitions = $this->menuItemGenerator->loadDefinitions('menu_item.yml');
 
+    $this->generateNodes($definitions);
+  }
+
+  private function generateNodes(array $definitions): void {
     foreach ($definitions as $definition) {
       $node = Node::create([
         'type'  => 'article',
@@ -107,17 +119,9 @@ class MenuItemGeneratorTest extends KernelTestBase {
       ]);
       $node->save();
 
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          $node = Node::create([
-            'type' => 'article',
-            'title' => $secondLevelDefinitionNodeTitle,
-          ]);
-          $node->save();
-        }
+      if (!empty($definition['children'])) {
+        $this->generateNodes($definition['children']);
       }
-
     }
   }
-
 }

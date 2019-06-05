@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
@@ -49,15 +49,15 @@ class ContentGenerator {
    *
    * @var string
    */
-  private const BLINDTEXT = 'Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua At vero eos et accusam et justo duo dolores et ea rebum Stet clita kasd gubergren no sea takimata sanctus est Lorem ipsum dolor sit amet';
+  private const BLINDTEXT = 'Lorem ipsum äöü ÄÖÜß àéîøū dolor sit amet consetetur äöüÄ ÖÜßà éîøū sadipscing elitr sed diam äöüÄÖ Üßàé îøū nonumy eirmod tempor invidunt äöüÄÖÜ ßàéîøū ut labore et dolore magna aliquyam erat sed ä öüÄ ÖÜ ßàé îøū diam voluptua At vero eos et accusam et justo duo äö üÄÖÜ ßàéî øū dolores et ea rebum Stet clita kasd gubergren no sea äöüÄ ÖÜßàé îøū takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet äö üÄÖ Üßàé îøū consetetur sadipscing elitr sed ä ö ü Ä Ö Ü ß à é î ø ū diam nonumy eirmod tempor invidunt ut labore et äöü ÄÖÜß àéîøū dolore magna aliquyam erat sed diam äöü ÄÖÜß àéîøū voluptua At vero eos et accusam äöü ÄÖÜß àéîøū et justo duo dolores et ea äöü ÄÖÜß àéîøū rebum Stet clita kasd gubergren äöü ÄÖÜß àéîøū no sea takimata sanctus est äöü ÄÖÜß àéîøū Lorem ipsum dolor sit amet';
 
   /**
    * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager) {
     $this->moduleHandler = $moduleHandler;
     $this->entityTypeManager = $entityTypeManager;
   }
@@ -170,8 +170,12 @@ class ContentGenerator {
       $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
     }
 
+    while(strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
+      $value = preg_replace('/\{\{TEXT_PLAIN\}\}/', $this->generateBlindText(50), $value, 1);
+    }
+
     while(strpos($value, '{{TEXT}}') !== FALSE) {
-      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50), $value, 1);
+      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50, TRUE), $value, 1);
     }
 
     if($resolveReferences) {
@@ -207,7 +211,11 @@ class ContentGenerator {
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
-    $index = $this->counter % \count($medias);
+    try {
+      $index = $this->counter % \count($medias);
+    } catch(\DivisionByZeroError $exception) {
+      throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
+    }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);
   }
@@ -217,10 +225,14 @@ class ContentGenerator {
    *
    * @return string
    */
-  public function generateBlindText(int $wordCount): string {
+  public function generateBlindText(int $wordCount, bool $addLinks = FALSE): string {
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
-      $phrase[] = $this->getWord();
+      $word = $this->getWord();
+      if ($addLinks && $i !== 0 && $i % random_int(3, 5) === 0) {
+        $word = '<a href="/">' . $word . '</a>';
+      }
+      $phrase[] = $word;
     }
     return implode(' ', $phrase);
   }

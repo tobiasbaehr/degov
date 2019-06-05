@@ -3,9 +3,11 @@
 namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\Core\Menu\MenuLinkInterface;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\menu_link_content\MenuLinkContentInterface;
 
 /**
  * Class MenuItemGenerator.
@@ -25,12 +27,12 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
    *   The module handler.
-   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
    * @param \Drupal\Core\Database\Connection $database
    *   The database connection.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManager $entityTypeManager, Connection $database) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, Connection $database) {
     parent::__construct($moduleHandler, $entityTypeManager);
 
     $this->database = $database;
@@ -43,44 +45,51 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function generateContent(): void {
-
     $definitions = $this->loadDefinitions('menu_item.yml');
 
-    foreach ($definitions as $definition) {
-      $firstLevelMenuItem = MenuLinkContent::create([
-        'title'     => $definition['node_title'],
+    $this->generateMenuItems($definitions);
+  }
+
+  /**
+   * Generates menu items from YAML definitions recursively for menus as deep as we want.
+   *
+   * @param array $menuItemDefinitions
+   * @param \Drupal\Core\Menu\MenuLinkInterface|NULL $parentMenuLink
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
+    foreach ($menuItemDefinitions as $menuItemDefinition) {
+      $menuLinkParameters = [
+        'title'     => $menuItemDefinition['node_title'],
         'link'      => [
-          'uri'     => 'internal:/node/' . $this->getNidByNodeTitle($definition['node_title']),
-          'options' => [
-            'attributes' => [
-              'class' => [
-                $definition['fontawesome_css_class'],
-              ],
-            ],
-          ],
+          'uri' => 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']),
         ],
         'menu_name' => 'main',
         'expanded'  => TRUE,
-      ]);
-      $firstLevelMenuItem->save();
+      ];
 
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          $secondLevelMenuItem = MenuLinkContent::create([
-            'title'     => $secondLevelDefinitionNodeTitle,
-            'link'      => [
-              'uri' => 'internal:/node/' . $this->getNidByNodeTitle($secondLevelDefinitionNodeTitle),
-            ],
-            'parent'    => $firstLevelMenuItem->getPluginId(),
-            'menu_name' => 'main',
-            'expanded'  => TRUE,
-          ]);
-          $secondLevelMenuItem->save();
-        }
+      if (!empty($parentMenuLink)) {
+        $menuLinkParameters['parent'] = $parentMenuLink->getPluginId();
       }
 
-    }
+      if (empty($parentMenuLink) && !empty($definition['fontawesome_css_class'])) {
+        $menuLinkParameters['link']['options'] = [
+          'attributes' => [
+            'class' => [
+              $definition['fontawesome_css_class'],
+            ],
+          ],
+        ];
+      }
 
+      $menuItem = MenuLinkContent::create($menuLinkParameters);
+      $menuItem->save();
+
+      if (!empty($menuItemDefinition['children'])) {
+        $this->generateMenuItems($menuItemDefinition['children'], $menuItem);
+      }
+    }
   }
 
   /**
@@ -144,26 +153,29 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Exception
    */
   private function isDemoMenuItem(MenuLinkContent $menuLinkItem): bool {
-    $isDemoMenuItem = FALSE;
-
     $definitions = $this->loadDefinitions('menu_item.yml');
-
-    foreach ($definitions as $definition) {
-      if ($menuLinkItem->getTitle() === $definition['node_title']) {
-        return TRUE;
-      }
-
-      if (!empty($definition['second_level'])) {
-        foreach ($definition['second_level'] as $secondLevelDefinitionNodeTitle) {
-          if ($menuLinkItem->getTitle() === $secondLevelDefinitionNodeTitle) {
-            return TRUE;
-          }
-        }
-      }
-
-    }
-
-    return $isDemoMenuItem;
+    return \in_array($menuLinkItem->getTitle(), $this->getMenuTitlesFromDefinition($definitions), TRUE);
   }
 
+  /**
+   * Recursively checks if a menu item title is contained in the definitions array.
+   *
+   * @param string $title
+   * @param array $definitions
+   *
+   * @return bool
+   */
+  private function getMenuTitlesFromDefinition(array $definitions): array {
+    $titlesArray = [];
+
+    foreach ($definitions as $definition) {
+      $titlesArray[$definition['node_title']] = $definition['node_title'];
+
+      if(!empty($definition['children'])) {
+        $titlesArray = array_merge($titlesArray, $this->getMenuTitlesFromDefinition($definition['children']));
+      }
+    }
+
+    return $titlesArray;
+  }
 }

@@ -9,3 +9,4 @@ dependencies:
   - degov_rich_text_format_settings
   - content_moderation
   - workflows
+  - block_permissions

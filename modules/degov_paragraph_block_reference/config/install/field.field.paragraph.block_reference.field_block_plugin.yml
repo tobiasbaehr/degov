@@ -22,4 +22,6 @@ default_value_callback: ''
 settings:
   plugin_ids:
     degov_twitter_block: degov_twitter_block
+    degov_social_media_instagram: degov_social_media_instagram
+    degov_social_media_youtube: degov_social_media_youtube
 field_type: block_field

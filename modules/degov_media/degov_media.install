@@ -2,6 +2,32 @@
 
 use Drupal\media\Entity\MediaType;
 
+/**
+ * Implements hook_install().
+ */
+function degov_media_install() {
+  degov_media_reactivate_media_standalone_url_setting();
+}
+
+/**
+ * deGov 7.0.0 - Make sure media entities remain accessible.
+ */
+function degov_media_update_870000() {
+  degov_media_reactivate_media_standalone_url_setting();
+}
+
+function degov_media_reactivate_media_standalone_url_setting() {
+  \Drupal::configFactory()
+    ->getEditable('media.settings')
+    ->set('standalone_url', TRUE)
+    ->save(TRUE);
+
+  \Drupal::service('router.builder')->rebuild();
+}
+
+/**
+ * Implements hook_requirements().
+ */
 function degov_media_requirements(string $phase): array {
   $requirements = [];
   if ($phase === 'runtime') {

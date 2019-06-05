@@ -14,7 +14,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
 	use TranslationTrait;
 
-	private const MAX_DURATION_SECONDS = 1200;
+	private const MAX_DURATION_SECONDS = 600;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /**
@@ -29,7 +29,22 @@ class DrupalIndependentContext extends RawMinkContext {
 		$this->dispatcher = $dispatcher;
 	}
 
-	/**
+  /**
+   * @BeforeScenario
+   */
+  public function beforeScenario() {
+    $this->iSetWindowSizeWidthHeight();
+  }
+
+  /**
+   * @Then I set the window size to :width width and :height height
+   * @Then I reset the window size
+   */
+  public function iSetWindowSizeWidthHeight(string $width = "1440px", string $height = "900px"): void {
+    $this->getSession()->resizeWindow((int)$width, (int)$height);
+  }
+
+  /**
 	 * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
 	 */
 	public function iShouldSeeTextSoManyTimes($sText, $iExpected)
@@ -113,6 +128,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)"$/
+   * @Then /^I should see HTML content matching '([^']*)'$/
    */
   public function iShouldSeeHTMLContentMatching(string $content)
   {
@@ -144,6 +160,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   /**
    * @Then /^I should see HTML content matching "([^"]*)" after a while$/
+   * @Then /^I should see HTML content matching '([^']*)' after a while$/
    */
   public function iShouldSeeHTMLContentMatchingAfterWhile($text)
   {
@@ -166,6 +183,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
 	/**
 	 * @Then /^I should not see text matching "([^"]*)" after a while$/
+   * @Then /^I should not see text matching '([^']*)' after a while$/
 	 */
 	public function iShouldNotSeeTextAfterAWhile($text)
 	{
@@ -245,6 +263,49 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Example: Then I should see 5 "div" elements after a while
+   * Example: And I should see 5 "div" elements after a while
+   *
+   * @Then /^(?:|I )should see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
+   */
+  public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector, bool $negate = FALSE): void {
+    $startTime = time();
+    $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
+    do {
+      $actualElements = $this->getSession()
+        ->getPage()
+        ->findAll('css', $selector);
+      $actualNumberOfElements = \count($actualElements);
+
+      if (!$negate) {
+        if ($actualNumberOfElements === $expectedNumberOfElements) {
+          return;
+        }
+      } else {
+        if ($actualNumberOfElements !== $expectedNumberOfElements) {
+          return;
+        }
+      }
+
+    } while (time() - $startTime < $wait);
+    throw new \Exception(
+      sprintf('Could find %s %s elements after %s seconds, found %s', $expectedNumberOfElements, $selector, $wait, $actualNumberOfElements)
+    );
+  }
+
+  /**
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Example: Then I should not see 5 "div" elements after a while
+   * Example: And I should not see 5 "div" elements after a while
+   *
+   * @Then /^(?:|I )should not see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
+   */
+  public function iShouldNotSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
+    self::iShouldSeeNumberOfElementsAfterAWhile($expectedNumberOfElements, $selector, true);
+  }
+
+  /**
    * @Then I should see :number element(s) with the selector :selector and the translated text :text
    */
   public function iShouldSeeElementsWithSelectorAndText(int $expectedNumberOfElements, string $selector, string $text): void {
@@ -255,6 +316,13 @@ class DrupalIndependentContext extends RawMinkContext {
     if($expectedNumberOfElements !== $matchedElementsCount) {
       throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
     }
+  }
+
+  /**
+   * @Then I dump the HTML of the current page
+   */
+  public function dumpHTML() {
+    print_r($this->getSession()->getPage()->getContent());
   }
 
 }

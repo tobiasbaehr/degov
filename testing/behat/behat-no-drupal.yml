@@ -11,23 +11,17 @@ default:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
   extensions:
     Behat\MinkExtension:
-      browser_name: chrome
-      javascript_session: selenium2
-      default_session: selenium2
-      goutte: ~
-      selenium2:
-        wd_host: "http://localhost:4444/wd/hub"
-        browser: "chrome"
-        capabilities: { "browserName": "chrome", "browser": "chrome", "version":  "*", "chrome": { switches: ["--no-sandbox", "--headless","--disable-gpu"] } }
       base_url: http://localhost:80
-    Drupal\DrupalExtension:
-      blackbox: ~
-      drupal:
-        drupal_root: '%paths.base%/docroot'
-      api_driver: 'drupal'
-      drush:
-        alias: 'local'
-      text:
-        username_field: "Benutzername"
-        password_field: "Passwort"
-        log_in: "Anmelden"
+      default_session: selenium_chrome
+      sessions:
+        selenium_chrome:
+          selenium2:
+            wd_host: http://localhost:4444/wd/hub
+            browser: chrome
+            capabilities:
+              extra_capabilities:
+                chromeOptions:
+                  args:
+                    - "--no-sandbox"
+                    - "--headless"
+                    - "--disable-gpu"

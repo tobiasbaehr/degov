@@ -7,6 +7,34 @@
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
 
+/**
+ * Implements hook_requirements().
+ */
+function degov_requirements(string $phase) {
+  $requirements = [];
+
+  if ($phase === 'runtime') {
+    $requirements['degov_common'] = [
+      'severity'    => REQUIREMENT_OK,
+      'title'       => t('deGov version'),
+      'description' => t('Version of deGov'),
+      'value'       => t('Version: @version', ['@version' => system_get_info('module', 'degov')['version']]),
+    ];
+  }
+
+  $privateFilePath = \Drupal::service('file_system')->realpath('private://');
+  if (empty($privateFilePath) || preg_match("/private\:$/", $privateFilePath)) {
+    $requirements['file_private_path'] = [
+      'title'       => t('Private file system'),
+      'value'       => t('Not configured'),
+      'description' => t('The installation profile requires the private file system to be configured. Please <a href=":settings_howto" target="_blank">edit</a> your settings.php accordingly.', [':settings_howto' => 'https://www.drupal.org/docs/8/core/modules/file/overview#private-file-system']),
+      'severity'    => REQUIREMENT_ERROR,
+    ];
+  }
+
+  return $requirements;
+}
+
 function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
@@ -140,7 +168,6 @@ function degov_update_8500() {
   degov_common_import_translations();
 }
 
-
 /**
  * Repair broken view modes
  */
@@ -187,7 +214,6 @@ function degov_update_8501() {
  * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
  */
 function degov_update_850100() {
-
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
     \Drupal::service('module_installer')->install([
       'link_attributes',
@@ -204,10 +230,9 @@ function degov_update_850100() {
 }
 
 /**
- * Re-Import search_media view., Remove media type video_file if there is no content., Adds missing fields to forms.
+ * Re-Import search_media view, Remove media type video_file if there is no content., Adds missing fields to forms.
  */
 function degov_update_860000() {
-
   /**
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
@@ -217,7 +242,6 @@ function degov_update_860000() {
   $moduleUpdater->reImport('core.entity_form_display.node.event.default', 'degov_node_event', 'install');
   $moduleUpdater->reImport('core.entity_form_display.node.blog.default', 'degov_node_blog', 'install');
   $moduleUpdater->reImport('core.entity_form_display.node.press.default', 'degov_node_press', 'install');
-
 
   if (!\Drupal::entityQuery('media')
     ->condition('bundle', 'video_file')
@@ -236,7 +260,7 @@ function degov_update_860000() {
 }
 
 /**
- * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules.
+ * Install the degov_config_integrity, degov_auto_crop and degov_file_management modules, update translations.
  */
 function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_config_integrity')) {
@@ -250,10 +274,20 @@ function degov_update_860100() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_auto_crop')) {
     \Drupal::service('module_installer')->install(['degov_auto_crop']);
   }
+
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Drupal\locale\Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
 }
 
 /**
- * Install the filter_disallow module.
+ * deGov Update 6.2.0 - Install the filter_disallow module.
  */
 function degov_update_860200() {
   if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
@@ -261,6 +295,21 @@ function degov_update_860200() {
   }
 }
 
+/**
+ * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker
+ */
+function degov_update_870100() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_copyright_block')) {
+    \Drupal::service('module_installer')->install(['degov_copyright_block']);
+  }
+  if (!\Drupal::moduleHandler()->moduleExists('degov_fa_icon_picker')) {
+    \Drupal::service('module_installer')->install(['degov_fa_icon_picker']);
+  }
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
 function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
     'degov' => 8501,

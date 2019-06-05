@@ -7,3 +7,11 @@ function degov_image_and_crop_styles_update_850100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_image_and_crop_styles', '8001');
 }
+
+/**
+ * deGov Update 7.1.0 - Add image style for logo / slogan images.
+ */
+function degov_image_and_crop_styles_update_870100() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_image_and_crop_styles', '870100');
+}
