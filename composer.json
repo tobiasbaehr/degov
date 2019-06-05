@@ -34,6 +34,7 @@
         "drupal/admin_links_access_filter": "^1.0@alpha",
         "drupal/admin_toolbar": "^1.19",
         "drupal/block_field": "^1.0.0",
+        "drupal/block_permissions": "^1.0",
         "drupal/calendar": "1.x-dev",
         "drupal/config_replace": "^1.0",
         "drupal/console": "^1.8",
@@ -225,6 +226,9 @@
             },
             "drupal/simplenews": {
                 "3028084 - Check if user has email address": "https://www.drupal.org/files/issues/2019-04-24/simplenews-3028084-user-without-email.patch"
+            },
+            "drupal/block_permissions": {
+                "Issue 3024492 - Add an all themes permission": "https://www.drupal.org/files/issues/2019-01-08/block_permissions-all-themes-permission_0.patch"
             },
             "drupal/core": {
                 "2885441 - EntityReferenceAutocompleteWidget should define its size setting as an integer": "https://www.drupal.org/files/issues/2885441-2.patch",

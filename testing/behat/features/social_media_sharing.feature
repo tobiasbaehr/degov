@@ -20,6 +20,20 @@ Feature: deGov Social Media Sharing
     Then I should see HTML content matching "alert-status" after a while
     And I should see 2 "li.shariff-button" elements via JavaScript
 
+  Scenario: I confirm the working functionality of the 2-click-sharing button
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/config/services/shariff"
+    And I uncheck checkbox with id "edit-enable-1-click-sharing"
+    And I click by CSS id "edit-submit"
+    And I am on "/degov-demo-content/page-text-paragraph"
+    Then I should see 1 "li.shariff-button:first-child .sharing-overlay" elements after a while
+    And I click by selector "li.shariff-button:first-child .sharing-overlay" via JavaScript
+    Then I should not see 1 "li.shariff-button:first-child .sharing-overlay" elements after a while
+    And there should be a total of 1 window
+    Then I click by selector "li.shariff-button:first-child a" via JavaScript
+    And there should be a total of 2 windows
+
   Scenario: I check that I can disable 2-click-sharing
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role

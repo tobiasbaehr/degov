@@ -47,7 +47,8 @@ class TextNotFoundException extends \Exception {
   }
 
   private function getMessageWithAllHTML(string $message) {
-    return $message . PHP_EOL . PHP_EOL . ' [DEBUG HINT] All HTML markup on the page: ' . PHP_EOL . $this->session->getPage()->getContent();
+//    return $message . PHP_EOL . PHP_EOL . ' [DEBUG HINT] All HTML markup on the page: ' . PHP_EOL . $this->session->getPage()->getContent();
+    return $message;
   }
 
 }

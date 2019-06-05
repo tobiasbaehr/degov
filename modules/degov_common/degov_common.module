@@ -46,6 +46,12 @@ function degov_common_theme() {
         'additional_information' => NULL,
       ],
     ],
+    'degov_user_profile_link'  => [
+      'variables' => [
+        'logged_in' => FALSE,
+      ],
+      'template'  => 'degov-user-profile-link',
+    ],
   ];
 }
 
@@ -208,7 +214,7 @@ function degov_common_form_entity_browser_media_browser_form_alter(array &$form,
  */
 function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   if (!empty($form['link']['widget'][0]['options']['attributes']['class'])) {
-    $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Please choose one of this <a href="http://fontawesome.io/cheatsheet" target="_blank">Font-Awesome</a> classes, e.g. "fa-archive" to display the icon (Just first menu level).');
+    $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Click on this field and use the icon picker to select the Font Awesome icon css class for this menu item (first level items only).');
   }
 }
 

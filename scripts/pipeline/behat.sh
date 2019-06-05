@@ -4,6 +4,10 @@
 # on the first error.
 set -e
 
+touch $BITBUCKET_CLONE_DIR/php_error.log
+echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
+echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
+
 echo "### Setting up project folder"
 
 echo "### Wait for packagist"
@@ -61,8 +65,18 @@ if [[ "$2" == "db_dump" ]]; then
     bin/drush sql:drop -y
     echo "### Importing db dump"
     zcat docroot/profiles/contrib/degov/testing/behat/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting -ptesting testing
-    echo "### Updating"
-    bin/drush cr && bin/drush updb -y && bin/drush locale-check && bin/drush locale-update && bin/drush pm:uninstall degov_demo_content -y && bin/drush en degov_demo_content -y
+    echo "### Clear cache"
+    bin/drush cr
+    echo "### Run database updates"
+    bin/drush updb -y
+    echo "### Fix the temp path"
+    bin/drush config:set system.file path.temporary /tmp -y
+    echo "### Update translations"
+    bin/drush locale-check
+    bin/drush locale-update
+    echo "### Re-install the degov_demo_content"
+    bin/drush pm:uninstall degov_demo_content -y
+    bin/drush en degov_demo_content -y
 fi
 
 echo "### Updating translation"
@@ -79,4 +93,4 @@ else
 fi
 
 # For debugging via db dump
-#bin/drush sql:dump > $BITBUCKET_CLONE_DIR/$1-degov.sql && gzip $BITBUCKET_CLONE_DIR/$1-degov.sql
+#bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz
