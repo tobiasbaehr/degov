@@ -117,17 +117,6 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
-   * @Then I verify that field value of :selector matches :value
-   */
-  public function iVerifyThatFieldValueMatches(string $selector, string $value): bool {
-    $actualValue = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
-    if(preg_match('/' . $value . '/', $actualValue)) {
-      return true;
-    }
-    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
-  }
-
-  /**
    * @Then I should see :number :selector elements via JavaScript
    */
   public function iShouldSeeElementsViaJavaScript(int $number, string $selector) {
