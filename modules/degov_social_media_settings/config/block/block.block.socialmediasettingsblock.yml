@@ -7,11 +7,11 @@ dependencies:
     module:
       - degov_social_media_settings
   theme:
-    - active_theme
+    - degov_theme
 id: socialmediasettingsblock
-theme: active_theme
-region: top_navigation
-weight: -19
+theme: degov_theme
+region: top_header
+weight: 1
 provider: null
 plugin: social_media_settings_block
 settings:

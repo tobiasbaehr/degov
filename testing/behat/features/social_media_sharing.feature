@@ -7,8 +7,13 @@ Feature: deGov Social Media Sharing
   Background:
     Given I am installing the following Drupal modules:
       | degov_demo_content                |
-    Given I proof that the following Drupal modules are installed:
-      | degov_demo_content                |
+
+  Scenario: Confirm that "Social media settings" block is in place
+    Given I am on homepage
+    Then I have dismissed the cookie banner if necessary
+    And I should see ".top-header-wrapper .navbar a.js-social-media-settings-open" element visible on the page
+    Then I click by CSS class "js-social-media-settings-open"
+    And I should see "div#social-media-settings" element visible on the page
 
   Scenario: I check that 2-click-sharing is enabled by default
     Given I have dismissed the cookie banner if necessary
