@@ -38,10 +38,13 @@ echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroo
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
 echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$"];' >> docroot/sites/default/settings.php
+echo '$config["locale.settings"]["translation"]["path"] = "sites/default/files/translations";' >> docroot/sites/default/settings.php
+
 echo '### Creating file system folders'
-mkdir docroot/sites/default/files/
-mkdir docroot/sites/default/files/private/
+mkdir -p docroot/sites/default/files/private/
+mkdir docroot/sites/default/files/translations/
 chmod 777 -R docroot/sites/default/files/
+
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
