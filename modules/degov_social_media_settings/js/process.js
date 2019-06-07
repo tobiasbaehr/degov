@@ -132,8 +132,6 @@
       }
     });
 
-    // Open the modal.
-    modal.modal();
   }
 
   // Handle click on 'all' checkbox.

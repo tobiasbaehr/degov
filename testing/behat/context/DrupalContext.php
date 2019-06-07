@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -28,6 +29,7 @@ class DrupalContext extends RawDrupalContext {
 	use TranslationTrait;
 
   private const MAX_DURATION_SECONDS = 1200;
+  private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /** @var array */
   protected $trash = [];
@@ -1068,6 +1070,31 @@ class DrupalContext extends RawDrupalContext {
       ->getEditable('degov_simplenews.settings')
       ->set('privacy_policy', ['de' => '1'])
       ->save();
+  }
+
+  /**
+   * @Given /^I should see "([^"]*)" element visible on the page$/
+   */
+  public function iShouldSeeVisibleOnThePage($selector) {
+    $startTime = time();
+    $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
+    do {
+      $element = $this->getSession()->getPage();
+      $nodes = $element->findAll('css', $selector);
+      foreach ($nodes as $node) {
+        if ($node->isVisible()) {
+          return;
+        }
+      }
+    } while (time() - $startTime < $wait);
+
+    $nodes = $element->findAll('css', $selector);
+    if (count($nodes)) {
+      throw new \Exception("Element: \"$selector\" is not visible." . "\r\n" . $element->getHtml());
+    }
+    else {
+      throw new ElementNotFoundException($this->getSession(), 'css selector', $selector, "\r\n" . $element->getHtml());
+    }
   }
 
   /**
