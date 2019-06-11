@@ -24,6 +24,8 @@ docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MY
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
+COMPOSER_EXIT_ON_PATCH_FAILURE=1
+export COMPOSER_EXIT_ON_PATCH_FAILURE
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
