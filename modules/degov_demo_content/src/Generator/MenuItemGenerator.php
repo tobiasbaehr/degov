@@ -65,7 +65,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
         'link'      => [
           'uri' => 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']),
         ],
-        'menu_name' => 'main',
+        'menu_name' => $menuItemDefinition['menu_name'],
         'expanded'  => TRUE,
       ];
 

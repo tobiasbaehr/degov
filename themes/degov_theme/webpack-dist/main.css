@@ -9893,6 +9893,21 @@ readers do not read off random characters that represent icons */
 .footer-bottom-wrapper {
   min-height: 4rem;
   background-color: #E5E7E9; }
+  .footer-bottom-wrapper .block ul {
+    margin: 0; }
+    .footer-bottom-wrapper .block ul li.nav-item {
+      display: inline-block; }
+      .footer-bottom-wrapper .block ul li.nav-item a.nav-link {
+        color: #2C2C2C;
+        font-size: 1rem;
+        line-height: 1.94;
+        padding: 0.25rem 1rem; }
+        @media (min-width: 768px) {
+          .footer-bottom-wrapper .block ul li.nav-item a.nav-link {
+            font-size: 1.125rem;
+            padding: 0.5rem 1rem; } }
+        .footer-bottom-wrapper .block ul li.nav-item a.nav-link:before {
+          content: ''; }
 
 .srmedia__image {
   overflow: hidden;
