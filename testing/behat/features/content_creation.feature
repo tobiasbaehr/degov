@@ -260,3 +260,14 @@ Feature: deGov - Content creation
     And I click by selector "a#edit-blocks-region-content-title" via JavaScript
     Then I should see text matching "Place block" via translation after a while
     And each HTML content element with css selector ".block-filter-text-source" is unique
+
+  Scenario: Verify that rich text editor does not show duplicate buttons
+    And I am logged in as a user with the "administrator" role
+    Given I proof that the following Drupal modules are installed:
+      | degov_rich_text_format_settings            |
+      | degov_node_normal_page                     |
+    And I am on "/node/add/normal_page"
+    And I select "Rich Text" by name "field_teaser_text[0][format]"
+    And I should see 1 ".cke_top.cke_reset_all" elements via jQuery after a while
+    And I should see 1 ".cke_button_icon.cke_button__bold_icon" elements via jQuery
+    And I should see 1 ".cke_button.cke_button__source.cke_button_off" elements via jQuery

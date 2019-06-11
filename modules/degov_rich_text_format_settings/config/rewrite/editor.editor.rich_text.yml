@@ -1,5 +1,6 @@
 langcode: de
 status: true
+config_replace: replace
 dependencies:
   config:
     - filter.format.rich_text
