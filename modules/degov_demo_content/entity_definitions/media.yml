@@ -39,7 +39,7 @@ video_upload_1:
   field_include_search: 1
 document_1:
   bundle: 'document'
-  name: '{{SUBTITLE}}'
+  name: 'A document with a fixed title'
   file: 'dummy.pdf'
   status: 1
   field_include_search: 1
