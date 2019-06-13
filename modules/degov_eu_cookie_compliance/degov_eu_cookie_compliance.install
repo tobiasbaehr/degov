@@ -9,3 +9,22 @@ function degov_eu_cookie_compliance_install() {
   //give anonymous the permission to view the cookie popup
   user_role_grant_permissions(AccountInterface::ANONYMOUS_ROLE, ['display eu cookie compliance popup']);
 }
+
+/**
+ * Change text format from restricted_html to rich_text.
+ */
+function degov_eu_cookie_compliance_update_870100() {
+  $config = \Drupal::service('config.factory')->getEditable('eu_cookie_compliance.settings');
+  if (empty($config)) {
+    return;
+  }
+
+  $withdraw_message_format = $config->get('withdraw_message.format');
+  if ($withdraw_message_format === 'restricted_html') {
+    $config->set('withdraw_message.format', 'rich_text')->save(TRUE);
+  }
+  $mobile_popup_info_format = $config->get('mobile_popup_info.format');
+  if ($mobile_popup_info_format === 'restricted_html') {
+    $config->set('mobile_popup_info.format', 'rich_text')->save(TRUE);
+  }
+}

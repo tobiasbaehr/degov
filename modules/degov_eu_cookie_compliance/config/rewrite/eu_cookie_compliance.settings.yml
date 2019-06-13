@@ -23,8 +23,14 @@ popup_hide_button_message: Hide
 popup_info:
   value: "<h3>Diese Seite verwendet Cookies, um für Sie die Benutzerfreundlichkeit der Webseite zu verbessern.</h3>\r\n\r\n<p>Wenn Sie diese Webseite weiter nutzen, erklären Sie sich damit einverstanden.</p>\r\n"
   format: rich_text
+mobile_popup_info:
+  value: "<h3>Diese Seite verwendet Cookies, um für Sie die Benutzerfreundlichkeit der Webseite zu verbessern.</h3>\r\n\r\n<p>Wenn Sie diese Webseite weiter nutzen, erklären Sie sich damit einverstanden.</p>\r\n"
+  format: rich_text
 popup_link: 'http://www.example.com'
 popup_link_new_window: true
 popup_position: false
 popup_text_hex: ffffff
 popup_width: 100%
+withdraw_message:
+  value: '<h3>Diese Seite verwendet Cookies, um für Sie die Benutzerfreundlichkeit der Webseite zu verbessern.</h3>\n<p>Du hast uns erlaubt Cookies zu setzen.</p>'
+  format: rich_text
