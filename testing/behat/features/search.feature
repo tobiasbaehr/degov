@@ -67,3 +67,26 @@ Feature: deGov - Search
     And I should see HTML content matching "Bild" after a while
     And I should see an ".facet-item__value" element with the content "Bild"
     And I should see an ".facet-item__value" element with the content "Video Upload"
+
+  Scenario: I verify that no links are shown on search preview
+    Given I have dismissed the cookie banner if necessary
+    Given I proof that the following Drupal modules are installed:
+      | degov_node_normal_page      |
+    And I uninstall the "degov_demo_content" module
+    And I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I should see "Titel"
+    And I should see "Vorschau Text"
+    And I fill in "Titel" with "Test1234"
+    And I put 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.' into CKEditor
+    And I select "Veröffentlicht" by name "moderation_state[0][state]"
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    And I should see text matching "Test1234"
+    And I should see text matching "Text with a link to the Homepage of Drupal."
+    And I should see HTML content matching 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.'
+    And I rebuild the "search_content" index
+    Then I am on "/suche"
+    And I should see text matching "Test1234"
+    And I should see text matching "Text with a link to the Homepage of Drupal."
+    And I should not see HTML content matching 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.'
