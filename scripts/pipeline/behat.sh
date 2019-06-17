@@ -93,7 +93,7 @@ if [[ "$1" == "smoke_tests" ]]; then
     bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
 else
-    echo "### Running Behat features by tags"
+    echo "### Running Behat features by tags: $1"
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 

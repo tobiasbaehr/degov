@@ -296,14 +296,18 @@ function degov_update_860200() {
 }
 
 /**
- * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker
+ * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker, media file links
  */
 function degov_update_870100() {
-  if (!\Drupal::moduleHandler()->moduleExists('degov_copyright_block')) {
-    \Drupal::service('module_installer')->install(['degov_copyright_block']);
-  }
-  if (!\Drupal::moduleHandler()->moduleExists('degov_fa_icon_picker')) {
-    \Drupal::service('module_installer')->install(['degov_fa_icon_picker']);
+  $modulesToInstall = [
+    'degov_copyright_block',
+    'degov_fa_icon_picker',
+    'media_file_links',
+  ];
+  foreach ($modulesToInstall as $moduleToInstall) {
+    if (!\Drupal::moduleHandler()->moduleExists($moduleToInstall)) {
+      \Drupal::service('module_installer')->install([$moduleToInstall]);
+    }
   }
 }
 

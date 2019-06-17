@@ -1,0 +1,29 @@
+services:
+  media_file_links.file_field_mapper:
+    class: Drupal\media_file_links\Service\MediaFileFieldMapper
+    arguments: [ ]
+
+  media_file_links.file_link_resolver:
+    class: Drupal\media_file_links\Service\MediaFileLinkResolver
+    arguments: [ '@media_file_links.file_field_mapper' ]
+
+  media_file_links.file_suggester:
+    class: Drupal\media_file_links\Service\MediaFileSuggester
+    arguments: [ '@media_file_links.file_field_mapper', '@media_file_links.file_link_resolver' ]
+
+  media_file_links.usage_tracker:
+    class: Drupal\media_file_links\Service\MediaFileLinkUsageTracker
+    arguments: [ '@media_file_links.placeholder_handler' ]
+
+  media_file_links.placeholder_handler:
+    class: Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler
+    arguments: [ ]
+
+  media_file_links.route_subscriber:
+    class: Drupal\media_file_links\Routing\AutocompleteRouteSubscriber
+    tags:
+    - { name: event_subscriber }
+
+  media_file_links.autocomplete_matcher:
+    class: Drupal\media_file_links\EntityAutocompleteMatcher
+    arguments: ['@plugin.manager.entity_reference_selection']

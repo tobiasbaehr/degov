@@ -11,6 +11,7 @@ Feature: deGov - Content creation
       | degov_node_normal_page      |
       | degov_simplenews_references |
       | filter_disallow             |
+      | media_file_links            |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
@@ -189,6 +190,41 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     And I should not see text matching "scripttest1234"
+
+  Scenario: I verify that Media file link placeholders in text get transformed into actual links
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/degov-demo-content/page-text-paragraph"
+    And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
+    Then I open node edit form by node title "Page with text paragraph"
+    And I should see HTML content matching "node-normal-page-edit-form" after a while
+    And I enter the placeholder for a "document" media file in textarea
+    And I scroll to the "#edit-submit" element
+    And I press button with label "Save" via translated text
+    Then I am on "/degov-demo-content/page-text-paragraph"
+    Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
+
+  Scenario: I verify that I can enter Media file links using linkit
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/node/add/normal_page"
+    And I wait 3 seconds
+    And I should see 1 ".cke" elements via jQuery
+    And I click by selector ".cke_button__linkit" via JavaScript
+    Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
+    And I fill in "Link" with "dummy"
+    And I trigger the "keydown" event on ".form-linkit-autocomplete"
+    Then I should see HTML content matching "linkit-result" after a while
+    And I click by selector ".linkit-result" via JavaScript
+    Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
+
+  Scenario: I verify that trying to delete a referenced Media item will cause warning messages
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "A document with a fixed title"
+    And I scroll to bottom
+    And I click by selector "#edit-delete" via JavaScript
+    Then I should see HTML content matching "messages--warning" after a while
 
   Scenario: I verify that the selected views reference values are preserved in the form
     Given I reset the demo content
