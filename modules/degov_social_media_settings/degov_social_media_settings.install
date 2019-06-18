@@ -34,10 +34,10 @@ function degov_social_media_settings_update_8006() {
  */
 function degov_social_media_settings_update_870100() {
   $config = \Drupal::configFactory()
-    ->getEditable('block.block.degov_social_media_settings_block');
+    ->getEditable('block.block.socialmediasettingsblock');
 
   $newConfigData = Yaml::parseFile(\Drupal::service('extension.list.module')
-      ->getPath('degov_social_media_settings') . '/config/block/block.block.degov_social_media_settings_block.yml');
+      ->getPath('degov_social_media_settings') . '/config/block/block.block.socialmediasettingsblock.yml');
 
   $config->setData($newConfigData)->save();
 }
