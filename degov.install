@@ -6,6 +6,7 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_requirements().
@@ -296,7 +297,7 @@ function degov_update_860200() {
 }
 
 /**
- * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker, media file links
+ * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker, media file links, install theme blocks
  */
 function degov_update_870100() {
   $modulesToInstall = [
@@ -308,6 +309,19 @@ function degov_update_870100() {
     if (!\Drupal::moduleHandler()->moduleExists($moduleToInstall)) {
       \Drupal::service('module_installer')->install([$moduleToInstall]);
     }
+  }
+
+  $configsToInstall = [
+    'block.block.footer',
+    'system.menu.below-footer-menu',
+    'block.block.belowfootermenu',
+  ];
+  foreach($configsToInstall as $configToInstall) {
+    $config = \Drupal::configFactory()
+      ->getEditable($configToInstall);
+    $newConfigData = Yaml::parseFile(\Drupal::service('extension.list.theme')
+        ->getPath('degov_theme') . '/config/optional/' . $configToInstall . '.yml');
+    $config->setData($newConfigData)->save();
   }
 }
 
