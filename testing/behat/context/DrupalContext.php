@@ -1022,6 +1022,21 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given I delete all content
+   */
+  public function iDeleteAllContent()
+  {
+    $mediaIds = \Drupal::entityQuery('media')->execute();
+    $mediaStorageHandler = \Drupal::entityTypeManager()->getStorage('media');
+    $media = $mediaStorageHandler->loadMultiple($mediaIds);
+    $mediaStorageHandler->delete($media);
+    $nodeIds = \Drupal::entityQuery('node')->execute();
+    $nodesStorageHandler = \Drupal::entityTypeManager()->getStorage('node');
+    $nodes = $nodesStorageHandler->loadMultiple($nodeIds);
+    $nodesStorageHandler->delete($nodes);
+  }
+
+  /**
    * @Given I enter the menu placeholder for a :mediaBundle media file in :fieldSelector
    */
   public function iEnterTheMenuPlaceholderForAMediaFileInSpecificField(string $mediaBundle, string $fieldSelector): void {
