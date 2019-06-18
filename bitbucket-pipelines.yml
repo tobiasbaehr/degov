@@ -19,7 +19,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content db_dump
           services:
             - docker
             - testing
@@ -31,7 +31,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities db_dump
           services:
             - docker
             - testing
@@ -43,7 +43,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access db_dump
           services:
             - docker
             - testing
@@ -55,7 +55,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode db_dump
           services:
             - docker
             - testing
@@ -67,7 +67,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form db_dump
           services:
             - docker
             - testing
@@ -79,7 +79,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews db_dump
           services:
             - docker
             - testing
@@ -91,19 +91,7 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing db_dump
-          services:
-            - docker
-            - testing
-          artifacts:
-            - php_error.log
-            - "*.sql.gz"
-      - step:
-          name: Webforms feature
-          caches:
-            - composer
-          script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing db_dump
           services:
             - docker
             - testing
@@ -115,13 +103,25 @@ pipelines:
           caches:
             - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests db_dump
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests db_dump
           services:
             - docker
             - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
+      - step:
+          name: BackstopJS tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs db_dump
+          services:
+            - docker
+            - testing
+          artifacts:
+            - php_error.log
+            - backstopjs.tar.gz
   branches:
     release/*:
       - parallel:
@@ -138,7 +138,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh content install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content install
             services:
               - docker
               - testing
@@ -150,7 +150,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh entities install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities install
             services:
               - docker
               - testing
@@ -162,7 +162,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh access install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access install
             services:
               - docker
               - testing
@@ -174,7 +174,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh view_mode install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode install
             services:
               - docker
               - testing
@@ -186,7 +186,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh form install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form install
             services:
               - docker
               - testing
@@ -198,7 +198,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh simplenews install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews install
             services:
               - docker
               - testing
@@ -210,19 +210,7 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh social_media_sharing install
-            services:
-              - docker
-              - testing
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-        - step:
-            name: Webforms feature
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh webforms install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing install
             services:
               - docker
               - testing
@@ -234,15 +222,29 @@ pipelines:
             caches:
               - composer
             script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/behat.sh smoke_tests install
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests install
             services:
               - docker
               - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
+        - step:
+            name: BackstopJS tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs install
+            services:
+              - docker
+              - testing
+            artifacts:
+              - php_error.log
+              - backstopjs.tar.gz
 
 definitions:
   services:
     testing:
       image: darksolar/selenium-chrome-headless
+    docker:
+      memory: 2048

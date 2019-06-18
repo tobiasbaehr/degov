@@ -39,7 +39,7 @@ echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
-echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$"];' >> docroot/sites/default/settings.php
+echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$","^host.docker.internal$"];' >> docroot/sites/default/settings.php
 echo '$config["locale.settings"]["translation"]["path"] = "sites/default/files/translations";' >> docroot/sites/default/settings.php
 
 echo '### Creating file system folders'
@@ -92,7 +92,23 @@ if [[ "$1" == "smoke_tests" ]]; then
     bin/drush upwd admin admin
     bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
-else
+elif [[ "$1" == "backstopjs" ]]; then
+    echo "### Running BackstopJS test"
+    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+
+    # The following lines is for approving changes. Approving changes will update your reference files with the results
+    # from your last test. Future tests are compared against your most recent approved test screenshots. You must
+    # approve the tests and then test again for getting a successful test result in the html report.
+#    echo "### Approving changes"
+#    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
+#
+#    echo "### Running BackstopJS"
+#    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+
+    echo "### Dumping BackstopJS output"
+    (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+
+elif [[ "$1" != "backstopjs" ]]; then
     echo "### Running Behat features by tags: $1"
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
