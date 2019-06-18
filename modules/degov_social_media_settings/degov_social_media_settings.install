@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Add social media source Instagram.
  */
@@ -25,4 +27,17 @@ function degov_social_media_settings_update_8006() {
     \Drupal::service('degov_config.module_updater')
       ->applyUpdates('degov_social_media_settings', '8006');
   }
+}
+
+/**
+ * deGov 7.1.0 - Add the social media settings block to the theme.
+ */
+function degov_social_media_settings_update_870100() {
+  $config = \Drupal::configFactory()
+    ->getEditable('block.block.degov_social_media_settings_block');
+
+  $newConfigData = Yaml::parseFile(\Drupal::service('extension.list.module')
+      ->getPath('degov_social_media_settings') . '/config/block/block.block.degov_social_media_settings_block.yml');
+
+  $config->setData($newConfigData)->save();
 }
