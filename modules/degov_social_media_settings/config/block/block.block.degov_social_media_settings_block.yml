@@ -8,14 +8,14 @@ dependencies:
       - degov_social_media_settings
   theme:
     - degov_theme
-id: socialmediasettingsblock
+id: degov_social_media_settings_block
 theme: degov_theme
 region: top_header
 weight: 1
 provider: null
-plugin: social_media_settings_block
+plugin: degov_social_media_settings_block
 settings:
-  id: social_media_settings_block
+  id: degov_social_media_settings_block
   label: 'Social media settings block'
   provider: degov_social_media_settings
   label_display: '0'
