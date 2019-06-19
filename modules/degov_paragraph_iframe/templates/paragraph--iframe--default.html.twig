@@ -40,12 +40,6 @@
 #}
 {% set classes = ['iframe'] %}
 
-{% if not paragraph.field_iframe_height.value %}
-  {{ attach_library('degov_paragraph_iframe/davidjbradshaw.iframe-resizer') }}
-  {{ attach_library('degov_paragraph_iframe/iframe') }}
-  {% set classes = classes|merge(['iframe--autoheight']) %}
-{% endif %}
-
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
   {% if content.field_title|field_value or content.field_sub_title|field_value %}
