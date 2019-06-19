@@ -39,6 +39,13 @@ function degov_node_blog_update_8010() {
   $workflowService->enableWorkflow('blog');
 }
 
+/**
+ * Set paragraph form mode to experimental
+ */
+function degov_node_blog_update_8012() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_press', '8012');
+}
 
 /**
  * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style., Adds missing view modes.
@@ -86,11 +93,33 @@ function degov_node_blog_update_860100() {
   }
 }
 
-
 /**
- * Set paragraph form mode to experimental
+ * deGov Update 6.3.2 - Add the teaser text to the default blog display
  */
-function degov_node_blog_update_8012() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_node_press', '8012');
+function degov_node_blog_update_860302() {
+  $config = \Drupal::service('config.factory')
+    ->getEditable('core.entity_view_display.node.blog.default');
+
+  $hiddenConfig = $config->get('hidden');
+  if (isset($hiddenConfig['field_teaser_text'])) {
+    unset($hiddenConfig['field_teaser_text']);
+  }
+  $config->set('hidden', $hiddenConfig);
+
+  $contentConfig = $config->get('content');
+  if (!isset($contentConfig['field_teaser_text'])) {
+    $contentConfig['field_teaser_text'] = [
+      'type'                 => 'text_trimmed',
+      'weight'               => 6,
+      'region'               => 'content',
+      'label'                => 'hidden',
+      'settings'             => [
+        'trim_length' => 600,
+      ],
+      'third_party_settings' => [],
+    ];
+    $config->set('content', $contentConfig);
+  }
+
+  $config->save();
 }
