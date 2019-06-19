@@ -192,11 +192,11 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
           }
           if ($argument_name == 'tid' && $argument_value['table'] == 'taxonomy_index') {
             $element['argument'][$num] = [
-              '#type' => 'entity_autocomplete',
-              '#title' => t('Taxonomy term') . $title_extra,
-              '#default_value' => !empty($argument_values[$num]) ? Term::load($argument_values[$num]) : null,
-              '#target_type' => 'taxonomy_term',
-              '#selection_handler' => 'default:taxonomy_term',
+              '#type'               => 'entity_autocomplete',
+              '#title'              => t('Taxonomy term') . $title_extra,
+              '#default_value'      => !empty($argument_values[$num]) ? Term::load($argument_values[$num]) : NULL,
+              '#target_type'        => 'taxonomy_term',
+              '#selection_handler'  => 'default:taxonomy_term',
               '#selection_settings' => [],
             ];
             $num++;
@@ -204,11 +204,11 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
           }
           if ($argument_name == 'nid' && $argument_value['table'] == 'node_field_data') {
             $element['argument'][$num] = [
-              '#type' => 'entity_autocomplete',
-              '#title' => t('Node') . $title_extra,
-              '#default_value' => !empty($argument_values[$num]) ? Node::load($argument_values[$num]) : null,
-              '#target_type' => 'node',
-              '#selection_handler' => 'default:node',
+              '#type'               => 'entity_autocomplete',
+              '#title'              => t('Node') . $title_extra,
+              '#default_value'      => !empty($argument_values[$num]) ? Node::load($argument_values[$num]) : NULL,
+              '#target_type'        => 'node',
+              '#selection_handler'  => 'default:node',
               '#selection_settings' => [],
             ];
             $num++;
@@ -216,11 +216,11 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
           }
           if ($argument_name == 'uid' && $argument_value['table'] == 'node_field_data') {
             $element['argument'][$num] = [
-              '#type' => 'entity_autocomplete',
-              '#title' => t('User') . $title_extra,
-              '#default_value' => !empty($argument_values[$num]) ? User::load($argument_values[$num]) : null,
-              '#target_type' => 'user',
-              '#selection_handler' => 'default:user',
+              '#type'               => 'entity_autocomplete',
+              '#title'              => t('User') . $title_extra,
+              '#default_value'      => !empty($argument_values[$num]) ? User::load($argument_values[$num]) : NULL,
+              '#target_type'        => 'user',
+              '#selection_handler'  => 'default:user',
               '#selection_settings' => [],
             ];
             $num++;

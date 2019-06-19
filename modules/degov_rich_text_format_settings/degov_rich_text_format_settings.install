@@ -1,9 +1,38 @@
 <?php
 
 /**
- * Removes or replaces the CKEditor DrupalLink button for a Linkit button.
+ * deGov 7.1.0 - Removes or replaces the CKEditor DrupalLink button for a Linkit button, removes buttons from lightning_media in rich_text editor.
  */
-function degov_rich_text_format_settings_update_871000() {
+function degov_rich_text_format_settings_update_870100() {
+  _degov_rich_text_format_settings_replace_drupallink_button();
+  _degov_rich_text_format_settings_remove_lightning_media_toolbar();
+}
+
+/**
+ * Removes buttons from lightning_media in rich_text editor.
+ */
+function _degov_rich_text_format_settings_remove_lightning_media_toolbar(): void {
+  $config = \Drupal::service('config.factory')
+    ->getEditable('editor.editor.rich_text');
+  if (empty($config)) {
+    return;
+  }
+  /* On a default install the first line buttons is
+   * from modules/lightning_media/config/install/editor.editor.rich_text.yml.
+   * And the second line from ./config/rewrite/editor.editor.rich_text.yml.
+   */
+  $configRows = $config->get('settings.toolbar.rows');
+  if (is_array($configRows) && \count($configRows) === 2) {
+    $configRows[0] = $configRows[1];
+    unset($configRows[1]);
+    $config->set('settings.toolbar.rows', $configRows)->save(TRUE);
+  }
+}
+
+/**
+ * Removes or replaces the CKEditor DrupalLink button for a Linkit button
+ */
+function _degov_rich_text_format_settings_replace_drupallink_button() {
   // Check if the Linkit module is enabled.
   if (!\Drupal::moduleHandler()->moduleExists('linkit')) {
     return;

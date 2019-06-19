@@ -96,7 +96,11 @@ class FilterHtmlDisallow extends FilterBase {
         $node->parentNode->removeChild($nodes->item($index));
       }
     }
-    return preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $dom->saveHTML($dom->documentElement));
+    $filteredHtml = $dom->saveHTML($dom->documentElement);
+    // saveHTML() will urlencode characters like square brackets, which we need to remain intact for the media_file_links input filter.
+    $filteredHtml = urldecode($filteredHtml);
+    $filteredHtml = preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $filteredHtml);
+    return $filteredHtml;
   }
 
   /**

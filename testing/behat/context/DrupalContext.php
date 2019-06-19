@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
@@ -28,6 +29,7 @@ class DrupalContext extends RawDrupalContext {
 	use TranslationTrait;
 
   private const MAX_DURATION_SECONDS = 1200;
+  private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /** @var array */
   protected $trash = [];
@@ -1020,6 +1022,51 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given I delete all content
+   */
+  public function iDeleteAllContent()
+  {
+    $mediaIds = \Drupal::entityQuery('media')->execute();
+    $mediaStorageHandler = \Drupal::entityTypeManager()->getStorage('media');
+    $media = $mediaStorageHandler->loadMultiple($mediaIds);
+    $mediaStorageHandler->delete($media);
+    $nodeIds = \Drupal::entityQuery('node')->execute();
+    $nodesStorageHandler = \Drupal::entityTypeManager()->getStorage('node');
+    $nodes = $nodesStorageHandler->loadMultiple($nodeIds);
+    $nodesStorageHandler->delete($nodes);
+  }
+
+  /**
+   * @Given I enter the menu placeholder for a :mediaBundle media file in :fieldSelector
+   */
+  public function iEnterTheMenuPlaceholderForAMediaFileInSpecificField(string $mediaBundle, string $fieldSelector): void {
+    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+      $this->getSession()->getPage()->find('css', $fieldSelector)->setValue('<media/file/' . $id . '>');
+    }
+  }
+
+  /**
+   * @Given I enter the placeholder for a :mediaBundle media file in textarea
+   */
+  public function iEnterThePlaceholderForAMediaFile(string $mediaBundle): void {
+    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+      $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper:first iframe").contents().find("p").text("[media/file/' . $id . ']")');
+    }
+  }
+
+  private function getMediaItemId($mediaBundle): ?int {
+    $mediaResult = \Drupal::entityQuery('media')
+      ->condition('bundle', $mediaBundle)
+      ->condition('status', 1)
+      ->range(0, 1)
+      ->execute();
+    if (\is_array($mediaResult) && \count($mediaResult) === 1) {
+      return reset($mediaResult);
+    }
+    return NULL;
+  }
+
+  /**
    * @Given /^I reset the demo content$/
    */
   public function resetDemoContent() {
@@ -1068,6 +1115,31 @@ class DrupalContext extends RawDrupalContext {
       ->getEditable('degov_simplenews.settings')
       ->set('privacy_policy', ['de' => '1'])
       ->save();
+  }
+
+  /**
+   * @Given /^I should see "([^"]*)" element visible on the page$/
+   */
+  public function iShouldSeeVisibleOnThePage($selector) {
+    $startTime = time();
+    $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
+    do {
+      $element = $this->getSession()->getPage();
+      $nodes = $element->findAll('css', $selector);
+      foreach ($nodes as $node) {
+        if ($node->isVisible()) {
+          return;
+        }
+      }
+    } while (time() - $startTime < $wait);
+
+    $nodes = $element->findAll('css', $selector);
+    if (count($nodes)) {
+      throw new \Exception("Element: \"$selector\" is not visible." . "\r\n" . $element->getHtml());
+    }
+    else {
+      throw new ElementNotFoundException($this->getSession(), 'css selector', $selector, "\r\n" . $element->getHtml());
+    }
   }
 
   /**

@@ -35,12 +35,21 @@ video_upload_1:
   name: 'A video upload'
   file: 'pexels-videos-1409899-standard.mp4'
   field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   status: 1
   field_include_search: 1
 document_1:
   bundle: 'document'
-  name: '{{SUBTITLE}}'
+  name: 'A document with a fixed title'
   file: 'dummy.pdf'
+  status: 1
+  field_include_search: 1
+document_2:
+  bundle: 'document'
+  name: '{{SUBTITLE}}'
+  file: 'word-document.docx'
   status: 1
   field_include_search: 1
 audio_1:
@@ -166,3 +175,6 @@ video_mobile_1:
   field_allow_download_hdready: 1
   field_include_search: 1
   field_video_mobile_preview: '{{MEDIA_ID_IMAGE}}'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'

@@ -53,7 +53,7 @@
         <nav class="navbar navbar-expand-sm">
           {{ page.top_header }}
           {% if social_icons %}
-            <div class="float-right d-none d-lg-inline-block d-xl-inline-block d-md-none">
+            <div class="pa-right d-none d-lg-inline-block d-xl-inline-block d-md-none">
               {% for social_icon in social_icons %}
               <a href="{{ social_icon['url'] }}" target="_blank" class="mr-2"><i class="{{ social_icon['font-awesome-classes'] }}"></i></a>
               {% endfor %}
@@ -113,7 +113,6 @@
   </div>
 </main>
 
-
 {% if page.footer %}
   <footer class="site-footer mt-3">
     <div class="container">
@@ -123,11 +122,9 @@
 {% endif %}
 
 {% if page.footer_bottom %}
-  <div class="footer-bottom-wrapper pt-4">
+  <div class="footer-bottom-wrapper pt-2 pb-2">
     <div class="container">
       {{ page.footer_bottom }}
     </div>
   </div>
 {% endif %}
-
-

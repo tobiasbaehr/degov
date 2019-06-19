@@ -1,4 +1,4 @@
-@api @drupal @demo
+@api @drupal @content
 Feature: deGov - Demo Content
 
   Background:
@@ -7,6 +7,8 @@ Feature: deGov - Demo Content
 
   Scenario: Check if all teasers will be displayed
     Given I am logged in as a user with the "administrator" role
+    And I delete all content
+    And I reset the demo content
     And I am on "/degov-demo-content/page-all-teasers"
     And I should see "Page with text paragraph"
     And I should see "Page with download paragraph"
@@ -21,6 +23,8 @@ Feature: deGov - Demo Content
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
     And I should see 60 ".paragraph__content article .image" elements
+    And I should see 68 ".paragraph__content article .teaser-title" elements
+    And I should see 51 ".paragraph__content article [class*=__teaser-text]" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role

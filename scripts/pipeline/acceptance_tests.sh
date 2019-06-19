@@ -24,6 +24,8 @@ docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MY
 
 composer create-project degov/degov-project --no-install degov-project
 cd degov-project
+COMPOSER_EXIT_ON_PATCH_FAILURE=1
+export COMPOSER_EXIT_ON_PATCH_FAILURE
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
@@ -37,11 +39,14 @@ echo '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
 echo '$settings["file_public_path"] = "sites/default/files";' >> docroot/sites/default/settings.php
 echo '$config["system.file"]["path"]["temporary"] = "/tmp";' >> docroot/sites/default/settings.php
-echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$"];' >> docroot/sites/default/settings.php
+echo '$settings["trusted_host_patterns"] = ["^127.0.0.1$","^localhost$","^host.docker.internal$"];' >> docroot/sites/default/settings.php
+echo '$config["locale.settings"]["translation"]["path"] = "sites/default/files/translations";' >> docroot/sites/default/settings.php
+
 echo '### Creating file system folders'
-mkdir docroot/sites/default/files/
-mkdir docroot/sites/default/files/private/
+mkdir -p docroot/sites/default/files/private/
+mkdir docroot/sites/default/files/translations/
 chmod 777 -R docroot/sites/default/files/
+
 echo "### Setting up Behat"
 mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
 mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
@@ -87,8 +92,24 @@ if [[ "$1" == "smoke_tests" ]]; then
     bin/drush upwd admin admin
     bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
-else
-    echo "### Running Behat features by tags"
+elif [[ "$1" == "backstopjs" ]]; then
+    echo "### Running BackstopJS test"
+    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+
+    # The following lines is for approving changes. Approving changes will update your reference files with the results
+    # from your last test. Future tests are compared against your most recent approved test screenshots. You must
+    # approve the tests and then test again for getting a successful test result in the html report.
+#    echo "### Approving changes"
+#    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
+#
+#    echo "### Running BackstopJS"
+#    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+
+    echo "### Dumping BackstopJS output"
+    (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+
+elif [[ "$1" != "backstopjs" ]]; then
+    echo "### Running Behat features by tags: $1"
     behat -c behat.yml --suite=default --tags="$1" --strict
 fi
 

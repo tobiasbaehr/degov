@@ -29,3 +29,6 @@ Thumbs.db
 /vendor
 /bin
 phpunit.xml
+
+testing/backstopjs/backstop_data/bitmaps_test
+testing/backstopjs/backstop_data/html_report

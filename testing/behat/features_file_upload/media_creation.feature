@@ -17,12 +17,15 @@ Feature: deGov - Media creation
     And I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
     And I fill in "Example address public" for "Öffentlicher Titel"
+    Then I fill in "DE" for "Land"
+    And I wait 1 seconds
     And I should see HTML content matching "Straße" after a while
     And I select "DE" in "edit-field-address-address-0-address-country-code--2"
     And I wait 3 seconds
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
     And I fill in "Düsseldorf" for "Stadt"
+    And I scroll to top
     And I click "General" via translation
     And I check the box "Mediathek"
     And I scroll to element with id "edit-submit"
@@ -277,7 +280,7 @@ Feature: deGov - Media creation
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
     And I choose "Beschreibung" from tab menu
-    And I check checkbox with id "edit-field-royalty-free-value"
+    And I check checkbox with id "edit-field-royalty-free-value" by JavaScript
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
