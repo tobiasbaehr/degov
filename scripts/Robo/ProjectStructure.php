@@ -6,6 +6,15 @@ use degov\Scripts\Robo\Exception\WrongFolderLocation;
 
 class ProjectStructure extends \Robo\Tasks {
 
+  /**
+   * @var string
+   */
+  private $rootFolderLocation;
+
+  public function __construct(string $rootFolderLocation) {
+    $this->rootFolderLocation = $rootFolderLocation;
+  }
+
   public function checkCorrectProjectStructure(string $distro): void {
     $this->checkBaseDistroFolder();
     $this->checkDistroFolder($distro);
@@ -13,7 +22,7 @@ class ProjectStructure extends \Robo\Tasks {
   }
 
   private function checkDocrootFolder(): void {
-    $command = 'ls ../../../../../../ | grep docroot';
+    $command = 'ls ' . $this->rootFolderLocation . ' | grep docroot';
     exec($command, $output);
     if (empty($output)) {
       throw new WrongFolderLocation('docroot folder is in wrong location.');
@@ -25,7 +34,7 @@ class ProjectStructure extends \Robo\Tasks {
   }
 
   private function checkDistroFolder(string $distro): void {
-    $command = 'ls ../../../../../../docroot/profiles/contrib | grep ' . $distro;
+    $command = 'ls ' . $this->rootFolderLocation . '/docroot/profiles/contrib | grep ' . $distro;
     exec($command, $output);
     if (empty($output)) {
       throw new WrongFolderLocation($distro . ' folder is in wrong location.');

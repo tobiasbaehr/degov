@@ -9,3 +9,11 @@ The verbose mode shows you, what happens in detail. E.g. Composer output. Otherw
 ```
 composer degov-update -- -vvv
 ```
+
+## Tell Robo its RoboFile.php
+
+The `--load-from` parameter is useful, if you want to run Robo from a location where no `RoboFile.php` is present:
+
+```
+./bin/robo degov:update --load-from docroot/profiles/contrib/degov/scripts/Robo/RoboFile.php
+```

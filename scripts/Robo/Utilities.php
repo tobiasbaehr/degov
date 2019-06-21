@@ -25,4 +25,23 @@ class Utilities {
     }
   }
 
+  public static function determineLatestReleaseDevBranch(string $branches): string {
+    $allBranches = explode(' ', $branches);
+    $branchVersionCombinations = [];
+
+    foreach ($allBranches as $branch) {
+      $version = preg_replace('/[^0-9]/', '', $branch);
+      if (is_numeric(strpos($branch, 'remotes/origin/release/')) && is_numeric(strpos($branch, '-dev'))) {
+        if (\strlen($version) > 2) {
+          $version = substr($version, 0, 2);
+        }
+        $branchVersionCombinations[$version] = $branch;
+      }
+    }
+
+    ksort($branchVersionCombinations);
+
+    return array_pop($branchVersionCombinations);
+  }
+
 }

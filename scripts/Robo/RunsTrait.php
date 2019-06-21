@@ -9,7 +9,18 @@ use Symfony\Component\Yaml\Yaml;
 
 trait RunsTrait {
 
-  private $rootFolder = '../../../../../../';
+  private $rootFolderPath;
+
+  protected function init(): void {
+    $rootFolderAbsolutePath = $this->taskExecStack()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+      ->exec('pwd')
+      ->printOutput(FALSE)
+      ->run()
+      ->getMessage();
+
+    $this->rootFolderPath = $rootFolderAbsolutePath;
+  }
 
   protected function runComposerUpdate(): void {
     $this->say('Proceeding with update.');
@@ -17,7 +28,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& composer update nrwgov/nrwgov --with-dependencies')
+      ->exec('cd ' . $this->rootFolderPath . '&& composer update nrwgov/nrwgov --with-dependencies')
       ->run();
 
     $this->say('Finished Composer update.');
@@ -28,7 +39,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& drush locale-check')
+      ->exec('cd ' . $this->rootFolderPath . '&& drush locale-check')
       ->run();
 
     $this->say('Finished translation updates check..');
@@ -37,7 +48,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& drush locale-update')
+      ->exec('cd ' . $this->rootFolderPath . '&& drush locale-update')
       ->run();
 
     $this->say('Finished translation update.');
@@ -48,7 +59,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& drush updb')
+      ->exec('cd ' . $this->rootFolderPath . '&& drush updb')
       ->run();
 
     $this->say('Finished running Drupal update hooks.');
@@ -59,7 +70,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& drush entup')
+      ->exec('cd ' . $this->rootFolderPath . '&& drush entup')
       ->run();
 
     $this->say('Finished running entity updates.');
@@ -70,7 +81,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& drush cex')
+      ->exec('cd ' . $this->rootFolderPath . '&& drush cex')
       ->run();
 
     $this->say('Finished exporting configuration from storage into filesystem.');
@@ -83,7 +94,7 @@ trait RunsTrait {
 
     $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolder . '&& cd docroot/themes/nrw/nrw_base_theme && ' . $pathToNpm . ' i')
+      ->exec('cd ' . $this->rootFolderPath . '&& cd docroot/themes/nrw/nrw_base_theme && ' . $pathToNpm . ' i')
       ->run();
 
     $this->say('Finished installation of NPM packages in NRW base theme.');
@@ -98,7 +109,7 @@ trait RunsTrait {
       if ($themeConfig['default'] !== 'nrw_base_theme') {
         $pathToNpm = $this->getCommandOutput('which npm');
 
-        $this->_exec('cd ' . $this->rootFolder . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && ' . $pathToNpm . ' i');
+        $this->_exec('cd ' . $this->rootFolderPath . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && ' . $pathToNpm . ' i');
       }
       $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
     } else {
@@ -108,7 +119,7 @@ trait RunsTrait {
   }
 
   protected function checkRequirements(string $distro = 'degov'): void {
-    $projectStructure = new ProjectStructure();
+    $projectStructure = new ProjectStructure($this->rootFolderPath);
 
     try {
       if ($projectStructure->checkCorrectProjectStructure($distro)) {
@@ -131,14 +142,112 @@ trait RunsTrait {
     }
   }
 
-  private function getCommandOutput(string $command): string {
-    $commandOutput = $this->taskExecStack()
-      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+  private function getCommandOutput(string $command, $customLocation = null): string {
+    $taskExecStack = $this->taskExecStack()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG);
+
+    if ($customLocation) {
+      $taskExecStack = $taskExecStack
+        ->exec('cd ' . $customLocation);
+    }
+
+    $commandOutput = $taskExecStack
       ->exec($command)
+      ->printOutput(FALSE)
       ->run()
       ->getMessage();
 
     return Utilities::removeCliLineBreaks($commandOutput);
+  }
+
+  protected function newGitBranch($gitBranchLocation, $gitBranchName, $latestReleaseDevBranch = null): void {
+    if (empty($latestReleaseDevBranch)) {
+      $allBranches = $this->getCommandOutput('git branch --all', $gitBranchLocation);
+      $latestReleaseDevBranch = Utilities::determineLatestReleaseDevBranch($allBranches);
+    }
+
+    $this->ensureCleanGitTree($gitBranchLocation);
+
+    $taskGitStack = $this->taskExecStack();
+
+    if ($gitBranchLocation) {
+      $taskGitStack
+        ->exec('cd ' . $gitBranchLocation);
+    }
+
+    $taskGitStack
+      ->exec('git fetch')
+      ->exec('git checkout -b ' . $gitBranchName . ' ' . $latestReleaseDevBranch)
+      ->run();
+  }
+
+  private function isGitRemoteOrigin(string $folderLocation, string $gitRemoteOrigin): bool {
+    $remoteInfo = $this->taskExecStack()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+      ->exec('cd ' . $folderLocation)
+      ->exec('git remote show origin')
+      ->printOutput(FALSE)
+      ->run()
+      ->getMessage();
+
+    if (!is_numeric(strpos($remoteInfo, $gitRemoteOrigin))) {
+      return FALSE;
+    }
+
+    return TRUE;
+  }
+
+  protected function ensureGitRepo(string $projectFolderLocation, string $gitRemoteOrigin, string $projectFolderName): void {
+    if (!$this->isGitRemoteOrigin($projectFolderLocation, $gitRemoteOrigin)) {
+      $this->say('Could not find remote origin. Cloning repository from '. $gitRemoteOrigin . '.');
+
+      $this->taskExecStack()
+        ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
+        ->exec('cd ' . $projectFolderLocation . '/..')
+        ->exec('rm -rf ' . $projectFolderName)
+        ->exec('git clone ' . $gitRemoteOrigin)
+        ->run();
+
+      if (!$this->isGitRemoteOrigin($projectFolderLocation, $gitRemoteOrigin)) {
+        throw new \Exception('Could not find ' . $gitRemoteOrigin . ' remote origin, after Git clone try. Exiting.');
+      }
+      else {
+        $this->say('Repository clone from ' . $gitRemoteOrigin . ' has been successful.');
+      }
+    }
+  }
+
+  private function ensureCleanGitTree($gitBranchLocation): void {
+    $this->say('Check Git branch state.');
+    $gitStatus = $this->getCommandOutput('git status', $gitBranchLocation);
+    if (!is_numeric(strpos($gitStatus, 'working tree clean'))) {
+      if (!$this->confirm('Your Git working tree is not clean. If you have no important changes, I can wipe the unsaved changes for you. Shall I do that?')) {
+        throw new \Exception('Exiting because of not clean Git working tree. Commit the changes via Git or try "git clean -f" for wiping uncommited files or wipe staged files via "git reset HEAD --hard".');
+      }
+
+      $this->say('Resetting Git branch.');
+
+      $taskExecStack = $this->taskExecStack()
+        ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG);
+
+      if ($gitBranchLocation) {
+        $taskExecStack
+          ->exec('cd ' . $gitBranchLocation);
+      }
+
+      $taskExecStack
+        ->exec('cd `git rev-parse --show-toplevel`')
+        ->exec('git clean -f')
+        ->exec('git reset HEAD --hard')
+        ->run();
+
+      $gitStatus = $this->getCommandOutput('git status', $gitBranchLocation);
+      if (!is_numeric(strpos($gitStatus, 'working tree clean'))) {
+        throw new \Exception('Git branch still not clean.');
+      }
+    }
+
+    $this->say('Git branch is clean. Checking out new Git branch from latest release dev branch.');
   }
 
 }
