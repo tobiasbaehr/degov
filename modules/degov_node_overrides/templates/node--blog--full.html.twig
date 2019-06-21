@@ -32,12 +32,12 @@
     </div>
   {% endif %}
 
-  <div class="content-header__text">
+  <div class="blog__header header">
     <div class="content-header__media-info"></div>
     {# date #}
     <div class="blog__header-date"{{ content.field_blog_date|quickedit_attr }}>{{ content.field_blog_date|field_value }}</div>
 
-    <div class="blog__header header">
+    <div class="content-header__text">
       <h2>{{ label }}</h2>
       {% if content.field_teaser_sub_title %}
         <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
