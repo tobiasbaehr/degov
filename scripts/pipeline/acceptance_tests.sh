@@ -5,6 +5,8 @@
 set -e
 
 touch $BITBUCKET_CLONE_DIR/php_error.log
+mv /etc/php/7.2/cli/php_more_upload.ini /etc/php/7.2/cli/php.ini
+echo "log_errors = On" >> /etc/php/7.2/cli/php.ini
 echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
 echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
 
@@ -26,13 +28,13 @@ composer create-project degov/degov-project --no-install degov-project
 cd degov-project
 COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
-composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
+composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
 composer dump-autoload
 echo "### Configuring PHP"
-(cd docroot && screen -dmS php-server php -d memory_limit=256M -d error_log=$BITBUCKET_CLONE_DIR/php_error.log -c /etc/php/7.1/cli/php_more_upload.ini -S 0.0.0.0:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -c /etc/php/7.2/cli/php.ini -S 0.0.0.0:80 .ht.router.php)
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 echo "### Configuring drupal"
 echo '### Setting file system paths'
@@ -66,6 +68,7 @@ if [[ "$2" == "db_dump" ]]; then
     sed -i 's/{{ mysql_host }}/127.0.0.1/g' docroot/sites/default/settings.local.php
     echo '$settings["install_profile"] = "degov";' >> docroot/sites/default/settings.local.php
     echo '$settings["hash_salt"] = "7asdiugasd8f623gjwgasgf7a8stfasjdfsdafasdfasdfasdf";' >> docroot/sites/default/settings.local.php
+
     echo "### Drop any existing db"
     bin/drush sql:drop -y
     echo "### Importing db dump"
@@ -110,7 +113,7 @@ elif [[ "$1" == "backstopjs" ]]; then
 
 elif [[ "$1" != "backstopjs" ]]; then
     echo "### Running Behat features by tags: $1"
-    behat -c behat.yml --suite=default --tags="$1" --strict
+    behat -c behat.yml --suite=default --tags="$1" --strict -vvv --stop-on-failure
 fi
 
 # For debugging via db dump
