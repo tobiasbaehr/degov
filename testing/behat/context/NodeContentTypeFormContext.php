@@ -136,10 +136,9 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     $nodeLastRevision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($latestRevisionId);
     $latestRevisionState = $nodeLastRevision->get('moderation_state')->getString();
 
-    if($state === $latestRevisionState) {
+    if ($state === $latestRevisionState) {
       return;
     }
-
     throw new \Exception("No node with title '$title' and moderation state '$state'. Instead got state '$latestRevisionState'. Got '$numRevisionIds' revision ids.");
   }
 

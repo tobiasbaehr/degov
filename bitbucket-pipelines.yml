@@ -14,6 +14,8 @@ pipelines:
             - composer
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
+          artifacts:
+            - php_error.log
       - step:
           name: Content features
           caches:
@@ -246,5 +248,6 @@ definitions:
   services:
     testing:
       image: darksolar/selenium-chrome-headless
+      memory: 2048
     docker:
       memory: 2048

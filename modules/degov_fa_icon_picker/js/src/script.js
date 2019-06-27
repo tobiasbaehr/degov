@@ -1,4 +1,4 @@
-import 'fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js';
+import 'fontawesome';
 
 (($) => {
 

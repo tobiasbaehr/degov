@@ -25,10 +25,6 @@ module.exports = {
         to: './fontawesome-iconpicker.js',
       },
       {
-        from: './node_modules/fontawesome/',
-        to: './fontawesome/',
-      },
-      {
         from: './node_modules/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.css',
         to: './fontawesome-iconpicker.css',
       },

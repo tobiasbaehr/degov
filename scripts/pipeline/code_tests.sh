@@ -2,6 +2,7 @@
 set -e
 
 touch $BITBUCKET_CLONE_DIR/php_error.log
+echo "log_errors = On" >> /etc/php/7.2/cli/php.ini
 echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
 echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
 
@@ -19,7 +20,7 @@ done
 
 composer create-project degov/degov-project --no-install
 cd degov-project
-composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" weitzman/drupal-test-traits:1.0.0-alpha.1 --update-with-dependencies
+composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php

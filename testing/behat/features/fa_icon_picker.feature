@@ -1,4 +1,4 @@
-@api @drupal
+@api @drupal @form
 Feature: deGov - Font Awesome Icon Picker
 
   Background:
@@ -9,4 +9,4 @@ Feature: deGov - Font Awesome Icon Picker
     And I am on "/admin/structure/menu/manage/main/add"
     And I click by XPath "//*[@id='edit-link-0-options-attributes']/summary"
     And I click by XPath "//*[@id='class']"
-    And I should see HTML content matching "iconpicker-popover"
+    And I should see ".iconpicker-popover" element visible on the page

@@ -11,10 +11,17 @@
       And I fill in "010000AM" for "edit-field-scheduled-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
-      And I am on "/admin/content"
+      And I wait 60 seconds
+      And I am on "/admin/config/system/cron/jobs"
+      And I should see HTML content matching "/modules/contrib/ultimate_cron/icons/hourglass.png"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
+      And I proof content with title "Creating node with scheduled publish" has moderation state "draft"
       And I run the cron
-      And I click "Creating node with scheduled publish"
-      And I should see HTML content matching "Creating node with scheduled publish" after a while
+      And I am on "/admin/config/system/cron/jobs"
+      And I should not see HTML content matching "/modules/contrib/ultimate_cron/icons/hourglass.png"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
+      And I am on "/admin/config/system/cron/jobs/logs/scheduled_publish_cron"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
       And I proof content with title "Creating node with scheduled publish" has moderation state "published"
 
     Scenario: deGov Creating node with scheduled publish - No update
@@ -27,7 +34,14 @@
       And I fill in "010000AM" for "edit-field-scheduled-publish-0-value-time"
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
+      And I wait 60 seconds
+      And I am on "/admin/config/system/cron/jobs"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
+      And I should see HTML content matching "/modules/contrib/ultimate_cron/icons/hourglass.png"
       And I run the cron
-      And I am on "/admin/content"
-      And I click "Test"
+      And I am on "/admin/config/system/cron/jobs"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
+      And I should not see HTML content matching "/modules/contrib/ultimate_cron/icons/hourglass.png"
+      And I am on "/admin/config/system/cron/jobs/logs/scheduled_publish_cron"
+      And I should not see HTML content matching "/core/misc/icons/e32700/error.svg"
       And I proof content with title "Test" has moderation state "draft"
