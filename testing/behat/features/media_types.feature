@@ -273,3 +273,11 @@ Feature: deGov - Media types
     Then I am on "/admin/structure/media/manage/video_upload"
     Then I am on "/admin/structure/media/manage/person"
     Then I am on "/admin/structure/media/manage/audio"
+
+  Scenario: I verify that the quality switcher works
+    Given I am on "/degov-demo-content/page-responsive-video"
+    And I should see 1 "video" elements
+    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-standard"
+    And I should see 5 ".video-mobile__quality select option" elements
+    Then I select index 3 in dropdown named "video-mobile-quality"
+    And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-full-hd"
