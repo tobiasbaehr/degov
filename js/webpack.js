@@ -5,7 +5,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     degov_media_video_mobile: [
-      'babel-polyfill',
+      'core-js/stable',
+      'regenerator-runtime/runtime',
       './../modules/degov_media_video_mobile/js/video_mobile.js',
     ],
   },

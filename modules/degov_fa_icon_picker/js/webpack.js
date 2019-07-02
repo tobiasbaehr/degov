@@ -5,7 +5,6 @@ const path = require('path')
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     './src/script.js'
   ],
   output: {
@@ -23,10 +22,6 @@ module.exports = {
       {
         from: './node_modules/fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js',
         to: './fontawesome-iconpicker.js',
-      },
-      {
-        from: './node_modules/fontawesome/',
-        to: './fontawesome/',
       },
       {
         from: './node_modules/fontawesome-iconpicker/dist/css/fontawesome-iconpicker.css',

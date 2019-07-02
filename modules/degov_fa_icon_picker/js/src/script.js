@@ -1,4 +1,6 @@
-import 'fontawesome-iconpicker/dist/js/fontawesome-iconpicker.js';
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import 'fontawesome';
 
 (($) => {
 
