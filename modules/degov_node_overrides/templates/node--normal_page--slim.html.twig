@@ -97,7 +97,7 @@
   {% endif %}
 
   <div class="normal-page__teaser-content teaser-content {{ class_content }}">
-    {% if content.field_teaser_title %}
+    {% if content.field_teaser_title|field_value %}
       <a href="{{ url }}" rel="bookmark">
         <div class="normal-page__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>

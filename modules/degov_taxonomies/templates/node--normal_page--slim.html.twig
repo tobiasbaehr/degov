@@ -102,7 +102,7 @@ view_mode ? view_mode|clean_class,
         <span{{ content.field_topic|quickedit_attr }}>{{ content.field_topic }}</span>
       </div>
     {% endif %}
-    {% if content.field_teaser_title %}
+    {% if content.field_teaser_title|field_value %}
       <a href="{{ url }}" rel="bookmark">
         <div class="normal-page__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>

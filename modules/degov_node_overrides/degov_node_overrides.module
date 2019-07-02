@@ -79,16 +79,3 @@ function degov_node_overrides_preprocess_paragraph(&$variables) {
     }
   }
 }
-
-/**
- * Implements hook_node_presave().
- */
-function degov_node_overrides_node_presave(NodeInterface $node) {
-  // Set node title as teaser title of teaser title is empty.
-  if ($node->hasField('field_teaser_title')) {
-    $value = trim($node->field_teaser_title->value);
-    if (empty($value)) {
-      $node->set('field_teaser_title', $node->getTitle());
-    }
-  }
-}
