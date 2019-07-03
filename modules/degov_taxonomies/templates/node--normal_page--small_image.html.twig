@@ -87,10 +87,10 @@ view_mode ? view_mode|clean_class,
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  {% if content.field_teaser_image %}
+  {% if content.field_teaser_image|render|spaceless is not empty %}
     <a href="{{ url }}" rel="bookmark">
       <div class="normal-page__teaser-image teaser-image {{ class_sidebar }}">
-        {{ content.field_teaser_image|field_value }}
+        {{ content.field_teaser_image|render }}
       </div>
     </a>
   {% endif %}

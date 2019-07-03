@@ -35,7 +35,7 @@ page_with_text_sidebar:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with text paragraph in sidebar'
   field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: ''
   field_content_paragraphs:
     - text_1
   field_sidebar_right_paragraphs:
