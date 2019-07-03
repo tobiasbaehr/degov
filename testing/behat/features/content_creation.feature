@@ -90,9 +90,9 @@ Feature: deGov - Content creation
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/simplenews_issue"
-    And I should see "Titel"
-    And I should see "Textkörper"
-    And I should see "Newsletter"
+    And I should see text matching "Title" via translated text
+    And I should see text matching "Newsletter" via translated text
+    And I should see text matching "Body" via translated text
 
   Scenario: I see all form fields in press content type
     Given I am logged in as a user with the "administrator" role

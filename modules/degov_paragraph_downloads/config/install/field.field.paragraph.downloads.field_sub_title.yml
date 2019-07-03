@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   config:
@@ -11,7 +11,7 @@ id: paragraph.downloads.field_sub_title
 field_name: field_sub_title
 entity_type: paragraph
 bundle: downloads
-label: Untertitel
+label: Subtitle
 description: ''
 required: false
 translatable: true

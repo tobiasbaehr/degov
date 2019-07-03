@@ -39,3 +39,24 @@ Feature: deGov - Paragraphs
     And I should not see text matching "Titel anzeigen" after a while
     And I should not see text matching "Titel übersteuern" after a while
     And I should not see HTML content matching "edit-field-sidebar-right-paragraphs-0-subform-field-block-plugin-0-settings-views-label-fieldset"
+
+  Scenario: Paragraph Download type has its fields correctly translated
+    Given I am logged in as a user with the "administrator" role
+    Then I am installing the following Drupal modules:
+      | degov_paragraph_downloads          |
+    And I am on "/admin/structure/paragraphs_type/downloads/fields"
+    Then I should see text matching "Dateien"
+    And I should see text matching "Untertitel"
+    And I should see text matching "Titel"
+    And I should see text matching "Titellink"
+    Then I am on "/admin/config/regional/language/add"
+    And I select "Englisch" in "edit-predefined-langcode"
+    And I press button with label "Add language" via translated text
+    Then I should see text matching "Add language" via translation after a while
+    Then I set the privacy policy page for all languages
+    And I clear the cache
+    And I am on "/en/admin/structure/paragraphs_type/downloads/fields"
+    And I should see text matching "Files"
+    And I should see text matching "Subtitle"
+    And I should see text matching "Title"
+    And I should see text matching "Title Link"

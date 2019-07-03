@@ -143,6 +143,28 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I should see HTML content matching "([^"]*)" via translated text$/
+   * @Then /^I should see HTML content matching '([^']*)' via translated text$/
+   */
+  public function iShouldSeeHTMLContentTranslatedMatching(string $content)
+  {
+    if (ctype_upper($content)) {
+      $translatedText = mb_strtoupper($this->translateString($content));
+    } else {
+      $translatedText = $this->translateString($content);
+    }
+
+    $html = $this->getSession()->getPage()->getHtml();
+    if (substr_count($html, $translatedText) > 0) {
+      return true;
+    }
+
+    throw new TextNotFoundException(
+      sprintf('HTML does not contain content "%s"', $translatedText),
+      $this->getSession());
+  }
+
+  /**
    * @Then /^I should not see HTML content matching "([^"]*)"$/
    * @Then /^I should not see HTML content matching '([^']*)'$/
    */

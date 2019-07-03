@@ -10,24 +10,24 @@ Feature: deGov - Content type form
   Scenario: Check if all vertical tabs and advanced widgets are available
     Given I am logged in as a user with the "administrator" role
     Then I am on "/node/add/normal_page"
-    And I should see text matching "Title" via translated text
-    And I should see text matching "Preview" via translated text
-    And I should see text matching "General" via translated text
-    And I should see text matching "Header" via translated text
-    And I should see text matching "Seitenleiste rechts"
-    And I should see text matching "Content" via translated text
-    And I should see text matching "Vorschau Titel"
-    And I should see text matching "Vorschau Text"
-    And I should see text matching "Text format" via translated text
+    And I should see HTML content matching "Title" via translated text
+    And I should see HTML content matching "Preview" via translated text
+    And I should see HTML content matching "General" via translated text
+    And I should see HTML content matching "Header" via translated text
+    And I should see HTML content matching "Seitenleiste rechts"
+    And I should see HTML content matching "Content" via translated text
+    And I should see HTML content matching "Vorschau Titel"
+    And I should see HTML content matching "Vorschau Text"
+    And I should see HTML content matching "Text format" via translated text
     And I should see text matching "VORSCHAU BILD"
-    And I should see text matching "Vorschau Untertitel"
-    And I should see text matching "Save as" via translated text
-    And I should see text matching "Last saved" via translated text
-    And I should see text matching "Revision log message" via translated text
-    And I should see text matching "Menu settings" via translated text in uppercase
-    And I should see text matching "URL alias" via translated text in uppercase
-    And I should see text matching "Authoring information" via translated text in uppercase
-    And I should see text matching "Promotion options" via translated text in uppercase
+    And I should see HTML content matching "Vorschau Untertitel"
+    And I should see HTML content matching "Save as" via translated text
+    And I should see HTML content matching "Last saved" via translated text
+    And I should see HTML content matching "Revision log message" via translated text
+    And I should see HTML content matching "Menu settings" via translated text
+    And I should see HTML content matching "URL alias" via translated text
+    And I should see HTML content matching "Authoring information" via translated text
+    And I should see HTML content matching "Promotion options" via translated text
 
   Scenario: Add content to normal page
     Given I am logged in as a user with the "administrator" role
