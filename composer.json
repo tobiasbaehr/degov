@@ -241,7 +241,7 @@
                 "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
             },
             "drupal/entity_browser": {
-                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2877751-27-8.x-2.x.patch"
+                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
             }
         },
         "autoload-dev": {
