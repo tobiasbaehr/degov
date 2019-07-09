@@ -41,3 +41,12 @@ function degov_social_media_settings_update_870100() {
 
   $config->setData($newConfigData)->save();
 }
+
+/**
+ * Place the social_media_settings block to proper region.
+ */
+function degov_social_media_settings_update_870200() {
+  /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_social_media_settings', '870200');
+}

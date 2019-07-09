@@ -11,7 +11,7 @@ function degov_search_content_install() {
 }
 
 /**
- * update topic filter for search content
+ * Update topic filter for search content.
  */
 function degov_search_content_update_8010() {
 
@@ -32,7 +32,7 @@ function degov_search_content_update_8010() {
 }
 
 /**
- * deGov Update 6.0.0 - Remove the "Ignore characters" filter from the content type field
+ * Update 6.0.0 - Remove the "Ignore characters" filter from the content type field
  */
 function degov_search_content_update_860000() {
   $config = \Drupal::configFactory()->getEditable('search_api.index.search_content');
@@ -49,11 +49,20 @@ function degov_search_content_update_860000() {
 }
 
 /**
- * deGov Update 7.0.0 - Update the search content tags facet block name.
+ * Update 7.0.0 - Update the search content tags facet block name.
  */
 function degov_search_content_update_870000() {
   $configFactory = \Drupal::service('config.factory');
   $config = $configFactory->getEditable('facets.facet.search_content_tags');
   $config->set('name', 'Schlagworte (Inhalt)');
   $config->save(TRUE);
+}
+
+/**
+ * Place the search for to the top search_form region.
+ */
+function degov_search_content_update_870200() {
+  /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_search_content', '870200');
 }

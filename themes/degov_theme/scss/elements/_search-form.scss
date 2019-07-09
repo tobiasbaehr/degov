@@ -1,73 +1,71 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 
-.seach-form-wrapper {
-  position: relative;
-  .contextual {
-    right: -30px;
+.search-form-icon {
+  button {
+    border: none;
+    outline: none;
+    padding-top: $font-size-base * .8;
+    padding-bottom: $font-size-base * .5;
+    i {
+      font-size: $font-size-base * 1.25;
+    }
   }
-  form {
-    background-color: $white;
-    width: 100%;
-    label {
-      display: none;
+}
+.search-form-wrapper {
+  background-color: $light-blue;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  .block-degov-search-content {
+    position: relative;
+    .contextual {
+      right: -30px;
     }
-    .form-item {
-      margin-top: 0;
-      margin-bottom: 0;
-      &.form-type-textfield {
-        width: 100%;
-        input[type="text"] {
-          padding: 0.5rem;
-          width: 100%;
-          min-height: 2.5rem;
-        }
+
+    form {
+      width: 100%;
+
+      label {
+        display: none;
       }
-    }
-    [data-drupal-selector="edit-actions"] {
-      position: absolute;
-      right: 16px;
-      top: 2px;
-      margin-top: 0;
-      margin-bottom: 0;
-      width: 25px;
-      button[type="submit"].btn-primary {
-        &:focus {
-          width: 25px;
-          border: none;
-          background-color: transparent;
-          box-shadow: none;
-        }
-        &:active {
-          color: $black;
-          background-color: transparent;
-          border-color: transparent;
-        }
-        .button-text {
-          text-indent: -9999px;
-          display: inline-block;
-          padding: 5px 0;
-        }
-        .fa-placeholder-left {
-          display: inline-block;
-          width: 25px;
-          height: 25px;
-          @extend .fa;
-          &:before {
-            text-indent: 100%;
-            content: fa-content($fa-var-search);
-            font-size: 1.2rem;
+
+      .form-item {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &.form-type-textfield {
+          width: 100%;
+
+          input[type="text"] {
+            background-color: $light-blue;
+            border: none;
+            padding: 0.5rem 0;
+            width: 100%;
+            min-height: 4rem;
+            outline: none;
+
+            &::placeholder {
+              color: $white;
+            }
           }
         }
-        transition: none;
-        border: none;
-        display: inline-block;
-        width: 25px;
-        background: transparent;
-        border: transparent;
-        color: $black;
+      }
+
+      [data-drupal-selector="edit-actions"] {
+        display: none;
+      }
+    }
+
+    .x-close {
+      position: absolute;
+      top: 33%;
+      right: 0;
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
-
 }

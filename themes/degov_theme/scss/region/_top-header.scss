@@ -1,13 +1,19 @@
 .top-header-wrapper {
-  height: $font-size-base * 4;
+  height: $font-size-base * 2.8;
   background-color: $blue;
   color: $white;
+  nav.navbar {
+    padding: 0;
+  }
   .navbar-nav {
     flex-direction: row;
     .nav-item {
       @extend .mr-3;
       @include media-breakpoint-up(lg) {
         margin-right: initial !important;
+      }
+      &:first-of-type {
+        padding-left: 0;
       }
     }
   }

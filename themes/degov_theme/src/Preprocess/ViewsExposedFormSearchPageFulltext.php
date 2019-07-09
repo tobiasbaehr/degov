@@ -10,6 +10,14 @@ class ViewsExposedFormSearchPageFulltext {
   use StringTranslationTrait;
 
   public function preprocess(array &$vars, $hook): void {
+    if ($hook == 'views_exposed_form') {
+      if (substr_count($vars['form']['#id'], 'views-exposed-form-search-content') === 1) {
+        if (isset($vars['form']['volltext'])) {
+          $vars['form']['volltext']['#attributes']['placeholder'] = $this->t('Enter a search term...');
+        }
+      }
+    }
+
     if (!in_array($hook, ['views_exposed_form__search_content', 'views_exposed_form__search_media'])) {
       return;
     }

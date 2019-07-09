@@ -27,14 +27,12 @@
 #}
 {%
   set classes = [
-  'block',
-  'block-' ~ configuration.provider|clean_class,
-  'block-' ~ plugin_id|clean_class,
-]
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'mr-auto',
+  ]
 %}
-
-{{ attach_library('degov_theme/search-form') }}
-
 <div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {% if label %}
@@ -43,8 +41,5 @@
   {{ title_suffix }}
   {% block content %}
     {{ content }}
-    <div class="x-close">
-      <i class="fas fa-times"></i>
-    </div>
   {% endblock %}
 </div>

@@ -25,3 +25,7 @@ video-control:
 search-sorts-improvements:
   js:
     javascript/search-sorts-improvements.js: {}
+
+search-form:
+  js:
+    javascript/search-form.js: {}

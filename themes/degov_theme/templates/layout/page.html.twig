@@ -47,19 +47,35 @@
 
 <header>
 
-  {% if page.top_header %}
+  {% if page.top_header or page.search_form %}
     <div class="top-header-wrapper">
       <div class="container">
-        <nav class="navbar navbar-expand-sm">
+        <nav class="navbar navbar-expand-sm d-flex">
           {{ page.top_header }}
           {% if social_icons %}
-            <div class="pa-right d-none d-lg-inline-block d-xl-inline-block d-md-none">
+            <div class="d-none d-lg-inline-block d-xl-inline-block d-md-none">
               {% for social_icon in social_icons %}
-              <a href="{{ social_icon['url'] }}" target="_blank" class="mr-2"><i class="{{ social_icon['font-awesome-classes'] }}"></i></a>
+              <a href="{{ social_icon['url'] }}" target="_blank" class="mr-2">
+                <i class="{{ social_icon['font-awesome-classes'] }}"></i>
+              </a>
               {% endfor %}
             </div>
           {% endif %}
+          {% if page.search_form %}
+            <div class="search-form-icon">
+              <button type="button" class="bg-light-blue pr-3 pl-3">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          {% endif %}
         </nav>
+        {% if page.search_form %}
+          <div class="search-form-wrapper d-none">
+            <div class="container">
+              {{ page.search_form }}
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   {% endif %}
@@ -72,7 +88,7 @@
     </div>
   {% endif %}
 
-  {% if page.navigation or page.search_form %}
+  {% if page.navigation %}
     <div class="degov-navbar-wrapper">
       <div class="container">
         <nav class="navbar navbar-expand-lg degov-navbar">
@@ -87,11 +103,6 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{ page.navigation }}
-            {% if page.search_form %}
-              <div class="seach-form-wrapper my-2 my-lg-0">
-              {{ page.search_form }}
-              </div>
-            {% endif %}
           </div>
           {% endif %}
         </nav>

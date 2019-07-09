@@ -5824,15 +5824,25 @@ template {
   background-color: #E6E8EA;
   color: #2C2C2C;
   border-bottom: #CECECE 2px solid; }
-  .degov-navbar-wrapper a {
-    color: #2C2C2C; }
-  .degov-navbar-wrapper .navbar-toggler {
-    color: rgba(0, 0, 0, 0.5);
-    border-color: rgba(0, 0, 0, 0.1); }
-    .degov-navbar-wrapper .navbar-toggler .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
-  .degov-navbar-wrapper .dropdown-toggle::after {
-    content: none; }
+  .degov-navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0; }
+    .degov-navbar-wrapper .navbar .navbar-toggler {
+      color: rgba(0, 0, 0, 0.5);
+      border-color: rgba(0, 0, 0, 0.1); }
+      .degov-navbar-wrapper .navbar .navbar-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); }
+    .degov-navbar-wrapper .navbar .navbar-nav.col-12 {
+      padding-right: 0;
+      padding-left: 0; }
+      .degov-navbar-wrapper .navbar .navbar-nav.col-12 .nav-item a.nav-link {
+        color: #2C2C2C; }
+      .degov-navbar-wrapper .navbar .navbar-nav.col-12 .nav-item:first-child a.nav-link {
+        padding-left: 0; }
+      .degov-navbar-wrapper .navbar .navbar-nav.col-12 .nav-item:last-child a.nav-link {
+        padding-right: 0; }
+      .degov-navbar-wrapper .navbar .navbar-nav.col-12 .nav-item .dropdown-toggle::after {
+        content: none; }
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -5966,18 +5976,6 @@ footer.site-footer {
   .pager .pager__item--next a,
   .pager .pager__item--previous a {
     color: #fff; }
-
-.shariff-button {
-  position: relative; }
-  .shariff-button .sharing-overlay {
-    background-color: rgba(200, 200, 200, 0.5);
-    cursor: pointer;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 2; }
 
 .paragraph-node-reference-node-view-mode-preview .paragraph__header, .paragraph-node-reference-node-view-mode-small-image .paragraph__header, .paragraph-node-reference-node-view-mode-long-text .paragraph__header, .paragraph-media-reference-media-gallery-view-mode-preview .paragraph__header, .block--degov-social-media-youtube .paragraph__header, .block--degov-social-media-twitter .paragraph__header, .paragraph-node-reference-node-view-mode-slim .paragraph__header, .paragraph-media-reference-media-video-view-mode-preview .paragraph__header, .block-full-text-search-page .paragraph__header, .block-degov-search-media-filter .paragraph__header, .block--degov-social-media-instagram .paragraph__header {
   color: #1B181D; }
@@ -6151,7 +6149,7 @@ footer.site-footer {
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas,
 .far,
 .fal,
@@ -6234,14 +6232,14 @@ footer.site-footer {
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
+.fa.fa-pull-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
 .fas.fa-pull-left,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
+.fa.fa-pull-right, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
 .fas.fa-pull-right,
 .far.fa-pull-right,
 .fal.fa-pull-right,
@@ -9781,65 +9779,55 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-solid-900.eot");
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
-.seach-form-wrapper {
-  position: relative; }
-  .seach-form-wrapper .contextual {
-    right: -30px; }
-  .seach-form-wrapper form {
-    background-color: #fff;
-    width: 100%; }
-    .seach-form-wrapper form label {
-      display: none; }
-    .seach-form-wrapper form .form-item {
-      margin-top: 0;
-      margin-bottom: 0; }
-      .seach-form-wrapper form .form-item.form-type-textfield {
-        width: 100%; }
-        .seach-form-wrapper form .form-item.form-type-textfield input[type="text"] {
-          padding: 0.5rem;
-          width: 100%;
-          min-height: 2.5rem; }
-    .seach-form-wrapper form [data-drupal-selector="edit-actions"] {
+.search-form-icon button {
+  border: none;
+  outline: none;
+  padding-top: 0.8rem;
+  padding-bottom: 0.5rem; }
+  .search-form-icon button i {
+    font-size: 1.25rem; }
+
+.search-form-wrapper {
+  background-color: #2A96D5;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10; }
+  .search-form-wrapper .block-degov-search-content {
+    position: relative; }
+    .search-form-wrapper .block-degov-search-content .contextual {
+      right: -30px; }
+    .search-form-wrapper .block-degov-search-content form {
+      width: 100%; }
+      .search-form-wrapper .block-degov-search-content form label {
+        display: none; }
+      .search-form-wrapper .block-degov-search-content form .form-item {
+        margin-top: 0;
+        margin-bottom: 0; }
+        .search-form-wrapper .block-degov-search-content form .form-item.form-type-textfield {
+          width: 100%; }
+          .search-form-wrapper .block-degov-search-content form .form-item.form-type-textfield input[type="text"] {
+            background-color: #2A96D5;
+            border: none;
+            padding: 0.5rem 0;
+            width: 100%;
+            min-height: 4rem;
+            outline: none; }
+            .search-form-wrapper .block-degov-search-content form .form-item.form-type-textfield input[type="text"]::placeholder {
+              color: #fff; }
+      .search-form-wrapper .block-degov-search-content form [data-drupal-selector="edit-actions"] {
+        display: none; }
+    .search-form-wrapper .block-degov-search-content .x-close {
       position: absolute;
-      right: 16px;
-      top: 2px;
-      margin-top: 0;
-      margin-bottom: 0;
-      width: 25px; }
-      .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary {
-        transition: none;
-        border: none;
-        display: inline-block;
-        width: 25px;
-        background: transparent;
-        border: transparent;
-        color: #000; }
-        .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary:focus {
-          width: 25px;
-          border: none;
-          background-color: transparent;
-          box-shadow: none; }
-        .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary:active {
-          color: #000;
-          background-color: transparent;
-          border-color: transparent; }
-        .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .button-text {
-          text-indent: -9999px;
-          display: inline-block;
-          padding: 5px 0; }
-        .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left {
-          display: inline-block;
-          width: 25px;
-          height: 25px; }
-          .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left:before {
-            text-indent: 100%;
-            content: "\F002";
-            font-size: 1.2rem; }
+      top: 33%;
+      right: 0; }
+      .search-form-wrapper .block-degov-search-content .x-close:hover {
+        cursor: pointer; }
 
 .play-icon {
   background-color: transparent;
@@ -9874,14 +9862,18 @@ readers do not read off random characters that represent icons */
   border-radius: unset; }
 
 .top-header-wrapper {
-  height: 4rem;
+  height: 2.8rem;
   background-color: #154575;
   color: #fff; }
+  .top-header-wrapper nav.navbar {
+    padding: 0; }
   .top-header-wrapper .navbar-nav {
     flex-direction: row; }
     @media (min-width: 992px) {
       .top-header-wrapper .navbar-nav .nav-item {
         margin-right: initial !important; } }
+    .top-header-wrapper .navbar-nav .nav-item:first-of-type {
+      padding-left: 0; }
   .top-header-wrapper a {
     color: #fff;
     text-decoration: none; }
@@ -9978,7 +9970,7 @@ readers do not read off random characters that represent icons */
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas,
 .far,
 .fal,
@@ -10061,14 +10053,14 @@ readers do not read off random characters that represent icons */
 .fa-pull-right {
   float: right; }
 
-.fa.fa-pull-left, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-left.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
+.fa.fa-pull-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-left.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-left.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-left.fa-placeholder-left,
 .fas.fa-pull-left,
 .far.fa-pull-left,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: .3em; }
 
-.fa.fa-pull-right, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-pull-right.fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
+.fa.fa-pull-right, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .fa-pull-right.form-type-date, .block-degov-search-content-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .fa-pull-right.facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-pull-right.fa-placeholder-left,
 .fas.fa-pull-right,
 .far.fa-pull-right,
 .fal.fa-pull-right,
@@ -13608,7 +13600,7 @@ readers do not read off random characters that represent icons */
   src: url("../webfonts/fa-solid-900.eot");
   src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
 
-.fa, .seach-form-wrapper form [data-drupal-selector="edit-actions"] button[type="submit"].btn-primary .fa-placeholder-left, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
+.fa, .block-degov-search-content-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-media-filter .filter-search-content .block-filter__date-filter .form-type-date, .block-degov-search-content-filter .filter-search-content .facets-widget-dropdown, .block-degov-search-media-filter .filter-search-content .facets-widget-dropdown, .block-full-text-search-page form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left, .block-degov-search-media-filter form .search-page-full-text-search-form [data-drupal-selector*="edit-actions"] button .fa-placeholder-left,
 .fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
@@ -13823,9 +13815,8 @@ html, body {
 .view-search-media .sorts-current-search-wrapper {
   background-color: #154575; }
 
-.pa-right {
-  position: absolute;
-  right: 0; }
+.bg-light-blue {
+  background-color: #2A96D5; }
 
 /*!
  * Font Awesome Free 5.2.0 by @fontawesome - https://fontawesome.com

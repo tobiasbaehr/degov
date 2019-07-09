@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Comment out the following line, if you want to have db-dumps created for debugging. Otherwise the script is failing
-# on the first error.
+# Comment out the following line, if you want to have db-dumps created for
+# debugging or BackstopJS screenshots updated from pipeliene.
+# Otherwise the script is failing on the first error.
 set -e
 
 touch $BITBUCKET_CLONE_DIR/php_error.log
@@ -102,9 +103,10 @@ elif [[ "$1" == "backstopjs" ]]; then
     # The following lines is for approving changes. Approving changes will update your reference files with the results
     # from your last test. Future tests are compared against your most recent approved test screenshots. You must
     # approve the tests and then test again for getting a successful test result in the html report.
-#    echo "### Approving changes"
+    # Make sure you comment out the `set -e` at the begining of the file.
+#    echo "### Approving BackstopJS changes"
 #    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
-#
+
 #    echo "### Running BackstopJS"
 #    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
 
