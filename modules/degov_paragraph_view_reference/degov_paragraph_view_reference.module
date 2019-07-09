@@ -63,6 +63,7 @@ function degov_views_argument_getter(array &$form, \Drupal\Core\Form\FormStateIn
   $parents = $trigger['#array_parents'];
   $triggered_element = array_pop($parents);
   $parents[] = 'options';
+  $form_state->setRebuild();
   return \Drupal\Component\Utility\NestedArray::getValue($form, $parents);
 }
 

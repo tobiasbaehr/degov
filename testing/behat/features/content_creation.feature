@@ -167,6 +167,7 @@ Feature: deGov - Content creation
     And I should see 1 ".viewreference_target_id" element
     And I set the value of element ".viewreference_target_id" to "latest_events" via JavaScript
     And wait 2 seconds
+    And I click by selector ".field--type-viewsreference summary" via JavaScript
     And I should see 1 ".viewsreference_view_mode:visible" elements via jQuery
     Then I assert dropdown named "field_content_paragraphs[0][subform][field_view_reference_view][0][options][view_mode]" contains the following text-value pairs:
       | text                   | value       |
@@ -234,6 +235,9 @@ Feature: deGov - Content creation
     Then I open node edit form by node title "Page with views references"
     And I choose "Content" via translation from tab menu
     And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
+    Then I should see text matching "Options" via translated text in uppercase after a while
+    And I wait for AJAX to finish
+    And I click by selector ".field--type-viewsreference .js-form-wrapper > summary" via JavaScript
     Then I should see text matching "Views row view mode" via translated text after a while
     And I verify that field ".viewsreference_view_mode" has the value "preview"
     And I set the value of element ".viewsreference_view_mode" to "small_image" via JavaScript
@@ -243,6 +247,9 @@ Feature: deGov - Content creation
     Then I open node edit form by node title "Page with views references"
     And I choose "Content" via translation from tab menu
     And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
+    Then I should see text matching "Options" via translated text in uppercase after a while
+    And I wait for AJAX to finish
+    And I click by selector ".field--type-viewsreference .js-form-wrapper > summary" via JavaScript
     Then I should see text matching "Views row view mode" via translated text after a while
     And I verify that field ".viewsreference_view_mode" has the value "small_image"
     And I verify that field value of ".form-item-field-content-paragraphs-1-subform-field-view-reference-view-0-options-argument-0 input" matches "degov_demo_content"

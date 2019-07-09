@@ -21,7 +21,7 @@
 
   Drupal.behaviors.degov_views_helper_display_id = {
     attach: function (context) {
-      if ($('optgroup option').length == 0) {
+      if ($('.viewsreference-display-id option').length == 0) {
         return;
       }
       $('.viewreference_display_id', context).trigger('change');
