@@ -2269,7 +2269,7 @@ button.bg-dark:focus {
 .my-3 {
   margin-top: 1rem !important; }
 
-.mr-3, .top-header-wrapper .navbar-nav .nav-item,
+.mr-3,
 .mx-3 {
   margin-right: 1rem !important; }
 
@@ -9869,11 +9869,15 @@ readers do not read off random characters that represent icons */
     padding: 0; }
   .top-header-wrapper .navbar-nav {
     flex-direction: row; }
-    @media (min-width: 992px) {
-      .top-header-wrapper .navbar-nav .nav-item {
-        margin-right: initial !important; } }
-    .top-header-wrapper .navbar-nav .nav-item:first-of-type {
-      padding-left: 0; }
+    .top-header-wrapper .navbar-nav .nav-item {
+      margin-right: 0; }
+      @media (min-width: 768px) {
+        .top-header-wrapper .navbar-nav .nav-item {
+          margin-right: 1rem; } }
+      .top-header-wrapper .navbar-nav .nav-item i {
+        padding-left: .3rem; }
+      .top-header-wrapper .navbar-nav .nav-item:first-of-type {
+        padding-left: 0; }
   .top-header-wrapper a {
     color: #fff;
     text-decoration: none; }

@@ -5,42 +5,77 @@
 
 namespace Drupal\degov_theme\Preprocess;
 
+use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Twig_Markup;
+
 /**
  * Class MenuAccount
  *
  * @package Drupal\degov_theme\Preprocess
  */
-class MenuAccount {
+class MenuAccount implements ContainerInjectionInterface {
+
+  /**
+   * The renderer.
+   *
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * MenuAccount constructor.
+   *
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   *   The renderer.
+   */
+  public function __construct(RendererInterface $renderer) {
+    $this->renderer = $renderer;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  static public function create(ContainerInterface $container) {
+    return new static(
+      $container->get('renderer')
+    );
+  }
 
   /**
    * Preprocess the menu theme.
    *
    * @param array $vars
    */
-  static public function preprocess(array &$vars) {
+  public function preprocess(array &$vars) {
     if ($vars['menu_name'] === 'account') {
       array_walk($vars['items'], function (&$item) {
-        if ((is_array($item))
-          && (is_array($item['title']))
-          && !empty($item['title']['icon'])) {
-          $item['title']['icon']['#attributes']['class'][] = 'ml-2';
-        }
+        $routes = [
+          'user.page' => 'fa-user',
+          'user.login' => 'fa-user',
+          'user.logout' => 'fa-sign-out-alt',
+        ];
 
         /** @var \Drupal\Core\Url $url */
         $url = $item['url'];
-        if (($url->isRouted())
-          && $url->getRouteName() === 'user.login'
-          && !\Drupal::currentUser()->isAnonymous()
-          && (is_array($item))
-        ) {
-          if (isset($item['title']['#markup'])) {
-            $item['title']['#markup'] = t('My Account');
-          }
-          else {
-            $item['title'] = t('My Account');
-          }
+
+        if (($url->isRouted()) && in_array($url->getRouteName(), array_keys($routes))) {
+          $icon = [
+            '#type' => 'html_tag',
+            '#tag' => 'i',
+            '#attributes' => [
+              'class' => [
+                'fas',
+                $routes[$url->getRouteName()],
+              ],
+            ],
+          ];
+          $rendered_icon = ' ' . $this->renderer->render($icon);
+          $item['title'] = new Twig_Markup($item['title'] . $rendered_icon, 'utf8');
         }
       });
     }
   }
+
 }

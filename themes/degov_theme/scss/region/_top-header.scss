@@ -8,9 +8,12 @@
   .navbar-nav {
     flex-direction: row;
     .nav-item {
-      @extend .mr-3;
-      @include media-breakpoint-up(lg) {
-        margin-right: initial !important;
+      margin-right: 0;
+      @include media-breakpoint-up(md) {
+        margin-right: 1rem;
+      }
+      i {
+        padding-left: .3rem;
       }
       &:first-of-type {
         padding-left: 0;

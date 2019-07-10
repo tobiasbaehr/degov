@@ -265,11 +265,12 @@ function degov_theme_preprocess_node(&$variables) {
  */
 function degov_theme_preprocess_menu(&$vars) {
   MenuFaIconsPreprocess::preprocess($vars['items'], $vars['menu_name']);
-  MenuAccountPreprocess::preprocess($vars);
+  Drupal::classResolver(MenuAccountPreprocess::class)
+    ->preprocess($vars);
 }
 
 /**
- * Implements hook_preprocess_menu().
+ * Implements hook_preprocess_views_view().
  */
 function degov_theme_preprocess_views_view(&$vars, $hook) {
   Drupal::classResolver(ViewsSearchContentAndMediaSortsPreprocess::class)
