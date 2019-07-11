@@ -10,3 +10,4 @@ dependencies:
   - image_widget_crop
   - media
   - responsive_image
+  - degov_auto_crop

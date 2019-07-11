@@ -1,5 +1,17 @@
 <?php
 
+use \Drupal\Core\Config\FileStorage;
+
+function _degov_image_and_crop_styles_set_enforced_and_uuid(\Drupal\Core\Config\Config $getEditable) {
+  /** @var \Drupal\Component\Uuid\Php $uuid_service */
+  $uuid_service = \Drupal::service('uuid');
+  $getEditable->set('dependencies.enforced.module', ['degov_image_and_crop_styles']);
+  if (empty($getEditable->get('uuid'))) {
+    $getEditable->set('uuid', $uuid_service->generate());
+  }
+  $getEditable->save(TRUE);
+}
+
 /**
  * deGov Update 5.1.0 - Add a new responsive image style
  */
@@ -14,4 +26,78 @@ function degov_image_and_crop_styles_update_850100() {
 function degov_image_and_crop_styles_update_870100() {
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_image_and_crop_styles', '870100');
+}
+
+
+/**
+ * - Move some config from degov_demo_content to degov_image_and_crop_styles.
+ * - Sets offsets to the crop-types.
+ */
+function degov_image_and_crop_styles_update_870200() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::configFactory();
+  /** @var \Drupal\Component\Uuid\Php $uuid_service */
+  $uuid_service = \Drupal::service('uuid');
+
+  $config_path = drupal_get_path('module', 'degov_image_and_crop_styles') . '/config/install';
+  $source = new FileStorage($config_path);
+
+  // The configs was in earlier version only imported via degov_demo_content.
+  $config_names = [
+    'image.style.slider_full_width_480',
+    'image.style.slider_full_width_960',
+    'image.style.slider_full_width_1440',
+    'image.style.slider_full_width_1920',
+    'crop.type.12_to_5',
+    'responsive_image.styles.slider_full_width'
+  ];
+
+  foreach ($config_names as $config_name) {
+    $configEditable = $configFactory->getEditable($config_name);
+    if ($configEditable->isNew()) {
+      $config_storage = \Drupal::service('config.storage');
+      $config_storage->write($config_name, $source->read($config_name));
+      $configFactory->getEditable($config_name)->set('uuid', $uuid_service->generate())->save();
+    }
+    else {
+      _degov_image_and_crop_styles_set_enforced_and_uuid($configEditable);
+    }
+  }
+  $entityTypeManager = \Drupal::service('entity_type.manager');
+  $crop_types = $entityTypeManager
+    ->getStorage('crop_type')
+    ->loadMultiple();
+  $default_offsets = [
+    'left'   => 1,
+    'right'  => 1,
+    'top'    => 1,
+    'bottom' => 1,
+  ];
+  $offsets = [
+    'landscape' => $default_offsets,
+    'portrait' => $default_offsets,
+    'square' => $default_offsets
+  ];
+  foreach ($crop_types as $crop_type) {
+    $crop_type->setThirdPartySetting('degov_auto_crop', 'offsets', $offsets);
+    $crop_type->save();
+    $scale_2x = [
+      '2_to_1',
+      '4_to_1',
+      '8_to_3',
+      '12_to_5',
+      '16_to_9'
+    ];
+    $settings = $crop_type->getThirdPartySetting('degov_auto_crop', 'offsets', []);
+    if ($crop_type->id() === '1_to_1') {
+      $settings['portrait']['bottom'] = 2;
+    }
+    elseif (in_array($crop_type->id(), $scale_2x)) {
+      $settings['landscape']['bottom'] = 2;
+      $settings['portrait']['bottom'] = 2;
+      $settings['square']['bottom'] = 2;
+    }
+    $crop_type->setThirdPartySetting('degov_auto_crop', 'offsets', $settings);
+    $crop_type->save();
+  }
 }

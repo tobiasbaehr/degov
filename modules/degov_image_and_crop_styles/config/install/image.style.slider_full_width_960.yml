@@ -5,6 +5,9 @@ dependencies:
     - crop.type.12_to_5
   module:
     - crop
+  enforced:
+    module:
+      - degov_image_and_crop_styles
 name: slider_full_width_960
 label: 'Slider full width 960'
 effects:

@@ -6,6 +6,9 @@ dependencies:
     - image.style.slider_full_width_1920
     - image.style.slider_full_width_480
     - image.style.slider_full_width_960
+  enforced:
+    module:
+      - degov_image_and_crop_styles
 id: slider_full_width
 label: 'Slider full width'
 image_style_mappings:

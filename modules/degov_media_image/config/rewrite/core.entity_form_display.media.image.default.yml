@@ -219,16 +219,13 @@ content:
       progress_indicator: throbber
       preview_image_style: crop_thumbnail
       crop_list:
+        - 12_to_5
         - 16_to_9
         - 1_to_1
         - 2_to_1
         - 4_to_1
         - 8_to_3
-        - 16_to_9
-        - 1_to_1
-        - 2_to_1
-        - 4_to_1
-        - 8_to_3
+        - freeform
       show_crop_area: false
       crop_preview_image_style: crop_thumbnail
       crop_types_required: {  }
@@ -249,14 +246,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    region: content
-  field_title:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_media_publish_date:
     weight: 2

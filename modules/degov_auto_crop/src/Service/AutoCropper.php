@@ -10,6 +10,8 @@ use Drupal\Core\File\FileSystem;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\crop\Entity\CropType;
 use Drupal\file\Entity\File;
+use Drupal\Core\Image\ImageFactory;
+use org\bovigo\vfs\vfsStream;
 
 /**
  * Class AutoCropper.
@@ -42,6 +44,13 @@ class AutoCropper {
   protected $logger;
 
   /**
+   * The image factory.
+   *
+   * @var \Drupal\Core\Image\ImageFactory
+   */
+  protected $imageFactory;
+
+  /**
    * Constructs a new AutoCropper.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -51,10 +60,11 @@ class AutoCropper {
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
    *   The logger channel factory.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger, ImageFactory $imageFactory) {
     $this->entityTypeManager = $entity_type_manager;
     $this->fileSystem = $file_system;
     $this->logger = $logger;
+    $this->imageFactory = $imageFactory;
   }
 
   /**
@@ -62,28 +72,36 @@ class AutoCropper {
    *
    * @param \Drupal\file\Entity\File $file
    *   The File entity the image crops should be applied to.
+   *
+   * @return array
+   *   An array of the crops generated.
    */
-  public function applyImageCrops(File $file): void {
+  public function applyImageCrops(File $file): array {
+    $crops = [];
     try {
       $crop_types = $this->entityTypeManager
         ->getStorage('crop_type')
         ->loadMultiple();
       if (preg_match("/^image\//", $file->getMimeType())) {
+        /** @var \Drupal\crop\Entity\CropType $crop_type */
         foreach ($crop_types as $crop_type) {
           try {
             $file_realpath = $this->fileSystem->realpath($file->getFileUri());
             if (!file_exists($file_realpath)) {
               continue;
             }
-            $image_dimensions = getimagesize($file_realpath);
-
+            $image = $this->imageFactory->get($file_realpath);
+            $image_dimensions = [
+              $image->getWidth(),
+              $image->getHeight(),
+            ];
+            /** @var \Drupal\crop\Entity\Crop $crop */
             $crop = $this->entityTypeManager
               ->getStorage('crop')
               ->loadByProperties([
                 'type' => $crop_type->id(),
                 'uri'  => $file->getFileUri(),
               ]);
-
             $crop_dimensions = $this->calculateCropDimensions($crop_type, $image_dimensions);
 
             if (empty($crop)) {
@@ -107,15 +125,19 @@ class AutoCropper {
               $crop->set('width', $crop_dimensions['width']);
               $crop->set('height', $crop_dimensions['height']);
             }
+            $crops[] = $crop;
             $crop->save();
-          } catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
+          }
+          catch (PluginNotFoundException | InvalidPluginDefinitionException | EntityStorageException $exception) {
             // Crop not found or crop save failed. Log and continue.
             $this->logger->get('degov_auto_crop')
               ->error($exception->getMessage());
           }
         }
+        return $crops;
       }
-    } catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
+    }
+    catch (PluginNotFoundException | InvalidPluginDefinitionException $exception) {
       // No crop types found. Just log, otherwise do nothing.
       $this->logger->get('degov_auto_crop')->error($exception->getMessage());
     }
@@ -132,7 +154,7 @@ class AutoCropper {
    * @return array
    *   The desired height and width of the image.
    */
-  private function calculateCropDimensions(CropType $crop_type, array $image_dimensions): array {
+  public function calculateCropDimensions(CropType $crop_type, array $image_dimensions): array {
     $crop_dimensions = [
       'height' => 0,
       'width'  => 0,
@@ -187,7 +209,7 @@ class AutoCropper {
   }
 
   /**
-   * Calculates a scape factor for the crop frame.
+   * Calculates a scale factor for the crop frame.
    *
    * @param array $image_dimensions
    *   The dimensions of the image.
@@ -197,7 +219,7 @@ class AutoCropper {
    * @return float|int
    *   The factor to scale the image by.
    */
-  private function calculateScaleFactor(array $image_dimensions, array $aspect_ratio_fragments) {
+  public function calculateScaleFactor(array $image_dimensions, array $aspect_ratio_fragments) {
     if ($image_dimensions[0] > $image_dimensions[1]) {
       $image_ratio = $image_dimensions[0] / $image_dimensions[1];
       $crop_ratio = $aspect_ratio_fragments[0] / $aspect_ratio_fragments[1];
@@ -222,7 +244,7 @@ class AutoCropper {
    * @param array $crop_dimensions
    *   A reference to the dimensions array, will be populated with the offsets.
    */
-  private function calculateCropCenterOffsets(array $offsets, array $image_dimensions, array &$crop_dimensions) {
+  public function calculateCropCenterOffsets(array $offsets, array $image_dimensions, array &$crop_dimensions) {
     $crop_dimensions['x'] = $image_dimensions[0] / 2;
     $crop_dimensions['y'] = $image_dimensions[1] / 2;
 

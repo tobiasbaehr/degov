@@ -187,3 +187,31 @@ function degov_media_image_update_850100() {
 
   $editable_config->save();
 }
+
+/**
+ * deGov Update: 7.2.0
+ *  - Allows all crop-types to be used in media image.
+ */
+function degov_media_image_update_870200() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::configFactory();
+  $config_names = [
+    'core.entity_form_display.media.image.default',
+    'core.entity_form_display.media.image.media_browser'
+  ];
+  foreach ($config_names as $config_name) {
+    $configEditable = $configFactory->getEditable($config_name);
+    if (!$configEditable->isNew()) {
+      $crop_types = [
+        '12_to_5',
+        '16_to_9',
+        '1_to_1',
+        '2_to_1',
+        '4_to_1',
+        '8_to_3',
+        'freeform',
+      ];
+      $configEditable->set('content.image.settings.crop_list', $crop_types)->save();
+    }
+  }
+}

@@ -281,3 +281,26 @@ Feature: deGov - Media types
     And I should see 5 ".video-mobile__quality select option" elements
     Then I select index 3 in dropdown named "video-mobile-quality"
     And I prove css selector "video" has HTML attribute "src" that matches value "pexels-videos-1409899-full-hd"
+
+  Scenario: Check that we have the expected crop types installed
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/config/media/crop"
+    Then I should see HTML content matching "1_to_1"
+    Then I should see HTML content matching "2_to_1"
+    Then I should see HTML content matching "4_to_1"
+    Then I should see HTML content matching "8_to_3"
+    Then I should see HTML content matching "16_to_9"
+    Then I should see HTML content matching "12_to_5"
+    Then I should see HTML content matching "freeform"
+
+  Scenario: Check that crop types have fields for offsets visible
+    Given I am logged in as a user with the "administrator" role
+    Given I am on "/admin/config/media/crop/manage/16_to_9"
+    Then I should see 12 elements with name matching "offsets" and a not empty value
+
+  Scenario: Check that all known crop types can be used
+    Given I am logged in as a user with the "administrator" role
+    Given I am on "/admin/structure/media/manage/image/form-display"
+    And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, freeform" in "css" selector "#image .field-plugin-summary"
+    Given I am on "/admin/structure/media/manage/image/form-display/media_browser"
+    And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, freeform" in "css" selector "#image .field-plugin-summary"
