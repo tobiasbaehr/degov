@@ -29,3 +29,17 @@ function degov_auto_crop_entity_type_alter(array &$entity_types) {
     'edit' => CropOffsetForm::class,
   ]);
 }
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function degov_auto_crop_locale_translation_projects_alter(&$projects) {
+  // Define translation pattern to allow Drupal autodected the .po file.
+  $projects['degov_auto_crop'] = [
+    'info' => [
+      'name'                                  => 'deGov - Automatic cropping',
+      'interface translation project'         => 'degov_auto_crop',
+      'interface translation server pattern'  => drupal_get_path('module', 'degov_auto_crop').'/translations/%language.po',
+    ],
+  ];
+}
