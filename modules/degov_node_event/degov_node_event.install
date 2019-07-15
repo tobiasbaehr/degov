@@ -89,3 +89,14 @@ function degov_node_event_update_870000() {
     }
   }
 }
+
+/**
+ * Fix viewmode of field_teaser_image in entity_view_display slim.
+ */
+function degov_node_event_update_870100() {
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
+  $configFactory = \Drupal::service('config.factory');
+  $configFromStorage = $configFactory->getEditable('core.entity_view_display.node.event.slim');
+  $configFromStorage->set('content.field_teaser_image.settings.view_mode', 'teaser_landscape_2_1');
+  $configFromStorage->save();
+}

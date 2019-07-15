@@ -118,9 +118,11 @@ view_mode ? view_mode|clean_class,
     {% endif %}
     {% if content.field_teaser_sub_title %}
       <div class="event__teaser-subtitle teaser-subtitle">
-        <span{{ content.field_teaser_sub_title|quickedit_attr }}>
-          {{ content.field_teaser_sub_title|field_value }}
-        </span>
+        <a href="{{ url }}" rel="bookmark">
+          <span{{ content.field_teaser_sub_title|quickedit_attr }}>
+            {{ content.field_teaser_sub_title|field_value }}
+          </span>
+        </a>
       </div>
     {% endif %}
 

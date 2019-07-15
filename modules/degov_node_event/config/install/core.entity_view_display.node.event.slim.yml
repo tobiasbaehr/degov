@@ -44,7 +44,7 @@ content:
     label: hidden
     settings:
       link: false
-      view_mode: default
+      view_mode: teaser_landscape_2_1
     third_party_settings: {  }
   field_teaser_sub_title:
     type: string
