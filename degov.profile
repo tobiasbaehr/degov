@@ -78,11 +78,16 @@ function degov_module_setup(&$install_state) {
     'media_file_links'                  => 'media_file_links',
   ];
 
-  // Add a batch operation to install each module.
-  $operations = [];
-  foreach ($modules as $module) {
-    $operations[] = ['_install_degov_module_batch', [[$module], $module]];
-  }
+  // Add a batch operation to install each module and load .po files.
+    \Drupal::moduleHandler()->loadInclude('locale', 'translation.inc');
+    \Drupal::moduleHandler()->loadInclude('locale', 'batch.inc');
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $options = _locale_translation_default_update_options();
+    $operations = [];
+    foreach ($modules as $module) {
+        $operations[] = ['_install_degov_module_batch', [[$module], $module]];
+        $operations[] = ['locale_translation_batch_fetch_import', [$module, $langcode, $options]];
+    }
 
   // Batch operation definition.
   $batch = [
@@ -190,8 +195,8 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
 
   // List all optional deGov modules.
   $degov_optional_modules = [
-    'degov_scheduled_updates' => t('Scheduled Moderation'),
     'degov_demo_content'      => t('Demo Content'),
+    'degov_scheduled_updates' => t('Scheduled Moderation'),
   ];
   $form['degov']['optional_modules'] = [
     '#type'          => 'checkboxes',

@@ -58,3 +58,19 @@ Feature: deGov - Users
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     Then I should see text matching "Library" after a while
     And I go back to the main window
+
+  Scenario: I am on paragraphs type page and homepage breadcrumb is translated
+    Given I am logged in as a user with the "administrator" role
+    Then I am installing the "degov_breadcrumb" module
+    And I proof that Drupal module "degov_breadcrumb" is installed
+    And I clear the cache
+    And I am on "/admin/structure/paragraphs_type"
+    And I should see text matching "Startseite"
+    Then I am on "/admin/config/regional/language/add"
+    And I select "English" in "edit-predefined-langcode"
+    And I press button with label "Add language" via translated text
+    Then I should see text matching "Add language" via translation after a while
+    Then I set the privacy policy page for all languages
+    And I clear the cache
+    And I am on "/en/admin/structure/paragraphs_type"
+    And I should see text matching "Home"

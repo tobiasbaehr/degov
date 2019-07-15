@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * Implements Hook_install
+ *  Import .po files with translations when the module is installed.
+ */
+function degov_breadcrumb_install() {
+  \Drupal::moduleHandler()->loadInclude('locale', 'translation.inc');
+  \Drupal::moduleHandler()->loadInclude('locale', 'batch.inc');
+
+  $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $options = _locale_translation_default_update_options();
+  $options['customized'] = TRUE;
+  $options['overwrite_options']['customized'] = TRUE;
+  $operations[] = ['locale_translation_batch_fetch_import', ['degov_breadcrumb', $langcode, $options]];
+  $batch = array(
+      'title' => t('Importing translations.'),
+      'operations' => $operations,
+      'error_message' => t('An error occured during deGov Breadcrumb module installation.'),
+    );
+  batch_set($batch);
+}
+
+

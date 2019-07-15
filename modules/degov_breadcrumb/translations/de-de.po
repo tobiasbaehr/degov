@@ -1,0 +1,4 @@
+msgid "Contains default settings for the breadcrumb."
+msgstr "Enthält Standardeinstellungen zum Breadcrumb."
+msgid "Home"
+msgstr "Startseite"
