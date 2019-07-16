@@ -19,59 +19,6 @@ function degov_media_image_install() {
       $ckeditorMediaBrowserConfig->save();
     }
   }
-
-  // Don't do anything during config sync.
-  if (\Drupal::isConfigSyncing()) {
-    return;
-  }
-
-  $module_exists = [\Drupal::moduleHandler(), 'moduleExists'];
-
-  // Grants image browser access to the creator content role and the
-  // media_creator and media_manager roles.
-  if ($module_exists('lightning_roles')) {
-    degov_media_image_modules_installed(['lightning_roles']);
-  }
-
-  if ($module_exists('image_widget_crop')) {
-    // Use the cropping widgets for every form display of the Image media type.
-    $form_displays = \Drupal::entityTypeManager()
-      ->getStorage('entity_form_display')
-      ->loadByProperties([
-        'targetEntityType' => 'media',
-        'bundle' => 'image',
-      ]);
-
-    /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display */
-    foreach ($form_displays as $form_display) {
-      $component = $form_display->getComponent('image');
-
-      if ($component && $component['type'] == 'image_image') {
-        $component['type'] = 'image_widget_crop';
-        $component['settings']['crop_list'] = ['freeform'];
-        $component['settings']['show_crop_area'] = TRUE;
-        $form_display->setComponent('image', $component)->save();
-      }
-    }
-
-    // Try to use a local copy of Cropper over the CDN-hosted fallback.
-    $lib = 'libraries/cropper/dist';
-    $lib = [
-      $lib,
-      drupal_get_path('module', \Drupal::installProfile()) . "/$lib",
-    ];
-    $lib = array_filter($lib, 'is_dir');
-
-    if ($lib) {
-      $lib = reset($lib);
-
-      \Drupal::configFactory()
-        ->getEditable('image_widget_crop.settings')
-        ->set('settings.library_url', "$lib/cropper.min.js")
-        ->set('settings.css_url', "$lib/cropper.min.css")
-        ->save();
-    }
-  }
 }
 
 /**
@@ -243,37 +190,28 @@ function degov_media_image_update_850100() {
 
 /**
  * deGov Update: 7.2.0
- * - Uninstall module lightning_media_image.
- * - Allows all crop-types to be used in media image.
+ *  - Allows all crop-types to be used in media image.
  */
 function degov_media_image_update_870200() {
-	/** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
-	$configFactory = \Drupal::configFactory();
-	$config_names = [
-		'core.entity_form_display.media.image.default',
-		'core.entity_form_display.media.image.media_browser'
-	];
-	foreach ($config_names as $config_name) {
-		$configEditable = $configFactory->getEditable($config_name);
-		if (!$configEditable->isNew()) {
-			$crop_types = [
-				'12_to_5',
-				'16_to_9',
-				'1_to_1',
-				'2_to_1',
-				'4_to_1',
-				'8_to_3',
-				'freeform',
-			];
-			$configEditable->set('content.image.settings.crop_list', $crop_types)->save();
-		}
-	}
-
-  /** @var  \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
-  $moduleHandler = \Drupal::moduleHandler();
-  if ($moduleHandler->moduleExists('lightning_media_image')) {
-    /** @var \Drupal\Core\ProxyClass\Extension\ModuleInstaller $module_installer */
-    $module_installer = \Drupal::service('module_installer');
-    $module_installer->uninstall(['lightning_media_image']);
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::configFactory();
+  $config_names = [
+    'core.entity_form_display.media.image.default',
+    'core.entity_form_display.media.image.media_browser'
+  ];
+  foreach ($config_names as $config_name) {
+    $configEditable = $configFactory->getEditable($config_name);
+    if (!$configEditable->isNew()) {
+      $crop_types = [
+        '12_to_5',
+        '16_to_9',
+        '1_to_1',
+        '2_to_1',
+        '4_to_1',
+        '8_to_3',
+        'freeform',
+      ];
+      $configEditable->set('content.image.settings.crop_list', $crop_types)->save();
+    }
   }
 }

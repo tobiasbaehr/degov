@@ -154,15 +154,8 @@ function lightning_media_modules_installed(array $modules) {
       'pathauto',
     ]);
 
-    if (function_exists('degov_media_image_install')) {
-      module_load_install('degov_media_image');
-      degov_media_image_install();
-    }
-    else {
-      module_load_install('lightning_media_image');
-      lightning_media_image_install();
-    }
-
+    module_load_install('lightning_media_image');
+    lightning_media_image_install();
 
     $config = Config::forModule('lightning_media')->optional();
     $config->getEntity('user_role', 'media_creator')->save();
