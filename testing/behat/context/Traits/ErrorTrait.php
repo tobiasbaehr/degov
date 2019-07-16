@@ -19,7 +19,8 @@ trait ErrorTrait {
     'Es wurde eine nicht erlaubte Auswahl entdeckt.',
     'An AJAX HTTP error occurred.',
     'Nicht erfüllte Systemvoraussetzungen',
-    'Fehlermeldung'
+    'Fehlermeldung',
+    ' ist ungültig.'
   ];
 
   /**
