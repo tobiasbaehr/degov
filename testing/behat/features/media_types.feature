@@ -297,6 +297,7 @@ Feature: deGov - Media types
     Given I am logged in as a user with the "administrator" role
     Given I am on "/admin/config/media/crop/manage/16_to_9"
     Then I should see 12 elements with name matching "offsets" and a not empty value
+    And I should see HTML content matching "Beim ersten Hochladen eines Bildes wird das Ausschnittfenster automatisch platziert."
 
   Scenario: Check that all known crop types can be used
     Given I am logged in as a user with the "administrator" role

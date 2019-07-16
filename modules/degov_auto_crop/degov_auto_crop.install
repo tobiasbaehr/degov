@@ -18,13 +18,6 @@ function _degov_auto_crop_import_translations() {
 }
 
 /**
- * Implements hook_install().
- */
-function degov_auto_crop_install() {
-  _degov_auto_crop_import_translations();
-}
-
-/**
  * deGov Update 7.2.0 - Import translation.
  */
 function degov_auto_crop_update_870200() {
