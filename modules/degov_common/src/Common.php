@@ -80,6 +80,7 @@ class Common {
       ->notice('Removing all content of type @type', ['@type' => $entity_bundle]);
     $entity_ids = \Drupal::entityQuery($entity_id)
       ->condition($condition_field, $entity_bundle)
+      ->accessCheck(FALSE)
       ->execute();
     $controller = \Drupal::entityTypeManager()->getStorage($entity_id);
     $entities = $controller->loadMultiple($entity_ids);
