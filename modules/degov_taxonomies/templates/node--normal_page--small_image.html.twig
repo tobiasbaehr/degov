@@ -87,7 +87,7 @@ view_mode ? view_mode|clean_class,
 <article{{ attributes.addClass(classes) }}>
   {{ title_suffix }}
 
-  {% if content.field_teaser_image|render|spaceless is not empty %}
+  {% if is_not_empty(content.field_teaser_image) %}
     <a href="{{ url }}" rel="bookmark">
       <div class="normal-page__teaser-image teaser-image {{ class_sidebar }}">
         {{ content.field_teaser_image|render }}
@@ -96,12 +96,12 @@ view_mode ? view_mode|clean_class,
   {% endif %}
 
   <div class="normal-page__teaser-content teaser-content {{ class_content }}">
-    {% if content.field_topic %}
+    {% if is_not_empty(content.field_topic) %}
       <div class="normal-page__teaser-topic">
         <span{{ content.field_topic|quickedit_attr }}>{{ content.field_topic }}</span>
       </div>
     {% endif %}
-    {% if content.field_teaser_title|field_value %}
+    {% if is_not_empty(content.field_teaser_title) %}
       <a href="{{ url }}" rel="bookmark">
         <div class="normal-page__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>
@@ -110,7 +110,7 @@ view_mode ? view_mode|clean_class,
         </div>
       </a>
     {% endif %}
-    {% if content.field_teaser_sub_title|field_value %}
+    {% if is_not_empty(content.field_teaser_sub_title) %}
       <div class="normal-page__teaser-subtitle teaser-subtitle">
         <a href="{{ url }}" rel="bookmark">
           <span{{ content.field_teaser_sub_title|quickedit_attr }}>
@@ -120,7 +120,7 @@ view_mode ? view_mode|clean_class,
       </div>
     {% endif %}
 
-    {% if content.field_teaser_text|render|trim is not empty %}
+    {% if is_not_empty(content.field_teaser_text) %}
     <div class="normal-page__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
       <a href="{{ url }}" rel="bookmark">
         {% autoescape false %}

@@ -16,3 +16,13 @@ services:
   degov_theming.filesystem_factory:
     class: Drupal\degov_theming\Factory\FilesystemFactory
     arguments: []
+  degov_theming.is_empty_value_extension:
+    class: Drupal\degov_theming\TwigExtension\IsEmptyValueExtension
+    arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter', '@logger.factory']
+    tags:
+      - { name: twig.extension }
+  degov_theming.is_not_empty_value_extension:
+    class: Drupal\degov_theming\TwigExtension\IsNotEmptyValueExtension
+    arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter', '@logger.factory']
+    tags:
+      - { name: twig.extension }
