@@ -76,3 +76,9 @@ Feature: deGov - Content types
     And I should see text matching "Operations" via translated text in uppercase
     And I should see "Interner Titel"
     And I should not see the text "Undefined index"
+
+  Scenario: I have no mismatched entity definitions
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/reports/status"
+    Then I should not see text matching "Mismatched entity and/or field definitions" via translated text

@@ -47,6 +47,7 @@ function media_file_links_entity_base_field_info_alter(&$fields, EntityTypeInter
         'type'   => 'link_mediafilelinks',
         'weight' => -2,
       ])
+      ->setRevisionable(TRUE)
       ->setProvider('menu_link_content')
       ->setName('link')
       ->setTargetEntityTypeId('menu_link_content')
