@@ -21,8 +21,3 @@ services:
     arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter', '@logger.factory']
     tags:
       - { name: twig.extension }
-  degov_theming.is_not_empty_value_extension:
-    class: Drupal\degov_theming\TwigExtension\IsNotEmptyValueExtension
-    arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter', '@logger.factory']
-    tags:
-      - { name: twig.extension }

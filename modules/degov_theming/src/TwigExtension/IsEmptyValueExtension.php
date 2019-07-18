@@ -17,8 +17,6 @@ class IsEmptyValueExtension extends TwigExtension {
 
   protected $logger;
 
-  use EmptyValueCheckerTrait;
-
   public function __construct(RendererInterface $renderer, UrlGeneratorInterface $url_generator, ThemeManagerInterface $theme_manager, DateFormatterInterface $date_formatter, LoggerChannelFactoryInterface $loggerFactory) {
     parent::__construct($renderer,  $url_generator,  $theme_manager,  $date_formatter, $loggerFactory);
     $this->logger = $loggerFactory->get('degov_theme');
@@ -33,5 +31,22 @@ class IsEmptyValueExtension extends TwigExtension {
   public function getName(): string {
     return 'is_empty';
   }
+
+	public function isEmpty($build, string $stripTags = ''): bool {
+		try {
+			$build = $this->renderVar($build);
+			$build = ($stripTags === '') ? strip_tags($build, '<img>,<picture>,<color>') : strip_tags($build, $stripTags);
+			$build = \trim($build, " \t\n\r\0\x0B");
+			$build = \trim($build, ' \t\n\r\0\x0B');
+		} catch (\Exception $e) {
+			$this->logger->error($e->getMessage());
+		}
+
+		if (empty($build)) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
 
 }
