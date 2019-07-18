@@ -22,6 +22,7 @@ function degov_media_image_preprocess(&$variables, $hook, &$info) {
       'embedded',
       'full',
       'preview_wide',
+      'citation_teaser',
       'header_logo_slogan',
     ],
   ]);

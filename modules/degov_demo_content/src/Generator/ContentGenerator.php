@@ -5,6 +5,7 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
+use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -123,6 +124,13 @@ class ContentGenerator {
     foreach ($entities as $entity) {
       $entity->delete();
     }
+
+    $paragraphs = $this->entityTypeManager->getStorage('paragraph')->loadMultiple();
+    /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+    foreach ($paragraphs as $paragraph) {
+      $paragraph->delete();
+    }
+
   }
 
   /**

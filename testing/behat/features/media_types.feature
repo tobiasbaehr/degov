@@ -289,6 +289,7 @@ Feature: deGov - Media types
     Then I should see HTML content matching "2_to_1"
     Then I should see HTML content matching "4_to_1"
     Then I should see HTML content matching "8_to_3"
+    Then I should see HTML content matching "9_to_3"
     Then I should see HTML content matching "16_to_9"
     Then I should see HTML content matching "12_to_5"
     Then I should see HTML content matching "freeform"
@@ -302,6 +303,6 @@ Feature: deGov - Media types
   Scenario: Check that all known crop types can be used
     Given I am logged in as a user with the "administrator" role
     Given I am on "/admin/structure/media/manage/image/form-display"
-    And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, freeform" in "css" selector "#image .field-plugin-summary"
+    And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, 9_to_3, freeform" in "css" selector "#image .field-plugin-summary"
     Given I am on "/admin/structure/media/manage/image/form-display/media_browser"
     And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, freeform" in "css" selector "#image .field-plugin-summary"

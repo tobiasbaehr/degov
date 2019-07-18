@@ -37,8 +37,10 @@ function degov_demo_content_uninstall() {
   \Drupal::service('degov_demo_content.media_generator')->deleteContent();
   \Drupal::service('degov_demo_content.menu_item_generator')->deleteContent();
   \Drupal::service('degov_demo_content.block_content_generator')->deleteContent();
+
   /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
   $configFactory = Drupal::configFactory();
+
   $configsToDelete = [
     'field.field.block_content.basic.field_content_paragraphs',
     'field.storage.block_content.field_content_paragraphs',

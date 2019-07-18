@@ -7,13 +7,14 @@ Feature: deGov - home page teasers
     Given I reset the demo content
     Given I clear the cache
     Given I am on the homepage
+    Given I have dismissed the cookie banner if necessary
 
-  Scenario: Confirm that Homepage teasers and slider are in place
-    And I should see the "div#degov-slider" in ".block-block-content"
+  Scenario: Confirm that Homepage Slider, Teasers and Citation are in place
+    Then I should see the "div#degov-slider" in ".block-block-content"
     And I should see 3 "div#degov-slider div.carousel-item img" elements
     And I should see 2 "div#degov-slider a.carousel-control" elements
 
-    And I should see the "h2" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__header"
+    Then I should see the "h2" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__header"
     And I should see the "h3" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__header"
     And I should see the "h3" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__content .teaser-content"
     And I should see the "[class*=teaser-text]" in ".paragraph-node-reference-node-view-mode-small-image .paragraph__content .teaser-content .teaser-content-inner"
@@ -43,3 +44,7 @@ Feature: deGov - home page teasers
     And I should see the ".learn-more.bg-blue" in ".paragraph-node-reference-node-view-mode-slim .paragraph__content"
     And I should see the "img" in ".paragraph-node-reference-node-view-mode-slim .slim:first-child .teaser-image"
     And I should not see "degov_demo_content" in the ".paragraph-node-reference-node-view-mode-slim" element
+
+    Then I should see the "img" in ".paragraph.media-reference .citation-image .image__image"
+    And I should see the "h3.citation-title" in ".paragraph.media-reference blockquote.citation-content"
+    And I should see the "p.citation-text" in ".paragraph.media-reference blockquote.citation-content"

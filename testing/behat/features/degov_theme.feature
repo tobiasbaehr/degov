@@ -15,7 +15,7 @@ Feature: deGov - deGov Theme
     Then I should not see the element with css selector ".search-form-wrapper"
 
   Scenario: Verify that "Sitemap" block exists in the Footer region
-    Then I should see the "#block-footer" in "footer.site-footer"
+    And I should see the "#block-footer" in "footer.site-footer"
     And I should see "Sitemap" in the "footer.site-footer #block-footer h2" element
     And I should see the "a" in "footer.site-footer #block-footer > ul.row > li"
 

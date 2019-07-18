@@ -215,3 +215,12 @@ function degov_media_image_update_870200() {
     }
   }
 }
+
+/**
+ *  Add the Citation Teaser view mode for Image media.
+ */
+function degov_media_image_update_870201() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater */
+  $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
+  $degovModuleUpdater->applyUpdates('degov_media_image', '870201');
+}

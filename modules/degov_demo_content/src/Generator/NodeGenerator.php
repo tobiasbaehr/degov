@@ -46,6 +46,10 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
+   * Generates content.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function generateContent(): void {
@@ -87,7 +91,9 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         $nodeIds[] = $node->id();
       }
     }
+
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
+    $this->generateMediaReferenceParagraphs($teaserPage);
   }
 
   private function setFrontPage($path_to_set) {
@@ -165,6 +171,27 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       $paragraphs[] = $paragraph;
     }
     $teaserPage->set('field_content_paragraphs', $paragraphs);
+    $teaserPage->save();
+  }
+
+  /**
+   * Generates Media reference paragraph.
+   *
+   * @param \Drupal\node\Entity\Node $teaserPage
+   *   The Node entity.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function generateMediaReferenceParagraphs(Node $teaserPage): void {
+    $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', 'media_reference_citation_front');
+    $this->prepareValues($rawParagraph);
+    $this->resolveEncapsulatedParagraphs($rawParagraph);
+    unset($rawParagraph['field_title']);
+
+    $paragraph = Paragraph::create($rawParagraph);
+    $paragraph->save();
+
+    $teaserPage->get('field_content_paragraphs')->appendItem($paragraph);
     $teaserPage->save();
   }
 

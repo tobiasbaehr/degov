@@ -6111,28 +6111,55 @@ footer.site-footer {
     overflow: hidden; }
     .media-citation .citation-image.col-lg-6 {
       padding: 0; }
-  .media-citation .citation-content .citation-title {
+  .media-citation blockquote.citation-content .citation-title {
     font-weight: bold;
-    font-size: 1.4rem; }
-    .media-citation .citation-content .citation-title::first-letter {
+    font-size: 1.375rem;
+    margin-bottom: 1.3125rem; }
+    .media-citation blockquote.citation-content .citation-title::first-letter {
       text-transform: uppercase; }
-  .media-citation .citation-content .citation-text {
-    font-size: 1.3rem;
+  .media-citation blockquote.citation-content .citation-text {
+    color: #2C2C2C;
+    font-size: 1.25rem;
     font-style: italic;
-    color: #2C2C2C; }
-    .media-citation .citation-content .citation-text::first-letter {
+    margin: 0; }
+    .media-citation blockquote.citation-content .citation-text::first-letter {
       text-transform: uppercase; }
-    .media-citation .citation-content .citation-text:before {
+    .media-citation blockquote.citation-content .citation-text:before {
       content: '\201E'; }
-    .media-citation .citation-content .citation-text:after {
+    .media-citation blockquote.citation-content .citation-text:after {
       content: '\201C'; }
-  .media-citation .citation-content .blockquote-footer {
-    color: #2C2C2C; }
-    .media-citation .citation-content .blockquote-footer cite.citation-source-title {
+  .media-citation blockquote.citation-content .blockquote-footer {
+    color: #2C2C2C;
+    margin-top: 1.875rem; }
+    .media-citation blockquote.citation-content .blockquote-footer cite.citation-source-title {
       text-decoration: none;
       font-style: normal; }
-      .media-citation .citation-content .blockquote-footer cite.citation-source-title:after {
+      .media-citation blockquote.citation-content .blockquote-footer cite.citation-source-title:after {
         content: ","; }
+  @media (min-width: 992px) {
+    .media-citation blockquote.citation-content .citation-title {
+      font-size: 1.175rem;
+      margin-top: 0 !important;
+      margin-bottom: 1rem; }
+    .media-citation blockquote.citation-content .citation-text {
+      font-size: .85rem;
+      margin: 0; }
+    .media-citation blockquote.citation-content .blockquote-footer {
+      font-size: .7rem;
+      margin-top: 1.5rem; } }
+  @media (min-width: 1200px) {
+    .media-citation blockquote.citation-content .citation-title {
+      font-size: 1.375rem;
+      margin-bottom: 1.3125rem; }
+    .media-citation blockquote.citation-content .citation-text {
+      font-size: 1.1rem;
+      margin: 0; }
+    .media-citation blockquote.citation-content .blockquote-footer {
+      font-size: 1rem;
+      margin-top: 1.875rem; } }
+  @media (min-width: 992px) {
+    .media-citation blockquote.citation-content {
+      margin: auto; } }
 
 .video__transcription__header,
 .video-upload__transcription__header,

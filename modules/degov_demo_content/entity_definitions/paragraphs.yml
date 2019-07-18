@@ -192,6 +192,12 @@ media_reference_citation:
   field_subtitle: '{{SUBTITLE}}'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_CITATION}}'
+media_reference_citation_front:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Zitat-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_view_mode: 'default'
+  field_media_reference_media: '{{MEDIA_ID_CITATION}}'
 media_reference_person:
   type: 'media_reference'
   field_title: 'Vorschau eines Person-Mediums'

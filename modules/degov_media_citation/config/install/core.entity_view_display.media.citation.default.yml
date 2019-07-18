@@ -41,7 +41,7 @@ content:
     settings:
       image_style: large
       image_link: ''
-      view_mode: teaser_landscape_2_1
+      view_mode: citation_teaser
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content

@@ -19,16 +19,18 @@
   'my-5',
 ] %}
 
+{% set citation_text = content.field_citation_text|render|striptags|trim %}
+
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
 
   <div class="citation-image col-lg-6"{{ content.field_citation_imagee|quickedit_attr }}>
-    {{ content.field_citation_image|field_value }}
+    {{ content.field_citation_image }}
   </div>
 
   <blockquote class="col-lg-6 citation-content blockquote px-5">
-    <h3 class="citation-title mt-5 mb-3"> {{ content.field_citation_title }} </h3>
-    <p class="mb-3 citation-text">{{content.field_citation_text|render|striptags|length > 270 ? content.field_citation_text|render|striptags|slice(0, 270) ~ '...' : content.field_citation_text|render|striptags }}</p>
+    <h3 class="citation-title mt-4"> {{ content.field_citation_title }} </h3>
+    <p class="citation-text">{{ citation_text|length > 150 ? citation_text|slice(0, 150) ~ '...' : citation_text }}</p>
     <footer class="blockquote-footer">
       <cite class="citation-source-title" title="Source Title">{{ media.field_title.value  }}</cite>
       <span>{{ media.field_citation_date.value|date('U')|format_date('custom', 'F y') }}</span>
@@ -36,4 +38,3 @@
   </blockquote>
 
 </article>
-

@@ -101,3 +101,13 @@ function degov_image_and_crop_styles_update_870200() {
     $crop_type->save();
   }
 }
+
+/**
+ * Add image style for citation brick.
+ */
+function degov_image_and_crop_styles_update_870201() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
+  $moduleUpdater = \Drupal::service('degov_config.module_updater');
+  $moduleUpdater->applyUpdates('degov_image_and_crop_styles', '870201');
+  $moduleUpdater->reImport('core.entity_form_display.media.image.default','degov_media_image','rewrite');
+}
