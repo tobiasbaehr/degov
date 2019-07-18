@@ -92,7 +92,7 @@
                 "https://www.drupal.org/files/issues/2832504-2.patch"
             },
             "drupal/entity_browser": {
-                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch",
+                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
             },
             "drupal/media_entity_instagram": {
                 "2917454 - Field formatter test is broken":
