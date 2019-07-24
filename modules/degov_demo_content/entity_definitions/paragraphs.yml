@@ -216,6 +216,11 @@ media_reference_gallery:
   field_subtitle: '{{SUBTITLE}}'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_GALLERY}}'
+media_reference_gallery_no_view_mode:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Galerie-Mediums'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_reference_media: '{{MEDIA_ID_GALLERY}}'
 media_reference_tweet:
   type: 'media_reference'
   field_title: 'Vorschau eines Tweet-Mediums'

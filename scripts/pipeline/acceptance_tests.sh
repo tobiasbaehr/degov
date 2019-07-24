@@ -106,7 +106,7 @@ elif [[ "$1" == "backstopjs" ]]; then
     # Make sure you comment out the `set -e` at the begining of the file.
 #    echo "### Approving BackstopJS changes"
 #    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
-
+#
 #    echo "### Running BackstopJS"
 #    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
 
