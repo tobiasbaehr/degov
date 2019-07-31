@@ -3,7 +3,7 @@
 # Comment out the following line, if you want to have db-dumps created for
 # debugging or BackstopJS screenshots updated from pipeliene.
 # Otherwise the script is failing on the first error.
-#set -e
+set -e
 
 touch $BITBUCKET_CLONE_DIR/php_error.log
 mv /etc/php/7.2/cli/php_more_upload.ini /etc/php/7.2/cli/php.ini
