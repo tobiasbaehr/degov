@@ -77,7 +77,12 @@ class IsEmptyValueExtensionTest extends UnitTestCase {
         '#suffix' => '</p>',
         '#markup' => 'This is a markup renderable array',
         '#printed' => TRUE
-      ]]
+      ]],
+      [FALSE, [
+        '0' => [
+          'target_id' => '54'
+        ]
+      ]],
     ];
   }
 
