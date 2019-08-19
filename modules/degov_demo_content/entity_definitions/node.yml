@@ -109,6 +109,7 @@ page_with_all_media:
   field_teaser_sub_title: '{{SUBTITLE}}'
   field_teaser_image: '{{MEDIA_ID_IMAGE}}'
   field_content_paragraphs:
+    - views_reference_latest_media
     - media_reference_image
     - media_reference_gallery
     - media_reference_gallery_no_view_mode

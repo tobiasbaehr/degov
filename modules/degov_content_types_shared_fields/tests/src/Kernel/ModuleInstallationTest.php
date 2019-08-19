@@ -21,6 +21,7 @@ class ModuleInstallationTest extends FieldKernelTestBase {
     'entity_reference_revisions',
     'taxonomy',
     'views',
+    'views_parity_row'
   ];
 
   /**

@@ -131,6 +131,14 @@ map_1:
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
 ## View references
+views_reference_latest_media:
+  type: 'view_reference'
+  field_title: 'Mediathek'
+  field_subtitle: 'This is a views_reference_latest_media'
+  field_view_reference_view:
+    target_id: 'latest_media'
+    display_id: 'block_1'
+    view_mode: 'preview_wide'
 views_reference_latest_content:
   type: 'view_reference'
   field_title: 'A view displaying the latest content'
