@@ -36,28 +36,23 @@ function degov_image_and_crop_styles_update_870100() {
 function degov_image_and_crop_styles_update_870200() {
   /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
   $configFactory = \Drupal::configFactory();
-  /** @var \Drupal\Component\Uuid\Php $uuid_service */
-  $uuid_service = \Drupal::service('uuid');
-
-  $config_path = drupal_get_path('module', 'degov_image_and_crop_styles') . '/config/install';
-  $source = new FileStorage($config_path);
 
   // The configs was in earlier version only imported via degov_demo_content.
   $config_names = [
+    'crop.type.12_to_5',
     'image.style.slider_full_width_480',
     'image.style.slider_full_width_960',
     'image.style.slider_full_width_1440',
     'image.style.slider_full_width_1920',
-    'crop.type.12_to_5',
     'responsive_image.styles.slider_full_width'
   ];
 
   foreach ($config_names as $config_name) {
     $configEditable = $configFactory->getEditable($config_name);
     if ($configEditable->isNew()) {
-      $config_storage = \Drupal::service('config.storage');
-      $config_storage->write($config_name, $source->read($config_name));
-      $configFactory->getEditable($config_name)->set('uuid', $uuid_service->generate())->save();
+      /** @var \Drupal\degov_common\DegovConfigUpdate $updater */
+      $updater = \Drupal::service('degov_config.updater');
+      $updater->importConfigFile('degov_image_and_crop_styles', $config_name);
     }
     else {
       _degov_image_and_crop_styles_set_enforced_and_uuid($configEditable);
@@ -109,5 +104,5 @@ function degov_image_and_crop_styles_update_870201() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->applyUpdates('degov_image_and_crop_styles', '870201');
-  $moduleUpdater->reImport('core.entity_form_display.media.image.default','degov_media_image','rewrite');
+  $moduleUpdater->reImport('core.entity_form_display.media.image.default', 'degov_media_image', 'rewrite');
 }

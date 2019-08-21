@@ -1,15 +1,14 @@
 <?php
+declare(strict_types=1);
 
 namespace Drupal\degov_common;
 
 use Drupal\config\StorageReplaceDataWrapper;
-use Drupal\Core\Config\ConfigImporter;
 use Drupal\Core\Config\FileStorage;
-use Drupal\Core\Config\StorageComparer;
 use Drupal\Core\Config\StorageInterface;
 
 /**
- * Class DegovOverride
+ * Class DegovConfigUpdate
  *
  * @package Drupal\degov_common
  */
@@ -18,85 +17,70 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
   /**
    * Updates the configuration of a given module and type.
    *
-   * @param string$module
+   * @param string $module
    *   The module name.
    * @param string $config_type
    *   The configuration type, this could be install, optional or block.
    * @param string $contrib_type
    *   Type of contrib type being processed, namely a module or theme.
    */
-  public function configPartialImport($module, $config_type = 'install', $contrib_type = 'module') {
+  public function configPartialImport(string $module, string $config_type = 'install', string $contrib_type = 'module') : void {
     $source_dir = drupal_get_path($contrib_type, $module) . '/config/' . $config_type;
-    $this->checkConfigurationChanges($source_dir);
+    $this->importConfigFiles($source_dir);
   }
 
   /**
-   * @param $source_dir
-   *
-   * @return array|null|void
+   * @param string $directory
+   *   A directory path to use for reading and writing of configuration files.
+   * @deprecated
    */
-  public function checkConfigurationChanges($source_dir) {
-    $source_storage = new FileStorage($source_dir);
+  public function checkConfigurationChanges(string $directory) : void {
+    $this->importConfigFiles($directory);
+  }
 
-    // Determine $source_storage in partial and non-partial cases.
-    /** @var \Drupal\Core\Config\StorageInterface $active_storage */
-    $active_storage = $this->activeStorage;
+  /**
+   * Imports a single config file.
+   *
+   * @param string $module
+   *   Name of the module.
+   * @param string $config_name
+   *   The name of a configuration object to import.
+   * @param string $config_type
+   *   The configuration type, this could be install, optional or block.
+   */
+  public function importConfigFile(string $module, string $config_name, string $config_type = 'install') {
+    $file_storage = new FileStorage(drupal_get_path('module', $module) . '/config/' . $config_type);
+    $data = $file_storage->read($config_name);
+    $this->addUUID($config_name, $data);
+    $sourceStorage = new StorageReplaceDataWrapper($this->activeStorage);
+    $sourceStorage->replaceData($config_name, $data);
+    $this->configImport($sourceStorage);
 
-    $replacement_storage = new StorageReplaceDataWrapper($active_storage);
-    foreach ($source_storage->listAll() as $name) {
-      $data = $source_storage->read($name);
-      $replacement_storage->replaceData($name, $data);
+  }
+
+  /**
+   * Imports all configuration files from the given directory.
+   *
+   * @param string $directory
+   *   A directory path to use for reading configuration files.
+   */
+  public function importConfigFiles(string $directory) : void {
+    $fileStorage = new FileStorage($directory);
+    $sourceStorage = new StorageReplaceDataWrapper($this->activeStorage);
+    foreach ($fileStorage->listAll() as $name) {
+      $data = $fileStorage->read($name);
+      $this->addUUID($name, $data);
+      $sourceStorage->replaceData($name, $data);
     }
-    $source_storage = $replacement_storage;
-
-    /** @var \Drupal\Core\Config\ConfigManagerInterface $config_manager */
-    $config_manager = $this->configManager;
-    $storage_comparer = new StorageComparer($source_storage, $active_storage, $config_manager);
-
-    if (!$storage_comparer->createChangelist()->hasChanges()) {
-      return drupal_set_message(t('There are no changes to import.'), 'status');
-    }
-
-    $change_list = [];
-    foreach ($storage_comparer->getAllCollectionNames() as $collection) {
-      $change_list[$collection] = $storage_comparer->getChangelist(NULL, $collection);
-    }
-
-    foreach ($change_list as $collection) {
-      if (empty($collection)) {
-        continue;
-      }
-      foreach ($collection as $operation => $list) {
-        if (empty($list)) {
-          continue 1;
-        }
-        $config_list = implode("\n", $list);
-        drupal_set_message(t('The following configurations will be @operation: @list', [
-          '@operation' => $operation . 'd',
-          '@list' => $config_list,
-        ]));
-      }
-    }
-    $config_importer = new ConfigImporter(
-      $storage_comparer,
-      $this->eventDispatcher,
-      $this->configManager,
-      $this->lock,
-      $this->typedConfigManager,
-      $this->moduleHandler,
-      $this->moduleInstaller,
-      $this->themeHandler,
-      $this->stringTranslation
-    );
-    $this->configImport($config_importer);
+    $this->configImport($sourceStorage);
   }
 
   /**
    * Check optional directory for configuration changes.
    *
-   * @param $source_dir
+   * @param string $optional_install_path
    */
-  public function checkOptional($optional_install_path) {
+  public function checkOptional(string $optional_install_path) : void {
     if (is_dir($optional_install_path)) {
       // Install any optional config the module provides.
       $storage = new FileStorage($optional_install_path, StorageInterface::DEFAULT_COLLECTION);
@@ -107,5 +91,4 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
       $configInstaller->installOptionalConfig($storage, '');
     }
   }
-
 }

@@ -56,6 +56,7 @@ function degov_media_citation_update_8012() {
  * Moved configuration from image styles module.
  */
 function degov_media_citation_update_870201() {
-  \Drupal::service('degov_config.module_updater')
-    ->applyUpdates('degov_media_citation', '870201');
+  /** @var \Drupal\degov_common\DegovModuleUpdater $module_updater */
+  $module_updater = \Drupal::service('degov_config.module_updater');
+  $module_updater->applyUpdates('degov_media_citation', '870201');
 }
