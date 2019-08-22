@@ -78,15 +78,9 @@ function degov_module_setup(&$install_state) {
     'media_file_links'                  => 'media_file_links',
   ];
 
-  // Add a batch operation to install each module and load .po files.
-    \Drupal::moduleHandler()->loadInclude('locale', 'translation.inc');
-    \Drupal::moduleHandler()->loadInclude('locale', 'batch.inc');
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $options = _locale_translation_default_update_options();
     $operations = [];
     foreach ($modules as $module) {
         $operations[] = ['_install_degov_module_batch', [[$module], $module]];
-        $operations[] = ['locale_translation_batch_fetch_import', [$module, $langcode, $options]];
     }
 
   // Batch operation definition.
@@ -248,17 +242,4 @@ function degov_finalize_setup() {
   }
 
   return $batch;
-}
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_locale_translation_projects_alter(&$projects) {
-  $projects['degov'] = [
-    'info' => [
-      'name'                                 => 'deGov',
-      'interface translation project'        => 'degov',
-      'interface translation server pattern' => drupal_get_path('profile', 'degov') . '/translations/%language.po',
-    ],
-  ];
 }

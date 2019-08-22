@@ -3,6 +3,8 @@
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\ProxyClass\Extension\ModuleInstaller;
@@ -46,6 +48,14 @@ class ModuleContext extends RawDrupalContext {
    */
   public function iAmInstallingTheModule(string $moduleName): void {
     $this->getModuleInstaller()->install([$moduleName]);
+    // Required to import translations or other batch processes which runs after a
+    // module is installed. (by default via backend which would runs a batch)
+    $batch =& batch_get();
+    if (empty($batch)) {
+      return;
+    }
+    $batch['progressive'] = FALSE;
+    batch_process();
   }
 
   /**
@@ -70,15 +80,15 @@ class ModuleContext extends RawDrupalContext {
     $moduleMachineNames = array_keys($rowsHash);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      $this->getModuleInstaller()->install([$moduleMachineName]);
+      $this->iAmInstallingTheModule($moduleMachineName);
     }
   }
 
-  protected function getModuleInstaller(): ModuleInstaller {
+  protected function getModuleInstaller(): ModuleInstallerInterface {
     return \Drupal::service('module_installer');
   }
 
-  protected function getModuleHandler(): ModuleHandler {
+  protected function getModuleHandler(): ModuleHandlerInterface {
     return \Drupal::service('module_handler');
   }
 

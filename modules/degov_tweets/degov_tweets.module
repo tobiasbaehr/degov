@@ -76,19 +76,6 @@ function degov_tweets_parse_tweet($text) {
   return $text;
 }
 
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_tweets_locale_translation_projects_alter(&$projects) {
-  $projects['degov_tweets'] = [
-    'info' => [
-      'name'                                 => 'deGov - Tweets',
-      'interface translation project'        => 'degov_tweets',
-      'interface translation server pattern' => drupal_get_path('module', 'degov_tweets') . '/translations/%language.po',
-    ],
-  ];
-}
-
 function degov_tweets_preprocess_block(&$variables) {
   if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_twitter_block') {
     $variables['#attached']['library'][] = 'degov_common/slick';

@@ -17,20 +17,6 @@ use Drupal\paragraphs\ParagraphInterface;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 
 /**
- * Implements hook_locale_translation_projects_alter().
- */
-function media_file_links_locale_translation_projects_alter(&$projects) {
-  $projects['media_file_links'] = [
-    'info' => [
-      'name'                                 => 'Media file links',
-      'interface translation project'        => 'media_file_links',
-      'interface translation server pattern' => \Drupal::service('extension.list.module')
-          ->getPath('media_file_links') . '/translations/%language.po',
-    ],
-  ];
-}
-
-/**
  * Implements hook_entity_base_field_info_alter().
  */
 function media_file_links_entity_base_field_info_alter(&$fields, EntityTypeInterface $entity_type) {
