@@ -96,7 +96,12 @@ if [[ "$1" == "smoke_tests" ]]; then
     bin/drush upwd admin admin
     bin/drush watchdog:delete all -y
     behat -c behat.yml --suite=smoke-tests --strict
+
 elif [[ "$1" == "backstopjs" ]]; then
+    echo "### Set the Development Mode"
+    bin/drush en degov_devel -y
+    bin/drush config:set degov_devel.settings dev_mode true -y
+
     echo "### Running BackstopJS test"
     (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
 

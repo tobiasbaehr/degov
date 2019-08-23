@@ -13,14 +13,14 @@
               </div>
               <div class="tweet__avatar">
                 <a href="https://twitter.com/{{ tweet.screen_name }}"
-                   alt="{{ tweet.screen_name }}" title="{{ tweet.screen_name }}">
-                  <img src="{{ tweet.avatar }}">
+                   title="{{ tweet.username }}">
+                  <img alt="{{ tweet.username }}" src="{{ tweet.avatar }}">
                 </a>
               </div>
               <div class="tweet__timestamp">
                 <a href="https://twitter.com/{{ tweet.screen_name }}/status/{{ tweet.id }}"
-                   alt="{{ tweet.screen_name }}" title="{{ tweet.screen_name }}">
-                  {% trans %}<em class="placeholder">{{ tweet.time_ago }} ago</em>{% endtrans %}
+                   title="{{ tweet.time }}">
+                  {{ tweet.time_ago }} {{ 'ago'|t }}
                 </a>
               </div>
               <div class="tweet__name-handle">

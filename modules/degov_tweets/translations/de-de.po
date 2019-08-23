@@ -67,6 +67,10 @@ msgstr "Folgen"
 msgid "<em class=\"placeholder\">@tweet.time_ago ago</em>"
 msgstr "<em class=\"placeholder\">@tweet.time_ago her</em>"
 
+#: modules/degov/degov_tweets/templates/degov-tweets.html.twig:16
+msgid "ago"
+msgstr "her"
+
 #: modules/degov/degov_tweets/templates/degov-tweets.html.twig:30
 msgid "Reply"
 msgstr "Antworten"

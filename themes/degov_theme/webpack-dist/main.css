@@ -13765,7 +13765,10 @@ readers do not read off random characters that represent icons */
           content: "\F002";
           font-size: 1.2rem; }
 
-.block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
+.block--degov-social-media-youtube .paragraph__content .js-social-media-settings-open {
+  color: #1060b1; }
+
+.block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-image {
   min-height: 120px;
   width: 100%;
   background-repeat: no-repeat;
@@ -13773,9 +13776,9 @@ readers do not read off random characters that represent icons */
   background-position: center;
   position: relative; }
   @media (min-width: 768px) {
-    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image {
+    .block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-image {
       width: 255px; } }
-  .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image:before {
+  .block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-image:before {
     position: absolute;
     content: '';
     width: 100%;
@@ -13784,44 +13787,50 @@ readers do not read off random characters that represent icons */
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     transition: background-color .3s; }
-  .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-image:hover:before {
+  .block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-image:hover:before {
     background-color: rgba(0, 0, 0, 0.2); }
 
-.block--degov-social-media-youtube .teaser-social-media-youtube .teaser-content {
+.block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-content {
   background-color: #F1F2F3;
   font-size: .8rem; }
   @media (min-width: 768px) {
-    .block--degov-social-media-youtube .teaser-social-media-youtube .teaser-content {
+    .block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-content {
       font-size: 1rem; } }
 
-.block--degov-social-media-youtube .teaser-social-media-youtube .learn-more {
+.block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .learn-more {
   bottom: 0;
   left: 0;
   width: 100%;
   background-color: #154575;
   color: #fff; }
 
-.block--degov-social-media-twitter .tweet .top {
+.block--degov-social-media-twitter .paragraph__content .js-social-media-settings-open {
+  color: #1060b1; }
+
+.block--degov-social-media-twitter .paragraph__content .tweet .top {
   background-color: #F1F2F3; }
 
-.block--degov-social-media-twitter .tweet__avatar img {
+.block--degov-social-media-twitter .paragraph__content .tweet__avatar img {
   height: 85px;
   width: auto; }
 
-.block--degov-social-media-twitter .tweet__timestamp a {
+.block--degov-social-media-twitter .paragraph__content .tweet__timestamp a {
   color: #818D96; }
 
-.block--degov-social-media-twitter .tweet__text {
+.block--degov-social-media-twitter .paragraph__content .tweet__text {
   font-size: .8rem;
   min-height: 4rem; }
 
-.block--degov-social-media-twitter .tweet__actions {
+.block--degov-social-media-twitter .paragraph__content .tweet__actions {
   background-color: #154575; }
-  .block--degov-social-media-twitter .tweet__actions li {
+  .block--degov-social-media-twitter .paragraph__content .tweet__actions li {
     display: inline-block;
     min-width: 4rem; }
-  .block--degov-social-media-twitter .tweet__actions a {
+  .block--degov-social-media-twitter .paragraph__content .tweet__actions a {
     color: #fff; }
+
+.block--degov-social-media-instagram .paragraph__content .js-social-media-settings-open {
+  color: #1060b1; }
 
 .block--degov-social-media-instagram .paragraph__content article .normal-page__teaser-text {
   font-size: .9rem;

@@ -22,7 +22,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'degov_social_media_instagram.api_key',
+      'degov_social_media_instagram.settings',
     ];
   }
 
@@ -54,7 +54,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $config = \Drupal::service('config.factory')->getEditable('degov_social_media_instagram.settings');
+    $config = $this->config('degov_social_media_instagram.settings');
     $config->set('user', $values['user'])->save();
     $config->set('number_of_posts', $values['number_of_posts'])->save();
     $config->set('number_of_characters', $values['number_of_characters'])->save();

@@ -1,8 +1,10 @@
 <?php
 
-function degov_social_media_instagram_install() {
-  $config = \Drupal::service('config.factory')->getEditable('degov_social_media_instagram.settings');
-  $config->set('user', "")->save();
-  $config->set('number_of_posts', "5")->save();
-  $config->set('number_of_characters', "100")->save();
+/**
+ * Add instagram block, set instagram account to fetch feed from.
+ */
+function degov_social_media_instagram_update_870200() {
+  /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_social_media_instagram', '870200');
 }

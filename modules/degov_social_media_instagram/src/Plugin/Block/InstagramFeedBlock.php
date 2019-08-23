@@ -2,8 +2,13 @@
 
 namespace Drupal\degov_social_media_instagram\Plugin\Block;
 
+use Drupal;
 use Drupal\Core\Block\BlockBase;
-use InstagramScraper\Instagram;
+use Drupal\Core\Config\ImmutableConfig;
+use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\degov_social_media_instagram\Instagram;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'InstagramFeedBlock' block.
@@ -13,54 +18,133 @@ use InstagramScraper\Instagram;
  *  admin_label = @Translation("Instagram Feed Block"),
  * )
  */
-class InstagramFeedBlock extends BlockBase {
+class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * Number of characters for tweets caption.
+   */
+  const NUMBER_OF_CHARACTERS = 100;
+
+  /**
+   * Definition of ImmutableConfig.
+   *
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $degovSocialMediaInstagramConfig;
+
+  /**
+   * The date formatter service.
+   *
+   * @var \Drupal\Core\Datetime\DateFormatterInterface
+   */
+  protected $dateFormatter;
+
+  /**
+   * Definition of Instagram.
+   *
+   * @var \Drupal\degov_social_media_instagram\Instagram
+   */
+  protected $instagram;
+
+  /**
+   * InstagramFeedBlock constructor.
+   *
+   * @param array $configuration
+   *   Block plugin config.
+   * @param $plugin_id
+   *   Block plugin plugin_id.
+   * @param $plugin_definition
+   *   Block plugin definition.
+   * @param \Drupal\Core\Config\ImmutableConfig $config
+   *   The config service.
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
+   *   The date formatter service.
+   * @param \Drupal\degov_social_media_instagram\Instagram $instagram
+   *   The Instagram service.
+   */
+  public function __construct(
+    array $configuration,
+    $plugin_id,
+    $plugin_definition,
+    ImmutableConfig $config,
+    DateFormatterInterface $date_formatter,
+    Instagram $instagram) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->degovSocialMediaInstagramConfig = $config;
+    $this->dateFormatter = $date_formatter;
+    $this->instagram = $instagram;
+  }
 
   /**
    * {@inheritdoc}
    */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('config.factory')->get('degov_social_media_instagram.settings'),
+      $container->get('date.formatter'),
+      $container->get('degov_social_media_instagram.instagram')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   * @throws \InstagramScraper\Exception\InstagramException
+   * @throws \InstagramScraper\Exception\InstagramNotFoundException
+   */
   public function build() {
     $build = [];
 
-    $config = \Drupal::service('config.factory')
-      ->get('degov_social_media_instagram.settings');
-    $user = $config->get('user');
-    $max = $config->get('number_of_posts');
-    $maxLenth = $config->get('number_of_characters');
+    $user = $this->degovSocialMediaInstagramConfig->get('user');
+    $max = $this->degovSocialMediaInstagramConfig->get('number_of_posts');
+    $maxLenth = is_numeric($this->degovSocialMediaInstagramConfig->get('number_of_characters')) ?: self::NUMBER_OF_CHARACTERS;
 
     if (is_numeric($max)) {
       $max = intval($max);
     }
 
-    $nonPrivateAccountMedias = [];
-    try {
-      $instagram = new Instagram();
-      $nonPrivateAccountMedias = $instagram->getMedias($user, $max);
-    }
-    catch(\Exception $exception) {
-      \Drupal::service('messenger')->addMessage("There occurred an error while fetching new medias ($exception) ",'error');
-      return ['#markup' => t('There occurred an error while fetching new medias')];
+    if ($medias = $this->instagram->getMedias($user, $max)) {
+      /** @var \InstagramScraper\Model\Media $media */
+      foreach ($medias as $media) {
+        $build['degov_social_media_instagram'][] = [
+          '#theme' => 'degov_social_media_instagram',
+          '#imageUrl' => $media->getImageThumbnailUrl(),
+          '#instagramUser' => $this->instagram->getAccount($user)
+            ->getFullName(),
+          '#link' => $media->getLink(),
+          '#link_display' => $this->_shortDescription($media->getLink(), 32, '...'),
+          '#type' => $media->getType(),
+          '#caption' => $this->_shortDescription($media->getCaption(), $maxLenth, "..."),
+          '#views' => $media->getVideoViews(),
+          '#likes' => $media->getLikesCount(),
+          '#comments' => $media->getCommentsCount(),
+          '#date' => $this->dateFormatter
+            ->formatTimeDiffSince($media->getCreatedTime()),
+          '#cache' => [
+            'max-age' => (60 * 5),
+          ],
+        ];
+      }
     }
 
-    foreach ($nonPrivateAccountMedias as $media) {
-      $build['degov_social_media_instagram'][] = [
-        '#theme' => 'degov_social_media_instagram',
-        '#imageUrl' => $media->getImageThumbnailUrl(),
-        '#instagramUser' => $instagram->getAccount($user)->getFullName(),
-        '#link' => $media->getLink(),
-        '#link_display' => $this->_shortDescription($media->getLink(),32,'...'),
-        '#type' => $media->getType(),
-        '#caption' => $this->_shortDescription($media->getCaption(), $maxLenth, "..."),
-        '#views' => $media->getVideoViews(),
-        '#likes' => $media->getLikesCount(),
-        '#comments' => $media->getCommentsCount(),
-        '#date' => \Drupal::service('date.formatter')
-        ->formatTimeDiffSince($media->getCreatedTime()),
-        '#cache' => ['max-age' => (60 * 5)],
-      ];
-    }
     return $build;
   }
 
+  /**
+   * Returns the short description.
+   *
+   * @param string $string
+   *   Description text.
+   * @param int $maxLenth
+   *   Maximum length of the description.
+   * @param string $replacement
+   *   Dots.
+   *
+   * @return string
+   */
   function _shortDescription($string, $maxLenth, $replacement) {
     if (strlen($string) > $maxLenth) {
       return substr($string, 0, $maxLenth) . $replacement;
@@ -69,4 +153,14 @@ class InstagramFeedBlock extends BlockBase {
       return $string;
     }
   }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    $cache_tags = parent::getCacheTags();
+    $cache_tags[] = 'config:degov_devel.settings';
+    return $cache_tags;
+  }
+
 }

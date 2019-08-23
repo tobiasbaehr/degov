@@ -28,7 +28,6 @@ function degov_image_and_crop_styles_update_870100() {
     ->applyUpdates('degov_image_and_crop_styles', '870100');
 }
 
-
 /**
  * - Move some config from degov_demo_content to degov_image_and_crop_styles.
  * - Sets offsets to the crop-types.

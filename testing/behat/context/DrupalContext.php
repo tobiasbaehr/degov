@@ -6,9 +6,6 @@ use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
-use Drupal\degov_demo_content\Generator\MediaGenerator;
-use Drupal\degov_demo_content\Generator\MenuItemGenerator;
-use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
@@ -1224,4 +1221,15 @@ class DrupalContext extends RawDrupalContext {
     }
     throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
   }
+
+  /**
+   * @Then /^I turn on development mode$/
+   */
+  public function enableDevMode() {
+    \Drupal::configFactory()
+      ->getEditable('degov_devel.settings')
+      ->set('dev_mode', TRUE)
+      ->save();
+  }
+
 }
