@@ -275,7 +275,7 @@ Feature: deGov - Content creation
       | degov_rich_text_format_settings            |
       | degov_node_normal_page                     |
     And I am on "/node/add/normal_page"
-    And I select "Rich Text" by name "field_teaser_text[0][format]"
+    And I select "rich_text" by name "field_teaser_text[0][format]"
     And I should see 1 ".cke_top.cke_reset_all" elements via jQuery after a while
     And I should see 1 ".cke_button_icon.cke_button__bold_icon" elements via jQuery
     And I should see 1 ".cke_button.cke_button__source.cke_button_off" elements via jQuery

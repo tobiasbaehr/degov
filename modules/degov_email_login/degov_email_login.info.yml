@@ -5,3 +5,6 @@ package: deGov
 core: 8.x
 dependencies:
   - mail_login
+
+interface translation project: degov_email_login
+interface translation server pattern: profiles/contrib/degov/modules/degov_email_login/translations/de-de.po

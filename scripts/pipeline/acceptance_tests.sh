@@ -101,9 +101,11 @@ elif [[ "$1" == "backstopjs" ]]; then
     echo "### Set the Development Mode"
     bin/drush en degov_devel -y
     bin/drush config:set degov_devel.settings dev_mode true -y
-
+    set +e
     echo "### Running BackstopJS test"
     (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+    rc=$?
+    set -e
 
     # The following lines is for approving changes. Approving changes will update your reference files with the results
     # from your last test. Future tests are compared against your most recent approved test screenshots. You must
@@ -117,6 +119,7 @@ elif [[ "$1" == "backstopjs" ]]; then
 
     echo "### Dumping BackstopJS output"
     (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+    exit $rc
 
 elif [[ "$1" != "backstopjs" ]]; then
     echo "### Running Behat features by tags: $1"

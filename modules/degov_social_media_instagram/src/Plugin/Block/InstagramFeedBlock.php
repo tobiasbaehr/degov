@@ -100,12 +100,14 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
 
     $user = $this->degovSocialMediaInstagramConfig->get('user');
     $max = $this->degovSocialMediaInstagramConfig->get('number_of_posts');
-    $maxLenth = is_numeric($this->degovSocialMediaInstagramConfig->get('number_of_characters')) ?: self::NUMBER_OF_CHARACTERS;
+    $maxLength = self::NUMBER_OF_CHARACTERS;
+    if (is_numeric($this->degovSocialMediaInstagramConfig->get('number_of_characters'))) {
+      $maxLength = $this->degovSocialMediaInstagramConfig->get('number_of_characters');
+    }
 
     if (is_numeric($max)) {
       $max = intval($max);
     }
-
     if ($medias = $this->instagram->getMedias($user, $max)) {
       /** @var \InstagramScraper\Model\Media $media */
       foreach ($medias as $media) {
@@ -117,7 +119,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
           '#link' => $media->getLink(),
           '#link_display' => $this->_shortDescription($media->getLink(), 32, '...'),
           '#type' => $media->getType(),
-          '#caption' => $this->_shortDescription($media->getCaption(), $maxLenth, "..."),
+          '#caption' => $this->_shortDescription($media->getCaption(), $maxLength, "..."),
           '#views' => $media->getVideoViews(),
           '#likes' => $media->getLikesCount(),
           '#comments' => $media->getCommentsCount(),
@@ -138,16 +140,16 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *
    * @param string $string
    *   Description text.
-   * @param int $maxLenth
+   * @param int $maxLength
    *   Maximum length of the description.
    * @param string $replacement
    *   Dots.
    *
    * @return string
    */
-  function _shortDescription($string, $maxLenth, $replacement) {
-    if (strlen($string) > $maxLenth) {
-      return substr($string, 0, $maxLenth) . $replacement;
+  function _shortDescription(string $string, int $maxLength, string $replacement) {
+    if (mb_strlen($string) > $maxLength) {
+      return mb_substr($string, 0, $maxLength) . $replacement;
     }
     else {
       return $string;
