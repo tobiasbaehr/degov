@@ -3,11 +3,14 @@
 namespace Drupal\degov\Behat\Context;
 
 
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 
 class SmokeTestContext extends DrupalContext {
 
   use ErrorTrait;
+
+  use DebugOutputTrait;
 
   /**
    * @var string
@@ -42,15 +45,13 @@ class SmokeTestContext extends DrupalContext {
     $submit->click();
 
     if (!$this->loggedIn()) {
-      throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s'", $this->username));
+      try {
+        throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s'", $this->username));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
-  }
-
-  /**
-   * @AfterStep
-   */
-  public function assertNoErrors() {
-    $this->checkErrors();
   }
 
 }

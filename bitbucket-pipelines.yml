@@ -28,6 +28,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Entities features
           caches:
@@ -40,6 +42,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Access features
           caches:
@@ -52,6 +56,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: View mode features
           caches:
@@ -64,6 +70,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Form features
           caches:
@@ -76,6 +84,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Simplenews feature
           caches:
@@ -88,6 +98,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Social media sharing feature
           caches:
@@ -100,6 +112,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: Smoke tests
           caches:
@@ -112,6 +126,8 @@ pipelines:
           artifacts:
             - php_error.log
             - "*.sql.gz"
+            - "*.png"
+            - "*.html"
       - step:
           name: BackstopJS tests
           caches:
@@ -147,6 +163,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Entities features
             caches:
@@ -159,6 +177,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Access features
             caches:
@@ -171,6 +191,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: View mode features
             caches:
@@ -183,6 +205,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Form features
             caches:
@@ -195,6 +219,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Simplenews feature
             caches:
@@ -207,6 +233,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Social media sharing feature
             caches:
@@ -219,6 +247,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: Smoke tests
             caches:
@@ -231,6 +261,8 @@ pipelines:
             artifacts:
               - php_error.log
               - "*.sql.gz"
+              - "*.png"
+              - "*.html"
         - step:
             name: BackstopJS tests
             caches:

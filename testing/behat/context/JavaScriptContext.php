@@ -3,11 +3,14 @@
 namespace Drupal\degov\Behat\Context;
 
 use Behat\MinkExtension\Context\RawMinkContext;
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 
 
 class JavaScriptContext extends RawMinkContext {
 
   private const MAX_DURATION_SECONDS = 1200;
+
+  use DebugOutputTrait;
 
   /**
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
@@ -46,7 +49,12 @@ class JavaScriptContext extends RawMinkContext {
       return true;
     }
     else {
-      throw new \Exception("CSS selector $selector does not have attribute '$attribute' matching '$value'");
+      try {
+        throw new \Exception("CSS selector $selector does not have attribute '$attribute' matching '$value'");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -59,7 +67,12 @@ class JavaScriptContext extends RawMinkContext {
       return true;
     }
     else {
-      throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
+      try {
+        throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -102,7 +115,14 @@ class JavaScriptContext extends RawMinkContext {
     if($actual_value === $value) {
       return true;
     }
-    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'. Has: $actual_value");
+
+    try {
+      throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'. Has: $actual_value");
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -113,7 +133,14 @@ class JavaScriptContext extends RawMinkContext {
     if(preg_match('/' . $value . '/', $actualValue)) {
       return true;
     }
-    throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
+
+    try {
+      throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -124,7 +151,14 @@ class JavaScriptContext extends RawMinkContext {
     if($numberOfElementsFound === $number) {
       return true;
     }
-    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+
+    try {
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -144,7 +178,14 @@ class JavaScriptContext extends RawMinkContext {
     if($numberOfElementsFound === $number) {
       return true;
     }
-    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+
+    try {
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -159,7 +200,15 @@ class JavaScriptContext extends RawMinkContext {
         return true;
       }
     } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-    throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' .$number);
+
+    try {
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' .$number);
+
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -180,6 +229,12 @@ class JavaScriptContext extends RawMinkContext {
       return TRUE;
     }
 
-    throw new \Exception("Expected element " . $elementSelector . " to have CSS " . $styleAttribute . "=" . $styleValue . ", actual value was " . $actualValue);
+    try {
+      throw new \Exception("Expected element " . $elementSelector . " to have CSS " . $styleAttribute . "=" . $styleValue . ", actual value was " . $actualValue);
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 }

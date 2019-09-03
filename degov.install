@@ -6,6 +6,7 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
+use Drupal\user\Entity\Role;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -330,3 +331,29 @@ function degov_update_dependencies() {
   ];
   return $dependencies;
 }
+
+/**
+ * deGov update 7.3.0
+ * - Disable SQL Rewrite in the content view. Temporary solution for Issue #2971902: https://www.drupal.org/project/drupal/issues/2971902.
+ * - Give the editor and manager roles the permissions to create, edit and delete terms in the section taxonomy vocabulary.
+ */
+function degov_update_870300() {
+  $viewsViewContentConfig =  Drupal::configFactory()->getEditable('views.view.content');
+  if ($viewsViewContentConfig->getRawData()){
+    $newViewsViewContentConfig = Yaml::parse(file_get_contents(drupal_get_path('profile', 'degov')  . '/config/partial/views.view.content.yml'));
+    $viewsViewContentConfig->merge($newViewsViewContentConfig);
+    $viewsViewContentConfig->save(TRUE);
+  }
+
+  $roles = ['editor', 'manager'];
+  foreach ($roles as $roleId) {
+    $role = Role::load($roleId);
+    if ($role) {
+      $role->grantPermission('create terms in section');
+      $role->grantPermission('delete terms in section');
+      $role->grantPermission('edit terms in section');
+      $role->save();
+    }
+  }
+}
+

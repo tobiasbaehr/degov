@@ -29,7 +29,11 @@ composer create-project degov/degov-project --no-install degov-project
 cd degov-project
 COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
+
+CI_ROOT_DIR=$BITBUCKET_CLONE_DIR
+export CI_ROOT_DIR
 composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+
 echo "Setting up project"
 cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
 php composer-require-namespace.php
@@ -51,14 +55,14 @@ mkdir docroot/sites/default/files/translations/
 chmod 777 -R docroot/sites/default/files/
 
 echo "### Setting up Behat"
-mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.yml .
-mv docroot/profiles/contrib/degov/testing/behat/behat.yml .
+mv docroot/profiles/contrib/degov/testing/behat/behat-no-drupal.dist.yml behat-no-drupal.yml
+mv docroot/profiles/contrib/degov/testing/behat/behat.dist.yml behat.yml
 
 echo "### Setup database by new installation or database dump"
 
 if [[ "$2" == "install" ]]; then
     echo "### Installing anew"
-    behat -c behat-no-drupal.yml -vvv
+    bin/behat -c behat-no-drupal.yml --strict -vvv --stop-on-failure
 fi
 
 if [[ "$2" == "db_dump" ]]; then
@@ -95,7 +99,7 @@ if [[ "$1" == "smoke_tests" ]]; then
     echo "### Running Behat smoke tests"
     bin/drush upwd admin admin
     bin/drush watchdog:delete all -y
-    behat -c behat.yml --suite=smoke-tests --strict
+    bin/behat -c behat.yml --suite=smoke-tests --strict -vvv
 
 elif [[ "$1" == "backstopjs" ]]; then
     echo "### Set the Development Mode"
@@ -123,7 +127,7 @@ elif [[ "$1" == "backstopjs" ]]; then
 
 elif [[ "$1" != "backstopjs" ]]; then
     echo "### Running Behat features by tags: $1"
-    behat -c behat.yml --suite=default --tags="$1" --strict -vvv --stop-on-failure
+    bin/behat -c behat.yml --suite=default --tags="$1" --strict -vvv
 fi
 
 # For debugging via db dump
