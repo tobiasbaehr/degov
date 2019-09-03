@@ -4,7 +4,6 @@ namespace degov\Scripts\Robo;
 
 use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
 use degov\Scripts\Robo\Exception\NoInstallationProfileProvided;
-use degov\Scripts\Robo\Exception\NoPossibleInstallationProfileKeys;
 use degov\Scripts\Robo\Exception\WrongFolderLocation;
 use degov\Scripts\Robo\Model\InstallationProfile;
 use degov\Scripts\Robo\Model\InstallationProfileCollection;
@@ -18,15 +17,19 @@ trait RunsTrait {
 
   private $rootFolderPath;
 
-  protected function init(): void {
-    $rootFolderAbsolutePath = $this->taskExecStack()
-      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('pwd')
-      ->printOutput(FALSE)
-      ->run()
-      ->getMessage();
 
-    $this->rootFolderPath = $rootFolderAbsolutePath;
+  /**
+   * @var string
+   */
+  private $drupalRoot;
+
+  protected function init(): void {
+
+    $drupalFinder = new \DrupalFinder\DrupalFinder();
+    if ($drupalFinder->locateRoot(getcwd())) {
+      $this->drupalRoot = $drupalFinder->getDrupalRoot();
+      $this->rootFolderPath = $drupalFinder->getComposerRoot();
+    }
   }
 
   /**

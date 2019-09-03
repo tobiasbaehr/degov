@@ -199,6 +199,18 @@
     "config": {
         "bin-dir": "bin/"
     },
+    "autoload": {
+        "classmap": [
+            "modules/lightning_core/tests/contexts/AwaitTrait.inc"
+        ],
+        "psr-4": {
+            "degov\\Scripts\\Robo\\": "scripts/Robo/",
+            "Drupal\\degov\\": "src/",
+            "Drupal\\degov\\Behat\\Context\\": "testing/behat/context/",
+            "Drupal\\Tests\\lightning_media\\": "modules/lightning_media/tests/src/",
+            "Drupal\\degov\\Behat\\Context\\Traits\\": "testing/behat/context/Traits/"
+        }
+    },
     "extra": {
         "installer-paths": {
             "docroot/core": [
@@ -245,17 +257,6 @@
             "drupal/entity_browser": {
                 "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
             }
-        },
-        "autoload-dev": {
-            "psr-4": {
-                "Drupal\\degov\\Behat\\Context\\": "docroot/profiles/contrib/degov/testing/behat/context",
-                "Drupal\\Tests\\lightning_media\\": "docroot/profiles/contrib/degov/modules/lightning_media/tests/src"
-            }
-        },
-        "autoload": {
-            "classmap": [
-                "docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/AwaitTrait.inc"
-            ]
         }
     },
     "conflict": {
