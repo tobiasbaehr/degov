@@ -10,7 +10,6 @@ core: '8.x'
 project: degov
 php version conflicts:
   - "< 7.1"
-  - ">= 7.3"
 install:
   - block_content
   - breakpoint
