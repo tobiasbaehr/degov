@@ -8,6 +8,9 @@ description: 'deGov - Drupal 8 for Government'
 version: 8.x-7.300
 core: '8.x'
 project: degov
+php version conflicts:
+  - "< 7.1"
+  - ">= 7.3"
 install:
   - block_content
   - breakpoint

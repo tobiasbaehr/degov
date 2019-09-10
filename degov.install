@@ -34,6 +34,25 @@ function degov_requirements(string $phase) {
     ];
   }
 
+  $profileInfo = Yaml::parseFile(\Drupal::service('extension.list.profile')->getPathname('degov'));
+  $phpVersionConflicts = (array_key_exists('php version conflicts', $profileInfo) && is_array($profileInfo['php version conflicts'])) ? $profileInfo['php version conflicts'] : [];
+  foreach ($phpVersionConflicts as $phpVersionConflict) {
+    preg_match('/^([<>=]*)\s*(\d(\.\d){0,2})$/', $phpVersionConflict, $matches);
+    $operator = !empty($matches[1]) ? $matches[1] : '==';
+    $conflictingVersion = $matches[2];
+    if (version_compare(PHP_VERSION, $conflictingVersion, $operator)) {
+      $requirements['php_version_conflicts'] = [
+        'title'       => t('PHP version conflicts'),
+        'value'       => t('Unsupported PHP version'),
+        'description' => t('You are attempting to install deGov on PHP @phpVersion. deGov currently does not support PHP @conflict', [
+          '@phpVersion' => PHP_VERSION,
+          '@conflict'   => $phpVersionConflict,
+        ]),
+        'severity'    => REQUIREMENT_ERROR,
+      ];
+    }
+  }
+
   return $requirements;
 }
 
