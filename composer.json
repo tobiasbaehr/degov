@@ -78,7 +78,7 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/video_embed_field": "^2.0",
         "drupal/views_infinite_scroll": "^1.1",
-        "drupal/webform": "^5.0@beta",
+        "drupal/webform": "^5.4",
         "drupal/workbench": "^1.0",
         "drupal/workbench_access": "1.0.0-alpha6",
         "enyo/dropzone": "4.2.0",
@@ -235,6 +235,15 @@
             },
             "drupal/entity_browser": {
                 "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
+            },
+            "drupal/ultimate_cron": {
+                "2890428 - Using 'continue' outside of a loop or switch structure": "https://www.drupal.org/files/issues/continue_in_loop-2890428-2.patch"
+            },
+            "drupal/calendar": {
+                "3066015 - 'continue' targeting switch is equivalent to 'break'": "https://www.drupal.org/files/issues/2019-08-07/calendar-3066015-continue-in-php7.3.patch"
+            },
+            "drupal/dropzonejs": {
+                "3043246 - PHP 7.3 warning": "https://www.drupal.org/files/issues/2019-03-29/3043246-6.patch"
             }
         }
     },

@@ -138,10 +138,16 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
       'count' => $this->configuration['tweets_limit'],
     ];
 
-    $response = $this->twitter
-      ->setGetfield($params)
-      ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json')
-      ->performRequest();
+    $dev_mode = \Drupal::config('degov_devel.settings')->get('dev_mode');
+    if ($dev_mode) {
+      $response = $this->twitter->performRequest();
+    }
+    else {
+      $response = $this->twitter
+        ->setGetfield($params)
+        ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json')
+        ->performRequest();
+    }
 
     if ($response) {
       $tweets = json_decode($response);
@@ -149,7 +155,7 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
         '#theme' => 'degov_tweets',
         '#tweets' => $tweets,
         '#cache' => [
-          'max-age' => is_numeric($this->configuration['tweets_update_every']) ?: self::getMaxAge(),
+          'max-age' => is_numeric($this->configuration['tweets_update_every']) ? $this->configuration['tweets_update_every'] : self::getMaxAge(),
         ],
       ];
     }

@@ -26,10 +26,10 @@ trait SocialMediaAssetsTrait {
       'assets',
       $fileName,
     ];
+    // TODO refactor this.
     $filePath = implode('/', $path);
     $content = file_get_contents($filePath);
-
-    return unserialize($content);
+    $options = ['allowed_classes' => TRUE];
+    return \unserialize($content, $options);
   }
-
 }

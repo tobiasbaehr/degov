@@ -78,12 +78,12 @@ function degov_module_setup(&$install_state) {
     'media_file_links'                  => 'media_file_links',
   ];
 
-    $operations = [];
-    foreach ($modules as $module) {
-      if (!\Drupal::moduleHandler()->moduleExists($module)) {
-        $operations[] = ['_install_degov_module_batch', [[$module], $files[$module]->info['name']]];
-      }
+  $operations = [];
+  foreach ($modules as $module) {
+    if (!\Drupal::moduleHandler()->moduleExists($module)) {
+      $operations[] = ['_install_degov_module_batch', [[$module], $files[$module]->info['name']]];
     }
+  }
 
   // Batch operation definition.
   $batch = [
