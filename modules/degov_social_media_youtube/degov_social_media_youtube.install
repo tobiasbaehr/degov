@@ -1,8 +1,10 @@
 <?php
 
-function degov_social_media_youtube_install() {
-  $config = \Drupal::service('config.factory')->getEditable('degov_social_media_youtube.settings');
-  $config->set('api_key', '')->save();
-  $config->set('channel', '')->save();
-  $config->set('number_of_videos', '5')->save();
+/**
+ * Add youtube block, set youtube account to fetch feed from.
+ */
+function degov_social_media_youtube_update_870200() {
+  /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
+  $updater = \Drupal::service('degov_config.module_updater');
+  $updater->applyUpdates('degov_social_media_youtube', '870200');
 }

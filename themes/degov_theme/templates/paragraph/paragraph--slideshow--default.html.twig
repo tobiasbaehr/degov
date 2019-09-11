@@ -51,8 +51,9 @@
         {% for key in content.field_slideshow_slides|keys if key|first != '#' %}
           <li data-target="#{{ slider_id }}" data-slide-to="{{ key }}" class="{{ key == 0 ? 'active'}} "></li>
         {% endfor %}
-      {% endif %}
-    </ol>
+      </ol>
+    {% endif %}
+
 
     <div class="carousel-inner">
       {% for key, slideshow_slide in content.field_slideshow_slides if key|first != '#' %}
@@ -60,7 +61,6 @@
           {{ slideshow_slide }}
         </div>
       {% endfor %}
-
     </div>
 
     <a class="carousel-control carousel-control-prev" href="#{{ slider_id }}" role="button" data-slide="prev">

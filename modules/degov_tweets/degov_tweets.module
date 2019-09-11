@@ -25,8 +25,8 @@ function template_preprocess_degov_tweets(&$variables) {
   $variables['attributes']['class'][] = 'tweets';
   $tweets = $variables['tweets'];
   $items = [];
-  if (!empty($tweets)) {
-    // Processs each tweet for rendering.
+  if (!empty($tweets) && !isset($tweets->errors)) {
+    // Process each tweet for rendering.
     foreach ($tweets as $tweet) {
       $settings = [
         '#type' => 'processed_text',
@@ -40,11 +40,11 @@ function template_preprocess_degov_tweets(&$variables) {
         'text' => $text,
         'time' => $tweet->created_at,
         'time_ago' => \Drupal::service('date.formatter')
-          ->formatInterval(REQUEST_TIME - strtotime($tweet->created_at)),
+          ->formatInterval(REQUEST_TIME - strtotime($tweet->created_at), 1),
         'username' => $tweet->user->name,
         'screen_name' => $tweet->user->screen_name,
         'user_url' => $tweet->user->url,
-        'avatar' => $tweet->user->profile_image_url_https,
+        'avatar' => str_replace('_normal', '', $tweet->user->profile_image_url_https),
         'followers_count' => $tweet->user->followers_count,
         'favourites_count' => $tweet->user->favourites_count,
         'retweet_count' => $tweet->retweet_count,
@@ -77,18 +77,8 @@ function degov_tweets_parse_tweet($text) {
 }
 
 /**
- * Implements hook_locale_translation_projects_alter().
+ * Implements hook_preprocess_block().
  */
-function degov_tweets_locale_translation_projects_alter(&$projects) {
-  $projects['degov_tweets'] = [
-    'info' => [
-      'name'                                 => 'deGov - Tweets',
-      'interface translation project'        => 'degov_tweets',
-      'interface translation server pattern' => drupal_get_path('module', 'degov_tweets') . '/translations/%language.po',
-    ],
-  ];
-}
-
 function degov_tweets_preprocess_block(&$variables) {
   if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_twitter_block') {
     $variables['#attached']['library'][] = 'degov_common/slick';

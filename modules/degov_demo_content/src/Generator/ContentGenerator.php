@@ -237,7 +237,7 @@ class ContentGenerator {
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
       $word = $this->getWord();
-      if ($addLinks && $i !== 0 && $i % random_int(3, 5) === 0) {
+      if ($addLinks && $i !== 0 && $i % 5 === 0) {
         $word = '<a href="/">' . $word . '</a>';
       }
       $phrase[] = $word;

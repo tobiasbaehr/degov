@@ -21,18 +21,6 @@ function degov_social_media_settings_theme($existing, $type, $theme, $path) {
 }
 
 /**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_social_media_settings_locale_translation_projects_alter(&$projects) {
-  $projects['degov_social_media_settings'] = [
-    'info' => [
-      'interface translation project' => 'degov_social_media_settings',
-      'interface translation server pattern' => drupal_get_path('module', 'degov_social_media_settings').'/translations/%language.po',
-    ],
-  ];
-}
-
-/**
  * Implements hook_preprocess_paragraph__HOOK().
  */
 function degov_social_media_settings_preprocess_paragraph__media_reference(&$variables) {

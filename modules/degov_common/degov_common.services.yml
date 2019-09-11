@@ -38,3 +38,5 @@ services:
   degov_common.config_adder:
     class: \Drupal\degov_common\Entity\ConfigAdder
     arguments: ['@config.factory']
+  degov_common.translation_import:
+    class: \Drupal\degov_common\TranslationImport

@@ -30,16 +30,6 @@ function degov_file_management_install() {
 
     $filesViewConfig->save();
   }
-
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('module', 'degov_file_management') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
 }
 
 /**

@@ -5,12 +5,15 @@ namespace Drupal\degov\Behat\Context;
 use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
 
 class FormContext extends RawMinkContext {
 
 	use TranslationTrait;
+
+	use DebugOutputTrait;
 
   /**
    * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
@@ -80,7 +83,12 @@ class FormContext extends RawMinkContext {
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
     $element = $selectElement->find('css', 'option[value=' . $value . ']');
     if ($element) {
-      throw new \Exception("There is an option with the value '$value' in the select '$id'");
+      try {
+        throw new \Exception("There is an option with the value '$value' in the select '$id'");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -119,7 +127,12 @@ class FormContext extends RawMinkContext {
 
     // errors must not pass silently
     if (NULL === $element) {
-      throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
+      try {
+        throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
+      } catch (\InvalidArgumentException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
 
     // ok, let's click on it
@@ -176,8 +189,13 @@ class FormContext extends RawMinkContext {
         $selector = implode(' ', $selector);
       }
 
-      throw new ElementNotFoundException($this->getSession()
-        ->getDriver(), 'element', 'css', $selector);
+      try {
+        throw new ElementNotFoundException($this->getSession()
+          ->getDriver(), 'element', 'css', $selector);
+      } catch (ElementNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
 
     $html = $node->getHtml();
@@ -190,7 +208,14 @@ class FormContext extends RawMinkContext {
 
     if (count($htmlParts) !== count($rowsHash)) {
       print_r($rowsHash);
-      throw new \Exception(sprintf('Table items number does not match found option values number. Expected %s, found %s', count($rowsHash), count($htmlParts)));
+
+      try {
+        throw new \Exception(sprintf('Table items number does not match found option values number. Expected %s, found %s', count($rowsHash), count($htmlParts)));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     }
 
     foreach ($rowsHash as $text => $value) {
@@ -202,7 +227,13 @@ class FormContext extends RawMinkContext {
         }
       }
       if ($found === FALSE) {
-        throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        try {
+          throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        } catch (\Exception $exception) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception;
+        }
+
       }
     }
   }
@@ -236,7 +267,14 @@ class FormContext extends RawMinkContext {
 
 		if (count($htmlParts) !== count($rowsHash) - 1) {
       print_r($htmlParts);
-      throw new \Exception(sprintf('Table items number does not match found option values number. (expected: %s, found: %s)', (count($rowsHash) - 1), count($htmlParts)));
+
+      try {
+        throw new \Exception(sprintf('Table items number does not match found option values number. (expected: %s, found: %s)', (count($rowsHash) - 1), count($htmlParts)));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		}
 
 		foreach ($rowsHash as $text => $value) {
@@ -248,7 +286,13 @@ class FormContext extends RawMinkContext {
       }
 
 			if ($found === FALSE) {
-				throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        try {
+          throw new \Exception("Text '$text' and value '$value' not found in given options.");
+        } catch (\Exception $exception) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception;
+        }
+
 			}
 		}
 	}
@@ -274,7 +318,13 @@ class FormContext extends RawMinkContext {
       return TRUE;
     }
 
-    throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
+    try {
+      throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -291,7 +341,13 @@ class FormContext extends RawMinkContext {
     foreach ($options as $option) {
       $element = $select->find('css', 'option[value="' . $option . '"]');
       if (!$element) {
-        throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
+        try {
+          throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
+        } catch (ElementNotFoundException $exception) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception;
+        }
+
       }
     }
   }

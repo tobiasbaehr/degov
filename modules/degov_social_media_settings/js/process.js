@@ -87,10 +87,6 @@
 
       if (source === 'twitter') {
         initTwitter(wrapper);
-      }
-
-      if (source === 'twitter') {
-        initTwitter(wrapper);
         initSoMeSlider('twitter');
       }
 
@@ -245,5 +241,3 @@
   }
 
 })(jQuery, Drupal, drupalSettings);
-
-

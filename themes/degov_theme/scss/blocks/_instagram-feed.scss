@@ -2,6 +2,9 @@
   @extend .paragraph-node-reference-node-view-mode-preview;
 
   .paragraph__content {
+    .js-social-media-settings-open {
+      color: #1060b1;
+    }
     article {
       .normal-page__teaser-text {
         font-size: .9rem;

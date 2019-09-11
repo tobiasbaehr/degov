@@ -1,14 +1,1 @@
 <?php
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_breadcrumb_locale_translation_projects_alter(&$projects) {
-    // Define translation pattern to allow Drupal autodected the .po file.
-    $projects['degov_breadcrumb'] = [
-        'info' => [
-          'name'                                  => 'deGov - Breadcrumb',
-          'interface translation project'         => 'degov_breadcrumb',
-          'interface translation server pattern'  => drupal_get_path('module', 'degov_breadcrumb').'/translations/%language.po',
-        ],
-    ];
-}

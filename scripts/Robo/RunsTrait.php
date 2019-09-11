@@ -3,23 +3,116 @@
 namespace degov\Scripts\Robo;
 
 use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
+use degov\Scripts\Robo\Exception\NoInstallationProfileProvided;
 use degov\Scripts\Robo\Exception\WrongFolderLocation;
+use degov\Scripts\Robo\Model\InstallationProfile;
+use degov\Scripts\Robo\Model\InstallationProfileCollection;
+use Drupal\Core\Language\LanguageManager;
 use Robo\Contract\VerbosityThresholdInterface;
 use Symfony\Component\Yaml\Yaml;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\RFCValidation;
 
 trait RunsTrait {
 
   private $rootFolderPath;
 
-  protected function init(): void {
-    $rootFolderAbsolutePath = $this->taskExecStack()
-      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('pwd')
-      ->printOutput(FALSE)
-      ->run()
-      ->getMessage();
 
-    $this->rootFolderPath = $rootFolderAbsolutePath;
+  /**
+   * @var string
+   */
+  private $drupalRoot;
+
+  protected function init(): void {
+
+    $drupalFinder = new \DrupalFinder\DrupalFinder();
+    if ($drupalFinder->locateRoot(getcwd())) {
+      $this->drupalRoot = $drupalFinder->getDrupalRoot();
+      $this->rootFolderPath = $drupalFinder->getComposerRoot();
+    }
+  }
+
+  /**
+   * @param InstallationProfileCollection $installationProfileCollection
+   *
+   * @throws NoInstallationProfileProvided
+   */
+  protected function runDrushProfileInstallation(InstallationProfileCollection $installationProfileCollection): void {
+
+    if (!$installationProfileCollection->getMainInstallationProfile() instanceof InstallationProfile) {
+      throw new NoInstallationProfileProvided;
+    }
+
+    $locale = $this->askDefault(
+      sprintf('In which language (langcode) would you want to install %s (%s)?', $installationProfileCollection->getMainInstallationProfile()->getLabel(), $installationProfileCollection->getMainInstallationProfile()->getDescription()), 'de'
+    );
+    $languages = LanguageManager::getStandardLanguageList();
+    while (!array_key_exists($locale, $languages)) {
+      $this->yell('This is not a valid Drupal langcode!', 40, 'red');
+      $locale = $this->askDefault('Please provide a valid langcode', 'de');
+    }
+
+    $siteName = $this->askDefault('What will be the sitename?', $installationProfileCollection->getMainInstallationProfile()->getLabel());
+
+    $siteMail = $this->askDefault('What will be the site email address?', 'demo@example.com');
+
+    $emailValidator = new EmailValidator();
+    while (!$emailValidator->isValid($siteMail, new RFCValidation())) {
+      $this->yell('This is not a valid email address!', 40, 'red');
+      $siteMail = $this->askDefault('Please provide a valid email address', 'demo@example.com');
+    }
+
+    $username = $this->askDefault('The name for first user', 'admin');
+
+    $password = $this->askDefault('The password for first user', 'admin');
+
+    $email = $this->askDefault('The email address for first user', 'demo@example.com');
+    while (!$emailValidator->isValid($email, new RFCValidation())) {
+      $this->yell('This is not a valid email address!', 40, 'red');
+      $email = $this->askDefault('Please provide a valid email address', 'demo@example.com');
+    }
+
+    $hostname = $this->askDefault('What is the MYSQL database host address?', 'localhost');
+
+    $database = $this->askDefault('What is the MYSQL database name?', $installationProfileCollection->getMainInstallationProfile()->getMachineName());
+
+    $databaseUsername = $this->askDefault('What is the MYSQL database username?', 'root');
+
+    $databasePassword = $this->askDefault('What is the MYSQL database password?', 'root');
+
+    $command = '';
+    $command .= 'bin/drush si --yes ' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
+    $command .= " --db-url=mysql://{$databaseUsername}:{$databasePassword}@{$hostname}/{$database}";
+    $command .= " --site-name='{$siteName}'";
+    $command .= " --account-name='{$username}'";
+    $command .= " --account-pass='{$password}'";
+    $command .= " --locale='{$locale}'";
+    $command .= " --account-mail='{$email}'";
+    $command .= " --site-mail='{$siteMail}'";
+
+    if ($installationProfileCollection->getMainInstallationProfile()->getMachineName() === 'degov') {
+      $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_scheduled_updates,degov_demo_content');
+      $optionalModules = str_replace(' ', '', $optionalModules);
+      if (!empty($optionalModules)) {
+        foreach (explode(',', $optionalModules) as $module) {
+          $command .= " install_configure_form.optional_modules.$module=$module";
+        }
+      }
+    } elseif ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
+      $mainInstallationProfileKey = $installationProfileCollection->getMainInstallationProfile()->getMachineName();
+      $subInstallationProfileKey = $installationProfileCollection->getSubInstallationProfile()->getMachineName();
+
+      $questionText = <<<HERE
+The main- or sub-installationprofile can be installed. Dou you want to select? Available options: $mainInstallationProfileKey, $subInstallationProfileKey.
+HERE;
+
+      $selectedProfile = $this->askDefault($questionText, $mainInstallationProfileKey);
+      $command .= ' install_configure_form.custom_profile_selection=' . $selectedProfile;
+    } else {
+      $command .= ' install_configure_form.custom_profile_selection=' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
+    }
+
+    $this->_exec($command);
   }
 
   protected function runComposerUpdate(): void {

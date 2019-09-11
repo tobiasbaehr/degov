@@ -24,4 +24,5 @@ dependencies:
   - twig_field_value
   - user
   - views
+  - views_parity_row
 

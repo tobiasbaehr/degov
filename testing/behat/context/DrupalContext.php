@@ -5,10 +5,8 @@ namespace Drupal\degov\Behat\Context;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
-use Drupal\degov_demo_content\Generator\MediaGenerator;
-use Drupal\degov_demo_content\Generator\MenuItemGenerator;
-use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
@@ -27,6 +25,8 @@ use WebDriver\Exception\StaleElementReference;
 class DrupalContext extends RawDrupalContext {
 
 	use TranslationTrait;
+
+	use DebugOutputTrait;
 
   private const MAX_DURATION_SECONDS = 1200;
   private const MAX_SHORT_DURATION_SECONDS = 10;
@@ -220,7 +220,7 @@ class DrupalContext extends RawDrupalContext {
   /**
    * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
-  public function iProofCheckboxWithIdHasValue($id, $checkfor) {
+  public function iProofCheckboxWithIdHasValue($id, $checkfor): void {
     $Page = $this->getSession()->getPage();
     $isChecked = $Page->find('css', 'input[type="checkbox"]:checked#' . $id);
     $status = ($isChecked) ? "checked" : "unchecked";
@@ -228,11 +228,15 @@ class DrupalContext extends RawDrupalContext {
       ($checkfor == "checked" && $isChecked == true) ||
       ($checkfor == "unchecked" && $isChecked == false)
     ) {
-      return true;
+      return;
     }
     else {
-      throw new \Exception('Checkbox was ' . $status . ' when expecting ' . $checkfor);
-      return false;
+      try {
+        throw new \Exception('Checkbox was ' . $status . ' when expecting ' . $checkfor);
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -261,7 +265,12 @@ class DrupalContext extends RawDrupalContext {
         $element = $selectElement->find('css', 'option[value=' . $value . ']');
     }
     if (!$element) {
-      throw new \Exception("There is no option with the value '$value'" . ($status !== null ? " and status '" . $status . "'" : '') . " in the select '$id'");
+      try {
+        throw new \Exception("There is no option with the value '$value'" . ($status !== null ? " and status '" . $status . "'" : '') . " in the select '$id'");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -524,10 +533,16 @@ class DrupalContext extends RawDrupalContext {
     if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
       return TRUE;
     }
-    throw new ResponseTextException(
-      sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
-      $this->getSession()
-    );
+
+    try {
+      throw new ResponseTextException(
+        sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
+        $this->getSession()
+      );
+    } catch (ResponseTextException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -551,10 +566,16 @@ class DrupalContext extends RawDrupalContext {
     if (!$isFound) {
       return TRUE;
     }
-    throw new ResponseTextException(
-      sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
-      $this->getSession()
-    );
+
+    try {
+      throw new ResponseTextException(
+        sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
+        $this->getSession()
+      );
+    } catch (ResponseTextException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -563,7 +584,12 @@ class DrupalContext extends RawDrupalContext {
    */
   public function iRunTheCron() {
     if (TRUE !== \Drupal::service('cron')->run()) {
-      throw new \Exception('Cron did not run successfully.');
+      try {
+        throw new \Exception('Cron did not run successfully.');
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -596,7 +622,13 @@ class DrupalContext extends RawDrupalContext {
     if (substr_count($content, $translatedText) === 0) {
       return true;
     } else {
-      throw new \Exception("Text '$translatedText' found on page.");
+      try {
+        throw new \Exception("Text '$translatedText' found on page.");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     }
   }
 
@@ -631,10 +663,17 @@ class DrupalContext extends RawDrupalContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new ResponseTextException(
-				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
-				$this->getSession()
-			);
+
+      try {
+        throw new ResponseTextException(
+          sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (ResponseTextException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		} catch (StaleElementReference $e) {
 			return true;
 		}
@@ -698,10 +737,18 @@ class DrupalContext extends RawDrupalContext {
           }
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
-        sprintf('Could not find element titled %s with entries within %s seconds.', $title, self::MAX_DURATION_SECONDS),
-        $this->getSession()
-      );
+
+
+      try {
+        throw new ResponseTextException(
+          sprintf('Could not find element titled %s with entries within %s seconds.', $title, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (ResponseTextException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     } catch (StaleElementReference $e) {
       return true;
     }
@@ -716,7 +763,13 @@ class DrupalContext extends RawDrupalContext {
     if($number_of_elements === $matching_elements_count) {
       return true;
     }
-    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+
+    try {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -728,7 +781,13 @@ class DrupalContext extends RawDrupalContext {
     if($number_of_elements === $matching_elements_count) {
       return true;
     }
-    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+
+    try {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -744,7 +803,14 @@ class DrupalContext extends RawDrupalContext {
     if($number_of_elements === $matching_elements_count) {
       return true;
     }
-    throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+
+    try {
+      throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -977,10 +1043,22 @@ class DrupalContext extends RawDrupalContext {
         }
       }
 
-      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+      try {
+        throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     }
 
-    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+    try {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -997,10 +1075,21 @@ class DrupalContext extends RawDrupalContext {
         }
       }
 
-      throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
+      try {
+        throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
 
-    throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+    try {
+      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -1097,13 +1186,23 @@ class DrupalContext extends RawDrupalContext {
     if (!empty($elements)) {
       foreach ($elements as $element) {
         if (!$element->has('css', $selector1)) {
-          throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)' . "\r\n" . $element->getHtml(), $selector1, $selector2));
+          try {
+            throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)' . "\r\n" . $element->getHtml(), $selector1, $selector2));
+          } catch (\Exception $exception) {
+            $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+            throw $exception;
+          }
         }
 
       }
     }
     else {
-      throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+      try {
+        throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
     return TRUE;
   }
@@ -1136,10 +1235,20 @@ class DrupalContext extends RawDrupalContext {
 
     $nodes = $element->findAll('css', $selector);
     if (count($nodes)) {
-      throw new \Exception("Element: \"$selector\" is not visible." . "\r\n" . $element->getHtml());
+      try {
+        throw new \Exception("Element: \"$selector\" is not visible." . "\r\n" . $element->getHtml());
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
     else {
-      throw new ElementNotFoundException($this->getSession(), 'css selector', $selector, "\r\n" . $element->getHtml());
+      try {
+        throw new ElementNotFoundException($this->getSession(), 'css selector', $selector, "\r\n" . $element->getHtml());
+      } catch (ElementNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -1150,7 +1259,14 @@ class DrupalContext extends RawDrupalContext {
     $elements = $this->getSession()->getPage()->findAll('css', $selector);
     foreach ($elements as $element) {
       if ($element->isVisible()) {
-        throw new \Exception("The element with selector \"$selector\" is visible.");
+
+        try {
+          throw new \Exception("The element with selector \"$selector\" is visible.");
+        } catch (\Exception $exception) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception;
+        }
+
       }
     }
   }
@@ -1162,7 +1278,12 @@ class DrupalContext extends RawDrupalContext {
     $elements = $this->getSession()->getPage()->findAll('css', $selector);
     foreach ($elements as $element) {
       if (!$element->isVisible()) {
-        throw new \Exception("The element with selector \"$selector\" is not visible.");
+        try {
+          throw new \Exception("The element with selector \"$selector\" is not visible.");
+        } catch (\Exception $exception) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception;
+        }
       }
     }
   }
@@ -1183,10 +1304,17 @@ class DrupalContext extends RawDrupalContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new ResponseTextException(
-        sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
-        $this->getSession()
-      );
+
+      try {
+        throw new ResponseTextException(
+          sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (ResponseTextException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     } catch (StaleElementReference $e) {
       return false;
     }
@@ -1209,7 +1337,13 @@ class DrupalContext extends RawDrupalContext {
       $values[$elementText] = $elementText;
     }
     if ($duplicate) {
-      throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
+      try {
+        throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     }
   }
 
@@ -1222,6 +1356,24 @@ class DrupalContext extends RawDrupalContext {
     if ($totalWindows == $total) {
       return TRUE;
     }
-    throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
+
+    try {
+      throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
+    } catch (\Exception $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
+
+  /**
+   * @Then /^I turn on development mode$/
+   */
+  public function enableDevMode() {
+    \Drupal::configFactory()
+      ->getEditable('degov_devel.settings')
+      ->set('dev_mode', TRUE)
+      ->save();
+  }
+
 }

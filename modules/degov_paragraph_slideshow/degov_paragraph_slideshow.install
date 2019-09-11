@@ -41,3 +41,14 @@ function degov_paragraph_slideshow_update_8003() {
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->reImport('field.storage.paragraph.field_slideshow_type', 'degov_paragraph_slideshow', 'install');
 }
+
+/**
+ * deGov - Update: 7.3.0
+ *  - Remove outdated description for field field_slideshow_type in paragraph.slideshow.
+ */
+function degov_paragraph_slideshow_update_870300() {
+  \Drupal::configFactory()
+    ->getEditable('field.field.paragraph.slideshow.field_slideshow_type')
+    ->set('description', '')
+    ->save();
+}

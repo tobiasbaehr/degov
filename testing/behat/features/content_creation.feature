@@ -81,7 +81,7 @@ Feature: deGov - Content creation
     And I should see "Beschreibung"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Seitenabschnitt hinzufügen"
     And I should see "VERWANDTE FAQ"
     And I choose "Allgemein" from tab menu
     And I should see "Bereich"
@@ -113,13 +113,13 @@ Feature: deGov - Content creation
     And I should see "Ansichtssteuerung"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Seitenabschnitt hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Seitenabschnitt hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Seitenabschnitt hinzufügen"
 
   Scenario: I see all form fields in event content type
     Given I am logged in as a user with the "administrator" role
@@ -275,7 +275,8 @@ Feature: deGov - Content creation
       | degov_rich_text_format_settings            |
       | degov_node_normal_page                     |
     And I am on "/node/add/normal_page"
-    And I select "Rich Text" by name "field_teaser_text[0][format]"
-    And I should see 1 ".cke_top.cke_reset_all" elements via jQuery after a while
+    And I select "rich_text" by name "field_teaser_text[0][format]"
+    And I wait 2 seconds
+    And I should see 1 ".cke_top.cke_reset_all" elements via jQuery
     And I should see 1 ".cke_button_icon.cke_button__bold_icon" elements via jQuery
     And I should see 1 ".cke_button.cke_button__source.cke_button_off" elements via jQuery

@@ -6,6 +6,7 @@ use Behat\Mink\Element\NodeElement;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
@@ -13,6 +14,8 @@ use WebDriver\Exception\StaleElementReference;
 class DrupalIndependentContext extends RawMinkContext {
 
 	use TranslationTrait;
+
+	use DebugOutputTrait;
 
 	private const MAX_DURATION_SECONDS = 600;
 	private const MAX_SHORT_DURATION_SECONDS = 10;
@@ -52,7 +55,14 @@ class DrupalIndependentContext extends RawMinkContext {
 		$sContent = $this->getSession()->getPage()->getText();
 		$iFound = substr_count($sContent, $sText);
 		if ($iExpected != $iFound) {
-			throw new \Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
+
+      try {
+        throw new \Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		}
 	}
 
@@ -71,10 +81,17 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new TextNotFoundException(
-				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
-				$this->getSession()
-			);
+
+      try {
+        throw new TextNotFoundException(
+          sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (TextNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		} catch (StaleElementReference $e) {
 			return true;
 		}
@@ -95,10 +112,17 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new TextNotFoundException(
-				sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
-				$this->getSession()
-			);
+
+      try {
+        throw new TextNotFoundException(
+          sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (TextNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		} catch (StaleElementReference $e) {
 			return true;
 		}
@@ -117,10 +141,17 @@ class DrupalIndependentContext extends RawMinkContext {
 					return true;
 				}
 			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-			throw new TextNotFoundException(
-				sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
-				$this->getSession()
-			);
+
+      try {
+        throw new TextNotFoundException(
+          sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (TextNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
 		} catch (StaleElementReference $e) {
 			return true;
 		}
@@ -137,9 +168,14 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new TextNotFoundException(
-      sprintf('HTML does not contain content "%s"', $content),
-      $this->getSession());
+    try {
+      throw new TextNotFoundException(
+        sprintf('HTML does contain content "%s"', $content),
+        $this->getSession());
+    } catch (TextNotFoundException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -159,9 +195,14 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new TextNotFoundException(
-      sprintf('HTML does not contain content "%s"', $translatedText),
-      $this->getSession());
+    try {
+      throw new TextNotFoundException(
+        sprintf('HTML does not contain content "%s"', $translatedText),
+        $this->getSession());
+    } catch (TextNotFoundException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
   }
 
   /**
@@ -175,9 +216,15 @@ class DrupalIndependentContext extends RawMinkContext {
       return true;
     }
 
-    throw new TextNotFoundException(
-      sprintf('HTML does contain content "%s"', $content),
-      $this->getSession());
+    try {
+      throw new TextNotFoundException(
+        sprintf('HTML does contain content "%s"', $content),
+        $this->getSession());
+    } catch (TextNotFoundException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
+
   }
 
   /**
@@ -194,10 +241,17 @@ class DrupalIndependentContext extends RawMinkContext {
           return true;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-      throw new TextNotFoundException(
-        sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
-        $this->getSession()
-      );
+
+      try {
+        throw new TextNotFoundException(
+          sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      } catch (TextNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     } catch (StaleElementReference $e) {
       return true;
     }
@@ -216,10 +270,16 @@ class DrupalIndependentContext extends RawMinkContext {
 				return true;
 			}
 		} while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
-		throw new TextNotFoundException(
-			sprintf('Could find text %s after %s seconds', $text, self::MAX_SHORT_DURATION_SECONDS),
-			$this->getSession()
-		);
+
+    try {
+      throw new TextNotFoundException(
+        sprintf('Could find text %s after %s seconds', $text, self::MAX_SHORT_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (TextNotFoundException $exception) {
+      $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+      throw $exception;
+    }
 	}
 
   /**
@@ -241,7 +301,13 @@ class DrupalIndependentContext extends RawMinkContext {
     if(preg_match($pattern, $element->getHtml())) {
       return true;
     }
-    throw new TextNotFoundException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+
+    try {
+      throw new TextNotFoundException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
+    } catch (TextNotFoundException $exception) {
+
+    }
+
   }
 
   /**
@@ -267,7 +333,12 @@ class DrupalIndependentContext extends RawMinkContext {
     $node = $page->find('css', $css);
 
     if (empty(\trim(\strip_tags($node->getHtml())))) {
-      throw new \Exception("CSS $css does not contain any text.");
+      try {
+        throw new \Exception("CSS $css does not contain any text.");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
