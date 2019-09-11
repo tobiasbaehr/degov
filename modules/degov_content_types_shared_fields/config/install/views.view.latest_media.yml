@@ -2,10 +2,11 @@ langcode: de
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview
+    - core.entity_view_mode.media.preview_wide
   module:
     - media
     - user
+    - views_parity_row
 id: latest_media
 label: 'Neuste Medien'
 module: views
@@ -54,14 +55,20 @@ display:
       style:
         type: default
         options:
-          row_class: 'col-sm-12 col-md-6 no-padding'
+          row_class: ''
           default_row_class: true
           uses_fields: false
       row:
-        type: 'entity:media'
+        type: 'views_parity_row_entity:media'
         options:
           relationship: none
-          view_mode: preview
+          view_mode: preview_wide
+          views_parity_row_enable: true
+          views_parity_row:
+            frequency: '3'
+            start: '2'
+            end: '0'
+            view_mode: preview
       fields:
         name:
           id: name

@@ -3,9 +3,8 @@
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Gherkin\Node\TableNode;
-use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
-use Drupal\Core\Extension\ModuleHandler;
-use Drupal\Core\ProxyClass\Extension\ModuleInstaller;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 
@@ -16,7 +15,7 @@ class ModuleContext extends RawDrupalContext {
    */
   public function proofDrupalModuleIsInstalled($moduleName): void {
     if (!$this->getModuleHandler()->moduleExists($moduleName)){
-      throw new TextNotFoundException("Drupal module $moduleName is not installed.", $this->getSession());
+      throw new \Exception("Drupal module $moduleName is not installed.");
     }
   }
 
@@ -36,7 +35,7 @@ class ModuleContext extends RawDrupalContext {
 
     foreach ($moduleMachineNames as $moduleMachineName) {
       if (!$this->getModuleHandler()->moduleExists($moduleMachineName)){
-        throw new TextNotFoundException("Drupal module '$moduleMachineName' is not installed.", $this->getSession());
+        throw new \Exception("Drupal module '$moduleMachineName' is not installed.");
       }
     }
   }
@@ -46,6 +45,14 @@ class ModuleContext extends RawDrupalContext {
    */
   public function iAmInstallingTheModule(string $moduleName): void {
     $this->getModuleInstaller()->install([$moduleName]);
+    // Required to import translations or other batch processes which runs after a
+    // module is installed. (by default via backend which would runs a batch)
+    $batch =& batch_get();
+    if (empty($batch)) {
+      return;
+    }
+    $batch['progressive'] = FALSE;
+    batch_process();
   }
 
   /**
@@ -70,15 +77,15 @@ class ModuleContext extends RawDrupalContext {
     $moduleMachineNames = array_keys($rowsHash);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      $this->getModuleInstaller()->install([$moduleMachineName]);
+      $this->iAmInstallingTheModule($moduleMachineName);
     }
   }
 
-  protected function getModuleInstaller(): ModuleInstaller {
+  protected function getModuleInstaller(): ModuleInstallerInterface {
     return \Drupal::service('module_installer');
   }
 
-  protected function getModuleHandler(): ModuleHandler {
+  protected function getModuleHandler(): ModuleHandlerInterface {
     return \Drupal::service('module_handler');
   }
 

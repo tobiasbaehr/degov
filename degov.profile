@@ -45,7 +45,7 @@ function degov_module_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  system_rebuild_module_data();
+  $files = system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
   $modules = [
@@ -78,16 +78,12 @@ function degov_module_setup(&$install_state) {
     'media_file_links'                  => 'media_file_links',
   ];
 
-  // Add a batch operation to install each module and load .po files.
-    \Drupal::moduleHandler()->loadInclude('locale', 'translation.inc');
-    \Drupal::moduleHandler()->loadInclude('locale', 'batch.inc');
-    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
-    $options = _locale_translation_default_update_options();
-    $operations = [];
-    foreach ($modules as $module) {
-        $operations[] = ['_install_degov_module_batch', [[$module], $module]];
-        $operations[] = ['locale_translation_batch_fetch_import', [$module, $langcode, $options]];
+  $operations = [];
+  foreach ($modules as $module) {
+    if (!\Drupal::moduleHandler()->moduleExists($module)) {
+      $operations[] = ['_install_degov_module_batch', [[$module], $files[$module]->info['name']]];
     }
+  }
 
   // Batch operation definition.
   $batch = [
@@ -111,7 +107,7 @@ function degov_media_setup(&$install_state) {
   drupal_get_messages('status', TRUE);
 
   // Rebuild, save, and return data about all currently available modules.
-  system_rebuild_module_data();
+  $files = system_rebuild_module_data();
 
   // Define all required base deGov modules and features.
   $modules = [
@@ -140,7 +136,12 @@ function degov_media_setup(&$install_state) {
   // Add a batch operation to install each module.
   $operations = [];
   foreach ($modules as $module) {
-    $operations[] = ['_install_degov_module_batch', [[$module], $module]];
+    if (!\Drupal::moduleHandler()->moduleExists($module)) {
+      $operations[] = [
+        '_install_degov_module_batch',
+        [[$module], $files[$module]->info['name']]
+      ];
+    }
   }
 
   // Batch operation definition.
@@ -160,7 +161,7 @@ function _install_degov_module_batch($module, $module_name, &$context) {
   set_time_limit(0);
   \Drupal::service('module_installer')->install($module, $dependencies = TRUE);
   $context['results'][] = $module;
-  $context['message'] = t('Install %module_name module.', ['%module_name' => $module_name]);
+  $context['message'] = t('Installed %module module.', ['%module' => $module_name]);
 }
 
 /**
@@ -231,6 +232,9 @@ function degov_finalize_setup() {
   // Prevent Drupal status messages during profile installation.
   drupal_get_messages('status', TRUE);
 
+  // Rebuild, save, and return data about all currently available modules.
+  $files = system_rebuild_module_data();
+
   $batch = [];
 
   // Retrieve all checked optional modules.
@@ -242,23 +246,10 @@ function degov_finalize_setup() {
       '_install_degov_module_batch',
       [
         [$module],
-        $module_name,
+        $files[$module]->info['name'],
       ],
     ];
   }
 
   return $batch;
-}
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_locale_translation_projects_alter(&$projects) {
-  $projects['degov'] = [
-    'info' => [
-      'name'                                 => 'deGov',
-      'interface translation project'        => 'degov',
-      'interface translation server pattern' => drupal_get_path('profile', 'degov') . '/translations/%language.po',
-    ],
-  ];
 }

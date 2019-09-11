@@ -1,14 +1,29 @@
 #!/usr/bin/env bash
-set -e
 
-touch $BITBUCKET_CLONE_DIR/php_error.log
-echo "log_errors = On" >> /etc/php/7.2/cli/php.ini
-echo "error_log = $BITBUCKET_CLONE_DIR/php_error.log" >> /etc/php/7.2/cli/php.ini
-echo "error_reporting = E_ALL" >> /etc/php/7.2/cli/php.ini
+# Unset variables
+set -o nounset
+set -o pipefail
+# hard fail
+set -o errexit
 
-echo "### Setting up project folder"
+ln -sf $BITBUCKET_CLONE_DIR/php_error.log /tmp/php_error.log
 
-echo "### Wait for packagist"
+COMPOSER_EXIT_ON_PATCH_FAILURE=1
+export COMPOSER_EXIT_ON_PATCH_FAILURE
+COMPOSER_MEMORY_LIMIT=-1
+export COMPOSER_MEMORY_LIMIT
+
+_info() {
+  local color_info="\\x1b[32m"
+  local color_reset="\\x1b[0m"
+  echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
+}
+
+_composer() {
+  composer --ansi --profile "$@"
+}
+
+_info "### Wait for packagist"
 doWhile="0"
 while [ $doWhile -eq "0" ]; do
    GREP=`wget -q -O - https://packagist.org/packages/degov/degov | grep ">dev-$BITBUCKET_BRANCH<"`
@@ -18,19 +33,19 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-composer create-project degov/degov-project --no-install
+_info "### Setting up project folder"
+_composer --no-progress create-project degov/degov-project --no-install
 cd degov-project
-composer require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
-echo "Setting up project"
-cp docroot/profiles/contrib/degov/testing/behat/composer-require-namespace.php .
-php composer-require-namespace.php
-rm composer-require-namespace.php
-cp docroot/profiles/contrib/degov/scripts/Robo/composer-require-namespace.php .
-php composer-require-namespace.php
-composer dump-autoload
-rm composer-require-namespace.php
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-echo "### Checking code standards"
-phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-echo "### Running PHPUnit and KernelBase tests"
-(cd docroot/profiles/contrib/degov && phpunit --testdox -vvv)
+rm composer.lock
+_info "### Install profile"
+_composer --no-progress require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+
+PATH="$(pwd)/bin/:$PATH"
+export PATH
+
+_composer dump-autoload
+# TODO needs work, see https://publicplan.atlassian.net/browse/DEGOV-659
+# echo "### Checking code standards"
+# phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
+_info "### Running PHPUnit and KernelBase tests"
+(cd docroot/profiles/contrib/degov && phpunit --colors=auto --log-junit $BITBUCKET_CLONE_DIR/test-reports/junit.xml --testdox)

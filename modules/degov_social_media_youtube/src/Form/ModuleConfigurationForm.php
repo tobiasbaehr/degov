@@ -22,7 +22,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames() {
     return [
-      'degov_social_media_youtube.api_key',
+      'degov_social_media_youtube.settings',
     ];
   }
 
@@ -54,7 +54,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
-    $config = \Drupal::service('config.factory')->getEditable('degov_social_media_youtube.settings');
+    $config = $this->config('degov_social_media_youtube.settings');
     $config->set('api_key', $values['api_key'])->save();
     $config->set('channel', $values['channel'])->save();
     $config->set('number_of_videos', $values['number_of_videos'])->save();

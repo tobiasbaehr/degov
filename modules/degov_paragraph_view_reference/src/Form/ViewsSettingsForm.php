@@ -56,14 +56,14 @@ class ViewsSettingsForm extends ConfigFormBase {
       '#type' => 'checkboxes',
       '#title' => t('Allowed View Options'),
       '#options' => $view_list,
-      '#default_value' => $allowed_views,
+      '#default_value' => is_array($allowed_views) ? $allowed_views : [],
       '#weight' => 2,
     ];
 
     $form['form_ids'] = [
       '#type' => 'textarea',
       '#title' => t('Form Ids to apply the filter'),
-      '#default_value' => implode(PHP_EOL, $form_ids),
+      '#default_value' => is_array($form_ids) ? implode(PHP_EOL, $form_ids) : '',
       '#weight' => 3,
     ];
 

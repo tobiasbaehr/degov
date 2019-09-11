@@ -307,16 +307,3 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
     }
   }
 }
-
-/**
- * Implements hook_locale_translation_projects_alter().
- */
-function degov_media_video_mobile_locale_translation_projects_alter(&$projects) {
-  $projects['degov_media_video_mobile'] = [
-    'info' => [
-      'name'                                 => 'deGov - Media Video Mobile',
-      'interface translation project'        => 'degov_media_video_mobile',
-      'interface translation server pattern' => drupal_get_path('module', 'degov_media_video_mobile') . '/translations/%language.po',
-    ],
-  ];
-}

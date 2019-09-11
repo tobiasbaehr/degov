@@ -50,7 +50,7 @@ Feature: deGov - Paragraphs
     And I should see text matching "Titel"
     And I should see text matching "Titellink"
     Then I am on "/admin/config/regional/language/add"
-    And I select "Englisch" in "edit-predefined-langcode"
+    And I select "en" in "edit-predefined-langcode"
     And I press button with label "Add language" via translated text
     Then I should see text matching "Add language" via translation after a while
     Then I set the privacy policy page for all languages

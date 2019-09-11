@@ -70,3 +70,6 @@ permissions:
   - 'view simplenews_issue revisions'
   - 'view the administration theme'
   - 'view workbench access information'
+  - 'create terms in section'
+  - 'delete terms in section'
+  - 'edit terms in section'

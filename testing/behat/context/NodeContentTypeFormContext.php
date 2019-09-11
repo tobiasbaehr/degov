@@ -2,9 +2,9 @@
 
 namespace Drupal\degov\Behat\Context;
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\TableNode;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
+use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\node\Entity\Node;
@@ -12,6 +12,8 @@ use Drupal\node\Entity\Node;
 class NodeContentTypeFormContext extends RawDrupalContext {
 
 	use TranslationTrait;
+
+	use DebugOutputTrait;
 
   /**
    * @Given /^I see element "([^"]*)" with divclass "([^"]*)"$/
@@ -21,7 +23,12 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     $element = $page->find('css', $elmnt . '.' . $className);
 
     if (!$element) {
-      throw new \Exception("Element " . $elmnt . "with classname " . $className . " not found");
+      try {
+        throw new \Exception("Element " . $elmnt . "with classname " . $className . " not found");
+      } catch (\Exception $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
     }
   }
 
@@ -40,7 +47,6 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       $selectedText = $tmp->getText();
 
       if ($selectedText === $text) {
-        $found = TRUE;
         $this->getSession()
           ->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
       }
@@ -56,7 +62,6 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 		$text = $this->translateString($text);
 
 		$page = $this->getSession()->getPage(); // get the mink session
-		$found = FALSE;
 		$cssClass = "div.vertical-tabs.clearfix ul.vertical-tabs__menu li a";
 		$elements = $page->findAll('css', $cssClass);
 
@@ -66,7 +71,6 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 			$selectedText = $tmp->getText();
 
 			if ($selectedText === $text) {
-				$found = TRUE;
 				$this->getSession()
 					->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
 			}
@@ -86,13 +90,13 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    * @Given /^I select "([^"]*)" via translation in uppercase from rightpane$/
    */
   public function iSelectFromRightpane(string $text): void {
-    $divLayout = "div.layout-region.layout-region-node-secondary div.entity-meta.js-form-wrapper.form-wrapper details";
+    $divLayout = 'div.layout-region.layout-region-node-secondary div.entity-meta.js-form-wrapper.form-wrapper details';
     $page = $this->getSession()->getPage(); // get the mink session
     $elements = $page->findAll("css", $divLayout);
 
     foreach ($elements as $element) {
       if ($element->getText() === trim(mb_strtoupper($this->translateString($text)))) {
-        $pane = $element->find("css", "summary");
+        $pane = $element->find('css', 'summary');
         $pane->click();
         $checkbox = $element->find('css', '.details-wrapper label.option');
         $checkbox->click();

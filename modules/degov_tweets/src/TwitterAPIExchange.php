@@ -2,71 +2,133 @@
 
 namespace Drupal\degov_tweets;
 
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\degov_social_media_settings\SocialMediaAssetsTrait;
+
 /**
  * Twitter-API-PHP : Simple PHP wrapper for the v1.1 API.
  *
  * An altered version of the Twitter-API-PHP library.
  */
 class TwitterAPIExchange {
+
+  use SocialMediaAssetsTrait;
+
   /**
    * @var string
    */
   private $oauth_access_token;
+
   /**
    * @var string
    */
   private $oauth_access_token_secret;
+
   /**
    * @var string
    */
   private $consumer_key;
+
   /**
    * @var string
    */
   private $consumer_secret;
+
   /**
    * @var array
    */
   private $postfields;
+
   /**
    * @var string
    */
   private $getfield;
+
   /**
    * @var mixed
    */
   protected $oauth;
+
   /**
    * @var string
    */
   public $url;
+
   /**
    * @var string
    */
   public $requestMethod;
 
   /**
-   * Create the API access object. Requires an array of settings::
+   * Development mode status.
+   *
+   * @var bool
+   */
+  protected $devMode;
+
+  /**
+   * The messenger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
+   * Definition of LoggerChannel.
+   *
+   * @var \Drupal\Core\Logger\LoggerChannelInterface
+   */
+  protected $logger;
+
+  /**
+   * TwitterAPIExchange constructor.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config
+   *   The configuration factory.
+   * @param \Drupal\Core\Messenger\MessengerInterface $messenger
+   *   The messenger.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
+   *   The logger service.
+   */
+  public function __construct(ConfigFactoryInterface $config, MessengerInterface $messenger, LoggerChannelFactoryInterface $logger) {
+    $this->devMode = $config->get('degov_devel.settings')->get('dev_mode');
+    $this->logger = $logger->get('degov_tweets');
+    $this->messenger = $messenger;
+  }
+
+  /**
+   * Set settings for the API access object. Requires an array of settings::
    * oauth access token, oauth access token secret, consumer key, consumer secret
    * These are all available by creating your own application on dev.twitter.com
    * Requires the cURL library.
    *
-   * @throws \Exception When cURL isn't installed or incorrect settings parameters are provided
-   *
    * @param array $settings
+   *   Settings for TwitterAPIExchange.
    */
-  public function __construct(array $settings) {
-    if (!in_array('curl', get_loaded_extensions())) {
-      \Drupal::logger('degov_tweets')->notice('You need to install cURL, see: http://curl.haxx.se/docs/install.html');
+  public function setSettings(array $settings) {
+    if ($this->devMode) {
+      return;
     }
 
-    if (!isset($settings['oauth_access_token'])
-      || !isset($settings['oauth_access_token_secret'])
-      || !isset($settings['consumer_key'])
-      || !isset($settings['consumer_secret'])
-    ) {
-      \Drupal::logger('degov_tweets')->notice('Make sure you are passing in the correct parameters');
+    if (!in_array('curl', get_loaded_extensions())) {
+      $message = 'You need to install cURL, see: http://curl.haxx.se/docs/install.html';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
     }
+
+    if (empty($settings['oauth_access_token'])
+      || empty($settings['oauth_access_token_secret'])
+      || empty($settings['consumer_key'])
+      || empty($settings['consumer_secret'])
+    ) {
+      $message = 'Make sure you are passing in the correct Twitter parameters.';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
+    }
+
     $this->oauth_access_token = $settings['oauth_access_token'];
     $this->oauth_access_token_secret = $settings['oauth_access_token_secret'];
     $this->consumer_key = $settings['consumer_key'];
@@ -86,7 +148,9 @@ class TwitterAPIExchange {
    */
   public function setPostfields(array $array) {
     if (!is_null($this->getGetfield())) {
-      \Drupal::logger('my_module')->notice('You can only choose get OR post fields.');
+      $message = 'You can only choose get OR post fields.';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
     }
 
     if (isset($array['status']) && substr($array['status'], 0, 1) === '@') {
@@ -110,28 +174,26 @@ class TwitterAPIExchange {
   /**
    * Set getfield string, example: '?screen_name=J7mbo'.
    *
-   * @param string $string
-   *   Get key and value pairs as string.
+   * @param array $getfieldParams
+   *   Key and value pairs.
    *
    * @throws \Exception
    *
    * @return \Drupal\degov_tweets\TwitterAPIExchange
    *   Instance of self for method chaining
    */
-  public function setGetfield($string) {
-    if (!is_null($this->getPostfields())) {
-      \Drupal::logger('degov_tweets')->notice('You can only choose get OR post fields.');
+  public function setGetfield($getfieldParams) {
+    if ($this->devMode) {
+      return self::getDataFromFile('degov_tweets', 'set_get_field.txt');
     }
 
-    $getfields = preg_replace('/^\?/', '', explode('&', $string));
-    $params = [];
-    foreach ($getfields as $field) {
-      if ($field !== '') {
-        list($key, $value) = explode('=', $field);
-        $params[$key] = $value;
-      }
+    if (!is_null($this->getPostfields())) {
+      $message = 'You can only choose get OR post fields.';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
     }
-    $this->getfield = '?' . http_build_query($params);
+
+    $this->getfield = '?' . UrlHelper::buildQuery($getfieldParams);
 
     return $this;
   }
@@ -170,9 +232,15 @@ class TwitterAPIExchange {
    * @return \Drupal\degov_tweets\TwitterAPIExchange
    *   Instance of self for method chaining
    */
-  public function buildOauth($url, $requestMethod) {
+  public function buildOauth($url, $requestMethod = 'GET') {
+    if ($this->devMode) {
+      return self::getDataFromFile('degov_tweets', 'build_oauth.txt');
+    }
+
     if (!in_array(strtolower($requestMethod), ['post', 'get'])) {
-      \Drupal::logger('degov_tweets')->notice('Request method must be either POST or GET');
+      $message = 'Request method must be either POST or GET.';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
     }
 
     $consumer_key = $this->consumer_key;
@@ -234,9 +302,16 @@ class TwitterAPIExchange {
    *   json If $return param is true, returns json data.
    */
   public function performRequest($return = TRUE, $curlOptions = []) {
-    if (!is_bool($return)) {
-      \Drupal::logger('degov_tweets')->notice('performRequest parameter must be true or false');
+    if ($this->devMode) {
+      return self::getDataFromFile('degov_tweets', 'perform_request.txt');
     }
+
+    if (!is_bool($return)) {
+      $message = 'performRequest parameter must be True or False.';
+      $this->logger->notice($message);
+      $this->messenger->addMessage($message, 'warning');
+    }
+
     $header = [$this->buildAuthorizationHeader($this->oauth), 'Expect:'];
     $getfield = $this->getGetfield();
     $postfields = $this->getPostfields();
@@ -255,20 +330,24 @@ class TwitterAPIExchange {
         $options[CURLOPT_URL] .= $getfield;
       }
     }
+
     $feed = curl_init();
     curl_setopt_array($feed, $options);
     $json = curl_exec($feed);
+
     if (($error = curl_error($feed)) !== '') {
-      \Drupal::logger('degov_tweets')->notice($error);
+      $this->logger->notice($error);
+      $this->messenger->addMessage($error, 'warning');
       if ($feed === 'ressource') {
         curl_close($feed);
       }
-
     }
+
     if ($feed === 'ressource') {
       curl_close($feed);
     }
-    return $json;
+
+    return substr_count($json, 'errors') > 0 ? NULL : $json;
   }
 
   /**
@@ -327,7 +406,7 @@ class TwitterAPIExchange {
    *
    * @param string $url
    * @param string $method
-   * @param string $data
+   * @param array $data
    * @param array $curlOptions
    *
    * @throws \Exception

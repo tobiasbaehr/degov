@@ -18,7 +18,7 @@ class IsEmptyValueExtension extends TwigExtension {
   protected $logger;
 
   public function __construct(RendererInterface $renderer, UrlGeneratorInterface $url_generator, ThemeManagerInterface $theme_manager, DateFormatterInterface $date_formatter, LoggerChannelFactoryInterface $loggerFactory) {
-    parent::__construct($renderer,  $url_generator,  $theme_manager,  $date_formatter, $loggerFactory);
+    parent::__construct($renderer, $url_generator, $theme_manager, $date_formatter, $loggerFactory);
     $this->logger = $loggerFactory->get('degov_theme');
   }
 
@@ -32,21 +32,36 @@ class IsEmptyValueExtension extends TwigExtension {
     return 'is_empty';
   }
 
-	public function isEmpty($build, string $stripTags = ''): bool {
-		try {
-			$build = $this->renderVar($build);
-			$build = ($stripTags === '') ? strip_tags($build, '<img>,<picture>,<color>') : strip_tags($build, $stripTags);
-			$build = \trim($build, " \t\n\r\0\x0B");
-			$build = \trim($build, ' \t\n\r\0\x0B');
-		} catch (\Exception $e) {
-			$this->logger->error($e->getMessage());
-		}
+  public function isEmpty($build, string $stripTags = ''): bool {
+    try {
+      if ($this->isEntityReference($build)) {
+        return FALSE;
+      }
 
-		if (empty($build)) {
-			return TRUE;
-		}
+      $build = $this->renderVar($build);
+      $build = ($stripTags === '') ? strip_tags($build, '<img>,<picture>,<color>') : strip_tags($build, $stripTags);
+      $build = \trim($build, " \t\n\r\0\x0B");
+      $build = \trim($build, ' \t\n\r\0\x0B');
+    } catch (\Exception $e) {
+      $this->logger->error($e->getMessage());
+    }
 
-		return FALSE;
-	}
+    if (empty($build)) {
+      return TRUE;
+    }
 
+    return FALSE;
+  }
+
+  private function isEntityReference($build): bool {
+    if (!\is_array($build) || \count($build) <= 0) {
+      return FALSE;
+    }
+
+    if (($element = array_shift($build)) && isset($element['target_id']) && is_numeric($element['target_id'])) {
+      return TRUE;
+    }
+
+    return FALSE;
+  }
 }

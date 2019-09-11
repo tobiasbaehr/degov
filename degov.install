@@ -6,6 +6,7 @@
 
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
+use Drupal\user\Entity\Role;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -31,6 +32,25 @@ function degov_requirements(string $phase) {
       'description' => t('The installation profile requires the private file system to be configured. Please <a href=":settings_howto" target="_blank">edit</a> your settings.php accordingly.', [':settings_howto' => 'https://www.drupal.org/docs/8/core/modules/file/overview#private-file-system']),
       'severity'    => REQUIREMENT_ERROR,
     ];
+  }
+
+  $profileInfo = Yaml::parseFile(\Drupal::service('extension.list.profile')->getPathname('degov'));
+  $phpVersionConflicts = (array_key_exists('php version conflicts', $profileInfo) && is_array($profileInfo['php version conflicts'])) ? $profileInfo['php version conflicts'] : [];
+  foreach ($phpVersionConflicts as $phpVersionConflict) {
+    preg_match('/^([<>=]*)\s*(\d(\.\d){0,2})$/', $phpVersionConflict, $matches);
+    $operator = !empty($matches[1]) ? $matches[1] : '==';
+    $conflictingVersion = $matches[2];
+    if (version_compare(PHP_VERSION, $conflictingVersion, $operator)) {
+      $requirements['php_version_conflicts'] = [
+        'title'       => t('PHP version conflicts'),
+        'value'       => t('Unsupported PHP version'),
+        'description' => t('You are attempting to install deGov on PHP @phpVersion. deGov currently does not support PHP @conflict', [
+          '@phpVersion' => PHP_VERSION,
+          '@conflict'   => $phpVersionConflict,
+        ]),
+        'severity'    => REQUIREMENT_ERROR,
+      ];
+    }
   }
 
   return $requirements;
@@ -166,7 +186,9 @@ function degov_update_8449() {
  * Translate social media settings string into German.
  */
 function degov_update_8500() {
-  degov_common_import_translations();
+  /** @var \Drupal\degov_common\TranslationImport $translation_import */
+  $translation_import = \Drupal::service('degov_common.translation_import');
+  $translation_import->import('degov', 'profile');
 }
 
 /**
@@ -276,15 +298,9 @@ function degov_update_860100() {
     \Drupal::service('module_installer')->install(['degov_auto_crop']);
   }
 
-  $file = new \stdClass();
-  $file->uri = drupal_get_path('profile', 'degov') . '/translations/de-de.po';
-  $file->langcode = 'de';
-
-  Drupal\locale\Gettext::fileToDatabase($file, [
-    'overwrite_options' => [
-      'not_customized' => TRUE,
-    ],
-  ]);
+  /** @var \Drupal\degov_common\TranslationImport $translation_import */
+  $translation_import = \Drupal::service('degov_common.translation_import');
+  $translation_import->import('degov', 'profile');
 }
 
 /**
@@ -334,3 +350,29 @@ function degov_update_dependencies() {
   ];
   return $dependencies;
 }
+
+/**
+ * deGov update 7.3.0
+ * - Disable SQL Rewrite in the content view. Temporary solution for Issue #2971902: https://www.drupal.org/project/drupal/issues/2971902.
+ * - Give the editor and manager roles the permissions to create, edit and delete terms in the section taxonomy vocabulary.
+ */
+function degov_update_870300() {
+  $viewsViewContentConfig =  Drupal::configFactory()->getEditable('views.view.content');
+  if ($viewsViewContentConfig->getRawData()){
+    $newViewsViewContentConfig = Yaml::parse(file_get_contents(drupal_get_path('profile', 'degov')  . '/config/partial/views.view.content.yml'));
+    $viewsViewContentConfig->merge($newViewsViewContentConfig);
+    $viewsViewContentConfig->save(TRUE);
+  }
+
+  $roles = ['editor', 'manager'];
+  foreach ($roles as $roleId) {
+    $role = Role::load($roleId);
+    if ($role) {
+      $role->grantPermission('create terms in section');
+      $role->grantPermission('delete terms in section');
+      $role->grantPermission('edit terms in section');
+      $role->save();
+    }
+  }
+}
+

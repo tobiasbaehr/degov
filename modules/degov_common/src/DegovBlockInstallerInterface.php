@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Drupal\degov_common;
 
@@ -17,9 +18,9 @@ interface DegovBlockInstallerInterface {
   /**
    * Install blocks.
    *
-   * @param $module
+   * @param string $module
    *   The name of a module (without the .module extension).
    */
-  public function placeBlockConfig($module);
+  public function placeBlockConfig(string $module);
 
 }

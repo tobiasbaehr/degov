@@ -1,10 +1,10 @@
 name: 'deGov social media - Instagram-feed block'
 type: module
-description: 'This module allows you to show you the newest posts of a user'
+description: 'This module allows you to show you the latest posts of a user'
 core: 8.x
 package: 'deGov - Social Media'
 configure: degov_social_media_instagram.admin_settings
 dependencies:
-  - 'drupal:degov_common'
-  - 'drupal:degov_social_media_settings'
-  - 'drupal:eu_cookie_compliance'
+  - degov:degov_common
+  - degov:degov_social_media_settings
+  - eu_cookie_compliance:eu_cookie_compliance

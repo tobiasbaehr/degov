@@ -1,16 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace Drupal\degov_common;
 
-
-use Drupal\Core\Config\ConfigException;
+use Drupal\Core\Config\ConfigImporter;
 use Drupal\Core\Config\ConfigManagerInterface;
+use Drupal\Core\Config\StorageComparer;
 use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Config\TypedConfigManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\Core\Extension\ThemeHandlerInterface;
 use Drupal\Core\Lock\LockBackendInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
@@ -20,7 +22,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  * @package Drupal\degov_common
  */
 class DegovConfigManagerBase implements DegovConfigManager {
-
+  use StringTranslationTrait;
   /**
    * @var \Drupal\Core\Config\StorageInterface
    */
@@ -119,45 +121,66 @@ class DegovConfigManagerBase implements DegovConfigManager {
   /**
    * Imports all the changes for the configuration with batch.
    *
-   * @param \Drupal\Core\Config\ConfigImporter $config_importer
+   * @param \Drupal\Core\Config\StorageInterface $sourceStorage
    */
-  public function configImport($config_importer) {
+  public function configImport(StorageInterface $sourceStorage) : void {
+    $storage_comparer = new StorageComparer($sourceStorage, $this->activeStorage);
+
+    if (!$storage_comparer->createChangelist()->hasChanges()) {
+      \Drupal::messenger()->addWarning($this->t('There are no changes to import.'));
+      return;
+    }
+    $config_importer = new ConfigImporter(
+      $storage_comparer,
+      $this->eventDispatcher,
+      $this->configManager,
+      $this->lock,
+      $this->typedConfigManager,
+      $this->moduleHandler,
+      $this->moduleInstaller,
+      $this->themeHandler,
+      $this->stringTranslation
+    );
+    // Inspired by vendor/drush/drush/src/Drupal/Commands/config/ConfigImportCommands.php
     if ($config_importer->alreadyImporting()) {
-      drupal_set_message(t('Another request may be importing configuration already.'), 'error');
+      \Drupal::messenger()->addError($this->t('Another request may be importing configuration already.'));
     }
     else {
-      try {
-        // This is the contents of \Drupal\Core\Config\ConfigImporter::import.
-        // Copied here so we can log progress.
-        if ($config_importer->hasUnprocessedConfigurationChanges()) {
-          $sync_steps = $config_importer->initialize();
-          foreach ($sync_steps as $step) {
-            $context = [];
-            do {
-              $config_importer->doSyncStep($step, $context);
-              if (isset($context['message'])) {
-                drupal_set_message(str_replace('Synchronizing', 'Synchronized', (string) $context['message']), 'status');
-              }
-            } while ($context['finished'] < 1);
-          }
+      if ($config_importer->hasUnprocessedConfigurationChanges()) {
+        $sync_steps = $config_importer->initialize();
+        foreach ($sync_steps as $step) {
+          $context = [];
+          do {
+            $config_importer->doSyncStep($step, $context);
+            if (isset($context['message'])) {
+              // message is already translated.
+              \Drupal::messenger()->addStatus(str_replace('Synchronizing', 'Synchronized', (string) $context['message']));
+            }
+          } while ($context['finished'] < 1);
         }
-        if ($config_importer->getErrors()) {
-          throw new ConfigException('Errors occurred during import');
+        if (!$config_importer->getErrors()) {
+          \Drupal::messenger()->addStatus($this->t('The configuration was imported successfully.'));
         }
-        else {
-          drupal_set_message('The configuration was imported successfully.', 'status');
-        }
-      } catch (ConfigException $e) {
-        // Return a negative result for UI purposes. We do not differentiate
-        // between an actual synchronization error and a failed lock, because
-        // concurrent synchronizations are an edge-case happening only when
-        // multiple developers or site builders attempt to do it without
-        // coordinating.
-        $message = 'The import failed due for the following reasons:' . "\n";
-        $message .= implode("\n", $config_importer->getErrors());
+      }
 
-        watchdog_exception('config_import', $e);
-        drupal_set_message($message, 'error');
+    }
+  }
+
+  /**
+   * Adds the uuid to the data array in case there no uuid set.
+   *
+   * @param string $configName
+   *   Name of the config.
+   * @param array $data
+   *   Config data.
+   */
+  protected function addUUID($configName, array &$data) : void {
+    if (!isset($data['uuid'])) {
+      $config = $this->configManager->getConfigFactory()->get($configName);
+      if (!$config->isNew()) {
+        /** @var \Drupal\Component\Uuid\Php $uuid_service */
+        $uuid_service = \Drupal::service('uuid');
+        $data['uuid'] = $config->get('uuid') ?? $uuid_service->generate();
       }
     }
   }

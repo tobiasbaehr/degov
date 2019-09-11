@@ -78,10 +78,17 @@ class BlockContext extends RawDrupalContext {
     $blockIds = explode(',', $blockIds);
 
     if (!is_array($blockIds) || count($blockIds) < 1) {
-      throw new ResponseTextException(
-        'Could not determine any block ids. You must pass a comma separated list with machine names.',
-        $this->getSession()
-      );
+
+      try {
+        throw new ResponseTextException(
+          'Could not determine any block ids. You must pass a comma separated list with machine names.',
+          $this->getSession()
+        );
+      } catch (ResponseTextException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
     }
 
     foreach ($blockIds as $blockId) {

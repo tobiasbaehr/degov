@@ -23,6 +23,7 @@ npm-debug.log
 Icon?
 ehthumbs.db
 Thumbs.db
+console
 
 # deGov
 /docroot
@@ -32,3 +33,5 @@ phpunit.xml
 /composer.lock
 testing/backstopjs/backstop_data/bitmaps_test
 testing/backstopjs/backstop_data/html_report
+testing/behat/behat.yml
+testing/behat/behat-no-drupal.yml

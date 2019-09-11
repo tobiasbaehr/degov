@@ -4,7 +4,6 @@ namespace Drupal\degov_common;
 
 
 use Drupal\config_replace\ConfigReplacer;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class DegovModuleUpdater
@@ -13,27 +12,48 @@ use Symfony\Component\Yaml\Yaml;
  */
 class DegovModuleUpdater extends ConfigReplacer {
 
+  /**
+   * Applies all config updates for the version.
+   *
+   * @param string $module
+   *   The module name.
+   * @param string $version
+   *   The update version.
+   */
   public function applyUpdates(string $module, string $version): void {
     $source_dir = drupal_get_path('module', $module) . '/config/update_' . $version;
     $this->manageConfig($module, $source_dir);
   }
 
-  public function reImport(string $configurationName, string $moduleName, string $folderName, bool $force = FALSE): void {
-    if ($force || \Drupal::moduleHandler()->moduleExists($moduleName)) {
-      $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$configurationName.yml");
-      $this->configFactory->getEditable($configurationName)
-        ->setData($parsedConfiguration)
-        ->save();
+  /**
+   * Imports a single config file.
+   *
+   * @param string $config_name
+   *   The configuration name without extention.
+   * @param string $module
+   *   The module name.
+   * @param string $config_type
+   *   The configuration type, this could be install, optional or block.
+   * @param bool $force
+   *   Set to TRUE to import the configuration without checking if the module installed.
+   */
+  public function reImport(string $config_name, string $module, string $config_type, bool $force = FALSE) : void {
+    if ($force || \Drupal::moduleHandler()->moduleExists($module)) {
+      /** @var \Drupal\degov_common\DegovConfigUpdate $updater */
+      $updater = \Drupal::service('degov_config.updater');
+      $updater->importConfigFile($module, $config_name, $config_type);
     }
   }
 
-  public function importConfigFile(string $ymlConfigFilename, string $moduleName, string $folderName, bool $force = FALSE): void {
+  /**
+   * @deprecated Use reImport.
+   */
+  public function importConfigFile(string $ymlConfigFilename, string $moduleName, string $folderName, bool $force = FALSE) : void {
     if (substr($ymlConfigFilename, -4) !== '.yml') {
       throw new \Exception('Config file must be a yml file. Given config filename is not ending with ".yml".');
     }
 
-    $configurationName = substr_replace($ymlConfigFilename ,'', -4);
-
+    $configurationName = substr_replace($ymlConfigFilename, '', -4);
     $this->reImport($configurationName, $moduleName, $folderName, $force);
   }
 
@@ -42,17 +62,27 @@ class DegovModuleUpdater extends ConfigReplacer {
     $this->manageConfig($module, $source_dir);
   }
 
+  /**
+   * Dispatcher to import configuration.
+   *
+   * @param string $module
+   *   The module name.
+   * @param string $source_dir
+   *   A directory path to use for reading of configuration files.
+   */
   private function manageConfig(string $module, string $source_dir): void {
     if (file_exists($source_dir)) {
       // Are there any new installs?
       $install_dir = $source_dir . '/install';
+      /** @var \Drupal\degov_common\DegovConfigUpdate $updater */
+      $updater = \Drupal::service('degov_config.updater');
       if (file_exists($install_dir)) {
-        \Drupal::service('degov_config.updater')->checkConfigurationChanges($install_dir);
+        $updater->importConfigFiles($install_dir);
       }
       // Are there any optional?
       $optional_dir = $source_dir . '/optional';
       if (file_exists($optional_dir)) {
-        \Drupal::service('degov_config.updater')->checkOptional($optional_dir);
+        $updater->checkOptional($optional_dir);
       }
       // Are there any blocks?
       $blocks_dir = $source_dir .'/block';
