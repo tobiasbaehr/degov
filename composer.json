@@ -25,7 +25,7 @@
         "drupal/date_popup": "^1.0",
         "drupal/degov_simplenews": "^1.5",
         "drupal/diff": "^1.0@RC",
-        "drupal/dropzonejs": "2.0.0-alpha3",
+        "drupal/dropzonejs": "^2.0",
         "drupal/easy_breadcrumb": "~1.6",
         "drupal/embed": "^1.0",
         "drupal/entity_block": "^1.0@beta",
@@ -241,9 +241,6 @@
             },
             "drupal/calendar": {
                 "3066015 - 'continue' targeting switch is equivalent to 'break'": "https://www.drupal.org/files/issues/2019-08-07/calendar-3066015-continue-in-php7.3.patch"
-            },
-            "drupal/dropzonejs": {
-                "3043246 - PHP 7.3 warning": "https://www.drupal.org/files/issues/2019-03-29/3043246-6.patch"
             }
         }
     },
