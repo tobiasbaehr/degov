@@ -59,15 +59,20 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
-    foreach ($menuItemDefinitions as $menuItemDefinition) {
+    foreach ($menuItemDefinitions as $key => $menuItemDefinition) {
+      $title = isset($menuItemDefinition['menu_title']) ? $menuItemDefinition['menu_title'] : $menuItemDefinition['node_title'];
       $menuLinkParameters = [
-        'title'     => $menuItemDefinition['node_title'],
+        'title'     => $title,
         'link'      => [
           'uri' => 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']),
         ],
         'menu_name' => $menuItemDefinition['menu_name'],
         'expanded'  => TRUE,
       ];
+
+      if (isset($menuItemDefinition['menu_weight']) ) {
+        $menuLinkParameters['weight'] = $menuItemDefinition['menu_weight'];
+      }
 
       if (!empty($parentMenuLink)) {
         $menuLinkParameters['parent'] = $parentMenuLink->getPluginId();
@@ -169,7 +174,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
     $titlesArray = [];
 
     foreach ($definitions as $definition) {
-      $titlesArray[$definition['node_title']] = $definition['node_title'];
+      $titlesArray[] = isset($definition['menu_title']) ? $definition['menu_title'] : $definition['node_title'];
 
       if(!empty($definition['children'])) {
         $titlesArray = array_merge($titlesArray, $this->getMenuTitlesFromDefinition($definition['children']));

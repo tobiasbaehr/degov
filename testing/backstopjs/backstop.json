@@ -26,17 +26,14 @@
       "url": "http://host.docker.internal:80",
       "referenceUrl": "",
       "readyEvent": "",
-      "readySelector": "",
-      "delay": 10000,
-      "hideSelectors": [
-
-      ],
+      "readySelector": ".active[data-slide-to='1']",
+      "delay": 500,
+      "hideSelectors": [],
       "removeSelectors": [
-
+        ".alert-dismissible"
       ],
       "hoverSelector": "",
       "clickSelector": "",
-      "postInteractionWait": 0,
       "selectors": [
 
       ],
@@ -63,7 +60,7 @@
     ],
     "chromeFlags": ["--disable-gpu", "--force-device-scale-factor=1"]
   },
-  "asyncCaptureLimit": 5,
+  "asyncCaptureLimit": 2,
   "asyncCompareLimit": 50,
   "debug": true,
   "debugWindow": false
