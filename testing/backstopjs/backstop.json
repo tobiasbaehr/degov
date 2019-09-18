@@ -27,7 +27,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": ".active[data-slide-to='1']",
-      "delay": 500,
+      "delay": 600,
       "hideSelectors": [],
       "removeSelectors": [
         ".alert-dismissible"

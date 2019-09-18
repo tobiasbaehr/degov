@@ -192,13 +192,21 @@ menu_item_7:
       node_title: 'Page with video header'
 menu_item_8:
   menu_name: 'below-footer-menu'
+  menu_title: 'About'
   node_title: 'Page with FAQ-List paragraph'
-  fontawesome_css_class: ''
 menu_item_9:
   menu_name: 'below-footer-menu'
+  menu_title: 'Privacy'
   node_title: 'Page with map paragraph'
-  fontawesome_css_class: ''
+menu_item_10:
+  menu_name: 'below-footer-menu'
+  node_title: 'Page with all teasers'
+  menu_title: 'Cookies'
 menu_item_13:
   menu_name: 'header-top'
   node_title: 'Page with all teasers'
   menu_title: 'Kontakt'
+  fontawesome_css_class: 'fa-envelope'
+
+
+
