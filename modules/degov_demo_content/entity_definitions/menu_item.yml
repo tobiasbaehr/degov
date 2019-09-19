@@ -207,6 +207,17 @@ menu_item_13:
   node_title: 'Page with all teasers'
   menu_title: 'Kontakt'
   fontawesome_css_class: 'fa-envelope'
-
+menu_item_14:
+  menu_name: 'footer'
+  menu_title: 'About'
+  node_title: 'Page with FAQ-List paragraph'
+menu_item_15:
+  menu_name: 'footer'
+  menu_title: 'Privacy'
+  node_title: 'Page with map paragraph'
+menu_item_16:
+  menu_name: 'footer'
+  node_title: 'Page with all teasers'
+  menu_title: 'Cookies'
 
 
