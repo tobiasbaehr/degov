@@ -142,19 +142,24 @@ elif [[ "$1" == "backstopjs" ]]; then
     BACKSTOP_EXIT_CODE=$?
     set +vx; eval "$ERROR_STATE"
 
-    # The following lines are for approving changes. Approving changes will update your reference files with the results
-    # from your last test. Future tests are compared against your most recent approved test screenshots. You must
-    # approve the tests and then test again for getting a successful test result in the html report.
-#    echo "### Approving changes"
-#    (cd docroot/profiles/contrib/nrwgov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
-#    echo "### Re-test"
-#    (cd docroot/profiles/contrib/nrwgov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
-
     if [[ $BACKSTOP_EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"
       (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+      _info "### Approving changes"
+      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
+      _info "### Re-test"
+      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+      RC=$?
+      if [[ "$RC" = 0 ]];then
+        _info "BackstopJS test with the source files was failed. But new updated bitmaps_reference are provided in the artifacts download. Which was already succesfully re-tested."
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zfpc bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
+      else
+        _info "### Dumping re-tested BackstopJS output"
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+      fi
       exit $BACKSTOP_EXIT_CODE
     fi
+
 elif [[ "$1" != "backstopjs" ]]; then
     _info "### Running Behat features by tags: $1"
     set +e

@@ -4,4 +4,4 @@ package: deGov
 type: module
 core: 8.x
 dependencies:
-  - eu_cookie_compliance
+  - eu_cookie_compliance:eu_cookie_compliance

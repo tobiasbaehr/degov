@@ -137,7 +137,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
-            - backstopjs.tar.gz
+            - "*.tar.gz"
   branches:
     release/*:
       - parallel:
@@ -272,7 +272,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
-              - backstopjs.tar.gz
+              - "*.tar.gz"
 
 definitions:
   services:
