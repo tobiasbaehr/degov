@@ -127,11 +127,12 @@ pipelines:
             - "*.png"
             - "*.html"
       - step:
-          name: BackstopJS tests
+          name: Frontend tests
           caches:
             - composer
           script:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs db_dump
+            - ERROR=0 bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
           services:
             - docker
             - testing
@@ -262,11 +263,12 @@ pipelines:
               - "*.png"
               - "*.html"
         - step:
-            name: BackstopJS tests
+            name: Frontend tests
             caches:
               - composer
             script:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs install
+              - ERROR=0 bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
             services:
               - docker
               - testing
