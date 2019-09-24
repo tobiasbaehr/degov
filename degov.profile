@@ -76,6 +76,7 @@ function degov_module_setup(&$install_state) {
     'degov_search_content'              => 'degov_search_content',
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
+    'degov_scheduled_updates'           => 'degov_scheduled_updates',
   ];
 
   $operations = [];
@@ -197,16 +198,13 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
   // List all optional deGov modules.
   $degov_optional_modules = [
     'degov_demo_content'      => t('Demo Content'),
-    'degov_scheduled_updates' => t('Scheduled Moderation'),
   ];
   $form['degov']['optional_modules'] = [
     '#type'          => 'checkboxes',
     '#title'         => t('ENABLE OPTIONAL FEATURES'),
     '#description'   => t('Checked features are recommended.'),
     '#options'       => $degov_optional_modules,
-    '#default_value' => [
-      'degov_scheduled_updates',
-    ],
+    '#default_value' => [],
   ];
 
   // Add an additional submit handler for optional modules.
