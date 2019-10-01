@@ -11,17 +11,18 @@ class Utilities {
   }
 
   /**
-   * @param string $output
+   * @param string $version
    *  The output of "node -v" cli command.
    *
-   * @return bool
+   * @return void
    * @throws ApplicationRequirementFail
    */
-  public static function checkNodeVersion(string $output): void {
-    $onlyVersionNumber = preg_replace('/[^0-9]/', '', $output);
+  public static function checkNodeVersion(string $version): void {
+    $versionParts = explode('.', $version);
+    $nodeVersion = (int) preg_replace('/\D/', '', $versionParts[0]);
 
-    if (!(strpos($onlyVersionNumber, '6') === 0)) {
-      throw new ApplicationRequirementFail('Aborting. Try again after fixing the NodeJS version requirement');
+    if ($nodeVersion < 8) {
+      throw new ApplicationRequirementFail('Aborting. Make sure you are using a maintained NodeJS version. See https://nodejs.org/en/about/releases/.');
     }
   }
 
