@@ -1,0 +1,10 @@
+<?php
+/**
+ * degov_pathauto update_87500
+ *  - Replace outdated pattern with new custom token and update default settings.
+ */
+function degov_pathauto_update_87500() {
+  /** @var \Drupal\degov_common\DegovModuleUpdater $module_updater */
+  $module_updater = \Drupal::service('degov_config.module_updater');
+  $module_updater->applyUpdates('degov_pathauto', '87500');
+}

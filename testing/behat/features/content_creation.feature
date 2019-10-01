@@ -280,3 +280,23 @@ Feature: deGov - Content creation
     And I should see 1 ".cke_top.cke_reset_all" elements via jQuery
     And I should see 1 ".cke_button_icon.cke_button__bold_icon" elements via jQuery
     And I should see 1 ".cke_button.cke_button__source.cke_button_off" elements via jQuery
+
+  Scenario: Verify that a new node has the right url alias and a node with a menu link has the right alias
+    And I am logged in as a user with the "administrator" role
+    Given I proof that the following Drupal modules are installed:
+      | degov_pathauto |
+    And I am on "/node/add/blog"
+    And fill in "title[0][value]" with "Behat Blog"
+    And fill in "field_teaser_title[0][value]" with "Behat Blog"
+    And I select "published" by name "moderation_state[0][state]"
+    And I press button with label "Save" via translated text
+    And I should be on "/behat-blog"
+    And I am on "/node/add/blog"
+    And fill in "title[0][value]" with "Behat Blog with menu link"
+    And fill in "field_teaser_title[0][value]" with "Behat Blog with menu link"
+    And I press button with label "Menüeinstellungen" via translated text
+    And I check "menu[enabled]"
+    And I select "-- FAQ-List paragraph" by name "menu[menu_parent]"
+    And I select "published" by name "moderation_state[0][state]"
+    And I press button with label "Save" via translated text
+    And I should be on "/faq-list-paragraph/behat-blog-menu-link"
