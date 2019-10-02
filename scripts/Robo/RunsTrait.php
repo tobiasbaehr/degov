@@ -187,7 +187,7 @@ HERE;
 
     $pathToCustomThemeConfig = 'config' . DIRECTORY_SEPARATOR . 'sync' . DIRECTORY_SEPARATOR . 'system.theme.yml';
     if (file_exists($pathToCustomThemeConfig)) {
-      $themeConfig = Yaml::parse($pathToCustomThemeConfig);
+      $themeConfig = Yaml::parseFile($pathToCustomThemeConfig);
       if ($themeConfig['default'] !== 'nrw_base_theme') {
         $pathToNpm = $this->getCommandOutput('which npm');
 
