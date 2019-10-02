@@ -8,6 +8,11 @@ set -o errexit
 
 ln -sf $BITBUCKET_CLONE_DIR/php_error.log /tmp/php_error.log
 
+echo 'error_reporting = E_ALL' >> /usr/local/etc/php/php.ini
+echo 'display_error = On' >> /usr/local/etc/php/php.ini
+echo 'log_errors = On' >> /usr/local/etc/php/php.ini
+echo 'error_log = /tmp/php_error.log' >> /usr/local/etc/php/php.ini
+
 COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
 COMPOSER_MEMORY_LIMIT=-1
@@ -60,11 +65,12 @@ _composer create-project --no-progress degov/degov-project --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
-_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-all-dependencies
+
 PATH="$(pwd)/bin/:$PATH"
 export PATH
 
-(cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php -d error_reporting=E_ALL -d display_error=On -d log_errors=On -d error_log=/tmp/php_error.log)
 _info "### Configuring drupal"
 _info '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
@@ -118,6 +124,9 @@ if [[ "$2" == "db_dump" ]]; then
     _drush_watchdog
 fi
 
+# For debugging via db dump
+bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz
+
 if [[ "$1" == "smoke_tests" ]]; then
     _info "### Running Behat smoke tests"
     # The installation sets admin/password as login data, therefore we reset the data here to match with the behat config.
@@ -168,6 +177,3 @@ elif [[ "$1" != "backstopjs" ]]; then
     _drush_watchdog
     exit $EXIT_CODE
 fi
-
-# For debugging via db dump
-#bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz

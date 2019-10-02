@@ -13,6 +13,12 @@ msgstr "Social Media Einstellungen"
 msgid "Main content"
 msgstr "Haupt-Seiteninhalt"
 
+msgid "Publish content"
+msgstr "Inhalt veröffentlichen"
+
+msgid "Unpublish content"
+msgstr "Veröffentlichung von Inhalt zurücknehmen"
+
 msgid "Log in / Sign up"
 msgstr "Anmelden / Registrieren"
 

@@ -1,6 +1,8 @@
 <?php
 
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Extension\ModuleInstaller;
+use \Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -85,4 +87,42 @@ function degov_node_overrides_update_8016() {
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->reImport('views.view.content', 'degov_node_overrides', 'rewrite');
+}
+
+/**
+ * Update items on content view per page to 100, if hasn't been changed already.
+ */
+function degov_node_overrides_update_860100() {
+  /**
+   * @var ConfigFactory $configFactory
+   */
+  $configFactory = \Drupal::service('config.factory');
+  /**
+   * @var Drupal\Core\Config\Config $config
+   */
+  $config = $configFactory->getEditable('views.view.content');
+
+  if ($config->get('display.default.display_options.pager.options.items_per_page') === 50) {
+    $config->set('display.default.display_options.pager.options.items_per_page', 100);
+    $config->save(TRUE);
+  }
+
+}
+
+/**
+ * deGov Update 860200 - Add author filter to content admin view.
+ */
+function degov_node_overrides_update_860200() {
+  $viewConfig = \Drupal::configFactory()->getEditable('views.view.content');
+  if (!$viewConfig->isNew()) {
+    $filtersConfig = $viewConfig->get('display.default.display_options.filters');
+    if (empty($filtersConfig['uid'])) {
+      $partialFile = drupal_get_path('module', 'degov_node_overrides') . '/config/update_860200/partial/views.view.content.default.filters.uid.yml';
+      if (file_exists($partialFile)) {
+        $filtersConfig += Yaml::parseFile($partialFile);
+        $viewConfig->set('display.default.display_options.filters', $filtersConfig)
+          ->save();
+      }
+    }
+  }
 }

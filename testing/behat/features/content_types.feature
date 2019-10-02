@@ -68,7 +68,7 @@ Feature: deGov - Content types
     And I see the button "Filter"
     And I set the window size to "960px" width and "900px" height
     And I scroll to element with id "views-form-content-page-1"
-    And I press button with label "Show all columns" via translated text
+    And I click by selector "button.tableresponsive-toggle" via JavaScript
     And I should see text matching "Title" via translated text in uppercase
     And I should see text matching "Content type" via translated text in uppercase
     And I should see text matching "Author" via translated text in uppercase

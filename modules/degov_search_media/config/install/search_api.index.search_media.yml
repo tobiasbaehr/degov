@@ -36,6 +36,9 @@ field_settings:
           tweet: default
           video: default
           video_upload: default
+          video_mobile: default
+          some_embed: default
+          audio: default
   field_media_publish_date:
     label: Veröffentlichungsdatum
     datasource_id: 'entity:media'

@@ -8,7 +8,6 @@ use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
-
 class FormContext extends RawMinkContext {
 
 	use TranslationTrait;
@@ -149,6 +148,7 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select "([^"]*)" in "([^"]*)" via translated text$/
    * @Then /^I select "([^"]*)" via translation in "([^"]*)"$/
    */
   public function selectOptionViaTranslation($label, $id) {

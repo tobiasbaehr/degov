@@ -125,8 +125,8 @@ hooks:
 # The configuration of scheduled execution.
 crons:
     drupal:
-        spec: '*/20 * * * *'
-        cmd: 'cd docroot ; drush core-cron'
+        spec: '*/5 * * * *'
+        cmd: 'cd project/docroot ; drush core-cron'
     # Create a snapshot at 12:00 and 18:00 if environment variable 'DO_BACKUP' equals 'yes'
     snapshot-create:
         spec: '0 12,18,22 * * *'

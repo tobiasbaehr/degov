@@ -10,7 +10,6 @@ use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
-
 class DrupalIndependentContext extends RawMinkContext {
 
 	use TranslationTrait;
@@ -325,6 +324,20 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I proof xpath "([^"]*)" contains "([^"]*)" text via translation$/
+   * @Then /^I proof xpath '([^']*)' contains "([^"]*)" text via translation$/
+   */
+  public function xpathContainsSpecificText(string $xpath, string $text) {
+    $page = $this->getSession()->getPage();
+    /** @var $xpathNode \Behat\Mink\Element\NodeElement */
+    $xpathNode = $page->find('css', $xpath);
+
+    if (!is_numeric(strpos($this->translateString($xpathNode->getText()), $text))) {
+      throw new \Exception("Xpath $xpath does not contain text $text.");
+    }
+  }
+
+  /**
    * @Then /^I proof css "([^"]*)" contains text$/
    */
   public function cssContainsText(string $css) {
@@ -409,6 +422,13 @@ class DrupalIndependentContext extends RawMinkContext {
     if($expectedNumberOfElements !== $matchedElementsCount) {
       throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
     }
+  }
+
+  /**
+   * @Then /^(?:|I )should be not on "(?P<page>[^"]+)"$/
+   */
+  public function assertPageAddressNotEquals(string $page): void {
+    $this->assertSession()->addressNotEquals($this->locatePath($page));
   }
 
   /**

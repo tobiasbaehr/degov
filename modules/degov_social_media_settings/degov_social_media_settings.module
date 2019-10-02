@@ -2,8 +2,6 @@
 
 use Drupal\media\MediaInterface;
 use Drupal\Component\Utility\Xss;
-use Symfony\Component\Yaml\Yaml;
-use Drupal\Component\Utility\NestedArray;
 
 /**
  * Implements hook_theme().

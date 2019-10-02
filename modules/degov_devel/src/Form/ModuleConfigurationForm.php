@@ -32,8 +32,9 @@ class ModuleConfigurationForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('degov_devel.settings');
     $form['dev_mode'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Development mode'),
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Development mode'),
+      '#description'   => $this->t('E.g. set fixed content for social media feeds.'),
       '#default_value' => $config->get('dev_mode'),
     ];
 

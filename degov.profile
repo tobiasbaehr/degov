@@ -4,7 +4,6 @@
  * Enables modules and site configuration for the deGov profile.
  */
 
-
 /**
  * Implements hook_install_tasks().
  *
@@ -74,10 +73,18 @@ function degov_module_setup(&$install_state) {
     'degov_auto_crop'                   => 'degov_auto_crop',
     'degov_file_management'             => 'degov_file_management',
     'degov_search_content'              => 'degov_search_content',
+    'degov_scheduled_updates'           => 'degov_scheduled_updates',
+    'node_action'                       => 'node_action',
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
-    'degov_scheduled_updates'           => 'degov_scheduled_updates',
   ];
+
+  // See issue https://www.drupal.org/project/search_api/issues/2931562
+  \Drupal::state()->set('search_api_use_tracking_batch', FALSE);
+
+  if (in_array('degov_devel', \Drupal::state()->get('degov_optional_modules'), TRUE)) {
+    array_unshift($modules, 'degov_devel');
+  }
 
   $operations = [];
   foreach ($modules as $module) {
@@ -197,7 +204,8 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
 
   // List all optional deGov modules.
   $degov_optional_modules = [
-    'degov_demo_content'      => t('Demo Content'),
+    'degov_demo_content' => t('Demo Content'),
+    'degov_devel'        => t('deGov - Devel'),
   ];
   $form['degov']['optional_modules'] = [
     '#type'          => 'checkboxes',
@@ -227,6 +235,10 @@ function degov_optional_modules_submit($form_id, &$form_state) {
  * selected during the deGov profile installation.
  */
 function degov_finalize_setup() {
+  if (!\Drupal::configFactory()->get('ultimate_cron.settings')->isNew()) {
+    \Drupal::configFactory()->getEditable('ultimate_cron.settings')->set('launcher.max_threads', 5)->save();
+  }
+
   // Prevent Drupal status messages during profile installation.
   drupal_get_messages('status', TRUE);
 
