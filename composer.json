@@ -149,9 +149,6 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/error_log": {
-                "3084888 - False positive error text on status page": "https://www.drupal.org/files/issues/2019-10-01/error_log-remove-false-positive-error.patch"
-            },
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             },
