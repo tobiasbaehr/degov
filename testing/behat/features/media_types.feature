@@ -116,17 +116,7 @@ Feature: deGov - Media types
     Given I am logged in as an "Administrator"
     And I have dismissed the cookie banner if necessary
     And I am on "/media/add/image"
-    And I choose "Beschreibung" from tab menu
-    Then I should see 1 form element with the label "Copyright" and a required input field
-    And I should see 1 form element with the label "Bild ist frei" and a "checkbox" field
-    And I check checkbox with id "edit-field-royalty-free-value"
-    Then I should see 0 form element with the label "Copyright" and a required input field
-
-  Scenario: I verify that image media entities have copyright related fields
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
-    And I am on "/media/add/image"
-    And I choose "Beschreibung" from tab menu
+    And I choose "Description" from tab menu
     Then I should see 1 form element with the label "Copyright" and a required input field
     And I should see 1 form element with the label "Bild ist frei" and a "checkbox" field
     And I check checkbox with id "edit-field-royalty-free-value"

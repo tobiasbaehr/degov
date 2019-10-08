@@ -8,8 +8,7 @@ Feature: deGov - Teaser view modes
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    Then I choose "Inhalt" from tab menu
-    And I should see text matching "Inhaltsbereich"
+    Then I choose "Content" from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I press the "field_content_paragraphs_node_reference_add_more" button
     And I should see text matching "Viewmode der Teaser" after a while

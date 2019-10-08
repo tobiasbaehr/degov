@@ -90,6 +90,7 @@ content:
   field_content_paragraphs:
     type: paragraphs
     third_party_settings: {  }
+    weight: 6
     settings:
       title: Paragraph
       title_plural: Paragraphs

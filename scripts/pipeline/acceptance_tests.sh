@@ -117,6 +117,7 @@ if [[ "$2" == "db_dump" ]]; then
     _drush watchdog:delete all
     _info "### Run database updates"
     _drush updb
+    _drush cr
     _info "### Re-install the degov_demo_content"
     _drush pm:uninstall degov_demo_content
     _drush en degov_demo_content

@@ -64,3 +64,14 @@ function degov_node_faq_update_8013() {
   }
 
 }
+
+/**
+ * deGov Update 7.5.0 - Add the missing weight to FAQ content paragraphs.
+ */
+function degov_node_faq_update_870500() {
+  $existingConfig = \Drupal::configFactory()
+    ->getEditable('core.entity_form_display.node.faq.default');
+  if (!$existingConfig->isNew() && $existingConfig->get('content.field_content_paragraphs.weight') === NULL) {
+    $existingConfig->set('content.field_content_paragraphs.weight', 6)->save();
+  }
+}
