@@ -19,11 +19,11 @@ Feature: deGov - Media access
 
   Scenario: As an unauthenticated user I cannot access Media that is not in the library
     Given I have dismissed the cookie banner if necessary
-    And I am on "/image-cannot-be-accessed-directly"
+    And I am on "/bild/image-cannot-be-accessed-directly"
     Then I should be on the homepage
 
   Scenario: As an admin I can access Media that is not in the library
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I am on "/image-cannot-be-accessed-directly"
-    Then I should be on "/image-cannot-be-accessed-directly"
+    And I am on "/bild/image-cannot-be-accessed-directly"
+    Then I should be on "/bild/image-cannot-be-accessed-directly"

@@ -300,3 +300,16 @@ Feature: deGov - Content creation
     And I select "published" by name "moderation_state[0][state]"
     And I press button with label "Save" via translated text
     And I should be on "/faq-list-paragraph/behat-blog-menu-link"
+
+  Scenario: Verify that a new media node has the right url alias
+    And I am logged in as a user with the "administrator" role
+    Given I proof that the following Drupal modules are installed:
+      | degov_pathauto |
+    And I am on "/media/add/person"
+    And I fill in "name[0][value]" with "Behat Person"
+    And I fill in "field_title[0][value]" with "Behat Person"
+    And I press button with label "Accept" via translated text
+    And I press button with label "Save" via translated text
+    And I should see text matching "Person Behat Person wurde erstellt." after a while
+    And I am on "/person/behat-person"
+    And I should not see text matching "Die angeforderte Seite konnte nicht gefunden werden." after a while
