@@ -26,7 +26,7 @@ set classes = [
 'clearfix',
 ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
     {{ content.contextual_links }}
   {% if content.field_facts_image|field_value %}
     <div class="facts__left {{ col_class }}">

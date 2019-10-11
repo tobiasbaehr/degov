@@ -51,7 +51,7 @@ Feature: deGov Simplenews
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/config/regional/language/add"
-    And I select "Englisch" in "edit-predefined-langcode"
+    And I select "en" in "edit-predefined-langcode"
     And I press button with label "Add language" via translated text
     Then I should see text matching "Add language" via translation after a while
     Then I set the privacy policy page for all languages

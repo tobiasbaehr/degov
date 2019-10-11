@@ -75,7 +75,7 @@
     'clearfix',
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__latest_wrapper">
@@ -83,13 +83,13 @@
       <a href="{{ url }}" rel="bookmark">
         {% if content.field_press_date %}
           <div class="press__teaser-date"{{ content.field_press_date|quickedit_attr }}>
-            {{ content.field_press_date|field_value }}
+            {{ content.field_press_date|field_value|striptags }}
           </div>
         {% endif %}
 
         {% if content.field_teaser_title %}
           <div class="press__teaser-title">
-            {{ content.field_teaser_title }}
+            {{ content.field_teaser_title|striptags }}
           </div>
         {% endif %}
       </a>

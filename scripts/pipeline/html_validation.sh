@@ -11,6 +11,7 @@ fi
 # shellcheck disable=SC2164
 __DIR__="$(cd "$(dirname "${0}")"; pwd)"
 __STARTDIR__=${__STARTDIR__:-$__DIR__}
+__SHARED_DIR__="$__STARTDIR__/html_validation_shared"
 __TMP__="$__STARTDIR__/tmp"
 
 _info() {
@@ -19,35 +20,51 @@ _info() {
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
 
+_err() {
+  local color_error="\\x1b[31m"
+  local color_reset="\\x1b[0m"
+  echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
+}
+
 _fetch_html_content() {
   local URLS=""
   URLS=$(jq --raw-output '[.scenarios[] | .url ] | unique[]' ../../testing/backstopjs/backstop.json | tr '\n' ' ')
-  wget --hsts-file=/tmp/wget-hsts --quiet --trust-server-names --continue --directory-prefix "$__TMP__" $URLS
-}
-
-_run_validation_extended() {
-  URLS=$(jq --raw-output '[.scenarios[] | .url ] | unique[]' ../../testing/backstopjs/backstop.json | tr '\n' ' ')
-  mkdir -p ../../test-reports
-  local REPORTS="../../test-reports"
-  for url in $URLS;do
-    local url_encoded=""
-    url_encoded=$(php -r "echo urlencode('$url');")
-    curl -s -L -H "Content-Type: text/html; charset=utf-8" "localhost:8888?parser=html&level=error&out=html&checkerrorpages=false&doc=$url_encoded" > "$REPORTS/$url_encoded".html
-    html2text -nobs -utf8 -style pretty "$REPORTS/$url_encoded".html
-  done
+  rm  -rf "${__TMP__:?}"/* \
+  && wget --hsts-file=/tmp/wget-hsts --no-verbose --no-cache --no-cookies --trust-server-names --directory-prefix "$__TMP__" $URLS
+  local EXITCODE=$?
+  if [[ "${EXITCODE:-}" -gt 0 ]] ;then
+    _err "Could not fetch the HTML content. Is the host host.docker.internal running?"
+  fi
+  return $EXITCODE;
 }
 
 _run_validation() {
-  local rc=0
   if [[ -n "${CI:-}" ]];then
-    docker run -v "$__TMP__":/files --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL validator/validator:latest /vnu-runtime-image/bin/vnu --errors-only /files
-    rc=$?
+    docker run \
+      -v "$__TMP__":/files \
+      -v "$__SHARED_DIR__":/shared \
+      --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL \
+      validator/validator:latest /vnu-runtime-image/bin/vnu \
+        --filterfile  /shared/message-filters.txt \
+        --errors-only \
+      /files
   else
-    docker run -v "$__TMP__":/files validator/validator:latest /vnu-runtime-image/bin/vnu --errors-only /files
+    docker run \
+      -v "$__TMP__":/files \
+      -v "$__SHARED_DIR__":/shared \
+      validator/validator:latest /vnu-runtime-image/bin/vnu \
+        --filterfile  /shared/message-filters.txt \
+        --errors-only \
+      /files
   fi
-  if [[ -n "${ERROR:-}" ]] && [[ "${ERROR:-}" -gt 0 ]] ;then
-    return $rc
+  local EXITCODE=$?
+  if [[ "${EXITCODE:-}" = 125 ]] ;then
+    _err "Could not validate the HTML content. Docker is not running."
   fi
+  if [[ "${EXITCODE:-}" = 1 ]] ;then
+    _err "Found some validation errors."
+  fi
+  return $EXITCODE;
 }
 
 main() {
@@ -58,7 +75,8 @@ main() {
   cd "$__STARTDIR__" \
   && _info "### Validating HTML5" \
   && _fetch_html_content \
-  && _run_validation
+  && _run_validation \
+  && _info "No validation errors found"
 }
 
 main "$@"

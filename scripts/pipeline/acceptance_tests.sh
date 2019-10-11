@@ -117,6 +117,7 @@ if [[ "$2" == "db_dump" ]]; then
     _drush watchdog:delete all
     _info "### Run database updates"
     _drush updb
+    _info "### Clear cache"
     _drush cr
     _info "### Re-install the degov_demo_content"
     _drush pm:uninstall degov_demo_content
@@ -151,6 +152,7 @@ elif [[ "$1" == "backstopjs" ]]; then
     (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
     BACKSTOP_EXIT_CODE=$?
     set +vx; eval "$ERROR_STATE"
+    bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
 
     if [[ $BACKSTOP_EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"

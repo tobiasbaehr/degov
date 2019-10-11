@@ -86,8 +86,7 @@
   {%  set class_teaser_text = 'row' %}
 {% endif %}
 
-
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3">
@@ -121,23 +120,23 @@
         {% endif %}
         <div class="{{ class_teaser_text }}">
             {% if content.field_teaser_image %}
-                <div class="press__teaser__img {{ class_sidebar }}"{{ content.field_teaser_image|quickedit_attr }}>
-                    <a href="{{ url }}" rel="bookmark">
-                        {{ content.field_teaser_image|field_value }}
-                    </a>
-                </div>
+              <div class="press__teaser__img {{ class_sidebar }}"{{ content.field_teaser_image|quickedit_attr }}>
+                <a href="{{ url }}" rel="bookmark">
+                  {{ content.field_teaser_image|field_value }}
+                </a>
+              </div>
             {% endif %}
             <!-- Teaser text -->
             {% if content.field_teaser_text.value %}
-                <a href="{{ url }}" rel="bookmark">
-                    <div class="press__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
-                        {% autoescape false %}
-                            {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
-                        {% endautoescape %}
-                    </div>
-                </a>
+              <a href="{{ url }}" rel="bookmark">
+                <div class="press__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
+                  {% autoescape false %}
+                    {% set text = node.field_teaser_text.value|striptags %}
+                    {{ text|length > 440 ? text|slice(0, 440) ~ '...' : text }}
+                  {% endautoescape %}
+                </div>
+              </a>
             {% endif %}
         </div>
     </div>
-
 </article>

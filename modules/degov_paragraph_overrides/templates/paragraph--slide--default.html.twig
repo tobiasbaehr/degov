@@ -48,7 +48,6 @@ set classes = [
 %}
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
-  <!-- <div class="row"> -->
     {% if slide_link %}<a class="slide__link" href="{{ slide_link }}">{% endif %}
       <div class="slide__media">{{ content.field_slide_media|field_value }}</div>
       <div class="slide__text">
@@ -60,10 +59,13 @@ set classes = [
             <h2>{{ content.field_slide_headline|field_value }}</h2>
           {% endif %}
           {% if content.field_slide_text|field_value %}
+            {% if slide_link %}
+            <p>{{ content.field_slide_text|field_value|render|striptags('<br><p><b><strong>') }}</p>
+            {% else %}
             <p>{{ content.field_slide_text|field_value }}</p>
+            {% endif %}
           {% endif %}
         </div>
       </div>
     {% if slide_link %}</a>{% endif %}
-  <!-- </div> -->
 </div>

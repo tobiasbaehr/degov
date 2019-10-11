@@ -53,13 +53,14 @@
       <div class="container">
         {% if not paragraph.field_slide_text.isEmpty() %}
           <h2>
-            {{ content.field_slide_text|render|striptags|length > 150 ? content.field_slide_text|render|striptags|slice(0, 150) ~ '...' : content.field_slide_text|render|striptags }}
+            {% set text = content.field_slide_text|render|striptags %}
+            {{ text|length > 150 ? text|slice(0, 150) ~ '...' : text }}
           </h2>
         {% endif %}
         {% if not paragraph.field_override_caption.isEmpty() %}
           <p>
-            {#{{ paragraph.field_override_caption[0].value }}#}
-            {{ paragraph.field_override_caption[0].value|render|striptags|length > 200 ? paragraph.field_override_caption[0].value|render|striptags|slice(0, 200) ~ '...' : paragraph.field_override_caption[0].value|render|striptags }}
+            {% set text = paragraph.field_override_caption[0].value|render|striptags %}
+            {{ text|length > 200 ? text|slice(0, 200) ~ '...' : text }}
           </p>
         {% endif %}
       </div>

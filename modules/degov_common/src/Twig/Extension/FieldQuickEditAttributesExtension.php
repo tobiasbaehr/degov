@@ -46,7 +46,7 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
     }
 
     if (!\Drupal::currentUser()->hasPermission('access in-place editing')) {
-      return;
+      return NULL;
     }
 
     /** @var $entity \Drupal\Core\Entity\FieldableEntityInterface */
@@ -58,11 +58,11 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
     // @see \Drupal\Core\Field\FieldItemListInterface::view()
     // @see https://www.drupal.org/node/2120335
     if ($build['#view_mode'] === '_custom') {
-      return;
+      return NULL;
     }
 
     if (!$entity->hasField($build['#field_name'])) {
-      return;
+      return NULL;
     }
 
     $attributes = [];
@@ -91,6 +91,6 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
    */
   protected function isFieldRenderArray($build) {
 
-    return isset($build['#theme']) && $build['#theme'] == 'field';
+    return isset($build['#theme']) && $build['#theme'] === 'field';
   }
 }

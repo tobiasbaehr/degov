@@ -86,7 +86,7 @@
   {% set class_content = '' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   {% if content.field_teaser_image %}
@@ -98,8 +98,7 @@
   {% endif %}
 
 
-  <div
-      class="event__teaser-content teaser-content p-md-3 p-2 {{ class_content }}">
+  <div class="event__teaser-content teaser-content p-md-3 p-2 {{ class_content }}">
     <div class="teaser-content-inner">
       {% if content.field_teaser_title %}
         <a href="{{ url }}" rel="bookmark">
@@ -111,10 +110,10 @@
         </a>
       {% endif %}
       {% if content.field_teaser_text %}
-        <div
-            class="event__teaser-text teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
+        <div class="event__teaser-text teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
           {% autoescape false %}
-            {{ node.field_teaser_text.value|render|length > 400 ? node.field_teaser_text.value|render|striptags|slice(0, 400) ~ '...' : node.field_teaser_text.value|render|striptags }}
+            {% set text = node.field_teaser_text.value|render|striptags %}
+            {{ text|length > 400 ? text|slice(0, 400) ~ '...' : text }}
           {% endautoescape %}
         </div>
       {% endif %}

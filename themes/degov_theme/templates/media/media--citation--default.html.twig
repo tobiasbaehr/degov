@@ -19,8 +19,6 @@
   'my-5',
 ] %}
 
-{% set citation_text = content.field_citation_text|render|striptags|trim %}
-
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
 
@@ -30,6 +28,7 @@
 
   <blockquote class="col-lg-6 citation-content blockquote px-5">
     <h3 class="citation-title mt-4"> {{ content.field_citation_title }} </h3>
+    {% set citation_text = content.field_citation_text|render|striptags|trim %}
     <p class="citation-text">{{ citation_text|length > 150 ? citation_text|slice(0, 150) ~ '...' : citation_text }}</p>
     <footer class="blockquote-footer">
       <cite class="citation-source-title" title="Source Title">{{ media.field_title.value  }}</cite>

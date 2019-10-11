@@ -84,7 +84,7 @@
 {% endif %}
 
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="blog__slideshow-image slideshow-image {{ class_sidebar }} arrow">
@@ -106,9 +106,9 @@
     {% endif %}
 
     {% if content.field_teaser_text %}
-      {% set text = content.field_teaser_text|render|striptags %}
       <div class="blog__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
-       <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
+        {% set text = content.field_teaser_text|render|striptags %}
+        <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
       </div>
     {% endif %}
   </div>

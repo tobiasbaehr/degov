@@ -20,7 +20,7 @@
         "drupal/calendar": "1.x-dev",
         "drupal/config_replace": "^1.0",
         "drupal/contact_storage": "^1.0",
-        "drupal/core": "~8.7.0",
+        "drupal/core": "~8.7.8",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/date_popup": "^1.0",
         "drupal/degov_simplenews": "^1.5",
@@ -163,7 +163,8 @@
                 "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
                 "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
                 "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
-                "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch"
+                "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
+                "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-07-18/w3c-rel-validation-2454915-25-D8.patch"
             },
             "drupal/entity_embed": {
                 "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"

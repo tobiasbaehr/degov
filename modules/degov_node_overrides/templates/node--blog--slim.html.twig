@@ -85,7 +85,7 @@
   {% set class_content = 'col-xs-12 col-sm-12' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="blog__teaser-image teaser-image {{ class_sidebar }}">

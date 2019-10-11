@@ -41,13 +41,13 @@
     <div class="media--preview__text-block col-xs-12 col-sm-4">
         <a href="{{ audio_url }}">
             <div class="audio__date"{{ content.field_media_publish_date|quickedit_attr }}>{{ content.field_media_publish_date|field_value }}</div>
-            {% set title = content.field_title|field_value %}
-            <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}{% endspaceless %}</h2>
+            {% set title = content.field_title|field_value|render|striptags %}
+            <h2 class=""{{ content.field_title|quickedit_attr }}>{{- title|length > 40 ? title|slice(0, 40) ~ '...' : title -}}</h2>
         </a>
         <a href="{{ audio_url }}">
             {% if content.field_description|field_value %}
                 {% set text = content.field_description|render|striptags %}
-                <div class="media--preview__description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>
+                <div class="media--preview__description">{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}</div>
             {% endif %}
         </a>
         {% if content.field_tags|field_value %}

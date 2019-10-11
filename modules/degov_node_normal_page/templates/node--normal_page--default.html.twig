@@ -75,7 +75,7 @@
     'clearfix',
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   {% if node.field_header_paragraphs.value %}

@@ -85,7 +85,7 @@
   {% set class_content = 'col-xs-12 col-sm-12' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   {% if content.field_teaser_image %}
@@ -107,8 +107,8 @@
     {% endif %}
 
     {% if content.field_teaser_text %}
-      {% set text = content.field_teaser_text|render|striptags %}
       <div class="normal-page__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
+        {% set text = content.field_teaser_text|render|striptags %}
         <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
       </div>
     {% endif %}

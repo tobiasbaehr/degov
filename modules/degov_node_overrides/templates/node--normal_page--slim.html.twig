@@ -85,7 +85,7 @@
   {% set class_content = 'col-xs-12 col-sm-12' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   {% if content.field_teaser_image %}
@@ -101,11 +101,11 @@
       <a href="{{ url }}" rel="bookmark">
         <div class="normal-page__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ content.field_teaser_title|field_value }}
+            {{ content.field_teaser_title|field_value|striptags }}
             {% if content.field_teaser_sub_title %}
               <br />
               <span class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
-                {{ content.field_teaser_sub_title|field_value }}
+                {{ content.field_teaser_sub_title|field_value|striptags }}
               </span>
             {% endif %}
           </h3>

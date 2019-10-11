@@ -26,7 +26,7 @@
       "url": "http://host.docker.internal:80",
       "referenceUrl": "",
       "readyEvent": "",
-      "readySelector": ".active[data-slide-to='1']",
+      "readySelector": "#degov-slider .carousel-item:nth-child(2).active",
       "delay": 600,
       "hideSelectors": [],
       "removeSelectors": [

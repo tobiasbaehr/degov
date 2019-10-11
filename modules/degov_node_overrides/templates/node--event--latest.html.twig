@@ -65,7 +65,7 @@
  *   in different view modes.
  */
 #}
- 
+
 {%
   set classes = [
     'event__teaser',
@@ -78,7 +78,7 @@
   ]
 %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <!-- teaser image -->

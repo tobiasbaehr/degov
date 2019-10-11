@@ -37,11 +37,11 @@
     <div class="media--preview__text-block col-xs-12 col-sm-6">
         <a href="{{ gallery_url }}">
             <div class="gallery__date"{{ content.field_media_publish_date|quickedit_attr }}>{{ content.field_media_publish_date|field_value }}</div>
-            {% set title = content.field_title|field_value %}
-            <h2 class=""{{ content.field_title|quickedit_attr }}>{% spaceless %}{{ title|length > 50 ? title|slice(0, 50) ~ '...' : title }}{% endspaceless %}</h2>
+            {% set title = content.field_title|field_value|render|striptags %}
+            <h2 class=""{{ content.field_title|quickedit_attr }}>{{ title|length > 50 ? title|slice(0, 50) ~ '...' : title }}</h2>
             {% if content.field_description|field_value %}
                 {% set text = content.field_description|render|striptags %}
-                <div class="gallery__description">{% spaceless %}{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}{% endspaceless %}</div>
+                <div class="gallery__description">{{ text|length > 100 ? text|slice(0, 100) ~ '...' : text }}</div>
             {% endif %}
         </a>
         {% if content.field_tags|field_value %}

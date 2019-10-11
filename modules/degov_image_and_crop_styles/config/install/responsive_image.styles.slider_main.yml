@@ -19,7 +19,7 @@ image_style_mappings:
     multiplier: 1.5x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:1280px)'
+      sizes: '(min-width:1280px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_1280
   -
@@ -27,7 +27,7 @@ image_style_mappings:
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:1280px)'
+      sizes: '(min-width:1280px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_1280
   -
@@ -35,7 +35,7 @@ image_style_mappings:
     multiplier: 2x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:1280px)'
+      sizes: '(min-width:1280px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_1280
   -
@@ -43,7 +43,7 @@ image_style_mappings:
     multiplier: 1.5x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:720px)'
+      sizes: '(min-width:720px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_720
   -
@@ -51,7 +51,7 @@ image_style_mappings:
     multiplier: 1.5x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:480px)'
+      sizes: '(min-width:480px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_480
   -
@@ -59,7 +59,7 @@ image_style_mappings:
     multiplier: 1x
     image_mapping_type: sizes
     image_mapping:
-      sizes: '(min-width:480px)'
+      sizes: '(min-width:480px) 100vw'
       sizes_image_styles:
         - slider_main_16_9_480
 breakpoint_group: degov_image_and_crop_styles.media

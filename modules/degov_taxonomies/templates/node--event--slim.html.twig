@@ -86,7 +86,7 @@ view_mode ? view_mode|clean_class,
   {%  set class_content = 'col-xs-12 col-sm-12' %}
 {% endif %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="event__teaser-image teaser-image col-xs-12 col-sm-6 arrow">

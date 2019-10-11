@@ -31,10 +31,8 @@ set media_classes = [
             <span class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</span>
           {% endif %}
           {% if content.field_copyright|field_value %}
-            <span class="video__copyright">
-              <span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-              {{ content.field_copyright|field_value }}
-            </span>
+            {# Don't add spaces. Whitespace: pre #}
+            <span class="video__copyright"><span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>{{ content.field_copyright|field_value }}</span>
           {% endif %}
         </div>
       </div>

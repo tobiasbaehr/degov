@@ -85,13 +85,13 @@
 {% endif %}
 
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__teaser-image teaser-image {{ class_sidebar }}">
   {% if content.field_teaser_image %}
     <a href="{{ url }}" rel="bookmark">
-      {{ content.field_teaser_image|field_value }}
+      {{ content.field_teaser_image|field_value|striptagsq }}
     </a>
   {% endif %}
   </div>
@@ -101,7 +101,7 @@
       <a href="{{ url }}" rel="bookmark">
         <div class="press__teaser-title teaser-title">
           <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ content.field_teaser_title|field_value }}
+            {{ content.field_teaser_title|field_value|striptags }}
           </h3>
         </div>
       </a>
@@ -110,7 +110,7 @@
     {% if content.field_press_date %}
       <a href="{{ url }}" rel="bookmark">
         <div class="press__teaser-date"{{ content.field_press_date|quickedit_attr }}>
-          {{ content.field_press_date|field_value }}
+          {{ content.field_press_date|field_value|striptags }}
         </div>
       </a>
     {% endif %}
@@ -119,7 +119,8 @@
       <div class="press__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         <a href="{{ url }}" rel="bookmark">
           {% autoescape false %}
-            {{ node.field_teaser_text.value|striptags|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
+            {% set text = node.field_teaser_text.value|striptags %}
+            {{ text|length > 310 ? text|slice(0, 310) ~ '...' : text }}
           {% endautoescape %}
         </a>
       </div>
