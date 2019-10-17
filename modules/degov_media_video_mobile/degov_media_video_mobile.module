@@ -10,6 +10,7 @@ use Drupal\degov_common\Common;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\image\ImageStyleInterface;
 
 /**
  * Implements hook_preprocess().
@@ -150,7 +151,12 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   if (!empty($image)) {
     $file = $image->image->entity;
     if (!empty($file)) {
-      $variables['video_attributes']['poster'] = file_create_url($file->getFileUri());
+      $imageStyle16By9 = \Drupal::entityTypeManager()->getStorage('image_style')->load('crop_16_to_9');
+      if ($imageStyle16By9 instanceof ImageStyleInterface) {
+        $variables['video_attributes']['poster'] = $imageStyle16By9->buildUrl($file->getFileUri());
+      } else {
+        $variables['video_attributes']['poster'] = file_create_url($file->getFileUri());
+      }
     }
   }
 
