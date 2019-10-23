@@ -280,4 +280,4 @@ definitions:
       image: darksolar/selenium-chrome-headless
       memory: 2048
     docker:
-      memory: 2048
+      memory: 3072

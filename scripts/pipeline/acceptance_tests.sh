@@ -26,6 +26,12 @@ _info() {
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
 
+_err() {
+  local color_error="\\x1b[31m"
+  local color_reset="\\x1b[0m"
+  echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
+}
+
 _drush() {
   COLUMNS=$(tput cols 2>/dev/null) bin/drush --yes --ansi "$@"
 }
@@ -140,21 +146,16 @@ if [[ "$1" == "smoke_tests" ]]; then
     exit $EXIT_CODE
 
 elif [[ "$1" == "backstopjs" ]]; then
+    set +e
     _info "### Running BackstopJS test"
     _info "### Set the Development Mode"
     _drush en degov_devel
     _drush config:set degov_devel.settings dev_mode true
-    # Get Backstop pipeline output on non-zero test results.
-    #   Storing script error state.
-    #   See https://unix.stackexchange.com/a/310963
-    ERROR_STATE="$(set +o); set -$-"
-    set +e
     (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
-    BACKSTOP_EXIT_CODE=$?
-    set +vx; eval "$ERROR_STATE"
+    EXIT_CODE=$?
     bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
 
-    if [[ $BACKSTOP_EXIT_CODE -gt "0" ]]; then
+    if [[ $EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"
       (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
       _info "### Approving changes"
@@ -163,13 +164,14 @@ elif [[ "$1" == "backstopjs" ]]; then
       (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
       RC=$?
       if [[ "$RC" = 0 ]];then
-        _info "BackstopJS test with the source files was failed. But new updated bitmaps_reference are provided in the artifacts download. Which was already succesfully re-tested."
+        _err "BackstopJS test with the source files was failed. But new updated bitmaps_reference are provided in the artifacts download. Which was already succesfully re-tested."
         (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zfpc bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
       else
         _info "### Dumping re-tested BackstopJS output"
-        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs-retest.tar.gz backstopjs/ && mv backstopjs-retest.tar.gz $BITBUCKET_CLONE_DIR)
       fi
-      exit $BACKSTOP_EXIT_CODE
+      # Pipeline needs the exitcode to mark the pipe as failed.
+      exit $EXIT_CODE
     fi
 
 elif [[ "$1" != "backstopjs" ]]; then

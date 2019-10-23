@@ -3,6 +3,7 @@ theme-assets:
     theme:
       webpack-dist/main.css: {}
   js:
+    webpack-dist/bootstrap.bundle.min.js: {}
     webpack-dist/main.js: {}
   dependencies:
     - core/jquery

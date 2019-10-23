@@ -8,14 +8,6 @@ module.exports = {
     main: [
         // deGov theme
       './scss/main.scss',
-      // Bootstrap
-      './node_modules/bootstrap/js/src/util.js',
-      './node_modules/bootstrap/js/src/carousel.js',
-      './node_modules/bootstrap/js/src/dropdown.js',
-      './node_modules/bootstrap/js/src/alert.js',
-      './node_modules/bootstrap/js/src/collapse.js',
-      './node_modules/bootstrap/js/src/button.js',
-      './node_modules/bootstrap/js/src/modal.js',
       // Font Awesome
       './node_modules/@fortawesome/fontawesome-free/css/all.css',
     ],
@@ -35,6 +27,11 @@ module.exports = {
       context: `${__dirname}/node_modules/@fortawesome/fontawesome-free/webfonts`,
       from: '*',
       to: `${__dirname}/webfonts/`
+    }]),
+    new CopyWebpackPlugin([{
+      context: `${__dirname}/node_modules/bootstrap/dist/js/`,
+      from: 'bootstrap.bundle.min.*',
+      to: `${__dirname}/webpack-dist/`
     }])
   ],
   output: {

@@ -28,7 +28,7 @@ _err() {
 
 _fetch_html_content() {
   local URLS=""
-  URLS=$(jq --raw-output '[.scenarios[] | .url ] | unique[]' ../../testing/backstopjs/backstop.json | tr '\n' ' ')
+  URLS=$(jq --raw-output '[ .scenarios[] | select(has("skipValidation") | not) | .url ] | unique[]' ../../testing/backstopjs/backstop.json | tr '\n' ' ')
   rm  -rf "${__TMP__:?}"/* \
   && wget --hsts-file=/tmp/wget-hsts --no-verbose --no-cache --no-cookies --trust-server-names --directory-prefix "$__TMP__" $URLS
   local EXITCODE=$?

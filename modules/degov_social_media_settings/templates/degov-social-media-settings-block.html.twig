@@ -40,31 +40,19 @@
           <div>
 
             <p>
-              {{ 'If you activate these fields with a click, information will be transmitted to'| trans }}
+              {{ 'If you activate these fields with a click, information will be transmitted to and stored by one or more of the following services:'| trans }}
               <a href="http://www.facebook.com" target="_blank">Facebook</a>,
               <a href="https://twitter.com/" target="_blank">Twitter</a>,
               <a href="https://www.youtube.com/" target="_blank">Youtube</a>,
               <a href="https://plus.google.com/" target="_blank">Google</a>,
               <a href="https://de.pinterest.com/" target="_blank">Pinterest</a>,
               <a href="https://instagram.com/" target="_blank">Instagram</a>,
-              <a href="https://www.flickr.com/"
-                 target="_blank">Flickr</a> {{ 'or'|trans }}
+              <a href="https://www.flickr.com/" target="_blank">Flickr</a>,
               <a href="https://vimeo.com/" target="_blank">Vimeo</a>
-              {{ 'and may also be stored there' |trans }}
             </p>
 
-            {% trans %}
-              <p>Please note our notes and information on
-                <a href="{{ social_media_privacy_url }}"
-                   title="To the privacy page"
-                   target="_blank">Privacy</a> and for <a
-                    href="{{ social_media_netiquette_url }}"
-                    title="To netiquette"
-                    target="_blank">Netiquette</a>, before you activate
-                individual social media.</p>
-              <p>Permanently enable data feeds from social networks and agree to
-                data transfer:</p>
-            {% endtrans %}
+            {% trans %}<p>Please read carefully our notes and information on <a href="{{ social_media_privacy_url }}" title="To the privacy page" target="_blank">Privacy</a> and <a href="{{ social_media_netiquette_url }}" title="To netiquette" target="_blank">Netiquette</a> before you activate individual social media.</p>{% endtrans %}
+            {% trans %}<p>Permanently enable data feeds from social networks and agree to data transfer:</p>{% endtrans %}
           </div>
         </div>
         <ul class="social-media-settings__settings-list">
