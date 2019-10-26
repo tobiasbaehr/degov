@@ -85,7 +85,7 @@ view_mode ? view_mode|clean_class,
 {% endif %}
 
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__teaser-image teaser-image {{ class_sidebar }}">
@@ -132,9 +132,10 @@ view_mode ? view_mode|clean_class,
       <div class="press__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         <a href="{{ url }}" rel="bookmark">
           {% autoescape false %}
-            {{ node.field_teaser_text.value|striptags|length > 310 ? node.field_teaser_text.value|striptags|slice(0, 310) ~ '...' : node.field_teaser_text.value|striptags }}
+            {% set text = node.field_teaser_text.value|striptags %}
+            {{ text|length > 310 ? text|slice(0, 310) ~ '...' : text }}
           {% endautoescape %}
-        <a href="{{ url }}" rel="bookmark">
+        </a>
       </div>
     {% endif %}
   </div>

@@ -25,7 +25,7 @@
   'clearfix',
 ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ content.contextual_links }}
   <div class="facts__left {{ col_class }}">
     <div class="facts__image"{{ content.field_facts_image|quickedit_attr }}>{{ content.field_facts_image|field_value }}</div>

@@ -38,7 +38,7 @@ _composer --no-progress create-project degov/degov-project --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
-_composer --no-progress require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+_composer --no-progress require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-dependencies
 
 PATH="$(pwd)/bin/:$PATH"
 export PATH

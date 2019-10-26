@@ -59,14 +59,11 @@ function degov_media_image_uninstall() {
 
 /**
  * Implements hook_update_dependencies().
- *
- * @return array
  */
 function degov_media_image_update_dependencies(): array {
   $dependencies['degov_media_image'][850100] = [
     'degov_image_and_crop_styles' => 850100,
   ];
-
   return $dependencies;
 }
 
@@ -209,6 +206,7 @@ function degov_media_image_update_870200() {
         '2_to_1',
         '4_to_1',
         '8_to_3',
+        '9_to_3',
         'freeform',
       ];
       $configEditable->set('content.image.settings.crop_list', $crop_types)->save();

@@ -56,7 +56,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     $teaserPage = NULL;
     $nodeIds = [];
 
-    foreach ($this->loadDefinitions('node.yml') as $rawNode) {
+    foreach ($this->loadDefinitions('node.yml') as $srcId => $rawNode) {
       $paragraphs = [];
       if (isset($rawNode['field_content_paragraphs'])) {
         $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
@@ -91,7 +91,6 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         $nodeIds[] = $node->id();
       }
     }
-
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
     $this->generateMediaReferenceParagraphs($teaserPage);
   }

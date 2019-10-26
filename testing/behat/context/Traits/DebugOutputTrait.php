@@ -27,6 +27,13 @@ trait DebugOutputTrait {
     }
   }
 
+  /**
+   * @AfterStep
+   */
+  public function closeSymfonyToolbar(AfterStepScope $scope): void  {
+    $this->getSession()->executeScript('if (document.querySelector(".sf-toolbar a.hide-button") !== null) { document.querySelector(".sf-toolbar a.hide-button").click(); }');
+  }
+
   public function generateCurrentBrowserViewDebuggingOutput(string $name): void {
     $this->saveHtmlOfPage($name);
     $this->saveScreenshotAsFile($name);

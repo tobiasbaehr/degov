@@ -59,4 +59,4 @@ Feature: deGov - deGov Theme
 
   Scenario: Verify that "Below Footer Menu" block exists in the Footer Bottom region
     Then I should see the "#block-belowfootermenu" in ".footer-bottom-wrapper"
-    And I should see 2 "#block-belowfootermenu > ul > li > a" elements
+    And I should see 3 "#block-belowfootermenu > ul > li > a" elements

@@ -48,7 +48,7 @@
             {% if item.below %}
               {% set title_url = item.title.toString ~ item.url.toString %}
               {% set identifier = title_url|replace({' ':'-'})|clean_class|lower %}
-              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
+              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false' }) }}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
             {% else %}
               {{ link(item.title, item.url, { 'class': classes_link }) }}
@@ -71,7 +71,7 @@
               {% set title_url = item.title.toString ~ item.url.toString %}
               {% set identifier = title_url|replace({' ':'-'})|clean_class|lower %}
               <i class="chevron fas fa-chevron-right"></i>
-              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false', 'aria-controls' : '' }) }}
+              {{ link(item.title, item.url, { 'class': classes_link, 'data-toggle' : 'collapse', 'data-target' : '.' ~ identifier, 'aria-expanded' : 'false'}) }}
               {{ menus.menu_links(item.below, attributes, menu_level + 1, identifier) }}
             {% else %}
               {{ link(item.title, item.url, { 'class': classes_link }) }}

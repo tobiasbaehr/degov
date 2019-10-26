@@ -16,6 +16,25 @@ function degov_users_roles_install() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_users_roles_update_dependencies()
+{
+  $dependencies = [
+    'degov_users_roles' => [
+      8010 => [
+        'degov_common' => 8026,
+      ],
+      8011 => [
+        'degov_common' => 8026,
+      ],
+    ],
+  ];
+
+  return $dependencies;
+}
+
+/**
  * Updating permissions from workbench moderation to content moderation
  */
 function degov_users_roles_update_8010() {
@@ -158,20 +177,13 @@ function degov_users_roles_update_870100() {
 }
 
 /**
- * Implements hook_update_dependencies().
+ * Give editors permission to edit nodes of content type press.
  */
-function degov_users_roles_update_dependencies()
-{
-  $dependencies = [
-    'degov_users_roles' => [
-      8010 => [
-        'degov_common' => 8026,
-      ],
-      8011 => [
-        'degov_common' => 8026,
-      ],
-    ],
-  ];
-
-  return $dependencies;
+function degov_users_roles_update_870500() {
+  $editorRoleConfig = \Drupal::service('degov_common.config_storage_factory')->getEditable('user.role.editor');
+  $permissions = array_merge($editorRoleConfig->get('permissions'), [
+    'edit any press content',
+    'view any unpublished content',
+  ]);
+  $editorRoleConfig->set('permissions', $permissions)->save(TRUE);
 }

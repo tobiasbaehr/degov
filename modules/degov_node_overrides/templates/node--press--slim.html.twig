@@ -76,7 +76,7 @@
     'col-sm-12 col-md-6'
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__teaser-image teaser-image col-xs-12 col-sm-6 arrow">
@@ -103,12 +103,6 @@
         </div>
       </a>
     {% endif %}
-
-    {#{% if content.field_teaser_text %}
-      <div class="press__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {{ content.field_teaser_text|field_value }}
-      </div>
-    {% endif %}#}
   </div>
 
 </article>

@@ -20,7 +20,7 @@ set classes = [
   'clearfix',
 ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ content.contextual_links }}
   <div class="media-person__image"{{ content.field_person_image|quickedit_attr }}>{{ content.field_person_image|field_value }}</div>
   <div class="media-person__info"{{ content.field_person_info|quickedit_attr }}>{{ content.field_person_info|field_value }}</div>

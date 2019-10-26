@@ -83,3 +83,16 @@
 .social-media-settings__cancel i:before {
   background: #3C506E;
 }
+
+/* Social Media placeholders */
+.js-social-media-code__message {
+    background: #a5a8a8;
+    color: #ffffff;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.js-social-media-code__message a {
+    color: #ffffff;
+    font-weight: bold;
+}

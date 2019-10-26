@@ -78,7 +78,7 @@
   'mb-4'
 ] %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   {% if content.field_teaser_image %}

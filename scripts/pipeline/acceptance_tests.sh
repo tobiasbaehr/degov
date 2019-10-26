@@ -8,6 +8,11 @@ set -o errexit
 
 ln -sf $BITBUCKET_CLONE_DIR/php_error.log /tmp/php_error.log
 
+echo 'error_reporting = E_ALL' >> /usr/local/etc/php/php.ini
+echo 'display_error = On' >> /usr/local/etc/php/php.ini
+echo 'log_errors = On' >> /usr/local/etc/php/php.ini
+echo 'error_log = /tmp/php_error.log' >> /usr/local/etc/php/php.ini
+
 COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
 COMPOSER_MEMORY_LIMIT=-1
@@ -19,6 +24,12 @@ _info() {
   local color_info="\\x1b[32m"
   local color_reset="\\x1b[0m"
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
+}
+
+_err() {
+  local color_error="\\x1b[31m"
+  local color_reset="\\x1b[0m"
+  echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
 }
 
 _drush() {
@@ -60,11 +71,12 @@ _composer create-project --no-progress degov/degov-project --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
-_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-dependencies
+_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-all-dependencies
+
 PATH="$(pwd)/bin/:$PATH"
 export PATH
 
-(cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php)
+(cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php -d error_reporting=E_ALL -d display_error=On -d log_errors=On -d error_log=/tmp/php_error.log)
 _info "### Configuring drupal"
 _info '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php
@@ -111,12 +123,17 @@ if [[ "$2" == "db_dump" ]]; then
     _drush watchdog:delete all
     _info "### Run database updates"
     _drush updb
+    _info "### Clear cache"
+    _drush cr
     _info "### Re-install the degov_demo_content"
     _drush pm:uninstall degov_demo_content
     _drush en degov_demo_content
     _update_translations
     _drush_watchdog
 fi
+
+# For debugging via db dump
+bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz
 
 if [[ "$1" == "smoke_tests" ]]; then
     _info "### Running Behat smoke tests"
@@ -129,32 +146,34 @@ if [[ "$1" == "smoke_tests" ]]; then
     exit $EXIT_CODE
 
 elif [[ "$1" == "backstopjs" ]]; then
+    set +e
     _info "### Running BackstopJS test"
     _info "### Set the Development Mode"
     _drush en degov_devel
     _drush config:set degov_devel.settings dev_mode true
-    # Get Backstop pipeline output on non-zero test results.
-    #   Storing script error state.
-    #   See https://unix.stackexchange.com/a/310963
-    ERROR_STATE="$(set +o); set -$-"
-    set +e
     (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
-    BACKSTOP_EXIT_CODE=$?
-    set +vx; eval "$ERROR_STATE"
+    EXIT_CODE=$?
+    bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
 
-    # The following lines are for approving changes. Approving changes will update your reference files with the results
-    # from your last test. Future tests are compared against your most recent approved test screenshots. You must
-    # approve the tests and then test again for getting a successful test result in the html report.
-#    echo "### Approving changes"
-#    (cd docroot/profiles/contrib/nrwgov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
-#    echo "### Re-test"
-#    (cd docroot/profiles/contrib/nrwgov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
-
-    if [[ $BACKSTOP_EXIT_CODE -gt "0" ]]; then
+    if [[ $EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"
       (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
-      exit $BACKSTOP_EXIT_CODE
+      _info "### Approving changes"
+      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
+      _info "### Re-test"
+      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+      RC=$?
+      if [[ "$RC" = 0 ]];then
+        _err "BackstopJS test with the source files was failed. But new updated bitmaps_reference are provided in the artifacts download. Which was already succesfully re-tested."
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zfpc bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
+      else
+        _info "### Dumping re-tested BackstopJS output"
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs-retest.tar.gz backstopjs/ && mv backstopjs-retest.tar.gz $BITBUCKET_CLONE_DIR)
+      fi
+      # Pipeline needs the exitcode to mark the pipe as failed.
+      exit $EXIT_CODE
     fi
+
 elif [[ "$1" != "backstopjs" ]]; then
     _info "### Running Behat features by tags: $1"
     set +e
@@ -163,6 +182,3 @@ elif [[ "$1" != "backstopjs" ]]; then
     _drush_watchdog
     exit $EXIT_CODE
 fi
-
-# For debugging via db dump
-#bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz

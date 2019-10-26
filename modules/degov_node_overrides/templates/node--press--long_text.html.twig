@@ -75,7 +75,7 @@
     'clearfix',
   ]
 %}
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__teaser-image teaser-image col-xs-12 col-sm-4 arrow">
@@ -100,7 +100,8 @@
     {% if content.field_teaser_text %}
       <div class="press__teaser-text"{{ content.field_teaser_text|quickedit_attr }}>
         {% autoescape false %}
-          {{ node.field_teaser_text.value|length > 440 ? node.field_teaser_text.value|striptags|slice(0, 440) ~ '...' : node.field_teaser_text.value|striptags }}
+          {% set text = node.field_teaser_text.value %}
+          {{ text|length > 440 ? text|slice(0, 440) ~ '...' : text }}
         {% endautoescape %}
       </div>
     {% endif %}

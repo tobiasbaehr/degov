@@ -112,7 +112,7 @@
         target.parent().find(".slick-controls").hide();
       }
       else {
-        target.html(settings.cookie);
+        target.html('<div class="js-social-media-code__message">' + settings.cookie + '</div>');
       }
     }
   }
@@ -238,6 +238,12 @@
       selector.slick('slickPlay').slick('setOption', 'autoplay', true);
       $(this).hide().siblings('.slick__pause').show();
     });
+  }
+
+  // Parameter to open the social media settings overlay on page load for testing purposes.
+  if(window.location.search === '?_debugDisplaySocialMediaSettings') {
+    $('.js-social-media-settings-open').trigger('click');
+    $('#social-media-settings').css('position', 'relative');
   }
 
 })(jQuery, Drupal, drupalSettings);

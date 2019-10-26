@@ -96,7 +96,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
       'plugin' => 'block_content:' . $block->uuid(),
       'settings' => [
         'id' => 'block_content:' . $block->uuid(),
-        'label' => '',
+        'label' => 'Slideshow',
         'provider' => 'block_content',
         'label_display' => '0',
         'status' => TRUE,

@@ -1,6 +1,8 @@
 menu_item_1:
   menu_name: main
   node_title: 'Page with all teasers'
+  menu_title: 'All teasers'
+  menu_weight: -28
   fontawesome_css_class: fa-drupal
   children:
     -
@@ -31,6 +33,8 @@ menu_item_1:
 menu_item_2:
   menu_name: main
   node_title: 'Page with video header'
+  menu_title: 'Video header'
+  menu_weight: -18
   fontawesome_css_class: fa-bluetooth
   children:
     -
@@ -58,6 +62,8 @@ menu_item_2:
 menu_item_3:
   menu_name: main
   node_title: 'Page with text paragraph'
+  menu_title: 'Text paragraph'
+  menu_weight: -20
   fontawesome_css_class: fa-bicycle
   children:
     -
@@ -85,6 +91,7 @@ menu_item_3:
 menu_item_4:
   menu_name: main
   node_title: 'Page with banner'
+  menu_weight: -26
   fontawesome_css_class: fa-book
   children:
     -
@@ -109,6 +116,8 @@ menu_item_4:
 menu_item_5:
   menu_name: main
   node_title: 'Page with map paragraph'
+  menu_title: 'Map paragraph'
+  menu_weight: -24
   fontawesome_css_class: fa-bell
   children:
     -
@@ -133,6 +142,8 @@ menu_item_5:
 menu_item_6:
   menu_name: main
   node_title: 'Page with FAQ-List paragraph'
+  menu_title: 'FAQ-List paragraph'
+  menu_weight: -30
   fontawesome_css_class: fa-battery-full
   children:
     -
@@ -157,6 +168,7 @@ menu_item_6:
 menu_item_7:
   menu_name: main
   node_title: 'Page with references to all types of media'
+  menu_weight: -22
   fontawesome_css_class: fa-image
   children:
     -
@@ -180,9 +192,32 @@ menu_item_7:
       node_title: 'Page with video header'
 menu_item_8:
   menu_name: 'below-footer-menu'
+  menu_title: 'About'
   node_title: 'Page with FAQ-List paragraph'
-  fontawesome_css_class: ''
 menu_item_9:
   menu_name: 'below-footer-menu'
+  menu_title: 'Privacy'
   node_title: 'Page with map paragraph'
-  fontawesome_css_class: ''
+menu_item_10:
+  menu_name: 'below-footer-menu'
+  node_title: 'Page with all teasers'
+  menu_title: 'Cookies'
+menu_item_13:
+  menu_name: 'header-top'
+  node_title: 'Page with all teasers'
+  menu_title: 'Kontakt'
+  fontawesome_css_class: 'fa-envelope'
+menu_item_14:
+  menu_name: 'footer'
+  menu_title: 'About'
+  node_title: 'Page with FAQ-List paragraph'
+menu_item_15:
+  menu_name: 'footer'
+  menu_title: 'Privacy'
+  node_title: 'Page with map paragraph'
+menu_item_16:
+  menu_name: 'footer'
+  node_title: 'Page with all teasers'
+  menu_title: 'Cookies'
+
+

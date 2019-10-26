@@ -84,7 +84,7 @@
 {% endif %}
 
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
   <div class="press__slideshow-image slideshow-image {{ class_sidebar }} arrow">

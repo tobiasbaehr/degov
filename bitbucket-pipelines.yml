@@ -127,7 +127,7 @@ pipelines:
             - "*.png"
             - "*.html"
       - step:
-          name: BackstopJS tests
+          name: Frontend tests
           caches:
             - composer
           script:
@@ -137,7 +137,7 @@ pipelines:
             - testing
           artifacts:
             - php_error.log
-            - backstopjs.tar.gz
+            - "*.tar.gz"
   branches:
     release/*:
       - parallel:
@@ -262,7 +262,7 @@ pipelines:
               - "*.png"
               - "*.html"
         - step:
-            name: BackstopJS tests
+            name: Frontend tests
             caches:
               - composer
             script:
@@ -272,7 +272,7 @@ pipelines:
               - testing
             artifacts:
               - php_error.log
-              - backstopjs.tar.gz
+              - "*.tar.gz"
 
 definitions:
   services:
@@ -280,4 +280,4 @@ definitions:
       image: darksolar/selenium-chrome-headless
       memory: 2048
     docker:
-      memory: 2048
+      memory: 3072

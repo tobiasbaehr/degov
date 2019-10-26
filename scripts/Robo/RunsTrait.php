@@ -158,17 +158,6 @@ HERE;
     $this->say('Finished running Drupal update hooks.');
   }
 
-  protected function runEntityUpdates(): void {
-    $this->say('Running entity updates.');
-
-    $this->taskExecStack()
-      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
-      ->exec('cd ' . $this->rootFolderPath . '&& drush entup')
-      ->run();
-
-    $this->say('Finished running entity updates.');
-  }
-
   protected function runConfigurationExportIntoFilesystem(): void {
     $this->say('Exporting configuration from storage into filesystem.');
 
@@ -198,7 +187,7 @@ HERE;
 
     $pathToCustomThemeConfig = 'config' . DIRECTORY_SEPARATOR . 'sync' . DIRECTORY_SEPARATOR . 'system.theme.yml';
     if (file_exists($pathToCustomThemeConfig)) {
-      $themeConfig = Yaml::parse($pathToCustomThemeConfig);
+      $themeConfig = Yaml::parseFile($pathToCustomThemeConfig);
       if ($themeConfig['default'] !== 'nrw_base_theme') {
         $pathToNpm = $this->getCommandOutput('which npm');
 
@@ -212,6 +201,8 @@ HERE;
   }
 
   protected function checkRequirements(string $distro = 'degov'): void {
+    $this->checkNodeVersion();
+
     $projectStructure = new ProjectStructure($this->rootFolderPath);
 
     try {

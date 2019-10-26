@@ -18,17 +18,17 @@ third_party_settings:
   degov_auto_crop:
     offsets:
       landscape:
-        top: '1'
-        bottom: '2'
-        left: '1'
-        right: '1'
+        top: 1
+        bottom: 2
+        left: 1
+        right: 1
       portrait:
-        top: '1'
-        bottom: '2'
-        left: '1'
-        right: '1'
+        top: 1
+        bottom: 2
+        left: 1
+        right: 1
       square:
-        top: '1'
-        bottom: '2'
-        left: '1'
-        right: '1'
+        top: 1
+        bottom: 2
+        left: 1
+        right: 1

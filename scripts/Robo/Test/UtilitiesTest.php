@@ -33,23 +33,26 @@ EOT;
   /**
    * @dataProvider correctNodeVersionDataProvider
    */
-  public function testCheckNoApplicationRequirementFail(string $wrongVersion): void {
-    self::assertInternalType('null', Utilities::checkNodeVersion($wrongVersion));
+  public function testCheckNoApplicationRequirementFail(string $correctVersion): void {
+    self::assertInternalType('null', Utilities::checkNodeVersion($correctVersion));
   }
 
   public function wrongNodeVersionDataProvider(): array {
     return [
-      ['v9.11.1'],
-      ['9.11.1'],
-      ['blub9.11.1'],
+      ['v6.11.1'],
+      ['vasdfaf6.1'],
+      ['5.11.1'],
+      ['blub4.11.1'],
     ];
   }
 
   public function correctNodeVersionDataProvider(): array {
     return [
-      ['v6.22.1'],
-      ['6.34.5'],
-      ['blub6.34.5'],
+      ['v8.22.1'],
+      ['9.34.5'],
+      ['blub10.34.5'],
+      ['v10.34.5'],
+      ['vasdf11.34.5'],
     ];
   }
 

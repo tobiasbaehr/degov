@@ -1,52 +1,56 @@
-crop.type.*.third_party.offsets:
+crop_type.third_party.degov_auto_crop:
   type: mapping
-  label: 'Offsets'
+  label: 'Degov Auto Crop settings'
   mapping:
-    landscape:
+    offsets:
       type: mapping
-      label: 'The offsets for landscape images'
+      label: 'Offsets'
       mapping:
-        offset_top:
-          type: integer
-          label: 'Top'
-        offset_bottom:
-          type: integer
-          label: 'Bottom'
-        offset_left:
-          type: integer
-          label: 'Left'
-        offset_right:
-          type: integer
-          label: 'Right'
-    portrait:
-      type: mapping
-      label: 'The offsets for portrait images'
-      mapping:
-        offset_top:
-          type: integer
-          label: 'Top'
-        offset_bottom:
-          type: integer
-          label: 'Bottom'
-        offset_left:
-          type: integer
-          label: 'Left'
-        offset_right:
-          type: integer
-          label: 'Right'
-    square:
-      type: mapping
-      label: 'The offsets for square images'
-      mapping:
-        offset_top:
-          type: integer
-          label: 'Top'
-        offset_bottom:
-          type: integer
-          label: 'Bottom'
-        offset_left:
-          type: integer
-          label: 'Left'
-        offset_right:
-          type: integer
-          label: 'Right'
+        landscape:
+          type: mapping
+          label: 'The offsets for landscape images'
+          mapping:
+            top:
+              type: integer
+              label: 'Top'
+            bottom:
+              type: integer
+              label: 'Bottom'
+            left:
+              type: integer
+              label: 'Left'
+            right:
+              type: integer
+              label: 'Right'
+        portrait:
+          type: mapping
+          label: 'The offsets for portrait images'
+          mapping:
+            top:
+              type: integer
+              label: 'Top'
+            bottom:
+              type: integer
+              label: 'Bottom'
+            left:
+              type: integer
+              label: 'Left'
+            right:
+              type: integer
+              label: 'Right'
+        square:
+          type: mapping
+          label: 'The offsets for square images'
+          mapping:
+            top:
+              type: integer
+              label: 'Top'
+            bottom:
+              type: integer
+              label: 'Bottom'
+            left:
+              type: integer
+              label: 'Left'
+            right:
+              type: integer
+              label: 'Right'

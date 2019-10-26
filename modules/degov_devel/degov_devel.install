@@ -25,7 +25,7 @@ function degov_devel_requirements(string $phase) {
             ->toString(),
         ]
       ),
-      'severity' => REQUIREMENT_ERROR,
+      'severity' => REQUIREMENT_WARNING,
     ];
   }
 

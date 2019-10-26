@@ -80,12 +80,9 @@
   'py-3',
 ] %}
 
-{% set teaser_text = content.field_teaser_text|field_value|render|striptags %}
-
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes)|without('role') }}>
 
   <div class="row py-5">
-
 
     {% if content.field_teaser_image|field_value %}
       <div class="col-md-3">
@@ -116,6 +113,7 @@
         <a href="{{ url }}" rel="bookmark">
           <h2 class="title">{{ label }}</h2>
         </a>
+        {% set teaser_text = content.field_teaser_text|field_value|render|striptags %}
         {{ teaser_text|length > 400 ? teaser_text|slice(0, 400) ~ '...' : teaser_text }}
         <div class="bundle pt-4"><i class="fas fa-tags pr-2"></i> {{ bundle }}</div>
       </div>

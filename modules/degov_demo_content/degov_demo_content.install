@@ -44,6 +44,8 @@ function degov_demo_content_uninstall() {
   $configsToDelete = [
     'field.field.block_content.basic.field_content_paragraphs',
     'field.storage.block_content.field_content_paragraphs',
+    'block.block.headertopmenu',
+    'block.block.socialmediasettingsblock_2',
   ];
   foreach ($configsToDelete as $configName) {
     $config = $configFactory->getEditable($configName);
