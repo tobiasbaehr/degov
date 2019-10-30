@@ -192,6 +192,21 @@ Feature: deGov - Content creation
     And I press button with label "Save" via translated text
     And I should not see text matching "scripttest1234"
 
+  Scenario: I verify that font tags are removed from output
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with text paragraph"
+    And I choose "Content" from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 2 seconds
+    And I click by CSS id "field-content-paragraphs-text-add-more"
+    Then I should see text matching "Text format" via translated text after a while
+    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<font>BehatFont</font>" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    And I should not see text matching "BehatFont"
+
   Scenario: I verify that Media file link placeholders in text get transformed into actual links
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role

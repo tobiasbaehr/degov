@@ -28,6 +28,8 @@ class FilterTest extends KernelTestBase {
 
   private $cleanText;
 
+  private $specialChars;
+
   /**
    * {@inheritdoc}
    */
@@ -43,8 +45,9 @@ class FilterTest extends KernelTestBase {
     \Drupal::currentUser()->setAccount($user);
 
     $this->textWithUnwantedHtml = '<p>In this text there is <script>a script tag</script> that should be removed äöüÄÖÜßßß</p>';
-    $this->textWithUnwantedHtmlStripped = '<p>In this text there is  that should be removed äöüÄÖÜßßß</p>';
+    $this->textWithUnwantedHtmlStripped = '<p>In this text there is a script tag that should be removed äöüÄÖÜßßß</p>';
     $this->cleanText = '<p>In this text there is nothing that should be removed äöüÄÖÜßßß</p>';
+    $this->specialChars = '<p> ^ ° ¬ ! ¹ ¡ " ² ⅛ § ³ £ $ ¼ ¤ % ½ ⅜ & ¬ ⅝ / { ⅞ ( [ ™ ) ] = } ° ? \ ¿ ` ¸ ¸ @ Ω ł Ł € ţ Ţ ← ¥ ↓ ↑ î Î ø Ø þ Þ ¨ + * ~ â Â ş Ş ð Ð đ ª ŋ Ŋ ħ Ħ ̣ ˙ ĸ & ˝ ˝ ă Ă # \' ` < > | » › « ‹ ¢ © „ ‚ “ ‘ ” ’ µ º , ; · × … ÷ - _ – — </p>';
   }
 
   public function testFilterTagIsRemoved(): void {
@@ -71,4 +74,8 @@ class FilterTest extends KernelTestBase {
     self::assertCount(0, $messages);
   }
 
+  public function testSpecialChars(): void {
+    $filteredText = $this->filter->stripHtmlTag($this->specialChars, 'script');
+    self::assertSame($this->specialChars, $filteredText);
+  }
 }
