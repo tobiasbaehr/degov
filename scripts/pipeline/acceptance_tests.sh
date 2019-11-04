@@ -72,6 +72,7 @@ cd degov-project
 rm composer.lock
 _info "### Install profile"
 _composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-all-dependencies
+# @TODO Move this as a dependency to the composer.json of degov-nrw_project / degov_project
 _composer require "drupal/drupal-extension:^4.0"
 
 PATH="$(pwd)/bin/:$PATH"
