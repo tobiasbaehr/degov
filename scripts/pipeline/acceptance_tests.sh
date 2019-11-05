@@ -40,6 +40,7 @@ _update_translations() {
   _info "### Update translations"
   _drush locale:check \
   && _drush locale:update
+  _drush php-eval 'Drupal\degov\TranslationImporter::importForProfile()'
   _info "### Clear cache"
   _drush cr
 }

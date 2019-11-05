@@ -1,6 +1,8 @@
 <?php
 
+use Drupal\Core\Config\Config;
 use Drupal\degov_common\Common;
+use Drupal\language\Config\LanguageConfigOverride;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -99,4 +101,24 @@ function degov_node_event_update_870100() {
   $configFromStorage = $configFactory->getEditable('core.entity_view_display.node.event.slim');
   $configFromStorage->set('content.field_teaser_image.settings.view_mode', 'teaser_landscape_2_1');
   $configFromStorage->save();
+}
+
+/**
+ * Fix translation of labels on node event article
+ */
+function degov_node_event_update_870500() {
+  /**
+   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
+   */
+  $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.event.default');
+  if ($configTranslation instanceof LanguageConfigOverride) {
+    $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');
+    $configTranslation->set('third_party_settings.field_group.group_header.label', 'Kopfzeile');
+    $configTranslation->set('third_party_settings.field_group.group_content.label', 'Inhalt');
+    $configTranslation->set('third_party_settings.field_group.group_common.label', 'Allgemein');
+    $configTranslation->set('third_party_settings.field_group.group_righ.label', 'Seitenleiste rechts');
+
+    $configTranslation->save(TRUE);
+  }
+
 }

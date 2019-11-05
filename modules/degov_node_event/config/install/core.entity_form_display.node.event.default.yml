@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   config:
@@ -45,12 +45,12 @@ third_party_settings:
       weight: 2
       format_type: fieldset
       format_settings:
-        label: 'Datum und Uhrzeit'
+        label: 'Date and time'
         description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: 'Datum und Uhrzeit'
+      label: 'Date and time'
       region: content
     group_vertical:
       children:
@@ -117,7 +117,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Allgemein
+      label: General
       region: content
     group_righ:
       children:
@@ -131,7 +131,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Seitenleiste rechts'
+      label: Sidebar right
       region: content
     group_content:
       children:
