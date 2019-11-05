@@ -15,7 +15,46 @@ function degov_node_external_teaser_update_850100() {
  */
 function degov_node_external_teaser_uninstall() {
   Common::removeContent([
-    'entity_type' => 'node',
+    'entity_type'    => 'node',
     'entity_bundles' => ['external_teaser'],
   ]);
+}
+
+/**
+ * Add field field_tags to external_teaser
+ * Add field_tags input field to form view
+ * Add field tags to view display
+ */
+function degov_node_external_teaser_update_870600() {
+  /**
+   * Add field field_tags to external_teaser
+   */
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_external_teaser', '870600');
+
+  /**
+   * Add field_tags input field to form view
+   */
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('core.entity_form_display.node.external_teaser.default');
+  $config->set('content.field_tags.type', 'entity_reference_autocomplete');
+  $config->set('content.field_tags.weight', '13');
+  $config->set('content.field_tags.region', 'content');
+  $config->set('content.field_tags.settings.match_operator', 'CONTAINS');
+  $config->set('content.field_tags.settings.size', '60');
+  $config->set('content.field_tags.settings.placeholder', '');
+  $config->set('content.field_tags.third_party_settings', []);
+  $config->save();
+
+  /**
+   * Add field tags to view display
+   */
+  $config = $configFactory->getEditable('core.entity_view_display.node.external_teaser.default');
+  $config->set('content.field_tags.weight', '3');
+  $config->set('content.field_tags.label', 'above');
+  $config->set('content.field_tags.settings.link', 'true');
+  $config->set('content.field_tags.third_party_settings', []);
+  $config->set('content.field_tags.type', 'entity_reference_label');
+  $config->set('content.field_tags.region', 'content');
+  $config->save();
 }

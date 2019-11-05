@@ -99,7 +99,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       $this->prepareValues($media_item);
 
       $fields = $this->mediaFileHandler->mapFileFields($media_item, $media_item_key);
-
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
       $fields['field_tags'] = [
@@ -124,7 +123,7 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
           continue;
         }
       }
-
+      
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;
