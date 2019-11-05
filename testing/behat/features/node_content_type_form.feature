@@ -37,9 +37,9 @@ Feature: deGov - Content type form
     And I fill in Textarea with "TEST TEST TEST"
     And I choose "General" via translation from tab menu
     Then I should see text matching "Schlagworte"
-    And I choose "Header" from tab menu
+    And I choose "Header" via translation from tab menu
     And I choose "Seitenleiste rechts" from tab menu
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I click on togglebutton
     Then I should see text matching "URL alias" via translated text in uppercase after a while
     And I select "URL alias" via translation in uppercase from rightpane

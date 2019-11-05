@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   config:
@@ -83,7 +83,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Allgemein
+      label: General
       region: content
     group_content:
       children:
@@ -111,7 +111,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Seitenleiste rechts'
+      label: 'Sidebar right'
       region: content
     group_header:
       children:

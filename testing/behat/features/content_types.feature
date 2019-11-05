@@ -49,7 +49,7 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I should see HTML content matching "FAQ" after a while
     And I should see HTML content matching "FAQ / Akkordion Liste"
