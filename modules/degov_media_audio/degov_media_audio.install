@@ -105,3 +105,13 @@ function degov_media_audio_update_8014() {
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_audio', '8014');
 }
+
+/**
+ * Disable "allow download" by default.
+ */
+function degov_media_audio_update_870600() {
+  $config = \Drupal::configFactory()->getEditable('field.field.media.audio.field_allow_download');
+  if (!$config->isNew()) {
+    $config->set('default_value', [['value' => 0]])->save();
+  }
+}

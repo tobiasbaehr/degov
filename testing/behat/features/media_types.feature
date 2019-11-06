@@ -296,3 +296,27 @@ Feature: deGov - Media types
     And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, 9_to_3, freeform" in "css" selector "#image .field-plugin-summary"
     Given I am on "/admin/structure/media/manage/image/form-display/media_browser"
     And I should see text matching "12_to_5, 16_to_9, 1_to_1, 2_to_1, 4_to_1, 8_to_3, 9_to_3, freeform" in "css" selector "#image .field-plugin-summary"
+
+  Scenario: Check that "allow download" is disabled by default
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/media/add/audio"
+    And I should see 1 "#edit-field-allow-download-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-value:checked" elements via jQuery
+    Then I am on "/media/add/image"
+    And I should see 1 "#edit-field-allow-download-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-value:checked" elements via jQuery
+    Then I am on "/media/add/video_upload"
+    And I should see 1 "#edit-field-allow-download-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-value:checked" elements via jQuery
+    Then I am on "/media/add/video_mobile"
+    And I should see 1 "#edit-field-allow-download-mobile-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-mobile-value:checked" elements via jQuery
+    And I should see 1 "#edit-field-allow-download-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-value:checked" elements via jQuery
+    And I should see 1 "#edit-field-allow-download-hdready-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-hdready-value:checked" elements via jQuery
+    And I should see 1 "#edit-field-allow-download-fullhd-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-fullhd-value:checked" elements via jQuery
+    And I should see 1 "#edit-field-allow-download-4k-value" elements via jQuery
+    And I should see 0 "#edit-field-allow-download-4k-value:checked" elements via jQuery
