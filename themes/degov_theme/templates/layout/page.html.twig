@@ -117,11 +117,13 @@
   {% if page.breadcrumb %}
     {{ page.breadcrumb }}
   {% endif %}
-  <div class="row">
-    <div class="col-sm-12">
-      {{ page.content }}
+  {% if not is_front %}<div class="container">{% endif %}
+    <div class="row">
+      <div class="col-sm-12">
+        {{ page.content }}
+      </div>
     </div>
-  </div>
+  {% if not is_front %}</div>{% endif %}
 </main>
 
 {% if page.footer %}

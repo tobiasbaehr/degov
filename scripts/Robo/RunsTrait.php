@@ -92,12 +92,6 @@ trait RunsTrait {
 
     if ($installationProfileCollection->getMainInstallationProfile()->getMachineName() === 'degov') {
       $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_scheduled_updates,degov_demo_content');
-      $optionalModules = str_replace(' ', '', $optionalModules);
-      if (!empty($optionalModules)) {
-        foreach (explode(',', $optionalModules) as $module) {
-          $command .= " install_configure_form.optional_modules.$module=$module";
-        }
-      }
     } elseif ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
       $mainInstallationProfileKey = $installationProfileCollection->getMainInstallationProfile()->getMachineName();
       $subInstallationProfileKey = $installationProfileCollection->getSubInstallationProfile()->getMachineName();
@@ -113,6 +107,14 @@ HERE;
     }
 
     $this->_exec($command);
+
+    $optionalModules = str_replace(' ', '', $optionalModules);
+    if (!empty($optionalModules)) {
+      foreach (explode(',', $optionalModules) as $module) {
+        $this->say('Enabling optional module: ' . $module);
+        $this->_exec("drush en $module -y");
+      }
+    }
   }
 
   protected function runComposerUpdate(): void {

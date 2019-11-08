@@ -95,8 +95,8 @@ content:
     type: paragraphs
     third_party_settings: {  }
     settings:
-      title: Seitenabschnitt
-      title_plural: Seitenabschnitte
+      title: Paragraph
+      title_plural: Paragraphen
       edit_mode: closed
       autocollapse: none
       add_mode: modal
