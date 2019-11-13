@@ -35,5 +35,6 @@ testing/backstopjs/backstop_data/bitmaps_test
 testing/backstopjs/backstop_data/html_report
 testing/behat/behat.yml
 testing/behat/behat-no-drupal.yml
+testing/lfs_data
 /test-reports
 tmp/
