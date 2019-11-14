@@ -34,27 +34,27 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
 
   public function testRandomStringIsNoPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Not a placeholder!');
-    self::assertEquals(FALSE, $result);
+    self::assertSame(FALSE, $result);
   }
 
   public function testMenuPlaceholderIsPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here <media/file/1>');
-    self::assertEquals(TRUE, $result);
+    self::assertSame(TRUE, $result);
   }
 
   public function testTextPlaceholderIsPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here [media/file/1]');
-    self::assertEquals(TRUE, $result);
+    self::assertSame(TRUE, $result);
   }
 
   public function testLinkItemMediaIdResolutionSingleDigit(): void {
     $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media/file/1>');
-    self::assertEquals(1, $mediaId);
+    self::assertSame(1, $mediaId);
   }
 
   public function testLinkItemMediaIdResolutionDoubleDigit(): void {
     $mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder('Some text here <media/file/12>');
-    self::assertEquals(12, $mediaId);
+    self::assertSame(12, $mediaId);
   }
 
 }

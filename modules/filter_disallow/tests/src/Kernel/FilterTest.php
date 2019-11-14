@@ -52,12 +52,12 @@ class FilterTest extends KernelTestBase {
 
   public function testFilterTagIsRemoved(): void {
     $filteredText = $this->filter->stripHtmlTag($this->textWithUnwantedHtml, 'script');
-    self::assertEquals($this->textWithUnwantedHtmlStripped, $filteredText);
+    self::assertSame($this->textWithUnwantedHtmlStripped, $filteredText);
   }
 
   public function testFilterTagIsNotRemoved(): void {
     $filteredText = $this->filter->stripHtmlTag($this->cleanText, 'script');
-    self::assertEquals($this->cleanText, $filteredText);
+    self::assertSame($this->cleanText, $filteredText);
   }
 
   public function testMessagesArePostedOnRemoval(): void {

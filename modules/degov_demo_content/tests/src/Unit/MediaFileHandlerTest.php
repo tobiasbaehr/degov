@@ -72,7 +72,7 @@ class MediaFileHandlerTest extends UnitTestCase {
       $mappedFields = $mediaFileHandler->mapFileFields($mediaData, $customMediaKey);
     }
 
-    self::assertEquals($mappedFields, $expectedMapping);
+    self::assertSame($mappedFields, $expectedMapping);
   }
 
   public function getMediaForMapping(): array {

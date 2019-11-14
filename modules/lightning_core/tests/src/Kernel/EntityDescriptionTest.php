@@ -54,7 +54,7 @@ class EntityDescriptionTest extends KernelTestBase {
     $description = $this->randomString(32);
     $this->assertEmpty($entity->getDescription());
     $entity->setDescription($description);
-    $this->assertEquals($description, $entity->getDescription());
+    $this->assertSame($description, $entity->getDescription());
 
     // If the entity type has a form for the provided form operation, build the
     // form and assert that it has a description field with the correct default
@@ -65,7 +65,7 @@ class EntityDescriptionTest extends KernelTestBase {
         ->getForm($entity, $form_operation);
 
       $this->assertInternalType('array', $form['description']);
-      $this->assertEquals($description, $form['description']['#default_value']);
+      $this->assertSame($description, $form['description']['#default_value']);
     }
   }
 

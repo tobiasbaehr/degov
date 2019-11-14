@@ -108,9 +108,9 @@ class CommonTest extends KernelTestBase {
 		$idParagraph2 = $paragraph2->id();
 		$idParagraph3 = $paragraph3->id();
 
-		$this->assertEquals(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
-		$this->assertEquals(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
-		$this->assertEquals(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+		$this->assertSame(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
+		$this->assertSame(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
+		$this->assertSame(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 
 		$node = Node::create([
 			'title' => $this->randomMachineName(),
@@ -124,9 +124,9 @@ class CommonTest extends KernelTestBase {
 			'entity_bundles' => ['test_text'],
 		]);
 
-		$this->assertEquals(Paragraph::load($idParagraph1), NULL);
-		$this->assertEquals(Paragraph::load($idParagraph2), NULL);
-		$this->assertEquals(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+		$this->assertSame(Paragraph::load($idParagraph1), NULL);
+		$this->assertSame(Paragraph::load($idParagraph2), NULL);
+		$this->assertSame(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 	}
 
 	private function createParagraphs(): array

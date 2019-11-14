@@ -20,15 +20,15 @@ class ElementTest extends KernelTestBase {
     $this->assertEmpty(
       Element::oxford([])
     );
-    $this->assertEquals(
+    $this->assertSame(
       'fettucine',
       Element::oxford(['fettucine'])
     );
-    $this->assertEquals(
+    $this->assertSame(
       'fettucine and linguine',
       Element::oxford(['fettucine', 'linguine'])
     );
-    $this->assertEquals(
+    $this->assertSame(
       'fettucine, linguine, and ravioli',
       Element::oxford(['fettucine', 'linguine', 'ravioli'])
     );
@@ -56,9 +56,9 @@ class ElementTest extends KernelTestBase {
       ],
     ];
     $element = Element::processLegend($element);
-    $this->assertEquals('Foo', $element['foo']['#description']);
-    $this->assertEquals('Bar', $element['bar']['#description']);
-    $this->assertEquals('Baz', $element['baz']['#description']);
+    $this->assertSame('Foo', $element['foo']['#description']);
+    $this->assertSame('Bar', $element['bar']['#description']);
+    $this->assertSame('Baz', $element['baz']['#description']);
     $this->assertArrayNotHasKey('blorf', $element);
   }
 
@@ -86,9 +86,9 @@ class ElementTest extends KernelTestBase {
       '#legend' => $legend,
     ];
     $element = Element::processLegend($element);
-    $this->assertEquals('Foo', $element['foo']['#description']);
-    $this->assertEquals('Bar', $element['bar']['#description']);
-    $this->assertEquals('Baz', $element['baz']['#description']);
+    $this->assertSame('Foo', $element['foo']['#description']);
+    $this->assertSame('Bar', $element['bar']['#description']);
+    $this->assertSame('Baz', $element['baz']['#description']);
   }
 
 }

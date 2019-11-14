@@ -19,7 +19,7 @@ a
  break.
 EOT;
 
-    self::assertEquals('Somewhat with a line break.', Utilities::removeCliLineBreaks($text));
+    self::assertSame('Somewhat with a line break.', Utilities::removeCliLineBreaks($text));
   }
 
   /**
@@ -60,7 +60,7 @@ EOT;
    * @dataProvider gitBranchesDataProvider
    */
   public function testDetermineLatestReleaseDevBranch(string $gitBranches): void {
-    $this->assertEquals('remotes/origin/release/7.1.x-dev', Utilities::determineLatestReleaseDevBranch($gitBranches));
+    $this->assertSame('remotes/origin/release/7.1.x-dev', Utilities::determineLatestReleaseDevBranch($gitBranches));
   }
 
   public function gitBranchesDataProvider(): array {
