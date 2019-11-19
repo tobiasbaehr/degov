@@ -224,9 +224,11 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
  * Submit handler for degov_form_install_configure_form_alter().
  */
 function degov_optional_modules_submit($form_id, &$form_state) {
-  // Sets all optional modules to a Drupal set variable for later installation.
-  $degov_optional_modules = array_filter($form_state->getValue('optional_modules'));
-  \Drupal::state()->set('degov_optional_modules', $degov_optional_modules);
+  $optionalModules = [];
+  foreach ($form_state->getValue('optional_modules') as $optionalModuleName => $optionalModuleValue) {
+    $optionalModules[$optionalModuleName] = $optionalModuleName;
+  }
+  \Drupal::state()->set('degov_optional_modules', $optionalModules);
 }
 
 /**

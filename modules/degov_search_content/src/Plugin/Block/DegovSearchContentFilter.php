@@ -8,7 +8,7 @@ use Drupal\Core\Session\AccountInterface;
 
 
 /**
- * Provides a block to filter the search.
+ * Combines facets by blocks into a single block for filtering the search results.
  *
  * @Block(
  *   id = "degov_search_content_filter",

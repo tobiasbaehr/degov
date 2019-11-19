@@ -632,6 +632,22 @@ class DrupalContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * @Then /^I proof that DOM node with css selector "([^"]*)" is invisible$/
+   */
+  public function assertDomNodeIsInvisible(string $cssSelector): void {
+    $element = $this->getSession()->getPage();
+    $nodes = $element->findAll('css', $cssSelector);
+    foreach ($nodes as $node) {
+      if (!$node->isVisible()) {
+        return;
+      } else {
+        throw new \Exception("DOM node with $cssSelector is not invisible.");
+      }
+    }
+
+    throw new ElementNotFoundException($this->getSession(), 'DOM node', $cssSelector);
+  }
 
   /**
 	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
@@ -1157,24 +1173,24 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Given /^I execute the following console command: "([^"]*)"$/
+   */
+  public function executeConsoleCommand(string $consoleCommand): void {
+    shell_exec($consoleCommand);
+  }
+
+  /**
+   * @Given /^I clear all search indexes and index all search indexes$/
+   */
+  public function clearAllSearchIndexesAndIndexAllSearchIndexes(): void {
+    $this->executeConsoleCommand(DRUPAL_ROOT . '/../bin/drush search-api:clear && ' . DRUPAL_ROOT . '/../bin/drush search-api:index');
+  }
+
+  /**
    * @Given /^I reset the demo content$/
    */
-  public function resetDemoContent() {
-    /** @var \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator */
-    $mediaGenerator = \Drupal::service('degov_demo_content.media_generator');
-    $mediaGenerator->resetContent();
-
-    /** @var \Drupal\degov_demo_content\Generator\NodeGenerator $nodeGenerator */
-    $nodeGenerator = \Drupal::service('degov_demo_content.node_generator');
-    $nodeGenerator->resetContent();
-
-    /** @var \Drupal\degov_demo_content\Generator\MenuItemGenerator $menuItemGenerator */
-    $menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
-    $menuItemGenerator->resetContent();
-
-    /** @var \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator */
-    $blockContentGenerator = \Drupal::service('degov_demo_content.block_content_generator');
-    $blockContentGenerator->resetContent();
+  public function resetDemoContent(): void {
+    $this->executeConsoleCommand(DRUPAL_ROOT . '/../bin/drush dcreg -y');
   }
 
   /**

@@ -71,7 +71,7 @@ Feature: deGov - Content types
     And I click by selector "button.tableresponsive-toggle" via JavaScript
     And I should see text matching "Title" via translated text in uppercase
     And I should see text matching "Content type" via translated text in uppercase
-    And I should see text matching "Author" via translated text in uppercase
+    And I should see HTML content matching "Autor"
     And I should see text matching "Updated" via translated text in uppercase
     And I should see text matching "Operations" via translated text in uppercase
     And I should see "Interner Titel"

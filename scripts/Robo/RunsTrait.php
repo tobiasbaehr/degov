@@ -72,13 +72,13 @@ trait RunsTrait {
       $email = $this->askDefault('Please provide a valid email address', 'demo@example.com');
     }
 
-    $hostname = $this->askDefault('What is the MYSQL database host address?', 'localhost');
+    $hostname = $this->askDefault('What is the (Maria/My)SQL database host address?', 'localhost');
 
-    $database = $this->askDefault('What is the MYSQL database name?', $installationProfileCollection->getMainInstallationProfile()->getMachineName());
+    $database = $this->askDefault('What is the (Maria/My)SQL database name?', $installationProfileCollection->getMainInstallationProfile()->getMachineName());
 
-    $databaseUsername = $this->askDefault('What is the MYSQL database username?', 'root');
+    $databaseUsername = $this->askDefault('What is the (Maria/My)SQL database username?', 'root');
 
-    $databasePassword = $this->askDefault('What is the MYSQL database password?', 'root');
+    $databasePassword = $this->askDefault('What is the (Maria/My)SQL database password?', 'root');
 
     $command = '';
     $command .= 'bin/drush si --yes ' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
@@ -90,8 +90,8 @@ trait RunsTrait {
     $command .= " --account-mail='{$email}'";
     $command .= " --site-mail='{$siteMail}'";
 
-    if ($installationProfileCollection->getMainInstallationProfile()->getMachineName() === 'degov') {
-      $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_scheduled_updates,degov_demo_content');
+    if (\is_numeric(strpos($installationProfileCollection->getMainInstallationProfile()->getMachineName(), 'gov'))) {
+      $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_demo_content,degov_devel');
     } elseif ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
       $mainInstallationProfileKey = $installationProfileCollection->getMainInstallationProfile()->getMachineName();
       $subInstallationProfileKey = $installationProfileCollection->getSubInstallationProfile()->getMachineName();

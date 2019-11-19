@@ -2,12 +2,15 @@ langcode: de
 status: true
 dependencies:
   config:
+    - field.field.media.document.field_description
     - field.field.media.document.field_document
+    - field.field.media.document.field_document_preview
     - field.field.media.document.field_include_search
     - field.field.media.document.field_media_in_library
     - field.field.media.document.field_section
     - field.field.media.document.field_tags
     - field.field.media.document.field_title
+    - image.style.thumbnail
     - media.type.document
   module:
     - file
@@ -41,6 +44,8 @@ content:
     region: content
 hidden:
   created: true
+  field_description: true
+  field_document_preview: true
   field_include_search: true
   field_media_in_library: true
   field_tags: true

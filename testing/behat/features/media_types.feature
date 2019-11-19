@@ -138,12 +138,16 @@ Feature: deGov - Media types
     And the "edit-required" checkbox should be checked
 
   Scenario: Media type document has all required fields
-    Given I am logged in as a user with the "administrator" role
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/media/manage/document/fields"
-    Then I should see text matching "field_document"
+    Then I should see text matching "field_section"
+    And I should see text matching "field_description"
+    And I should see text matching "field_document"
     And I should see text matching "field_include_search"
     And I should see text matching "field_media_in_library"
     And I should see text matching "field_tags"
+    And I should see text matching "field_document_preview"
     And I should see text matching "field_title"
 
   Scenario: Media type instagram has all required fields

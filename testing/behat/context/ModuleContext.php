@@ -41,6 +41,27 @@ class ModuleContext extends RawDrupalContext {
   }
 
   /**
+   * Proofs that multiple Drupal modules are "not" installed.
+   *
+   * Provide module data in the following format:
+   *
+   * | webform      |
+   * | devel        |
+   *
+   * @Given I proof that the following Drupal modules are not installed:
+   */
+  public function proofMultipleDrupalModulesAreNotInstalled(TableNode $modulesTable): void {
+    $rowsHash = $modulesTable->getRowsHash();
+    $moduleMachineNames = array_keys($rowsHash);
+
+    foreach ($moduleMachineNames as $moduleMachineName) {
+      if ($this->getModuleHandler()->moduleExists($moduleMachineName)){
+        throw new TextNotFoundException("Drupal module '$moduleMachineName' is installed.", $this->getSession());
+      }
+    }
+  }
+
+  /**
    * @Then /^I am installing the "([^"]*)" module$/
    */
   public function iAmInstallingTheModule(string $moduleName): void {
