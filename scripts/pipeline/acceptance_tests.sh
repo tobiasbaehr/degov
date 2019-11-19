@@ -73,7 +73,7 @@ done
 docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
 _info "### Setting up project folder"
-_composer create-project --no-progress degov/degov-project:dev-feature/DEGOV-525-volltextsuche-dokumente --no-install
+_composer create-project --no-progress degov/degov-project --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
