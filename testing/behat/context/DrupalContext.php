@@ -106,6 +106,19 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * @Then /^I open node edit form by node title "([^"]*)" and vertical tab id "([^"]*)"$/
+   * @param string $title
+   * @param string $verticalTabId
+   */
+  public function openNodeEditFormByTitleAndVerticalTabId(string $title, string $verticalTabId) {
+    $query = \Drupal::service('database')->select('node_field_data', 'nfd')
+      ->fields('nfd', ['nid'])
+      ->condition('nfd.title', $title);
+
+    $this->visitPath('/node/' . $query->execute()->fetchField() . '/edit#' . $verticalTabId);
+  }
+
+  /**
    * @Then /^I open media edit form by media name "([^"]*)"$/
    * @param string $name
    */

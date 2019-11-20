@@ -68,9 +68,9 @@ function degov_search_content_update_870200() {
 }
 
 /**
- * Set the fixed empty-message for existing search indexes as well.
+ * deGov 7.6.0 - Set the fixed empty-message for existing search indexes as well.
  */
-function degov_search_content_update_999999() {
+function degov_search_content_update_870600() {
   $config = \Drupal::configFactory()->getEditable('views.view.search_content');
   $emptyMessage = $config->get('display.default.display_options.empty.area.content');
   if (!empty($emptyMessage['value']) && $emptyMessage['value'] === '<h2>Suchergebnisse</h2>Keine Treffer gefunden. Bitte überprüfen Sie Ihre Suchbegriffe oder versuchen weniger Begriffe.') {

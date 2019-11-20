@@ -47,30 +47,33 @@
   'clearfix'
 ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  {{ content.contextual_links }}
 
-  {% if content.field_title|field_value or content.field_sub_title|field_value %}
-    <div class="paragraph__header">
-      <i class="fa fa-arrow-right" aria-hidden="true"></i>
-      {% if content.field_title_link|field_value %}
-      <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
-        {% endif %}
-        <h2{{ content.field_title|quickedit_attr }}>
-          {{ content.field_title|field_value }}
-          {% if content.field_sub_title|field_value %}
-            <span class="sub-title"{{ content.field_sub_title|quickedit_attr }}>{{ content.field_sub_title|field_value }}</span>
-          {% endif %}
-        </h2>
+{% if not content_is_empty %}
+  <div{{ attributes.addClass(classes) }}>
+    {{ content.contextual_links }}
+
+    {% if content.field_title|field_value or content.field_sub_title|field_value %}
+      <div class="paragraph__header">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
         {% if content.field_title_link|field_value %}
-      </a>
-      {% endif %}
-    </div>
-  {% endif %}
+        <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
+          {% endif %}
+          <h2{{ content.field_title|quickedit_attr }}>
+            {{ content.field_title|field_value }}
+            {% if content.field_sub_title|field_value %}
+              <span class="sub-title"{{ content.field_sub_title|quickedit_attr }}>{{ content.field_sub_title|field_value }}</span>
+            {% endif %}
+          </h2>
+          {% if content.field_title_link|field_value %}
+        </a>
+        {% endif %}
+      </div>
+    {% endif %}
 
-  <div class="paragraph__content">
-    {% for key, teaser in content.field_node_reference_nodes if key|first != '#' %}
-      {{ teaser }}
-    {% endfor %}
+    <div class="paragraph__content">
+      {% for key, teaser in content.field_node_reference_nodes if key|first != '#' %}
+        {{ teaser }}
+      {% endfor %}
+    </div>
   </div>
-</div>
+{% endif %}

@@ -78,6 +78,7 @@ function degov_module_setup(&$install_state) {
     'node_action'                       => 'node_action',
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
+    'entity_reference_timer'            => 'entity_reference_timer',
   ];
 
   // See issue https://www.drupal.org/project/search_api/issues/2931562
