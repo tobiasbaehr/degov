@@ -197,7 +197,7 @@ Feature: deGov - Content creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I open node edit form by node title "Page with text paragraph"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
     And I click by CSS id "field-content-paragraphs-text-add-more"

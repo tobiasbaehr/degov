@@ -14,7 +14,7 @@
         "drupal/acquia_connector": "^1.1",
         "drupal/address": "^1.0",
         "drupal/admin_links_access_filter": "^1.0@alpha",
-        "drupal/admin_toolbar": "^1.19",
+        "drupal/admin_toolbar": "^2.0",
         "drupal/block_field": "^1.0.0",
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "1.x-dev",

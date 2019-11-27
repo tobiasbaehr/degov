@@ -55,6 +55,11 @@ _composer() {
   composer --ansi --profile "$@"
 }
 
+_backstopjs() {
+  (cd docroot/profiles/contrib/degov/testing/ && \
+  docker run --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd)/backstopjs:/src -v $(pwd)/lfs_data:/lfs_data backstopjs/backstopjs "$@")
+}
+
 _info "### Wait for packagist"
 doWhile="0"
 while [ $doWhile -eq "0" ]; do
@@ -152,24 +157,24 @@ elif [[ "$1" == "backstopjs" ]]; then
     _info "### Set the Development Mode"
     _drush en degov_devel
     _drush config:set degov_devel.settings dev_mode true
-    (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+     _backstopjs test
     EXIT_CODE=$?
     bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
 
     if [[ $EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"
-      (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
+      (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zhpcf backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
       _info "### Approving changes"
-      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs approve)
+      _backstopjs approve
       _info "### Re-test"
-      (cd docroot/profiles/contrib/degov/testing/backstopjs && docker run --rm --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v $(pwd):/src backstopjs/backstopjs test)
+      _backstopjs test
       RC=$?
       if [[ "$RC" = 0 ]];then
         _err "BackstopJS test with the source files was failed. But new updated bitmaps_reference are provided in the artifacts download. Which was already succesfully re-tested."
-        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zfpc bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zhpcf bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
       else
         _info "### Dumping re-tested BackstopJS output"
-        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zfpc backstopjs-retest.tar.gz backstopjs/ && mv backstopjs-retest.tar.gz $BITBUCKET_CLONE_DIR)
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zhpcf backstopjs-retest.tar.gz backstopjs/ && mv backstopjs-retest.tar.gz $BITBUCKET_CLONE_DIR)
       fi
       # Pipeline needs the exitcode to mark the pipe as failed.
       exit $EXIT_CODE
