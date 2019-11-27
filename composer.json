@@ -95,7 +95,8 @@
         "raiym/instagram-php-scraper": "^0.8.22",
         "weitzman/drupal-test-traits": "1.0.0-alpha.1",
         "drupal/viewsreference": "1.4",
-        "drupal/views_parity_row": "^1.8"
+        "drupal/views_parity_row": "^1.8",
+        "symfony/filesystem": "^3.4"
     },
     "scripts": {
         "post-install-cmd": [
