@@ -24,14 +24,14 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
 
   public function testUsageRecordIsCreatedFromMenuLink() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
-    self::assertEquals([], $usages);
+    self::assertSame([], $usages);
 
     $this->createMenuItem();
 
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId], FALSE);
-    self::assertEquals([
+    self::assertSame([
       0 => [
-        'referencing_entity_id'       => 1,
+        'referencing_entity_id'       => '1',
         'referencing_entity_type'     => 'menu_link_content',
         'referencing_entity_field'    => 'link',
         'referencing_entity_langcode' => 'en',
@@ -42,7 +42,7 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
 
   public function testUsageRecordsAreUpdatedOnContentChange() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
-    self::assertEquals([], $usages);
+    self::assertSame([], $usages);
 
     $menuItemId = $this->createMenuItem();
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
@@ -53,12 +53,12 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     $menuItem->save();
 
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
-    self::assertEquals([], $usages);
+    self::assertSame([], $usages);
   }
 
   public function testUsageRecordsAreDeletedOnMenuContentDelete() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
-    self::assertEquals([], $usages);
+    self::assertSame([], $usages);
 
     $menuItemId = $this->createMenuItem();
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
@@ -66,7 +66,7 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
 
     $this->deleteMenuItem($menuItemId);
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
-    self::assertEquals([], $usages);
+    self::assertSame([], $usages);
   }
 
   private function createMenuItem() {

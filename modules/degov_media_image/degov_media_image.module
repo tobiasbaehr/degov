@@ -102,6 +102,7 @@ function degov_media_image_validate(array &$form, FormStateInterface $form_state
       break;
 
     case 'entity_browser_media_browser_form':
+    case 'entity_browser_ckeditor_media_browser_form':
       $values = $form_state->getValues();
       foreach ($values as $key => $value) {
         if (is_array($value) && isset($value['field_copyright'], $value['field_royalty_free'])) {

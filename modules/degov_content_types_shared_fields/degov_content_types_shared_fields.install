@@ -63,3 +63,15 @@ function degov_content_types_shared_fields_update_870300() {
     $configEditable->save(TRUE);
   }
 }
+
+/**
+ * deGov Update 8.7.6: Rename the Media search view mode from 'Suche' to
+ * 'Mediathek'.
+ */
+function degov_content_types_shared_fields_update_876000() {
+  $mediaSearchViewModeConfig = \Drupal::configFactory()
+    ->getEditable('core.entity_view_mode.media.search');
+  if (!empty($mediaSearchViewModeConfig)) {
+    $mediaSearchViewModeConfig->set('label', 'Mediathek')->save();
+  }
+}

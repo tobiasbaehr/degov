@@ -1,0 +1,50 @@
+<?php
+
+use Drupal\entity_reference_timer\FieldSwitchService;
+use Drupal\locale\Gettext;
+
+/**
+ * Implements hook_install().
+ */
+function entity_reference_timer_install() {
+  \Drupal::database()->schema()->addField('cachetags', 'expires', [
+    'description' => 'Point in time when this tag should expire automatically.',
+    'type'        => 'int',
+    'size'        => 'big',
+    'not null'    => FALSE,
+  ]);
+
+  FieldSwitchService::updateField();
+  entity_reference_timer_import_translations();
+}
+
+function entity_reference_timer_import_translations(): void {
+  $file = new \stdClass();
+  $file->uri = drupal_get_path('module', 'entity_reference_timer') . '/translations/de-de.po';
+  $file->langcode = 'de';
+
+  Gettext::fileToDatabase($file, [
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+    ],
+  ]);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function entity_reference_timer_uninstall() {
+  FieldSwitchService::uninstallField();
+  \Drupal::database()->schema()->dropField('cachetags', 'expires');
+}
+
+/**
+ * Implements hook_schema_alter().
+ */
+function entity_reference_timer_schema_alter(&$schema) {
+  $schema['cachetags']['fields']['expires'] = [
+    'description' => 'Point in time when this tag should expire automatically.',
+    'type' => 'int',
+    'not null' => FALSE,
+  ];
+}

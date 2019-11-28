@@ -49,7 +49,7 @@ Feature: deGov - Content types
   Scenario: Content type normal page references specified content types in field_content_paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I should see HTML content matching "FAQ" after a while
     And I should see HTML content matching "FAQ / Akkordion Liste"
@@ -71,7 +71,7 @@ Feature: deGov - Content types
     And I click by selector "button.tableresponsive-toggle" via JavaScript
     And I should see text matching "Title" via translated text in uppercase
     And I should see text matching "Content type" via translated text in uppercase
-    And I should see text matching "Author" via translated text in uppercase
+    And I should see HTML content matching "Autor"
     And I should see text matching "Updated" via translated text in uppercase
     And I should see text matching "Operations" via translated text in uppercase
     And I should see "Interner Titel"

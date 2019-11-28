@@ -9,6 +9,6 @@ dependencies:
     - media
 third_party_settings: { }
 id: media.search
-label: Suche
+label: Mediathek
 targetEntityType: media
 cache: true

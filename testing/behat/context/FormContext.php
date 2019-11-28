@@ -39,6 +39,18 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I click checkbox by name attribute value "([^"]*)"$/
+   * @param string $selector
+   */
+  public function clickCheckboxByNameAttributeValue(string $selector): void {
+    $this->getSession()->executeScript(
+      "
+                jQuery('input[name=\"$selector\"').click();
+            "
+    );
+  }
+
+  /**
    * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
    * @param string $value
    */
@@ -148,6 +160,15 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I select by label "([^"]*)" via name attribute value "([^"]*)"$/
+   */
+  public function selectViaLabelByNameAttribute(string $label, string $nameAttribute): void {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@name = "' . $nameAttribute . '"]');
+    $selectElement->selectOption($label);
+  }
+
+  /**
    * @Then /^I select "([^"]*)" in "([^"]*)" via translated text$/
    * @Then /^I select "([^"]*)" via translation in "([^"]*)"$/
    */
@@ -164,6 +185,78 @@ class FormContext extends RawMinkContext {
     $page = $this->getSession()->getPage();
     $selectElement = $page->find('xpath', '//select[@name = "' . $name . '"]');
     $selectElement->selectOption($label);
+  }
+
+  /**
+   * @Then /^I assert date field with name attribute value "([^"]*)" contains current date$/
+   */
+  public function assertDateFieldReflectsCurrentDate(string $nameAttributeValue): ?bool {
+    $date = $this->getSession()->evaluateScript(
+      "
+              return jQuery('input[name=\"$nameAttributeValue\"').val();
+            "
+    );
+
+    $expectedDate = date('Y-m-d');
+
+    if ($date === $expectedDate) {
+      return TRUE;
+    }
+
+    throw new \Exception("Date field named '$nameAttributeValue' does not reflect the current date. Expected date was '$expectedDate'. Got the following date: '$date'.");
+  }
+
+  /**
+   * @Then /^I assert input field with name attribute value "([^"]*)" is empty$/
+   */
+  public function assertInputFieldWithNameAttributeValueIsEmpty(string $nameAttributeValue): ?bool {
+    $value = $this->getSession()->evaluateScript(
+      "
+              return jQuery('input[name=\"$nameAttributeValue\"').val();
+            "
+    );
+
+    if (empty($value)) {
+      return TRUE;
+    }
+
+    throw new \Exception("Form field named '$nameAttributeValue' is expected to be empty. Got the following value: '$value'.");
+  }
+
+  /**
+   * @Then /^I assert date field with name attribute value "([^"]*)" contains the date value "([^"]*)"$/
+   */
+  public function assertDateFieldReflectsExpectedDate(string $nameAttributeValue, string $expectedDate): ?bool {
+    $date = $this->getSession()->evaluateScript(
+      "
+              return jQuery('input[name=\"$nameAttributeValue\"').val();
+            "
+    );
+
+    if ($date === $expectedDate) {
+      return TRUE;
+    }
+
+    throw new \Exception("Date field named '$nameAttributeValue' does not reflect the expected date. Expected date was '$expectedDate'. Got the following date: '$date'.");
+  }
+
+  /**
+   * @Then /^I assert date field with name attribute value "([^"]*)" contains date value "([^"]*)"$/
+   */
+  public function assertDateFieldContainsDateValue(string $nameAttributeValue): ?bool {
+    $date = $this->getSession()->evaluateScript(
+      "
+              return jQuery('input[name=\"$nameAttributeValue\"').val();
+            "
+    );
+
+    $expectedDate = date('Y-m-d');
+
+    if ($date === $expectedDate) {
+      return TRUE;
+    }
+
+    throw new \Exception("Date field named '$nameAttributeValue' does not reflect the current date. Expected date was '$expectedDate'. Got the following date: '$date'.");
   }
 
   /**
@@ -366,6 +459,23 @@ class FormContext extends RawMinkContext {
     $field = $this->fixStepArgument($this->translateString($field));
     $value = $this->fixStepArgument($value);
     $this->getSession()->getPage()->fillField($field, $value);
+  }
+
+  /**
+   * Fills in form field with specified id|name|label|value with a formatted date
+   * Example: And I fill in "start_date[date]" with relative date "now - 1 minute" formatted "%d%m%Y"
+   *
+   * @When I fill in :field with date :dateValue formatted :dateFormat
+   * @When I fill in :field with date :dateValue formatted :dateFormat in timezone :timezone
+   */
+  public function fillFieldWithFormattedDate(string $field, string $dateValue, string $dateFormat, string $timezone = 'Europe/Berlin') {
+    $dateValue = $this->fixStepArgument($dateValue);
+    $dateFormat = $this->fixStepArgument($dateFormat);
+    $dateTime = new \DateTime($dateValue);
+    $dateTime->setTimezone(new \DateTimeZone($timezone));
+    $formattedDate = $dateTime->format($dateFormat);
+    $field = $this->fixStepArgument($this->translateString($field));
+    $this->getSession()->getPage()->fillField($field, $formattedDate);
   }
 
   /**

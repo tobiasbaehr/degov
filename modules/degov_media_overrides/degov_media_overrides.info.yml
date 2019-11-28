@@ -6,4 +6,3 @@ core: 8.x
 dependencies:
   - field
   - text
-  - degov_search_media

@@ -39,15 +39,16 @@ Feature: deGov - Content creation
     And I should see "Inhaltstyp"
     And I should see "Bereich"
     And I should see "Ansichtssteuerung"
-    And I choose "Header" from tab menu
+    And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph" via translated text
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-#    And I should see HTML content matching "Paragraph hinzufügen"
-    And I choose "Content" from tab menu
+    And I should see HTML content matching "Paragraph hinzufügen"
+    And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in blog content type
     Given I am logged in as a user with the "administrator" role
@@ -62,26 +63,26 @@ Feature: deGov - Content creation
     And I choose "Allgemein" from tab menu
     And I should see "Schlagworte"
     And I should see "Social Media Buttons anzeigen"
-    And I choose "Header" from tab menu
+    And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-#    And I should see HTML content matching "Paragraph hinzufügen"
-    And I choose "Content" from tab menu
+    And I should see HTML content matching "Paragraph hinzufügen"
+    And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in faq content type
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/faq"
     And I should see "Titel"
     And I should see "Interner Titel"
-    And I choose "Description" from tab menu
+    And I choose "Description" via translation from tab menu
     And I should see "Beschreibung"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
     And I should see "VERWANDTE FAQ"
     And I choose "Allgemein" from tab menu
     And I should see "Bereich"
@@ -113,13 +114,13 @@ Feature: deGov - Content creation
     And I should see "Ansichtssteuerung"
     And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
     And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
 
   Scenario: I see all form fields in event content type
     Given I am logged in as a user with the "administrator" role
@@ -145,21 +146,21 @@ Feature: deGov - Content creation
     And I should see "Inhaltstyp"
     And I should see "Bereich"
     And I should see "Ansichtssteuerung"
-    And I choose "Header" from tab menu
+    And I choose "Header" via translation from tab menu
     And I should see "KOPFBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
     And I choose "Seitenleiste rechts" from tab menu
     And I should see "Seitenleiste rechts"
-#    And I should see HTML content matching "Paragraph hinzufügen"
-    And I choose "Content" from tab menu
+    And I should see HTML content matching "Paragraph hinzufügen"
+    And I choose "Content" via translation from tab menu
     And I should see "INHALTSBEREICH"
-#    And I should see HTML content matching "Paragraph hinzufügen"
+    And I should see HTML content matching "Paragraph hinzufügen"
 
   Scenario: I can select a view mode for views reference paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am installing the "degov_paragraph_view_reference" module
     And I am on "/node/add/normal_page"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
     And I click by CSS id "field-content-paragraphs-view-reference-add-more"
@@ -181,7 +182,7 @@ Feature: deGov - Content creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I open node edit form by node title "Page with text paragraph"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
     And I click by CSS id "field-content-paragraphs-text-add-more"
@@ -191,6 +192,21 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     And I should not see text matching "scripttest1234"
+
+  Scenario: I verify that font tags are removed from output
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with text paragraph"
+    And I choose "Content" via translation from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I wait 2 seconds
+    And I click by CSS id "field-content-paragraphs-text-add-more"
+    Then I should see text matching "Text format" via translated text after a while
+    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<font>BehatFont</font>" via JavaScript
+    And I scroll to bottom
+    And I press button with label "Save" via translated text
+    And I should not see text matching "BehatFont"
 
   Scenario: I verify that Media file link placeholders in text get transformed into actual links
     Given I have dismissed the cookie banner if necessary
@@ -223,7 +239,7 @@ Feature: deGov - Content creation
   Scenario: I verify that trying to delete a referenced Media item will cause warning messages
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "A document with a fixed title"
+    And I open media edit form by media name "A document with a PDF"
     And I scroll to bottom
     And I click by selector "#edit-delete" via JavaScript
     Then I should see HTML content matching "messages--warning" after a while
@@ -233,7 +249,7 @@ Feature: deGov - Content creation
     And I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I open node edit form by node title "Page with views references"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
     Then I should see text matching "Options" via translated text in uppercase after a while
     And I wait for AJAX to finish
@@ -245,7 +261,7 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press button with label "Save" via translated text
     Then I open node edit form by node title "Page with views references"
-    And I choose "Content" from tab menu
+    And I choose "Content" via translation from tab menu
     And I trigger the "mousedown" event on "#field-content-paragraphs-1-edit--2"
     Then I should see text matching "Options" via translated text in uppercase after a while
     And I wait for AJAX to finish

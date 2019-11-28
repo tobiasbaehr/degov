@@ -4,6 +4,7 @@ use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovModuleUpdater;
 use Drupal\Core\Config\Config;
+use Drupal\language\Config\LanguageConfigOverride;
 
 /**
  * Implements hook_uninstall().
@@ -122,4 +123,22 @@ function degov_node_blog_update_860302() {
   }
 
   $config->save();
+}
+
+/**
+ * Fix translation of labels on node blog article
+ */
+function degov_node_blog_update_870500() {
+  /**
+   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
+   */
+  $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.blog.default');
+  if ($configTranslation instanceof LanguageConfigOverride) {
+    $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');
+    $configTranslation->set('third_party_settings.field_group.group_header.label', 'Kopfzeile');
+    $configTranslation->set('third_party_settings.field_group.group_content.label', 'Inhalt');
+    $configTranslation->set('third_party_settings.field_group.group_right_sidebar.label', 'Seitenleiste rechts');
+    $configTranslation->set('third_party_settings.field_group.group_common.label', 'Allgemein');
+    $configTranslation->save(TRUE);
+  }
 }

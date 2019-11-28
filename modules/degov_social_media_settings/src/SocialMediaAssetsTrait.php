@@ -30,6 +30,20 @@ trait SocialMediaAssetsTrait {
     $filePath = implode('/', $path);
     $content = file_get_contents($filePath);
     $options = ['allowed_classes' => TRUE];
+
+//    $data = \unserialize($content, $options);
+//
+//    if ($fileName === 'medias.txt') {
+//      $instagram = new \InstagramScraper\Instagram();
+//      /** @var \InstagramScraper\Model\Media $media */
+//      foreach ($data as $key => $media) {
+//        $data[$key] = $instagram->getMediaById($media->getId());
+//      }
+//      $new_data = serialize($data);
+//      file_put_contents($filePath, $new_data);
+//      #return $data;
+//    }
+
     return \unserialize($content, $options);
   }
 }

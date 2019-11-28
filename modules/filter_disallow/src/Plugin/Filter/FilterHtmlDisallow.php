@@ -85,6 +85,8 @@ class FilterHtmlDisallow extends FilterBase {
     $dom = new \DOMDocument();
     // Prevent warnings on HTML5 elements.
     libxml_use_internal_errors(TRUE);
+    $htmlentities = htmlentities($htmlContent);
+    $decoded_htmlentities = html_entity_decode($htmlentities);
     $dom->loadHTML(utf8_decode($htmlContent));
     $xPath = new \DOMXPath($dom);
     $nodes = $xPath->query('//' . $tag);
@@ -92,13 +94,9 @@ class FilterHtmlDisallow extends FilterBase {
       if (\Drupal::currentUser()->hasPermission('view filter_disallow messages')) {
         \Drupal::messenger()->addWarning(t('The text you entered contains <code>:element</code> tags. These are not permitted here and will be stripped from the output.', [':element' => $tag]));
       }
-      foreach ($nodes as $index => $node) {
-        $node->parentNode->removeChild($nodes->item($index));
-      }
     }
-    $filteredHtml = $dom->saveHTML($dom->documentElement);
+    $filteredHtml = preg_replace('(<' . $tag . '.*?>|</' . $tag . '>)', '', $decoded_htmlentities);
     // saveHTML() will urlencode characters like square brackets, which we need to remain intact for the media_file_links input filter.
-    $filteredHtml = urldecode($filteredHtml);
     $filteredHtml = preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $filteredHtml);
     return $filteredHtml;
   }

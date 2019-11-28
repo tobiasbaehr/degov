@@ -205,6 +205,36 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * @Then /^I should see HTML content matching "([^"]*)" via translated text after a while$/
+   * @Then /^I should see HTML content matching '([^']*)' via translated text after a while$/
+   */
+  public function iShouldSeeHTMLContentTranslatedMatchingAfterAWhile(string $content): ?bool
+  {
+    if (ctype_upper($content)) {
+      $translatedText = mb_strtoupper($this->translateString($content));
+    } else {
+      $translatedText = $this->translateString($content);
+    }
+
+    try {
+      $startTime = time();
+      do {
+        $content = $this->getSession()->getPage()->getHtml();
+        if (substr_count($content, $translatedText) > 0) {
+          return true;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+      throw new TextNotFoundException(
+        sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+        $this->getSession()
+      );
+    } catch (StaleElementReference $e) {
+      return true;
+    }
+  }
+
+
+  /**
    * @Then /^I should not see HTML content matching "([^"]*)"$/
    * @Then /^I should not see HTML content matching '([^']*)'$/
    */
@@ -436,6 +466,17 @@ class DrupalIndependentContext extends RawMinkContext {
    */
   public function dumpHTML() {
     print_r($this->getSession()->getPage()->getContent());
+  }
+
+  /**
+   * @Then I trigger the PHP function :functionName
+   */
+  public function triggerPhpFunction($functionName): void {
+    if (\function_exists($functionName)) {
+      $functionName();
+    } else {
+      throw new \Exception('Function ' . $functionName . ' does not exist.');
+    }
   }
 
 }

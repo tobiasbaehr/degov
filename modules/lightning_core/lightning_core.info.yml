@@ -12,7 +12,6 @@ components:
   - lightning_contact_form
   - lightning_page
   - lightning_roles
-  - lightning_search
 
 # Information added by Drupal.org packaging script on 2018-09-04
 version: '8.x-3.0'

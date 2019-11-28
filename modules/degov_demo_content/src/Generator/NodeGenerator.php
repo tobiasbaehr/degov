@@ -58,6 +58,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
     foreach ($this->loadDefinitions('node.yml') as $srcId => $rawNode) {
       $paragraphs = [];
+
       if (isset($rawNode['field_content_paragraphs'])) {
         $paragraphs['field_content_paragraphs'] = $rawNode['field_content_paragraphs'];
       }
@@ -67,6 +68,10 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       if (isset($rawNode['field_sidebar_right_paragraphs'])) {
         $paragraphs['field_sidebar_right_paragraphs'] = $rawNode['field_sidebar_right_paragraphs'];
       }
+
+      $rawNode['field_tags'] = [
+        ['target_id' => $this->getDemoContentTagId()],
+      ];
 
       $paragraphs = array_filter($paragraphs);
       unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_right_paragraphs']);
@@ -88,7 +93,9 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         $this->setFrontPage('/node/' . $teaserPage->id());
       }
       else {
-        $nodeIds[] = $node->id();
+        if ($rawNode['type'] !== 'faq') {
+            $nodeIds[] = $node->id();
+        }
       }
     }
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);

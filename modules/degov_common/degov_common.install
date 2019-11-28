@@ -271,10 +271,6 @@ function degov_common_update_dependencies(): array {
 
 /**
  * Implements hook_requirements().
- *
- * @param string $phase
- *
- * @return array
  */
 function degov_common_requirements(string $phase): array {
   $requirements = [];
@@ -293,6 +289,28 @@ function degov_common_requirements(string $phase): array {
         'description' => t("The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."),
         'severity'    => REQUIREMENT_ERROR,
         'value'       => t('Duplication of content access modules'),
+      ];
+    }
+  }
+
+  if ($phase === 'runtime') {
+    $deprecated_dependencies = ['acquia_connector', 'memcache_storage'];
+    foreach ($deprecated_dependencies as $deprecated_dependency) {
+      if (\Drupal::moduleHandler()->moduleExists($deprecated_dependency)) {
+        $requirements['degov_deprecated_dependency_' . $deprecated_dependency] = [
+          'title'       => 'Deprecated dependency',
+          'description' => sprintf('The module %s will be removed as an dependency from degov in the next release. Please add the dependency to your own composer.json.', $deprecated_dependency),
+          'severity'    => REQUIREMENT_WARNING,
+          'value'       => sprintf('The module %s dependency is deprecated', $deprecated_dependency),
+        ];
+      }
+    }
+    if (\Drupal::moduleHandler()->moduleExists('memcache_storage')) {
+      $requirements['degov_deprecated_service'] = [
+        'title'       => 'Deprecated service',
+        'description' => 'The service cache.backend.degov_common will be removed in the next release. Please use the service (cache.backend.memcache_storage) from memcache_storage directly.',
+        'severity'    => REQUIREMENT_WARNING,
+        'value'       => 'The service cache.backend.degov_common is deprecated',
       ];
     }
   }

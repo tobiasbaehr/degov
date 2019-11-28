@@ -25,6 +25,8 @@ dependencies:
   - degov:degov_node_event
   - degov:degov_node_normal_page
   - degov:degov_node_press
+  - degov:degov_node_external_teaser
+  - degov:degov_node_faq
   - degov:degov_paragraph_downloads
   - degov:degov_paragraph_faq
   - degov:degov_paragraph_header

@@ -62,7 +62,7 @@ class OffsetConfigTest extends KernelTestBase {
     ];
     $settings = \Drupal::config('crop.type.16_to_9')
       ->get('third_party_settings');
-    self::assertEquals($expectedValues, $settings);
+    self::assertSame($expectedValues, $settings);
   }
 
 }

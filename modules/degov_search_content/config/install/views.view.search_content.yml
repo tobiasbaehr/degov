@@ -214,7 +214,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<h2>Suchergebnisse</h2>Keine Treffer gefunden. Bitte überprüfen Sie Ihre Suchbegriffe oder versuchen weniger Begriffe.'
+            value: '<h2>Suchergebnisse</h2>Keine Treffer gefunden. Bitte überprüfen Sie Ihre Suchbegriffe oder versuchen Sie weniger Begriffe.'
             format: rich_text
           plugin_id: text
       relationships: {  }

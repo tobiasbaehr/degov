@@ -9,6 +9,7 @@ Feature: deGov - Search
       | degov_search_media_manager |
       | degov_demo_content         |
     And I reset the demo content
+    And I rebuild the "search_content" index
     And I rebuild the "search_media" index
 
   Scenario: Verify that search is configured for partial word matching
@@ -16,6 +17,14 @@ Feature: deGov - Search
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/config/search/search-api/server/database/edit"
     Then I should see the input with the name "backend_config[matching]" and the value "partial" checked
+
+  Scenario: I verify that the node content type filter shows labels, not machine names
+    Then I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    And I rebuild the "search_content" index
+    And I clear the cache
+    Then I am on "/suche"
+    And I should see an ".facet-item__value" element with the content "Inhaltsseite"
 
   Scenario: Check if media search is working properly
     Given I have dismissed the cookie banner if necessary
@@ -36,14 +45,6 @@ Feature: deGov - Search
     And I press "Speichern"
     And I am on "/mediathek"
     And I should not see "demo image with a fixed title"
-
-  Scenario: I verify that the node content type filter shows labels, not machine names
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    And I rebuild the "search_content" index
-    And I clear the cache
-    Then I am on "/suche"
-    And I should see an ".facet-item__value" element with the content "Inhaltsseite"
 
   Scenario: I verify that the media bundle filter shows labels, not machine names
     Given I have dismissed the cookie banner if necessary
@@ -72,7 +73,7 @@ Feature: deGov - Search
     Given I have dismissed the cookie banner if necessary
     Given I proof that the following Drupal modules are installed:
       | degov_node_normal_page      |
-    And I uninstall the "degov_demo_content" module
+    And I execute the following console command: "drush pm:uninstall degov_demo_content -y"
     And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I should see "Titel"

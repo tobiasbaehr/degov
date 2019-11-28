@@ -4,5 +4,5 @@ filter_html_disallow:
   status: true
   weight: -10
   settings:
-    disallowed_html: '<script>'
+    disallowed_html: '<script> <font>'
     filter_html_disallow_help: '1'
