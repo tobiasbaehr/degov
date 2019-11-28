@@ -145,7 +145,7 @@ class FAQAccessTest extends KernelTestBase {
 
     $nodeLoaded = Node::load($node->id());
 
-    self::assertEquals(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());
+    self::assertSame(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());
 
     return $nodeLoaded;
   }
@@ -178,7 +178,7 @@ class FAQAccessTest extends KernelTestBase {
 
     $nodeLoaded = Node::load($node->id());
 
-    self::assertEquals(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());
+    self::assertSame(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());
 
     return $nodeLoaded;
   }

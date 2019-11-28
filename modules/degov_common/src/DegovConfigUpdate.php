@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Drupal\degov_common;
 
 use Drupal\config\StorageReplaceDataWrapper;
+use Drupal\Core\Config\Config;
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Config\StorageInterface;
 
@@ -91,4 +92,32 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
       $configInstaller->installOptionalConfig($storage, '');
     }
   }
+
+  public function getEditableConfig(string $configStorageName): Config {
+    $config = $this->configManager->getConfigFactory()->getEditable($configStorageName);
+    $this->handleConfigExistence($config);
+
+    return $config;
+  }
+
+  public function importConfigFolder(string $moduleName, string $folderName): void {
+    $configFolderPath = drupal_get_path('module', $moduleName) . "/config/$folderName";
+    $filesInFolder = scandir($configFolderPath, TRUE);
+    foreach ($filesInFolder as $filename) {
+      if (substr($filename, -4) === '.yml') {
+        $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$filename");
+        $configurationName = substr_replace($filename ,'', -4);
+        $this->configFactory->getEditable($configurationName)
+          ->setData($parsedConfiguration)
+          ->save();
+      }
+    }
+  }
+
+  private function handleConfigExistence(Config $config): void {
+    if ($config->isNew()) {
+      throw new \RuntimeException('Config named ' . $config->getName() . ' is expected to be in storage. Looks like initial config is malformed.');
+    }
+  }
+
 }

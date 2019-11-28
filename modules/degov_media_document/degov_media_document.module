@@ -3,6 +3,9 @@
 use Drupal\degov_common\Common;
 use Drupal\media\Entity\Media;
 use Drupal\permissions_by_entity\Service\AccessChecker;
+use Drupal\media\Entity\MediaType;
+use Drupal\file\Entity\File;
+use Drupal\degov_media_document\Helper\PlaceholderHelper;
 
 /**
  * Implements hook_preprocess().
@@ -50,7 +53,7 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
     'module_name' => 'degov_media_document',
     'entity_type' => 'media',
     'entity_bundles' => ['document'],
-    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded'],
+    'entity_view_modes' => ['usage', 'preview', 'search', 'embedded', 'content_search'],
   ]);
 }
 
@@ -81,3 +84,28 @@ function degov_media_document_file_download($uri) {
     }
   }
 }
+
+/**
+ * Implements template_preprocess_media().
+ */
+function degov_media_document_preprocess_media(&$variables) {
+  if($variables['view_mode'] === 'content_search') {
+    $mediaType = MediaType::load($variables['media']->bundle());
+    $variables['content']['media_bundle_label'] = $mediaType ? $mediaType->label() : '';
+
+    $documentPreview = $variables['media']->get('field_document_preview');
+    if($documentPreview->count() > 0) {
+      $variables['attributes']['class'][] = 'preview-image';
+    } else {
+      $variables['attributes']['class'][] = 'preview-icon';
+      $documentReference = $variables['media']->get('field_document')->getValue();
+      if(!empty($documentReference[0]['target_id'])) {
+        $file =  File::load($documentReference[0]['target_id']);
+        if(!empty($file)) {
+          $variables['preview_icon_class'] = PlaceholderHelper::mapFileToFAIcon($file);
+        }
+      }
+    }
+  }
+}
+

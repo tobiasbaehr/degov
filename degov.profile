@@ -4,6 +4,7 @@
  * Enables modules and site configuration for the deGov profile.
  */
 
+
 /**
  * Implements hook_install_tasks().
  *
@@ -77,6 +78,7 @@ function degov_module_setup(&$install_state) {
     'node_action'                       => 'node_action',
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
+    'entity_reference_timer'            => 'entity_reference_timer',
   ];
 
   // See issue https://www.drupal.org/project/search_api/issues/2931562
@@ -224,9 +226,11 @@ function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormS
  * Submit handler for degov_form_install_configure_form_alter().
  */
 function degov_optional_modules_submit($form_id, &$form_state) {
-  // Sets all optional modules to a Drupal set variable for later installation.
-  $degov_optional_modules = array_filter($form_state->getValue('optional_modules'));
-  \Drupal::state()->set('degov_optional_modules', $degov_optional_modules);
+  $optionalModules = [];
+  foreach ($form_state->getValue('optional_modules') as $optionalModuleName => $optionalModuleValue) {
+    $optionalModules[$optionalModuleName] = $optionalModuleName;
+  }
+  \Drupal::state()->set('degov_optional_modules', $optionalModules);
 }
 
 /**

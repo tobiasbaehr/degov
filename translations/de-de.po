@@ -16,9 +16,6 @@ msgstr "Haupt-Seiteninhalt"
 msgid "Publish content"
 msgstr "Inhalt veröffentlichen"
 
-msgid "Unpublish content"
-msgstr "Veröffentlichung von Inhalt zurücknehmen"
-
 msgid "Log in / Sign up"
 msgstr "Anmelden / Registrieren"
 
@@ -48,3 +45,12 @@ msgstr "Nicht konfiguriert"
 #: degov.install:30
 msgid "The installation profile requires the private file system to be configured. Please <a href=\":settings_howto\" target=\"_blank\">edit</a> your settings.php accordingly."
 msgstr "Das Installationsprofil setzt voraus, dass das private Dateisystem konfiguriert ist. Bitte  <a href=\":settings_howto\" target=\"_blank\">bearbeiten</a> Sie Ihre settings.php entsprechend."
+
+msgid "Google Maps"
+msgstr "Google Karte"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Paragraph"
+msgstr "Paragraph"

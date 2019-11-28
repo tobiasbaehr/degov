@@ -7,7 +7,6 @@
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
 use Drupal\user\Entity\Role;
-use Drupal\user\RoleInterface;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -55,6 +54,16 @@ function degov_requirements(string $phase) {
   }
 
   return $requirements;
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_update_dependencies() {
+  $dependencies['field_group'][8301] = [
+    'degov' => 8501,
+  ];
+  return $dependencies;
 }
 
 function degov_update_8440() {
@@ -343,16 +352,6 @@ function degov_update_870100() {
 }
 
 /**
- * Implements hook_update_dependencies().
- */
-function degov_update_dependencies() {
-  $dependencies['field_group'][8301] = [
-    'degov' => 8501,
-  ];
-  return $dependencies;
-}
-
-/**
  * deGov update 7.3.0
  * - Disable SQL Rewrite in the content view. Temporary solution for Issue #2971902: https://www.drupal.org/project/drupal/issues/2971902.
  * - Give the editor and manager roles the permissions to create, edit and delete terms in the section taxonomy vocabulary.
@@ -406,5 +405,14 @@ function degov_update_870500() {
     $editorRole->grantPermission('use change moderation state action');
     $editorRole->grantPermission('use change author action');
     $editorRole->save();
+  }
+}
+
+/**
+ * deGov 7.6.0 - Enable the Entity Reference Date module for scheduled teasers
+ */
+function degov_update_870600() {
+  if (!\Drupal::moduleHandler()->moduleExists('entity_reference_timer')) {
+    \Drupal::service('module_installer')->install(['entity_reference_timer']);
   }
 }

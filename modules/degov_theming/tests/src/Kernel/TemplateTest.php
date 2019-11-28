@@ -26,7 +26,7 @@ class TemplateTest extends KernelTestBase {
     $template = \Drupal::service('degov_theming.template');
     $html = $template->render('degov_theming', 'tests/src/Kernel/Fixture/template.html.twig', ['test' => 'some string']);
 
-    $this->assertEquals($html, '<span>some string</span>');
+    $this->assertSame($html, '<span>some string</span>');
   }
 
 }

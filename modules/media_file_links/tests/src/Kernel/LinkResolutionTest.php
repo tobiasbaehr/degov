@@ -38,7 +38,7 @@ class LinkResolutionTest extends MediaFileLinksTestBase {
 
   public function testLinkResolutionWithNonexistentMedia(): void {
     $urlString = $this->fileLinkResolver->getFileUrlString(99);
-    self::assertEquals('', $urlString);
+    self::assertSame('', $urlString);
   }
 
   public function testChangingTheFileResultsInUpdatedLink(): void {

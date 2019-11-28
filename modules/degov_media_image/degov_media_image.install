@@ -64,6 +64,10 @@ function degov_media_image_update_dependencies(): array {
   $dependencies['degov_media_image'][850100] = [
     'degov_image_and_crop_styles' => 850100,
   ];
+  $dependencies['degov_media_image'][870201] = [
+    'degov_image_and_crop_styles' => 870201,
+  ];
+
   return $dependencies;
 }
 
@@ -221,4 +225,14 @@ function degov_media_image_update_870201() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_image', '870201');
+}
+
+/**
+ * Disable "allow download" by default.
+ */
+function degov_media_image_update_870600() {
+  $config = \Drupal::configFactory()->getEditable('field.field.media.image.field_allow_download');
+  if (!$config->isNew()) {
+    $config->set('default_value', [['value' => 0]])->save();
+  }
 }

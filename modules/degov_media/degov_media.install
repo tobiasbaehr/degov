@@ -43,3 +43,11 @@ function degov_media_requirements(string $phase): array {
   }
   return $requirements;
 }
+
+/**
+ * deGov Update 7.6.0 - Add new view mode content_search.
+ */
+function degov_media_update_876000() {
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_media', '876000');
+}

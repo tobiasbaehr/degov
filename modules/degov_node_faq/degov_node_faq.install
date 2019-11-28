@@ -14,7 +14,7 @@ function degov_node_faq_uninstall() {
 
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
-    'entity_type' => 'node',
+    'entity_type'    => 'node',
     'entity_bundles' => ['faq'],
   ]);
 }
@@ -74,4 +74,43 @@ function degov_node_faq_update_870500() {
   if (!$existingConfig->isNew() && $existingConfig->get('content.field_content_paragraphs.weight') === NULL) {
     $existingConfig->set('content.field_content_paragraphs.weight', 6)->save();
   }
+}
+
+/**
+ * Add field field_tags to faq
+ * FAQ: Add field_tag to display mode
+ * FAQ: Add field_tags input field to form display mode
+ */
+function degov_node_faq_update_870600() {
+  /**
+   * Add field field_tags to faq
+   */
+  \Drupal::service('degov_config.module_updater')
+    ->applyUpdates('degov_node_faq', '870600');
+
+  /**
+   * FAQ: Add field_tag to display mode
+   */
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('core.entity_view_display.node.faq.default');
+  $config->set('content.field_tags.type', 'entity_reference_label');
+  $config->set('content.field_tags.weight', '4');
+  $config->set('content.field_tags.region', 'content');
+  $config->set('content.field_tags.label', 'above');
+  $config->set('content.field_tags.settings.link', 'true');
+  $config->set('content.field_tags.third_party_settings', []);
+  $config->save();
+
+  /**
+   * FAQ: Add field_tags input field to form display mode
+   */
+  $config = $configFactory->getEditable('core.entity_form_display.node.faq.default');
+  $config->set('content.field_tags.type', 'entity_reference_autocomplete');
+  $config->set('content.field_tags.weight', '121');
+  $config->set('content.field_tags.region', 'content');
+  $config->set('content.field_tags.settings.match_operator', 'CONTAINS');
+  $config->set('content.field_tags.settings.size', '60');
+  $config->set('content.field_tags.settings.placeholder', '');
+  $config->set('content.field_tags.third_party_settings', []);
+  $config->save();
 }

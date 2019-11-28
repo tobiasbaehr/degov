@@ -17,3 +17,26 @@ function filter_disallow_install() {
     }
   }
 }
+
+/**
+ * deGov Update 7.5.0 - Add <font> tag to disallowed tags
+ */
+function filter_disallow_update_870500() {
+  $richHtmlConfig = \Drupal::configFactory()
+    ->getEditable('filter.format.rich_html');
+
+  if (!$richHtmlConfig->isNew()) {
+    $filtersConfig = $richHtmlConfig->get('filters');
+
+    if (!empty($filtersConfig['filter_html_disallow'])) {
+      $listOfDisallowedHTML = $filtersConfig['filter_html_disallow']['settings']['disallowed_html'];
+      $newDisallowedHTML = '<font>';
+
+      if(strpos($listOfDisallowedHTML, $newDisallowedHTML) === FALSE) {
+        $listOfDisallowedHTML .= " $newDisallowedHTML";
+        $filtersConfig['filter_html_disallow']['settings']['disallowed_html'] = $listOfDisallowedHTML;
+        $richHtmlConfig->set('filters', $filtersConfig)->save();
+      }
+    }
+  }
+}

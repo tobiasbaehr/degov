@@ -234,6 +234,7 @@ class ContentGenerator {
    * @return string
    */
   public function generateBlindText(int $wordCount, bool $addLinks = FALSE): string {
+    $this->counter = 0;
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
       $word = $this->getWord();

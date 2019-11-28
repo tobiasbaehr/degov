@@ -42,9 +42,18 @@ video_upload_1:
   field_include_search: 1
 document_1:
   bundle: 'document'
-  name: 'A document with a fixed title'
+  name: 'A document with a PDF'
   file: 'dummy.pdf'
   status: 1
+  field_description: '{{TEXT}}'
+  field_include_search: 1
+document_2:
+  bundle: 'document'
+  name: 'A document with a word file and a preview image'
+  file: 'word-document.docx'
+  status: 1
+  field_description: '{{TEXT}}'
+  field_document_preview: '{{MEDIA_ID_IMAGE}}'
   field_include_search: 1
 document_2:
   bundle: 'document'
@@ -65,12 +74,13 @@ address_1:
   field_address_address:
     country_code: 'DE'
     organization: 'publicplan'
-    address_line1: 'Bilker Straße 29'
-    postal_code: 40213
+    address_line1: 'Kennedydamm 24'
+    address_line2: 'Test second address line'
+    postal_code: 40476
     locality: 'Düsseldorf'
   field_address_location:
-    lat: '51.220780'
-    lon: '6.772690'
+    lat: '51.2469019'
+    lon: '6.7689973'
   field_address_title: '{{SUBTITLE}}'
   field_address_phone: '0123456789'
   field_address_fax: '0123456789'

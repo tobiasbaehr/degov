@@ -25,14 +25,14 @@ class EditorFilterTest extends MediaFileLinksTestBase {
     $in = '<a href="[media:file:12]">Link</a>';
     $filterFormat = FilterFormat::load('filtered_html');
     $out = Standard::filterXss($in, $filterFormat);
-    self::assertEquals('<a href="12]">Link</a>', $out);
+    self::assertSame('<a href="12]">Link</a>', $out);
   }
 
   public function testNewPlaceholderIsNotBrokenByEditorXssProtection(): void {
     $in = '<a href="[media/file/12]">Link</a>';
     $filterFormat = FilterFormat::load('filtered_html');
     $out = Standard::filterXss($in, $filterFormat);
-    self::assertEquals($in, $out);
+    self::assertSame($in, $out);
   }
 
 }

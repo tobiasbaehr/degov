@@ -21,11 +21,11 @@ class MediaFileHandler {
     $this->fileAdapter = $fileAdapter;
   }
 
-  public function getFile(string $mediaItemKey): File {
+  public function getFile(string $mediaItemKey): ?File {
     return $this->files[$mediaItemKey];
   }
 
-  public function getFiles(string $mediaItemKey): array {
+  public function getFiles(string $mediaItemKey): ?array {
     return $this->files[$mediaItemKey]['files'];
   }
 
@@ -68,7 +68,7 @@ class MediaFileHandler {
   public function mapFileFields(&$media_item, string $customMediaKey): array {
     $fields = [];
     foreach ($media_item as $media_item_field_key => $media_item_field_value) {
-      if ($media_item_field_key === 'file') {
+      if ($media_item_field_key === 'file' && $this->getFile($customMediaKey) !== NULL) {
         switch ($media_item['bundle']) {
           case 'image':
             $fields['image'] = [
@@ -97,7 +97,7 @@ class MediaFileHandler {
             break;
         }
         continue;
-      } elseif ($media_item_field_key === 'files') {
+      } elseif ($media_item_field_key === 'files' && $this->getFiles($customMediaKey) !== NULL) {
         foreach ($media_item_field_value as $fileFieldName => $fileName) {
           switch ($fileFieldName) {
             case 'field_fullhd_video_mobile_mp4':

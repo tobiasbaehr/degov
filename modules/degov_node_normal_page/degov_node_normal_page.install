@@ -6,6 +6,7 @@ use Drupal\Core\Extension\ModuleInstaller;
 use Drupal\degov_common\Common;
 use Drupal\degov_common\DegovConfigUpdate;
 use Drupal\degov_common\DegovModuleUpdater;
+use Drupal\language\Config\LanguageConfigOverride;
 
 /**
  * Implements hook_uninstall().
@@ -70,4 +71,22 @@ function degov_node_normal_page_update_850100() {
   $updater->checkOptional(drupal_get_path('module', 'degov_node_normal_page') . '/config/install');
   $moduleUpdater->reImport('core.entity_form_display.node.normal_page.default', 'degov_node_normal_page', 'install');
   $moduleUpdater->reImport('core.entity_view_display.node.normal_page.default', 'degov_node_normal_page', 'install');
+}
+
+/**
+ * Fix translation of labels on node normal page
+ */
+function degov_node_normal_page_update_870500() {
+  /**
+   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
+   */
+  $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.normal_page.default');
+  if ($configTranslation instanceof LanguageConfigOverride) {
+    $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');
+    $configTranslation->set('third_party_settings.field_group.group_header.label', 'Kopfzeile');
+    $configTranslation->set('third_party_settings.field_group.group_content.label', 'Inhalt');
+    $configTranslation->set('third_party_settings.field_group.group_common.label', 'Allgemein');
+    $configTranslation->set('third_party_settings.field_group.group_righ.label', 'Seitenleiste rechts');
+    $configTranslation->save(TRUE);
+  }
 }

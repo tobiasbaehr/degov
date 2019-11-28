@@ -295,3 +295,22 @@ node_with_video_mobile:
     - media_reference_responsive_video
   status: 1
   moderation_state: 'published'
+node_external_teaser:
+  type: 'external_teaser'
+  title: 'External teaser'
+  field_link.0.uri: 'https://www.publicplan.de'
+  field_link.0.title: 'Publicplan'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+node_faq_1:
+  type: 'faq'
+  title: 'FAQ demo'
+  field_internal_title: 'FAQ demo'
+  moderation_state: 'published'
+  field_faq_description:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_content_paragraphs:
+    - faq_list_1

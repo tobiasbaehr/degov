@@ -14,7 +14,7 @@
         "drupal/acquia_connector": "^1.1",
         "drupal/address": "^1.0",
         "drupal/admin_links_access_filter": "^1.0@alpha",
-        "drupal/admin_toolbar": "^1.19",
+        "drupal/admin_toolbar": "^2.0",
         "drupal/block_field": "^1.0.0",
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "1.x-dev",
@@ -63,8 +63,9 @@
         "drupal/role_delegation": "^1.0.0",
         "drupal/scheduled_publish": "^3.1",
         "drupal/search_api": "^1.2",
-        "drupal/search_api_solr": "^1.0",
+        "drupal/search_api_solr": "^3.0",
         "drupal/search_api_sorts": "^1.0@beta",
+        "drupal/search_api_attachments": "^1.0@beta",
         "drupal/shariff": "^1.0",
         "drupal/simple_sitemap": "^3.3",
         "drupal/simplenews": "^1.0",
@@ -95,7 +96,8 @@
         "raiym/instagram-php-scraper": "^0.8.22",
         "weitzman/drupal-test-traits": "1.0.0-alpha.1",
         "drupal/viewsreference": "1.4",
-        "drupal/views_parity_row": "^1.8"
+        "drupal/views_parity_row": "^1.8",
+        "symfony/filesystem": "^3.4"
     },
     "scripts": {
         "post-install-cmd": [
@@ -127,26 +129,6 @@
         }
     },
     "extra": {
-        "installer-paths": {
-            "docroot/core": [
-                "type:drupal-core"
-            ],
-            "docroot/modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "docroot/profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "docroot/themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/contrib/{$name}": [
-                "type:drupal-drush"
-            ],
-            "docroot/libraries/{$name}": [
-                "type:drupal-library"
-            ]
-        },
         "enable-patching": true,
         "patches": {
             "drupal/restrict_ip": {

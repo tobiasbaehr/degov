@@ -22,22 +22,22 @@ class SuggestionsTest extends MediaFileLinksTestBase {
 
   public function testFindSupportedMediaByTitle(): void {
     $searchResult = $this->fileSuggester->findBySearchString('document');
-    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
+    self::assertSame('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
   }
 
   public function testUnsupportedMediaCannotBeFoundByTitle(): void {
     $searchResult = $this->fileSuggester->findBySearchString('foo');
-    self::assertEquals('[]', $searchResult);
+    self::assertSame('[]', $searchResult);
   }
 
   public function testFindOnlySupportedMediaByFilename(): void {
     $searchResult = $this->fileSuggester->findBySearchString('dummy');
-    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
+    self::assertSame('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
   }
 
   public function testQueryShouldOnlyReturnOneSuggestionPerEntity(): void {
     $searchResult = $this->fileSuggester->findBySearchString('um');
-    self::assertEquals('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
+    self::assertSame('[{"id":"1","title":"Test document","bundle":"document","bundleLabel":"Document","mimetype":"application\/pdf","iconClass":"fas fa-file-pdf","filename":"dummy.pdf"}]', $searchResult);
   }
 
 }

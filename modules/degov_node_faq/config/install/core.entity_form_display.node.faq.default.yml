@@ -6,14 +6,18 @@ dependencies:
     - field.field.node.faq.field_faq_description
     - field.field.node.faq.field_faq_related
     - field.field.node.faq.field_internal_title
+    - field.field.node.faq.field_metatags
     - field.field.node.faq.field_section
+    - field.field.node.faq.field_tags
     - node.type.faq
+    - workflows.workflow.editorial
   enforced:
     module:
       - degov_node_faq
   module:
     - content_moderation
     - field_group
+    - metatag
     - paragraphs
     - path
 third_party_settings:
@@ -90,10 +94,9 @@ content:
   field_content_paragraphs:
     type: paragraphs
     third_party_settings: {  }
-    weight: 6
     settings:
       title: Paragraph
-      title_plural: Paragraphs
+      title_plural: Paragraphen
       edit_mode: closed
       autocollapse: none
       add_mode: modal
@@ -141,6 +144,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_tags:
+    weight: 121
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 8

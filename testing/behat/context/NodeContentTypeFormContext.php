@@ -36,21 +36,29 @@ class NodeContentTypeFormContext extends RawDrupalContext {
    * @Given /^I choose "([^"]*)" from tab menu$/
    */
   public function iChooseFromTabMenu(string $text): void {
-    $page = $this->getSession()->getPage(); // get the mink session
-    $cssClass = "div.vertical-tabs.clearfix ul.vertical-tabs__menu li a";
+    $page = $this->getSession()->getPage();
+    $cssClass = 'div.vertical-tabs.clearfix ul.vertical-tabs__menu li a';
     $elements = $page->findAll('css', $cssClass);
 
     $counter = 0;
+    $executedScript = FALSE;
+
     foreach ($elements as $element) {
-      $tmp = $element->find('css', "strong");
+      $tmp = $element->find('css', 'strong');
       $selectedText = $tmp->getText();
 
       if ($selectedText === $text) {
         $this->getSession()
           ->executeScript('jQuery("' . $cssClass . '")[' . $counter . '].click()');
+        $executedScript = TRUE;
       }
       $counter++;
     }
+
+    if ($executedScript === FALSE) {
+      throw new \Exception('Could not find text "' . $text .'" in tab menu.');
+    }
+
   }
 
 	/**
