@@ -1,7 +1,5 @@
 <?php
 
-use \Drupal\Core\Config\FileStorage;
-
 function _degov_image_and_crop_styles_set_enforced_and_uuid(\Drupal\Core\Config\Config $getEditable) {
   /** @var \Drupal\Component\Uuid\Php $uuid_service */
   $uuid_service = \Drupal::service('uuid');
@@ -112,5 +110,16 @@ function degov_image_and_crop_styles_update_870500() {
   /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->applyUpdates('degov_image_and_crop_styles', '870500');
+}
 
+/**
+ * deGov Update 7.6.0 - Set the path for js/css of the cropper js lib.
+ */
+function degov_image_and_crop_styles_update_870600() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::configFactory();
+  $config = $configFactory->getEditable('image_widget_crop.settings');
+  $config->set('settings.library_url', 'libraries/cropper/dist/cropper.js');
+  $config->set('settings.css_url', 'libraries/cropper/dist/cropper.css');
+  $config->save();
 }

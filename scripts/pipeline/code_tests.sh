@@ -12,6 +12,8 @@ COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
 COMPOSER_MEMORY_LIMIT=-1
 export COMPOSER_MEMORY_LIMIT
+RELEASE_BRANCH=release/7.6.x-dev
+export RELEASE_BRANCH
 
 _info() {
   local color_info="\\x1b[32m"
@@ -34,11 +36,11 @@ while [ $doWhile -eq "0" ]; do
 done
 
 _info "### Setting up project folder"
-_composer --no-progress create-project degov/degov-project --no-install
+_composer --no-progress create-project degov/degov-project:dev-$RELEASE_BRANCH --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
-_composer --no-progress require "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-dependencies
+_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --update-with-all-dependencies
 
 PATH="$(pwd)/bin/:$PATH"
 export PATH
