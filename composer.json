@@ -128,7 +128,7 @@
                 "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2019-10-21/1356276-88x-594.patch",
                 "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2019-10-22/2914389-14-do-not-test.patch",
                 "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
-                "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-07-18/w3c-rel-validation-2454915-25-D8.patch"
+                "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-12-05/w3c-rel-validation-node-view-controller-with-updated-tests-8.8.0.patch"
             },
             "drupal/entity_embed": {
                 "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
