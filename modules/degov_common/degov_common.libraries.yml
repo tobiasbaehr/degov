@@ -1,5 +1,5 @@
 slick:
-  version: 1.6.0
+  version: 1.8.1
   js:
     /libraries/slick/slick/slick.min.js: {}
   css:

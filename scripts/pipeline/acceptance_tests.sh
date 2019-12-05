@@ -20,6 +20,9 @@ export COMPOSER_MEMORY_LIMIT
 CI_ROOT_DIR=$BITBUCKET_CLONE_DIR
 export CI_ROOT_DIR
 
+RELEASE_BRANCH=release/7.6.x-dev
+export RELEASE_BRANCH
+
 _info() {
   local color_info="\\x1b[32m"
   local color_reset="\\x1b[0m"
@@ -73,11 +76,12 @@ done
 docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
 _info "### Setting up project folder"
-_composer create-project --no-progress degov/degov-project --no-install
+_composer create-project --no-progress degov/degov-project:dev-$BITBUCKET_BRANCH --no-install
 cd degov-project
 rm composer.lock
+
 _info "### Install profile"
-_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" drupal/error_log --update-with-all-dependencies
+_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" "degov/degov_devel_git_lfs:dev-$BITBUCKET_BRANCH" --update-with-all-dependencies
 # @TODO Move this as a dependency to the composer.json of degov-nrw_project / degov_project
 _composer require "drupal/drupal-extension:^4.0"
 
@@ -85,6 +89,7 @@ PATH="$(pwd)/bin/:$PATH"
 export PATH
 
 (cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php -d error_reporting=E_ALL -d display_error=On -d log_errors=On -d error_log=/tmp/php_error.log)
+
 _info "### Configuring drupal"
 _info '### Setting file system paths'
 echo '$settings["file_private_path"] = "sites/default/files/private";' >> docroot/sites/default/settings.php

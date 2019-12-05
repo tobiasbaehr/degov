@@ -6,10 +6,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "bower-asset/dropzone": "^5.1",
-        "bower-asset/cropper": "^2.3",
+        "ext-json": "*",
         "composer/installers": "^1.0",
         "cweagans/composer-patches": "^1.6.0",
+        "mnsami/composer-custom-directory-installer": "^1.0",
+        "oomphinc/composer-installers-extender": "^1.1",
         "drupal-composer/drupal-scaffold": "^2.0.0",
         "drupal/acquia_connector": "^1.1",
         "drupal/address": "^1.0",
@@ -82,39 +83,20 @@
         "drupal/webform": "^5.4",
         "drupal/workbench": "^1.0",
         "drupal/workbench_access": "1.0.0-alpha6",
-        "enyo/dropzone": "4.2.0",
-        "ext-json": "*",
-        "heiseonline/shariff": "2.0.4",
         "james-heinrich/getid3": "^2.0",
-        "kenwheeler/slick": "1.7.1",
-        "leaflet/leaflet": "1.1.0",
         "madcoda/php-youtube-api": "^1.2",
-        "mnsami/composer-custom-directory-installer": "^1.0",
-        "oomphinc/composer-installers-extender": "^1.1",
         "php-coord/php-coord": "^2.1",
         "phpdocumentor/reflection-docblock": "^3.0|^4.0",
         "raiym/instagram-php-scraper": "^0.8.22",
         "weitzman/drupal-test-traits": "1.0.0-alpha.1",
         "drupal/viewsreference": "1.4",
         "drupal/views_parity_row": "^1.8",
+        "enyo/dropzone": "^4.3.0",
+        "fengyuanchen/cropper": "^3.1.3",
+        "heiseonline/shariff": "^2.0.4",
+        "kenwheeler/slick": "^1.7.1",
+        "leaflet/leaflet": "^1.1.0",
         "symfony/filesystem": "^3.4"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
-        "post-update-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
-        "coder-check": [
-            "./bin/phpcs --standard=vendor/drupal/coder/coder_sniffer/Drupal --colors --exclude=Drupal.Files.TxtFileLineLength"
-        ],
-        "coder-fix": [
-            "./bin/phpcbf --standard=vendor/drupal/coder/coder_sniffer/Drupal --exclude=Drupal.Files.TxtFileLineLength"
-        ]
-    },
-    "config": {
-        "bin-dir": "bin/"
     },
     "autoload": {
         "classmap": [
