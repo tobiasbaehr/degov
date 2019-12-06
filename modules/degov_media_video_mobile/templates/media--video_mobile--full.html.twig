@@ -21,19 +21,20 @@
 {%
 set media_classes = [
   'video-mobile',
+  'skin--background-primary',
   'clearfix',
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
   <div class="video-mobile__video">
-    <video{{ video_attributes }}>
+    <video{{ video_attributes.addClass('embed-responsive') }}>
       {% for key, subtitle in content.field_video_upload_subtitle if key|first != '#' %}
         {{ subtitle }}
       {% endfor %}
     </video>
   </div>
-  <div class="row below-video">
+  <div class="below-video d-flex py-2">
     <div class="col-sm-8">
       <div class="video__extra-info">
         <div class="video-mobile__top">
@@ -89,14 +90,16 @@ set media_classes = [
     </div>
     <div class="col-sm-4">
       <div class="video-mobile__quality">
-        <label>
-          {{ 'Choose quality:'|trans }}
-          <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}">
+        <label>{{ 'Choose quality:'|trans }}</label>
+        <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}" class="form-control">
             {% for quality_key, quality_label in video_qualities %}
-              <option value="{{ quality_key }}">{{ quality_label }}</option>
+              {% if video_attributes.src == quality_key %}
+                <option selected="selected" value="{{ quality_key }}">{{ quality_label }}</option>
+              {% else %}
+                <option value="{{ quality_key }}">{{ quality_label }}</option>
+              {% endif %}
             {% endfor %}
           </select>
-        </label>
       </div>
       <div class="video-mobile__downloads">
         {% if content.downloads %}

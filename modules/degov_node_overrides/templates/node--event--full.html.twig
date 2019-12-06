@@ -105,7 +105,7 @@
   {% if node.field_event_date.value or node.field_event_location.value %}
     <div class="event__address">
       {% if start_date_timestamp %}
-        <div class="event__address__date row">
+        <div class="event__address skin--background-primary row skin--font-header">
           <span class="field-label col-xs-4 col-sm-2">{{ 'Wann'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">
             {% if "now"|date('U') >= start_date_timestamp and "now"|date('U') <= end_date_timestamp %}{{ 'Heute'|trans }}, {% endif %}
@@ -116,7 +116,7 @@
         </div>
       {% endif %}
       {% if node.field_event_location.value %}
-        <div class="event__address__location row">
+        <div class="event__address__location row skin--background-primary skin--font-header">
           <span class="field-label col-xs-4 col-sm-2">{{ 'Wo'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">
           {% if content.field_event_location.0.organization|render|striptags|trim is not empty %}
@@ -138,7 +138,7 @@
         </div>
       {% endif %}
       {% if start_date_timestamp and end_date_timestamp and node.field_event_display_time.value == true %}
-        <div class="event__address__time row">
+        <div class="event__address__time row skin--background-primary skin--font-header">
           <span class="field-label col-xs-4 col-sm-2">{{ 'Uhr'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">{{ start_date_timestamp|format_date('custom', 'H:i') }}  bis {{ end_date_timestamp|format_date('custom', 'H:i') }} </span>
         </div>
@@ -146,11 +146,11 @@
     </div>
   {% endif %}
 
-  <div class="event__header header">
+  <div class="event__header header skin--background-primary row skin--font-header">
 
     {# Tags #}
     {% if content.field_tags|field_value %}
-      <div class="tags">
+      <div class="tags col-xs-12">
         {{ content.field_tags }}
       </div>
     {% endif %}
@@ -158,7 +158,7 @@
     {# Social media sharing #}
     {% if node.field_social_media and node.field_social_media.value == '1' %}
       {% if content.shariff_field %}
-        <div class="sharing">
+        <div class="sharing col-xs-12">
           {{ content.shariff_field }}
         </div>
       {% endif %}

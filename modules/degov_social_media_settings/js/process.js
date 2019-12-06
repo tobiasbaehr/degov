@@ -209,35 +209,38 @@
     if (selector.hasClass("slick-slider")) {
       selector.slick('unslick');
     }
-    selector.parent().find(".slick-controls").show();
-    selector.slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 2,
-      slidesToScroll: 2,
-      autoplay: true,
-      arrows: true,
-      responsive: [
-        {
-          breakpoint: 1319,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
 
-    var slickControlls = selector.parent();
-    slickControlls.find('.slick__pause').click(function () {
-      selector.slick('slickPause');
-      $(this).hide().siblings('.slick__play').show();
-    });
-    slickControlls.find('.slick__play').on('click', function () {
-      selector.slick('slickPlay').slick('setOption', 'autoplay', true);
-      $(this).hide().siblings('.slick__pause').show();
-    });
+    if(selector.length) {
+      selector.parent().find(".slick-controls").show();
+      selector.slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        autoplay: true,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 1319,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+
+      var slickControlls = selector.parent();
+      slickControlls.find('.slick__pause').click(function () {
+        selector.slick('slickPause');
+        $(this).hide().siblings('.slick__play').show();
+      });
+      slickControlls.find('.slick__play').on('click', function () {
+        selector.slick('slickPlay').slick('setOption', 'autoplay', true);
+        $(this).hide().siblings('.slick__pause').show();
+      });
+    }
   }
 
   // Parameter to open the social media settings overlay on page load for testing purposes.

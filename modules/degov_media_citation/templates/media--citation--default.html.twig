@@ -26,6 +26,7 @@
 {%
 set media_classes = [
   'citation',
+  'skin--font-secondary',
   'clearfix',
 ]
 %}
@@ -40,8 +41,5 @@ set media_classes = [
     <div class="citation__right {{ classes }}">
       <div class="citation__image">{{ content.field_citation_image }}</div>
     </div>
-  {% endif %}
-  {% if content.field_tags|field_value %}
-    <div class="tags"{{ content.field_tags|quickedit_attr }}>{{ content.field_tags }}</div>
   {% endif %}
 </article>

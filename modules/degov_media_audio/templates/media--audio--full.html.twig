@@ -22,6 +22,8 @@
 set media_classes = [
   'audio',
   'audio--default',
+  'skin--background-primary',
+  'row',
   'clearfix',
 ]
 %}
@@ -31,7 +33,7 @@ set media_classes = [
     <div class="audio__image">{{ content.field_audio_preview|field_value }}</div>
   </div>
   <div class="audio__audio">
-    <audio{{ audio_attributes }}>
+    <audio{{ audio_attributes.setAttribute('controlsList', 'nodownload') }}>
       {% if audio_mp3 %}
       <source src="{{ audio_mp3 }}" type="audio/mpeg">
       {% endif %}
@@ -101,7 +103,7 @@ set media_classes = [
         </div>
       </div>
     {% endif %}
-    {% if content.field_media_accessibility or content.field_media_language %}
+    {% if content.field_media_accessibility|field_value or content.field_media_language|field_value %}
       <div class="audio__assets">
         {% if content.field_media_accessibility %}
           <div class="audio__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>

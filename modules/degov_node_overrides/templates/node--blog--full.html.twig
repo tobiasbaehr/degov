@@ -32,12 +32,12 @@
     </div>
   {% endif %}
 
-  <div class="blog__header header">
+  <div class="blog__header header skin--background-primary skin--font-header row">
     <div class="content-header__media-info"></div>
     {# date #}
-    <div class="blog__header-date"{{ content.field_blog_date|quickedit_attr }}>{{ content.field_blog_date|field_value }}</div>
+    <div class="blog__header-date field col-xs-12"{{ content.field_blog_date|quickedit_attr }}>{{ content.field_blog_date|field_value }}</div>
 
-    <div class="content-header__text">
+    <div class="content-header__text col-xs-12">
       <h2>{{ label }}</h2>
       {% if content.field_teaser_sub_title %}
         <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
@@ -53,7 +53,7 @@
 
     {# Tags #}
     {% if content.field_tags|field_value %}
-      <div class="tags">
+      <div class="tags col-xs-12">
         {{ content.field_tags }}
       </div>
     {% endif %}
@@ -61,7 +61,7 @@
     {# Social media sharing #}
     {% if node.field_social_media and node.field_social_media.value == '1' %}
       {% if content.shariff_field %}
-        <div class="sharing">
+        <div class="sharing col-xs-12">
           {{ content.shariff_field }}
         </div>
       {% endif %}

@@ -79,16 +79,16 @@
 <article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
-  <div class="press__header-paragraphs">
+  <div class="press__header-paragraphs skin--background-primary skin--font-header row">
     {% if node.field_header_paragraphs.value %}
       {{ content.field_header_paragraphs }}
     {% endif %}
     {% if not is_front %}
-      <div class="content-header__text">
+      <div class="content-header__text col-xs-12">
         <div class="content-header__media-info"></div>
         {# Date #}
         {% if content.field_press_date|field_value %}
-          <div class="date"{{ content.field_press_date|quickedit_attr }}>{{ content.field_press_date|field_value }}</div>
+          <div class="date field"{{ content.field_press_date|quickedit_attr }}>{{ content.field_press_date|field_value }}</div>
         {% endif %}
         <h2>{{ label }}</h2>
         {% if content.field_teaser_sub_title %}
@@ -106,11 +106,11 @@
   </div>
 
   {% if content.field_tags|field_value or node.field_social_media.value == '1' or node.field_header_paragraphs.value %}
-    <div class="press__header header">
+    <div class="press__header header skin--background-primary skin--font-header row">
 
       {# Tags #}
       {% if content.field_tags|field_value %}
-        <div class="tags">
+        <div class="tags col-xs-12">
           {{ content.field_tags }}
         </div>
       {% endif %}
@@ -118,7 +118,7 @@
       {# Social media sharing #}
       {% if node.field_social_media and node.field_social_media.value == '1' %}
         {% if content.shariff_field %}
-          <div class="sharing">
+          <div class="sharing col-xs-12">
             {{ content.shariff_field }}
           </div>
         {% endif %}
@@ -127,7 +127,7 @@
   {% endif %}
 
   {% if node.field_content_paragraphs.value %}
-    <div class="press__content-paragraphs">
+    <div class="press__content-paragraphs content">
       {{ content.field_content_paragraphs|field_value }}
     </div>
   {% endif %}

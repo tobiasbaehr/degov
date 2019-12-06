@@ -91,14 +91,16 @@ set media_classes = [
     </div>
     <div class="col-sm-4">
       <div class="video-mobile__quality">
-        <label>
-          {{ 'Choose quality:'|trans }}
-          <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}">
+        <label>{{ 'Choose quality:'|trans }}</label>
+        <select name="video-mobile-quality" data-for-video="{{ video_attributes.id }}">
             {% for quality_key, quality_label in video_qualities %}
-              <option value="{{ quality_key }}">{{ quality_label }}</option>
+              {% if video_attributes.src == quality_key %}
+                <option selected="selected" value="{{ quality_key }}">{{ quality_label }}</option>
+              {% else %}
+                <option value="{{ quality_key }}">{{ quality_label }}</option>
+              {% endif %}
             {% endfor %}
           </select>
-        </label>
       </div>
       <div class="video-mobile__downloads">
         {% if content.downloads %}
