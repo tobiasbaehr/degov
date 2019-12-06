@@ -38,7 +38,10 @@
  * @ingroup themeable
  */
 #}
-{% set classes = ['iframe'] %}
+{% set classes = [
+  'iframe',
+  'paragraph',
+] %}
 
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
