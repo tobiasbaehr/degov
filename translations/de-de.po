@@ -56,4 +56,4 @@ msgid "Paragraph"
 msgstr "Paragraph"
 
 msgid "Header"
-msgstr "Kopfbereich"
+msgstr "Kopfzeile"
