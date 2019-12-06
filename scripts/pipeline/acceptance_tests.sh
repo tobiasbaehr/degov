@@ -81,7 +81,7 @@ cd degov-project
 rm composer.lock
 
 _info "### Install profile"
-_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" "degov/degov_devel_git_lfs:dev-feature/DEGOV-737-fixColorSchemaUi" --update-with-all-dependencies
+_composer require --no-progress "degov/degov:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" degov/degov_devel_git_lfs:dev-$RELEASE_BRANCH --update-with-all-dependencies
 
 PATH="$(pwd)/bin/:$PATH"
 export PATH
