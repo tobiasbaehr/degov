@@ -87,12 +87,13 @@
 /* Social Media placeholders */
 .js-social-media-code__message {
     background: #a5a8a8;
-    color: #ffffff;
+    color: #0A0A0A;
     margin: 20px 0;
     padding: 20px;
 }
 
 .js-social-media-code__message a {
-    color: #ffffff;
+    color: #0A0A0A;
+    text-decoration: underline;
     font-weight: bold;
 }

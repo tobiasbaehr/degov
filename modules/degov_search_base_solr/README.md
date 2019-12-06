@@ -6,7 +6,12 @@
 
 #### Run Docker image
 ```
-docker run -d -p 8983:8983 --name="solr_nrwgov" -v ~/Dev/degov/nrw-project-1/docroot/profiles/contrib/nrwgov/solr_7_config/:/own_config solr:7.7
+cd degov_nrw-project/
+docker run -p 8983:8983 --name="solr_nrwgov" -v $(pwd)/docroot/profiles/contrib/nrwgov/solr_7_config/:/own_config solr:7.7
+
+# Or as a background deamon:
+docker run -d -p 8983:8983 --name="solr_nrwgov" -v $(pwd)/docroot/profiles/contrib/nrwgov/solr_7_config/:/own_config solr:7.7
+
 ```
 
 #### Add core

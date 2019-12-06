@@ -14,8 +14,10 @@
 #}
 {%
 set media_classes = [
-    'video',
-    'clearfix',
+  'video',
+  'clearfix',
+  'skin--background-primary',
+  'row',
 ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
@@ -23,7 +25,7 @@ set media_classes = [
   <div class="video__video">
     <div class="video js-social-media-code"{{ content.field_media_video_embed_field|quickedit_attr }}></div>
   </div>
-  <div class="video__extra-info">
+  <div class="video__extra-info below-video col-xs-12 info">
     {% if content.field_media_accessibility|field_value %}
       <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
         {{ content.field_media_accessibility|field_value }}

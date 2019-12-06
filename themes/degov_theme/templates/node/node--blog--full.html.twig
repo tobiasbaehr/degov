@@ -64,7 +64,7 @@
 
     {# Tags #}
     {% if content.field_tags|field_value %}
-      <div class="tags">
+      <div class="tags container">
         {{ content.field_tags }}
       </div>
     {% endif %}
@@ -72,7 +72,7 @@
     {# Social media sharing #}
     {% if node.field_social_media and node.field_social_media.value == '1' %}
       {% if content.shariff_field %}
-        <div class="sharing">
+        <div class="sharing container">
           {{ content.shariff_field }}
         </div>
       {% endif %}

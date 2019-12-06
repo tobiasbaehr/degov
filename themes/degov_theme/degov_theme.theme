@@ -302,3 +302,21 @@ function degov_theme_suggestions_html_alter(array &$suggestions) {
 function degov_theme_preprocess_block__footer(array &$variables) {
   FooterBlockPreprocess::preprocess($variables);
 }
+
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+function degov_theme_suggestions_container_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+
+
+  if (isset($element['#type']) && $element['#type'] == 'view') {
+    $suggestions[] = 'container__' . $element['#name'];
+    $suggestions[] = 'container__' . $element['#name'] . '__' . $element['#display_id'];
+  }
+
+  if (isset($element['#type']) && $element['#type'] == 'container' && isset($element['children']['#type'])) {
+    $suggestions[] = 'container__' . $element['children']['#type'];
+  }
+}
