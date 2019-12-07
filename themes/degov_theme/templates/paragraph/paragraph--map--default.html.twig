@@ -50,7 +50,7 @@
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
   {% if content.field_title|field_value or content.field_sub_title|field_value %}
-    <div class="paragraph__header">
+    <div class="paragraph__header skin--font-secondary">
       {% if content.field_title_link|field_value %}
       <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
         {% endif %}
