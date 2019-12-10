@@ -58,3 +58,8 @@ Feature: deGov - Users
     And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
     Then I should see text matching "Library" after a while
     And I go back to the main window
+
+  Scenario: I prove that I do not see the user profile page as a guest user
+    Given I have dismissed the cookie banner if necessary
+    And I am on "/user/1"
+    And I should see text matching "You are not authorized to access this page." via translated text
