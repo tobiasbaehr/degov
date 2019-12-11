@@ -58,7 +58,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
     }
 
     // If previous search was not for Media, run a search on linkable Media now.
-    if ($target_type !== 'media') {
+    if ($target_type !== 'media' && $target_type !== 'user' && $target_type !== 'taxonomy_term') {
       $mediaResults = \Drupal::service('media_file_links.file_suggester')
         ->findBySearchString($string, FALSE);
 
