@@ -45,8 +45,8 @@ Feature: deGov - Menu editing
     Then I choose "Allgemein" from tab menu
     And I fill in "edit-field-tags-0-target-id" with "d"
     And I trigger the keydown event on "#edit-field-tags-0-target-id"
-    Then I should see HTML content matching "degov_demo_content (6) [tags]" after a while
-    Then I should not see HTML content matching "A document with a fixed title [Dokument, dummy.pdf]"
+    Then I should see HTML content matching "degov_demo_content (6)" after a while
+    Then I should not see HTML content matching "A document with a PDF [Dokument, dummy.pdf]"
 
   Scenario: I check that autocomplete suggestions for users do not include Media entities
     Given I have dismissed the cookie banner if necessary
@@ -56,5 +56,14 @@ Feature: deGov - Menu editing
     Then I should see text matching "To limit access to this term by" after a while
     And I fill in "edit-access-user" with "a"
     And I trigger the keydown event on "#edit-access-user"
-    Then I should see HTML content matching "admin (1) [user]" after a while
-    And I should not see HTML content matching "A document with a fixed title [Dokument, dummy.pdf]"
+    Then I should see HTML content matching "admin" after a while
+    And I should not see HTML content matching "A document with a PDF [Dokument, dummy.pdf]"
+
+  Scenario: I check that node autocomplete suggestions outside of menu links do not include Media entities
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/node/add/faq#edit-group-content"
+    And I fill in "edit-field-faq-related-0-target-id" with "a"
+    And I trigger the keydown event on "#edit-field-faq-related-0-target-id"
+    Then I should see HTML content matching "FAQ demo" after a while
+    And I should not see HTML content matching "A document with a PDF [Dokument, dummy.pdf]"
