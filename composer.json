@@ -131,6 +131,9 @@
                 "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-07-18/w3c-rel-validation-2454915-25-D8.patch",
                 "2664016 - Adding a new batch set while the batch is running breaks batch order": "https://www.drupal.org/files/issues/2018-06-06/2664016-58.patch"
             },
+            "drupal/embed": {
+                "3100972 - Updating to Embed 1.2 database update fails": "https://www.drupal.org/files/issues/2019-12-17/3100972-7-fix-embed-update.patch"
+            },
             "drupal/entity_embed": {
                 "2832504 - Send the CKEditor instance ID to the embed.preview route": "https://www.drupal.org/files/issues/2832504-2.patch"
             },
