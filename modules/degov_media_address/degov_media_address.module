@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\degov_common\Common;
+use Drupal\media\MediaInterface;
 
 /**
  * Implements hook_preprocess().
@@ -20,24 +21,47 @@ function degov_media_address_preprocess(&$variables, $hook, &$info) {
  */
 function degov_media_address_preprocess_media__address(&$variables) {
   if (!empty($variables['elements']['#view_mode'])
-    && ($variables['elements']['#view_mode'] == 'osm_map' )) {
+    && $variables['elements']['#view_mode'] === 'osm_map') {
     $address = $variables['elements']['#media'];
-    if ($address instanceof \Drupal\media\MediaInterface) {
+    if ($address instanceof MediaInterface) {
       $location = $address->get('field_address_location');
       if (!$location->isEmpty()) {
         // Assign the unique ID for every map paragraph we have.
         $map_id = uniqid('map-');
         $variables['content']['map_id'] = $map_id;
         // Further settings for the different maps.
-        if ($variables['elements']['#view_mode'] == 'osm_map') {
-          // Add latitude and longitude.
-          $variables['#attached']['drupalSettings']['maps'][$map_id]['lat'] = $location->lat;
-          $variables['#attached']['drupalSettings']['maps'][$map_id]['lon'] = $location->lon;
-          // Add pin image location.
-          $variables['#attached']['drupalSettings']['maps'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address')
-            . '/images/map-icon.png';
-          $variables['#attached']['drupalSettings']['maps'][$map_id]['type'] = 'leaflet';
+
+        $addressEntity = $variables['media']->get('field_address_address')->getEntity()->toArray();
+
+        $variables['#attached']['drupalSettings']['media_entity_fields'] = [
+          'title'         => $variables['name'],
+          'organization'  => $addressEntity['field_address_address']['0']['organization'],
+          'address_line1' => $addressEntity['field_address_address']['0']['address_line1'],
+        ];
+
+        if (!empty($addressEntity['field_address_address']['0']['address_line2'])) {
+          $variables['#attached']['drupalSettings']['media_entity_fields'] += [
+            'address_line2' => $addressEntity['field_address_address']['0']['address_line2'],
+          ];
         }
+
+        $variables['#attached']['drupalSettings']['media_entity_fields'] += [
+          'postal_code'  => $addressEntity['field_address_address']['0']['postal_code'],
+          'locality'     => $addressEntity['field_address_address']['0']['locality'],
+          'phone_number' => $addressEntity['field_address_phone']['0']['value'],
+          'fax_number'   => $addressEntity['field_address_fax']['0']['value'],
+          'email'        => $addressEntity['field_address_email']['0']['value'],
+          'link_uri'     => $addressEntity['field_address_link']['0']['uri'],
+          'link_title'   => $addressEntity['field_address_link']['0']['title'],
+        ];
+
+        // Add latitude and longitude.
+        $variables['#attached']['drupalSettings']['maps'][$map_id]['lat'] = $location->lat;
+        $variables['#attached']['drupalSettings']['maps'][$map_id]['lon'] = $location->lon;
+        // Add pin image location.
+        $variables['#attached']['drupalSettings']['maps'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address')
+          . '/images/map-icon.png';
+        $variables['#attached']['drupalSettings']['maps'][$map_id]['type'] = 'leaflet';
       }
     }
   }

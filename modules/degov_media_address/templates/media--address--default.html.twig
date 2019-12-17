@@ -23,7 +23,7 @@ set classes = [
   {{ content.contextual_links }}
   <h2 class="address__headline">{{ content.field_title|field_value }}</h2>
   <div class="address__label"><strong>{{ 'Postanschrift:'|trans }}</strong></div>
-  <div class="address__title"{{ content.field_address_title|quickedit_attr }}>{{ content.field_address_title|field_value }}</div>
+  <div class="address__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</div>
   <div class="address__address"{{ content.field_address_address|quickedit_attr }}>{{ content.field_address_address|field_value }}</div>
   {% if content.field_address_email|render %}
     <div class="address__email"{{ content.field_address_email|quickedit_attr }}><span>{{ 'E-Mail:'|trans }} </span>{{ content.field_address_email|field_value }}</div>

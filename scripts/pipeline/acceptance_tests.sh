@@ -140,6 +140,7 @@ if [[ "$2" == "db_dump" ]]; then
     _drush pm:uninstall degov_demo_content
     _drush en degov_demo_content
     _update_translations
+    _drush php-eval 'Drupal\degov\TranslationImporter::importForProfile()'
     _drush_watchdog
 fi
 

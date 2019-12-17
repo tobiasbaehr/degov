@@ -81,6 +81,9 @@ address_1:
   field_address_email: 'admin@example.com'
   status: 1
   field_include_search: 1
+  field_address_link:
+    uri: https://example.com
+    title: Example.com
 citation_1:
   bundle: 'citation'
   name: '{{SUBTITLE}}'
