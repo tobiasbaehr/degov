@@ -23,6 +23,7 @@ class DegovModuleUpdaterTest extends KernelTestBase {
   public static $modules = [
     'system',
     'field',
+    'language',
     'degov_common',
     'media',
     'video_embed_field',
