@@ -46,7 +46,7 @@
 ] %}
 <div{{ attributes.addClass(classes).setAttribute("id", "faq_" ~ paragraph.id()) }}>
   {{ content.contextual_links }}
-  <div class="faq_question"{{ content.field_faq_title|quickedit_attr }} tabindex="0">
+  <div class="faq_question skin--font-secondary"{{ content.field_faq_title|quickedit_attr }} tabindex="0">
     {{ content.field_faq_title|field_value }}
   </div>
   <div class="faq_answer"{{ content.field_faq_text|quickedit_attr }}>

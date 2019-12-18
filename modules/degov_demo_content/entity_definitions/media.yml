@@ -55,12 +55,6 @@ document_2:
   field_description: '{{TEXT}}'
   field_document_preview: '{{MEDIA_ID_IMAGE}}'
   field_include_search: 1
-document_2:
-  bundle: 'document'
-  name: '{{SUBTITLE}}'
-  file: 'word-document.docx'
-  status: 1
-  field_include_search: 1
 audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'
@@ -79,14 +73,17 @@ address_1:
     postal_code: 40476
     locality: 'Düsseldorf'
   field_address_location:
-    lat: '51.2469019'
-    lon: '6.7689973'
+    lon: '6.7712'
+    lat: '51.2469'
   field_address_title: '{{SUBTITLE}}'
   field_address_phone: '0123456789'
   field_address_fax: '0123456789'
   field_address_email: 'admin@example.com'
   status: 1
   field_include_search: 1
+  field_address_link:
+    uri: https://example.com
+    title: Example.com
 citation_1:
   bundle: 'citation'
   name: '{{SUBTITLE}}'

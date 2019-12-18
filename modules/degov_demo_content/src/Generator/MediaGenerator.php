@@ -93,11 +93,9 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function saveEntities($media_to_generate): void {
-    $fields = null;
     // Create the Media entities.
     foreach ($media_to_generate as $media_item_key => $media_item) {
       $this->prepareValues($media_item);
-
       $fields = $this->mediaFileHandler->mapFileFields($media_item, $media_item_key);
       $fields['field_title'] = $media_item['name'];
       $fields['status'] = $media_item['status'] ?? TRUE;
@@ -110,20 +108,9 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
         ];
       }
 
-      if ($media_item_key === 'field_address_address') {
-        $fields['field_address_address'] = [
-          $media_item['field_address_address'] ?? [],
-        ];
-        continue;
+      if (!empty($media_item['field_address_location'])) {
+        $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
       }
-
-      if ($media_item_key === 'field_address_location') {
-        if (!empty($media_item['field_address_location'])) {
-          $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
-          continue;
-        }
-      }
-      
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;

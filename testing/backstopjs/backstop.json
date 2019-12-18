@@ -27,7 +27,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "#degov-slider .carousel-item:nth-child(2).active",
-      "delay": 600,
+      "delay": 3000,
       "hideSelectors": [],
       "removeSelectors": [
         ".alert-dismissible"

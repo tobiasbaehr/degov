@@ -5,6 +5,7 @@ dependencies:
     - field.field.media.address.field_address_address
     - field.field.media.address.field_address_email
     - field.field.media.address.field_address_fax
+    - field.field.media.address.field_address_link
     - field.field.media.address.field_address_location
     - field.field.media.address.field_address_phone
     - field.field.media.address.field_address_title
@@ -21,6 +22,7 @@ dependencies:
     - address
     - field_group
     - geofield
+    - link
     - path
 third_party_settings:
   field_group:
@@ -77,6 +79,7 @@ third_party_settings:
         - field_address_phone
         - field_address_fax
         - field_address_email
+        - field_address_link
       parent_name: group_vertical
       weight: 16
       format_type: tab
@@ -115,6 +118,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_address_link:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_address_location:
     weight: 4

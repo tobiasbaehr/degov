@@ -104,7 +104,7 @@
     {% endif %}
   {% endif %}
   {% if node.field_event_date.value or node.field_event_location.value %}
-    <div class="event__address">
+    <div class="event__address container">
       {% if start_date_timestamp %}
         <div class="event__address__date row">
           <span class="field-label col-xs-4 col-sm-2">{{ 'Wann'|trans }}:</span>
@@ -147,7 +147,7 @@
     </div>
   {% endif %}
 
-  <div class="event__header header">
+  <div class="event__header header container">
 
     {# Tags #}
     {% if content.field_tags|field_value %}

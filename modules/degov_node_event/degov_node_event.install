@@ -120,5 +120,4 @@ function degov_node_event_update_870500() {
 
     $configTranslation->save(TRUE);
   }
-
 }

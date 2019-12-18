@@ -22,7 +22,9 @@
 set media_classes = [
   'video-upload',
   'clearfix',
-]
+  'skin--background-primary',
+  'row',
+  ]
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
@@ -45,7 +47,7 @@ set media_classes = [
       {% endfor %}
     </video>
   </div>
-  <div class="row below-video">
+  <div class="below-video">
     <div class="col-sm-8">
       <div class="video__extra-info">
         <div class="video-upload__top">
