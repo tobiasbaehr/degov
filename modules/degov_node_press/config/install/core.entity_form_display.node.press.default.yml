@@ -68,7 +68,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Allgemein
+      label: Common
       region: content
     group_preview:
       children:
@@ -99,7 +99,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: 'Seitenleiste rechts'
+      label: 'Sidebar right'
       region: content
     group_content:
       children:

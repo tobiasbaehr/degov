@@ -108,3 +108,14 @@ function degov_node_press_update_870000() {
   $config->set('display.press_slider.display_options.block_description', 'Neuste Pressemitteilung (Slider)');
   $config->save(TRUE);
 }
+
+/**
+ * Update existing entity form translations.
+ */
+function degov_node_press_update_880000() {
+  /**
+   * @var \Drupal\degov_common\TranslationImport $translationImport
+   */
+  $translationImport = \Drupal::service('degov_common.translation_import');
+  $translationImport->importConfigTranslation('de', 'core.entity_form_display.node.press.default', drupal_get_path('module', 'degov_node_press') . '/config/install/language/de/core.entity_form_display.node.press.default.yml');
+}
