@@ -188,6 +188,7 @@ function degov_theme_setup(&$install_state) {
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'degov_theme')
+    ->set('admin', 'claro')
     ->save();
 
   \Drupal::service('theme.manager')->resetActiveTheme();

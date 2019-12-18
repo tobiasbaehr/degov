@@ -21,6 +21,7 @@ class CommonTest extends KernelTestBase {
     'system',
     'node',
     'paragraphs',
+    'language',
     'degov_common',
     'config_replace',
     'video_embed_field',

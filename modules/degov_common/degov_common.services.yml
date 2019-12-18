@@ -40,6 +40,7 @@ services:
     arguments: ['@config.factory']
   degov_common.translation_import:
     class: \Drupal\degov_common\TranslationImport
+    arguments: [ '@language.config_factory_override' ]
   degov_common.config_storage_factory:
     class: \Drupal\degov_common\Entity\ConfigStorageFactory
     arguments: ['@config.factory']

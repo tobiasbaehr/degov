@@ -54,3 +54,9 @@ msgstr "Inhalt"
 
 msgid "Paragraph"
 msgstr "Paragraph"
+
+msgid "Header"
+msgstr "Kopfzeile"
+
+msgid "Preview"
+msgstr "Vorschau"
