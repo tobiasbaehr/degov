@@ -52,7 +52,7 @@ default:
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
-    Behat\MinkExtension:
+    Drupal\MinkExtension:
       files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
       browser_name: chrome
       javascript_session: selenium2
