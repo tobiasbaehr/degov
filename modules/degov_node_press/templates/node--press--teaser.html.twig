@@ -90,9 +90,11 @@
 <article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
-  <div class="press__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3">
-        <div class="press__teaser__day">{{ node.field_press_date.value|date('d') }}</div>
-  </div>
+  {% if content.field_press_date %}
+      <div class="press__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3">
+          <div class="press__teaser__day">{{ node.field_press_date.value|date('d') }}</div>
+      </div>
+  {% endif %}
 
   <div class="press__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
         <!-- teaser date -->

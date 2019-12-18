@@ -5,6 +5,7 @@ dependencies:
     - field.field.media.address.field_address_address
     - field.field.media.address.field_address_email
     - field.field.media.address.field_address_fax
+    - field.field.media.address.field_address_link
     - field.field.media.address.field_address_location
     - field.field.media.address.field_address_phone
     - field.field.media.address.field_address_title
@@ -19,6 +20,7 @@ dependencies:
   module:
     - address
     - degov_common
+    - link
     - spamspan
 id: media.address.default
 targetEntityType: media
@@ -54,6 +56,18 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_address_link:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
     region: content
   field_address_phone:
     weight: 2

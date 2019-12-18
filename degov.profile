@@ -4,7 +4,6 @@
  * Enables modules and site configuration for the deGov profile.
  */
 
-
 /**
  * Implements hook_install_tasks().
  *

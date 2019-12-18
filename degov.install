@@ -8,6 +8,14 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
 use Drupal\user\Entity\Role;
 use Symfony\Component\Yaml\Yaml;
+use Drupal\degov\TranslationImporter;
+
+/**
+ * Implements hook_install().
+ */
+function degov_install() {
+  TranslationImporter::importForProfile('degov');
+}
 
 /**
  * Implements hook_requirements().

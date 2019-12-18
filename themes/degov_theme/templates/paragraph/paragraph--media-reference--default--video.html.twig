@@ -56,7 +56,7 @@
   {{ content.contextual_links }}
   <div class="container">
     {% if content.field_title|field_value or content.field_sub_title|field_value %}
-      <div class="paragraph__header mb-5">
+      <div class="paragraph__header skin--font-secondary mb-5">
         {% if content.field_title_link|field_value %}
         <a href="{{ content.field_title_link|field_value }}"{{ content.field_title_link|quickedit_attr }}>
           {% endif %}
