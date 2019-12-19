@@ -59,6 +59,7 @@ function degov_module_setup(&$install_state) {
     'degov_node_overrides'              => 'degov_node_overrides',
     'degov_taxonomies'                  => 'degov_taxonomies',
     'degov_node_normal_page'            => 'degov_node_normal_page',
+    'degov_password_policy'             => 'degov_password_policy',
     'degov_paragraph_text'              => 'degov_paragraph_text',
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
@@ -78,6 +79,7 @@ function degov_module_setup(&$install_state) {
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
     'entity_reference_timer'            => 'entity_reference_timer',
+    'degov_password_policy'             => 'degov_password_policy',
   ];
 
   // See issue https://www.drupal.org/project/search_api/issues/2931562

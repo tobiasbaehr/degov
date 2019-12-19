@@ -424,3 +424,12 @@ function degov_update_870600() {
     \Drupal::service('module_installer')->install(['entity_reference_timer']);
   }
 }
+
+/**
+ * deGov x.x.x - Install the degov_password_policy module
+ */
+function degov_update_999999() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_password_policy')) {
+    \Drupal::service('module_installer')->install(['degov_password_policy']);
+  }
+}
