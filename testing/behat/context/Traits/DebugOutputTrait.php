@@ -5,19 +5,28 @@ namespace Drupal\degov\Behat\Context\Traits;
 use Behat\Behat\Hook\Scope\AfterStepScope;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 
+/**
+ * Trait DebugOutputTrait.
+ */
 trait DebugOutputTrait {
 
   /**
+   * Screenshot count.
+   *
    * @var int
    */
   private $screenshotCount = 0;
 
   /**
+   * Html dump count.
+   *
    * @var int
    */
   private $htmlDumpCount = 0;
 
   /**
+   * Generate step debugging output with scope.
+   *
    * @AfterStep
    */
   public function generateStepDebuggingOutputWithScope(AfterStepScope $scope): void {
@@ -28,17 +37,25 @@ trait DebugOutputTrait {
   }
 
   /**
+   * Close symphony toolbar.
+   *
    * @AfterStep
    */
-  public function closeSymfonyToolbar(AfterStepScope $scope): void  {
+  public function closeSymfonyToolbar(AfterStepScope $scope): void {
     $this->getSession()->executeScript('if (document.querySelector(".sf-toolbar a.hide-button") !== null) { document.querySelector(".sf-toolbar a.hide-button").click(); }');
   }
 
+  /**
+   * Generate current browser view debugging output.
+   */
   public function generateCurrentBrowserViewDebuggingOutput(string $name): void {
     $this->saveHtmlOfPage($name);
     $this->saveScreenshotAsFile($name);
   }
 
+  /**
+   * Save html of page.
+   */
   public function saveHtmlOfPage(string $name): void {
     $dateTime = new \DateTime();
     $filename = $name . '-' . date_format($dateTime, 'H:i:s') . '.html';
@@ -46,6 +63,9 @@ trait DebugOutputTrait {
     file_put_contents($this->computePath() . '/' . $filename, $this->getSession()->getPage()->getContent());
   }
 
+  /**
+   * Save screenshot as file.
+   */
   public function saveScreenshotAsFile(string $name): void {
     $dateTime = new \DateTime();
     $filename = sprintf('%s-%s.png', $name, date_format($dateTime, 'H:i:s'));
@@ -54,6 +74,8 @@ trait DebugOutputTrait {
   }
 
   /**
+   * Check errors with scope.
+   *
    * @AfterStep
    */
   public function checkErrorsWithScope(AfterStepScope $scope): void {
@@ -67,10 +89,11 @@ trait DebugOutputTrait {
 
         try {
           throw new TextNotFoundException(
-            sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
+            sprintf('Task failed due "%s" text on page \'', $pageText . '\''),
             $this->getSession()
           );
-        } catch(TextNotFoundException $exception) {
+        }
+        catch (TextNotFoundException $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput($scope->getFeature()->getTitle());
 
           throw $exception;
@@ -79,6 +102,9 @@ trait DebugOutputTrait {
     }
   }
 
+  /**
+   * Check errors on current page.
+   */
   public function checkErrorsOnCurrentPage(): void {
     if (empty(self::$errorTexts)) {
       return;
@@ -90,10 +116,11 @@ trait DebugOutputTrait {
 
         try {
           throw new TextNotFoundException(
-            sprintf('Task failed due "%s" text on page \'', $pageText.'\''),
+            sprintf('Task failed due "%s" text on page \'', $pageText . '\''),
             $this->getSession()
           );
-        } catch(TextNotFoundException $exception) {
+        }
+        catch (TextNotFoundException $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
@@ -101,6 +128,9 @@ trait DebugOutputTrait {
     }
   }
 
+  /**
+   * Compute path.
+   */
   private function computePath(): string {
     if (!empty($path = getenv('CI_ROOT_DIR'))) {
       return $path;

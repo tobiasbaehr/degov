@@ -1,14 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Drupal\Tests\degov_common\Kernel;
 
 use Drupal\Core\Config\ConfigImporterException;
-use Drupal\degov_common\DegovConfigUpdate;
 use Drupal\KernelTests\KernelTestBase;
 
 /**
- * Class DegovConfigUpdateTest
+ * Class DegovConfigUpdateTest.
  *
  * @package Drupal\Tests\degov_common\Kernel
  */
@@ -24,16 +24,19 @@ class DegovConfigUpdateTest extends KernelTestBase {
     'degov_common',
     'media',
     'video_embed_field',
-    'block'
+    'block',
   ];
 
   /**
-   * @var DegovConfigUpdate
+   * Config update.
+   *
+   * @var \Drupal\degov_common\DegovConfigUpdate
    */
   private $configUpdate;
 
   /**
    * {@inheritdoc}
+   *
    * @throws \Exception
    */
   protected function setUp() : void {
@@ -44,7 +47,7 @@ class DegovConfigUpdateTest extends KernelTestBase {
   }
 
   /**
-   * Test the import validation of degov_module/config/install
+   * Test the import validation of degov_module/config/install.
    *
    * @throws \Exception
    */
@@ -77,7 +80,7 @@ EOF;
   }
 
   /**
-   * Test the import validation  of degov_module/config/install/config_name.yml
+   * Test the import validation  of degov_module/config/install/config_name.yml.
    *
    * @throws \Exception
    */
@@ -108,4 +111,5 @@ EOF;
       throw new \Exception($e->getMessage());
     }
   }
+
 }

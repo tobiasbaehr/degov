@@ -1,15 +1,18 @@
 /**
- * IGNORE CSP HEADERS
+ * @file
+ * IGNORE CSP HEADERS.
+ *
  * Listen to all requests. If a request matches scenario.url
  * then fetch the request again manually, strip out CSP headers
  * and respond to the original request without CSP headers.
- * Allows `ignoreHTTPSErrors: true` BUT... requires `debugWindow: true`
+ * Allows `ignoreHTTPSErrors: true` BUT... requires `debugWindow: true`.
  *
- * see https://github.com/GoogleChrome/puppeteer/issues/1229#issuecomment-380133332
+ * See https://github.com/GoogleChrome/puppeteer/issues/1229#issuecomment-380133332
  * this is the workaround until Page.setBypassCSP lands... https://github.com/GoogleChrome/puppeteer/pull/2324
  *
- * @param      {REQUEST}  request
- * @return     {VOID}
+ * @param {REQUEST}  request
+ *
+ * @return {VOID}
  *
  * Use this in an onBefore script E.G.
   ```
@@ -17,7 +20,6 @@
     require('./removeCSP')(page, scenario);
   }
   ```
- *
  */
 
 const fetch = require('node-fetch');
@@ -27,13 +29,13 @@ const agent = new https.Agent({
 });
 
 module.exports = async function (page, scenario) {
-  const intercept = async (request, targetUrl) => {
+  const intercept = async(request, targetUrl) => {
     const requestUrl = request.url();
 
-    // FIND TARGET URL REQUEST
+    // FIND TARGET URL REQUEST.
     if (requestUrl === targetUrl) {
       const cookiesList = await page.cookies(requestUrl);
-      const cookies = cookiesList.map(cookie => `${cookie.name}=${cookie.value}`).join('; ');
+      const cookies = cookiesList.map(cookie => `${cookie.name} = ${cookie.value}`).join('; ');
       const headers = Object.assign(request.headers(), { cookie: cookies });
       const options = {
         headers: headers,
@@ -53,7 +55,8 @@ module.exports = async function (page, scenario) {
         headers: cleanedHeaders,
         status: result.status
       });
-    } else {
+    }
+else {
       request.continue();
     }
   };

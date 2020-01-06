@@ -1,6 +1,8 @@
 /**
- * Embedded video controller plugin for jQuery
- * Implements easy controls for embedded vimeo and youtube videos
+ * @file
+ * Embedded video controller plugin for jQuery.
+ *
+ * Implements easy controls for embedded vimeo and youtube videos.
  *
  * @author antroxim@gmail.com
  */
@@ -46,22 +48,24 @@
     });
   };
 
-  // Youtube player ready callback
+  // Youtube player ready callback.
   function youtubePlayerReady(event) {
     var iframe = $(event.target.a);
     assignControlls(iframe);
   }
 
-  // Passing events to iframe object
+  // Passing events to iframe object.
   function youtubePlayerStateChange(event) {
     var iframe = $(event.target.a);
     switch (event.data) {
       case 0:
         iframe.trigger('onStop');
         break;
+
       case 1:
         iframe.trigger('onPlay');
         break;
+
       case 2:
         iframe.trigger('onPause');
         break;
@@ -71,14 +75,14 @@
     }
   }
 
-  // Assigning controlls to player to use them
+  // Assigning controlls to player to use them.
   function assignControlls(iframe) {
     var player = iframe.data('player');
     console.log(player);
 
     switch (player.type) {
       case 'vimeo':
-        // Assigning player controls
+        // Assigning player controls.
         player.controls = {
           play: function () {
             player.player.play();
@@ -91,7 +95,7 @@
           }
         };
 
-        // Assigning Vimeo player events
+        // Assigning Vimeo player events.
         player.player.on('play', function () {
           iframe.trigger('onPlay');
         });

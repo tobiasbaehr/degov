@@ -1,8 +1,10 @@
 /**
- * @file shariff-2click.js
+ * @file
+ * shariff-2click.js
  *
  * Changes the behavior of the Shariff sharing buttons in the header paragraph.
  */
+
 (function ($, Drupal) {
 
   'use strict';
@@ -26,7 +28,6 @@
       var sharing = $(this);
       var shariff = $('.shariff', sharing);
       var overlay = $('<div class="sharing-overlay"></div>').appendTo(sharing);
-
 
       // Sets shariff theme.
       var setTheme = function (theme) {

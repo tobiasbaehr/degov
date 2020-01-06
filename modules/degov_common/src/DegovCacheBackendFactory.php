@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_common;
 
-
+use Drupal\memcache_storage\MemcachedBackend;
 use Drupal\Core\Cache\CacheFactoryInterface;
 use Drupal\Core\Cache\CacheTagsChecksumInterface;
 use Drupal\Core\Cache\DatabaseBackend;
@@ -10,10 +10,10 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Site\Settings;
 
 /**
- * Class CacheBackendFactory
+ * Class CacheBackendFactory.
  *
- * This class helps to decide if memcached service is enabled and ready to be used,
- * if not standard database cache is used instead.
+ * This class helps to decide if memcached service is enabled and ready to be
+ * used, if not standard database cache is used instead.
  *
  * @package Drupal\degov_common
  */
@@ -27,7 +27,9 @@ class DegovCacheBackendFactory implements CacheFactoryInterface {
   protected $connection;
 
   /**
-   * Site settings. We need this to check if memcached is supposed to be used as
+   * Site settings.
+   *
+   * We need this to check if memcached is supposed to be used as
    * cache backend. In settings.platform.php memcache_storage settings are only
    * set if the environmental variable has memcache relation in it, so it means
    * there is memcache server instance is available for current container.
@@ -47,12 +49,17 @@ class DegovCacheBackendFactory implements CacheFactoryInterface {
    * Constructs the DatabaseBackendFactory object.
    *
    * @param \Drupal\Core\Database\Connection $connection
-   *   Database connection
+   *   Database connection.
    * @param \Drupal\Core\Site\Settings $settings
+   *   Settings.
    * @param \Drupal\Core\Cache\CacheTagsChecksumInterface $checksum_provider
    *   The cache tags checksum provider.
    */
-  public function __construct(Connection $connection, Settings $settings, CacheTagsChecksumInterface $checksum_provider) {
+  public function __construct(
+    Connection $connection,
+    Settings $settings,
+    CacheTagsChecksumInterface $checksum_provider
+  ) {
     $this->connection = $connection;
     $this->checksumProvider = $checksum_provider;
     $this->settings = $settings;
@@ -74,8 +81,8 @@ class DegovCacheBackendFactory implements CacheFactoryInterface {
       /** @var \Drupal\memcache_storage\DrupalMemcachedInterface $memcachedFactory */
       $memcachedFactory = \Drupal::service('memcache_storage.factory');
 
-      // Prepopulate each cache bin name with the specific prefix to have a clear
-      // and human readable cache bin names everywhere.
+      // Prepopulate each cache bin name with the specific prefix to have a
+      // clear and human readable cache bin names everywhere.
       $bin_name = 'cache_' . $bin;
 
       // Get DrupalMemcache or DrupalMemcached object for the specified bin.
@@ -83,10 +90,11 @@ class DegovCacheBackendFactory implements CacheFactoryInterface {
 
       // Initialize a new object for a class that handles Drupal-specific part
       // of memcached cache backend.
-      return new \Drupal\memcache_storage\MemcachedBackend($bin_name, $memcached, $this->settings, $this->checksumProvider);
+      return new MemcachedBackend($bin_name, $memcached, $this->settings, $this->checksumProvider);
     }
     // If there is no memcache use the Database Backend.
     // @TODO - maybe try to have this also configurable if any other cache backend should be used.
     return new DatabaseBackend($this->connection, $this->checksumProvider, $bin);
   }
+
 }

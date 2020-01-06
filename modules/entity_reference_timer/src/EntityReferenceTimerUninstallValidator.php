@@ -5,10 +5,16 @@ namespace Drupal\entity_reference_timer;
 use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+/**
+ * Class EntityReferenceTimerUninstallValidator.
+ */
 class EntityReferenceTimerUninstallValidator implements ModuleUninstallValidatorInterface {
 
   use StringTranslationTrait;
 
+  /**
+   * Validate.
+   */
   public function validate($module): array {
     $reasons = [];
 

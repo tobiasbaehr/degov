@@ -5,7 +5,7 @@ namespace Drupal\degov_users_roles\Plugin\Menu;
 use Drupal\Core\Menu\MenuLinkDefault;
 
 /**
- * Class WorkbenchMenuLinks
+ * Class WorkbenchMenuLinks.
  *
  * @package Drupal\degov_users_roles\Plugin\Menu
  */

@@ -23,7 +23,7 @@ class SettingsForm extends ConfigFormBase {
   protected $entityDisplayRepository;
 
   /**
-   * Constructs a \Drupal\degov_paragraph_node_reference\Form\SettingsForm object.
+   * SettingsForm constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
@@ -78,7 +78,7 @@ class SettingsForm extends ConfigFormBase {
     // Get all view modes for nodes.
     $view_modes = $this->entityDisplayRepository->getViewModes('node');
 
-    // Create the options array for the form element
+    // Create the options array for the form element.
     $options = [];
     foreach ($view_modes as $key => $value) {
       if ($value['status'] === TRUE) {
@@ -107,4 +107,5 @@ class SettingsForm extends ConfigFormBase {
       ->save();
     parent::submitForm($form, $form_state);
   }
+
 }

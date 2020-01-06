@@ -5,7 +5,9 @@ namespace Drupal\degov\Behat\Context;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 
-
+/**
+ * Class JavaScriptContext.
+ */
 class JavaScriptContext extends RawMinkContext {
 
   private const MAX_DURATION_SECONDS = 1200;
@@ -13,6 +15,8 @@ class JavaScriptContext extends RawMinkContext {
   use DebugOutputTrait;
 
   /**
+   * Select index in dropdown.
+   *
    * @Then /^I select index (\d+) in dropdown named "([^"]*)"$/
    */
   public function selectIndexInDropdown($index, $name) {
@@ -20,8 +24,12 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I scroll to element with id "([^"]*)"$/
+   * Scroll to element with id.
+   *
    * @param string $id
+   *   ID.
+   *
+   * @Then /^I scroll to element with id "([^"]*)"$/
    */
   public function iScrollToElementWithId($id) {
     $this->getSession()->executeScript(
@@ -33,25 +41,31 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I click by selector "([^"]*)" via JavaScript$/
+   * Click by selector.
+   *
    * @param string $selector
+   *   Selector.
+   *
+   * @Then /^I click by selector "([^"]*)" via JavaScript$/
    */
-  public function clickBySelector(string $selector)
-  {
+  public function clickBySelector(string $selector) {
     $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
   }
 
   /**
+   * Css selector has html attribute that matches value.
+   *
    * @Then /^I prove css selector "([^"]*)" has HTML attribute "([^"]*)" that matches value "([^"]*)"$/
    */
   public function cssSelectorHasHtmlAttributeThatMatchesValue($selector, $attribute, $value) {
     if (preg_match("/$value/", $this->getSession()->evaluateScript("jQuery('$selector').attr('$attribute')"))) {
-      return true;
+      return TRUE;
     }
     else {
       try {
         throw new \Exception("CSS selector $selector does not have attribute '$attribute' matching '$value'");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -59,17 +73,20 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Css selector attribute matches value.
+   *
    * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
    */
   public function cssSelectorAttributeMatchesValue($selector, $attribute, $value) {
     if ($this->getSession()
-        ->evaluateScript("jQuery('$selector').css('$attribute')") === $value) {
-      return true;
+      ->evaluateScript("jQuery('$selector').css('$attribute')") === $value) {
+      return TRUE;
     }
     else {
       try {
         throw new \Exception("CSS selector $selector does not match attribute '$attribute' with value '$value'");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -77,6 +94,8 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Scroll to bottom.
+   *
    * @Then /^I scroll to bottom$/
    */
   public function iScrollToBottom(): void {
@@ -85,6 +104,8 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Scroll  to top.
+   *
    * @Then /^I scroll to top$/
    */
   public function iScrollToTop(): void {
@@ -93,6 +114,8 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Focus on the iframe with ID.
+   *
    * @Then I focus on the Iframe with ID :arg1
    */
   public function iFocusOnTheIframeWithId($iframe_id) {
@@ -101,6 +124,7 @@ class JavaScriptContext extends RawMinkContext {
 
   /**
    * Switches out of an frame, into the main window.
+   *
    * @When I go back to the main window
    */
   public function exitFrame() {
@@ -108,17 +132,20 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Verify that field has the value.
+   *
    * @Then I verify that field :selector has the value :value
    */
   public function iVerifyThatFieldHasTheValue($selector, $value) {
     $actual_value = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
-    if($actual_value === $value) {
-      return true;
+    if ($actual_value === $value) {
+      return TRUE;
     }
 
     try {
       throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'. Has: $actual_value");
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -126,17 +153,20 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Verify that field value matches.
+   *
    * @Then I verify that field value of :selector matches :value
    */
   public function iVerifyThatFieldValueMatches(string $selector, string $value): bool {
     $actualValue = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
-    if(preg_match('/' . $value . '/', $actualValue)) {
-      return true;
+    if (preg_match('/' . $value . '/', $actualValue)) {
+      return TRUE;
     }
 
     try {
       throw new \Exception("Element matching selector '$selector' does not have the expected value '$value'.");
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -144,17 +174,20 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Should see elements via javascript.
+   *
    * @Then I should see :number :selector elements via JavaScript
    */
   public function iShouldSeeElementsViaJavaScript(int $number, string $selector) {
-    $numberOfElementsFound = (int)$this->getSession()->evaluateScript("document.querySelectorAll('" . $selector . "').length");
-    if($numberOfElementsFound === $number) {
-      return true;
+    $numberOfElementsFound = (int) $this->getSession()->evaluateScript("document.querySelectorAll('" . $selector . "').length");
+    if ($numberOfElementsFound === $number) {
+      return TRUE;
     }
 
     try {
-      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
-    } catch (\Exception $exception) {
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' . $number);
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -162,26 +195,29 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Set the value of element via javascript.
+   *
    * @Then I set the value of element :selector to :value via JavaScript
    */
-  public function iSetTheValueOfElementViaJavascript(string $selector, string $value)
-  {
+  public function iSetTheValueOfElementViaJavascript(string $selector, string $value) {
     $this->getSession()->evaluateScript(sprintf("jQuery('%s').val('%s').trigger('change');", $selector, $value));
   }
 
   /**
+   * Should see elements via jquery.
+   *
    * @Then I should see :number :selector elements via jQuery
    */
-  public function iShouldSeeElementsViaJquery(int $number, string $selector)
-  {
-    $numberOfElementsFound = (int)$this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
-    if($numberOfElementsFound === $number) {
-      return true;
+  public function iShouldSeeElementsViaJquery(int $number, string $selector) {
+    $numberOfElementsFound = (int) $this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+    if ($numberOfElementsFound === $number) {
+      return TRUE;
     }
 
     try {
-      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' .$number);
-    } catch (\Exception $exception) {
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page, but should be ' . $number);
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -189,22 +225,24 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Should see elements via jquery after a while.
+   *
    * @Then I should see :number :selector elements via jQuery after a while
    */
-  public function iShouldSeeElementsViaJqueryAfterAWhile(int $number, string $selector)
-  {
+  public function iShouldSeeElementsViaJqueryAfterWhile(int $number, string $selector) {
     $startTime = time();
     do {
-      $numberOfElementsFound = (int)$this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
-      if($numberOfElementsFound === $number) {
-        return true;
+      $numberOfElementsFound = (int) $this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+      if ($numberOfElementsFound === $number) {
+        return TRUE;
       }
     } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
     try {
-      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' .$number);
+      throw new \Exception($numberOfElementsFound . ' elements matching css ' . $selector . ' found on the page after ' . self::MAX_DURATION_SECONDS . ' seconds, but should be ' . $number);
 
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -212,6 +250,8 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Trigger event on element.
+   *
    * @Then I trigger the :event event on :selector
    */
   public function iTriggerEventOnElement(string $event, string $selector): void {
@@ -219,22 +259,25 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
+   * Element has the style attribute with values.
+   *
    * @Then element :elementSelector has the style attribute :styleAttribute with value :styleValue
    */
-  public function elementHasTheStyleAttributeWithValue($elementSelector, $styleAttribute, $styleValue)
-  {
+  public function elementHasTheStyleAttributeWithValue($elementSelector, $styleAttribute, $styleValue) {
     $actualValue = $this->getSession()->evaluateScript('jQuery(\'' . $elementSelector . '\').css(\'' . $styleAttribute . '\');');
 
-    if($styleValue === $actualValue) {
+    if ($styleValue === $actualValue) {
       return TRUE;
     }
 
     try {
       throw new \Exception("Expected element " . $elementSelector . " to have CSS " . $styleAttribute . "=" . $styleValue . ", actual value was " . $actualValue);
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
 
   }
+
 }

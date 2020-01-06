@@ -2,12 +2,14 @@
 
 namespace Drupal\degov_common\Controller;
 
-
 use Drupal\Core\Entity\Controller\EntityController;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * Class CommonController.
+ */
 class CommonController extends EntityController {
 
   /**
@@ -26,7 +28,8 @@ class CommonController extends EntityController {
     // Retrieve the entity storage.
     $entity_storage = $this->entityTypeManager->getStorage($entity_type);
     if (!empty($entity_storage)) {
-      // Load the entity to get its bundle, so we can then load the view modes for this bundle.
+      // Load the entity to get its bundle, so we can then load the view modes
+      // for this bundle.
       $entity = $entity_storage->load($entity_id);
       // Check the entity for enabled view modes.
       $query = $this->entityTypeManager->getStorage('entity_view_display')->getQuery();
@@ -62,4 +65,5 @@ class CommonController extends EntityController {
       return $entity->label();
     }
   }
+
 }

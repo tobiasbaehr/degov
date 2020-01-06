@@ -33,13 +33,16 @@ class SettingsForm extends ConfigFormBase {
   protected $entityTypeManager;
 
   /**
-   * Constructs a \Drupal\degov_paragraph_node_reference\Form\SettingsForm object.
+   * SettingsForm constructor.
+   *
+   * Constructs a \Drupal\degov_paragraph_node_reference\Form\SettingsForm
+   * object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
    *   The entity display repository service.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager service.
    */
   public function __construct(ConfigFactoryInterface $config_factory, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager) {
@@ -86,7 +89,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // Get current configuration values
+    // Get current configuration values.
     $front_pages = $this->config('degov_multilingual.settings')->get('front_pages');
     $main_menu = $this->config('degov_multilingual.settings')->get('main_menu');
     $footer_menu = $this->config('degov_multilingual.settings')->get('footer_menu');
@@ -107,31 +110,31 @@ class SettingsForm extends ConfigFormBase {
     }
     // Create field wrappers.
     $form['language'] = [
-      '#title'=> $this->t('Front page settings'),
+      '#title' => $this->t('Front page settings'),
       '#type' => 'fieldset',
       '#tree' => TRUE,
     ];
 
     $form['main_menu'] = [
-      '#title'=> $this->t('Main menu settings'),
+      '#title' => $this->t('Main menu settings'),
       '#type' => 'fieldset',
       '#tree' => TRUE,
     ];
 
     $form['footer_menu'] = [
-      '#title'=> $this->t('Footer menu settings'),
+      '#title' => $this->t('Footer menu settings'),
       '#type' => 'fieldset',
       '#tree' => TRUE,
     ];
 
     $form['footer_bottom_menu'] = [
-      '#title'=> $this->t('Footer bottom menu settings'),
+      '#title' => $this->t('Footer bottom menu settings'),
       '#type' => 'fieldset',
       '#tree' => TRUE,
     ];
 
     $form['header_top_menu'] = [
-      '#title'=> $this->t('Header top menu settings'),
+      '#title' => $this->t('Header top menu settings'),
       '#type' => 'fieldset',
       '#tree' => TRUE,
     ];
@@ -266,4 +269,5 @@ class SettingsForm extends ConfigFormBase {
     Cache::invalidateTags(['degov_multilingual_front_page']);
     parent::submitForm($form, $form_state);
   }
+
 }

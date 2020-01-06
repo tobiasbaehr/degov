@@ -9,23 +9,30 @@ use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\node\Entity\Node;
 
+/**
+ * Class NodeContentTypeFormContext.
+ */
 class NodeContentTypeFormContext extends RawDrupalContext {
 
-	use TranslationTrait;
+  use TranslationTrait;
 
-	use DebugOutputTrait;
+  use DebugOutputTrait;
 
   /**
+   * See element with div class.
+   *
    * @Given /^I see element "([^"]*)" with divclass "([^"]*)"$/
    */
   public function iSeeElementWithDivclass(string $elmnt, $className) {
-    $page = $this->getSession()->getPage(); // get the mink session
+    // Get the mink session.
+    $page = $this->getSession()->getPage();
     $element = $page->find('css', $elmnt . '.' . $className);
 
     if (!$element) {
       try {
         throw new \Exception("Element " . $elmnt . "with classname " . $className . " not found");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -33,6 +40,8 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * Choose from tab menu.
+   *
    * @Given /^I choose "([^"]*)" from tab menu$/
    */
   public function iChooseFromTabMenu(string $text): void {
@@ -56,20 +65,24 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     }
 
     if ($executedScript === FALSE) {
-      throw new \Exception('Could not find text "' . $text .'" in tab menu.');
+      throw new \Exception('Could not find text "' . $text . '" in tab menu.');
     }
 
   }
 
-	/**
-	 * @Given /^I choose "([^"]*)" via translation from tab menu$/
-	 */
-	public function iChooseTranslatedFromTabMenu(string $text): void {
-		$text = $this->translateString($text);
-		$this->iChooseFromTabMenu($text);
-	}
+  /**
+   * Choose translated from tab menu.
+   *
+   * @Given /^I choose "([^"]*)" via translation from tab menu$/
+   */
+  public function iChooseTranslatedFromTabMenu(string $text): void {
+    $text = $this->translateString($text);
+    $this->iChooseFromTabMenu($text);
+  }
 
   /**
+   * Click on toggle button.
+   *
    * @Given /^I click on togglebutton$/
    */
   public function iClickOnTogglebutton() {
@@ -78,11 +91,14 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * Select from right pane.
+   *
    * @Given /^I select "([^"]*)" via translation in uppercase from rightpane$/
    */
   public function iSelectFromRightpane(string $text): void {
     $divLayout = 'div.layout-region.layout-region-node-secondary div.entity-meta.js-form-wrapper.form-wrapper details';
-    $page = $this->getSession()->getPage(); // get the mink session
+    // Get the mink session.
+    $page = $this->getSession()->getPage();
     $elements = $page->findAll("css", $divLayout);
 
     foreach ($elements as $element) {
@@ -96,6 +112,8 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * Choose in select moderation box.
+   *
    * @Given /^I choose "([^"]*)" via translation in selectModerationBox$/
    */
   public function iChooseInSelectModerationBox(string $text): void {
@@ -110,6 +128,8 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * Proof content with title has moderation state.
+   *
    * @Given /^I proof content with title "([^"]*)" has moderation state "([^"]*)"$/
    */
   public function iProofContentWithTitleHasModerationState(string $title, string $state): void {
@@ -138,15 +158,18 @@ class NodeContentTypeFormContext extends RawDrupalContext {
   }
 
   /**
+   * Click on config button.
+   *
    * @Given /^I click on Configbutton "([^"]*)"$/
    */
-  public function iClickOnConfigbutton($arg1)
-  {
+  public function iClickOnConfigbutton($arg1) {
     $this->getSession()
-      ->executeScript('jQuery("table#blocks tr td.block:contains('. $arg1 . ')").parent().find("td").find("ul li a")[0].click()');
+      ->executeScript('jQuery("table#blocks tr td.block:contains(' . $arg1 . ')").parent().find("td").find("ul li a")[0].click()');
   }
 
   /**
+   * Proof fields for display.
+   *
    * @Given /^I proof content type "([^"]*)" has set the following fields for display:$/
    */
   public function proofFieldsForDisplay(string $contentType, TableNode $table) {
@@ -158,7 +181,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
     $hiddenFields = $displayoptions->get('hidden');
 
     foreach ($expectedFieldNames as $fieldName) {
-      if (\array_key_exists($fieldName, $hiddenFields) && ($hiddenFields[$fieldName] === 'true' || $fieldName === true)) {
+      if (\array_key_exists($fieldName, $hiddenFields) && ($hiddenFields[$fieldName] === 'true' || $fieldName === TRUE)) {
         throw new \Exception("Field named '$fieldName' is set to hidden, but is expected to be visible.");
       }
 
@@ -167,4 +190,5 @@ class NodeContentTypeFormContext extends RawDrupalContext {
       }
     }
   }
+
 }

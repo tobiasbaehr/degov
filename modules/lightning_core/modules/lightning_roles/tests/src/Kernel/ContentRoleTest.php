@@ -7,6 +7,8 @@ use Drupal\node\Entity\NodeType;
 use Drupal\user\Entity\Role;
 
 /**
+ * Class ContentRoleTest.
+ *
  * @group lightning
  * @group lightning_roles
  */
@@ -31,6 +33,9 @@ class ContentRoleTest extends KernelTestBase {
     $this->installEntitySchema('user');
   }
 
+  /**
+   * Test content role.
+   */
   public function testContentRole() {
     $node_type = NodeType::create([
       'type' => $this->randomMachineName(),

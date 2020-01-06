@@ -2,11 +2,19 @@
 
 namespace Drupal\degov_govbot_faq;
 
+/**
+ * Class GovBotFieldsMerger.
+ */
 class GovBotFieldsMerger {
 
   /**
+   * Compute text.
+   *
    * @param GovBotFieldsModel[] $govBotFieldModels
+   *   Bot field models.
+   *
    * @return string
+   *   Computed text.
    */
   public function computeText(array $govBotFieldModels): string {
     $text = '';
@@ -18,6 +26,9 @@ class GovBotFieldsMerger {
     return $text;
   }
 
+  /**
+   * Compute plain.
+   */
   private function computePlain(string $text) {
     return trim(strip_tags($text));
   }

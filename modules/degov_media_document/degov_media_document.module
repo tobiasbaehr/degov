@@ -102,7 +102,7 @@ function degov_media_document_preprocess_media(&$variables) {
       if(!empty($documentReference[0]['target_id'])) {
         $file =  File::load($documentReference[0]['target_id']);
         if(!empty($file)) {
-          $variables['preview_icon_class'] = PlaceholderHelper::mapFileToFAIcon($file);
+          $variables['preview_icon_class'] = PlaceholderHelper::mapFileToFaIcon($file);
         }
       }
     }

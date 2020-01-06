@@ -3,8 +3,10 @@
 namespace Drupal\Tests\degov_common\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\degov_common\Entity\ConfigRemover;
 
+/**
+ * Class ConfigRemoverTest.
+ */
 class ConfigRemoverTest extends KernelTestBase {
 
   /**
@@ -21,11 +23,13 @@ class ConfigRemoverTest extends KernelTestBase {
     'paragraphs',
     'file',
     'text',
-    'taxonomy'
+    'taxonomy',
   ];
 
   /**
-   * @var ConfigRemover
+   * Config remover.
+   *
+   * @var \Drupal\degov_common\Entity\ConfigRemover
    */
   private $configRemover;
 
@@ -38,6 +42,9 @@ class ConfigRemoverTest extends KernelTestBase {
     $this->configRemover = \Drupal::service('degov_common.config_remover');
   }
 
+  /**
+   * Test remove list item from configuration.
+   */
   public function testRemoveListItemFromConfiguration() {
     $originalConfigList = \Drupal::configFactory()
       ->getEditable('core.entity_view_mode.taxonomy_term.full');
@@ -52,6 +59,9 @@ class ConfigRemoverTest extends KernelTestBase {
     self::assertArrayNotHasKey('taxonomy', (!empty($updatedConfigList->get('dependencies.module'))) ? array_flip($updatedConfigList->get('dependencies.module')) : [], 'The dependencies.module config key must not contain the "taxonomy" key in the list.');
   }
 
+  /**
+   * Test remove value from configuration.
+   */
   public function testRemoveValueFromConfiguration() {
     $originalConfigList = \Drupal::configFactory()
       ->getEditable('core.entity_view_mode.taxonomy_term.full');

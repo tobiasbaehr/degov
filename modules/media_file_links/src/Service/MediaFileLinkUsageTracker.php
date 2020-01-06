@@ -2,8 +2,6 @@
 
 namespace Drupal\media_file_links\Service;
 
-use Drupal\Core\Cache\Cache;
-use Drupal\Core\Entity\Entity;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
@@ -21,12 +19,23 @@ use Drupal\paragraphs\ParagraphInterface;
  */
 class MediaFileLinkUsageTracker {
 
+  /**
+   * Placeholder handler.
+   *
+   * @var \Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler
+   */
   private $placeholderHandler;
 
+  /**
+   * MediaFileLinkUsageTracker constructor.
+   */
   public function __construct(MediaFileLinkPlaceholderHandler $placeholder_handler) {
     $this->placeholderHandler = $placeholder_handler;
   }
 
+  /**
+   * Track media usage.
+   */
   public function trackMediaUsage(EntityInterface $entity): void {
     $this->deletePriorUsages($entity);
 
@@ -45,24 +54,34 @@ class MediaFileLinkUsageTracker {
     if ($entity instanceof MediaInterface) {
       $this->trackMediaUsageInMedia($entity);
 
-      // This is kind of a stupid workaround, actively watching the referenced entity for updates, then invalidating the referencing entities' caches.
-      // If this issue https://www.drupal.org/project/drupal/issues/2537588 is ever merged, we might be able to use cache tags to achieve this more efficiently.
+      // This is kind of a stupid workaround, actively watching the referenced
+      // entity for updates, then invalidating the referencing entities' caches.
+      // If this issue https://www.drupal.org/project/drupal/issues/2537588 is
+      // ever merged, we might be able to use cache tags to achieve this
+      // more efficiently.
       $mediaUsages = $this->getUsagesByMediaIds([$entity->id()]);
 
       $menuCacheCleared = FALSE;
-      foreach($mediaUsages as $mediaUsage) {
-        if(!$menuCacheCleared && $mediaUsage['referencing_entity_type'] === 'menu_link_content') {
+      foreach ($mediaUsages as $mediaUsage) {
+        if (!$menuCacheCleared && $mediaUsage['referencing_entity_type'] === 'menu_link_content') {
           \Drupal::service('plugin.manager.menu.link')->rebuild();
           $menuCacheCleared = TRUE;
         }
 
-        if(\in_array($mediaUsage['referencing_entity_type'], ['media', 'node', 'paragraph'])) {
+        if (\in_array($mediaUsage['referencing_entity_type'], [
+          'media',
+          'node',
+          'paragraph',
+        ])) {
           \Drupal::service('cache_tags.invalidator')->invalidateTags([$mediaUsage['referencing_entity_type'] . ':' . $mediaUsage['referencing_entity_id']]);
         }
       }
     }
   }
 
+  /**
+   * Track media usage in node.
+   */
   private function trackMediaUsageInNode(NodeInterface $node): void {
     foreach ($node->getFields() as $field) {
       $fieldValue = $field->getString();
@@ -73,6 +92,9 @@ class MediaFileLinkUsageTracker {
     }
   }
 
+  /**
+   * Track media usage in menu link content.
+   */
   private function trackMediaUsageInMenuLinkContent(MenuLinkContentInterface $menuLinkContent): void {
     $linkValue = $menuLinkContent->get('link')->getValue();
     if (!empty($linkValue[0]['uri']) && $this->placeholderHandler->isValidMediaFileLinkPlaceholder($linkValue[0]['uri'])) {
@@ -81,6 +103,9 @@ class MediaFileLinkUsageTracker {
     }
   }
 
+  /**
+   * Track media usage in paragraph.
+   */
   private function trackMediaUsageInParagraph(ParagraphInterface $paragraph): void {
     foreach ($paragraph->getFields() as $field) {
       $fieldValue = $field->getString();
@@ -91,6 +116,9 @@ class MediaFileLinkUsageTracker {
     }
   }
 
+  /**
+   * Track media usage in media.
+   */
   private function trackMediaUsageInMedia(MediaInterface $media): void {
     foreach ($media->getFields() as $field) {
       $fieldValue = $field->getString();
@@ -101,6 +129,9 @@ class MediaFileLinkUsageTracker {
     }
   }
 
+  /**
+   * Store usage.
+   */
   private function storeUsage(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode, int $mediaEntityId): void {
     \Drupal::database()
       ->insert('media_file_links_usage')
@@ -114,8 +145,11 @@ class MediaFileLinkUsageTracker {
       ->execute();
   }
 
+  /**
+   * Delete prior usages.
+   */
   public function deletePriorUsages(EntityInterface $entity): void {
-    switch(TRUE) {
+    switch (TRUE) {
       case $entity instanceof NodeInterface:
       case $entity instanceof MenuLinkContentInterface:
       case $entity instanceof ParagraphInterface:
@@ -126,30 +160,36 @@ class MediaFileLinkUsageTracker {
           ->condition('referencing_entity_langcode', $entity->get('langcode')->getString());
     }
 
-    switch(TRUE) {
+    switch (TRUE) {
       case $entity instanceof NodeInterface:
         $deleteQuery
           ->condition('referencing_entity_type', 'node');
         break;
+
       case $entity instanceof MenuLinkContentInterface:
         $deleteQuery
           ->condition('referencing_entity_type', 'menu_link_content');
         break;
+
       case $entity instanceof ParagraphInterface:
         $deleteQuery
           ->condition('referencing_entity_type', 'paragraph');
         break;
+
       case $entity instanceof MediaInterface:
         $deleteQuery
           ->condition('referencing_entity_type', 'media');
         break;
     }
 
-    if(!empty($deleteQuery)) {
+    if (!empty($deleteQuery)) {
       $deleteQuery->execute();
     }
   }
 
+  /**
+   * Get usages by media IDs.
+   */
   public function getUsagesByMediaIds(array $mediaIds, bool $loadFullEntities = TRUE): array {
     $queryResultsStatement = \Drupal::database()
       ->select('media_file_links_usage', 'mflu')
@@ -167,18 +207,21 @@ class MediaFileLinkUsageTracker {
           case 'media':
             $referencingEntity = Media::load($usage['referencing_entity_id']);
             break;
+
           case 'node':
             $referencingEntity = Node::load($usage['referencing_entity_id']);
             break;
+
           case 'paragraph':
             $referencingEntity = Paragraph::load($usage['referencing_entity_id']);
             break;
+
           case 'menu_link_content':
             $referencingEntity = MenuLinkContent::load($usage['referencing_entity_id']);
             break;
         }
 
-        if($loadFullEntities) {
+        if ($loadFullEntities) {
           $usage['media_entity'] = Media::load($usage['media_entity_id']);
           $usage['referencing_entity'] = $referencingEntity;
           $usage['referencing_entity_field_label'] = $referencingEntity->get($usage['referencing_entity_field'])

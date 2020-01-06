@@ -2,13 +2,18 @@
 
 namespace Drupal\node_action\Form;
 
-
 use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+/**
+ * Class ActionFormTrait.
+ */
 trait ActionFormTrait {
 
-  private function putTogetherHTMLList($entityIds): string {
+  /**
+   * Put together html list.
+   */
+  private function putTogetherHtmlList($entityIds): string {
     $nodesList = '<ul>';
 
     foreach ($entityIds as $entityId => $entityTitle) {
@@ -19,11 +24,17 @@ trait ActionFormTrait {
     return $nodesList;
   }
 
+  /**
+   * Remove message from default action.
+   */
   private function removeMessageFromDefaultAction(): void {
     $this->messenger()->deleteByType('error');
     $this->messenger()->deleteByType('status');
   }
 
+  /**
+   * Redirect to content overview.
+   */
   private function redirectToContentOverview(): RedirectResponse {
     $redirect_url = new Url('system.admin_content');
     $response = new RedirectResponse($redirect_url->toString());

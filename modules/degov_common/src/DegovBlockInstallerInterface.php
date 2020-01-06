@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Drupal\degov_common;
 
 /**
- * Interface DegovBlockInstallerInterface
+ * Interface DegovBlockInstallerInterface.
  *
  * @package Drupal\degov_common
  */

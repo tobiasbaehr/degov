@@ -6,6 +6,9 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 
+/**
+ * Class WebformTest.
+ */
 class WebformTest extends KernelTestBase {
 
   /**
@@ -31,6 +34,9 @@ class WebformTest extends KernelTestBase {
     \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
   }
 
+  /**
+   * Test create.
+   */
   public function testCreate() {
     $paragraph = Paragraph::create([
       'type' => 'webform',

@@ -1,8 +1,10 @@
 /**
- * @file gallery.js
+ * @file
+ * gallery.js
  *
  * Defines the behavior of the media bundle gallery.
  */
+
 (function ($, Drupal) {
 
   'use strict';
@@ -13,8 +15,8 @@
   Drupal.behaviors.gallery = {
     count: 0,
     attach: function (context, settings) {
-      $('.pswp__media-gallery', context).each(function( index ){
-          initPswpMediagallery( this, $(this).next(), settings);
+      $('.pswp__media-gallery', context).each(function (index) {
+          initPswpMediagallery(this, $(this).next(), settings);
       });
     }
   };
@@ -24,10 +26,11 @@
       $('.media-gallery__image-info:not(.small_gallery)', context).html($('.slick-current .image__info', context).html());
       $('.media-gallery__image-info .small_gallery', context).html($('.slick-current .image__info', context).find('span').html());
 
-      if($('.slick-current .image__info', context).find('span').html() === '/'){
+      if ($('.slick-current .image__info', context).find('span').html() === '/') {
         $('.media-gallery__image-info.small_gallery', context).html($('.slick-current .image__info', context).html());
         $('.media-gallery__image-info.small_gallery span:first', context).remove();
-      } else {
+      }
+else {
         $('.media-gallery__image-info.small_gallery', context).html($('.slick-current .image__info', context).html());
       }
     });
@@ -35,11 +38,11 @@
     $slider.on('afterChange', function () {
       $('.media-gallery__image-info:not(.small_gallery)', context).html($('.slick-current .image__info', context).html());
 
-
-      if($('.slick-current .image__info', context).find('span').html() === '/'){
+      if ($('.slick-current .image__info', context).find('span').html() === '/') {
         $('.media-gallery__image-info.small_gallery', context).html($('.slick-current .image__info', context).html());
         $('.media-gallery__image-info.small_gallery span:first', context).remove();
-      } else {
+      }
+else {
         $('.media-gallery__image-info.small_gallery', context).html($('.slick-current .image__info', context).html());
       }
     });
@@ -112,12 +115,13 @@
     if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "0") {
       $('.slick-controls__gallery .slick__download').hide();
       $('.slick-controls__gallery .slick__lightroom').css("right", "0px");
-    } else if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "1") {
+    }
+else if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_download === "1") {
       $('.slick-controls__gallery .slick__download').show();
       $('.slick-controls__gallery .slick__lightroom').css("right", "129px");
     }
 
-    $('.media-gallery-js-open-lightroom', gallery).on("click", {value : currentImages}, function(event){
+    $('.media-gallery-js-open-lightroom', gallery).on("click", {value : currentImages}, function (event) {
       let $index = parseInt($slider.slick('slickCurrentSlide'));
       let $options = {
         index: $index
@@ -143,9 +147,3 @@
   }
 
 })(jQuery, Drupal);
-
-
-
-
-
-

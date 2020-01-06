@@ -2,10 +2,12 @@
 
 namespace Drupal\degov\Behat\Context;
 
-
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 
+/**
+ * Class SmokeTestContext.
+ */
 class SmokeTestContext extends DrupalContext {
 
   use ErrorTrait;
@@ -13,15 +15,22 @@ class SmokeTestContext extends DrupalContext {
   use DebugOutputTrait;
 
   /**
+   * Username.
+   *
    * @var string
    */
   private $username;
 
   /**
+   * Password.
+   *
    * @var string
    */
   private $password;
 
+  /**
+   * SmokeTestContext constructor.
+   */
   public function __construct(array $parameters) {
     $this->username = $parameters['admin_account_credentials']['0'];
     $this->password = $parameters['admin_account_credentials']['1'];
@@ -30,6 +39,8 @@ class SmokeTestContext extends DrupalContext {
   }
 
   /**
+   * Login by custom parameters.
+   *
    * @Given /^I am logged in as user with the account details from Behat config file$/
    */
   public function loginByCustomParameters(): void {
@@ -47,7 +58,8 @@ class SmokeTestContext extends DrupalContext {
     if (!$this->loggedIn()) {
       try {
         throw new \Exception(sprintf("Unable to determine if logged in because 'log_out' link cannot be found for user '%s'", $this->username));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }

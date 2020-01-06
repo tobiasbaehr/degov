@@ -1,9 +1,14 @@
 <?php
 
+/**
+ * @file
+ * Media video post update.
+ */
+
+use Drupal\media\Entity\Media;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\field\Entity\FieldConfig;
-use Drupal\media\Entity\Media;
 
 /**
  * Migrate field_media_published_date to field_media_publish_date.
@@ -36,11 +41,11 @@ function degov_media_video_post_update_migrate_field_date(&$sandbox) {
   $batchSize = 50;
 
   // Handle one pass through.
-  $Ids = \Drupal::entityQuery('media')
+  $ids = \Drupal::entityQuery('media')
     ->condition('bundle', $bundle)
     ->range($sandbox['current'], $batchSize)
     ->execute();
-  $medias = \Drupal\media\Entity\Media::loadMultiple($Ids);
+  $medias = Media::loadMultiple($ids);
   foreach ($medias as $media) {
     /**
      * @var $media Media

@@ -8,13 +8,19 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node_action\AccessChecker\MessagesTrait;
-use Drupal\workflows\Entity\Workflow;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-
+/**
+ * Class ModerationState.
+ */
 class ModerationState extends FormBase {
 
+  /**
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   private $entityTypeManager;
 
   private const DATETIME_STORAGE_FORMAT = 'Y-m-d\TH:i:s';
@@ -23,6 +29,9 @@ class ModerationState extends FormBase {
 
   use ActionFormTrait;
 
+  /**
+   * ModerationState constructor.
+   */
   public function __construct(EntityTypeManagerInterface $entityTypeManager) {
     $this->entityTypeManager = $entityTypeManager;
   }
@@ -36,19 +45,25 @@ class ModerationState extends FormBase {
     );
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getFormId(): string {
     return 'moderation_state_form';
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $this->removeMessageFromDefaultAction();
 
     $entityIds = $this->getRequest()->get('entityIds');
 
-    $nodesList = $this->putTogetherHTMLList($entityIds);
+    $nodesList = $this->putTogetherHtmlList($entityIds);
 
     $form['entity_info'] = [
-      '#markup' => $this->t('Nodes which will be affected by this action:') . $nodesList
+      '#markup' => $this->t('Nodes which will be affected by this action:') . $nodesList,
     ];
 
     $form['moderation_state'] = [
@@ -82,6 +97,9 @@ class ModerationState extends FormBase {
     return $form;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     parent::validateForm($form, $form_state);
 
@@ -90,6 +108,9 @@ class ModerationState extends FormBase {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
     $entityIds = json_decode($form_state->getValue('entity_ids'), TRUE);
 
@@ -101,7 +122,7 @@ class ModerationState extends FormBase {
           [
             '@state' => $this->getWorkflowLabelByKey($form_state->getValue('moderation_state')),
             '@num'   => \count($entityIds),
-            '@date'  => date('d.m.Y, h:i', strtotime($form_state->getValue('date')))
+            '@date'  => date('d.m.Y, h:i', strtotime($form_state->getValue('date'))),
           ])
         );
       }
@@ -121,6 +142,9 @@ class ModerationState extends FormBase {
     $this->redirectToContentOverview();
   }
 
+  /**
+   * Get workflow label by key.
+   */
   private function getWorkflowLabelByKey(string $key) {
     $editorialWorkflow = $this->entityTypeManager->getStorage('workflow')
       ->loadByProperties(['type' => 'content_moderation']);
@@ -129,6 +153,9 @@ class ModerationState extends FormBase {
     return $states[$key]['label'];
   }
 
+  /**
+   * Redirect to content overview.
+   */
   private function redirectToContentOverview(): RedirectResponse {
     $redirect_url = new Url('system.admin_content');
     $response = new RedirectResponse($redirect_url->toString());
@@ -137,9 +164,12 @@ class ModerationState extends FormBase {
     return $response;
   }
 
+  /**
+   * Get all moderation states.
+   */
   private function getAllModerationStates(): array {
     /**
-     * @var Workflow $editorialWorkflow
+     * @var \Drupal\workflows\Entity\Workflow $editorialWorkflow
      */
     $editorialWorkflow = $this->entityTypeManager->getStorage('workflow')
       ->loadByProperties(['type' => 'content_moderation']);
@@ -153,6 +183,9 @@ class ModerationState extends FormBase {
     return $options;
   }
 
+  /**
+   * Schedule moderation state change.
+   */
   private function scheduleModerationStateChange(FormStateInterface $form_state, int $entityId): void {
     $node = Node::load($entityId);
     $node->set('field_scheduled_publish', [
@@ -162,6 +195,9 @@ class ModerationState extends FormBase {
     $node->save();
   }
 
+  /**
+   * Set moderation state.
+   */
   private function setModerationState(FormStateInterface $form_state, int $entityId): void {
     $node = Node::load($entityId);
     $node->set('moderation_state', $form_state->getValue('moderation_state'));

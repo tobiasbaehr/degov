@@ -1,26 +1,28 @@
 <?php
+
 namespace Drupal\degov\Robo\Plugin\Commands;
 
+use Robo\Tasks;
 use degov\Scripts\Robo\Model\InstallationProfile;
 use degov\Scripts\Robo\Model\InstallationProfileCollection;
 use degov\Scripts\Robo\RunsTrait;
-
 
 /**
  * This is project's console commands configuration for Robo task runner.
  *
  * @see http://robo.li/
  */
-class DeGovCommands extends \Robo\Tasks {
+class DeGovCommands extends Tasks {
 
   use RunsTrait;
 
   /**
-   * New DeGov issue
-   *
-   * @command degov:new-issue
+   * New DeGov issue.
    *
    * @param string $gitBranchName
+   *   Git branch name.
+   *
+   * @command degov:new-issue
    *
    * @throws \Exception
    */

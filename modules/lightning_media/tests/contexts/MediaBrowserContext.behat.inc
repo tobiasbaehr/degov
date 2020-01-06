@@ -31,7 +31,7 @@ class MediaBrowserContext extends DrupalSubContextBase {
    * @BeforeScenario
    */
   public function setUp(ScenarioScope $scope) {
-    /** @var MinkContext $mink_context */
+    /** @var \Drupal\DrupalExtension\Context\MinkContext $mink_context */
     $mink_context = $this->getContext(MinkContext::class);
 
     $path = $mink_context->getMinkParameter('files_path');
@@ -56,7 +56,7 @@ class MediaBrowserContext extends DrupalSubContextBase {
    * @When I open the media browser
    */
   public function open($button = 'media_browser') {
-    $this->isJS ? $this->openJS($button) : $this->openNoJS();
+    $this->isJS ? $this->openJs($button) : $this->openNoJs();
   }
 
   /**
@@ -65,7 +65,7 @@ class MediaBrowserContext extends DrupalSubContextBase {
    * @param string $button
    *   (optional) The embed button ID.
    */
-  private function openJS($button = 'media_browser') {
+  private function openJs($button = 'media_browser') {
     $this
       ->getContext(CkEditorContext::class)
       ->execute('editdrupalentity', NULL, ['id' => $button]);
@@ -82,7 +82,7 @@ class MediaBrowserContext extends DrupalSubContextBase {
    * @param string $browser_id
    *   (optional) The entity browser ID.
    */
-  private function openNoJS($browser_id = 'media_browser') {
+  private function openNoJs($browser_id = 'media_browser') {
     $uuid = $this->assertSession()
       ->elementExists('named', ['link', 'Select entities'])
       ->getAttribute('data-uuid');
@@ -112,7 +112,7 @@ class MediaBrowserContext extends DrupalSubContextBase {
     $session = $this->getSession();
 
     $frame = $session->evaluateScript('window.name') ?: $session->evaluateScript('window.active_iframe.name');
-    assert(! empty($frame));
+    assert(!empty($frame));
 
     $button = $assert->elementExists('named', ['button', 'Place'])->getXpath();
 
@@ -163,7 +163,7 @@ END;
    * @When I upload :file
    */
   public function upload($file) {
-    $this->isJS ? $this->uploadJS($file) : $this->uploadNoJS($file);
+    $this->isJS ? $this->uploadJs($file) : $this->uploadNoJs($file);
   }
 
   /**
@@ -172,7 +172,7 @@ END;
    * @param string $file
    *   The path to the file, relative to the test files directory.
    */
-  private function uploadJS($file) {
+  private function uploadJs($file) {
     $this->assertSession()->elementExists('named', ['link', 'Upload'])->click();
     $this->getContext(MinkContext::class)->attachFileToField('File', $file);
     $this->awaitExpression('jQuery("#entity").children().length');
@@ -184,7 +184,7 @@ END;
    * @param string $file
    *   The path to the file, relative to the test files directory.
    */
-  private function uploadNoJS($file) {
+  private function uploadNoJs($file) {
     $assert = $this->assertSession();
 
     // Switch to the "Upload" tab of the media browser, which should be the
@@ -197,13 +197,17 @@ END;
   }
 
   /**
-   * @param $title
-   * @param $file
+   * Create from upload.
+   *
+   * @param string $title
+   *   Title.
+   * @param string $file
+   *   File.
    *
    * @When I create media named :title by uploading :file
    */
   public function createFromUpload($title, $file) {
-    /** @var MinkContext $mink_context */
+    /** @var \Drupal\DrupalExtension\Context\MinkContext $mink_context */
     $mink_context = $this->getContext(MinkContext::class);
     $mink_context->assertAtPath('/entity-browser/iframe/media_browser');
 
@@ -235,7 +239,7 @@ END;
    * @When I create media named :title using the embed code :embed_code
    */
   public function createFromEmbedCode($title, $embed_code) {
-    /** @var MinkContext $mink_context */
+    /** @var \Drupal\DrupalExtension\Context\MinkContext $mink_context */
     $mink_context = $this->getContext(MinkContext::class);
     $mink_context->assertAtPath('/entity-browser/iframe/media_browser');
 

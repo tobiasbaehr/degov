@@ -2,12 +2,14 @@
 
 namespace Drupal\degov_common\Entity;
 
-use Drupal\Core\Entity\Entity;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\node\Entity\Node;
-
+/**
+ * Class EntityService.
+ */
 class EntityService {
 
+  /**
+   * Load.
+   */
   public function load(string $entityType, array $conditions) {
     $query = \Drupal::entityTypeManager()->getStorage($entityType)->getQuery();
     foreach ($conditions as $field => $value) {
@@ -19,4 +21,5 @@ class EntityService {
     }
     return NULL;
   }
+
 }

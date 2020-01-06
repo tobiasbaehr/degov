@@ -2,18 +2,19 @@
 
 namespace Drupal\Tests\degov_paragraph_downloads\Kernel;
 
-use Drupal\easy_breadcrumb\EasyBreadcrumbBuilder;
 use Drupal\language\Entity\ConfigurableLanguage;
-use Symfony\Component\HttpFoundation\Request;
-use Drupal\Core\Extension\ModuleHandler;
-use Drupal\Core\Routing\RequestContext;
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Core\Routing\RouteMatch;
-use Drupal\Core\Url;
-use Drupal\paragraphs\ParagraphsBehaviorManager;
 
+/**
+ * Class ModuleInstallationTest.
+ */
 class ModuleInstallationTest extends KernelTestBase {
 
+  /**
+   * Modules.
+   *
+   * @var array
+   */
   public static $modules = [
     'paragraphs',
     'degov_paragraph_downloads',
@@ -31,22 +32,35 @@ class ModuleInstallationTest extends KernelTestBase {
     'degov_paragraph_downloads_test',
   ];
 
+  /**
+   * Set up.
+   */
   protected function setUp() {
     parent::setUp();
     $this->installEntitySchema('paragraph');
   }
 
+  /**
+   * Test set up.
+   */
   public function testSetup(): void {
     /**
-     * @var ModuleHandler $moduleHandler
+     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
      */
     $moduleHandler = \Drupal::service('module_handler');
     self::assertTrue($moduleHandler->moduleExists('degov_paragraph_downloads'));
     self::assertTrue($moduleHandler->getModule('degov_paragraph_downloads'));
   }
 
+  /**
+   * Test config translation.
+   */
   public function testConfigTranslation() {
-    $this->installSchema('locale', ['locales_location', 'locales_source', 'locales_target']);
+    $this->installSchema('locale', [
+      'locales_location',
+      'locales_source',
+      'locales_target',
+    ]);
     $this->installConfig(['degov_paragraph_downloads_test']);
     $localeConfigManager = \Drupal::service('locale.config_manager');
 
@@ -61,4 +75,5 @@ class ModuleInstallationTest extends KernelTestBase {
     $result = $localeConfigManager->hasTranslation('degov_paragraph_downloads_test.no_translation', $language->getId());
     $this->assertFalse($result, 'There is no translation for  degov_paragraph_downloads_test.no_translation_id configuration.');
   }
+
 }

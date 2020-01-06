@@ -5,10 +5,14 @@ namespace Drupal\entity_reference_timer\Command;
 use Drupal\entity_reference_timer\FieldSwitchService;
 use Drush\Commands\DrushCommands;
 
-
+/**
+ * Class EntityReferenceTimerDrushCommands.
+ */
 class EntityReferenceTimerDrushCommands extends DrushCommands {
 
   /**
+   * Uninstall field.
+   *
    * @command entity_reference_timer:uninstall_field
    */
   public function uninstallField(): void {

@@ -2,13 +2,12 @@
 
 namespace Drupal\degov_common\Controller;
 
-
 use Drupal\Core\Entity\Controller\EntityViewController;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
 
 /**
- * Class MediaViewController
+ * Class MediaViewController.
  *
  * @package Drupal\degov_common\Controller
  */
@@ -42,11 +41,13 @@ class MediaViewController extends EntityViewController {
     return $page;
   }
 
+  // @codingStandardsIgnoreStart
   /**
    * {@inheritdoc}
    */
   public function view(EntityInterface $media, $view_mode = 'full'): array {
     return parent::view($media, $view_mode);
   }
+  // @codingStandardsIgnoreEnd
 
 }

@@ -5,17 +5,18 @@ namespace Drupal\degov_common;
 use Drupal\Core\Config\StorageInterface;
 
 /**
- * Interface DegovConfigManager
+ * Interface DegovConfigManagerInterface.
  *
  * @package Drupal\degov_common
  */
-interface DegovConfigManager {
+interface DegovConfigManagerInterface {
 
   /**
    * Imports all the changes for the block configuration with batch.
    *
    * @param \Drupal\Core\Config\StorageInterface $sourceStorage
+   *   Source storage.
    */
-  public function configImport(StorageInterface $sourceStorage) : void ;
+  public function configImport(StorageInterface $sourceStorage) : void;
 
 }

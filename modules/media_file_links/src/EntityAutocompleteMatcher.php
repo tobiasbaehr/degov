@@ -2,6 +2,7 @@
 
 namespace Drupal\media_file_links;
 
+use Drupal\Core\Entity\EntityAutocompleteMatcher as EntityAutocompleteMatcherBase;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
 
@@ -10,7 +11,7 @@ use Drupal\Component\Utility\Tags;
  *
  * @package Drupal\media_file_links
  */
-class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMatcher {
+class EntityAutocompleteMatcher extends EntityAutocompleteMatcherBase {
 
   /**
    * Gets matched labels based on a given search string.
@@ -47,7 +48,8 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
           $status = '';
 
           $key = $label . ' (' . $entity_id . ')';
-          // Strip things like starting/trailing white spaces, line breaks and tags.
+          // Strip things like starting/trailing white spaces, line breaks
+          // and tags.
           $key = preg_replace('/\s\s+/', ' ', str_replace("\n", '', trim(Html::decodeEntities(strip_tags($key)))));
           // Names containing commas or quotes must be wrapped in quotes.
           $key = Tags::encode($key);

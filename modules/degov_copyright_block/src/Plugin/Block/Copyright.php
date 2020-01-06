@@ -9,6 +9,7 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Provides a copyright block with the current year and the site name.
+ *
  * @Block(
  *   id = "degov_copyright_block",
  *   admin_label = @Translation("Copyright"),
@@ -55,4 +56,5 @@ class Copyright extends BlockBase implements BlockPluginInterface {
 
     return $block;
   }
+
 }

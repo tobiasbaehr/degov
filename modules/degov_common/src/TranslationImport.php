@@ -3,24 +3,24 @@
 namespace Drupal\degov_common;
 
 /**
- * Class TranslationImport
+ * Class TranslationImport.
  *
  * @package Drupal\degov_common
  */
 class TranslationImport {
 
   /**
+   * Import.
+   *
    * Imports the german translations from the directory translations of the
    * component.
    *
-   * @param $name
+   * @param string $name
    *   The name of the item for which the path is requested. Ignored for
    *   $type 'core'.
-   * @param $type
+   * @param string $type
    *   The type of the item; one of 'core', 'profile', 'module', 'theme', or
    *   'theme_engine'.
-   *
-   * @return void
    */
   public function import(string $name, string $type = 'module') : void {
     $filepath = drupal_get_path($type, $name) . '/translations/de-de.po';
@@ -44,4 +44,5 @@ class TranslationImport {
     $batch = locale_translate_batch_build([$file->uri => $file], $options);
     batch_set($batch);
   }
+
 }

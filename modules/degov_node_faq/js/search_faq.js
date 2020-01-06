@@ -1,8 +1,10 @@
 /**
- * @file search_faq.js
+ * @file
+ * search_faq.js
  *
  * Defines the behavior of the FAQ search page.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';

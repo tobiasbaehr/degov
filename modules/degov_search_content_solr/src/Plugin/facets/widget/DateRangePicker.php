@@ -69,7 +69,7 @@ class DateRangePicker extends WidgetPluginBase {
             unset($options['query']['f'][$key]);
           }
         }
-        $options['query']['f'][] = $this->facet->getUrlAlias().':[date_min TO date_max]';
+        $options['query']['f'][] = $this->facet->getUrlAlias() . ':[date_min TO date_max]';
         $url->setOptions($options);
         $facetUrl = $url->toString();
       }
@@ -102,7 +102,7 @@ class DateRangePicker extends WidgetPluginBase {
         'data-drupal-date-format' => 'd.m.Y',
         'class' => ['date-from'],
         'placeholder' => $this->t('dd.mm.yy'),
-        'aria-label' => $this->t('From date')
+        'aria-label' => $this->t('From date'),
       ],
     ];
     $form['date_filter_wrapper']['date_to'] = [
@@ -123,7 +123,7 @@ class DateRangePicker extends WidgetPluginBase {
         'data-drupal-date-format' => 'dd.mm.yy',
         'class' => ['date-to'],
         'placeholder' => $this->t('dd.mm.yy'),
-        'aria-label' => $this->t('To date')
+        'aria-label' => $this->t('To date'),
       ],
     ];
     // Attach the jquery datepicker library.
@@ -168,12 +168,12 @@ class DateRangePicker extends WidgetPluginBase {
    */
   public function defaultConfiguration() {
     return [
-        'display_relative' => FALSE,
-        'granularity' => SearchApiDate::FACETAPI_DATE_MONTH,
-        'date_display' => '',
-        'relative_granularity' => 1,
-        'relative_text' => TRUE,
-      ] + parent::defaultConfiguration();
+      'display_relative' => FALSE,
+      'granularity' => SearchApiDate::FACETAPI_DATE_MONTH,
+      'date_display' => '',
+      'relative_granularity' => 1,
+      'relative_text' => TRUE,
+    ] + parent::defaultConfiguration();
   }
 
   /**
@@ -212,7 +212,6 @@ class DateRangePicker extends WidgetPluginBase {
 
     return $form;
   }
-
 
   /**
    * {@inheritdoc}

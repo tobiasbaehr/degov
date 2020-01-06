@@ -6,22 +6,37 @@ use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
-
+/**
+ * Class FAQAccess.
+ */
 class FAQAccess {
 
   /**
-   * @var ParagraphsExtractor
+   * Paragraph extractor.
+   *
+   * @var \Drupal\paragraphs\Entity\ParagraphsExtractor
    */
   private $paragraphsExtractor;
 
-  public function __construct(ParagraphsExtractor $paragraphsExtractor)
-  {
+  /**
+   * FAQAccess constructor.
+   */
+  public function __construct(ParagraphsExtractor $paragraphsExtractor) {
     $this->paragraphsExtractor = $paragraphsExtractor;
   }
 
+  /**
+   * Check if is accessible on  site.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   *
+   * @return bool
+   *   True if accessible.
+   */
   public function isAccessibleOnSite(NodeInterface $node): bool {
     $accessResult = TRUE;
-    $faqListParagraphs = $this->paragraphsExtractor->getFAQListParagraphs($node);
+    $faqListParagraphs = $this->paragraphsExtractor->getFaqListParagraphs($node);
 
     if ($node->getType() === 'faq') {
 

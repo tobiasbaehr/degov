@@ -13,6 +13,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterface {
 
   /**
+   * Route provider.
+   *
    * @var \Drupal\Core\Routing\RouteProviderInterface
    */
   protected $routeProvider;
@@ -20,8 +22,10 @@ class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterfac
   /**
    * Creates a WorkbenchMenuLinks instance.
    *
-   * @param $base_plugin_id
-   * @param RouteProviderInterface $route_provider
+   * @param string $base_plugin_id
+   *   Base plugin id.
+   * @param \Drupal\Core\Routing\RouteProviderInterface $route_provider
+   *   Route provider.
    */
   public function __construct($base_plugin_id, RouteProviderInterface $route_provider) {
     $this->routeProvider = $route_provider;
@@ -46,10 +50,10 @@ class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterfac
     try {
       $this->routeProvider->getRouteByName('view.media.media_page_list');
       $links[] = [
-          'title' => 'Media',
-          'route_name' => 'view.media.media_page_list',
-          'weight' => 15,
-        ] + $base_plugin_definition;
+        'title' => 'Media',
+        'route_name' => 'view.media.media_page_list',
+        'weight' => 15,
+      ] + $base_plugin_definition;
     }
     catch (\Exception $e) {
       // Don't create the menu link if the route does not exist.
@@ -57,4 +61,5 @@ class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterfac
 
     return $links;
   }
+
 }

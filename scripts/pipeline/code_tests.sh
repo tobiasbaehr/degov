@@ -36,7 +36,7 @@ while [ $doWhile -eq "0" ]; do
 done
 
 _info "### Setting up project folder"
-_composer --no-progress create-project degov/degov-project:dev-$RELEASE_BRANCH --no-install
+_composer --no-progress create-project degov/degov-project:dev-feature/DEGOV-1051-adhere-to-drupal-coding-standards --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"

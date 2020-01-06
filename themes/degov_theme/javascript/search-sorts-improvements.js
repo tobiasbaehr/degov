@@ -1,3 +1,6 @@
+/**
+ * @file
+ */
 
 (function ($) {
   'use strict';
@@ -9,7 +12,7 @@
    */
   Drupal.behaviors.SearchSortsImprovements = {
     attach: function (context) {
-      var $dropdownControl =  $('.dropdown-title-holder', context);
+      var $dropdownControl = $('.dropdown-title-holder', context);
       $dropdownControl.once('dropdown-title-holder').each(function (i) {
         $('.search-api-sorts a').click(function () {
           // Mute table sort text.

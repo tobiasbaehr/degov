@@ -53,8 +53,11 @@ class MediaFileLinkWidget extends LinkWithAttributesWidget {
     }
   }
 
+  /**
+   * Validate internal uri format.
+   */
   private static function validateInternalUriFormat(string $uri, string $inputElementValue): bool {
-    if(parse_url($uri, PHP_URL_SCHEME) === 'internal'
+    if (parse_url($uri, PHP_URL_SCHEME) === 'internal'
       && strpos($inputElementValue, '<front>') !== 0
       && !\in_array($inputElementValue[0], ['/', '?', '#'], TRUE)
       && !\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($inputElementValue)) {

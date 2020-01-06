@@ -5,7 +5,7 @@ namespace Drupal\degov_common;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
- * Class DegovLocaleUpdate
+ * Class DegovLocaleUpdate.
  *
  * @package Drupal\degov_common
  */
@@ -22,6 +22,7 @@ class DegovLocaleUpdate {
    * DegovLocaleUpdate constructor.
    *
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   Module handler.
    */
   public function __construct(ModuleHandlerInterface $module_handler) {
     $this->moduleHandler = $module_handler;
@@ -54,7 +55,7 @@ class DegovLocaleUpdate {
     // translations will be overwritten by imported strings.
     $options = _locale_translation_default_update_options();
     locale_translation_clear_status();
-    $batch = locale_translation_batch_update_build(array(), $langcodes, $options);
+    $batch = locale_translation_batch_update_build([], $langcodes, $options);
     batch_set($batch);
   }
 
