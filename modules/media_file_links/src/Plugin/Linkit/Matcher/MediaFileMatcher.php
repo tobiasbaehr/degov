@@ -2,10 +2,8 @@
 
 namespace Drupal\media_file_links\Plugin\Linkit\Matcher;
 
-use Drupal\Core\Database\TransactionNameNonUniqueException;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
-
 
 /**
  * Provides specific LinkIt matchers for our custom entity type.
@@ -17,7 +15,6 @@ use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
  *   provider = "media_file_links"
  * )
  */
-
 class MediaFileMatcher extends EntityMatcher {
 
   /**
@@ -25,9 +22,9 @@ class MediaFileMatcher extends EntityMatcher {
    */
   public function defaultConfiguration(): array {
     return parent::defaultConfiguration() + [
-        'result_description' => '',
-        'group_by_bundle' => FALSE,
-      ];
+      'result_description' => '',
+      'group_by_bundle' => FALSE,
+    ];
   }
 
   /**
@@ -40,7 +37,7 @@ class MediaFileMatcher extends EntityMatcher {
     $result_description = $this->configuration['result_description'];
     if (!empty($result_description)) {
       $summary[] = $this->t('Result description: @result_description', [
-        '@result_description' => $result_description
+        '@result_description' => $result_description,
       ]);
     }
 
@@ -85,11 +82,11 @@ class MediaFileMatcher extends EntityMatcher {
    * {@inheritdoc}
    */
   public function getMatches($string): array {
-    $mediaEntities = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), true);
+    $mediaEntities = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), TRUE);
     $returnMatches = [];
 
-    if(!empty($mediaEntities)) {
-      foreach($mediaEntities as $mediaEntity) {
+    if (!empty($mediaEntities)) {
+      foreach ($mediaEntities as $mediaEntity) {
         $returnMatches[$mediaEntity['id']] = [
           'title' => $mediaEntity['title'],
           'description' => sprintf(

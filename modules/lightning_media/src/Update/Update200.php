@@ -9,6 +9,8 @@ use Drupal\Core\StringTranslation\TranslationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
+ * Class Update200.
+ *
  * @Update("2.0.0")
  */
 final class Update200 implements ContainerInjectionInterface {

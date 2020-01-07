@@ -1,7 +1,4 @@
 <?php
-/**
- * @file MediaSearch.php.
- */
 
 namespace Drupal\degov_theme\Preprocess;
 
@@ -9,7 +6,7 @@ use Drupal\file\Entity\File;
 use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 
 /**
- * Class MediaSearch
+ * Class MediaSearch.
  *
  * @package Drupal\degov_theme\Preprocess
  */
@@ -19,8 +16,9 @@ class MediaSearch {
    * Preprocess media for media search result list.
    *
    * @param array $variables
+   *   Variables.
    */
-  static public function preprocess(array &$variables) {
+  public static function preprocess(array &$variables) {
     if ($variables['view_mode'] === 'search') {
       /** @var \Drupal\media\Entity\Media $media */
       $media = $variables['media'];
@@ -91,6 +89,9 @@ class MediaSearch {
     }
   }
 
+  /**
+   * Item list contains file entity instance.
+   */
   private static function itemListContainsFileEntityInstance($parentEntity): bool {
     if (!$parentEntity->isEmpty() && $parentEntity->entity->get('image') instanceof FileFieldItemList && $parentEntity->entity->get('image')->entity instanceof File) {
       return TRUE;
@@ -98,4 +99,5 @@ class MediaSearch {
 
     return FALSE;
   }
+
 }

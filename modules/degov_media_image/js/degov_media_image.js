@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 (function ($) {
   'use strict';
 
@@ -22,7 +26,8 @@
         copyright_field_form_item.removeClass('form-disabled');
         copyright_field_closest_label.addClass(required_class);
         vertical_tab.addClass(required_class);
-      } else {
+      }
+else {
         copyright_field.val('').prop('required', false).removeClass('required').prop('disabled', 'disabled');
         copyright_field_form_item.addClass('form-disabled');
         copyright_field_closest_label.removeClass(required_class);

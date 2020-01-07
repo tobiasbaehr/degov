@@ -47,7 +47,9 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   protected $wktGenerator;
 
   /**
-   * @var MediaFileHandler
+   * Media file handler.
+   *
+   * @var \Drupal\degov_demo_content\MediaFileHandler
    */
   private $mediaFileHandler;
 
@@ -60,6 +62,8 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    *   The EntityTypeManager.
    * @param \Drupal\geofield\WktGenerator $wktGenerator
    *   The Geofield WktGenerator.
+   * @param \Drupal\degov_demo_content\MediaFileHandler $mediaFileHandler
+   *   Media file handler.
    */
   public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
     parent::__construct($moduleHandler, $entityTypeManager);

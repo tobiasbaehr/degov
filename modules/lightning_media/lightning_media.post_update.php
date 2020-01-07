@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Lightning media post update.
+ */
+
 use Drupal\system\Entity\Action;
 
 /**

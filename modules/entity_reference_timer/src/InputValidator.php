@@ -5,9 +5,14 @@ namespace Drupal\entity_reference_timer;
 use Drupal\entity_reference_timer\Plugin\Field\Exception\NoStartButEndException;
 use Drupal\entity_reference_timer\Plugin\Field\Exception\StartAfterEndException;
 
-
+/**
+ * Class InputValidator.
+ */
 class InputValidator {
 
+  /**
+   * Handle date input exception.
+   */
   public static function handleDateInputException(array $element): void {
     $startDate = $element['start_date']['#value']['date'];
     $startTime = $element['start_date']['#value']['time'];

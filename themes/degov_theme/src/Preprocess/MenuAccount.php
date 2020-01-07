@@ -1,7 +1,4 @@
 <?php
-/**
- * @file MenuAccount.php.
- */
 
 namespace Drupal\degov_theme\Preprocess;
 
@@ -11,7 +8,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Twig_Markup;
 
 /**
- * Class MenuAccount
+ * Class MenuAccount.
  *
  * @package Drupal\degov_theme\Preprocess
  */
@@ -37,7 +34,7 @@ class MenuAccount implements ContainerInjectionInterface {
   /**
    * {@inheritdoc}
    */
-  static public function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('renderer')
     );
@@ -47,6 +44,7 @@ class MenuAccount implements ContainerInjectionInterface {
    * Preprocess the menu theme.
    *
    * @param array $vars
+   *   Variables.
    */
   public function preprocess(array &$vars) {
     if ($vars['menu_name'] === 'account') {

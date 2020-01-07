@@ -34,9 +34,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    * NodeGenerator constructor.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
+   *   Module handler.
    * @param Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   Entity type manager.
    * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
+   *   Media generator.
    * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
+   *   Alias cleaner.
    */
   public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
     parent::__construct($moduleHandler, $entityTypeManager);
@@ -85,16 +89,14 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       $node = Node::create($rawNode);
       $node->save();
 
-      /**
-       * Use first node for teasers
-       */
+      // Use first node for teasers.
       if ($teaserPage === NULL) {
         $teaserPage = $node;
         $this->setFrontPage('/node/' . $teaserPage->id());
       }
       else {
         if ($rawNode['type'] !== 'faq') {
-            $nodeIds[] = $node->id();
+          $nodeIds[] = $node->id();
         }
       }
     }
@@ -102,27 +104,40 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
     $this->generateMediaReferenceParagraphs($teaserPage);
   }
 
+  /**
+   * Set front page.
+   *
+   * @param string $path_to_set
+   *   Path to set.
+   */
   private function setFrontPage($path_to_set) {
     $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
-    if(empty($original_front_page)) {
-      // save original front page
+    if (empty($original_front_page)) {
+      // Save original front page.
       $front = \Drupal::config('system.site')->get('page.front');
       \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
     }
     \Drupal::configFactory()->getEditable('system.site')->set('page.front', $path_to_set)->save();
   }
 
+  /**
+   * Reset front page.
+   */
   private function resetFrontPage() {
     $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
-    if(!empty($original_front_page)) {
+    if (!empty($original_front_page)) {
       $this->setFrontPage($original_front_page);
       \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
     }
   }
 
   /**
+   * Generate paragraphs for node.
+   *
    * @param array $rawParagraphReferences
-   * @param $rawNode
+   *   Raw paragraph references.
+   * @param mixed $rawNode
+   *   Raw node.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
@@ -140,7 +155,10 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
-   * @param $rawParagraph
+   * Resolve encapsulated paragraphs.
+   *
+   * @param mixed $rawParagraph
+   *   Raw paragraph.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
@@ -162,8 +180,12 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
+   * Generate node reference paragraphs.
+   *
    * @param \Drupal\node\Entity\Node $teaserPage
+   *   Teaser page node.
    * @param array $nodeIds
+   *   Node IDs.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
@@ -210,10 +232,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
+   * Reset content.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();
   }
+
 }

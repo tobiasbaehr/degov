@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_common\Routing;
 
-
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
 
@@ -23,4 +22,5 @@ class RouteSubscriber extends RouteSubscriberBase {
       $route->setDefault('_title_callback', '\Drupal\degov_common\Controller\CommonController::mediaTitle');
     }
   }
+
 }

@@ -2,13 +2,16 @@
 
 namespace Drupal\degov_search_content\Plugin\Block;
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Session\AccountInterface;
 
-
 /**
- * Combines facets by blocks into a single block for filtering the search results.
+ * Class DegovSearchContentFilter.
+ *
+ * Combines facets by blocks into a single block for filtering
+ * the search results.
  *
  * @Block(
  *   id = "degov_search_content_filter",
@@ -16,6 +19,7 @@ use Drupal\Core\Session\AccountInterface;
  * )
  */
 class DegovSearchContentFilter extends BlockBase {
+
   /**
    * {@inheritdoc}
    */
@@ -27,21 +31,21 @@ class DegovSearchContentFilter extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $form['filter'] = array(
+    $form['filter'] = [
       '#type' => 'details',
       '#title' => t('Filter search results'),
       '#open' => TRUE,
       '#attributes' => ['class' => ['block-degov-search-content-filter']],
-    );
+    ];
 
     $ids = [
       'search_content_node_bundle',
       'search_content_tags',
       'search_content_topic',
-      'search_content_node_changed'
+      'search_content_node_changed',
     ];
     foreach ($ids as $id) {
-      $block = \Drupal\block\Entity\Block::load($id);
+      $block = Block::load($id);
       if ($block) {
         $block->disable();
         $form['filter'][$id] = \Drupal::entityTypeManager()
@@ -50,7 +54,7 @@ class DegovSearchContentFilter extends BlockBase {
       }
     }
 
-
     return $form;
   }
+
 }

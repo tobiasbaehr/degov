@@ -82,8 +82,8 @@ class MediaHelper {
    * @return \Drupal\media\MediaTypeInterface
    *   A media bundle that can accept the input value.
    *
-   * @throws \Drupal\lightning_media\Exception\IndeterminateBundleException if
-   * no bundle can be matched to the input value.
+   * @throws \Drupal\lightning_media\Exception\IndeterminateBundleException
+   *   If no bundle can be matched to the input value.
    */
   public function getBundleFromInput($value, $check_access = TRUE, array $bundles = []) {
     // Lightning Media overrides the media_bundle storage handler with a special
@@ -181,7 +181,8 @@ class MediaHelper {
    * @return string
    *   The destination directory URI.
    *
-   * @throws \RuntimeException if the destination directory is not writable.
+   * @throws \RuntimeException
+   *   If the destination directory is not writable.
    */
   public static function prepareFileDestination(MediaInterface $entity) {
     /** @var \Drupal\file\Plugin\Field\FieldType\FileItem $item */

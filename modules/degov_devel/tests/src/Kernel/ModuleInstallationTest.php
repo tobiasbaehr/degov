@@ -3,8 +3,10 @@
 namespace Drupal\Tests\degov_devel\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Core\Extension\ModuleHandler;
 
+/**
+ * Class ModuleInstallationTest.
+ */
 class ModuleInstallationTest extends KernelTestBase {
 
   /**
@@ -15,22 +17,22 @@ class ModuleInstallationTest extends KernelTestBase {
   ];
 
   /**
-   * {@inheritdoc}
+   * Test module can be installed and uninstalled.
    */
-  protected function setUp() {
-    parent::setUp();
-  }
-
   public function testModuleCanBeInstalledAndUninstalled(): void {
     /**
-     * @var ModuleHandler $moduleHandler
+     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
      */
     $this->container->get('module_installer')->install(['degov_devel']);
     self::assertTrue($this->container->get('module_handler')->moduleExists('degov_devel'));
     self::assertTrue($this->container->get('module_handler')->moduleExists('devel'));
     self::assertTrue($this->container->get('module_handler')->moduleExists('webprofiler'));
 
-    $this->container->get('module_installer')->uninstall(['degov_devel', 'webprofiler', 'devel']);
+    $this->container->get('module_installer')->uninstall([
+      'degov_devel',
+      'webprofiler',
+      'devel',
+    ]);
     self::assertFalse($this->container->get('module_handler')->moduleExists('degov_devel'));
     self::assertFalse($this->container->get('module_handler')->moduleExists('devel'));
     self::assertFalse($this->container->get('module_handler')->moduleExists('webprofiler'));

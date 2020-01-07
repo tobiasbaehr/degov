@@ -5,7 +5,6 @@ namespace Drupal\degov_paragraph_block_reference\Plugin\Field\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 
-
 /**
  * Field label formatter for Block Field.
  *
@@ -53,4 +52,5 @@ class BlockRender extends FormatterBase {
     }
     return $elements;
   }
+
 }

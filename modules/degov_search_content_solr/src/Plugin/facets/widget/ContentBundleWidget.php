@@ -31,6 +31,9 @@ class ContentBundleWidget extends DropdownWidget {
     return $build;
   }
 
+  /**
+   * Transform bundle id to name.
+   */
   private function transformBundleIdToName(array $item): array {
     $contentBundleMachineName = $item['#title']['#value'];
 
@@ -40,17 +43,21 @@ class ContentBundleWidget extends DropdownWidget {
 
         if (($entity = \Drupal::entityTypeManager()->getStorage('node_type')->load($contentBundleMachineName)) && $entity instanceof EntityInterface) {
           $item['#title']['#value'] = $entity->label();
-        } else {
+        }
+        else {
           throw new InvalidContentBundleMachineNameException($contentBundleMachineName);
         }
 
-      } elseif (($entity = \Drupal::entityTypeManager()->getStorage('media_type')->load($contentBundleMachineName)) && $entity instanceof EntityInterface) {
+      }
+      elseif (($entity = \Drupal::entityTypeManager()->getStorage('media_type')->load($contentBundleMachineName)) && $entity instanceof EntityInterface) {
         $item['#title']['#value'] = $entity->label();
-      } else {
+      }
+      else {
         throw new InvalidContentBundleMachineNameException($contentBundleMachineName);
       }
 
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       \Drupal::logger('degov_search_content_solr')->error($exception->getMessage() . ' - Passed content bundle machine name was: ' . $contentBundleMachineName);
     }
 

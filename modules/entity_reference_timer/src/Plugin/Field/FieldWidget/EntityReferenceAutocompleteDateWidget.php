@@ -2,7 +2,6 @@
 
 namespace Drupal\entity_reference_timer\Plugin\Field\FieldWidget;
 
-use Drupal;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\Plugin\Field\FieldWidget\EntityReferenceAutocompleteWidget;
@@ -14,6 +13,8 @@ use Drupal\entity_reference_timer\Plugin\Field\Exception\NoStartButEndException;
 use Drupal\entity_reference_timer\Plugin\Field\Exception\StartAfterEndException;
 
 /**
+ * Class EntityReferenceAutocompleteDateWidget.
+ *
  * @FieldWidget(
  *   id = "entity_reference_autocomplete_date",
  *   label = @Translation("Autocomplete with date"),
@@ -55,10 +56,12 @@ class EntityReferenceAutocompleteDateWidget extends EntityReferenceAutocompleteW
   public static function validateElement(array $element, FormStateInterface $formState): void {
     try {
       InputValidator::handleDateInputException($element);
-    } catch (NoStartButEndException $exception) {
+    }
+    catch (NoStartButEndException $exception) {
       $formState->setError($element['start_date'], t('Start date and end date must exist'));
       $formState->setError($element['end_date'], t('Start date and end date must exist'));
-    } catch (StartAfterEndException $exception) {
+    }
+    catch (StartAfterEndException $exception) {
       $formState->setError($element['start_date'], t('Start date must be before end date'));
       $formState->setError($element['end_date'], t('End date must be after start date'));
     }
@@ -93,6 +96,9 @@ class EntityReferenceAutocompleteDateWidget extends EntityReferenceAutocompleteW
     return $date;
   }
 
+  /**
+   * Create date.
+   */
   private function createDate(string $key, string $label, FieldItemListInterface $items, $delta, array $widget): array {
     $cssClasses = [$key];
 

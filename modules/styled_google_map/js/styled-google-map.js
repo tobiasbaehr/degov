@@ -113,7 +113,7 @@
           });
           // Set extra custom classes for easy styling.
           infoBubble.bubble_.className = 'sgmpopup sgmpopup-' + this.category;
-          // infoBubble.close_.src = map_settings.style.active_pin;
+          // infoBubble.close_.src = map_settings.style.active_pin;.
           infoBubble.contentContainer_.className = map_settings.popup.classes.container;
           infoBubble.arrow_.className = map_settings.popup.classes.arrow;
           infoBubble.arrowOuter_.className = map_settings.popup.classes.arrow_outer;
@@ -163,8 +163,8 @@
             markers.push(marker);
 
             if (map_locations[j].popup) {
-              google.maps.event.addListener(marker, 'click', (function(map){
-                  return function() {
+              google.maps.event.addListener(marker, 'click', (function (map) {
+                  return function () {
                       infoBubble.setContent(this.html);
                       for (var i = 0; i < markers.length; i++) {
                          markers[i].setIcon(markers[i].original_icon);
@@ -184,16 +184,17 @@
           var map_center = new google.maps.LatLng(map_settings.map_center.center_coordinates.lat , map_settings.map_center.center_coordinates.lon)
           bounds.extend(map_center);
           map.setCenter(map_center);
-        } else {
+        }
+else {
           map.setCenter(bounds.getCenter());
         }
-        // This is needed to set the zoom after fitbounds,
-        google.maps.event.addListener(map, 'zoom_changed', function() {
+        // This is needed to set the zoom after fitbounds,.
+        google.maps.event.addListener(map, 'zoom_changed', function () {
           zoomChangeBoundsListener =
-              google.maps.event.addListener(map, 'bounds_changed', function(event) {
+              google.maps.event.addListener(map, 'bounds_changed', function (event) {
               var current_zoom = this.getZoom();
               if (current_zoom > parseInt(map_settings.zoom.default) && map.initialZoom == true) {
-                // Change max/min zoom here
+                // Change max/min zoom here.
                 this.setZoom(parseInt(map_settings.zoom.default) - 1);
                 map.initialZoom = false;
               }

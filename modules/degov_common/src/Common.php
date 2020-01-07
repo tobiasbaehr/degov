@@ -2,8 +2,6 @@
 
 namespace Drupal\degov_common;
 
-use Drupal\degov_theming\Service\Template;
-
 /**
  * Class Common.
  *
@@ -41,12 +39,18 @@ class Common {
    */
   public static function addThemeSuggestions(array &$variables, $hook, array &$info, array $options) {
     /**
-     * @var Template $template
+     * @var \Drupal\degov_theming\Service\Template $template
      */
     $template = \Drupal::service('degov_theming.template');
     $template->suggest($variables, $hook, $info, $options);
   }
 
+  /**
+   * Remove content.
+   *
+   * @param array $options
+   *   Options.
+   */
   public static function removeContent(array $options): void {
     $entity_type = $options['entity_type'];
     $entity_bundles = $options['entity_bundles'];
@@ -71,9 +75,14 @@ class Common {
   }
 
   /**
-   * @param $entity_id
-   * @param $entity_bundle
-   * @param $condition_field
+   * Remove entities.
+   *
+   * @param int $entity_id
+   *   Entity ID.
+   * @param string $entity_bundle
+   *   Entity bundle.
+   * @param string $condition_field
+   *   Condition field.
    */
   public static function removeEntities($entity_id, $entity_bundle, $condition_field): void {
     \Drupal::logger($entity_id)
@@ -86,4 +95,5 @@ class Common {
     $entities = $controller->loadMultiple($entity_ids);
     $controller->delete($entities);
   }
+
 }

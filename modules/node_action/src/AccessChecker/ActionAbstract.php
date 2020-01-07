@@ -10,23 +10,58 @@ use Drupal\node\Entity\Node;
 use Drupal\node_action\StringTranslationAdapter;
 use Drupal\permissions_by_term\Service\AccessCheck;
 
-
+/**
+ * Class ActionAbstract.
+ */
 class ActionAbstract {
 
   use MessagesTrait;
 
+  /**
+   * Access check.
+   *
+   * @var \Drupal\permissions_by_term\Service\AccessCheck
+   */
   private $accessCheck;
 
+  /**
+   * Current user.
+   *
+   * @var \Drupal\Core\Session\AccountProxyInterface
+   */
   private $currentUser;
 
+  /**
+   * Permission.
+   *
+   * @var string
+   */
   private $permission;
 
+  /**
+   * Messenger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
   private $messenger;
 
+  /**
+   * Action name.
+   *
+   * @var string
+   */
   private static $actionName;
 
+  /**
+   * String translation adapter.
+   *
+   * @var \Drupal\node_action\StringTranslationAdapter
+   */
   private $stringTranslationAdapter;
 
+  /**
+   * ActionAbstract constructor.
+   */
   public function __construct(
     AccessCheck $accessCheck,
     AccountProxyInterface $currentUser,
@@ -43,6 +78,9 @@ class ActionAbstract {
     $this->stringTranslationAdapter = $stringTranslationAdapter;
   }
 
+  /**
+   * Has permission.
+   */
   public function hasPermission(): bool {
     if (!$this->currentUser->hasPermission($this->permission)) {
       return FALSE;
@@ -51,10 +89,16 @@ class ActionAbstract {
     return TRUE;
   }
 
+  /**
+   * Has permissions by term permission.
+   */
   public function hasPermissionsByTermPermission(Node $node): bool {
     return $this->accessCheck->canUserAccessByNodeId($node->id());
   }
 
+  /**
+   * Can access.
+   */
   public function canAccess(EntityBase $entity) {
     if (!$entity instanceof Node) {
       return AccessResult::neutral();

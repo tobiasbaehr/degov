@@ -5,7 +5,6 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
-use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -39,7 +38,7 @@ class ContentGenerator {
   protected $entityType = '';
 
   /**
-   * Counter for the word generation. Makes generated content more static
+   * Counter for the word generation. Makes generated content more static.
    *
    * @var int
    */
@@ -56,7 +55,9 @@ class ContentGenerator {
    * Constructs a new ContentGenerator instance.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
+   *   Module handler.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   Entity type manager.
    */
   public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager) {
     $this->moduleHandler = $moduleHandler;
@@ -68,7 +69,7 @@ class ContentGenerator {
    */
   public function loadDefinitions(string $definitions_file_name): ?array {
     $definitions_file_path = $this->moduleHandler->getModule('degov_demo_content')
-        ->getPath() . '/entity_definitions/' . $definitions_file_name;
+      ->getPath() . '/entity_definitions/' . $definitions_file_name;
     if (file_exists($definitions_file_path) && is_file($definitions_file_path) && is_readable($definitions_file_path)) {
       return Yaml::parseFile($definitions_file_path);
     }
@@ -77,7 +78,11 @@ class ContentGenerator {
   }
 
   /**
+   * Get demo content  tag ID.
+   *
    * @return int|null|string
+   *   Demo content tag ID.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function getDemoContentTagId() {
@@ -93,7 +98,11 @@ class ContentGenerator {
   }
 
   /**
+   * Get demo content copyright ID.
+   *
    * @return int|null|string
+   *   Demo content copyright ID.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function getDemoContentCopyrightId() {
@@ -134,17 +143,22 @@ class ContentGenerator {
   }
 
   /**
+   * Prepare values.
+   *
    * @param array $rawElement
+   *   Raw element.
    * @param bool $resolveReferences
+   *   Resolve references.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
     foreach ($rawElement as $index => &$value) {
-      if(\is_string($value)) {
+      if (\is_string($value)) {
         $this->replaceValues($rawElement, $value, $index, $resolveReferences);
-      } else {
-        if(\is_array($value)) {
+      }
+      else {
+        if (\is_array($value)) {
           $this->prepareValues($rawElement[$index], $resolveReferences);
         }
       }
@@ -152,20 +166,26 @@ class ContentGenerator {
   }
 
   /**
+   * Replace values.
+   *
    * @param array $rawElement
-   * @param $value
+   *   Raw element.
+   * @param mixed $value
+   *   Value.
    * @param string $index
+   *   Index.
    * @param bool $resolveReferences
+   *   Resolve references.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
-    if($value === '{{DEMOTAG}}') {
+    if ($value === '{{DEMOTAG}}') {
       $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
       return;
     }
 
-    if($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
+    if ($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
       $mediaTypeId = strtolower($mediaTypeId[1]);
       $mediaId = $this->getMedia($mediaTypeId)->id();
       $rawElement[$index] = [
@@ -174,20 +194,20 @@ class ContentGenerator {
       return;
     }
 
-    while(strpos($value, '{{SUBTITLE}}') !== FALSE) {
+    while (strpos($value, '{{SUBTITLE}}') !== FALSE) {
       $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
     }
 
-    while(strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
+    while (strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
       $value = preg_replace('/\{\{TEXT_PLAIN\}\}/', $this->generateBlindText(50), $value, 1);
     }
 
-    while(strpos($value, '{{TEXT}}') !== FALSE) {
+    while (strpos($value, '{{TEXT}}') !== FALSE) {
       $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50, TRUE), $value, 1);
     }
 
-    if($resolveReferences) {
-      while(preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
+    if ($resolveReferences) {
+      while (preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
         $mediaTypeId = strtolower($mediaTypeId[1]);
         $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
         $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
@@ -199,9 +219,14 @@ class ContentGenerator {
   }
 
   /**
+   * Get medias.
+   *
    * @param string $bundle
+   *   Bundle.
    *
    * @return array
+   *   Medias.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function getMedias(string $bundle): array {
@@ -212,16 +237,21 @@ class ContentGenerator {
   }
 
   /**
+   * Get media.
+   *
    * @param string $bundle
+   *   Bundle.
    *
    * @return \Drupal\media\Entity\Media
+   *   Media.
    */
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
     $this->counter++;
     try {
       $index = $this->counter % \count($medias);
-    } catch(\DivisionByZeroError $exception) {
+    }
+    catch (\DivisionByZeroError $exception) {
       throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
     }
     $keys = array_keys($medias);
@@ -229,9 +259,15 @@ class ContentGenerator {
   }
 
   /**
+   * Generate blind text.
+   *
    * @param int $wordCount
+   *   Word count.
+   * @param bool $addLinks
+   *   Add links.
    *
    * @return string
+   *   Generated text.
    */
   public function generateBlindText(int $wordCount, bool $addLinks = FALSE): string {
     $this->counter = 0;
@@ -247,7 +283,10 @@ class ContentGenerator {
   }
 
   /**
+   * Get word.
+   *
    * @return string
+   *   Word.
    */
   protected function getWord(): string {
     $words = explode(' ', self::BLINDTEXT);
@@ -257,10 +296,16 @@ class ContentGenerator {
   }
 
   /**
+   * Load definition by name tag.
+   *
    * @param string $defName
-   * @param $tag
+   *   Def name.
+   * @param mixed $tag
+   *   Tag.
    *
    * @return mixed
+   *   Loaded definition..
+   *
    * @throws \Exception
    */
   protected function loadDefinitionByNameTag(string $defName, $tag) {
@@ -278,6 +323,7 @@ class ContentGenerator {
    *
    * @return array
    *   The filtered definitions.
+   *
    * @throws \Exception
    */
   protected function loadDefinitionByNameType(string $defName, string $type): array {

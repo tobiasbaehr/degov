@@ -7,11 +7,12 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\lightning_core\Plugin\views\filter\Bundle;
 
 /**
- * Class DegovBundle
+ * Class DegovBundle.
  *
  * @package Drupal\degov_common\Plugin\views\filter
  */
 class DegovBundle extends Bundle {
+
   /**
    * {@inheritdoc}
    */
@@ -42,8 +43,10 @@ class DegovBundle extends Bundle {
         }
       }
       $form[$key]['#access'] = TRUE;
-    } else {
+    }
+    else {
       $form[$key]['#access'] = is_null($value) || $argument->isException($value);
     }
   }
+
 }

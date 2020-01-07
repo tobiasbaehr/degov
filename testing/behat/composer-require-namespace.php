@@ -1,5 +1,9 @@
 <?php
-// This file is for Bitbucket pipelines.
+
+/**
+ * @file
+ * This file is for Bitbucket pipelines.
+ */
 
 $file = 'composer.json';
 $data = json_decode(file_get_contents($file), TRUE);

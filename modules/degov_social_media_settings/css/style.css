@@ -42,7 +42,7 @@
   box-shadow: none;
 }
 .social-media-settings button.btn-default:focus {
-  bottom:0;
+  bottom: 0;
   background: transparent;
 }
 .social-media-settings span {
@@ -81,19 +81,19 @@
   background: #008732;
 }
 .social-media-settings__cancel i:before {
-  background: #3C506E;
+  background: #3c506e;
 }
 
 /* Social Media placeholders */
 .js-social-media-code__message {
-    background: #a5a8a8;
-    color: #0A0A0A;
-    margin: 20px 0;
-    padding: 20px;
+  background: #a5a8a8;
+  color: #0a0a0a;
+  margin: 20px 0;
+  padding: 20px;
 }
 
 .js-social-media-code__message a {
-    color: #0A0A0A;
-    text-decoration: underline;
-    font-weight: bold;
+  color: #0a0a0a;
+  text-decoration: underline;
+  font-weight: bold;
 }

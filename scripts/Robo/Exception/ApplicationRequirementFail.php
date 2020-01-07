@@ -2,6 +2,7 @@
 
 namespace degov\Scripts\Robo\Exception;
 
-class ApplicationRequirementFail extends \Exception {
-
-}
+/**
+ * Class ApplicationRequirementFail.
+ */
+class ApplicationRequirementFail extends \Exception {}

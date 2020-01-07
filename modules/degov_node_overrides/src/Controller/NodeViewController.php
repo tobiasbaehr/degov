@@ -1,19 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: onexinternet
- * Date: 20.10.17
- * Time: 12:39
- */
 
 namespace Drupal\degov_node_overrides\Controller;
-
 
 use Drupal\node\Controller\NodeViewController as BaseNodeViewController;
 use Drupal\Core\Entity\FieldableEntityInterface;
 
 /**
- * Class MediaViewController
+ * Class MediaViewController.
  *
  * @package Drupal\degov_node_overrides\Controller
  */

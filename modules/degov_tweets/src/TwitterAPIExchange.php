@@ -18,46 +18,64 @@ class TwitterAPIExchange {
   use SocialMediaAssetsTrait;
 
   /**
+   * OAuth access token.
+   *
    * @var string
    */
-  private $oauth_access_token;
+  private $oauthAccessToken;
 
   /**
+   * OAuth access token secret.
+   *
    * @var string
    */
-  private $oauth_access_token_secret;
+  private $oauthAccessTokenSecret;
 
   /**
+   * Consumer key.
+   *
    * @var string
    */
-  private $consumer_key;
+  private $consumerKey;
 
   /**
+   * Consumer secret.
+   *
    * @var string
    */
-  private $consumer_secret;
+  private $consumerSecret;
 
   /**
+   * Post fields.
+   *
    * @var array
    */
   private $postfields;
 
   /**
+   * Get field.
+   *
    * @var string
    */
   private $getfield;
 
   /**
+   * OAuth.
+   *
    * @var mixed
    */
   protected $oauth;
 
   /**
+   * Url.
+   *
    * @var string
    */
   public $url;
 
   /**
+   * Request method.
+   *
    * @var string
    */
   public $requestMethod;
@@ -100,10 +118,12 @@ class TwitterAPIExchange {
   }
 
   /**
-   * Set settings for the API access object. Requires an array of settings::
-   * oauth access token, oauth access token secret, consumer key, consumer secret
-   * These are all available by creating your own application on dev.twitter.com
-   * Requires the cURL library.
+   * Set settings for the API access object.
+   *
+   * Requires an array of settings::oauth access token,
+   * oauth access token secret, consumer key, consumer secret.
+   * These are all available by creating your own application on
+   * dev.twitter.com. Requires the cURL library.
    *
    * @param array $settings
    *   Settings for TwitterAPIExchange.
@@ -129,10 +149,10 @@ class TwitterAPIExchange {
       $this->messenger->addMessage($message, 'warning');
     }
 
-    $this->oauth_access_token = $settings['oauth_access_token'];
-    $this->oauth_access_token_secret = $settings['oauth_access_token_secret'];
-    $this->consumer_key = $settings['consumer_key'];
-    $this->consumer_secret = $settings['consumer_secret'];
+    $this->oauthAccessToken = $settings['oauth_access_token'];
+    $this->oauthAccessTokenSecret = $settings['oauth_access_token_secret'];
+    $this->consumerKey = $settings['consumer_key'];
+    $this->consumerSecret = $settings['consumer_secret'];
   }
 
   /**
@@ -141,7 +161,8 @@ class TwitterAPIExchange {
    * @param array $array
    *   Array of parameters to send to API.
    *
-   * @throws \Exception When you are trying to set both get and post fields
+   * @throws \Exception
+   *   When you are trying to set both get and post fields.
    *
    * @return TwitterAPIExchange
    *   Instance of self for method chaining
@@ -182,7 +203,7 @@ class TwitterAPIExchange {
    * @return \Drupal\degov_tweets\TwitterAPIExchange
    *   Instance of self for method chaining
    */
-  public function setGetfield($getfieldParams) {
+  public function setGetfield(array $getfieldParams) {
     if ($this->devMode) {
       return self::getDataFromFile('degov_tweets', 'set_get_field.txt');
     }
@@ -219,11 +240,14 @@ class TwitterAPIExchange {
   }
 
   /**
+   * Build OAuth.
+   *
    * Build the Oauth object using params set in construct and additionals
    * passed to this method. For v1.1, see: https://dev.twitter.com/docs/api/1.1.
    *
    * @param string $url
-   *   The API url to use. Example: https://api.twitter.com/1.1/search/tweets.json.
+   *   The API url to use.
+   *   Example: https://api.twitter.com/1.1/search/tweets.json.
    * @param string $requestMethod
    *   Either POST or GET.
    *
@@ -243,10 +267,10 @@ class TwitterAPIExchange {
       $this->messenger->addMessage($message, 'warning');
     }
 
-    $consumer_key = $this->consumer_key;
-    $consumer_secret = $this->consumer_secret;
-    $oauth_access_token = $this->oauth_access_token;
-    $oauth_access_token_secret = $this->oauth_access_token_secret;
+    $consumer_key = $this->consumerKey;
+    $consumer_secret = $this->consumerSecret;
+    $oauth_access_token = $this->oauthAccessToken;
+    $oauth_access_token_secret = $this->oauthAccessTokenSecret;
 
     $oauth = [
       'oauth_consumer_key' => $consumer_key,
@@ -263,7 +287,7 @@ class TwitterAPIExchange {
       $getfields = str_replace('?', '', explode('&', $getfield));
       foreach ($getfields as $g) {
         $split = explode('=', $g);
-        /** In case a null is passed through **/
+        // In case a null is passed through.
         if (isset($split[1])) {
           $oauth[$split[0]] = urldecode($split[1]);
         }
@@ -292,7 +316,8 @@ class TwitterAPIExchange {
    * Perform the actual data retrieval from the API.
    *
    * @param bool $return
-   *   If true, returns data. This is left in for backward compatibility reasons.
+   *   If true, returns data. This is left in for backward
+   *   compatibility reasons.
    * @param array $curlOptions
    *   Additional Curl options for this request.
    *
@@ -301,7 +326,7 @@ class TwitterAPIExchange {
    * @return string
    *   json If $return param is true, returns json data.
    */
-  public function performRequest($return = TRUE, $curlOptions = []) {
+  public function performRequest($return = TRUE, array $curlOptions = []) {
     if ($this->devMode) {
       return self::getDataFromFile('degov_tweets', 'perform_request.txt');
     }
@@ -316,12 +341,12 @@ class TwitterAPIExchange {
     $getfield = $this->getGetfield();
     $postfields = $this->getPostfields();
     $options = [
-        CURLOPT_HTTPHEADER => $header,
-        CURLOPT_HEADER => FALSE,
-        CURLOPT_URL => $this->url,
-        CURLOPT_RETURNTRANSFER => TRUE,
-        CURLOPT_TIMEOUT => 10,
-      ] + $curlOptions;
+      CURLOPT_HTTPHEADER => $header,
+      CURLOPT_HEADER => FALSE,
+      CURLOPT_URL => $this->url,
+      CURLOPT_RETURNTRANSFER => TRUE,
+      CURLOPT_TIMEOUT => 10,
+    ] + $curlOptions;
     if (!is_null($postfields)) {
       $options[CURLOPT_POSTFIELDS] = http_build_query($postfields);
     }
@@ -354,13 +379,16 @@ class TwitterAPIExchange {
    * Private method to generate the base string used by cURL.
    *
    * @param string $baseURI
+   *   Base URI.
    * @param string $method
+   *   Method.
    * @param array $params
+   *   Params.
    *
    * @return string
    *   Built base string
    */
-  private function buildBaseString($baseURI, $method, $params) {
+  private function buildBaseString($baseURI, $method, array $params) {
     $return = [];
     ksort($params);
     foreach ($params as $key => $value) {
@@ -405,16 +433,20 @@ class TwitterAPIExchange {
    * Helper method to perform our request.
    *
    * @param string $url
+   *   Url.
    * @param string $method
-   * @param array $data
+   *   Method.
+   * @param array|null $data
+   *   Data.
    * @param array $curlOptions
+   *   Curl options.
    *
    * @throws \Exception
    *
    * @return string
    *   The json response from the server
    */
-  public function request($url, $method = 'get', $data = NULL, $curlOptions = []) {
+  public function request($url, $method = 'get', $data = NULL, array $curlOptions = []) {
     if (strtolower($method) === 'get') {
       $this->setGetfield($data);
     }

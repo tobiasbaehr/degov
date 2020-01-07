@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 import Navi from './navi';
 import SpeedChecker from './speed_checker';
 import UserAgentChecker from './user_agent_checker';
@@ -10,20 +14,20 @@ import UserAgentChecker from './user_agent_checker';
   'use strict';
 
   /**
-   * Behavior for Video Transcript acordion
+   * Behavior for Video Transcript acordion.
    */
   Drupal.behaviors.videoMobile = {
     attach: function (context, settings) {
-      $('.video-mobile__transcription').once('video-mobile-js').each(function(){
-        $('.video-mobile__transcription__header').click(function(){
+      $('.video-mobile__transcription').once('video-mobile-js').each(function () {
+        $('.video-mobile__transcription__header').click(function () {
           $('.video-mobile__transcription__body').slideToggle();
           $('i', this).toggleClass('fa-caret-right fa-caret-down');
         });
       });
 
-      $('.video-mobile__quality').once('video-mobile-js').each(function(){
-        if($(this).find('select > option').length > 2) {
-          $(this).find('select').on('change', function(event){
+      $('.video-mobile__quality').once('video-mobile-js').each(function () {
+        if ($(this).find('select > option').length > 2) {
+          $(this).find('select').on('change', function (event) {
             let selected_file = $(this).val();
             Drupal.behaviors.videoMobile.setVideoSource('#' + $(this).data('for-video'), selected_file);
             Drupal.behaviors.videoMobile.syncVideoSourceAndQualitySwitcher($(this).data('for-video'));
@@ -32,12 +36,12 @@ import UserAgentChecker from './user_agent_checker';
         }
       });
     },
-    setVideoSource: function(selector, value) {
-      $(selector).replaceWith(function(){
+    setVideoSource: function (selector, value) {
+      $(selector).replaceWith(function () {
         return $(this).attr('src', value);
       });
     },
-    syncVideoSourceAndQualitySwitcher: function(videoId) {
+    syncVideoSourceAndQualitySwitcher: function (videoId) {
       let videoSource = $('#' + videoId).attr('src');
       $('.video-mobile__quality select[data-for-video=' + videoId + ']').val(videoSource);
     }
@@ -65,13 +69,15 @@ import UserAgentChecker from './user_agent_checker';
       if (connection) {
         if (typeof connection.type !== 'undefined') {
           isCellular = (connection.type === 'cellular');
-        } else if (typeof connection.effectiveType !== 'undefined') {
+        }
+else if (typeof connection.effectiveType !== 'undefined') {
           isCellular = (connection.effectiveType !== '4g');
         }
-      } else {
+      }
+else {
         isCellular = userAgentChecker.isMobile();
 
-        if(!isCellular) {
+        if (!isCellular) {
           isCellular = speedChecker.checkSlowLoadTime();
         }
       }

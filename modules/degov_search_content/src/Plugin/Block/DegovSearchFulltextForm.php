@@ -6,10 +6,8 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormState;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\degov_search_content\Form\FullTextSearchForm;
 use Drupal\views\Form\ViewsExposedForm;
 use Drupal\views\Views;
-
 
 /**
  * Provides a block to filter the media search.
@@ -20,6 +18,7 @@ use Drupal\views\Views;
  * )
  */
 class DegovSearchFulltextForm extends BlockBase {
+
   /**
    * {@inheritdoc}
    */
@@ -49,4 +48,5 @@ class DegovSearchFulltextForm extends BlockBase {
     $form['#theme'] = ['views_exposed_form'];
     return $form;
   }
+
 }

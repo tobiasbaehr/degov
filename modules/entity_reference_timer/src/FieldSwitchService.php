@@ -2,40 +2,53 @@
 
 namespace Drupal\entity_reference_timer;
 
-use Drupal\Core\Entity\Display\EntityDisplayInterface;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 
-
+/**
+ * Class FieldSwitchService.
+ */
 class FieldSwitchService {
 
   /**
+   * Field name.
+   *
    * @var string
    */
   public static $fieldName = 'field_node_reference_nodes';
 
   /**
+   * Field type.
+   *
    * @var string
    */
   public static $fieldType = 'entity_reference_date';
 
   /**
+   * Entity type.
+   *
    * @var string
    */
   public static $entityType = 'paragraph';
 
   /**
+   * Bundle.
+   *
    * @var string
    */
   public static $bundle = 'node_reference';
 
   /**
+   * Display.
+   *
    * @var string
    */
   private static $display = 'entity_reference_date_display_default';
 
+  /**
+   * Update field.
+   */
   public static function updateField(): void {
     self::switchFieldStorageAndMigrateContent();
     self::switchFieldWidget();
@@ -43,9 +56,12 @@ class FieldSwitchService {
     self::switchFieldDisplay();
   }
 
+  /**
+   * Switch field display.
+   */
   private static function switchFieldDisplay(): void {
     /**
-     * @var EntityViewDisplayInterface $display
+     * @var \Drupal\Core\Entity\Entity\EntityViewDisplayInterface $display
      */
     $display = EntityViewDisplay::load(self::$entityType . '.' . self::$bundle . '.' . 'default');
 
@@ -58,23 +74,32 @@ class FieldSwitchService {
     ])->save();
   }
 
+  /**
+   * Uninstall field.
+   */
   public static function uninstallField(): void {
     self::$fieldType = 'entity_reference';
     self::$display = 'entity_reference_display_default';
     self::updateField();
   }
 
+  /**
+   * Switch form display.
+   */
   private static function switchFormDisplay(): void {
     /**
-     * @var EntityDisplayInterface $formDisplay
+     * @var \Drupal\Core\Entity\Display\EntityDisplayInterface $formDisplay
      */
     $formDisplay = \Drupal::entityTypeManager()
-       ->getStorage('entity_form_display')
-       ->load(self::$entityType . '.' . self::$bundle . '.' . 'default');
+      ->getStorage('entity_form_display')
+      ->load(self::$entityType . '.' . self::$bundle . '.default');
 
     $formDisplay->setComponent(self::$fieldName, ['weight' => 10])->save();
   }
 
+  /**
+   * Switch field widget.
+   */
   private static function switchFieldWidget(): void {
     $fields = \Drupal::entityTypeManager()->getStorage('field_config')
       ->loadByProperties(['field_name' => self::$fieldName]);
@@ -90,6 +115,9 @@ class FieldSwitchService {
     $newField->save();
   }
 
+  /**
+   * Switch field storage and migrate content.
+   */
   private static function switchFieldStorageAndMigrateContent(): void {
     $database = \Drupal::database();
     $table = 'paragraph__field_node_reference_nodes';

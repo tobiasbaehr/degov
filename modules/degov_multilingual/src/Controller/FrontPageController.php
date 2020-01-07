@@ -23,6 +23,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class FrontPageController implements ContainerInjectionInterface {
 
   /**
+   * Multilingual front page.
+   *
    * @var \Drupal\degov_multilingual\DegovMultilingualFrontPage
    */
   protected $degovMultilingualFrontPage;
@@ -31,6 +33,7 @@ class FrontPageController implements ContainerInjectionInterface {
    * FrontPageController constructor.
    *
    * @param \Drupal\degov_multilingual\DegovMultilingualFrontPage $degovMultilingualFrontPage
+   *   Multilingual front page.
    */
   public function __construct(DegovMultilingualFrontPage $degovMultilingualFrontPage) {
     $this->degovMultilingualFrontPage = $degovMultilingualFrontPage;
@@ -49,6 +52,7 @@ class FrontPageController implements ContainerInjectionInterface {
    * Renders a node for the front_page route.
    *
    * @return array
+   *   Build.
    */
   public function render() {
     $build = $this->degovMultilingualFrontPage->getBuild();
@@ -56,11 +60,9 @@ class FrontPageController implements ContainerInjectionInterface {
     switch ($build) {
       case DegovMultilingualFrontPage::NOT_FOUND:
         throw new NotFoundHttpException();
-        break;
 
       case DegovMultilingualFrontPage::ACCESS_DENIED:
         throw new AccessDeniedHttpException();
-        break;
 
       default:
         return $build;
@@ -72,10 +74,11 @@ class FrontPageController implements ContainerInjectionInterface {
    *
    * @param \Drupal\Core\Session\AccountInterface $account
    *   Run access checks for this account.
-   *
    * @param \Drupal\Core\Routing\RouteMatch $route_match
+   *   Route match.
    *
    * @return \Drupal\Core\Access\AccessResult
+   *   Access result.
    */
   public function access(AccountInterface $account, RouteMatch $route_match) {
     $operation = 'view';
@@ -84,9 +87,11 @@ class FrontPageController implements ContainerInjectionInterface {
       case 'degov_multilingual.front_page.version_history':
         $operation = 'revisions';
         break;
+
       case 'degov_multilingual.front_page.edit_form';
         $operation = 'update';
         break;
+
       case 'degov_multilingual.front_page.delete_form';
         $operation = 'delete';
         break;
@@ -99,11 +104,13 @@ class FrontPageController implements ContainerInjectionInterface {
       if ($node->access($operation, $account)) {
         return AccessResult::allowed();
       }
-    } else {
+    }
+    else {
       return AccessResultForbidden::forbidden();
     }
-    // Check permissions and combine that with any custom access checking needed. Pass forward
-    // parameters from the route and/or request as needed.
+    // Check permissions and combine that with any custom access
+    // checking needed. Pass forward parameters from the route and/or request
+    // as needed.
     return AccessResult::neutral();
   }
 
@@ -116,7 +123,8 @@ class FrontPageController implements ContainerInjectionInterface {
       $url = Url::fromRoute('entity.node.version_history', ['node' => $node->id()]);
       $redirect = new RedirectResponse($url->toString());
       return $redirect;
-    } else {
+    }
+    else {
       throw new NotFoundHttpException();
     }
   }
@@ -125,6 +133,7 @@ class FrontPageController implements ContainerInjectionInterface {
    * Redirect to corresponding edit form.
    *
    * @return \Drupal\Core\Cache\CacheableRedirectResponse
+   *   Cacheable redirect response.
    */
   public function edit() {
     $node = $this->degovMultilingualFrontPage->getObject();
@@ -132,14 +141,17 @@ class FrontPageController implements ContainerInjectionInterface {
       $url = Url::fromRoute('entity.node.edit_form', ['node' => $node->id()]);
       $redirect = new RedirectResponse($url->toString());
       return $redirect;
-    } else {
+    }
+    else {
       throw new NotFoundHttpException();
     }
   }
 
   /**
    * Redirect to corresponding delete form.
+   *
    * @return \Drupal\Core\Cache\CacheableRedirectResponse
+   *   Cacheable redirect response.
    */
   public function delete() {
     $node = $this->degovMultilingualFrontPage->getObject();
@@ -147,8 +159,10 @@ class FrontPageController implements ContainerInjectionInterface {
       $url = Url::fromRoute('entity.node.delete_form', ['node' => $node->id()]);
       $redirect = new RedirectResponse($url->toString());
       return $redirect;
-    } else {
+    }
+    else {
       throw new NotFoundHttpException();
     }
   }
+
 }

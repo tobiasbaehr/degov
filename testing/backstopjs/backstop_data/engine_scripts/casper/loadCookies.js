@@ -1,10 +1,14 @@
+/**
+ * @file
+ */
+
 var fs = require('fs');
 
 module.exports = function (casper, scenario) {
   var cookies = [];
   var cookiePath = scenario.cookiePath;
 
-  // READ COOKIES FROM FILE IF EXISTS
+  // READ COOKIES FROM FILE IF EXISTS.
   if (fs.existsSync(cookiePath)) {
     cookies = JSON.parse(fs.readFileSync(cookiePath));
   }

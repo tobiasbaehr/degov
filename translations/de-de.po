@@ -47,7 +47,10 @@ msgid "The installation profile requires the private file system to be configure
 msgstr "Das Installationsprofil setzt voraus, dass das private Dateisystem konfiguriert ist. Bitte  <a href=\":settings_howto\" target=\"_blank\">bearbeiten</a> Sie Ihre settings.php entsprechend."
 
 msgid "Google Maps"
-msgstr "Google Karte"
+msgstr "Google Maps"
+
+msgid "Google Map"
+msgstr "Google Map"
 
 msgid "Content"
 msgstr "Inhalt"

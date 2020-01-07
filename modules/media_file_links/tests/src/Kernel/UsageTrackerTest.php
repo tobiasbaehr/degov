@@ -11,6 +11,11 @@ use Drupal\menu_link_content\Entity\MenuLinkContent;
  */
 class UsageTrackerTest extends MediaFileLinksTestBase {
 
+  /**
+   * Usage tracker.
+   *
+   * @var mixed
+   */
   private $usageTracker;
 
   /**
@@ -22,6 +27,9 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     $this->usageTracker = \Drupal::service('media_file_links.usage_tracker');
   }
 
+  /**
+   * Test usage record is created from menu link.
+   */
   public function testUsageRecordIsCreatedFromMenuLink() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
     self::assertSame([], $usages);
@@ -40,6 +48,9 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     ], $usages);
   }
 
+  /**
+   * Test usage records are updated on content change.
+   */
   public function testUsageRecordsAreUpdatedOnContentChange() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
     self::assertSame([], $usages);
@@ -56,6 +67,9 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     self::assertSame([], $usages);
   }
 
+  /**
+   * Test usage records are deleted on menu content delete.
+   */
   public function testUsageRecordsAreDeletedOnMenuContentDelete() {
     $usages = $this->usageTracker->getUsagesByMediaIds([$this->supportedMediaId]);
     self::assertSame([], $usages);
@@ -69,6 +83,9 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     self::assertSame([], $usages);
   }
 
+  /**
+   * Create menu item.
+   */
   private function createMenuItem() {
     $menuItem = MenuLinkContent::create([
       'title'     => 'Fna',
@@ -82,6 +99,9 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
     return $menuItem->id();
   }
 
+  /**
+   * Delete menu item.
+   */
   private function deleteMenuItem(int $itemId) {
     $menuItem = MenuLinkContent::load($itemId);
     $menuItem->delete();

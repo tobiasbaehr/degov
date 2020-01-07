@@ -1,8 +1,10 @@
 /**
- * @file map.js
+ * @file
+ * map.js
  *
  * Defines the behavior of the Address paragraph.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';

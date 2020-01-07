@@ -2,6 +2,7 @@
 
 namespace degov\Scripts\Robo\Exception;
 
-class WrongFolderLocation extends \Exception {
-
-}
+/**
+ * Class WrongFolderLocation.
+ */
+class WrongFolderLocation extends \Exception {}

@@ -5,6 +5,9 @@ namespace Drupal\lightning_core;
 use phpDocumentor\Reflection\DocBlock;
 use Symfony\Component\Console\Style\StyleInterface;
 
+/**
+ * Class UpdateTask.
+ */
 class UpdateTask {
 
   /**

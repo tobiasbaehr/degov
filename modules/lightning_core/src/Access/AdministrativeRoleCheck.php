@@ -9,6 +9,9 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\Routing\Route;
 
+/**
+ * Class AdministrativeRoleCheck.
+ */
 class AdministrativeRoleCheck implements AccessInterface {
 
   /**

@@ -1,9 +1,11 @@
 <?php
+
 /**
- * @file theme-settings.php
+ * @file
+ * theme-settings.php
  */
 
-use \Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -28,18 +30,18 @@ function degov_theme_form_system_theme_settings_alter(&$form, FormStateInterface
       '#type' => 'fieldset',
       '#title' => t('Social network @counter', ['@counter' => $i]),
     ];
-    $form['social-icons'][$i]['font-awesome-classes'] = array(
+    $form['social-icons'][$i]['font-awesome-classes'] = [
       '#type'          => 'textfield',
       '#title'         => t('Font awesome classes'),
       '#default_value' => $settings[$i]['font-awesome-classes'],
       '#description'   => t("Enter the font awesome classes."),
-    );
+    ];
 
-    $form['social-icons'][$i]['url'] = array(
+    $form['social-icons'][$i]['url'] = [
       '#type'          => 'url',
       '#title'         => t('Social network url'),
       '#default_value' => $settings[$i]['url'],
       '#description'   => t("Enter the absolute path."),
-    );
+    ];
   }
 }

@@ -5,7 +5,9 @@ namespace Drupal\node_action;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 
-
+/**
+ * Class StringTranslationAdapter.
+ */
 class StringTranslationAdapter {
 
   use StringTranslationTrait;

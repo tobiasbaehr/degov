@@ -11,13 +11,17 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 /**
+ * Class MediaAccessSubscriber.
+ *
  * Redirect to front page if user should not be allowed to access
  * canonical route of media entity.
  */
 class MediaAccessSubscriber implements EventSubscriberInterface {
 
   /**
-   * @var  AccountInterface
+   * Current user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
    */
   protected $currentUser;
 
@@ -25,15 +29,17 @@ class MediaAccessSubscriber implements EventSubscriberInterface {
    * MediaManagerSubscriber constructor.
    *
    * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   Current user.
    */
   public function __construct(AccountInterface $current_user) {
     $this->currentUser = $current_user;
   }
 
   /**
-   * @param GetResponseEvent $event
+   * Request handler.
    *
-   * @return void
+   * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
+   *   Get response event.
    */
   public function onRequest(GetResponseEvent $event) {
     $request = $event->getRequest();
@@ -59,4 +65,5 @@ class MediaAccessSubscriber implements EventSubscriberInterface {
     $events[KernelEvents::REQUEST][] = ['onRequest'];
     return $events;
   }
+
 }

@@ -8,43 +8,49 @@ use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\node\NodeInterface;
 
 /**
- * Class DegovMultilingualFrontPage
+ * Class DegovMultilingualFrontPage.
  *
  * @package Drupal\degov_multilingual
  */
 class DegovMultilingualFrontPage {
 
   /**
+   * Not found.
+   *
    * @var int
    */
   const NOT_FOUND = 1;
 
   /**
+   * Access denied.
+   *
    * @var int
    */
   const ACCESS_DENIED = 2;
 
   /**
+   * Language manager.
+   *
    * @var \Drupal\Core\Language\LanguageManagerInterface
    */
   protected $languageManager;
 
   /**
+   * Entity type manager.
+   *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $entityTypeManager;
 
   /**
+   * Config factory.
+   *
    * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   protected $configFactory;
 
   /**
    * DegovMultilingualFrontPage constructor.
-   *
-   * @param \Drupal\Core\Language\LanguageManagerInterface $languageManager
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    */
   public function __construct(LanguageManagerInterface $languageManager, EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory) {
     $this->languageManager = $languageManager;
@@ -54,8 +60,6 @@ class DegovMultilingualFrontPage {
 
   /**
    * Get the front page build.
-   *
-   * @return int|array
    */
   public function getBuild() {
     $node = $this->getObject();
@@ -80,8 +84,6 @@ class DegovMultilingualFrontPage {
 
   /**
    * Get the object of the current frontpage.
-   *
-   * @return bool|\Drupal\Core\Entity\EntityInterface|null
    */
   public function getObject() {
     $nid = FALSE;

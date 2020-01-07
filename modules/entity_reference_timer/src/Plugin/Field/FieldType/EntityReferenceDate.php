@@ -7,6 +7,8 @@ use Drupal\Core\Field\Plugin\Field\FieldType\EntityReferenceItem;
 use Drupal\Core\TypedData\DataDefinition;
 
 /**
+ * Class EntityReferenceDate.
+ *
  * @FieldType(
  *   id = "entity_reference_date",
  *   label = @Translation("Entity reference date"),

@@ -1,6 +1,8 @@
 <?php
+
 namespace Drupal\degov\Robo\Plugin\Commands;
 
+use Robo\Tasks;
 use degov\Scripts\Robo\RunsTrait;
 
 /**
@@ -8,12 +10,12 @@ use degov\Scripts\Robo\RunsTrait;
  *
  * @see http://robo.li/
  */
-class ExampleCommands extends \Robo\Tasks {
+class ExampleCommands extends Tasks {
 
   use RunsTrait;
 
   /**
-   * Example for your own Robo Tasks
+   * Example for your own Robo Tasks.
    *
    * @throws \Exception
    */
@@ -25,7 +27,7 @@ class ExampleCommands extends \Robo\Tasks {
     $class = __METHOD__;
     $here = __FILE__;
 
-    $composerFile = json_decode(file_get_contents($this->rootFolderPath . '/composer.json'), true);
+    $composerFile = json_decode(file_get_contents($this->rootFolderPath . '/composer.json'), TRUE);
     $projectName = $composerFile['name'];
 
     $this->say("Hi, I'm a example project Robo Task.

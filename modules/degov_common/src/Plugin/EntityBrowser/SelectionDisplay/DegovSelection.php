@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_common\Plugin\EntityBrowser\SelectionDisplay;
 
-
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\entity_browser\Plugin\EntityBrowser\SelectionDisplay\MultiStepDisplay;
 

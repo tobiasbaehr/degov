@@ -36,7 +36,7 @@ while [ $doWhile -eq "0" ]; do
 done
 
 _info "### Setting up project folder"
-_composer --no-progress create-project degov/degov-project:dev-$RELEASE_BRANCH --no-install
+_composer --no-progress create-project degov/degov-project:dev-feature/DEGOV-1051-adhere-to-drupal-coding-standards --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
@@ -51,3 +51,10 @@ _composer dump-autoload
 # phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
 _info "### Running PHPUnit and KernelBase tests"
 (cd docroot/profiles/contrib/degov && phpunit --colors=auto --log-junit $BITBUCKET_CLONE_DIR/test-reports/junit.xml --testdox)
+
+_info "### Checking coding standards"
+bin/phpcs --report-full=$BITBUCKET_CLONE_DIR/coding-standards.txt || true
+PHPCS=$(grep "ERROR" $BITBUCKET_CLONE_DIR/coding-standards.txt | wc -l || true)
+if [[ $PHPCS -ne 0 ]]; then
+  exit 1
+fi

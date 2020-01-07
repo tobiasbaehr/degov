@@ -8,17 +8,28 @@ use Drupal\Core\Field\FieldItemInterface;
 use Drupal\entity_reference_timer\Plugin\Field\FieldType\EntityReferenceDate;
 use Drupal\node\NodeInterface;
 
+/**
+ * Class EntityReferenceTimerVisibilityService.
+ */
 class EntityReferenceTimerVisibilityService {
 
   /**
+   * Database.
+   *
    * @var \Drupal\Core\Database\Connection
    */
   private $database;
 
+  /**
+   * EntityReferenceTimerVisibilityService constructor.
+   */
   public function __construct(Connection $database) {
     $this->database = $database;
   }
 
+  /**
+   * Get next expiration timestamp from item.
+   */
   public function getNextExpirationTimestampFromItem(EntityReferenceDate $item): ?int {
     $now = time();
     $closestTimestamp = NULL;
@@ -34,6 +45,9 @@ class EntityReferenceTimerVisibilityService {
     return $closestTimestamp;
   }
 
+  /**
+   * Add expiration date to parant node.
+   */
   public function addExpirationDateToParentNode(FieldItemInterface $item): void {
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node instanceof NodeInterface) {
@@ -55,7 +69,8 @@ class EntityReferenceTimerVisibilityService {
               ->fields(['expires' => $nextExpirationTime])
               ->execute();
           }
-        } else {
+        }
+        else {
           $this->database->insert('cachetags')
             ->fields([
               'tag'           => $cacheTagString,
@@ -68,6 +83,9 @@ class EntityReferenceTimerVisibilityService {
     }
   }
 
+  /**
+   * Count visible items in array.
+   */
   public function countVisibleItemsInArray(array $items): int {
     $visibleItems = 0;
     foreach ($items as $item) {
@@ -78,6 +96,9 @@ class EntityReferenceTimerVisibilityService {
     return $visibleItems;
   }
 
+  /**
+   * Check if item is visible.
+   */
   public function isVisible(FieldItemInterface $item): bool {
     if ($this->referenceItemSupportsTimedDisplay($item)) {
       return $this->isDateInThe('past', $item->get('start_date')
@@ -88,6 +109,9 @@ class EntityReferenceTimerVisibilityService {
     return TRUE;
   }
 
+  /**
+   * Check if items are visible.
+   */
   public function isVisibleArray(array $item): bool {
     if ($this->timedDisplayFieldsPresent($item)) {
       return $this->isDateInThe('past', $item['start_date']) && $this->isDateInThe('future', $item['end_date']);
@@ -96,6 +120,9 @@ class EntityReferenceTimerVisibilityService {
     return TRUE;
   }
 
+  /**
+   * Check if date is in the past or future.
+   */
   private function isDateInThe(string $era, $value): bool {
     if (empty($value)) {
       return TRUE;
@@ -113,11 +140,17 @@ class EntityReferenceTimerVisibilityService {
     }
   }
 
+  /**
+   * Reference item supports timed display.
+   */
   public function referenceItemSupportsTimedDisplay(FieldItemInterface $item): bool {
     $properties = $item->getProperties(TRUE);
     return $this->timedDisplayFieldsPresent($properties);
   }
 
+  /**
+   * Timed display fields present.
+   */
   private function timedDisplayFieldsPresent($fields): bool {
     return \array_key_exists('start_date', $fields) && \array_key_exists('end_date', $fields);
   }
