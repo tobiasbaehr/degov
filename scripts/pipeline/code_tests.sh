@@ -12,7 +12,7 @@ COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
 COMPOSER_MEMORY_LIMIT=-1
 export COMPOSER_MEMORY_LIMIT
-RELEASE_BRANCH=release/7.6.x-dev
+RELEASE_BRANCH=release/8.0.x-dev
 export RELEASE_BRANCH
 
 _info() {
@@ -36,7 +36,7 @@ while [ $doWhile -eq "0" ]; do
 done
 
 _info "### Setting up project folder"
-_composer --no-progress create-project degov/degov-project:dev-feature/DEGOV-1051-adhere-to-drupal-coding-standards --no-install
+_composer --no-progress create-project degov/degov-project:dev-$RELEASE_BRANCH --no-install
 cd degov-project
 rm composer.lock
 _info "### Install profile"
