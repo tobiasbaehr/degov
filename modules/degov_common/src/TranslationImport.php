@@ -14,10 +14,18 @@ use Symfony\Component\Yaml\Yaml;
 class TranslationImport {
 
   /**
+   * The LanguageConfigFactoryOverride.
+   *
    * @var \Drupal\language\Config\LanguageConfigFactoryOverride
    */
   private $languageConfigFactoryOverride;
 
+  /**
+   * TranslationImport constructor.
+   *
+   * @param \Drupal\language\Config\LanguageConfigFactoryOverride $languageConfigFactoryOverride
+   *   The LanguageConfigFactoryOverride.
+   */
   public function __construct(LanguageConfigFactoryOverride $languageConfigFactoryOverride) {
     $this->languageConfigFactoryOverride = $languageConfigFactoryOverride;
   }
@@ -96,4 +104,5 @@ class TranslationImport {
       }
     }
   }
+
 }
