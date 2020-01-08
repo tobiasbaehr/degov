@@ -37,11 +37,7 @@ class ViewsSettingsForm extends ConfigFormBase {
   }
 
   /**
-   * @param array $form
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *
-   * @return array
-   *    Form array
+   * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     // Get the current configuration settings.

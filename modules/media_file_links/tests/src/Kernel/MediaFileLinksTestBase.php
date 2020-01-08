@@ -19,6 +19,11 @@ class MediaFileLinksTestBase extends KernelTestBase {
   use MediaTypeCreationTrait;
   use NodeCreationTrait;
 
+  /**
+   * Modules.
+   *
+   * @var array
+   */
   public static $modules = [
     'media_file_links',
     'field',
@@ -34,10 +39,25 @@ class MediaFileLinksTestBase extends KernelTestBase {
     'filter_test',
   ];
 
+  /**
+   * Supported media ID.
+   *
+   * @var int|string|null
+   */
   protected $supportedMediaId;
 
+  /**
+   * Unsupported media ID.
+   *
+   * @var int|string|null
+   */
   protected $unsupportedMediaId;
 
+  /**
+   * File IDs.
+   *
+   * @var array
+   */
   protected $fileIds = [];
 
   /**

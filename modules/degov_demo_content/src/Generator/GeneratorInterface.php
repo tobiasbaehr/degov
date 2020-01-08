@@ -3,7 +3,7 @@
 namespace Drupal\degov_demo_content\Generator;
 
 /**
- * Interface GeneratorInterface
+ * Interface GeneratorInterface.
  *
  * @package Drupal\degov_demo_content\Generator
  */

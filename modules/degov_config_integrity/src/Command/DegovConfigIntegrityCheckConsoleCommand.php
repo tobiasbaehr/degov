@@ -7,9 +7,10 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\degov_config_integrity\DegovModuleIntegrityChecker;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Drupal\Console\Annotations\DrupalCommand;
 
 /**
+ * Class DegovConfigIntegrityCheckConsoleCommand.
+ *
  * @DrupalCommand (
  *     extension="degov_config_integrity",
  *     extensionType="module"
@@ -20,10 +21,15 @@ class DegovConfigIntegrityCheckConsoleCommand extends ContainerAwareCommand {
   use StringTranslationTrait;
 
   /**
-   * @var DegovModuleIntegrityChecker
+   * Module integrity checker.
+   *
+   * @var \Drupal\degov_config_integrity\DegovModuleIntegrityChecker
    */
   private $moduleIntegrityChecker;
 
+  /**
+   * DegovConfigIntegrityCheckConsoleCommand constructor.
+   */
   public function __construct(DegovModuleIntegrityChecker $moduleIntegrityChecker) {
     parent::__construct();
     $this->moduleIntegrityChecker = $moduleIntegrityChecker;

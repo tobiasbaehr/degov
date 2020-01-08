@@ -5,24 +5,42 @@ namespace Drupal\degov_config_integrity;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
-
+/**
+ * Class DegovModuleIntegrityChecker.
+ */
 class DegovModuleIntegrityChecker {
 
   /**
-   * @var ModuleHandlerInterface
+   * Module handler.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
   private $moduleHandler;
 
   /**
-   * @var ConfigFactoryInterface
+   * Config factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   private $configFactory;
 
+  /**
+   * DegovModuleIntegrityChecker constructor.
+   */
   public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory) {
     $this->moduleHandler = $moduleHandler;
     $this->configFactory = $configFactory;
   }
 
+  /**
+   * Check module.
+   *
+   * @param string $moduleName
+   *   Module name.
+   *
+   * @return array
+   *   Missing configuration.
+   */
   public function checkModule(string $moduleName): array {
     $missingConfiguration = [];
     if (strpos($moduleName, 'degov') === FALSE) {

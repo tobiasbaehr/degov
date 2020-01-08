@@ -16,15 +16,27 @@ use Drupal\node\NodeInterface;
  */
 class MediaFileSuggester {
 
+  /**
+   * File field mapper.
+   *
+   * @var \Drupal\media_file_links\Service\MediaFileFieldMapper
+   */
   private $fileFieldMapper;
 
+  /**
+   * File link resolver.
+   *
+   * @var \Drupal\media_file_links\Service\MediaFileLinkResolver
+   */
   private $fileLinkResolver;
 
   /**
    * MediaFileSuggester constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
+   *   File field mapper.
    * @param \Drupal\media_file_links\Service\MediaFileLinkResolver $fileLinkResolver
+   *   File link resolver.
    */
   public function __construct(MediaFileFieldMapper $fileFieldMapper, MediaFileLinkResolver $fileLinkResolver) {
     $this->fileFieldMapper = $fileFieldMapper;
@@ -35,9 +47,12 @@ class MediaFileSuggester {
    * Runs searches on Media titles and filenames, returns the merged results.
    *
    * @param string $search
+   *   Search.
    * @param bool $returnJson
+   *   Return JSON.
    *
    * @return array
+   *   Search results.
    */
   public function findBySearchString(string $search, bool $returnJson = TRUE) {
     $results = array_merge($this->findBySearchInTitle($search), $this->findBySearchInFilename($search));
@@ -54,8 +69,10 @@ class MediaFileSuggester {
    * Runs a plain search on Media titles.
    *
    * @param string $search
+   *   Search string.
    *
    * @return array
+   *   Results.
    */
   private function findBySearchInTitle(string $search): array {
     $mediaQuery = \Drupal::entityQuery('media')
@@ -73,8 +90,10 @@ class MediaFileSuggester {
    * Performs a search on file names and resolves the corresponding Media.
    *
    * @param string $search
+   *   Search string.
    *
    * @return array
+   *   Results.
    */
   private function findBySearchInFilename(string $search): array {
     $filesQuery = \Drupal::entityQuery('file')
@@ -106,8 +125,10 @@ class MediaFileSuggester {
    * Turns an array of search results into a json string.
    *
    * @param array $results
+   *   Results.
    *
-   * @return string
+   * @return array
+   *   Prepared results.
    */
   private function prepareResults(array $results): array {
     $preparedResults = [];
@@ -116,7 +137,7 @@ class MediaFileSuggester {
     if (\count($results) > 0) {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
-        if(!empty($nameValue[0]['value'])) {
+        if (!empty($nameValue[0]['value'])) {
           $filename = $this->fileLinkResolver->getFileNameString($entity->id());
           $iconClass = $this->getIconClassForFile($filename);
           $preparedResults[] = [
@@ -135,6 +156,9 @@ class MediaFileSuggester {
     return $preparedResults;
   }
 
+  /**
+   * Get icon class for file.
+   */
   private function getIconClassForFile(string $filename): string {
     $iconClasses = [
       'fas fa-file-alt'        => ['doc', 'docx', 'odt'],

@@ -31,9 +31,9 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
    *
    * @param array $configuration
    *   Block plugin config.
-   * @param $plugin_id
+   * @param string $plugin_id
    *   Block plugin plugin_id.
-   * @param $plugin_definition
+   * @param mixed $plugin_definition
    *   Block plugin definition.
    * @param \Drupal\degov_tweets\TwitterAPIExchange $twitter
    *   The Twitter service.

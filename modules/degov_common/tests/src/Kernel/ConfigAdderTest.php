@@ -3,8 +3,10 @@
 namespace Drupal\Tests\degov_common\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\degov_common\Entity\ConfigAdder;
 
+/**
+ * Class ConfigAdderTest.
+ */
 class ConfigAdderTest extends KernelTestBase {
 
   /**
@@ -22,11 +24,13 @@ class ConfigAdderTest extends KernelTestBase {
     'paragraphs',
     'file',
     'text',
-    'taxonomy'
+    'taxonomy',
   ];
 
   /**
-   * @var ConfigAdder
+   * Config adder.
+   *
+   * @var \Drupal\degov_common\Entity\ConfigAdder
    */
   private $configAdder;
 
@@ -39,6 +43,9 @@ class ConfigAdderTest extends KernelTestBase {
     $this->configAdder = \Drupal::service('degov_common.config_adder');
   }
 
+  /**
+   * Test add list item from configuration.
+   */
   public function testAddListItemFromConfiguration() {
     $originalConfigList = \Drupal::configFactory()
       ->getEditable('core.entity_view_mode.taxonomy_term.full');

@@ -50,24 +50,24 @@ class DegovSettingsForm extends ConfigFormBase {
       '#title' => $this->t('Privacy URL Path'),
       '#description' => $this->t('The path at which the privacy terms can be found.'),
       '#default_value' => $config->get('privacy_url') ?: '/datenschutzhinweise',
-      '#required' => true
+      '#required' => TRUE,
     ];
     $form['netiquette_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Netiquette URL Path'),
       '#description' => $this->t('The path at which the netiquette can be found.'),
       '#default_value' => $config->get('netiquette_url') ?: '/netiquette',
-      '#required' => true
+      '#required' => TRUE,
     ];
-    $form['youtube_apikey'] = array(
+    $form['youtube_apikey'] = [
       '#type' => 'textfield',
       '#title' => t('Youtube API Key'),
-      '#description' => $this->t('Obtain a Youtube API key at <a href="@link">@link</a>', array(
+      '#description' => $this->t('Obtain a Youtube API key at <a href="@link">@link</a>', [
         '@link' => 'https://console.developers.google.com/apis/credentials',
-      )),
+      ]),
       '#default_value' => $config->get('youtube_apikey') ?: '',
       '#required' => FALSE,
-    );
+    ];
     return parent::buildForm($form, $form_state);
   }
 

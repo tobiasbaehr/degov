@@ -76,7 +76,8 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
    * {@inheritdoc}
    */
   public function getArgument() {
-    // Check if there is exposed filter in the query with the same name, if yes - do not apply argument.
+    // Check if there is exposed filter in the query with the same name,
+    // if yes - do not apply argument.
     $exposed_filter_active = FALSE;
     // Check the real field name for the argument.
     $argument_real_field = $this->argument->realField;
@@ -102,12 +103,15 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
         }
       }
     }
-    // If there is query parameter for the real field, don't apply default value.
+    // If there is query parameter for the real field,
+    // don't apply default value.
     if (!$exposed_filter_active) {
       $request_time = $this->request->server->get('REQUEST_TIME');
       return $this->dateFormatter->format($request_time, 'custom', $this->argFormat);
-    } else {
-      // Return all results for argument (exposed filters are limiting the results instead).
+    }
+    else {
+      // Return all results for argument (exposed filters are limiting
+      // the results instead).
       return $this->argument->options['exception']['value'];
     }
   }

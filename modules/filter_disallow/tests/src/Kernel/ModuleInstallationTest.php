@@ -3,8 +3,10 @@
 namespace Drupal\Tests\filter_disallow\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Core\Extension\ModuleHandler;
 
+/**
+ * Class ModuleInstallationTest.
+ */
 class ModuleInstallationTest extends KernelTestBase {
 
   /**
@@ -22,9 +24,12 @@ class ModuleInstallationTest extends KernelTestBase {
     $this->installConfig(['filter_disallow']);
   }
 
+  /**
+   * Test setup.
+   */
   public function testSetup(): void {
     /**
-     * @var ModuleHandler $moduleHandler
+     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
      */
     $moduleHandler = \Drupal::service('module_handler');
     self::assertTrue($moduleHandler->moduleExists('filter_disallow'));

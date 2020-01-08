@@ -12,7 +12,7 @@ COMPOSER_EXIT_ON_PATCH_FAILURE=1
 export COMPOSER_EXIT_ON_PATCH_FAILURE
 COMPOSER_MEMORY_LIMIT=-1
 export COMPOSER_MEMORY_LIMIT
-RELEASE_BRANCH=release/7.6.x-dev
+RELEASE_BRANCH=release/8.0.x-dev
 export RELEASE_BRANCH
 
 _info() {
@@ -51,3 +51,10 @@ _composer dump-autoload
 # phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
 _info "### Running PHPUnit and KernelBase tests"
 (cd docroot/profiles/contrib/degov && phpunit --colors=auto --log-junit $BITBUCKET_CLONE_DIR/test-reports/junit.xml --testdox)
+
+_info "### Checking coding standards"
+bin/phpcs --report-full=$BITBUCKET_CLONE_DIR/coding-standards.txt || true
+PHPCS=$(grep "ERROR" $BITBUCKET_CLONE_DIR/coding-standards.txt | wc -l || true)
+if [[ $PHPCS -ne 0 ]]; then
+  exit 1
+fi

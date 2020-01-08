@@ -6,6 +6,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
 
 /**
+ * Class DegovDateRange.
  *
  * @FacetsQueryType(
  *   id = "search_api_degov_date_range",
@@ -81,7 +82,7 @@ class DegovDateRange extends SearchApiDate {
     $value = trim($value, '[]');
     $value = explode(' TO ', $value);
     if (empty($value) || count($value) != 2) {
-      return;
+      return [];
     }
     // Check if the date in query string is valid.
     $isValidStartDate = strtotime($value[0]);
@@ -92,18 +93,23 @@ class DegovDateRange extends SearchApiDate {
         case static::FACETAPI_DATE_YEAR:
           $value[0] = date('Y', $isValidStartDate);
           break;
+
         case static::FACETAPI_DATE_MONTH:
           $value[0] = date('Y-m', $isValidStartDate);
           break;
+
         case static::FACETAPI_DATE_DAY:
           $value[0] = date('Y-m-d', $isValidStartDate);
           break;
+
         case static::FACETAPI_DATE_HOUR:
           $value[0] = date('Y-m-d\TH:', $isValidStartDate);
           break;
+
         case static::FACETAPI_DATE_MINUTE:
           $value[0] = date('Y-m-d\TH:i:', $isValidStartDate);
           break;
+
         case static::FACETAPI_DATE_SECOND:
           $value[0] = date('Y-m-d\TH:i:s', $isValidStartDate);
           break;
@@ -115,18 +121,23 @@ class DegovDateRange extends SearchApiDate {
         case static::FACETAPI_DATE_YEAR:
           $value[1] = date('Y', $isValidEndDate);
           break;
+
         case static::FACETAPI_DATE_MONTH:
           $value[1] = date('Y-m', $isValidEndDate);
           break;
+
         case static::FACETAPI_DATE_DAY:
           $value[1] = date('Y-m-d', $isValidEndDate);
           break;
+
         case static::FACETAPI_DATE_HOUR:
           $value[1] = date('Y-m-d\TH:', $isValidEndDate);
           break;
+
         case static::FACETAPI_DATE_MINUTE:
           $value[1] = date('Y-m-d\TH:i:', $isValidEndDate);
           break;
+
         case static::FACETAPI_DATE_SECOND:
           $value[1] = date('Y-m-d\TH:i:s', $isValidEndDate);
           break;

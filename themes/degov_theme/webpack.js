@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -6,9 +10,9 @@ module.exports = {
   watch: true,
   entry: {
     main: [
-        // deGov theme
+        // deGov theme.
       './scss/main.scss',
-      // Font Awesome
+      // Font Awesome.
       './node_modules/@fortawesome/fontawesome-free/css/all.css',
     ],
     install: [
@@ -19,19 +23,19 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
-      // both options are optional
+      // both options are optional.
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
     new CopyWebpackPlugin([{
-      context: `${__dirname}/node_modules/@fortawesome/fontawesome-free/webfonts`,
+      context: `${__dirname} / node_modules / @fortawesome / fontawesome - free / webfonts`,
       from: '*',
-      to: `${__dirname}/webfonts/`
+      to: `${__dirname} / webfonts / `
     }]),
     new CopyWebpackPlugin([{
-      context: `${__dirname}/node_modules/bootstrap/dist/js/`,
+      context: `${__dirname} / node_modules / bootstrap / dist / js / `,
       from: 'bootstrap.bundle.min.*',
-      to: `${__dirname}/webpack-dist/`
+      to: `${__dirname} / webpack - dist / `
     }])
   ],
   output: {

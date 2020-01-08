@@ -4,46 +4,53 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
-use Drupal\degov_theming\Factory\FilesystemFactory;
 use Drupal\Driver\DrupalDriver;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
-use Drupal\permissions_by_term\Service\AccessStorage;
-use Drupal\permissions_by_term\Service\TermHandler;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Symfony\Component\Filesystem\Filesystem as SymfonyFilesystem;
-use Drupal\Core\File\FileSystem as DrupalFilesystem;
 use WebDriver\Exception\StaleElementReference;
 
+/**
+ * Class DrupalContext.
+ */
 class DrupalContext extends RawDrupalContext {
 
-	use TranslationTrait;
+  use TranslationTrait;
 
-	use DebugOutputTrait;
+  use DebugOutputTrait;
 
   private const MAX_DURATION_SECONDS = 1200;
   private const MAX_SHORT_DURATION_SECONDS = 10;
 
-  /** @var array */
+  /**
+   * Trash.
+   *
+   * @var array*/
   protected $trash = [];
 
   /**
+   * Dummy image file entity ID.
+   *
    * @var null|int
    */
-  private $dummyImageFileEntityId = null;
+  private $dummyImageFileEntityId = NULL;
 
   /**
+   * Dummy document file entity ID.
+   *
    * @var null|int
    */
-  private $dummyDocumentFileEntityId = null;
+  private $dummyDocumentFileEntityId = NULL;
 
+  /**
+   * DrupalContext constructor.
+   */
   public function __construct() {
     $driver = new DrupalDriver(DRUPAL_ROOT, '');
     $driver->setCoreFromVersion();
@@ -53,6 +60,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create vocabulary.
+   *
    * @Given /^I create vocabulary with name "([^"]*)" and vid "([^"]*)"$/
    */
   public function createVocabulary($name, $vid) {
@@ -70,6 +79,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create nodes of type.
+   *
    * @Given /^I create (\d+) nodes of type "([^"]*)"$/
    */
   public function iCreateNodesOfType($number, $type) {
@@ -82,11 +93,16 @@ class DrupalContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * Create random string.
+   */
   private function createRandomString($length = 10) {
     return substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", $length)), 0, $length);
   }
 
   /**
+   * Node access records are rebuild.
+   *
    * @Given Node access records are rebuild.
    */
   public function nodeAccessRecordsAreRebuild() {
@@ -94,8 +110,12 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I open node edit form by node title "([^"]*)"$/
+   * Open node edit form by title.
+   *
    * @param string $title
+   *   Title.
+   *
+   * @Then /^I open node edit form by node title "([^"]*)"$/
    */
   public function openNodeEditFormByTitle($title) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
@@ -106,9 +126,14 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I open node edit form by node title "([^"]*)" and vertical tab id "([^"]*)"$/
+   * Open node edit form by title and vertical tab ID.
+   *
    * @param string $title
+   *   Title.
    * @param string $verticalTabId
+   *   Vertical tab ID.
+   *
+   * @Then /^I open node edit form by node title "([^"]*)" and vertical tab id "([^"]*)"$/
    */
   public function openNodeEditFormByTitleAndVerticalTabId(string $title, string $verticalTabId) {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
@@ -119,8 +144,12 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I open media edit form by media name "([^"]*)"$/
+   * Open media edit form by name.
+   *
    * @param string $name
+   *   Name.
+   *
+   * @Then /^I open media edit form by media name "([^"]*)"$/
    */
   public function openMediaEditFormByName(string $name) {
     $query = \Drupal::service('database')->select('media_field_data', 'mfd')
@@ -131,8 +160,12 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I open node view by node title "([^"]*)"$/
+   * Open node view by title.
+   *
    * @param string $title
+   *   Title.
+   *
+   * @Then /^I open node view by node title "([^"]*)"$/
    */
   public function openNodeViewByTitle(string $title): void {
     $query = \Drupal::service('database')->select('node_field_data', 'nfd')
@@ -143,11 +176,13 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Open media edit form by title.
+   *
    * @Then /^I open address medias edit form from latest media with title "([^"]*)"$/
    */
   public function openMediaEditFormByTitle(string $title): void {
     /**
-     * @var EntityTypeManagerInterface $entityTypeManager
+     * @var \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
     $mediaEntityStorage = $entityTypeManager->getStorage('media');
@@ -167,11 +202,13 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Open media delete url by title.
+   *
    * @Then /^I open medias delete url by title "([^"]*)"$/
    */
   public function openMediaDeleteUrlByTitle(string $title): void {
     /**
-     * @var EntityTypeManagerInterface $entityTypeManager
+     * @var \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
     $mediaEntityStorage = $entityTypeManager->getStorage('media');
@@ -190,63 +227,76 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * @Then /^I click by CSS class "([^"]*)"$/
+   * Click by css class.
+   *
    * @param string $class
+   *   Class.
+   *
+   * @Then /^I click by CSS class "([^"]*)"$/
    */
-  public function clickByCSSClass(string $class) {
+  public function clickByCssClass(string $class) {
     $page   = $this->getSession()->getPage();
     $button = $page->find('xpath', '//*[contains(@class, "' . $class . '")]');
     $button->click();
   }
 
   /**
+   * Click by css ID.
+   *
    * @Then /^I click by CSS id "([^"]*)"$/
    */
-  public function clickByCSSId(string $id)
-  {
+  public function clickByCssId(string $id) {
     $page   = $this->getSession()->getPage();
     $button = $page->find('xpath', '//*[contains(@id, "' . $id . '")]');
     $button->click();
   }
 
   /**
-   * @Then /^I click by XPath "([^"]*)"$/
+   * Click by xpath.
+   *
    * @param string $xpath
+   *   Xpath.
+   *
+   * @Then /^I click by XPath "([^"]*)"$/
    */
-  public function iClickByXpath(string $xpath)
-  {
-    $session = $this->getSession(); // get the mink session
+  public function iClickByXpath(string $xpath) {
+    // Get the mink session.
+    $session = $this->getSession();
     $element = $session->getPage()->find(
       'xpath',
       $session->getSelectorsHandler()->selectorToXpath('xpath', $xpath)
-    ); // runs the actual query and returns the element
+    // Runs the actual query and returns the element.
+    );
 
-    // errors must not pass silently
-    if (null === $element) {
+    // Errors must not pass silently.
+    if (NULL === $element) {
       throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', $xpath));
     }
 
-    // ok, let's click on it
+    // ok, let's click on it.
     $element->click();
   }
 
   /**
+   * Proof checkbox with ID has value.
+   *
    * @Then /^I proof Checkbox with id "([^"]*)" has value "([^"]*)"$/
    */
   public function iProofCheckboxWithIdHasValue($id, $checkfor): void {
-    $Page = $this->getSession()->getPage();
-    $isChecked = $Page->find('css', 'input[type="checkbox"]:checked#' . $id);
+    $page = $this->getSession()->getPage();
+    $isChecked = $page->find('css', 'input[type="checkbox"]:checked#' . $id);
     $status = ($isChecked) ? "checked" : "unchecked";
     if (
-      ($checkfor == "checked" && $isChecked == true) ||
-      ($checkfor == "unchecked" && $isChecked == false)
+      ($checkfor == "checked" && $isChecked == TRUE) ||
+      ($checkfor == "unchecked" && $isChecked == FALSE)
     ) {
       return;
     }
     else {
       try {
         throw new \Exception('Checkbox was ' . $status . ' when expecting ' . $checkfor);
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -254,6 +304,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see the option In.
+   *
    * @Given /^I should see the option "([^"]*)" in "([^"]*)"$/
    */
   public function iShouldSeeTheOptionIn(string $value, string $id) {
@@ -261,26 +313,31 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should s ee the option in with status.
+   *
    * @Given /^I should see the option "([^"]*)" in "([^"]*)" with status "([^"]*)"$/
    */
-  public function iShouldSeeTheOptionInWithStatus(string $value, string $id, string $status = null) {
+  public function iShouldSeeTheOptionInWithStatus(string $value, string $id, string $status = NULL) {
     $page = $this->getSession()->getPage();
     /** @var $selectElement \Behat\Mink\Element\NodeElement */
     $selectElement = $page->find('xpath', '//select[@id = "' . $id . '"]');
-    switch($status) {
+    switch ($status) {
       case 'enabled':
         $element = $selectElement->find('css', 'option[value=' . $value . ']:not([disabled])');
         break;
+
       case 'disabled':
         $element = $selectElement->find('css', 'option[value=' . $value . '][disabled]');
         break;
+
       default:
         $element = $selectElement->find('css', 'option[value=' . $value . ']');
     }
     if (!$element) {
       try {
-        throw new \Exception("There is no option with the value '$value'" . ($status !== null ? " and status '" . $status . "'" : '') . " in the select '$id'");
-      } catch (\Exception $exception) {
+        throw new \Exception("There is no option with the value '$value'" . ($status !== NULL ? " and status '" . $status . "'" : '') . " in the select '$id'");
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -288,6 +345,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see an element with the translated attribute.
+   *
    * @Then I should see an :arg1 element with the translated :arg2 attribute :arg3
    */
   public function iShouldSeeAnElementWithTheTranslatedAttribute(string $selector, string $attribute_name, string $attribute_value) {
@@ -303,6 +362,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create normal page with slideshow.
+   *
    * @Given /^I have an normal_page with a slideshow paragraph reference$/
    */
   public function createNormalPageWithSlideshow(): void {
@@ -337,8 +398,9 @@ class DrupalContext extends RawDrupalContext {
     $node->save();
   }
 
-
   /**
+   * Create normal page with banner.
+   *
    * @Given /^I have an normal_page with a banner paragraph$/
    */
   public function createNormalPageWithBanner(): void {
@@ -373,11 +435,13 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create restricted document.
+   *
    * @Given /^I have a restricted document media entity$/
    */
   public function createRestrictedDocument(): void {
     /**
-     * @var TermHandler $termHandler
+     * @var \Drupal\permissions_by_term\Service\TermHandler $termHandler
      */
     $termHandler = \Drupal::service('permissions_by_term.term_handler');
     if (empty($termHandler->getTermIdByName('Admin role only - restricted media document'))) {
@@ -390,7 +454,7 @@ class DrupalContext extends RawDrupalContext {
       $termId = $term->id();
 
       /**
-       * @var AccessStorage $accessStorage
+       * @var \Drupal\permissions_by_term\Service\AccessStorage $accessStorage
        */
       $accessStorage = \Drupal::service('permissions_by_term.access_storage');
       $accessStorage->addTermPermissionsByRoleIds(['administrator'], $termId);
@@ -415,17 +479,19 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create a media of type.
+   *
    * @Given /^I created a media of type "([^"]*)" named "([^"]*)"$/
    * @When /^I create a media of type "([^"]*)" named "([^"]*)"$/
    */
-  public function iCreateAMediaOfType($type, $name = null) {
+  public function iCreateMediaOfType($type, $name = NULL) {
     if (!$name) {
       $name = $this->createRandomString();
     }
     $mediaData = [
       'bundle'               => $type,
       'field_title'          => $name,
-      'field_include_search' => true,
+      'field_include_search' => TRUE,
     ];
     switch ($type) {
       case 'video':
@@ -433,20 +499,22 @@ class DrupalContext extends RawDrupalContext {
           'field_media_video_embed_field' => 'https://vimeo.com/191669818',
         ];
         break;
+
       case 'tweet':
         $mediaData += [
           'embed_code' => 'https://twitter.com/publicplan_GmbH/status/1024935629065469958',
         ];
         break;
+
       case 'instagram':
         $mediaData += [
           'embed_code' => 'https://www.instagram.com/p/JUvux9iFRY',
         ];
         break;
-      //ToDo: Add all media types
+
+      // ToDo: Add all media types.
       default:
         throw new \InvalidArgumentException(sprintf('The media type "%s" does not exist.', $type));
-        break;
     }
     $media = Media::create($mediaData);
     $media->save();
@@ -456,8 +524,10 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * Creates a page with a specific media
-   * Example: Given I created a content page named "videoPage" with a media "video"
+   * Creates a page with a specific media.
+   *
+   * Example: Given I created a content page named "videoPage" with
+   * a media "video".
    *
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
@@ -466,13 +536,15 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-   * Creates a page with given entity type and with a specific media
-   * Example: Given I created a content page of type "event" named "videoPage" with a media "video"
+   * Creates a page with given entity type and with a specific media.
+   *
+   * Example: Given I created a content page of type "event" named "videoPage"
+   * with a media "video".
    *
    * @Given /^(?:|I )created a content page of type "([^"]*)" named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedTypePageWithMedia($entityType, $pageName, $mediaType) {
-    $media = $this->iCreateAMediaOfType($mediaType);
+    $media = $this->iCreateMediaOfType($mediaType);
 
     $mediaParagraph = Paragraph::create([
       'type'                        => 'media_reference',
@@ -497,11 +569,11 @@ class DrupalContext extends RawDrupalContext {
    * @afterScenario
    */
   public function tearDown() {
-    foreach ($this->trash as $entity_type => $IDs) {
+    foreach ($this->trash as $entity_type => $ids) {
       /** @var \Drupal\Core\Entity\EntityInterface[] $entities */
       $entities = \Drupal::entityTypeManager()
         ->getStorage($entity_type)
-        ->loadMultiple($IDs);
+        ->loadMultiple($ids);
 
       foreach ($entities as $entity) {
         $entity->delete();
@@ -510,23 +582,28 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Header has css class for fluid bootstrap layout.
+   *
    * @Then header has CSS class for fluid bootstrap layout
    */
   public function headerHasCssClassForFluidBootstrapLayout() : ?bool {
     $header = $this->getSession()->getPage()->findAll('css', 'header.container-fluid');
     if (\count($header) > 0) {
-      return true;
-    } else {
+      return TRUE;
+    }
+    else {
       throw new ResponseTextException('Header does not have CSS class for fluid bootstrap layout.', $this->getSession());
     }
   }
 
   /**
+   * Assert local tasks tabs number.
+   *
    * @Then /^I assert "(\d+)" local task tabs$/
    */
   public function assertLocalTasksTabsNumber($number) {
     if (\count($this->getSession()->getPage()->findAll('css', ".block-local-tasks-block > nav > nav > ul > li:nth-child($number)")) > 0) {
-      return true;
+      return TRUE;
     }
 
     throw new ResponseTextException(
@@ -536,10 +613,13 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Assert selector contains text.
+   *
    * @Then /^I should see text matching "([^"]*)" in "([^"]*)" selector "([^"]*)"$/
    *
    * Example:
-   *  I should see text matching "Startseite Node" in "css" selector "ol.breadcrumb"
+   *  I should see text matching "Startseite Node" in "css"
+   *  selector "ol.breadcrumb"
    */
   public function assertSelectorContainsText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
@@ -552,24 +632,28 @@ class DrupalContext extends RawDrupalContext {
         sprintf('Could not find text "%s" by selector type "%s" and selector "%s"', $text, $selectorType, $selector),
         $this->getSession()
       );
-    } catch (ResponseTextException $exception) {
+    }
+    catch (ResponseTextException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Assert selector not contains translated text.
+   *
    * @Then /^I should not see text matching "([^"]*)" via translated text in "([^"]*)" selector "([^"]*)"$/
    *
    * Example:
-   *  I should not see text matching "Homepage node" via translated in "css" selector "ol.breadcrumb"
+   *  I should not see text matching "Homepage node" via translated
+   *  in "css" selector "ol.breadcrumb"
    */
   public function assertSelectorNotContainsTranslatedText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     $translatedText = $this->translateString($text);
     $isFound = FALSE;
     if (!empty($resultset)) {
-      foreach($resultset as $resultRow) {
+      foreach ($resultset as $resultRow) {
         if (is_numeric(stripos($resultRow->getText(), $translatedText))) {
           $isFound = TRUE;
           break;
@@ -585,59 +669,70 @@ class DrupalContext extends RawDrupalContext {
         sprintf('Found the text "%s" by selector type "%s" and selector "%s"', $translatedText, $selectorType, $selector),
         $this->getSession()
       );
-    } catch (ResponseTextException $exception) {
+    }
+    catch (ResponseTextException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Run the cron.
+   *
    * @Given /^I run the cron$/
+   *
    * @throws \Exception
    */
   public function iRunTheCron() {
     if (TRUE !== \Drupal::service('cron')->run()) {
       try {
         throw new \Exception('Cron did not run successfully.');
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
     }
   }
 
-	/**
-	 * @Then /^I should see text matching "([^"]*)" via translated text$/
-	 */
-	public function assertPageMatchesText(string $text)
-	{
-		if (ctype_upper($text)) {
-			$translatedText = mb_strtoupper($this->translateString($text));
-		} else {
-			$translatedText = $this->translateString($text);
-		}
-
-		$this->assertSession()->pageTextMatches('"' . $translatedText . '"');
-	}
-
   /**
-   * @Then /^I should not see text matching "([^"]*)" via translated text$/
+   * Assert page matches text.
+   *
+   * @Then /^I should see text matching "([^"]*)" via translated text$/
    */
-  public function assertPageNotMatchesText(string $text)
-  {
+  public function assertPageMatchesText(string $text) {
     if (ctype_upper($text)) {
       $translatedText = mb_strtoupper($this->translateString($text));
-    } else {
+    }
+    else {
+      $translatedText = $this->translateString($text);
+    }
+
+    $this->assertSession()->pageTextMatches('"' . $translatedText . '"');
+  }
+
+  /**
+   * Assert page not matches text.
+   *
+   * @Then /^I should not see text matching "([^"]*)" via translated text$/
+   */
+  public function assertPageNotMatchesText(string $text) {
+    if (ctype_upper($text)) {
+      $translatedText = mb_strtoupper($this->translateString($text));
+    }
+    else {
       $translatedText = $this->translateString($text);
     }
 
     $content = $this->getSession()->getPage()->getText();
     if (substr_count($content, $translatedText) === 0) {
-      return true;
-    } else {
+      return TRUE;
+    }
+    else {
       try {
         throw new \Exception("Text '$translatedText' found on page.");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -646,6 +741,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Assert dom node is invisible.
+   *
    * @Then /^I proof that DOM node with css selector "([^"]*)" is invisible$/
    */
   public function assertDomNodeIsInvisible(string $cssSelector): void {
@@ -654,7 +751,8 @@ class DrupalContext extends RawDrupalContext {
     foreach ($nodes as $node) {
       if (!$node->isVisible()) {
         return;
-      } else {
+      }
+      else {
         throw new \Exception("DOM node with $cssSelector is not invisible.");
       }
     }
@@ -663,93 +761,103 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
-	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
-	 */
-	public function assertPageMatchesTextUppercase(string $text)
-	{
-		$this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
-	}
+   * Assert page matches text uppercase.
+   *
+   * @Then /^I should see text matching "([^"]*)" via translated text in uppercase$/
+   */
+  public function assertPageMatchesTextUppercase(string $text) {
+    $this->assertSession()->pageTextMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
+  }
 
   /**
+   * Assert page not maches text uppercase.
+   *
    * @Then /^I should not see text matching "([^"]*)" via translated text in uppercase$/
    */
-  public function assertPageNotMatchesTextUppercase(string $text)
-  {
+  public function assertPageNotMatchesTextUppercase(string $text) {
     $this->assertSession()->pageTextNotMatches('"' . mb_strtoupper($this->translateString($text)) . '"');
   }
 
-	/**
-	 * @Then /^I should see text matching "([^"]*)" via translation after a while$/
-	 */
-	public function iShouldSeeTranslatedTextAfterAWhile(string $text): bool
-	{
-		try {
-			$startTime = time();
-			do {
-				$content = $this->getSession()->getPage()->getText();
-				$translatedText = $this->translateString($text);
-				if (substr_count($content, $translatedText) > 0) {
-					return true;
-				}
-			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+  /**
+   * Should see translated text after a while.
+   *
+   * @Then /^I should see text matching "([^"]*)" via translation after a while$/
+   */
+  public function iShouldSeeTranslatedTextAfterWhile(string $text): bool {
+    try {
+      $startTime = time();
+      do {
+        $content = $this->getSession()->getPage()->getText();
+        $translatedText = $this->translateString($text);
+        if (substr_count($content, $translatedText) > 0) {
+          return TRUE;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
       try {
         throw new ResponseTextException(
           sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (ResponseTextException $exception) {
+      }
+      catch (ResponseTextException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-		} catch (StaleElementReference $e) {
-			return true;
-		}
-	}
-
-	/**
-	 * @When I click :link via translation
-	 */
-	public function assertClickViaTranslate(string $link): void {
-		$this->getSession()->getPage()->clickLink($this->translateString($link));
-	}
-
-  /**
-   * @Then I should see the fields list with exactly :arg1 entries
-   */
-  public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries)
-  {
-    $this->iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances(2, "table#field-overview tbody > tr");
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
+    }
   }
 
+  /**
+   * Assert click via translate.
+   *
+   * @When I click :link via translation
+   */
+  public function assertClickViaTranslate(string $link): void {
+    $this->getSession()->getPage()->clickLink($this->translateString($link));
+  }
 
   /**
+   * Should see the fields list with exactly entries.
+   *
+   * @Then I should see the fields list with exactly :arg1 entries
+   */
+  public function iShouldSeeTheFieldsListWithExactlyEntries($numberOfEntries) {
+    $this->iShouldSeeTheElementWithTheSelectorWithExactlyInstances(2, "table#field-overview tbody > tr");
+  }
+
+  /**
+   * Should see the element with the selector X with exactly N instances.
+   *
    * @Then I should see exactly :arg1 instances of the element with the selector :arg2
    */
-  public function iShouldSeeTheElementWithTheSelectorXWithExactlyNInstances($numberOfInstances, $elementSelector)
-  {
+  public function iShouldSeeTheElementWithTheSelectorWithExactlyInstances($numberOfInstances, $elementSelector) {
     $this->assertSession()->elementExists('css', $elementSelector);
     $this->assertSession()->elementsCount('css', $elementSelector, $numberOfInstances);
   }
 
   /**
+   * Have dismissed the cookie banner if necessary.
+   *
    * @Given I have dismissed the cookie banner if necessary
    */
-  public function iHaveDismissedTheCookieBannerIfNecessary()
-  {
+  public function iHaveDismissedTheCookieBannerIfNecessary() {
 
     $this->getSession()->visit($this->locatePath('/'));
-    if($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
+    if ($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
   }
 
   /**
+   * Should see the details container titled with entries after a while.
+   *
    * @Given I should see the details container titled :arg1 with entries after a while
    */
-  public function iShouldSeeTheDetailsContainerTitledWithEntriesAfterAWhile($title)
-  {
+  public function iShouldSeeTheDetailsContainerTitledWithEntriesAfterWhile($title) {
     $title = mb_strtoupper($title);
 
     try {
@@ -757,85 +865,92 @@ class DrupalContext extends RawDrupalContext {
       do {
         $details_array = $this->getSession()->getPage()->findAll('css', 'details');
 
-        foreach($details_array as $details_element) {
-          if($details_element->find('css', 'summary')->getText() != $title) {
+        foreach ($details_array as $details_element) {
+          if ($details_element->find('css', 'summary')->getText() != $title) {
             continue;
           }
-          if($details_element->has('css', '.item-container')) {
-            return true;
+          if ($details_element->has('css', '.item-container')) {
+            return TRUE;
           }
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
-
 
       try {
         throw new ResponseTextException(
           sprintf('Could not find element titled %s with entries within %s seconds.', $title, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (ResponseTextException $exception) {
+      }
+      catch (ResponseTextException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-    } catch (StaleElementReference $e) {
-      return true;
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
     }
   }
 
   /**
+   * Should see a form element with the label and required input field.
+   *
    * @Then I should see :number_of_elements form element with the label :label and a required input field
    */
-  public function iShouldSeeAFormElementWithTheLabelAndARequiredInputField(int $number_of_elements, string $label_text)
-  {
+  public function iShouldSeeFormElementWithTheLabelAndRequiredInputField(int $number_of_elements, string $label_text) {
     $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'css', '.required');
-    if($number_of_elements === $matching_elements_count) {
-      return true;
+    if ($number_of_elements === $matching_elements_count) {
+      return TRUE;
     }
 
     try {
       throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Should see a form element with the label and a field.
+   *
    * @Then I should see :number_of_elements form element with the label :arg2 and a :arg3 field
    */
-  public function iShouldSeeAFormElementWithTheLabelAndAField(int $number_of_elements, string $label_text, string $input_type)
-  {
+  public function iShouldSeeFormElementWithTheLabelAndField(int $number_of_elements, string $label_text, string $input_type) {
     $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'xpath', sprintf('//input[@type="%s"]', $input_type));
-    if($number_of_elements === $matching_elements_count) {
-      return true;
+    if ($number_of_elements === $matching_elements_count) {
+      return TRUE;
     }
 
     try {
       throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Should see a form element with the label and the value.
+   *
    * @Then I should see :number_of_elements form element with the label :label and the value :field_value
    */
-  public function iShouldSeeAFormElementWithTheLabelAndTheValue(int $number_of_elements, string $label_text, string $field_value)
-  {
+  public function iShouldSeeFormElementWithTheLabelAndTheValue(int $number_of_elements, string $label_text, string $field_value) {
     $selector_value = '//*[@value="' . $field_value . '"]';
-    if(empty($field_value)) {
+    if (empty($field_value)) {
       $selector_value = '//*[@value and string-length(@value) = 0]';
     }
     $matching_elements_count = $this->countFormElementsWithLabelMatchingSelector($label_text, 'xpath', $selector_value);
-    if($number_of_elements === $matching_elements_count) {
-      return true;
+    if ($number_of_elements === $matching_elements_count) {
+      return TRUE;
     }
 
     try {
       throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -843,26 +958,30 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see elements with name matching pattern and a not empty value.
+   *
    * @Then I should see :number_of_elements elements with name matching :name_pattern and a not empty value
    */
-  public function iShouldSeeElementsWithNameMatchingPatternAndANotEmptyValue(int $number_of_elements, string $name_pattern)
-  {
+  public function iShouldSeeElementsWithNameMatchingPatternAndNotEmptyValue(int $number_of_elements, string $name_pattern) {
     $selector_value = '//*[contains(@name, "' . $name_pattern . '") and @value and string-length(@value) > 0]';
     $matches = $this->getSession()->getPage()->findAll('xpath', $selector_value);
     $matching_elements_count = count($matches);
-    if($number_of_elements === $matching_elements_count) {
-      return true;
+    if ($number_of_elements === $matching_elements_count) {
+      return TRUE;
     }
     throw new \Exception(sprintf('Expected %s elements, found %s.', $number_of_elements, $matching_elements_count));
   }
 
+  /**
+   * Count form elements with label matching selector.
+   */
   private function countFormElementsWithLabelMatchingSelector(string $label_text, string $selector_type, string $selector_value): int {
     // Get all form items with labels matching the supplied text.
     $form_items_with_matching_labels = $this->getElementWithClassContainingLabelWithText('form-item', $label_text);
 
     $matching_elements_count = 0;
-    foreach($form_items_with_matching_labels as $form_item) {
-      if(count($form_item->findAll($selector_type, $selector_value)) > 0) {
+    foreach ($form_items_with_matching_labels as $form_item) {
+      if (count($form_item->findAll($selector_type, $selector_value)) > 0) {
         $matching_elements_count++;
       }
     }
@@ -870,6 +989,9 @@ class DrupalContext extends RawDrupalContext {
     return $matching_elements_count;
   }
 
+  /**
+   * Get element with class containing label with text.
+   */
   private function getElementWithClassContainingLabelWithText($class_name, $label_text) {
     return $this->getSession()->getPage()->findAll(
       'xpath',
@@ -877,12 +999,15 @@ class DrupalContext extends RawDrupalContext {
     );
   }
 
+  /**
+   * Create private document file entity.
+   */
   private function createPrivateDocumentFileEntity(): File {
-    $documentFileEntity = null;
+    $documentFileEntity = NULL;
 
     if (is_numeric($this->dummyDocumentFileEntityId)) {
       /**
-       * @var File $documentFileEntity
+       * @var \Drupal\file\Entity\File $documentFileEntity
        */
       $documentFileEntity = File::load($this->dummyDocumentFileEntityId);
     }
@@ -895,12 +1020,15 @@ class DrupalContext extends RawDrupalContext {
     return $documentFileEntity;
   }
 
+  /**
+   * Create dummy image file entity.
+   */
   private function createDummyImageFileEntity(): File {
-    $imageFileEntity = null;
+    $imageFileEntity = NULL;
 
     if (is_numeric($this->dummyImageFileEntityId)) {
       /**
-       * @var File $imageFileEntity
+       * @var \Drupal\file\Entity\File $imageFileEntity
        */
       $imageFileEntity = File::load($this->dummyImageFileEntityId);
     }
@@ -913,21 +1041,24 @@ class DrupalContext extends RawDrupalContext {
     return $imageFileEntity;
   }
 
+  /**
+   * Create file entity.
+   */
   private function createFileEntity(string $filename, string $fileSchemeMode = 'public'): File {
-    $fileEntity = null;
+    $fileEntity = NULL;
 
     if (!($fileEntity instanceof File)) {
       /**
-       * @var FilesystemFactory $symfonyFilesystem
+       * @var \Drupal\degov_theming\Factory\FilesystemFactory $symfonyFilesystem
        */
       $filesystemFactory = \Drupal::service('degov_theming.filesystem_factory');
       /**
-       * @var SymfonyFilesystem $filesystem
+       * @var \Symfony\Component\Filesystem\Filesystem $filesystem
        */
       $symfonyFilesystem = $filesystemFactory->create();
 
       /**
-       * @var DrupalFilesystem $drupalFilesystem
+       * @var \Drupal\Core\File\FileSystem $drupalFilesystem
        */
       $drupalFilesystem = \Drupal::service('file_system');
 
@@ -938,7 +1069,8 @@ class DrupalContext extends RawDrupalContext {
           drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $drupalFilesystem->realpath($drupalFilePath . '/' . $filename)
         );
-      } else {
+      }
+      else {
         $drupalFilePath = 'private://media/document/file';
 
         $documentFilesUri = $drupalFilesystem->realpath('private://') . '/media/document/file';
@@ -950,7 +1082,7 @@ class DrupalContext extends RawDrupalContext {
         $symfonyFilesystem->copy(
           drupal_get_path('module', 'degov_demo_content') . '/fixtures/' . $filename,
           $documentFilesUri . '/' . $filename
-        );
+              );
       }
 
       $fileEntity = File::create([
@@ -968,6 +1100,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Create normal page entity with content reference in view mode.
+   *
    * @Then /^I have created an node normal page entity with a content reference in "([^"]*)" view mode$/
    */
   public function createNormalPageEntityWithContentReferenceInViewMode(string $viewMode): void {
@@ -987,9 +1121,9 @@ class DrupalContext extends RawDrupalContext {
       'field_teaser_text'       => 'My nice teaser text.',
       'field_teaser_image'      => [
         [
-          'target_id' => $media->id()
+          'target_id' => $media->id(),
         ],
-      ]
+      ],
     ]);
     $nodeForContentReference->save();
 
@@ -997,7 +1131,7 @@ class DrupalContext extends RawDrupalContext {
       'type'                          => 'node_reference',
       'field_node_reference_nodes'    => [
         [
-          'target_id' => $nodeForContentReference->id()
+          'target_id' => $nodeForContentReference->id(),
         ],
       ],
       'field_node_reference_viewmode' => $viewMode,
@@ -1009,13 +1143,15 @@ class DrupalContext extends RawDrupalContext {
       'type'                     => 'normal_page',
       'moderation_state'         => 'published',
       'field_content_paragraphs' => [
-        $contentReferenceParagraph
+        $contentReferenceParagraph,
       ],
     ]);
     $node->save();
   }
 
   /**
+   * Have created an unused file entity.
+   *
    * @Then /^I have created an unused file entity$/
    */
   public function iHaveCreatedAnUnusedFileEntity() {
@@ -1023,15 +1159,19 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Visit the delete form for the unused file entity.
+   *
    * @Then /^I visit the delete form for the unused file entity$/
    */
   public function iVisitTheDeleteFormForTheUnusedFileEntity() {
-    if(preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
+    if (preg_match("/^\d+$/", $this->dummyImageFileEntityId)) {
       $this->getSession()->visit($this->locatePath('/file/' . $this->dummyImageFileEntityId . '/delete'));
     }
   }
 
   /**
+   * Visit normal page entity with content reference.
+   *
    * @Then /^I visit an normal page entity with content reference$/
    */
   public function visitNormalPageEntityWithContentReference(): void {
@@ -1039,6 +1179,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Set the privacy policy page for all languages.
+   *
    * @Given I set the privacy policy page for all languages
    */
   public function setThePrivacyPolicyPageForAllLanguages() {
@@ -1060,6 +1202,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see an element with the content.
+   *
    * @Then I should see an :selector element with the content :content
    */
   public function iShouldSeeAnElementWithTheContent($selector, $content) {
@@ -1074,7 +1218,8 @@ class DrupalContext extends RawDrupalContext {
 
       try {
         throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $content));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1083,7 +1228,8 @@ class DrupalContext extends RawDrupalContext {
 
     try {
       throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -1091,6 +1237,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see an element with the content vial translation.
+   *
    * @Then I should see an :selector element with the content :content via translation
    */
   public function iShouldSeeAnElementWithTheContentViaTranslation($selector, $content) {
@@ -1106,7 +1254,8 @@ class DrupalContext extends RawDrupalContext {
 
       try {
         throw new \Exception(sprintf('Could not find any elements matching "%s" with the content "%s"', $selector, $translatedContent));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1114,7 +1263,8 @@ class DrupalContext extends RawDrupalContext {
 
     try {
       throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -1122,6 +1272,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Rebuild the index.
+   *
    * @Given /^I rebuild the "([^"]*)" index$/
    */
   public function iRebuildTheIndex($indexId) {
@@ -1134,6 +1286,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Clear the cache.
+   *
    * @Given /^I clear the cache$/
    */
   public function iClearTheCache() {
@@ -1141,10 +1295,11 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Delete all content.
+   *
    * @Given I delete all content
    */
-  public function iDeleteAllContent()
-  {
+  public function iDeleteAllContent() {
     $mediaIds = \Drupal::entityQuery('media')->execute();
     $mediaStorageHandler = \Drupal::entityTypeManager()->getStorage('media');
     $media = $mediaStorageHandler->loadMultiple($mediaIds);
@@ -1156,23 +1311,30 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Enter the menu placeholder for a media file in specific field.
+   *
    * @Given I enter the menu placeholder for a :mediaBundle media file in :fieldSelector
    */
-  public function iEnterTheMenuPlaceholderForAMediaFileInSpecificField(string $mediaBundle, string $fieldSelector): void {
-    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+  public function iEnterTheMenuPlaceholderForMediaFileInSpecificField(string $mediaBundle, string $fieldSelector): void {
+    if (($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
       $this->getSession()->getPage()->find('css', $fieldSelector)->setValue('<media/file/' . $id . '>');
     }
   }
 
   /**
+   * Enter the placeholder for a media file.
+   *
    * @Given I enter the placeholder for a :mediaBundle media file in textarea
    */
-  public function iEnterThePlaceholderForAMediaFile(string $mediaBundle): void {
-    if(($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
+  public function iEnterThePlaceholderForMediaFile(string $mediaBundle): void {
+    if (($id = $this->getMediaItemId($mediaBundle)) !== NULL) {
       $this->getSession()->executeScript('jQuery("div.form-textarea-wrapper:first iframe").contents().find("p").text("[media/file/' . $id . ']")');
     }
   }
 
+  /**
+   * Get media item id.
+   */
   private function getMediaItemId($mediaBundle): ?int {
     $mediaResult = \Drupal::entityQuery('media')
       ->condition('bundle', $mediaBundle)
@@ -1186,6 +1348,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Execute console command.
+   *
    * @Given /^I execute the following console command: "([^"]*)"$/
    */
   public function executeConsoleCommand(string $consoleCommand): void {
@@ -1193,6 +1357,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Clear all search indexes and index all search indexes.
+   *
    * @Given /^I clear all search indexes and index all search indexes$/
    */
   public function clearAllSearchIndexesAndIndexAllSearchIndexes(): void {
@@ -1200,6 +1366,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Reset demo content.
+   *
    * @Given /^I reset the demo content$/
    */
   public function resetDemoContent(): void {
@@ -1207,6 +1375,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see the image in.
+   *
    * @Given /^I should see the "([^"]*)" in "([^"]*)"$/
    */
   public function iShouldSeeTheImageIn($selector1, $selector2) {
@@ -1217,7 +1387,8 @@ class DrupalContext extends RawDrupalContext {
         if (!$element->has('css', $selector1)) {
           try {
             throw new \Exception(sprintf('Could not find "%s" element within "%s" element(s)' . "\r\n" . $element->getHtml(), $selector1, $selector2));
-          } catch (\Exception $exception) {
+          }
+          catch (\Exception $exception) {
             $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
             throw $exception;
           }
@@ -1228,7 +1399,8 @@ class DrupalContext extends RawDrupalContext {
     else {
       try {
         throw new \Exception(sprintf('Could not find any elements matching "%s"', $selector2));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1237,6 +1409,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Set newsletter privacy policy page.
+   *
    * @Then I set newsletter privacy policy page
    */
   public function setNewsletterPrivacyPolicyPage() {
@@ -1247,6 +1421,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see visible on the page.
+   *
    * @Given /^I should see "([^"]*)" element visible on the page$/
    */
   public function iShouldSeeVisibleOnThePage($selector) {
@@ -1266,7 +1442,8 @@ class DrupalContext extends RawDrupalContext {
     if (count($nodes)) {
       try {
         throw new \Exception("Element: \"$selector\" is not visible." . "\r\n" . $element->getHtml());
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1274,7 +1451,8 @@ class DrupalContext extends RawDrupalContext {
     else {
       try {
         throw new ElementNotFoundException($this->getSession(), 'css selector', $selector, "\r\n" . $element->getHtml());
-      } catch (ElementNotFoundException $exception) {
+      }
+      catch (ElementNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1282,6 +1460,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should not see the element with css selector.
+   *
    * @Given I should not see the element with css selector :selector
    */
   public function iShouldNotSeeTheElementWithCssSelector($selector) {
@@ -1291,7 +1471,8 @@ class DrupalContext extends RawDrupalContext {
 
         try {
           throw new \Exception("The element with selector \"$selector\" is visible.");
-        } catch (\Exception $exception) {
+        }
+        catch (\Exception $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
@@ -1301,6 +1482,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Should see the element with css selector.
+   *
    * @Given I should see the element with css selector :selector
    */
   public function iShouldSeeTheElementWithCssSelector($selector) {
@@ -1309,7 +1492,8 @@ class DrupalContext extends RawDrupalContext {
       if (!$element->isVisible()) {
         try {
           throw new \Exception("The element with selector \"$selector\" is not visible.");
-        } catch (\Exception $exception) {
+        }
+        catch (\Exception $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
@@ -1318,6 +1502,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Fill in the drupal autocomplete.
+   *
    * @Then I fill in the autocomplete :autocomplete with :label via javascript
    */
   public function fillInDrupalAutocomplete($autocomplete, string $text) {
@@ -1328,28 +1514,33 @@ class DrupalContext extends RawDrupalContext {
         $page = $this->getSession()->getPage();
         $node = $page->find('css', '.ui-menu li a');
         if ($node) {
-          // Fixed selector usage, can be swapped by a selector in case necessary later on.
+          // Fixed selector usage, can be swapped by a selector in case
+          // necessary later on.
           $this->getSession()->evaluateScript("jQuery('.ui-menu li a').click();");
-          return true;
+          return TRUE;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
       try {
         throw new ResponseTextException(
-          sprintf('Could not find autocomplete after %s seconds',  self::MAX_DURATION_SECONDS),
+          sprintf('Could not find autocomplete after %s seconds', self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (ResponseTextException $exception) {
+      }
+      catch (ResponseTextException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-    } catch (StaleElementReference $e) {
-      return false;
+    }
+    catch (StaleElementReference $e) {
+      return FALSE;
     }
   }
 
   /**
+   * Each html content element with css selector is unique.
+   *
    * @Then each HTML content element with css selector :selector is unique
    */
   public function eachHtmlContentElementWithCssSelectorIsUnique($selector) {
@@ -1368,7 +1559,8 @@ class DrupalContext extends RawDrupalContext {
     if ($duplicate) {
       try {
         throw new \Exception(sprintf('Found duplicate HTML content "%s" elements with CSS selector "%s"', $elementText, $selector));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -1378,9 +1570,10 @@ class DrupalContext extends RawDrupalContext {
 
   /**
    * Counts the amount of open windows.
+   *
    * @Then there should be a total of :number window(s)
    */
-  public function thereShouldBeATotalOfWindow($total) {
+  public function thereShouldBeTotalOfWindow($total) {
     $totalWindows = count($this->getSession()->getWindowNames());
     if ($totalWindows == $total) {
       return TRUE;
@@ -1388,7 +1581,8 @@ class DrupalContext extends RawDrupalContext {
 
     try {
       throw new \Exception($totalWindows . ' windows are found on the page, but should be ' . $total);
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -1396,6 +1590,8 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Enable dev mode.
+   *
    * @Then /^I turn on development mode$/
    */
   public function enableDevMode() {

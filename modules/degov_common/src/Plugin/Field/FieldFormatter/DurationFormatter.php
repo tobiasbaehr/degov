@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: artem
- * Date: 15/09/2016
- * Time: 15:07
- */
 
 namespace Drupal\degov_common\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
-
 
 /**
  * Plugin implementation of the 'hero_slider' formatter.
@@ -28,11 +22,13 @@ class DurationFormatter extends FormatterBase {
   /**
    * Convert the seconds into human readable time.
    *
-   * @param $item
+   * @param \Drupal\Core\Field\FieldItemInterface $item
+   *   Field item.
    *
    * @return bool|string
+   *   Time string or false if input not valid.
    */
-  public function _convertSecondsToReadableTime($item) {
+  public function convertSecondsToReadableTime(FieldItemInterface $item) {
     $seconds = $item->get('value')->getValue();
     if (!is_numeric($seconds) || !$seconds) {
       return FALSE;
@@ -49,15 +45,12 @@ class DurationFormatter extends FormatterBase {
   }
 
   /**
-   * @param FieldItemListInterface $items
-   * @param string $langcode
-   *
-   * @return array
+   * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
     foreach ($items as $delta => $item) {
-      $duration = $this->_convertSecondsToReadableTime($item);
+      $duration = $this->convertSecondsToReadableTime($item);
       // Add duration to render array only if it is not empty.
       if ($duration) {
         $elements[$delta] = [
@@ -68,4 +61,5 @@ class DurationFormatter extends FormatterBase {
 
     return $elements;
   }
+
 }

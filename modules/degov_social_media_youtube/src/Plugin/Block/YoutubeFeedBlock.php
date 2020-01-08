@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_social_media_youtube\Plugin\Block;
 
-use Drupal;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
@@ -47,9 +46,9 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
    *
    * @param array $configuration
    *   Block plugin config.
-   * @param $plugin_id
+   * @param string $plugin_id
    *   Block plugin plugin_id.
-   * @param $plugin_definition
+   * @param mixed $plugin_definition
    *   Block plugin definition.
    * @param \Drupal\Core\Logger\LoggerChannelInterface $logger
    *   The logger service.
@@ -103,7 +102,8 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
         $channelID = $this->youTube->getChannelByName($channelName)->id;
       }
       else {
-        // If no channel was found by that name then take the channel name as ID
+        // If no channel was found by that name then take
+        // the channel name as ID.
         $channelID = $channelName;
       }
 

@@ -20,7 +20,7 @@ use Drupal\Core\TypedData\TranslatableInterface;
  *   }
  * )
  */
-class deGovPreviewImage extends EntityReferenceEntityFormatter {
+class DeGovPreviewImage extends EntityReferenceEntityFormatter {
 
   /**
    * {@inheritdoc}

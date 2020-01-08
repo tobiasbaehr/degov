@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\degov_govbot_faq\Kernel;
 
-use Drupal\degov_govbot_faq\FAQAccess;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
@@ -12,7 +11,9 @@ use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\paragraphs\Entity\ParagraphsType;
 
-
+/**
+ * Class FAQAccessTest.
+ */
 class FAQAccessTest extends KernelTestBase {
 
   private const SHORT_BLIND_TEXT = 'Lorem ipsum dolor';
@@ -36,7 +37,9 @@ class FAQAccessTest extends KernelTestBase {
   ];
 
   /**
-   * @var FAQAccess
+   * Faq access.
+   *
+   * @var \Drupal\degov_govbot_faq\FAQAccess
    */
   private $faqAccess;
 
@@ -55,12 +58,15 @@ class FAQAccessTest extends KernelTestBase {
     \Drupal::moduleHandler()->loadInclude('taxonomy', 'install');
     $this->faqAccess = \Drupal::service('degov_govbot_faq.faq_access');
     \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
-    $this->createParagraphTypeFAQ();
-    $this->createParagraphTypeFAQList();
-    $this->createFAQNodeType();
+    $this->createParagraphTypeFaq();
+    $this->createParagraphTypeFaqList();
+    $this->createFaqNodeType();
   }
 
-  private function createParagraphTypeFAQList(): void {
+  /**
+   * Create paragraph type faq list.
+   */
+  private function createParagraphTypeFaqList(): void {
     $paragraph_type = ParagraphsType::create([
       'label' => 'FAQ list',
       'id'    => 'faq_list',
@@ -85,7 +91,10 @@ class FAQAccessTest extends KernelTestBase {
     $field->save();
   }
 
-  private function createParagraphTypeFAQ(): void {
+  /**
+   * Create paragraph type faq.
+   */
+  private function createParagraphTypeFaq(): void {
     $paragraph_type = ParagraphsType::create([
       'label' => 'FAQ',
       'id'    => 'faq',
@@ -117,6 +126,9 @@ class FAQAccessTest extends KernelTestBase {
 
   }
 
+  /**
+   * Setup accessible node.
+   */
   private function setupAccessibleNode(): NodeInterface {
     $faqElement = Paragraph::create([
       'type'                  => 'faq',
@@ -138,7 +150,7 @@ class FAQAccessTest extends KernelTestBase {
       'title'             => self::SHORT_BLIND_TEXT,
       'type'              => 'faq',
       'field_faq_related' => [
-        $faqList
+        $faqList,
       ],
     ]);
     $node->save();
@@ -150,6 +162,9 @@ class FAQAccessTest extends KernelTestBase {
     return $nodeLoaded;
   }
 
+  /**
+   * Setup not accessible node.
+   */
   private function setupNotAccessibleNode(): NodeInterface {
     $faqElement = Paragraph::create([
       'type'                  => 'faq',
@@ -171,7 +186,7 @@ class FAQAccessTest extends KernelTestBase {
       'title'             => self::SHORT_BLIND_TEXT,
       'type'              => 'faq',
       'field_faq_related' => [
-        $faqList
+        $faqList,
       ],
     ]);
     $node->save();
@@ -183,7 +198,10 @@ class FAQAccessTest extends KernelTestBase {
     return $nodeLoaded;
   }
 
-  public function createFAQNodeType(): void {
+  /**
+   * Create faq node type.
+   */
+  public function createFaqNodeType(): void {
     $nodeType = NodeType::create([
       'name' => 'FAQ',
       'type' => 'faq',
@@ -208,10 +226,16 @@ class FAQAccessTest extends KernelTestBase {
     $field->save();
   }
 
+  /**
+   * Test if accessible on site.
+   */
   public function testIsAccessibleOnSite(): void {
     self::assertTrue($this->faqAccess->isAccessibleOnSite($this->setupAccessibleNode()));
   }
 
+  /**
+   * Test if not accessible on site.
+   */
   public function testIsNotAccessibleOnSite(): void {
     self::assertFalse($this->faqAccess->isAccessibleOnSite($this->setupNotAccessibleNode()));
   }

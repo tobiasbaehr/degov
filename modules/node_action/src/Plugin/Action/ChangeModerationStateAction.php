@@ -13,6 +13,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
+ * Class ChangeModerationStateAction.
+ *
  * @Action(
  *   id = "node_action:entity:moderation_state_action:node",
  *   action_label = @Translation("Change moderation state"),
@@ -21,12 +23,30 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class ChangeModerationStateAction extends EntityActionBase {
 
+  /**
+   * Access checker.
+   *
+   * @var \Drupal\node_action\AccessChecker\ChangeModerationStateAction
+   */
   private $accessChecker;
 
+  /**
+   * Redirector.
+   *
+   * @var \Drupal\node_action\Redirector
+   */
   private $redirector;
 
+  /**
+   * Published state change.
+   *
+   * @var \Drupal\node_action\AccessChecker\PublishedStateChange
+   */
   private $publishedStateChange;
 
+  /**
+   * ChangeModerationStateAction constructor.
+   */
   public function __construct(array $configuration, string $plugin_id, array $plugin_definition, EntityTypeManagerInterface $entity_type_manager, AccessChecker $accessChecker, Redirector $redirector, PublishedStateChange $publishedStateChange) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager);
     $this->accessChecker = $accessChecker;

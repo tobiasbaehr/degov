@@ -7,14 +7,18 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Extension\ModuleInstallerInterface;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
-
+/**
+ * Class ModuleContext.
+ */
 class ModuleContext extends RawDrupalContext {
 
   /**
+   * Proof drupal module is installed.
+   *
    * @Then /^I proof that Drupal module "([^"]*)" is installed$/
    */
   public function proofDrupalModuleIsInstalled($moduleName): void {
-    if (!$this->getModuleHandler()->moduleExists($moduleName)){
+    if (!$this->getModuleHandler()->moduleExists($moduleName)) {
       throw new \Exception("Drupal module $moduleName is not installed.");
     }
   }
@@ -34,7 +38,7 @@ class ModuleContext extends RawDrupalContext {
     $moduleMachineNames = array_keys($rowsHash);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      if (!$this->getModuleHandler()->moduleExists($moduleMachineName)){
+      if (!$this->getModuleHandler()->moduleExists($moduleMachineName)) {
         throw new \Exception("Drupal module '$moduleMachineName' is not installed.");
       }
     }
@@ -55,19 +59,21 @@ class ModuleContext extends RawDrupalContext {
     $moduleMachineNames = array_keys($rowsHash);
 
     foreach ($moduleMachineNames as $moduleMachineName) {
-      if ($this->getModuleHandler()->moduleExists($moduleMachineName)){
+      if ($this->getModuleHandler()->moduleExists($moduleMachineName)) {
         throw new TextNotFoundException("Drupal module '$moduleMachineName' is installed.", $this->getSession());
       }
     }
   }
 
   /**
+   * Am installing the module.
+   *
    * @Then /^I am installing the "([^"]*)" module$/
    */
   public function iAmInstallingTheModule(string $moduleName): void {
     $this->getModuleInstaller()->install([$moduleName]);
-    // Required to import translations or other batch processes which runs after a
-    // module is installed. (by default via backend which would runs a batch)
+    // Required to import translations or other batch processes which runs after
+    // a module is installed. (by default via backend which would runs a batch)
     $batch =& batch_get();
     if (empty($batch)) {
       return;
@@ -77,6 +83,8 @@ class ModuleContext extends RawDrupalContext {
   }
 
   /**
+   * Uninstall the module.
+   *
    * @Then /^I uninstall the "([^"]*)" module$/
    */
   public function iUninstallTheModule(string $moduleName): void {
@@ -84,7 +92,7 @@ class ModuleContext extends RawDrupalContext {
   }
 
   /**
-   * Installs multiple Drupal modules
+   * Installs multiple Drupal modules.
    *
    * Provide module data in the following format:
    *
@@ -102,10 +110,16 @@ class ModuleContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * Get module installer.
+   */
   protected function getModuleInstaller(): ModuleInstallerInterface {
     return \Drupal::service('module_installer');
   }
 
+  /**
+   * Get module handler.
+   */
   protected function getModuleHandler(): ModuleHandlerInterface {
     return \Drupal::service('module_handler');
   }

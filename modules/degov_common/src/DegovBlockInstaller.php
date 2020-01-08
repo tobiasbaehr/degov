@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Drupal\degov_common;
@@ -7,7 +8,7 @@ use Drupal\config\StorageReplaceDataWrapper;
 use Drupal\Core\Config\FileStorage;
 
 /**
- * Class DegovBlockInstaller
+ * Class DegovBlockInstaller.
  *
  * @package Drupal\degov_common
  */
@@ -37,7 +38,7 @@ class DegovBlockInstaller extends DegovConfigManagerBase implements DegovBlockIn
 
     foreach ($file_storage->listAll() as $config_name) {
       $block = $file_storage->read($config_name);
-      $this->addUUID($config_name, $block);
+      $this->addUuid($config_name, $block);
       // Check if the theme from the configuration exists.
       if (!$this->themeHandler->themeExists($block['theme'])) {
         // If not, set the theme to currently active.
@@ -61,4 +62,5 @@ class DegovBlockInstaller extends DegovConfigManagerBase implements DegovBlockIn
       $this->configImport($source_storage);
     }
   }
+
 }

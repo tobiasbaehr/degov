@@ -6,7 +6,7 @@ use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class MediaFileLinksEntityAutocomplete
+ * Class MediaFileLinksEntityAutocomplete.
  *
  * The #default_value accepted by this element is either an entity object or an
  * array of entity objects.

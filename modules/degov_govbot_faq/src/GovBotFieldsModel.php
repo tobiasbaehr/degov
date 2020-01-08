@@ -2,60 +2,76 @@
 
 namespace Drupal\degov_govbot_faq;
 
+/**
+ * Class GovBotFieldsModel.
+ */
 class GovBotFieldsModel {
 
   /**
+   * Field govbot answer.
+   *
    * @var string
    */
-  private $field_govbot_answer;
+  private $fieldGovbotAnswer;
 
   /**
+   * Field govbot question.
+   *
    * @var string
    */
-  private $field_govbot_question;
+  private $fieldGovbotQuestion;
 
   /**
    * GovBotFieldsModel constructor.
+   *
    * @param string $field_govbot_answer
+   *   Field govbot answer.
    * @param string $field_govbot_question
+   *   Field govbot question.
    */
-  public function __construct(string $field_govbot_answer, string $field_govbot_question)
-  {
-    $this->field_govbot_answer = $field_govbot_answer;
-    $this->field_govbot_question = $field_govbot_question;
+  public function __construct(string $field_govbot_answer, string $field_govbot_question) {
+    $this->fieldGovbotAnswer = $field_govbot_answer;
+    $this->fieldGovbotQuestion = $field_govbot_question;
   }
 
-
   /**
+   * Get field govbot answer.
+   *
    * @return string
+   *   Govbot answer field.
    */
-  public function getFieldGovBotAnswer(): string
-  {
-    return $this->field_govbot_answer;
+  public function getFieldGovBotAnswer(): string {
+    return $this->fieldGovbotAnswer;
   }
 
   /**
-   * @param string $field_govbot_answer
+   * Set field govbot answer.
+   *
+   * @param string $fieldGovbotAnswer
+   *   Field govbot answer.
    */
-  public function setFieldGovBotAnswer(string $field_govbot_answer): void
-  {
-    $this->field_govbot_answer = $field_govbot_answer;
+  public function setFieldGovBotAnswer(string $fieldGovbotAnswer): void {
+    $this->fieldGovbotAnswer = $fieldGovbotAnswer;
   }
 
   /**
+   * Get field govbot question.
+   *
    * @return string
+   *   Field govbot question.
    */
-  public function getFieldGovBotQuestion(): string
-  {
-    return $this->field_govbot_question;
+  public function getFieldGovBotQuestion(): string {
+    return $this->fieldGovbotQuestion;
   }
 
   /**
-   * @param string $field_govbot_question
+   * Set field govbot question.
+   *
+   * @param string $fieldGovbotQuestion
+   *   Field govbot question.
    */
-  public function setFieldGovBotQuestion(string $field_govbot_question): void
-  {
-    $this->field_govbot_question = $field_govbot_question;
+  public function setFieldGovBotQuestion(string $fieldGovbotQuestion): void {
+    $this->fieldGovbotQuestion = $fieldGovbotQuestion;
   }
 
 }

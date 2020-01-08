@@ -1,8 +1,10 @@
 /**
- * @file slideshow.js
+ * @file
+ * slideshow.js
  *
  * Defines the behavior of the Slideshow paragraph.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';
@@ -15,7 +17,7 @@
       var $slideshow = $('.slideshow.default', context);
       if ($slideshow.length >= 1) {
         var $slider = $('.slideshow__slides', $slideshow);
-        if($slider.children().length > 1) {
+        if ($slider.children().length > 1) {
           $slider.once().slick({
             dots: true,
             autoplay: false,
@@ -30,12 +32,13 @@
             $slider.slick('slickPlay');
             $(this).hide().siblings('.slick__pause').show().focus();
           }).show();
-        } else {
+        }
+else {
           $slideshow.find('.paragraph-slideshow').addClass('single-slide');
         }
       }
 
-      // Slick slider for prev/next thumbnails images
+      // Slick slider for prev/next thumbnails images.
       var $slideshow_prev_next = $('.slideshow-with-prev-next');
       var $slides_prev_next = $('.slides_prev_next', $slideshow_prev_next);
       $slides_prev_next.once().slick({
@@ -66,11 +69,11 @@
 
       function get_prev_slick_img() {
         var $slick_current = $('.slick-current');
-        // For prev img
+        // For prev img.
         var prev_slick_img = $slick_current.prev('.slick-slide').find('.slide__media img').attr('src');
         $('.prev-slick-img img').attr('src', prev_slick_img);
         $('.prev-slick-img').css('background-image', 'url(' + prev_slick_img + ')');
-        // For next img
+        // For next img.
         var prev_next_slick_img = $slick_current.next('.slick-slide').find('.slide__media img').attr('src');
         $('.next-slick-img img').attr('src', prev_next_slick_img);
         $('.next-slick-img').css('background-image', 'url(' + prev_next_slick_img + ')');
@@ -78,17 +81,17 @@
 
       function get_next_slick_img() {
         var $slick_current = $('.slick-current');
-        // For next img
+        // For next img.
         var next_slick_img = $slick_current.next('.slick-slide').find('.slide__media img').attr('src');
         $('.next-slick-img img').attr('src', next_slick_img);
         $('.next-slick-img').css('background-image', 'url(' + next_slick_img + ')');
-        // For prev img
+        // For prev img.
         var next_prev_slick_img = $slick_current.prev('.slick-slide').find('.slide__media img').attr('src');
         $('.prev-slick-img img').attr('src', next_prev_slick_img);
         $('.prev-slick-img').css('background-image', 'url(' + next_prev_slick_img + ')');
       }
 
-      // End
+      // End.
     }
   }
 

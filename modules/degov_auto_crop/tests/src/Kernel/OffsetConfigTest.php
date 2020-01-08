@@ -4,6 +4,9 @@ namespace Drupal\Tests\degov_auto_crop\Kernel;
 
 use Drupal\Tests\token\Kernel\KernelTestBase;
 
+/**
+ * Class OffsetConfigTest.
+ */
 class OffsetConfigTest extends KernelTestBase {
 
   /**
@@ -35,6 +38,9 @@ class OffsetConfigTest extends KernelTestBase {
     ]);
   }
 
+  /**
+   * Test offset values are installed.
+   */
   public function testOffsetValuesAreInstalled() {
     $expectedValues = [
       'degov_auto_crop' => [

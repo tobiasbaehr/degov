@@ -13,9 +13,14 @@ use Drupal\permissions_by_term\Service\AccessCheck;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 
-
+/**
+ * Class PublishActionTest.
+ */
 class PublishActionTest extends UnitTestCase {
 
+  /**
+   * Test allowed access.
+   */
   public function testAllowedAccess(): void {
     $accessCheck = $this->prophesize(AccessCheck::class);
     $accessCheck->canUserAccessByNodeId(Argument::type('int'))->willReturn(TRUE);
@@ -36,6 +41,9 @@ class PublishActionTest extends UnitTestCase {
     self::assertEquals(AccessResult::allowed(), $publishAction->canAccess($entity->reveal()));
   }
 
+  /**
+   * Test disallowed access by no permission.
+   */
   public function testDisallowedAccessByNoPermission(): void {
     $accessCheck = $this->prophesize(AccessCheck::class);
     $accessCheck->canUserAccessByNodeId(Argument::type('int'))->willReturn(TRUE);
@@ -58,6 +66,9 @@ class PublishActionTest extends UnitTestCase {
     self::assertEquals(AccessResult::forbidden(), $publishAction->canAccess($entity->reveal()));
   }
 
+  /**
+   * Test disallowed access by no permissions by term permission.
+   */
   public function testDisallowedAccessByNoPermissionsByTermPermission(): void {
     $accessCheck = $this->prophesize(AccessCheck::class);
     $accessCheck->canUserAccessByNodeId(Argument::type('int'))->willReturn(FALSE);
@@ -80,6 +91,9 @@ class PublishActionTest extends UnitTestCase {
     self::assertEquals(AccessResult::forbidden(), $publishAction->canAccess($entity->reveal()));
   }
 
+  /**
+   * Test handling if entity no node.
+   */
   public function testHandlingIfEntityNoNode(): void {
     $accessCheck = $this->prophesize(AccessCheck::class);
 

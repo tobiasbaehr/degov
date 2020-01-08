@@ -2,11 +2,8 @@
 
 namespace Drupal\Tests\media_file_links\Kernel;
 
-use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\TypedData\ComplexDataDefinitionInterface;
-use Drupal\Core\TypedData\DataDefinition;
 use Drupal\Core\TypedData\DataReferenceDefinitionInterface;
-use Drupal\link\LinkItemInterface;
 use Drupal\media_file_links\Plugin\Field\FieldType\MediaFileLinkItem;
 
 /**
@@ -16,6 +13,11 @@ use Drupal\media_file_links\Plugin\Field\FieldType\MediaFileLinkItem;
  */
 class MediaFileLinkItemTest extends MediaFileLinksTestBase {
 
+  /**
+   * Media file link item.
+   *
+   * @var \Drupal\media_file_links\Plugin\Field\FieldType\MediaFileLinkItem
+   */
   private $mediaFileLinkItem;
 
   /**
@@ -30,30 +32,43 @@ class MediaFileLinkItemTest extends MediaFileLinksTestBase {
       ->method('getPropertyDefinitions')
       ->willReturn([$property_definition]);
 
-    $this->mediaFileLinkItem = new MediaFileLinkItem($data_definition, null, null);
+    $this->mediaFileLinkItem = new MediaFileLinkItem($data_definition, NULL, NULL);
   }
 
+  /**
+   * Test link resolution with existing supported media.
+   */
   public function testLinkResolutionWithExistingSupportedMedia(): void {
     $this->mediaFileLinkItem->uri = '<media/file/' . $this->supportedMediaId . '>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('dummy.pdf', $urlString);
   }
 
+  /**
+   * Test link resolution with existing unsupported media.
+   */
   public function testLinkResolutionWithExistingUnupportedMedia(): void {
     $this->mediaFileLinkItem->uri = '<media/file/' . $this->unsupportedMediaId . '>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('', $urlString);
   }
 
+  /**
+   * Test link resolution with nonexistent media.
+   */
   public function testLinkResolutionWithNonexistentMedia(): void {
     $this->mediaFileLinkItem->uri = '<media/file/999>';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('', $urlString);
   }
 
+  /**
+   * Test link resolution with regular url.
+   */
   public function testLinkResolutionWithRegularUrl(): void {
     $this->mediaFileLinkItem->uri = 'http://www.drupal.org/';
     $urlString = $this->mediaFileLinkItem->getUrl()->toString();
     self::assertContains('http://www.drupal.org/', $urlString);
   }
+
 }

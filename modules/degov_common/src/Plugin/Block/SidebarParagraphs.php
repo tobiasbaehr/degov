@@ -21,6 +21,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * Route matcher.
+   *
    * @var \Drupal\Core\Routing\RouteMatchInterface
    */
   protected $routeMatcher;
@@ -29,9 +31,13 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
    * SidebarParagraphs constructor.
    *
    * @param array $configuration
+   *   Configration.
    * @param string $plugin_id
+   *   Plugin ID.
    * @param mixed $plugin_definition
+   *   Plugin definition.
    * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
+   *   Route match.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $routeMatch) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -39,10 +45,16 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
   }
 
   /**
+   * Create.
+   *
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *   Container.
    * @param array $configuration
+   *   Configuration.
    * @param string $plugin_id
+   *   Plugin ID.
    * @param mixed $plugin_definition
+   *   Plugin definitions.
    *
    * @return static
    */
@@ -88,7 +100,8 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
           ->view('full');
         if (!$node->isPublished()) {
           $build['sidebar_paragraphs']['#markup'] = render($field_rendered_array);
-        } else {
+        }
+        else {
           $build['sidebar_paragraphs'] = $field_rendered_array;
         }
         $build['sidebar_paragraphs']['#cache'] = [
@@ -103,7 +116,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
             'default',
           ],
           'contexts' => [
-            'user.permissions'
+            'user.permissions',
           ],
         ];
       }

@@ -20,7 +20,7 @@ export COMPOSER_MEMORY_LIMIT
 CI_ROOT_DIR=$BITBUCKET_CLONE_DIR
 export CI_ROOT_DIR
 
-RELEASE_BRANCH=release/7.6.x-dev
+RELEASE_BRANCH=release/8.0.x-dev
 export RELEASE_BRANCH
 
 _info() {
