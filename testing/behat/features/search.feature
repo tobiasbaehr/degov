@@ -5,6 +5,9 @@ Feature: deGov - Search
     Given I proof that the following Drupal modules are installed:
       | degov_search_content       |
       | degov_search_media         |
+
+  # We do this here instead of Background, because constantly rebuilding the demo content caused a massive overhead
+  Scenario: I set up the required modules
     And I am installing the following Drupal modules:
       | degov_search_media_manager |
       | degov_demo_content         |
