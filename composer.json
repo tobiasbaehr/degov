@@ -24,7 +24,7 @@
         "drupal/core": "~8.8.0",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/date_popup": "^1.0",
-        "drupal/degov_simplenews": "^1.5",
+        "drupal/degov_simplenews": "^1.12",
         "drupal/diff": "^1.0@RC",
         "drupal/dropzonejs": "^2.0",
         "drupal/easy_breadcrumb": "~1.6",
