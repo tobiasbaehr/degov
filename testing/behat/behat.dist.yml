@@ -13,8 +13,10 @@ default:
         - Drupal\degov\Behat\Context\NodeContentTypeFormContext
         - Drupal\degov\Behat\Context\ModuleContext
         - Drupal\degov\Behat\Context\JavaScriptContext
+        - Drupal\degov_behat_extension\BehatContext\PerformanceContext
       paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        - '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        - '%paths.base%/docroot/profiles/contrib/degov/modules/degov_behat_extension/tests/src/Behat/features/performance'
       translation:
           locale: de
     smoke-tests:

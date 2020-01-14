@@ -37,7 +37,8 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    * @param string $directory
    *   A directory path to use for reading and writing of configuration files.
    *
-   * @deprecated
+   * @deprecated in deGov 7.x and is removed from deGov 8.0. Use $this->importConfigFiles().
+   * @see \Drupal\degov_common\DegovConfigUpdate::importConfigFiles()
    */
   public function checkConfigurationChanges(string $directory) : void {
     $this->importConfigFiles($directory);

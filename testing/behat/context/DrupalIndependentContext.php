@@ -190,7 +190,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
     try {
       throw new TextNotFoundException(
-        sprintf('HTML does contain content "%s"', $content),
+        sprintf('HTML does not contain content "%s"', $content),
         $this->getSession());
     }
     catch (TextNotFoundException $exception) {

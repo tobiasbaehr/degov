@@ -7,8 +7,8 @@ use Drupal\media\MediaTypeInterface;
 /**
  * Basic implementation of SourceFieldInterface.
  *
- * @deprecated in Lightning 2.2.1 and will be removed in Lightning 2.3.0. Use
- * \Drupal\media\MediaSourceInterface::getSourceFieldDefinition() instead.
+ * @deprecated in Lightning 2.2.1 and is removed from 2.3.0. Do not use.
+ * @see \Drupal\media\MediaSourceInterface::getSourceFieldDefinition()
  */
 trait SourceFieldPluginTrait {
 

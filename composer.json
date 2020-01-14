@@ -105,9 +105,7 @@
         "psr-4": {
             "degov\\Scripts\\Robo\\": "scripts/Robo/",
             "Drupal\\degov\\": "src/",
-            "Drupal\\degov\\Behat\\Context\\": "testing/behat/context/",
-            "Drupal\\Tests\\lightning_media\\": "modules/lightning_media/tests/src/",
-            "Drupal\\degov\\Behat\\Context\\Traits\\": "testing/behat/context/Traits/"
+            "Drupal\\Tests\\lightning_media\\": "modules/lightning_media/tests/src/"
         }
     },
     "extra": {

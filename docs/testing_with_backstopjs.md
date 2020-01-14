@@ -1,5 +1,6 @@
 # Testing with BackstopJS
 
+## Table of contents
 - [Official BackstopJS documentation](#official-backstopjs-documentation)
 - [Usage of the BackstopJS Docker image](#usage-of-the-backstopjs-docker-image)
 - [Start the Docker container's shell](#start-the-docker-containers-shell)
