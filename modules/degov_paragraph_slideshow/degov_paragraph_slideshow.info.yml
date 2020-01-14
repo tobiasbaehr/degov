@@ -8,6 +8,9 @@ dependencies:
   - degov_content_types_shared_fields
   - degov_image_and_crop_styles
   - degov_paragraph_node_reference
+  - degov_media_video
+  - degov_media_video_mobile
+  - degov_media_video_upload
   - entity_browser
   - entity_reference_revisions
   - field

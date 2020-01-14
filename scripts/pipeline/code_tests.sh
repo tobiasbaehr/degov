@@ -8,18 +8,33 @@ set -o errexit
 
 ln -sf $BITBUCKET_CLONE_DIR/php_error.log /tmp/php_error.log
 
-COMPOSER_EXIT_ON_PATCH_FAILURE=1
-export COMPOSER_EXIT_ON_PATCH_FAILURE
-COMPOSER_MEMORY_LIMIT=-1
-export COMPOSER_MEMORY_LIMIT
-RELEASE_BRANCH=release/8.0.x-dev
-export RELEASE_BRANCH
-
 _info() {
   local color_info="\\x1b[32m"
   local color_reset="\\x1b[0m"
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
+
+_err() {
+  local color_error="\\x1b[31m"
+  local color_reset="\\x1b[0m"
+  echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
+}
+
+_load_environment_variables() {
+  set -o allexport;
+  envFilePath=$BITBUCKET_CLONE_DIR/scripts/pipeline/.env
+  if [ -f $envFilePath ]
+  then
+    _info "Parsing .env file from path: $envFilePath"
+    source $envFilePath
+  else
+    _err "Could not parse .env file in path: $envFilePath"
+    EXIT_CODE=$?
+    exit $EXIT_CODE
+  fi
+  set +o allexport
+}
+_load_environment_variables
 
 _composer() {
   composer --ansi --profile "$@"

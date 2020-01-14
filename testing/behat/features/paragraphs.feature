@@ -60,3 +60,49 @@ Feature: deGov - Paragraphs
     And I should see text matching "Subtitle"
     And I should see text matching "Title"
     And I should see text matching "Title Link"
+
+  Scenario: Video upload can be added to the slide paragraph and it shows up on the page
+    Given I have dismissed the cookie banner if necessary
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I fill in "title[0][value]" with "Video-upload-slide-paragraph-test"
+    And I click by selector ".vertical-tabs__menu a[href=\'#edit-group-header\']" via JavaScript
+    And I press the "edit-field-header-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I press "field-header-paragraphs-slide-add-more"
+    Then I should see text matching "Slide" via translated text after a while
+    And I click by selector ".field--name-field-slide-media > details > summary" via JavaScript
+    And I click by selector ".field--name-field-slide-media input.form-submit" via JavaScript
+    And I wait 2 seconds
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I set the value of element ".views-exposed-form .form-item-bundle select" to "video_upload" via JavaScript
+    And I click by selector ".views-exposed-form .form-submit" via JavaScript
+    And I wait for AJAX to finish
+    And I click by selector ".view-content .row-1 > .col-1" via JavaScript
+    And I click by selector ".is-entity-browser-submit" via JavaScript
+    And I wait 2 seconds
+    And I go back to the main window
+    And I press button with label "Save" via translated text
+    And I should see HTML content matching "</video>"
+
+  Scenario: Responsive video can be added to the slide paragraph and it shows up on the page
+    Given I have dismissed the cookie banner if necessary
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I fill in "title[0][value]" with "Responsive-video-slide-paragraph-test"
+    And I click by selector ".vertical-tabs__menu a[href=\'#edit-group-header\']" via JavaScript
+    And I press the "edit-field-header-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I press "field-header-paragraphs-slide-add-more"
+    Then I should see text matching "Slide" via translated text after a while
+    And I click by selector ".field--name-field-slide-media > details > summary" via JavaScript
+    And I click by selector ".field--name-field-slide-media input.form-submit" via JavaScript
+    And I wait 2 seconds
+    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I set the value of element ".views-exposed-form .form-item-bundle select" to "video_mobile" via JavaScript
+    And I click by selector ".views-exposed-form .form-submit" via JavaScript
+    And I wait for AJAX to finish
+    And I click by selector ".view-content .row-1 > .col-1" via JavaScript
+    And I click by selector ".is-entity-browser-submit" via JavaScript
+    And I wait 2 seconds
+    And I go back to the main window
+    And I press button with label "Save" via translated text
+    And I should see HTML content matching "</video>"

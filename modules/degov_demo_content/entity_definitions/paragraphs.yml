@@ -33,6 +33,24 @@ header_slideshow:
     - 'paragraph_reference_slide_2'
     - 'paragraph_reference_slide_3'
   field_slideshow_type: 'type_1'
+header_type1_video_slideshow:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_video_1'
+    - 'paragraph_reference_slide_video_2'
+    - 'paragraph_reference_slide_video_3'
+    - 'paragraph_reference_slide_video_4'
+    - 'paragraph_reference_slide_video_5'
+  field_slideshow_type: 'type_1'
+header_type2_video_slideshow:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_video_5'
+    - 'paragraph_reference_slide_video_4'
+    - 'paragraph_reference_slide_video_3'
+    - 'paragraph_reference_slide_video_2'
+    - 'paragraph_reference_slide_video_1'
+  field_slideshow_type: 'type_2'
 header_video:
   type: 'video_header'
   field_override_caption: '{{SUBTITLE}}'
@@ -56,6 +74,41 @@ slide_3:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+slide_video_1:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_VIDEO}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+slide_video_2:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_VIDEO_UPLOAD}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+slide_video_3:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_VIDEO_MOBILE}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+slide_video_4:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_VIDEO}}'
+  field_slide_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+slide_video_5:
+  type: 'slide'
+  field_override_caption: '{{SUBTITLE}}'
+  field_slide_media: '{{MEDIA_ID_VIDEO_UPLOAD}}'
   field_slide_text:
     value: '{{TEXT}}'
     format: 'rich_html'

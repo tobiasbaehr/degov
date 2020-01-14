@@ -267,6 +267,34 @@ node_with_slideshow:
   field_header_paragraphs:
     - header_slideshow
   moderation_state: 'published'
+node_with_type1_video_slideshow:
+  type: 'normal_page'
+  title: 'Page with type 1 video slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 1 video slideshow'
+  field_teaser_sub_title: 'A page with a type 1 video slideshow'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  status: 1
+  field_header_paragraphs:
+    - header_type1_video_slideshow
+  moderation_state: 'published'
+node_with_type2_video_slideshow:
+  type: 'normal_page'
+  title: 'Page with type 2 video slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 2 video slideshow'
+  field_teaser_sub_title: 'A page with a type 2 video slideshow'
+  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  status: 1
+  field_header_paragraphs:
+    - header_type2_video_slideshow
+  moderation_state: 'published'
 node_with_banner:
   type: 'normal_page'
   title: 'Page with banner'

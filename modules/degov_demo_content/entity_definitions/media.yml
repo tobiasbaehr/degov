@@ -40,6 +40,16 @@ video_upload_1:
     format: 'rich_html'
   status: 1
   field_include_search: 1
+video_upload_2:
+  bundle: 'video_upload'
+  name: 'A video upload with sound'
+  file: 'pexels-videos-855600-standard.mp4'
+  field_video_upload_preview: '{{MEDIA_ID_IMAGE}}'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  status: 1
+  field_include_search: 1
 document_1:
   bundle: 'document'
   name: 'A document with a PDF'
@@ -162,6 +172,24 @@ video_1:
   field_subtitle: '{{SUBTITLE}}'
   field_media_publish_date: '2018-01-01T00:00:00'
   field_media_video_embed_field: 'https://www.youtube.com/watch?v=z-qpyBRTJ2A&t=65s'
+  field_video_preview: '{{MEDIA_ID_IMAGE}}'
+  status: 1
+  field_include_search: 1
+video_2:
+  bundle: 'video'
+  name: '{{SUBTITLE}}'
+  field_description:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_video_caption: '{{SUBTITLE}}'
+  field_media_duration: '5:11'
+  field_social_media_source: 'vimeo'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_subtitle: '{{SUBTITLE}}'
+  field_media_publish_date: '2018-01-01T00:00:00'
+  field_media_video_embed_field: 'https://vimeo.com/291514368'
   field_video_preview: '{{MEDIA_ID_IMAGE}}'
   status: 1
   field_include_search: 1

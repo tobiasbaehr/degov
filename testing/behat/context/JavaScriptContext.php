@@ -10,6 +10,11 @@ use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
  */
 class JavaScriptContext extends RawMinkContext {
 
+  /**
+   * The max duration in seconds.
+   *
+   * @var int
+   */
   private const MAX_DURATION_SECONDS = 1200;
 
   use DebugOutputTrait;
@@ -73,7 +78,7 @@ class JavaScriptContext extends RawMinkContext {
   }
 
   /**
-   * Css selector attribute matches value.
+   * CSS selector attribute matches value.
    *
    * @Then /^I proof css selector "([^"]*)" has attribute "([^"]*)" with value "([^"]*)"$/
    */
@@ -278,6 +283,47 @@ class JavaScriptContext extends RawMinkContext {
       throw $exception;
     }
 
+  }
+
+  /**
+   * @Then I check that :selector video is playing after a while
+   */
+  public function iCheckVideoIsPlayingAfterWhile(string $selector): ?bool {
+    $startTime = time();
+    $this->getSession()->evaluateScript('video = jQuery("' . $selector . '").get(0)');
+    do {
+      $playing = $this->getSession()->evaluateScript('!!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2)');
+      if ($playing) {
+        return TRUE;
+      }
+    } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+
+    $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+    throw new \Exception('"' . $selector . '" video is not playing after ' . self::MAX_DURATION_SECONDS . ' seconds');
+  }
+
+  /**
+   * @Then I check that :selector video is paused after a while
+   */
+  public function iCheckVideoIsPausedAfterWhile(string $selector): ?bool {
+    $startTime = time();
+    $this->getSession()->evaluateScript('video = jQuery("' . $selector . '").get(0)');
+    do {
+      $paused = $this->getSession()->evaluateScript('!!(video.currentTime > 0 && video.paused && !video.ended && video.readyState > 2)');
+      if ($paused) {
+        return TRUE;
+      }
+    } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+
+    $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+    throw new \Exception('"' . $selector . '" video is not paused after ' . self::MAX_DURATION_SECONDS . ' seconds');
+  }
+
+  /**
+   * @Then I add a mock play button after :selector
+   */
+  public function addMockPlayButtonAfterElement($selector) {
+    $this->getSession()->executeScript("jQuery('" . $selector . "').after('<div id=\"mock-play\" onclick=\"document.querySelector(\'.slick-current video\').play();\">mock play</div>')");
   }
 
 }

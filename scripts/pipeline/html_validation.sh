@@ -63,6 +63,7 @@ _run_validation() {
   fi
   if [[ "${EXITCODE:-}" = 1 ]] ;then
     _err "Found some validation errors."
+    exit 1
   fi
   return $EXITCODE;
 }

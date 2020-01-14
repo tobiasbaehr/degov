@@ -113,6 +113,12 @@ menu_item_4:
     -
       menu_name: main
       node_title: 'Page with video header'
+    -
+      menu_name: main
+      node_title: 'Page with type 1 video slideshow'
+    -
+      menu_name: main
+      node_title: 'Page with type 2 video slideshow'
 menu_item_5:
   menu_name: main
   node_title: 'Page with map paragraph'

@@ -42,7 +42,14 @@ class ContentGenerator {
    *
    * @var int
    */
-  private $counter = 0;
+  private $wordCounter = 0;
+
+  /**
+   * Counter for media generation. Makes generated content more static.
+   *
+   * @var int
+   */
+  private $mediaCounter = 0;
 
   /**
    * Base string for text generation.
@@ -78,7 +85,7 @@ class ContentGenerator {
   }
 
   /**
-   * Get demo content  tag ID.
+   * Get demo content tag ID.
    *
    * @return int|null|string
    *   Demo content tag ID.
@@ -247,8 +254,11 @@ class ContentGenerator {
    */
   protected function getMedia(string $bundle): Media {
     $medias = $this->getMedias($bundle);
-    $this->counter++;
+    $this->mediaCounter++;
     try {
+      $index = $this->mediaCounter % \count($medias);
+    }
+    catch (\DivisionByZeroError $exception) {
       $index = $this->counter % \count($medias);
     }
     catch (\DivisionByZeroError $exception) {
@@ -290,8 +300,8 @@ class ContentGenerator {
    */
   protected function getWord(): string {
     $words = explode(' ', self::BLINDTEXT);
-    $this->counter++;
-    $index = $this->counter % count($words);
+    $this->wordCounter++;
+    $index = $this->wordCounter % count($words);
     return $words[$index];
   }
 
