@@ -34,10 +34,25 @@ Feature: deGov Simplenews
     And I press button with label "Save" via translated text
     Then I should see "My great newsletter" in the "td" element
 
-  Scenario: I can set a custom consent message
-    Given I configure and place the Simplenews signup block
+  Scenario: Subscribers' names are stored in the database
+    Given I have dismissed the cookie banner if necessary
+    And I configure and place the Simplenews signup block
     And I set the privacy policy page for all languages
-    And I have dismissed the cookie banner if necessary
+    Then I am on "/degov-demo-content/page-all-teasers"
+    And I fill in "E-Mail" with "test@example.com"
+    And I fill in "Vorname" with "Test1234"
+    And I fill in "Nachname" with "1234Test"
+    And I check checkbox with id "edit-privacy-policy"
+    And I press button with label "Subscribe" via translated text
+    Then I should see HTML content matching "alert-success" after a while
+    Then I am logged in as a user with the "administrator" role
+    And I am on "/admin/people/simplenews?subscriptions_status=All"
+    And I click by selector ".view-simplenews-subscribers .views-table > tbody > tr:first-child .dropbutton > .edit > a" via JavaScript
+    Then I should see HTML content matching "Test1234" after a while
+    And I should see HTML content matching "1234Test"
+
+  Scenario: I can set a custom consent message
+    Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/config/degov/simplenews"
     And I fill in "Consent message (de)" with "ConsentTest1234"
