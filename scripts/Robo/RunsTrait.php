@@ -34,10 +34,16 @@ trait RunsTrait {
   private $drupalRoot;
 
   /**
+   * The shell's success exit code.
+   *
+   * @var int
+   */
+  private $exitCodeSuccess = 0;
+
+  /**
    * Init.
    */
   protected function init(): void {
-
     $drupalFinder = new DrupalFinder();
     if ($drupalFinder->locateRoot(getcwd())) {
       $this->drupalRoot = $drupalFinder->getDrupalRoot();
@@ -54,7 +60,7 @@ trait RunsTrait {
    * @throws \degov\Scripts\Robo\Exception\NoInstallationProfileProvided
    */
   protected function runDrushProfileInstallation(InstallationProfileCollection $installationProfileCollection): void {
-
+    $this->init();
     if (!$installationProfileCollection->getMainInstallationProfile() instanceof InstallationProfile) {
       throw new NoInstallationProfileProvided();
     }
@@ -88,17 +94,30 @@ trait RunsTrait {
       $email = $this->askDefault('Please provide a valid email address', 'demo@example.com');
     }
 
-    $hostname = $this->askDefault('What is the (Maria/My)SQL database host address?', 'localhost');
+    $port = 3306;
+    $hostname = '127.0.0.1';
 
-    $database = $this->askDefault('What is the (Maria/My)SQL database name?', $installationProfileCollection->getMainInstallationProfile()->getMachineName());
+    if (file_exists($pathToDrupalSettings = $this->drupalRoot . '/sites/default/settings.php')) {
+      $app_root = $this->drupalRoot;
+      $site_path = 'sites/default';
+      @include $pathToDrupalSettings;
+      $port = $databases['default']['default']['port'] ?? $port;
+      $hostname = $databases['default']['default']['host'] ?? $hostname;
+    }
 
-    $databaseUsername = $this->askDefault('What is the (Maria/My)SQL database username?', 'root');
+    $port = $this->askDefault('Specify the port for the (Maria/My)SQL database, if you do not want to use the provided one.', $port);
 
-    $databasePassword = $this->askDefault('What is the (Maria/My)SQL database password?', 'root');
+    $hostname = $this->askDefault('Specify the hostname for the (Maria/My)SQL database, if you do not want to use the provided one.', $hostname);
+
+    $database = $this->askDefault('What is the (Maria/My)SQL database name?', 'db');
+
+    $databaseUsername = $this->askDefault('What is the (Maria/My)SQL database username?', 'db');
+
+    $databasePassword = $this->askDefault('What is the (Maria/My)SQL database password?', 'db');
 
     $command = '';
     $command .= 'bin/drush si --yes ' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
-    $command .= " --db-url=mysql://{$databaseUsername}:{$databasePassword}@{$hostname}/{$database}";
+    $command .= " --db-url=mysql://{$databaseUsername}:{$databasePassword}@{$hostname}:{$port}/{$database}";
     $command .= " --site-name='{$siteName}'";
     $command .= " --account-name='{$username}'";
     $command .= " --account-pass='{$password}'";
@@ -124,7 +143,14 @@ HERE;
       $command .= ' install_configure_form.custom_profile_selection=' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
     }
 
-    $this->_exec($command);
+    /**
+     * @var \Robo\Result $result
+     */
+    $result = $this->_exec($command);
+    if ($result->getExitCode() !== $this->exitCodeSuccess) {
+      $this->yell('Could not proceed with the installation due an error. Solve any errors from the console output above and retry.', 40, 'red');
+      exit();
+    }
 
     $optionalModules = str_replace(' ', '', $optionalModules);
     if (!empty($optionalModules)) {
