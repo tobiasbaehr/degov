@@ -131,9 +131,6 @@
                 "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-07-18/w3c-rel-validation-2454915-25-D8.patch",
                 "2664016 - Adding a new batch set while the batch is running breaks batch order": "https://www.drupal.org/files/issues/2018-06-06/2664016-58.patch"
             },
-            "drupal/entity_browser": {
-                "2877751 - Inform users how many items they can add to a field that uses an entity browser": "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
-            },
             "drupal/ultimate_cron": {
                 "2890428 - Using 'continue' outside of a loop or switch structure": "https://www.drupal.org/files/issues/continue_in_loop-2890428-2.patch"
             },
