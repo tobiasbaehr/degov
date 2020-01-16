@@ -12,7 +12,7 @@ class FileAdapter {
   /**
    * Save file data.
    *
-   * @param mixed $fileData
+   * @param string $fileData
    *   File data.
    * @param string $filepath
    *   File path.

@@ -14,7 +14,7 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
   /**
    * Usage tracker.
    *
-   * @var mixed
+   * @var \Drupal\media_file_links\Service\MediaFileLinkUsageTracker
    */
   private $usageTracker;
 

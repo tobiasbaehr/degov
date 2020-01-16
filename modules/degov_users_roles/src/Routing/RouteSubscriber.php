@@ -41,7 +41,7 @@ class RouteSubscriber extends RouteSubscriberBase {
   /**
    * Get subscribed events.
    *
-   * @return mixed
+   * @return array
    *   Subscribed events.
    */
   public static function getSubscribedEvents() {

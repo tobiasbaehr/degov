@@ -43,6 +43,7 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
 
   /**
    * YoutubeFeedBlock constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Block plugin config.
@@ -56,6 +57,7 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
    *   The config service.
    * @param \Drupal\degov_social_media_youtube\Youtube $youtube
    *   The Youtube service.
+   * phpcs:enable
    */
   public function __construct(
     array $configuration,

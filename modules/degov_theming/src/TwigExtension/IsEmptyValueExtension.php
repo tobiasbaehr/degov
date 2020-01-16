@@ -49,7 +49,7 @@ class IsEmptyValueExtension extends TwigExtension {
   /**
    * Check if empty.
    *
-   * @param mixed $build
+   * @param array|\Countable|null $build
    *   Build.
    * @param string $stripTags
    *   Strip tags.
@@ -82,7 +82,7 @@ class IsEmptyValueExtension extends TwigExtension {
   /**
    * Is entity reference.
    *
-   * @param mixed $build
+   * @param array|\Countable|null $build
    *   Build.
    *
    * @return bool

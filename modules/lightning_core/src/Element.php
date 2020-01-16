@@ -52,11 +52,13 @@ class Element {
 
   /**
    * Moves element(s) to the end of an associative array.
+   * phpcs:disable
    *
    * @param array $values
    *   The array to modify.
    * @param mixed $key
    *   The key(s) of the element(s) to move.
+   * phpcs:enable
    */
   public static function toTail(array &$values, $key) {
     $key = (array) $key;

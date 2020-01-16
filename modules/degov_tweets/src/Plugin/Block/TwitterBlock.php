@@ -28,6 +28,7 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
 
   /**
    * TwitterFeedBlock constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Block plugin config.
@@ -37,6 +38,7 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
    *   Block plugin definition.
    * @param \Drupal\degov_tweets\TwitterAPIExchange $twitter
    *   The Twitter service.
+   * phpcs:enable
    */
   public function __construct(
     array $configuration,

@@ -42,6 +42,7 @@ class CalendarDate extends Raw {
 
   /**
    * Constructs a new Date instance.
+   * phpcs:disable
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -57,6 +58,7 @@ class CalendarDate extends Raw {
    *   The date formatter service.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The current request.
+   * phpcs:enable
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, AliasManagerInterface $alias_manager, CurrentPathStack $current_path, DateFormatterInterface $date_formatter, Request $request) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $alias_manager, $current_path);

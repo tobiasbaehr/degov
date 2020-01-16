@@ -44,6 +44,7 @@ class DebugContext extends DrupalSubContextBase {
 
   /**
    * Takes a screenshot.
+   * phpcs:disable
    *
    * @param string $filename
    *   (optional) Ignored. The filename is based on a counter and prefixed with
@@ -53,6 +54,7 @@ class DebugContext extends DrupalSubContextBase {
    *   Drupal root.
    *
    * @When I take a screenshot
+   * phpcs:enable
    */
   public function saveScreenshot($filename = NULL, $filepath = NULL) {
     $filename = sprintf('%s_%d.png', $this->getMinkParameter('browser_name'), ++$this->screenshotCount);

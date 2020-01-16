@@ -40,6 +40,7 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
 
   /**
    * Constructs a new Date instance.
+   * phpcs:disable
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -51,6 +52,7 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
    *   The date formatter service.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The current request.
+   * phpcs:enable
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, DateFormatterInterface $date_formatter, Request $request) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);

@@ -36,7 +36,7 @@ class MediaFileHandler {
    * @param string $mediaItemKey
    *   Media item key.
    *
-   * @return mixed
+   * @return \Drupal\file\Entity\File
    *   File.
    */
   public function getFile(string $mediaItemKey): ?File {
@@ -49,7 +49,7 @@ class MediaFileHandler {
    * @param string $mediaItemKey
    *   Media item key.
    *
-   * @return mixed
+   * @return array
    *   Files.
    */
   public function getFiles(string $mediaItemKey): ?array {
@@ -113,7 +113,7 @@ class MediaFileHandler {
   /**
    * Map file fields.
    *
-   * @param mixed &$media_item
+   * @param array &$media_item
    *   Media item reference.
    * @param string $customMediaKey
    *   Custom media key.

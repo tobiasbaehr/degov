@@ -28,7 +28,7 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
   /**
    * Twig filter callback: Only return a field's attributes for quick edit.
    *
-   * @param mixed $build
+   * @param array $build
    *   Render array of a field.
    *
    * @return \Drupal\Core\Template\Attribute
@@ -83,7 +83,7 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
   /**
    * Checks whether the render array is a field's render array.
    *
-   * @param mixed $build
+   * @param array $build
    *   The renderable array.
    *
    * @return bool

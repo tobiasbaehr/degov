@@ -133,6 +133,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Generate paragraphs for node.
+   * phpcs:disable
    *
    * @param array $rawParagraphReferences
    *   Raw paragraph references.
@@ -140,6 +141,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    *   Raw node.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
+   * phpcs:enable
    */
   protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode): void {
     foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
@@ -156,11 +158,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Resolve encapsulated paragraphs.
+   * phpcs:disable
    *
    * @param mixed $rawParagraph
    *   Raw paragraph.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
+   * phpcs:enable
    */
   protected function resolveEncapsulatedParagraphs(&$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {

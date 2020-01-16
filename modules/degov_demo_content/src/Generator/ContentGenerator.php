@@ -177,7 +177,7 @@ class ContentGenerator {
    *
    * @param array $rawElement
    *   Raw element.
-   * @param mixed $value
+   * @param string $value
    *   Value.
    * @param string $index
    *   Index.
@@ -310,10 +310,10 @@ class ContentGenerator {
    *
    * @param string $defName
    *   Def name.
-   * @param mixed $tag
+   * @param string $tag
    *   Tag.
    *
-   * @return mixed
+   * @return array|null
    *   Loaded definition..
    *
    * @throws \Exception

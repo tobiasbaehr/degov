@@ -257,7 +257,7 @@ END;
   /**
    * Returns all Drupal JavaScript settings on the page.
    *
-   * @return mixed[]
+   * @return array
    *   The decoded settings.
    */
   private function getAllSettings() {

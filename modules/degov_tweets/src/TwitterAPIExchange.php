@@ -62,7 +62,7 @@ class TwitterAPIExchange {
   /**
    * OAuth.
    *
-   * @var mixed
+   * @var array
    */
   protected $oauth;
 

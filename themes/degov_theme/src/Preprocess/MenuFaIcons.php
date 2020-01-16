@@ -82,7 +82,7 @@ class MenuFaIcons {
    * @param string $icon
    *   The FA icon class.
    *
-   * @return mixed|null
+   * @return array|null
    *   FA pack.
    */
   public static function getFaPack(string $icon) {

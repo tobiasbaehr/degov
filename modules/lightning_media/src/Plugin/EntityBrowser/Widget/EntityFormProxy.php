@@ -25,6 +25,7 @@ abstract class EntityFormProxy extends WidgetBase {
 
   /**
    * EntityFormProxy constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Plugin configuration.
@@ -32,14 +33,15 @@ abstract class EntityFormProxy extends WidgetBase {
    *   The plugin ID.
    * @param mixed $plugin_definition
    *   The plugin definition.
-   * @param mixed $event_dispatcher
+   * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispatcher
    *   The event dispatcher.
-   * @param mixed $entity_type_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager service.
-   * @param mixed $widget_validation_manager
+   * @param \Drupal\entity_browser\WidgetValidationManager $widget_validation_manager
    *   The widget validation manager.
    * @param \Drupal\lightning_media\MediaHelper $helper
    *   The media helper service.
+   * phpcs:enable
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $widget_validation_manager, MediaHelper $helper) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $widget_validation_manager);
@@ -182,6 +184,7 @@ abstract class EntityFormProxy extends WidgetBase {
 
   /**
    * Returns the current input value, if any.
+   * phpcs:disable
    *
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current form state.
@@ -189,6 +192,7 @@ abstract class EntityFormProxy extends WidgetBase {
    * @return mixed
    *   The input value, ready for further processing. Nothing will be done with
    *   the value if it's empty.
+   * phpcs:enable
    */
   protected function getInputValue(FormStateInterface $form_state) {
     return $form_state->getValue('input');

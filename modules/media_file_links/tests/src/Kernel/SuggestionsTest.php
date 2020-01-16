@@ -12,7 +12,7 @@ class SuggestionsTest extends MediaFileLinksTestBase {
   /**
    * File suggester.
    *
-   * @var mixed
+   * @var \Symfony\Component\DependencyInjection\ContainerInterface|null
    */
   private $fileSuggester;
 

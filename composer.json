@@ -96,7 +96,8 @@
         "heiseonline/shariff": "^2.0.4",
         "kenwheeler/slick": "^1.7.1",
         "leaflet/leaflet": "^1.1.0",
-        "symfony/filesystem": "^3.4"
+        "symfony/filesystem": "^3.4",
+        "publicplan/phpcs-sniffs": "dev-feature/degov-1108-phpcs-mixed"
     },
     "autoload": {
         "classmap": [

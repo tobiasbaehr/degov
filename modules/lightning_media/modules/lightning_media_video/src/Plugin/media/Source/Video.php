@@ -27,13 +27,14 @@ class Video extends VideoEmbedField implements InputMatchInterface {
    *
    * The value is converted if it is either scalar, or an object with a
    * __toString() method.
-   *
+   * phpcs:disable
    * @param mixed $value
    *   The value to convert.
    *
    * @return string|null
    *   The string representation of the value, or NULL if the value cannot be
    *   converted to a string.
+   * phpcs:enable
    */
   protected function toString($value) {
     return is_scalar($value) || (is_object($value) && method_exists($value, '__toString'))

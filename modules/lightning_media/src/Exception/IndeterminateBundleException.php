@@ -12,7 +12,7 @@ class IndeterminateBundleException extends \UnexpectedValueException {
   /**
    * IndeterminateBundleException constructor.
    *
-   * @param mixed $value
+   * @param \Drupal\Core\Entity\EntityInterface|null $value
    *   The input value.
    * @param int $code
    *   (optional) The error code.

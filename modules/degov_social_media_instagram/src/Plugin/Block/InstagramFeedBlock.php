@@ -47,6 +47,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
 
   /**
    * InstagramFeedBlock constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Block plugin config.
@@ -60,6 +61,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *   The date formatter service.
    * @param \Drupal\degov_social_media_instagram\Instagram $instagram
    *   The Instagram service.
+   * phpcs:enable
    */
   public function __construct(
     array $configuration,

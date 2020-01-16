@@ -120,6 +120,7 @@ class CkEditorContext extends DrupalSubContextBase {
 
   /**
    * Executes a CKEditor command.
+   * phpcs:disable
    *
    * @param string $command
    *   The command ID, as known to CKEditor's API.
@@ -133,6 +134,7 @@ class CkEditorContext extends DrupalSubContextBase {
    *
    * @When I execute the :command command in CKEditor
    * @When I execute the :command command in CKEditor :id
+   * phpcs:enable
    */
   public function execute($command, $id = NULL, $data = NULL) {
     $js = $this->assertEditor($id);

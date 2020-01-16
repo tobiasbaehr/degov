@@ -29,6 +29,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
 
   /**
    * SidebarParagraphs constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Configration.
@@ -38,6 +39,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
    *   Plugin definition.
    * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
    *   Route match.
+   * phpcs:enable
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $routeMatch) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -46,6 +48,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
 
   /**
    * Create.
+   * phpcs:disable
    *
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    *   Container.
@@ -57,6 +60,8 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
    *   Plugin definitions.
    *
    * @return static
+   *
+   * phpcs:enable
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
