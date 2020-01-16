@@ -37,7 +37,6 @@ done
 
 _info "### Setting up project folder"
 _composer --no-progress create-project degov/degov-project:dev-$RELEASE_BRANCH --no-install
-
 cd degov-project
 rm composer.lock
 _info "### Install profile"
