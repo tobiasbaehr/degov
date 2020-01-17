@@ -9,7 +9,7 @@ use Drupal\degov_behat_extension\PerformanceCheck\TestReportGenerator;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 /**
- * Class PerformanceContext
+ * Class PerformanceContext.
  */
 class PerformanceContext extends RawDrupalContext {
 

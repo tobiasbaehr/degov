@@ -3,7 +3,7 @@
 namespace Drupal\degov_behat_extension\PerformanceCheck;
 
 /**
- * Trait ReportTrait
+ * Trait ReportTrait.
  */
 trait ReportTrait {
 

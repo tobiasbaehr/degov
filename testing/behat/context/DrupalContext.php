@@ -623,8 +623,12 @@ class DrupalContext extends RawDrupalContext {
    */
   public function assertSelectorContainsText($text, $selectorType, $selector) {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
-    if (!empty($resultset) && is_numeric(strpos($resultset['0']->getText(), $text))) {
-      return TRUE;
+    if (!empty($resultset)) {
+      foreach ($resultset as $match) {
+        if (is_numeric(strpos($match->getText(), $text))) {
+          return TRUE;
+        }
+      }
     }
 
     try {

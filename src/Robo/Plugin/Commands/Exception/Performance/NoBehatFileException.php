@@ -3,7 +3,7 @@
 namespace Drupal\degov\Robo\Plugin\Commands\Exception\Performance;
 
 /**
- * Class NoBehatFileException
+ * Class NoBehatFileException.
  */
 class NoBehatFileException extends \Exception {
 

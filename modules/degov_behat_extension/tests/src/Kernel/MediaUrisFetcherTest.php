@@ -6,7 +6,7 @@ use Drupal\path_alias\Entity\PathAlias;
 use Drupal\Tests\media\Kernel\MediaKernelTestBase;
 
 /**
- * Class MediaUrisFetcherTest
+ * Class MediaUrisFetcherTest.
  */
 class MediaUrisFetcherTest extends MediaKernelTestBase {
 

@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\path_alias\AliasRepositoryInterface;
 
 /**
- * Class StaticUrisFetcher
+ * Class StaticUrisFetcher.
  */
 class StaticUrisFetcher {
 

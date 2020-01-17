@@ -8,7 +8,7 @@ use Drupal\degov_behat_extension\PerformanceCheck\TestReportGenerator;
 use Drupal\Tests\UnitTestCase;
 
 /**
- * Class StaticRequirementTimerTest
+ * Class StaticRequirementTimerTest.
  */
 class StaticRequirementTimerTest extends UnitTestCase {
 

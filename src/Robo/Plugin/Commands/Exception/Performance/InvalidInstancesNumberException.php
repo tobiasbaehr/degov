@@ -3,7 +3,7 @@
 namespace Drupal\degov\Robo\Plugin\Commands\Exception\Performance;
 
 /**
- * Class InvalidInstancesNumberException
+ * Class InvalidInstancesNumberException.
  */
 class InvalidInstancesNumberException extends \Exception {
 

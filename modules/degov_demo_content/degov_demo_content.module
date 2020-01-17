@@ -11,6 +11,8 @@ use Drupal\Core\Routing\RouteMatchInterface;
 define('DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME', 'tags');
 define('DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME', 'copyright');
 define('DEGOV_DEMO_CONTENT_TAG_NAME', 'degov_demo_content');
+define('DEGOV_DEMO_CONTENT_TAG_SYNONYM_VOCABULARY_NAME', 'synonyms');
+define('DEGOV_DEMO_CONTENT_TAG_SYNONYM_NAME', 'degov_demo_content_synonym');
 define('DEGOV_DEMO_CONTENT_FILES_SAVE_PATH', 'public://degov_demo_content');
 
 /**

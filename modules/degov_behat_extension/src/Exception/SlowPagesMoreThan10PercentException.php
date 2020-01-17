@@ -8,7 +8,7 @@ use Drupal\degov_behat_extension\PerformanceCheck\CheckedPageStack;
 use Drupal\degov_behat_extension\PerformanceCheck\ReportTrait;
 
 /**
- * Class SlowPagesMoreThan10PercentException
+ * Class SlowPagesMoreThan10PercentException.
  */
 class SlowPagesMoreThan10PercentException extends \Exception {
 

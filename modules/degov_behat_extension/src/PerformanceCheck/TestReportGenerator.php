@@ -7,7 +7,7 @@ namespace Drupal\degov_behat_extension\PerformanceCheck;
 use Drupal\degov_behat_extension\Exception\SlowPagesMoreThan10PercentException;
 
 /**
- * Class TestReportGenerator
+ * Class TestReportGenerator.
  */
 class TestReportGenerator {
 

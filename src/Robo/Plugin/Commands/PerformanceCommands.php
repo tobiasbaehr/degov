@@ -9,7 +9,7 @@ use Drupal\degov\Robo\Plugin\Commands\Exception\Performance\NoBehatFileException
 use Robo\Tasks as TasksAlias;
 
 /**
- * Class PerformanceCommands
+ * Class PerformanceCommands.
  */
 class PerformanceCommands extends TasksAlias {
 

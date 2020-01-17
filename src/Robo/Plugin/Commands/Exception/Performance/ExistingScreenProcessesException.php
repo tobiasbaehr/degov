@@ -3,7 +3,7 @@
 namespace Drupal\degov\Robo\Plugin\Commands\Exception\Performance;
 
 /**
- * Class ExistingScreenProcessesException
+ * Class ExistingScreenProcessesException.
  */
 class ExistingScreenProcessesException extends \Exception {
 

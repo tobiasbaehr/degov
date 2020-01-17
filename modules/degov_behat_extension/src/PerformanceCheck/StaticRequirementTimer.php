@@ -7,7 +7,7 @@ namespace Drupal\degov_behat_extension\PerformanceCheck;
 use Drupal\degov_behat_extension\Exception\PageloadTimeoutException;
 
 /**
- * Class StaticRequirementTimer
+ * Class StaticRequirementTimer.
  */
 class StaticRequirementTimer {
 

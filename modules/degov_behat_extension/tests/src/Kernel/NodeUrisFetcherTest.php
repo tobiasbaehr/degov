@@ -11,7 +11,7 @@ use Drupal\Tests\user\Traits\UserCreationTrait;
 use Drupal\user\RoleInterface;
 
 /**
- * Class NodeUrisFetcherTest
+ * Class NodeUrisFetcherTest.
  */
 class NodeUrisFetcherTest extends KernelTestBase {
 

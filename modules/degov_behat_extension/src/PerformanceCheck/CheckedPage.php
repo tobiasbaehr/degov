@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\degov_behat_extension\PerformanceCheck;
 
 /**
- * Class CheckedPage
+ * Class CheckedPage.
  */
 class CheckedPage {
 
