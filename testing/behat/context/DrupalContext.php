@@ -512,7 +512,17 @@ class DrupalContext extends RawDrupalContext {
         ];
         break;
 
-      // ToDo: Add all media types.
+      case 'image':
+        $mediaData += [
+          'field_title'         => 'Some image',
+          'name'                => 'Some image',
+          'field_copyright'     => 'Some copyright',
+          'field_image_caption' => 'Some image caption',
+          'image'               => $this->createDummyImageFileEntity()->id(),
+        ];
+        break;
+
+      // @TODO: Add all media types.
       default:
         throw new \InvalidArgumentException(sprintf('The media type "%s" does not exist.', $type));
     }
