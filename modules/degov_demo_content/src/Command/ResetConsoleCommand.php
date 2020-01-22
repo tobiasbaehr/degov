@@ -8,6 +8,7 @@ use Drupal\degov_demo_content\Generator\NodeGenerator;
 use Drupal\degov_demo_content\Generator\BlockContentGenerator;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Drupal\Console\Annotations\DrupalCommand;
 use Drupal\Console\Core\Command\ContainerAwareCommand;
 
 /**
