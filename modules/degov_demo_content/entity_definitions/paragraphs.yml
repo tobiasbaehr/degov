@@ -142,7 +142,10 @@ text_2:
   field_subtitle: '{{SUBTITLE}}'
 download_1:
   type: 'downloads'
-  field_downloads_files: '{{MEDIA_ID_DOCUMENT}}'
+  field_downloads_files:
+   - 'media_reference_document_1'
+   - 'media_reference_document_2'
+   - 'media_reference_document_3'
   field_title: '{{SUBTITLE}}'
   field_subtitle: '{{SUBTITLE}}'
 faq_1:

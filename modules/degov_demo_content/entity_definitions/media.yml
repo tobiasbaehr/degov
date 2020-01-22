@@ -65,6 +65,12 @@ document_2:
   field_description: '{{TEXT}}'
   field_document_preview: '{{MEDIA_ID_IMAGE}}'
   field_include_search: 1
+document_3:
+  bundle: 'document'
+  name: 'Just a word document'
+  file: 'word-document-2.docx'
+  status: 1
+  field_include_search: 1
 audio_1:
   bundle: 'audio'
   name: '{{SUBTITLE}}'

@@ -9,7 +9,7 @@ use Drupal\file\FileInterface;
  *
  * @package Drupal\degov_media_document\Helper
  */
-class PlaceholderHelper {
+class DocumentLinkHelper {
 
   /**
    * Map file to font  awesome icon.
@@ -21,7 +21,7 @@ class PlaceholderHelper {
    *   Icon class.
    */
   public static function mapFileToFaIcon(FileInterface $file): string {
-    $extension = pathinfo($file->getFilename(), PATHINFO_EXTENSION);
+    $extension = self::getExtensionForFile($file);
     switch ($extension) {
       case 'doc':
       case 'docx':
@@ -45,6 +45,39 @@ class PlaceholderHelper {
       default:
         return 'fa fa-file';
     }
+  }
+
+  /**
+   * Determine what target attribute value to use for a file.
+   *
+   * @param \Drupal\file\FileInterface $file
+   *   The file.
+   *
+   * @return string
+   *   The target value.
+   */
+  public static function getTargetAttributeForFile(FileInterface $file): string {
+    $extension = self::getExtensionForFile($file);
+    switch ($extension) {
+      case 'pdf':
+        return '_blank';
+
+      default:
+        return '';
+    }
+  }
+
+  /**
+   * Get the extension for a file.
+   *
+   * @param \Drupal\file\FileInterface $file
+   *   The file.
+   *
+   * @return string
+   *   The file extension.
+   */
+  private static function getExtensionForFile(FileInterface $file): string {
+    return pathinfo($file->getFilename(), PATHINFO_EXTENSION);
   }
 
 }

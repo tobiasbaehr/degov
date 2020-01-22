@@ -61,6 +61,14 @@ Feature: deGov - Paragraphs
     And I should see text matching "Title"
     And I should see text matching "Title Link"
 
+  Scenario: Paragraph Download outputs links that open PDF files in a new tab
+    Given I proof that the following Drupal modules are installed:
+      | degov_paragraph_downloads  |
+      | degov_media_document       |
+    And I am on "/degov-demo-content/page-download-paragraph"
+    Then I should see 3 ".document__title > a" elements
+    Then I should see 1 ".document__title a[target=_blank]" elements
+
   Scenario: Video upload can be added to the slide paragraph and it shows up on the page
     Given I have dismissed the cookie banner if necessary
     Given I am logged in as a user with the "administrator" role

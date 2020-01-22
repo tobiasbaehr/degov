@@ -5,7 +5,7 @@ services:
   degov_demo_content.node_generator:
     class: Drupal\degov_demo_content\Generator\NodeGenerator
     parent: degov_demo_content.content_generator
-    arguments: ['@degov_demo_content.media_generator', '@pathauto.alias_cleaner']
+    arguments: ['@pathauto.alias_cleaner']
   degov_demo_content.media_generator:
     class: Drupal\degov_demo_content\Generator\MediaGenerator
     parent: degov_demo_content.content_generator

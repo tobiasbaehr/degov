@@ -121,7 +121,7 @@ class MediaFileHandler {
    * @return array
    *   Fields.
    */
-  public function mapFileFields(&$media_item, string $customMediaKey): array {
+  public function mapFileFields(array &$media_item, string $customMediaKey): array {
     $fields = [];
     foreach ($media_item as $media_item_field_key => $media_item_field_value) {
       if ($media_item_field_key === 'file' && $this->getFile($customMediaKey) !== NULL) {

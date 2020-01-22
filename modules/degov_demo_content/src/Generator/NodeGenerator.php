@@ -4,6 +4,8 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
@@ -17,13 +19,6 @@ use Drupal\pathauto\PathautoState;
 class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
-   * Generates a set of node entities.
-   *
-   * @var \Drupal\degov_demo_content\Generator\MediaGenerator
-   */
-  protected $mediaGenerator;
-
-  /**
    * The alias cleaner.
    *
    * @var \Drupal\pathauto\AliasCleanerInterface
@@ -35,16 +30,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
    *   Module handler.
-   * @param Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager.
-   * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
-   *   Media generator.
    * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
    *   Alias cleaner.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, AliasCleanerInterface $aliasCleaner) {
     parent::__construct($moduleHandler, $entityTypeManager);
-    $this->mediaGenerator = $mediaGenerator;
     $this->aliasCleaner = $aliasCleaner;
     $this->entityType = 'node';
   }
@@ -133,17 +125,19 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Generate paragraphs for node.
-   * phpcs:disable
    *
    * @param array $rawParagraphReferences
    *   Raw paragraph references.
-   * @param mixed $rawNode
+   * @param array $rawNode
    *   Raw node.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * phpcs:enable
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode): void {
+  protected function generateParagraphsForNode(array $rawParagraphReferences, array &$rawNode): void {
     foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
       foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
         $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
@@ -158,25 +152,39 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Resolve encapsulated paragraphs.
-   * phpcs:disable
    *
-   * @param mixed $rawParagraph
+   * @param array $rawParagraph
    *   Raw paragraph.
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
-   * phpcs:enable
    */
-  protected function resolveEncapsulatedParagraphs(&$rawParagraph): void {
+  protected function resolveEncapsulatedParagraphs(array &$rawParagraph): void {
     foreach ($rawParagraph as $index => $rawField) {
       if (\is_array($rawField)) {
         foreach ($rawField as $innerIndex => $rawValue) {
-          $fieldName = str_replace('paragraph_reference_', '', $rawValue);
+          $fieldName = preg_replace('/(paragraph|media)_reference_/', '', $rawValue);
           if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
             $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
             $this->prepareValues($rawInnerParagraph);
             $innerParagraph = Paragraph::create($rawInnerParagraph);
             $innerParagraph->save();
             $rawParagraph[$index][$innerIndex] = $innerParagraph;
+          }
+          if (strpos($rawValue, 'media_reference_') !== FALSE) {
+            $rawMedia = $this->loadDefinitionByNameTag('media', $fieldName);
+            $mediaIds = \Drupal::entityTypeManager()
+              ->getStorage('media')
+              ->getQuery()
+              ->condition('name', $rawMedia['name'])
+              ->execute();
+            if (count($mediaIds) > 0) {
+              $media = Media::load(reset($mediaIds));
+              if ($media instanceof MediaInterface) {
+                $rawParagraph[$index][$innerIndex] = $media->id();
+              }
+            }
           }
         }
       }
@@ -210,8 +218,10 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    * Generates Media reference paragraph.
    *
    * @param \Drupal\node\Entity\Node $teaserPage
-   *   The Node entity.
+   *   The Node that should contain the teaser paragraphs.
    *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function generateMediaReferenceParagraphs(Node $teaserPage): void {
