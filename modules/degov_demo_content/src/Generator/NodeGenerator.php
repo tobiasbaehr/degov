@@ -78,6 +78,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         'alias'    => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
         'pathauto' => PathautoState::SKIP,
       ];
+      $rawNode['created'] = time();
       $node = Node::create($rawNode);
       $node->save();
 
@@ -91,6 +92,11 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
           $nodeIds[] = $node->id();
         }
       }
+      /*
+       * Make sure Nodes are not all created the same second,
+       * otherwise views will display them in random order.
+       */
+      sleep(1);
     }
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
     $this->generateMediaReferenceParagraphs($teaserPage);
