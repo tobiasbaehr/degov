@@ -31,8 +31,8 @@ trait DebugOutputTrait {
    */
   public function generateStepDebuggingOutputWithScope(AfterStepScope $scope): void {
     if (!$scope->getTestResult()->isPassed()) {
-      $this->saveHtmlOfPage($scope->getFeature()->getTitle());
-      $this->saveScreenshotAsFile($scope->getFeature()->getTitle());
+      $this->saveHtmlOfPage($scope->getStep()->getText());
+      $this->saveScreenshotAsFile($scope->getStep()->getText());
     }
   }
 

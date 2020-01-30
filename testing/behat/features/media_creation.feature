@@ -1,4 +1,4 @@
-@api @drupal @javascript
+@api @drupal @javascript @file_upload
 Feature: deGov - Media creation
 
   Background:
@@ -9,7 +9,9 @@ Feature: deGov - Media creation
       | degov_paragraph_text   |
       | degov_media_image      |
       | degov_media_gallery    |
-    Given I am installing the "degov_paragraph_media_reference" module
+    Given I am installing the following Drupal modules:
+      | degov_paragraph_media_reference |
+      | degov_demo_content |
 
   Scenario: I am creating a address media entity
     Given I have dismissed the cookie banner if necessary
@@ -20,7 +22,7 @@ Feature: deGov - Media creation
     Then I fill in "DE" for "Land"
     And I wait 1 seconds
     And I should see HTML content matching "Straße" after a while
-    And I select "DE" in "edit-field-address-address-0-address-country-code--2"
+    And I select "DE" by name "field_address_address[0][address][country_code]"
     And I wait 3 seconds
     And I fill in "Bilker Straße 29" for "Straße"
     And I fill in "40213" for "Postleitzahl"
@@ -42,7 +44,7 @@ Feature: deGov - Media creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "Administrator" role
     And I am on "media/add/citation"
-    And I click "Beschreibung"
+    And I click "Description"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
       | Name               | Example quote              |
@@ -57,7 +59,7 @@ Feature: deGov - Media creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "Administrator" role
     And I am on "media/add/person"
-    And I click "Beschreibung"
+    And I click "Description"
     Then I should see text matching "Öffentlicher Titel" after a while
     And I fill in the following:
       | Name               | Example person        |
@@ -76,7 +78,7 @@ Feature: deGov - Media creation
       | Öffentlicher Titel | Video Example |
     And I choose "Allgemein" from tab menu
     And I check the box "edit-field-include-search-value"
-    And I choose "Medien" from tab menu
+    And I choose "Media" from tab menu
     And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_upload_mp4_0]"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
@@ -148,32 +150,6 @@ Feature: deGov - Media creation
     And I should see 2 ".messages--warning" elements
     And I should see 0 ".messages--warning .messages__list" elements
 
-  Scenario: I verify that a mobile video entity has multiple download options
-    Given I am logged in as an "Administrator"
-    And I have dismissed the cookie banner if necessary
-    And I am on "/media/add/video_mobile"
-    And I fill in the following:
-      | Name               | Video Example 2 |
-      | Öffentlicher Titel | Video Example 2 |
-    And I choose "Allgemein" from tab menu
-    And I check the box "edit-field-include-search-value"
-    And I choose "Medien" from tab menu
-    And I attach the file "pexels-videos-1409899-mobile.mp4" to "files[field_mobile_video_mobile_mp4_0]"
-    And I wait 3 seconds
-    And I check checkbox with id "edit-field-allow-download-mobile-value"
-    And I attach the file "pexels-videos-1409899-standard.mp4" to "files[field_video_mobile_mp4_0]"
-    And I wait 3 seconds
-    And I uncheck checkbox with id "edit-field-allow-download-value"
-    And I attach the file "pexels-videos-1409899-full-hd.mp4" to "files[field_fullhd_video_mobile_mp4_0]"
-    And I wait 3 seconds
-    And I check checkbox with id "edit-field-allow-download-fullhd-value"
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    And I should see text matching "Responsives Video Video Example 2 wurde erstellt."
-    Then I am on "/video-example-2"
-    And I should see 1 "video" elements
-    And I should see 2 ".video-mobile__downloads .file--download" elements
-
   Scenario: I am creating a video media entity
     Given I have dismissed the cookie banner if necessary
     And I am logged in as an "Administrator"
@@ -216,7 +192,7 @@ Feature: deGov - Media creation
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
-    And I choose "Beschreibung" from tab menu
+    And I choose "Description" from tab menu
     And I fill in "Copyright" with "Test1234"
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
@@ -241,24 +217,6 @@ Feature: deGov - Media creation
     And I press button with label "Save" via translated text
     Then I should see "ist erforderlich."
 
-  Scenario: I try to create an image just to check if the copyright field is emptied when I set the image to be royalty free
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as an "Administrator"
-    And I am on "/media/add/image"
-    And I choose "Beschreibung" from tab menu
-    And I fill in "Copyright" with "Test1234"
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    Then I should see "ist erforderlich."
-    And I choose "Beschreibung" from tab menu
-    And I should see 1 form element with the label "Copyright" and the value "Test1234"
-    And I check checkbox with id "edit-field-royalty-free-value"
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    Then I should see "ist erforderlich."
-    And I choose "Beschreibung" from tab menu
-    And I should see 0 form element with the label "Copyright" and the value "Test1234"
-
   Scenario: I am creating an media image entity without copyright
     Given I have dismissed the cookie banner if necessary
     And I am logged in as an "Administrator"
@@ -271,60 +229,12 @@ Feature: deGov - Media creation
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-image-0-upload"
     And I should see text matching "Alternative text" via translation after a while
     And I fill in "Alternative text" via translated text with "Test1234"
-    And I choose "Beschreibung" from tab menu
+    And I choose "Description" from tab menu
     And I check checkbox with id "edit-field-royalty-free-value" by JavaScript
     And I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."
     And I should see "wurde erstellt."
-
-  Scenario: I try to create an image from the CKEditor entity embed dialog to check if the copyright field is present and can be emptied
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as an "Administrator"
-    And I am on "/node/add/faq"
-    And I click by CSS class "cke_button__media_browser"
-    Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
-    And I switch to the "entity_browser_iframe_ckeditor_media_browser" frame
-    And I click "Hochladen"
-    Then I should see HTML content matching "Datei" after a while
-    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
-    Then I should see HTML content matching "Name" after a while
-    And I fill in "Copyright" with "Test1234"
-    And I scroll to element with id "edit-submit"
-    And I press the "Place" button
-    Then I should see text matching "ist erforderlich." after a while
-    And I should see 1 form element with the label "Copyright" and the value "Test1234"
-    And I click by selector "input[data-drupal-selector=edit-entity-field-royalty-free-value]" via JavaScript
-    And I scroll to element with id "edit-submit"
-    And I press the "Place" button
-    Then I should see "ist erforderlich."
-    And I verify that field "#edit-entity-field-copyright-0-target-id" has the value ""
-
-  Scenario: I am creating an media gallery entity
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as an "Administrator"
-    And I am on "/media/add/gallery"
-    And I fill in "Name" with "Test1234"
-    And I fill in "edit-field-media-publish-date-0-value-date" with "111118"
-    And I fill in "edit-field-media-publish-date-0-value-time" with "000000AM"
-    And I fill in "Öffentlicher Titel" with "Test1234"
-    And I click by CSS id "edit-field-gallery-images-entity-browser-entity-browser-open-modal"
-    And I switch to the "entity_browser_iframe_media_browser" frame
-    And I should see HTML content matching "Hochladen" after a while
-    And I click "Hochladen"
-    And I attach the file "humberto-chavez-1058365-unsplash.jpg" to "edit-input-file"
-    And I should see text matching "Alternative text" via translation after a while
-    And I fill in "entity[field_title][0][value]" with "Test1234"
-    And I fill in "entity[name][0][value]" with "Test1234"
-    And I fill in "entity[image][0][alt]" with "Test1234"
-    And I fill in "entity[field_copyright][0][target_id]" with "Test1234"
-    And I press the "Auswählen" button
-    And I press the "Use selected" button
-    And I go back to the main window
-    And I should see the details container titled "Current selections" with entries after a while
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    Then I should not see "ist erforderlich."
 
   Scenario: I verify that the video upload dropzone plugin has been removed
     Given I am on "/"
@@ -338,33 +248,6 @@ Feature: deGov - Media creation
     And I click by selector ".button.entity-browser-processed" via JavaScript
     And I switch to the "entity_browser_iframe_media_browser" frame
     Then I should not see text matching "Video Hochladen" after a while
-
-  Scenario: Check if media full display is working if field_include_search is unchecked
-    Given I am installing the "degov_demo_content" module
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "demo image with a fixed title"
-    And I choose "Allgemein" from tab menu
-    And I uncheck the box "edit-field-include-search-value"
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    And I am on "/demo-image-fixed-title"
-    And I should not see "Mitglied seit"
-    And I should see HTML content matching "media--view-mode-full"
-
-  Scenario: I verify that a deleted Media's file is actually gone
-    Given I am installing the "degov_demo_content" module
-    And I have dismissed the cookie banner if necessary
-    Given I am on "/"
-    And I am logged in as a user with the "administrator" role
-    Then I am on "/admin/content/media"
-    Then I am on "/image-will-be-deleted"
-    And I should see HTML content matching "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
-    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg"
-    Then I open medias delete url by title "This image will be deleted"
-    And I click by CSS id "edit-submit"
-    Then I am on "/sites/default/files/degov_demo_content/taneli-lahtinen-1058552-unsplash.jpg?1"
-    And I should see HTML content matching "404 Not Found"
 
   Scenario: I proof that media browser does not provide video upload
     Given I am logged in as a user with the "administrator" role

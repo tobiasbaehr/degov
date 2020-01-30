@@ -46,8 +46,16 @@ class PerformanceContext extends RawDrupalContext {
     $uris = $staticUrisFetcher->provideUris();
 
     foreach ($uris as $uri) {
+      echo "Visiting path: $uri" . PHP_EOL;
       $this->visitPath($uri);
     }
+  }
+
+  /**
+   * @Then /^I am warming the cache of the static pages$/
+   */
+  public function warmStaticPagesCache(): void {
+    $this->visitStaticPages();
   }
 
 }
