@@ -72,7 +72,7 @@ default:
               - "--no-sandbox"
               - "--headless"
               - "--disable-gpu"
-      base_url: http://host.docker.internal
+      base_url: http://127.0.0.1:80
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:

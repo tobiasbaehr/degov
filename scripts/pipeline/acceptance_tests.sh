@@ -79,9 +79,8 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
-_info "### Start services"
 docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
-docker run --name testing --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 -d darksolar/selenium-chrome-headless
+
 _info "### Setting up project folder"
 _composer create-project --no-progress degov/degov-project:dev-$RELEASE_BRANCH --no-install
 cd degov-project
