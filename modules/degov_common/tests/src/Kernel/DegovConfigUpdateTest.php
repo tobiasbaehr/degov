@@ -20,6 +20,7 @@ class DegovConfigUpdateTest extends KernelTestBase {
    */
   public static $modules = [
     'system',
+    'language',
     'field',
     'language',
     'degov_common',

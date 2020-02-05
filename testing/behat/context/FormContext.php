@@ -552,7 +552,8 @@ class FormContext extends RawMinkContext {
    * @When I fill in :field with date :dateValue formatted :dateFormat
    * @When I fill in :field with date :dateValue formatted :dateFormat in timezone :timezone
    */
-  public function fillFieldWithFormattedDate(string $field, string $dateValue, string $dateFormat, string $timezone = 'Europe/Berlin') {
+  public function fillFieldWithFormattedDate(string $field, string $dateValue, string $dateFormat, string $timezone = NULL) {
+    $timezone = $timezone ?: drupal_get_user_timezone();
     $dateValue = $this->fixStepArgument($dateValue);
     $dateFormat = $this->fixStepArgument($dateFormat);
     $dateTime = new \DateTime($dateValue);

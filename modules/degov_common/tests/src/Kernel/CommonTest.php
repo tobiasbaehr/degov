@@ -21,6 +21,7 @@ class CommonTest extends KernelTestBase {
   public static $modules = [
     'user',
     'system',
+    'language',
     'node',
     'paragraphs',
     'language',
