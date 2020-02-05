@@ -1,4 +1,4 @@
-@api @drupal @entities
+@api @drupal @media_types
 Feature: deGov - Media types
 
   Background:

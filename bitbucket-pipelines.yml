@@ -23,7 +23,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -37,7 +36,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -51,7 +49,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -65,7 +62,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -79,7 +75,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -93,7 +88,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -107,7 +101,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -121,7 +114,84 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests db_dump
           services:
             - docker
-            - testing
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: File upload tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh file_upload db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: Menu editing tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh menu_editing db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: Paragraphs tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh paragraphs db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: Content creation tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content_creation db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: Media types tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh media_types db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
+          name: Performance tests
+          caches:
+            - composer
+          script:
+            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh performance db_dump
+          services:
+            - docker
           artifacts:
             - php_error.log
             - "*.sql.gz"
@@ -135,7 +205,6 @@ pipelines:
             - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs db_dump
           services:
             - docker
-            - testing
           artifacts:
             - php_error.log
             - "*.tar.gz"
@@ -158,7 +227,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -172,7 +240,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -186,7 +253,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -200,7 +266,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -214,7 +279,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -228,7 +292,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -242,7 +305,6 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -256,7 +318,84 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests install
             services:
               - docker
-              - testing
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: File upload tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh file_upload install
+            services:
+              - docker
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: Menu editing tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh menu_editing install
+            services:
+              - docker
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: Paragraphs tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh paragraphs install
+            services:
+              - docker
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: Content creation tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content_creation install
+            services:
+              - docker
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: Media types tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh media_types install
+            services:
+              - docker
+            artifacts:
+              - php_error.log
+              - "*.sql.gz"
+              - "*.png"
+              - "*.html"
+        - step:
+            name: Performance tests
+            caches:
+              - composer
+            script:
+              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh performance install
+            services:
+              - docker
             artifacts:
               - php_error.log
               - "*.sql.gz"
@@ -270,15 +409,11 @@ pipelines:
               - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs install
             services:
               - docker
-              - testing
             artifacts:
               - php_error.log
               - "*.tar.gz"
 
 definitions:
   services:
-    testing:
-      image: darksolar/selenium-chrome-headless
-      memory: 2048
     docker:
       memory: 3072

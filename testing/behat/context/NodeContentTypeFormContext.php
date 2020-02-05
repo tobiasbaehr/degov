@@ -122,7 +122,7 @@ class NodeContentTypeFormContext extends RawDrupalContext {
 
     foreach ($optionElements as $optionElement) {
       if ($optionElement->getText() === trim($this->translateString($text))) {
-        $optionElement->click();
+        $optionElement->selectOption($optionElement);
       }
     }
   }

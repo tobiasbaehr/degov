@@ -6,6 +6,7 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Creating node with scheduled publish" for "Titel"
+      And I scroll to bottom
       And I select "published" in "edit-field-scheduled-publish-0-moderation-state"
       And I wait for AJAX to finish
       And I fill in "01012018" for "field_scheduled_publish[0][value][date]"
@@ -30,7 +31,7 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
-      And I wait for AJAX to finish
+      And I scroll to bottom
       And I select "published" in "edit-field-scheduled-publish-0-moderation-state"
       And I wait for AJAX to finish
       And I fill in "01012118" for "field_scheduled_publish[0][value][date]"

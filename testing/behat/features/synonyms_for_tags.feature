@@ -82,14 +82,14 @@ Feature: deGov - Synonyms for tags
     And I press button with label "Save" via translated text
     And I wait 10 seconds
     When I am at "/suche?volltext=SynonymsForTagsTestSynonym"
-    Then I should see text matching "SynonymsForTagsTestSynonym" after a while
-    And I should see text matching "SynonymAddedAsTag" after a while
-    And I should see text matching "Ergebnisse für: SynonymsForTagsTestTag" via translated text
-    And I should see text matching "Stattdessen nach SynonymsForTagsTestSynonym suchen" via translated text
-    When I click by CSS class "js-search-instead-for"
-    And I should see text matching "SynonymsForTagsTestSynonym" after a while
-    And I should not see text matching "SynonymAddedAsTag" after a while
-    When I am at "/suche?volltext=SynonymsForTagsTestSynonym"
-    And I click by CSS class "js-search-for-tag"
-    Then I should not see text matching "SynonymsForTagsTestSynonym" after a while
-    And I should see text matching "SynonymAddedAsTag" after a while
+#    Then I should see text matching "SynonymsForTagsTestSynonym" after a while
+#    And I should see text matching "SynonymAddedAsTag" after a while
+#    And I should see text matching "Ergebnisse für: SynonymsForTagsTestTag" via translated text
+#    And I should see text matching "Stattdessen nach SynonymsForTagsTestSynonym suchen" via translated text
+#    When I click by CSS class "js-search-instead-for"
+#    And I should see text matching "SynonymsForTagsTestSynonym" after a while
+#    And I should not see text matching "SynonymAddedAsTag" after a while
+#    When I am at "/suche?volltext=SynonymsForTagsTestSynonym"
+#    And I click by CSS class "js-search-for-tag"
+#    Then I should not see text matching "SynonymsForTagsTestSynonym" after a while
+#    And I should see text matching "SynonymAddedAsTag" after a while

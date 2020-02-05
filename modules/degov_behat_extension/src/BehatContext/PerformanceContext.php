@@ -50,4 +50,11 @@ class PerformanceContext extends RawDrupalContext {
     }
   }
 
+  /**
+   * @Then /^I am warming the cache of the static pages$/
+   */
+  public function warmStaticPagesCache(): void {
+    $this->visitStaticPages();
+  }
+
 }

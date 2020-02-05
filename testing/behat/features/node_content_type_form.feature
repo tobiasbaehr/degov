@@ -45,6 +45,6 @@ Feature: deGov - Content type form
     And I select "URL alias" via translation in uppercase from rightpane
     Then I should see text matching "Generate automatic URL alias" via translated text after a while
     And I fill in "path[0][alias]" with "/aabbcc"
-    And I choose "Published" via translation in selectModerationBox
+    And I select "Published" in "edit-moderation-state-0-state" via translated text
     And I press the "edit-submit" button
     Then I should be on "/aabbcc"

@@ -92,7 +92,7 @@ Feature: deGov - Bulk Action
     And I check checkbox with id "edit-node-bulk-form-2"
     And I select "Delete content" in "edit-action" via translated text
     Then I click by selector "#edit-submit--2" via JavaScript
-    And I should see text matching "Access denied" via translated text
+    And I should see text matching "No Access" via translated text
 
   Scenario: As an editor I want to be able to change the author of nodes.
     Given I am logged in as a user with the "editor" role

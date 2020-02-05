@@ -79,8 +79,11 @@ while [ $doWhile -eq "0" ]; do
    sleep 1
 done
 
+_info "### Start services"
 docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MYSQL_DATABASE=testing -p 3306:3306 -d mysql/mysql-server:5.7 --max_allowed_packet=1024M
 
+# See the following page for info for the Docker image, which is a meta image from the following one: https://github.com/SeleniumHQ/docker-selenium
+docker run --name testing --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-lithium
 _info "### Setting up project folder"
 _composer create-project --no-progress degov/degov-project:dev-$RELEASE_BRANCH --no-install
 cd degov-project
@@ -151,7 +154,8 @@ if [[ "$2" == "db_dump" ]]; then
 fi
 
 # For debugging via db dump
-# bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/$1-degov.sql.gz
+#_info "### Create database dump after new installation"
+#bin/drush sql:dump --gzip > $BITBUCKET_CLONE_DIR/new-installation-degov.sql.gz
 
 if [[ "$1" == "smoke_tests" ]]; then
     _info "### Running Behat smoke tests"

@@ -1,4 +1,4 @@
-@api @drupal @entities
+@api @drupal @paragraphs
 Feature: deGov - Paragraphs
 
   Background:
@@ -80,15 +80,17 @@ Feature: deGov - Paragraphs
     Then I should see text matching "Slide" via translated text after a while
     And I click by selector ".field--name-field-slide-media > details > summary" via JavaScript
     And I click by selector ".field--name-field-slide-media input.form-submit" via JavaScript
-    And I wait 2 seconds
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I should see HTML content matching "entity-browser-modal" after a while
+    And I wait for AJAX to finish
+    And I switch to the "entity_browser_iframe_media_browser" frame
     And I set the value of element ".views-exposed-form .form-item-bundle select" to "video_upload" via JavaScript
-    And I click by selector ".views-exposed-form .form-submit" via JavaScript
+    And I click by selector "#edit-submit-media" via JavaScript
     And I wait for AJAX to finish
     And I click by selector ".view-content .row-1 > .col-1" via JavaScript
     And I click by selector ".is-entity-browser-submit" via JavaScript
-    And I wait 2 seconds
+    And I wait for AJAX to finish
     And I go back to the main window
+    And I scroll to bottom
     And I press button with label "Save" via translated text
     And I should see HTML content matching "</video>"
 
@@ -103,8 +105,9 @@ Feature: deGov - Paragraphs
     Then I should see text matching "Slide" via translated text after a while
     And I click by selector ".field--name-field-slide-media > details > summary" via JavaScript
     And I click by selector ".field--name-field-slide-media input.form-submit" via JavaScript
-    And I wait 2 seconds
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I should see HTML content matching '<iframe src="/entity-browser/modal/media_browser' after a while
+    And I wait for AJAX to finish
+    And I switch to the "entity_browser_iframe_media_browser" frame
     And I set the value of element ".views-exposed-form .form-item-bundle select" to "video_mobile" via JavaScript
     And I click by selector ".views-exposed-form .form-submit" via JavaScript
     And I wait for AJAX to finish
