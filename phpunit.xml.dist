@@ -27,6 +27,10 @@
     <testsuite name="deGov">
       <directory>./modules/</directory>
     </testsuite>
+    <testsuite name="behat">
+      <directory>./testing/behat/context/Tests/</directory>
+      <directory>./testing/behat/context/Tests/Unit/</directory>
+    </testsuite>
   </testsuites>
 
 </phpunit>

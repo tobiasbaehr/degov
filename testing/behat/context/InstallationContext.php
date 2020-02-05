@@ -2,6 +2,7 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Drupal\degov\Behat\Context\Exception\ErrorTextFoundException;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
@@ -44,7 +45,21 @@ class InstallationContext extends RawMinkContext {
         ];
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
-        $this->checkErrorsOnCurrentPage();
+
+        try {
+          $debugOutput = new DebugOutput();
+          $debugOutput->isErrorOnCurrentPage($this->getSession()->getPage()->getText());
+        }
+        catch (ErrorTextFoundException $exception1) {
+          throw new TextNotFoundException(
+            sprintf('Task failed due "%s" text on page \'', $exception1->getMessage() . '\''),
+            $this->getSession()
+          );
+        }
+        catch (TextNotFoundException $exception2) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception2;
+        }
 
         if (\count($task) > 0) {
           return TRUE;
