@@ -42,7 +42,7 @@ function degov_scheduled_updates_uninstall() {
  * Change cardinality of scheduled_publish fields added by this module
  * and override Scheduled Publish module list view.
  */
-function degov_scheduled_updates_update_99999999() {
+function degov_scheduled_updates_update_8003() {
   $config = \Drupal::configFactory()->getEditable('field.storage.node.field_scheduled_publish');
   if (!$config->isNew() && $config->get('type') === 'scheduled_publish') {
     $config->set('cardinality', -1);
