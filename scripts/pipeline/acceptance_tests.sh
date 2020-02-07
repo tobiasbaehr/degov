@@ -173,7 +173,7 @@ elif [[ "$1" == "backstopjs" ]]; then
     _info "### Set the Development Mode"
     _drush en degov_devel
     _drush config:set degov_devel.settings dev_mode true
-     _backstopjs test
+    _backstopjs test
     EXIT_CODE=$?
     bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
 

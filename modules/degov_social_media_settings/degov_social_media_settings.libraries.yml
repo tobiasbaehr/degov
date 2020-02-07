@@ -3,7 +3,7 @@ process:
     js/process.js: {}
   css:
     theme:
-      css/style.css: {}
+      css/style.min.css: {}
   dependencies:
     - core/jquery
     - core/drupal

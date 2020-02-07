@@ -38,3 +38,4 @@ testing/behat/behat-no-drupal.yml
 testing/lfs_data
 /test-reports
 tmp/
+.sass-cache/

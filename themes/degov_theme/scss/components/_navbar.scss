@@ -34,10 +34,14 @@
           padding-right: 0;
         }
 
-        .dropdown-toggle::after {
-          content: none;
+        .dropdown-toggle {
+          white-space: normal;
+          &::after {
+            content: none;
+          }
         }
       }
     }
   }
 }
+
