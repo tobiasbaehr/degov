@@ -3,7 +3,7 @@
 namespace Drupal\Tests\degov_theming\Unit;
 
 use Drupal\Core\Asset\LibraryDiscovery;
-use Drupal\Core\Entity\Entity;
+use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\Theme\ActiveTheme;
 use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
@@ -117,7 +117,7 @@ class TemplateTest extends UnitTestCase {
   /**
    * Mock filesystem.
    *
-   * @return \Drupal\degov_theming\Factory\FilesystemFactory
+   * @return \org\bovigo\vfs\vfsStreamDirectory
    *   Filesystem factory.
    */
   private function mockFilesystem() {
@@ -132,6 +132,11 @@ class TemplateTest extends UnitTestCase {
                   'node--normal_page--small_image.html.twig' => 'Foo',
                   'node--normal_page--preview.html.twig'     => 'Foo',
                   'node--normal_page--default.html.twig'     => 'Foo',
+                  'node--normal_page--full.html.twig'        => 'Foo',
+                ],
+              ],
+              'degov_taxonomies' => [
+                'templates' => [
                   'node--normal_page--full.html.twig'        => 'Foo',
                 ],
               ],
@@ -288,7 +293,7 @@ class TemplateTest extends UnitTestCase {
   public function testSuggestTemplateFromModule($hook, $info, $options) {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
-    $node = $this->prophesize(Entity::class);
+    $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
 
     $variables = [
@@ -320,7 +325,7 @@ class TemplateTest extends UnitTestCase {
   public function testSuggestTemplateFromBaseTheme($hook, $info, $options) {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
-    $node = $this->prophesize(Entity::class);
+    $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
 
     $variables = [
@@ -352,7 +357,7 @@ class TemplateTest extends UnitTestCase {
   public function testSuggestTemplateFromProjectThemeInPreviewViewMode($hook, $info, $options) {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
-    $node = $this->prophesize(Entity::class);
+    $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
 
     $variables = [
@@ -384,7 +389,7 @@ class TemplateTest extends UnitTestCase {
   public function testSuggestTemplateFromProjectThemeInDefaultViewMode($hook, $info, $options) {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
-    $node = $this->prophesize(Entity::class);
+    $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
 
     $variables = [
@@ -416,7 +421,7 @@ class TemplateTest extends UnitTestCase {
   public function testDoNotAddSuggestionIfNoTemplateIsFound($hook, $info, $options) {
     $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation('blog'), $this->mockTwig());
 
-    $node = $this->prophesize(Entity::class);
+    $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('blog');
 
     $variables = [
@@ -438,6 +443,88 @@ class TemplateTest extends UnitTestCase {
       ],
       $info
     );
+  }
+
+  /**
+   * Tests that a second or more call of \Drupal\degov_common\Common::addThemeSuggestions do not fallback
+   * to default template, because the module do not provide a template for the given viewmode.
+   *
+   * Story: Drupal wants to render the entity node with bundle normale_page in viewmode small_image
+   * - Drupal calls the hook_preprocess of degov_node_normal_page
+   * - degov_node_normal_page provides a template for the entity node with bundle normale_page in viewmode small_image
+   * - \Drupal\degov_theming\Service\Template::suggest use this template
+   * - Drupal calls the hook_preprocess of degov_taxonomies
+   * - degov_taxonomies do not provide this template
+   * - project_theme has a fallback template for normal_page
+   * - \Drupal\degov_theming\Service\Template::suggest do not fallback to default template
+   *   because it caches the previously requested template in static cache
+   */
+  public function testDoNotFallbackToDefault() {
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
+
+    $node = $this->prophesize(EntityBase::class);
+    $node->bundle()->willReturn('normal_page');
+    $hook = 'node';
+
+    $variables = [
+      'elements' => [
+        '#view_mode' => 'small_image',
+      ],
+      'node'     => $node->reveal(),
+    ];
+    $info = [
+      'render element' => 'elements',
+      'type'           => 'project_theme',
+      'theme path'     => 'modules',
+      'template'       => 'node--normal_page--small_image',
+      'path'           => 'profiles/contrib/degov/modules/degov_node_normal_page/templates',
+    ];
+    $options = [
+      'module_name'       => 'degov_node_normal_page',
+      'entity_type'       => 'node',
+      'entity_bundles'    =>
+        [
+          0 => 'normal_page',
+        ],
+      'entity_view_modes' =>
+        [
+          0 => 'full',
+          1 => 'long_text',
+          2 => 'preview',
+          3 => 'slim',
+          4 => 'small_image',
+        ],
+    ];
+
+    $this->template->suggest($variables, $hook, $info, $options);
+
+    $expected = [
+      'render element' => 'elements',
+      'type'           => 'project_theme',
+      'theme path'     => 'modules',
+      'template'       => 'node--normal_page--small_image',
+      'path'           => 'profiles/contrib/degov/modules/degov_node_normal_page/templates',
+    ];
+
+    $this->assertArrayEquals($expected, $info);
+
+    $options = [
+      'module_name'       => 'degov_taxonomies',
+      'entity_type'       => 'node',
+      'entity_bundles'    =>
+        [
+          0 => 'normal_page',
+        ],
+      'entity_view_modes' =>
+        [
+          0 => 'full',
+        ],
+    ];
+
+    $this->template->suggest($variables, $hook, $info, $options);
+
+    $this->assertArrayEquals($expected, $info);
+
   }
 
 }

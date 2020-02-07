@@ -213,11 +213,29 @@ class Template {
    * Compute template filename.
    */
   private function computeTemplateFilename(array &$variables, $entity_view_modes, $entity_type, $entity_bundle): array {
-    if (isset($variables['elements']['#view_mode'])
-      && in_array($variables['elements']['#view_mode'], $entity_view_modes)) {
+
+    /*
+     * A second call of \Drupal\degov_common\Common::addThemeSuggestions in hook_preprocess could override a working template
+     * therefore we store here which non default template was processed.
+     */
+    static $processed;
+
+    if (isset($variables['elements']['#view_mode']) && in_array($variables['elements']['#view_mode'],
+        $entity_view_modes)) {
       $template_filename = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
+      $processed[$template_filename] = TRUE;
     }
     else {
+      if (isset($variables['elements']['#view_mode']) && $entity_bundle !== NULL) {
+        $template_filename = $entity_type . '--' . $entity_bundle . '--' . $variables['elements']['#view_mode'];
+        if (isset($processed[$template_filename])) {
+          return [
+            $variables,
+            $template_filename,
+          ];
+        }
+      }
+
       if (isset($entity_bundle)) {
         $template_filename = $entity_type . '--' . $entity_bundle . '--default';
       }
