@@ -39,3 +39,4 @@ testing/lfs_data
 /test-reports
 tmp/
 .sass-cache/
+scripts/pipeline/html_validation_results

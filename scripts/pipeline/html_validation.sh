@@ -28,44 +28,71 @@ _err() {
 
 _fetch_html_content() {
   local URLS=""
+  _info "# Fetch HTML"
   URLS=$(jq --raw-output '[ .scenarios[] | select(has("skipValidation") | not) | .url ] | unique[]' ../../testing/backstopjs/backstop.json | tr '\n' ' ')
+  # URLS="http://host.docker.internal/degov-demo-content/blog-post "
   rm  -rf "${__TMP__:?}"/* \
-  && wget --hsts-file=/tmp/wget-hsts --no-verbose --no-cache --no-cookies --trust-server-names --directory-prefix "$__TMP__" $URLS
+  && wget --hsts-file=/tmp/wget-hsts --no-verbose --no-cache --no-cookies --trust-server-names --adjust-extension  --directory-prefix "$__TMP__" $URLS
   local EXITCODE=$?
   if [[ "${EXITCODE:-}" -gt 0 ]] ;then
     _err "Could not fetch the HTML content. Is the host host.docker.internal running?"
+    exit $EXITCODE
   fi
   return $EXITCODE;
 }
 
 _run_validation() {
   if [[ -n "${CI:-}" ]];then
+    _info "# Run validator"
+    BUILD_DIR=$BITBUCKET_CLONE_DIR
     docker run \
       -v "$__TMP__":/files \
       -v "$__SHARED_DIR__":/shared \
       --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL \
+      --name="validator" \
       validator/validator:latest /vnu-runtime-image/bin/vnu \
         --filterfile  /shared/message-filters.txt \
         --errors-only \
       /files
   else
+    _info "# Run validator locally"
+    # BUILD_DIR="/Users/tho/htdocs/GzEvD/degov_nrw-project/docroot"
     docker run \
+      -t \
       -v "$__TMP__":/files \
       -v "$__SHARED_DIR__":/shared \
+      --cidfile="$__TMP__/.cidfile" \
       validator/validator:latest /vnu-runtime-image/bin/vnu \
         --filterfile  /shared/message-filters.txt \
         --errors-only \
       /files
   fi
-  local EXITCODE=$?
-  if [[ "${EXITCODE:-}" = 125 ]] ;then
+  local VALIDATOR_EXITCODE=$?
+  if [[ "${VALIDATOR_EXITCODE:-}" = 125 ]] ;then
     _err "Could not validate the HTML content. Docker is not running."
   fi
-  if [[ "${EXITCODE:-}" = 1 ]] ;then
+
+  # Save assets
+  if [[ "${VALIDATOR_EXITCODE:-}" -gt 0 ]] ;then
     _err "Found some validation errors."
-    exit 1
+    if [ -n "${BUILD_DIR+isset}" ]; then
+      _info "# Save HTML validation HTML assets"
+      if [[ -d "$BUILD_DIR/html_validation_results" ]] ;then
+          rm -rf $BUILD_DIR/html_validation_results/*
+      fi
+      mkdir -p "$BUILD_DIR/html_validation_results/pages"
+      cp $__TMP__/*.html $BUILD_DIR/html_validation_results/pages
+      cp -R $__SHARED_DIR__ $BUILD_DIR/html_validation_results
+      if [[ -n "${CI:-}" ]];then
+          docker logs "validator" >& $BUILD_DIR/html_validation_results/errors.txt
+        else
+          docker logs "$(cat $__TMP__/.cidfile)" >& $BUILD_DIR/html_validation_results/errors.txt && rm $__TMP__/.cidfile
+      fi
+      tar -c -p -f html_validation_results.tar.gz -C $BUILD_DIR/html_validation_results/ .
+      mv html_validation_results.tar.gz $BUILD_DIR
+    fi
   fi
-  return $EXITCODE;
+  exit $VALIDATOR_EXITCODE;
 }
 
 main() {

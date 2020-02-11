@@ -173,10 +173,16 @@ elif [[ "$1" == "backstopjs" ]]; then
     _info "### Set the Development Mode"
     _drush en degov_devel
     _drush config:set degov_devel.settings dev_mode true
+
+    _info "### Start HTML VALIDATION"
+    bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
+    VALIDATION_EXIT_CODE=$?
+    if [[ $VALIDATION_EXIT_CODE -gt "0" ]]; then
+      exit $VALIDATION_EXIT_CODE
+    fi
+
     _backstopjs test
     EXIT_CODE=$?
-    bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
-
     if [[ $EXIT_CODE -gt "0" ]]; then
       _info "### Dumping BackstopJS output"
       (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zhpcf backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
@@ -190,7 +196,7 @@ elif [[ "$1" == "backstopjs" ]]; then
         (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/backstopjs/backstop_data && tar zhpcf bitmaps_reference.tar.gz bitmaps_reference/ && mv bitmaps_reference.tar.gz $BITBUCKET_CLONE_DIR)
       else
         _info "### Dumping re-tested BackstopJS output"
-        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zhpcf backstopjs-retest.tar.gz backstopjs/ && mv backstopjs-retest.tar.gz $BITBUCKET_CLONE_DIR)
+        (cd $BITBUCKET_CLONE_DIR/degov-project/docroot/profiles/contrib/degov/testing/ && tar zhpcf backstopjs_retest.tar.gz backstopjs/ && mv backstopjs_retest.tar.gz $BITBUCKET_CLONE_DIR)
       fi
       # Pipeline needs the exitcode to mark the pipe as failed.
       exit $EXIT_CODE
