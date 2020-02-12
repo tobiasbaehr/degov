@@ -1,7 +1,4 @@
 services:
-  cache.backend.degov_common:
-    class: Drupal\degov_common\DegovCacheBackendFactory
-    arguments: ['@database', '@settings', '@cache_tags.invalidator.checksum']
   degov_common.quickedit.twig.extension:
     class: Drupal\degov_common\Twig\Extension\FieldQuickEditAttributesExtension
     tags:
