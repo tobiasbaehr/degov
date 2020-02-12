@@ -92,6 +92,20 @@
       "misMatchThreshold": 5,
       "requireSameDimensions": false,
       "skipValidation": true
+    },
+    {
+      "label": "Admin Cookie",
+      "url": "http://host.docker.internal:80/admin/people/roles",
+      "_comment": "View people/roles which is only visible for Admin users",
+      "delay": 4000,
+      "removeSelectors": [
+        "#toolbar-administration",
+        ".sf-toolbarreset",
+        ".sf-minitoolbar",
+        "[data-drupal-messages]"
+      ],
+      "cookiePath": "tmp/cookiesAdmin.json",
+      "skipValidation": true
     }
   ],
   "paths": {

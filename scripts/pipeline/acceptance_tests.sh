@@ -45,6 +45,11 @@ _drush() {
   COLUMNS=$(tput cols 2>/dev/null) bin/drush --yes --ansi "$@"
 }
 
+_robo() {
+  COLUMNS=$(tput cols 2>/dev/null) bin/robo --ansi "$@"
+}
+
+
 _update_translations() {
   _info "### Update translations"
   _drush locale:check \
@@ -85,7 +90,7 @@ docker run --name mysql-$1 -e MYSQL_USER=testing -e MYSQL_PASSWORD=testing -e MY
 # See the following page for info for the Docker image, which is a meta image from the following one: https://github.com/SeleniumHQ/docker-selenium
 docker run --name testing --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-lithium
 _info "### Setting up project folder"
-_composer create-project --no-progress degov/degov-project:dev-$RELEASE_BRANCH --no-install
+_composer create-project --no-progress degov/degov-project:dev-$PROJECT_BRANCH --no-install
 cd degov-project
 rm composer.lock
 
@@ -96,6 +101,10 @@ PATH="$(pwd)/bin/:$PATH"
 export PATH
 
 (cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php -d error_reporting=E_ALL -d display_error=On -d log_errors=On -d error_log=/tmp/php_error.log)
+
+if [[ -n "${CI:-}" ]];then
+  echo "$BITBUCKET_DOCKER_HOST_INTERNAL host.docker.internal" >> /etc/hosts
+fi
 
 _info "### Configuring drupal"
 _info '### Setting file system paths'
@@ -169,6 +178,10 @@ if [[ "$1" == "smoke_tests" ]]; then
 
 elif [[ "$1" == "backstopjs" ]]; then
     set +e
+
+    _info "### Load Admin cookie for BackstopJS test"
+    _robo degov:create-admin-cookie
+
     _info "### Running BackstopJS test"
     _info "### Set the Development Mode"
     _drush en degov_devel
