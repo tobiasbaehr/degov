@@ -74,32 +74,6 @@ trait DebugOutputTrait {
   }
 
   /**
-   * Check errors on current page.
-   */
-  public function checkErrorsOnCurrentPage(): void {
-    if (empty(self::$errorTexts)) {
-      return;
-    }
-
-    foreach (self::$errorTexts as $errorText) {
-      $pageText = $this->getSession()->getPage()->getText();
-      if (substr_count(strtolower($pageText), strtolower($errorText)) > 0) {
-
-        try {
-          throw new TextNotFoundException(
-            sprintf('Task failed due "%s" text on page \'', $pageText . '\''),
-            $this->getSession()
-          );
-        }
-        catch (TextNotFoundException $exception) {
-          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
-          throw $exception;
-        }
-      }
-    }
-  }
-
-  /**
    * Check errors with scope.
    *
    * @AfterStep
