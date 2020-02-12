@@ -189,9 +189,9 @@ elif [[ "$1" == "backstopjs" ]]; then
 
     _info "### Start HTML VALIDATION"
     bash $BITBUCKET_CLONE_DIR/scripts/pipeline/html_validation.sh
-    VALIDATION_EXIT_CODE=$?
-    if [[ $VALIDATION_EXIT_CODE -gt "0" ]]; then
-      exit $VALIDATION_EXIT_CODE
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne "0" ]]; then
+      exit $EXIT_CODE
     fi
 
     _backstopjs test

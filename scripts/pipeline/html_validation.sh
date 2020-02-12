@@ -33,12 +33,13 @@ _fetch_html_content() {
   # URLS="http://host.docker.internal/degov-demo-content/blog-post "
   rm  -rf "${__TMP__:?}"/* \
   && wget --hsts-file=/tmp/wget-hsts --no-verbose --no-cache --no-cookies --trust-server-names --adjust-extension  --directory-prefix "$__TMP__" $URLS
-  local EXITCODE=$?
-  if [[ "${EXITCODE:-}" -gt 0 ]] ;then
+  local EXIT_CODE=$?
+  if [[ "$EXIT_CODE" -gt 0 ]] ;then
     _err "Could not fetch the HTML content. Is the host host.docker.internal running?"
-    exit $EXITCODE
+  else
+    _info "# Fetched HTML"
   fi
-  return $EXITCODE;
+  return $EXIT_CODE;
 }
 
 _run_validation() {
@@ -67,13 +68,14 @@ _run_validation() {
         --errors-only \
       /files
   fi
-  local VALIDATOR_EXITCODE=$?
-  if [[ "${VALIDATOR_EXITCODE:-}" = 125 ]] ;then
+  local EXIT_CODE=$?
+  if [[ "$EXIT_CODE" -eq 125 ]] ;then
     _err "Could not validate the HTML content. Docker is not running."
+    return $EXIT_CODE;
   fi
 
   # Save assets
-  if [[ "${VALIDATOR_EXITCODE:-}" -gt 0 ]] ;then
+  if [[ "$EXIT_CODE" -gt 0 ]] ;then
     _err "Found some validation errors."
     if [ -n "${BUILD_DIR+isset}" ]; then
       _info "# Save HTML validation HTML assets"
@@ -91,8 +93,10 @@ _run_validation() {
       tar -c -p -f html_validation_results.tar.gz -C $BUILD_DIR/html_validation_results/ .
       mv html_validation_results.tar.gz $BUILD_DIR
     fi
+  else
+    _info "No validation errors found"
   fi
-  exit $VALIDATOR_EXITCODE;
+  return $EXIT_CODE;
 }
 
 main() {
@@ -103,8 +107,9 @@ main() {
   cd "$__STARTDIR__" \
   && _info "### Validating HTML5" \
   && _fetch_html_content \
-  && _run_validation \
-  && _info "No validation errors found"
+  && _run_validation
+  local EXIT_CODE=$?
+  exit $EXIT_CODE;
 }
 
 main "$@"
