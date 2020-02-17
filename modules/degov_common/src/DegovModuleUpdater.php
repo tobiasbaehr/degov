@@ -46,19 +46,6 @@ class DegovModuleUpdater extends ConfigReplacer {
   }
 
   /**
-   * @deprecated in deGov 7.x and is removed from deGov 8.0. Use reImport.
-   * @see \Drupal\degov_common\DegovModuleUpdater::reImport()
-   */
-  public function importConfigFile(string $ymlConfigFilename, string $moduleName, string $folderName, bool $force = FALSE) : void {
-    if (substr($ymlConfigFilename, -4) !== '.yml') {
-      throw new \Exception('Config file must be a yml file. Given config filename is not ending with ".yml".');
-    }
-
-    $configurationName = substr_replace($ymlConfigFilename, '', -4);
-    $this->reImport($configurationName, $moduleName, $folderName, $force);
-  }
-
-  /**
    * On module installed.
    */
   public function onModuleInstalled($module, $installed_module): void {
