@@ -163,7 +163,7 @@ Feature: deGov - Content creation
     And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
-    And I click by CSS id "field-content-paragraphs-view-reference-add-more"
+    And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_view_reference_add_more]"
     Then I should see text matching "Ansichtsreferenz" via translation after a while
     And I should see 1 ".viewreference_target_id" element
     And I set the value of element ".viewreference_target_id" to "latest_events" via JavaScript
@@ -185,7 +185,7 @@ Feature: deGov - Content creation
     And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
-    And I click by CSS id "field-content-paragraphs-text-add-more"
+    And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_text_add_more]"
     Then I should see text matching "Text format" via translated text after a while
     And I click by selector "#cke_106" via JavaScript
     And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<script>document.write(\'scripttest1234\');</script>" via JavaScript
@@ -200,7 +200,7 @@ Feature: deGov - Content creation
     And I choose "Content" via translation from tab menu
     And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
     And I wait 2 seconds
-    And I click by CSS id "field-content-paragraphs-text-add-more"
+    And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_text_add_more]"
     Then I should see text matching "Text format" via translated text after a while
     And I click by selector "#cke_106" via JavaScript
     And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<font>BehatFont</font>" via JavaScript
