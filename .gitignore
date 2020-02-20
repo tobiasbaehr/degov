@@ -41,3 +41,4 @@ tmp/
 !testing/backstopjs/tmp/.htaccess
 .sass-cache/
 scripts/pipeline/html_validation_results
+.cidfile

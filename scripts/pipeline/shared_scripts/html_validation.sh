@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# Check unset variables
 set -o nounset
 set -o pipefail
 
@@ -10,21 +9,9 @@ fi
 
 # shellcheck disable=SC2164
 __DIR__="$(cd "$(dirname "${0}")"; pwd)"
-__STARTDIR__=${__STARTDIR__:-$__DIR__}
+__STARTDIR__=${__STARTDIR__:-$__DIR__/..}
 __SHARED_DIR__="$__STARTDIR__/html_validation_shared"
 __TMP__="$__STARTDIR__/tmp"
-
-_info() {
-  local color_info="\\x1b[32m"
-  local color_reset="\\x1b[0m"
-  echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
-}
-
-_err() {
-  local color_error="\\x1b[31m"
-  local color_reset="\\x1b[0m"
-  echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
-}
 
 _fetch_html_content() {
   local URLS=""
@@ -56,13 +43,17 @@ _run_validation() {
         --errors-only \
       /files
   else
+    local CIDFILE="$__TMP__/../.cidfile"
+    if [[ -f $CIDFILE ]];then
+      rm $CIDFILE
+    fi
     _info "# Run validator locally"
     # BUILD_DIR="/Users/tho/htdocs/GzEvD/degov_nrw-project/docroot"
     docker run \
       -t \
       -v "$__TMP__":/files \
       -v "$__SHARED_DIR__":/shared \
-      --cidfile="$__TMP__/.cidfile" \
+      --cidfile="$CIDFILE" \
       validator/validator:latest /vnu-runtime-image/bin/vnu \
         --filterfile  /shared/message-filters.txt \
         --errors-only \
@@ -77,7 +68,7 @@ _run_validation() {
   # Save assets
   if [[ "$EXIT_CODE" -gt 0 ]] ;then
     _err "Found some validation errors."
-    if [ -n "${BUILD_DIR+isset}" ]; then
+    if [ -n "${BUILD_DIR:-}" ]; then
       _info "# Save HTML validation HTML assets"
       if [[ -d "$BUILD_DIR/html_validation_results" ]] ;then
           rm -rf $BUILD_DIR/html_validation_results/*
@@ -88,7 +79,7 @@ _run_validation() {
       if [[ -n "${CI:-}" ]];then
           docker logs "validator" >& $BUILD_DIR/html_validation_results/errors.txt
         else
-          docker logs "$(cat $__TMP__/.cidfile)" >& $BUILD_DIR/html_validation_results/errors.txt && rm $__TMP__/.cidfile
+          docker logs "$(cat $CIDFILE)" >& $BUILD_DIR/html_validation_results/errors.txt
       fi
       tar -c -p -f html_validation_results.tar.gz -C $BUILD_DIR/html_validation_results/ .
       mv html_validation_results.tar.gz $BUILD_DIR
@@ -101,9 +92,13 @@ _run_validation() {
 
 main() {
   if [[ -n "${CI:-}" ]];then
-    echo "$BITBUCKET_DOCKER_HOST_INTERNAL host.docker.internal" >> /etc/hosts
+      # shellcheck source=.
+    source "$__DIR__/../.env"
   fi
-
+    # shellcheck source=.
+  source "$__DIR__/common_functions.sh"
+  # Disable auto exit from common_functions.sh script. Use the error handler of this script to show the error messages.
+  set +o errexit
   cd "$__STARTDIR__" \
   && _info "### Validating HTML5" \
   && _fetch_html_content \

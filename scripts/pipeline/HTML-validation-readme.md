@@ -47,10 +47,19 @@ brew install wget jq
 ### Usage
 
 * Just run the script via CLI
+
+deGov:
+
+```bash
+bash docroot/profiles/contrib/degov/scripts/pipeline/shared_scripts/html_validation.sh
 ```
-bash docroot/profiles/contrib/nrwgov/scripts/pipeline/html_validation.sh
-# or
-bash docroot/profiles/contrib/degov/scripts/pipeline/html_validation.sh
+
+nrwGov:
+
+```bash
+cd docroot/profiles/contrib/nrwgov/scripts/pipeline && \
+ln -s ../../../degov/scripts/pipeline/shared_scripts/
+bash shared_scripts/html_validation.sh
 ```
 
 Mind your cache

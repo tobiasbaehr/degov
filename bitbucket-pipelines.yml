@@ -5,22 +5,25 @@ options:
 
 pipelines:
   default:
+    - step:
+        name: Composer Install
+        caches:
+          - composer
+        script:
+          - bash ./scripts/pipeline/composer_setup.sh
+        artifacts:
+          - project/**
     - parallel:
       - step:
           name: Unit/functional tests and static code analysis
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
+            - bash ./scripts/pipeline/shared_scripts/code_tests.sh
           artifacts:
             - php_error.log
-            - coding-standards.txt
       - step:
           name: Content features
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh content db_dump
           services:
             - docker
           artifacts:
@@ -30,10 +33,8 @@ pipelines:
             - "*.html"
       - step:
           name: Entities features
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh entities db_dump
           services:
             - docker
           artifacts:
@@ -43,10 +44,8 @@ pipelines:
             - "*.html"
       - step:
           name: Access features
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh access db_dump
           services:
             - docker
           artifacts:
@@ -56,10 +55,8 @@ pipelines:
             - "*.html"
       - step:
           name: View mode features
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh view_mode db_dump
           services:
             - docker
           artifacts:
@@ -69,10 +66,8 @@ pipelines:
             - "*.html"
       - step:
           name: Form features
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh form db_dump
           services:
             - docker
           artifacts:
@@ -82,10 +77,8 @@ pipelines:
             - "*.html"
       - step:
           name: Simplenews feature
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh simplenews db_dump
           services:
             - docker
           artifacts:
@@ -95,10 +88,8 @@ pipelines:
             - "*.html"
       - step:
           name: Social media sharing feature
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh social_media_sharing db_dump
           services:
             - docker
           artifacts:
@@ -108,10 +99,8 @@ pipelines:
             - "*.html"
       - step:
           name: Smoke tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh smoke_tests db_dump
           services:
             - docker
           artifacts:
@@ -121,10 +110,8 @@ pipelines:
             - "*.html"
       - step:
           name: File upload tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh file_upload db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh file_upload db_dump
           services:
             - docker
           artifacts:
@@ -134,10 +121,8 @@ pipelines:
             - "*.html"
       - step:
           name: Menu editing tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh menu_editing db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh menu_editing db_dump
           services:
             - docker
           artifacts:
@@ -147,10 +132,8 @@ pipelines:
             - "*.html"
       - step:
           name: Paragraphs tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh paragraphs db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh paragraphs db_dump
           services:
             - docker
           artifacts:
@@ -160,10 +143,8 @@ pipelines:
             - "*.html"
       - step:
           name: Content creation tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content_creation db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh content_creation db_dump
           services:
             - docker
           artifacts:
@@ -173,10 +154,8 @@ pipelines:
             - "*.html"
       - step:
           name: Media types tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh media_types db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh media_types db_dump
           services:
             - docker
           artifacts:
@@ -186,10 +165,8 @@ pipelines:
             - "*.html"
       - step:
           name: Performance tests
-          caches:
-            - composer
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh performance db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh performance db_dump
           services:
             - docker
           artifacts:
@@ -198,11 +175,18 @@ pipelines:
             - "*.png"
             - "*.html"
       - step:
-          name: Frontend tests
-          caches:
-            - composer
+          name: HTML-Validator tests
           script:
-            - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs db_dump
+            - bash ./scripts/pipeline/acceptance_tests.sh html_validator db_dump
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.tar.gz"
+      - step:
+          name: BackstopJS tests
+          script:
+            - bash ./scripts/pipeline/acceptance_tests.sh backstopjs db_dump
           services:
             - docker
           artifacts:
@@ -210,208 +194,194 @@ pipelines:
             - "*.tar.gz"
   branches:
     release/*:
+      - step:
+          name: Composer Install
+          caches:
+            - composer
+          script:
+            - bash ./scripts/pipeline/composer_setup.sh
+          artifacts:
+            - project/**
       - parallel:
-        - step:
-            name: Unit/functional tests and static code analysis
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/code_tests.sh
-            artifacts:
-              - php_error.log
-        - step:
-            name: Content features
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Entities features
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh entities install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Access features
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh access install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: View mode features
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh view_mode install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Form features
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh form install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Simplenews feature
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh simplenews install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Social media sharing feature
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh social_media_sharing install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Smoke tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh smoke_tests install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: File upload tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh file_upload install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Menu editing tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh menu_editing install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Paragraphs tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh paragraphs install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Content creation tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh content_creation install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Media types tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh media_types install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Performance tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh performance install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.sql.gz"
-              - "*.png"
-              - "*.html"
-        - step:
-            name: Frontend tests
-            caches:
-              - composer
-            script:
-              - bash $BITBUCKET_CLONE_DIR/scripts/pipeline/acceptance_tests.sh backstopjs install
-            services:
-              - docker
-            artifacts:
-              - php_error.log
-              - "*.tar.gz"
+          - step:
+              name: Unit/functional tests and static code analysis
+              script:
+                - bash ./scripts/pipeline/shared_scripts/code_tests.sh
+              artifacts:
+                - php_error.log
+          - step:
+              name: Content features
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh content install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Entities features
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh entities install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Access features
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh access install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: View mode features
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh view_mode install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Form features
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh form install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Simplenews feature
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh simplenews install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Social media sharing feature
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh social_media_sharing install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Smoke tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh smoke_tests install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: File upload tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh file_upload install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Menu editing tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh menu_editing install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Paragraphs tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh paragraphs install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Content creation tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh content_creation install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Media types tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh media_types install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: Performance tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh performance install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.sql.gz"
+                - "*.png"
+                - "*.html"
+          - step:
+              name: HTML-Validator tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh html_validator install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.tar.gz"
+          - step:
+              name: BackstopJS tests
+              script:
+                - bash ./scripts/pipeline/acceptance_tests.sh backstopjs install
+              services:
+                - docker
+              artifacts:
+                - php_error.log
+                - "*.tar.gz"
+
 
 definitions:
   services:
