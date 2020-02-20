@@ -29,10 +29,7 @@ main() {
   set +o errexit
   _backstopjs test
   EXIT_CODE=$?
-  set -o errexit
   if [[ $EXIT_CODE -gt "0" ]]; then
-    _info "### Approving changes"
-    _backstopjs approve
     _info "### Dumping BackstopJS output"
     (cd $TEST_DIR && tar zhpcf backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
   fi
