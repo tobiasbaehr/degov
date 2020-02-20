@@ -115,7 +115,7 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       if (!empty($media_item['field_address_location'])) {
         $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
       }
-      $fields['created'] = time();
+      $fields['created'] = DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP;
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;

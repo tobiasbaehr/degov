@@ -59,14 +59,14 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    *
    * @param array $menuItemDefinitions
    *   Menu item definitions.
-   * @param \Drupal\Core\Menu\MenuLinkInterface|null $parentMenuLink
+   * @param \Drupal\menu_link_content\MenuLinkContentInterface|NULL $parentMenuLink
    *   Parent menu link.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
     foreach ($menuItemDefinitions as $key => $menuItemDefinition) {
-      $title = isset($menuItemDefinition['menu_title']) ? $menuItemDefinition['menu_title'] : $menuItemDefinition['node_title'];
+      $title = $menuItemDefinition['menu_title'] ?? $menuItemDefinition['node_title'];
       $menuLinkParameters = [
         'title'     => $title,
         'link'      => [
@@ -84,11 +84,11 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
         $menuLinkParameters['parent'] = $parentMenuLink->getPluginId();
       }
 
-      if (empty($parentMenuLink) && !empty($definition['fontawesome_css_class'])) {
+      if (empty($parentMenuLink) && !empty($menuItemDefinition['fontawesome_css_class'])) {
         $menuLinkParameters['link']['options'] = [
           'attributes' => [
             'class' => [
-              $definition['fontawesome_css_class'],
+              $menuItemDefinition['fontawesome_css_class'],
             ],
           ],
         ];
@@ -187,7 +187,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
     $titlesArray = [];
 
     foreach ($definitions as $definition) {
-      $titlesArray[] = isset($definition['menu_title']) ? $definition['menu_title'] : $definition['node_title'];
+      $titlesArray[] = $definition['menu_title'] ?? $definition['node_title'];
 
       if (!empty($definition['children'])) {
         $titlesArray = array_merge($titlesArray, $this->getMenuTitlesFromDefinition($definition['children']));

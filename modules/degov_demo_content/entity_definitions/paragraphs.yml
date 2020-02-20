@@ -1,25 +1,25 @@
 teaser_small_image:
   type: 'node_reference'
   field_title: 'Teaser - Small Image'
-  field_sub_title: '{{SUBTILE}}'
+  field_sub_title: 'All teasers in view mode small image'
   field_node_reference_viewmode: 'small_image'
   field_node_reference_nodes: '{{NIDS}}'
 teaser_long_text:
   type: 'node_reference'
   field_title: 'Teaser - Long Text'
-  field_sub_title: '{{SUBTILE}}'
+  field_sub_title: 'All teasers in view mode long text'
   field_node_reference_viewmode: 'long_text'
   field_node_reference_nodes: '{{NIDS}}'
 teaser_preview:
   type: 'node_reference'
   field_title: 'Teaser - Preview'
-  field_sub_title: '{{SUBTILE}}'
+  field_sub_title: 'All teasers in view mode Preview'
   field_node_reference_viewmode: 'preview'
   field_node_reference_nodes: '{{NIDS}}'
 teaser_slim:
   type: 'node_reference'
   field_title: 'Teaser - Slim'
-  field_sub_title: '{{SUBTILE}}'
+  field_sub_title: 'All teasers in view mode Slim'
   field_node_reference_viewmode: 'slim'
   field_node_reference_nodes: '{{NIDS}}'
 header_banner:
@@ -61,21 +61,30 @@ slide_1:
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
   field_slide_text:
-    value: '{{TEXT}}'
+    value: '<h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <p><strong>Links are stripped if the field "field_slide_link" is not empty.</strong></h3>
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. rebum Stet clita <a href="/">kasd</a> gubergren äöü ÄÖÜß àéîøū <a href="/">no</a> sea takimata sanctus est <a href="/">äöü</a> ÄÖÜß àéîøū Lorem ipsum <a href="/">dolor</a> sit amet Lorem ipsum Cras justo odio, dapibus ac facilisis.</p>'
     format: 'rich_html'
+  field_slide_link:
+    - "https://drupal.org"
 slide_2:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
   field_slide_text:
-    value: '{{TEXT}}'
+    value: '<h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. <a href="/">ÄÖÜß</a> àéîøū rebum Stet clita <a href="/">kasd</a> gubergren äöü ÄÖÜß àéîøū <a href="/">vallum</a> sea takimata sanctus est <a href="/">ägäicum</a> ÄÖÜß àéîøū Lorem ipsum <a href="/">dolor</a> sit amet Lorem ipsum <a href="/">äöü</a> ÄÖÜß àéîøū dolor sit <a href="/">amet</a> consetetur äöüÄ ÖÜßà éîøū</p>'
     format: 'rich_html'
 slide_3:
   type: 'slide'
   field_override_caption: '{{SUBTITLE}}'
   field_slide_media: '{{MEDIA_ID_IMAGE}}'
   field_slide_text:
-    value: '{{TEXT}}'
+    value: '<h3>Heading 3</h3>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. <a href="/">vallum</a> sea takimata sanctus est <a href="/">ägäicum</a>. Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis.'
     format: 'rich_html'
 slide_video_1:
   type: 'slide'

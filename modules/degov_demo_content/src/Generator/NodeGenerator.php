@@ -78,7 +78,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         'alias'    => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
         'pathauto' => PathautoState::SKIP,
       ];
-      $rawNode['created'] = time();
+      $rawNode['created'] = DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP;
       $node = Node::create($rawNode);
       $node->save();
 
@@ -210,7 +210,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
     $paragraphs = [];
     foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
-      $rawParagraph['field_sub_title'] = $this->generateBlindText(3);
+      $rawParagraph['field_sub_title'] = empty($rawParagraph['field_sub_title']) ? $this->generateBlindText(3) : $rawParagraph['field_sub_title'];
       $rawParagraph['field_node_reference_nodes'] = $nodeIds;
       $paragraph = Paragraph::create($rawParagraph);
       $paragraph->save();

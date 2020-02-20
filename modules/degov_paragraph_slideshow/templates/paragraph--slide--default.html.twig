@@ -49,15 +49,19 @@
 <div{{ attributes.addClass(classes) }}>
   {{ content.contextual_links }}
   {% if slide_link %}<a class="slide__link" href="{{ slide_link }}">{% endif %}
+
     <div class="slide__media">{{ content.field_slide_media|field_value }}</div>
       {% if not is_empty(content.field_slide_text|field_value) %}
-      <div class="slide__text">
-        {% if slide_link %}
-          <div class="slide__text__sub"{{ content.field_slide_text|quickedit_attr }}>{{ content.field_slide_text|field_value|render|striptags }}</div>
-        {% else %}
-          <div class="slide__text__sub"{{ content.field_slide_text|quickedit_attr }}>{{ content.field_slide_text|field_value }}</div>
-        {% endif %}
-      </div>
+        <article class="slide__text">
+          {% if slide_link %}
+            {% autoescape false %}
+              <div class="slide__text__sub"{{ content.field_slide_text|quickedit_attr }}>{{ content.field_slide_text|field_value|render|striptags('<em><strong><cite><blockquote><code><ul><ol><li><dl><dt><dd><h1><h2><h3><h4><h5><h6><p>') }}</div>
+            {% endautoescape %}
+          {% else %}
+            <div class="slide__text__sub"{{ content.field_slide_text|quickedit_attr }}>{{ content.field_slide_text|field_value }}</div>
+          {% endif %}
+        </article>
       {% endif %}
+
     {% if slide_link %}</a>{% endif %}
 </div>
