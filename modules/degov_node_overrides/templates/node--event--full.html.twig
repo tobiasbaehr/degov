@@ -111,7 +111,7 @@
             {% if "now"|date('U') >= start_date_timestamp and "now"|date('U') <= end_date_timestamp %}{{ 'Today'|trans }}, {% endif %}
             {{ start_date_timestamp|format_date('custom', 'j. F Y') }}
             {# If event is more than 24 hours display bis date #}
-            {% if end_date_timestamp and end_date_timestamp - start_date_timestamp > 86400 %} bis {{ end_date_timestamp|format_date('custom', 'j. F Y')  }} {% endif %}
+            {% if end_date_timestamp and end_date_timestamp - start_date_timestamp > 86400 %} {{ 'to'|trans }} {{ end_date_timestamp|format_date('custom', 'j. F Y')  }} {% endif %}
           </span>
         </div>
       {% endif %}
@@ -140,7 +140,7 @@
       {% if start_date_timestamp and end_date_timestamp and node.field_event_display_time.value == true %}
         <div class="event__address__time row skin--background-primary skin--font-header">
           <span class="field-label col-xs-4 col-sm-2">{{ 'Time'|trans }}:</span>
-          <span class="content col-xs-8 col-sm-10">{{ start_date_timestamp|format_date('custom', 'H:i') }}  bis {{ end_date_timestamp|format_date('custom', 'H:i') }} </span>
+          <span class="content col-xs-8 col-sm-10">{{ start_date_timestamp|format_date('custom', 'H:i') }}  {{ 'to'|trans }} {{ end_date_timestamp|format_date('custom', 'H:i') }} </span>
         </div>
       {% endif %}
     </div>
