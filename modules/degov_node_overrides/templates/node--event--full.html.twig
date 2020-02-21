@@ -106,9 +106,9 @@
     <div class="event__address">
       {% if start_date_timestamp %}
         <div class="event__address skin--background-primary row skin--font-header">
-          <span class="field-label col-xs-4 col-sm-2">{{ 'Wann'|trans }}:</span>
+          <span class="field-label col-xs-4 col-sm-2">{{ 'When'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">
-            {% if "now"|date('U') >= start_date_timestamp and "now"|date('U') <= end_date_timestamp %}{{ 'Heute'|trans }}, {% endif %}
+            {% if "now"|date('U') >= start_date_timestamp and "now"|date('U') <= end_date_timestamp %}{{ 'Today'|trans }}, {% endif %}
             {{ start_date_timestamp|format_date('custom', 'j. F Y') }}
             {# If event is more than 24 hours display bis date #}
             {% if end_date_timestamp and end_date_timestamp - start_date_timestamp > 86400 %} bis {{ end_date_timestamp|format_date('custom', 'j. F Y')  }} {% endif %}
@@ -117,7 +117,7 @@
       {% endif %}
       {% if node.field_event_location.value %}
         <div class="event__address__location row skin--background-primary skin--font-header">
-          <span class="field-label col-xs-4 col-sm-2">{{ 'Wo'|trans }}:</span>
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Where'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">
           {% if content.field_event_location.0.organization|render|striptags|trim is not empty %}
             {% set  comma = "class=comma"  %}
@@ -139,7 +139,7 @@
       {% endif %}
       {% if start_date_timestamp and end_date_timestamp and node.field_event_display_time.value == true %}
         <div class="event__address__time row skin--background-primary skin--font-header">
-          <span class="field-label col-xs-4 col-sm-2">{{ 'Uhr'|trans }}:</span>
+          <span class="field-label col-xs-4 col-sm-2">{{ 'Time'|trans }}:</span>
           <span class="content col-xs-8 col-sm-10">{{ start_date_timestamp|format_date('custom', 'H:i') }}  bis {{ end_date_timestamp|format_date('custom', 'H:i') }} </span>
         </div>
       {% endif %}
