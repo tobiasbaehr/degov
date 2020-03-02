@@ -37,6 +37,8 @@ _info "### Setup database by new installation or database dump"
 if [[ "$2" == "install" ]]; then
     _info "### Installing a new"
     _behat -c behat-no-drupal.dist.yml
+    _info "### Install the degov_demo_content"
+    _drush en degov_demo_content
     _update_translations
     _drush_watchdog
 elif [[ "$2" == "db_dump" ]]; then
@@ -44,9 +46,17 @@ elif [[ "$2" == "db_dump" ]]; then
     _info "### Drop any existing db"
     _drush sql:drop
     _info "### Importing db dump"
-    zcat $TEST_DIR/lfs_data/degov-7.x-dev.sql.gz | docker exec -i mysql-$1 mysql -utesting -ptesting testing
+    # Pipeline creates from every artifacts a tar archive. The dump was also gzipped.
+    (cd $TEST_DIR/lfs_data/ && tar -xzf "$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.tar.gz")
+    _drush sql-query --file="$TEST_DIR/lfs_data/$CONTRIBNAME-stable.sql.gz"
     _info "### Clear cache"
     _drush cr
+    _info "### Checking if the degov_demo_content module is not installed."
+    DRUSH_INSTALLED_DEGOV_DEMO_CONTENT="$(drush pm:list | grep degov_demo_content)"
+    if [[ $DRUSH_INSTALLED_DEGOV_DEMO_CONTENT == *"Enabled"* ]]; then
+      echo "### The degov_demo_content module is installed inside the database dump, but it should not."
+      exit 1
+    fi
     _info "### Delete old watchdog entries from db dump"
     _drush watchdog:delete all
     _info "### Run database updates"
@@ -58,6 +68,8 @@ elif [[ "$2" == "db_dump" ]]; then
     _drush en degov_demo_content
     _update_translations
     _drush_watchdog
+    # For debugging via db dump
+    _drush sql:dump --gzip > "$BITBUCKET_CLONE_DIR/$CONTRIBNAME.sql.gz"
 fi
 
 if [[ "$1" == "smoke_tests" ]]; then

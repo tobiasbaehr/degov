@@ -10,7 +10,7 @@ default:
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
   extensions:
-    Drupal\MinkExtension:
+    Behat\MinkExtension:
       base_url: http://host.docker.internal
       default_session: selenium_chrome
       sessions:

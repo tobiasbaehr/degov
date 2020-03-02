@@ -4,6 +4,16 @@ options:
   size: 2x
 
 pipelines:
+  custom:
+    create-stable-db-dump:
+      - step:
+          name: Create stable db dump
+          caches:
+            - composer
+          script:
+            - bash ./scripts/pipeline/shared_scripts/create-stable-db-dump.sh
+          artifacts:
+            - "*.sql.gz"
   default:
     - step:
         name: Composer Install
