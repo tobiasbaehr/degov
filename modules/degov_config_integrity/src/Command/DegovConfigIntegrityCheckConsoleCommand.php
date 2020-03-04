@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_config_integrity\Command;
 
+use Drupal\Console\Annotations\DrupalCommand;
 use Drupal\Console\Core\Command\ContainerAwareCommand;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\degov_config_integrity\DegovModuleIntegrityChecker;
