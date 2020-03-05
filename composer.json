@@ -132,6 +132,9 @@
             },
             "drupal/search_api": {
                 "2931562 - Notice: Undefined index: total When we enable the module in the installation step": "https://www.drupal.org/files/issues/2019-09-25/2931562-results-php-notice.patch"
+            },
+            "drupal/simple_sitemap": {
+                "3070132 - Undefined index: changefreq Notice message": "https://www.drupal.org/files/issues/2020-03-04/3070132-changefreq-notice-message.patch"
             }
         }
     },
