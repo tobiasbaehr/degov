@@ -344,7 +344,7 @@ Feature: deGov - Media creation
 #    Given I am installing the "degov_demo_content" module
 #    Given I have dismissed the cookie banner if necessary
 #    And I am logged in as a user with the "administrator" role
-#    And I open media edit form by media name "demo image with a fixed title"
+#    And I open media edit form by media name "Demo image with a fixed title"
 #    And I choose "Allgemein" from tab menu
 #    And I uncheck the box "edit-field-include-search-value"
 #    And I scroll to element with id "edit-submit"

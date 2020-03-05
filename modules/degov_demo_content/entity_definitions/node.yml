@@ -7,9 +7,9 @@ teaser_page:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: '{{SUBTITLE}}'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_title: 'Nullam id dolor id nibh ultricies'
+  field_teaser_sub_title: 'Inceptos Risus Elit'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   moderation_state: 'published'
 page_with_text_paragraph:
   type: 'normal_page'
@@ -19,8 +19,8 @@ page_with_text_paragraph:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with text paragraph'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Egestas Risus Bibendum Parturient'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
     - text_1
     - text_2
@@ -34,12 +34,12 @@ page_with_text_sidebar:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with text paragraph in sidebar'
-  field_teaser_sub_title: '{{SUBTITLE}}'
+  field_teaser_sub_title: 'Consectetur Nibh Venenatis'
   field_teaser_image: ''
   field_content_paragraphs:
-    - text_1
+    - text_2
   field_sidebar_right_paragraphs:
-    - text_1
+    - text_3
   status: 1
   moderation_state: 'published'
 page_with_download_paragraph:
@@ -50,8 +50,8 @@ page_with_download_paragraph:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with download paragraph'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Tortor Aenean Dapibus Adipiscing'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   field_content_paragraphs:
   - download_1
   status: 1
@@ -64,8 +64,8 @@ page_with_iframe_paragraph:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with iframe paragraph'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Egestas Vulputate'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - iframe_1
   status: 1
@@ -78,8 +78,8 @@ page_with_map_paragraph:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with map paragraph'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Ultricies Tellus Bibendum Pellentesque Purus'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_5}}'
   field_content_paragraphs:
   - map_1
   status: 1
@@ -92,8 +92,8 @@ page_with_faq_list_paragraph:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with FAQ-List paragraph'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Egestas Sit'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
     - faq_list_1
   status: 1
@@ -106,8 +106,8 @@ page_with_all_media:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with references to all media'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Condimentum Tristique Mattis Elit'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   field_content_paragraphs:
     - views_reference_latest_media
     - media_reference_image
@@ -135,8 +135,8 @@ page_with_all_views_references:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with views references'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Magna Malesuada'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - views_reference_latest_content
   - views_reference_latest_press
@@ -151,8 +151,8 @@ page_with_events_views_reference:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with events views reference'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Bibendum Vulputate Ligula'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
   field_content_paragraphs:
   - views_reference_latest_events
   status: 1
@@ -164,9 +164,10 @@ press_release:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-02-01'
   field_teaser_title: 'A press release'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
   - text_1
   - text_2
@@ -181,8 +182,8 @@ blog_post:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'A blog post'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Risus Quam Condimentum Lorem Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - text_1
   - text_2
@@ -198,8 +199,8 @@ event_1:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'An event in the past'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Sollicitudin Venenatis Mattis Pharetra'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
   - text_1
   - text_2
@@ -222,8 +223,8 @@ event_2:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'An event in the future'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Vestibulum Vehicula Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - text_1
   - text_2
@@ -247,8 +248,8 @@ node_with_video_header:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with video header'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Porta Tristique Sit'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   field_header_paragraphs:
     - header_video
   status: 1
@@ -262,7 +263,7 @@ node_with_slideshow:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with slideshow'
   field_teaser_sub_title: 'A page with an slideshow'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
   status: 1
   field_header_paragraphs:
     - header_slideshow
@@ -276,7 +277,7 @@ node_with_type1_video_slideshow:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with type 1 video slideshow'
   field_teaser_sub_title: 'A page with a type 1 video slideshow'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   status: 1
   field_header_paragraphs:
     - header_type1_video_slideshow
@@ -290,7 +291,7 @@ node_with_type2_video_slideshow:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with type 2 video slideshow'
   field_teaser_sub_title: 'A page with a type 2 video slideshow'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   status: 1
   field_header_paragraphs:
     - header_type2_video_slideshow
@@ -304,7 +305,7 @@ node_with_banner:
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with banner'
   field_teaser_sub_title: 'A page with an image header'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   status: 1
   field_header_paragraphs:
     - header_banner
@@ -317,8 +318,8 @@ node_with_video_mobile:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_teaser_title: 'Page with responsive video'
-  field_teaser_sub_title: '{{SUBTITLE}}'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_sub_title: 'Nibh Ullamcorper'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   field_content_paragraphs:
     - media_reference_responsive_video
   status: 1
@@ -331,12 +332,13 @@ node_external_teaser:
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'
-  field_teaser_image: '{{MEDIA_ID_IMAGE}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
 node_faq_1:
   type: 'faq'
   title: 'FAQ demo'
   field_internal_title: 'FAQ demo'
   moderation_state: 'published'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_faq_description:
     value: '{{TEXT}}'
     format: 'rich_html'

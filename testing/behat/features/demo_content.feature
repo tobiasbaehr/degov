@@ -41,7 +41,7 @@ Feature: deGov - Demo Content
     And I should see text matching "Download" via translated text
 
   Scenario: Check that the transcription toggle is working correctly.
-    Given I am on "/video-upload/video-upload"
+    Given I am on "/video-upload/video-upload-sound"
     Then I should see HTML content matching "fa-caret-right"
     And I should not see the element with css selector ".video-upload__transcription__body"
     When I click by selector ".video-upload__transcription__header" via JavaScript

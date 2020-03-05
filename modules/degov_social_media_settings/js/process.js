@@ -167,7 +167,13 @@
     }
 
     if (typeof twttr === 'undefined') {
-      $.getScript('//platform.twitter.com/widgets.js', _initTwitter);
+      $.ajax({
+        url: '//platform.twitter.com/widgets.js',
+        type: "GET",
+        success: _initTwitter,
+        dataType: "script",
+        cache: true
+      });
     }
     else {
       _initTwitter();
@@ -181,7 +187,13 @@
     }
 
     if (typeof instgrm === 'undefined') {
-      $.getScript('//platform.instagram.com/en_US/embeds.js', _initInstagram);
+      $.ajax({
+        url: '//platform.instagram.com/en_US/embeds.js',
+        type: "GET",
+        success: _initInstagram,
+        dataType: "script",
+        cache: true
+      });
     }
     else {
       _initInstagram();
