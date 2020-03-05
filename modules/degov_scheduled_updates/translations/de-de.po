@@ -364,15 +364,5 @@ msgid "Operations"
 msgstr "Aktionen"
 
 #: config/optional/views.view.scheduled_publish.yml:0
-msgid ""
-"<div class=\"action-links\">\r\n"
-"  <a href=\"[site:url]/admin/content/scheduled-publish/add\" class=\"button button-action button--primary button--small\">Add bulk scheduled publishing entries</a>\r\n"
-"</div>"
-msgstr ""
-"<div class=\"action-links\">\r\n"
-"  <a href=\"[site:url]/admin/content/scheduled-publish/add\" class=\"button button-action button--primary button--small\">Mehrere zeitgesteuerte Veröffentlichungen hinzufügen</a>\r\n"
-"</div>"
-
-#: config/optional/views.view.scheduled_publish.yml:0
 msgid "Block"
 msgstr "Block"
