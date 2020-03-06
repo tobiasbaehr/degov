@@ -24,8 +24,7 @@ Feature: deGov - Display address in map popups
     And I press "Speichern"
     And I am on "/degov-demo-content/page-map-paragraph"
     And I click by selector ".dismissButton" via JavaScript
-    And I click by selector ".styled_map > div > div > div:nth-child(1) > div:nth-child(3) > div > div:nth-child(3) > div > img" via JavaScript
-    And I should see HTML content matching "Publicplan Address<br>publicplan<br>Kennedydamm 24<br>Test second address line<br>40476 Düsseldorf<br>Telefon: 0123456789<br>Fax: 0123456789<br>E-Mail: admin@example.com<br>" after a while
+    And I should see HTML content matching 'Publicplan Address<br>publicplan GmbH<br>Kennedydamm 24<br>Test second address line<br>40476 Düsseldorf<br>Telefon: 0123456789<br>Fax: 0123456789<br>E-Mail: <a href="mailto:admin@example.com">admin@example.com</a><br>Link: <a href="https://example.com" title="Example.com" target="_blank">Example.com</a>' after a while
 
   Scenario: Open Street Maps contains the expected fields in the address popup
     Given I have dismissed the cookie banner if necessary
@@ -37,5 +36,4 @@ Feature: deGov - Display address in map popups
     Then I select "OSM Map" by name "field_content_paragraphs[0][subform][field_map_address_view_mode]"
     And I press "Speichern"
     And I am on "/degov-demo-content/page-map-paragraph"
-    And I click by selector ".leaflet-marker-icon" via JavaScript
-    And I should see HTML content matching 'Publicplan Address<br>publicplan<br>Kennedydamm 24<br>Test second address line<br>40476 Düsseldorf<br>Telefon: 0123456789<br>Fax: 0123456789<br>E-Mail: <a href="mailto:admin@example.com">admin@example.com</a><br>Link: <a href="https://example.com" title="Example.com" target="_blank">Example.com</a>' after a while
+    And I should see HTML content matching 'Publicplan Address<br>publicplan GmbH<br>Kennedydamm 24<br>Test second address line<br>40476 Düsseldorf<br>Telefon: 0123456789<br>Fax: 0123456789<br>E-Mail: <a href="mailto:admin@example.com">admin@example.com</a><br>Link: <a href="https://example.com" title="Example.com" target="_blank">Example.com</a>' after a while

@@ -82,8 +82,11 @@ function styled_google_map_theme() {
  */
 function theme_styled_google_map(array $variables) {
   $language = Drupal::languageManager()->getCurrentLanguage();
+  /* @var $location \Drupal\geofield\Plugin\Field\FieldType\GeofieldItem */
   $location = $variables['location']->getValue();
+  /* @var $field_list \Drupal\Core\Field\FieldItemList */
   $field_list = $variables['location']->getParent();
+  /* @var $entity \Drupal\media\Entity\Media */
   $entity = $field_list->getEntity();
   $settings = $variables['settings'];
 
@@ -134,45 +137,21 @@ function theme_styled_google_map(array $variables) {
         $settings['map_center']['center_coordinates'] = FALSE;
       }
     }
-    $gid = uniqid();
+
+    $map_id = 'styled-google-map-' . md5(uniqid('', true));
     // Include the Google Maps API.
     // Include the map location settings.
-
-    $map_settings['locations'] = array($location);
-    // Include the custom map settings.
-    $map_settings['settings'] = $settings;
-    // Include the unique div id.
-    $map_settings['id'] = 'styled-google-map-' . $gid;
-    $output['#attached']['drupalSettings']['styled_google_map'] = array($gid => $gid);
-
-    $addressEntity = $entity->get("field_address_address")->getEntity()->toArray();
-    $output['#attached']['drupalSettings']['maps'] = [
-      'id' . $gid     => $map_settings,
-      'title'         => !empty($entity->get('field_title')->getString()) ? $entity->get('field_title')->getString() : NULL,
-      'address_line1' => !empty($addressEntity['field_address_address']['0']['address_line1']) ? $addressEntity['field_address_address']['0']['address_line1'] : NULL,
-      'address_line2' => !empty($addressEntity['field_address_address']['0']['address_line2']) ? $addressEntity['field_address_address']['0']['address_line2'] : NULL,
-      'postal_code'   => !empty($addressEntity['field_address_address']['0']['postal_code']) ? $addressEntity['field_address_address']['0']['postal_code'] : NULL,
-      'locality'      => !empty($addressEntity['field_address_address']['0']['locality']) ? $addressEntity['field_address_address']['0']['locality'] : NULL,
-      'phone_number'  => !empty($addressEntity['field_address_phone']['0']['value']) ? $addressEntity['field_address_phone']['0']['value'] : NULL,
-      'fax_number'    => !empty($addressEntity['field_address_fax']['0']['value']) ? $addressEntity['field_address_fax']['0']['value'] : NULL,
-      'email'         => !empty($addressEntity['field_address_email']['0']['value']) ? $addressEntity['field_address_email']['0']['value'] : NULL,
+    $map_settings = [
+      'id' => $map_id,
+      'locations' => array($location),
+      'settings' => $settings,
+      'address' => degov_media_address_get_js_fields($entity->get("field_address_address")->getEntity()),
     ];
-
-    if (!empty($addressEntity['field_address_address']['0']['organization'])) {
-      $output['#attached']['drupalSettings']['maps']['organization'] = $addressEntity['field_address_address']['0']['organization'];
-    }
-
-    if (!empty($addressEntity['field_address_address']['0']['address_line1'])) {
-      $output['#attached']['drupalSettings']['maps']['address_line1'] = $addressEntity['field_address_address']['0']['address_line1'];
-    }
-
-    if (!empty($addressEntity['field_address_address']['0']['address_line2'])) {
-      $variables['#attached']['drupalSettings']['maps']['address_line2'] = $addressEntity['field_address_address']['0']['address_line2'];
-    }
+    $output['#attached']['drupalSettings']['styled_google_map'][$map_id] = $map_settings;
 
 
     // Output a div placeholder for the Styled Google Map.
-    $output['styled_google_map']['#markup'] = '<div class="styled_map" id="styled-google-map-' . $gid . '"></div>';
+    $output['styled_google_map']['#markup'] = '<div class="styled-google-map" id="' . $map_id . '"></div>';
     // Attach the Styled Google Map javascript file.
     $output['#attached']['library'][] = 'styled_google_map/styled-google-map';
   }
@@ -206,14 +185,14 @@ function styled_google_map_build_api_url() {
   $query = array('v' => '3');
   switch ($config->get('styled_google_map_google_auth_method')) {
     case STYLED_GOOGLE_MAP_GOOGLE_AUTH_KEY:
-      $key = $config->get('styled_google_map_google_apikey', FALSE);
+      $key = $config->get('styled_google_map_google_apikey');
       if ($key) {
         $query['key'] = $key;
       }
       break;
 
     case STYLED_GOOGLE_MAP_GOOGLE_AUTH_WORK:
-      $client_id = $config->get('styled_google_map_google_client_id', FALSE);
+      $client_id = $config->get('styled_google_map_google_client_id');
       if ($client_id) {
         $query['client'] = $client_id;
       }

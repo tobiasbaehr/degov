@@ -235,6 +235,9 @@ class ContentGenerator {
           }
           $value = $this->getImageMedia($mediaProperties['sourceId'])->id();
         }
+        elseif ($bundleId === 'address' && !empty($mediaProperties['sourceId'])) {
+          $value = $this->getMediaBySourceId($mediaProperties['sourceId'])->id();
+        }
         else {
           $value = $this->getMedia($bundleId)->id();
         }
@@ -276,6 +279,36 @@ class ContentGenerator {
     }
 
     $rawElement[$index] = $value;
+  }
+
+  /**
+   * Get media-entity by sourceId.
+   *
+   * @param string $sourceId
+   *   Key from yml definition (media.yml). Example: document_2
+   *
+   * @throws \Exception
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Media id of this entity.
+   */
+  private function getMediaBySourceId(string $sourceId) {
+    $def = $this->loadDefinitions('media.yml');
+    $bundle = $def[$sourceId]['bundle'];
+    $name = $def[$sourceId]['name'];
+    $mid = \Drupal::service('entity.query')
+      ->get('media')
+      ->condition('bundle', $bundle)
+      ->condition('name', $name)
+      ->execute();
+
+    if (count($mid) > 1) {
+      throw new \Exception('Media entity names for demo content must be unique. This name is not unique: ' . $name);
+    }
+    if (count($mid) < 1) {
+      throw new \Exception('Could not get media by name: ' . $name);
+    }
+    return Media::load(array_pop($mid));
   }
 
   /**

@@ -199,10 +199,28 @@ iframe_1:
   field_iframe_height: 400
 map_1:
   type: 'map'
-  field_map_address_reference: '{{MEDIA_ID_ADDRESS}}'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_1}}'
   field_map_address_view_mode: 'osm_map'
-  field_title: 'Ultricies Tortor Ornare'
-  field_sub_title: 'Ornare Amet'
+  field_title: 'Open Street map publicplan'
+  field_sub_title: '{{SUBTITLE}}'
+map_2:
+  type: 'map'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_1}}'
+  field_map_address_view_mode: 'default_map'
+  field_title: 'Google map publicplan'
+  field_sub_title: '{{SUBTITLE}}'
+map_3:
+  type: 'map'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_2}}'
+  field_map_address_view_mode: 'osm_map'
+  field_title: 'Open Street map GzevD'
+  field_sub_title: '{{SUBTITLE}}'
+map_4:
+  type: 'map'
+  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_2}}'
+  field_map_address_view_mode: 'default_map'
+  field_title: 'Google map GzevD'
+  field_sub_title: '{{SUBTITLE}}'
 ## View references
 views_reference_latest_media:
   type: 'view_reference'
@@ -266,7 +284,7 @@ media_reference_address:
   field_title: 'Vorschau eines Adresse-Mediums'
   field_sub_title: 'Vestibulum Dapibus Fusce'
   field_media_reference_view_mode: 'preview'
-  field_media_reference_media: '{{MEDIA_ID_ADDRESS}}'
+  field_media_reference_media: '{{MEDIA_ID_ADDRESS-address_1}}'
 media_reference_citation:
   type: 'media_reference'
   field_title: 'Vorschau eines Zitat-Mediums'

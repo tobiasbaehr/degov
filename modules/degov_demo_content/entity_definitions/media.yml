@@ -86,7 +86,7 @@ address_1:
   name: 'Publicplan Address'
   field_address_address:
     country_code: 'DE'
-    organization: 'publicplan'
+    organization: 'publicplan GmbH'
     address_line1: 'Kennedydamm 24'
     address_line2: 'Test second address line'
     postal_code: 40476
@@ -103,6 +103,26 @@ address_1:
   field_address_link:
     uri: https://example.com
     title: Example.com
+address_2:
+  bundle: 'address'
+  name: 'GzevD Address'
+  field_address_address:
+    country_code: 'DE'
+    organization: 'GZEVD'
+    address_line1: 'Osloer Str. 16/17'
+    address_line2: ''
+    postal_code: 13359
+    locality: 'Berlin'
+  field_address_location:
+    lon: '13.384099'
+    lat: '52.5561982'
+  field_address_title: 'Vivamus sagittis dolor auctor.'
+  field_address_phone: '0123456789'
+  status: 1
+  field_include_search: 1
+  field_address_link:
+    uri: https://www.gesellschaft-zur-entwicklung-von-dingen.de
+    title: gzevd.de
 citation_1:
   bundle: 'citation'
   name: 'Morbi leo risus'

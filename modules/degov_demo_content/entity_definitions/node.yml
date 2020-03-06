@@ -82,6 +82,9 @@ page_with_map_paragraph:
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_5}}'
   field_content_paragraphs:
   - map_1
+  - map_2
+  - map_3
+  - map_4
   status: 1
   moderation_state: 'published'
 page_with_faq_list_paragraph:

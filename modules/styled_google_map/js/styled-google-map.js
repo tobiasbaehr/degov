@@ -11,203 +11,144 @@
   Drupal.behaviors.styled_google_maps = {
     attach: function (context) {
 
-      var maps = drupalSettings.styled_google_map;
-      var markers = [];
+      $('.styled-google-map', context).each(function (i, mapElement) {
+        const conf = drupalSettings.styled_google_map[mapElement.id];
+        if (conf) {
+          const elm = $(mapElement);
+          const markers = [];
+          const bounds = new google.maps.LatLngBounds();
+          let map_center;
 
-      function getPopupContent() {
-        map_locations[j].popup = '';
+          elm.css({
+            width: conf.settings.width,
+            height: conf.settings.height
+          });
 
-        if (typeof drupalSettings.maps.title !== "undefined" && !isEmpty(drupalSettings.maps.title)) {
-          map_locations[j].popup += drupalSettings.maps.title + '<br />';
-        }
+          const map = new google.maps.Map(mapElement, {
+            gestureHandling: conf.settings.gestureHandling,
+            zoom: parseInt(conf.settings.zoom.default),
+            mapTypeId: google.maps.MapTypeId[conf.settings.style.maptype],
+            disableDefaultUI: !conf.settings.ui,
+            maxZoom: parseInt(conf.settings.zoom.max),
+            minZoom: parseInt(conf.settings.zoom.min),
+            styles: conf.settings.style.style.length ? JSON.parse(conf.settings.style.style) : [],
+            mapTypeControl: conf.settings.maptypecontrol,
+            scaleControl: conf.settings.scalecontrol,
+            rotateControl: conf.settings.rotatecontrol,
+            streetViewControl: conf.settings.streetviewcontrol,
+            zoomControl: conf.settings.zoomcontrol,
+            draggable: $(window).width() > 480 ? conf.settings.draggable : conf.settings.mobile_draggable
+          });
 
-        if (typeof drupalSettings.maps.organization !== "undefined" && !isEmpty(drupalSettings.maps.organization)) {
-          map_locations[j].popup += drupalSettings.maps.organization + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.address_line1 !== "undefined" && !isEmpty(drupalSettings.maps.address_line1)) {
-          map_locations[j].popup += drupalSettings.maps.address_line1 + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.address_line2 !== "undefined" && !isEmpty(drupalSettings.maps.address_line2)) {
-          map_locations[j].popup += drupalSettings.maps.address_line2 + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.postal_code !== "undefined" && !isEmpty(drupalSettings.maps.postal_code)) {
-          map_locations[j].popup += drupalSettings.maps.postal_code + ' ';
-        }
-
-        if (typeof drupalSettings.maps.locality !== "undefined" && !isEmpty(drupalSettings.maps.locality)) {
-          map_locations[j].popup += drupalSettings.maps.locality + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.phone_number !== "undefined" && !isEmpty(drupalSettings.maps.phone_number)) {
-          map_locations[j].popup += Drupal.t('Telephone') + ': ' + drupalSettings.maps.phone_number + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.fax_number !== "undefined" && !isEmpty(drupalSettings.maps.fax_number)) {
-          map_locations[j].popup += Drupal.t('Fax') + ': ' + drupalSettings.maps.fax_number + '<br />';
-        }
-
-        if (typeof drupalSettings.maps.email !== "undefined" && !isEmpty(drupalSettings.maps.email)) {
-          map_locations[j].popup += Drupal.t('Email') + ': ' + drupalSettings.maps.email + '<br />';
-        }
-      }
-
-      function isEmpty(str) {
-        return (!str || 0 === str.length);
-      }
-
-      for (i in maps) {
-        var current_map = drupalSettings.maps['id' + maps[i]];
-        var map_id = current_map.id;
-        if ($('#' + map_id).length) {
-          var map_locations = current_map.locations;
-          var map_settings = current_map.settings;
-          var bounds = new google.maps.LatLngBounds();
-          var map_types = {
-            'ROADMAP': google.maps.MapTypeId.ROADMAP,
-            'SATELLITE': google.maps.MapTypeId.SATELLITE,
-            'HYBRID': google.maps.MapTypeId.HYBRID,
-            'TERRAIN': google.maps.MapTypeId.TERRAIN
-          }
-          $('#' + map_id).css({'width':current_map.settings.width, 'height' : current_map.settings.height});
-          var map_style = (map_settings.style.style != '' ? map_settings.style.style : '[]');
-
-          map_settings.draggable = $(window).width() > 480 ? map_settings.draggable : map_settings.mobile_draggable;
-
-          var init_map = {
-            gestureHandling: map_settings.gestureHandling,
-            zoom: parseInt(map_settings.zoom.default),
-            mapTypeId: map_types[map_settings.style.maptype],
-            disableDefaultUI: !map_settings.ui,
-            maxZoom: parseInt(map_settings.zoom.max),
-            minZoom: parseInt(map_settings.zoom.min),
-            styles: JSON.parse(map_style),
-            mapTypeControl: map_settings.maptypecontrol,
-            scaleControl: map_settings.scalecontrol,
-            rotateControl: map_settings.rotatecontrol,
-            streetViewControl: map_settings.streetviewcontrol,
-            zoomControl: map_settings.zoomcontrol,
-            draggable: map_settings.draggable
-          };
-          var map = new google.maps.Map(document.getElementById(map_id), init_map);
-          var infoBubble = new InfoBubble({
-            shadowStyle: parseInt(map_settings.popup.shadow_style),
-            padding: parseInt(map_settings.popup.padding),
-            borderRadius: parseInt(map_settings.popup.border_radius),
-            borderWidth: parseInt(map_settings.popup.border_width),
-            borderColor: map_settings.popup.border_color,
-            backgroundColor: map_settings.popup.background_color,
-            minWidth: map_settings.popup.min_width,
-            maxWidth: map_settings.popup.max_width,
-            maxHeight: map_settings.popup.min_height,
-            minHeight: map_settings.popup.max_height,
-            arrowStyle: parseInt(map_settings.popup.arrow_style),
-            arrowSize: parseInt(map_settings.popup.arrow_size),
-            arrowPosition: parseInt(map_settings.popup.arrow_position),
-            disableAutoPan: parseInt(map_settings.popup.disable_auto_pan),
-            disableAnimation: parseInt(map_settings.popup.disable_animation),
-            hideCloseButton: parseInt(map_settings.popup.hide_close_button),
-            backgroundClassName: map_settings.popup.classes.background,
+          const infoBubble = new InfoBubble({
+            shadowStyle: parseInt(conf.settings.popup.shadow_style),
+            padding: parseInt(conf.settings.popup.padding),
+            borderRadius: parseInt(conf.settings.popup.border_radius),
+            borderWidth: parseInt(conf.settings.popup.border_width),
+            borderColor: conf.settings.popup.border_color,
+            backgroundColor: conf.settings.popup.background_color,
+            minWidth: conf.settings.popup.min_width,
+            maxWidth: conf.settings.popup.max_width,
+            maxHeight: conf.settings.popup.min_height,
+            minHeight: conf.settings.popup.max_height,
+            arrowStyle: parseInt(conf.settings.popup.arrow_style),
+            arrowSize: parseInt(conf.settings.popup.arrow_size),
+            arrowPosition: parseInt(conf.settings.popup.arrow_position),
+            disableAutoPan: parseInt(conf.settings.popup.disable_auto_pan),
+            disableAnimation: parseInt(conf.settings.popup.disable_animation),
+            hideCloseButton: parseInt(conf.settings.popup.hide_close_button),
+            backgroundClassName: conf.settings.popup.classes.background,
           });
           // Set extra custom classes for easy styling.
           infoBubble.bubble_.className = 'sgmpopup sgmpopup-' + this.category;
-          // infoBubble.close_.src = map_settings.style.active_pin;.
-          infoBubble.contentContainer_.className = map_settings.popup.classes.container;
-          infoBubble.arrow_.className = map_settings.popup.classes.arrow;
-          infoBubble.arrowOuter_.className = map_settings.popup.classes.arrow_outer;
-          infoBubble.arrowInner_.className = map_settings.popup.classes.arrow_inner;
-          if (map_settings.style.cluster_pin) {
-            var clusterStyles = [
-              {
-                textColor: 'white',
-                url: map_settings.style.cluster_pin,
-                height: 73,
-                width: 73,
-                textSize: 17
-              },
-              {
-                textColor: 'white',
-                url: map_settings.style.cluster_pin,
-                height: 73,
-                width: 73,
-                textSize: 17
-              },
-              {
-                textColor: 'white',
-                url: map_settings.style.cluster_pin,
-                height: 73,
-                width: 73,
-                textSize: 17
-              }
-            ];
-            var mcOptions = {
-              gridSize: 60,
-              styles: clusterStyles,
-              minimumClusterSize: 2,
-            };
-          }
-          for (j in map_locations) {
-            getPopupContent();
+          // infoBubble.close_.src = conf.settings.style.active_pin;.
+          infoBubble.contentContainer_.className = conf.settings.popup.classes.container;
+          infoBubble.arrow_.className = conf.settings.popup.classes.arrow;
+          infoBubble.arrowOuter_.className = conf.settings.popup.classes.arrow_outer;
+          infoBubble.arrowInner_.className = conf.settings.popup.classes.arrow_inner;
 
-            var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(map_locations[j].lat , map_locations[j].lon),
+          conf.locations.forEach(function (loc) {
+            // Currently there is only one marker/address per map possible
+            // therefore all markers have same content.
+            const popupHtml = Drupal.theme('degovMediaAddressPopup', conf.address);
+            const marker = new google.maps.Marker({
+              position: new google.maps.LatLng(loc.lat , loc.lon),
               map: map,
-              html: map_locations[j].popup,
-              icon: map_locations[j].pin,
-              original_icon: map_locations[j].pin,
-              active_icon: map_locations[j].pin,
-              category: map_locations[j].category
+              html: popupHtml,
+              icon: loc.pin,
+              original_icon: loc.pin,
+              active_icon: loc.pin,
+              category: loc.category
             });
             markers.push(marker);
 
-            if (map_locations[j].popup) {
+            if (popupHtml) {
+              infoBubble.setContent(popupHtml);
               google.maps.event.addListener(marker, 'click', (function (map) {
-                  return function () {
-                      infoBubble.setContent(this.html);
-                      for (var i = 0; i < markers.length; i++) {
-                         markers[i].setIcon(markers[i].original_icon);
-                      }
-                      this.setIcon(this.active_icon);
-                      infoBubble.open(map, this);
-                  };
+                return function () {
+                  markers.forEach(function (m) {
+                    m.setIcon(m.original_icon);
+                  });
+                  this.setIcon(this.active_icon);
+                  infoBubble.open(map, this);
+                };
               }(map)));
+              // Initially open bubble.
+              infoBubble.open(map, marker);
             }
             bounds.extend(marker.getPosition());
+          });
+
+          // Currently there is only one marker/address per map possible
+          // therefore all markers have same content -> no clustering.
+          /**
+          if (conf.settings.style.cluster_pin) {
+            var mcOptions = {
+              gridSize: 60,
+              styles: [
+                {
+                  textColor: 'white',
+                  url: conf.settings.style.cluster_pin,
+                  height: 73,
+                  width: 73,
+                  textSize: 17
+                }
+              ],
+              minimumClusterSize: 2,
+            };
+            const markerCluster = new MarkerClusterer(map, markers, mcOptions);
           }
-          if (map_settings.style.cluster_pin) {
-            var markerCluster = new MarkerClusterer(map, markers, mcOptions);
+          **/
+
+          if (conf.settings.map_center.center_coordinates) {
+            map_center = new google.maps.LatLng(
+              conf.settings.map_center.center_coordinates.lat,
+              conf.settings.map_center.center_coordinates.lon
+            );
+            bounds.extend(map_center);
           }
-        }
-        if (map_settings.map_center && map_settings.map_center.center_coordinates) {
-          var map_center = new google.maps.LatLng(map_settings.map_center.center_coordinates.lat , map_settings.map_center.center_coordinates.lon)
-          bounds.extend(map_center);
+          else {
+            map_center = bounds.getCenter()
+          }
           map.setCenter(map_center);
-        }
-else {
-          map.setCenter(bounds.getCenter());
-        }
-        // This is needed to set the zoom after fitbounds,.
-        google.maps.event.addListener(map, 'zoom_changed', function () {
-          zoomChangeBoundsListener =
-              google.maps.event.addListener(map, 'bounds_changed', function (event) {
-              var current_zoom = this.getZoom();
-              if (current_zoom > parseInt(map_settings.zoom.default) && map.initialZoom == true) {
+
+          // This is needed to set the zoom after fitbounds,.
+          google.maps.event.addListener(map, 'zoom_changed', function () {
+            zoomChangeBoundsListener = google.maps.event.addListener(map, 'bounds_changed', function () {
+              const current_zoom = this.getZoom();
+              if (current_zoom > parseInt(conf.settings.zoom.default) && map.initialZoom) {
                 // Change max/min zoom here.
-                this.setZoom(parseInt(map_settings.zoom.default) - 1);
+                this.setZoom(parseInt(conf.settings.zoom.default) - 1);
                 map.initialZoom = false;
               }
               google.maps.event.removeListener(zoomChangeBoundsListener);
             });
-        });
-        map.initialZoom = true;
-        map.fitBounds(bounds);
-      }
-      // Prevents piling up generated map ids.
-      drupalSettings.styled_google_map = [];
+          });
+          map.initialZoom = true;
+          map.fitBounds(bounds);
+        }
+      });
     }
-
   };
 
 })(jQuery, Drupal);
