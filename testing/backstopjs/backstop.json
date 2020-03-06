@@ -94,7 +94,7 @@
       "skipValidation": true
     },
     {
-      "label": "nrwGOV page-map-paragraph",
+      "label": "deGov page-map-paragraph",
       "_comment": "Google and OSM maps (and dismiss google dev banner 2x)",
       "url": "http://host.docker.internal:80/degov-demo-content/page-map-paragraph",
       "delay": 4000,
