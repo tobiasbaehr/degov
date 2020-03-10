@@ -63,8 +63,7 @@ elif [[ "$2" == "db_dump" ]]; then
     _drush updb
     _info "### Clear cache"
     _drush cr
-    _info "### Re-install the degov_demo_content"
-    _drush pm:uninstall degov_demo_content
+    _info "### Install the degov_demo_content"
     _drush en degov_demo_content
     _update_translations
     _drush_watchdog
