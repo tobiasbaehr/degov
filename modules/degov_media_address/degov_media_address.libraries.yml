@@ -9,3 +9,4 @@ address:
     js/map.js: {}
   dependencies:
     - core/jquery
+    - core/drupal

@@ -2,84 +2,82 @@
  * @file
  * map.js
  *
- * Defines the behavior of the Address paragraph.
+ * Open Street Map for Address paragraph.
  */
 
 (function ($, Drupal, drupalSettings) {
-
   'use strict';
 
   /**
    * Initializes the Map with Leaflet.
    */
   Drupal.behaviors.address = {
-    attach: function (context, settings) {
-      if (typeof settings.maps === "undefined" || settings.maps.length === 0) {
-        return;
-      }
+    attach: function (context, drupalSettings) {
 
-      var maps = [];
+      $('.osm-map', context).each(function (i, mapElement) {
+        const conf = drupalSettings.degov_media_address[mapElement.id];
 
-      function isEmpty(str) {
-        return (!str || 0 === str.length);
-      }
+        if (conf) {
+          const elm = $(mapElement);
+          // Kind of once: leaflet-container is set after init.
+          if (!elm.hasClass('leaflet-container')) {
 
-      // Loop through all available maps.
-      $.each(settings.maps, function (index, value) {
-        var selector = '#' + index;
-        if (typeof value.type === "undefined") {
-          return;
-        }
-        if (!$(selector).hasClass('leaflet-container')) {
-          // Create map and set center and zoom.
-          maps[index] = L.map(index, {
-            scrollWheelZoom: true,
-            zoomControl: false,
-            center: [value.lat, value.lon],
-            zoom: 18
-          });
+            // Create map and set center and zoom.
+            const map = L.map(elm[0], {
+              scrollWheelZoom: true,
+              zoomControl: false,
+              center: [conf.lat, conf.lon],
+              zoom: 18
+            });
 
-          // Add basemap tiles and attribution.
-          L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-          }).addTo(maps[index]);
+            // Add basemap tiles and attribution.
+            L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+            }).addTo(map);
 
-          let tooltip = drupalSettings.media_entity_fields.title + '<br />' +
-            drupalSettings.media_entity_fields.organization + '<br />' +
-            drupalSettings.media_entity_fields.address_line1 + '<br />';
+            const popup = Drupal.theme('degovMediaAddressPopup', conf.address);
 
-          if (!isEmpty(drupalSettings.media_entity_fields.address_line2)) {
-            tooltip += drupalSettings.media_entity_fields.address_line2 + '<br />';
+            // Add pin & popup.
+            const customPin = new L.Icon({iconUrl: conf.pin});
+            L.marker([conf.lat, conf.lon], {icon: customPin}).bindPopup(popup).openPopup().addTo(map).openPopup();
           }
-
-          tooltip += drupalSettings.media_entity_fields.postal_code + ' ' + drupalSettings.media_entity_fields.locality + '<br />';
-
-          if (!isEmpty(drupalSettings.media_entity_fields.phone_number)) {
-            tooltip += Drupal.t('Telephone') + ': ' + drupalSettings.media_entity_fields.phone_number + '<br />';
-          }
-
-          if (!isEmpty(drupalSettings.media_entity_fields.fax_number)) {
-            tooltip += Drupal.t('Fax') + ': ' + drupalSettings.media_entity_fields.fax_number + '<br />';
-          }
-
-          if (!isEmpty(drupalSettings.media_entity_fields.email)) {
-            tooltip += Drupal.t('Email') + ': <a href="mailto:' + drupalSettings.media_entity_fields.email + '">' + drupalSettings.media_entity_fields.email + '</a><br />';
-          }
-
-          if (!isEmpty(drupalSettings.media_entity_fields.link_title) && !isEmpty(drupalSettings.media_entity_fields.link_uri)) {
-            tooltip += Drupal.t('Link') + ': <a href="' + drupalSettings.media_entity_fields.link_uri + '" title="' + drupalSettings.media_entity_fields.link_title + '" target="_blank">' + drupalSettings.media_entity_fields.link_title + '</a>';
-          }
-
-          if (isEmpty(drupalSettings.media_entity_fields.link_title) && !isEmpty(drupalSettings.media_entity_fields.link_uri)) {
-            tooltip += Drupal.t('Link') + ': <a href="' + drupalSettings.media_entity_fields.link_uri + '" title="' + drupalSettings.media_entity_fields.link_uri + '" target="_blank">' + drupalSettings.media_entity_fields.link_uri + '</a>';
-          }
-
-          // Add pin.
-          var customPin = new L.Icon({iconUrl: value.pin});
-          L.marker([value.lat, value.lon], {icon: customPin}).bindPopup(tooltip).openPopup().addTo(maps[index]);
         }
       });
     }
+  };
+
+  /**
+   * @see degov_media_address_get_js_fileds()
+   * @param data
+   * @return {string}
+   */
+  Drupal.theme.degovMediaAddressPopup = function (data) {
+    if (data) {
+      let html = data.title + '<br />' +
+        data.organization + '<br />' +
+        data.address_line1 + '<br />';
+      if (data.address_line2) {
+        html += data.address_line2 + '<br />';
+      }
+      html += data.postal_code + ' ' + data.locality + '<br />';
+      if (data.phone_number) {
+        html += Drupal.t('Telephone') + ': ' + data.phone_number + '<br />';
+      }
+      if (data.fax_number) {
+        html += Drupal.t('Fax') + ': ' + data.fax_number + '<br />';
+      }
+      if (data.email) {
+        html += Drupal.t('Email') + ': <a href="mailto:' + data.email + '">' + data.email + '</a><br />';
+      }
+      if (data.link_title && data.link_uri) {
+        html += Drupal.t('Link') + ': <a href="' + data.link_uri + '" title="' + data.link_title + '" target="_blank">' + data.link_title + '</a>';
+      }
+      if (!data.link_title && data.link_uri) {
+        html += Drupal.t('Link') + ': <a href="' + data.link_uri + '" title="' + data.link_uri + '" target="_blank">' + data.link_uri + '</a>';
+      }
+      return html;
+    }
+    return '';
   };
 
 })(jQuery, Drupal, drupalSettings);

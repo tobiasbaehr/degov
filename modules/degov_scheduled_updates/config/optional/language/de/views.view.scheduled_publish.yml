@@ -47,4 +47,4 @@ display:
       header:
         area:
           content:
-            value: "<div class=\"action-links\">\r\n  <a href=\"[site:url]admin/content/scheduled-publish/add\" class=\"button button-action button--primary button--small\">Mehrere zeitgesteuerte Veröffentlichungen hinzufügen</a>\r\n</div>"
+            value: "<p class=\"action-links\"><a href=\"[site:url]admin/content/scheduled-publish/add\" class=\"button button-action button--primary button--small\">Mehrere zeitgesteuerte Veröffentlichungen hinzufügen</a></p>"

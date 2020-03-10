@@ -6,11 +6,12 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\media\Entity\Media;
 use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Class ContentGenerator.
  *
- * @package Drupal\degov_demo_content\Generator
+ * @package \Drupal\degov_demo_content\Generator
  */
 class ContentGenerator {
 
@@ -73,6 +74,14 @@ class ContentGenerator {
 
   /**
    * Looks for a file and reads the date stored within.
+   *
+   * @param string $definitions_file_name
+   *   Basename of yaml file in entity_definitions.
+   *
+   * @return array
+   *   Definitions from Yaml.
+   *
+   * @throws \Exception
    */
   public function loadDefinitions(string $definitions_file_name): ?array {
     $definitions_file_path = $this->moduleHandler->getModule('degov_demo_content')
@@ -80,7 +89,6 @@ class ContentGenerator {
     if (file_exists($definitions_file_path) && is_file($definitions_file_path) && is_readable($definitions_file_path)) {
       return Yaml::parseFile($definitions_file_path);
     }
-
     throw new \Exception('Could not read definitions file from path ' . $definitions_file_path);
   }
 
@@ -90,7 +98,7 @@ class ContentGenerator {
    * @return int|null|string
    *   Demo content tag ID.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   public function getDemoContentTagId() {
     $tag_term = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
@@ -110,7 +118,7 @@ class ContentGenerator {
    * @return int|null|string
    *   Demo content copyright ID.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   public function getDemoContentCopyrightId() {
     $tag_term = $this->entityTypeManager->getStorage('taxonomy_term')->loadByProperties([
@@ -126,6 +134,8 @@ class ContentGenerator {
 
   /**
    * Deletes the generated entities.
+   *
+   * @throws \Exception
    */
   public function deleteContent(): void {
     if ($this->getDemoContentTagId() === NULL) {
@@ -136,17 +146,34 @@ class ContentGenerator {
       ->loadByProperties([
         'field_tags' => $this->getDemoContentTagId(),
       ]);
-
     foreach ($entities as $entity) {
       $entity->delete();
     }
-
     $paragraphs = $this->entityTypeManager->getStorage('paragraph')->loadMultiple();
     /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
     foreach ($paragraphs as $paragraph) {
       $paragraph->delete();
     }
+  }
 
+  /**
+   * Generate a timestamp for content created.
+   *
+   * We build non changing dates for content created based on the
+   * DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP and a checksum value based on items
+   * unique identifyer.
+   *
+   * @param string $srcId
+   *   Unique ID for the Item form definitions.
+   *
+   * @return int
+   *   Timestamp for ceated.
+   */
+  public static function getCreatedTimestamp(string $srcId) {
+    // Generate a Unique number with 5 digits which is about a day in Unix time (86400s->1 day)
+    // Our "latest content" has a "created" date defined in entity_definitions/node.yml
+    // A manual date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
+    return DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + intval(substr(strval(crc32($srcId)), 0, 5));
   }
 
   /**
@@ -157,15 +184,15 @@ class ContentGenerator {
    * @param bool $resolveReferences
    *   Resolve references.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   protected function prepareValues(array &$rawElement, bool $resolveReferences = TRUE): void {
     foreach ($rawElement as $index => &$value) {
-      if (\is_string($value)) {
+      if (is_string($value)) {
         $this->replaceValues($rawElement, $value, $index, $resolveReferences);
       }
       else {
-        if (\is_array($value)) {
+        if (is_array($value)) {
           $this->prepareValues($rawElement[$index], $resolveReferences);
         }
       }
@@ -184,45 +211,136 @@ class ContentGenerator {
    * @param bool $resolveReferences
    *   Resolve references.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   private function replaceValues(array &$rawElement, $value, string $index, bool $resolveReferences = TRUE): void {
+
     if ($value === '{{DEMOTAG}}') {
       $rawElement[$index] = ['target_id' => $this->getDemoContentTagId()];
       return;
     }
 
-    if ($resolveReferences && preg_match('/^\{\{MEDIA_ID\_([a-zA-Z\_]*)\}\}$/', $value, $mediaTypeId)) {
-      $mediaTypeId = strtolower($mediaTypeId[1]);
-      $mediaId = $this->getMedia($mediaTypeId)->id();
-      $rawElement[$index] = [
-        'target_id' => $mediaId,
-      ];
-      return;
-    }
+    // Any Media References.
+    if ($resolveReferences && strpos($value, 'MEDIA_ID') !== FALSE) {
 
-    while (strpos($value, '{{SUBTITLE}}') !== FALSE) {
-      $value = preg_replace('/\{\{SUBTITLE\}\}/', $this->generateBlindText(5), $value, 1);
-    }
+      // Images.
+      $mediaProperties = [];
+      // @see https://regex101.com/r/mA6cA0/9
+      if (preg_match('/^{{MEDIA_ID_(?\'bundleId\'[A-Z_]*)(:?-?)(?\'sourceId\'[a-z0-9_]*)?}}$/', $value, $mediaProperties)) {
+        $bundleId = strtolower($mediaProperties['bundleId']);
 
-    while (strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
-      $value = preg_replace('/\{\{TEXT_PLAIN\}\}/', $this->generateBlindText(50), $value, 1);
-    }
+        if ($bundleId === 'image') {
+          if (empty($mediaProperties['sourceId'])) {
+            throw new \Exception('Media image references must contain a specific image reference. e.g MEDIA_ID_IMAGE-image_1');
+          }
+          $value = $this->getImageMedia($mediaProperties['sourceId'])->id();
+        }
+        elseif ($bundleId === 'address' && !empty($mediaProperties['sourceId'])) {
+          $value = $this->getMediaBySourceId($mediaProperties['sourceId'])->id();
+        }
+        else {
+          $value = $this->getMedia($bundleId)->id();
+        }
+        $rawElement[$index] = ['target_id' => $value];
+        return;
+      }
 
-    while (strpos($value, '{{TEXT}}') !== FALSE) {
-      $value = preg_replace('/\{\{TEXT\}\}/', $this->generateBlindText(50, TRUE), $value, 1);
-    }
-
-    if ($resolveReferences) {
-      while (preg_match('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $value, $mediaTypeId)) {
-        $mediaTypeId = strtolower($mediaTypeId[1]);
-        $mediaUuid = $this->getMedia($mediaTypeId)->uuid();
+      // Entity embed.
+      // @see https://regex101.com/r/mA6cA0/11
+      $mediaProperties = [];
+      while (preg_match('/{{MEDIA_ID_(?\'bundleId\'[A-Z_]*)_ENTITY_EMBED(:?-?)(?\'sourceId\'[a-z0-9_]*)?}}/', $value, $mediaProperties)) {
+        $bundleId = strtolower($mediaProperties['bundleId']);
+        if ($bundleId === 'image') {
+          if (empty($mediaProperties['sourceId'])) {
+            throw new \Exception('Media image references must contain a specific image reference. e.g MEDIA_ID_IMAGE-image_1');
+          }
+          $mediaUuid = $this->getImageMedia($mediaProperties['sourceId'])->uuid();
+          $replace = '/{{MEDIA_ID_([a-zA-Z^_]*)_ENTITY_EMBED-' . $mediaProperties['sourceId'] . '}}/';
+        }
+        else {
+          $mediaUuid = $this->getImageMedia($bundleId)->uuid();
+          $replace = '/{{MEDIA_ID_([a-zA-Z^_]*)_ENTITY_EMBED}}/';
+        }
         $embed_string = sprintf('<drupal-entity alt="Miniaturbild" data-embed-button="media_browser" data-entity-embed-display="media_image" data-entity-embed-display-settings="{&quot;image_style&quot;:&quot;crop_2_to_1&quot;,&quot;image_link&quot;:&quot;&quot;}" data-entity-type="media" data-entity-uuid="%s" title="sadipscing elitr sed diam nonumy"></drupal-entity>', $mediaUuid);
-        $value = preg_replace('/\{\{MEDIA_ID\_([a-zA-Z^_]*)_ENTITY_EMBED\}\}/', $embed_string, $value, 1);
+        $value = preg_replace($replace, $embed_string, $value, 1);
       }
     }
 
+    while (strpos($value, '{{SUBTITLE}}') !== FALSE) {
+      $value = preg_replace('/{{SUBTITLE}}/', $this->generateBlindText(5), $value, 1);
+    }
+
+    while (strpos($value, '{{TEXT_PLAIN}}') !== FALSE) {
+      $value = preg_replace('/{{TEXT_PLAIN}}/', $this->generateBlindText(50), $value, 1);
+    }
+
+    while (strpos($value, '{{TEXT}}') !== FALSE) {
+      $value = preg_replace('/{{TEXT}}/', $this->generateBlindText(50, TRUE), $value, 1);
+    }
+
     $rawElement[$index] = $value;
+  }
+
+  /**
+   * Get media-entity by sourceId.
+   *
+   * @param string $sourceId
+   *   Key from yml definition (media.yml). Example: document_2
+   *
+   * @throws \Exception
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Media id of this entity.
+   */
+  private function getMediaBySourceId(string $sourceId) {
+    $def = $this->loadDefinitions('media.yml');
+    $bundle = $def[$sourceId]['bundle'];
+    $name = $def[$sourceId]['name'];
+    $mid = \Drupal::service('entity.query')
+      ->get('media')
+      ->condition('bundle', $bundle)
+      ->condition('name', $name)
+      ->execute();
+
+    if (count($mid) > 1) {
+      throw new \Exception('Media entity names for demo content must be unique. This name is not unique: ' . $name);
+    }
+    if (count($mid) < 1) {
+      throw new \Exception('Could not get media by name: ' . $name);
+    }
+    return Media::load(array_pop($mid));
+  }
+
+  /**
+   * Get media-image entity.
+   *
+   * @param string $sourceId
+   *   Key from yml definition.
+   *
+   * @throws \Exception
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Media id of this image.
+   */
+  private function getImageMedia($sourceId) {
+    $def = $this->loadDefinitions('media.yml');
+    $imageDef = array_filter($def, function ($var) {
+      return $var['bundle'] === 'image';
+    });
+    $title = $imageDef[$sourceId]['name'];
+    $mid = \Drupal::service('entity.query')
+      ->get('media')
+      ->condition('bundle', 'image')
+      ->condition('name', $title)
+      ->execute();
+
+    if (count($mid) > 1) {
+      throw new \Exception('Media Image titles for demo content must be unique. This title is not unique: ' . $title);
+    }
+    if (count($mid) < 1) {
+      throw new \Exception('Could not get media by title: ' . $title);
+    }
+    return Media::load(array_pop($mid));
   }
 
   /**
@@ -234,7 +352,7 @@ class ContentGenerator {
    * @return array
    *   Medias.
    *
-   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   protected function getMedias(string $bundle): array {
     $mediaIds = \Drupal::entityQuery('media')
@@ -249,20 +367,19 @@ class ContentGenerator {
    * @param string $bundle
    *   Bundle.
    *
-   * @return \Drupal\media\Entity\Media
-   *   Media.
+   * @throws \Exception
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   Media Entity
    */
-  protected function getMedia(string $bundle): Media {
+  protected function getMedia(string $bundle): EntityInterface {
     $medias = $this->getMedias($bundle);
     $this->mediaCounter++;
     try {
       $index = $this->mediaCounter % \count($medias);
     }
     catch (\DivisionByZeroError $exception) {
-      $index = $this->counter % \count($medias);
-    }
-    catch (\DivisionByZeroError $exception) {
-      throw new \Exception('Media is missing. Maybe the field definitions in your demo content are wrong?');
+      throw new \Exception('Media is in ' . $bundle . ' missing. Maybe the field definitions in your demo content are wrong?');
     }
     $keys = array_keys($medias);
     return Media::load($medias[$keys[$index]]);

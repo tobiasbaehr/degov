@@ -4,6 +4,7 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\degov_demo_content\MediaFileHandler;
 use Drupal\file\Entity\File;
 use Drupal\geofield\WktGenerator;
@@ -115,15 +116,18 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       if (!empty($media_item['field_address_location'])) {
         $fields['field_address_location'] = $this->wktGenerator->wktBuildPoint($media_item['field_address_location']);
       }
-      $fields['created'] = DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP;
+      // If no "created" date is defined in definitions, we  generate a unique
+      // number with 5 digits based on $media_item_key (% digits are abozt a day in Unix time
+      // 86400s->1 day) and add it to DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP.
+      // A manual date defined date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
+      $fields['created'] = isset($media_item['created']) ? $media_item['created'] : $this->getCreatedTimestamp($media_item_key);
+
+      // Auto generate media publish date fields if not set.
+      $fields['field_media_publish_date'] = isset($media_item['field_media_publish_date']) ? $media_item['field_media_publish_date'] : date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, $this->getCreatedTimestamp($media_item_key));
+
       $new_media = Media::create($fields);
       $new_media->save();
       $this->savedEntities[$media_item_key] = $new_media;
-      /*
-       * Make sure Media are not all created the same second,
-       * otherwise views will display them in random order.
-       */
-      sleep(1);
     }
   }
 
