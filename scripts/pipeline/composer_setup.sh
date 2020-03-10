@@ -42,7 +42,7 @@ main() {
   fi
   cd "$BITBUCKET_CLONE_DIR/project"
   # Move the lfs_data out of the install profile before we delete it. But lets the pipeline store the data in the project artifact.
-  mv -v "$TEST_DIR/lfs_data/*.sql.tar.gz" .
+  mv -v "$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.tar.gz" .
   # Do not store data (as artifact in the pipeline) which is in the git repo itself. (this makes artifact smaller)
   # We restore the profile in default_setup_ci.sh.
   rm -rf "$PROFILE_DIR"

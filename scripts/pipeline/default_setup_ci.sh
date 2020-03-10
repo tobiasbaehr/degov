@@ -20,7 +20,7 @@ main() {
     # Restore the data which was deleted in composer_setup.sh and is not part of the artifact.
     mkdir "$BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib"
     mkdir "$BITBUCKET_CLONE_DIR/testing/lfs_data"
-    mv -v "$BITBUCKET_CLONE_DIR/project/lfs_data/*.sql.tar.gz" "$BITBUCKET_CLONE_DIR/testing/lfs_data"
+    mv -v "$BITBUCKET_CLONE_DIR/project/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.tar.gz" "$BITBUCKET_CLONE_DIR/testing/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.tar.gz"
     (cd "$BITBUCKET_CLONE_DIR" && rsync -az --exclude="project/" . "$PROFILE_DIR")
   fi
 }
