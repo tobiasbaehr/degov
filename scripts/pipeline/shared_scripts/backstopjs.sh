@@ -22,7 +22,7 @@ main() {
   cd "$BITBUCKET_CLONE_DIR/project" && \
   _composer remove --dev --no-progress "$GIT_LFS_PROJECT"
   _composer require --dev --no-progress --dev "$GIT_LFS_PROJECT:dev-$GIT_LFS_BRANCH")
-  if [[ ! -d "$TESTDIR/lfs_data/bitmaps_reference" ]];then
+  if [[ ! -d "$TEST_DIR/lfs_data/bitmaps_reference" ]];then
     _err "Could not load $GIT_LFS_PROJECT:dev-$GIT_LFS_BRANCH. Exit."
     exit 1
   fi
