@@ -74,7 +74,7 @@ Feature: deGov - Paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I fill in "title[0][value]" with "Video-upload-slide-paragraph-test"
-    And I click by selector ".vertical-tabs__menu a[href=\'#edit-group-header\']" via JavaScript
+    And I click by selector ".vertical-tabs__menu a[href='#edit-group-header']" via JavaScript
     And I press the "edit-field-header-paragraphs-add-more-add-modal-form-area-add-more" button
     And I trigger the "mousedown" event on ".ui-dialog [name=field_header_paragraphs_slide_add_more]"
     Then I should see text matching "Slide" via translated text after a while
@@ -99,7 +99,7 @@ Feature: deGov - Paragraphs
     Given I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
     And I fill in "title[0][value]" with "Responsive-video-slide-paragraph-test"
-    And I click by selector ".vertical-tabs__menu a[href=\'#edit-group-header\']" via JavaScript
+    And I click by selector ".vertical-tabs__menu a[href='#edit-group-header']" via JavaScript
     And I press the "edit-field-header-paragraphs-add-more-add-modal-form-area-add-more" button
     And I trigger the "mousedown" event on ".ui-dialog [name=field_header_paragraphs_slide_add_more]"
     Then I should see text matching "Slide" via translated text after a while

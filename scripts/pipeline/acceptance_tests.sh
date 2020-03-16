@@ -13,6 +13,7 @@ __DIR__="$(cd "$(dirname "${0}")"; pwd)"
 
 # shellcheck source=.
 source "$__DIR__/.env"
+export CI_ROOT_DIR
 # shellcheck source=.
 source "$__DIR__/shared_scripts/common_functions.sh"
 

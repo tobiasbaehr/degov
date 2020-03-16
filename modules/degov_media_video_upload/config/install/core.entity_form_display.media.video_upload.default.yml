@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   config:
@@ -99,7 +99,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Allgemein
+      label: Common
       region: content
     group_assets:
       children:
