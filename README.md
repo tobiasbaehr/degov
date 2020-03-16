@@ -56,7 +56,7 @@ http://[YOUR_SITE]/
 Visit the following page to log into your deGov Installation with your previously created User to administer your deGov Installation.
 ```
 http://[YOUR_SITE]/user/login/
-``` 
+```
 
 ## Testing
 
@@ -74,4 +74,4 @@ Needs to be added
 Learn more about [testing in Drupal 8](https://www.drupal.org/docs/8/testing).
 
 ## License
-[**GNU GENERAL PUBLIC LICENSE v2**](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html "visit GPLv2 website")
+[GNU General Public License, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html "visit GPLv2 website"). The same as the Drupal core.
