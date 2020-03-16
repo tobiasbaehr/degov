@@ -54,7 +54,7 @@ class JavaScriptContext extends RawMinkContext {
    * @Then /^I click by selector "([^"]*)" via JavaScript$/
    */
   public function clickBySelector(string $selector) {
-    $this->getSession()->executeScript("document.querySelector('" . $selector . "').click()");
+    $this->getSession()->executeScript("document.querySelector('" . addslashes($selector) . "').click()");
   }
 
   /**
@@ -141,8 +141,8 @@ class JavaScriptContext extends RawMinkContext {
    *
    * @Then I verify that field :selector has the value :value
    */
-  public function iVerifyThatFieldHasTheValue($selector, $value) {
-    $actual_value = $this->getSession()->evaluateScript("jQuery('" . $selector . "').val()");
+  public function iVerifyThatFieldHasTheValue($selector, $value): bool {
+    $actual_value = $this->getSession()->evaluateScript("jQuery('" . addslashes($selector) . "').val()");
     if ($actual_value === $value) {
       return TRUE;
     }
