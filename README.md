@@ -74,4 +74,4 @@ Needs to be added
 Learn more about [testing in Drupal 8](https://www.drupal.org/docs/8/testing).
 
 ## License
-[GNU General Public License, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html "visit GPLv2 website"). Same as the Drupal core.
+[GNU General Public License, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html "visit GPLv2 website"). The same as the Drupal core.
