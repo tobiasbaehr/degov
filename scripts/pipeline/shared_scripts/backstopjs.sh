@@ -29,10 +29,8 @@ main() {
   set +o errexit
   _backstopjs test
   EXIT_CODE=$?
-  if [[ $EXIT_CODE -gt "0" ]]; then
-    _info "### Dumping BackstopJS output"
-    (cd $TEST_DIR && tar zhpcf backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
-  fi
+  _info "### Dumping BackstopJS output"
+  (cd $TEST_DIR && tar zhpcf backstopjs.tar.gz backstopjs/ && mv backstopjs.tar.gz $BITBUCKET_CLONE_DIR)
   # Pipeline needs the exitcode to mark the pipe as failed.
   exit $EXIT_CODE
 }

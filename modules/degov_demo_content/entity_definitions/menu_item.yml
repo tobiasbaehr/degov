@@ -212,7 +212,7 @@ menu_item_13:
   menu_name: 'header-top'
   node_title: 'Page with all teasers'
   menu_title: 'Kontakt'
-  fontawesome_css_class: 'fa-envelope fas'
+  fontawesome_css_class: 'fa-envelope'
 menu_item_14:
   menu_name: 'footer'
   menu_title: 'About'
