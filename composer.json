@@ -19,7 +19,7 @@
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "1.x-dev",
         "drupal/config_replace": "^1.0",
-        "drupal/core": "~8.8.0",
+        "drupal/core": "~8.8.4",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/date_popup": "^1.0",
         "drupal/degov_simplenews": "^1.12",
