@@ -128,7 +128,7 @@ trait RunsTrait {
     if (\is_numeric(strpos($installationProfileCollection->getMainInstallationProfile()->getMachineName(), 'gov'))) {
       $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_demo_content,degov_devel');
     }
-    elseif ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
+    if ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
       $mainInstallationProfileKey = $installationProfileCollection->getMainInstallationProfile()->getMachineName();
       $subInstallationProfileKey = $installationProfileCollection->getSubInstallationProfile()->getMachineName();
 
