@@ -31,19 +31,19 @@ class PasswordPolicy implements ValidateInterface {
 
     $errors = [];
     if (strlen($value) < 12) {
-      $errors[] = new TranslatableMarkup('Password should be at least 12 characters long');
+      $errors['password_length'] = new TranslatableMarkup('Password should be at least 12 characters long');
     }
     if (!preg_match('/\d/', $value)) {
-      $errors[] = new TranslatableMarkup('Password should contain at least one digit');
+      $errors['password_contains_digit'] = new TranslatableMarkup('Password should contain at least one digit');
     }
     if (!preg_match('/[A-Z]/', $value)) {
-      $errors[] = new TranslatableMarkup('Password should contain at least one upper-case letter');
+      $errors['password_contains_uc_letter'] = new TranslatableMarkup('Password should contain at least one upper-case letter');
     }
     if (!preg_match('/[a-z]/', $value)) {
-      $errors[] = new TranslatableMarkup('Password should contain at least one lower-case letter');
+      $errors['password_contains_lc_letter'] = new TranslatableMarkup('Password should contain at least one lower-case letter');
     }
     if (!preg_match('/[!@#$%\/.,*()\[\]]/', $value)) {
-      $errors[] = new TranslatableMarkup('Password should contain at least one special character');
+      $errors['password_contains_special_character'] = new TranslatableMarkup('Password should contain at least one special character');
     }
 
     if (count($errors)) {
