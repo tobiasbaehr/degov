@@ -1286,6 +1286,67 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: string
+        entity_browser_bundle:
+          id: entity_browser_bundle
+          table: media
+          field: entity_browser_bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            all: all
+            address: address
+            audio: audio
+            image: image
+            gallery: gallery
+            document: document
+            instagram: instagram
+            contact: contact
+            person: person
+            video_mobile: video_mobile
+            some_embed: some_embed
+            tweet: tweet
+            video: video
+            video_upload: video_upload
+            citation: citation
+          group: 1
+          exposed: true
+          expose:
+            operator_id: entity_browser_bundle_op
+            label: Medientyp
+            description: ''
+            use_operator: false
+            operator: entity_browser_bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: bundle
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
+              system_configurator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: media
+          plugin_id: entity_browser_bundle
         field_media_in_library_value:
           id: field_media_in_library_value
           table: media__field_media_in_library
