@@ -84,7 +84,6 @@ function degov_module_setup(&$install_state) {
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
     'entity_reference_timer'            => 'entity_reference_timer',
-    'degov_password_policy'             => 'degov_password_policy',
   ];
 
   // See issue https://www.drupal.org/project/search_api/issues/2931562
