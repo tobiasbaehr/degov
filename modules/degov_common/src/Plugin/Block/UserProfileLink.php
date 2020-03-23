@@ -15,6 +15,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  * )
  */
 class UserProfileLink extends BlockBase implements BlockPluginInterface {
+
   /**
    * {@inheritdoc}
    */
@@ -29,4 +30,5 @@ class UserProfileLink extends BlockBase implements BlockPluginInterface {
 
     return $block;
   }
+
 }

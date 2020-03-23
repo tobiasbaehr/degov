@@ -6,6 +6,7 @@ use Drupal\block\Entity\Block;
 use Drupal\block_content\Entity\BlockContent;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 
 /**
  * Class BlockContentGenerator.
@@ -31,21 +32,27 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
 
   /**
    * The type of entity.
+   *
+   * @var string
    */
   protected $entityType;
 
   /**
    * The type of block.
+   *
+   * @var string
    */
   protected $blockType;
 
   /**
    * BlockContentGenerator constructor.
    *
-   * {@inheritDoc}
+   * @param \Drupal\Core\Extension\ModuleHandler $module_handler
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
    */
-  public function __construct(ModuleHandler $module_handler, EntityTypeManagerInterface $entity_type_manager) {
-    parent::__construct($module_handler, $entity_type_manager);
+  public function __construct(ModuleHandler $module_handler, EntityTypeManagerInterface $entity_type_manager, ParagraphsFileHandler $paragraphsFileHandler) {
+    parent::__construct($module_handler, $entity_type_manager, $paragraphsFileHandler);
     $this->entityType = 'block_content';
     $this->blockType = 'basic';
   }
@@ -68,6 +75,8 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    *   Definition array.
    *
    * @return \Drupal\block_content\Entity\BlockContent|\Drupal\Core\Entity\EntityInterface
+   *   Content block.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function createContentBlock(array $definition) {
@@ -82,11 +91,11 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Place block to the region.
    *
    * @param \Drupal\block_content\Entity\BlockContent $block
-   *  The Block entity.
+   *   The Block entity.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function setBlockToRegion($block) {
+  private function setBlockToRegion(BlockContent $block) {
     $placed_block = Block::create([
       'id' => 'slideshow',
       'theme' => 'degov_theme',
@@ -119,7 +128,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Generates reference to paragraph in the block field.
    *
    * @param \Drupal\block_content\Entity\BlockContent $block_content
-   *  BlockContent entity.
+   *   BlockContent entity.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
@@ -166,7 +175,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
     $view_display = $this->entityTypeManager
       ->getStorage('entity_view_display')
       ->load("{$this->entityType}.{$this->blockType}.default");
-    $view_display->setComponent(self::BLOCK_PARAGRAPH_FIELD, ['label' => 'hidden',]);
+    $view_display->setComponent(self::BLOCK_PARAGRAPH_FIELD, ['label' => 'hidden']);
     $view_display->save();
   }
 
@@ -174,7 +183,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Returns array of paragraph field for the form display.
    *
    * @return array
-   *  Settings array.
+   *   Settings array.
    */
   private function getParagraphFieldFormDisplaySettings() {
     return [

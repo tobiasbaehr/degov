@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_demo_content\Command;
 
+use Drupal\degov_demo_content\Generator\DocumentationGenerator;
 use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\degov_demo_content\Generator\NodeGenerator;
@@ -42,6 +43,13 @@ class DegovDemoContentDrushCommands extends DrushCommands {
   private $blockContentGenerator;
 
   /**
+   * The deGov Demo Content DocumentationGenerator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\DocumentationGenerator
+   */
+  private $documentationGenerator;
+
+  /**
    * DegovDemoContentDrushCommands constructor.
    *
    * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
@@ -52,13 +60,16 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    *   The deGov Demo Content MenuItemGenerator.
    * @param \Drupal\degov_demo_content\Generator\BlockContentGenerator $blockContentGenerator
    *   The deGov Demo Content BlockContentGenerator.
+   * @param \Drupal\degov_demo_content\Generator\DocumentationGenerator $documentationGenerator
+   *   The deGov Demo Content DocumentationGenerator.
    */
-  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator, BlockContentGenerator $blockContentGenerator) {
+  public function __construct(MediaGenerator $mediaGenerator, NodeGenerator $nodeGenerator, MenuItemGenerator $menuItemGenerator, BlockContentGenerator $blockContentGenerator, DocumentationGenerator $documentationGenerator) {
     parent::__construct();
     $this->mediaGenerator = $mediaGenerator;
     $this->nodeGenerator = $nodeGenerator;
     $this->menuItemGenerator = $menuItemGenerator;
     $this->blockContentGenerator = $blockContentGenerator;
+    $this->documentationGenerator = $documentationGenerator;
   }
 
   /**
@@ -68,6 +79,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcreg
    */
   public function resetContent() {
+    $this->nodeGenerator->deleteParagraphs();
     $this->mediaGenerator->resetContent();
     $this->nodeGenerator->resetContent();
     $this->menuItemGenerator->resetContent();
@@ -83,6 +95,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcdel
    */
   public function deleteContent() {
+    $this->nodeGenerator->deleteParagraphs();
     $this->menuItemGenerator->deleteContent();
     $this->nodeGenerator->deleteContent();
     $this->mediaGenerator->deleteContent();
@@ -100,6 +113,16 @@ class DegovDemoContentDrushCommands extends DrushCommands {
     $this->nodeGenerator->generateContent();
     $this->menuItemGenerator->generateContent();
     $this->blockContentGenerator->generateContent();
+  }
+
+  /**
+   * Generates documentation of demo entities.
+   *
+   * @command degov_demo_content:document
+   * @aliases dcdoc
+   */
+  public function generateDocumentation(string $outfile, bool $includeStatistics = FALSE) {
+    $this->documentationGenerator->generateDocumentation($outfile, $includeStatistics);
   }
 
 }

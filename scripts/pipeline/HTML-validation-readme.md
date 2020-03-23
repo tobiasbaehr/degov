@@ -1,14 +1,14 @@
 ## Html Validation test
 
-In case Drupal renders invalid HTML code (within our demo content pages) the pipeline should fail. 
+In case Drupal renders invalid HTML code (within our demo content pages) the pipeline should fail.
 
 The test uses all pages which are defined inside the [backstop.json](../../testing/backstopjs/backstop.json) and depend on the domain defined there (http://host.docker.internal).
 
 Technically html_validation.sh does the following:
 
-* Get all urls from backstop.json
+* Get all urls from backstop.json which don't have a `skipValidation` property.
 * Run Wget on all these urls and save the code into HTML files
-* Run [nu valudator](https://validator.w3.org/nu) docker image (validator/validator:latest) on the HTML files. 
+* Run [nu valudator](https://validator.w3.org/nu) docker image (validator/validator:latest) on the HTML files.
 
 All errors will be listed under the output of `Picked up JAVA_TOOL_OPTIONS:`.
 
@@ -26,7 +26,7 @@ Found some validation errors.
 
 Schema: "file:/files/FILENAME":LINENR.COLUMNNR-LINENR.COLUMNNR: error: ERRORMESSAGE.
 
-You can also use HTML validation locally for development purposes, but alternatively you may just paste at [w3c page](https://validator.w3.org/nu/#textarea)). 
+You can also use HTML validation locally for development purposes, but alternatively you may just paste at [w3c page](https://validator.w3.org/nu/#textarea)).
 
 ### Requirements for local testing
 
@@ -34,7 +34,7 @@ You can also use HTML validation locally for development purposes, but alternati
 * Installed [docker](https://docs.docker.com/install/)
 * wget (GNU Version)
 * [jq](https://stedolan.github.io/jq/)
-* Drupal instance must be reachable under domain http://host.docker.internal 
+* Drupal instance must be reachable under domain http://host.docker.internal
 
 #### MacOS
 
@@ -47,21 +47,30 @@ brew install wget jq
 ### Usage
 
 * Just run the script via CLI
+
+deGov:
+
+```bash
+bash docroot/profiles/contrib/degov/scripts/pipeline/shared_scripts/html_validation.sh
 ```
-bash docroot/profiles/contrib/nrwgov/scripts/pipeline/html_validation.sh
-# or
-bash docroot/profiles/contrib/degov/scripts/pipeline/html_validation.sh
+
+nrwGov:
+
+```bash
+cd docroot/profiles/contrib/nrwgov/scripts/pipeline && \
+ln -s ../../../degov/scripts/pipeline/shared_scripts/
+bash shared_scripts/html_validation.sh
 ```
 
 Mind your cache
 
-wget is a "annonymous" user to Drupal and it respects cache headers. 
-To make sure you get the current HTML you have to clear the cache! 
+wget is a "annonymous" user to Drupal and it respects cache headers.
+To make sure you get the current HTML you have to clear the cache!
 
 
 #### Ignoring validations
 
-Not all validation errors necessarily are real errors. E.g. some errors are [features](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList). New properties which didn't make it in to the standard or validator tool yet. 
+Not all validation errors necessarily are real errors. E.g. some errors are [features](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList). New properties which didn't make it in to the standard or validator tool yet.
 
 To deal with that you can add exceptions to the nu validator [message-filters.txt](https://github.com/validator/validator/wiki/Message-filtering#using-the-resourcesmessage-filterstxt-file).
 

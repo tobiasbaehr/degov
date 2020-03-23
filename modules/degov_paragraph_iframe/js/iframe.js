@@ -1,8 +1,10 @@
 /**
- * @file iframe.js
+ * @file
+ * iframe.js
  *
  * Defines the behavior of the Iframe paragraph.
  */
+
 (function ($, Drupal) {
 
   'use strict';

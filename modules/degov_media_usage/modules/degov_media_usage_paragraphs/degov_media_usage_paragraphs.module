@@ -1,0 +1,59 @@
+<?php
+
+use Drupal\paragraphs\Entity\Paragraph;
+
+function degov_media_usage_paragraphs_paragraph_insert(Paragraph $entity) {
+  static $handled = [];
+
+  /** @var \Drupal\degov_media_usage_paragraphs\Service\ParagraphPersistance $persistance */
+  $persistance = \Drupal::service('degov_media_usage_paragraphs.persistance');
+  if ($persistance->canHandle($entity) && !in_array($entity->id(), $handled, TRUE)) {
+    $media = $persistance->getMedia($entity);
+    if (!$media) {
+      return FALSE;
+    }
+
+    $persistance->store($entity, $media);
+    $handled[] = $entity->id();
+
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+function degov_media_usage_paragraphs_paragraph_update(Paragraph $entity) {
+  static $handled = [];
+
+  /** @var \Drupal\degov_media_usage_paragraphs\Service\ParagraphPersistance $persistance */
+  $persistance = \Drupal::service('degov_media_usage_paragraphs.persistance');
+  if ($persistance->canHandle($entity) && !in_array($entity->id(), $handled, TRUE)) {
+    $persistance->purge($entity);
+    $media = $persistance->getMedia($entity);
+    if (!$media) {
+      return FALSE;
+    }
+
+    $persistance->store($entity, $media);
+    $handled[] = $entity->id();
+
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
+function degov_media_usage_paragraphs_paragraph_delete(Paragraph $entity) {
+  static $handled = [];
+
+  /** @var \Drupal\degov_media_usage_paragraphs\Service\ParagraphPersistance $persistance */
+  $persistance = \Drupal::service('degov_media_usage_paragraphs.persistance');
+  if ($persistance->canHandle($entity) && !in_array($entity->id(), $handled, TRUE)) {
+    $persistance->purge($entity);
+    $handled[] = $entity->id();
+
+    return TRUE;
+  }
+
+  return FALSE;
+}

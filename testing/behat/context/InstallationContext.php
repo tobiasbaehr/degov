@@ -2,13 +2,16 @@
 
 namespace Drupal\degov\Behat\Context;
 
+use Drupal\degov\Behat\Context\Exception\ErrorTextFoundException;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 use WebDriver\Exception\StaleElementReference;
 
-
+/**
+ * Class InstallationContext.
+ */
 class InstallationContext extends RawMinkContext {
 
   use ErrorTrait;
@@ -18,6 +21,8 @@ class InstallationContext extends RawMinkContext {
   private const MAX_DURATION_SECONDS = 1200;
 
   /**
+   * Task is done.
+   *
    * @Then /^task "([^"]*)" is done$/
    */
   public function taskIsDone($text) {
@@ -36,14 +41,28 @@ class InstallationContext extends RawMinkContext {
           'Install deGov - Theme'            => 'body > div > div > aside > ol > li:nth-child(9).done',
           'Finalize installation'            => 'body > div > div > aside > ol > li:nth-child(13).done',
           'Übersetzungen abschließen'        => 'body > div > div > aside > ol > li:nth-child(14).done',
-          'deGov wurde erfolgreich installiert.' => 'body.path-frontpage'
+          'deGov wurde erfolgreich installiert.' => 'body.path-frontpage',
         ];
 
         $task = $this->getSession()->getPage()->findAll('css', $doneTask[$text]);
-        $this->checkErrorsOnCurrentPage();
+
+        try {
+          $debugOutput = new DebugOutput();
+          $debugOutput->isErrorOnCurrentPage($this->getSession()->getPage()->getText());
+        }
+        catch (ErrorTextFoundException $exception1) {
+          throw new TextNotFoundException(
+            sprintf('Task failed due "%s" text on page \'', $exception1->getMessage() . '\''),
+            $this->getSession()
+          );
+        }
+        catch (TextNotFoundException $exception2) {
+          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+          throw $exception2;
+        }
 
         if (\count($task) > 0) {
-          return true;
+          return TRUE;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
@@ -52,18 +71,22 @@ class InstallationContext extends RawMinkContext {
           sprintf('Task "%s" could not been finished after %s seconds', $text, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (TextNotFoundException $exception) {
+      }
+      catch (TextNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-    } catch (StaleElementReference $e) {
+    }
+    catch (StaleElementReference $e) {
       return TRUE;
     }
 
   }
 
   /**
+   * Test.
+   *
    * @Given /^i test$/
    */
   public function iTest() {

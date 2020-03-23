@@ -44,7 +44,7 @@ class Node implements ContainerInjectionInterface {
   /**
    * {@inheritdoc}
    */
-  static public function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('date.formatter'),
       $container->get('path.matcher')
@@ -55,6 +55,7 @@ class Node implements ContainerInjectionInterface {
    * Preprocess node theme.
    *
    * @param array $variables
+   *   Variables.
    */
   public function preprocess(array &$variables): void {
     /** @var \Drupal\node\Entity\Node $node */
@@ -93,6 +94,7 @@ class Node implements ContainerInjectionInterface {
    *   The view mode to test.
    *
    * @return string
+   *   Responsive image style.
    */
   protected function determineResponsiveImageStyle(string $view_mode_name): string {
     $responsive_image_style_id = '';

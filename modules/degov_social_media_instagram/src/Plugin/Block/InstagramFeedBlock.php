@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_social_media_instagram\Plugin\Block;
 
-use Drupal;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Datetime\DateFormatterInterface;
@@ -48,12 +47,13 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
 
   /**
    * InstagramFeedBlock constructor.
+   * phpcs:disable
    *
    * @param array $configuration
    *   Block plugin config.
-   * @param $plugin_id
+   * @param string $plugin_id
    *   Block plugin plugin_id.
-   * @param $plugin_definition
+   * @param mixed $plugin_definition
    *   Block plugin definition.
    * @param \Drupal\Core\Config\ImmutableConfig $config
    *   The config service.
@@ -61,6 +61,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *   The date formatter service.
    * @param \Drupal\degov_social_media_instagram\Instagram $instagram
    *   The Instagram service.
+   * phpcs:enable
    */
   public function __construct(
     array $configuration,
@@ -117,9 +118,9 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
           '#instagramUser' => $this->instagram->getAccount($user)
             ->getFullName(),
           '#link' => $media->getLink(),
-          '#link_display' => $this->_shortDescription($media->getLink(), 32, '...'),
+          '#link_display' => $this->shortDescription($media->getLink(), 32, '...'),
           '#type' => $media->getType(),
-          '#caption' => $this->_shortDescription($media->getCaption(), $maxLength, "..."),
+          '#caption' => $this->shortDescription($media->getCaption(), $maxLength, "..."),
           '#views' => $media->getVideoViews(),
           '#likes' => $media->getLikesCount(),
           '#comments' => $media->getCommentsCount(),
@@ -146,8 +147,9 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *   Dots.
    *
    * @return string
+   *   Short description.
    */
-  function _shortDescription(string $string, int $maxLength, string $replacement) {
+  public function shortDescription(string $string, int $maxLength, string $replacement) {
     if (mb_strlen($string) > $maxLength) {
       return mb_substr($string, 0, $maxLength) . $replacement;
     }

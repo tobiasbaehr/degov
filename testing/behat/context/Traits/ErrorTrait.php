@@ -3,12 +3,17 @@
 namespace Drupal\degov\Behat\Context\Traits;
 
 /**
- * Trait ErrorTrait
+ * Trait ErrorTrait.
  *
  * @package Drupal\degov\Behat\Context\Traits
  */
 trait ErrorTrait {
 
+  /**
+   * Error texts.
+   *
+   * @var array
+   */
   private static $errorTexts = [
     'Error',
     'Warning',
@@ -18,7 +23,7 @@ trait ErrorTrait {
     'An AJAX HTTP error occurred.',
     'Nicht erfüllte Systemvoraussetzungen',
     'Fehlermeldung',
-    ' ist ungültig.'
+    ' ist ungültig.',
   ];
 
 }

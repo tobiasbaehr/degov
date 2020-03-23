@@ -49,6 +49,9 @@ class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
     );
   }
 
+  /**
+   * Preprocess.
+   */
   public function preprocess(array &$vars, string $hook): void {
     if (!in_array($hook, ['views_view__search_content', 'views_view__search_media'])) {
       return;
@@ -102,4 +105,5 @@ class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
       ];
     }
   }
+
 }

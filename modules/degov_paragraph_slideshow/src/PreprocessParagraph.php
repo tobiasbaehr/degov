@@ -8,6 +8,9 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Class PreprocessParagraph.
+ */
 class PreprocessParagraph implements ContainerInjectionInterface {
 
   /**
@@ -39,10 +42,10 @@ class PreprocessParagraph implements ContainerInjectionInterface {
   /**
    * Preprocess the paragraphs type "slide".
    *
-   * @param $variables
+   * @param array &$variables
    *   The theme preprocess function argument.
    */
-  public function slide(&$variables): void {
+  public function slide(array &$variables): void {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
     // Add the variable slide_link.
@@ -56,17 +59,18 @@ class PreprocessParagraph implements ContainerInjectionInterface {
   /**
    * Preprocess the paragraphs type "slide".
    *
-   * @param $variables.
+   * @param array &$variables
    *   The theme preprocess function argument.
    */
-  public function slider(&$variables): void {
+  public function slider(array &$variables): void {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
     // Add the variable slideshow_type.
     $variables['slideshow_type'] = $paragraph->field_slideshow_type->value;
 
     $moduleHandler = \Drupal::service('module_handler');
-    // Loop each paragraph in the slideshow field to propagate referenced slides.
+    // Loop each paragraph in the slideshow field to propagate
+    // referenced slides.
     if ($moduleHandler->moduleExists('degov_paragraph_node_reference')
       || $moduleHandler->moduleExists('degov_paragraph_view_reference')) {
       $propagated_slides = [];
@@ -82,7 +86,8 @@ class PreprocessParagraph implements ContainerInjectionInterface {
           }
         }
         elseif ($paragraph_slide->hasField('field_view_reference_view')) {
-          // Every node in a view reference should be included as a single slide.
+          // Every node in a view reference should be included as
+          // a single slide.
           $result = views_get_view_result($paragraph_slide->field_view_reference_view->target_id, $paragraph_slide->field_view_reference_view->display_id);
           foreach ($result as $row) {
             $view_builder = $this->entityTypeManager->getViewBuilder('node');

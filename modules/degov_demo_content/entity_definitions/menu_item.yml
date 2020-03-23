@@ -35,7 +35,7 @@ menu_item_2:
   node_title: 'Page with video header'
   menu_title: 'Video header'
   menu_weight: -18
-  fontawesome_css_class: fa-bluetooth
+  fontawesome_css_class: 'fa-theater-masks fas'
   children:
     -
       menu_name: main
@@ -64,7 +64,7 @@ menu_item_3:
   node_title: 'Page with text paragraph'
   menu_title: 'Text paragraph'
   menu_weight: -20
-  fontawesome_css_class: fa-bicycle
+  fontawesome_css_class: 'fa-balance-scale fas'
   children:
     -
       menu_name: main
@@ -92,7 +92,7 @@ menu_item_4:
   menu_name: main
   node_title: 'Page with banner'
   menu_weight: -26
-  fontawesome_css_class: fa-book
+  fontawesome_css_class: "fa-university fas"
   children:
     -
       menu_name: main
@@ -113,12 +113,18 @@ menu_item_4:
     -
       menu_name: main
       node_title: 'Page with video header'
+    -
+      menu_name: main
+      node_title: 'Page with type 1 video slideshow'
+    -
+      menu_name: main
+      node_title: 'Page with type 2 video slideshow'
 menu_item_5:
   menu_name: main
   node_title: 'Page with map paragraph'
   menu_title: 'Map paragraph'
   menu_weight: -24
-  fontawesome_css_class: fa-bell
+  fontawesome_css_class: 'fa-map fas'
   children:
     -
       menu_name: main
@@ -144,7 +150,7 @@ menu_item_6:
   node_title: 'Page with FAQ-List paragraph'
   menu_title: 'FAQ-List paragraph'
   menu_weight: -30
-  fontawesome_css_class: fa-battery-full
+  fontawesome_css_class: 'fa-book-reader fas'
   children:
     -
       menu_name: main
@@ -169,7 +175,7 @@ menu_item_7:
   menu_name: main
   node_title: 'Page with references to all types of media'
   menu_weight: -22
-  fontawesome_css_class: fa-image
+  fontawesome_css_class: 'fa-image fas'
   children:
     -
       menu_name: main
@@ -206,7 +212,7 @@ menu_item_13:
   menu_name: 'header-top'
   node_title: 'Page with all teasers'
   menu_title: 'Kontakt'
-  fontawesome_css_class: 'fa-envelope'
+  fontawesome_css_class: 'fa-envelope fas'
 menu_item_14:
   menu_name: 'footer'
   menu_title: 'About'

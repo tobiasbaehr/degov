@@ -65,7 +65,7 @@ class Instagram extends InstagramScraper {
     try {
       return parent::getMedias($username, $count, $maxId);
     }
-    catch(\Exception $exception) {
+    catch (\Exception $exception) {
       $prefix = 'Instagram: ';
       $this->logger->warning($prefix . '%message', ['%message' => $exception->getMessage()]);
       $this->messenger->addMessage($prefix . $exception->getMessage(), 'warning');

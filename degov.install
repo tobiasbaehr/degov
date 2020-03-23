@@ -426,9 +426,30 @@ function degov_update_870600() {
 }
 
 /**
- * deGov x.x.x - Install the degov_password_policy module
+ * deGov 8.0.0
+ * - Enable the synonym modules
+ * - Install the degov_media_usage module with its related submodules
  */
-function degov_update_999999() {
+function degov_update_880000() {
+  $newModules = [
+    'degov_taxonomy_term_synonyms',
+    'degov_search_synonyms',
+    'degov_search_priority_keywords',
+    'degov_media_usage',
+    'degov_media_usage_node',
+    'degov_media_usage_paragraphs'
+  ];
+  foreach ($newModules as $newModule) {
+    if (!\Drupal::moduleHandler()->moduleExists($newModule)) {
+      \Drupal::service('module_installer')->install([$newModule]);
+    }
+  }
+}
+
+/**
+ * deGov 8.0.5 - Install the degov_password_policy module
+ */
+function degov_update_880005() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_password_policy')) {
     \Drupal::service('module_installer')->install(['degov_password_policy']);
   }

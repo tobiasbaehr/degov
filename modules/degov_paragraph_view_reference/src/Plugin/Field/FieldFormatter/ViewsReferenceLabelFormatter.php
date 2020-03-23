@@ -39,12 +39,13 @@ class ViewsReferenceLabelFormatter extends FormatterBase {
         continue;
       }
       $title = $view->getTitle();
-      $title_render_array = array(
+      $title_render_array = [
         '#theme' => 'viewsreference__view_title',
         '#title' => $this->t($title),
-      );
+      ];
       $elements[$delta]['title'] = $title_render_array;
     }
     return $elements;
   }
+
 }

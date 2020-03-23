@@ -5,6 +5,9 @@ namespace Acquia\LightningExtension\Context;
 use Drupal\DrupalExtension\Context\DrupalSubContextBase;
 use Drupal\DrupalExtension\Context\MinkContext;
 
+/**
+ * Class MediaLibraryContext.
+ */
 final class MediaLibraryContext extends DrupalSubContextBase {
 
   /**
@@ -15,6 +18,8 @@ final class MediaLibraryContext extends DrupalSubContextBase {
   private $media = [];
 
   /**
+   * Tear down.
+   *
    * @AfterScenario
    */
   public function tearDown() {
@@ -63,7 +68,7 @@ final class MediaLibraryContext extends DrupalSubContextBase {
    * @When I visit the media library
    */
   public function visitLibrary() {
-    /** @var MinkContext $context */
+    /** @var \Drupal\DrupalExtension\Context\MinkContext $context */
     $context = $this->getContext(MinkContext::class);
     $context->assertAtPath('/admin/content/media');
   }

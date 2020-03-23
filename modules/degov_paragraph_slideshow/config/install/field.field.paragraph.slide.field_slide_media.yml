@@ -5,6 +5,8 @@ dependencies:
     - field.storage.paragraph.field_slide_media
     - media.type.image
     - media.type.video
+    - media.type.video_mobile
+    - media.type.video_upload
     - paragraphs.paragraphs_type.slide
   enforced:
     module:
@@ -24,7 +26,9 @@ settings:
   handler_settings:
     target_bundles:
       image: image
+      video_mobile: video_mobile
       video: video
+      video_upload: video_upload
     sort:
       field: _none
     auto_create: false

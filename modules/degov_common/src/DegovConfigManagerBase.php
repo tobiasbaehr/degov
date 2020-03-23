@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Drupal\degov_common;
@@ -21,9 +22,11 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  *
  * @package Drupal\degov_common
  */
-class DegovConfigManagerBase implements DegovConfigManager {
+class DegovConfigManagerBase implements DegovConfigManagerInterface {
   use StringTranslationTrait;
   /**
+   * Active storage.
+   *
    * @var \Drupal\Core\Config\StorageInterface
    */
   protected $activeStorage;
@@ -88,6 +91,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
    * Constructs a configuration import object.
    *
    * @param \Drupal\Core\Config\StorageInterface $active_storage
+   *   Active storage.
    * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $event_dispatcher
    *   The event dispatcher used to notify subscribers of config import events.
    * @param \Drupal\Core\Config\ConfigManagerInterface $config_manager
@@ -98,11 +102,11 @@ class DegovConfigManagerBase implements DegovConfigManager {
    * @param \Drupal\Core\Config\TypedConfigManagerInterface $typed_config
    *   The typed configuration manager.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
-   *   The module handler
+   *   The module handler.
    * @param \Drupal\Core\Extension\ModuleInstallerInterface $module_installer
    *   The module installer.
    * @param \Drupal\Core\Extension\ThemeHandlerInterface $theme_handler
-   *   The theme handler
+   *   The theme handler.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The string translation service.
    */
@@ -122,6 +126,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
    * Imports all the changes for the configuration with batch.
    *
    * @param \Drupal\Core\Config\StorageInterface $sourceStorage
+   *   Source storage.
    */
   public function configImport(StorageInterface $sourceStorage) : void {
     $storage_comparer = new StorageComparer($sourceStorage, $this->activeStorage);
@@ -141,7 +146,8 @@ class DegovConfigManagerBase implements DegovConfigManager {
       $this->themeHandler,
       $this->stringTranslation
     );
-    // Inspired by vendor/drush/drush/src/Drupal/Commands/config/ConfigImportCommands.php
+    // Inspired by
+    // vendor/drush/drush/src/Drupal/Commands/config/ConfigImportCommands.php.
     if ($config_importer->alreadyImporting()) {
       \Drupal::messenger()->addError($this->t('Another request may be importing configuration already.'));
     }
@@ -153,7 +159,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
           do {
             $config_importer->doSyncStep($step, $context);
             if (isset($context['message'])) {
-              // message is already translated.
+              // Message is already translated.
               \Drupal::messenger()->addStatus(str_replace('Synchronizing', 'Synchronized', (string) $context['message']));
             }
           } while ($context['finished'] < 1);
@@ -174,7 +180,7 @@ class DegovConfigManagerBase implements DegovConfigManager {
    * @param array $data
    *   Config data.
    */
-  protected function addUUID($configName, array &$data) : void {
+  protected function addUuid($configName, array &$data) : void {
     if (!isset($data['uuid'])) {
       $config = $this->configManager->getConfigFactory()->get($configName);
       if (!$config->isNew()) {
@@ -184,4 +190,5 @@ class DegovConfigManagerBase implements DegovConfigManager {
       }
     }
   }
+
 }

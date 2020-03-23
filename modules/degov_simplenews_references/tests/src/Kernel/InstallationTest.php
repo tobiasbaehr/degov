@@ -4,6 +4,9 @@ namespace Drupal\Tests\degov_simplenews_references\Kernel;
 
 use Drupal\Tests\token\Kernel\KernelTestBase;
 
+/**
+ * Class InstallationTest.
+ */
 class InstallationTest extends KernelTestBase {
 
   /**
@@ -12,12 +15,8 @@ class InstallationTest extends KernelTestBase {
   public static $modules = ['degov_simplenews_references'];
 
   /**
-   * {@inheritdoc}
+   * Installation.
    */
-  protected function setUp() {
-    parent::setUp();
-  }
-
   public function testInstallation(): void {
     /**
      * @var \Drupal\Core\Extension\ModuleHandler $moduleInstaller

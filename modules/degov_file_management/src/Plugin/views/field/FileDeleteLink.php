@@ -5,7 +5,6 @@ namespace Drupal\degov_file_management\Plugin\views\field;
 use Drupal\views\ResultRow;
 use Drupal\views\Plugin\views\field\LinkBase;
 use Drupal\Core\Url;
-use Drupal\views\Annotation\ViewsField;
 
 /**
  * Field handler to add a file delete link.

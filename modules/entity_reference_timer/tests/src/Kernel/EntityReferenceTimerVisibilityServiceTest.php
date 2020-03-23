@@ -14,14 +14,39 @@ use Drupal\KernelTests\KernelTestBase;
  */
 class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
 
+  /**
+   * Service.
+   *
+   * @var \Drupal\entity_reference_timer\Service\EntityReferenceTimerVisibilityService
+   */
   private $service;
 
+  /**
+   * Basic item.
+   *
+   * @var \PHPUnit\Framework\MockObject\MockObject
+   */
   private $basicItem;
 
+  /**
+   * The future.
+   *
+   * @var \PHPUnit\Framework\MockObject\MockObject
+   */
   private $theFuture;
 
+  /**
+   * The past.
+   *
+   * @var \PHPUnit\Framework\MockObject\MockObject
+   */
   private $thePast;
 
+  /**
+   * Now.
+   *
+   * @var \PHPUnit\Framework\MockObject\MockObject
+   */
   private $now;
 
   /**
@@ -60,6 +85,9 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
       ]));
   }
 
+  /**
+   * Test item is not visible if before timeframe.
+   */
   public function testItemIsNotVisibleIfBeforeTimeframe(): void {
     $itemInTheFuture = $this->basicItem;
     $itemInTheFuture
@@ -69,6 +97,9 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
     $this->assertFalse($this->service->isVisible($itemInTheFuture));
   }
 
+  /**
+   * Test item is not visible if after timeframe.
+   */
   public function testItemIsNotVisibleIfAfterTimeframe(): void {
     $itemInThePast = $this->basicItem;
     $itemInThePast
@@ -78,6 +109,9 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
     $this->assertFalse($this->service->isVisible($itemInThePast));
   }
 
+  /**
+   * Test items are visible if within timeframe.
+   */
   public function testItemsAreVisibleIfWithinTimeframe(): void {
     $currentItem = $this->basicItem;
     $currentItem
@@ -101,8 +135,10 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
    * Return a start date in the future. End date does not matter here.
    *
    * @param string $field
+   *   Field.
    *
    * @return \Drupal\Core\TypedData\TypedDataInterface
+   *   Typed data interface.
    */
   public function getDatetimesForFutureItem(string $field): TypedDataInterface {
     return $this->theFuture;
@@ -112,8 +148,10 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
    * Return an end date in the past. Start date does not matter here.
    *
    * @param string $field
+   *   Field.
    *
    * @return \Drupal\Core\TypedData\TypedDataInterface
+   *   Typed data interface.
    */
   public function getDatetimesForPastItem(string $field): TypedDataInterface {
     return $this->thePast;
@@ -123,8 +161,10 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
    * Return a start date in the past and an end date in the future.
    *
    * @param string $field
+   *   Field.
    *
    * @return \Drupal\Core\TypedData\TypedDataInterface
+   *   Typed data interface.
    */
   public function getDatetimesForCurrentItem(string $field): TypedDataInterface {
     switch ($field) {
@@ -141,8 +181,10 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
    * Only return a start date in the past, return null for the empty end date.
    *
    * @param string $field
+   *   Field.
    *
    * @return \Drupal\Core\TypedData\TypedDataInterface|null
+   *   Typed data interface.
    */
   public function getDatetimesForCurrentItemWithoutEndDate(string $field): ?TypedDataInterface {
     if ($field === 'start_date') {

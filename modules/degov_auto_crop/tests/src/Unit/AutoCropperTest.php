@@ -794,7 +794,7 @@ class AutoCropperTest extends UnitTestCase {
    * @param string $realpath
    *   The realpath we are looking for an image for.
    *
-   * @return mixed
+   * @return \Drupal\Core\Image
    *   The matching image.
    */
   public function returnImage(string $realpath) {

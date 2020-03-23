@@ -22,9 +22,9 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
-    And I should see 61 ".paragraph__content article .image" elements
-    And I should see 72 ".paragraph__content article .teaser-title" elements
-    And I should see 54 ".paragraph__content article [class*=__teaser-text]" elements
+    And I should see 69 ".paragraph__content article .image" elements
+    And I should see 80 ".paragraph__content article .teaser-title" elements
+    And I should see 60 ".paragraph__content article [class*=__teaser-text]" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role
@@ -41,9 +41,23 @@ Feature: deGov - Demo Content
     And I should see text matching "Download" via translated text
 
   Scenario: Check that the transcription toggle is working correctly.
-    Given I am on "/video-upload/video-upload"
+    Given I am on "/video-upload/video-upload-sound"
     Then I should see HTML content matching "fa-caret-right"
     And I should not see the element with css selector ".video-upload__transcription__body"
     When I click by selector ".video-upload__transcription__header" via JavaScript
     Then I should see HTML content matching "fa-caret-down"
     And I should see the element with css selector ".video-upload__transcription__body"
+
+  Scenario: Check that generated video upload without sound does not have subtitles file attached
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "The latest video upload"
+    And I choose "Description" from tab menu
+    Then I should see 0 "#field-video-upload-subtitle-values .paragraph-type-title" elements
+
+  Scenario: Check that generated video upload has a subtitles file attached
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "A video upload with sound"
+    And I choose "Description" from tab menu
+    Then I should see 1 "#field-video-upload-subtitle-values .paragraph-type-title" elements

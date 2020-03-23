@@ -46,6 +46,8 @@
       {{ slide_responsive_image }}
     {% elseif slide.field_media_video_embed_field %}
       {{ slide.field_media_video_embed_field }}
+    {% elseif slide %}
+      {{ slide }}
     {% endif %}
   </div>
   {% if not paragraph.field_slide_text.isEmpty() or not paragraph.field_override_caption.isEmpty() %}

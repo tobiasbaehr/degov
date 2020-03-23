@@ -4,8 +4,8 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\node\Entity\Node;
-use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
 
@@ -17,13 +17,6 @@ use Drupal\pathauto\PathautoState;
 class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
-   * Generates a set of node entities.
-   *
-   * @var \Drupal\degov_demo_content\Generator\MediaGenerator
-   */
-  protected $mediaGenerator;
-
-  /**
    * The alias cleaner.
    *
    * @var \Drupal\pathauto\AliasCleanerInterface
@@ -31,18 +24,29 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   protected $aliasCleaner;
 
   /**
+   * The paragraphs file handler.
+   *
+   * @var \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler
+   */
+  protected $paragraphsFileHandler;
+
+  /**
    * NodeGenerator constructor.
    *
    * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   * @param Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   * @param \Drupal\degov_demo_content\Generator\MediaGenerator $mediaGenerator
+   *   Module handler.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *   Entity type manager.
+   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
+   *   Paragraphs file handler.
    * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
+   *   Alias cleaner.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, MediaGenerator $mediaGenerator, AliasCleanerInterface $aliasCleaner) {
-    parent::__construct($moduleHandler, $entityTypeManager);
-    $this->mediaGenerator = $mediaGenerator;
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler, AliasCleanerInterface $aliasCleaner) {
+    parent::__construct($moduleHandler, $entityTypeManager, $paragraphsFileHandler);
     $this->aliasCleaner = $aliasCleaner;
     $this->entityType = 'node';
+    $this->paragraphsFileHandler = $paragraphsFileHandler;
   }
 
   /**
@@ -76,129 +80,66 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       $paragraphs = array_filter($paragraphs);
       unset($rawNode['field_content_paragraphs'], $rawNode['field_header_paragraphs'], $rawNode['field_sidebar_right_paragraphs']);
 
-      $this->generateParagraphsForNode($paragraphs, $rawNode);
+      $this->generateParagraphs($paragraphs, $rawNode);
       $this->prepareValues($rawNode);
       $rawNode['path'] = [
         'alias'    => '/degov-demo-content/' . $this->aliasCleaner->cleanString($rawNode['title']),
         'pathauto' => PathautoState::SKIP,
       ];
+      // If no "created" date is defined in definitions, we  generate a unique
+      // number with 5 digits based on $srcId (% digits are abozt a day in Unix time
+      // 86400s->1 day) and add it to DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP.
+      // A manual date defined date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
+      $rawNode['created'] = isset($rawNode['created']) ? $rawNode['created'] : $this->getCreatedTimestamp($srcId);
+
       $node = Node::create($rawNode);
       $node->save();
 
-      /**
-       * Use first node for teasers
-       */
+      // Use first node for teasers.
       if ($teaserPage === NULL) {
         $teaserPage = $node;
         $this->setFrontPage('/node/' . $teaserPage->id());
       }
       else {
         if ($rawNode['type'] !== 'faq') {
-            $nodeIds[] = $node->id();
+          $nodeIds[] = $node->id();
         }
       }
+      /*
+       * Make sure Nodes are not all created the same second,
+       * otherwise views will display them in random order.
+       */
+      sleep(1);
     }
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
     $this->generateMediaReferenceParagraphs($teaserPage);
   }
 
+  /**
+   * Set front page.
+   *
+   * @param string $path_to_set
+   *   Path to set.
+   */
   private function setFrontPage($path_to_set) {
     $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
-    if(empty($original_front_page)) {
-      // save original front page
+    if (empty($original_front_page)) {
+      // Save original front page.
       $front = \Drupal::config('system.site')->get('page.front');
       \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
     }
     \Drupal::configFactory()->getEditable('system.site')->set('page.front', $path_to_set)->save();
   }
 
+  /**
+   * Reset front page.
+   */
   private function resetFrontPage() {
     $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
-    if(!empty($original_front_page)) {
+    if (!empty($original_front_page)) {
       $this->setFrontPage($original_front_page);
       \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
     }
-  }
-
-  /**
-   * @param array $rawParagraphReferences
-   * @param $rawNode
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  protected function generateParagraphsForNode(array $rawParagraphReferences, &$rawNode): void {
-    foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
-      foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
-        $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
-        $this->prepareValues($rawParagraph);
-        $this->resolveEncapsulatedParagraphs($rawParagraph);
-        $paragraph = Paragraph::create($rawParagraph);
-        $paragraph->save();
-        $rawNode[$type][] = $paragraph;
-      }
-    }
-  }
-
-  /**
-   * @param $rawParagraph
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  protected function resolveEncapsulatedParagraphs(&$rawParagraph): void {
-    foreach ($rawParagraph as $index => $rawField) {
-      if (\is_array($rawField)) {
-        foreach ($rawField as $innerIndex => $rawValue) {
-          $fieldName = str_replace('paragraph_reference_', '', $rawValue);
-          if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
-            $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
-            $this->prepareValues($rawInnerParagraph);
-            $innerParagraph = Paragraph::create($rawInnerParagraph);
-            $innerParagraph->save();
-            $rawParagraph[$index][$innerIndex] = $innerParagraph;
-          }
-        }
-      }
-    }
-  }
-
-  /**
-   * @param \Drupal\node\Entity\Node $teaserPage
-   * @param array $nodeIds
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
-    $paragraphs = [];
-    foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
-      $rawParagraph['field_sub_title'] = $this->generateBlindText(3);
-      $rawParagraph['field_node_reference_nodes'] = $nodeIds;
-      $paragraph = Paragraph::create($rawParagraph);
-      $paragraph->save();
-      $paragraphs[] = $paragraph;
-    }
-    $teaserPage->set('field_content_paragraphs', $paragraphs);
-    $teaserPage->save();
-  }
-
-  /**
-   * Generates Media reference paragraph.
-   *
-   * @param \Drupal\node\Entity\Node $teaserPage
-   *   The Node entity.
-   *
-   * @throws \Drupal\Core\Entity\EntityStorageException
-   */
-  protected function generateMediaReferenceParagraphs(Node $teaserPage): void {
-    $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', 'media_reference_citation_front');
-    $this->prepareValues($rawParagraph);
-    $this->resolveEncapsulatedParagraphs($rawParagraph);
-    unset($rawParagraph['field_title']);
-
-    $paragraph = Paragraph::create($rawParagraph);
-    $paragraph->save();
-
-    $teaserPage->get('field_content_paragraphs')->appendItem($paragraph);
-    $teaserPage->save();
   }
 
   /**
@@ -210,10 +151,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
+   * Reset content.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function resetContent(): void {
     $this->deleteContent();
     $this->generateContent();
   }
+
 }

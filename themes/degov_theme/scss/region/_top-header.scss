@@ -25,6 +25,7 @@
     text-decoration: none;
   }
   .dropdown-toggle {
+    white-space: normal;
     &::after {
       content: none;
     }

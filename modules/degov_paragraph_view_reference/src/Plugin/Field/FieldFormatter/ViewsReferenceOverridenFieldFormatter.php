@@ -56,7 +56,7 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
         }
       }
       if (!empty($argument)) {
-        // load the arguments from the field storage.
+        // Load the arguments from the field storage.
         $arguments = [$argument];
         if (preg_match('/\//', $argument)) {
           $arguments = explode('/', $argument);
@@ -78,7 +78,8 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
               else {
                 $arguments[$index] = 0;
               }
-              // If there is a default value for the node, set it - we have the node object.
+              // If there is a default value for the node, set it - we have
+              // the node object.
               if ($view_arguments_config[$index]['default_argument_type'] == 'node' && $node instanceof NodeInterface) {
                 $arguments[$index] = $node->id();
               }
@@ -103,7 +104,8 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
       if (!empty($extra_data['view_mode'])) {
         if (!$view->rowPlugin->usesFields() && !empty($view->rowPlugin->options['view_mode'])) {
           $view->rowPlugin->options['view_mode'] = $extra_data['view_mode'];
-          // Add view mode to the cache keys, so the renderable array could be safely cached.
+          // Add view mode to the cache keys, so the renderable array
+          // could be safely cached.
           $view->element['#cache']['keys'][] = $extra_data['view_mode'];
         }
         $css_class = $view->display_handler->getOption('css_class');

@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 (function ($, Drupal) {
 
   function hideFormElements(element) {
@@ -17,14 +21,15 @@
   function showCheckedHideUncheckedFormElements(element) {
     if (element.prop("checked") === true) {
       showFormElements(element);
-    } else if (element.prop("checked") === false) {
+    }
+else if (element.prop("checked") === false) {
       hideFormElements(element);
     }
   }
 
   Drupal.behaviors.handleCheckboxClick = {
     attach: function () {
-      $('.field--widget-entity-reference-autocomplete-date input[type=checkbox]').click(function() {
+      $('.field--widget-entity-reference-autocomplete-date input[type=checkbox]').click(function () {
         showCheckedHideUncheckedFormElements($(this));
       });
     }
@@ -32,7 +37,7 @@
 
   Drupal.behaviors.handleWidgetsWithSelectedDate = {
     attach: function () {
-      $('.field--type-entity-reference-date input[type=checkbox]').each(function() {
+      $('.field--type-entity-reference-date input[type=checkbox]').each(function () {
         showCheckedHideUncheckedFormElements($(this));
       });
     }

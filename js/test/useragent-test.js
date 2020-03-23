@@ -1,21 +1,25 @@
+/**
+ * @file
+ */
+
 import Navi from '../../modules/degov_media_video_mobile/js/navi';
 import UserAgentChecker from '../../modules/degov_media_video_mobile/js/user_agent_checker';
 
 
-QUnit.test('User agent string test', function(assert) {
+QUnit.test('User agent string test', function (assert) {
 
-  // Chrome on Mac
-  const navigator1 =  {
+  // Chrome on Mac.
+  const navigator1 = {
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
   };
 
-  // Mobile Safari
-  const navigator2 =  {
+  // Mobile Safari.
+  const navigator2 = {
     userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B137 Safari/601.1'
   };
 
-  // Android Browser
-  const navigator3 =  {
+  // Android Browser.
+  const navigator3 = {
     userAgent: 'Mozilla/5.0 (Linux; U; Android 4.0.2; en-us; Galaxy Nexus Build/ICL53F) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
   };
 

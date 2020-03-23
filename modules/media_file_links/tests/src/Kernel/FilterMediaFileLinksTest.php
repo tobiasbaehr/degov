@@ -13,12 +13,8 @@ use Drupal\filter\FilterProcessResult;
 class FilterMediaFileLinksTest extends MediaFileLinksTestBase {
 
   /**
-   * {@inheritdoc}
+   * Test input filter outputs resolved url.
    */
-  protected function setUp() {
-    parent::setUp();
-  }
-
   public function testInputFilterOutputsResolvedUrl(): void {
     $inputFilter = new FilterMediaFileLinks([], '', ['provider' => '']);
     $formattedText = $inputFilter->process('[media/file/' . $this->supportedMediaId . ']', \Drupal::languageManager()->getCurrentLanguage());

@@ -2,9 +2,11 @@
 
 namespace Drupal\Tests\degov_theming\Kernel;
 
-use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\token\Kernel\KernelTestBase;
 
+/**
+ * Class TemplateTest.
+ */
 class TemplateTest extends KernelTestBase {
 
   /**
@@ -13,15 +15,11 @@ class TemplateTest extends KernelTestBase {
   public static $modules = ['degov_theming'];
 
   /**
-   * {@inheritdoc}
+   * Render.
    */
-  protected function setUp() {
-    parent::setUp();
-  }
-
   public function testRender() {
     /**
-     * @var Template $template
+     * @var \Drupal\degov_theming\Service\Template $template
      */
     $template = \Drupal::service('degov_theming.template');
     $html = $template->render('degov_theming', 'tests/src/Kernel/Fixture/template.html.twig', ['test' => 'some string']);

@@ -5,6 +5,6 @@ core: 8.x
 package: 'deGov'
 
 dependencies:
-- drupal:devel
-- drupal:webprofiler
-- drupal:error_log
+- devel:devel
+- devel:webprofiler
+- error_log:error_log

@@ -13,11 +13,15 @@ use Drupal\Core\Database\Connection;
 class EntityReferenceTimerCronService {
 
   /**
+   * Cache tags invalidator.
+   *
    * @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface
    */
   private $cacheTagsInvalidator;
 
   /**
+   * Database.
+   *
    * @var \Drupal\Core\Database\Connection
    */
   private $database;
@@ -26,13 +30,18 @@ class EntityReferenceTimerCronService {
    * EntityReferenceTimerCronService constructor.
    *
    * @param \Drupal\Core\Cache\CacheTagsInvalidatorInterface $cacheTagsInvalidator
+   *   Cache tags invalidator.
    * @param \Drupal\Core\Database\Connection $database
+   *   Database.
    */
   public function __construct(CacheTagsInvalidatorInterface $cacheTagsInvalidator, Connection $database) {
     $this->cacheTagsInvalidator = $cacheTagsInvalidator;
     $this->database = $database;
   }
 
+  /**
+   * Clear expired caches.
+   */
   public function clearExpiredCaches(): void {
     $tagsToInvalidate = [];
 

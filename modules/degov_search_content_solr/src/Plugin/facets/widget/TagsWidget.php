@@ -23,31 +23,34 @@ class TagsWidget extends DropdownWidget {
     $build = parent::build($facet);
 
     foreach ($build["#items"] as &$item) {
-    	if ($transformedItem = $this->transformTidToName($item)) {
-				$item = $transformedItem;
-			}
+      if ($transformedItem = $this->transformTidToName($item)) {
+        $item = $transformedItem;
+      }
     }
 
     return $build;
   }
 
+  /**
+   * Transform term id to name.
+   */
   private function transformTidToName(array $item): ?array {
     $resultSet = \Drupal::entityTypeManager()
       ->getStorage('taxonomy_term')
       ->loadByProperties([
         'vid' => 'tags',
-        'tid' => $item['#title']['#value']
+        'tid' => $item['#title']['#value'],
       ]);
 
     if (!empty($resultSet)) {
-			$result = array_shift($resultSet);
+      $result = array_shift($resultSet);
 
-			$item['#title']['#value'] = $result->getName();
+      $item['#title']['#value'] = $result->getName();
 
-			return $item;
-		}
+      return $item;
+    }
 
-    return null;
+    return NULL;
   }
 
 }

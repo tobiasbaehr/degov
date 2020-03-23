@@ -3,7 +3,6 @@
 namespace Drupal\Tests\degov_common\Kernel;
 
 use Drupal\degov_common\Common;
-use Drupal\degov_common\Entity\NodeService;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
@@ -11,6 +10,9 @@ use Drupal\paragraphs\Entity\ParagraphsType;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 
+/**
+ * Class CommonTest.
+ */
 class CommonTest extends KernelTestBase {
 
   /**
@@ -19,22 +21,25 @@ class CommonTest extends KernelTestBase {
   public static $modules = [
     'user',
     'system',
+    'language',
     'node',
     'paragraphs',
+    'language',
     'degov_common',
     'config_replace',
     'video_embed_field',
-		'paragraphs',
-		'file',
+    'paragraphs',
+    'file',
     'text',
-    'taxonomy'
+    'taxonomy',
   ];
 
   /**
+   * Entity service.
+   *
    * @var \Drupal\degov_common\Entity\EntityService
    */
   private $entityService;
-
 
   /**
    * {@inheritdoc}
@@ -52,21 +57,24 @@ class CommonTest extends KernelTestBase {
     $this->entityService = \Drupal::service('degov_common.entity');
   }
 
+  /**
+   * Test remove taxonomy term.
+   */
   public function testRemoveTaxonomyTerm() {
 
     $vocabulary = Vocabulary::create([
       'vid' => 'mytaxonomy',
       'description' => 'myTest',
-      'name' => 'myTaxonomy'
+      'name' => 'myTaxonomy',
     ])->save();
     $taxonomyTerm = Term::create([
       'name' => 'An Taxonomy term',
-      'vid' => 'mytaxonomy'
+      'vid' => 'mytaxonomy',
     ])->save();
 
-    $termLoaded = $this->entityService->load('taxonomy_term',[
+    $termLoaded = $this->entityService->load('taxonomy_term', [
       'vid' => 'mytaxonomy',
-      'name' => 'An Taxonomy term'
+      'name' => 'An Taxonomy term',
     ]);
     self::assertTrue($termLoaded);
     Common::removeContent([
@@ -79,6 +87,10 @@ class CommonTest extends KernelTestBase {
     ]);
     self::assertFalse($termID);
   }
+
+  /**
+   * Test remove node.
+   */
   public function testRemoveNode() {
     $node = Node::create([
       'title' => 'An article node',
@@ -87,7 +99,7 @@ class CommonTest extends KernelTestBase {
     $node->save();
 
     $nodeID = $this->entityService->load('node', [
-      'title' => 'An article node'
+      'title' => 'An article node',
     ]);
     self::assertTrue($nodeID);
     Common::removeContent([
@@ -101,71 +113,76 @@ class CommonTest extends KernelTestBase {
     self::assertFalse($nodeID);
   }
 
+  /**
+   * Test remove paragraph.
+   */
   public function testRemoveParagraph() {
-		list($paragraph1, $paragraph2, $paragraph3) = $this->createParagraphs();
+    list($paragraph1, $paragraph2, $paragraph3) = $this->createParagraphs();
 
-		$idParagraph1 = $paragraph1->id();
-		$idParagraph2 = $paragraph2->id();
-		$idParagraph3 = $paragraph3->id();
+    $idParagraph1 = $paragraph1->id();
+    $idParagraph2 = $paragraph2->id();
+    $idParagraph3 = $paragraph3->id();
 
-		$this->assertSame(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
-		$this->assertSame(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
-		$this->assertSame(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+    $this->assertSame(\get_class(Paragraph::load($idParagraph1)), Paragraph::class);
+    $this->assertSame(\get_class(Paragraph::load($idParagraph2)), Paragraph::class);
+    $this->assertSame(\get_class(Paragraph::load($idParagraph3)), Paragraph::class);
 
-		$node = Node::create([
-			'title' => $this->randomMachineName(),
-			'type' => 'article',
-			'node_paragraph_field' => array($paragraph1, $paragraph2),
-		]);
-		$node->save();
+    $node = Node::create([
+      'title' => $this->randomMachineName(),
+      'type' => 'article',
+      'node_paragraph_field' => [$paragraph1, $paragraph2],
+    ]);
+    $node->save();
 
-		Common::removeContent([
-			'entity_type' => 'paragraph',
-			'entity_bundles' => ['test_text'],
-		]);
+    Common::removeContent([
+      'entity_type' => 'paragraph',
+      'entity_bundles' => ['test_text'],
+    ]);
 
-		$this->assertSame(Paragraph::load($idParagraph1), NULL);
-		$this->assertSame(Paragraph::load($idParagraph2), NULL);
-		$this->assertSame(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
-	}
+    $this->assertSame(Paragraph::load($idParagraph1), NULL);
+    $this->assertSame(Paragraph::load($idParagraph2), NULL);
+    $this->assertSame(get_class(Paragraph::load($idParagraph3)), Paragraph::class);
+  }
 
-	private function createParagraphs(): array
-	{
-		$paragraph_type = ParagraphsType::create([
-			'label' => 'test_text',
-			'id'    => 'test_text',
-		]);
-		$paragraph_type->save();
+  /**
+   * Create paragraphs.
+   */
+  private function createParagraphs(): array {
+    $paragraph_type = ParagraphsType::create([
+      'label' => 'test_text',
+      'id'    => 'test_text',
+    ]);
+    $paragraph_type->save();
 
-		$paragraph_type = ParagraphsType::create([
-			'label' => 'test_text_not_remove',
-			'id'    => 'test_text_not_remove',
-		]);
-		$paragraph_type->save();
+    $paragraph_type = ParagraphsType::create([
+      'label' => 'test_text_not_remove',
+      'id'    => 'test_text_not_remove',
+    ]);
+    $paragraph_type->save();
 
-		$paragraph1 = Paragraph::create([
-			'title' => 'Paragraph',
-			'type'  => 'test_text',
-		]);
-		$paragraph1->save();
+    $paragraph1 = Paragraph::create([
+      'title' => 'Paragraph',
+      'type'  => 'test_text',
+    ]);
+    $paragraph1->save();
 
-		$paragraph2 = Paragraph::create([
-			'title' => 'Paragraph',
-			'type'  => 'test_text',
-		]);
-		$paragraph2->save();
+    $paragraph2 = Paragraph::create([
+      'title' => 'Paragraph',
+      'type'  => 'test_text',
+    ]);
+    $paragraph2->save();
 
-		$paragraph3 = Paragraph::create([
-			'title' => 'Paragraph',
-			'type'  => 'test_text_not_remove',
-		]);
-		$paragraph3->save();
+    $paragraph3 = Paragraph::create([
+      'title' => 'Paragraph',
+      'type'  => 'test_text_not_remove',
+    ]);
+    $paragraph3->save();
 
-		return [
-			$paragraph1,
-			$paragraph2,
-			$paragraph3,
-		];
-	}
+    return [
+      $paragraph1,
+      $paragraph2,
+      $paragraph3,
+    ];
+  }
 
 }

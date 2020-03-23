@@ -1,5 +1,6 @@
 # Getting started
 
+## Table of contents
 - [How to read and work with the Markdown files from the deGov project?](#how-to-read-and-work-with-the-markdown-files-from-the-degov-project)
 - [Installing deGov](#installing-degov)
     - [Technical requirements](#technical-requirements)

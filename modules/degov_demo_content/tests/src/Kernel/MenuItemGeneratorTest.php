@@ -2,15 +2,14 @@
 
 namespace Drupal\Tests\degov_demo_content\Kernel;
 
-use Drupal\Core\Entity\EntityTypeManager;
-use Drupal\Core\Entity\Sql\SqlContentEntityStorage;
-use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\node\Entity\Node;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 
-
+/**
+ * Class MenuItemGeneratorTest.
+ */
 class MenuItemGeneratorTest extends KernelTestBase {
 
   use UserCreationTrait;
@@ -27,16 +26,20 @@ class MenuItemGeneratorTest extends KernelTestBase {
     'token',
     'user',
     'menu_link_content',
-    'link'
+    'link',
   ];
 
   /**
-   * @var MenuItemGenerator
+   * Menu item generator.
+   *
+   * @var \Drupal\degov_demo_content\Generator\MenuItemGenerator
    */
   private $menuItemGenerator;
 
   /**
-   * @var SqlContentEntityStorage
+   * Menu link content storage.
+   *
+   * @var \Drupal\Core\Entity\Sql\SqlContentEntityStorage
    */
   private $menuLinkContentStorage;
 
@@ -54,7 +57,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
     $this->menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
 
     /**
-     * @var EntityTypeManager $entityTypeManager
+     * @var \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
      */
     $entityTypeManager = \Drupal::service('entity_type.manager');
     $this->menuLinkContentStorage = $entityTypeManager->getStorage('menu_link_content');
@@ -63,6 +66,9 @@ class MenuItemGeneratorTest extends KernelTestBase {
     \Drupal::currentUser()->setAccount($user);
   }
 
+  /**
+   * Menu item generation.
+   */
   public function testMenuItemsGeneration(): void {
     $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
@@ -78,6 +84,9 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount($assertedInstances, $menuItems);
   }
 
+  /**
+   * Delete demo menu items only.
+   */
   public function testDeleteDemoMenuItemsOnly(): void {
     $this->generateNodesFromDefinitions();
     $this->menuItemGenerator->generateContent();
@@ -95,7 +104,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
     $this->menuItemGenerator->deleteContent();
 
     $expectedExistingMenuItems = $this->menuLinkContentStorage->loadByProperties([
-      'title' => 'Example.com'
+      'title' => 'Example.com',
     ]);
 
     self::assertCount(1, $expectedExistingMenuItems);
@@ -105,12 +114,18 @@ class MenuItemGeneratorTest extends KernelTestBase {
     self::assertCount(1, $allMenuItems);
   }
 
+  /**
+   * Generate nodes  from definitions.
+   */
   private function generateNodesFromDefinitions(): void {
     $definitions = $this->menuItemGenerator->loadDefinitions('menu_item.yml');
 
     $this->generateNodes($definitions);
   }
 
+  /**
+   * Generate nodes.
+   */
   private function generateNodes(array $definitions): void {
     foreach ($definitions as $definition) {
       $node = Node::create([
@@ -124,4 +139,5 @@ class MenuItemGeneratorTest extends KernelTestBase {
       }
     }
   }
+
 }

@@ -1,8 +1,10 @@
 /**
- * @file process.js
+ * @file
+ * process.js
  *
- * Defines the behaviors of the degov_social_media_settings module
+ * Defines the behaviors of the degov_social_media_settings module.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';
@@ -160,12 +162,18 @@
 
   // Initialize twitter media from media bundle tweet.
   function initTwitter(wrapper) {
-    function _initTwitter () {
+    function _initTwitter() {
       twttr.widgets.load(wrapper);
     }
 
     if (typeof twttr === 'undefined') {
-      $.getScript('//platform.twitter.com/widgets.js', _initTwitter);
+      $.ajax({
+        url: '//platform.twitter.com/widgets.js',
+        type: "GET",
+        success: _initTwitter,
+        dataType: "script",
+        cache: true
+      });
     }
     else {
       _initTwitter();
@@ -174,12 +182,18 @@
 
   // Initialize instagram media from media bundle instagram.
   function initInstagram() {
-    function _initInstagram () {
+    function _initInstagram() {
       instgrm.Embeds.process();
     }
 
     if (typeof instgrm === 'undefined') {
-      $.getScript('//platform.instagram.com/en_US/embeds.js', _initInstagram);
+      $.ajax({
+        url: '//platform.instagram.com/en_US/embeds.js',
+        type: "GET",
+        success: _initInstagram,
+        dataType: "script",
+        cache: true
+      });
     }
     else {
       _initInstagram();
@@ -210,7 +224,7 @@
       selector.slick('unslick');
     }
 
-    if(selector.length) {
+    if (selector.length) {
       selector.parent().find(".slick-controls").show();
       selector.slick({
         dots: true,
@@ -244,7 +258,7 @@
   }
 
   // Parameter to open the social media settings overlay on page load for testing purposes.
-  if(window.location.search === '?_debugDisplaySocialMediaSettings') {
+  if (window.location.search === '?_debugDisplaySocialMediaSettings') {
     $('.js-social-media-settings-open').trigger('click');
     $('#social-media-settings').css('position', 'relative');
   }

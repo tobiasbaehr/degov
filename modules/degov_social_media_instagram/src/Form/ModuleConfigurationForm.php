@@ -43,7 +43,7 @@ class ModuleConfigurationForm extends ConfigFormBase {
     ];
     $form['number_of_characters'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Number of characters post\'s caption'),
+      '#title' => $this->t("Number of characters post's caption"),
       '#default_value' => $config->get('number_of_characters'),
     ];
     return parent::buildForm($form, $form_state);

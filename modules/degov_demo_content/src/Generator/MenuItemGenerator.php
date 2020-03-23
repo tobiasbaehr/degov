@@ -5,7 +5,7 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
-use Drupal\Core\Menu\MenuLinkInterface;
+use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 
@@ -17,6 +17,8 @@ use Drupal\menu_link_content\MenuLinkContentInterface;
 class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
+   * Database.
+   *
    * @var \Drupal\Core\Database\Connection
    *   The database connection.
    */
@@ -29,11 +31,13 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    *   The module handler.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
+   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
+   *   Paragraphs file handler.
    * @param \Drupal\Core\Database\Connection $database
    *   The database connection.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, Connection $database) {
-    parent::__construct($moduleHandler, $entityTypeManager);
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler, Connection $database) {
+    parent::__construct($moduleHandler, $entityTypeManager, $paragraphsFileHandler);
 
     $this->database = $database;
     $this->entityType = 'menu_link_content';
@@ -51,16 +55,21 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
-   * Generates menu items from YAML definitions recursively for menus as deep as we want.
+   * Generate menu items.
+   *
+   * Generates menu items from YAML definitions recursively for menus as
+   * deep as we want.
    *
    * @param array $menuItemDefinitions
-   * @param \Drupal\Core\Menu\MenuLinkInterface|NULL $parentMenuLink
+   *   Menu item definitions.
+   * @param \Drupal\menu_link_content\MenuLinkContentInterface|NULL $parentMenuLink
+   *   Parent menu link.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
     foreach ($menuItemDefinitions as $key => $menuItemDefinition) {
-      $title = isset($menuItemDefinition['menu_title']) ? $menuItemDefinition['menu_title'] : $menuItemDefinition['node_title'];
+      $title = $menuItemDefinition['menu_title'] ?? $menuItemDefinition['node_title'];
       $menuLinkParameters = [
         'title'     => $title,
         'link'      => [
@@ -70,7 +79,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
         'expanded'  => TRUE,
       ];
 
-      if (isset($menuItemDefinition['menu_weight']) ) {
+      if (isset($menuItemDefinition['menu_weight'])) {
         $menuLinkParameters['weight'] = $menuItemDefinition['menu_weight'];
       }
 
@@ -78,11 +87,11 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
         $menuLinkParameters['parent'] = $parentMenuLink->getPluginId();
       }
 
-      if (empty($parentMenuLink) && !empty($definition['fontawesome_css_class'])) {
+      if (empty($parentMenuLink) && !empty($menuItemDefinition['fontawesome_css_class'])) {
         $menuLinkParameters['link']['options'] = [
           'attributes' => [
             'class' => [
-              $definition['fontawesome_css_class'],
+              $menuItemDefinition['fontawesome_css_class'],
             ],
           ],
         ];
@@ -101,8 +110,10 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * Gets the ID of a node with the given title.
    *
    * @param string $nodeTitle
+   *   Node title.
    *
    * @return string
+   *   Node ID.
    *
    * @throws \Exception
    */
@@ -154,6 +165,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    *   The menu item to check.
    *
    * @return bool
+   *   Demo menu item.
    *
    * @throws \Exception
    */
@@ -163,24 +175,29 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
   }
 
   /**
-   * Recursively checks if a menu item title is contained in the definitions array.
+   * Get menu titles from definition.
    *
-   * @param string $title
+   * Recursively checks if a menu item title is contained in the
+   * definitions array.
+   *
    * @param array $definitions
+   *   Definitions.
    *
-   * @return bool
+   * @return array
+   *   Menu titles.
    */
   private function getMenuTitlesFromDefinition(array $definitions): array {
     $titlesArray = [];
 
     foreach ($definitions as $definition) {
-      $titlesArray[] = isset($definition['menu_title']) ? $definition['menu_title'] : $definition['node_title'];
+      $titlesArray[] = $definition['menu_title'] ?? $definition['node_title'];
 
-      if(!empty($definition['children'])) {
+      if (!empty($definition['children'])) {
         $titlesArray = array_merge($titlesArray, $this->getMenuTitlesFromDefinition($definition['children']));
       }
     }
 
     return $titlesArray;
   }
+
 }

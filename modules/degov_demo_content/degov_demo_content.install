@@ -23,6 +23,17 @@ function degov_demo_content_install() {
     'vid'  => DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME,
   ]);
   $copyright_term->save();
+
+  if (\Drupal::service('module_handler')->moduleExists('degov_taxonomy_term_synonyms')) {
+    $synonym_term = Term::create([
+      'name' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_NAME,
+      'vid' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_VOCABULARY_NAME,
+    ]);
+    $synonym_term->save();
+    $tag_term->field_synonyms->target_id = $synonym_term->id();
+    $tag_term->save();
+  }
+
   \Drupal::service('degov_demo_content.media_generator')->generateContent();
   \Drupal::service('degov_demo_content.node_generator')->generateContent();
   \Drupal::service('degov_demo_content.menu_item_generator')->generateContent();
@@ -56,6 +67,17 @@ function degov_demo_content_uninstall() {
     ->loadByProperties([
       'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
     ]);
+
+  if (\Drupal::service('module_handler')->moduleExists('degov_taxonomy_term_synonyms')) {
+    $synonym = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties([
+        'name' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_NAME,
+      ]);
+
+    $terms = array_merge($terms, $synonym);
+  }
+
   foreach ($terms as $term) {
     $term->delete();
   }

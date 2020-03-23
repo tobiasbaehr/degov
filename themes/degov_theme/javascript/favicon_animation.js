@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 (function ($) {
     $(document).ready(function () {
         if (typeof favicon_animation_frames !== undefined) {

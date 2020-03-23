@@ -1,10 +1,14 @@
+/**
+ * @file
+ */
+
 import Navi from '../../modules/degov_media_video_mobile/js/navi';
 
 
-QUnit.test("Test Navigator Object", function(assert) {
+QUnit.test("Test Navigator Object", function (assert) {
 
-  //established fake_navigator
-  const navigator =  {
+  // Established fake_navigator.
+  const navigator = {
     connection: {
       'onchange':null,
       'effectiveType': "4g",
@@ -13,7 +17,6 @@ QUnit.test("Test Navigator Object", function(assert) {
       'saveDate': false
     }
   };
-
 
   const navi = new Navi(navigator);
 
@@ -24,7 +27,5 @@ QUnit.test("Test Navigator Object", function(assert) {
   assert.equal('undefined', typeof navi.getConnection().type, "Expected: If property navigator.connection.type (e.g) ist not define, we expect value to be undefined");
   assert.equal('undefined',typeof navi.getConnection().mozConnection, "Expected: MozConnection expected to be undefined");
   assert.equal('undefined',typeof navi.getConnection().webkitConnection, "Expected: webkitConnection expected to be undefined");
-
-
 
 });

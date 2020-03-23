@@ -49,14 +49,13 @@ msgid "If you activate these fields with a click, information will be transmitte
 msgstr "Wenn Sie diese Felder durch einen Klick aktivieren, werden Informationen an die nachfolgenden Dienste übertragen und dort gespeichert:"
 
 #: templates/degov-social-media-settings-block.html.twig:54
-msgid "<p>Please read carefully our notes and information on <a href=\"@social_media_privacy_url\" title=\"To the privacy page\" target=\"_blank\">Privacy</a> and <a href=\"@social_media_netiquette_url\" title=\"To netiquette\" target=\"_blank\">Netiquette</a> before you activate individual social media.</p>"
-msgstr ""
-"<p>Bitte beachten Sie unsere Informationen und Hinweise zum <a href=\"@social_media_privacy_url\" title=\"Zur Datenschutzseite\" target=\"_blank\">Datenschutz</a> und zur <a href=\"@social_media_netiquette_url\" title=\"Zur Netiquette\" target=\"_blank\">Netiquette</a> bevor Sie die einzelnen Sozialen Medien "
-"aktivieren.</p>"
+msgid "Please read carefully our notes and information on <a href=\"@social_media_privacy_url\" title=\"To the privacy page\" target=\"_blank\">Privacy</a> and <a href=\"@social_media_netiquette_url\" title=\"To netiquette\" target=\"_blank\">Netiquette</a> before you activate individual social media."
+msgstr "Bitte beachten Sie unsere Informationen und Hinweise zum <a href=\"@social_media_privacy_url\" title=\"Zur Datenschutzseite\" target=\"_blank\">Datenschutz</a> und zur <a href=\"@social_media_netiquette_url\" title=\"Zur Netiquette\" target=\"_blank\">Netiquette</a> bevor Sie die einzelnen Sozialen Medien "
+ "aktivieren."
 
 #: templates/degov-social-media-settings-block.html.twig:55
-msgid "<p>Permanently enable data feeds from social networks and agree to data transfer:</p>"
-msgstr "<p>Datenfeeds von sozialen Netzwerken dauerhaft aktivieren und Datenübertragung zustimmen:</p>"
+msgid "Permanently enable data feeds from social networks and agree to data transfer:"
+msgstr "Datenfeeds von sozialen Netzwerken dauerhaft aktivieren und Datenübertragung zustimmen:"
 
 #: templates/degov-social-media-settings-block.html.twig:61
 msgid "All"
@@ -73,3 +72,9 @@ msgstr "Speichern"
 #: config/optional/field.field.media.video.field_social_media_source.yml:0
 msgid "Quelle"
 msgstr "Quelle"
+
+msgid "show more"
+msgstr "mehr anzeigen"
+
+msgid "show less"
+msgstr "weniger anzeigen"

@@ -42,6 +42,7 @@ class CalendarDate extends Raw {
 
   /**
    * Constructs a new Date instance.
+   * phpcs:disable
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -49,10 +50,15 @@ class CalendarDate extends Raw {
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
+   * @param \Drupal\Core\Path\AliasManagerInterface $alias_manager
+   *   Alias manager.
+   * @param \Drupal\Core\Path\CurrentPathStack $current_path
+   *   Current path.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The current request.
+   * phpcs:enable
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, AliasManagerInterface $alias_manager, CurrentPathStack $current_path, DateFormatterInterface $date_formatter, Request $request) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $alias_manager, $current_path);
@@ -91,7 +97,8 @@ class CalendarDate extends Raw {
     array_shift($args);
     if (isset($args[$this->options['index']]) && $this->isValidDateFromArgument($args[$this->options['index']])) {
       return $args[$this->options['index']];
-    } else {
+    }
+    else {
 
       $request_time = $this->request->server->get('REQUEST_TIME');
 
@@ -100,11 +107,13 @@ class CalendarDate extends Raw {
   }
 
   /**
-   * Check if the string is correct date from format
+   * Check if the string is correct date from format.
    *
-   * @param $date_string
+   * @param string $date_string
+   *   Date string.
    *
    * @return bool
+   *   True if valid date.
    */
   private function isValidDateFromArgument($date_string) {
     $date = \DateTime::createFromFormat($this->argFormat, $date_string);
@@ -113,6 +122,5 @@ class CalendarDate extends Raw {
     }
     return FALSE;
   }
-
 
 }

@@ -2,21 +2,22 @@
 
 namespace Drupal\Tests\degov_demo_content\Unit;
 
-use Drupal\degov_common\Factory\FilesystemFactory;
 use Drupal\degov_demo_content\FileAdapter;
-use Drupal\degov_demo_content\MediaFileHandler;
+use Drupal\degov_demo_content\FileHandler\MediaFileHandler;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
-use Symfony\Component\Filesystem\Filesystem;
 use Drupal\file\Entity\File;
 
 \define('DEGOV_DEMO_CONTENT_FILES_SAVE_PATH', 'public://degov_demo_content');
-
-
+/**
+ * Class MediaFileHandlerTest.
+ */
 class MediaFileHandlerTest extends UnitTestCase {
 
   /**
-   * @var FileAdapter
+   * File adapter.
+   *
+   * @var \Drupal\degov_demo_content\FileAdapter
    */
   private $fileAdapter;
 
@@ -25,7 +26,7 @@ class MediaFileHandlerTest extends UnitTestCase {
    */
   protected function setUp() {
     /**
-     * @var FileAdapter $fileAdapter
+     * @var \Drupal\degov_demo_content\FileAdapter $fileAdapter
      */
     $fileAdapter = $this->prophesize(FileAdapter::class);
     $fileAdapter->fileGetContents(Argument::type('string'))->willReturn('file-contents');
@@ -38,6 +39,8 @@ class MediaFileHandlerTest extends UnitTestCase {
   }
 
   /**
+   * Save files.
+   *
    * @dataProvider getMediaFilesData
    */
   public function testSaveFiles(array $mediaToGenerate): void {
@@ -59,6 +62,8 @@ class MediaFileHandlerTest extends UnitTestCase {
   }
 
   /**
+   * Map file fields.
+   *
    * @dataProvider getMediaForMapping
    */
   public function testMapFileFields(array $mediaDemoData, array $expectedMapping): void {
@@ -66,7 +71,7 @@ class MediaFileHandlerTest extends UnitTestCase {
 
     $mediaFileHandler->saveFiles($mediaDemoData, '/some/fixtures/path');
 
-    $mappedFields = null;
+    $mappedFields = NULL;
 
     foreach ($mediaDemoData as $customMediaKey => $mediaData) {
       $mappedFields = $mediaFileHandler->mapFileFields($mediaData, $customMediaKey);
@@ -75,6 +80,12 @@ class MediaFileHandlerTest extends UnitTestCase {
     self::assertSame($mappedFields, $expectedMapping);
   }
 
+  /**
+   * Get media for mapping.
+   *
+   * @return array
+   *   Media array.
+   */
   public function getMediaForMapping(): array {
     return [
       [
@@ -85,20 +96,20 @@ class MediaFileHandlerTest extends UnitTestCase {
             'file'               => 'humberto-chavez-1058365-unsplash.jpg',
             'status'             => 1,
             'field_royalty_free' => 1,
-            ],
           ],
-          'expectedMapping' => [
-            'bundle' => 'image',
-            'name' => '{{SUBTITLE}}',
-            'image' =>
-              array(
+        ],
+        'expectedMapping' => [
+          'bundle' => 'image',
+          'name' => '{{SUBTITLE}}',
+          'image' =>
+              [
                 'target_id' => 5,
                 'alt' => '{{SUBTITLE}}',
                 'title' => '{{SUBTITLE}}',
-              ),
-            'status' => 1,
-            'field_royalty_free' => 1,
-          ]
+              ],
+          'status' => 1,
+          'field_royalty_free' => 1,
+        ],
       ],
       [
         'mediaDemoData' => [
@@ -119,31 +130,37 @@ class MediaFileHandlerTest extends UnitTestCase {
           'bundle' => 'video_mobile',
           'name' => '{{SUBTITLE}}',
           'field_fullhd_video_mobile_mp4' =>
-            array (
+            [
               'target_id' => 5,
-            ),
+            ],
           'field_hdready_video_mobile_mp4' =>
-            array (
+            [
               'target_id' => 5,
-            ),
+            ],
           'field_mobile_video_mobile_mp4' =>
-            array (
+            [
               'target_id' => 5,
-            ),
+            ],
           'field_video_mobile_mp4' =>
-            array (
+            [
               'target_id' => 5,
-            ),
+            ],
           'field_ultrahd4k_video_mobile_mp4' =>
-            array (
+            [
               'target_id' => 5,
-            ),
+            ],
           'status' => 1,
         ],
-      ]
+      ],
     ];
   }
 
+  /**
+   * Get media files data.
+   *
+   * @return array
+   *   Media file data.
+   */
   public function getMediaFilesData(): array {
     return [
       [
@@ -167,8 +184,8 @@ class MediaFileHandlerTest extends UnitTestCase {
             ],
             'status' => 1,
           ],
-        ]
-      ]
+        ],
+      ],
     ];
   }
 

@@ -5,6 +5,9 @@ namespace Acquia\LightningExtension\Context;
 use Behat\Mink\Exception\UnsupportedDriverActionException;
 use Drupal\DrupalExtension\Context\MinkContext;
 
+/**
+ * Class AwaitTrait.
+ */
 trait AwaitTrait {
 
   /**
@@ -52,7 +55,7 @@ trait AwaitTrait {
    *   (optional) How many seconds to wait.
    */
   protected function awaitAjax($timeout = 10) {
-    /** @var MinkContext $context */
+    /** @var \Drupal\DrupalExtension\Context\MinkContext $context */
     $context = $this->getContext(MinkContext::class);
 
     if ($context) {

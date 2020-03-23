@@ -3,7 +3,7 @@
 namespace Drupal\degov_common;
 
 /**
- * Class DegovOverride
+ * Class DegovOverride.
  *
  * @package Drupal\degov_common
  */

@@ -11,7 +11,7 @@ default:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features_install'
   extensions:
     Behat\MinkExtension:
-      base_url: http://localhost:80
+      base_url: http://host.docker.internal
       default_session: selenium_chrome
       sessions:
         selenium_chrome:

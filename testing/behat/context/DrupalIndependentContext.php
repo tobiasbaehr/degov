@@ -10,28 +10,35 @@ use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
+/**
+ * Class DrupalIndependentContext.
+ */
 class DrupalIndependentContext extends RawMinkContext {
 
-	use TranslationTrait;
+  use TranslationTrait;
 
-	use DebugOutputTrait;
+  use DebugOutputTrait;
 
-	private const MAX_DURATION_SECONDS = 600;
-	private const MAX_SHORT_DURATION_SECONDS = 10;
+  private const MAX_DURATION_SECONDS = 600;
+  private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /**
-   * @var HookDispatcher
+   * Dispatcher.
+   *
+   * @var \Behat\Testwork\Hook\HookDispatcher
    */
   private $dispatcher;
 
   /**
-	 * {@inheritdoc}
-	 */
-	public function setDispatcher(HookDispatcher $dispatcher) {
-		$this->dispatcher = $dispatcher;
-	}
+   * {@inheritdoc}
+   */
+  public function setDispatcher(HookDispatcher $dispatcher) {
+    $this->dispatcher = $dispatcher;
+  }
 
   /**
+   * Before scenario.
+   *
    * @BeforeScenario
    */
   public function beforeScenario() {
@@ -39,180 +46,200 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Set window size width and height.
+   *
    * @Then I set the window size to :width width and :height height
    * @Then I reset the window size
    */
   public function iSetWindowSizeWidthHeight(string $width = "1440px", string $height = "900px"): void {
-    $this->getSession()->resizeWindow((int)$width, (int)$height);
+    $this->getSession()->resizeWindow((int) $width, (int) $height);
   }
 
   /**
-	 * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
-	 */
-	public function iShouldSeeTextSoManyTimes($sText, $iExpected)
-	{
-		$sContent = $this->getSession()->getPage()->getText();
-		$iFound = substr_count($sContent, $sText);
-		if ($iExpected != $iFound) {
+   * Should see text so many times.
+   *
+   * @Then /^I should see "([^"]*)" exactly "([^"]*)" times$/
+   */
+  public function iShouldSeeTextSoManyTimes($sText, $iExpected) {
+    $sContent = $this->getSession()->getPage()->getText();
+    $iFound = substr_count($sContent, $sText);
+    if ($iExpected != $iFound) {
 
       try {
-        throw new \Exception('Found '.$iFound.' occurences of "'.$sText.'" when expecting '.$iExpected);
-      } catch (\Exception $exception) {
+        throw new \Exception('Found ' . $iFound . ' occurences of "' . $sText . '" when expecting ' . $iExpected);
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-		}
-	}
+    }
+  }
 
-	/**
-	 * @Then /^I should see text matching "([^"]*)" via translated text in uppercase after a while$/
-	 */
-	public function iShouldSeeTranslatedUppercaseTextAfterAWhile(string $text): bool
-	{
-		$translatedText = mb_strtoupper($this->translateString($text));
+  /**
+   * Should see translated uppercase text after a while.
+   *
+   * @Then /^I should see text matching "([^"]*)" via translated text in uppercase after a while$/
+   */
+  public function iShouldSeeTranslatedUppercaseTextAfterWhile(string $text): bool {
+    $translatedText = mb_strtoupper($this->translateString($text));
 
-		try {
-			$startTime = time();
-			do {
-				$content = $this->getSession()->getPage()->getText();
-				if (substr_count($content, $translatedText) > 0) {
-					return true;
-				}
-			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
-
-      try {
-        throw new TextNotFoundException(
-          sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
-          $this->getSession()
-        );
-      } catch (TextNotFoundException $exception) {
-        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
-        throw $exception;
-      }
-
-		} catch (StaleElementReference $e) {
-			return true;
-		}
-	}
-
-	/**
-	 * @Then /^I should see text matching "([^"]*)" via translated text after a while$/
-	 */
-	public function iShouldSeeTranslatedTextAfterAWhile(string $text): bool
-	{
-		$translatedText = $this->translateString($text);
-
-		try {
-			$startTime = time();
-			do {
-				$content = $this->getSession()->getPage()->getText();
-				if (substr_count($content, $translatedText) > 0) {
-					return true;
-				}
-			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+    try {
+      $startTime = time();
+      do {
+        $content = $this->getSession()->getPage()->getText();
+        if (substr_count($content, $translatedText) > 0) {
+          return TRUE;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
       try {
         throw new TextNotFoundException(
           sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (TextNotFoundException $exception) {
+      }
+      catch (TextNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-		} catch (StaleElementReference $e) {
-			return true;
-		}
-	}
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
+    }
+  }
 
-	/**
-	 * @Then /^I should see text matching "([^"]*)" after a while$/
-	 */
-	public function iShouldSeeTextAfterAWhile(string $text): bool
-	{
-		try {
-			$startTime = time();
-			do {
-				$content = $this->getSession()->getPage()->getText();
-				if (substr_count($content, $text) > 0) {
-					return true;
-				}
-			} while (time() - $startTime < self::MAX_DURATION_SECONDS);
+  /**
+   * Should see translated text after a while.
+   *
+   * @Then /^I should see text matching "([^"]*)" via translated text after a while$/
+   */
+  public function iShouldSeeTranslatedTextAfterWhile(string $text): bool {
+    $translatedText = $this->translateString($text);
+
+    try {
+      $startTime = time();
+      do {
+        $content = $this->getSession()->getPage()->getText();
+        if (substr_count($content, $translatedText) > 0) {
+          return TRUE;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
+
+      try {
+        throw new TextNotFoundException(
+          sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
+          $this->getSession()
+        );
+      }
+      catch (TextNotFoundException $exception) {
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw $exception;
+      }
+
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
+    }
+  }
+
+  /**
+   * Should see text after a while.
+   *
+   * @Then /^I should see text matching "([^"]*)" after a while$/
+   */
+  public function iShouldSeeTextAfterWhile(string $text): bool {
+    try {
+      $startTime = time();
+      do {
+        $content = $this->getSession()->getPage()->getText();
+        if (substr_count($content, $text) > 0) {
+          return TRUE;
+        }
+      } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
       try {
         throw new TextNotFoundException(
           sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (TextNotFoundException $exception) {
+      }
+      catch (TextNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-		} catch (StaleElementReference $e) {
-			return true;
-		}
-	}
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
+    }
+  }
 
   /**
+   * Should see html content matching.
+   *
    * @Then /^I should see HTML content matching "([^"]*)"$/
    * @Then /^I should see HTML content matching '([^']*)'$/
    */
-  public function iShouldSeeHTMLContentMatching(string $content)
-  {
+  public function iShouldSeeHtmlContentMatching(string $content) {
     $html = $this->getSession()->getPage()->getHtml();
     if (substr_count($html, $content) > 0) {
-      return true;
+      return TRUE;
     }
 
     try {
       throw new TextNotFoundException(
-        sprintf('HTML does contain content "%s"', $content),
+        sprintf('HTML does not contain content "%s"', $content),
         $this->getSession());
-    } catch (TextNotFoundException $exception) {
+    }
+    catch (TextNotFoundException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Should see html content translated matching.
+   *
    * @Then /^I should see HTML content matching "([^"]*)" via translated text$/
    * @Then /^I should see HTML content matching '([^']*)' via translated text$/
    */
-  public function iShouldSeeHTMLContentTranslatedMatching(string $content)
-  {
+  public function iShouldSeeHtmlContentTranslatedMatching(string $content) {
     if (ctype_upper($content)) {
       $translatedText = mb_strtoupper($this->translateString($content));
-    } else {
+    }
+    else {
       $translatedText = $this->translateString($content);
     }
 
     $html = $this->getSession()->getPage()->getHtml();
     if (substr_count($html, $translatedText) > 0) {
-      return true;
+      return TRUE;
     }
 
     try {
       throw new TextNotFoundException(
         sprintf('HTML does not contain content "%s"', $translatedText),
         $this->getSession());
-    } catch (TextNotFoundException $exception) {
+    }
+    catch (TextNotFoundException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
   }
 
   /**
+   * Should see html content translated matching after a while.
+   *
    * @Then /^I should see HTML content matching "([^"]*)" via translated text after a while$/
    * @Then /^I should see HTML content matching '([^']*)' via translated text after a while$/
    */
-  public function iShouldSeeHTMLContentTranslatedMatchingAfterAWhile(string $content): ?bool
-  {
+  public function iShouldSeeHtmlContentTranslatedMatchingAfterWhile(string $content): ?bool {
     if (ctype_upper($content)) {
       $translatedText = mb_strtoupper($this->translateString($content));
-    } else {
+    }
+    else {
       $translatedText = $this->translateString($content);
     }
 
@@ -221,35 +248,37 @@ class DrupalIndependentContext extends RawMinkContext {
       do {
         $content = $this->getSession()->getPage()->getHtml();
         if (substr_count($content, $translatedText) > 0) {
-          return true;
+          return TRUE;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
       throw new TextNotFoundException(
         sprintf('Could not find text %s after %s seconds', $translatedText, self::MAX_DURATION_SECONDS),
         $this->getSession()
       );
-    } catch (StaleElementReference $e) {
-      return true;
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
     }
   }
 
-
   /**
+   * Should  not see html content matching.
+   *
    * @Then /^I should not see HTML content matching "([^"]*)"$/
    * @Then /^I should not see HTML content matching '([^']*)'$/
    */
-  public function iShouldNotSeeHTMLContentMatching(string $content): ?bool
-  {
+  public function iShouldNotSeeHtmlContentMatching(string $content): ?bool {
     $html = $this->getSession()->getPage()->getHtml();
     if (substr_count($html, $content) === 0) {
-      return true;
+      return TRUE;
     }
 
     try {
       throw new TextNotFoundException(
         sprintf('HTML does contain content "%s"', $content),
         $this->getSession());
-    } catch (TextNotFoundException $exception) {
+    }
+    catch (TextNotFoundException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -257,17 +286,18 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Should see html content matching after while.
+   *
    * @Then /^I should see HTML content matching "([^"]*)" after a while$/
    * @Then /^I should see HTML content matching '([^']*)' after a while$/
    */
-  public function iShouldSeeHTMLContentMatchingAfterWhile($text)
-  {
+  public function iShouldSeeHtmlContentMatchingAfterWhile($text) {
     try {
       $startTime = time();
       do {
         $content = $this->getSession()->getPage()->getHtml();
         if (substr_count($content, $text) > 0) {
-          return true;
+          return TRUE;
         }
       } while (time() - $startTime < self::MAX_DURATION_SECONDS);
 
@@ -276,42 +306,48 @@ class DrupalIndependentContext extends RawMinkContext {
           sprintf('Could not find text %s after %s seconds', $text, self::MAX_DURATION_SECONDS),
           $this->getSession()
         );
-      } catch (TextNotFoundException $exception) {
+      }
+      catch (TextNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-    } catch (StaleElementReference $e) {
-      return true;
+    }
+    catch (StaleElementReference $e) {
+      return TRUE;
     }
   }
 
-	/**
-	 * @Then /^I should not see text matching "([^"]*)" after a while$/
+  /**
+   * Should not see text after a while.
+   *
+   * @Then /^I should not see text matching "([^"]*)" after a while$/
    * @Then /^I should not see text matching '([^']*)' after a while$/
-	 */
-	public function iShouldNotSeeTextAfterAWhile($text)
-	{
-		$startTime = time();
-		do {
-			$content = $this->getSession()->getPage()->getText();
-			if (substr_count($content, $text) === 0) {
-				return true;
-			}
-		} while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
+   */
+  public function iShouldNotSeeTextAfterWhile($text) {
+    $startTime = time();
+    do {
+      $content = $this->getSession()->getPage()->getText();
+      if (substr_count($content, $text) === 0) {
+        return TRUE;
+      }
+    } while (time() - $startTime < self::MAX_SHORT_DURATION_SECONDS);
 
     try {
       throw new TextNotFoundException(
         sprintf('Could find text %s after %s seconds', $text, self::MAX_SHORT_DURATION_SECONDS),
         $this->getSession()
       );
-    } catch (TextNotFoundException $exception) {
+    }
+    catch (TextNotFoundException $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
-	}
+  }
 
   /**
+   * Wait x seconds.
+   *
    * @Then /^wait (\d+) seconds$/
    */
   public function waitSeconds($secondsNumber) {
@@ -319,27 +355,35 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * The html title should show the page title and the distribution title.
+   *
    * @Then the HTML title should show the page title and the distribution title
    */
   public function theHtmlTitleShouldShowThePageTitleAndTheDistributionTitle() {
     return $this->elementWithSelectorShouldMatchPattern('css', 'html>head>title', "/^[^|]+ | [^|]+$/");
   }
 
+  /**
+   * Elements with selector should match pattern.
+   */
   private function elementWithSelectorShouldMatchPattern($selector_type, $locator, $pattern) {
     $element = $this->getSession()->getPage()->find($selector_type, $locator);
-    if(preg_match($pattern, $element->getHtml())) {
-      return true;
+    if (preg_match($pattern, $element->getHtml())) {
+      return TRUE;
     }
 
     try {
       throw new TextNotFoundException(sprintf('The text of the element "%s" ("%s") did not match the pattern "%s"', $locator, $element->getHtml(), $pattern), $this->getSession());
-    } catch (TextNotFoundException $exception) {
+    }
+    catch (TextNotFoundException $exception) {
 
     }
 
   }
 
   /**
+   * Xpath contains text.
+   *
    * @Then /^I proof xpath "([^"]*)" contains text$/
    */
   public function xpathContainsText(string $xpath) {
@@ -354,6 +398,8 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Xpath contains specific text.
+   *
    * @Then /^I proof xpath "([^"]*)" contains "([^"]*)" text via translation$/
    * @Then /^I proof xpath '([^']*)' contains "([^"]*)" text via translation$/
    */
@@ -368,6 +414,8 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Css contains text.
+   *
    * @Then /^I proof css "([^"]*)" contains text$/
    */
   public function cssContainsText(string $css) {
@@ -378,7 +426,8 @@ class DrupalIndependentContext extends RawMinkContext {
     if (empty(\trim(\strip_tags($node->getHtml())))) {
       try {
         throw new \Exception("CSS $css does not contain any text.");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -386,9 +435,11 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Css selector matches DOM node.
+   *
    * @Then /^I proof css selector "([^"]*)" matches a DOM node$/
    */
-  public function cssSelectorMatchesDOMNode(string $css) {
+  public function cssSelectorMatchesDomNode(string $css) {
     $page = $this->getSession()->getPage();
     /** @var $cssSelector NodeElement */
     $cssSelector = $page->find('css', $css);
@@ -399,13 +450,14 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
-   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time.
+   *
    * Example: Then I should see 5 "div" elements after a while
-   * Example: And I should see 5 "div" elements after a while
+   * Example: And I should see 5 "div" elements after a while.
    *
    * @Then /^(?:|I )should see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
    */
-  public function iShouldSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector, bool $negate = FALSE): void {
+  public function iShouldSeeNumberOfElementsAfterWhile(int $expectedNumberOfElements, string $selector, bool $negate = FALSE): void {
     $startTime = time();
     $wait = self::MAX_SHORT_DURATION_SECONDS * 2;
     do {
@@ -418,7 +470,8 @@ class DrupalIndependentContext extends RawMinkContext {
         if ($actualNumberOfElements === $expectedNumberOfElements) {
           return;
         }
-      } else {
+      }
+      else {
         if ($actualNumberOfElements !== $expectedNumberOfElements) {
           return;
         }
@@ -431,17 +484,20 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
-   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time
+   * Checks, that (?P<num>\d+) CSS elements exist on the page for some time.
+   *
    * Example: Then I should not see 5 "div" elements after a while
-   * Example: And I should not see 5 "div" elements after a while
+   * Example: And I should not see 5 "div" elements after a while.
    *
    * @Then /^(?:|I )should not see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
    */
-  public function iShouldNotSeeNumberOfElementsAfterAWhile(int $expectedNumberOfElements, string $selector): void {
-    self::iShouldSeeNumberOfElementsAfterAWhile($expectedNumberOfElements, $selector, true);
+  public function iShouldNotSeeNumberOfElementsAfterWhile(int $expectedNumberOfElements, string $selector): void {
+    self::iShouldSeeNumberOfElementsAfterWhile($expectedNumberOfElements, $selector, TRUE);
   }
 
   /**
+   * Should see elements with selector and text.
+   *
    * @Then I should see :number element(s) with the selector :selector and the translated text :text
    */
   public function iShouldSeeElementsWithSelectorAndText(int $expectedNumberOfElements, string $selector, string $text): void {
@@ -449,12 +505,14 @@ class DrupalIndependentContext extends RawMinkContext {
     $matchedElements = $page->findAll('css', $selector);
 
     $matchedElementsCount = \count($matchedElements);
-    if($expectedNumberOfElements !== $matchedElementsCount) {
+    if ($expectedNumberOfElements !== $matchedElementsCount) {
       throw new \Exception("Expected $expectedNumberOfElements elements matching $selector, found $matchedElementsCount");
     }
   }
 
   /**
+   * Assert page address not equals.
+   *
    * @Then /^(?:|I )should be not on "(?P<page>[^"]+)"$/
    */
   public function assertPageAddressNotEquals(string $page): void {
@@ -462,19 +520,24 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * Dump html.
+   *
    * @Then I dump the HTML of the current page
    */
-  public function dumpHTML() {
+  public function dumpHtml() {
     print_r($this->getSession()->getPage()->getContent());
   }
 
   /**
+   * Trigger php function.
+   *
    * @Then I trigger the PHP function :functionName
    */
   public function triggerPhpFunction($functionName): void {
     if (\function_exists($functionName)) {
       $functionName();
-    } else {
+    }
+    else {
       throw new \Exception('Function ' . $functionName . ' does not exist.');
     }
   }

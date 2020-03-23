@@ -3,13 +3,6 @@
 Use Drupal\Core\Url;
 
 /**
- * Implements hook_install().
- */
-function degov_devel_install() {
-  \Drupal::service('module_installer')->install(['devel', 'webprofiler']);
-}
-
-/**
  * Implements hook_requirements().
  */
 function degov_devel_requirements(string $phase) {
@@ -41,13 +34,4 @@ function degov_devel_update_870300() {
   /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_devel', '870300');
-}
-
-/**
- * Implements hook_uninstall().
- */
-function degov_devel_uninstall() {
-  \Drupal::configFactory()
-    ->getEditable('degov_devel.settings')
-    ->delete();
 }

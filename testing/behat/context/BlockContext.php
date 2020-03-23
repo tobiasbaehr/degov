@@ -5,15 +5,19 @@ namespace Drupal\degov\Behat\Context;
 use Behat\Mink\Exception\ResponseTextException;
 use Drupal\block\Entity\Block;
 use Drupal\DrupalExtension\Context\RawDrupalContext;
-use Drupal\Core\Config\ConfigFactory;
 
+/**
+ * Class BlockContext.
+ */
 class BlockContext extends RawDrupalContext {
 
   /**
+   * Configure and place simplenews signup.
+   *
    * @Then /^I configure and place the Simplenews signup block$/
    */
   public function configureAndPlaceSimplenewsSignup() {
-    /** @var ConfigFactory $configFactory $configFactory */
+    /** @var \Drupal\Core\Config\ConfigFactory $configFactory $configFactory */
     $configFactory = \Drupal::service('config.factory');
     $config = $configFactory->getEditable('degov_social_media_instagram.settings');
     $config->set('user', 'ig_bundestag')->save();
@@ -40,13 +44,15 @@ class BlockContext extends RawDrupalContext {
   }
 
   /**
+   * Configure and place main menu.
+   *
    * @Then /^I configure and place the main menu block$/
    */
   public function configureAndPlaceMainMenu() {
-   /** @var ConfigFactory $configFactory $configFactory */
+    /** @var \Drupal\Core\Config\ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
-    if(!empty($block) && $block instanceof Block) {
+    if (!empty($block) && $block instanceof Block) {
       $block->delete();
     }
 
@@ -72,6 +78,8 @@ class BlockContext extends RawDrupalContext {
   }
 
   /**
+   * Delete blocks.
+   *
    * @Then /^I delete any existing blocks with comma separated ids "([^"]*)"$/
    */
   public function deleteBlocks(string $blockIds) {
@@ -84,7 +92,8 @@ class BlockContext extends RawDrupalContext {
           'Could not determine any block ids. You must pass a comma separated list with machine names.',
           $this->getSession()
         );
-      } catch (ResponseTextException $exception) {
+      }
+      catch (ResponseTextException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }

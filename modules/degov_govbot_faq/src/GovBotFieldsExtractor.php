@@ -6,22 +6,36 @@ use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
-
+/**
+ * Class GovBotFieldsExtractor.
+ */
 class GovBotFieldsExtractor {
 
   /**
-   * @var ParagraphsExtractor
+   * Paragraphs extractor.
+   *
+   * @var \Drupal\paragraphs\Entity\ParagraphsExtractor
    */
   private $paragraphsExtractor;
 
-  public function __construct(ParagraphsExtractor $paragraphsExtractor)
-  {
+  /**
+   * GovBotFieldsExtractor constructor.
+   */
+  public function __construct(ParagraphsExtractor $paragraphsExtractor) {
     $this->paragraphsExtractor = $paragraphsExtractor;
   }
 
-  public function compute(NodeInterface $node): array
-  {
-    $faqListParagraphs = $this->paragraphsExtractor->getFAQListParagraphs($node);
+  /**
+   * Compute.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node.
+   *
+   * @return array
+   *   Bot fields.
+   */
+  public function compute(NodeInterface $node): array {
+    $faqListParagraphs = $this->paragraphsExtractor->getFaqListParagraphs($node);
 
     $govBotFields = [];
 

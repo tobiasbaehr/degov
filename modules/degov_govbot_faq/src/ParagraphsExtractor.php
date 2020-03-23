@@ -5,10 +5,21 @@ namespace Drupal\degov_govbot_faq;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 
-
+/**
+ * Class ParagraphsExtractor.
+ */
 class ParagraphsExtractor {
 
-  public function getFAQListParagraphs(NodeInterface $node) {
+  /**
+   * Get faq list paragraphs.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   Node to get from.
+   *
+   * @return array
+   *   Referenced paragraphs.
+   */
+  public function getFaqListParagraphs(NodeInterface $node) {
     $referencedParagraphs = [];
 
     foreach ($node->getFields() as $field) {

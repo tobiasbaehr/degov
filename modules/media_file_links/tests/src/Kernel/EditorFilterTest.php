@@ -21,6 +21,9 @@ class EditorFilterTest extends MediaFileLinksTestBase {
     $this->installConfig(['filter_test']);
   }
 
+  /**
+   * Test old placeholder is broken by editor xss protection.
+   */
   public function testOldPlaceholderIsBrokenByEditorXssProtection(): void {
     $in = '<a href="[media:file:12]">Link</a>';
     $filterFormat = FilterFormat::load('filtered_html');
@@ -28,6 +31,9 @@ class EditorFilterTest extends MediaFileLinksTestBase {
     self::assertSame('<a href="12]">Link</a>', $out);
   }
 
+  /**
+   * Test new placeholder is not broken by editor xss protection.
+   */
   public function testNewPlaceholderIsNotBrokenByEditorXssProtection(): void {
     $in = '<a href="[media/file/12]">Link</a>';
     $filterFormat = FilterFormat::load('filtered_html');
