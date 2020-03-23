@@ -60,6 +60,11 @@ display:
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Vorherige Seite'
+            next: 'Nächste Seite ›'
+            first: '« Anfang'
+            last: 'Ende »'
           expose:
             items_per_page: false
             items_per_page_label: 'Elemente pro Seite'
@@ -68,11 +73,6 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset: false
             offset_label: Versatz
-          tags:
-            previous: '‹ Vorherige Seite'
-            next: 'Nächste Seite ›'
-            first: '« Anfang'
-            last: 'Ende »'
           quantity: 9
       style:
         type: table
@@ -2028,14 +2028,14 @@ display:
             description: null
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: true
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Veröffentlichungsstatus
