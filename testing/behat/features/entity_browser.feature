@@ -16,7 +16,7 @@ Feature: deGov - Entity browser
     And I should see 6 ".eb-tabs > ul > li" elements
     And I should see text matching "Library"
     And I should see text matching "Bilder Hochladen"
-    And I should see text matching "Upload"
+    And I should see text matching "Hochladen"
     And I should see text matching "Dokumente Hochladen"
     And I should see text matching "Create embed"
     And I should see text matching "Audio hochladen"
