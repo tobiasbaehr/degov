@@ -50,6 +50,8 @@ video_upload_2:
   field_media_transcription:
     value: '{{TEXT}}'
     format: 'rich_html'
+  field_video_upload_subtitle:
+    - 'video_upload_subtitle_file_1'
   status: 1
   field_include_search: 1
 audio_1:
@@ -57,6 +59,9 @@ audio_1:
   name: 'Latest Audio file'
   file: 'dummy.mp3'
   field_audio_preview: '{{MEDIA_ID_IMAGE-image_4}}'
+  field_media_transcription:
+    value: '{{TEXT}}'
+    format: 'rich_html'
   status: 1
   field_include_search: 1
   created: 1578292460

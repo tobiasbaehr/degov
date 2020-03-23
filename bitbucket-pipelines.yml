@@ -1,4 +1,4 @@
-image: tobiasb/php-cli:7.3
+image: tobiasb/php-cli:7.3-debian
 options:
   docker: true
   size: 2x

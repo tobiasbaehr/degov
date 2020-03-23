@@ -4,7 +4,11 @@ namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
+use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\media\Entity\Media;
+use Drupal\media\MediaInterface;
+use Drupal\node\Entity\Node;
+use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Entity\EntityInterface;
 
@@ -39,6 +43,20 @@ class ContentGenerator {
   protected $entityType = '';
 
   /**
+   * Path where demo fixtures can be found.
+   *
+   * @var string
+   */
+  protected $fixturesPath;
+
+  /**
+   * The paragraphs file handler.
+   *
+   * @var \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler
+   */
+  protected $paragraphsFileHandler;
+
+  /**
    * Counter for the word generation. Makes generated content more static.
    *
    * @var int
@@ -67,9 +85,11 @@ class ContentGenerator {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler) {
     $this->moduleHandler = $moduleHandler;
     $this->entityTypeManager = $entityTypeManager;
+    $this->paragraphsFileHandler = $paragraphsFileHandler;
+    $this->fixturesPath = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
   }
 
   /**
@@ -149,6 +169,16 @@ class ContentGenerator {
     foreach ($entities as $entity) {
       $entity->delete();
     }
+  }
+
+  /**
+   * Delete all paragraphs.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  public function deleteParagraphs(): void {
     $paragraphs = $this->entityTypeManager->getStorage('paragraph')->loadMultiple();
     /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
     foreach ($paragraphs as $paragraph) {
@@ -279,6 +309,118 @@ class ContentGenerator {
     }
 
     $rawElement[$index] = $value;
+  }
+
+  /**
+   * Generate paragraphs for parent entity.
+   *
+   * @param array $rawParagraphReferences
+   *   Raw paragraph references.
+   * @param array $parentEntityDefinition
+   *   Raw parent entity.
+   *
+   * @throws \Exception
+   */
+  protected function generateParagraphs(array $rawParagraphReferences, array &$parentEntityDefinition): void {
+    foreach ($rawParagraphReferences as $type => $rawParagraphReferenceElements) {
+      foreach ($rawParagraphReferenceElements as $rawParagraphReference) {
+        $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', $rawParagraphReference);
+        $this->paragraphsFileHandler->saveFiles([$rawParagraphReference => $rawParagraph], $this->fixturesPath);
+        $this->prepareValues($rawParagraph);
+        $rawParagraph = $this->paragraphsFileHandler->mapFileFields($rawParagraph, $rawParagraphReference);
+        $this->resolveEncapsulatedParagraphs($rawParagraph);
+        $paragraph = Paragraph::create($rawParagraph);
+        $paragraph->save();
+        $parentEntityDefinition[$type][] = $paragraph;
+      }
+    }
+  }
+
+  /**
+   * Resolve encapsulated paragraphs.
+   *
+   * @param array $rawParagraph
+   *   Raw paragraph.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function resolveEncapsulatedParagraphs(array &$rawParagraph): void {
+    foreach ($rawParagraph as $index => $rawField) {
+      if (\is_array($rawField)) {
+        foreach ($rawField as $innerIndex => $rawValue) {
+          $fieldName = preg_replace('/(paragraph|media)_reference_/', '', $rawValue);
+          if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
+            $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
+            $this->prepareValues($rawInnerParagraph);
+            $innerParagraph = Paragraph::create($rawInnerParagraph);
+            $innerParagraph->save();
+            $rawParagraph[$index][$innerIndex] = $innerParagraph;
+          }
+          if (strpos($rawValue, 'media_reference_') !== FALSE) {
+            $rawMedia = $this->loadDefinitionByNameTag('media', $fieldName);
+            $mediaIds = \Drupal::entityTypeManager()
+              ->getStorage('media')
+              ->getQuery()
+              ->condition('name', $rawMedia['name'])
+              ->execute();
+            if (count($mediaIds) > 0) {
+              $media = Media::load(reset($mediaIds));
+              if ($media instanceof MediaInterface) {
+                $rawParagraph[$index][$innerIndex] = $media->id();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Generate node reference paragraphs.
+   *
+   * @param \Drupal\node\Entity\Node $teaserPage
+   *   Teaser page node.
+   * @param array $nodeIds
+   *   Node IDs.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
+    $paragraphs = [];
+    foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
+      $rawParagraph['field_sub_title'] = empty($rawParagraph['field_sub_title']) ? $this->generateBlindText(3) : $rawParagraph['field_sub_title'];
+      $rawParagraph['field_node_reference_nodes'] = $nodeIds;
+      $paragraph = Paragraph::create($rawParagraph);
+      $paragraph->save();
+      $paragraphs[] = $paragraph;
+    }
+    $teaserPage->set('field_content_paragraphs', $paragraphs);
+    $teaserPage->save();
+  }
+
+  /**
+   * Generates Media reference paragraph.
+   *
+   * @param \Drupal\node\Entity\Node $teaserPage
+   *   The Node that should contain the teaser paragraphs.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  protected function generateMediaReferenceParagraphs(Node $teaserPage): void {
+    $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', 'media_reference_citation_front');
+    $this->prepareValues($rawParagraph);
+    $this->resolveEncapsulatedParagraphs($rawParagraph);
+    unset($rawParagraph['field_title']);
+
+    $paragraph = Paragraph::create($rawParagraph);
+    $paragraph->save();
+
+    $teaserPage->get('field_content_paragraphs')->appendItem($paragraph);
+    $teaserPage->save();
   }
 
   /**

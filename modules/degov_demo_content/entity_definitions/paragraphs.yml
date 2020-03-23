@@ -221,6 +221,13 @@ map_4:
   field_map_address_view_mode: 'default_map'
   field_title: 'Google map GzevD'
   field_sub_title: '{{SUBTITLE}}'
+video_upload_subtitle_file_1:
+  type: 'video_subtitle'
+  field_subtitle_kind: 'subtitles'
+  field_subtitle_label: 'Subtitles'
+  field_subtitle_lang: 'de'
+  field_subtitle_default: 1
+  file: 'untertitel.de.vtt'
 ## View references
 views_reference_latest_media:
   type: 'view_reference'
