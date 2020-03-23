@@ -60,6 +60,7 @@ function degov_module_setup(&$install_state) {
     'degov_taxonomies'                  => 'degov_taxonomies',
     'degov_taxonomy_term_synonyms'      => 'degov_taxonomy_term_synonyms',
     'degov_node_normal_page'            => 'degov_node_normal_page',
+    'degov_password_policy'             => 'degov_password_policy',
     'degov_paragraph_text'              => 'degov_paragraph_text',
     'degov_paragraph_webform'           => 'degov_paragraph_webform',
     'degov_paragraph_slideshow'         => 'degov_paragraph_slideshow',
