@@ -294,3 +294,14 @@ function degov_common_requirements(string $phase): array {
   }
   return $requirements;
 }
+
+/**
+ * Replace the filter bundle with entity_browser_bundle in view media.
+ */
+function degov_common_update_880100() {
+  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/rewrite/views.view.media' . '.yml'));
+  \Drupal::configFactory()
+    ->getEditable('views.view.media')
+    ->setData($replace)
+    ->save(TRUE);
+}
