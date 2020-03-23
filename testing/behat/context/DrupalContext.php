@@ -1614,5 +1614,5 @@ class DrupalContext extends RawDrupalContext {
       ->set('dev_mode', TRUE)
       ->save();
   }
-  
+
 }
