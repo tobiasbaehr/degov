@@ -7,6 +7,9 @@ use Drupal\filter_disallow\Plugin\Filter\FilterHtmlDisallow;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 
+/**
+ * Class FilterTest.
+ */
 class FilterTest extends KernelTestBase {
 
   use UserCreationTrait;
@@ -20,14 +23,39 @@ class FilterTest extends KernelTestBase {
     'system',
   ];
 
+  /**
+   * Filter.
+   *
+   * @var \Drupal\filter_disallow\Plugin\Filter\FilterHtmlDisallow
+   */
   private $filter;
 
+  /**
+   * Text with unwanted html.
+   *
+   * @var string
+   */
   private $textWithUnwantedHtml;
 
+  /**
+   * Text with unwanted html stripped text.
+   *
+   * @var string
+   */
   private $textWithUnwantedHtmlStripped;
 
+  /**
+   * Clean text.
+   *
+   * @var string
+   */
   private $cleanText;
 
+  /**
+   * Special characters.
+   *
+   * @var string
+   */
   private $specialChars;
 
   /**
@@ -50,16 +78,25 @@ class FilterTest extends KernelTestBase {
     $this->specialChars = '<p> ^ ° ¬ ! ¹ ¡ " ² ⅛ § ³ £ $ ¼ ¤ % ½ ⅜ & ¬ ⅝ / { ⅞ ( [ ™ ) ] = } ° ? \ ¿ ` ¸ ¸ @ Ω ł Ł € ţ Ţ ← ¥ ↓ ↑ î Î ø Ø þ Þ ¨ + * ~ â Â ş Ş ð Ð đ ª ŋ Ŋ ħ Ħ ̣ ˙ ĸ & ˝ ˝ ă Ă # \' ` < > | » › « ‹ ¢ © „ ‚ “ ‘ ” ’ µ º , ; · × … ÷ - _ – — </p>';
   }
 
+  /**
+   * Test filter tag is removed.
+   */
   public function testFilterTagIsRemoved(): void {
     $filteredText = $this->filter->stripHtmlTag($this->textWithUnwantedHtml, 'script');
     self::assertSame($this->textWithUnwantedHtmlStripped, $filteredText);
   }
 
+  /**
+   * Test filter tag is not removed.
+   */
   public function testFilterTagIsNotRemoved(): void {
     $filteredText = $this->filter->stripHtmlTag($this->cleanText, 'script');
     self::assertSame($this->cleanText, $filteredText);
   }
 
+  /**
+   * Test messages are posted on removal.
+   */
   public function testMessagesArePostedOnRemoval(): void {
     $this->filter->stripHtmlTag($this->textWithUnwantedHtml, 'script');
     $messages = \Drupal::messenger()
@@ -67,6 +104,9 @@ class FilterTest extends KernelTestBase {
     self::assertCount(1, $messages);
   }
 
+  /**
+   * Test messages are not posted if nothing was filtered.
+   */
   public function testMessagesAreNotPostedIfNothingWasFiltered(): void {
     $this->filter->stripHtmlTag($this->cleanText, 'script');
     $messages = \Drupal::messenger()
@@ -74,8 +114,12 @@ class FilterTest extends KernelTestBase {
     self::assertCount(0, $messages);
   }
 
+  /**
+   * Test special characters.
+   */
   public function testSpecialChars(): void {
     $filteredText = $this->filter->stripHtmlTag($this->specialChars, 'script');
     self::assertSame($this->specialChars, $filteredText);
   }
+
 }

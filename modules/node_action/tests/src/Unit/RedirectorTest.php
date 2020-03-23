@@ -12,9 +12,14 @@ use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-
+/**
+ * Class RedirectorTest.
+ */
 class RedirectorTest extends UnitTestCase {
 
+  /**
+   * Test disallowed redirect.
+   */
   public function testDisallowedRedirect(): void {
     $messenger = $this->prophesize(MessengerInterface::class);
     $messenger->deleteByType(Argument::type('string'))->shouldBeCalled();
@@ -26,6 +31,9 @@ class RedirectorTest extends UnitTestCase {
     self::assertInternalType('null', $redirector->computeRedirectResponseByEntities([], 'some.test.route'));
   }
 
+  /**
+   * Test allowed redirect.
+   */
   public function testAllowedRedirect(): void {
     $messenger = $this->prophesize(MessengerInterface::class);
 

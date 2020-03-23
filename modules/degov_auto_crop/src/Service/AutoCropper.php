@@ -11,7 +11,6 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\crop\Entity\CropType;
 use Drupal\file\Entity\File;
 use Drupal\Core\Image\ImageFactory;
-use org\bovigo\vfs\vfsStream;
 
 /**
  * Class AutoCropper.
@@ -59,6 +58,8 @@ class AutoCropper {
    *   The file system.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
    *   The logger channel factory.
+   * @param \Drupal\Core\Image\ImageFactory $imageFactory
+   *   Image factory.
    */
   public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger, ImageFactory $imageFactory) {
     $this->entityTypeManager = $entity_type_manager;

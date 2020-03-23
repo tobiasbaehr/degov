@@ -10,9 +10,14 @@ use Drupal\node_action\StringTranslationAdapter;
 use Drupal\node_action\UserInteractionFacade;
 use Drupal\Tests\UnitTestCase;
 
-
+/**
+ * Class PublishedStateChangeTest.
+ */
 class PublishedStateChangeTest extends UnitTestCase {
 
+  /**
+   * Test disallowed due to no moderation state.
+   */
   public function testDisallowedDueNoModerationState(): void {
     $userInteractionFacade = $this->getMockBuilder(UserInteractionFacade::class)
       ->disableOriginalConstructor()
@@ -61,13 +66,15 @@ class PublishedStateChangeTest extends UnitTestCase {
     self::assertFalse($publishedStateChange->isAllowed($node));
   }
 
+  /**
+   * Test has moderation state.
+   */
   public function testHasModerationState(): void {
     list($userInteractionFacade, $messenger, $stringTranslationAdapter, $moderationStateFieldItemList, $node) = $this->mockClasses();
 
     $messenger->expects($this->exactly(0))
       ->method('addMessage')
       ->willReturn(NULL);
-
 
     $stringTranslationAdapter->expects($this->exactly(0))
       ->method('t')
@@ -107,6 +114,9 @@ class PublishedStateChangeTest extends UnitTestCase {
     self::assertTrue($publishedStateChange->isAllowed($node));
   }
 
+  /**
+   * Mock classes.
+   */
   private function mockClasses(): array {
     $userInteractionFacade = $this->getMockBuilder(UserInteractionFacade::class)
       ->disableOriginalConstructor()

@@ -13,9 +13,9 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
    * {@inheritdoc}
    */
   public function getFilters() {
-    return array(
+    return [
       new \Twig_SimpleFilter('quickedit_attr', [$this, 'getQuickEdit']),
-    );
+    ];
   }
 
   /**
@@ -25,11 +25,10 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
     return 'twig_field_quickedit_attributes';
   }
 
-
   /**
    * Twig filter callback: Only return a field's attributes for quick edit.
    *
-   * @param $build
+   * @param array $build
    *   Render array of a field.
    *
    * @return \Drupal\Core\Template\Attribute
@@ -53,8 +52,9 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
     $entity = $build['#object'];
 
     // Quick Edit module only supports view modes, not dynamically defined
-    // "display options" (which \Drupal\Core\Field\FieldItemListInterface::view()
-    // always names the "_custom" view mode).
+    // "display options" (which
+    // \Drupal\Core\Field\FieldItemListInterface::view() always names the
+    // "_custom" view mode).
     // @see \Drupal\Core\Field\FieldItemListInterface::view()
     // @see https://www.drupal.org/node/2120335
     if ($build['#view_mode'] === '_custom') {
@@ -83,7 +83,7 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
   /**
    * Checks whether the render array is a field's render array.
    *
-   * @param $build
+   * @param array $build
    *   The renderable array.
    *
    * @return bool
@@ -93,4 +93,5 @@ class FieldQuickEditAttributesExtension extends \Twig_Extension {
 
     return isset($build['#theme']) && $build['#theme'] === 'field';
   }
+
 }

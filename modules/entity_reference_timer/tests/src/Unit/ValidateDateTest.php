@@ -5,7 +5,6 @@ namespace Drupal\Tests\entity_reference_timer\Unit;
 use Drupal\entity_reference_timer\InputValidator;
 use Drupal\Tests\UnitTestCase;
 
-
 /**
  * Tests the text formatters functionality.
  *
@@ -14,13 +13,8 @@ use Drupal\Tests\UnitTestCase;
 class ValidateDateTest extends UnitTestCase {
 
   /**
-   * {@inheritdoc}
-   */
-  protected function setUp() {
-    parent::setUp();
-  }
-
-  /**
+   * Test no start but exception.
+   *
    * @expectedException \Drupal\entity_reference_timer\Plugin\Field\Exception\NoStartButEndException
    */
   public function testNoStartButEndException(): void {
@@ -34,6 +28,8 @@ class ValidateDateTest extends UnitTestCase {
   }
 
   /**
+   * Test start after end exception.
+   *
    * @expectedException \Drupal\entity_reference_timer\Plugin\Field\Exception\StartAfterEndException
    */
   public function testStartAfterEndException(): void {
@@ -46,6 +42,9 @@ class ValidateDateTest extends UnitTestCase {
     InputValidator::handleDateInputException($element);
   }
 
+  /**
+   * Test no input.
+   */
   public function testNoInput(): void {
     $element['publish_timer']['#value'] = 1;
     $element['start_date']['#value']['date'] = NULL;
@@ -56,6 +55,9 @@ class ValidateDateTest extends UnitTestCase {
     self::assertNull(InputValidator::handleDateInputException($element));
   }
 
+  /**
+   * Test publish timer disabled.
+   */
   public function testPublishTimerDisabled(): void {
     $element['publish_timer']['#value'] = 0;
     $element['start_date']['#value']['date'] = '2018-11-12';
@@ -66,6 +68,9 @@ class ValidateDateTest extends UnitTestCase {
     self::assertNull(InputValidator::handleDateInputException($element));
   }
 
+  /**
+   * Test start date only.
+   */
   public function testStartDateOnly(): void {
     $element['publish_timer']['#value'] = 0;
     $element['start_date']['#value']['date'] = '2018-11-12';

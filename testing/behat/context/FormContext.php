@@ -8,17 +8,24 @@ use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
+/**
+ * Class FormContext.
+ */
 class FormContext extends RawMinkContext {
 
-	use TranslationTrait;
+  use TranslationTrait;
 
-	use DebugOutputTrait;
+  use DebugOutputTrait;
 
   /**
-   * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
+   * Check checkbox with js.
+   *
    * @param string $id
+   *   ID.
+   *
+   * @Then /^I check checkbox with id "([^"]*)" by JavaScript$/
    */
-  public function checkCheckboxWithJS($id) {
+  public function checkCheckboxWithJs($id) {
     $this->getSession()->executeScript(
       "
                 document.getElementById('" . $id . "').checked = true;
@@ -27,8 +34,12 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
+   * Check checkbox by selector.
+   *
    * @param string $selector
+   *   Selector.
+   *
+   * @Then /^I check checkbox by selector "([^"]*)" via JavaScript$/
    */
   public function checkCheckboxBySelector(string $selector) {
     $this->getSession()->executeScript(
@@ -39,8 +50,12 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I click checkbox by name attribute value "([^"]*)"$/
+   * Click checkbox by name attribute value.
+   *
    * @param string $selector
+   *   Selector.
+   *
+   * @Then /^I click checkbox by name attribute value "([^"]*)"$/
    */
   public function clickCheckboxByNameAttributeValue(string $selector): void {
     $this->getSession()->executeScript(
@@ -51,8 +66,12 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
+   * Check checkbox by value.
+   *
    * @param string $value
+   *   Value.
+   *
+   * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
    */
   public function checkCheckboxByValue(string $value) {
     $this->getSession()->executeScript(
@@ -63,6 +82,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Fill in textarea with.
+   *
    * @Given /^I fill in Textarea with "([^"]*)"$/
    */
   public function iFillInTextareaWith($arg1) {
@@ -73,18 +94,25 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Submit a form by ID.
+   *
    * @Given /^I submit a form by id "([^"]*)"$/
    */
-  public function iSubmitAFormById($Id) {
+  public function iSubmitFormById($id) {
     $page = $this->getSession()->getPage();
-    $element = $page->find('css', "form#${Id}");
+    $element = $page->find('css', "form#${id}");
     $element->submit();
   }
 
   /**
+   * Should not see the option in.
+   *
+   * @param string $value
+   *   Value.
+   * @param string $id
+   *   ID.
+   *
    * @Given /^I should not see the option "([^"]*)" in "([^"]*)"$/
-   * @param $value
-   * @param $id
    *
    * @throws \Exception
    */
@@ -96,7 +124,8 @@ class FormContext extends RawMinkContext {
     if ($element) {
       try {
         throw new \Exception("There is an option with the value '$value' in the select '$id'");
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -104,8 +133,12 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I check checkbox with id "([^"]*)"$/
+   * Check checkbox.
+   *
    * @param string $id
+   *   ID.
+   *
+   * @Then /^I check checkbox with id "([^"]*)"$/
    */
   public function checkCheckbox($id) {
     $page = $this->getSession()->getPage();
@@ -115,8 +148,12 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * @Then /^I uncheck checkbox with id "([^"]*)"$/
+   * Uncheck checkbox.
+   *
    * @param string $id
+   *   ID.
+   *
+   * @Then /^I uncheck checkbox with id "([^"]*)"$/
    */
   public function uncheckCheckbox($id) {
     $page = $this->getSession()->getPage();
@@ -126,31 +163,38 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Submit the form.
+   *
    * @Then /^I submit the form$/
    */
   public function iSubmitTheForm() {
-    $session = $this->getSession(); // get the mink session
+    // Get the mink session.
+    $session = $this->getSession();
     $element = $session->getPage()->find(
       'xpath',
       $session->getSelectorsHandler()
         ->selectorToXpath('xpath', '//*[@type="submit"]')
-    ); // runs the actual query and returns the element
+    // Runs the actual query and returns the element.
+    );
 
-    // errors must not pass silently
+    // Errors must not pass silently.
     if (NULL === $element) {
       try {
         throw new \InvalidArgumentException(sprintf('Could not evaluate XPath: "%s"', '//*[@type="submit"]'));
-      } catch (\InvalidArgumentException $exception) {
+      }
+      catch (\InvalidArgumentException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
     }
 
-    // ok, let's click on it
+    // ok, let's click on it.
     $element->click();
   }
 
   /**
+   * Select option.
+   *
    * @Then /^I select "([^"]*)" in "([^"]*)"$/
    */
   public function selectOption($label, $id) {
@@ -160,6 +204,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Select via label by name attribute.
+   *
    * @Then /^I select by label "([^"]*)" via name attribute value "([^"]*)"$/
    */
   public function selectViaLabelByNameAttribute(string $label, string $nameAttribute): void {
@@ -169,6 +215,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Select option via translation.
+   *
    * @Then /^I select "([^"]*)" in "([^"]*)" via translated text$/
    * @Then /^I select "([^"]*)" via translation in "([^"]*)"$/
    */
@@ -179,6 +227,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Select option by name.
+   *
    * @Then /^I select "([^"]*)" by name "([^"]*)"$/
    */
   public function selectOptionByName(string $label, string $name): void {
@@ -188,6 +238,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Assert date field reflects current date.
+   *
    * @Then /^I assert date field with name attribute value "([^"]*)" contains current date$/
    */
   public function assertDateFieldReflectsCurrentDate(string $nameAttributeValue): ?bool {
@@ -207,6 +259,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Assert input field with name attribute value is empty.
+   *
    * @Then /^I assert input field with name attribute value "([^"]*)" is empty$/
    */
   public function assertInputFieldWithNameAttributeValueIsEmpty(string $nameAttributeValue): ?bool {
@@ -224,6 +278,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Assert date field reflects expected date.
+   *
    * @Then /^I assert date field with name attribute value "([^"]*)" contains the date value "([^"]*)"$/
    */
   public function assertDateFieldReflectsExpectedDate(string $nameAttributeValue, string $expectedDate): ?bool {
@@ -241,6 +297,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Assert date field contains date value.
+   *
    * @Then /^I assert date field with name attribute value "([^"]*)" contains date value "([^"]*)"$/
    */
   public function assertDateFieldContainsDateValue(string $nameAttributeValue): ?bool {
@@ -260,6 +318,8 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Assert dropdown.
+   *
    * @Then /^I assert dropdown named "([^"]*)" contains the following text-value pairs:$/
    *
    * Provide data in the following format:
@@ -285,7 +345,8 @@ class FormContext extends RawMinkContext {
       try {
         throw new ElementNotFoundException($this->getSession()
           ->getDriver(), 'element', 'css', $selector);
-      } catch (ElementNotFoundException $exception) {
+      }
+      catch (ElementNotFoundException $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -294,7 +355,7 @@ class FormContext extends RawMinkContext {
     $html = $node->getHtml();
 
     $htmlParts = explode('</option>', $html);
-    if(strpos($html, 'value="_none"')) {
+    if (strpos($html, 'value="_none"')) {
       array_shift($htmlParts);
     }
     array_pop($htmlParts);
@@ -304,7 +365,8 @@ class FormContext extends RawMinkContext {
 
       try {
         throw new \Exception(sprintf('Table items number does not match found option values number. Expected %s, found %s', count($rowsHash), count($htmlParts)));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
@@ -322,7 +384,8 @@ class FormContext extends RawMinkContext {
       if ($found === FALSE) {
         try {
           throw new \Exception("Text '$text' and value '$value' not found in given options.");
-        } catch (\Exception $exception) {
+        }
+        catch (\Exception $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
@@ -331,78 +394,89 @@ class FormContext extends RawMinkContext {
     }
   }
 
-	/**
-	 * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains the following name-value pairs:$/
-	 *
-	 * Provide data in the following format:
-	 *
-	 * | value                            | name                                              |
-	 * | FAQ hinzufügen                   | field_content_paragraphs_faq_add_more             |
-	 * | FAQ / Akkordion Liste hinzufügen | field_content_paragraphs_faq_list_add_more        |
-	 * | Medienreferenz hinzufügen        | field_content_paragraphs_media_reference_add_more |
-	 */
-	public function assertDropbutton(string $cssSelector , TableNode $table): void {
-		$rowsHash = $table->getRowsHash();
-		unset($rowsHash['text']);
+  /**
+   * Assert dropbutton.
+   *
+   * @Then /^I assert dropbutton actions with css selector "([^"]*)" contains the following name-value pairs:$/
+   *
+   * Provide data in the following format:
+   *
+   * value | name
+   * FAQ hinzufügen |
+   *   field_content_paragraphs_faq_add_more
+   * FAQ / Akkordion Liste hinzufügen |
+   *   field_content_paragraphs_faq_list_add_more
+   * Medienreferenz hinzufügen |
+   *   field_content_paragraphs_media_reference_add_more
+   */
+  public function assertDropbutton(string $cssSelector, TableNode $table): void {
+    $rowsHash = $table->getRowsHash();
+    unset($rowsHash['text']);
 
-		$node = $this->getSession()->getPage()->find('css', $cssSelector);
+    $node = $this->getSession()->getPage()->find('css', $cssSelector);
 
-		if (null === $node) {
-			throw new ElementNotFoundException($this->getSession()->getDriver(), 'element', 'css', $cssSelector);
-		}
+    if (NULL === $node) {
+      throw new ElementNotFoundException($this->getSession()->getDriver(), 'element', 'css', $cssSelector);
+    }
 
-		$html = $node->getHtml();
+    $html = $node->getHtml();
 
-		$htmlParts = explode('</li>', $html);
+    $htmlParts = explode('</li>', $html);
 
-		// Remove last element which is empty
-		array_pop($htmlParts);
+    // Remove last element which is empty.
+    array_pop($htmlParts);
 
-		if (count($htmlParts) !== count($rowsHash) - 1) {
+    if (count($htmlParts) !== count($rowsHash) - 1) {
       print_r($htmlParts);
 
       try {
         throw new \Exception(sprintf('Table items number does not match found option values number. (expected: %s, found: %s)', (count($rowsHash) - 1), count($htmlParts)));
-      } catch (\Exception $exception) {
+      }
+      catch (\Exception $exception) {
         $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
         throw $exception;
       }
 
-		}
+    }
 
-		foreach ($rowsHash as $text => $value) {
-			$found = FALSE;
-			foreach($htmlParts as $htmlPart) {
+    foreach ($rowsHash as $text => $value) {
+      $found = FALSE;
+      foreach ($htmlParts as $htmlPart) {
         if (strpos($htmlPart, $text) && strpos($htmlPart, $value)) {
           $found = TRUE;
         }
       }
 
-			if ($found === FALSE) {
+      if ($found === FALSE) {
         try {
           throw new \Exception("Text '$text' and value '$value' not found in given options.");
-        } catch (\Exception $exception) {
+        }
+        catch (\Exception $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
 
-			}
-		}
-	}
+      }
+    }
+  }
 
-	/**
-	 * @When /^I press button with label "([^"]*)" via translated text$/
-	 * @When /^I click button with label "([^"]*)" via translated text$/
-	 */
-	public function pressButtonTranslate(string $button) {
-		$this->getSession()->getPage()->pressButton($this->translateString($button));
-	}
+  /**
+   * Press button translate.
+   *
+   * @When /^I press button with label "([^"]*)" via translated text$/
+   * @When /^I click button with label "([^"]*)" via translated text$/
+   */
+  public function pressButtonTranslate(string $button) {
+    $this->getSession()->getPage()->pressButton($this->translateString($button));
+  }
 
-	/**
+  /**
+   * Should see the input with the name and the value checked.
+   *
    * @Then I should see the input with the name :input_name and the value :input_value checked
    */
-	public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
-	  $radio_button = $this
+  public function iShouldSeeTheInputWithTheNameAndTheValueChecked(string $input_name, string $input_value) {
+    $radio_button = $this
       ->getSession()
       ->getPage()
       ->findAll('xpath', '//input[@name and contains(@name, "' . $input_name . '") and @value and @value="' . $input_value . '" and @checked and @checked="checked"]');
@@ -413,7 +487,8 @@ class FormContext extends RawMinkContext {
 
     try {
       throw new \Exception(sprintf('Element "%s" with value "%s" not found!', $input_name, $input_value));
-    } catch (\Exception $exception) {
+    }
+    catch (\Exception $exception) {
       $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
       throw $exception;
     }
@@ -421,7 +496,10 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Select has following options.
+   *
    * @Given /^Select "([^"]*)" has following options "([^"]*)"$/
+   *
    * @throws \Behat\Mink\Exception\ElementNotFoundException
    */
   public function selectHasFollowingOptions($select, $optionsRaw) {
@@ -436,7 +514,8 @@ class FormContext extends RawMinkContext {
       if (!$element) {
         try {
           throw new ElementNotFoundException($this->getSession(), 'custom', 'option[value="' . $option . '"]', 'css');
-        } catch (ElementNotFoundException $exception) {
+        }
+        catch (ElementNotFoundException $exception) {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception;
         }
@@ -446,29 +525,35 @@ class FormContext extends RawMinkContext {
   }
 
   /**
-   * Fills in form field with specified id|name|label|value
+   * Fills in form field with specified id|name|label|value.
+   *
    * Example: When I fill in "username" with: "bwayne"
-   * Example: And I fill in "bwayne" for "username"
+   * Example: And I fill in "bwayne" for "username".
    *
    * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with "(?P<value>(?:[^"]|\\")*)"$/
    * @When /^(?:|I )fill in "(?P<field>(?:[^"]|\\")*)" via translated text with:$/
    * @When /^(?:|I )fill in "(?P<value>(?:[^"]|\\")*)" via translated text for "(?P<field>(?:[^"]|\\")*)"$/
    */
-  public function fillField($field, $value)
-  {
+  public function fillField($field, $value) {
     $field = $this->fixStepArgument($this->translateString($field));
     $value = $this->fixStepArgument($value);
     $this->getSession()->getPage()->fillField($field, $value);
   }
 
   /**
-   * Fills in form field with specified id|name|label|value with a formatted date
-   * Example: And I fill in "start_date[date]" with relative date "now - 1 minute" formatted "%d%m%Y"
+   * Fill field with formatted date.
+   *
+   * Fills in form field with specified id|name|label|value with a formatted
+   * date.
+   *
+   * Example: And I fill in "start_date[date]" with relative date
+   * "now - 1 minute" formatted "%d%m%Y".
    *
    * @When I fill in :field with date :dateValue formatted :dateFormat
    * @When I fill in :field with date :dateValue formatted :dateFormat in timezone :timezone
    */
-  public function fillFieldWithFormattedDate(string $field, string $dateValue, string $dateFormat, string $timezone = 'Europe/Berlin') {
+  public function fillFieldWithFormattedDate(string $field, string $dateValue, string $dateFormat, string $timezone = NULL) {
+    $timezone = $timezone ?: drupal_get_user_timezone();
     $dateValue = $this->fixStepArgument($dateValue);
     $dateFormat = $this->fixStepArgument($dateFormat);
     $dateTime = new \DateTime($dateValue);
@@ -482,11 +567,13 @@ class FormContext extends RawMinkContext {
    * Returns fixed step argument (with \\" replaced back to ")
    *
    * @param string $argument
+   *   Argument.
    *
    * @return string
+   *   Modified argument.
    */
-  protected function fixStepArgument($argument)
-  {
+  protected function fixStepArgument($argument) {
     return str_replace('\\"', '"', $argument);
   }
+
 }

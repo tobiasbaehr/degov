@@ -9,6 +9,7 @@
 
   /**
    * Initialize the Drupal facets.
+   *
    * @type {{}}
    */
   Drupal.facets = Drupal.facets || {};
@@ -38,15 +39,15 @@
       $('.date-filter-wrapper .date-from').val(settings.dateFilter.min);
       $('.date-filter-wrapper .date-to').val(settings.dateFilter.max);
     }
-    // Add date pop-up
+    // Add date pop-up.
     $('.date-filter').on('click', function () {
       var dateFrom = $('.date-filter-wrapper .date-from').val();
       var dateTo = $('.date-filter-wrapper .date-to').val();
       // If the value is empty set to any (*).
-      if (dateFrom == ''){
+      if (dateFrom == '') {
         dateFrom = '*';
       }
-      if (dateTo == ''){
+      if (dateTo == '') {
         dateTo = '*';
       }
       var href = settings.dateFilter.facetUrl.replace('date_min', dateFrom);

@@ -1,13 +1,15 @@
 /**
- * @file slider.js
+ * @file
+ * slider.js
  *
  * Defines the behavior of the Slideshow paragraph.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';
 
-  // Slick slider in press list
+  // Slick slider in press list.
   Drupal.behaviors.slickPress = {
     attach: function (context, settings) {
       $('.press-slider .view-content').once().slick({

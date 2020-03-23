@@ -38,3 +38,7 @@ testing/behat/behat-no-drupal.yml
 testing/lfs_data
 /test-reports
 tmp/
+!testing/backstopjs/tmp/.htaccess
+.sass-cache/
+scripts/pipeline/html_validation_results
+.cidfile

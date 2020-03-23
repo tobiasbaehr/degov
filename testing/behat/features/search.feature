@@ -5,6 +5,9 @@ Feature: deGov - Search
     Given I proof that the following Drupal modules are installed:
       | degov_search_content       |
       | degov_search_media         |
+
+  # We do this here instead of Background, because constantly rebuilding the demo content caused a massive overhead
+  Scenario: I set up the required modules
     And I am installing the following Drupal modules:
       | degov_search_media_manager |
       | degov_demo_content         |
@@ -29,33 +32,33 @@ Feature: deGov - Search
   Scenario: Check if media search is working properly
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "demo image with a fixed title"
+    And I open media edit form by media name "Demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I scroll to element with id "edit-field-include-search-value"
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
-    Then I should see HTML content matching "demo image with a fixed title" after a while
-    And I open media edit form by media name "demo image with a fixed title"
+    Then I should see HTML content matching "Demo image with a fixed title" after a while
+    And I open media edit form by media name "Demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I scroll to element with id "edit-field-include-search-value"
     And I uncheck the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
     And I am on "/mediathek"
-    And I should not see "demo image with a fixed title"
+    And I should not see "Demo image with a fixed title"
 
   Scenario: I verify that the media bundle filter shows labels, not machine names
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "demo image with a fixed title"
+    And I open media edit form by media name "Demo image with a fixed title"
     And I choose "Allgemein" from tab menu
     And I scroll to element with id "edit-field-include-search-value"
     And I check the box "edit-field-include-search-value"
     And I scroll to element with id "edit-submit"
     And I press "Speichern"
-    And I open media edit form by media name "A video upload"
+    And I open media edit form by media name "A video upload with sound"
     And I choose "Allgemein" from tab menu
     And I scroll to element with id "edit-field-include-search-value"
     And I check the box "edit-field-include-search-value"

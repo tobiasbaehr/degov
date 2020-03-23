@@ -2,19 +2,25 @@
 
 namespace Drupal\media_file_links\Controller;
 
+use Drupal\system\Controller\EntityAutocompleteController as EntityAutocompleteControllerBase;
 use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\media_file_links\EntityAutocompleteMatcher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class EntityAutocompleteController extends \Drupal\system\Controller\EntityAutocompleteController {
+/**
+ * Class EntityAutocompleteController.
+ */
+class EntityAutocompleteController extends EntityAutocompleteControllerBase {
 
   /**
    * The autocomplete matcher for entity references.
+   *
+   * @var \Drupal\Core\Entity\EntityAutocompleteMatcher|\Drupal\media_file_links\EntityAutocompleteMatcher
    */
   protected $matcher;
 
   /**
-   * {@inheritdoc}
+   * EntityAutocompleteController constructor.
    */
   public function __construct(EntityAutocompleteMatcher $matcher, KeyValueStoreInterface $key_value) {
     $this->matcher = $matcher;

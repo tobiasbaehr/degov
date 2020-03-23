@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Component\Utility\Html;
 use Drupal\degov_common\Common;
 use Drupal\degov_paragraph_slideshow\PreprocessParagraph;
 
@@ -34,4 +35,19 @@ function degov_paragraph_slideshow_preprocess_paragraph(&$variables) {
     \Drupal::classResolver(PreprocessParagraph::class)
       ->slide($variables);
   }
+}
+
+/**
+ * Implements hook_preprocess_video_embed_iframe__youtube().
+ */
+function degov_paragraph_slideshow_preprocess_video_embed_iframe__youtube(&$variables) {
+  $variables['query']['enablejsapi'] = 1;
+  $variables['#attached']['library'][] = 'degov_paragraph_slideshow/youtube';
+}
+
+/**
+ * Implements hook_preprocess_video_embed_iframe__vimeo().
+ */
+function degov_paragraph_slideshow_preprocess_video_embed_iframe__vimeo(&$variables) {
+  $variables['#attached']['library'][] = 'degov_paragraph_slideshow/vimeo';
 }

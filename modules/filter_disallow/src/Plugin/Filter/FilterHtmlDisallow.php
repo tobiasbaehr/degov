@@ -2,7 +2,6 @@
 
 namespace Drupal\filter_disallow\Plugin\Filter;
 
-use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\filter\FilterProcessResult;
@@ -68,7 +67,7 @@ class FilterHtmlDisallow extends FilterBase {
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
-    $removals = $this->getHTMLRemovals();
+    $removals = $this->getHtmlRemovals();
     foreach ($removals['disallowed'] as $removal) {
       $text = $this->stripHtmlTag($text, $removal);
     }
@@ -76,10 +75,15 @@ class FilterHtmlDisallow extends FilterBase {
   }
 
   /**
+   * Strip html tag.
+   *
    * @param string $htmlContent
+   *   Html content.
    * @param string $tag
+   *   Tag.
    *
    * @return string
+   *   Filtered html.
    */
   public function stripHtmlTag(string $htmlContent, string $tag): string {
     $dom = new \DOMDocument();
@@ -96,7 +100,8 @@ class FilterHtmlDisallow extends FilterBase {
       }
     }
     $filteredHtml = preg_replace('(<' . $tag . '.*?>|</' . $tag . '>)', '', $decoded_htmlentities);
-    // saveHTML() will urlencode characters like square brackets, which we need to remain intact for the media_file_links input filter.
+    // saveHTML() will urlencode characters like square brackets,
+    // which we need to remain intact for the media_file_links input filter.
     $filteredHtml = preg_replace('~<(?:!DOCTYPE|/?(?:html|head|body))[^>]*>\s*~i', '', $filteredHtml);
     return $filteredHtml;
   }
@@ -104,7 +109,7 @@ class FilterHtmlDisallow extends FilterBase {
   /**
    * {@inheritdoc}
    */
-  public function getHTMLRemovals() {
+  public function getHtmlRemovals() {
     if ($this->removals) {
       return $this->removals;
     }

@@ -21,7 +21,7 @@ class TestModuleContext extends DrupalSubContextBase {
   /**
    * Determines the test modules to install during the scenario.
    *
-   * @param ScenarioScope $scope
+   * @param \Behat\Behat\Hook\Scope\ScenarioScope $scope
    *   The current scenario scope.
    *
    * @return string[]
@@ -45,7 +45,7 @@ class TestModuleContext extends DrupalSubContextBase {
   /**
    * Installs test modules for this scenario.
    *
-   * @param BeforeScenarioScope $scope
+   * @param \Behat\Behat\Hook\Scope\BeforeScenarioScope $scope
    *   The scenario scope.
    *
    * @BeforeScenario
@@ -68,7 +68,7 @@ class TestModuleContext extends DrupalSubContextBase {
   /**
    * Uninstalls any test modules installed for the scenario.
    *
-   * @param AfterScenarioScope $scope
+   * @param \Behat\Behat\Hook\Scope\AfterScenarioScope $scope
    *   The scenario scope.
    *
    * @AfterScenario

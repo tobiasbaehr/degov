@@ -6,6 +6,9 @@ use Drupal\Core\Routing\RouteSubscriberBase;
 use Drupal\lightning_media\Form\EntityEmbedDialog;
 use Symfony\Component\Routing\RouteCollection;
 
+/**
+ * Class RouteSubscriber.
+ */
 class RouteSubscriber extends RouteSubscriberBase {
 
   /**

@@ -6,7 +6,7 @@
 
 #### Run Docker image
 ```
-cd degov_nrw-project/
+cd nrwgov_project/
 docker run -p 8983:8983 --name="solr_nrwgov" -v $(pwd)/docroot/profiles/contrib/nrwgov/solr_7_config/:/own_config solr:7.7
 
 # Or as a background deamon:

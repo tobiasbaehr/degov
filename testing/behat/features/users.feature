@@ -44,7 +44,9 @@ Feature: deGov - Users
     And I choose "Preview" via translation from tab menu
     And I click by CSS id "edit-field-teaser-image-entity-browser-entity-browser-open-modal"
     Then I should see text matching "Select entities" via translated text after a while
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I should see HTML content matching '<iframe src="/entity-browser/modal/media_browser' after a while
+    And I wait for AJAX to finish
+    And I switch to the "entity_browser_iframe_media_browser" frame
     Then I should see text matching "Library" after a while
     And I go back to the main window
     And I press the "Close" button
@@ -55,7 +57,9 @@ Feature: deGov - Users
     And I choose "Preview" via translation from tab menu
     And I click by CSS id "edit-field-teaser-image-entity-browser-entity-browser-open-modal"
     Then I should see text matching "Select entities" via translated text after a while
-    And I focus on the Iframe with ID "entity_browser_iframe_media_browser"
+    And I should see HTML content matching '<iframe src="/entity-browser/modal/media_browser' after a while
+    And I wait for AJAX to finish
+    And I switch to the "entity_browser_iframe_media_browser" frame
     Then I should see text matching "Library" after a while
     And I go back to the main window
 

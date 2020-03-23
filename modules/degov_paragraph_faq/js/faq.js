@@ -1,8 +1,10 @@
 /**
- * @file faq.js
+ * @file
+ * faq.js
  *
  * Defines the behavior of the FAQ paragraph.
  */
+
 (function ($, Drupal, drupalSettings) {
 
   'use strict';

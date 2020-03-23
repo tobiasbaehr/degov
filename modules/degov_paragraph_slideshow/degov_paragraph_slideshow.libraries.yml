@@ -7,3 +7,9 @@ slideshow:
       css/slideshow.css: {}
   dependencies:
     - degov_common/slick
+youtube:
+  js:
+    https://www.youtube.com/iframe_api: {type: external}
+vimeo:
+  js:
+    https://player.vimeo.com/api/player.js: {type: external}

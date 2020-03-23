@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_node_event\Plugin\views\area;
 
-
 use Drupal\calendar\CalendarHelper;
 use Drupal\calendar\Plugin\views\area\CalendarHeader;
 
@@ -26,4 +25,5 @@ class CalendarWidgetHeader extends CalendarHeader {
     $argument = CalendarHelper::getDateArgumentHandler($this->view);
     return $argument->format('M Y');
   }
+
 }

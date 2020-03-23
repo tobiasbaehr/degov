@@ -3,7 +3,7 @@
 namespace Drupal\degov_theme;
 
 /**
- * Class NumberFormatShort
+ * Class NumberFormatShort.
  *
  * @package Drupal\degov_theme
  */
@@ -33,7 +33,7 @@ class NumberFormatShort {
       }
     }
     // Remove unecessary zeroes after decimal. "1.0" -> "1"; "1.00" -> "1"
-    // Intentionally does not affect partials, eg "1.50" -> "1.50"
+    // Intentionally does not affect partials, eg "1.50" -> "1.50".
     if ($precision > 0) {
       $dotzero = '.' . str_repeat('0', $precision);
       $n_format = str_replace($dotzero, '', $n_format);

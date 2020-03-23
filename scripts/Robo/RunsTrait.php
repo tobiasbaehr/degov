@@ -2,6 +2,7 @@
 
 namespace degov\Scripts\Robo;
 
+use DrupalFinder\DrupalFinder;
 use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
 use degov\Scripts\Robo\Exception\NoInstallationProfileProvided;
 use degov\Scripts\Robo\Exception\WrongFolderLocation;
@@ -13,19 +14,37 @@ use Symfony\Component\Yaml\Yaml;
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\RFCValidation;
 
+/**
+ * Trait RunsTrait.
+ */
 trait RunsTrait {
 
+  /**
+   * Root folder path.
+   *
+   * @var string
+   */
   private $rootFolderPath;
 
-
   /**
+   * Drupal root.
+   *
    * @var string
    */
   private $drupalRoot;
 
-  protected function init(): void {
+  /**
+   * The shell's success exit code.
+   *
+   * @var int
+   */
+  private $exitCodeSuccess = 0;
 
-    $drupalFinder = new \DrupalFinder\DrupalFinder();
+  /**
+   * Init.
+   */
+  protected function init(): void {
+    $drupalFinder = new DrupalFinder();
     if ($drupalFinder->locateRoot(getcwd())) {
       $this->drupalRoot = $drupalFinder->getDrupalRoot();
       $this->rootFolderPath = $drupalFinder->getComposerRoot();
@@ -33,14 +52,17 @@ trait RunsTrait {
   }
 
   /**
-   * @param InstallationProfileCollection $installationProfileCollection
+   * Run drush profile installation.
    *
-   * @throws NoInstallationProfileProvided
+   * @param \degov\Scripts\Robo\Model\InstallationProfileCollection $installationProfileCollection
+   *   Installation profile collection.
+   *
+   * @throws \degov\Scripts\Robo\Exception\NoInstallationProfileProvided
    */
   protected function runDrushProfileInstallation(InstallationProfileCollection $installationProfileCollection): void {
-
+    $this->init();
     if (!$installationProfileCollection->getMainInstallationProfile() instanceof InstallationProfile) {
-      throw new NoInstallationProfileProvided;
+      throw new NoInstallationProfileProvided();
     }
 
     $locale = $this->askDefault(
@@ -72,17 +94,30 @@ trait RunsTrait {
       $email = $this->askDefault('Please provide a valid email address', 'demo@example.com');
     }
 
-    $hostname = $this->askDefault('What is the (Maria/My)SQL database host address?', 'localhost');
+    $port = 3306;
+    $hostname = '127.0.0.1';
 
-    $database = $this->askDefault('What is the (Maria/My)SQL database name?', $installationProfileCollection->getMainInstallationProfile()->getMachineName());
+    if (file_exists($pathToDrupalSettings = $this->drupalRoot . '/sites/default/settings.php')) {
+      $app_root = $this->drupalRoot;
+      $site_path = 'sites/default';
+      @include $pathToDrupalSettings;
+      $port = $databases['default']['default']['port'] ?? $port;
+      $hostname = $databases['default']['default']['host'] ?? $hostname;
+    }
 
-    $databaseUsername = $this->askDefault('What is the (Maria/My)SQL database username?', 'root');
+    $port = $this->askDefault('Specify the port for the (Maria/My)SQL database, if you do not want to use the provided one.', $port);
 
-    $databasePassword = $this->askDefault('What is the (Maria/My)SQL database password?', 'root');
+    $hostname = $this->askDefault('Specify the hostname for the (Maria/My)SQL database, if you do not want to use the provided one.', $hostname);
+
+    $database = $this->askDefault('What is the (Maria/My)SQL database name?', 'db');
+
+    $databaseUsername = $this->askDefault('What is the (Maria/My)SQL database username?', 'db');
+
+    $databasePassword = $this->askDefault('What is the (Maria/My)SQL database password?', 'db');
 
     $command = '';
     $command .= 'bin/drush si --yes ' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
-    $command .= " --db-url=mysql://{$databaseUsername}:{$databasePassword}@{$hostname}/{$database}";
+    $command .= " --db-url=mysql://{$databaseUsername}:{$databasePassword}@{$hostname}:{$port}/{$database}";
     $command .= " --site-name='{$siteName}'";
     $command .= " --account-name='{$username}'";
     $command .= " --account-pass='{$password}'";
@@ -92,7 +127,8 @@ trait RunsTrait {
 
     if (\is_numeric(strpos($installationProfileCollection->getMainInstallationProfile()->getMachineName(), 'gov'))) {
       $optionalModules = $this->askDefault('Would you like to install any additional modules (comma separate each module)?', 'degov_demo_content,degov_devel');
-    } elseif ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
+    }
+    if ($installationProfileCollection->getSubInstallationProfile() instanceof InstallationProfile) {
       $mainInstallationProfileKey = $installationProfileCollection->getMainInstallationProfile()->getMachineName();
       $subInstallationProfileKey = $installationProfileCollection->getSubInstallationProfile()->getMachineName();
 
@@ -102,11 +138,19 @@ HERE;
 
       $selectedProfile = $this->askDefault($questionText, $mainInstallationProfileKey);
       $command .= ' install_configure_form.custom_profile_selection=' . $selectedProfile;
-    } else {
+    }
+    else {
       $command .= ' install_configure_form.custom_profile_selection=' . $installationProfileCollection->getMainInstallationProfile()->getMachineName();
     }
 
-    $this->_exec($command);
+    /**
+     * @var \Robo\Result $result
+     */
+    $result = $this->_exec($command);
+    if ($result->getExitCode() !== $this->exitCodeSuccess) {
+      $this->yell('Could not proceed with the installation due an error. Solve any errors from the console output above and retry.', 40, 'red');
+      exit();
+    }
 
     $optionalModules = str_replace(' ', '', $optionalModules);
     if (!empty($optionalModules)) {
@@ -117,6 +161,9 @@ HERE;
     }
   }
 
+  /**
+   * Run composer update.
+   */
   protected function runComposerUpdate(): void {
     $this->say('Proceeding with update.');
     $this->say('Updating dependencies via Composer..');
@@ -129,6 +176,9 @@ HERE;
     $this->say('Finished Composer update.');
   }
 
+  /**
+   * Run translations update.
+   */
   protected function runTranslationsUpdate(): void {
     $this->say('Checking translation updates..');
 
@@ -149,6 +199,9 @@ HERE;
     $this->say('Finished translation update.');
   }
 
+  /**
+   * Run drupal update hooks.
+   */
   protected function runDrupalUpdateHooks(): void {
     $this->say('Running Drupal update hooks.');
 
@@ -160,6 +213,9 @@ HERE;
     $this->say('Finished running Drupal update hooks.');
   }
 
+  /**
+   * Run configuration export into filesystem.
+   */
   protected function runConfigurationExportIntoFilesystem(): void {
     $this->say('Exporting configuration from storage into filesystem.');
 
@@ -171,6 +227,9 @@ HERE;
     $this->say('Finished exporting configuration from storage into filesystem.');
   }
 
+  /**
+   * Run base theme npm package update.
+   */
   protected function runBaseThemeNpmPackageUpdate(): void {
     $this->say('Installing NPM packages in NRW base theme.');
 
@@ -184,6 +243,9 @@ HERE;
     $this->say('Finished installation of NPM packages in NRW base theme.');
   }
 
+  /**
+   * Run custom theme update.
+   */
   protected function runCustomThemeUpdate(): void {
     $this->say('Installing NPM packages and re-compiling JS/CSS assets in custom theme.');
 
@@ -196,12 +258,16 @@ HERE;
         $this->_exec('cd ' . $this->rootFolderPath . '&& cd docroot/themes/custom/' . $themeConfig['default'] . ' && ' . $pathToNpm . ' i');
       }
       $this->say('Finished installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
-    } else {
+    }
+    else {
       $this->say('No custom theme detected. Bypassing installation of NPM packages and re-compilation of JS/CSS assets in custom theme.');
     }
 
   }
 
+  /**
+   * Check requirements.
+   */
   protected function checkRequirements(string $distro = 'degov'): void {
     $this->checkNodeVersion();
 
@@ -211,7 +277,8 @@ HERE;
       if ($projectStructure->checkCorrectProjectStructure($distro)) {
         $this->say('Project structure is correct.');
       }
-    } catch (WrongFolderLocation $exception) {
+    }
+    catch (WrongFolderLocation $exception) {
       $this->say($exception->getMessage());
       throw new \Exception('Aborting update.');
     }
@@ -222,13 +289,17 @@ HERE;
       if ($requiredApplications->checkApplicationRequirementFulfilled()) {
         $this->say('Applications requirement is fulfilled.');
       }
-    } catch (ApplicationRequirementFail $exception) {
+    }
+    catch (ApplicationRequirementFail $exception) {
       $this->say($exception->getMessage());
       throw new \Exception('Aborting update.');
     }
   }
 
-  private function getCommandOutput(string $command, $customLocation = null): string {
+  /**
+   * Get command output.
+   */
+  private function getCommandOutput(string $command, $customLocation = NULL): string {
     $taskExecStack = $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG);
 
@@ -246,7 +317,10 @@ HERE;
     return Utilities::removeCliLineBreaks($commandOutput);
   }
 
-  protected function newGitBranch($gitBranchLocation, $gitBranchName, $latestReleaseDevBranch = null): void {
+  /**
+   * New git branch.
+   */
+  protected function newGitBranch($gitBranchLocation, $gitBranchName, $latestReleaseDevBranch = NULL): void {
     if (empty($latestReleaseDevBranch)) {
       $allBranches = $this->getCommandOutput('git branch --all', $gitBranchLocation);
       $latestReleaseDevBranch = Utilities::determineLatestReleaseDevBranch($allBranches);
@@ -267,6 +341,9 @@ HERE;
       ->run();
   }
 
+  /**
+   * Is git remote origin.
+   */
   private function isGitRemoteOrigin(string $folderLocation, string $gitRemoteOrigin): bool {
     $remoteInfo = $this->taskExecStack()
       ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
@@ -283,9 +360,12 @@ HERE;
     return TRUE;
   }
 
+  /**
+   * Ensure git repo.
+   */
   protected function ensureGitRepo(string $projectFolderLocation, string $gitRemoteOrigin, string $projectFolderName): void {
     if (!$this->isGitRemoteOrigin($projectFolderLocation, $gitRemoteOrigin)) {
-      $this->say('Could not find remote origin. Cloning repository from '. $gitRemoteOrigin . '.');
+      $this->say('Could not find remote origin. Cloning repository from ' . $gitRemoteOrigin . '.');
 
       $this->taskExecStack()
         ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_DEBUG)
@@ -303,6 +383,9 @@ HERE;
     }
   }
 
+  /**
+   * Ensure clean git tree.
+   */
   private function ensureCleanGitTree($gitBranchLocation): void {
     $this->say('Check Git branch state.');
     $gitStatus = $this->getCommandOutput('git status', $gitBranchLocation);

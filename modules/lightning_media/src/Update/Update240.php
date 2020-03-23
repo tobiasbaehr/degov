@@ -8,6 +8,8 @@ use Drupal\Core\Extension\ModuleInstallerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
+ * Class Update240.
+ *
  * @Update("2.4.0")
  */
 final class Update240 implements ContainerInjectionInterface {

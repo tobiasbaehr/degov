@@ -1,13 +1,18 @@
-(function(a) {
+/**
+ * @file
+ */
+
+(function (a) {
     if (typeof define === "function" && define.amd) {
         define([ "jquery" ], a);
-    } else {
+    }
+else {
         a(jQuery);
     }
-})(function(a) {
+})(function (a) {
     a.ui = a.ui || {};
     var b = a.ui.version = "1.12.1";
-    (function() {
+    (function () {
         var b, c = Math.max, d = Math.abs, e = /left|center|right/, f = /top|center|bottom/, g = /[\+\-]\d+(\.[\d]+)?%?/, h = /^\w+/, i = /%$/, j = a.fn.pos;
         function k(a, b, c) {
             return [ parseFloat(a[0]) * (i.test(a[0]) ? b / 100 : 1), parseFloat(a[1]) * (i.test(a[1]) ? c / 100 : 1) ];
@@ -54,7 +59,7 @@
             };
         }
         a.pos = {
-            scrollbarWidth: function() {
+            scrollbarWidth: function () {
                 if (b !== undefined) {
                     return b;
                 }
@@ -69,14 +74,14 @@
                 e.remove();
                 return b = c - d;
             },
-            getScrollInfo: function(b) {
+            getScrollInfo: function (b) {
                 var c = b.isWindow || b.isDocument ? "" : b.element.css("overflow-x"), d = b.isWindow || b.isDocument ? "" : b.element.css("overflow-y"), e = c === "scroll" || c === "auto" && b.width < b.element[0].scrollWidth, f = d === "scroll" || d === "auto" && b.height < b.element[0].scrollHeight;
                 return {
                     width: f ? a.pos.scrollbarWidth() : 0,
                     height: e ? a.pos.scrollbarWidth() : 0
                 };
             },
-            getWithinInfo: function(b) {
+            getWithinInfo: function (b) {
                 var c = a(b || window), d = a.isWindow(c[0]), e = !!c[0] && c[0].nodeType === 9, f = !d && !e;
                 return {
                     element: c,
@@ -93,7 +98,7 @@
                 };
             }
         };
-        a.fn.pos = function(b) {
+        a.fn.pos = function (b) {
             if (!b || !b.of) {
                 return j.apply(this, arguments);
             }
@@ -107,7 +112,7 @@
             o = r.height;
             p = r.offset;
             q = a.extend({}, p);
-            a.each([ "my", "at" ], function() {
+            a.each([ "my", "at" ], function () {
                 var a = (b[this] || "").split(" "), c, d;
                 if (a.length === 1) {
                     a = e.test(a[0]) ? a.concat([ "center" ]) : f.test(a[0]) ? [ "center" ].concat(a) : [ "center", "center" ];
@@ -124,27 +129,31 @@
             }
             if (b.at[0] === "right") {
                 q.left += n;
-            } else if (b.at[0] === "center") {
+            }
+else if (b.at[0] === "center") {
                 q.left += n / 2;
             }
             if (b.at[1] === "bottom") {
                 q.top += o;
-            } else if (b.at[1] === "center") {
+            }
+else if (b.at[1] === "center") {
                 q.top += o / 2;
             }
             i = k(w.at, n, o);
             q.left += i[0];
             q.top += i[1];
-            return this.each(function() {
+            return this.each(function () {
                 var e, f, g = a(this), h = g.outerWidth(), j = g.outerHeight(), m = l(this, "marginLeft"), r = l(this, "marginTop"), x = h + m + l(this, "marginRight") + u.width, y = j + r + l(this, "marginBottom") + u.height, z = a.extend({}, q), A = k(w.my, g.outerWidth(), g.outerHeight());
                 if (b.my[0] === "right") {
                     z.left -= h;
-                } else if (b.my[0] === "center") {
+                }
+else if (b.my[0] === "center") {
                     z.left -= h / 2;
                 }
                 if (b.my[1] === "bottom") {
                     z.top -= j;
-                } else if (b.my[1] === "center") {
+                }
+else if (b.my[1] === "center") {
                     z.top -= j / 2;
                 }
                 z.left += A[0];
@@ -153,7 +162,7 @@
                     marginLeft: m,
                     marginTop: r
                 };
-                a.each([ "left", "top" ], function(c, d) {
+                a.each([ "left", "top" ], function (c, d) {
                     if (a.ui.pos[v[c]]) {
                         a.ui.pos[v[c]][d](z, {
                             targetWidth: n,
@@ -172,7 +181,7 @@
                     }
                 });
                 if (b.using) {
-                    f = function(a) {
+                    f = function (a) {
                         var e = p.left - z.left, f = e + n - h, i = p.top - z.top, k = i + o - j, l = {
                             target: {
                                 element: s,
@@ -199,7 +208,8 @@
                         }
                         if (c(d(e), d(f)) > c(d(i), d(k))) {
                             l.important = "horizontal";
-                        } else {
+                        }
+else {
                             l.important = "vertical";
                         }
                         b.using.call(this, a, l);
@@ -211,7 +221,7 @@
             });
         };
         a.ui.pos = {
-            _trigger: function(a, b, c, d) {
+            _trigger: function (a, b, c, d) {
                 if (b.elem) {
                     b.elem.trigger({
                         type: c,
@@ -222,59 +232,71 @@
                 }
             },
             fit: {
-                left: function(b, d) {
+                left: function (b, d) {
                     a.ui.pos._trigger(b, d, "posCollide", "fitLeft");
                     var e = d.within, f = e.isWindow ? e.scrollLeft : e.offset.left, g = e.width, h = b.left - d.collisionPosition.marginLeft, i = f - h, j = h + d.collisionWidth - g - f, k;
                     if (d.collisionWidth > g) {
                         if (i > 0 && j <= 0) {
                             k = b.left + i + d.collisionWidth - g - f;
                             b.left += i - k;
-                        } else if (j > 0 && i <= 0) {
+                        }
+else if (j > 0 && i <= 0) {
                             b.left = f;
-                        } else {
+                        }
+else {
                             if (i > j) {
                                 b.left = f + g - d.collisionWidth;
-                            } else {
+                            }
+else {
                                 b.left = f;
                             }
                         }
-                    } else if (i > 0) {
+                    }
+else if (i > 0) {
                         b.left += i;
-                    } else if (j > 0) {
+                    }
+else if (j > 0) {
                         b.left -= j;
-                    } else {
+                    }
+else {
                         b.left = c(b.left - h, b.left);
                     }
                     a.ui.pos._trigger(b, d, "posCollided", "fitLeft");
                 },
-                top: function(b, d) {
+                top: function (b, d) {
                     a.ui.pos._trigger(b, d, "posCollide", "fitTop");
                     var e = d.within, f = e.isWindow ? e.scrollTop : e.offset.top, g = d.within.height, h = b.top - d.collisionPosition.marginTop, i = f - h, j = h + d.collisionHeight - g - f, k;
                     if (d.collisionHeight > g) {
                         if (i > 0 && j <= 0) {
                             k = b.top + i + d.collisionHeight - g - f;
                             b.top += i - k;
-                        } else if (j > 0 && i <= 0) {
+                        }
+else if (j > 0 && i <= 0) {
                             b.top = f;
-                        } else {
+                        }
+else {
                             if (i > j) {
                                 b.top = f + g - d.collisionHeight;
-                            } else {
+                            }
+else {
                                 b.top = f;
                             }
                         }
-                    } else if (i > 0) {
+                    }
+else if (i > 0) {
                         b.top += i;
-                    } else if (j > 0) {
+                    }
+else if (j > 0) {
                         b.top -= j;
-                    } else {
+                    }
+else {
                         b.top = c(b.top - h, b.top);
                     }
                     a.ui.pos._trigger(b, d, "posCollided", "fitTop");
                 }
             },
             flip: {
-                left: function(b, c) {
+                left: function (b, c) {
                     a.ui.pos._trigger(b, c, "posCollide", "flipLeft");
                     var e = c.within, f = e.offset.left + e.scrollLeft, g = e.width, h = e.isWindow ? e.scrollLeft : e.offset.left, i = b.left - c.collisionPosition.marginLeft, j = i - h, k = i + c.collisionWidth - g - h, l = c.my[0] === "left" ? -c.elemWidth : c.my[0] === "right" ? c.elemWidth : 0, m = c.at[0] === "left" ? c.targetWidth : c.at[0] === "right" ? -c.targetWidth : 0, n = -2 * c.offset[0], o, p;
                     if (j < 0) {
@@ -282,7 +304,8 @@
                         if (o < 0 || o < d(j)) {
                             b.left += l + m + n;
                         }
-                    } else if (k > 0) {
+                    }
+else if (k > 0) {
                         p = b.left - c.collisionPosition.marginLeft + l + m + n - h;
                         if (p > 0 || d(p) < k) {
                             b.left += l + m + n;
@@ -290,7 +313,7 @@
                     }
                     a.ui.pos._trigger(b, c, "posCollided", "flipLeft");
                 },
-                top: function(b, c) {
+                top: function (b, c) {
                     a.ui.pos._trigger(b, c, "posCollide", "flipTop");
                     var e = c.within, f = e.offset.top + e.scrollTop, g = e.height, h = e.isWindow ? e.scrollTop : e.offset.top, i = b.top - c.collisionPosition.marginTop, j = i - h, k = i + c.collisionHeight - g - h, l = c.my[1] === "top", m = l ? -c.elemHeight : c.my[1] === "bottom" ? c.elemHeight : 0, n = c.at[1] === "top" ? c.targetHeight : c.at[1] === "bottom" ? -c.targetHeight : 0, o = -2 * c.offset[1], p, q;
                     if (j < 0) {
@@ -298,7 +321,8 @@
                         if (q < 0 || q < d(j)) {
                             b.top += m + n + o;
                         }
-                    } else if (k > 0) {
+                    }
+else if (k > 0) {
                         p = b.top - c.collisionPosition.marginTop + m + n + o - h;
                         if (p > 0 || d(p) < k) {
                             b.top += m + n + o;
@@ -308,17 +332,17 @@
                 }
             },
             flipfit: {
-                left: function() {
+                left: function () {
                     a.ui.pos.flip.left.apply(this, arguments);
                     a.ui.pos.fit.left.apply(this, arguments);
                 },
-                top: function() {
+                top: function () {
                     a.ui.pos.flip.top.apply(this, arguments);
                     a.ui.pos.fit.top.apply(this, arguments);
                 }
             }
         };
-        (function() {
+        (function () {
             var b, c, d, e, f, g = document.getElementsByTagName("body")[0], h = document.createElement("div");
             b = document.createElement(g ? "div" : "body");
             d = {
@@ -352,39 +376,40 @@
     var c = a.ui.position;
 });
 
-(function(a) {
+(function (a) {
     "use strict";
     if (typeof define === "function" && define.amd) {
         define([ "jquery" ], a);
-    } else if (window.jQuery && !window.jQuery.fn.iconpicker) {
+    }
+else if (window.jQuery && !window.jQuery.fn.iconpicker) {
         a(window.jQuery);
     }
-})(function(a) {
+})(function (a) {
     "use strict";
     var b = {
-        isEmpty: function(a) {
+        isEmpty: function (a) {
             return a === false || a === "" || a === null || a === undefined;
         },
-        isEmptyObject: function(a) {
+        isEmptyObject: function (a) {
             return this.isEmpty(a) === true || a.length === 0;
         },
-        isElement: function(b) {
+        isElement: function (b) {
             return a(b).length > 0;
         },
-        isString: function(a) {
+        isString: function (a) {
             return typeof a === "string" || a instanceof String;
         },
-        isArray: function(b) {
+        isArray: function (b) {
             return a.isArray(b);
         },
-        inArray: function(b, c) {
+        inArray: function (b, c) {
             return a.inArray(b, c) !== -1;
         },
-        throwError: function(a) {
+        throwError: function (a) {
             throw "Font Awesome Icon Picker Exception: " + a;
         }
     };
-    var c = function(d, e) {
+    var c = function (d, e) {
         this._id = c._idCounter++;
         this.element = a(d).addClass("iconpicker-element");
         this._trigger("iconpickerCreate");
@@ -395,7 +420,8 @@
         if (this.container === false) {
             if (this.element.is(".dropdown-toggle")) {
                 this.container = a("~ .dropdown-menu:first", this.element);
-            } else {
+            }
+else {
                 this.container = this.element.is("input,textarea,button,.btn") ? this.element.parent() : this.element;
             }
         }
@@ -415,7 +441,8 @@
         this.component = this.isDropdownMenu() ? this.container.parent().find(this.options.component) : this.container.find(this.options.component);
         if (this.component.length === 0) {
             this.component = false;
-        } else {
+        }
+else {
             this.component.find("i").addClass("iconpicker-component");
         }
         this._createPopover();
@@ -425,7 +452,8 @@
         }
         if (this.isInputGroup()) {
             this.container.parent().append(this.popover);
-        } else {
+        }
+else {
             this.container.append(this.popover);
         }
         this._bindElementEvents();
@@ -450,7 +478,7 @@
         mustAccept: false,
         selectedCustomClass: "bg-primary",
         icons: [],
-        fullClassFormatter: function(a) {
+        fullClassFormatter: function (a) {
             return "fa " + a;
         },
         input: "input,.iconpicker-input",
@@ -466,9 +494,9 @@
             iconpickerItem: '<a role="button" href="#" class="iconpicker-item"><i></i></a>'
         }
     };
-    c.batch = function(b, c) {
+    c.batch = function (b, c) {
         var d = Array.prototype.slice.call(arguments, 2);
-        return a(b).each(function() {
+        return a(b).each(function () {
             var b = a(this).data("iconpicker");
             if (!!b) {
                 b[c].apply(b, d);
@@ -479,14 +507,14 @@
         constructor: c,
         options: {},
         _id: 0,
-        _trigger: function(b, c) {
+        _trigger: function (b, c) {
             c = c || {};
             this.element.trigger(a.extend({
                 type: b,
                 iconpickerInstance: this
             }, c));
         },
-        _createPopover: function() {
+        _createPopover: function () {
             this.popover = a(this.options.templates.popover);
             var c = this.popover.find(".popover-title");
             if (!!this.options.title) {
@@ -494,7 +522,8 @@
             }
             if (this.hasSeparatedSearchInput() && !this.options.searchInFooter) {
                 c.append(this.options.templates.search);
-            } else if (!this.options.title) {
+            }
+else if (!this.options.title) {
                 c.remove();
             }
             if (this.options.showFooter && !b.isEmpty(this.options.templates.footer)) {
@@ -512,10 +541,10 @@
             }
             return this.popover;
         },
-        _createIconpicker: function() {
+        _createIconpicker: function () {
             var b = this;
             this.iconpicker = a(this.options.templates.iconpicker);
-            var c = function(c) {
+            var c = function (c) {
                 var d = a(this);
                 if (d.is("i")) {
                     d = d.parent();
@@ -530,7 +559,8 @@
                         iconpickerItem: this,
                         iconpickerValue: b.iconpickerValue
                     });
-                } else {
+                }
+else {
                     b.update(d.data("iconpickerValue"), true);
                 }
                 if (b.options.hideOnSelect && b.options.mustAccept === false) {
@@ -550,19 +580,19 @@
             this.popover.find(".popover-content").append(this.iconpicker);
             return this.iconpicker;
         },
-        _isEventInsideIconpicker: function(b) {
+        _isEventInsideIconpicker: function (b) {
             var c = a(b.target);
             if ((!c.hasClass("iconpicker-element") || c.hasClass("iconpicker-element") && !c.is(this.element)) && c.parents(".iconpicker-popover").length === 0) {
                 return false;
             }
             return true;
         },
-        _bindElementEvents: function() {
+        _bindElementEvents: function () {
             var c = this;
-            this.getSearchInput().on("keyup.iconpicker", function() {
+            this.getSearchInput().on("keyup.iconpicker", function () {
                 c.filter(a(this).val().toLowerCase());
             });
-            this.getAcceptButton().on("click.iconpicker", function() {
+            this.getAcceptButton().on("click.iconpicker", function () {
                 var a = c.iconpicker.find(".iconpicker-selected").get(0);
                 c.update(c.iconpickerValue);
                 c._trigger("iconpickerSelected", {
@@ -573,25 +603,26 @@
                     c.hide();
                 }
             });
-            this.getCancelButton().on("click.iconpicker", function() {
+            this.getCancelButton().on("click.iconpicker", function () {
                 if (!c.isInline()) {
                     c.hide();
                 }
             });
-            this.element.on("focus.iconpicker", function(a) {
+            this.element.on("focus.iconpicker", function (a) {
                 c.show();
                 a.stopPropagation();
             });
             if (this.hasComponent()) {
-                this.component.on("click.iconpicker", function() {
+                this.component.on("click.iconpicker", function () {
                     c.toggle();
                 });
             }
             if (this.hasInput()) {
-                this.input.on("keyup.iconpicker", function(d) {
+                this.input.on("keyup.iconpicker", function (d) {
                     if (!b.inArray(d.keyCode, [ 38, 40, 37, 39, 16, 17, 18, 9, 8, 91, 93, 20, 46, 186, 190, 46, 78, 188, 44, 86 ])) {
                         c.update();
-                    } else {
+                    }
+else {
                         c._updateFormGroupStatus(c.getValid(this.value) !== false);
                     }
                     if (c.options.inputSearch === true) {
@@ -600,17 +631,17 @@
                 });
             }
         },
-        _bindWindowEvents: function() {
+        _bindWindowEvents: function () {
             var b = a(window.document);
             var c = this;
             var d = ".iconpicker.inst" + this._id;
-            a(window).on("resize.iconpicker" + d + " orientationchange.iconpicker" + d, function(a) {
+            a(window).on("resize.iconpicker" + d + " orientationchange.iconpicker" + d, function (a) {
                 if (c.popover.hasClass("in")) {
                     c.updatePlacement();
                 }
             });
             if (!c.isInline()) {
-                b.on("mouseup" + d, function(a) {
+                b.on("mouseup" + d, function (a) {
                     if (!c._isEventInsideIconpicker(a) && !c.isInline()) {
                         c.hide();
                     }
@@ -621,7 +652,7 @@
             }
             return false;
         },
-        _unbindElementEvents: function() {
+        _unbindElementEvents: function () {
             this.popover.off(".iconpicker");
             this.element.off(".iconpicker");
             if (this.hasInput()) {
@@ -634,11 +665,11 @@
                 this.container.off(".iconpicker");
             }
         },
-        _unbindWindowEvents: function() {
+        _unbindWindowEvents: function () {
             a(window).off(".iconpicker.inst" + this._id);
             a(window.document).off(".iconpicker.inst" + this._id);
         },
-        updatePlacement: function(b, c) {
+        updatePlacement: function (b, c) {
             b = b || this.options.placement;
             this.options.placement = b;
             c = c || this.options.collision;
@@ -784,7 +815,8 @@
             });
             if (d !== false) {
                 this.popover.pos(d).css("maxWidth", a(window).width() - this.container.offset().left - 5);
-            } else {
+            }
+else {
                 this.popover.css({
                     top: "auto",
                     right: "auto",
@@ -796,7 +828,7 @@
             this.popover.addClass(this.options.placement);
             return true;
         },
-        _updateComponents: function() {
+        _updateComponents: function () {
             this.iconpicker.find(".iconpicker-item.iconpicker-selected").removeClass("iconpicker-selected " + this.options.selectedCustomClass);
             if (this.iconpickerValue) {
                 this.iconpicker.find("." + this.options.fullClassFormatter(this.iconpickerValue).replace(/ /g, ".")).parent().addClass("iconpicker-selected " + this.options.selectedCustomClass);
@@ -805,23 +837,25 @@
                 var a = this.component.find("i");
                 if (a.length > 0) {
                     a.attr("class", this.options.fullClassFormatter(this.iconpickerValue));
-                } else {
+                }
+else {
                     this.component.html(this.getHtml());
                 }
             }
         },
-        _updateFormGroupStatus: function(a) {
+        _updateFormGroupStatus: function (a) {
             if (this.hasInput()) {
                 if (a !== false) {
                     this.input.parents(".form-group:first").removeClass("has-error");
-                } else {
+                }
+else {
                     this.input.parents(".form-group:first").addClass("has-error");
                 }
                 return true;
             }
             return false;
         },
-        getValid: function(c) {
+        getValid: function (c) {
             if (!b.isString(c)) {
                 c = "";
             }
@@ -832,7 +866,7 @@
             }
             return false;
         },
-        setValue: function(a) {
+        setValue: function (a) {
             var b = this.getValid(a);
             if (b !== false) {
                 this.iconpickerValue = b;
@@ -840,22 +874,24 @@
                     iconpickerValue: b
                 });
                 return this.iconpickerValue;
-            } else {
+            }
+else {
                 this._trigger("iconpickerInvalid", {
                     iconpickerValue: a
                 });
                 return false;
             }
         },
-        getHtml: function() {
+        getHtml: function () {
             return '<i class="' + this.options.fullClassFormatter(this.iconpickerValue) + '"></i>';
         },
-        setSourceValue: function(a) {
+        setSourceValue: function (a) {
             a = this.setValue(a);
             if (a !== false && a !== "") {
                 if (this.hasInput()) {
                     this.input.val(this.iconpickerValue);
-                } else {
+                }
+else {
                     this.element.data("iconpickerValue", this.iconpickerValue);
                 }
                 this._trigger("iconpickerSetSourceValue", {
@@ -864,12 +900,13 @@
             }
             return a;
         },
-        getSourceValue: function(a) {
+        getSourceValue: function (a) {
             a = a || this.options.defaultValue;
             var b = a;
             if (this.hasInput()) {
                 b = this.input.val();
-            } else {
+            }
+else {
                 b = this.element.data("iconpickerValue");
             }
             if (b === undefined || b === "" || b === null || b === false) {
@@ -877,62 +914,65 @@
             }
             return b;
         },
-        hasInput: function() {
+        hasInput: function () {
             return this.input !== false;
         },
-        isInputSearch: function() {
+        isInputSearch: function () {
             return this.hasInput() && this.options.inputSearch === true;
         },
-        isInputGroup: function() {
+        isInputGroup: function () {
             return this.container.is(".input-group");
         },
-        isDropdownMenu: function() {
+        isDropdownMenu: function () {
             return this.container.is(".dropdown-menu");
         },
-        hasSeparatedSearchInput: function() {
+        hasSeparatedSearchInput: function () {
             return this.options.templates.search !== false && !this.isInputSearch();
         },
-        hasComponent: function() {
+        hasComponent: function () {
             return this.component !== false;
         },
-        hasContainer: function() {
+        hasContainer: function () {
             return this.container !== false;
         },
-        getAcceptButton: function() {
+        getAcceptButton: function () {
             return this.popover.find(".iconpicker-btn-accept");
         },
-        getCancelButton: function() {
+        getCancelButton: function () {
             return this.popover.find(".iconpicker-btn-cancel");
         },
-        getSearchInput: function() {
+        getSearchInput: function () {
             return this.popover.find(".iconpicker-search");
         },
-        filter: function(c) {
+        filter: function (c) {
             if (b.isEmpty(c)) {
                 this.iconpicker.find(".iconpicker-item").show();
                 return a(false);
-            } else {
+            }
+else {
                 var d = [];
-                this.iconpicker.find(".iconpicker-item").each(function() {
+                this.iconpicker.find(".iconpicker-item").each(function () {
                     var b = a(this);
                     var e = b.attr("title").toLowerCase();
                     var f = false;
                     try {
                         f = new RegExp(c, "g");
-                    } catch (a) {
+                    }
+catch (a) {
                         f = false;
                     }
                     if (f !== false && e.match(f)) {
                         d.push(b);
                         b.show();
-                    } else {
+                    }
+else {
                         b.hide();
                     }
                 });
                 return d;
             }
         },
-        show: function() {
+        show: function () {
             if (this.popover.hasClass("in")) {
                 return false;
             }
@@ -940,37 +980,39 @@
             this._trigger("iconpickerShow");
             this.updatePlacement();
             this.popover.addClass("in");
-            setTimeout(a.proxy(function() {
+            setTimeout(a.proxy(function () {
                 this.popover.css("display", this.isInline() ? "" : "block");
                 this._trigger("iconpickerShown");
             }, this), this.options.animation ? 300 : 1);
         },
-        hide: function() {
+        hide: function () {
             if (!this.popover.hasClass("in")) {
                 return false;
             }
             this._trigger("iconpickerHide");
             this.popover.removeClass("in");
-            setTimeout(a.proxy(function() {
+            setTimeout(a.proxy(function () {
                 this.popover.css("display", "none");
                 this.getSearchInput().val("");
                 this.filter("");
                 this._trigger("iconpickerHidden");
             }, this), this.options.animation ? 300 : 1);
         },
-        toggle: function() {
+        toggle: function () {
             if (this.popover.is(":visible")) {
                 this.hide();
-            } else {
+            }
+else {
                 this.show(true);
             }
         },
-        update: function(a, b) {
+        update: function (a, b) {
             a = a ? a : this.getSourceValue(this.iconpickerValue);
             this._trigger("iconpickerUpdate");
             if (b === true) {
                 a = this.setValue(a);
-            } else {
+            }
+else {
                 a = this.setSourceValue(a);
                 this._updateFormGroupStatus(a !== false);
             }
@@ -980,7 +1022,7 @@
             this._trigger("iconpickerUpdated");
             return a;
         },
-        destroy: function() {
+        destroy: function () {
             this._trigger("iconpickerDestroy");
             this.element.removeData("iconpicker").removeData("iconpickerValue").removeClass("iconpicker-element");
             this._unbindElementEvents();
@@ -988,33 +1030,33 @@
             a(this.popover).remove();
             this._trigger("iconpickerDestroyed");
         },
-        disable: function() {
+        disable: function () {
             if (this.hasInput()) {
                 this.input.prop("disabled", true);
                 return true;
             }
             return false;
         },
-        enable: function() {
+        enable: function () {
             if (this.hasInput()) {
                 this.input.prop("disabled", false);
                 return true;
             }
             return false;
         },
-        isDisabled: function() {
+        isDisabled: function () {
             if (this.hasInput()) {
                 return this.input.prop("disabled") === true;
             }
             return false;
         },
-        isInline: function() {
+        isInline: function () {
             return this.options.placement === "inline" || this.popover.hasClass("inline");
         }
     };
     a.iconpicker = c;
-    a.fn.iconpicker = function(b) {
-        return this.each(function() {
+    a.fn.iconpicker = function (b) {
+        return this.each(function () {
             var d = a(this);
             if (!d.data("iconpicker")) {
                 d.data("iconpicker", new c(this, typeof b === "object" ? b : {}));

@@ -20,7 +20,7 @@
   display: block;
 }
 .with-selection .selection-area .entities-list .item-container:after,
-.with-selection .selection-area .entities-list .item-container .media:after{
+.with-selection .selection-area .entities-list .item-container .media:after {
   clear: both;
   content: "";
   font-size: 0;

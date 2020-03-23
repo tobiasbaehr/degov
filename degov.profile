@@ -58,6 +58,7 @@ function degov_module_setup(&$install_state) {
     'degov_users_roles'                 => 'degov_users_roles',
     'degov_node_overrides'              => 'degov_node_overrides',
     'degov_taxonomies'                  => 'degov_taxonomies',
+    'degov_taxonomy_term_synonyms'      => 'degov_taxonomy_term_synonyms',
     'degov_node_normal_page'            => 'degov_node_normal_page',
     'degov_password_policy'             => 'degov_password_policy',
     'degov_paragraph_text'              => 'degov_paragraph_text',
@@ -74,7 +75,11 @@ function degov_module_setup(&$install_state) {
     'degov_auto_crop'                   => 'degov_auto_crop',
     'degov_file_management'             => 'degov_file_management',
     'degov_search_content'              => 'degov_search_content',
+    'degov_search_synonyms'             => 'degov_search_synonyms',
     'degov_scheduled_updates'           => 'degov_scheduled_updates',
+    'degov_media_usage'                 => 'degov_media_usage',
+    'degov_media_usage_node'            => 'degov_media_usage_node',
+    'degov_media_usage_paragraphs'      => 'degov_media_usage_paragraphs',
     'node_action'                       => 'node_action',
     'filter_disallow'                   => 'filter_disallow',
     'media_file_links'                  => 'media_file_links',
@@ -190,6 +195,7 @@ function degov_theme_setup(&$install_state) {
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'degov_theme')
+    ->set('admin', 'claro')
     ->save();
 
   \Drupal::service('theme.manager')->resetActiveTheme();

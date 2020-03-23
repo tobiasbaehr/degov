@@ -13,8 +13,10 @@ default:
         - Drupal\degov\Behat\Context\NodeContentTypeFormContext
         - Drupal\degov\Behat\Context\ModuleContext
         - Drupal\degov\Behat\Context\JavaScriptContext
+        - Drupal\degov_behat_extension\BehatContext\PerformanceContext
       paths:
-        features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        - '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
+        - '%paths.base%/docroot/profiles/contrib/degov/modules/degov_behat_extension/tests/src/Behat/features/performance'
       translation:
           locale: de
     smoke-tests:
@@ -52,25 +54,22 @@ default:
       paths:
         features: '%paths.base%/docroot/profiles/contrib/degov/testing/behat/features'
   extensions:
-    Behat\MinkExtension:
+    Drupal\MinkExtension:
       files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
-      browser_name: chrome
-      javascript_session: selenium2
-      default_session: selenium2
-      goutte: ~
-      selenium2:
-        wd_host: "http://127.0.0.1:4444/wd/hub"
-        browser: "chrome"
-        capabilities:
-          browserName: "chrome"
-          browser: "chrome"
-          version:  "*"
-          chrome:
-            switches:
-              - "--no-sandbox"
-              - "--headless"
-              - "--disable-gpu"
-      base_url: http://127.0.0.1:80
+      base_url: http://host.docker.internal
+      default_session: selenium_chrome
+      sessions:
+        selenium_chrome:
+          selenium2:
+            wd_host: http://localhost:4444/wd/hub
+            browser: chrome
+            capabilities:
+              extra_capabilities:
+                chromeOptions:
+                  args:
+                    - "--no-sandbox"
+                    - "--headless"
+                    - "--disable-gpu"
     Drupal\DrupalExtension:
       blackbox: ~
       drupal:

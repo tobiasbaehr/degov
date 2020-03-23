@@ -11,6 +11,8 @@ use Drupal\node_action\Redirector;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
+ * Class ChangeAuthorAction.
+ *
  * @Action(
  *   id = "node_action:entity:author:node",
  *   action_label = @Translation("Change the author"),
@@ -19,13 +21,23 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ChangeAuthorAction extends EntityActionBase {
 
+  /**
+   * Access checker.
+   *
+   * @var \Drupal\node_action\AccessChecker\ChangeModerationStateAction
+   */
   private $accessChecker;
 
   /**
-   * @var Redirector
+   * Redirector.
+   *
+   * @var \Drupal\node_action\Redirector
    */
   private $redirector;
 
+  /**
+   * ChangeAuthorAction constructor.
+   */
   public function __construct(array $configuration, string $plugin_id, array $plugin_definition, AccessChecker $accessChecker, Redirector $redirector, EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $entityTypeManager);
     $this->accessChecker = $accessChecker;

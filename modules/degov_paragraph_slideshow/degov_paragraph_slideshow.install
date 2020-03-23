@@ -52,3 +52,23 @@ function degov_paragraph_slideshow_update_870300() {
     ->set('description', '')
     ->save();
 }
+
+/**
+ * deGov - Update: 8.0.0
+ * Additional video support for slides.
+ */
+function degov_paragraph_slideshow_update_880000() {
+  $config = \Drupal::configFactory()->getEditable('field.field.paragraph.slide.field_slide_media');
+  $config->set('dependencies.config', array_merge(
+    $config->get('dependencies.config'),
+    ['media.type.video_mobile', 'media.type.video_upload']
+  ));
+  $config->set('settings.handler_settings.target_bundles', array_merge(
+    $config->get('settings.handler_settings.target_bundles'),
+    [
+      'video_mobile' => 'video_mobile',
+      'video_upload' => 'video_upload',
+    ]
+  ));
+  $config->save();
+}

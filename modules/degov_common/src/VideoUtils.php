@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_common;
 
-
 use DateInterval;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
@@ -14,7 +13,7 @@ use Symfony\Component\Serializer\Encoder\JsonDecode;
 use JamesHeinrich\GetID3\GetID3;
 
 /**
- * Class VideoUtils
+ * Class VideoUtils.
  *
  * @package Drupal\degov_video
  */
@@ -28,12 +27,16 @@ class VideoUtils {
   protected $httpClient;
 
   /**
+   * Video provider manager.
+   *
    * @var \Drupal\video_embed_field\ProviderManager
    */
   protected $videoProviderManager;
 
   /**
-   * @var FileSystem
+   * File system.
+   *
+   * @var \Drupal\Core\File\FileSystem
    */
   protected $fileSystem;
 
@@ -50,11 +53,13 @@ class VideoUtils {
    *   The plugin definition.
    *
    * @param \GuzzleHttp\ClientInterface $http_client
-   *    An HTTP client.
+   *   An HTTP client.
    * @param \Drupal\video_embed_field\ProviderManager $video_provider_manager
-   *    Video provider manager.
+   *   Video provider manager.
    * @param \Drupal\Core\File\FileSystem $file_system
+   *   File system.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
+   *   Logger.
    */
   public function __construct(ClientInterface $http_client, ProviderManager $video_provider_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger) {
     $this->httpClient = $http_client;
@@ -66,7 +71,11 @@ class VideoUtils {
   /**
    * Return the duration of Youtube video in seconds.
    *
+   * @param \Drupal\media\Entity\Media|mixed $media
+   *   Media.
+   *
    * @return int
+   *   Media duration.
    */
   public function getVideoDuration($media) {
     $duration = 0;
@@ -87,17 +96,19 @@ class VideoUtils {
         $file_uri = '';
         if (!$media->get('field_video_upload_mp4')->isEmpty()) {
           $file_uri = $media->get('field_video_upload_mp4')->entity->getFileUri();
-        } elseif (!$media->get('field_video_upload_webm')->isEmpty()) {
+        }
+        elseif (!$media->get('field_video_upload_webm')->isEmpty()) {
           $file_uri = $media->get('field_video_upload_webm')->entity->getFileUri();
-        } elseif (!$media->get('field_video_upload_ogg')->isEmpty()) {
+        }
+        elseif (!$media->get('field_video_upload_ogg')->isEmpty()) {
           $file_uri = $media->get('field_video_upload_ogg')->entity->getFileUri();
         }
         if ($file_uri != '') {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
         $getId3 = new GetID3();
-        $getId3->option_md5_data = true;
-        $getId3->option_md5_data_source = true;
+        $getId3->option_md5_data = TRUE;
+        $getId3->option_md5_data_source = TRUE;
         $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
           ->analyze($file_uri);
@@ -113,15 +124,16 @@ class VideoUtils {
         $file_uri = '';
         if (!$media->get('field_audio_mp3')->isEmpty()) {
           $file_uri = $media->get('field_audio_mp3')->entity->getFileUri();
-        } elseif (!$media->get('field_audio_ogg')->isEmpty()) {
+        }
+        elseif (!$media->get('field_audio_ogg')->isEmpty()) {
           $file_uri = $media->get('field_audio_ogg')->entity->getFileUri();
         }
         if ($file_uri != '') {
           $file_uri = $this->fileSystem->realpath($file_uri);
         }
         $getId3 = new GetID3();
-        $getId3->option_md5_data = true;
-        $getId3->option_md5_data_source = true;
+        $getId3->option_md5_data = TRUE;
+        $getId3->option_md5_data_source = TRUE;
         $getId3->encoding = 'UTF-8';
         $id3Info = $getId3
           ->analyze($file_uri);
@@ -140,11 +152,13 @@ class VideoUtils {
   /**
    * Return the duration of Youtube video in seconds.
    *
-   * @param $videoId
-   *
-   * @param $url
+   * @param string $videoId
+   *   Video id.
+   * @param string $url
+   *   Url.
    *
    * @return int
+   *   Video duration.
    */
   private function getYoutubeDuration($videoId, $url = '') {
     $config = \Drupal::config('degov_common.default_settings');
@@ -152,17 +166,18 @@ class VideoUtils {
     if ($key == '') {
       return 0;
     }
-    $params = array(
+    $params = [
       'part' => 'contentDetails',
       'id' => $videoId,
       'key' => $key,
       'time' => time(),
-    );
+    ];
     $query_url = 'https://www.googleapis.com/youtube/v3/videos?' . http_build_query($params);
     $response = NULL;
     try {
       $response = $this->httpClient->request('GET', $query_url);
-    } catch (ClientException $e) {
+    }
+    catch (ClientException $e) {
       drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
       $this->logger->error("Youtube access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
       return 0;
@@ -183,10 +198,13 @@ class VideoUtils {
   /**
    * Get duration of Vimeo video.
    *
-   * @param $videoId
-   * @param $url
+   * @param string $videoId
+   *   Video ID.
+   * @param string $url
+   *   Url.
    *
    * @return int
+   *   Video duration.
    */
   private function getVimeoDuration($videoId, $url) {
     $query_url = 'https://vimeo.com/api/oembed.json?url=' . $url;
@@ -194,7 +212,8 @@ class VideoUtils {
     $response = NULL;
     try {
       $response = $this->httpClient->request('GET', $query_url);
-    } catch (ClientException $e) {
+    }
+    catch (ClientException $e) {
       drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
       $this->logger->error("Vimeo access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
       return 0;
@@ -211,17 +230,22 @@ class VideoUtils {
   }
 
   /**
+   * Get file info.
+   *
    * @param string $file_path
+   *   File path.
    *
    * @return array
+   *   File info.
    */
   public function getFileInfo(string $file_path): array {
     $getId3 = new GetID3();
-    $getId3->option_md5_data = true;
-    $getId3->option_md5_data_source = true;
+    $getId3->option_md5_data = TRUE;
+    $getId3->option_md5_data_source = TRUE;
     $getId3->encoding = 'UTF-8';
     $id3Info = $getId3
       ->analyze($file_path);
     return $id3Info;
   }
+
 }

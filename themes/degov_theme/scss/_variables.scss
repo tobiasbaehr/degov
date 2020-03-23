@@ -2,6 +2,9 @@
 //
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 $font-size-base:              1rem; // Assumes the browser default, typically `16px`
 $h1-font-size:                $font-size-base * 2.3;
@@ -39,3 +42,10 @@ $baltic-sea:    #1B181D;
 $regent-grey:   #818D96;
 $gray-dark:     #2C2C2C;
 $light-blue:    #2A96D5;
+
+
+// Modal
+$modal-content-border-color:        $white;
+$modal-content-border-width:        0;
+$modal-content-border-radius:       0;
+$modal-content-inner-border-radius: 0;

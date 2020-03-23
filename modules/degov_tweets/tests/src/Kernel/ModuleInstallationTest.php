@@ -3,8 +3,10 @@
 namespace Drupal\Tests\degov_tweets\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
-use Drupal\Core\Extension\ModuleHandler;
 
+/**
+ * Class ModuleInstallationTest.
+ */
 class ModuleInstallationTest extends KernelTestBase {
 
   /**
@@ -22,9 +24,12 @@ class ModuleInstallationTest extends KernelTestBase {
     $this->installConfig(['degov_tweets']);
   }
 
+  /**
+   * Test setup.
+   */
   public function testSetup(): void {
     /**
-     * @var ModuleHandler $moduleHandler
+     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
      */
     $moduleHandler = \Drupal::service('module_handler');
     self::assertTrue($moduleHandler->moduleExists('degov_tweets'));

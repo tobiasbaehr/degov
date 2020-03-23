@@ -9,6 +9,7 @@ dependencies:
   - degov_content_types_shared_fields
   - degov_taxonomy_term_copyright
   - degov_taxonomy_term_tags
+  - degov_taxonomy_media_accessibility
   - degov_media_overrides
   - dropzonejs_eb_widget
   - entity_browser

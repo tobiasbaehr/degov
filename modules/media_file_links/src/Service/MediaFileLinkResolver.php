@@ -17,12 +17,18 @@ use Drupal\media\MediaInterface;
  */
 class MediaFileLinkResolver {
 
+  /**
+   * File field mapper.
+   *
+   * @var \Drupal\media_file_links\Service\MediaFileFieldMapper
+   */
   private $fileFieldMapper;
 
   /**
    * MediaFileLinkResolver constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
+   *   File field mapper.
    */
   public function __construct(MediaFileFieldMapper $fileFieldMapper) {
     $this->fileFieldMapper = $fileFieldMapper;
@@ -32,8 +38,10 @@ class MediaFileLinkResolver {
    * Accepts the id of a Media entity, returns the primary file URL.
    *
    * @param int $mediaId
+   *   Media ID.
    *
    * @return string
+   *   File url string.
    */
   public function getFileUrlString(int $mediaId): string {
     $file = $this->getFileForMedia($mediaId);
@@ -49,9 +57,13 @@ class MediaFileLinkResolver {
   }
 
   /**
+   * Get file name string.
+   *
    * @param int $mediaId
+   *   Media ID.
    *
    * @return string
+   *   File name string.
    */
   public function getFileNameString(int $mediaId): string {
     $file = $this->getFileForMedia($mediaId);
@@ -70,8 +82,10 @@ class MediaFileLinkResolver {
    * Accepts a Media id and returns the primary file of the entity.
    *
    * @param int $mediaId
+   *   Media ID.
    *
    * @return \Drupal\file\FileInterface|null
+   *   File.
    */
   private function getFileForMedia(int $mediaId): ?FileInterface {
     $media = Media::load($mediaId);

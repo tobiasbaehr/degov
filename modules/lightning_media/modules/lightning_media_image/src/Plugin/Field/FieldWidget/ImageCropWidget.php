@@ -7,6 +7,9 @@ use Drupal\Core\Url;
 use Drupal\crop\Entity\CropType;
 use Drupal\image_widget_crop\Plugin\Field\FieldWidget\ImageCropWidget as BaseImageCropWidget;
 
+/**
+ * Class ImageCropWidget.
+ */
 class ImageCropWidget extends BaseImageCropWidget {
 
   /**
@@ -27,9 +30,9 @@ class ImageCropWidget extends BaseImageCropWidget {
 
     $element['crop_list']['#description'] = $this->t('The <a href="@crop_types">crop types</a> to allow. Only crop types that are associated with at least one <a href="@image_styles">image style</a> are shown here. If none are selected, all will be allowed.', [
       '@crop_types' =>
-        Url::fromRoute('crop.overview_types')->toString(),
+      Url::fromRoute('crop.overview_types')->toString(),
       '@image_styles' =>
-        Url::fromRoute('entity.image_style.collection')->toString(),
+      Url::fromRoute('entity.image_style.collection')->toString(),
     ]);
     $element['crop_list']['#required'] = FALSE;
 

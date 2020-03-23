@@ -4,18 +4,25 @@ namespace degov\Scripts\Robo;
 
 use degov\Scripts\Robo\Exception\ApplicationRequirementFail;
 
+/**
+ * Class Utilities.
+ */
 class Utilities {
 
+  /**
+   * Remove cli line breaks.
+   */
   public static function removeCliLineBreaks(string $output): string {
     return str_replace(PHP_EOL, '', $output);
   }
 
   /**
-   * @param string $version
-   *  The output of "node -v" cli command.
+   * Check node version.
    *
-   * @return void
-   * @throws ApplicationRequirementFail
+   * @param string $version
+   *   The output of "node -v" cli command.
+   *
+   * @throws \degov\Scripts\Robo\Exception\ApplicationRequirementFail
    */
   public static function checkNodeVersion(string $version): void {
     $versionParts = explode('.', $version);
@@ -26,6 +33,9 @@ class Utilities {
     }
   }
 
+  /**
+   * Determine latest release dev branch.
+   */
   public static function determineLatestReleaseDevBranch(string $branches): string {
     $allBranches = explode(' ', $branches);
     $branchVersionCombinations = [];

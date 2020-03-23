@@ -1,5 +1,7 @@
 <?php
 
+use \Symfony\Component\Yaml\Yaml;
+
 function _degov_image_and_crop_styles_set_enforced_and_uuid(\Drupal\Core\Config\Config $getEditable) {
   /** @var \Drupal\Component\Uuid\Php $uuid_service */
   $uuid_service = \Drupal::service('uuid');
@@ -122,4 +124,28 @@ function degov_image_and_crop_styles_update_870600() {
   $config->set('settings.library_url', 'libraries/cropper/dist/cropper.js');
   $config->set('settings.css_url', 'libraries/cropper/dist/cropper.css');
   $config->save();
+}
+
+/**
+ * deGov Update 8.0.0 — Re-import configs from 8.7.1 if they are missing.
+ */
+function degov_image_and_crop_styles_update_880000() {
+  $configsToReimport = [
+    'core.entity_view_mode.media.header_logo_slogan'          => \Drupal::service('module_handler')
+        ->getModule('degov_image_and_crop_styles')
+        ->getPath() . '/config/install/core.entity_view_mode.media.header_logo_slogan.yml',
+    'image.style.logo_slogan'                                 => \Drupal::service('module_handler')
+        ->getModule('degov_image_and_crop_styles')
+        ->getPath() . '/config/install/image.style.logo_slogan.yml',
+    'core.entity_view_display.media.image.header_logo_slogan' => \Drupal::service('module_handler')
+        ->getModule('degov_media_image')
+        ->getPath() . '/config/install/core.entity_view_display.media.image.header_logo_slogan.yml',
+  ];
+
+  foreach($configsToReimport as $configKey => $pathToConfigFile) {
+    $configObject = \Drupal::configFactory()->getEditable($configKey);
+    if($configObject->isNew()) {
+      $configObject->setData(Yaml::parseFile($pathToConfigFile))->save(TRUE);
+    }
+  }
 }

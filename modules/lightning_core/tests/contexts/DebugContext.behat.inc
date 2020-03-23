@@ -38,21 +38,23 @@ class DebugContext extends DrupalSubContextBase {
    *
    * @When I dump the HTML
    */
-  public function dumpHTML() {
+  public function dumpHtml() {
     print_r($this->getSession()->getPage()->getContent());
   }
 
   /**
    * Takes a screenshot.
+   * phpcs:disable
    *
    * @param string $filename
    *   (optional) Ignored. The filename is based on a counter and prefixed with
    *   the name of the Mink browser.
-   * @param null $filepath
+   * @param mixed $filepath
    *   (optional) Ignored. The screenshot is saved in the directory above the
    *   Drupal root.
    *
    * @When I take a screenshot
+   * phpcs:enable
    */
   public function saveScreenshot($filename = NULL, $filepath = NULL) {
     $filename = sprintf('%s_%d.png', $this->getMinkParameter('browser_name'), ++$this->screenshotCount);

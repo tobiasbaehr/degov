@@ -1,5 +1,6 @@
 # Testing with BackstopJS
 
+## Table of contents
 - [Official BackstopJS documentation](#official-backstopjs-documentation)
 - [Usage of the BackstopJS Docker image](#usage-of-the-backstopjs-docker-image)
 - [Start the Docker container's shell](#start-the-docker-containers-shell)
@@ -59,7 +60,7 @@ docker exec -it NAME_or_ID bash
 ### Check the test report
 
 ```bash
-cd degov_nrw-project/docroot/profiles/contrib/nrwgov/testing/
+cd nrwgov_project/docroot/profiles/contrib/nrwgov/testing/
 # Anzeigen des BackstopJS-Berichts
 google-chrome-stable backstopjs/backstop_data/html_report/index.html
 # oder

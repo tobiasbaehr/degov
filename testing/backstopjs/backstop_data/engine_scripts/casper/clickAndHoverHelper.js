@@ -1,3 +1,7 @@
+/**
+ * @file
+ */
+
 var WAIT_TIMEOUT = 5000;
 
 module.exports = function (casper, scenario) {
@@ -20,6 +24,6 @@ module.exports = function (casper, scenario) {
     });
   }
 
-  // TODO: if postInteractionWait === integer then do ==> wait(postInteractionWait) || elsevvv
+  // TODO: if postInteractionWait === integer then do ==> wait(postInteractionWait) || elsevvv.
   waitFor(postInteractionWait);
 };

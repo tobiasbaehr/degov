@@ -1,12 +1,9 @@
 <?php
-/**
- * @file MenuFaIcons.php.
- */
 
 namespace Drupal\degov_theme\Preprocess;
 
 /**
- * Class MenuFaIcons
+ * Class MenuFaIcons.
  *
  * @package Drupal\degov_theme\Preprocess
  */
@@ -18,17 +15,19 @@ class MenuFaIcons {
    * Move FA classes to separate tag.
    *
    * @param array $items
-   *  Links items.
-   * @param $menu_name
-   *  Menu name.
+   *   Links items.
+   * @param string $menu_name
+   *   Menu name.
    */
-  static public function preprocess(array &$items, $menu_name) {
+  public static function preprocess(array &$items, $menu_name) {
     $supported_menus = [
       'main',
       'footer',
       'account',
     ];
-    if (!in_array($menu_name, $supported_menus)) return;
+    if (!in_array($menu_name, $supported_menus)) {
+      return;
+    }
 
     // Add support for fontawesome 5.
     foreach ($items as $key => &$item) {
@@ -51,7 +50,7 @@ class MenuFaIcons {
       }
       $index = NULL;
       foreach ($classes as $index => $class) {
-        if (stripos($class,'fa-') !== FALSE) {
+        if (stripos($class, 'fa-') !== FALSE) {
           $fa_classes[] = $classes[$index];
           $fa_classes[] = self::getFaPack($class);
           unset($classes[$index]);
@@ -81,12 +80,12 @@ class MenuFaIcons {
    * Map the fa-class to FA pack (solid, regular, brand).
    *
    * @param string $icon
-   *  The FA icon class.
+   *   The FA icon class.
    *
-   * @return mixed|null
-   *
+   * @return array|null
+   *   FA pack.
    */
-  static function getFaPack(string $icon) {
+  public static function getFaPack(string $icon) {
     $mapping = [
       'fa-drupal' => 'fab',
       'fa-bluetooth' => 'fab',
@@ -98,4 +97,5 @@ class MenuFaIcons {
     ];
     return isset($mapping[$icon]) ? $mapping[$icon] : NULL;
   }
+
 }

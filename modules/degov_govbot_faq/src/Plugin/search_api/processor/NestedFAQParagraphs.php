@@ -28,12 +28,16 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class NestedFAQParagraphs extends ProcessorPluginBase {
 
   /**
-   * @var GovBotFieldsExtractor
+   * Bot fields extractor.
+   *
+   * @var \Drupal\degov_govbot_faq\GovBotFieldsExtractor
    */
   private $govBotFieldsExtractor;
 
   /**
-   * @var GovBotFieldsMerger
+   * Bot fields merger.
+   *
+   * @var \Drupal\degov_govbot_faq\GovBotFieldsMerger
    */
   private $govbotFieldsMerger;
 
@@ -51,37 +55,44 @@ class NestedFAQParagraphs extends ProcessorPluginBase {
   }
 
   /**
-   * @return GovBotFieldsExtractor
+   * Get GovBotFieldsExtractor.
+   *
+   * @return \Drupal\degov_govbot_faq\GovBotFieldsExtractor
+   *   GovBotFieldsExtractor.
    */
-  public function getGovBotFieldsExtractor(): GovBotFieldsExtractor
-  {
+  public function getGovBotFieldsExtractor(): GovBotFieldsExtractor {
     return $this->govBotFieldsExtractor;
   }
 
   /**
-   * @param GovBotFieldsExtractor $govBotFieldsExtractor
+   * Set setGovBotFieldsExtractor.
+   *
+   * @param \Drupal\degov_govbot_faq\GovBotFieldsExtractor $govBotFieldsExtractor
+   *   GovBotFieldsExtractor.
    */
-  public function setGovBotFieldsExtractor(GovBotFieldsExtractor $govBotFieldsExtractor): void
-  {
+  public function setGovBotFieldsExtractor(GovBotFieldsExtractor $govBotFieldsExtractor): void {
     $this->govBotFieldsExtractor = $govBotFieldsExtractor;
   }
 
   /**
-   * @return GovBotFieldsMerger
+   * Get govbotFieldsMerger.
+   *
+   * @return \Drupal\degov_govbot_faq\GovBotFieldsMerger
+   *   GovbotFieldsMerger.
    */
-  public function getGovbotFieldsMerger(): GovBotFieldsMerger
-  {
+  public function getGovbotFieldsMerger(): GovBotFieldsMerger {
     return $this->govbotFieldsMerger;
   }
 
   /**
-   * @param GovBotFieldsMerger $govbotFieldsMerger
+   * Set govbotFieldsMerger.
+   *
+   * @param \Drupal\degov_govbot_faq\GovBotFieldsMerger $govbotFieldsMerger
+   *   GovbotFieldsMerger.
    */
-  public function setGovbotFieldsMerger(GovBotFieldsMerger $govbotFieldsMerger): void
-  {
+  public function setGovbotFieldsMerger(GovBotFieldsMerger $govbotFieldsMerger): void {
     $this->govbotFieldsMerger = $govbotFieldsMerger;
   }
-
 
   /**
    * {@inheritdoc}

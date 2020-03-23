@@ -31,11 +31,15 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
 
   /**
    * The type of entity.
+   *
+   * @var string
    */
   protected $entityType;
 
   /**
    * The type of block.
+   *
+   * @var string
    */
   protected $blockType;
 
@@ -68,6 +72,8 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    *   Definition array.
    *
    * @return \Drupal\block_content\Entity\BlockContent|\Drupal\Core\Entity\EntityInterface
+   *   Content block.
+   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function createContentBlock(array $definition) {
@@ -82,11 +88,11 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Place block to the region.
    *
    * @param \Drupal\block_content\Entity\BlockContent $block
-   *  The Block entity.
+   *   The Block entity.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function setBlockToRegion($block) {
+  private function setBlockToRegion(BlockContent $block) {
     $placed_block = Block::create([
       'id' => 'slideshow',
       'theme' => 'degov_theme',
@@ -119,7 +125,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Generates reference to paragraph in the block field.
    *
    * @param \Drupal\block_content\Entity\BlockContent $block_content
-   *  BlockContent entity.
+   *   BlockContent entity.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
@@ -166,7 +172,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
     $view_display = $this->entityTypeManager
       ->getStorage('entity_view_display')
       ->load("{$this->entityType}.{$this->blockType}.default");
-    $view_display->setComponent(self::BLOCK_PARAGRAPH_FIELD, ['label' => 'hidden',]);
+    $view_display->setComponent(self::BLOCK_PARAGRAPH_FIELD, ['label' => 'hidden']);
     $view_display->save();
   }
 
@@ -174,7 +180,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * Returns array of paragraph field for the form display.
    *
    * @return array
-   *  Settings array.
+   *   Settings array.
    */
   private function getParagraphFieldFormDisplaySettings() {
     return [
