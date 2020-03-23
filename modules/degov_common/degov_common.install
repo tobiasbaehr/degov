@@ -304,4 +304,8 @@ function degov_common_update_880100() {
     ->getEditable('views.view.media')
     ->setData($replace)
     ->save(TRUE);
+  if (\Drupal::moduleHandler()->moduleExists('degov_media_usage_node')) {
+    // Re-add usage column.
+    _install_media_overview_field();
+  }
 }
