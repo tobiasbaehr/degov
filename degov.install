@@ -447,9 +447,9 @@ function degov_update_880000() {
 }
 
 /**
- * deGov 8.1.0 - Install the degov_password_policy module
+ * deGov 8.0.5 - Install the degov_password_policy module
  */
-function degov_update_880100() {
+function degov_update_880005() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_password_policy')) {
     \Drupal::service('module_installer')->install(['degov_password_policy']);
   }
