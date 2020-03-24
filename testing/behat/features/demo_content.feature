@@ -47,3 +47,17 @@ Feature: deGov - Demo Content
     When I click by selector ".video-upload__transcription__header" via JavaScript
     Then I should see HTML content matching "fa-caret-down"
     And I should see the element with css selector ".video-upload__transcription__body"
+
+  Scenario: Check that generated video upload without sound does not have subtitles file attached
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "The latest video upload"
+    And I choose "Beschreibung" from tab menu
+    Then I should see 0 "#field-video-upload-subtitle-values .paragraph-type-title" elements
+
+  Scenario: Check that generated video upload has a subtitles file attached
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I open media edit form by media name "A video upload with sound"
+    And I choose "Beschreibung" from tab menu
+    Then I should see 1 "#field-video-upload-subtitle-values .paragraph-type-title" elements

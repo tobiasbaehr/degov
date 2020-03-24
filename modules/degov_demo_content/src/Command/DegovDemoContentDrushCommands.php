@@ -79,6 +79,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcreg
    */
   public function resetContent() {
+    $this->nodeGenerator->deleteParagraphs();
     $this->mediaGenerator->resetContent();
     $this->nodeGenerator->resetContent();
     $this->menuItemGenerator->resetContent();
@@ -94,6 +95,7 @@ class DegovDemoContentDrushCommands extends DrushCommands {
    * @aliases dcdel
    */
   public function deleteContent() {
+    $this->nodeGenerator->deleteParagraphs();
     $this->menuItemGenerator->deleteContent();
     $this->nodeGenerator->deleteContent();
     $this->mediaGenerator->deleteContent();

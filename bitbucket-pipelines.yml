@@ -185,6 +185,17 @@ pipelines:
             - "*.png"
             - "*.html"
       - step:
+          name: CLI install test
+          script:
+            - bash ./scripts/pipeline/acceptance_tests.sh smoke_tests cli
+          services:
+            - docker
+          artifacts:
+            - php_error.log
+            - "*.sql.gz"
+            - "*.png"
+            - "*.html"
+      - step:
           name: HTML-Validator tests
           script:
             - bash ./scripts/pipeline/acceptance_tests.sh html_validator db_dump

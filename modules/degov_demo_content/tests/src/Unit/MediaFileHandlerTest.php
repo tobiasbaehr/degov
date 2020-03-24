@@ -3,7 +3,7 @@
 namespace Drupal\Tests\degov_demo_content\Unit;
 
 use Drupal\degov_demo_content\FileAdapter;
-use Drupal\degov_demo_content\MediaFileHandler;
+use Drupal\degov_demo_content\FileHandler\MediaFileHandler;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 use Drupal\file\Entity\File;

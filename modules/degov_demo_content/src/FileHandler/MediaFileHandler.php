@@ -1,89 +1,17 @@
 <?php
 
-namespace Drupal\degov_demo_content;
-
-use Drupal\file\Entity\File;
+namespace Drupal\degov_demo_content\FileHandler;
 
 /**
  * Class MediaFileHandler.
  */
-class MediaFileHandler {
-
-  /**
-   * File adapter.
-   *
-   * @var \Drupal\file\Entity\FileAdapter
-   */
-  private $fileAdapter;
-
-  /**
-   * Files.
-   *
-   * @var array
-   */
-  private $files = [];
+class MediaFileHandler extends FileHandler {
 
   /**
    * MediaFileHandler constructor.
-   */
-  public function __construct(FileAdapter $fileAdapter) {
-    $this->fileAdapter = $fileAdapter;
-  }
-
-  /**
-   * Get file.
    *
-   * @param string $mediaItemKey
-   *   Media item key.
-   *
-   * @return \Drupal\file\Entity\File
-   *   File.
-   */
-  public function getFile(string $mediaItemKey): ?File {
-    return $this->files[$mediaItemKey];
-  }
-
-  /**
-   * Get files.
-   *
-   * @param string $mediaItemKey
-   *   Media item key.
-   *
-   * @return array
-   *   Files.
-   */
-  public function getFiles(string $mediaItemKey): ?array {
-    return $this->files[$mediaItemKey]['files'];
-  }
-
-  /**
-   * Add file.
-   *
-   * @param \Drupal\file\Entity\File $file
-   *   File.
-   * @param string $mediaItemKey
-   *   Media item key.
-   */
-  public function addFile(File $file, string $mediaItemKey): void {
-    $this->files[$mediaItemKey] = $file;
-  }
-
-  /**
-   * Add to files.
-   *
-   * @param \Drupal\file\Entity\File $file
-   *   File.
-   * @param string $mediaItemKey
-   *   Media item key.
-   * @param string $fieldName
-   *   Field name.
-   */
-  public function addToFiles(File $file, string $mediaItemKey, string $fieldName): void {
-    $this->files[$mediaItemKey]['files'][$fieldName] = $file;
-  }
-
-  /**
-   * Saves the files listed in the definitions as File entities.
+   * @param array $mediaToGenerate
+   * @param string $fixturesPath
    */
   public function saveFiles(array $mediaToGenerate, string $fixturesPath): void {
     foreach ($mediaToGenerate as $mediaItemKey => $mediaItem) {
