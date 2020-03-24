@@ -299,13 +299,30 @@ function degov_common_requirements(string $phase): array {
  * Replace the filter bundle with entity_browser_bundle in view media.
  */
 function degov_common_update_880100() {
-  $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_common') . '/config/rewrite/views.view.media' . '.yml'));
-  \Drupal::configFactory()
-    ->getEditable('views.view.media')
-    ->setData($replace)
-    ->save(TRUE);
-  if (\Drupal::moduleHandler()->moduleExists('degov_media_usage_node')) {
-    // Re-add usage column.
-    _install_media_overview_field();
+  $configFS = Yaml::parseFile(drupal_get_path('module', 'degov_common') . '/config/rewrite/views.view.media.yml');
+  $configDB = \Drupal::configFactory()->getEditable('views.view.media');
+  $dependenciesConfig = $configDB->get('dependencies.config');
+  foreach ($dependenciesConfig as $key => $configName) {
+    if ($configName === 'media.type.image') {
+      unset($dependenciesConfig[$key]);
+      $configDB->set('dependencies.config', $dependenciesConfig);
+      break;
+    }
   }
+  $displayConfig = $configDB->get('display');
+  $displays = ['entity_browser_1', 'entity_browser_2'];
+  foreach ($displays as $display) {
+    $newFilters = [];
+    foreach ($displayConfig[$display]['display_options']['filters'] as $filterName => $filterConfig) {
+      if ($filterName === 'bundle') {
+        // With this way we can keep the order.
+        $filterName = 'entity_browser_bundle';
+        $filterConfig = $configFS['display'][$display]['display_options']['filters']['entity_browser_bundle'];
+      }
+      $newFilters[$filterName] = $filterConfig;
+    }
+    $displayConfig[$display]['display_options']['filters'] = $newFilters;
+  }
+  $configDB->set('display', $displayConfig);
+  $configDB->save();
 }
