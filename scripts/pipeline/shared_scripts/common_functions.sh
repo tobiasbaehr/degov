@@ -78,3 +78,7 @@ _setup_file_system() {
   mkdir docroot/sites/default/files/translations/
   chmod 777 -R docroot/sites/default/files/
 }
+
+_composer() {
+  composer --ansi --profile "$@"
+}
