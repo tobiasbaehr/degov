@@ -21,7 +21,9 @@ Feature: deGov - Entity browser
     And I should see text matching "Create embed"
     And I should see text matching "Audio hochladen"
 
-    And I should see 3 ".view-filters input" elements
+    And I should see 2 ".view-filters input[type=text]" elements
+    And I should see 1 ".view-filters input[type=submit]" elements
+    And I should see 1 ".view-filters input[type=hidden]" elements
     And I should see text matching "Interner Titel"
     And I should see text matching "Öffentlicher Titel"
     And I should see text matching "Filter"
