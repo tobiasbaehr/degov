@@ -61,3 +61,20 @@ Feature: deGov - Demo Content
     And I open media edit form by media name "A video upload with sound"
     And I choose "Beschreibung" from tab menu
     Then I should see 1 "#field-video-upload-subtitle-values .paragraph-type-title" elements
+
+  Scenario: I want to verify the embed functionality of the instagram media entity
+    Given I have dismissed the cookie banner if necessary
+    Then I click by selector ".social-media-settings--menu-item" via JavaScript
+    And I check checkbox by value "instagram" via JavaScript
+    And I click by selector ".social-media-settings__save" via JavaScript
+    And I am on "/degov-demo-content/page-references-all-types-media"
+    Then I should see text matching "Vorschau eines Instagram-Mediums" after a while
+    And I switch to the "instagram-embed-0" frame
+    Then I should see 1 ".Header" elements
+    And I should see 1 ".Header .AvatarContainer" elements
+    And I should see 1 ".Content.EmbedFrame" elements
+    And I should see 1 ".Content.EmbedFrame .EmbeddedMedia" elements
+    And I should see 1 ".HoverCard" elements
+    And I should see 1 ".SocialProof" elements
+    And I should see 1 ".Caption" elements
+    And I should see 1 ".Footer" elements
