@@ -22,11 +22,14 @@ Feature: deGov - Entity browser
     And I should see text matching "Audio hochladen"
 
     And I should see 2 ".view-filters input[type=text]" elements
-    And I should see 1 ".view-filters input[type=submit]" elements
+    # A hidden filter of entity_browser because the target bundle is set to image
     And I should see 1 ".view-filters input[type=hidden]" elements
+    And I should see 1 ".view-filters input[value=image]" elements
+
     And I should see text matching "Interner Titel"
     And I should see text matching "Öffentlicher Titel"
-    And I should see text matching "Filter"
+    And I should see 1 ".view-filters input[value=Filter]" elements
+
     # The Library widget should only display images.
     And I should see 5 ".views-row > img" elements
 
