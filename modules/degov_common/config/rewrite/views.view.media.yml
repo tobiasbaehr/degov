@@ -6,7 +6,6 @@ dependencies:
     - field.storage.media.field_title
     - image.style.medium
     - image.style.thumbnail
-    - media.type.image
   module:
     - entity_browser
     - file
@@ -21,7 +20,6 @@ description: ''
 tag: ''
 base_table: media_field_data
 base_field: mid
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -61,6 +59,11 @@ display:
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Vorherige Seite'
+            next: 'Nächste Seite ›'
+            first: '« Anfang'
+            last: 'Ende »'
           expose:
             items_per_page: false
             items_per_page_label: 'Elemente pro Seite'
@@ -69,11 +72,6 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset: false
             offset_label: Versatz
-          tags:
-            previous: '‹ Zurück'
-            next: 'Weiter >'
-            first: '« Anfang'
-            last: 'Ende »'
           quantity: 9
       style:
         type: table
@@ -648,6 +646,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -689,6 +689,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -727,6 +729,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Status veröffentlicht'
@@ -741,6 +745,14 @@ display:
             group_items:
               -
                 title: Published
+                operator: '='
+                value: '1'
+              -
+                title: Veröffentlicht
+                operator: '='
+                value: '0'
+              -
+                title: 'Nicht veröffentlicht'
                 operator: '='
                 value: '1'
               -
@@ -784,6 +796,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -799,6 +813,45 @@ display:
           entity_type: media
           entity_field: langcode
           plugin_id: language
+        status_extra:
+          group_info:
+            widget: select
+            group_items: {  }
+            multiple: false
+            description: ''
+            default_group_multiple: {  }
+            default_group: All
+            label: ''
+            identifier: ''
+            optional: true
+            remember: false
+          group: 1
+          relationship: none
+          exposed: false
+          expose:
+            use_operator: false
+            remember: false
+            operator_id: ''
+            multiple: false
+            description: ''
+            required: false
+            label: ''
+            operator_limit_selection: false
+            operator: ''
+            identifier: ''
+            operator_list: {  }
+            remember_roles:
+              authenticated: authenticated
+          entity_type: media
+          value: ''
+          field: status_extra
+          is_grouped: false
+          admin_label: ''
+          operator: '='
+          table: media_field_data
+          plugin_id: media_status
+          id: status_extra
+          group_type: group
       sorts:
         created:
           id: created
@@ -828,7 +881,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'Kein Inhalt verfügbar.'
+          content: 'Keine Medien verfügbar.'
           plugin_id: text_custom
       relationships: {  }
       arguments: {  }
@@ -840,6 +893,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags: {  }
   entity_browser_1:
@@ -1142,6 +1196,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Publishing status'
@@ -1154,6 +1210,14 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
+              -
+                title: Published
+                operator: '='
+                value: '1'
+              -
+                title: Unpublished
+                operator: '='
+                value: '0'
               -
                 title: Published
                 operator: '='
@@ -1205,6 +1269,8 @@ display:
               landing_page_reviewer: '0'
               media_creator: '0'
               media_manager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1220,10 +1286,10 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: string
-        bundle:
-          id: bundle
-          table: media_field_data
-          field: bundle
+        entity_browser_bundle:
+          id: entity_browser_bundle
+          table: media
+          field: entity_browser_bundle
           relationship: none
           group_type: group
           admin_label: ''
@@ -1232,24 +1298,19 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: bundle_op
+            operator_id: entity_browser_bundle_op
             label: Medientyp
             description: ''
             use_operator: false
-            operator: bundle_op
+            operator: entity_browser_bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: bundle
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              manager: '0'
-              editor: '0'
-              usermanager: '0'
+            remember_roles: {  }
             reduce: false
-            argument: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1263,8 +1324,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
+          plugin_id: entity_browser_bundle
         field_media_in_library_value:
           id: field_media_in_library_value
           table: media__field_media_in_library
@@ -1288,6 +1348,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1329,6 +1391,8 @@ display:
               manager: '0'
               editor: '0'
               usermanager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1611,6 +1675,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Publishing status'
@@ -1623,6 +1689,14 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
+              -
+                title: Published
+                operator: '='
+                value: '1'
+              -
+                title: Unpublished
+                operator: '='
+                value: '0'
               -
                 title: Published
                 operator: '='
@@ -1674,6 +1748,8 @@ display:
               landing_page_reviewer: '0'
               media_creator: '0'
               media_manager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1689,25 +1765,41 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: string
-        bundle:
-          id: bundle
-          table: media_field_data
-          field: bundle
+        entity_browser_bundle:
+          id: entity_browser_bundle
+          table: media
+          field: entity_browser_bundle
           relationship: none
           group_type: group
           admin_label: ''
           operator: in
           value:
+            all: all
+            address: address
+            audio: audio
             image: image
+            gallery: gallery
+            document: document
+            instagram: instagram
+            contact: contact
+            person: person
+            video_mobile: video_mobile
+            some_embed: some_embed
+            tweet: tweet
+            video: video
+            video_upload: video_upload
+            citation: citation
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: bundle_op
-            label: Type
+            operator_id: entity_browser_bundle_op
+            label: Medientyp
             description: ''
             use_operator: false
-            operator: bundle_op
-            identifier: type
+            operator: entity_browser_bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: bundle
             required: false
             remember: false
             multiple: false
@@ -1715,13 +1807,10 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              page_creator: '0'
-              layout_manager: '0'
-              page_reviewer: '0'
-              landing_page_creator: '0'
-              landing_page_reviewer: '0'
-              media_creator: '0'
-              media_manager: '0'
+              manager: '0'
+              editor: '0'
+              usermanager: '0'
+              system_configurator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1736,8 +1825,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
+          plugin_id: entity_browser_bundle
         field_media_in_library_value:
           id: field_media_in_library_value
           table: media__field_media_in_library
@@ -1761,6 +1849,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1802,6 +1892,8 @@ display:
               manager: '0'
               editor: '0'
               usermanager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1818,8 +1910,7 @@ display:
       filter_groups:
         operator: AND
         groups:
-          - AND
-          - AND
+          1: AND
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1928,6 +2019,8 @@ display:
             description: null
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: true
             remember: false
@@ -1983,6 +2076,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2023,6 +2118,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2066,6 +2163,8 @@ display:
               manager: '0'
               editor: '0'
               usermanager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2105,6 +2204,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2149,6 +2250,8 @@ display:
               editor: '0'
               usermanager: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
