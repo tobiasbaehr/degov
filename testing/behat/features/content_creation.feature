@@ -255,7 +255,7 @@ Feature: deGov - Content creation
     And I wait for AJAX to finish
     And I click by selector ".field--type-viewsreference .js-form-wrapper > summary" via JavaScript
     Then I should see text matching "Views row view mode" via translated text after a while
-    And I verify that field ".viewsreference_view_mode" has the value "preview"
+    And I verify that field ".viewsreference_view_mode" has the value "small_image"
     And I set the value of element ".viewsreference_view_mode" to "small_image" via JavaScript
     Then I fill in the autocomplete ".form-item-field-content-paragraphs-1-subform-field-view-reference-view-0-options-argument-0 input" with "degov_demo_content" via javascript
     And I scroll to bottom

@@ -245,22 +245,70 @@ views_reference_latest_content:
     target_id: 'content_recent'
     display_id: 'block_1'
     view_mode: 'preview'
-views_reference_latest_press:
+views_reference_latest_press_1:
   type: 'view_reference'
-  field_title: 'A view displaying the latest press releases'
-  field_sub_title: 'Condimentum Adipiscing Parturient'
+  field_title: 'Teaser - Small Image'
+  field_sub_title: 'Latest press teasers in view mode small image'
+  field_view_reference_view:
+    target_id: 'press_latest_content'
+    display_id: 'latest_press'
+    view_mode: 'small_image'
+views_reference_latest_press_2:
+  type: 'view_reference'
+  field_title: 'Teaser - Long Text'
+  field_sub_title: 'Latest press teasers in view mode long text'
+  field_view_reference_view:
+    target_id: 'press_latest_content'
+    display_id: 'latest_press'
+    view_mode: 'long_text'
+views_reference_latest_press_3:
+  type: 'view_reference'
+  field_title: 'Teaser - Preview'
+  field_sub_title: 'Latest press teasers in view mode preview'
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
     view_mode: 'preview'
-views_reference_latest_events:
+views_reference_latest_press_4:
   type: 'view_reference'
-  field_title: 'A view displaying the upcoming events'
-  field_sub_title: 'Vehicula Lorem Aenean Tortor'
+  field_title: 'Teaser - Slim'
+  field_sub_title: 'Latest press teasers in view mode slim'
+  field_view_reference_view:
+    target_id: 'press_latest_content'
+    display_id: 'latest_press'
+    view_mode: 'slim'
+views_reference_latest_events_1:
+  type: 'view_reference'
+  field_title: 'Teaser - Small Image'
+  field_sub_title: 'Latest events teasers in view mode small image'
+  field_view_reference_view:
+    target_id: 'latest_events'
+    display_id: 'latest_event'
+    view_mode: 'small_image'
+views_reference_latest_events_2:
+  type: 'view_reference'
+  field_title: 'Teaser - Long Text'
+  field_sub_title: 'Latest events teasers in view mode long text'
+  field_view_reference_view:
+    target_id: 'latest_events'
+    display_id: 'latest_event'
+    view_mode: 'long_text'
+views_reference_latest_events_3:
+  type: 'view_reference'
+  field_title: 'Teaser - Preview'
+  field_sub_title: 'Latest events teasers in view mode preview'
   field_view_reference_view:
     target_id: 'latest_events'
     display_id: 'latest_event'
     view_mode: 'preview'
+views_reference_latest_events_4:
+  type: 'view_reference'
+  field_title: 'Teaser - Slim'
+  field_sub_title: 'Latest events teasers in view mode slim'
+  field_view_reference_view:
+    target_id: 'latest_events'
+    display_id: 'latest_event'
+    view_mode: 'slim'
 ## Media References
 media_reference_image:
   type: 'media_reference'

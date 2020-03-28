@@ -142,8 +142,14 @@ page_with_all_views_references:
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - views_reference_latest_content
-  - views_reference_latest_press
-  - views_reference_latest_events
+  - views_reference_latest_press_1
+  - views_reference_latest_press_2
+  - views_reference_latest_press_3
+  - views_reference_latest_press_4
+  - views_reference_latest_events_1
+  - views_reference_latest_events_2
+  - views_reference_latest_events_3
+  - views_reference_latest_events_4
   status: 1
   moderation_state: 'published'
 page_with_events_views_reference:
@@ -157,10 +163,10 @@ page_with_events_views_reference:
   field_teaser_sub_title: 'Bibendum Vulputate Ligula'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
   field_content_paragraphs:
-  - views_reference_latest_events
+  - views_reference_latest_events_1
   status: 1
   moderation_state: 'published'
-press_release:
+press_release_1:
   type: 'press'
   title: 'A press release'
   field_teaser_text:
@@ -170,10 +176,95 @@ press_release:
   field_press_date: '2020-02-01'
   field_teaser_title: 'A press release'
   field_teaser_sub_title: 'Inceptos Sollicitudin'
-  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
   - text_1
   - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+press_release_2:
+  type: 'press'
+  title: 'Another press release'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-01-31'
+  field_teaser_title: 'Another press release'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+press_release_3:
+  type: 'press'
+  title: 'Yet another press release'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-01-30'
+  field_teaser_title: 'Yet another press release'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+press_release_4:
+  type: 'press'
+  title: 'Here goes a press release'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-01-29'
+  field_teaser_title: 'Here goes a press release'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+press_release_5:
+  type: 'press'
+  title: 'This is a press release'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-01-28'
+  field_teaser_title: 'This is a press release'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_5}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+press_release_6:
+  type: 'press'
+  title: 'And one more press release'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_press_date: '2020-01-27'
+  field_teaser_title: 'And one more press release'
+  field_teaser_sub_title: 'Inceptos Sollicitudin'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
   status: 1
   field_social_media: 1
   moderation_state: 'published'
@@ -231,8 +322,80 @@ event_2:
   field_content_paragraphs:
   - text_1
   - text_2
-  field_event_date: '2028-01-01 09:00:00'
-  field_event_date_end: '2028-01-01 16:00:00'
+  field_event_date: '2028-01-06 09:00:00'
+  field_event_date_end: '2028-01-06 16:00:00'
+  field_event_location:
+    country_code: 'DE'
+    organization: 'publicplan'
+    address_line1: 'Kennedydamm 24'
+    postal_code: 40476
+    locality: 'Düsseldorf'
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+event_3:
+  type: 'event'
+  title: 'Another event in the future'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Another event in the future'
+  field_teaser_sub_title: 'Vestibulum Vehicula Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  field_event_date: '2028-01-05 09:00:00'
+  field_event_date_end: '2028-01-05 16:00:00'
+  field_event_location:
+    country_code: 'DE'
+    organization: 'publicplan'
+    address_line1: 'Kennedydamm 24'
+    postal_code: 40476
+    locality: 'Düsseldorf'
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+event_4:
+  type: 'event'
+  title: 'This is a future event'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'This is a future event'
+  field_teaser_sub_title: 'Vestibulum Vehicula Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  field_event_date: '2028-01-04 09:00:00'
+  field_event_date_end: '2028-01-04 16:00:00'
+  field_event_location:
+    country_code: 'DE'
+    organization: 'publicplan'
+    address_line1: 'Kennedydamm 24'
+    postal_code: 40476
+    locality: 'Düsseldorf'
+  status: 1
+  field_social_media: 1
+  moderation_state: 'published'
+event_5:
+  type: 'event'
+  title: 'Here goes a future event'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Here goes a future event'
+  field_teaser_sub_title: 'Vestibulum Vehicula Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
+  field_content_paragraphs:
+    - text_1
+    - text_2
+  field_event_date: '2028-01-03 09:00:00'
+  field_event_date_end: '2028-01-03 16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'
