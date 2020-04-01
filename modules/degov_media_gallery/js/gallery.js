@@ -3,25 +3,26 @@
  * gallery.js
  *
  * Defines the behavior of the media bundle gallery.
+ *
+ * Eslint
+ *   global PhotoSwipe, PhotoSwipeUiDefault
  */
 
 (function ($, Drupal) {
-
   'use strict';
-
-  /**
+/**
    * Initializes the slideshow with Slick and PhotoSwipe.
    */
   Drupal.behaviors.gallery = {
     count: 0,
     attach: function (context, settings) {
-      $('.pswp__media-gallery', context).each(function (index) {
+      $('.pswp__media-gallery', context).each(function () {
           initPswpMediagallery(this, $(this).next(), settings);
       });
     }
   };
 
-  function copyImageCopyrightGallery($slider, context){
+  function copyImageCopyrightGallery($slider, context) {
     $slider.on('init', function () {
       $('.media-gallery__image-info:not(.small_gallery)', context).html($('.slick-current .image__info', context).html());
       $('.media-gallery__image-info .small_gallery', context).html($('.slick-current .image__info', context).find('span').html());
@@ -64,7 +65,7 @@ else {
       $('.slick__counter__total', gallery).text(slick.slideCount);
       $('.slick-controls__gallery .slick__download a', gallery).prop('href', settings.degov_media_gallery.imagesDownloadLinks[event.data.value][$slider.slick('slickCurrentSlide')].uri);
     });
-  };
+  }
 
   function getImageAndImageDataForSlideshow($images, settings){
     let $imageIndex = 0;
@@ -86,7 +87,7 @@ else {
       $imageIndex++;
     });
     return currentImages;
-  };
+  }
 
   function initPswpMediagallery(pswdMediagallery, context, settings){
     let gallery = $('.media-gallery__images', context);
@@ -126,8 +127,7 @@ else if (settings.degov_media_gallery.imagesDownloadLinks[0].field_allow_downloa
       let $options = {
         index: $index
       };
-
-      let $pswp = new PhotoSwipe(pswdMediagallery, PhotoSwipeUI_Default, event.data.value, $options);
+      let $pswp = new PhotoSwipe(pswdMediagallery, PhotoSwipeUiDefault, event.data.value, $options);
       $pswp.init();
     });
 

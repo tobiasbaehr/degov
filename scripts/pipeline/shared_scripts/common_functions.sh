@@ -79,6 +79,19 @@ _setup_file_system() {
   chmod 777 -R docroot/sites/default/files/
 }
 
+_run_npm_audit() {
+  _info '### Npm audit'
+  _info '# Install nvm'
+  set +o errexit
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  _info '# Install node with nvm'
+  set -o errexit
+  nvm install --no-progress --latest-npm "$(cat .nvmrc)"
+  _info '# Audit non-dev dependencies'
+  npm audit --production
+}
+
 _composer() {
   composer --ansi --profile "$@"
 }

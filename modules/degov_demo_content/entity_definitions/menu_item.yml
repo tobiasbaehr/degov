@@ -3,7 +3,7 @@ menu_item_1:
   node_title: 'Page with all teasers'
   menu_title: 'All teasers'
   menu_weight: -28
-  fontawesome_css_class: fa-drupal
+  fontawesome_css_class: 'fa-drupal'
   children:
     -
       menu_name: main
