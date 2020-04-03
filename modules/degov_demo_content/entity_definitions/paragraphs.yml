@@ -358,12 +358,18 @@ media_reference_person:
   field_sub_title: 'Inceptos Ligula referencum'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_PERSON}}'
-media_reference_contact:
+media_reference_contact_1:
   type: 'media_reference'
-  field_title: 'Vorschau eines Kontakt-Mediums'
-  field_sub_title: 'Contactum cesarium'
+  field_title: 'Vorschau eines Kontakt Mediums mit Bild'
+  field_sub_title: 'Contactum con visualis'
   field_media_reference_view_mode: 'preview'
-  field_media_reference_media: '{{MEDIA_ID_CONTACT}}'
+  field_media_reference_media: '{{MEDIA_ID_CONTACT-contact_1}}'
+media_reference_contact_2:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Kontakt Mediums ohne Bild'
+  field_sub_title: 'Contactum sin imago'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_CONTACT-contact_2}}'
 media_reference_gallery:
   type: 'media_reference'
   field_title: 'Vorschau eines Galerie-Mediums'

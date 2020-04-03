@@ -123,7 +123,8 @@ page_with_all_media:
     - media_reference_address
     - media_reference_citation
     - media_reference_person
-    - media_reference_contact
+    - media_reference_contact_1
+    - media_reference_contact_2
     - media_reference_tweet
     - media_reference_instagram
     - media_reference_some_embed

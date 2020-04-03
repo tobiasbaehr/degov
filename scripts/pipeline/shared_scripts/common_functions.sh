@@ -89,6 +89,7 @@ _run_npm_audit() {
   set -o errexit
   nvm install --no-progress --latest-npm "$(cat .nvmrc)"
   _info '# Audit non-dev dependencies'
+  npm install --production
   npm audit --production
 }
 

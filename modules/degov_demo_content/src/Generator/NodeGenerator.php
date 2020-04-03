@@ -87,7 +87,7 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
         'pathauto' => PathautoState::SKIP,
       ];
       // If no "created" date is defined in definitions, we  generate a unique
-      // number with 5 digits based on $srcId (% digits are abozt a day in Unix time
+      // number with 5 digits based on $srcId (% digits are about a day in Unix time
       // 86400s->1 day) and add it to DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP.
       // A manual date defined date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
       $rawNode['created'] = isset($rawNode['created']) ? $rawNode['created'] : $this->getCreatedTimestamp($srcId);

@@ -31,6 +31,12 @@ image_5:
   file: 'taneli-lahtinen-1058552-unsplash.jpg'
   status: 1
   field_include_search: 1
+image_6:
+  bundle: 'image'
+  name: 'Contact image'
+  file: 'alexander-andrews-JYGnB9gTCls-unsplash.jpg'
+  status: 1
+  field_include_search: 1
 video_upload_1:
   bundle: 'video_upload'
   name: 'The latest video upload'
@@ -149,12 +155,22 @@ person_1:
   field_include_search: 1
 contact_1:
   bundle: 'contact'
-  name: 'Donec ullamcorper nulla non metus auctor.'
-  field_contact_email: 'admin@example.com'
+  name: 'Kontakt von Edward'
+  field_contact_email: 'example.two@degov.org'
   field_contact_fax: '0123456789'
-  field_contact_image: '{{MEDIA_ID_IMAGE-image_2}}'
-  field_contact_title: 'Contactum exampulum'
-  field_contact_position: 'Positionis cesarius'
+  field_contact_title: 'Edward Entwicklerson'
+  field_contact_position: 'Drupalwebseitendistributionsentwickler'
+  field_contact_tel: '0123456789'
+  status: 1
+  field_include_search: 1
+contact_2:
+  bundle: 'contact'
+  name: 'Kontakt von Bettina'
+  field_contact_email: 'example.one@degov.org'
+  field_contact_fax: '0987654321'
+  field_contact_title: 'Bettina Bebildert'
+  field_contact_image: '{{MEDIA_ID_IMAGE-image_6}}'
+  field_contact_position: 'Positionis con imaginum'
   field_contact_tel: '0123456789'
   status: 1
   field_include_search: 1

@@ -255,7 +255,7 @@ class ContentGenerator {
 
       // Images.
       $mediaProperties = [];
-      // @see https://regex101.com/r/mA6cA0/9
+      // @see https://regex101.com/r/mA6cA0/12
       if (preg_match('/^{{MEDIA_ID_(?\'bundleId\'[A-Z_]*)(:?-?)(?\'sourceId\'[a-z0-9_]*)?}}$/', $value, $mediaProperties)) {
         $bundleId = strtolower($mediaProperties['bundleId']);
 

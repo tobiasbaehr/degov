@@ -31,5 +31,5 @@ Feature: deGov - Entity browser
     And I should see 1 ".view-filters input[value=Filter]" elements
 
     # The Library widget should only display images.
-    And I should see 5 ".views-row img" elements
+    And I should see 6 ".views-row img" elements
 
