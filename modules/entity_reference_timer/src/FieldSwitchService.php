@@ -135,6 +135,10 @@ class FieldSwitchService {
 
     $field = array_shift($fields);
 
+    if ($field === NULL) {
+      return;
+    }
+
     $newField = $field->toArray();
     $newField['field_type'] = self::$fieldType;
 
