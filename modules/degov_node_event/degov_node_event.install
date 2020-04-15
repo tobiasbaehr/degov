@@ -121,3 +121,14 @@ function degov_node_event_update_870500() {
     $configTranslation->save(TRUE);
   }
 }
+
+/**
+ * deGov 8.1.0 - Fix viewmode of field_teaser_image in entity_view_display small_image.
+ */
+function degov_node_event_update_880100() {
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
+  $configFactory = \Drupal::service('config.factory');
+  $configFromStorage = $configFactory->getEditable('core.entity_view_display.node.event.small_image');
+  $configFromStorage->set('content.field_teaser_image.settings.view_mode', 'teaser_squared_1_1');
+  $configFromStorage->save();
+}
