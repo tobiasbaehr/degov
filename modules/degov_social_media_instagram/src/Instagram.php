@@ -61,15 +61,7 @@ class Instagram extends InstagramScraper {
     if ($this->devMode) {
       return self::getDataFromFile('degov_social_media_instagram', 'medias.txt');
     }
-
-    try {
-      return parent::getMedias($username, $count, $maxId);
-    }
-    catch (\Exception $exception) {
-      $prefix = 'Instagram: ';
-      $this->logger->warning($prefix . '%message', ['%message' => $exception->getMessage()]);
-      $this->messenger->addMessage($prefix . $exception->getMessage(), 'warning');
-    }
+    return parent::getMedias($username, $count, $maxId);
   }
 
   /**
@@ -79,7 +71,6 @@ class Instagram extends InstagramScraper {
     if ($this->devMode) {
       return self::getDataFromFile('degov_social_media_instagram', 'account.txt');
     }
-
     return parent::getAccount($username);
   }
 

@@ -133,12 +133,6 @@ class TwitterAPIExchange {
       return;
     }
 
-    if (!in_array('curl', get_loaded_extensions())) {
-      $message = 'You need to install cURL, see: http://curl.haxx.se/docs/install.html';
-      $this->logger->notice($message);
-      $this->messenger->addMessage($message, 'warning');
-    }
-
     if (empty($settings['oauth_access_token'])
       || empty($settings['oauth_access_token_secret'])
       || empty($settings['consumer_key'])

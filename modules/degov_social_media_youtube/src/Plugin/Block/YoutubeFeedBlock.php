@@ -3,10 +3,12 @@
 namespace Drupal\degov_social_media_youtube\Plugin\Block;
 
 use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\degov_social_media_youtube\Youtube;
 
@@ -108,12 +110,10 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
         // the channel name as ID.
         $channelID = $channelName;
       }
-
       $videos = $this->youTube->searchChannelVideos('', $channelID, $numberOfVideos, 'date');
-
       foreach ($videos as $video) {
         $info = $this->youTube->getVideoInfo($video->id->videoId);
-        $build['degov_social_media_youtube'][] = [
+        $build[] = [
           '#theme' => 'degov_social_media_youtube',
           '#title' => $video->snippet->title,
           '#description' => Unicode::truncate($video->snippet->description, 123, FALSE, TRUE),
@@ -143,7 +143,17 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
   public function getCacheTags() {
     $cache_tags = parent::getCacheTags();
     $cache_tags[] = 'config:degov_devel.settings';
+    $cache_tags[] = 'config:degov_social_media_youtube.settings';
     return $cache_tags;
+  }
+
+  /**
+   * @{inheritDoc}
+   */
+  protected function blockAccess(AccountInterface $account) {
+    \Drupal::moduleHandler()->loadInclude('degov_social_media_youtube', 'install');
+    $result = \Drupal::moduleHandler()->invoke('degov_social_media_youtube', 'requirements', ['runtime']);
+    return AccessResult::allowedIf(is_array($result) && empty($result));
   }
 
 }

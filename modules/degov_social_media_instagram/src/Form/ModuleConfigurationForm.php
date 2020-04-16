@@ -35,16 +35,19 @@ class ModuleConfigurationForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Your user name'),
       '#default_value' => $config->get('user'),
+      '#required' => TRUE,
     ];
     $form['number_of_posts'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Number of listed posts'),
-      '#default_value' => $config->get('number_of_posts'),
+      '#default_value' => $config->get('number_of_posts') ?? 20,
+      '#min' => 1
     ];
     $form['number_of_characters'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t("Number of characters post's caption"),
-      '#default_value' => $config->get('number_of_characters'),
+      '#default_value' => $config->get('number_of_characters') ?? 100,
+      '#min' => 100
     ];
     return parent::buildForm($form, $form_state);
   }

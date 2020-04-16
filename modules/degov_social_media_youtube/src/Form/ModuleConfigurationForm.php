@@ -35,16 +35,19 @@ class ModuleConfigurationForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Your API key'),
       '#default_value' => $config->get('api_key'),
+      '#required' => TRUE,
     ];
     $form['channel'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Your channel name or channel Id'),
       '#default_value' => $config->get('channel'),
+      '#required' => TRUE,
     ];
     $form['number_of_videos'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Number of listed videos'),
-      '#default_value' => $config->get('number_of_videos'),
+      '#default_value' => $config->get('number_of_videos') ?? 10,
+      '#min' => 1
     ];
     return parent::buildForm($form, $form_state);
   }

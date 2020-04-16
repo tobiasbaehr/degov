@@ -2,10 +2,12 @@
 
 namespace Drupal\degov_social_media_instagram\Plugin\Block;
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\degov_social_media_instagram\Instagram;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -112,7 +114,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
     if ($medias = $this->instagram->getMedias($user, $max)) {
       /** @var \InstagramScraper\Model\Media $media */
       foreach ($medias as $media) {
-        $build['degov_social_media_instagram'][] = [
+        $build[] = [
           '#theme' => 'degov_social_media_instagram',
           '#imageUrl' => $media->getImageThumbnailUrl(),
           '#instagramUser' => $this->instagram->getAccount($user)
@@ -164,7 +166,17 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
   public function getCacheTags() {
     $cache_tags = parent::getCacheTags();
     $cache_tags[] = 'config:degov_devel.settings';
+    $cache_tags[] = 'config:degov_social_media_instagram.settings';
     return $cache_tags;
+  }
+
+  /**
+   * @{inheritDoc}
+   */
+  protected function blockAccess(AccountInterface $account) {
+    \Drupal::moduleHandler()->loadInclude('degov_social_media_instagram', 'install');
+    $result = \Drupal::moduleHandler()->invoke('degov_social_media_instagram', 'requirements', ['runtime']);
+    return AccessResult::allowedIf(is_array($result) && empty($result));
   }
 
 }

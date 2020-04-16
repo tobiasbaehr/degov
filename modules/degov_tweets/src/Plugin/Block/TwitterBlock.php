@@ -5,6 +5,7 @@ namespace Drupal\degov_tweets\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\degov_tweets\TwitterAPIExchange;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -65,6 +66,7 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
+    $configuration = $this->getConfiguration();
     $form['markup'] = [
       '#type' => 'markup',
       '#markup' => t('<a href="@url">Create a twitter app on the twitter developer site</a>', ['@url' => 'https://dev.twitter.com/apps/']),
@@ -72,38 +74,46 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
     $form['tweets_username'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Twitter username'),
-      '#default_value' => isset($this->configuration['tweets_username']) ? $this->configuration['tweets_username'] : 'deGov',
+      '#default_value' => $configuration['tweets_username'] ?? 'deGov',
+      '#required' => TRUE,
     ];
     $form['tweets_limit'] = [
       '#type' => 'number',
       '#title' => $this->t('Limit'),
-      '#default_value' => isset($this->configuration['tweets_limit']) ? $this->configuration['tweets_limit'] : 12,
+      '#default_value' => $configuration['tweets_limit'] ?? 12,
+      '#min' => 1
     ];
     $form['tweets_update_every'] = [
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => $this->t('Update every'),
       '#description' => $this->t('Set the number in seconds. E.g. 3600 = 1 hour'),
-      '#default_value' => isset($this->configuration['tweets_update_every']) ? $this->configuration['tweets_update_every'] : 7200,
+      '#default_value' => $configuration['tweets_update_every'] ?? 7200,
+      '#min' => 300,
+      '#step' => 60
     ];
     $form['access_token'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Access token'),
-      '#default_value' => isset($this->configuration['access_token']) ? $this->configuration['access_token'] : '',
+      '#default_value' => $configuration['access_token'] ?? '',
+      '#required' => TRUE,
     ];
     $form['token_secret'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Token secret'),
-      '#default_value' => isset($this->configuration['token_secret']) ? $this->configuration['token_secret'] : '',
+      '#default_value' => $configuration['token_secret'] ?? '',
+      '#required' => TRUE,
     ];
     $form['consumer_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Consumer key'),
-      '#default_value' => isset($this->configuration['consumer_key']) ? $this->configuration['consumer_key'] : '',
+      '#default_value' => $configuration['consumer_key'] ?? '',
+      '#required' => TRUE,
     ];
     $form['consumer_secret'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Consumer secret'),
-      '#default_value' => isset($this->configuration['consumer_secret']) ? $this->configuration['consumer_secret'] : '',
+      '#default_value' => $configuration['consumer_secret'] ?? '',
+      '#required' => TRUE,
     ];
     return $form;
   }
@@ -126,25 +136,25 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
   public function build() {
     $build = [];
 
-    // Make a request to Twitter API.
-    $settings = [
-      'oauth_access_token' => $this->configuration['access_token'],
-      'oauth_access_token_secret' => $this->configuration['token_secret'],
-      'consumer_key' => $this->configuration['consumer_key'],
-      'consumer_secret' => $this->configuration['consumer_secret'],
-    ];
-    $this->twitter->setSettings($settings);
-
-    $params = [
-      'screen_name' => $this->configuration['tweets_username'],
-      'count' => $this->configuration['tweets_limit'],
-    ];
-
     $dev_mode = \Drupal::config('degov_devel.settings')->get('dev_mode');
     if ($dev_mode) {
       $response = $this->twitter->performRequest();
     }
     else {
+      // Make a request to Twitter API.
+      $settings = [
+        'oauth_access_token' => $this->configuration['access_token'],
+        'oauth_access_token_secret' => $this->configuration['token_secret'],
+        'consumer_key' => $this->configuration['consumer_key'],
+        'consumer_secret' => $this->configuration['consumer_secret'],
+      ];
+      $this->twitter->setSettings($settings);
+
+      $params = [
+        'screen_name' => $this->configuration['tweets_username'],
+        'count' => $this->configuration['tweets_limit'],
+      ];
+
       $response = $this->twitter
         ->setGetfield($params)
         ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json')

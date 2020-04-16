@@ -59,21 +59,13 @@ class Youtube extends MadcodaYoutube {
 
     $this->logger = $logger->get('degov_social_media_youtube');
     $this->messenger = $messenger;
-    if (!drupal_installation_attempted()) {
-      try {
-        parent::__construct([
-          'key' => $config->get('degov_social_media_youtube.settings')
-            ->get('api_key'),
-        ]);
-      }
-      catch (\InvalidArgumentException $exception) {
-        $this->logger->warning('No valid YouTube api key. Therefore no twig template variables created.');
-        $this->messenger->addMessage('No valid YouTube api key. Therefore no twig template variables created.', 'warning');
-      }
-      catch (\Exception $exception) {
-        $this->logger->warning($exception->getMessage());
-        $this->messenger->addMessage($exception->getMessage(), 'warning');
-      }
+    $params = [
+      'key' => $config->get('degov_social_media_youtube.settings')->get('api_key')
+    ];
+    try {
+      parent::__construct($params);
+    }
+    catch (\Exception $e) {
     }
   }
 
