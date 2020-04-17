@@ -107,7 +107,8 @@
         ".header-wrapper",
         ".footer-wrapper",
         ".eu-cookie-compliance-banner"
-      ]
+      ],
+      "misMatchThreshold": 5
     },
     {
       "label": "Admin Cookie",
