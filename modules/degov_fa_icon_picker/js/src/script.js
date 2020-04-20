@@ -14,8 +14,8 @@ import 'fontawesome';
    * @type {Drupal~behavior}
    */
   Drupal.behaviors.iconPicker = {
-    attach: () => {
-      jQuery('.form-item-link-0-options-attributes-class input').iconpicker().show(() => {  });
+    attach: (context, settings) => {
+      jQuery('.form-item-link-0-options-attributes-class > input', context).iconpicker().show(() => {  });
     }
   };
 
