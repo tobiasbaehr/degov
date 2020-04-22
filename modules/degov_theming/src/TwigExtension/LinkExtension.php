@@ -8,17 +8,18 @@ namespace Drupal\degov_theming\TwigExtension;
 class LinkExtension extends \Twig_Extension {
 
   /**
-   * Returns a list of the filters provided by this class.
-   *
-   * @return array|\Twig_SimpleFilter[]
-   *   The filters.
+   * {@inheritdoc}
+   */
+  public function getName(): string {
+    return 'degov_theming_link';
+  }
+
+  /**
+   * {@inheritdoc}
    */
   public function getFilters(): array {
     return [
-      'menu_item_attribute' => new \Twig_Filter_Function([
-        $this,
-        'getMenuItemAttribute',
-      ]),
+      new \Twig_SimpleFilter('menu_item_attribute', [$this, 'getMenuItemAttribute']),
     ];
   }
 
