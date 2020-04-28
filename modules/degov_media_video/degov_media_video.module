@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\degov_common\Common;
 
 /**
@@ -37,7 +42,7 @@ function degov_media_video_preprocess_media__video(&$variables) {
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function degov_media_video_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function degov_media_video_media_presave(EntityInterface $entity) {
   $bundle = $entity->bundle();
   if ($bundle == 'video' && !$entity->get('field_media_video_embed_field')->isEmpty()) {
     // Check if the field for duration is enabled for the media bundle and that it is empty.

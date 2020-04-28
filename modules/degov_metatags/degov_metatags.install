@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The deGov Metatags module.
+ * Install, update and uninstall hooks for the degov_metatags module.
  */
 
 /**

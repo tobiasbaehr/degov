@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
 use Drupal\node\Entity\NodeType;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_preprocess().
@@ -48,7 +52,8 @@ function _degov_node_reference_bundle_list() {
     $settings['handler_settings']['target_bundles'] = $enabled_bundles;
     $config->set('settings', $settings);
     $config->save(TRUE);
-  } else {
+  }
+  else {
     drupal_set_message(t('There are no content types available'), 'warning');
   }
 }

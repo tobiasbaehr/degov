@@ -1,9 +1,13 @@
 <?php
 
-use Drupal\degov_common\Common;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Entity\EntityInterface;
+/**
+ * @file
+ */
+
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\degov_common\Common;
 
 /**
  * Implements hook_preprocess().
@@ -47,7 +51,7 @@ function degov_media_image_preprocess_media__image(&$variables) {
     // Check if the download of the video is allowed by media settings.
     $download_is_allowed = FALSE;
     if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')
-        ->isEmpty()) {
+      ->isEmpty()) {
       $download_is_allowed = $media->get('field_allow_download')->value ? TRUE : FALSE;
     }
     // If allowed let's prepare the links.
@@ -87,7 +91,6 @@ function degov_media_image_form_alter(array &$form, FormStateInterface $form_sta
   }
 }
 
-
 /**
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
@@ -108,7 +111,8 @@ function degov_media_image_validate(array &$form, FormStateInterface $form_state
         if (is_array($value) && isset($value['field_copyright'], $value['field_royalty_free'])) {
           if (isset($form['widget']['entity'])) {
             degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entity']['field_copyright']['widget'][0]['target_id'], $form_state);
-          } else {
+          }
+          else {
             if (isset($form['widget']['entities'][$key])) {
               degov_media_image_validate_copyright((bool) $value['field_royalty_free']['value'], $value['field_copyright'][0]['target_id'], $form['widget']['entities'][$key]['field_copyright']['widget'][0]['target_id'], $form_state);
             }

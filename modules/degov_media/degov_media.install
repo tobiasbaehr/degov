@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media module.
+ */
+
 use Drupal\media\Entity\MediaType;
 
 /**
@@ -32,7 +37,7 @@ function degov_media_requirements(string $phase): array {
   $requirements = [];
   if ($phase === 'runtime') {
 
-    if((bool)MediaType::load('video_file')) {
+    if ((bool) MediaType::load('video_file')) {
       $requirements['degov_media'] = [
         'severity'    => REQUIREMENT_WARNING,
         'title'       => t('Duplicated media video type'),

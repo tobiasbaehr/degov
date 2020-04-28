@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_paragraph_slideshow module.
+ */
+
 use Drupal\degov_common\Common;
 
 /**
@@ -20,7 +25,6 @@ function degov_paragraph_slideshow_update_8001() {
   \Drupal::service('degov_config.module_updater')->applyUpdates('degov_paragraph_slideshow', '8001');
 }
 
-
 /**
  * Moved dependencies
  */
@@ -32,12 +36,10 @@ function degov_paragraph_slideshow_update_8002() {
  * Corrected view mode for slides, Update slideshow types
  */
 function degov_paragraph_slideshow_update_8003() {
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
   \Drupal::configFactory()
     ->getEditable('core.entity_view_display.paragraph.slide.default')
     ->set('content.field_slide_media.settings.view_mode', 'slider_main_16_9');
+  /** @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->reImport('field.storage.paragraph.field_slideshow_type', 'degov_paragraph_slideshow', 'install');
 }

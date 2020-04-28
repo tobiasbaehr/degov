@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_usage module.
+ */
+
 use Drupal\language\Config\LanguageConfigOverride;
 
 function degov_media_usage_schema() {
@@ -79,7 +84,7 @@ function degov_media_usage_install() {
  * Implements hook_uninstall().
  */
 function degov_media_usage_uninstall() {
-  // remove fields from views
+  // Remove fields from views.
   _remove_media_overview_field();
   _remove_file_overview_field();
 
@@ -90,11 +95,11 @@ function _install_media_overview_field() {
   $mediaView = \Drupal::configFactory()->getEditable('views.view.media');
   $base = 'display.media_page_list.display_options.fields';
 
-  // remove operations field temporary
+  // Remove operations field temporary.
   $operations = $mediaView->get($base . '.operations');
   $mediaView->clear($base . '.operations');
 
-  // add media_usage field
+  // Add media_usage field.
   $mediaView->set($base . '.media_usage.id', 'media_usage');
   $mediaView->set($base . '.media_usage.table', 'media');
   $mediaView->set($base . '.media_usage.field', 'media_usage');
@@ -105,7 +110,7 @@ function _install_media_overview_field() {
   $mediaView->set($base . '.media_usage.empty', '-');
   $mediaView->set($base . '.media_usage.empty_zero', TRUE);
 
-  // readd operations field to be at the last position
+  // Readd operations field to be at the last position.
   $mediaView->set($base . '.operations', $operations);
 
   $mediaView->save(TRUE);
@@ -133,14 +138,14 @@ function _install_file_overview_field() {
   $fileView = \Drupal::configFactory()->getEditable('views.view.files');
   $base = 'display.page_1.display_options.fields';
 
-  // hide current 'count' field
+  // Hide current 'count' field.
   $fileView->set($base . '.count.exclude', TRUE);
 
-  // remove dropbutton field temporary
+  // Remove dropbutton field temporary.
   $operations = $fileView->get($base . '.dropbutton');
   $fileView->clear($base . '.dropbutton');
 
-  // add file_usage field
+  // Add file_usage field.
   $fileView->set($base . '.file_usage.id', 'file_usage');
   $fileView->set($base . '.file_usage.table', 'views');
   $fileView->set($base . '.file_usage.field', 'file_usage');
@@ -150,7 +155,7 @@ function _install_file_overview_field() {
   $fileView->set($base . '.file_usage.empty', '-');
   $fileView->set($base . '.file_usage.empty_zero', TRUE);
 
-  // readd dropbutton field to be at the last position
+  // Readd dropbutton field to be at the last position.
   $fileView->set($base . '.dropbutton', $operations);
 
   $fileView->save(TRUE);
@@ -166,10 +171,10 @@ function _remove_file_overview_field() {
   $fileView = \Drupal::configFactory()->getEditable('views.view.files');
   $base = 'display.page_1.display_options.fields';
 
-  // show 'count' field
+  // Show 'count' field.
   $fileView->set($base . '.count.exclude', FALSE);
 
-  // remove column in file overview view
+  // Remove column in file overview view.
   $fields = $fileView->get($base);
   if (array_key_exists('file_usage', $fields)) {
     $fileView->clear($base . '.file_usage');

@@ -1,7 +1,11 @@
 <?php
 
-use Drupal\media\MediaInterface;
+/**
+ * @file
+ */
+
 use Drupal\Component\Utility\Xss;
+use Drupal\media\MediaInterface;
 
 /**
  * Implements hook_locale_translation_projects_alter().
@@ -61,7 +65,7 @@ function degov_social_media_settings_preprocess_media(&$variables) {
   // - a twig filter or
   // - a field formatter or
   // - a preprocess function for the fields and a hook that informs this
-  //   module about fields that need to be disabled
+  //   module about fields that need to be disabled.
   if ($media instanceof MediaInterface && in_array($bundle, ['some_embed', 'video', 'tweet', 'instagram'])) {
     $source = NULL;
     switch ($bundle) {
@@ -75,11 +79,13 @@ function degov_social_media_settings_preprocess_media(&$variables) {
         }
         $source = $media->field_social_media_source->value;
         break;
+
       case 'video':
         $field_value = \Drupal::service('twig_field_value.twig.extension')->getFieldValue($variables['content']['field_media_video_embed_field']);
         $markup = \Drupal::service('renderer')->render($field_value);
         $source = $media->field_social_media_source->value;
         break;
+
       case 'tweet':
       case 'instagram':
         // Detach module libraries because they load js from twitter/instagram.

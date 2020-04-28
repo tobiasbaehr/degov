@@ -9,8 +9,8 @@ use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\degov_social_media_youtube\Youtube;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'YoutubeFeedBlock' block.

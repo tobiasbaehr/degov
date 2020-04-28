@@ -1,7 +1,11 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_video_upload module.
+ */
+
 use Drupal\degov_common\Common;
-use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -73,7 +77,7 @@ function degov_media_video_upload_update_8015() {
  */
 function degov_media_video_upload_update_8016() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_video_upload', '8016');

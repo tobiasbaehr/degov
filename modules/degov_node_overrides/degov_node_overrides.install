@@ -1,8 +1,11 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
-use Drupal\Core\Extension\ModuleInstaller;
-use \Symfony\Component\Yaml\Yaml;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_overrides module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -17,7 +20,7 @@ function degov_node_overrides_install() {
     'node.default',
   ];
   foreach ($view_mode_ids as $view_mode_id) {
-    $view_mode = \Drupal::configFactory()->getEditable('core.entity_view_mode.'.$view_mode_id);
+    $view_mode = \Drupal::configFactory()->getEditable('core.entity_view_mode.' . $view_mode_id);
     if ($view_mode->get('label') != '') {
       // Change the enforced dependency for all view modes.
       $view_mode->set('dependencies.enforced.module', ['degov_overrides_install']);
@@ -35,10 +38,10 @@ function degov_node_overrides_install() {
   // Change enforced dependencies for all view displays.
   foreach ($content_types as $content_type) {
     foreach ($view_mode_ids as $view_mode_id) {
-      $display_id = str_replace('node.','node.'.$content_type, $view_mode_id);
+      $display_id = str_replace('node.', 'node.' . $content_type, $view_mode_id);
       $display = \Drupal::configFactory()->getEditable('core.entity_view_display.' . $display_id);
       if ($display->get('label') != '') {
-        $display->set('dependencies.enforced.module', ['degov_overrides_install', 'degov_node_'.$content_type]);
+        $display->set('dependencies.enforced.module', ['degov_overrides_install', 'degov_node_' . $content_type]);
         $display->save(TRUE);
       }
     }
@@ -53,38 +56,34 @@ function degov_node_overrides_update_8013() {
 }
 
 /**
- * Uninstall lightning_workflow module and remove it's dependency
+ * Uninstall lightning_workflow module and remove its dependency.
  */
 function degov_node_overrides_update_8014() {
   /** @var \Drupal\degov_common\Entity\ConfigRemover $configRemover */
   $configRemover = \Drupal::service('degov_common.config_remover');
   $configRemover->removeListItemFromConfiguration('views.view.content', 'dependencies.module', 'lightning_workflow');
 
-  /**
-   * @var $moduleInstallerService ModuleInstaller
-   */
+  /** @var \Drupal\Core\Extension\ModuleInstaller $moduleInstallerService */
   $moduleInstallerService = \Drupal::service('module_installer');
   $moduleInstallerService->uninstall(['lightning_workflow']);
 }
 
 /**
- * Updating content view
+ * Updating content view.
  */
 function degov_node_overrides_update_8015() {
   /**
-   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->applyUpdates('degov_node_overrides', '8015');
 }
 
 /**
- * #Issue-2998749 - Re-Import admin content view
+ * #Issue-2998749 - Re-Import admin content view.
  */
 function degov_node_overrides_update_8016() {
-  /**
-   * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
-   */
+  /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
   $moduleUpdater->reImport('views.view.content', 'degov_node_overrides', 'rewrite');
 }
@@ -93,13 +92,9 @@ function degov_node_overrides_update_8016() {
  * Update items on content view per page to 100, if hasn't been changed already.
  */
 function degov_node_overrides_update_860100() {
-  /**
-   * @var ConfigFactory $configFactory
-   */
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
   $configFactory = \Drupal::service('config.factory');
-  /**
-   * @var Drupal\Core\Config\Config $config
-   */
+  /** @var Drupal\Core\Config\Config $config */
   $config = $configFactory->getEditable('views.view.content');
 
   if ($config->get('display.default.display_options.pager.options.items_per_page') === 50) {

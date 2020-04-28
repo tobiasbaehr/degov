@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install- and update hooks for the module.
+ * Install, update and uninstall hooks for the degov_demo_content module.
  */
 
 use Drupal\taxonomy\Entity\Term;

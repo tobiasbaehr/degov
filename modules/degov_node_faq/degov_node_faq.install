@@ -1,7 +1,11 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_faq module.
+ */
+
 use Drupal\Core\Config\Config;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\degov_common\Common;
 
 /**
@@ -20,7 +24,7 @@ function degov_node_faq_uninstall() {
 }
 
 /**
- * Enable workflow for content type
+ * Implements hook_install().
  */
 function degov_node_faq_install() {
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
@@ -51,7 +55,7 @@ function degov_node_faq_update_8012() {
  */
 function degov_node_faq_update_8013() {
   /**
-   * @var ConfigFactoryInterface $configFactory
+   * @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    */
   $configFactory = \Drupal::configFactory();
 
@@ -82,15 +86,11 @@ function degov_node_faq_update_870500() {
  * FAQ: Add field_tags input field to form display mode
  */
 function degov_node_faq_update_870600() {
-  /**
-   * Add field field_tags to faq
-   */
+  // Add field field_tags to faq.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_faq', '870600');
 
-  /**
-   * FAQ: Add field_tag to display mode
-   */
+  // FAQ: Add field_tag to display mode.
   $configFactory = \Drupal::service('config.factory');
   $config = $configFactory->getEditable('core.entity_view_display.node.faq.default');
   $config->set('content.field_tags.type', 'entity_reference_label');
@@ -101,9 +101,7 @@ function degov_node_faq_update_870600() {
   $config->set('content.field_tags.third_party_settings', []);
   $config->save();
 
-  /**
-   * FAQ: Add field_tags input field to form display mode
-   */
+  // FAQ: Add field_tags input field to form display mode.
   $config = $configFactory->getEditable('core.entity_form_display.node.faq.default');
   $config->set('content.field_tags.type', 'entity_reference_autocomplete');
   $config->set('content.field_tags.weight', '121');

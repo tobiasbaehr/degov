@@ -5,10 +5,10 @@
  * Media gallery post update.
  */
 
-use Drupal\media\Entity\Media;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\field\Entity\FieldConfig;
+use Drupal\media\Entity\Media;
 
 /**
  * Migrate field_media_published_date to field_media_publish_date.

@@ -7,10 +7,10 @@ use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystem;
+use Drupal\Core\Image\ImageFactory;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\crop\Entity\CropType;
 use Drupal\file\Entity\File;
-use Drupal\Core\Image\ImageFactory;
 
 /**
  * Class AutoCropper.

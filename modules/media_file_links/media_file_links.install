@@ -2,12 +2,12 @@
 
 /**
  * @file
- * Install and update functions for the deGov Media file links module.
+ * Install, update and uninstall hooks for the media_file_links module.
  */
 
-use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\Core\Url;
-use \Symfony\Component\Yaml\Yaml;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -45,7 +45,7 @@ function media_file_links_install() {
     }
     if ($addMediaFileLinksMatcher) {
       $newMatcher = Yaml::parseFile(\Drupal::service('extension.list.module')
-          ->getPath('media_file_links') . '/config/partial/linkit_matcher.yml');
+        ->getPath('media_file_links') . '/config/partial/linkit_matcher.yml');
       if (!empty($newMatcher['uuid'])) {
         $matchers[$newMatcher['uuid']] = $newMatcher;
         $config->set('matchers', $matchers)->save();
@@ -111,7 +111,7 @@ function media_file_links_uninstall() {
     ->execute();
   $mediaFileMenuLinks = MenuLinkContent::loadMultiple($mediaFileMenuLinksIds);
   foreach ($mediaFileMenuLinks as $mediaFileMenuLink) {
-    if(\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($mediaFileMenuLink->link->first()->uri)) {
+    if (\Drupal::service('media_file_links.placeholder_handler')->isValidMediaFileLinkPlaceholder($mediaFileMenuLink->link->first()->uri)) {
       $mediaFileMenuLink->link->first()->uri = 'internal:' . Url::fromRoute('system.404')->toString();
       $mediaFileMenuLink->save();
     }

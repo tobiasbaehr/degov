@@ -1,8 +1,13 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess().
@@ -20,16 +25,14 @@ function degov_node_event_preprocess(&$variables, $hook, &$info) {
 /**
  * Implements hook_views_pre_render().
  */
-function degov_node_event_views_pre_render(\Drupal\views\ViewExecutable $view) {
+function degov_node_event_views_pre_render(ViewExecutable $view) {
   if ($view->storage->id() == "events" && $view->current_display == 'calendar_widget') {
     $view->element['#attached']['library'][] = 'degov_node_event/degov_events';
   }
 }
 
 /**
- * Preprocess event nodes.
- *
- * @param $variables
+ * Implements hook_preprocess_node().
  */
 function degov_node_event_preprocess_node(&$variables) {
   $node = $variables['node'];
@@ -39,12 +42,12 @@ function degov_node_event_preprocess_node(&$variables) {
     $timezone = drupal_get_user_timezone();
 
     if (!$node->get('field_event_date')->isEmpty()) {
-      $startDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date')->value, 'UTC');
+      $startDateObject = new DrupalDateTime($node->get('field_event_date')->value, 'UTC');
       $startDateObject->setTimeZone(timezone_open($timezone));
       $variables['start_date_timestamp'] = $startDateObject->getTimestamp();
     }
     if (!$node->get('field_event_date_end')->isEmpty()) {
-      $endDateObject = new \Drupal\Core\Datetime\DrupalDateTime($node->get('field_event_date_end')->value, 'UTC');
+      $endDateObject = new DrupalDateTime($node->get('field_event_date_end')->value, 'UTC');
       $endDateObject->setTimeZone(timezone_open($timezone));
       $variables['end_date_timestamp'] = $endDateObject->getTimestamp();
     }
@@ -52,13 +55,9 @@ function degov_node_event_preprocess_node(&$variables) {
 }
 
 /**
- * Event calender date form alter
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param $form_id
+ * Implements hook_form_alter().
  */
-function degov_node_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function degov_node_event_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'views_exposed_form') {
     // Apply our alter only for events views display.
     $view_names = ['events'];
@@ -71,10 +70,10 @@ function degov_node_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         $pattern = $format->getPattern();
       }
       /*if (!empty($form['from'])) {
-        $form['from']['#attributes']['data-drupal-date-format'] = $pattern;
+      $form['from']['#attributes']['data-drupal-date-format'] = $pattern;
       }
       if (!empty($form['to'])) {
-        $form['to']['#attributes']['data-drupal-date-format'] = $pattern;
+      $form['to']['#attributes']['data-drupal-date-format'] = $pattern;
       }*/
       // Custom validate function.
       $form['#validate'][] = 'degov_node_event_date_form_validate';
@@ -87,18 +86,19 @@ function degov_node_event_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
 }
 
 /**
- * Event calender date form custom validation
- * Add 24 hours in date_to filed to get current date events
+ * Event calender date form custom validation.
+ *
+ * Add 24 hours in date_to filed to get current date events.
  *
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function degov_node_event_date_form_validate($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_node_event_date_form_validate($form, FormStateInterface $form_state) {
   // Check if the exposed filter is supposed to filter by end date.
   if ($form_state->getValue('to')) {
     $date_to = $form_state->getValue('to');
     // Change the date to the end of the day.
-    $date_to = $date_to . ' ' . '23:59:00';
+    $date_to = $date_to . ' 23:59:00';
     $form_state->setValue('to', $date_to);
   }
 }

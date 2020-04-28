@@ -1,10 +1,13 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 
-function degov_theming_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display)
-{
+function degov_theming_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if ($entity->getEntityType()->id() == 'node') {
     if (!empty($build['#attached']['html_head_link'])) {
 

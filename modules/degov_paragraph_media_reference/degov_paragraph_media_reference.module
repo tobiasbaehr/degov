@@ -1,6 +1,13 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
+use Drupal\media\Entity\MediaType;
+use Drupal\paragraphs_edit\Form\ParagraphEditForm;
 
 /**
  * Implements hook_preprocess().
@@ -18,7 +25,7 @@ function degov_paragraph_media_reference_preprocess(&$variables, $hook, &$info) 
 /**
  * Implements hook_field_widget_form_alter().
  */
-function degov_paragraph_media_reference_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+function degov_paragraph_media_reference_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
   /** @var \Drupal\Core\Field\WidgetBase $widget */
   $widget = $context['widget'];
   // Add media_reference library on every media reference paragraph.
@@ -27,7 +34,7 @@ function degov_paragraph_media_reference_field_widget_form_alter(&$element, \Dru
   }
   if (in_array($widget->getPluginId(), ['entity_browser_entity_reference'])) {
     $formObject = $form_state->getFormObject();
-    if ($formObject instanceof \Drupal\paragraphs_edit\Form\ParagraphEditForm) {
+    if ($formObject instanceof ParagraphEditForm) {
       $paragraph = $formObject->getEntity();
       if ($paragraph->bundle() == 'media_reference') {
         $element['#attached']['library'][] = 'degov_paragraph_media_reference/media_reference';
@@ -59,7 +66,7 @@ function degov_paragraph_media_reference_modules_installed($modules) {
  */
 function _degov_media_reference_bundle_list() {
   $enabled_bundles = [];
-  $media_types = \Drupal\media\Entity\MediaType::loadMultiple();
+  $media_types = MediaType::loadMultiple();
   /** @var \Drupal\media\Entity\MediaType $media_type */
   foreach ($media_types as $media_type) {
     $enabled_bundles[$media_type->id()] = $media_type->id();
@@ -74,7 +81,8 @@ function _degov_media_reference_bundle_list() {
       $config->set('settings', $settings);
       $config->save(TRUE);
     }
-  } else {
+  }
+  else {
     drupal_set_message(t('There are no media bundles available'), 'warning');
   }
 }

@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_demo_content\Generator;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
@@ -10,7 +11,6 @@ use Drupal\media\MediaInterface;
 use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\Yaml\Yaml;
-use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Class ContentGenerator.

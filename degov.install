@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Install, update and uninstall hooks for the {{ profile }} subprofile.
@@ -78,7 +79,7 @@ function degov_update_8440() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
 
-  // Remove lightning
+  // Remove lightning.
   unset($module_data['lightning']);
 
   // Write the configuration.
@@ -168,14 +169,14 @@ function degov_update_8447() {
  */
 function degov_update_8448() {
   foreach ([
-             'normal_page',
-             'blog',
-             'press',
-             'simplenews_issue',
-             'faq',
-             'event',
-             'external_teaser',
-           ] as $nodeType) {
+    'normal_page',
+    'blog',
+    'press',
+    'simplenews_issue',
+    'faq',
+    'event',
+    'external_teaser',
+  ] as $nodeType) {
     $fieldConfig = FieldConfig::loadByName('node', $nodeType, 'scheduled_updates');
     if (!empty($fieldConfig)) {
       $fieldConfig->delete();
@@ -190,7 +191,7 @@ function degov_update_8449() {
   // Read the configuration.
   $module_data = \Drupal::config('core.extension')->get('module');
 
-  // Remove openapi_redoc
+  // Remove openapi_redoc.
   unset($module_data['openapi_redoc']);
 
   // Write the configuration.
@@ -350,11 +351,11 @@ function degov_update_870100() {
     'system.menu.below-footer-menu',
     'block.block.belowfootermenu',
   ];
-  foreach($configsToInstall as $configToInstall) {
+  foreach ($configsToInstall as $configToInstall) {
     $config = \Drupal::configFactory()
       ->getEditable($configToInstall);
     $newConfigData = Yaml::parseFile(\Drupal::service('extension.list.theme')
-        ->getPath('degov_theme') . '/config/optional/' . $configToInstall . '.yml');
+      ->getPath('degov_theme') . '/config/optional/' . $configToInstall . '.yml');
     $config->setData($newConfigData)->save();
   }
 }
@@ -365,9 +366,9 @@ function degov_update_870100() {
  * - Give the editor and manager roles the permissions to create, edit and delete terms in the section taxonomy vocabulary.
  */
 function degov_update_870300() {
-  $viewsViewContentConfig =  Drupal::configFactory()->getEditable('views.view.content');
-  if ($viewsViewContentConfig->getRawData()){
-    $newViewsViewContentConfig = Yaml::parse(file_get_contents(drupal_get_path('profile', 'degov')  . '/config/partial/views.view.content.yml'));
+  $viewsViewContentConfig = Drupal::configFactory()->getEditable('views.view.content');
+  if ($viewsViewContentConfig->getRawData()) {
+    $newViewsViewContentConfig = Yaml::parse(file_get_contents(drupal_get_path('profile', 'degov') . '/config/partial/views.view.content.yml'));
     $viewsViewContentConfig->merge($newViewsViewContentConfig);
     $viewsViewContentConfig->save(TRUE);
   }
@@ -392,7 +393,7 @@ function degov_update_870500() {
     \Drupal::service('module_installer')->install(['node_action']);
 
     /**
-     * @var Role[] $roles
+     * @var \Drupal\user\Entity\Role[] $roles
      */
     $roles = Role::loadMultiple([
       'manager'
@@ -407,7 +408,7 @@ function degov_update_870500() {
     }
 
     /**
-     * @var Role $roles
+     * @var \Drupal\user\Entity\Role $roles
      */
     $editorRole = Role::load('editor');
     $editorRole->grantPermission('use change moderation state action');

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The deGov Media Video Mobile install file.
+ * Install, update and uninstall hooks for the degov_media_video_mobile module.
  */
 
 use Drupal\degov_common\Common;

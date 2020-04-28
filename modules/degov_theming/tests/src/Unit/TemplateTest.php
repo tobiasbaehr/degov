@@ -4,6 +4,7 @@ namespace Drupal\Tests\degov_theming\Unit;
 
 use Drupal\Core\Asset\LibraryDiscovery;
 use Drupal\Core\Entity\EntityBase;
+use Drupal\Core\Template\TwigEnvironment;
 use Drupal\Core\Theme\ActiveTheme;
 use Drupal\Core\Theme\ThemeManager;
 use Drupal\degov_theming\Facade\ComponentLocation;
@@ -12,7 +13,6 @@ use Drupal\degov_theming\Service\Template;
 use Drupal\Tests\UnitTestCase;
 use org\bovigo\vfs\vfsStream;
 use Prophecy\Argument;
-use Drupal\Core\Template\TwigEnvironment;
 
 /**
  * Class TemplateTest.

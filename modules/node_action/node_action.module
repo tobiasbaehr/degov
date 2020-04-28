@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_locale_translation_projects_alter().
  */
 function node_action_locale_translation_projects_alter(&$projects) {

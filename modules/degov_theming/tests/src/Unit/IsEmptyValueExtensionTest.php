@@ -1,7 +1,9 @@
 <?php
 
-use Drupal\Tests\UnitTestCase;
+namespace Drupal\Tests\degov_theming\Unit;
+
 use Drupal\degov_theming\TwigExtension\IsEmptyValueExtension;
+use Drupal\Tests\UnitTestCase;
 
 /**
  * Class IsEmptyValueExtensionTest.
@@ -11,7 +13,7 @@ class IsEmptyValueExtensionTest extends UnitTestCase {
   /**
    * Extension.
    *
-   * @var Drupal\degov_theming\TwigExtension\IsEmptyValueExtension
+   * @var \Drupal\degov_theming\TwigExtension\IsEmptyValueExtension
    */
   protected $extension;
 

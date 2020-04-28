@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_install().
  */
 function lightning_media_bulk_upload_install() {

@@ -1,16 +1,24 @@
 <?php
 
-use \Symfony\Component\Yaml\Yaml;
+/**
+ * @file
+ * Install, update and uninstall hooks for the filter_disallow module.
+ */
 
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
 function filter_disallow_install() {
   $richHtmlConfig = \Drupal::configFactory()->getEditable('filter.format.rich_html');
 
-  if(!$richHtmlConfig->isNew()) {
+  if (!$richHtmlConfig->isNew()) {
     $filtersConfig = $richHtmlConfig->get('filters');
 
-    if(empty($filtersConfig['filter_html_disallow'])) {
+    if (empty($filtersConfig['filter_html_disallow'])) {
       $partialConfigFile = drupal_get_path('module', 'filter_disallow') . '/config/partial/filters.filter_html_disallow.yml';
-      if(file_exists($partialConfigFile)) {
+      if (file_exists($partialConfigFile)) {
         $filtersConfig += Yaml::parseFile($partialConfigFile);
         $richHtmlConfig->set('filters', $filtersConfig)->save();
       }
@@ -32,7 +40,7 @@ function filter_disallow_update_870500() {
       $listOfDisallowedHTML = $filtersConfig['filter_html_disallow']['settings']['disallowed_html'];
       $newDisallowedHTML = '<font>';
 
-      if(strpos($listOfDisallowedHTML, $newDisallowedHTML) === FALSE) {
+      if (strpos($listOfDisallowedHTML, $newDisallowedHTML) === FALSE) {
         $listOfDisallowedHTML .= " $newDisallowedHTML";
         $filtersConfig['filter_html_disallow']['settings']['disallowed_html'] = $listOfDisallowedHTML;
         $richHtmlConfig->set('filters', $filtersConfig)->save();

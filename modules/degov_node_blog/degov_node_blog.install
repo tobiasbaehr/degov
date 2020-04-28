@@ -1,9 +1,11 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_blog module.
+ */
+
 use Drupal\degov_common\Common;
-use Drupal\degov_common\DegovModuleUpdater;
-use Drupal\Core\Config\Config;
 use Drupal\language\Config\LanguageConfigOverride;
 
 /**
@@ -52,10 +54,8 @@ function degov_node_blog_update_8012() {
  * deGov Update 5.1.0 - Apply config to use the landscape_to_squared image style., Adds missing view modes.
  */
 function degov_node_blog_update_850100() {
-  /**
-   * @var $deGovModuleUpdater DegovModuleUpdater
-   */
-  $deGovModuleUpdater =   \Drupal::service('degov_config.module_updater');
+  /** @var \Drupal\degov_common\DegovModuleUpdater $deGovModuleUpdater */
+  $deGovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $deGovModuleUpdater->applyUpdates('degov_node_blog', '8011');
   $deGovModuleUpdater->applyUpdates('degov_node_blog', '8012');
 }
@@ -64,13 +64,10 @@ function degov_node_blog_update_850100() {
  * deGov Update 6.1.0 - Add missing label keys, for preventing warnings on blog node display.
  */
 function degov_node_blog_update_860100() {
-  /**
-   * @var ConfigFactory $configFactory
-   */
+
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
   $configFactory = \Drupal::service('config.factory');
-  /**
-   * @var Config $config
-   */
+  /** @var \Drupal\Core\Config\Config $config */
   $config = $configFactory->getEditable('core.entity_view_display.node.blog.default');
 
   $changes = FALSE;
@@ -129,9 +126,7 @@ function degov_node_blog_update_860302() {
  * Fix translation of labels on node blog article
  */
 function degov_node_blog_update_870500() {
-  /**
-   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
-   */
+  /** @var \Drupal\Core\Language\LanguageManagerInterface $configTranslation */
   $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.blog.default');
   if ($configTranslation instanceof LanguageConfigOverride) {
     $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');

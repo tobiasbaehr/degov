@@ -1,0 +1,10 @@
+includes:
+  - phpstan-baseline.neon
+
+parameters:
+  level: 0
+  paths:
+    - docroot/profiles/contrib/degov
+  excludes_analyse:
+    - docroot/profiles/contrib/degov/modules/lightning_core/
+    - docroot/profiles/contrib/degov/modules/lightning_media/

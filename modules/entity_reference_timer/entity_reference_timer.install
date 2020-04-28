@@ -1,12 +1,20 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the entity_reference_timer module.
+ */
+
 use Drupal\entity_reference_timer\FieldSwitchService;
 use Drupal\locale\Gettext;
 
+/**
+ * Implements hook_requirements().
+ */
 function entity_reference_timer_requirements(string $phase): array {
   $requirements = [];
 
-  if($phase === 'runtime' && !FieldSwitchService::fieldExists()) {
+  if ($phase === 'runtime' && !FieldSwitchService::fieldExists()) {
     $requirements['entity_reference_timer'] = [
       'title' => t('Entity Reference Timer'),
       'value' => t('Required field missing.'),

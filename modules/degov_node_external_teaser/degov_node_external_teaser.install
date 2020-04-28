@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_external_teaser module.
+ */
+
 use Drupal\degov_common\Common;
 
 /**
@@ -26,15 +31,11 @@ function degov_node_external_teaser_uninstall() {
  * Add field tags to view display
  */
 function degov_node_external_teaser_update_870600() {
-  /**
-   * Add field field_tags to external_teaser
-   */
+  // Add field field_tags to external_teaser.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_node_external_teaser', '870600');
 
-  /**
-   * Add field_tags input field to form view
-   */
+  // Add field_tags input field to form view.
   $configFactory = \Drupal::service('config.factory');
   $config = $configFactory->getEditable('core.entity_form_display.node.external_teaser.default');
   $config->set('content.field_tags.type', 'entity_reference_autocomplete');
@@ -46,9 +47,7 @@ function degov_node_external_teaser_update_870600() {
   $config->set('content.field_tags.third_party_settings', []);
   $config->save();
 
-  /**
-   * Add field tags to view display
-   */
+  // Add field tags to view display.
   $config = $configFactory->getEditable('core.entity_view_display.node.external_teaser.default');
   $config->set('content.field_tags.weight', '3');
   $config->set('content.field_tags.label', 'above');

@@ -1,7 +1,12 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_citation module.
+ */
+
 use Drupal\degov_common\Common;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_uninstall().
@@ -26,7 +31,7 @@ function degov_media_citation_update_8011() {
  * Updated date format in media type view mode's display to DD.MM.YYYY.
  */
 function degov_media_citation_update_8012() {
-  /** @var ConfigFactory $configFactory */
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
   $configFactory = \Drupal::service('config.factory');
 
   $configNamespaces = [
@@ -36,7 +41,7 @@ function degov_media_citation_update_8012() {
   ];
 
   foreach ($configNamespaces as $namespace) {
-    $configFromYaml = Symfony\Component\Yaml\Yaml::parse(
+    $configFromYaml = Yaml::parse(
       file_get_contents(drupal_get_path('module', 'degov_media_citation') . '/config/install/' . $namespace . '.yml')
     );
 

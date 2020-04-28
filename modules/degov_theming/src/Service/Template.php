@@ -118,7 +118,7 @@ class Template {
       if (strpos($template_path, 'profiles/contrib') === 0 ||
         strpos($template_path, 'themes/contrib') === 0 ||
         (strpos($template_path, $path_to_active_theme) === FALSE && strpos($template_path, $this->getInheritedTheme()->getPath()) === FALSE)) {
-        list($variables, $template_filename) = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
+        [$variables, $template_filename] = $this->computeTemplateFilename($variables, $entity_view_modes, $entity_type, $entity_bundle ?? NULL);
         // Does the template exist in the active theme?
         $theme_templates_dirname = $this->buildPath($path_to_active_theme, 'templates');
         $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);

@@ -150,7 +150,7 @@ function lightning_media_image_update_8006() {
  */
 function lightning_media_image_update_8007() {
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\lightning_core\ConfigHelperFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**

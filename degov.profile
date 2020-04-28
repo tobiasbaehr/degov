@@ -1,8 +1,11 @@
 <?php
+
 /**
  * @file
  * Enables modules and site configuration for the deGov profile.
  */
+
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_install_tasks().
@@ -110,7 +113,6 @@ function degov_module_setup(&$install_state) {
   return $batch;
 }
 
-
 /**
  * Install deGov modules task.
  *
@@ -206,7 +208,7 @@ function degov_theme_setup(&$install_state) {
  * Alters the profile configuration form to add an additional list of optional
  * deGov modules that can be enabled during profile installation.
  */
-function degov_form_install_configure_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
   // Prevent Drupal status messages during profile installation.
   drupal_get_messages('status', TRUE);
 

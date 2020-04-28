@@ -1,8 +1,14 @@
 <?php
 
-use \Symfony\Component\Yaml\Yaml;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_image_and_crop_styles module.
+ */
 
-function _degov_image_and_crop_styles_set_enforced_and_uuid(\Drupal\Core\Config\Config $getEditable) {
+use Drupal\Core\Config\Config;
+use Symfony\Component\Yaml\Yaml;
+
+function _degov_image_and_crop_styles_set_enforced_and_uuid(Config $getEditable) {
   /** @var \Drupal\Component\Uuid\Php $uuid_service */
   $uuid_service = \Drupal::service('uuid');
   $getEditable->set('dependencies.enforced.module', ['degov_image_and_crop_styles']);
@@ -132,19 +138,19 @@ function degov_image_and_crop_styles_update_870600() {
 function degov_image_and_crop_styles_update_880000() {
   $configsToReimport = [
     'core.entity_view_mode.media.header_logo_slogan'          => \Drupal::service('module_handler')
-        ->getModule('degov_image_and_crop_styles')
-        ->getPath() . '/config/install/core.entity_view_mode.media.header_logo_slogan.yml',
+      ->getModule('degov_image_and_crop_styles')
+      ->getPath() . '/config/install/core.entity_view_mode.media.header_logo_slogan.yml',
     'image.style.logo_slogan'                                 => \Drupal::service('module_handler')
-        ->getModule('degov_image_and_crop_styles')
-        ->getPath() . '/config/install/image.style.logo_slogan.yml',
+      ->getModule('degov_image_and_crop_styles')
+      ->getPath() . '/config/install/image.style.logo_slogan.yml',
     'core.entity_view_display.media.image.header_logo_slogan' => \Drupal::service('module_handler')
-        ->getModule('degov_media_image')
-        ->getPath() . '/config/install/core.entity_view_display.media.image.header_logo_slogan.yml',
+      ->getModule('degov_media_image')
+      ->getPath() . '/config/install/core.entity_view_display.media.image.header_logo_slogan.yml',
   ];
 
-  foreach($configsToReimport as $configKey => $pathToConfigFile) {
+  foreach ($configsToReimport as $configKey => $pathToConfigFile) {
     $configObject = \Drupal::configFactory()->getEditable($configKey);
-    if($configObject->isNew()) {
+    if ($configObject->isNew()) {
       $configObject->setData(Yaml::parseFile($pathToConfigFile))->save(TRUE);
     }
   }

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Install, update and uninstall hooks for the degov_auto_crop_update module.
+ */
+
+/**
  * deGov Update 7.2.0 - Import translation.
  */
 function degov_auto_crop_update_870200() {

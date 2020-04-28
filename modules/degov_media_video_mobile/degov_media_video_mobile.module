@@ -5,11 +5,11 @@
  * The deGov Media Video Mobile module.
  */
 
-use Drupal\file\Entity\File;
-use Drupal\degov_common\Common;
-use Drupal\Core\Template\Attribute;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\degov_common\Common;
+use Drupal\file\Entity\File;
 use Drupal\image\ImageStyleInterface;
 
 /**
@@ -143,7 +143,7 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   }
 
   $variables['#attached']['drupalSettings']['degov_media_video_mobile'] = [
-    (int)$media->id() => $javascriptData
+    (int) $media->id() => $javascriptData
   ];
 
   /* @var \Drupal\media\Entity\Media $poster */
@@ -154,7 +154,8 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
       $imageStyle16By9 = \Drupal::entityTypeManager()->getStorage('image_style')->load('crop_16_to_9');
       if ($imageStyle16By9 instanceof ImageStyleInterface) {
         $variables['video_attributes']['poster'] = $imageStyle16By9->buildUrl($file->getFileUri());
-      } else {
+      }
+      else {
         $variables['video_attributes']['poster'] = file_create_url($file->getFileUri());
       }
     }
@@ -214,8 +215,8 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
    * only validate that field.
    */
   $triggeringElement = $form_state->getTriggeringElement();
-  if($triggeringElement['#id'] !== 'edit-submit') {
-    if(!empty($triggeringElement['#parents'][0]) && in_array($triggeringElement['#parents'][0], $video_fields)) {
+  if ($triggeringElement['#id'] !== 'edit-submit') {
+    if (!empty($triggeringElement['#parents'][0]) && in_array($triggeringElement['#parents'][0], $video_fields)) {
       $video_fields = [$triggeringElement['#parents'][0]];
     }
   }
@@ -230,7 +231,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
       $file_info = \Drupal::service('degov_common.video_utils')
         ->getFileInfo($uploaded_file_path);
 
-      // Check file type
+      // Check file type.
       if (empty($file_info['fileformat'])) {
         \Drupal::service('messenger')->addWarning(
           t(
@@ -253,7 +254,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         );
       }
 
-      // Check file pixel dimensions
+      // Check file pixel dimensions.
       $field_definitions = \Drupal::service('entity_field.manager')
         ->getFieldDefinitions('media', 'video_mobile');
       if (isset($field_definitions[$field_name])) {
@@ -275,7 +276,7 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         }
       }
 
-      // Check file aspect ratio
+      // Check file aspect ratio.
       $ratio_y = 0;
       if (!empty($file_info['video']['resolution_y']) && !empty($file_info['video']['resolution_x'])) {
         $ratio_y = $file_info['video']['resolution_y'] / ($file_info['video']['resolution_x'] / 16);
@@ -292,14 +293,14 @@ function degov_media_video_mobile_validate_video_specs(&$form, FormStateInterfac
         );
       }
 
-      // Check file codec
+      // Check file codec.
       if (empty($file_info['video']['fourcc']) || !in_array($file_info['video']['fourcc'], [
-          'avc1',
-          'davc',
-          'h264',
-          'x264',
-          'vssh',
-        ])) {
+        'avc1',
+        'davc',
+        'h264',
+        'x264',
+        'vssh',
+      ])) {
         \Drupal::service('messenger')->addWarning(
           t(
             '@field_name: Expected H.264 encoded video. Got "@fourcc" instead.',

@@ -2,9 +2,9 @@
 
 namespace Drupal\media_file_links;
 
-use Drupal\Core\Entity\EntityAutocompleteMatcher as EntityAutocompleteMatcherBase;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
+use Drupal\Core\Entity\EntityAutocompleteMatcher as EntityAutocompleteMatcherBase;
 
 /**
  * Class EntityAutocompleteMatcher.

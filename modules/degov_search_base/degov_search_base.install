@@ -1,15 +1,15 @@
 <?php
 
-use Drupal\facets\Entity\Facet;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_search_base module.
+ */
 
 /**
  * Re-enable partial matching in search
  */
 function degov_search_base_update_8001() {
-
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
+  /** @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_search_base', '8001');
 }

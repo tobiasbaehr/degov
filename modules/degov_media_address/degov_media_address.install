@@ -1,6 +1,10 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_address module.
+ */
+
 use Drupal\degov_common\Common;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
@@ -30,7 +34,7 @@ function degov_media_address_update_8010() {
 function degov_media_address_update_8011() {
 
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**
@@ -47,7 +51,7 @@ function degov_media_address_update_8011() {
  */
 function degov_media_address_update_870600() {
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**

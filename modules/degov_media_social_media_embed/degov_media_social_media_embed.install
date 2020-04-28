@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_social_media_embed module.
+ */
+
 use Drupal\degov_common\Common;
 
 /**

@@ -117,7 +117,7 @@ class CommonTest extends KernelTestBase {
    * Test remove paragraph.
    */
   public function testRemoveParagraph() {
-    list($paragraph1, $paragraph2, $paragraph3) = $this->createParagraphs();
+    [$paragraph1, $paragraph2, $paragraph3] = $this->createParagraphs();
 
     $idParagraph1 = $paragraph1->id();
     $idParagraph2 = $paragraph2->id();

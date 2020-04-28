@@ -2,11 +2,8 @@
 
 namespace Drupal\degov_demo_content\FileHandler;
 
-use Drupal\degov_demo_content\FileAdapter;
-use Drupal\file\Entity\File;
-
 /**
- * Class MediaFileHandler.
+ * Class ParagraphsFileHandler
  */
 class ParagraphsFileHandler extends FileHandler {
 

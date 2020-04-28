@@ -1,8 +1,12 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Component\Utility\Xss;
 use Drupal\degov_common\Common;
 use Drupal\media\MediaInterface;
-use Drupal\Component\Utility\Xss;
 
 /**
  * Implements hook_preprocess().

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Template\Attribute;
 use Drupal\degov_common\Common;
 
@@ -78,7 +83,7 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function degov_media_audio_media_presave(Drupal\Core\Entity\EntityInterface $entity) {
+function degov_media_audio_media_presave(EntityInterface $entity) {
   $bundle = $entity->bundle();
   if ($bundle == 'audio') {
     // Check if the field for duration is enabled for the media bundle and that it is empty.

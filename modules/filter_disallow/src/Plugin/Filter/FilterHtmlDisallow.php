@@ -2,8 +2,8 @@
 
 namespace Drupal\filter_disallow\Plugin\Filter;
 
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 

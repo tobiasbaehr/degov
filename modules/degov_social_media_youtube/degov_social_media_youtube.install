@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_social_media_youtube module.
+ */
+
 use Drupal\Core\Link;
 
 /**
@@ -26,7 +31,7 @@ function degov_social_media_youtube_requirements(string $phase): array {
     $degov_social_media_youtube = Drupal::config('degov_social_media_youtube.settings');
     $api_key = trim($degov_social_media_youtube->get('api_key'));
     $requirements['degov_social_media_youtube'] = [
-        'title' => t('deGov Social Media YouTube'),
+      'title' => t('deGov Social Media YouTube'),
     ];
     if (empty($api_key)) {
       $requirements['degov_social_media_youtube'] += [

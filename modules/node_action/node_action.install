@@ -1,7 +1,9 @@
 <?php
 
-use Drupal\Core\Config\Config;
-use Drupal\degov_common\Entity\ConfigStorageFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the node_action module.
+ */
 
 /**
  * Implements hook_install().
@@ -10,17 +12,17 @@ function node_action_install() {
   node_action_remove_unwanted_actions();
 
   /**
-   * @var ConfigStorageFactory $configFactory
+   * @var \Drupal\degov_common\Entity\ConfigStorageFactory $configFactory
    */
   $configFactory = \Drupal::service('degov_common.config_storage_factory');
   /**
-   * @var Config $config
+   * @var \Drupal\Core\Config\Config $config
    */
   $config = $configFactory->getEditable('system.action.node_unpublish_action');
   $config->set('plugin', 'node_action:entity:unpublish_action:node')->save();
 
   /**
-   * @var Config $config
+   * @var \Drupal\Core\Config\Config $config
    */
   $config = $configFactory->getEditable('system.action.node_publish_action');
   $config->set('plugin', 'node_action:entity:publish_action:node')->save();
@@ -36,9 +38,25 @@ function node_action_install() {
   }
 }
 
+/**
+ * Implements hook_uninstall().
+ */
+function node_action_uninstall() {
+  /**
+   * @var \Drupal\degov_common\Entity\ConfigStorageFactory $configStorageFactory
+   */
+  $configStorageFactory = \Drupal::service('degov_common.config_storage_factory');
+
+  /**
+   * @var \Drupal\Core\Config\Config $config
+   */
+  $config = $configStorageFactory->getEditable('system.action.node_unpublish_action');
+  $config->set('plugin', 'node_action:entity:unpublish_action:node')->save();
+}
+
 function node_action_remove_unwanted_actions() {
   /**
-   * @var ConfigStorageFactory $configStorageFactory
+   * @var \Drupal\degov_common\Entity\ConfigStorageFactory $configStorageFactory
    */
   $configStorageFactory = \Drupal::service('degov_common.config_storage_factory');
   $configsToDelete = [
@@ -54,20 +72,4 @@ function node_action_remove_unwanted_actions() {
     $config = $configStorageFactory->getEditable($configToDelete);
     $config->delete();
   }
-}
-
-/**
- * Implements hook_uninstall().
- */
-function node_action_uninstall() {
-  /**
-   * @var ConfigStorageFactory $configStorageFactory
-   */
-  $configStorageFactory = \Drupal::service('degov_common.config_storage_factory');
-
-  /**
-   * @var Config $config
-   */
-  $config = $configStorageFactory->getEditable('system.action.node_unpublish_action');
-  $config->set('plugin', 'node_action:entity:unpublish_action:node')->save();
 }

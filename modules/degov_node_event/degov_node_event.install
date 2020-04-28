@@ -1,6 +1,10 @@
 <?php
 
-use Drupal\Core\Config\Config;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_event module.
+ */
+
 use Drupal\degov_common\Common;
 use Drupal\language\Config\LanguageConfigOverride;
 use Symfony\Component\Yaml\Yaml;
@@ -46,23 +50,18 @@ function degov_node_event_update_8012() {
  * Updated view display modes
  */
 function degov_node_event_update_8013() {
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
+  /** @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_node_event','8013');
+  $updater->applyUpdates('degov_node_event', '8013');
 }
-
 
 /**
  * Set paragraph form mode to experimental
  */
 function degov_node_event_update_8014() {
-  /**
-   * @var $updater \Drupal\degov_common\DegovModuleUpdater
-   */
+  /** @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
-  $updater->applyUpdates('degov_node_faq','8014');
+  $updater->applyUpdates('degov_node_faq', '8014');
 }
 
 /**
@@ -84,7 +83,7 @@ function degov_node_event_update_870000() {
 
     if (!empty($filtersConfig)) {
       $partialConfigFile = drupal_get_path('module', 'degov_node_event') . '/config/partial/views.view.latest_events.yml';
-      if(file_exists($partialConfigFile)) {
+      if (file_exists($partialConfigFile)) {
         $filtersConfig += Yaml::parseFile($partialConfigFile);
         $latestEventsConfig->set('display.default.display_options.filters', $filtersConfig)->save();
       }
@@ -107,9 +106,7 @@ function degov_node_event_update_870100() {
  * Fix translation of labels on node event article
  */
 function degov_node_event_update_870500() {
-  /**
-   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
-   */
+  /** @var \Drupal\Core\Language\LanguageManagerInterface $configTranslation */
   $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.event.default');
   if ($configTranslation instanceof LanguageConfigOverride) {
     $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');

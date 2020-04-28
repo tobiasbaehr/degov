@@ -1,13 +1,16 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_govbot_faq module.
+ */
 
 /**
  * Implements hook_install().
  */
 function degov_govbot_faq_install() {
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**
@@ -114,7 +117,7 @@ function degov_govbot_faq_install() {
  */
 function degov_govbot_faq_uninstall() {
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**

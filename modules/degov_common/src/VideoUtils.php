@@ -9,8 +9,8 @@ use Drupal\media\Entity\Media;
 use Drupal\video_embed_field\ProviderManager;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
-use Symfony\Component\Serializer\Encoder\JsonDecode;
 use JamesHeinrich\GetID3\GetID3;
+use Symfony\Component\Serializer\Encoder\JsonDecode;
 
 /**
  * Class VideoUtils.

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install and uninstall functions for the deGov File Management module.
+ * Install, update and uninstall hooks for the degov_file_management module.
  */
 
 use Symfony\Component\Yaml\Yaml;

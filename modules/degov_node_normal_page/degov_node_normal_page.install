@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_normal_page module.
+ */
+
 use Drupal\Core\Config\Config;
 use Drupal\Core\Extension\ModuleHandler;
 use Drupal\Core\Extension\ModuleInstaller;
@@ -24,8 +29,8 @@ function degov_node_normal_page_uninstall() {
 }
 
 /**
- * Enable workflow for content type
- * */
+ * Implements hook_install().
+ */
 function degov_node_normal_page_install() {
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
@@ -77,9 +82,7 @@ function degov_node_normal_page_update_850100() {
  * Fix translation of labels on node normal page
  */
 function degov_node_normal_page_update_870500() {
-  /**
-   * \Drupal\Core\Language\LanguageManagerInterface $configTranslation
-   */
+  /** @var \Drupal\Core\Language\LanguageManagerInterface $configTranslation */
   $configTranslation = \Drupal::languageManager()->getLanguageConfigOverride('de', 'core.entity_form_display.node.normal_page.default');
   if ($configTranslation instanceof LanguageConfigOverride) {
     $configTranslation->set('third_party_settings.field_group.group_preview.label', 'Vorschau');

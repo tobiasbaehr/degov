@@ -3,8 +3,8 @@
 namespace Drupal\degov_taxonomy_term_synonyms\Plugin\EntityReferenceSelection;
 
 use Drupal\Component\Utility\Html;
-use Drupal\taxonomy\Plugin\EntityReferenceSelection\TermSelection;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Plugin\EntityReferenceSelection\TermSelection;
 
 /**
  * Reference selection for tags and synonyms.

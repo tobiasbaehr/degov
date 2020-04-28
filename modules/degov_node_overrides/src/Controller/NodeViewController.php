@@ -2,8 +2,8 @@
 
 namespace Drupal\degov_node_overrides\Controller;
 
-use Drupal\node\Controller\NodeViewController as BaseNodeViewController;
 use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\node\Controller\NodeViewController as BaseNodeViewController;
 
 /**
  * Class MediaViewController.

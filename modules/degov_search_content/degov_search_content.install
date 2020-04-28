@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_search_content module.
+ */
+
 use Drupal\facets\Entity\Facet;
 
 /**
@@ -38,9 +43,9 @@ function degov_search_content_update_860000() {
   $config = \Drupal::configFactory()->getEditable('search_api.index.search_content');
   $ignoreCharacterFieldsSettings = $config->get('processor_settings.ignore_character.fields');
 
-  if(!empty($ignoreCharacterFieldsSettings)) {
+  if (!empty($ignoreCharacterFieldsSettings)) {
     $unsetKey = array_search('type', $ignoreCharacterFieldsSettings, FALSE);
-    if($unsetKey !== FALSE) {
+    if ($unsetKey !== FALSE) {
       unset($ignoreCharacterFieldsSettings[$unsetKey]);
       $config->set('processor_settings.ignore_character.fields', $ignoreCharacterFieldsSettings)->save();
       return t('The Search API configuration for the content index has been updated. Please perform a reindex!');

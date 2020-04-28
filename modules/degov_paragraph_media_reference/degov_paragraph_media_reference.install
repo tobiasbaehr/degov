@@ -1,6 +1,10 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_paragraph_media_reference module.
+ */
+
 use Drupal\degov_common\Common;
 
 /**
@@ -25,7 +29,7 @@ function degov_paragraph_media_reference_update_8001() {
   }
 
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**

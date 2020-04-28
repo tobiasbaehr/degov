@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\paragraphs\Entity\Paragraph;
 
 function degov_media_usage_paragraphs_paragraph_insert(Paragraph $entity) {

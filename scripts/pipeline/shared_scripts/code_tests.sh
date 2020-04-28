@@ -11,21 +11,34 @@ fi
 # shellcheck disable=SC2164
 __DIR__="$(cd "$(dirname "${0}")"; pwd)"
 
+__fail() {
+  if [[ $? -ne 0 ]];then
+    EXITCODE=1
+  fi
+}
+
 main() {
   # shellcheck source=.
   source "$__DIR__/../.env"
   bash "$__DIR__/../default_setup_ci.sh"
   # shellcheck source=.
   source "$__DIR__/common_functions.sh"
-
   cd project
-  ## TODO needs work, see https://publicplan.atlassian.net/browse/DEGOV-659
-  ## echo "### Checking code standards"
-  ## phpstan analyse docroot/profiles/contrib/degov -c docroot/profiles/contrib/degov/phpstan.neon --level=1 || true
-  _info "### Running PHPUnit and KernelBase tests"
-  (cd "docroot/profiles/contrib/$CONTRIBNAME" && phpunit --colors=auto --log-junit $BITBUCKET_CLONE_DIR/test-reports/junit.xml --testdox)
+  mkdir "$BITBUCKET_CLONE_DIR/test-reports"
+
+  EXITCODE=0
+  set +o errexit
+  _info "### Check php compatibility"
+  phpcs -p -s --standard=phpcompatibility.xml
+  _info "### Run static analyse"
+  phpstan analyse --ansi --no-progress --error-format=junit > $BITBUCKET_CLONE_DIR/test-reports/phpstan-junit.xml
+  __fail
   _info "### Checking coding standards"
-  phpcs --report=junit --report-file=$BITBUCKET_CLONE_DIR/test-reports/junit.xml
+  phpcs --report=junit --report-file=$BITBUCKET_CLONE_DIR/test-reports/phpcs-junit.xml
+  __fail
+  _info "### Running PHPUnit and KernelBase tests"
+  (cd "docroot/profiles/contrib/$CONTRIBNAME" && phpunit --colors=auto --log-junit $BITBUCKET_CLONE_DIR/test-reports/phpunit-junit.xml --testdox)
+  __fail
   _info "### Run npm audit"
   local npm_audit_was_used=0;
   if [[ -d "docroot/profiles/contrib/$CONTRIBNAME/themes" ]];then
@@ -40,6 +53,7 @@ main() {
     _err "npm audit was not used. Did you move the Theme(s) ?"
     exit 1
   fi
+  exit $EXITCODE
 }
 
 main "$@"

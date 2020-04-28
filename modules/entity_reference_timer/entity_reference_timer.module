@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_cron().
  */
 function entity_reference_timer_cron() {

@@ -1,7 +1,11 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_audio module.
+ */
+
 use Drupal\degov_common\Common;
-use Drupal\degov_common\DegovModuleUpdater;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -72,13 +76,12 @@ function degov_media_audio_update_8011() {
     ->applyUpdates('degov_media_audio', '8011');
 }
 
-
 /**
  * Add missing view mode preview wide
  */
 function degov_media_audio_update_8012() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_audio', '8012');
@@ -89,7 +92,7 @@ function degov_media_audio_update_8012() {
  */
 function degov_media_audio_update_8013() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_audio', '8013');
@@ -100,7 +103,7 @@ function degov_media_audio_update_8013() {
  */
 function degov_media_audio_update_8014() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_audio', '8014');

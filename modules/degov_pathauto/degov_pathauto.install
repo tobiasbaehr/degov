@@ -1,6 +1,9 @@
 <?php
 
-use \Symfony\Component\Yaml\Yaml;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_pathauto module.
+ */
 
 /**
  * degov_pathauto update_870500

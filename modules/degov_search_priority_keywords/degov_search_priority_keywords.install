@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The deGov Search Priority Keywords module.
+ * Install, update and uninstall hooks for the degov_search_priority_keywords module.
  */
 
 use Symfony\Component\Yaml\Yaml;

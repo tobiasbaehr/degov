@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\degov_paragraph_downloads\Kernel;
 
-use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\KernelTests\KernelTestBase;
+use Drupal\language\Entity\ConfigurableLanguage;
 
 /**
  * Class ModuleInstallationTest.

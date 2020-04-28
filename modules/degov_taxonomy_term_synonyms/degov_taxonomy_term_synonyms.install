@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Install, update, and uninstall functions for the Term Synonyms module.
+ * Install, update and uninstall hooks for the degov_taxonomy_term_synonyms module.
  */
 
 use Drupal\Core\Entity\Entity\EntityFormDisplay;

@@ -70,7 +70,7 @@ class PublishedStateChangeTest extends UnitTestCase {
    * Test has moderation state.
    */
   public function testHasModerationState(): void {
-    list($userInteractionFacade, $messenger, $stringTranslationAdapter, $moderationStateFieldItemList, $node) = $this->mockClasses();
+    [$userInteractionFacade, $messenger, $stringTranslationAdapter, $moderationStateFieldItemList, $node] = $this->mockClasses();
 
     $messenger->expects($this->exactly(0))
       ->method('addMessage')

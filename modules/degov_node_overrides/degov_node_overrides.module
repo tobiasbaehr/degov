@@ -1,7 +1,10 @@
 <?php
 
-use Drupal\degov_common\Common;
-use Drupal\node\NodeInterface;
+/**
+ * @file
+ */
+
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_modules_installed().
@@ -37,28 +40,28 @@ function degov_node_overrides_preprocess(&$variables, $hook, &$info) {
   /** @var \Drupal\degov_theming\Service\Template $templateService */
   $templateService = \Drupal::service('degov_theming.template');
 
-  $templateService->suggest($variables, $hook, $info,  [
+  $templateService->suggest($variables, $hook, $info, [
     'module_name' => 'degov_node_overrides',
     'entity_type' => 'node',
     'entity_bundles' => ['blog'],
     'entity_view_modes' => ['full', 'long_text', 'preview', 'slim', 'small_image']
   ]);
 
-  $templateService->suggest($variables, $hook, $info,  [
+  $templateService->suggest($variables, $hook, $info, [
     'module_name' => 'degov_node_overrides',
     'entity_type' => 'node',
     'entity_bundles' => ['event'],
     'entity_view_modes' => ['full', 'latest', 'long_text', 'preview', 'slim', 'small_image']
   ]);
 
-  $templateService->suggest($variables, $hook, $info,  [
+  $templateService->suggest($variables, $hook, $info, [
     'module_name' => 'degov_node_overrides',
     'entity_type' => 'node',
     'entity_bundles' => ['normal_page'],
     'entity_view_modes' => ['full', 'long_text', 'preview', 'slim', 'small_image']
   ]);
 
-  $templateService->suggest($variables, $hook, $info,  [
+  $templateService->suggest($variables, $hook, $info, [
     'module_name' => 'degov_node_overrides',
     'entity_type' => 'node',
     'entity_bundles' => ['press'],
@@ -73,8 +76,8 @@ function degov_node_overrides_preprocess_paragraph(&$variables) {
   if (!empty($variables['paragraph'])) {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
-    if ($paragraph instanceof \Drupal\paragraphs\Entity\Paragraph && $paragraph->bundle() == 'image_header' && $paragraph->getParentEntity() && $paragraph->getParentEntity()
-        ->bundle() == ('normal_page' || 'press' || 'events')) {
+    if ($paragraph instanceof Paragraph && $paragraph->bundle() == 'image_header' && $paragraph->getParentEntity() && $paragraph->getParentEntity()
+      ->bundle() == ('normal_page' || 'press' || 'events')) {
       unset($variables['content']['field_header_text']);
     }
   }

@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_eu_cookie_compliance module.
+ */
+
 use Drupal\Core\Session\AccountInterface;
 
 /**
  * Implements hook_install().
  */
 function degov_eu_cookie_compliance_install() {
-  //give anonymous the permission to view the cookie popup
+  // Give anonymous the permission to view the cookie popup.
   user_role_grant_permissions(AccountInterface::ANONYMOUS_ROLE, ['display eu cookie compliance popup']);
 }
 

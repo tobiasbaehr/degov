@@ -6,7 +6,6 @@ namespace Drupal\degov_media_usage\Service;
 
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Component\Render\MarkupInterface;
-use Drupal\Component\Render\OutputStrategyInterface;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityInterface;

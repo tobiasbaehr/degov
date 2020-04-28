@@ -2,11 +2,10 @@
 
 /**
  * @file
- * Contains un/installation hooks for the degov_media_gallery module.
+ * Install, update and uninstall hooks for the degov_media_gallery module.
  */
 
 use Drupal\degov_common\Common;
-use Drupal\degov_common\DegovModuleUpdater;
 
 /**
  * Implements hook_uninstall().
@@ -40,7 +39,7 @@ function degov_media_gallery_update_8011() {
  */
 function degov_media_gallery_update_8012() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_gallery', '8012');
@@ -67,7 +66,7 @@ function degov_media_gallery_update_8014() {
  */
 function degov_media_gallery_update_8015() {
   /**
-   * @var DegovModuleUpdater $degovModuleUpdater
+   * @var \Drupal\degov_common\DegovModuleUpdater $degovModuleUpdater
    */
   $degovModuleUpdater = \Drupal::service('degov_config.module_updater');
   $degovModuleUpdater->applyUpdates('degov_media_gallery', '8015');

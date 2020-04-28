@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\media_file_links\Kernel;
 
-use Drupal\media_file_links\Plugin\Filter\FilterMediaFileLinks;
 use Drupal\filter\FilterProcessResult;
+use Drupal\media_file_links\Plugin\Filter\FilterMediaFileLinks;
 
 /**
  * Class SuggestionsTest.

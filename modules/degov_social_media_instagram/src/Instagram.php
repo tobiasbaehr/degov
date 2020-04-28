@@ -2,9 +2,9 @@
 
 namespace Drupal\degov_social_media_instagram;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\degov_social_media_settings\SocialMediaAssetsTrait;
 use InstagramScraper\Instagram as InstagramScraper;
 

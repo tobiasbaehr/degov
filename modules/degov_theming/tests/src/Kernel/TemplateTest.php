@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\degov_theming\Kernel;
 
-use Drupal\Tests\token\Kernel\KernelTestBase;
+use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Class TemplateTest.

@@ -14,4 +14,3 @@ degov_theme.settings:
           url:
             type: label
             label: 'Social network url'
-

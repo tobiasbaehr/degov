@@ -1,11 +1,21 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
 use Drupal\degov_common\DegovOverride;
 use Drupal\degov_common\Form\DegovMediaForm;
 use Drupal\degov_common\MediaFormAlter;
 use Drupal\degov_common\Plugin\views\filter\DegovBundle;
+use Drupal\file\FileInterface;
 use Drupal\locale\SourceString;
+use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
 
 /**
@@ -21,14 +31,14 @@ function degov_common_views_plugins_filter_alter(array &$plugins) {
  */
 function degov_common_views_data_alter(array &$data) {
   // Add the usage field to media.
-  $data['media']['usage'] = array(
+  $data['media']['usage'] = [
     'title' => t('Media Usage'),
-    'field' => array(
+    'field' => [
       'title' => t('Usage'),
       'help' => t('Shows the list of media usage.'),
       'id' => 'degov_media_usage',
-    ),
-  );
+    ],
+  ];
 }
 
 /**
@@ -66,7 +76,7 @@ function degov_common_theme() {
  * An Url object for the download url.
  */
 function degov_common_file_download_link($file, $options = []) {
-  $url = new \Drupal\Core\Url('degov_common.file_download', array('file' => $file->id()), $options);
+  $url = new Url('degov_common.file_download', ['file' => $file->id()], $options);
   return $url;
 }
 
@@ -82,7 +92,8 @@ function degov_common_preprocess_degov_file_download_link(&$variables) {
   $mime_type = explode('/', $mime_type);
   if (!empty($mime_type[1])) {
     $variables['file_type'] = $mime_type[1];
-  } else {
+  }
+  else {
     $variables['file_type'] = pathinfo($file->getFileUri(), PATHINFO_EXTENSION);
   }
 }
@@ -93,16 +104,16 @@ function degov_common_preprocess_degov_file_download_link(&$variables) {
  * @return array
  */
 function degov_common_file_download_render_array($file, $additional_information = '') {
-  if ($file instanceof \Drupal\file\FileInterface) {
+  if ($file instanceof FileInterface) {
     // Prepare the attributes for the main container of the template.
-    $attributes = new \Drupal\Core\Template\Attribute();
+    $attributes = new Attribute();
     // Prepare the text and the URL of the link.
     $mime_type = $file->getMimeType();
     $download_url = degov_common_file_download_link($file, ['attributes' => ['type' => $mime_type . '; length=' . $file->getSize()]]);
     return [
       '#theme'                  => 'degov_file_download_link',
       '#file'                   => $file,
-      '#download_link'          => \Drupal\Core\Link::fromTextAndUrl(t('Download'), $download_url),
+      '#download_link'          => Link::fromTextAndUrl(t('Download'), $download_url),
       '#icon'                   => file_icon_class($mime_type),
       '#attributes'             => $attributes,
       '#file_size'              => format_size($file->getSize()),
@@ -150,7 +161,7 @@ function degov_common_preprocess_node(&$variables) {
  */
 function degov_common_media_view_alter(array &$build, MediaInterface $entity, EntityViewDisplayInterface $display) {
   // Skip adding contextual links if the Paragraph is in a QuickEdit form context
-  // to avoid causing conflicts with Quickedit JS
+  // to avoid causing conflicts with Quickedit JS.
   if (\Drupal::routeMatch()->getRouteName() == 'quickedit.field_form') {
     return;
   }
@@ -162,7 +173,6 @@ function degov_common_media_view_alter(array &$build, MediaInterface $entity, En
     'metadata' => ['changed' => $entity->getChangedTime()],
   ];
 }
-
 
 /**
  * Implements hook_modules_installed().
@@ -188,7 +198,7 @@ function degov_common_modules_installed($modules) {
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form, FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'lightning_media/browser.styling';
 }
 
@@ -199,7 +209,7 @@ function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(arra
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function degov_common_form_entity_browser_media_browser_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_common_form_entity_browser_media_browser_form_alter(array &$form, FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'degov_common/browser.styling';
   if (!empty($form['selection_display'])) {
     $form['#attributes']['class'][] = 'with-selection clearfix';
@@ -216,7 +226,7 @@ function degov_common_form_entity_browser_media_browser_form_alter(array &$form,
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, FormStateInterface $form_state) {
   if (!empty($form['link']['widget'][0]['options']['attributes']['class'])) {
     $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Click on this field and use the icon picker to select the Font Awesome icon css class for this menu item (first level items only).');
   }
@@ -249,7 +259,7 @@ function degov_common_entity_type_alter(array &$entity_types) {
  * @return mixed
  */
 function degov_media_label_callback($entity) {
-  if ($entity instanceof \Drupal\media\Entity\Media) {
+  if ($entity instanceof Media) {
     if ($entity->hasField('field_title') && !$entity->get('field_title')->isEmpty()) {
       return $entity->get('field_title')->value;
     }
@@ -264,7 +274,7 @@ function degov_media_label_callback($entity) {
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
  */
-function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function degov_common_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   /** @var \Drupal\Core\Form\FormInterface $form_object */
   $form_object = $form_state->getFormObject();
   if ($form_object->getFormId() === 'media_multiple_delete_confirm') {
@@ -296,7 +306,7 @@ function degov_common_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
     }
   }
 
-  // Alter entity embed forms
+  // Alter entity embed forms.
   if (\in_array($form_id, [
     'entity_browser_media_browser_form',
     'entity_browser_ckeditor_media_browser_form',

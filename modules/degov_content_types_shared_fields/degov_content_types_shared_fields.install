@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Install, update and uninstall hooks for the degov_content_types_shared_fields module.
+ */
+
+/**
  * deGov Update 7.3.0
  *   - Move core.entity_view_mode.media.preview_wide from degov_media_overrides to degov_content_types_shared_fields.
  *   - Install views_parity_row to provide better output in view latest_media.
@@ -52,7 +57,7 @@ function degov_content_types_shared_fields_update_870300() {
     $display_options['style']['options']['row_class'] = '';
     $display_options['row']['type'] = 'views_parity_row_entity:media';
     $display_options['row']['options']['view_mode'] = 'preview_wide';
-    $display_options['row']['options']['views_parity_row_enable'] = true;
+    $display_options['row']['options']['views_parity_row_enable'] = TRUE;
     $display_options['row']['options']['views_parity_row'] = [
       'frequency' => '3',
       'start' => '2',

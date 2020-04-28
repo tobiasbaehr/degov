@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_theme().
  */
 function degov_copyright_block_theme($existing, $type, $theme, $path) {
@@ -14,4 +18,3 @@ function degov_copyright_block_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
-

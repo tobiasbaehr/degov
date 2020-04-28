@@ -1,6 +1,11 @@
 <?php
 
-use Drupal\field\Entity\FieldConfig;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_media_overrides module.
+ */
+
+use Drupal\search_api\Entity\Index;
 
 /**
  * Implements hook_install().
@@ -8,7 +13,7 @@ use Drupal\field\Entity\FieldConfig;
 function degov_media_overrides_install() {
   // Try to re-index content after adding new field.
   if (\Drupal::moduleHandler()->moduleExists('search_api')) {
-    $index = \Drupal\search_api\Entity\Index::load('search_media');
+    $index = Index::load('search_media');
     if ($index) {
       $index->reindex();
     }

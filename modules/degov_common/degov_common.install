@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_common module.
+ */
+
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
  */
 function degov_common_install() {
-  // Set the admin theme
+  // Set the admin theme.
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('admin', 'seven')
@@ -133,7 +138,7 @@ function degov_common_update_8023() {
  * Remove workbench moderation keys form configuration
  */
 function degov_common_update_8026() {
-  //Remove workbench_moderation dependency from configuration
+  // Remove workbench_moderation dependency from configuration.
   $mediaBundleInfo = \Drupal::service('entity_type.bundle.info')
     ->getBundleInfo('media');
   $nodeBundleInfo = \Drupal::service('entity_type.bundle.info')
@@ -151,22 +156,22 @@ function degov_common_update_8026() {
   $viewModes = \Drupal::entityQuery('entity_view_display')->execute();
   $formModes = \Drupal::entityQuery('entity_form_display')->execute();
 
-  // Remove dependency from content type view modes
+  // Remove dependency from content type view modes.
   foreach ($viewModes as $viewMode) {
     $configRemover->removeListItemFromConfiguration('core.entity_view_display.' . $viewMode, 'dependencies.module', 'workbench_moderation');
   }
-  // Remove dependency from form modes
+  // Remove dependency from form modes.
   foreach ($formModes as $formMode) {
     $configRemover->removeListItemFromConfiguration('core.entity_form_display.' . $formMode, 'dependencies.module', 'workbench_moderation');
   }
-  // Remove 3. party settings
+  // Remove 3. party settings.
   foreach (['media', 'node', 'paragraph'] as $type) {
     foreach ($types[$type] as $nodeType) {
       $configRemover->removeListItemFromConfiguration($type . '.type.' . $nodeType, 'dependencies.module', 'workbench_moderation');
       $configRemover->removeValueFromConfiguration($type . '.type.' . $nodeType, 'third_party_settings', 'workbench_moderation');
     }
   }
-  // Disable workbench_moderation
+  // Disable workbench_moderation.
   \Drupal::service('module_installer')->uninstall(['workbench_moderation']);
   \Drupal::service('module_installer')->install(['content_moderation', 'workflows', 'degov_users_roles']);
 
@@ -191,7 +196,7 @@ function degov_common_update_8030() {
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
-  $moduleUpdater->reImport('views.view.latest_media','degov_content_types_shared_fields','install');
+  $moduleUpdater->reImport('views.view.latest_media', 'degov_content_types_shared_fields', 'install');
 }
 
 /**
@@ -202,7 +207,7 @@ function degov_common_update_8031() {
    * @var $moduleUpdater \Drupal\degov_common\DegovModuleUpdater
    */
   $moduleUpdater = \Drupal::service('degov_config.module_updater');
-  $moduleUpdater->reImport('views.view.media','degov_common','rewrite');
+  $moduleUpdater->reImport('views.view.media', 'degov_common', 'rewrite');
 }
 
 /**
@@ -240,7 +245,7 @@ function degov_common_update_862001() {
     $mediaBrowserCkeditorConfig->set('name', 'ckeditor_media_browser');
     $mediaBrowserCkeditorConfig->set('label', 'CKEditor Media Browser');
     $mediaBrowserCkeditorConfig->set('display', 'iframe');
-    $mediaBrowserCkeditorConfig->set('display_configuration.auto_open', true);
+    $mediaBrowserCkeditorConfig->set('display_configuration.auto_open', TRUE);
     $mediaBrowserCkeditorConfig->set('display_configuration.width', '100%')->save();
     $mediaBrowserCkeditorConfig->set('display_configuration.height', '640')->save();
     $mediaBrowserCkeditorConfig->save(TRUE);

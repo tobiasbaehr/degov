@@ -1,7 +1,12 @@
 <?php
 
-use Drupal\Core\Config\ConfigFactory;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_node_press module.
+ */
+
 use Drupal\degov_common\Common;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_uninstall().
@@ -19,8 +24,8 @@ function degov_node_press_uninstall() {
 }
 
 /**
- * Enable workflow for content type
- * */
+ * Implements hook_install().
+ */
 function degov_node_press_install() {
   /** @var \Drupal\degov_common\Entity\WorkflowHandler $workflowService */
   $workflowService = \Drupal::service('degov_common.workflow_handler');
@@ -49,30 +54,30 @@ function degov_node_press_update_8013() {
  * Updated date format in node view mode's display to DD.MM.YYYY
  */
 function degov_node_press_update_8014() {
-	/** @var ConfigFactory $configFactory */
-	$configFactory = \Drupal::service('config.factory');
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
+  $configFactory = \Drupal::service('config.factory');
 
-	$configNamespaces = [
-		'core.entity_view_display.node.press.default',
-		'core.entity_view_display.node.press.email_html',
-		'core.entity_view_display.node.press.email_plain',
-		'core.entity_view_display.node.press.latest',
-		'core.entity_view_display.node.press.long_text',
-		'core.entity_view_display.node.press.preview',
-		'core.entity_view_display.node.press.slideshow',
-		'core.entity_view_display.node.press.slim',
-		'core.entity_view_display.node.press.small_image',
-	];
+  $configNamespaces = [
+    'core.entity_view_display.node.press.default',
+    'core.entity_view_display.node.press.email_html',
+    'core.entity_view_display.node.press.email_plain',
+    'core.entity_view_display.node.press.latest',
+    'core.entity_view_display.node.press.long_text',
+    'core.entity_view_display.node.press.preview',
+    'core.entity_view_display.node.press.slideshow',
+    'core.entity_view_display.node.press.slim',
+    'core.entity_view_display.node.press.small_image',
+  ];
 
-	foreach ($configNamespaces as $namespace) {
-		$configFromYaml = Symfony\Component\Yaml\Yaml::parse(
-			file_get_contents(drupal_get_path('module', 'degov_node_press') . '/config/install/' . $namespace . '.yml')
-		);
+  foreach ($configNamespaces as $namespace) {
+    $configFromYaml = Yaml::parse(
+    file_get_contents(drupal_get_path('module', 'degov_node_press') . '/config/install/' . $namespace . '.yml')
+    );
 
-		$configFromStorage = $configFactory->getEditable($namespace);
-		$configFromStorage->set('content.field_press_date', $configFromYaml['content']['field_press_date']);
-		$configFromStorage->save();
-	}
+    $configFromStorage = $configFactory->getEditable($namespace);
+    $configFromStorage->set('content.field_press_date', $configFromYaml['content']['field_press_date']);
+    $configFromStorage->save();
+  }
 
 }
 

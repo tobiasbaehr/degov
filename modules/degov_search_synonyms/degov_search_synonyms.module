@@ -5,12 +5,12 @@
  * The deGov Search Synonyms module.
  */
 
-use Drupal\views\ViewExecutable;
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
 use Drupal\degov_search_synonyms\Plugin\search_api\processor\SynonymProcessor;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_views_pre_view().

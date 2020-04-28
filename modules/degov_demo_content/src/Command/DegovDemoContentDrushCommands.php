@@ -2,11 +2,11 @@
 
 namespace Drupal\degov_demo_content\Command;
 
+use Drupal\degov_demo_content\Generator\BlockContentGenerator;
 use Drupal\degov_demo_content\Generator\DocumentationGenerator;
 use Drupal\degov_demo_content\Generator\MediaGenerator;
 use Drupal\degov_demo_content\Generator\MenuItemGenerator;
 use Drupal\degov_demo_content\Generator\NodeGenerator;
-use Drupal\degov_demo_content\Generator\BlockContentGenerator;
 use Drush\Commands\DrushCommands;
 
 /**

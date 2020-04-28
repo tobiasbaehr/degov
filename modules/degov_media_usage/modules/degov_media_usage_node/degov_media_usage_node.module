@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\node\Entity\Node;
 
 function degov_media_usage_node_node_insert(Node $entity) {
@@ -10,16 +14,16 @@ function degov_media_usage_node_node_insert(Node $entity) {
   if ($persistance->canHandle($entity) && !in_array($entity->id(), $handled, TRUE)) {
     $media = $persistance->getMedia($entity);
     if (!$media) {
-      return false;
+      return FALSE;
     }
 
     $persistance->store($entity, $media);
     $handled[] = $entity->id();
 
-    return true;
+    return TRUE;
   }
 
-  return false;
+  return FALSE;
 }
 
 function degov_media_usage_node_node_update(Node $entity) {
@@ -33,16 +37,16 @@ function degov_media_usage_node_node_update(Node $entity) {
     $persistance->purge($entity);
     $media = $persistance->getMedia($entity);
     if (!$media) {
-      return false;
+      return FALSE;
     }
 
     $persistance->store($entity, $media);
     $handled[] = $id;
 
-    return true;
+    return TRUE;
   }
 
-  return false;
+  return FALSE;
 }
 
 function degov_media_usage_node_node_delete(Node $entity) {
@@ -56,8 +60,8 @@ function degov_media_usage_node_node_delete(Node $entity) {
     $persistance->purge($entity);
     $handled[] = $id;
 
-    return true;
+    return TRUE;
   }
 
-  return false;
+  return FALSE;
 }

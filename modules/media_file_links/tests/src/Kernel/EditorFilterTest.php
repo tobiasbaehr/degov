@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\media_file_links\Kernel;
 
-use Drupal\filter\Entity\FilterFormat;
 use Drupal\editor\EditorXssFilter\Standard;
+use Drupal\filter\Entity\FilterFormat;
 
 /**
  * Class EditorFilterTest.

@@ -15,7 +15,6 @@ use Drupal\lightning_core\Entity\Role;
 use Drupal\lightning_core\Form\RoleForm;
 use Drupal\lightning_core\OverrideHelper as Override;
 use Drupal\lightning_core\Plugin\views\filter\Bundle;
-use Drupal\lightning_core\UpdateManager;
 
 /**
  * Implements hook_local_tasks_alter().

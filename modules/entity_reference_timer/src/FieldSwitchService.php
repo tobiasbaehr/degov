@@ -65,7 +65,7 @@ class FieldSwitchService {
    */
   private static function switchFieldDisplay(): void {
     /**
-     * @var \Drupal\Core\Entity\Entity\EntityViewDisplayInterface $display
+     * @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
      */
     $display = EntityViewDisplay::load(self::$entityType . '.' . self::$bundle . '.' . 'default');
 

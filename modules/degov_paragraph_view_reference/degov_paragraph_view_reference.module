@@ -1,9 +1,18 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Component\Utility\NestedArray;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
-use Drupal\taxonomy\Entity\Term;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\user\Entity\User;
+use Drupal\views\Entity\View;
 
 /**
  * Implements hook_preprocess().
@@ -58,13 +67,13 @@ function _views_selector_get_state_name($dependee, $element, $field_definition) 
  *
  * @return array
  */
-function degov_views_argument_getter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function degov_views_argument_getter(array &$form, FormStateInterface $form_state) {
   $trigger = $form_state->getTriggeringElement();
   $parents = $trigger['#array_parents'];
   $triggered_element = array_pop($parents);
   $parents[] = 'options';
   $form_state->setRebuild();
-  return \Drupal\Component\Utility\NestedArray::getValue($form, $parents);
+  return NestedArray::getValue($form, $parents);
 }
 
 /**
@@ -79,12 +88,12 @@ function _views_argument_field_info($argument) {
   if (!empty($argument['table'])) {
     $keys = explode('__', $argument['table']);
     if (!empty($keys)) {
-      $info = \Drupal\field\Entity\FieldStorageConfig::loadByName($keys[0], $keys[1]);
-      // if it is entity reference field try to get the target type and selector settings
+      $info = FieldStorageConfig::loadByName($keys[0], $keys[1]);
+      // If it is entity reference field try to get the target type and selector settings.
       if ($info && $info->getType() == 'entity_reference') {
         $bundles = $info->getBundles();
         $bundles_machine_names = array_keys($bundles);
-        $bundle_info = \Drupal\field\Entity\FieldConfig::loadByName($keys[0], $bundles_machine_names[0], $keys[1]);
+        $bundle_info = FieldConfig::loadByName($keys[0], $bundles_machine_names[0], $keys[1]);
       }
       else {
         $bundle_info = [];
@@ -100,7 +109,7 @@ function _views_argument_field_info($argument) {
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $context
  */
-function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
   /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
   $items = $context['items'];
   // Get the field definition.
@@ -160,7 +169,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     $entity_type = 'node';
     if (!empty($values[0]['target_id'])) {
       /** @var \Drupal\views\Entity\View $view */
-      $view = \Drupal\views\Entity\View::load($values[0]['target_id']);
+      $view = View::load($values[0]['target_id']);
       $entity_type = $view->getExecutable()->getBaseEntityType()->id();
       $display_id = 'default';
       if (!empty($values[0]['display_id']) && $values[0]['display_id'] != '_none') {
@@ -269,7 +278,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, \Drup
     if (!array_key_exists($extra_data['view_mode'], $view_modes)) {
       $extra_data['view_mode'] = '';
     }
-    foreach($view_modes as $key => $viewMode) {
+    foreach ($view_modes as $key => $viewMode) {
       if (strlen($key) > 0 && !in_array($key, $allowedViewModes, TRUE)) {
         unset($view_modes[$key]);
       }

@@ -2,9 +2,9 @@
 
 namespace Drupal\media_file_links\Controller;
 
-use Drupal\system\Controller\EntityAutocompleteController as EntityAutocompleteControllerBase;
 use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\media_file_links\EntityAutocompleteMatcher;
+use Drupal\system\Controller\EntityAutocompleteController as EntityAutocompleteControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**

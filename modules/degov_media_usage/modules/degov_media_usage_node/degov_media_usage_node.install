@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 function degov_media_usage_node_install() {
   $allNids = array_values(\Drupal::entityQuery('node')->execute());
   $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');

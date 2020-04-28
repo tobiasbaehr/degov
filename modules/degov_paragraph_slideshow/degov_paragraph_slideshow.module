@@ -1,9 +1,11 @@
 <?php
 
-use Drupal\Component\Utility\Html;
+/**
+ * @file
+ */
+
 use Drupal\degov_common\Common;
 use Drupal\degov_paragraph_slideshow\PreprocessParagraph;
-
 
 /**
  * Implements hook_preprocess().

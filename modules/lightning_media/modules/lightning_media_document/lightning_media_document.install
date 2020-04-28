@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\lightning_core\ConfigHelper as Config;
 
 /**

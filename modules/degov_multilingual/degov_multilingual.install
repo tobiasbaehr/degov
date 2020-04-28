@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_multilingual module.
+ */
+
 use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 
@@ -34,7 +39,7 @@ function degov_multilingual_install() {
 }
 
 /**
- * Implements hook_install().
+ * Implements hook_uninstall().
  */
 function degov_multilingual_uninstall() {
   // Set the front page to the currently configured default language front

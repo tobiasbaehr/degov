@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Drupal\degov_media_usage\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\media\MediaInterface;
 
 /**
  * Class MediaUsageController.

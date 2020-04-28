@@ -1,7 +1,12 @@
 <?php
 
+/**
+ * @file
+ */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_modules_installed().
@@ -69,7 +74,7 @@ function degov_taxonomies_preprocess(&$variables, $hook, &$info) {
 /**
  * Implements hook_form_alter().
  */
-function degov_taxonomies_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function degov_taxonomies_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if (!empty($form['field_content_type'])) {
     if (empty($form['field_content_type']['widget']['#default_value']) || !is_numeric($form['field_content_type']['widget']['#default_value'][0])) {
       $content_type_name = '';
@@ -78,7 +83,7 @@ function degov_taxonomies_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         /** @var \Drupal\node\NodeForm $callback_object */
         $callback_object = $build_info['callback_object'];
         $node = $callback_object->getEntity();
-        if ($node instanceof \Drupal\node\Entity\Node) {
+        if ($node instanceof Node) {
           $content_type_name = $node->type->entity->label();
         }
       }

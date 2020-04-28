@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_users_roles module.
+ */
+
+use Drupal\user\Entity\User;
 use Drupal\user\RoleInterface;
 
 /**
@@ -7,7 +13,8 @@ use Drupal\user\RoleInterface;
  */
 function degov_users_roles_install() {
   // Assign user 1 the "administrator" role.
-  $user = \Drupal\user\Entity\User::load(1);
+  /** @var \Drupal\user\Entity\User $user */
+  $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
 
@@ -18,8 +25,7 @@ function degov_users_roles_install() {
 /**
  * Implements hook_update_dependencies().
  */
-function degov_users_roles_update_dependencies()
-{
+function degov_users_roles_update_dependencies() {
   $dependencies = [
     'degov_users_roles' => [
       8010 => [
@@ -39,7 +45,7 @@ function degov_users_roles_update_dependencies()
  */
 function degov_users_roles_update_8010() {
 
-  // Apply updates for workflows
+  // Apply updates for workflows.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_users_roles', '8001');
 
@@ -59,13 +65,13 @@ function degov_users_roles_update_8010() {
     'use published_published transition',
   ];
 
-  // Remove old permissions
+  // Remove old permissions.
   foreach ($permissions as $permission) {
     $configRemover->removeListItemFromConfiguration('user.role.editor', 'permissions', $permission);
     $configRemover->removeListItemFromConfiguration('user.role.manager', 'permissions', $permission);
   }
 
-  // Add new permissions
+  // Add new permissions.
   $editorPermissions = [
     'use editorial transition create_new_draft',
     'use editorial transition needs_review',
@@ -95,7 +101,7 @@ function degov_users_roles_update_8010() {
  * Re-apply update hook 8001 with role configuration
  */
 function degov_users_roles_update_8011() {
-  // Apply updates for workflows
+  // Apply updates for workflows.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_users_roles', '8001');
 }
@@ -104,7 +110,7 @@ function degov_users_roles_update_8011() {
  * deGov Update 5.1.0 - Give managers default permissions on the permissions by term module.
  */
 function degov_users_roles_update_850100() {
-  // Add new permissions
+  // Add new permissions.
   $managerPermissions = [
     'access pbt settings',
     'show term permission form on term page',
@@ -123,7 +129,7 @@ function degov_users_roles_update_850100() {
  * deGov Update 6.1.0 - Give editors and upwards the permission to delete files and access media
  */
 function degov_users_roles_update_860100() {
-  // Add new permissions
+  // Add new permissions.
   $permissions = [
     'access content overview',
     'access files overview',
@@ -137,8 +143,8 @@ function degov_users_roles_update_860100() {
 
   $configAdder = \Drupal::service('degov_common.config_adder');
 
-  foreach($roles as $role) {
-    foreach($permissions as $permission) {
+  foreach ($roles as $role) {
+    foreach ($permissions as $permission) {
       $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
     }
   }
@@ -148,7 +154,7 @@ function degov_users_roles_update_860100() {
  * deGov Update 6.2.0 - Give managers permission to view filter_disallow messages.
  */
 function degov_users_roles_update_860200() {
-  // Add new permissions
+  // Add new permissions.
   $permissions = [
     'view filter_disallow messages',
   ];
@@ -158,20 +164,20 @@ function degov_users_roles_update_860200() {
 
   $configAdder = \Drupal::service('degov_common.config_adder');
 
-  foreach($roles as $role) {
-    foreach($permissions as $permission) {
+  foreach ($roles as $role) {
+    foreach ($permissions as $permission) {
       $configAdder->addListItemFromConfiguration($role, 'permissions', $permission);
     }
   }
 }
 
 /**
-* deGov Update 7.1.0 - Add a role system_configurator
-*/
+ * deGov Update 7.1.0 - Add a role system_configurator
+ */
 function degov_users_roles_update_870100() {
   \Drupal::service('module_installer')->install(['block_permissions']);
 
-  // Apply updates for workflows
+  // Apply updates for workflows.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_users_roles', '8012');
 }

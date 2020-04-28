@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\degov_common\Common;
 use Drupal\views\ViewExecutable;
 

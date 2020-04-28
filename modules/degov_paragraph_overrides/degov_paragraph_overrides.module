@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
 
 /**
@@ -35,7 +40,7 @@ function degov_paragraph_overrides_preprocess(&$variables, $hook, &$info) {
 /**
  * Implements hook_form_paragraphs_subform_alter().
  */
-function degov_paragraph_overrides_form_paragraphs_subform_slideshow_alter(array &$subform, \Drupal\Core\Form\FormStateInterface $form_state, $delta) {
+function degov_paragraph_overrides_form_paragraphs_subform_slideshow_alter(array &$subform, FormStateInterface $form_state, $delta) {
   // Deprecates the type_3 until it is removed from config.
   if (!empty($subform['field_slideshow_type']['widget']['#options']['type_3'])) {
     unset($subform['field_slideshow_type']['widget']['#options']['type_3']);

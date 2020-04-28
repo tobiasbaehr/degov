@@ -2,8 +2,8 @@
 
 namespace Drupal\degov_common\Entity;
 
-use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Config\Config;
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\degov_common\Entity\Exception\StorageMissingConfigObjectException;
 
 /**

@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Install, update and uninstall hooks for the degov_search_media_solr module.
+ */
+
+/**
  * Implements hook_install().
  */
 function degov_search_media_solr_install() {

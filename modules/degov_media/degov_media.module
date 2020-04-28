@@ -5,15 +5,15 @@
  * The deGov Media module.
  */
 
-use Drupal\file\Entity\File;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\file\Entity\File;
 use Drupal\media\MediaInterface;
 
 /**
  * Implements hook_preprocess().
  */
 function degov_media_preprocess(&$variables) {
-  if(!empty($variables['media']) && $variables['media'] instanceof MediaInterface && !empty($variables['view_mode'])) {
+  if (!empty($variables['media']) && $variables['media'] instanceof MediaInterface && !empty($variables['view_mode'])) {
     $variables['attributes']['class'][] = 'media--view-mode-' . $variables['view_mode'];
   }
 }

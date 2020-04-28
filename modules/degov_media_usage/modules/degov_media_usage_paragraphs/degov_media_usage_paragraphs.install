@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 function degov_media_usage_paragraphs_install() {
   $allIds = array_values(\Drupal::entityQuery('paragraph')->execute());
   $paragraphStorage = \Drupal::entityTypeManager()->getStorage('paragraph');

@@ -1,6 +1,11 @@
 <?php
 
-Use Drupal\Core\Url;
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_devel module.
+ */
+
+use Drupal\Core\Url;
 
 /**
  * Implements hook_requirements().

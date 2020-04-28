@@ -2,11 +2,11 @@
 
 namespace Drupal\styled_google_map\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Field\FormatterBase;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\field\Entity\FieldConfig;
-use Drupal\Core\Field\FormatterBase;
-use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Plugin implementation of the 'styled_google_map_default' formatter.

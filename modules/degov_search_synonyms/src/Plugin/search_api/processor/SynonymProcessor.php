@@ -2,8 +2,8 @@
 
 namespace Drupal\degov_search_synonyms\Plugin\search_api\processor;
 
-use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal;
+use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Query\QueryInterface;
 
 /**

@@ -12,6 +12,7 @@ use Drupal\entity_browser\Entity\EntityBrowser;
 use Drupal\image\Entity\ImageStyle;
 use Drupal\lightning_core\ConfigHelper as Config;
 use Drupal\lightning_core\OverrideHelper as Override;
+use Drupal\lightning_media_image\Plugin\Field\FieldWidget\ImageCropWidget;
 use Drupal\lightning_media_image\Plugin\media\Source\Image;
 use Drupal\views\ViewEntityInterface;
 
@@ -54,7 +55,7 @@ function lightning_media_image_field_widget_info_alter(array &$info) {
   if (isset($info['image_widget_crop'])) {
     // We cannot import the class with a use statement, because it will blow up
     // if Image Widget Crop is not installed.
-    Override::pluginClass($info['image_widget_crop'], \Drupal\lightning_media_image\Plugin\Field\FieldWidget\ImageCropWidget::class);
+    Override::pluginClass($info['image_widget_crop'], ImageCropWidget::class);
   }
 }
 

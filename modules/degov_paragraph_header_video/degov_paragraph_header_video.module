@@ -1,7 +1,10 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\degov_common\Common;
-use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_preprocess().

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Drupal\degov_media_usage\Plugin\views\field;
 
-use Drupal\Core\Cache\Cache;
-use Drupal\Core\Config\Entity\ConfigEntityStorageInterface;
 use Drupal\Core\Url;
 use Drupal\degov_media_usage\Service\MediaUsageInfo;
 use Drupal\file\FileUsage\FileUsageInterface;

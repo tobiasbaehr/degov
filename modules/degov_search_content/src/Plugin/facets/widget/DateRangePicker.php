@@ -2,12 +2,12 @@
 
 namespace Drupal\degov_search_content\Plugin\facets\widget;
 
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
 use Drupal\facets\Result\Result;
 use Drupal\facets\Widget\WidgetPluginBase;
-use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * The date range picker widget.

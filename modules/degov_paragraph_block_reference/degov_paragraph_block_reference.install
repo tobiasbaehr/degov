@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_paragraph_block_reference module.
+ */
+
 use Drupal\Core\Field\FieldConfigInterface;
 
 /**
@@ -89,8 +94,8 @@ function degov_paragraph_block_reference_get_all_fields($contentType): array {
   if (!empty($contentType)) {
     $fields = array_filter(
       $entityManager->getFieldDefinitions('node', $contentType), function ($field_definition) {
-      return $field_definition instanceof FieldConfigInterface;
-    }
+        return $field_definition instanceof FieldConfigInterface;
+      }
     );
   }
 

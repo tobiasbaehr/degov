@@ -6,6 +6,8 @@
  */
 
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Entity\Entity\EntityViewDisplay;
 
 define('STYLED_GOOGLE_MAP_DEFAULT_WIDTH', '450px');
 define('STYLED_GOOGLE_MAP_DEFAULT_HEIGHT', '400px');
@@ -51,18 +53,15 @@ define('STYLED_GOOGLE_MAP_GOOGLE_AUTH_KEY', 1);
 define('STYLED_GOOGLE_MAP_GOOGLE_AUTH_WORK', 2);
 define('STYLED_GOOGLE_MAP_DEFAULT_GESTURE', 'cooperative');
 
-use Drupal\Component\Utility\Xss;
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
-
 /**
  * Implements hook_theme().
  */
 function styled_google_map_theme() {
-  $themes['styled_google_map'] = array(
-    'variables' => array(
+  $themes['styled_google_map'] = [
+    'variables' => [
       'location' => NULL,
-    ),
-  );
+    ],
+  ];
 
   return $themes;
 }
@@ -90,7 +89,7 @@ function theme_styled_google_map(array $variables) {
   $entity = $field_list->getEntity();
   $settings = $variables['settings'];
 
-  $output = array();
+  $output = [];
   // TODO: Split this function so logic is out of the theming function.
   if (!empty($location) && $location['geohash']) {
     // Get the pin file url.
@@ -109,7 +108,7 @@ function theme_styled_google_map(array $variables) {
         // Create popup from label.
         case 1:
           $settings['popup']['label'] = $settings['popup']['label'] ? 'inline' : 'hidden';
-          $popup_field = $entity->{$settings['popup']['text']}->view(array('label' => $settings['popup']['label']), $language->getId());
+          $popup_field = $entity->{$settings['popup']['text']}->view(['label' => $settings['popup']['label']], $language->getId());
           break;
 
         // Create popup from view mode.
@@ -120,13 +119,13 @@ function theme_styled_google_map(array $variables) {
 
         // Default to empty.
         default:
-          $popup_field = array();
+          $popup_field = [];
       }
       $location['popup'] = render($popup_field);
     }
     else {
       // Not an entity object.
-      $location['popup'] = array();
+      $location['popup'] = [];
     }
     if ($settings['map_center']['center_coordinates']) {
       $map_center = $entity->getTranslation($language->getId())->get($settings['map_center']['center_coordinates'])->getValue();
@@ -138,17 +137,16 @@ function theme_styled_google_map(array $variables) {
       }
     }
 
-    $map_id = 'styled-google-map-' . md5(uniqid('', true));
+    $map_id = 'styled-google-map-' . md5(uniqid('', TRUE));
     // Include the Google Maps API.
     // Include the map location settings.
     $map_settings = [
       'id' => $map_id,
-      'locations' => array($location),
+      'locations' => [$location],
       'settings' => $settings,
       'address' => degov_media_address_get_js_fields($entity->get("field_address_address")->getEntity()),
     ];
     $output['#attached']['drupalSettings']['styled_google_map'][$map_id] = $map_settings;
-
 
     // Output a div placeholder for the Styled Google Map.
     $output['styled_google_map']['#markup'] = '<div class="styled-google-map" id="' . $map_id . '"></div>';
@@ -182,7 +180,7 @@ function styled_google_map_library_info_alter(&$libraries, $extension) {
 function styled_google_map_build_api_url() {
   $api_url = '';
   $config = \Drupal::config('styled_google_map.settings');
-  $query = array('v' => '3');
+  $query = ['v' => '3'];
   switch ($config->get('styled_google_map_google_auth_method')) {
     case STYLED_GOOGLE_MAP_GOOGLE_AUTH_KEY:
       $key = $config->get('styled_google_map_google_apikey');

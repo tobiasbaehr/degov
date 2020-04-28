@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\node\NodeTypeInterface;
 use Drupal\user\Entity\Role;
 
@@ -29,11 +33,11 @@ function lightning_roles_node_type_insert(NodeTypeInterface $node_type) {
 
     $role = Role::load($role_id) ?: Role::create([
       'id' =>
-        $role_id,
+      $role_id,
       'label' =>
-        str_replace('?', $node_type->label(), $info['label']),
+      str_replace('?', $node_type->label(), $info['label']),
       'is_admin' =>
-        FALSE,
+      FALSE,
     ]);
 
     // Only grant permissions the role does not already have.

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_search_media module.
+ */
+
 use Drupal\facets\Entity\Facet;
 use Symfony\Component\Yaml\Yaml;
 
@@ -12,7 +17,7 @@ function degov_search_media_install() {
 }
 
 /**
- * Implements hook_update_dependencies
+ * Implements hook_update_dependencies().
  */
 function degov_search_media_update_dependencies() {
   $dependencies['degov_search_media'][8007] = [
@@ -30,7 +35,7 @@ function degov_search_media_update_8007() {
    * @var $updater \Drupal\degov_common\DegovModuleUpdater
    */
   $updater = \Drupal::service('degov_config.module_updater');
-  if(\Drupal::config('facets.facet.search_media_publish_date')->get() === null) {
+  if (\Drupal::config('facets.facet.search_media_publish_date')->get() === NULL) {
     $updater->applyUpdates('degov_search_media', '8007');
   }
   $updater->reImport('views.view.search_media', 'degov_search_media', 'install');
@@ -62,7 +67,7 @@ function degov_search_media_update_8008() {
  * deGov Update 5.1.0 - Apply the updated media_publish_date block visibility
  */
 function degov_search_media_update_850100() {
-  // Apply updates for workflows
+  // Apply updates for workflows.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_search_media', '8008');
 }
@@ -74,9 +79,9 @@ function degov_search_media_update_860000() {
   $config = \Drupal::configFactory()->getEditable('search_api.index.search_media');
   $ignoreCharacterFieldsSettings = $config->get('processor_settings.ignore_character.fields');
 
-  if(!empty($ignoreCharacterFieldsSettings)) {
+  if (!empty($ignoreCharacterFieldsSettings)) {
     $unsetKey = array_search('bundle', $ignoreCharacterFieldsSettings, FALSE);
-    if($unsetKey !== FALSE) {
+    if ($unsetKey !== FALSE) {
       unset($ignoreCharacterFieldsSettings[$unsetKey]);
       $config->set('processor_settings.ignore_character.fields', $ignoreCharacterFieldsSettings)->save();
       return t('The Search API configuration for the media index has been updated. Please perform a reindex!');
@@ -89,11 +94,11 @@ function degov_search_media_update_860000() {
  */
 function degov_search_media_update_860300() {
   /**
-   * @var ConfigFactory $configFactory
+   * @var \Drupal\Core\Config\ConfigFactory $configFactory
    */
   $configFactory = \Drupal::service('config.factory');
   /**
-   * @var Drupal\Core\Config\Config $config
+   * @var \Drupal\Core\Config\Config $config
    */
   $config = $configFactory->getEditable('views.view.search_media');
 
@@ -170,7 +175,7 @@ HERE;
   video_upload: search
 HERE;
 
-  if(!empty($config->get('display.default.display_options.row.options.view_modes'))) {
+  if (!empty($config->get('display.default.display_options.row.options.view_modes'))) {
     $viewModes = $config->get('display.default.display_options.row.options.view_modes');
 
     $config->set('display.default.display_options.row.options.view_modes', array_merge(

@@ -1,6 +1,11 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\degov_common\Common;
 use Drupal\media\MediaInterface;
 
@@ -28,12 +33,12 @@ function degov_media_address_preprocess_media__address(&$variables) {
     if ($address instanceof MediaInterface) {
       $location = $address->get('field_address_location');
       if (!$location->isEmpty()) {
-        $map_id = 'osm-' . md5(uniqid('', true));
+        $map_id = 'osm-' . md5(uniqid('', TRUE));
         $variables['content']['map_id'] = $map_id;
         // Further settings for the different maps.
         $settings = [
           'id' => $map_id,
-          'address'=> degov_media_address_get_js_fields($variables['media']->get('field_address_address')->getEntity()),
+          'address' => degov_media_address_get_js_fields($variables['media']->get('field_address_address')->getEntity()),
         ];
         $variables['#attached']['drupalSettings']['degov_media_address'][$map_id] = $settings;
         // Add latitude and longitude.
@@ -61,7 +66,7 @@ function degov_media_address_get_js_fields(MediaInterface $entity) {
   ];
   $data = $entity->toArray();
   $media_entity_address_fields = [
-    // js-setting, field-name, value
+    // js-setting, field-name, value.
     ['organization', 'field_address_address', 'organization'],
     ['address_line1', 'field_address_address', 'address_line1'],
     ['address_line2', 'field_address_address', 'address_line2'],
@@ -104,7 +109,7 @@ function degov_media_address_preprocess_paragraph__map(&$variables) {
         $cache_tags[] = $paragraph->getEntityTypeId() . '_view';
         $elements_cache['tags'] = Cache::mergeTags($elements_cache['tags'], $cache_tags);
         $parentEntity = $paragraph->getParentEntity();
-        if ($parentEntity && $parentEntity instanceof \Drupal\Core\Entity\ContentEntityInterface) {
+        if ($parentEntity && $parentEntity instanceof ContentEntityInterface) {
           $cache_tags = $parentEntity->getCacheTags();
           $cache_tags[] = $parentEntity->getEntityTypeId() . '_view';
           $elements_cache['tags'] = Cache::mergeTags($elements_cache['tags'], $cache_tags);
