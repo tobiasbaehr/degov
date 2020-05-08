@@ -33,3 +33,8 @@ Feature: deGov - Entity browser
     # The Library widget should only display images.
     And I should see 6 ".views-row img" elements
 
+  Scenario: Verify that the CKEditor entity browser has the media libary view set
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "/admin/config/content/entity_browser/ckeditor_media_browser/widgets"
+    Then I should see 1 "option[value='media.entity_browser_1'][selected]" elements

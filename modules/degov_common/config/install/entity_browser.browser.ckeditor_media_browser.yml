@@ -43,7 +43,7 @@ widgets:
   0a3afdf2-ec64-4bdb-a455-49b4f27b5998:
     settings:
       view: media
-      view_display: entity_browser
+      view_display: entity_browser_1
       submit_text: Place
       auto_select: false
     uuid: 0a3afdf2-ec64-4bdb-a455-49b4f27b5998

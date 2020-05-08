@@ -66,6 +66,45 @@ function degov_common_uninstall() {
     ->delete();
 }
 
+/**
+ * Implements hook_update_dependencies().
+ *
+ * @return array
+ */
+function degov_common_update_dependencies(): array {
+  $dependencies['degov'][8450] = [
+    'degov_common' => 8032,
+  ];
+
+  return $dependencies;
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function degov_common_requirements(string $phase): array {
+  $requirements = [];
+
+  if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
+    $requirements['degov_integrity_access_modules_issue_1'] = [
+      'title'       => t('Content access issue'),
+      'description' => t("The Workbench Access module is being used in this Drupal instance. It's discouraged to use the Workbench Access module. The preferred module is Permissions by Term. Uninstall the Workbench Access and deGov Workbench Access modules. Add your settings into the Permissions by Term configuration."),
+      'severity'    => REQUIREMENT_ERROR,
+      'value'       => t('Usage of module without a stable release, which is deprecated in deGov'),
+    ];
+
+    if (\Drupal::moduleHandler()->moduleExists('permissions_by_term')) {
+      $requirements['degov_integrity_access_modules_issue_2'] = [
+        'title'       => t('Content access issue'),
+        'description' => t("The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."),
+        'severity'    => REQUIREMENT_ERROR,
+        'value'       => t('Duplication of content access modules'),
+      ];
+    }
+  }
+  return $requirements;
+}
+
 function degov_common_update_8016() {
   $query = \Drupal::database()->delete('key_value');
   $query->condition('collection', 'system.schema');
@@ -257,45 +296,6 @@ function degov_common_update_860100() {
 }
 
 /**
- * Implements hook_update_dependencies().
- *
- * @return array
- */
-function degov_common_update_dependencies(): array {
-  $dependencies['degov'][8450] = [
-    'degov_common' => 8032,
-  ];
-
-  return $dependencies;
-}
-
-/**
- * Implements hook_requirements().
- */
-function degov_common_requirements(string $phase): array {
-  $requirements = [];
-
-  if (\Drupal::moduleHandler()->moduleExists('workbench_access') || \Drupal::moduleHandler()->moduleExists('degov_workbench_access')) {
-    $requirements['degov_integrity_access_modules_issue_1'] = [
-      'title'       => t('Content access issue'),
-      'description' => t("The Workbench Access module is being used in this Drupal instance. It's discouraged to use the Workbench Access module. The preferred module is Permissions by Term. Uninstall the Workbench Access and deGov Workbench Access modules. Add your settings into the Permissions by Term configuration."),
-      'severity'    => REQUIREMENT_ERROR,
-      'value'       => t('Usage of module without a stable release, which is deprecated in deGov'),
-    ];
-
-    if (\Drupal::moduleHandler()->moduleExists('permissions_by_term')) {
-      $requirements['degov_integrity_access_modules_issue_2'] = [
-        'title'       => t('Content access issue'),
-        'description' => t("The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."),
-        'severity'    => REQUIREMENT_ERROR,
-        'value'       => t('Duplication of content access modules'),
-      ];
-    }
-  }
-  return $requirements;
-}
-
-/**
  * Replace the filter bundle with entity_browser_bundle in view media.
  */
 function degov_common_update_880100() {
@@ -325,4 +325,18 @@ function degov_common_update_880100() {
   }
   $configDB->set('display', $displayConfig);
   $configDB->save();
+}
+
+/**
+ * deGov 8.1.1 - Set the correct media library view for the CKEditor entity browser.
+ */
+function degov_common_update_880101() {
+  $mediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
+  $widgets = $mediaBrowserConfig->get('widgets');
+  foreach($widgets as $widgetKey => $widget) {
+    if ($widget['id'] === 'view' && !empty($widget['settings']['view_display'])) {
+      $widgets[$widgetKey]['settings']['view_display'] = 'entity_browser_1';
+    }
+  }
+  $mediaBrowserConfig->set('widgets', $widgets)->save(TRUE);
 }
