@@ -1294,7 +1294,23 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            all: all
+            address: address
+            audio: audio
+            image: image
+            gallery: gallery
+            document: document
+            facts: facts
+            instagram: instagram
+            contact: contact
+            person: person
+            video_mobile: video_mobile
+            some_embed: some_embed
+            tweet: tweet
+            video: video
+            video_upload: video_upload
+            citation: citation
           group: 1
           exposed: true
           expose:
