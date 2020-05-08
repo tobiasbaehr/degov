@@ -338,7 +338,7 @@ function degov_common_update_880100() {
 function degov_common_update_880101() {
   $mediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   $widgets = $mediaBrowserConfig->get('widgets');
-  foreach($widgets as $widgetKey => $widget) {
+  foreach ($widgets as $widgetKey => $widget) {
     if ($widget['id'] === 'view' && !empty($widget['settings']['view_display'])) {
       $widgets[$widgetKey]['settings']['view_display'] = 'entity_browser_1';
     }
