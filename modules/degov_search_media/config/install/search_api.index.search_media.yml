@@ -163,10 +163,11 @@ processor_settings:
       preprocess_query: -15
   aggregated_field: {  }
   ignore_character:
-    all_fields: true
+    all_fields: false
     fields:
       - rendered_item
       - name
+      - field_title
     ignorable: '[''¿¡!?,.:;]'
     strip:
       character_sets:

@@ -12,8 +12,7 @@ Feature: deGov - Media creation
     Given I am installing the "degov_paragraph_media_reference" module
     And I am logged in as a user with the "administrator" role
     Given I have dismissed the cookie banner if necessary
-
-
+    
   Scenario: I am creating a address media entity
     Given I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
@@ -254,6 +253,7 @@ Feature: deGov - Media creation
     Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
     And I should see HTML content matching 'id="entity_browser_iframe_ckeditor_media_browser' after a while
     When I switch to the "entity_browser_iframe_ckeditor_media_browser" frame
+    And I click "Bilder hochladen"
     And I attach the file "humberto-chavez-1058365-unsplash.jpg" to the dropzone
     Then I should see HTML content matching "Select entities" after a while
     When I choose "Description" from tab menu
