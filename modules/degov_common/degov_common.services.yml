@@ -16,10 +16,10 @@ services:
     class: Drupal\degov_common\DegovLocaleUpdate
     arguments: ['@module_handler']
   degov_common.video_utils:
-    class: '\Drupal\degov_common\VideoUtils'
+    class: Drupal\degov_common\VideoUtils
     arguments: ['@http_client', '@video_embed_field.provider_manager', '@file_system', '@logger.factory']
   degov_common.route_subscriber:
-    class: '\Drupal\degov_common\Routing\RouteSubscriber'
+    class: Drupal\degov_common\Routing\RouteSubscriber
     tags:
       - { name: event_subscriber }
   degov_common.node:
@@ -27,17 +27,20 @@ services:
   degov_common.entity:
     class: Drupal\degov_common\Entity\EntityService
   degov_common.workflow_handler:
-    class: \Drupal\degov_common\Entity\WorkflowHandler
+    class: Drupal\degov_common\Entity\WorkflowHandler
     arguments: ['@config.factory']
   degov_common.config_remover:
-    class: \Drupal\degov_common\Entity\ConfigRemover
+    class: Drupal\degov_common\Entity\ConfigRemover
     arguments: ['@config.factory']
   degov_common.config_adder:
-    class: \Drupal\degov_common\Entity\ConfigAdder
+    class: Drupal\degov_common\Entity\ConfigAdder
     arguments: ['@config.factory']
   degov_common.translation_import:
-    class: \Drupal\degov_common\TranslationImport
+    class: Drupal\degov_common\TranslationImport
     arguments: [ '@language.config_factory_override' ]
   degov_common.config_storage_factory:
-    class: \Drupal\degov_common\Entity\ConfigStorageFactory
+    class: Drupal\degov_common\Entity\ConfigStorageFactory
     arguments: ['@config.factory']
+  degov_common.module_mover:
+    class: Drupal\degov_common\ModuleMover
+    arguments: ['@database', '@config.factory']
