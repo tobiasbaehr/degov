@@ -54,9 +54,9 @@ class FileDeleteForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    $entity_manager = $container->get('entity.manager');
+    $entityTypeManager = $container->get('entity_type.manager');
     return new static(
-      $entity_manager->getStorage('file'),
+      $entityTypeManager->getStorage('file'),
       $container->get('database')
     );
   }
