@@ -78,3 +78,8 @@ Feature: deGov - Demo Content
     And I should see 1 ".SocialProof" elements
     And I should see 1 ".Caption" elements
     And I should see 1 ".Footer" elements
+
+  Scenario: I verify that long paragraph title links are not cut off
+    Given I have dismissed the cookie banner if necessary
+    And I am on "/degov-demo-content/page-text-paragraph"
+    Then I should see HTML content matching "https://www.example.com/this-is-a-very-long-link-over-eighty-characters-that-should-not-be-cut-off"

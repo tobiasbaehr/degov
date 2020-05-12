@@ -128,6 +128,8 @@ text_1:
     format: 'rich_html'
   field_title: 'Tellus Ornare Adipiscing Purus Sem'
   field_sub_title: 'Tristique Magna Vestibulum'
+  field_title_link:
+    uri: "https://www.example.com/this-is-a-very-long-link-over-eighty-characters-that-should-not-be-cut-off"
 text_2:
   type: 'text'
   field_title: 'Nibh Purus Euismod'
