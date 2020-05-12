@@ -38,7 +38,7 @@ main() {
     # --no-update change only the composer.json
     _composer require --no-progress "$INSTALL_PROJECT:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --no-update
     # Now downloads install profile + whitelist of dependencies.
-    _composer update "$INSTALL_PROJECT $INSTALL_PROJECT_UPDATE_WHITELIST"
+    _composer update $INSTALL_PROJECT $INSTALL_PROJECT_UPDATE_WHITELIST
   fi
   cd "$BITBUCKET_CLONE_DIR/project"
   # Move the lfs_data out of the install profile before we delete it. But lets the pipeline store the data in the project artifact.
