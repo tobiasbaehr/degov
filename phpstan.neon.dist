@@ -6,5 +6,5 @@ parameters:
   paths:
     - docroot/profiles/contrib/degov
   excludes_analyse:
-    - docroot/profiles/contrib/degov/modules/lightning_core/
-    - docroot/profiles/contrib/degov/modules/lightning_media/
+    - docroot/profiles/contrib/degov/modules/lightning_media/tests/contexts/
+    - docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/
