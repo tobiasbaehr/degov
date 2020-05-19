@@ -149,6 +149,9 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
    */
   protected function blockAccess(AccountInterface $account) {
     $node = $this->routeMatcher->getParameter('node');
+    if ($this->routeMatcher->getRouteName() == 'entity.node.preview') {
+      $node = $this->routeMatcher->getParameter('node_preview');
+    }
     $condition = $node && $node instanceof NodeInterface &&
       $node->hasField('field_sidebar_right_paragraphs') &&
       !$node->get('field_sidebar_right_paragraphs')->isEmpty();
