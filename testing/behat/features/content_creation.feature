@@ -329,3 +329,11 @@ Feature: deGov - Content creation
     And I should see text matching "Person Behat Person wurde erstellt." after a while
     And I am on "/person/behat-person"
     And I should not see text matching "Die angeforderte Seite konnte nicht gefunden werden." after a while
+
+  Scenario: I verify that sidebar blocks are displayed in preview mode
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I open node edit form by node title "Page with text paragraph in sidebar"
+    And I scroll to bottom
+    And I press the "edit-preview" button
+    Then I should see 1 "#block-sidebarparagraphsfromnodeentity" elements
