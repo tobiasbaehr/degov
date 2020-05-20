@@ -34,10 +34,10 @@ class InstallationProfileCollection {
   /**
    * Get sub installation profile.
    *
-   * @return InstallationProfile
+   * @return InstallationProfile|null
    *   Installation profile.
    */
-  public function getSubInstallationProfile(): InstallationProfile {
+  public function getSubInstallationProfile(): ?InstallationProfile {
     return $this->subInstallationProfile;
   }
 
