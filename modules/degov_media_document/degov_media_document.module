@@ -2,7 +2,6 @@
 
 use Drupal\degov_common\Common;
 use Drupal\media\Entity\Media;
-use Drupal\permissions_by_entity\Service\AccessChecker;
 use Drupal\media\Entity\MediaType;
 use Drupal\file\Entity\File;
 use Drupal\degov_media_document\Helper\DocumentLinkHelper;
@@ -10,8 +9,8 @@ use Drupal\degov_media_document\Helper\DocumentLinkHelper;
 /**
  * Implements hook_preprocess().
  */
-//Fokus extremistischer Salafismus 2015
-function degov_media_document_preprocess(&$variables, $hook, &$info) {
+function degov_media_document_preprocess(array &$variables, string $hook, array &$info): void {
+  // Fokus extremistischer Salafismus 2015.
   if ($hook === 'media') {
     /* @var \Drupal\media\Entity\Media $media */
     $media = $variables['elements']['#media'];
@@ -38,7 +37,7 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
         $variables['media_size'] = format_size($file->getSize());
         // The format_size() function does not allow for changing the
         // decimal point, so do a simple string replace.
-        if (\Drupal::languageManager()->getCurrentLanguage()->getId() == 'de') {
+        if (\Drupal::languageManager()->getCurrentLanguage()->getId() === 'de') {
           $variables['media_size'] = str_replace('.', ',', $variables['media_size']);
         }
         $variables['media_mime'] = $file->getMimeType();
@@ -61,7 +60,7 @@ function degov_media_document_preprocess(&$variables, $hook, &$info) {
 /**
  * Implements hook_file_download().
  */
-function degov_media_document_file_download($uri) {
+function degov_media_document_file_download(string $uri): void {
   if (\Drupal::service('module_handler')->moduleExists('permissions_by_entity')) {
     $files = \Drupal::entityTypeManager()
       ->getStorage('file')
@@ -75,13 +74,9 @@ function degov_media_document_file_download($uri) {
       $oneMedia = array_shift($multipleMedia);
 
       if ($oneMedia instanceof Media) {
-        /**
-         * @var AccessChecker $accessChecker
-         */
         $accessChecker = \Drupal::service('permissions_by_entity.access_checker');
         $accessChecker->isAccessAllowed($oneMedia);
       }
-
     }
   }
 }
@@ -89,7 +84,7 @@ function degov_media_document_file_download($uri) {
 /**
  * Implements template_preprocess_media().
  */
-function degov_media_document_preprocess_media(&$variables) {
+function degov_media_document_preprocess_media(array &$variables): void {
   if($variables['view_mode'] === 'content_search') {
     $mediaType = MediaType::load($variables['media']->bundle());
     $variables['content']['media_bundle_label'] = $mediaType ? $mediaType->label() : '';
