@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\degov_auto_crop\Kernel;
 
-use Drupal\KernelTests\KernelTestBase;
+use Drupal\Tests\degov_common\Kernel\ModuleInstallationTestAbstract;
 
 /**
  * Class ModuleInstallationTest.
- *
- * @package Drupal\Tests\degov_breadcrumb\Kernel
  */
-class ModuleInstallationTest extends KernelTestBase {
+class ModuleInstallationTest extends ModuleInstallationTestAbstract {
 
   /**
    * {@inheritdoc}
@@ -17,22 +17,5 @@ class ModuleInstallationTest extends KernelTestBase {
   public static $modules = [
     'degov_auto_crop',
   ];
-
-  /**
-   * {@inheritdoc}
-   */
-  protected function setUp() {
-    parent::setUp();
-    $this->installConfig(['degov_auto_crop']);
-  }
-
-  /**
-   * Tests that the module is installed and available.
-   */
-  public function testSetup(): void {
-    $moduleHandler = \Drupal::service('module_handler');
-    self::assertTrue($moduleHandler->moduleExists('degov_auto_crop'));
-    self::assertTrue($moduleHandler->getModule('degov_auto_crop'));
-  }
 
 }

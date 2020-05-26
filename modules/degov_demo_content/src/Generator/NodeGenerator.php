@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Extension\ModuleHandler;
-use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\node\Entity\Node;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
@@ -14,7 +14,7 @@ use Drupal\pathauto\PathautoState;
  *
  * @package Drupal\degov_demo_content\Generator
  */
-class NodeGenerator extends ContentGenerator implements GeneratorInterface {
+final class NodeGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * The alias cleaner.
@@ -24,6 +24,13 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   protected $aliasCleaner;
 
   /**
+   * Configuration object factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
    * The paragraphs file handler.
    *
    * @var \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler
@@ -31,22 +38,24 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
   protected $paragraphsFileHandler;
 
   /**
-   * NodeGenerator constructor.
+   * The entity type we are working with.
    *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   Module handler.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   Entity type manager.
-   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
-   *   Paragraphs file handler.
-   * @param \Drupal\pathauto\AliasCleanerInterface $aliasCleaner
-   *   Alias cleaner.
+   * @var string
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler, AliasCleanerInterface $aliasCleaner) {
-    parent::__construct($moduleHandler, $entityTypeManager, $paragraphsFileHandler);
-    $this->aliasCleaner = $aliasCleaner;
-    $this->entityType = 'node';
-    $this->paragraphsFileHandler = $paragraphsFileHandler;
+  protected $entityType = 'node';
+
+  /**
+   * @param \Drupal\pathauto\AliasCleanerInterface $alias_cleaner
+   */
+  public function setAliasCleaner(AliasCleanerInterface $alias_cleaner): void {
+    $this->aliasCleaner = $alias_cleaner;
+  }
+
+  /**
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
+   */
+  public function setConfigFactory(ConfigFactoryInterface $configFactory): void {
+    $this->configFactory = $configFactory;
   }
 
   /**
@@ -90,8 +99,9 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
       // number with 5 digits based on $srcId (% digits are about a day in Unix time
       // 86400s->1 day) and add it to DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP.
       // A manual date defined date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
-      $rawNode['created'] = isset($rawNode['created']) ? $rawNode['created'] : $this->getCreatedTimestamp($srcId);
+      $rawNode['created'] = isset($rawNode['created']) ? $rawNode['created'] : self::getCreatedTimestamp($srcId);
 
+      /** @var \Drupal\node\NodeInterface $node */
       $node = Node::create($rawNode);
       $node->save();
 
@@ -121,24 +131,24 @@ class NodeGenerator extends ContentGenerator implements GeneratorInterface {
    * @param string $path_to_set
    *   Path to set.
    */
-  private function setFrontPage($path_to_set) {
-    $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
+  private function setFrontPage(string $path_to_set) {
+    $original_front_page = $this->configFactory->get('degov.degov_demo_content')->get('original_front_page');
     if (empty($original_front_page)) {
       // Save original front page.
-      $front = \Drupal::config('system.site')->get('page.front');
-      \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
+      $front = $this->configFactory->get('system.site')->get('page.front');
+      $this->configFactory->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
     }
-    \Drupal::configFactory()->getEditable('system.site')->set('page.front', $path_to_set)->save();
+    $this->configFactory->getEditable('system.site')->set('page.front', $path_to_set)->save();
   }
 
   /**
    * Reset front page.
    */
   private function resetFrontPage() {
-    $original_front_page = \Drupal::config('degov.degov_demo_content')->get('original_front_page');
+    $original_front_page = $this->configFactory->get('degov.degov_demo_content')->get('original_front_page');
     if (!empty($original_front_page)) {
       $this->setFrontPage($original_front_page);
-      \Drupal::configFactory()->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
+      $this->configFactory->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
     }
   }
 

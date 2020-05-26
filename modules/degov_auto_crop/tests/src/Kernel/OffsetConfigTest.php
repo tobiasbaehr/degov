@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\degov_auto_crop\Kernel;
 
-use Drupal\Tests\token\Kernel\KernelTestBase;
+use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Class OffsetConfigTest.
@@ -13,6 +15,7 @@ class OffsetConfigTest extends KernelTestBase {
    * {@inheritdoc}
    */
   public static $modules = [
+    'user',
     'lightning_core',
     'image',
     'responsive_image',
@@ -28,7 +31,7 @@ class OffsetConfigTest extends KernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installEntitySchema('crop_type', 'media');
+    $this->installEntitySchema('crop_type');
     $this->installConfig([
       'image',
       'responsive_image',
@@ -66,9 +69,10 @@ class OffsetConfigTest extends KernelTestBase {
         ],
       ],
     ];
-    $settings = \Drupal::config('crop.type.16_to_9')
-      ->get('third_party_settings');
-    self::assertSame($expectedValues, $settings);
+    /** @var \Drupal\Core\Config\ImmutableConfig $immutableConfig */
+    $immutableConfig = $this->config('crop.type.16_to_9');
+    $settings = $immutableConfig->get('third_party_settings');
+    $this->assertSame($expectedValues, $settings);
   }
 
 }

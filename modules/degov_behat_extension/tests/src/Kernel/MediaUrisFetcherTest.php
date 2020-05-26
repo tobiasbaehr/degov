@@ -18,6 +18,9 @@ class MediaUrisFetcherTest extends MediaKernelTestBase {
     'degov_behat_extension',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
     $this->installEntitySchema('path_alias');
@@ -35,7 +38,7 @@ class MediaUrisFetcherTest extends MediaKernelTestBase {
     /**
      * @var \Drupal\Core\Entity\EntityStorageInterface $aliasStorage
      */
-    $aliasStorage = \Drupal::service('entity_type.manager')->getStorage('path_alias');
+    $aliasStorage = $this->container->get('entity_type.manager')->getStorage('path_alias');
     $aliasStorage->save(PathAlias::create([
       'path'     => '/media/1',
       'alias'    => '/test-media-1',
@@ -52,7 +55,7 @@ class MediaUrisFetcherTest extends MediaKernelTestBase {
     /**
      * @var \Drupal\degov_behat_extension\PerformanceCheck\StaticUrisFetcher $staticUrisFetcher
      */
-    $staticUrisFetcher = \Drupal::service('degov_behat_extension.static_uris_fetcher');
+    $staticUrisFetcher = $this->container->get('degov_behat_extension.static_uris_fetcher');
 
     self::assertSame([
       0 => '/test-media-1',

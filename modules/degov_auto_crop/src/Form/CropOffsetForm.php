@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_auto_crop\Form;
 
 use Drupal\Core\Entity\EntityInterface;
@@ -11,8 +13,6 @@ use Drupal\crop\Form\CropTypeForm;
  *
  * Adds fields for offset values to the CropTypeForm
  * and stores them in third_party_settings.
- *
- * @package Drupal\degov_auto_crop\Form
  */
 class CropOffsetForm extends CropTypeForm {
 

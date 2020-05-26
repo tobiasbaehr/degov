@@ -3,6 +3,7 @@
 namespace Drupal\degov_demo_content\FileHandler;
 
 use Drupal\degov_demo_content\FileAdapter;
+use Drupal\degov_demo_content\Generator\ContentGenerator;
 use Drupal\file\Entity\File;
 
 /**
@@ -95,7 +96,7 @@ class FileHandler {
     foreach ($itemsToGenerate as $itemKey => $item) {
       if (isset($item['file']) && $savedFile = $this->fileAdapter->fileSaveData(
           $this->fileAdapter->fileGetContents($fixturesPath . '/' . $item['file']),
-          DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $item['file'])) {
+          ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $item['file'])) {
         $this->addFile($savedFile, $itemKey);
       }
 
@@ -103,7 +104,7 @@ class FileHandler {
         foreach ($item['files'] as $fieldName => $fileName) {
           if ($savedFile = $this->fileAdapter->fileSaveData(
             $this->fileAdapter->fileGetContents($fixturesPath . '/' . $fileName),
-            DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $fileName)
+            ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $fileName)
           ) {
             $this->addToFiles($savedFile, $itemKey, $fieldName);
           }

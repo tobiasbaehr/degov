@@ -4,6 +4,7 @@ namespace Drupal\degov_config_integrity;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Class DegovModuleIntegrityChecker.
@@ -25,11 +26,17 @@ class DegovModuleIntegrityChecker {
   private $configFactory;
 
   /**
+   * @var \Drupal\Core\File\FileSystemInterface
+   */
+  private $fileSystem;
+
+  /**
    * DegovModuleIntegrityChecker constructor.
    */
-  public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory) {
+  public function __construct(ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory, FileSystemInterface $fileSystem) {
     $this->moduleHandler = $moduleHandler;
     $this->configFactory = $configFactory;
+    $this->fileSystem = $fileSystem;
   }
 
   /**
@@ -46,7 +53,7 @@ class DegovModuleIntegrityChecker {
     if (strpos($moduleName, 'degov') === FALSE) {
       return $missingConfiguration;
     }
-    $files = file_scan_directory(drupal_get_path('module', $moduleName) . '/config/install', '/[a-z0-9_]*\.yml/');
+    $files = $this->fileSystem->scanDirectory(drupal_get_path('module', $moduleName) . '/config/install', '/[a-z0-9_]*\.yml/');
     foreach ($files as $file) {
       $fileName = $file->filename;
       $configName = str_replace('.yml', '', $fileName);

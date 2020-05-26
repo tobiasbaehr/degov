@@ -8,7 +8,6 @@ use Drupal\file\Entity\File;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 
-\define('DEGOV_DEMO_CONTENT_FILES_SAVE_PATH', 'public://degov_demo_content');
 /**
  * Class MediaFileHandlerTest.
  */
@@ -53,12 +52,12 @@ class MediaFileHandlerTest extends UnitTestCase {
     self::assertCount(5, $files);
 
     foreach ($files as $file) {
-      self::assertInternalType('int', $file->id());
+      self::assertIsInt($file->id());
     }
 
     $file = $mediaFileHandler->getFile('image_2');
 
-    self::assertInternalType('int', $file->id());
+    self::assertIsInt($file->id());
   }
 
   /**

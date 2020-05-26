@@ -1,19 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\block\Entity\Block;
+use Drupal\block_content\BlockContentInterface;
 use Drupal\block_content\Entity\BlockContent;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Extension\ModuleHandler;
-use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 
 /**
  * Class BlockContentGenerator.
  *
  * @package Drupal\degov_demo_content\Generator
  */
-class BlockContentGenerator extends ContentGenerator implements GeneratorInterface {
+final class BlockContentGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Node title which contains slideshow paragraph.
@@ -31,31 +31,18 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
   const BLOCK_PARAGRAPH_FIELD = 'field_content_paragraphs';
 
   /**
-   * The type of entity.
+   * The entity type we are working with.
    *
    * @var string
    */
-  protected $entityType;
+  protected $entityType = 'block_content';
 
   /**
    * The type of block.
    *
    * @var string
    */
-  protected $blockType;
-
-  /**
-   * BlockContentGenerator constructor.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $module_handler
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
-   */
-  public function __construct(ModuleHandler $module_handler, EntityTypeManagerInterface $entity_type_manager, ParagraphsFileHandler $paragraphsFileHandler) {
-    parent::__construct($module_handler, $entity_type_manager, $paragraphsFileHandler);
-    $this->entityType = 'block_content';
-    $this->blockType = 'basic';
-  }
+  protected $blockType = 'basic';
 
   /**
    * {@inheritdoc}
@@ -74,12 +61,13 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * @param array $definition
    *   Definition array.
    *
-   * @return \Drupal\block_content\Entity\BlockContent|\Drupal\Core\Entity\EntityInterface
+   * @return \Drupal\block_content\BlockContentInterface
    *   Content block.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function createContentBlock(array $definition) {
+  private function createContentBlock(array $definition): BlockContentInterface {
+    /** @var \Drupal\block_content\BlockContentInterface $block */
     $block = BlockContent::create($definition);
     $block->save();
     $this->setBlockToRegion($block);
@@ -90,12 +78,12 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
   /**
    * Place block to the region.
    *
-   * @param \Drupal\block_content\Entity\BlockContent $block
+   * @param \Drupal\block_content\BlockContentInterface $block
    *   The Block entity.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function setBlockToRegion(BlockContent $block) {
+  private function setBlockToRegion(BlockContentInterface $block): void {
     $placed_block = Block::create([
       'id' => 'slideshow',
       'theme' => 'degov_theme',
@@ -127,23 +115,24 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
   /**
    * Generates reference to paragraph in the block field.
    *
-   * @param \Drupal\block_content\Entity\BlockContent $block_content
+   * @param \Drupal\block_content\BlockContentInterface $block_content
    *   BlockContent entity.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function generateBlockReferenceParagraphs(BlockContent $block_content): void {
+  protected function generateBlockReferenceParagraphs(
+    BlockContentInterface $block_content): void {
     $nodes_array = $this->entityTypeManager->getStorage('node')
       ->loadByProperties([
         'type' => 'normal_page',
         'title' => self::NODE_WITH_SLIDER_LABEL,
       ]);
 
-    /** @var \Drupal\node\Entity\Node $node */
+    /** @var \Drupal\node\NodeInterface $node */
     if ($node = reset($nodes_array)) {
-      /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph_slideshow */
+      /** @var \Drupal\paragraphs\ParagraphInterface $paragraph_slideshow */
       $paragraph_slideshow = $node->get(self::NODE_PARAGRAPH_FIELD)->entity;
 
       $block_content->set(self::BLOCK_PARAGRAPH_FIELD, $paragraph_slideshow);
@@ -158,7 +147,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function enableParagraphField() {
+  private function enableParagraphField(): void {
     $this->enableParagraphFieldOnViewDisplay();
     $this->enableParagraphFieldOnFormDisplay();
   }
@@ -170,7 +159,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function enableParagraphFieldOnViewDisplay() {
+  private function enableParagraphFieldOnViewDisplay(): void {
     /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface $view_display */
     $view_display = $this->entityTypeManager
       ->getStorage('entity_view_display')
@@ -182,10 +171,9 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
   /**
    * Returns array of paragraph field for the form display.
    *
-   * @return array
-   *   Settings array.
+   * @return string<string,<string|int|array>>
    */
-  private function getParagraphFieldFormDisplaySettings() {
+  private function getParagraphFieldFormDisplaySettings(): array {
     return [
       'type' => 'paragraphs',
       'weight' => 4,
@@ -215,7 +203,7 @@ class BlockContentGenerator extends ContentGenerator implements GeneratorInterfa
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function enableParagraphFieldOnFormDisplay() {
+  private function enableParagraphFieldOnFormDisplay(): void {
     /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display */
     $form_display = $this->entityTypeManager
       ->getStorage('entity_form_display')

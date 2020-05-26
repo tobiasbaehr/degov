@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_auto_crop\Service;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EntityStorageException;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\File\FileSystem;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Image\ImageFactory;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
-use Drupal\crop\Entity\CropType;
-use Drupal\file\Entity\File;
+use Drupal\crop\CropTypeInterface;
+use Drupal\file\FileInterface;
 
 /**
  * Class AutoCropper.
@@ -31,7 +33,7 @@ class AutoCropper {
   /**
    * The file system.
    *
-   * @var \Drupal\Core\File\FileSystem
+   * @var \Drupal\Core\File\FileSystemInterface
    */
   protected $fileSystem;
 
@@ -54,14 +56,14 @@ class AutoCropper {
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\Core\File\FileSystem $file_system
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
    *   The file system.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
    *   The logger channel factory.
    * @param \Drupal\Core\Image\ImageFactory $imageFactory
    *   Image factory.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger, ImageFactory $imageFactory) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, FileSystemInterface $file_system, LoggerChannelFactoryInterface $logger, ImageFactory $imageFactory) {
     $this->entityTypeManager = $entity_type_manager;
     $this->fileSystem = $file_system;
     $this->logger = $logger;
@@ -71,13 +73,13 @@ class AutoCropper {
   /**
    * Apply all defined crop types to all image files in our definitions.
    *
-   * @param \Drupal\file\Entity\File $file
+   * @param \Drupal\file\FileInterface $file
    *   The File entity the image crops should be applied to.
    *
    * @return array
    *   An array of the crops generated.
    */
-  public function applyImageCrops(File $file): array {
+  public function applyImageCrops(FileInterface $file): array {
     $crops = [];
     try {
       $crop_types = $this->entityTypeManager
@@ -88,7 +90,7 @@ class AutoCropper {
         foreach ($crop_types as $crop_type) {
           try {
             $file_realpath = $this->fileSystem->realpath($file->getFileUri());
-            if (!file_exists($file_realpath)) {
+            if ($file_realpath === FALSE || !file_exists($file_realpath)) {
               continue;
             }
             $image = $this->imageFactory->get($file_realpath);
@@ -142,12 +144,13 @@ class AutoCropper {
       // No crop types found. Just log, otherwise do nothing.
       $this->logger->get('degov_auto_crop')->error($exception->getMessage());
     }
+    return $crops;
   }
 
   /**
    * Calculate the height and width of the crop frame to be applied.
    *
-   * @param \Drupal\crop\Entity\CropType $crop_type
+   * @param \Drupal\crop\CropTypeInterface $crop_type
    *   The Crop crop_type we want to apply.
    * @param array $image_dimensions
    *   The actual width and height of the image file.
@@ -155,7 +158,7 @@ class AutoCropper {
    * @return array
    *   The desired height and width of the image.
    */
-  public function calculateCropDimensions(CropType $crop_type, array $image_dimensions): array {
+  public function calculateCropDimensions(CropTypeInterface $crop_type, array $image_dimensions): array {
     $crop_dimensions = [
       'height' => 0,
       'width'  => 0,
@@ -163,7 +166,7 @@ class AutoCropper {
       'y'      => 0,
     ];
     $aspect_ratio_fragments = explode(':', $crop_type->aspect_ratio);
-    if (count($aspect_ratio_fragments) !== 2) {
+    if (\count($aspect_ratio_fragments) !== 2) {
       $aspect_ratio_fragments = [1, 1];
     }
 

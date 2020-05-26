@@ -2,6 +2,8 @@
 
 namespace Drupal\degov_demo_content\FileHandler;
 
+use Drupal\degov_demo_content\Generator\ContentGenerator;
+
 /**
  * Class MediaFileHandler.
  */
@@ -18,7 +20,7 @@ class MediaFileHandler extends FileHandler {
       if (isset($mediaItem['file'])) {
         if ($savedFile = $this->fileAdapter->fileSaveData(
           $this->fileAdapter->fileGetContents($fixturesPath . '/' . $mediaItem['file']),
-          DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $mediaItem['file'])
+          ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $mediaItem['file'])
         ) {
           $this->addFile($savedFile, $mediaItemKey);
         }
@@ -28,7 +30,7 @@ class MediaFileHandler extends FileHandler {
         foreach ($mediaItem['files'] as $fieldName => $fileName) {
           if ($savedFile = $this->fileAdapter->fileSaveData(
             $this->fileAdapter->fileGetContents($fixturesPath . '/' . $fileName),
-            DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $fileName)
+            ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH . '/' . $fileName)
           ) {
             $this->addToFiles($savedFile, $mediaItemKey, $fieldName);
           }

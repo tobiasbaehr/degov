@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\degov_content_types_shared_fields\Kernel;
 
+use Drupal\Core\Extension\Extension;
 use Drupal\Tests\field\Kernel\FieldKernelTestBase;
 
 /**
@@ -37,15 +38,12 @@ class ModuleInstallationTest extends FieldKernelTestBase {
   }
 
   /**
-   * Test setup.
+   * Tests that the module can be installed and is available.
    */
   public function testSetup(): void {
-    /**
-     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
-     */
-    $moduleHandler = \Drupal::service('module_handler');
-    self::assertTrue($moduleHandler->moduleExists('degov_content_types_shared_fields'));
-    self::assertTrue($moduleHandler->getModule('degov_content_types_shared_fields'));
+    /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+    $moduleHandler = $this->container->get('module_handler');
+    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule(reset(self::$modules)));
   }
 
 }

@@ -5,14 +5,16 @@
  * Install, update and uninstall hooks for the degov_demo_content module.
  */
 
+use Drupal\degov_demo_content\Generator\ContentGenerator;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Implements hook_install().
  */
 function degov_demo_content_install() {
-  $files_save_path = DEGOV_DEMO_CONTENT_FILES_SAVE_PATH;
-  file_prepare_directory($files_save_path, FILE_CREATE_DIRECTORY);
+  $files_save_path = ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH;
+  \Drupal::service('file_system')->prepareDirectory($files_save_path, FileSystemInterface::CREATE_DIRECTORY);
   $tag_term = Term::create([
     'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
     'vid'  => DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME,
@@ -81,6 +83,7 @@ function degov_demo_content_uninstall() {
   foreach ($terms as $term) {
     $term->delete();
   }
+  /** @var \Drupal\Core\File\FileSystemInterface $filesystem */
   $filesystem = \Drupal::service('file_system');
-  file_unmanaged_delete_recursive($filesystem->realpath(DEGOV_DEMO_CONTENT_FILES_SAVE_PATH));
+  $filesystem->deleteRecursive($filesystem->realpath(ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH));
 }

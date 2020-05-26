@@ -1,6 +1,6 @@
 services:
   degov_demo_content.commands:
-    class: \Drupal\degov_demo_content\Command\DegovDemoContentDrushCommands
+    class: Drupal\degov_demo_content\Command\DegovDemoContentDrushCommands
     arguments:
       - '@degov_demo_content.media_generator'
       - '@degov_demo_content.node_generator'

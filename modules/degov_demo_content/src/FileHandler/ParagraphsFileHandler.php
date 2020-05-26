@@ -31,9 +31,8 @@ class ParagraphsFileHandler extends FileHandler {
         }
         continue;
       }
-      else {
-        $fields[$item_field_key] = $item_field_value;
-      }
+
+      $fields[$item_field_key] = $item_field_value;
     }
 
     return $fields;

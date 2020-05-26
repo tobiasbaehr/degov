@@ -54,16 +54,16 @@ class MenuItemGeneratorTest extends KernelTestBase {
 
     $this->installSchema('system', ['sequences']);
 
-    $this->menuItemGenerator = \Drupal::service('degov_demo_content.menu_item_generator');
+    $this->menuItemGenerator = $this->container->get('degov_demo_content.menu_item_generator');
 
-    /**
-     * @var \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
-     */
-    $entityTypeManager = \Drupal::service('entity_type.manager');
+    /** @var \Drupal\Core\Entity\EntityTypeManager $entityTypeManager */
+    $entityTypeManager = $this->container->get('entity_type.manager');
     $this->menuLinkContentStorage = $entityTypeManager->getStorage('menu_link_content');
 
     $user = $this->createUser([], NULL, TRUE);
-    \Drupal::currentUser()->setAccount($user);
+    /** @var \Drupal\Core\Session\AccountProxyInterface $currentUser */
+    $currentUser = $this->container->get('current_user');
+    $currentUser->setAccount($user);
   }
 
   /**
@@ -115,7 +115,7 @@ class MenuItemGeneratorTest extends KernelTestBase {
   }
 
   /**
-   * Generate nodes  from definitions.
+   * Generate nodes from definitions.
    */
   private function generateNodesFromDefinitions(): void {
     $definitions = $this->menuItemGenerator->loadDefinitions('menu_item.yml');

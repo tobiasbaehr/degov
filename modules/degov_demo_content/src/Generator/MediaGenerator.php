@@ -1,14 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_demo_content\Generator;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Extension\ModuleHandler;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\degov_demo_content\FileHandler\MediaFileHandler;
-use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\file\Entity\File;
-use Drupal\geofield\WktGenerator;
+use Drupal\geofield\WktGeneratorInterface;
 use Drupal\media\Entity\Media;
 
 /**
@@ -18,7 +17,7 @@ use Drupal\media\Entity\Media;
  *
  * @package Drupal\degov_demo_content\Factory
  */
-class MediaGenerator extends ContentGenerator implements GeneratorInterface {
+final class MediaGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * The entity type we are working with.
@@ -26,13 +25,6 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * @var string
    */
   protected $entityType = 'media';
-
-  /**
-   * The ids of the Files we have saved.
-   *
-   * @var array
-   */
-  private $files = [];
 
   /**
    * The ids of the Media entities we have saved.
@@ -56,23 +48,19 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
   private $mediaFileHandler;
 
   /**
-   * Constructs a new ContentGenerator instance.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   The ModuleHandler.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   The EntityTypeManager.
-   * @param \Drupal\geofield\WktGenerator $wktGenerator
-   *   The Geofield WktGenerator.
-   * @param \Drupal\degov_demo_content\FileHandler\MediaFileHandler $mediaFileHandler
-   *   Media file handler.
-   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
-   *   Paragraphs file handler.
+   * @param \Drupal\geofield\WktGeneratorInterface $wktGenerator
+   *   The Geofield WktGenerator service.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler, WktGenerator $wktGenerator, MediaFileHandler $mediaFileHandler) {
-    parent::__construct($moduleHandler, $entityTypeManager, $paragraphsFileHandler);
-    $this->wktGenerator = $wktGenerator;
-    $this->mediaFileHandler = $mediaFileHandler;
+  public function setWktGenerator(WktGeneratorInterface $wkt_generator): void {
+    $this->wktGenerator = $wkt_generator;
+  }
+
+  /**
+   * @param \Drupal\degov_demo_content\FileHandler\MediaFileHandler $media_file_handler
+   *   Media file handler service.
+   */
+  public function setMediaFileHandler(MediaFileHandler $media_file_handler): void {
+    $this->mediaFileHandler = $media_file_handler;
   }
 
   /**
@@ -133,10 +121,10 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
       // number with 5 digits based on $media_item_key (% digits are abozt a day in Unix time
       // 86400s->1 day) and add it to DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP.
       // A manual date defined date should be  > DEGOV_DEMO_CONTENT_CREATED_TIMESTAMP + 100.000 to be stable.
-      $fields['created'] = isset($media_item['created']) ? $media_item['created'] : $this->getCreatedTimestamp($media_item_key);
+      $fields['created'] = isset($media_item['created']) ? $media_item['created'] : self::getCreatedTimestamp($media_item_key);
 
       // Auto generate media publish date fields if not set.
-      $fields['field_media_publish_date'] = isset($media_item['field_media_publish_date']) ? $media_item['field_media_publish_date'] : date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, $this->getCreatedTimestamp($media_item_key));
+      $fields['field_media_publish_date'] = isset($media_item['field_media_publish_date']) ? $media_item['field_media_publish_date'] : date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, self::getCreatedTimestamp($media_item_key));
 
       $new_media = Media::create($fields);
       $new_media->save();
@@ -173,7 +161,7 @@ class MediaGenerator extends ContentGenerator implements GeneratorInterface {
    * Deletes the generated entities.
    */
   public function deleteContent(): void {
-    $query = \Drupal::entityQuery('file');
+    $query = $this->entityTypeManager->getStorage('file')->getQuery();
     $query->condition('uri', 'public://degov_demo_content/%', 'LIKE');
     $query_results = $query->execute();
 

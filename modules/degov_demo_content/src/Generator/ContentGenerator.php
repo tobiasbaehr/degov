@@ -8,7 +8,7 @@ use Drupal\Core\Extension\ModuleHandler;
 use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
-use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
 use Symfony\Component\Yaml\Yaml;
 
@@ -17,7 +17,9 @@ use Symfony\Component\Yaml\Yaml;
  *
  * @package \Drupal\degov_demo_content\Generator
  */
-class ContentGenerator {
+abstract class ContentGenerator {
+
+  const DEGOV_DEMO_CONTENT_FILES_SAVE_PATH = 'public://degov_demo_content';
 
   /**
    * The module handler.
@@ -78,17 +80,19 @@ class ContentGenerator {
   private const BLINDTEXT = 'Lorem ipsum äöü ÄÖÜß àéîøū dolor sit amet consetetur äöüÄ ÖÜßà éîøū sadipscing elitr sed diam äöüÄÖ Üßàé îøū nonumy eirmod tempor invidunt äöüÄÖÜ ßàéîøū ut labore et dolore magna aliquyam erat sed ä öüÄ ÖÜ ßàé îøū diam voluptua At vero eos et accusam et justo duo äö üÄÖÜ ßàéî øū dolores et ea rebum Stet clita kasd gubergren no sea äöüÄ ÖÜßàé îøū takimata sanctus est Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet äö üÄÖ Üßàé îøū consetetur sadipscing elitr sed ä ö ü Ä Ö Ü ß à é î ø ū diam nonumy eirmod tempor invidunt ut labore et äöü ÄÖÜß àéîøū dolore magna aliquyam erat sed diam äöü ÄÖÜß àéîøū voluptua At vero eos et accusam äöü ÄÖÜß àéîøū et justo duo dolores et ea äöü ÄÖÜß àéîøū rebum Stet clita kasd gubergren äöü ÄÖÜß àéîøū no sea takimata sanctus est äöü ÄÖÜß àéîøū Lorem ipsum dolor sit amet';
 
   /**
-   * Constructs a new ContentGenerator instance.
+   * ContentGenerator constructor.
    *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   Module handler.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   Entity type manager.
+   * @param \Drupal\Core\Extension\ModuleHandler $module_handler
+   *   The module handler service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The Entity type manager service.
+   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphs_file_handler
+   *   The Paragraphs file handler service.
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler) {
-    $this->moduleHandler = $moduleHandler;
-    $this->entityTypeManager = $entityTypeManager;
-    $this->paragraphsFileHandler = $paragraphsFileHandler;
+  public function __construct(ModuleHandler $module_handler, EntityTypeManagerInterface $entity_type_manager, ParagraphsFileHandler $paragraphs_file_handler) {
+    $this->moduleHandler = $module_handler;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->paragraphsFileHandler = $paragraphs_file_handler;
     $this->fixturesPath = $this->moduleHandler->getModule('degov_demo_content')->getPath() . '/fixtures';
   }
 
@@ -161,7 +165,7 @@ class ContentGenerator {
     if ($this->getDemoContentTagId() === NULL) {
       return;
     }
-    $entities = \Drupal::entityTypeManager()
+    $entities = $this->entityTypeManager
       ->getStorage($this->entityType)
       ->loadByProperties([
         'field_tags' => $this->getDemoContentTagId(),
@@ -360,7 +364,7 @@ class ContentGenerator {
           }
           if (strpos($rawValue, 'media_reference_') !== FALSE) {
             $rawMedia = $this->loadDefinitionByNameTag('media', $fieldName);
-            $mediaIds = \Drupal::entityTypeManager()
+            $mediaIds = $this->entityTypeManager
               ->getStorage('media')
               ->getQuery()
               ->condition('name', $rawMedia['name'])
@@ -380,14 +384,14 @@ class ContentGenerator {
   /**
    * Generate node reference paragraphs.
    *
-   * @param \Drupal\node\Entity\Node $teaserPage
+   * @param \Drupal\node\NodeInterface $teaserPage
    *   Teaser page node.
    * @param array $nodeIds
    *   Node IDs.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function generateNodeReferenceParagraphs(Node $teaserPage, array $nodeIds): void {
+  protected function generateNodeReferenceParagraphs(NodeInterface $teaserPage, array $nodeIds): void {
     $paragraphs = [];
     foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference') as $rawParagraph) {
       $rawParagraph['field_sub_title'] = empty($rawParagraph['field_sub_title']) ? $this->generateBlindText(3) : $rawParagraph['field_sub_title'];
@@ -403,14 +407,14 @@ class ContentGenerator {
   /**
    * Generates Media reference paragraph.
    *
-   * @param \Drupal\node\Entity\Node $teaserPage
+   * @param \Drupal\node\NodeInterface $teaserPage
    *   The Node that should contain the teaser paragraphs.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function generateMediaReferenceParagraphs(Node $teaserPage): void {
+  protected function generateMediaReferenceParagraphs(NodeInterface $teaserPage): void {
     $rawParagraph = $this->loadDefinitionByNameTag('paragraphs', 'media_reference_citation_front');
     $this->prepareValues($rawParagraph);
     $this->resolveEncapsulatedParagraphs($rawParagraph);
@@ -438,8 +442,8 @@ class ContentGenerator {
     $def = $this->loadDefinitions('media.yml');
     $bundle = $def[$sourceId]['bundle'];
     $name = $def[$sourceId]['name'];
-    $mid = \Drupal::service('entity.query')
-      ->get('media')
+    $mid = $this->entityTypeManager->getStorage('media')
+      ->getQuery()
       ->condition('bundle', $bundle)
       ->condition('name', $name)
       ->execute();
@@ -470,8 +474,8 @@ class ContentGenerator {
       return $var['bundle'] === 'image';
     });
     $title = $imageDef[$sourceId]['name'];
-    $mid = \Drupal::service('entity.query')
-      ->get('media')
+    $mid = $this->entityTypeManager->getStorage('media')
+      ->getQuery()
       ->condition('bundle', 'image')
       ->condition('name', $title)
       ->execute();
@@ -497,7 +501,9 @@ class ContentGenerator {
    * @throws \Exception
    */
   protected function getMedias(string $bundle): array {
-    $mediaIds = \Drupal::entityQuery('media')
+    $mediaIds = $this->entityTypeManager
+      ->getStorage('media')
+      ->getQuery()
       ->condition('bundle', $bundle)
       ->condition('field_tags', $this->getDemoContentTagId())->execute();
     return $mediaIds;
@@ -539,7 +545,6 @@ class ContentGenerator {
    *   Generated text.
    */
   public function generateBlindText(int $wordCount, bool $addLinks = FALSE): string {
-    $this->counter = 0;
     $phrase = [];
     for ($i = 0; $i < $wordCount; $i++) {
       $word = $this->getWord();
@@ -551,12 +556,6 @@ class ContentGenerator {
     return implode(' ', $phrase);
   }
 
-  /**
-   * Get word.
-   *
-   * @return string
-   *   Word.
-   */
   protected function getWord(): string {
     $words = explode(' ', self::BLINDTEXT);
     $this->wordCounter++;
@@ -573,7 +572,7 @@ class ContentGenerator {
    *   Tag.
    *
    * @return array|null
-   *   Loaded definition..
+   *   Loaded definition.
    *
    * @throws \Exception
    */

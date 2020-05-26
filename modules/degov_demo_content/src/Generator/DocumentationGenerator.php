@@ -160,6 +160,7 @@ class DocumentationGenerator {
   private function documentNodes(): void {
     $this->appendToOutputString('## ' . $this->t('Content'));
     $nodeStorage = $this->entityTypeManager->getStorage('node');
+    /** @var \Drupal\node\NodeInterface[] $nodes */
     $nodes = $nodeStorage->loadByProperties([
       'field_tags' => $this->getDemoContentTagId(),
     ]);

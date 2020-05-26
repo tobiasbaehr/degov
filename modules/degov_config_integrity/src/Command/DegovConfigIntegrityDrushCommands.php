@@ -34,20 +34,20 @@ class DegovConfigIntegrityDrushCommands extends DrushCommands {
    * @command config:diff:installed-modules
    */
   public function checkConfigOfInstalledModules(): void {
-    drush_print($this->t('deGov configuration integrity check running…'));
+    $this->output()->writeln($this->t('deGov configuration integrity check running…'));
     $configurationIntegrityIntact = TRUE;
     foreach ($this->moduleIntegrityChecker->checkIntegrity() as $module) {
       foreach ($module as $moduleName => $missingConfigs) {
-        drush_print($this->t('Module @module', ['@module' => $moduleName]), 2);
-        drush_print($this->t('Configuration is missing'), 4);
+        $this->output()->writeln($this->t('Module @module', ['@module' => $moduleName]), 2);
+        $this->output()->writeln($this->t('Configuration is missing'), 4);
         foreach ($missingConfigs as $missingConfig) {
-          drush_print($missingConfig, 6);
+          $this->output()->writeln($missingConfig, 6);
         }
         $configurationIntegrityIntact = FALSE;
       }
     }
     if ($configurationIntegrityIntact) {
-      drush_print($this->t('All expected configuration seems to be in place.'));
+      $this->output()->writeln($this->t('All expected configuration seems to be in place.'));
     }
   }
 

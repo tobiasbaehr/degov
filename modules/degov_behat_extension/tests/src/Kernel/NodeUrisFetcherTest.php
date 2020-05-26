@@ -93,7 +93,7 @@ class NodeUrisFetcherTest extends KernelTestBase {
     /**
      * @var \Drupal\Core\Entity\EntityStorageInterface $aliasStorage
      */
-    $aliasStorage = \Drupal::service('entity_type.manager')->getStorage('path_alias');
+    $aliasStorage = $this->container->get('entity_type.manager')->getStorage('path_alias');
     $aliasStorage->save(PathAlias::create([
       'path'     => '/node/1',
       'alias'    => '/test-node-1',
@@ -110,7 +110,7 @@ class NodeUrisFetcherTest extends KernelTestBase {
     /**
      * @var \Drupal\degov_behat_extension\PerformanceCheck\StaticUrisFetcher $staticUrisFetcher
      */
-    $staticUrisFetcher = \Drupal::service('degov_behat_extension.static_uris_fetcher');
+    $staticUrisFetcher = $this->container->get('degov_behat_extension.static_uris_fetcher');
 
     self::assertSame([
       0 => '/test-node-1',

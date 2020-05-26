@@ -26,10 +26,8 @@ class StaticRequirementTimerTest extends UnitTestCase {
     $testReportGenerator->evaluateResults(FALSE);
   }
 
-  /**
-   * @expectedException \Drupal\degov_behat_extension\Exception\SlowPagesMoreThan10PercentException
-   */
   public function testNegativeHandleStaticPagesRequirementByOnePage(): void {
+    $this->expectException(SlowPagesMoreThan10PercentException::class);
     $requirementChecker = new StaticRequirementTimer(0.1);
 
     $requirementChecker->startMeasuringOnePageVisit();
@@ -40,10 +38,8 @@ class StaticRequirementTimerTest extends UnitTestCase {
     $testReportGenerator->evaluateResults(FALSE);
   }
 
-  /**
-   * @expectedException \Drupal\degov_behat_extension\Exception\SlowPagesMoreThan10PercentException
-   */
   public function testNegativeEvaluationByMultiplePages(): void {
+    $this->expectException(SlowPagesMoreThan10PercentException::class);
     $requirementChecker = new StaticRequirementTimer(0.1);
 
     for ($i = 1; $i <= 10; ++$i) {

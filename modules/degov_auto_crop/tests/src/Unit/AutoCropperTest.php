@@ -1,24 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\degov_auto_crop\Unit;
 
-use Drupal\Core\Entity\EntityTypeManager;
-use Drupal\Core\File\FileSystem;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Image\Image;
 use Drupal\Core\Image\ImageFactory;
-use Drupal\Core\Logger\LoggerChannelFactory;
-use Drupal\crop\CropStorage;
-use Drupal\crop\Entity\Crop;
+use Drupal\Core\Image\ImageInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\crop\CropInterface;
+use Drupal\crop\CropStorageInterface;
 use Drupal\crop\Entity\CropType;
 use Drupal\degov_auto_crop\Service\AutoCropper;
 use Drupal\file\Entity\File;
 use Drupal\Tests\UnitTestCase;
 use org\bovigo\vfs\vfsStream;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Class AutoCropperTest.
- *
- * @package Drupal\Tests\degov_auto_crop\Unit
  */
 class AutoCropperTest extends UnitTestCase {
 
@@ -32,7 +34,7 @@ class AutoCropperTest extends UnitTestCase {
   /**
    * The FileSystem instance.
    *
-   * @var \Drupal\Core\File\FileSystem
+   * @var \Drupal\Core\File\FileSystemInterface
    */
   private $fileSystem;
 
@@ -63,6 +65,438 @@ class AutoCropperTest extends UnitTestCase {
    * @var array
    */
   private $images = [];
+
+  /**
+   * {@inheritDoc}
+   */
+  public function setUp(): void {
+
+    parent::setUp();
+
+    $this->generateCropTypes();
+
+    /** @var \PHPUnit\Framework\MockObject\MockObject|\Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager */
+    $entityTypeManager = $this->getMockBuilder(EntityTypeManagerInterface::class)
+      ->disableOriginalConstructor()
+      ->getMock();
+    $entityTypeManager->method('getStorage')
+      ->with($this->logicalOr(
+        $this->equalTo('crop_type'),
+        $this->equalTo('crop')
+      ))
+      ->will($this->returnCallback([$this, 'returnStorage']));
+
+    /** @var \Drupal\Core\File\FileSystemInterface fileSystem */
+    $this->fileSystem = $this->getMockBuilder(FileSystemInterface::class)
+      ->disableOriginalConstructor()
+      ->getMock();
+
+    /** @var \Drupal\Core\Image\ImageFactory imageFactory */
+    $this->imageFactory = $this->getMockBuilder(ImageFactory::class)
+      ->disableOriginalConstructor()
+      ->getMock();
+
+    /** @var \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger */
+    $logger = $this->getMockBuilder(LoggerChannelFactoryInterface::class)
+      ->disableOriginalConstructor()
+      ->getMock();
+
+    $this->generateFiles();
+
+    $this->autoCropper = new AutoCropper($entityTypeManager, $this->fileSystem, $logger, $this->imageFactory);
+
+  }
+
+  /**
+   * Tests that calculateCropCenterOffsets returns the expected values.
+   */
+  public function testCalculateCropCenterOffsets(): void {
+    // Landscape crop on landscape image.
+    $image_orientation = 'landscape';
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 800,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => (800 / 2) + ((900 - 800) / 3),
+    ], $crop_dimensions);
+
+    // Portrait crop on landscape image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 450,
+      'x'      => (450 / 2) + ((1600 - 450) / 3),
+      'y'      => 900 / 2,
+    ], $crop_dimensions);
+
+    // Square crop on landscape image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 900,
+      'x'      => (900 / 2) + ((1600 - 900) / 3),
+      'y'      => 900 / 2,
+    ], $crop_dimensions);
+
+    // Landscape crop on portrait image.
+    $image_orientation = 'portrait';
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 450,
+      'width'  => 900,
+      'x'      => 900 / 2,
+      'y'      => (450 / 2) + ((1600 - 450) / 3),
+    ], $crop_dimensions);
+
+    // Portrait crop on portrait image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 1600,
+      'width'  => 800,
+      'x'      => (800 / 2) + ((900 - 800) / 3),
+      'y'      => 1600 / 2,
+    ], $crop_dimensions);
+
+    // Square crop on portrait image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 900,
+      'x'      => 900 / 2,
+      'y'      => (900 / 2) + ((1600 - 900) / 3),
+    ], $crop_dimensions);
+
+    // Landscape crop on square image.
+    $image_orientation = 'square';
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 800,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => (800 / 2) + ((1600 - 800) / 3),
+    ], $crop_dimensions);
+
+    // Portrait crop on square image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 1600,
+      'width'  => 800,
+      'x'      => (800 / 2) + ((1600 - 800) / 3),
+      'y'      => 1600 / 2,
+    ], $crop_dimensions);
+
+    // Square crop on square image.
+    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
+    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
+    $this->assertEquals([
+      'height' => 1600,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => 1600 / 2,
+    ], $crop_dimensions);
+  }
+
+  /**
+   * Tests that a crop with a given aspect ratio is scaled to fit the image.
+   */
+  public function testCalculateScaleFactor(): void {
+    // 1:1 fits into 16:9.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
+      1,
+      1,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 2:1 needs to be scaled to fit into 16:9.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
+      2,
+      1,
+    ]);
+    $this->assertLessThan(1, $scaleFactor);
+    // 16:9 fits into 16:9.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
+      16,
+      9,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 1:2 fits into 16:9.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
+      1,
+      2,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+
+    // 1:1 fits into 9:16.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
+      1,
+      1,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 2:1 fits into 9:16.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
+      2,
+      1,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 16:9 fits into 9:16.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
+      16,
+      9,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 1:2 needs to be scaled to fit into 9:16.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
+      1,
+      2,
+    ]);
+    $this->assertLessThan(1, $scaleFactor);
+
+    // 1:1 fits into 1:1.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
+      1,
+      1,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 2:1 fits into 1:1.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
+      2,
+      1,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 16:9 fits into 1:1.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
+      16,
+      9,
+    ]);
+    $this->assertEquals(1, $scaleFactor);
+    // 1:2 needs to be scaled to fit into 1:1.
+    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
+      1,
+      2,
+    ]);
+    $this->assertLessThan(1, $scaleFactor);
+  }
+
+  /**
+   * Tests that a CropType applied to a given image has the expected dimensions.
+   */
+  public function testCalculateCropDimensions(): void {
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('landscape'));
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 900,
+      'x'      => (900 / 2) + ((1600 - 900) / 2),
+      'y'      => 900 / 2,
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('landscape'));
+    $this->assertEquals([
+      'height' => 800,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => (800 / 2) + ((900 - 800) / 3),
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('landscape'));
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => 900 / 2,
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('portrait'));
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 900,
+      'x'      => 900 / 2,
+      'y'      => (900 / 2) + ((1600 - 900) / 3),
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('portrait'));
+    $this->assertEquals([
+      'height' => 450,
+      'width'  => 900,
+      'x'      => 900 / 2,
+      'y'      => (450 / 2) + ((1600 - 450) / 3),
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('portrait'));
+    $this->assertEquals([
+      'height' => (900 / 16) * 9,
+      'width'  => 900,
+      'x'      => 900 / 2,
+      'y'      => (((900 / 16) * 9) / 2) + ((1600 - ((900 / 16) * 9)) / 3),
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('square'));
+    $this->assertEquals([
+      'height' => 1600,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => 1600 / 2,
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('square'));
+    $this->assertEquals([
+      'height' => 800,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => (800 / 2) + ((1600 - 800) / 3),
+    ], $dimensions);
+
+    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('square'));
+    $this->assertEquals([
+      'height' => 900,
+      'width'  => 1600,
+      'x'      => 1600 / 2,
+      'y'      => (900 / 2) + ((1600 - 900) / 3),
+    ], $dimensions);
+  }
+
+  /**
+   * Tests that for a given File the expected crops will be set.
+   */
+  public function testApplyImageCrops(): void {
+
+    $crops = $this->autoCropper->applyImageCrops($this->files['16_by_9']);
+    $this->assertCount(count($this->cropTypes), $crops);
+    /** @var \Drupal\crop\CropInterface $crop */
+    foreach ($crops as $crop) {
+      $type = $crop->get('type');
+      $position = $crop->position();
+      $size = $crop->size();
+      switch ($type) {
+        case '1_by_1':
+          $this->assertEquals([
+            'x' => (int) ((900 / 2) + ((1600 - 900) / 2)),
+            'y' => (int) (900 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 900, 'width' => 900], $size);
+          break;
+
+        case '1_by_2':
+          $this->assertEquals([
+            'x' => (int) ((450 / 2) + ((1600 - 450) / 3)),
+            'y' => (int) (900 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 900, 'width' => 450], $size);
+          break;
+
+        case '2_by_1':
+          $this->assertEquals([
+            'x' => (int) (1600 / 2),
+            'y' => (int) ((800 / 2) + ((900 - 800) / 3)),
+          ], $position);
+          $this->assertEquals(['height' => 800, 'width' => 1600], $size);
+          break;
+
+        case '16_by_9':
+          $this->assertEquals([
+            'x' => (int) (1600 / 2),
+            'y' => (int) (900 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 900, 'width' => 1600], $size);
+          break;
+      }
+    }
+
+    $crops = $this->autoCropper->applyImageCrops($this->files['9_by_16']);
+    $this->assertCount(count($this->cropTypes), $crops);
+    /** @var \Drupal\crop\CropInterface $crop */
+    foreach ($crops as $crop) {
+      $type = $crop->get('type');
+      $position = $crop->position();
+      $size = $crop->size();
+      switch ($type) {
+        case '1_by_1':
+          $this->assertEquals([
+            'x' => (int) (900 / 2),
+            'y' => (int) ((900 / 2) + ((1600 - 900) / 3)),
+          ], $position);
+          $this->assertEquals(['height' => 900, 'width' => 900], $size);
+          break;
+
+        case '1_by_2':
+          $this->assertEquals([
+            'x' => (int) ((800 / 2) + ((900 - 800) / 2)),
+            'y' => (int) (1600 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 1600, 'width' => 800], $size);
+          break;
+
+        case '2_by_1':
+          $this->assertEquals([
+            'x' => (int) (900 / 2),
+            'y' => (int) ((450 / 2) + ((1600 - 450) / 3)),
+          ], $position);
+          $this->assertEquals(['height' => 450, 'width' => 900], $size);
+          break;
+
+        case '16_by_9':
+          $target_height = (int) ((900 / 16) * 9);
+          $this->assertEquals([
+            'x' => (int) (900 / 2),
+            'y' => (int) (($target_height / 2) + ((1600 - $target_height) / 3)),
+          ], $position);
+          $this->assertEquals([
+            'height' => $target_height,
+            'width'  => 900,
+          ], $size);
+          break;
+      }
+    }
+
+    $crops = $this->autoCropper->applyImageCrops($this->files['1_by_1']);
+    $this->assertCount(count($this->cropTypes), $crops);
+    /** @var \Drupal\crop\CropInterface $crop */
+    foreach ($crops as $crop) {
+      $type = $crop->get('type');
+      $position = $crop->position();
+      $size = $crop->size();
+      switch ($type) {
+        case '1_by_1':
+          $this->assertEquals([
+            'x' => (int) (1600 / 2),
+            'y' => (int) (1600 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 1600, 'width' => 1600], $size);
+          break;
+
+        case '1_by_2':
+          $this->assertEquals([
+            'x' => (int) ((800 / 2) + ((1600 - 800) / 3)),
+            'y' => (int) (1600 / 2),
+          ], $position);
+          $this->assertEquals(['height' => 1600, 'width' => 800], $size);
+          break;
+
+        case '2_by_1':
+          $this->assertEquals([
+            'x' => (int) (1600 / 2),
+            'y' => (int) ((800 / 2) + ((1600 - 800) / 3)),
+          ], $position);
+          $this->assertEquals(['height' => 800, 'width' => 1600], $size);
+          break;
+
+        case '16_by_9':
+          $this->assertEquals([
+            'x' => (int) (1600 / 2),
+            'y' => (int) ((900 / 2) + ((1600 - 900) / 3)),
+          ], $position);
+          $this->assertEquals(['height' => 900, 'width' => 1600], $size);
+          break;
+      }
+    }
+  }
 
   /**
    * Returns an array of crop frame offsets to test against.
@@ -165,434 +599,6 @@ class AutoCropperTest extends UnitTestCase {
     ];
 
     return $dimensions[$image_orientation][$crop_orientation];
-  }
-
-  /**
-   * AutoCropperTest constructor.
-   */
-  public function setUp() {
-
-    parent::setUp();
-
-    $this->generateCropTypes();
-
-    $entityTypeManager = $this->getMockBuilder(EntityTypeManager::class)
-      ->disableOriginalConstructor()
-      ->getMock();
-    $entityTypeManager->method('getStorage')
-      ->with($this->logicalOr(
-        $this->equalTo('crop_type'),
-        $this->equalTo('crop')
-      ))
-      ->will($this->returnCallback([$this, 'returnStorage']));
-
-    $this->fileSystem = $this->getMockBuilder(FileSystem::class)
-      ->disableOriginalConstructor()
-      ->getMock();
-
-    $this->imageFactory = $this->getMockBuilder(ImageFactory::class)
-      ->disableOriginalConstructor()
-      ->getMock();
-
-    $logger = $this->getMockBuilder(LoggerChannelFactory::class)
-      ->disableOriginalConstructor()
-      ->getMock();
-
-    $this->generateFiles();
-
-    $this->autoCropper = new AutoCropper($entityTypeManager, $this->fileSystem, $logger, $this->imageFactory);
-
-  }
-
-  /**
-   * Tests that calculateCropCenterOffsets returns the expected values.
-   */
-  public function testCalculateCropCenterOffsets() {
-    // Landscape crop on landscape image.
-    $image_orientation = 'landscape';
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 800,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => (800 / 2) + ((900 - 800) / 3),
-    ], $crop_dimensions);
-
-    // Portrait crop on landscape image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 450,
-      'x'      => (450 / 2) + ((1600 - 450) / 3),
-      'y'      => 900 / 2,
-    ], $crop_dimensions);
-
-    // Square crop on landscape image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 900,
-      'x'      => (900 / 2) + ((1600 - 900) / 3),
-      'y'      => 900 / 2,
-    ], $crop_dimensions);
-
-    // Landscape crop on portrait image.
-    $image_orientation = 'portrait';
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 450,
-      'width'  => 900,
-      'x'      => 900 / 2,
-      'y'      => (450 / 2) + ((1600 - 450) / 3),
-    ], $crop_dimensions);
-
-    // Portrait crop on portrait image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 1600,
-      'width'  => 800,
-      'x'      => (800 / 2) + ((900 - 800) / 3),
-      'y'      => 1600 / 2,
-    ], $crop_dimensions);
-
-    // Square crop on portrait image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 900,
-      'x'      => 900 / 2,
-      'y'      => (900 / 2) + ((1600 - 900) / 3),
-    ], $crop_dimensions);
-
-    // Landscape crop on square image.
-    $image_orientation = 'square';
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'landscape');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 800,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => (800 / 2) + ((1600 - 800) / 3),
-    ], $crop_dimensions);
-
-    // Portrait crop on square image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'portrait');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 1600,
-      'width'  => 800,
-      'x'      => (800 / 2) + ((1600 - 800) / 3),
-      'y'      => 1600 / 2,
-    ], $crop_dimensions);
-
-    // Square crop on square image.
-    $crop_dimensions = $this->getMockCropDimensions($image_orientation, 'square');
-    $this->autoCropper->calculateCropCenterOffsets($this->getMockOffsets(), $this->getMockImageDimensions($image_orientation), $crop_dimensions);
-    $this->assertEquals([
-      'height' => 1600,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => 1600 / 2,
-    ], $crop_dimensions);
-  }
-
-  /**
-   * Tests that a crop with a given aspect ratio is scaled to fit the image.
-   */
-  public function testCalculateScaleFactor() {
-    // 1:1 fits into 16:9.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
-      1,
-      1,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 2:1 needs to be scaled to fit into 16:9.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
-      2,
-      1,
-    ]);
-    $this->assertLessThan(1, $scaleFactor);
-    // 16:9 fits into 16:9.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
-      16,
-      9,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 1:2 fits into 16:9.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('landscape'), [
-      1,
-      2,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-
-    // 1:1 fits into 9:16.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
-      1,
-      1,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 2:1 fits into 9:16.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
-      2,
-      1,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 16:9 fits into 9:16.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
-      16,
-      9,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 1:2 needs to be scaled to fit into 9:16.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('portrait'), [
-      1,
-      2,
-    ]);
-    $this->assertLessThan(1, $scaleFactor);
-
-    // 1:1 fits into 1:1.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
-      1,
-      1,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 2:1 fits into 1:1.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
-      2,
-      1,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 16:9 fits into 1:1.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
-      16,
-      9,
-    ]);
-    $this->assertEquals(1, $scaleFactor);
-    // 1:2 needs to be scaled to fit into 1:1.
-    $scaleFactor = $this->autoCropper->calculateScaleFactor($this->getMockImageDimensions('square'), [
-      1,
-      2,
-    ]);
-    $this->assertLessThan(1, $scaleFactor);
-  }
-
-  /**
-   * Tests that a CropType applied to a given image has the expected dimensions.
-   */
-  public function testCalculateCropDimensions() {
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('landscape'));
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 900,
-      'x'      => (900 / 2) + ((1600 - 900) / 2),
-      'y'      => 900 / 2,
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('landscape'));
-    $this->assertEquals([
-      'height' => 800,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => (800 / 2) + ((900 - 800) / 3),
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('landscape'));
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => 900 / 2,
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('portrait'));
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 900,
-      'x'      => 900 / 2,
-      'y'      => (900 / 2) + ((1600 - 900) / 3),
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('portrait'));
-    $this->assertEquals([
-      'height' => 450,
-      'width'  => 900,
-      'x'      => 900 / 2,
-      'y'      => (450 / 2) + ((1600 - 450) / 3),
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('portrait'));
-    $this->assertEquals([
-      'height' => (900 / 16) * 9,
-      'width'  => 900,
-      'x'      => 900 / 2,
-      'y'      => (((900 / 16) * 9) / 2) + ((1600 - ((900 / 16) * 9)) / 3),
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['1_by_1'], $this->getMockImageDimensions('square'));
-    $this->assertEquals([
-      'height' => 1600,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => 1600 / 2,
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['2_by_1'], $this->getMockImageDimensions('square'));
-    $this->assertEquals([
-      'height' => 800,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => (800 / 2) + ((1600 - 800) / 3),
-    ], $dimensions);
-
-    $dimensions = $this->autoCropper->calculateCropDimensions($this->cropTypes['16_by_9'], $this->getMockImageDimensions('square'));
-    $this->assertEquals([
-      'height' => 900,
-      'width'  => 1600,
-      'x'      => 1600 / 2,
-      'y'      => (900 / 2) + ((1600 - 900) / 3),
-    ], $dimensions);
-  }
-
-  /**
-   * Tests that for a given File the expected crops will be set.
-   */
-  public function testApplyImageCrops() {
-
-    $crops = $this->autoCropper->applyImageCrops($this->files['16_by_9']);
-    $this->assertCount(count($this->cropTypes), $crops);
-    /** @var \Drupal\crop\Entity\Crop $crop */
-    foreach ($crops as $crop) {
-      $type = $crop->get('type');
-      $position = $crop->position();
-      $size = $crop->size();
-      switch ($type) {
-        case '1_by_1':
-          $this->assertEquals([
-            'x' => (int) ((900 / 2) + ((1600 - 900) / 2)),
-            'y' => (int) (900 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 900, 'width' => 900], $size);
-          break;
-
-        case '1_by_2':
-          $this->assertEquals([
-            'x' => (int) ((450 / 2) + ((1600 - 450) / 3)),
-            'y' => (int) (900 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 900, 'width' => 450], $size);
-          break;
-
-        case '2_by_1':
-          $this->assertEquals([
-            'x' => (int) (1600 / 2),
-            'y' => (int) ((800 / 2) + ((900 - 800) / 3)),
-          ], $position);
-          $this->assertEquals(['height' => 800, 'width' => 1600], $size);
-          break;
-
-        case '16_by_9':
-          $this->assertEquals([
-            'x' => (int) (1600 / 2),
-            'y' => (int) (900 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 900, 'width' => 1600], $size);
-          break;
-      }
-    }
-
-    $crops = $this->autoCropper->applyImageCrops($this->files['9_by_16']);
-    $this->assertCount(count($this->cropTypes), $crops);
-    /** @var \Drupal\crop\Entity\Crop $crop */
-    foreach ($crops as $crop) {
-      $type = $crop->get('type');
-      $position = $crop->position();
-      $size = $crop->size();
-      switch ($type) {
-        case '1_by_1':
-          $this->assertEquals([
-            'x' => (int) (900 / 2),
-            'y' => (int) ((900 / 2) + ((1600 - 900) / 3)),
-          ], $position);
-          $this->assertEquals(['height' => 900, 'width' => 900], $size);
-          break;
-
-        case '1_by_2':
-          $this->assertEquals([
-            'x' => (int) ((800 / 2) + ((900 - 800) / 2)),
-            'y' => (int) (1600 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 1600, 'width' => 800], $size);
-          break;
-
-        case '2_by_1':
-          $this->assertEquals([
-            'x' => (int) (900 / 2),
-            'y' => (int) ((450 / 2) + ((1600 - 450) / 3)),
-          ], $position);
-          $this->assertEquals(['height' => 450, 'width' => 900], $size);
-          break;
-
-        case '16_by_9':
-          $target_height = (int) ((900 / 16) * 9);
-          $this->assertEquals([
-            'x' => (int) (900 / 2),
-            'y' => (int) (($target_height / 2) + ((1600 - $target_height) / 3)),
-          ], $position);
-          $this->assertEquals([
-            'height' => $target_height,
-            'width'  => 900,
-          ], $size);
-          break;
-      }
-    }
-
-    $crops = $this->autoCropper->applyImageCrops($this->files['1_by_1']);
-    $this->assertCount(count($this->cropTypes), $crops);
-    /** @var \Drupal\crop\Entity\Crop $crop */
-    foreach ($crops as $crop) {
-      $type = $crop->get('type');
-      $position = $crop->position();
-      $size = $crop->size();
-      switch ($type) {
-        case '1_by_1':
-          $this->assertEquals([
-            'x' => (int) (1600 / 2),
-            'y' => (int) (1600 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 1600, 'width' => 1600], $size);
-          break;
-
-        case '1_by_2':
-          $this->assertEquals([
-            'x' => (int) ((800 / 2) + ((1600 - 800) / 3)),
-            'y' => (int) (1600 / 2),
-          ], $position);
-          $this->assertEquals(['height' => 1600, 'width' => 800], $size);
-          break;
-
-        case '2_by_1':
-          $this->assertEquals([
-            'x' => (int) (1600 / 2),
-            'y' => (int) ((800 / 2) + ((1600 - 800) / 3)),
-          ], $position);
-          $this->assertEquals(['height' => 800, 'width' => 1600], $size);
-          break;
-
-        case '16_by_9':
-          $this->assertEquals([
-            'x' => (int) (1600 / 2),
-            'y' => (int) ((900 / 2) + ((1600 - 900) / 3)),
-          ], $position);
-          $this->assertEquals(['height' => 900, 'width' => 1600], $size);
-          break;
-      }
-    }
   }
 
   /**
@@ -794,10 +800,10 @@ class AutoCropperTest extends UnitTestCase {
    * @param string $realpath
    *   The realpath we are looking for an image for.
    *
-   * @return \Drupal\Core\Image
+   * @return \Drupal\Core\Image\ImageInterface
    *   The matching image.
    */
-  public function returnImage(string $realpath) {
+  public function returnImage(string $realpath): ImageInterface {
     return $this->images[$realpath];
   }
 
@@ -807,22 +813,22 @@ class AutoCropperTest extends UnitTestCase {
    * @param string $entityType
    *   The entity type we need a storage for.
    *
-   * @return null|\PHPUnit_Framework_MockObject_MockObject
+   * @return null|\PHPUnit\Framework\MockObject\MockObject|\Drupal\crop\CropStorageInterface
    *   The mocked storage, or null.
    */
-  public function returnStorage(string $entityType): ?\PHPUnit_Framework_MockObject_MockObject {
+  public function returnStorage(string $entityType): ?MockObject {
     $cropStorage = NULL;
 
     switch ($entityType) {
       case 'crop_type':
-        $cropStorage = $this->getMockBuilder(CropStorage::class)
+        $cropStorage = $this->getMockBuilder(CropStorageInterface::class)
           ->disableOriginalConstructor()
           ->getMock();
         $cropStorage->method('loadMultiple')->willReturn($this->cropTypes);
         break;
 
       case 'crop':
-        $cropStorage = $this->getMockBuilder(CropStorage::class)
+        $cropStorage = $this->getMockBuilder(CropStorageInterface::class)
           ->disableOriginalConstructor()
           ->getMock();
         $cropStorage->method('loadByProperties')->willReturn(NULL);
@@ -841,11 +847,11 @@ class AutoCropperTest extends UnitTestCase {
    * @param array $cropValues
    *   The calculated values for the Crop.
    *
-   * @return \PHPUnit_Framework_MockObject_MockObject
+   * @return \PHPUnit\Framework\MockObject\MockObject
    *   The mocked Crop instance.
    */
-  public function returnCrop(array $cropValues): \PHPUnit_Framework_MockObject_MockObject {
-    $crop = $this->getMockBuilder(Crop::class)
+  public function returnCrop(array $cropValues): MockObject {
+    $crop = $this->getMockBuilder(CropInterface::class)
       ->disableOriginalConstructor()
       ->getMock();
     $crop->method('get')->with('type')->willReturn($cropValues['type']);

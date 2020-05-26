@@ -1,11 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_demo_content\Generator;
 
 use Drupal\Core\Database\Connection;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Extension\ModuleHandler;
-use Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 
@@ -14,7 +13,7 @@ use Drupal\menu_link_content\MenuLinkContentInterface;
  *
  * @package Drupal\degov_demo_content\Generator
  */
-class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
+final class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
 
   /**
    * Database.
@@ -25,22 +24,16 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
   private $database;
 
   /**
-   * MenuItemGenerator constructor.
-   *
-   * @param \Drupal\Core\Extension\ModuleHandler $moduleHandler
-   *   The module handler.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   The entity type manager.
-   * @param \Drupal\degov_demo_content\FileHandler\ParagraphsFileHandler $paragraphsFileHandler
-   *   Paragraphs file handler.
-   * @param \Drupal\Core\Database\Connection $database
-   *   The database connection.
+   * The entity type we are working with.
+   * @var string
    */
-  public function __construct(ModuleHandler $moduleHandler, EntityTypeManagerInterface $entityTypeManager, ParagraphsFileHandler $paragraphsFileHandler, Connection $database) {
-    parent::__construct($moduleHandler, $entityTypeManager, $paragraphsFileHandler);
+  protected $entityType = 'menu_link_content';
 
+  /**
+   * @param \Drupal\Core\Database\Connection $database
+   */
+  public function setDatabase(Connection $database): void {
     $this->database = $database;
-    $this->entityType = 'menu_link_content';
   }
 
   /**
@@ -139,7 +132,7 @@ class MenuItemGenerator extends ContentGenerator implements GeneratorInterface {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function deleteContent(): void {
-    $entities = \Drupal::entityTypeManager()
+    $entities = $this->entityTypeManager
       ->getStorage($this->entityType)
       ->loadMultiple();
 
