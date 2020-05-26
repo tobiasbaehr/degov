@@ -5,13 +5,14 @@
  * Install, update and uninstall hooks for the degov_media_document module.
  */
 
+use Drupal\Core\Url;
 use Drupal\degov_common\Common;
 use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
  */
-function degov_media_document_install() {
+function degov_media_document_install(): void {
   // Adds the document tab upon installation to the CKEditor media browser.
   $ckeditorMediaBrowserConfig = \Drupal::configFactory()->getEditable('entity_browser.browser.ckeditor_media_browser');
   if (!$ckeditorMediaBrowserConfig->isNew()) {
@@ -28,7 +29,7 @@ function degov_media_document_install() {
 /**
  * Implements hook_uninstall().
  */
-function degov_media_document_upload_uninstall() {
+function degov_media_document_upload_uninstall(): void {
   // Remove the document bundle dependency on the entity media browser.
   $dependencies = \Drupal::config('entity_browser.browser.media_browser')
     ->get('dependencies.config');
@@ -60,9 +61,33 @@ function degov_media_document_upload_uninstall() {
 }
 
 /**
+ * Implements hook_requirements().
+ */
+function degov_media_document_requirements(string $phase): array {
+  $requirements = [];
+
+  if (!\Drupal::service('module_handler')->moduleExists('permissions_by_entity')) {
+    $requirements['degov_media_document'] = [
+      'title' => t('deGov media document'),
+      'description' => t(
+        'By <a href=":extend">enabling</a> the Permissions by Entity module, permission checks during document download will become available.<br />For more information on Permissions by Entity and Permissions by Term, take a look at the project page on <a href=":project_page" target="_blank">drupal.org</a>!',
+        [
+          ':extend' => Url::fromRoute('system.modules_list')->toString(),
+          ':project_page' => 'https://www.drupal.org/project/permissions_by_term',
+        ]
+      ),
+      'value' => t('Additional functionality available'),
+      'severity' => REQUIREMENT_WARNING,
+    ];
+  }
+
+  return $requirements;
+}
+
+/**
  * deGov Udpate 5.1.0 - Configuration updates for restricted files.
  */
-function degov_media_document_update_850100() {
+function degov_media_document_update_850100(): void {
   /**
    * @var \Drupal\degov_common\DegovModuleUpdater $updater
    */
@@ -76,7 +101,7 @@ function degov_media_document_update_850100() {
  * deGov Update 6.0.0
  * Make document field required
  */
-function degov_media_document_update_860000() {
+function degov_media_document_update_860000(): void {
   $fieldDocumentConfig = \Drupal::configFactory()
     ->getEditable('field.field.media.document.field_document');
   if (!empty($fieldDocumentConfig)) {
@@ -88,7 +113,7 @@ function degov_media_document_update_860000() {
 /**
  * deGov Update 7.6.0 - Add new view mode content_search, add description and preview image fields, add the fields to the default display.
  */
-function degov_media_document_update_876000() {
+function degov_media_document_update_876000(): void {
   // Add new display mode and fields.
   \Drupal::service('degov_config.module_updater')
     ->applyUpdates('degov_media_document', '876000');

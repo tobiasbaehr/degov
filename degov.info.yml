@@ -74,6 +74,7 @@ install:
   - link_attributes
   - locale
   - permissions_by_term
+  - permissions_by_entity
   - permissions_by_term_redirect
   - degov_email_login
   - block_permissions
