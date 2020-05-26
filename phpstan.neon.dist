@@ -3,6 +3,9 @@ includes:
 
 parameters:
   level: 0
+  autoload_files:
+    - docroot/core/modules/locale/locale.fetch.inc
+    - docroot/core/modules/locale/locale.bulk.inc
   paths:
     - docroot/profiles/contrib/degov
   excludes_analyse:

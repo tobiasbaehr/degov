@@ -2,6 +2,7 @@
 
 namespace Drupal\degov_common;
 
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\language\Config\LanguageConfigFactoryOverride;
 use Drupal\language\Config\LanguageConfigOverride;
 use Symfony\Component\Yaml\Yaml;
@@ -21,13 +22,21 @@ class TranslationImport {
   private $languageConfigFactoryOverride;
 
   /**
+   * The module handler service.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  private $moduleHandler;
+
+  /**
    * TranslationImport constructor.
    *
    * @param \Drupal\language\Config\LanguageConfigFactoryOverride $languageConfigFactoryOverride
    *   The LanguageConfigFactoryOverride.
    */
-  public function __construct(LanguageConfigFactoryOverride $languageConfigFactoryOverride) {
+  public function __construct(LanguageConfigFactoryOverride $languageConfigFactoryOverride, ModuleHandlerInterface $module_handler) {
     $this->languageConfigFactoryOverride = $languageConfigFactoryOverride;
+    $this->moduleHandler = $module_handler;
   }
 
   /**
@@ -49,8 +58,8 @@ class TranslationImport {
     if (!file_exists($filepath)) {
       return;
     }
-    \Drupal::moduleHandler()->loadInclude('locale', 'bulk.inc');
-    \Drupal::moduleHandler()->loadInclude('locale', 'translation.inc');
+    $this->moduleHandler->loadInclude('locale', 'bulk.inc');
+    $this->moduleHandler->loadInclude('locale', 'translation.inc');
     $file = locale_translate_file_create($filepath);
     $file->langcode = $langcode;
     $options = array_merge(_locale_translation_default_update_options(), [
@@ -93,7 +102,7 @@ class TranslationImport {
    * @param array $currentConfigKeyPath
    *   An array containing the config path, for recursion.
    */
-  private function processConfigTranslationFileContents(array $configArray, LanguageConfigOverride $languageConfigOverride, array $currentConfigKeyPath = []) {
+  private function processConfigTranslationFileContents(array $configArray, LanguageConfigOverride $languageConfigOverride, array $currentConfigKeyPath = []): void {
     foreach ($configArray as $key => $value) {
       $nextConfigKeyPath = array_merge($currentConfigKeyPath, [$key]);
       if (\is_array($value)) {

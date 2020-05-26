@@ -7,8 +7,6 @@ use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Class DegovSettingsForm.
- *
- * @package Drupal\degov_views_helper
  */
 class DegovSettingsForm extends ConfigFormBase {
 
@@ -75,7 +73,7 @@ class DegovSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = \Drupal::service('config.factory')->getEditable('degov_common.default_settings');
+    $config = $this->config('degov_common.default_settings');
     $config
       ->set('privacy_url', $form_state->getValue('privacy_url'))
       ->set('netiquette_url', $form_state->getValue('netiquette_url'))

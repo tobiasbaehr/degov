@@ -35,7 +35,7 @@ class DegovBundle extends Bundle {
     $allowed_values = explode('+', $value);
     if (!empty($allowed_values)) {
       foreach ($form[$key]['#options'] as $option => $label) {
-        if ($argument->isException($option) || ($label instanceof TranslatableMarkup && $label->getUntranslatedString() == "- Any -")) {
+        if ($argument->isException($option) || ($label instanceof TranslatableMarkup && $label->getUntranslatedString() === "- Any -")) {
           continue;
         }
         if (!in_array($option, $allowed_values)) {

@@ -2,10 +2,13 @@
 
 namespace Drupal\degov_common;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\media\MediaInterface;
+use function GuzzleHttp\Psr7\str;
 use DateInterval;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
-use Drupal\media\Entity\Media;
 use Drupal\video_embed_field\ProviderManager;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
@@ -48,51 +51,46 @@ class VideoUtils {
   protected $logger;
 
   /**
-   * Create a service class.
-   *
-   *   The plugin definition.
-   *
-   * @param \GuzzleHttp\ClientInterface $http_client
-   *   An HTTP client.
-   * @param \Drupal\video_embed_field\ProviderManager $video_provider_manager
-   *   Video provider manager.
-   * @param \Drupal\Core\File\FileSystem $file_system
-   *   File system.
-   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
-   *   Logger.
+   * @var \Drupal\Core\Messenger\MessengerInterface
    */
-  public function __construct(ClientInterface $http_client, ProviderManager $video_provider_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger) {
+  protected $messenger;
+
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  public function __construct(ClientInterface $http_client, ProviderManager $video_provider_manager, FileSystem $file_system, LoggerChannelFactoryInterface $logger, MessengerInterface $messenger, ConfigFactoryInterface $configFactory) {
     $this->httpClient = $http_client;
     $this->videoProviderManager = $video_provider_manager;
     $this->fileSystem = $file_system;
     $this->logger = $logger->get('degov_media_manager');
+    $this->messenger = $messenger;
+    $this->configFactory = $configFactory;
   }
 
   /**
    * Return the duration of Youtube video in seconds.
    *
-   * @param \Drupal\media\Entity\Media|mixed $media
+   * @param \Drupal\media\MediaInterface|mixed $media
    *   Media.
-   *
-   * @return int
-   *   Media duration.
    */
-  public function getVideoDuration($media) {
+  public function getVideoDuration($media): int {
     $duration = 0;
-    if ($media instanceof Media) {
-      if ($media->bundle() == 'video') {
+    if ($media instanceof MediaInterface) {
+      if ($media->bundle() === 'video') {
         $embed_field = $media->get('field_media_video_embed_field')->getValue();
         $url = $embed_field[0]['value'];
         /** @var \Drupal\video_embed_field\ProviderPluginBase $videoProvider */
         $videoProvider = $this->videoProviderManager->loadProviderFromInput($url);
         $provider = $videoProvider->getPluginId();
-        $videoId = $videoProvider->getIdFromInput($url);
+        $videoId = $videoProvider::getIdFromInput($url);
         $method = 'get' . ucfirst($provider) . 'Duration';
         if (method_exists($this, $method)) {
           $duration = $this->$method($videoId, $url);
         }
       }
-      if ($media->bundle() == 'video_upload') {
+      if ($media->bundle() === 'video_upload') {
         $file_uri = '';
         if (!$media->get('field_video_upload_mp4')->isEmpty()) {
           $file_uri = $media->get('field_video_upload_mp4')->entity->getFileUri();
@@ -113,14 +111,14 @@ class VideoUtils {
         $id3Info = $getId3
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
-          drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
+          $this->messenger->addStatus(t('There was a problem getting the video duration. Please check site logs.'));
           $this->logger->error('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]);
         }
         if (!empty($id3Info['playtime_seconds'])) {
           $duration = (int) ceil($id3Info['playtime_seconds']);
         }
       }
-      if ($media->bundle() == 'audio') {
+      if ($media->bundle() === 'audio') {
         $file_uri = '';
         if (!$media->get('field_audio_mp3')->isEmpty()) {
           $file_uri = $media->get('field_audio_mp3')->entity->getFileUri();
@@ -138,7 +136,7 @@ class VideoUtils {
         $id3Info = $getId3
           ->analyze($file_uri);
         if (isset($id3Info['error'])) {
-          drupal_set_message(t('There was a problem getting the audio duration. Please check site logs.'));
+          $this->messenger->addStatus(t('There was a problem getting the audio duration. Please check site logs.'));
           $this->logger->error('Error at reading audio properties from @uri with GetId3: @error.', ['uri' => $file_uri, 'error' => $id3Info['error']]);
         }
         if (!empty($id3Info['playtime_seconds'])) {
@@ -152,18 +150,13 @@ class VideoUtils {
   /**
    * Return the duration of Youtube video in seconds.
    *
-   * @param string $videoId
-   *   Video id.
-   * @param string $url
-   *   Url.
-   *
    * @return int
    *   Video duration.
    */
-  private function getYoutubeDuration($videoId, $url = '') {
-    $config = \Drupal::config('degov_common.default_settings');
+  private function getYoutubeDuration(string $videoId, string $url = ''): int {
+    $config = $this->configFactory->get('degov_common.default_settings');
     $key = $config->get('youtube_apikey');
-    if ($key == '') {
+    if ($key === '') {
       return 0;
     }
     $params = [
@@ -178,8 +171,8 @@ class VideoUtils {
       $response = $this->httpClient->request('GET', $query_url);
     }
     catch (ClientException $e) {
-      drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
-      $this->logger->error("Youtube access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
+      $this->messenger->addStatus(t('There was a problem getting the video duration. Please check site logs.'));
+      $this->logger->error("Youtube access failure with status: @trace", ['@trace' => str($e->getResponse())]);
       return 0;
     }
 
@@ -198,15 +191,10 @@ class VideoUtils {
   /**
    * Get duration of Vimeo video.
    *
-   * @param string $videoId
-   *   Video ID.
-   * @param string $url
-   *   Url.
-   *
    * @return int
    *   Video duration.
    */
-  private function getVimeoDuration($videoId, $url) {
+  private function getVimeoDuration(string $videoId, string $url): int {
     $query_url = 'https://vimeo.com/api/oembed.json?url=' . $url;
 
     $response = NULL;
@@ -214,8 +202,8 @@ class VideoUtils {
       $response = $this->httpClient->request('GET', $query_url);
     }
     catch (ClientException $e) {
-      drupal_set_message(t('There was a problem getting the video duration. Please check site logs.'));
-      $this->logger->error("Vimeo access failure with status: @trace", ['@trace' => \GuzzleHttp\Psr7\str($e->getResponse())]);
+      $this->messenger->addStatus(t('There was a problem getting the video duration. Please check site logs.'));
+      $this->logger->error("Vimeo access failure with status: @trace", ['@trace' => str($e->getResponse())]);
       return 0;
     }
 
@@ -231,21 +219,14 @@ class VideoUtils {
 
   /**
    * Get file info.
-   *
-   * @param string $file_path
-   *   File path.
-   *
-   * @return array
-   *   File info.
    */
   public function getFileInfo(string $file_path): array {
     $getId3 = new GetID3();
     $getId3->option_md5_data = TRUE;
     $getId3->option_md5_data_source = TRUE;
     $getId3->encoding = 'UTF-8';
-    $id3Info = $getId3
+    return $getId3
       ->analyze($file_path);
-    return $id3Info;
   }
 
 }

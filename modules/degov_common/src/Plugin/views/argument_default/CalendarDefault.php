@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  *   title = @Translation("Current month of the year (exposed excluded)")
  * )
  */
-class CalendarDefault extends ArgumentDefaultPluginBase {
+final class CalendarDefault extends ArgumentDefaultPluginBase {
 
   /**
    * {@inheritdoc}
@@ -39,39 +39,27 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
   protected $request;
 
   /**
-   * Constructs a new Date instance.
-   * phpcs:disable
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
-   *   The date formatter service.
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   *   The current request.
-   * phpcs:enable
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, DateFormatterInterface $date_formatter, Request $request) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
+  public function setDateFormatter(DateFormatterInterface $dateFormatter): void {
+    $this->dateFormatter = $dateFormatter;
+  }
 
-    $this->dateFormatter = $date_formatter;
+  /**
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   */
+  public function setRequest(Request $request): void {
     $this->request = $request;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('date.formatter'),
-      $container->get('request_stack')->getCurrentRequest()
-    );
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setDateFormatter($container->get('date.formatter'));
+    $instance->setRequest($container->get('request_stack')->getCurrentRequest());
+    return $instance;
   }
 
   /**
@@ -111,11 +99,10 @@ class CalendarDefault extends ArgumentDefaultPluginBase {
       $request_time = $this->request->server->get('REQUEST_TIME');
       return $this->dateFormatter->format($request_time, 'custom', $this->argFormat);
     }
-    else {
-      // Return all results for argument (exposed filters are limiting
-      // the results instead).
-      return $this->argument->options['exception']['value'];
-    }
+
+    // Return all results for argument (exposed filters are limiting
+    // the results instead).
+    return $this->argument->options['exception']['value'];
   }
 
 }

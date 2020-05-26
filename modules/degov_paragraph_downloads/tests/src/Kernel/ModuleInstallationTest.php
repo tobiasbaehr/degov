@@ -29,13 +29,14 @@ class ModuleInstallationTest extends KernelTestBase {
     'video_embed_field',
     'locale',
     'language',
+    'config_replace',
     'degov_paragraph_downloads_test',
   ];
 
   /**
    * Set up.
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('paragraph');
   }

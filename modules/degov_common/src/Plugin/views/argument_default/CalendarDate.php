@@ -3,8 +3,6 @@
 namespace Drupal\degov_common\Plugin\views\argument_default;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
-use Drupal\Core\Path\AliasManagerInterface;
-use Drupal\Core\Path\CurrentPathStack;
 use Drupal\views\Plugin\views\argument_default\Raw;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
  *   title = @Translation("Raw value from URL or current date")
  * )
  */
-class CalendarDate extends Raw {
+final class CalendarDate extends Raw {
 
   /**
    * {@inheritdoc}
@@ -41,45 +39,27 @@ class CalendarDate extends Raw {
   protected $request;
 
   /**
-   * Constructs a new Date instance.
-   * phpcs:disable
-   *
-   * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\Core\Path\AliasManagerInterface $alias_manager
-   *   Alias manager.
-   * @param \Drupal\Core\Path\CurrentPathStack $current_path
-   *   Current path.
-   * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
-   *   The date formatter service.
-   * @param \Symfony\Component\HttpFoundation\Request $request
-   *   The current request.
-   * phpcs:enable
+   * @param \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, AliasManagerInterface $alias_manager, CurrentPathStack $current_path, DateFormatterInterface $date_formatter, Request $request) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition, $alias_manager, $current_path);
+  public function setDateFormatter(DateFormatterInterface $dateFormatter): void {
+    $this->dateFormatter = $dateFormatter;
+  }
 
-    $this->dateFormatter = $date_formatter;
+  /**
+   * @param \Symfony\Component\HttpFoundation\Request $request
+   */
+  public function setRequest(Request $request): void {
     $this->request = $request;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('path.alias_manager'),
-      $container->get('path.current'),
-      $container->get('date.formatter'),
-      $container->get('request_stack')->getCurrentRequest()
-    );
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setDateFormatter($container->get('date.formatter'));
+    $instance->setRequest($container->get('request_stack')->getCurrentRequest());
+    return $instance;
   }
 
   /**
@@ -98,12 +78,10 @@ class CalendarDate extends Raw {
     if (isset($args[$this->options['index']]) && $this->isValidDateFromArgument($args[$this->options['index']])) {
       return $args[$this->options['index']];
     }
-    else {
 
-      $request_time = $this->request->server->get('REQUEST_TIME');
+    $request_time = $this->request->server->get('REQUEST_TIME');
 
-      return $this->dateFormatter->format($request_time, 'custom', $this->argFormat);
-    }
+    return $this->dateFormatter->format($request_time, 'custom', $this->argFormat);
   }
 
   /**
@@ -115,12 +93,9 @@ class CalendarDate extends Raw {
    * @return bool
    *   True if valid date.
    */
-  private function isValidDateFromArgument($date_string) {
+  private function isValidDateFromArgument(string $date_string): bool {
     $date = \DateTime::createFromFormat($this->argFormat, $date_string);
-    if ($date instanceof \DateTime) {
-      return TRUE;
-    }
-    return FALSE;
+    return $date instanceof \DateTime;
   }
 
 }

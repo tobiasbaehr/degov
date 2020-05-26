@@ -34,8 +34,8 @@ class Common {
    *   - entity_view_modes: optional array of entity view modes that need
    *   templates, could be empty.
    *
-   * @deprecated in deGov 7.x and is removed from deGov 8.0 release.
-   *   The old method is too general and un-intuitive to follow.
+   * TODO:
+   *   Replace this with hook_theme and hook_theme_suggestions_alter and the derivates.
    * @see \Drupal\degov_theming\Service\Template::suggest()
    */
   public static function addThemeSuggestions(array &$variables, $hook, array &$info, array $options) {

@@ -170,9 +170,9 @@ class AutoCropperTest extends UnitTestCase {
   /**
    * AutoCropperTest constructor.
    */
-  public function __construct() {
+  public function setUp() {
 
-    parent::__construct();
+    parent::setUp();
 
     $this->generateCropTypes();
 

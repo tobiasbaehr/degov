@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_common\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Field\EntityReferenceFieldItemListInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\Plugin\Field\FieldFormatter\EntityReferenceEntityFormatter;
 use Drupal\Core\TypedData\TranslatableInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'entity reference rendered entity' formatter.
@@ -22,15 +26,31 @@ use Drupal\Core\TypedData\TranslatableInterface;
  */
 class DeGovPreviewImage extends EntityReferenceEntityFormatter {
 
+  /** @var \Drupal\Core\Entity\EntityRepositoryInterface*/
+  protected $entityRepository;
+
+  public function setEntityRepository(EntityRepositoryInterface $entity_repository): void {
+    $this->entityRepository = $entity_repository;
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setEntityRepository($container->get('entity.repository'));
+    return $instance;
+  }
+
   /**
    * {@inheritdoc}
    */
-  public static function isApplicable(FieldDefinitionInterface $field_definition) {
+  public static function isApplicable(FieldDefinitionInterface $field_definition): bool {
     // This formatter is only available for entity types that have a view
     // builder.
     $target_type = $field_definition->getFieldStorageDefinition()->getSetting('target_type');
-    $hasViewBuilderClass = \Drupal::entityManager()->getDefinition($target_type)->hasViewBuilderClass();
-    if ($target_type == 'media' && $hasViewBuilderClass) {
+    $hasViewBuilderClass = \Drupal::entityTypeManager()->getDefinition($target_type)->hasViewBuilderClass();
+    if ($target_type === 'media' && $hasViewBuilderClass) {
       $settings = $field_definition->getSettings();
       if (!empty($settings['handler_settings']['target_bundles']) && in_array('image', $settings['handler_settings']['target_bundles'])) {
         return TRUE;
@@ -42,7 +62,7 @@ class DeGovPreviewImage extends EntityReferenceEntityFormatter {
   /**
    * {@inheritdoc}
    */
-  protected function getEntitiesToView(EntityReferenceFieldItemListInterface $items, $langcode) {
+  protected function getEntitiesToView(EntityReferenceFieldItemListInterface $items, $langcode): array {
     $entities = parent::getEntitiesToView($items, $langcode);
     // If empty entities, try to load the one from header paragraphs.
     if (empty($entities)) {
@@ -54,8 +74,8 @@ class DeGovPreviewImage extends EntityReferenceEntityFormatter {
         $media = FALSE;
         // Loop through the values to find the header media type.
         foreach ($header_paragraphs as $header_paragraph) {
-          $paragraph = \Drupal::entityManager()->getStorage('paragraph')->load($header_paragraph['target_id']);
-          if ($paragraph && $paragraph->bundle() == 'image_header' && !$paragraph->get('field_header_media')->isEmpty()) {
+          $paragraph = $this->entityTypeManager->getStorage('paragraph')->load($header_paragraph['target_id']);
+          if ($paragraph && $paragraph->bundle() === 'image_header' && !$paragraph->get('field_header_media')->isEmpty()) {
             $media = $paragraph->get('field_header_media')->entity;
             break;
           }
@@ -65,7 +85,7 @@ class DeGovPreviewImage extends EntityReferenceEntityFormatter {
 
           // Set the entity in the correct language for display.
           if ($entity instanceof TranslatableInterface) {
-            $entity = \Drupal::entityManager()->getTranslationFromContext($entity, $langcode);
+            $entity = $this->entityRepository->getTranslationFromContext($entity, $langcode);
           }
 
           $access = $this->checkAccess($entity);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\Tests\degov_common\Kernel;
 
 use Drupal\Core\Config\ConfigImporterException;
+use Drupal\Core\Extension\Extension;
 use Drupal\KernelTests\KernelTestBase;
 
 /**
@@ -28,14 +29,8 @@ class DegovModuleUpdaterTest extends KernelTestBase {
     'media',
     'video_embed_field',
     'block',
+    'config_replace'
   ];
-
-  /**
-   * Module updater.
-   *
-   * @var \Drupal\degov_common\DegovModuleUpdater
-   */
-  private $moduleUpdater;
 
   /**
    * {@inheritdoc}
@@ -46,16 +41,20 @@ class DegovModuleUpdaterTest extends KernelTestBase {
     parent::setUp();
     $this->installConfig(['field', 'system']);
     $this->setInstallProfile('degov');
+
     /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
-    $theme_installer = $this->container->get('theme_installer');
-    $theme_installer->install(['degov_theme']);
-    \Drupal::configFactory()
+    $themeInstaller = $this->container->get('theme_installer');
+    /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+    $configFactory = $this->container->get('config.factory');
+    /** @var \Drupal\Core\Theme\ThemeManagerInterface $themeManager */
+    $themeManager = $this->container->get('theme.manager');
+
+    $themeInstaller->install(['degov_theme']);
+    $configFactory
       ->getEditable('system.theme')
       ->set('default', 'degov_theme')
       ->save();
-
-    \Drupal::service('theme.manager')->resetActiveTheme();
-    $this->moduleUpdater = $this->container->get('degov_config.module_updater');
+    $themeManager->resetActiveTheme();
   }
 
   /**
@@ -66,27 +65,33 @@ class DegovModuleUpdaterTest extends KernelTestBase {
    *
    * @throws \Exception
    */
-  public function testApplyUpdates() : void {
+  public function testApplyUpdates(): void {
     $this->enableModules([self::TEST_MODULE]);
-    $module_handler = $this->container->get('module_handler');
-    self::assertTrue($module_handler->moduleExists(self::TEST_MODULE));
-    /** @var \Drupal\Core\Config\ConfigFactoryInterface $config_factory */
-    $config_factory = $this->container->get('config.factory');
+    /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+    $moduleHandler = $this->container->get('module_handler');
+    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule(self::TEST_MODULE));
+
+    /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+    $configFactory = $this->container->get('config.factory');
     $config_name = 'field.storage.media.field_title';
-    $config = $config_factory->get($config_name);
+    $config = $configFactory->get($config_name);
     self::assertTrue($config->isNew());
     self::assertEmpty($config->getRawData());
 
     // Drupal do not check the config dependencies here? All is fine via UI.
     // TODO: Find out why.
     $this->installConfig([self::TEST_MODULE]);
-
-    $config = $config_factory->get($config_name);
+    /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+    $configFactory = $this->container->get('config.factory');
+    $config = $configFactory->get($config_name);
     self::assertFalse($config->isNew());
     self::assertNotEmpty($config->getRawData());
 
+    /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
+    $moduleUpdater = $this->container->get('degov_config.module_updater');
+
     try {
-      $this->moduleUpdater->applyUpdates(self::TEST_MODULE, '1234');
+      $moduleUpdater->applyUpdates(self::TEST_MODULE, '1234');
     }
     catch (ConfigImporterException $e) {
       $expected = <<<EOF
@@ -102,7 +107,7 @@ EOF;
     $block_installer = $this->container->get('degov_config.block_installer');
     $block_installer->placeBlockConfig(self::TEST_MODULE);
     try {
-      $this->moduleUpdater->applyUpdates(self::TEST_MODULE, '5678');
+      $moduleUpdater->applyUpdates(self::TEST_MODULE, '5678');
     }
     catch (ConfigImporterException $e) {
       $expected = <<<EOF

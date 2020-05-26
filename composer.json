@@ -83,7 +83,6 @@
         "php-coord/php-coord": "^2.1",
         "phpdocumentor/reflection-docblock": "^3.0|^4.0",
         "raiym/instagram-php-scraper": "^0.8.22",
-        "weitzman/drupal-test-traits": "1.0.0-alpha.1",
         "drupal/viewsreference": "1.4",
         "drupal/views_parity_row": "^1.8",
         "enyo/dropzone": "^4.3.0",

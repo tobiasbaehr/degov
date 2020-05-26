@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_common\Entity;
 
-use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * Class WorkflowHandler.
@@ -12,7 +12,7 @@ class WorkflowHandler {
   /**
    * Config factory.
    *
-   * @var \Drupal\Core\Config\ConfigFactory
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   private $configFactory;
 
@@ -26,7 +26,7 @@ class WorkflowHandler {
   /**
    * WorkflowHandler constructor.
    */
-  public function __construct(ConfigFactory $configFactory) {
+  public function __construct(ConfigFactoryInterface $configFactory) {
     $this->configFactory = $configFactory;
     $this->config = $this->configFactory
       ->getEditable('workflows.workflow.editorial');
@@ -57,6 +57,7 @@ class WorkflowHandler {
       throw new \Exception('workflows core module is not installed.');
     }
 
+    /** @var string[] $nodeTypesConfig */
     $nodeTypesConfig = $this->config->get('type_settings.entity_types.node');
     $nodeTypes = array_keys(array_flip($nodeTypesConfig));
     if (\in_array($nodeType, $nodeTypes, TRUE)) {

@@ -2,7 +2,7 @@
 
 namespace Drupal\degov_common\Entity;
 
-use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Config\ConfigFactoryInterface;
 
 /**
  * Class ConfigAdder.
@@ -12,14 +12,14 @@ class ConfigAdder {
   /**
    * Config factory.
    *
-   * @var \Drupal\Core\Config\ConfigFactory
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
    */
   private $configFactory;
 
   /**
    * ConfigAdder constructor.
    */
-  public function __construct(ConfigFactory $configFactory) {
+  public function __construct(ConfigFactoryInterface $configFactory) {
     $this->configFactory = $configFactory;
   }
 

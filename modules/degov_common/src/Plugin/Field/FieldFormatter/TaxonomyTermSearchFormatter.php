@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_common\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldDefinitionInterface;
@@ -7,7 +9,6 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\Plugin\Field\FieldFormatter\EntityReferenceFormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteProviderInterface;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -30,7 +31,7 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
  *   }
  * )
  */
-class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implements ContainerFactoryPluginInterface {
+class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase {
 
   /**
    * The route provider service.
@@ -39,34 +40,23 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
    */
   protected $routeProvider;
 
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, RouteProviderInterface $route_provider) {
-    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
+  public function setRouteProvider(RouteProviderInterface $route_provider): void {
     $this->routeProvider = $route_provider;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $plugin_id,
-      $plugin_definition,
-      $configuration['field_definition'],
-      $configuration['settings'],
-      $configuration['label'],
-      $configuration['view_mode'],
-      $configuration['third_party_settings'],
-      $container->get('router.route_provider')
-    );
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setRouteProvider($container->get('router.route_provider'));
+    return $instance;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function defaultSettings() {
+  public static function defaultSettings(): array {
     return [
       'route_name' => '',
     ] + parent::defaultSettings();
@@ -75,7 +65,7 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
   /**
    * {@inheritdoc}
    */
-  public function viewElements(FieldItemListInterface $items, $langcode) {
+  public function viewElements(FieldItemListInterface $items, $langcode): array {
     $elements = [];
 
     if ($route_name = $this->getSetting('route_name')) {
@@ -113,7 +103,7 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, FormStateInterface $form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state): array {
     $form = parent::settingsForm($form, $form_state);
 
     $form['route_name'] = [
@@ -130,7 +120,7 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
   /**
    * {@inheritdoc}
    */
-  public function settingsSummary() {
+  public function settingsSummary(): array {
     $summary = parent::settingsSummary();
 
     if ($route_name = $this->getSetting('route_name')) {
@@ -143,7 +133,7 @@ class TaxonomyTermSearchFormatter extends EntityReferenceFormatterBase implement
   /**
    * {@inheritdoc}
    */
-  public static function isApplicable(FieldDefinitionInterface $field_definition) {
+  public static function isApplicable(FieldDefinitionInterface $field_definition): bool {
     return $field_definition->getFieldStorageDefinition()->getSetting('target_type') === 'taxonomy_term';
   }
 

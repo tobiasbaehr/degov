@@ -6,15 +6,27 @@ namespace Drupal\degov_common;
 
 use Drupal\config\StorageReplaceDataWrapper;
 use Drupal\Core\Config\Config;
+use Drupal\Core\Config\ConfigInstallerInterface;
 use Drupal\Core\Config\FileStorage;
 use Drupal\Core\Config\StorageInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class DegovConfigUpdate.
  *
  * @package Drupal\degov_common
  */
-class DegovConfigUpdate extends DegovConfigManagerBase {
+final class DegovConfigUpdate extends DegovConfigManagerBase {
+
+  /** @var \Drupal\Core\Config\ConfigInstallerInterface*/
+  private $configInstaller;
+
+  /**
+   * @param \Drupal\Core\Config\ConfigInstallerInterface $config_installer
+   */
+  public function setConfigInstaller(ConfigInstallerInterface $config_installer): void {
+    $this->configInstaller = $config_installer;
+  }
 
   /**
    * Updates the configuration of a given module and type.
@@ -26,7 +38,7 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    * @param string $contrib_type
    *   Type of contrib type being processed, namely a module or theme.
    */
-  public function configPartialImport(string $module, string $config_type = 'install', string $contrib_type = 'module') : void {
+  public function configPartialImport(string $module, string $config_type = 'install', string $contrib_type = 'module'): void {
     $source_dir = drupal_get_path($contrib_type, $module) . '/config/' . $config_type;
     $this->importConfigFiles($source_dir);
   }
@@ -41,7 +53,7 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    * @param string $config_type
    *   The configuration type, this could be install, optional or block.
    */
-  public function importConfigFile(string $module, string $config_name, string $config_type = 'install') {
+  public function importConfigFile(string $module, string $config_name, string $config_type = 'install'): void {
     $file_storage = new FileStorage(drupal_get_path('module', $module) . '/config/' . $config_type);
     $data = $file_storage->read($config_name);
     $this->addUuid($config_name, $data);
@@ -57,7 +69,7 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    * @param string $directory
    *   A directory path to use for reading configuration files.
    */
-  public function importConfigFiles(string $directory) : void {
+  public function importConfigFiles(string $directory): void {
     $fileStorage = new FileStorage($directory);
     $sourceStorage = new StorageReplaceDataWrapper($this->activeStorage);
     foreach ($fileStorage->listAll() as $name) {
@@ -74,15 +86,11 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
    * @param string $optional_install_path
    *   Optional install path.
    */
-  public function checkOptional(string $optional_install_path) : void {
+  public function checkOptional(string $optional_install_path): void {
     if (is_dir($optional_install_path)) {
       // Install any optional config the module provides.
       $storage = new FileStorage($optional_install_path, StorageInterface::DEFAULT_COLLECTION);
-      /**
-       * @var \Drupal\Core\Config\ConfigInstaller $configInstaller
-       */
-      $configInstaller = \Drupal::service('config.installer');
-      $configInstaller->installOptionalConfig($storage, '');
+      $this->configInstaller->installOptionalConfig($storage, '');
     }
   }
 
@@ -106,7 +114,7 @@ class DegovConfigUpdate extends DegovConfigManagerBase {
       if (substr($filename, -4) === '.yml') {
         $parsedConfiguration = Yaml::parseFile(drupal_get_path('module', $moduleName) . "/config/$folderName/$filename");
         $configurationName = substr_replace($filename, '', -4);
-        $this->configFactory->getEditable($configurationName)
+        $this->configManager->getConfigFactory()->getEditable($configurationName)
           ->setData($parsedConfiguration)
           ->save();
       }

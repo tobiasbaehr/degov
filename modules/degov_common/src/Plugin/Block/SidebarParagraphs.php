@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_common\Plugin\Block;
 
 use Drupal\Core\Access\AccessResult;
@@ -20,7 +22,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   category = @Translation("Blocks")
  * )
  */
-class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInterface {
+final class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Route matcher.
@@ -30,75 +32,36 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
   protected $routeMatcher;
 
   /**
-   * SidebarParagraphs constructor.
-   * phpcs:disable
-   *
-   * @param array $configuration
-   *   Configration.
-   * @param string $plugin_id
-   *   Plugin ID.
-   * @param mixed $plugin_definition
-   *   Plugin definition.
-   * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatch
-   *   Route match.
-   * phpcs:enable
+   * @param \Drupal\Core\Routing\RouteMatchInterface $routeMatcher
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $routeMatch) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->routeMatcher = $routeMatch;
-  }
-
-  /**
-   * Create.
-   * phpcs:disable
-   *
-   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
-   *   Container.
-   * @param array $configuration
-   *   Configuration.
-   * @param string $plugin_id
-   *   Plugin ID.
-   * @param mixed $plugin_definition
-   *   Plugin definitions.
-   *
-   * @return static
-   *
-   * phpcs:enable
-   */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('current_route_match')
-    );
+  public function setRouteMatcher(RouteMatchInterface $routeMatcher): void {
+    $this->routeMatcher = $routeMatcher;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function defaultConfiguration() {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->setRouteMatcher($container->get('current_route_match'));
+    return $instance;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function defaultConfiguration(): array {
     return ['label_display' => 'hidden'];
   }
 
   /**
-   * Builds and returns the renderable array for this block plugin.
-   *
-   * If a block should not be rendered because it has no content, then this
-   * method must also ensure to return no content: it must then only return an
-   * empty array, or an empty array with #cache set (with cacheability metadata
-   * indicating the circumstances for it being empty).
-   *
-   * @return array
-   *   A renderable array representing the content of the block.
-   *
-   * @see \Drupal\block\BlockViewBuilder
+   * {@inheritdoc}
    */
-  public function build() {
+  public function build(): array {
     $build = [];
     // Try to get the node from the route.
     $node = $this->routeMatcher->getParameter('node');
-    if ($this->routeMatcher->getRouteName() == 'entity.node.preview') {
+    if ($this->routeMatcher->getRouteName() === 'entity.node.preview') {
       $node = $this->routeMatcher->getParameter('node_preview');
     }
     if ($node && $node instanceof NodeInterface) {
@@ -127,7 +90,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
   /**
    * {@inheritdoc}
    */
-  public function getCacheTags() {
+  public function getCacheTags(): array {
     $cache_tags = parent::getCacheTags();
     $node = $this->routeMatcher->getParameter('node');
     if ($node && $node instanceof NodeInterface) {
@@ -140,7 +103,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
   /**
    * {@inheritdoc}
    */
-  public function getCacheContexts() {
+  public function getCacheContexts(): array {
     return Cache::mergeContexts(parent::getCacheContexts(), ['url.path', 'user.permissions']);
   }
 
@@ -149,7 +112,7 @@ class SidebarParagraphs extends BlockBase implements ContainerFactoryPluginInter
    */
   protected function blockAccess(AccountInterface $account) {
     $node = $this->routeMatcher->getParameter('node');
-    if ($this->routeMatcher->getRouteName() == 'entity.node.preview') {
+    if ($this->routeMatcher->getRouteName() === 'entity.node.preview') {
       $node = $this->routeMatcher->getParameter('node_preview');
     }
     $condition = $node && $node instanceof NodeInterface &&

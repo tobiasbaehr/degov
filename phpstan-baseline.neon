@@ -61,6 +61,16 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_auto_crop/tests/src/Kernel/OffsetConfigTest.php
 
 		-
+			message: "#^Return type of method Drupal\\\\Tests\\\\degov_auto_crop\\\\Unit\\\\AutoCropperTest\\:\\:returnStorage\\(\\) has typehint with deprecated interface PHPUnit_Framework_MockObject_MockObject\\:\nUse PHPUnit\\\\Framework\\\\MockObject\\\\MockObject instead$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/degov_auto_crop/tests/src/Unit/AutoCropperTest.php
+
+		-
+			message: "#^Return type of method Drupal\\\\Tests\\\\degov_auto_crop\\\\Unit\\\\AutoCropperTest\\:\\:returnCrop\\(\\) has typehint with deprecated interface PHPUnit_Framework_MockObject_MockObject\\:\nUse PHPUnit\\\\Framework\\\\MockObject\\\\MockObject instead$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/degov_auto_crop/tests/src/Unit/AutoCropperTest.php
+
+		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 2
 			path: docroot/profiles/contrib/degov/modules/degov_behat_extension/src/BehatContext/PerformanceContext.php
@@ -81,184 +91,9 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_breadcrumb/tests/src/Kernel/ModuleInstallationTest.php
 
 		-
-			message: "#^Call to deprecated constant USER_REGISTER_ADMINISTRATORS_ONLY\\: Deprecated in drupal\\:8\\.3\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use \\\\Drupal\\\\user\\\\UserInterface\\:\\:REGISTER_ADMINISTRATORS_ONLY instead\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/degov_common.install
-
-		-
-			message: "#^Class Drupal\\\\degov_common\\\\Form\\\\DegovMediaForm not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/degov_common.module
-
-		-
-			message: "#^Class Drupal\\\\degov_common\\\\MediaFormAlter not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/degov_common.module
-
-		-
-			message: "#^Call to deprecated function drupal_basename\\(\\)\\:\nin drupal\\:8\\.0\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\Core\\\\File\\\\FileSystem\\:\\:basename\\(\\)\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Controller/FileController.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Controller/FileController.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 5
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovConfigManagerBase.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovConfigUpdate.php
-
-		-
-			message: "#^Call to static method parseFile\\(\\) on an unknown class Drupal\\\\degov_common\\\\Yaml\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovConfigUpdate.php
-
-		-
-			message: "#^Access to an undefined property Drupal\\\\degov_common\\\\DegovConfigUpdate\\:\\:\\$configFactory\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovConfigUpdate.php
-
-		-
-			message: "#^Function _locale_translation_default_update_options not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovLocaleUpdate.php
-
-		-
-			message: "#^Function locale_translation_batch_update_build not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovLocaleUpdate.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 4
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/DegovModuleUpdater.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Entity/EntityService.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Entity/NodeService.php
-
-		-
 			message: "#^Cannot unset offset string on array\\<int, \\(int\\|string\\)\\>\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_common/src/Entity/WorkflowHandler.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Form/DegovSettingsForm.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/Block/SidebarParagraphs.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/Block/UserProfileLink.php
-
-		-
-			message: "#^Call to deprecated method entityManager\\(\\) of class Drupal\\:\nin drupal\\:8\\.0\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\:\\:entityTypeManager\\(\\) instead in most cases\\. If the needed\nmethod is not on \\\\Drupal\\\\Core\\\\Entity\\\\EntityTypeManagerInterface, see the\ndeprecated \\\\Drupal\\\\Core\\\\Entity\\\\EntityManager to find the\ncorrect interface or service\\.$#"
-			count: 3
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/Field/FieldFormatter/DeGovPreviewImage.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/Field/FieldFormatter/DeGovPreviewImage.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php
-
-		-
-			message: "#^Parameter \\$alias_manager of method Drupal\\\\degov_common\\\\Plugin\\\\views\\\\argument_default\\\\CalendarDate\\:\\:__construct\\(\\) has typehint with deprecated interface Drupal\\\\Core\\\\Path\\\\AliasManagerInterface\\:\nin drupal\\:8\\.8\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\path_alias\\\\AliasManagerInterface\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/views/argument_default/CalendarDate.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/views/argument_default/CalendarDate.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Plugin/views/argument_default/CalendarDefault.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/TranslationImport.php
-
-		-
-			message: "#^Function locale_translate_file_create not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/TranslationImport.php
-
-		-
-			message: "#^Function _locale_translation_default_update_options not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/TranslationImport.php
-
-		-
-			message: "#^Function locale_translate_file_attach_properties not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/TranslationImport.php
-
-		-
-			message: "#^Function locale_translate_batch_build not found\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/TranslationImport.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/Twig/Extension/FieldQuickEditAttributesExtension.php
-
-		-
-			message: "#^Call to deprecated function drupal_set_message\\(\\)\\:\nin drupal\\:8\\.5\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\Core\\\\Messenger\\\\MessengerInterface\\:\\:addMessage\\(\\) instead\\.$#"
-			count: 4
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/VideoUtils.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_common/src/VideoUtils.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 3
-			path: docroot/profiles/contrib/degov/modules/degov_common/tests/src/Kernel/CommonTest.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 3
-			path: docroot/profiles/contrib/degov/modules/degov_common/tests/src/Kernel/ConfigAdderTest.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 5
-			path: docroot/profiles/contrib/degov/modules/degov_common/tests/src/Kernel/ConfigRemoverTest.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_common/tests/src/Kernel/DegovModuleUpdaterTest.php
 
 		-
 			message: "#^Call to deprecated function drush_print\\(\\)\\.$#"
@@ -336,6 +171,11 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_demo_content/tests/src/Kernel/MenuItemGeneratorTest.php
 
 		-
+			message: "#^Call to deprecated method assertInternalType\\(\\) of class PHPUnit\\\\Framework\\\\Assert\\:\nhttps\\://github\\.com/sebastianbergmann/phpunit/issues/3369$#"
+			count: 2
+			path: docroot/profiles/contrib/degov/modules/degov_demo_content/tests/src/Unit/MediaFileHandlerTest.php
+
+		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_eu_cookie_compliance/tests/src/Kernel/ModuleInstallationTest.php
@@ -356,74 +196,14 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_html_mail/tests/src/Kernel/ModuleInstallationTest.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_address/degov_media_address.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_audio/degov_media_audio.module
-
-		-
 			message: "#^Call to deprecated function format_date\\(\\)\\:\nin drupal\\:8\\.0\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\:\\:service\\('date\\.formatter'\\)\\-\\>format\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_media_audio/degov_media_audio.module
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_citation/degov_media_citation.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_contact/degov_media_contact.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_document/degov_media_document.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_facts/degov_media_facts.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_gallery/degov_media_gallery.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_image/degov_media_image.module
-
-		-
 			message: "#^Call to deprecated method url\\(\\) of class Drupal\\\\Core\\\\Entity\\\\EntityBase\\:\nin drupal\\:8\\.0\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nPlease use toUrl\\(\\) instead\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_media_image/degov_media_image.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_instagram/degov_media_instagram.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_person/degov_media_person.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_social_media_embed/degov_media_social_media_embed.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_tweet/degov_media_tweet.module
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
@@ -446,21 +226,6 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_media_usage/src/Plugin/views/field/MediaUsageCountField.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_video/degov_media_video.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_video_mobile/degov_media_video_mobile.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_media_video_upload/degov_media_video_upload.module
-
-		-
 			message: "#^Call to deprecated function drupal_set_message\\(\\)\\:\nin drupal\\:8\\.5\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\Core\\\\Messenger\\\\MessengerInterface\\:\\:addMessage\\(\\) instead\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_multilingual/degov_multilingual.install
@@ -476,24 +241,9 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_multilingual/src/Form/SettingsForm.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_node_blog/degov_node_blog.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_node_event/degov_node_event.module
-
-		-
 			message: "#^Call to deprecated function drupal_get_user_timezone\\(\\)\\:\nin drupal\\:8\\.8\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use\ndate_default_timezone_get\\(\\) instead\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_node_event/degov_node_event.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_node_faq/degov_node_faq.module
 
 		-
 			message: "#^Call to deprecated method strtolower\\(\\) of class Drupal\\\\Component\\\\Utility\\\\Unicode\\:\nin drupal\\:8\\.6\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use\nmb_strtolower\\(\\) instead\\.$#"
@@ -501,29 +251,9 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_node_faq/degov_node_faq.module
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_node_normal_page/degov_node_normal_page.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_node_press/degov_node_press.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_block_reference/degov_paragraph_block_reference.module
-
-		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 2
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_block_reference/src/Plugin/Field/FieldFormatter/BlockRender.php
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_downloads/degov_paragraph_downloads.module
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
@@ -531,49 +261,9 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_downloads/tests/src/Kernel/ModuleInstallationTest.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_faq/degov_paragraph_faq.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_header/degov_paragraph_header.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_header_video/degov_paragraph_header_video.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_iframe/degov_paragraph_iframe.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_links/degov_paragraph_links.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_map/degov_paragraph_map.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_media_reference/degov_paragraph_media_reference.module
-
-		-
 			message: "#^Call to deprecated function drupal_set_message\\(\\)\\:\nin drupal\\:8\\.5\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\Core\\\\Messenger\\\\MessengerInterface\\:\\:addMessage\\(\\) instead\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_media_reference/degov_paragraph_media_reference.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_node_reference/degov_paragraph_node_reference.module
 
 		-
 			message: "#^Call to deprecated function drupal_set_message\\(\\)\\:\nin drupal\\:8\\.5\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\\\Core\\\\Messenger\\\\MessengerInterface\\:\\:addMessage\\(\\) instead\\.$#"
@@ -586,16 +276,6 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_node_reference/src/Form/SettingsForm.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 2
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_overrides/degov_paragraph_overrides.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_slideshow/degov_paragraph_slideshow.module
-
-		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_slideshow/src/PreprocessParagraph.php
@@ -604,21 +284,6 @@ parameters:
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_slideshow/src/PreprocessParagraph.php
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_text/degov_paragraph_text.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_video_subtitle/degov_paragraph_video_subtitle.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_view_reference/degov_paragraph_view_reference.module
 
 		-
 			message: "#^Call to deprecated method entityManager\\(\\) of class Drupal\\:\nin drupal\\:8\\.0\\.0 and is removed from drupal\\:9\\.0\\.0\\.\nUse \\\\Drupal\\:\\:entityTypeManager\\(\\) instead in most cases\\. If the needed\nmethod is not on \\\\Drupal\\\\Core\\\\Entity\\\\EntityTypeManagerInterface, see the\ndeprecated \\\\Drupal\\\\Core\\\\Entity\\\\EntityManager to find the\ncorrect interface or service\\.$#"
@@ -639,11 +304,6 @@ parameters:
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 2
 			path: docroot/profiles/contrib/degov/modules/degov_paragraph_view_reference/src/Plugin/Field/FieldFormatter/ViewsReferenceOverridenFieldFormatter.php
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_webform/degov_paragraph_webform.module
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
@@ -736,26 +396,6 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_social_media_youtube/src/Plugin/Block/YoutubeFeedBlock.php
 
 		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 5
-			path: docroot/profiles/contrib/degov/modules/degov_taxonomies/degov_taxonomies.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_media_accessibility/degov_taxonomy_media_accessibility.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_media_language/degov_taxonomy_media_language.module
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_term_section/degov_taxonomy_term_section.module
-
-		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_term_synonyms/src/Controller/TagSynonymAutocompleteController.php
@@ -769,11 +409,6 @@ parameters:
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 2
 			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_term_synonyms/src/Plugin/EntityReferenceSelection/TagSynonymSelection.php
-
-		-
-			message: "#^Call to deprecated method addThemeSuggestions\\(\\) of class Drupal\\\\degov_common\\\\Common\\:\nin deGov 7\\.x and is removed from deGov 8\\.0 release\\.\nThe old method is too general and un\\-intuitive to follow\\.$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_taxonomy_term_tags/degov_taxonomy_term_tags.module
 
 		-
 			message: "#^Call to deprecated method getBaseThemes\\(\\) of class Drupal\\\\Core\\\\Theme\\\\ActiveTheme\\:\nin drupal\\:8\\.7\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use\n\\\\Drupal\\\\Core\\\\Theme\\\\ActiveTheme\\:\\:getBaseThemeExtensions\\(\\) instead\\.$#"
@@ -854,6 +489,11 @@ parameters:
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/lightning_core/modules/lightning_roles/src/Form/SettingsForm.php
+
+		-
+			message: "#^You should use assertFalse\\(\\) instead of assertSame\\(\\) when expecting \"false\"$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/lightning_core/modules/lightning_roles/tests/src/Kernel/ContentRoleTest.php
 
 		-
 			message: "#^Call to deprecated function entity_get_form_display\\(\\)\\:\nin drupal\\:8\\.8\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use\nEntityDisplayRepositoryInterface\\:\\:getFormDisplay\\(\\) instead\\.$#"
@@ -1056,6 +696,11 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/lightning_media/tests/src/Kernel/MediaTypeTest.php
 
 		-
+			message: "#^Call to deprecated method assertInternalType\\(\\) of class PHPUnit\\\\Framework\\\\Assert\\:\nhttps\\://github\\.com/sebastianbergmann/phpunit/issues/3369$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/lightning_media/tests/src/Kernel/MediaTypeTest.php
+
+		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/media_file_links/src/Controller/EntityAutocompleteController.php
@@ -1121,6 +766,16 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/media_file_links/tests/src/Kernel/ModuleInstallationTest.php
 
 		-
+			message: "#^You should use assertFalse\\(\\) instead of assertSame\\(\\) when expecting \"false\"$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/media_file_links/tests/src/Kernel/PlaceholderHandlerTest.php
+
+		-
+			message: "#^You should use assertTrue\\(\\) instead of assertSame\\(\\) when expecting \"true\"$#"
+			count: 2
+			path: docroot/profiles/contrib/degov/modules/media_file_links/tests/src/Kernel/PlaceholderHandlerTest.php
+
+		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/media_file_links/tests/src/Kernel/SuggestionsTest.php
@@ -1171,6 +826,11 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/node_action/src/Plugin/Action/UnpublishAction.php
 
 		-
+			message: "#^Call to deprecated method assertInternalType\\(\\) of class PHPUnit\\\\Framework\\\\Assert\\:\nhttps\\://github\\.com/sebastianbergmann/phpunit/issues/3369$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/modules/node_action/tests/src/Unit/RedirectorTest.php
+
+		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/modules/styled_google_map/src/Form/StyledGoogleMapSettingsForm.php
@@ -1209,6 +869,11 @@ parameters:
 			message: "#^Call to an undefined method Drupal\\\\degov\\\\Robo\\\\Plugin\\\\Commands\\\\ExampleCommands\\:\\:checkNodeVersion\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/src/Robo/Plugin/Commands/ExampleCommands.php
+
+		-
+			message: "#^Call to deprecated method assertInternalType\\(\\) of class PHPUnit\\\\Framework\\\\Assert\\:\nhttps\\://github\\.com/sebastianbergmann/phpunit/issues/3369$#"
+			count: 1
+			path: docroot/profiles/contrib/degov/scripts/Robo/Test/UtilitiesTest.php
 
 		-
 			message: "#^Result of static method degov\\\\Scripts\\\\Robo\\\\Utilities\\:\\:checkNodeVersion\\(\\) \\(void\\) is used\\.$#"

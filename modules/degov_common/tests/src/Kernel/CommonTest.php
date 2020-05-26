@@ -52,9 +52,7 @@ class CommonTest extends KernelTestBase {
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('node');
     $this->installSchema('node', 'node_access');
-    \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
-    \Drupal::moduleHandler()->loadInclude('taxonomy', 'install');
-    $this->entityService = \Drupal::service('degov_common.entity');
+    $this->entityService = $this->container->get('degov_common.entity');
   }
 
   /**
@@ -62,12 +60,12 @@ class CommonTest extends KernelTestBase {
    */
   public function testRemoveTaxonomyTerm() {
 
-    $vocabulary = Vocabulary::create([
+    Vocabulary::create([
       'vid' => 'mytaxonomy',
       'description' => 'myTest',
       'name' => 'myTaxonomy',
     ])->save();
-    $taxonomyTerm = Term::create([
+    Term::create([
       'name' => 'An Taxonomy term',
       'vid' => 'mytaxonomy',
     ])->save();
@@ -76,7 +74,7 @@ class CommonTest extends KernelTestBase {
       'vid' => 'mytaxonomy',
       'name' => 'An Taxonomy term',
     ]);
-    self::assertTrue($termLoaded);
+    $this->assertIsInt($termLoaded);
     Common::removeContent([
       'entity_type' => 'taxonomy_term',
       'entity_bundles' => ['mytaxonomy'],
@@ -85,7 +83,7 @@ class CommonTest extends KernelTestBase {
       'name' => 'An Taxonomy term',
       'vid' => 'mytaxonomy',
     ]);
-    self::assertFalse($termID);
+    $this->assertNull($termID);
   }
 
   /**
@@ -101,7 +99,7 @@ class CommonTest extends KernelTestBase {
     $nodeID = $this->entityService->load('node', [
       'title' => 'An article node',
     ]);
-    self::assertTrue($nodeID);
+    $this->assertIsInt($nodeID);
     Common::removeContent([
       'entity_type' => 'node',
       'entity_bundles' => ['article'],
@@ -110,7 +108,7 @@ class CommonTest extends KernelTestBase {
       'title' => 'An article node',
       'vid' => 'mytaxonomy',
     ]);
-    self::assertFalse($nodeID);
+    $this->assertNull($nodeID);
   }
 
   /**

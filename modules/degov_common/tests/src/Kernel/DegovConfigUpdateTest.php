@@ -27,6 +27,7 @@ class DegovConfigUpdateTest extends KernelTestBase {
     'media',
     'video_embed_field',
     'block',
+    'config_replace'
   ];
 
   /**
@@ -45,7 +46,6 @@ class DegovConfigUpdateTest extends KernelTestBase {
     parent::setUp();
     $this->configUpdate = $this->container->get('degov_config.updater');
     $this->installConfig(['field', 'system']);
-
   }
 
   /**

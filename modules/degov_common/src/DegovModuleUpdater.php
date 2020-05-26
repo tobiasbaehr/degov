@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_common;
 
 use Drupal\config_replace\ConfigReplacer;
@@ -9,7 +11,27 @@ use Drupal\config_replace\ConfigReplacer;
  *
  * @package Drupal\degov_common
  */
-class DegovModuleUpdater extends ConfigReplacer {
+final class DegovModuleUpdater extends ConfigReplacer {
+
+  /** @var \Drupal\degov_common\DegovConfigUpdate*/
+  private $degovConfigUpdate;
+
+  /** @var \Drupal\degov_common\DegovBlockInstallerInterface*/
+  private $degovBlockInstaller;
+
+  /**
+   * @param \Drupal\degov_common\DegovBlockInstallerInterface $degov_block_installer
+   */
+  public function setDegovBlockInstaller(DegovBlockInstallerInterface $degov_block_installer): void {
+    $this->degovBlockInstaller = $degov_block_installer;
+  }
+
+  /**
+   * @param \Drupal\degov_common\DegovConfigUpdate $degov_config_update
+   */
+  public function setDegovConfigUpdate(DegovConfigUpdate $degov_config_update): void {
+    $this->degovConfigUpdate = $degov_config_update;
+  }
 
   /**
    * Applies all config updates for the version.
@@ -37,11 +59,9 @@ class DegovModuleUpdater extends ConfigReplacer {
    *   Set to TRUE to import the configuration without checking if the module
    *   installed.
    */
-  public function reImport(string $config_name, string $module, string $config_type, bool $force = FALSE) : void {
-    if ($force || \Drupal::moduleHandler()->moduleExists($module)) {
-      /** @var \Drupal\degov_common\DegovConfigUpdate $updater */
-      $updater = \Drupal::service('degov_config.updater');
-      $updater->importConfigFile($module, $config_name, $config_type);
+  public function reImport(string $config_name, string $module, string $config_type, bool $force = FALSE): void {
+    if ($force || $this->moduleHandler->moduleExists($module)) {
+      $this->degovConfigUpdate->importConfigFile($module, $config_name, $config_type);
     }
   }
 
@@ -65,20 +85,18 @@ class DegovModuleUpdater extends ConfigReplacer {
     if (file_exists($source_dir)) {
       // Are there any new installs?
       $install_dir = $source_dir . '/install';
-      /** @var \Drupal\degov_common\DegovConfigUpdate $updater */
-      $updater = \Drupal::service('degov_config.updater');
       if (file_exists($install_dir)) {
-        $updater->importConfigFiles($install_dir);
+        $this->degovConfigUpdate->importConfigFiles($install_dir);
       }
       // Are there any optional?
       $optional_dir = $source_dir . '/optional';
       if (file_exists($optional_dir)) {
-        $updater->checkOptional($optional_dir);
+        $this->degovConfigUpdate->checkOptional($optional_dir);
       }
       // Are there any blocks?
       $blocks_dir = $source_dir . '/block';
       if (file_exists($blocks_dir)) {
-        \Drupal::service('degov_config.block_installer')->installBlockConfig($blocks_dir);
+        $this->degovBlockInstaller->installBlockConfig($blocks_dir);
       }
       // Are there any rewrites?
       $updates_dir = $source_dir . '/rewrite';

@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_common module.
  */
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
@@ -10,8 +11,6 @@ use Drupal\Core\Link;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\degov_common\DegovOverride;
-use Drupal\degov_common\Form\DegovMediaForm;
-use Drupal\degov_common\MediaFormAlter;
 use Drupal\degov_common\Plugin\views\filter\DegovBundle;
 use Drupal\file\FileInterface;
 use Drupal\locale\SourceString;
@@ -27,7 +26,6 @@ function degov_common_views_plugins_filter_alter(array &$plugins) {
 
 /**
  * Implements hook_views_data_alter().
- * Adds custom views fields.
  */
 function degov_common_views_data_alter(array &$data) {
   // Add the usage field to media.
@@ -75,15 +73,12 @@ function degov_common_theme() {
  * @return \Drupal\Core\Url An Url object for the download url.
  * An Url object for the download url.
  */
-function degov_common_file_download_link($file, $options = []) {
-  $url = new Url('degov_common.file_download', ['file' => $file->id()], $options);
-  return $url;
+function degov_common_file_download_link(FileInterface $file, array $options = []) {
+  return new Url('degov_common.file_download', ['file' => $file->id()], $options);
 }
 
 /**
- * Get file type.
- *
- * @param $variables
+ * Implements hook_preprocss_HOOK for theme_degov_file_download_link().
  */
 function degov_common_preprocess_degov_file_download_link(&$variables) {
   /** @var \Drupal\file\FileInterface $file */
@@ -103,7 +98,7 @@ function degov_common_preprocess_degov_file_download_link(&$variables) {
  *
  * @return array
  */
-function degov_common_file_download_render_array($file, $additional_information = '') {
+function degov_common_file_download_render_array($file, string $additional_information = ''): array {
   if ($file instanceof FileInterface) {
     // Prepare the attributes for the main container of the template.
     $attributes = new Attribute();
@@ -120,20 +115,14 @@ function degov_common_file_download_render_array($file, $additional_information 
       '#additional_information' => $additional_information,
     ];
   }
+  return [];
 }
 
 /**
- * Set degov_common module to run the last on some hooks.
- * @param $implementations
- * @param $hook
+ * Implements hook_module_implements_alter().
  */
 function degov_common_module_implements_alter(&$implementations, $hook) {
-  if (in_array($hook, ['views_plugins_filter_alter', 'entity_type_alter', 'form_alter'])) {
-    // Move my_module_form_alter() to the end of the list.
-    // \Drupal::moduleHandler()->getImplementations()
-    // iterates through $implementations with a foreach loop which PHP iterates
-    // in the order that the items were added, so to move an item to the end of
-    // the array, we remove it and then add it.
+  if (in_array($hook, ['views_plugins_filter_alter', 'form_alter'])) {
     $group = $implementations['degov_common'];
     unset($implementations['degov_common']);
     $implementations['degov_common'] = $group;
@@ -153,16 +142,12 @@ function degov_common_preprocess_node(&$variables) {
 }
 
 /**
- * Implements hook_ENTITY_TYPE_view_alter() for media entities.
- *
- * @param array $build
- * @param \Drupal\media\MediaInterface $entity
- * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ * Implements hook_ENTITY_TYPE_view_alter().
  */
 function degov_common_media_view_alter(array &$build, MediaInterface $entity, EntityViewDisplayInterface $display) {
   // Skip adding contextual links if the Paragraph is in a QuickEdit form context
   // to avoid causing conflicts with Quickedit JS.
-  if (\Drupal::routeMatch()->getRouteName() == 'quickedit.field_form') {
+  if (\Drupal::routeMatch()->getRouteName() === 'quickedit.field_form') {
     return;
   }
 
@@ -193,23 +178,17 @@ function degov_common_modules_installed($modules) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
- * Add styles for the ckeditor media browser.
- *
- * @param array $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
-function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form, FormStateInterface $form_state) {
+function degov_common_form_entity_browser_ckeditor_media_browser_form_alter(array &$form) {
+  // Add styles for the ckeditor media browser.
   $form['#attached']['library'][] = 'lightning_media/browser.styling';
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
- * Add styles for the media browser.
- *
- * @param array $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * Implements hook_form_FORM_ID_alter() for entity_browser_media_browser.
  */
-function degov_common_form_entity_browser_media_browser_form_alter(array &$form, FormStateInterface $form_state) {
+function degov_common_form_entity_browser_media_browser_form_alter(array &$form) {
+  // Add styles for the media browser.
   $form['#attached']['library'][] = 'degov_common/browser.styling';
   if (!empty($form['selection_display'])) {
     $form['#attributes']['class'][] = 'with-selection clearfix';
@@ -222,33 +201,12 @@ function degov_common_form_entity_browser_media_browser_form_alter(array &$form,
 }
 
 /**
- * Alter menu add/edit form.
- * @param array $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * Implements hook_form_FORM_ID_alter() for menu_link_content_menu_link_content.
  */
-function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form, FormStateInterface $form_state) {
+function degov_common_form_menu_link_content_menu_link_content_form_alter(array &$form) {
+  // Alter menu add/edit form.
   if (!empty($form['link']['widget'][0]['options']['attributes']['class'])) {
     $form['link']['widget'][0]['options']['attributes']['class']['#description'] = t('Click on this field and use the icon picker to select the Font Awesome icon css class for this menu item (first level items only).');
-  }
-}
-
-/**
- * Implements hook_entity_type_alter().
- *
- * It is needed to change the class for media edit form to force thumbnail
- * regeneration, because when you change the source image/video/etc (media item)
- * the thumbnail is still referencing the old file entity.
- *
- */
-function degov_common_entity_type_alter(array &$entity_types) {
-  // Try to set the class for Media edit form from degov_common module to force thumbnail regeneration.
-  if (isset($entity_types['media'])) {
-    $entity_type = $entity_types['media'];
-    $replacement_class = DegovMediaForm::class;
-    if (get_parent_class($replacement_class) == $entity_type->getFormClass('edit')) {
-      $entity_type->setFormClass('edit', $replacement_class);
-    }
-    $entity_type->setLabelCallback('degov_media_label_callback');
   }
 }
 
@@ -269,23 +227,14 @@ function degov_media_label_callback($entity) {
 
 /**
  * Implements hook_form_alter().
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param $form_id
  */
 function degov_common_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   /** @var \Drupal\Core\Form\FormInterface $form_object */
   $form_object = $form_state->getFormObject();
-  if ($form_object->getFormId() === 'media_multiple_delete_confirm') {
-    \Drupal::service('class_resolver')
-      ->getInstanceFromDefinition(MediaFormAlter::class)
-      ->formAlter($form, $form_state, $form_id);
-  }
 
   if (method_exists($form_object, 'getBaseFormId')) {
     // Alter node forms.
-    if ($form_object->getBaseFormId() == 'node_form') {
+    if ($form_object->getBaseFormId() === 'node_form') {
       // Add the novalidate attribute to node forms. Without this, it is difficult
       // to find out why form validation failed (with required fields in hidden
       // field groups).
@@ -293,7 +242,7 @@ function degov_common_form_alter(&$form, FormStateInterface $form_state, $form_i
     }
 
     // Alter media forms.
-    if ($form_object->getBaseFormId() == 'media_form') {
+    if ($form_object->getBaseFormId() === 'media_form') {
       // field_media_in_library now is deprecated, let's restrict access to it.
       // @TODO the field comes from lightning, remove the code after eliminating the dependency on Lightning profile.
       if (!empty($form['field_media_in_library'])) {
@@ -316,12 +265,9 @@ function degov_common_form_alter(&$form, FormStateInterface $form_state, $form_i
 }
 
 /**
- * @param $source_string
- * @param $langcode
- * @param $translated_string
  * @throws \Drupal\locale\StringStorageException
  */
-function degov_common_add_translation($source_string, $langcode, $translated_string) {
+function degov_common_add_translation(string $source_string, string $langcode, string $translated_string):void {
   // Find existing source string.
   $storage = \Drupal::service('locale.storage');
   $string = $storage->findString(['source' => $source_string]);

@@ -1,19 +1,23 @@
 <?php
 
-namespace Drupal\degov_common\Entity;
+declare(strict_types=1);
 
-use Drupal\Core\Entity\EntityInterface;
+namespace Drupal\degov_common\Entity;
 
 /**
  * Class NodeService.
  */
-class NodeService {
+final class NodeService {
 
-  /**
-   * Load.
-   */
-  public function load(array $conditions): ?EntityInterface {
-    return \Drupal::service('degov_common.entity')->load('node', $conditions);
+  /** @var \Drupal\degov_common\Entity\EntityService*/
+  private $entityService;
+
+  public function __construct(EntityService $entity_service) {
+    $this->entityService = $entity_service;
+  }
+
+  public function load(array $conditions): ?int {
+    return $this->entityService->load('node', $conditions);
   }
 
 }

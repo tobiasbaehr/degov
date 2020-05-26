@@ -14,13 +14,7 @@ use Drupal\Core\Entity\FieldableEntityInterface;
 class MediaViewController extends EntityViewController {
 
   /**
-   * Pre-render callback to build the page title.
-   *
-   * @param array $page
-   *   A page render array.
-   *
-   * @return array
-   *   The changed page render array.
+   * {@inheritdoc}
    */
   public function buildTitle(array $page): array {
     $entity_type = $page['#entity_type'];
