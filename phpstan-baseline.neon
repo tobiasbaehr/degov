@@ -1,6 +1,46 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 5
+			path: docroot/modules/contrib/scheduled_publish/src/Form/DeleteUpdateForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 6
+			path: docroot/modules/contrib/scheduled_publish/src/Form/EditUpdateForm.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 10
+			path: docroot/modules/contrib/scheduled_publish/src/Form/MultipleUpdatesForm.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: docroot/modules/contrib/scheduled_publish/src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 3
+			path: docroot/modules/contrib/scheduled_publish/src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 4
+			path: docroot/modules/contrib/scheduled_publish/tests/src/Kernel/FormatterTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: docroot/modules/contrib/scheduled_publish/tests/src/Kernel/MediaTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: docroot/modules/contrib/scheduled_publish/tests/src/Kernel/NodeTest.php
+
+		-
 			message: "#^Call to deprecated function system_get_info\\(\\)\\:\nin drupal\\:8\\.8\\.0 and is removed from drupal\\:9\\.0\\.0\\. Use\n\\\\Drupal\\:\\:service\\('extension\\.list\\.\\$type'\\)\\-\\>getExtensionInfo\\(\\) or\n\\\\Drupal\\:\\:service\\('extension\\.list\\.\\$type'\\)\\-\\>getAllInstalledInfo\\(\\) instead\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/degov.install

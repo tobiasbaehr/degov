@@ -8,6 +8,7 @@ parameters:
     - docroot/core/modules/locale/locale.bulk.inc
   paths:
     - docroot/profiles/contrib/degov
+    - docroot/modules/contrib/scheduled_publish
   excludes_analyse:
     - docroot/profiles/contrib/degov/modules/lightning_media/tests/contexts/
     - docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/
