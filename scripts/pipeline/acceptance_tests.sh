@@ -35,9 +35,16 @@ _setup_file_system
 
 _info "### Setup database by new installation or database dump"
 
+_disable_geocoder_presave() {
+  # Geocoder ignores lat/long in Mediagenerator. (See function geocoder_field_entity_presave())
+  _info "### Disable geocoder presave."
+  _drush config:set geocoder.settings geocoder_presave_disabled ${1:-1}
+}
+
 if [[ "$2" == "install" ]]; then
     _info "### Installing a new"
     _behat -c behat-no-drupal.dist.yml
+    _disable_geocoder_presave
     _info "### Install the degov_demo_content"
     _drush en degov_demo_content
     _update_translations
@@ -64,6 +71,7 @@ elif [[ "$2" == "db_dump" ]]; then
     _drush updb
     _info "### Clear cache"
     _drush cr
+    _disable_geocoder_presave
     _info "### Install the degov_demo_content"
     _drush en degov_demo_content
     _update_translations
@@ -110,6 +118,7 @@ elif [[ "$1" == "backstopjs" ]]; then
 elif [[ "$1" != "backstopjs" ]]; then
     _info "### Running Behat features by tags: $1"
     set +e
+    _disable_geocoder_presave 0
     _behat -c behat.dist.yml --suite=default --tags="$1"
     EXIT_CODE=$?
     _drush_watchdog
