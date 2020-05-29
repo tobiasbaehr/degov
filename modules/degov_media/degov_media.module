@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The deGov Media module.
+ * Drupal hooks implementations for the degov_media module.
  */
 
 use Drupal\Core\Entity\EntityInterface;

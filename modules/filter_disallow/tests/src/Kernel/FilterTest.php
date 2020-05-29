@@ -67,10 +67,12 @@ class FilterTest extends KernelTestBase {
     $this->installEntitySchema('user');
     $this->installSchema('system', ['sequences']);
 
-    $this->filter = new FilterHtmlDisallow([], '', ['provider' => '']);
+    $this->filter = FilterHtmlDisallow::create($this->container, [], '', ['provider' => '']);
 
     $user = $this->createUser(['view filter_disallow messages']);
-    \Drupal::currentUser()->setAccount($user);
+    /** @var \Drupal\Core\Session\AccountProxyInterface $current_user */
+    $current_user = $this->container->get('current_user');
+    $current_user->setAccount($user);
 
     $this->textWithUnwantedHtml = '<p>In this text there is <script>a script tag</script> that should be removed äöüÄÖÜßßß</p>';
     $this->textWithUnwantedHtmlStripped = '<p>In this text there is a script tag that should be removed äöüÄÖÜßßß</p>';
@@ -99,7 +101,7 @@ class FilterTest extends KernelTestBase {
    */
   public function testMessagesArePostedOnRemoval(): void {
     $this->filter->stripHtmlTag($this->textWithUnwantedHtml, 'script');
-    $messages = \Drupal::messenger()
+    $messages = $this->container->get('messenger')
       ->messagesByType(MessengerInterface::TYPE_WARNING);
     self::assertCount(1, $messages);
   }
@@ -109,7 +111,7 @@ class FilterTest extends KernelTestBase {
    */
   public function testMessagesAreNotPostedIfNothingWasFiltered(): void {
     $this->filter->stripHtmlTag($this->cleanText, 'script');
-    $messages = \Drupal::messenger()
+    $messages = $this->container->get('messenger')
       ->messagesByType(MessengerInterface::TYPE_WARNING);
     self::assertCount(0, $messages);
   }

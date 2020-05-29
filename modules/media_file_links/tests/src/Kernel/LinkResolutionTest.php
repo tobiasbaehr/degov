@@ -5,7 +5,7 @@ namespace Drupal\Tests\media_file_links\Kernel;
 use Drupal\media\Entity\Media;
 
 /**
- * Class LinkResolutionTestTest.
+ * Class LinkResolutionTest.
  *
  * @package Drupal\Tests\media_file_links\Kernel
  */
@@ -25,7 +25,7 @@ class LinkResolutionTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->fileLinkResolver = \Drupal::service('media_file_links.file_link_resolver');
+    $this->fileLinkResolver = $this->container->get('media_file_links.file_link_resolver');
   }
 
   /**

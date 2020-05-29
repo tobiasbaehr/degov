@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_paragraph_view_reference\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
@@ -11,7 +13,7 @@ use Drupal\views\Views;
  *
  * @package Drupal\degov_paragraph_view_reference
  */
-class ViewsSettingsForm extends ConfigFormBase {
+final class ViewsSettingsForm extends ConfigFormBase {
 
   /**
    * Gets the configuration names that will be editable.
@@ -52,14 +54,14 @@ class ViewsSettingsForm extends ConfigFormBase {
       '#type' => 'checkboxes',
       '#title' => t('Allowed View Options'),
       '#options' => $view_list,
-      '#default_value' => is_array($allowed_views) ? $allowed_views : [],
+      '#default_value' => \is_array($allowed_views) ? $allowed_views : [],
       '#weight' => 2,
     ];
 
     $form['form_ids'] = [
       '#type' => 'textarea',
       '#title' => t('Form Ids to apply the filter'),
-      '#default_value' => is_array($form_ids) ? implode(PHP_EOL, $form_ids) : '',
+      '#default_value' => \is_array($form_ids) ? \implode(PHP_EOL, $form_ids) : '',
       '#weight' => 3,
     ];
 
@@ -70,18 +72,18 @@ class ViewsSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = \Drupal::service('config.factory')->getEditable('degov_paragraph_view_reference.views_helper_settings');
+    $config = $this->configFactory->getEditable('degov_paragraph_view_reference.views_helper_settings');
     $config->set('allowed_views', $form_state->getValue('allowed_views'))
       ->save();
     $form_ids = $form_state->getValue('form_ids');
-    if ($form_ids != '') {
-      $form_ids = explode(PHP_EOL, $form_ids);
+    if ($form_ids !== '') {
+      $form_ids = \explode(PHP_EOL, $form_ids);
     }
     else {
       $form_ids = [];
     }
     foreach ($form_ids as $key => $value) {
-      $form_ids[$key] = trim($value);
+      $form_ids[$key] = \trim($value);
     }
     $config->set('form_ids', $form_ids)->save();
 

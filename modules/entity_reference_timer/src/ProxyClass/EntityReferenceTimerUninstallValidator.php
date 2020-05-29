@@ -7,15 +7,12 @@
 
 namespace Drupal\entity_reference_timer\ProxyClass {
 
-  use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
-  use Symfony\Component\DependencyInjection\ContainerInterface;
-
-  /**
+    /**
      * Provides a proxy class for \Drupal\entity_reference_timer\EntityReferenceTimerUninstallValidator.
      *
      * @see \Drupal\Component\ProxyBuilder
      */
-    class EntityReferenceTimerUninstallValidator implements ModuleUninstallValidatorInterface
+    class EntityReferenceTimerUninstallValidator implements \Drupal\Core\Extension\ModuleUninstallValidatorInterface
     {
 
         use \Drupal\Core\DependencyInjection\DependencySerializationTrait;
@@ -49,7 +46,7 @@ namespace Drupal\entity_reference_timer\ProxyClass {
          * @param string $drupal_proxy_original_service_id
          *   The service ID of the original service.
          */
-        public function __construct(ContainerInterface $container, $drupal_proxy_original_service_id)
+        public function __construct(\Symfony\Component\DependencyInjection\ContainerInterface $container, $drupal_proxy_original_service_id)
         {
             $this->container = $container;
             $this->drupalProxyOriginalServiceId = $drupal_proxy_original_service_id;
@@ -76,6 +73,14 @@ namespace Drupal\entity_reference_timer\ProxyClass {
         public function validate($module)
         {
             return $this->lazyLoadItself()->validate($module);
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function setStringTranslation(\Drupal\Core\StringTranslation\TranslationInterface $translation)
+        {
+            return $this->lazyLoadItself()->setStringTranslation($translation);
         }
 
     }

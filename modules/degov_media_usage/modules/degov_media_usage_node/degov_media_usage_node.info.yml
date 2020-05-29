@@ -5,5 +5,5 @@ package: deGov
 core: 8.x
 
 dependencies:
-  - node
-  - degov_media_usage
+  - drupal:node
+  - degov:degov_media_usage

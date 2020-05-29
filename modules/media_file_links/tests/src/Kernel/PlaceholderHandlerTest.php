@@ -2,8 +2,6 @@
 
 namespace Drupal\Tests\media_file_links\Kernel;
 
-use Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler;
-
 /**
  * Class PlaceholderHandlerTest.
  *
@@ -15,7 +13,6 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
    * Placeholder handler.
    *
    * @var \Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler
-   *   $fileLinkResolver
    */
   private $placeholderHandler;
 
@@ -25,7 +22,7 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->placeholderHandler = new MediaFileLinkPlaceholderHandler();
+    $this->placeholderHandler = $this->container->get('media_file_links.placeholder_handler');
   }
 
   /**
@@ -33,7 +30,7 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
    */
   public function testRandomStringIsNoPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Not a placeholder!');
-    self::assertSame(FALSE, $result);
+    self::assertFalse($result);
   }
 
   /**
@@ -41,7 +38,7 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
    */
   public function testMenuPlaceholderIsPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here <media/file/1>');
-    self::assertSame(TRUE, $result);
+    self::assertTrue($result);
   }
 
   /**
@@ -49,7 +46,7 @@ class PlaceholderHandlerTest extends MediaFileLinksTestBase {
    */
   public function testTextPlaceholderIsPlaceholder(): void {
     $result = $this->placeholderHandler->isValidMediaFileLinkPlaceholder('Some text here [media/file/1]');
-    self::assertSame(TRUE, $result);
+    self::assertTrue($result);
   }
 
   /**

@@ -39,7 +39,7 @@ function degov_node_event_preprocess_node(&$variables) {
   if ($node->bundle() == 'event') {
     $variables['start_date_timestamp'] = FALSE;
     $variables['end_date_timestamp'] = FALSE;
-    $timezone = drupal_get_user_timezone();
+    $timezone = date_default_timezone_get();
 
     if (!$node->get('field_event_date')->isEmpty()) {
       $startDateObject = new DrupalDateTime($node->get('field_event_date')->value, 'UTC');
@@ -89,9 +89,6 @@ function degov_node_event_form_alter(&$form, FormStateInterface $form_state, $fo
  * Event calender date form custom validation.
  *
  * Add 24 hours in date_to filed to get current date events.
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
 function degov_node_event_date_form_validate($form, FormStateInterface $form_state) {
   // Check if the exposed filter is supposed to filter by end date.
@@ -105,9 +102,6 @@ function degov_node_event_date_form_validate($form, FormStateInterface $form_sta
 
 /**
  * Make sure the begin date is before the end date.
- *
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
  */
 function degov_node_event_node_form_validate($form, FormStateInterface $form_state) {
   $from = $form_state->getValue('field_event_date');

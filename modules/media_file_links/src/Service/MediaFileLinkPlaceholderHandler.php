@@ -30,7 +30,7 @@ class MediaFileLinkPlaceholderHandler {
   /**
    * Get placeholder for media ID.
    */
-  public function getPlaceholderForMediaId(int $mediaId, $usage = 'node'): ?string {
+  public function getPlaceholderForMediaId(int $mediaId, string $usage = 'node'): ?string {
     switch ($usage) {
       case 'node':
       case 'paragraph':

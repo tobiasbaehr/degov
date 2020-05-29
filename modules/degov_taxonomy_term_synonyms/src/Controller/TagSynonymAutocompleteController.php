@@ -20,7 +20,7 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
  *
  * @package Drupal\degov_taxonomy_term_synonyms\Controller
  */
-class TagSynonymAutocompleteController extends ControllerBase {
+final class TagSynonymAutocompleteController extends ControllerBase {
 
   /**
    * The autocomplete matcher for entity references.
@@ -91,7 +91,7 @@ class TagSynonymAutocompleteController extends ControllerBase {
    *
    * @see \Drupal\system\Controller\EntityAutocompleteController
    */
-  public function getMatches(string $target_type, string $selection_handler, array $selection_settings, string $string = '') {
+  public function getMatches(string $target_type, string $selection_handler, array $selection_settings, string $string = ''): array {
     $matches = [];
 
     $options = $selection_settings + [
@@ -145,7 +145,7 @@ class TagSynonymAutocompleteController extends ControllerBase {
    *   Thrown if the selection settings key is not found in the key/value store
    *   or if it does not match the stored data.
    */
-  public function handleAutocomplete(Request $request, string $target_type, string $selection_handler, string $selection_settings_key) {
+  public function handleAutocomplete(Request $request, string $target_type, string $selection_handler, string $selection_settings_key): JsonResponse {
     $matches = [];
     // Get the typed string from the URL, if it exists.
     if ($input = $request->query->get('q')) {
@@ -157,7 +157,7 @@ class TagSynonymAutocompleteController extends ControllerBase {
       $selection_settings = $this->keyValue->get($selection_settings_key, FALSE);
       if ($selection_settings !== FALSE) {
         $selection_settings_hash = Crypt::hmacBase64(serialize($selection_settings) . $target_type . $selection_handler, Settings::getHashSalt());
-        if (!Crypt::hashEquals($selection_settings_hash, $selection_settings_key)) {
+        if (!hash_equals($selection_settings_hash, $selection_settings_key)) {
           // Disallow access when the selection settings hash does not match the
           // passed-in key.
           throw new AccessDeniedHttpException('Invalid selection settings key.');

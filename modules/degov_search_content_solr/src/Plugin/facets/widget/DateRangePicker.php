@@ -2,12 +2,15 @@
 
 namespace Drupal\degov_search_content_solr\Plugin\facets\widget;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\Plugin\facets\query_type\SearchApiDate;
 use Drupal\facets\Result\Result;
 use Drupal\facets\Widget\WidgetPluginBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * The date range picker widget.
@@ -18,7 +21,28 @@ use Drupal\facets\Widget\WidgetPluginBase;
  *   description = @Translation("A configurable widget that shows a date range picker."),
  * )
  */
-class DateRangePicker extends WidgetPluginBase {
+final class DateRangePicker extends WidgetPluginBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFatory
+   */
+  public function setConfigFactory(ConfigFactoryInterface $config_factory): void {
+    $this->configFactory = $config_factory;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->setConfigFactory($container->get('config.factory'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -30,9 +54,8 @@ class DateRangePicker extends WidgetPluginBase {
       if (empty($result->getUrl())) {
         return $this->buildResultItem($result);
       }
-      else {
-        return $this->buildListItems($this->facet, $result);
-      }
+
+      return $this->buildListItems($this->facet, $result);
     }, $facet->getResults());
 
     $startDate = '';
@@ -46,11 +69,11 @@ class DateRangePicker extends WidgetPluginBase {
         if (count($value) != 2) {
           continue;
         }
-        $startDate = ($value[0] != '*') ? $value[0] : '';
+        $startDate = ($value[0] !== '*') ? $value[0] : '';
         if (!strtotime($startDate)) {
           $startDate = '';
         }
-        $endDate = ($value[1] != '*') ? $value[1] : '';
+        $endDate = ($value[1] !== '*') ? $value[1] : '';
         if (!strtotime($endDate)) {
           $endDate = '';
         }
@@ -75,7 +98,7 @@ class DateRangePicker extends WidgetPluginBase {
       }
     }
 
-    $timezone = \Drupal::config('system.date')->get('timezone.default');
+    $timezone = $this->configFactory->get('system.date')->get('timezone.default');
     // Prepare the render array for date filters.
     $form = [];
     $form['date_filter_wrapper'] = [

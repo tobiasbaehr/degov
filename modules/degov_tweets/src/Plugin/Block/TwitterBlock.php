@@ -3,6 +3,7 @@
 namespace Drupal\degov_tweets\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\degov_tweets\TwitterAPIExchange;
@@ -17,7 +18,7 @@ use Symfony\Component\Yaml\Yaml;
  *  admin_label = @Translation("Twitter block"),
  * )
  */
-class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Definition of TwitterAPIExchange.
@@ -25,6 +26,9 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
    * @var \Drupal\degov_tweets\TwitterAPIExchange
    */
   protected $twitter;
+
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface*/
+  private $configFactory;
 
   /**
    * TwitterFeedBlock constructor.
@@ -38,15 +42,19 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
    *   Block plugin definition.
    * @param \Drupal\degov_tweets\TwitterAPIExchange $twitter
    *   The Twitter service.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $twitter
+   *   The config factory service.
    * phpcs:enable
    */
   public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    TwitterAPIExchange $twitter) {
+    TwitterAPIExchange $twitter,
+    ConfigFactoryInterface $config_factory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->twitter = $twitter;
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -57,7 +65,8 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('degov_tweets.twitter')
+      $container->get('degov_tweets.twitter'),
+      $container->get('config.factory')
     );
   }
 
@@ -135,7 +144,7 @@ class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface 
   public function build() {
     $build = [];
 
-    $dev_mode = \Drupal::config('degov_devel.settings')->get('dev_mode');
+    $dev_mode = $this->configFactory->get('degov_devel.settings')->get('dev_mode');
     if ($dev_mode) {
       $response = $this->twitter->performRequest();
     }

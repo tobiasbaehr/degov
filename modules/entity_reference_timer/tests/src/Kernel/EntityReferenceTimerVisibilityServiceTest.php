@@ -46,23 +46,25 @@ class EntityReferenceTimerVisibilityServiceTest extends KernelTestBase {
     parent::setUp();
     /** @var \Drupal\Core\Database\Connection $database */
     $database = $this->container->get('database');
-    $this->service = new EntityReferenceTimerVisibilityService($database);
+    /** @var \Drupal\Core\Routing\CurrentRouteMatch $current_route_match */
+    $current_route_match = $this->container->get('current_route_match');
+    $this->service = new EntityReferenceTimerVisibilityService($database, $current_route_match);
 
     $this->theFuture = $this->getMockBuilder(TypedDataInterface::class)
       ->disableOriginalConstructor()
       ->getMock();
     $this->theFuture->method('getValue')
-      ->willReturn(strftime('%F %X %Z', strtotime('tomorrow')));
+      ->willReturn(strftime('%F %X %Z', \strtotime('tomorrow')));
     $this->thePast = $this->getMockBuilder(TypedDataInterface::class)
       ->disableOriginalConstructor()
       ->getMock();
     $this->thePast->method('getValue')
-      ->willReturn(strftime('%F %X %Z', strtotime('yesterday')));
+      ->willReturn(strftime('%F %X %Z', \strtotime('yesterday')));
     $this->now = $this->getMockBuilder(TypedDataInterface::class)
       ->disableOriginalConstructor()
       ->getMock();
     $this->now->method('getValue')
-      ->willReturn(strftime('%F %X %Z', strtotime('now')));
+      ->willReturn(strftime('%F %X %Z', \time()));
 
     $this->basicItem = $this
       ->getMockBuilder(FieldItemBase::class)

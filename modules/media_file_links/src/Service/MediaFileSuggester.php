@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\media_file_links\Service;
 
-use Drupal\file\Entity\File;
-use Drupal\media\Entity\Media;
+use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\media\MediaInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -14,7 +17,7 @@ use Drupal\node\NodeInterface;
  *
  * @package Drupal\media_file_links\Service
  */
-class MediaFileSuggester {
+final class MediaFileSuggester {
 
   /**
    * File field mapper.
@@ -31,16 +34,40 @@ class MediaFileSuggester {
   private $fileLinkResolver;
 
   /**
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  private $mediaStorage;
+
+  /**
+   * @var \Drupal\Core\Entity\EntityStorageInterface
+   */
+  private $fileStorage;
+
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface
+   */
+  private $entityTypeBundleInfo;
+
+  /**
    * MediaFileSuggester constructor.
    *
-   * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
-   *   File field mapper.
-   * @param \Drupal\media_file_links\Service\MediaFileLinkResolver $fileLinkResolver
-   *   File link resolver.
+   * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $file_field_mapper
+   *   Maps Media bundles to their primary file fields.
+   * @param \Drupal\media_file_links\Service\MediaFileLinkResolver $file_link_resolver
+   *   Accepts a Media entity ID and returns the primary file in the entity.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *    Manages entity type plugin definitions.
+   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function __construct(MediaFileFieldMapper $fileFieldMapper, MediaFileLinkResolver $fileLinkResolver) {
-    $this->fileFieldMapper = $fileFieldMapper;
-    $this->fileLinkResolver = $fileLinkResolver;
+  public function __construct(MediaFileFieldMapper $file_field_mapper, MediaFileLinkResolver $file_link_resolver, EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info) {
+    $this->fileFieldMapper = $file_field_mapper;
+    $this->fileLinkResolver = $file_link_resolver;
+    $this->mediaStorage = $entity_type_manager->getStorage('media');
+    $this->fileStorage = $entity_type_manager->getStorage('file');
+    $this->entityTypeBundleInfo = $entity_type_bundle_info;
   }
 
   /**
@@ -51,7 +78,7 @@ class MediaFileSuggester {
    * @param bool $returnJson
    *   Return JSON.
    *
-   * @return array
+   * @return array|string
    *   Search results.
    */
   public function findBySearchString(string $search, bool $returnJson = TRUE) {
@@ -75,13 +102,13 @@ class MediaFileSuggester {
    *   Results.
    */
   private function findBySearchInTitle(string $search): array {
-    $mediaQuery = \Drupal::entityQuery('media')
+    $mediaQuery = $this->mediaStorage->getQuery()
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('bundle', $this->fileFieldMapper->getEnabledBundles(), 'IN')
       ->condition('name', $search, 'CONTAINS');
     $mediaIds = $mediaQuery->execute();
     if (\count($mediaIds) > 0) {
-      return Media::loadMultiple($mediaIds);
+      return $this->mediaStorage->loadMultiple($mediaIds);
     }
     return [];
   }
@@ -96,7 +123,7 @@ class MediaFileSuggester {
    *   Results.
    */
   private function findBySearchInFilename(string $search): array {
-    $filesQuery = \Drupal::entityQuery('file')
+    $filesQuery = $this->fileStorage->getQuery()
       ->condition('status', NodeInterface::PUBLISHED)
       ->condition('filename', $search, 'CONTAINS');
     $fileIds = $filesQuery->execute();
@@ -105,7 +132,7 @@ class MediaFileSuggester {
       return [];
     }
 
-    $mediaQuery = \Drupal::entityQuery('media');
+    $mediaQuery = $this->mediaStorage->getQuery();
     $fieldValueCombinationsGroup = $mediaQuery->orConditionGroup();
     foreach ($this->fileFieldMapper->getBundleFileFieldMappings() as $bundle => $fileField) {
       $fieldValueCombinationsGroup->condition($fileField, $fileIds, 'IN');
@@ -116,7 +143,7 @@ class MediaFileSuggester {
       ->condition($fieldValueCombinationsGroup);
     $mediaIds = $mediaQuery->execute();
     if (\count($mediaIds) > 0) {
-      return Media::loadMultiple($mediaIds);
+      return $this->mediaStorage->loadMultiple($mediaIds);
     }
     return [];
   }
@@ -132,13 +159,13 @@ class MediaFileSuggester {
    */
   private function prepareResults(array $results): array {
     $preparedResults = [];
-    $mediaBundles = \Drupal::service('entity_type.bundle.info')
+    $mediaBundles = $this->entityTypeBundleInfo
       ->getBundleInfo('media');
     if (\count($results) > 0) {
       foreach ($results as $entity) {
         $nameValue = $entity->get('name')->getValue();
         if (!empty($nameValue[0]['value'])) {
-          $filename = $this->fileLinkResolver->getFileNameString($entity->id());
+          $filename = $this->fileLinkResolver->getFileNameString((int) $entity->id());
           $iconClass = $this->getIconClassForFile($filename);
           $preparedResults[] = [
             'id'          => $entity->id(),
@@ -181,18 +208,19 @@ class MediaFileSuggester {
   /**
    * Accepts a Media entity and returns the mime type of the primary file.
    *
-   * @param \Drupal\media\Entity\Media $media
+   * @param \Drupal\media\MediaInterface $media
    *   The Media entity to retrieve the mime type from.
    *
    * @return string
    *   The mime type of the entity's primary file.
    */
-  private function getFileTypeForEntity(Media $media): string {
+  private function getFileTypeForEntity(MediaInterface $media): string {
     $fileField = $this->fileFieldMapper->getFileFieldForBundle($media->bundle());
     if (!empty($fileField)) {
       $value = $media->get($fileField)->getValue();
       if (isset($value[0]['target_id'])) {
-        $file = File::load($value[0]['target_id']);
+        /** @var \Drupal\file\FileInterface $file */
+        $file = $this->fileStorage->load($value[0]['target_id']);
         return $file->getMimeType();
       }
     }

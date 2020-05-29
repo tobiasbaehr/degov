@@ -2,11 +2,12 @@
 
 namespace Drupal\media_file_links\Service;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
-use Drupal\file\Entity\File;
 use Drupal\file\FileInterface;
-use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class MediaFileLinkResolver.
@@ -16,7 +17,7 @@ use Drupal\media\MediaInterface;
  * @package Drupal\media_file_links\Service
  */
 class MediaFileLinkResolver {
-
+  use StringTranslationTrait;
   /**
    * File field mapper.
    *
@@ -24,14 +25,30 @@ class MediaFileLinkResolver {
    */
   private $fileFieldMapper;
 
+  /** @var \Drupal\media\MediaStorage*/
+  private $mediaStorage;
+
+  /** @var \Drupal\file\FileStorageInterface*/
+  private $fileStorage;
+
+  /**
+   * @var \Psr\Log\LoggerInterface
+   */
+  private $logger;
+
   /**
    * MediaFileLinkResolver constructor.
    *
    * @param \Drupal\media_file_links\Service\MediaFileFieldMapper $fileFieldMapper
    *   File field mapper.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   Manages entity type plugin definitions.
    */
-  public function __construct(MediaFileFieldMapper $fileFieldMapper) {
+  public function __construct(MediaFileFieldMapper $fileFieldMapper, EntityTypeManagerInterface $entity_type_manager, LoggerInterface $logger) {
     $this->fileFieldMapper = $fileFieldMapper;
+    $this->mediaStorage = $entity_type_manager->getStorage('media');
+    $this->fileStorage = $entity_type_manager->getStorage('file');
+    $this->logger = $logger;
   }
 
   /**
@@ -50,9 +67,7 @@ class MediaFileLinkResolver {
       return Url::fromUri(file_create_url($uri))->toString();
     }
 
-    \Drupal::logger('media_file_links')->warning(
-      t('Requested file for Media ID %id could not be found.', ['%id' => $mediaId])
-    );
+    $this->logger->warning($this->t('Requested file for Media ID %id could not be found.', ['%id' => $mediaId]));
     return '';
   }
 
@@ -72,9 +87,7 @@ class MediaFileLinkResolver {
       return $file->getFilename();
     }
 
-    \Drupal::logger('media_file_links')->warning(
-      t('Requested file for Media ID %id could not be found.', ['%id' => $mediaId])
-    );
+    $this->logger->warning($this->t('Requested file for Media ID %id could not be found.', ['%id' => $mediaId]));
     return '';
   }
 
@@ -88,14 +101,16 @@ class MediaFileLinkResolver {
    *   File.
    */
   private function getFileForMedia(int $mediaId): ?FileInterface {
-    $media = Media::load($mediaId);
+    $media = $this->mediaStorage->load($mediaId);
     if ($media instanceof MediaInterface) {
       $mediaBundle = $media->bundle();
       $fileFieldName = $this->fileFieldMapper->getFileFieldForBundle($mediaBundle);
       if (!empty($fileFieldName)) {
         $value = $media->get($fileFieldName)->getValue();
         if (isset($value[0]['target_id'])) {
-          return File::load($value[0]['target_id']);
+          /** @var \Drupal\file\FileInterface $file */
+          $file = $this->fileStorage->load($value[0]['target_id']);
+          return $file;
         }
       }
     }

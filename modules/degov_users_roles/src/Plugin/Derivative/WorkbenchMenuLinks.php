@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Derivative class that provides the menu links for workbench.
  */
-class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterface {
+final class WorkbenchMenuLinks extends DeriverBase implements ContainerDeriverInterface {
 
   /**
    * Route provider.

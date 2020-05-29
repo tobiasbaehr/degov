@@ -4,9 +4,12 @@ namespace Drupal\degov_paragraph_view_reference\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Utility\Token;
 use Drupal\node\NodeInterface;
 use Drupal\views\Entity\View;
 use Drupal\viewsreference\Plugin\Field\FieldFormatter\ViewsReferenceFieldFormatter;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Field formatter for Viewsreference Field.
@@ -17,7 +20,41 @@ use Drupal\viewsreference\Plugin\Field\FieldFormatter\ViewsReferenceFieldFormatt
  *   field_types = {"viewsreference"}
  * )
  */
-class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter {
+final class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter {
+
+  /**
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  protected $currentRouteMatch;
+
+  /**
+   * @var \Drupal\Core\Utility\Token
+   */
+  protected $token;
+
+  /**
+   * @param \Drupal\Core\Routing\RouteMatchInterface $currentRouteMatch
+   */
+  public function setCurrentRouteMatch(RouteMatchInterface $current_route_match): void {
+    $this->currentRouteMatch = $current_route_match;
+  }
+
+  /**
+   * @param \Drupal\Core\Utility\Token $token
+   */
+  public function setToken(Token $token): void {
+    $this->token = $token;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setCurrentRouteMatch($container->get('current_route_match'));
+    $instance->setToken($container->get('token'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -30,7 +67,7 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
       $display_id = $item->getValue()['display_id'];
       $argument = $item->getValue()['argument'];
       $title = $item->getValue()['title'];
-
+      // TODO: Make this safety. 2nd option of unserialize.
       $extra_data = unserialize($item->getValue()['data']);
       /** @var \Drupal\views\Entity\View $view_object */
       $view_object = View::load($view_name);
@@ -62,13 +99,12 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
           $arguments = explode('/', $argument);
         }
         /** @var \Drupal\node\NodeInterface $node */
-        $node = \Drupal::routeMatch()->getParameter('node');
-        $token_service = \Drupal::token();
+        $node = $this->currentRouteMatch->getParameter('node');
         if (is_array($arguments)) {
           foreach ($arguments as $index => $argument) {
             // Check if there are any tokens that need to be replaced.
-            if (!empty($token_service->scan($argument))) {
-              $arguments[$index] = $token_service->replace($argument, ['node' => $node]);
+            if (!empty($this->token->scan($argument))) {
+              $arguments[$index] = $this->token->replace($argument, ['node' => $node]);
             }
             // If the argument is not set in the field set the exception value.
             if ($argument == '' && !empty($view_arguments_config[$index])) {
@@ -80,7 +116,7 @@ class ViewsReferenceOverridenFieldFormatter extends ViewsReferenceFieldFormatter
               }
               // If there is a default value for the node, set it - we have
               // the node object.
-              if ($view_arguments_config[$index]['default_argument_type'] == 'node' && $node instanceof NodeInterface) {
+              if ($view_arguments_config[$index]['default_argument_type'] === 'node' && $node instanceof NodeInterface) {
                 $arguments[$index] = $node->id();
               }
             }

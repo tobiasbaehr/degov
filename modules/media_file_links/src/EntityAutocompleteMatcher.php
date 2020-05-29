@@ -1,22 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\media_file_links;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
 use Drupal\Core\Entity\EntityAutocompleteMatcher as EntityAutocompleteMatcherBase;
+use Drupal\Core\Entity\EntityReferenceSelection\SelectionPluginManagerInterface;
+use Drupal\Core\Entity\EntityRepositoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\media_file_links\Service\MediaFileSuggester;
 
 /**
  * Class EntityAutocompleteMatcher.
  *
  * @package Drupal\media_file_links
  */
-class EntityAutocompleteMatcher extends EntityAutocompleteMatcherBase {
+final class EntityAutocompleteMatcher extends EntityAutocompleteMatcherBase {
+
+  /** @var \Drupal\Core\Entity\EntityTypeManagerInterface*/
+  private $entityTypeManager;
 
   /**
-   * Gets matched labels based on a given search string.
+   * @var \Drupal\Core\Entity\EntityRepositoryInterface
    */
-  public function getMatches($target_type, $selection_handler, $selection_settings, $string = '') {
+  private $entityRepository;
+
+  /**
+   * @var \Drupal\media_file_links\Service\MediaFileSuggester
+   */
+  private $mediaFileSuggester;
+
+  public function __construct(
+    SelectionPluginManagerInterface $selection_plugin_manager,
+    EntityTypeManagerInterface $entity_type_manager,
+    EntityRepositoryInterface $entity_repository,
+    MediaFileSuggester $media_file_suggester
+  ) {
+    parent::__construct($selection_plugin_manager);
+    $this->entityTypeManager = $entity_type_manager;
+    $this->entityRepository = $entity_repository;
+    $this->mediaFileSuggester = $media_file_suggester;
+  }
+
+  /**
+   * @{inheritDoc}
+   */
+  public function getMatches($target_type, $selection_handler, $selection_settings, $string = ''): array {
 
     $matches = [];
 
@@ -38,10 +69,10 @@ class EntityAutocompleteMatcher extends EntityAutocompleteMatcherBase {
       // Loop through the entities and convert them into autocomplete output.
       foreach ($entity_labels as $values) {
         foreach ($values as $entity_id => $label) {
-          $entity = \Drupal::entityTypeManager()
+          $entity = $this->entityTypeManager
             ->getStorage($target_type)
             ->load($entity_id);
-          $entity = \Drupal::entityManager()
+          $entity = $this->entityRepository
             ->getTranslationFromContext($entity);
 
           $type = !empty($entity->type->entity) ? $entity->type->entity->label() : $entity->bundle();
@@ -61,7 +92,7 @@ class EntityAutocompleteMatcher extends EntityAutocompleteMatcherBase {
 
     // If previous search was not for Media, run a search on linkable Media now.
     if (!\in_array($target_type, ['media', 'user', 'taxonomy_term'])) {
-      $mediaResults = \Drupal::service('media_file_links.file_suggester')
+      $mediaResults = $this->mediaFileSuggester
         ->findBySearchString($string, FALSE);
 
       if (!empty($mediaResults)) {

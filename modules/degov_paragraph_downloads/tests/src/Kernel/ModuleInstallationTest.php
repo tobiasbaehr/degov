@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\degov_paragraph_downloads\Kernel;
 
+use Drupal\Core\Extension\Extension;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\language\Entity\ConfigurableLanguage;
 
@@ -30,7 +31,7 @@ class ModuleInstallationTest extends KernelTestBase {
     'locale',
     'language',
     'config_replace',
-    'degov_paragraph_downloads_test',
+    'degov_paragraph_downloads_test'
   ];
 
   /**
@@ -45,12 +46,9 @@ class ModuleInstallationTest extends KernelTestBase {
    * Test set up.
    */
   public function testSetup(): void {
-    /**
-     * @var \Drupal\Core\Extension\ModuleHandler $moduleHandler
-     */
-    $moduleHandler = \Drupal::service('module_handler');
-    self::assertTrue($moduleHandler->moduleExists('degov_paragraph_downloads'));
-    self::assertTrue($moduleHandler->getModule('degov_paragraph_downloads'));
+    /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+    $moduleHandler = $this->container->get('module_handler');
+    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule('degov_paragraph_downloads'));
   }
 
   /**
@@ -63,7 +61,8 @@ class ModuleInstallationTest extends KernelTestBase {
       'locales_target',
     ]);
     $this->installConfig(['degov_paragraph_downloads_test']);
-    $localeConfigManager = \Drupal::service('locale.config_manager');
+    /** @var \Drupal\locale\LocaleConfigManager $localeConfigManager */
+    $localeConfigManager = $this->container->get('locale.config_manager');
 
     $language = ConfigurableLanguage::createFromLangcode('de');
     $language->save();

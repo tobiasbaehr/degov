@@ -2,8 +2,12 @@
 
 /**
  * @file
+ * Install, update and uninstall hooks for the degov_media_usage_node module.
  */
 
+/**
+ * Implements hook_install().
+ */
 function degov_media_usage_node_install() {
   $allNids = array_values(\Drupal::entityQuery('node')->execute());
   $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
@@ -17,6 +21,9 @@ function degov_media_usage_node_install() {
   }
 }
 
+/**
+ * Implements hook_uninstall().
+ */
 function degov_media_usage_node_uninstall() {
   $query = \Drupal::database()->delete('degov_media_usage', ['submodule' => 'degov_media_usage_node']);
   $result = $query->execute();

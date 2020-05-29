@@ -13,7 +13,7 @@ use Drupal\Core\Database\Database;
 function degov_simplenews_references_install() {
   $schema = Database::getConnection()->schema();
 
-  if ($schema->tableExists('nrw_simplenews_subscription')) {
+  if ($schema && $schema->tableExists('nrw_simplenews_subscription')) {
     $schema->dropTable('nrw_simplenews_subscription');
   }
 }

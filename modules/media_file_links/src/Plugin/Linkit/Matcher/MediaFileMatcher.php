@@ -4,6 +4,8 @@ namespace Drupal\media_file_links\Plugin\Linkit\Matcher;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
+use Drupal\media_file_links\Service\MediaFileSuggester;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides specific LinkIt matchers for our custom entity type.
@@ -16,6 +18,27 @@ use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
  * )
  */
 class MediaFileMatcher extends EntityMatcher {
+
+  /**
+   * @var \Drupal\media_file_links\Service\MediaFileSuggester
+   */
+  protected $fileSuggester;
+
+  /**
+   * @param \Drupal\media_file_links\Service\MediaFileSuggester $file_suggester
+   */
+  public function setFileSuggester(MediaFileSuggester $file_suggester): void {
+    $this->fileSuggester = $file_suggester;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setFileSuggester($container->get('media_file_links.file_suggester'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -41,7 +64,7 @@ class MediaFileMatcher extends EntityMatcher {
       ]);
     }
 
-    if ($entity_type->hasKey('bundle')) {
+    if ($entity_type && $entity_type->hasKey('bundle')) {
       $summary[] = $this->t('Group by bundle: @bundle_grouping', [
         '@bundle_grouping' => $this->configuration['group_by_bundle'] ? $this->t('Yes') : $this->t('No'),
       ]);
@@ -65,7 +88,7 @@ class MediaFileMatcher extends EntityMatcher {
     ];
 
     // Filter the possible bundles to use if the entity has bundles.
-    if ($entity_type->hasKey('bundle')) {
+    if ($entity_type && $entity_type->hasKey('bundle')) {
       // Group the results by bundle.
       $form['group_by_bundle'] = [
         '#type' => 'checkbox',
@@ -82,7 +105,7 @@ class MediaFileMatcher extends EntityMatcher {
    * {@inheritdoc}
    */
   public function getMatches($string): array {
-    $mediaEntities = json_decode(\Drupal::service('media_file_links.file_suggester')->findBySearchString($string), TRUE);
+    $mediaEntities = \json_decode($this->fileSuggester->findBySearchString($string), TRUE);
     $returnMatches = [];
 
     if (!empty($mediaEntities)) {

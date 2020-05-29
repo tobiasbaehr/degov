@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_html_mail module.
  */
 
 use Drupal\Component\Render\MarkupInterface;
@@ -27,8 +28,6 @@ function degov_html_mail_preprocess(&$variables, $hook, &$info) {
 }
 
 /**
- * Changes the relative links in the email to absolute.
- *
  * Implements hook_mail_alter().
  */
 function degov_html_mail_mail_alter(&$message) {

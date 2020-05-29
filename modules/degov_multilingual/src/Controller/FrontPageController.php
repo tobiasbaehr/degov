@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_multilingual\Controller;
 
 use Drupal\Core\Access\AccessResult;
@@ -20,7 +22,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  *
  * @package Drupal\degov_multilingual\Controller
  */
-class FrontPageController implements ContainerInjectionInterface {
+final class FrontPageController implements ContainerInjectionInterface {
 
   /**
    * Multilingual front page.
@@ -97,8 +99,8 @@ class FrontPageController implements ContainerInjectionInterface {
         break;
     }
     $node = $this->degovMultilingualFrontPage->getObject();
-    if (!empty($node) && $node instanceof NodeInterface) {
-      if ($operation == 'revisions') {
+    if ($node instanceof NodeInterface) {
+      if ($operation === 'revisions') {
         return AccessResult::allowedIf($account->hasPermission('view ' . $node->bundle() . ' revisions'));
       }
       if ($node->access($operation, $account)) {
@@ -119,50 +121,38 @@ class FrontPageController implements ContainerInjectionInterface {
    */
   public function revisionOverview() {
     $node = $this->degovMultilingualFrontPage->getObject();
-    if (!empty($node) && $node instanceof NodeInterface) {
+    if ($node instanceof NodeInterface) {
       $url = Url::fromRoute('entity.node.version_history', ['node' => $node->id()]);
-      $redirect = new RedirectResponse($url->toString());
-      return $redirect;
+      return new RedirectResponse($url->toString());
     }
-    else {
-      throw new NotFoundHttpException();
-    }
+
+    throw new NotFoundHttpException();
   }
 
   /**
    * Redirect to corresponding edit form.
-   *
-   * @return \Drupal\Core\Cache\CacheableRedirectResponse
-   *   Cacheable redirect response.
    */
   public function edit() {
     $node = $this->degovMultilingualFrontPage->getObject();
-    if (!empty($node) && $node instanceof NodeInterface) {
+    if ($node instanceof NodeInterface) {
       $url = Url::fromRoute('entity.node.edit_form', ['node' => $node->id()]);
-      $redirect = new RedirectResponse($url->toString());
-      return $redirect;
+      return new RedirectResponse($url->toString());
     }
-    else {
-      throw new NotFoundHttpException();
-    }
+
+    throw new NotFoundHttpException();
   }
 
   /**
    * Redirect to corresponding delete form.
-   *
-   * @return \Drupal\Core\Cache\CacheableRedirectResponse
-   *   Cacheable redirect response.
    */
   public function delete() {
     $node = $this->degovMultilingualFrontPage->getObject();
-    if (!empty($node) && $node instanceof NodeInterface) {
+    if ($node instanceof NodeInterface) {
       $url = Url::fromRoute('entity.node.delete_form', ['node' => $node->id()]);
-      $redirect = new RedirectResponse($url->toString());
-      return $redirect;
+      return new RedirectResponse($url->toString());
     }
-    else {
-      throw new NotFoundHttpException();
-    }
+
+    throw new NotFoundHttpException();
   }
 
 }

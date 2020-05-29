@@ -26,8 +26,8 @@ class MediaFileLinkItemTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $property_definition = $this->getMock(DataReferenceDefinitionInterface::class);
-    $data_definition = $this->getMock(ComplexDataDefinitionInterface::class);
+    $property_definition = $this->createMock(DataReferenceDefinitionInterface::class);
+    $data_definition = $this->createMock(ComplexDataDefinitionInterface::class);
     $data_definition->expects($this->any())
       ->method('getPropertyDefinitions')
       ->willReturn([$property_definition]);

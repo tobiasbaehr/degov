@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_file_management\Form;
 
-use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -14,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @internal
  */
-class FileDeleteForm extends ConfirmFormBase {
+final class FileDeleteForm extends ConfirmFormBase {
 
   /**
    * The file.
@@ -31,33 +30,22 @@ class FileDeleteForm extends ConfirmFormBase {
   protected $fileStorage;
 
   /**
-   * The database connection.
-   *
-   * @var \Drupal\Core\Database\Connection
-   */
-  protected $connection;
-
-  /**
    * Constructs a new FileDeleteForm.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $file_storage
    *   The file storage.
-   * @param \Drupal\Core\Database\Connection $connection
-   *   The database connection.
    */
-  public function __construct(EntityStorageInterface $file_storage, Connection $connection) {
+  public function __construct(EntityStorageInterface $file_storage) {
     $this->fileStorage = $file_storage;
-    $this->connection = $connection;
   }
 
   /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    $entityTypeManager = $container->get('entity_type.manager');
+    $entity_type_manager = $container->get('entity_type.manager');
     return new static(
-      $entityTypeManager->getStorage('file'),
-      $container->get('database')
+      $entity_type_manager->getStorage('file')
     );
   }
 

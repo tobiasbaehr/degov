@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_multilingual\Form;
 
 use Drupal\Core\Cache\Cache;
@@ -16,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Drupal\degov_multilingual
  */
-class SettingsForm extends ConfigFormBase {
+final class SettingsForm extends ConfigFormBase {
 
   /**
    * The language manager.
@@ -34,9 +36,6 @@ class SettingsForm extends ConfigFormBase {
 
   /**
    * SettingsForm constructor.
-   *
-   * Constructs a \Drupal\degov_paragraph_node_reference\Form\SettingsForm
-   * object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The factory for configuration objects.
@@ -63,11 +62,7 @@ class SettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Gets the configuration names that will be editable.
-   *
-   * @return array
-   *   An array of configuration object names that are editable if called in
-   *   conjunction with the trait's config() method.
+   * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
     return [
@@ -76,10 +71,7 @@ class SettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Returns a unique string identifying the form.
-   *
-   * @return string
-   *   The unique string identifying the form.
+   * {@inheritdoc}
    */
   public function getFormId() {
     return 'degov_multilingual_settings';

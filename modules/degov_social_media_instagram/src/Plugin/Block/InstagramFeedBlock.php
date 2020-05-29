@@ -6,6 +6,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Datetime\DateFormatterInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\degov_social_media_instagram\Instagram;
@@ -48,6 +49,11 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
   protected $instagram;
 
   /**
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $modulehandler;
+
+  /**
    * InstagramFeedBlock constructor.
    * phpcs:disable
    *
@@ -65,17 +71,19 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *   The Instagram service.
    * phpcs:enable
    */
-  public function __construct(
+  final public function __construct(
     array $configuration,
     $plugin_id,
     $plugin_definition,
     ImmutableConfig $config,
     DateFormatterInterface $date_formatter,
-    Instagram $instagram) {
+    Instagram $instagram,
+  ModuleHandlerInterface $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->degovSocialMediaInstagramConfig = $config;
     $this->dateFormatter = $date_formatter;
     $this->instagram = $instagram;
+    $this->modulehandler = $module_handler;
   }
 
   /**
@@ -88,7 +96,8 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
       $plugin_definition,
       $container->get('config.factory')->get('degov_social_media_instagram.settings'),
       $container->get('date.formatter'),
-      $container->get('degov_social_media_instagram.instagram')
+      $container->get('degov_social_media_instagram.instagram'),
+      $container->get('module_handler')
     );
   }
 
@@ -155,9 +164,8 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
     if (mb_strlen($string) > $maxLength) {
       return mb_substr($string, 0, $maxLength) . $replacement;
     }
-    else {
-      return $string;
-    }
+
+    return $string;
   }
 
   /**
@@ -174,8 +182,8 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    * @{inheritDoc}
    */
   protected function blockAccess(AccountInterface $account) {
-    \Drupal::moduleHandler()->loadInclude('degov_social_media_instagram', 'install');
-    $result = \Drupal::moduleHandler()->invoke('degov_social_media_instagram', 'requirements', ['runtime']);
+    $this->modulehandler->loadInclude('degov_social_media_instagram', 'install');
+    $result = $this->modulehandler->invoke('degov_social_media_instagram', 'requirements', ['runtime']);
     return AccessResult::allowedIf(is_array($result) && empty($result));
   }
 

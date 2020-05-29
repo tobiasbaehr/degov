@@ -30,7 +30,7 @@ function degov_node_faq_views_pre_render(ViewExecutable $view) {
     $terms = trim(strip_tags($input['volltext']));
 
     if (!empty($terms)) {
-      $terms = array_unique(preg_split('/\s+/', Unicode::strtolower($terms)));
+      $terms = array_unique(preg_split('/\s+/', mb_strtolower($terms)));
     }
     else {
       $terms = [];

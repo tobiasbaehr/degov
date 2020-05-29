@@ -34,7 +34,7 @@ function degov_multilingual_install() {
       ->set('page.front', '/degov_multilingual/front_page')
       ->save();
 
-    drupal_set_message(t('<em>deGov - Multilingual</em>: <a href=":link">Configure the site front pages</a>', [':link' => Url::fromRoute('degov_multilingual.settings')->toString()]));
+    \Drupal::messenger()->addStatus(t('<em>deGov - Multilingual</em>: <a href=":link">Configure the site front pages</a>', [':link' => Url::fromRoute('degov_multilingual.settings')->toString()]));
   }
 }
 

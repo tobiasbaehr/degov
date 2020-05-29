@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_multilingual;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -63,30 +65,24 @@ class DegovMultilingualFrontPage {
    */
   public function getBuild() {
     $node = $this->getObject();
-    if ($node) {
-      if (!empty($node) && $node instanceof NodeInterface) {
-        if ($node->access('view')) {
-          $build = $this->entityTypeManager
-            ->getViewBuilder('node')
-            ->view($node);
-          $build['#cache']['tags'][] = 'degov_multilingual_front_page';
-          return $build;
-        }
-        else {
-          return self::ACCESS_DENIED;
-        }
+    if ($node instanceof NodeInterface) {
+      if ($node->access('view')) {
+        $build = $this->entityTypeManager
+          ->getViewBuilder('node')
+          ->view($node);
+        $build['#cache']['tags'][] = 'degov_multilingual_front_page';
+        return $build;
       }
+
+      return self::ACCESS_DENIED;
     }
-    else {
-      return self::NOT_FOUND;
-    }
+    return self::NOT_FOUND;
   }
 
   /**
    * Get the object of the current frontpage.
    */
-  public function getObject() {
-    $nid = FALSE;
+  public function getObject(): ?NodeInterface {
     // Get the settings for front pages.
     $front_pages = $this->configFactory
       ->get('degov_multilingual.settings')
@@ -99,7 +95,7 @@ class DegovMultilingualFrontPage {
     $default_language = $this->languageManager
       ->getDefaultLanguage()
       ->getId();
-
+    $nid = NULL;
     if (isset($front_pages[$language])) {
       $nid = $front_pages[$language];
     }
@@ -109,14 +105,15 @@ class DegovMultilingualFrontPage {
     // Check if the node is defined.
     if (is_numeric($nid)) {
       // If yes - try to load the object.
+      /** @var \Drupal\node\NodeInterface $node */
       $node = $this->entityTypeManager
         ->getStorage('node')
         ->load($nid);
-      if ($node) {
+      if ($node instanceof NodeInterface) {
         return $node;
       }
     }
-    return FALSE;
+    return NULL;
   }
 
 }

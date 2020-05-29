@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_paragraph_downloads module.
  */
 
 use Drupal\degov_common\Common;

@@ -42,7 +42,7 @@ function degov_media_audio_preprocess_media__audio(&$variables) {
     'controls' => 'controls',
   ]);
 
-  $variables['content']['audio_date'] = format_date($variables['elements']['#media']->created->value, 'date_medium');
+  $variables['content']['audio_date'] = \Drupal::service('date.formatter')->format($variables['elements']['#media']->created->value, 'date_medium');
   // Check if the download of the video is allowed by media settings.
   $download_is_allowed = FALSE;
   if ($media->hasField('field_allow_download') && !$media->get('field_allow_download')->isEmpty()) {

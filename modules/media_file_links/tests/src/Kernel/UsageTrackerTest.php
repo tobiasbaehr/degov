@@ -24,7 +24,7 @@ class UsageTrackerTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->usageTracker = \Drupal::service('media_file_links.usage_tracker');
+    $this->usageTracker = $this->container->get('media_file_links.usage_tracker');
   }
 
   /**

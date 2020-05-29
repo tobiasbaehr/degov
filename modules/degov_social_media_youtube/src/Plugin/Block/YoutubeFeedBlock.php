@@ -6,6 +6,7 @@ use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Config\ImmutableConfig;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -20,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *  admin_label = @Translation("Youtube Feed Block"),
  * )
  */
-class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterface {
+final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * Definition of LoggerChannel.
@@ -43,6 +44,9 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
    */
   protected $youTube;
 
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface*/
+  private $moduleHandler;
+
   /**
    * YoutubeFeedBlock constructor.
    * phpcs:disable
@@ -59,6 +63,8 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
    *   The config service.
    * @param \Drupal\degov_social_media_youtube\Youtube $youtube
    *   The Youtube service.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module handler service.
    * phpcs:enable
    */
   public function __construct(
@@ -67,11 +73,13 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
     $plugin_definition,
     LoggerChannelInterface $logger,
     ImmutableConfig $config,
-    Youtube $youtube) {
+    Youtube $youtube,
+    ModuleHandlerInterface $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->logger = $logger;
     $this->degovSocialMediaYoutubeConfig = $config;
     $this->youTube = $youtube;
+    $this->moduleHandler = $module_handler;
   }
 
   /**
@@ -84,7 +92,8 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
       $plugin_definition,
       $container->get('logger.factory')->get('degov_social_media_youtube'),
       $container->get('config.factory')->get('degov_social_media_youtube.settings'),
-      $container->get('degov_social_media_youtube.youtube')
+      $container->get('degov_social_media_youtube.youtube'),
+      $container->get('module_handler')
     );
   }
 
@@ -151,8 +160,8 @@ class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterf
    * @{inheritDoc}
    */
   protected function blockAccess(AccountInterface $account) {
-    \Drupal::moduleHandler()->loadInclude('degov_social_media_youtube', 'install');
-    $result = \Drupal::moduleHandler()->invoke('degov_social_media_youtube', 'requirements', ['runtime']);
+    $this->moduleHandler->loadInclude('degov_social_media_youtube', 'install');
+    $result = $this->moduleHandler->invoke('degov_social_media_youtube', 'requirements', ['runtime']);
     return AccessResult::allowedIf(is_array($result) && empty($result));
   }
 

@@ -115,7 +115,7 @@ class EntityReferenceAutocompleteDateWidget extends EntityReferenceAutocompleteW
       '#type'           => 'datetime',
       '#default_value'  => isset($items[$delta]) && !empty($items[$delta]->date) ? $items[$delta]->date : $defaultValue,
       '#date_increment' => 1,
-      '#date_timezone'  => drupal_get_user_timezone(),
+      '#date_timezone'  => date_default_timezone_get(),
       '#required'       => FALSE,
       '#title'          => $label,
       '#weight'         => 20,

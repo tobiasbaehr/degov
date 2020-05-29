@@ -2,9 +2,9 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_media_image module.
  */
 
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\degov_common\Common;
@@ -36,10 +36,10 @@ function degov_media_image_preprocess(&$variables, $hook, &$info) {
  * Implements hook_preprocess_type().
  */
 function degov_media_image_preprocess_media__image(&$variables) {
-  /** @var Drupal\media\Entity\Media $media */
+  /** @var \Drupal\media\MediaInterface $media */
   $media = $variables['elements']['#media'];
   $variables['created'] = $media->created->value;
-  $variables['image_url'] = $media->url();
+  $variables['image_url'] = $media->toUrl();
 
   // Add the download link only to full view mode.
   if (in_array($variables['elements']['#view_mode'], ['full', 'default'])) {
@@ -71,29 +71,27 @@ function degov_media_image_preprocess_media__image(&$variables) {
 
 /**
  * Implements hook_form_alter().
- *
- * @param array $form
- *   The form array.
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- *   The current form state.
- * @param string $form_id
- *   The ID of the current form.
  */
 function degov_media_image_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
-  if (\in_array($form_id, [
+  $form_ids = [
     'media_image_add_form',
     'media_image_edit_form',
     'entity_browser_media_browser_form',
     'entity_browser_ckeditor_media_browser_form',
-  ])) {
+  ];
+  if (\in_array($form_id, $form_ids, TRUE)) {
     $form['#attached']['library'][] = 'degov_media_image/entity-form';
     $form['#validate'][] = 'degov_media_image_validate';
   }
 }
 
 /**
+ * Validation hander for entity_browser, media add/edit forms.
+ *
  * @param array $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *
+ * @see degov_media_image_form_alter()
  */
 function degov_media_image_validate(array &$form, FormStateInterface $form_state) {
   switch ($form['#form_id']) {
@@ -144,7 +142,7 @@ function degov_media_image_validate_copyright(bool $is_royalty_free_image, $copy
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
-function degov_media_image_media_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function degov_media_image_media_view(array &$build, EntityInterface $entity) {
   if ($entity->bundle() === 'image') {
     if ((bool) $entity->field_royalty_free->value === TRUE) {
       unset($build['field_copyright']);

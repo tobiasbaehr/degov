@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\Tests\degov_html_mail\Kernel;
+declare(strict_types=1);
+
+namespace Drupal\Tests\degov_simplenews_references\Kernel;
 
 use Drupal\Tests\degov_common\Kernel\ModuleInstallationTestAbstract;
 
 /**
- * Class ModuleInstallationTest.
+ * Class InstallationTest.
  */
 class ModuleInstallationTest extends ModuleInstallationTestAbstract {
 
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
-    'degov_html_mail',
-  ];
+  public static $modules = ['degov_simplenews_references'];
 
 }

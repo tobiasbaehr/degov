@@ -54,7 +54,7 @@ function _degov_node_reference_bundle_list() {
     $config->save(TRUE);
   }
   else {
-    drupal_set_message(t('There are no content types available'), 'warning');
+    \Drupal::messenger()->addWarning(t('There are no content types available'));
   }
 }
 

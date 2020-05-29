@@ -2,12 +2,13 @@
 
 namespace Drupal\degov_search_content_solr\Plugin\Block;
 
-use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormState;
-use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\views\Form\ViewsExposedForm;
 use Drupal\views\Views;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a block to filter the media search.
@@ -17,13 +18,27 @@ use Drupal\views\Views;
  *   admin_label = @Translation("deGov full text search Solr block")
  * )
  */
-class DegovSearchFulltextForm extends BlockBase {
+final class DegovSearchFulltextForm extends BlockBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * @var \Drupal\Core\Form\FormBuilderInterface
+   */
+  protected $formBuilder;
+
+  /**
+   * @param \Drupal\Core\Form\FormBuilderInterface $form_builder
+   */
+  public function setFormBuilder(FormBuilderInterface $form_builder): void {
+    $this->formBuilder = $form_builder;
+  }
 
   /**
    * {@inheritdoc}
    */
-  protected function blockAccess(AccountInterface $account) {
-    return AccessResult::allowed();
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->setFormBuilder($container->get('form_builder'));
+    return $instance;
   }
 
   /**
@@ -43,7 +58,7 @@ class DegovSearchFulltextForm extends BlockBase {
       ->setAlwaysProcess()
       ->disableRedirect();
     $form_state->set('rerender', NULL);
-    $form = \Drupal::formBuilder()
+    $form = $this->formBuilder
       ->buildForm(ViewsExposedForm::class, $form_state);
     $form['#theme'] = ['views_exposed_form'];
     return $form;

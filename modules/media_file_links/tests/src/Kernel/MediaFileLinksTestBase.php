@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\media_file_links\Kernel;
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
@@ -10,7 +11,7 @@ use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
- * Class SuggestionsTest.
+ * Class MediaFileLinksTestBase
  *
  * @package Drupal\Tests\media_file_links\Kernel
  */
@@ -20,9 +21,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
   use NodeCreationTrait;
 
   /**
-   * Modules.
-   *
-   * @var array
+   * {@inheritdoc}
    */
   public static $modules = [
     'media_file_links',
@@ -79,9 +78,9 @@ class MediaFileLinksTestBase extends KernelTestBase {
     $this->installEntitySchema('node');
 
     // Save a document file.
-    $pdfFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FILE_EXISTS_REPLACE);
+    $pdfFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/dummy.pdf'), 'public://dummy.pdf', FileSystemInterface::EXISTS_REPLACE);
     $this->fileIds['pdf'] = $pdfFile->id();
-    $wordFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/word-document.docx'), 'public://word-document.docx', FILE_EXISTS_REPLACE);
+    $wordFile = file_save_data(file_get_contents(drupal_get_path('module', 'degov_demo_content') . '/fixtures/word-document.docx'), 'public://word-document.docx', FileSystemInterface::EXISTS_REPLACE);
     $this->fileIds['word'] = $wordFile->id();
 
     // Create a supported document entity.

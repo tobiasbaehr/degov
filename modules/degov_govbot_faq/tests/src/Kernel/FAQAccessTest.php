@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\degov_govbot_faq\Kernel;
 
 use Drupal\field\Entity\FieldConfig;
@@ -54,10 +56,7 @@ class FAQAccessTest extends KernelTestBase {
     $this->installEntitySchema('taxonomy_term');
     $this->installSchema('system', ['sequences']);
     $this->installSchema('node', 'node_access');
-    \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
-    \Drupal::moduleHandler()->loadInclude('taxonomy', 'install');
-    $this->faqAccess = \Drupal::service('degov_govbot_faq.faq_access');
-    \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
+    $this->faqAccess = $this->container->get('degov_govbot_faq.faq_access');
     $this->createParagraphTypeFaq();
     $this->createParagraphTypeFaqList();
     $this->createFaqNodeType();
@@ -155,6 +154,7 @@ class FAQAccessTest extends KernelTestBase {
     ]);
     $node->save();
 
+    /** @var \Drupal\node\NodeInterface $nodeLoaded */
     $nodeLoaded = Node::load($node->id());
 
     self::assertSame(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());
@@ -191,6 +191,7 @@ class FAQAccessTest extends KernelTestBase {
     ]);
     $node->save();
 
+    /** @var \Drupal\node\NodeInterface $nodeLoaded */
     $nodeLoaded = Node::load($node->id());
 
     self::assertSame(self::SHORT_BLIND_TEXT, $nodeLoaded->getTitle());

@@ -2,7 +2,10 @@
 
 namespace Drupal\media_file_links\Service;
 
+use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
+use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Menu\MenuLinkManagerInterface;
 use Drupal\media\Entity\Media;
 use Drupal\media\MediaInterface;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
@@ -27,10 +30,28 @@ class MediaFileLinkUsageTracker {
   private $placeholderHandler;
 
   /**
+   * @var \Drupal\Core\Menu\MenuLinkManagerInterface
+   */
+  private $menuManager;
+
+  /**
+   * @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface
+   */
+  private $cacheTagsInvalidator;
+
+  /**
+   * @var \Drupal\Core\Database\Database
+   */
+  private $database;
+
+  /**
    * MediaFileLinkUsageTracker constructor.
    */
-  public function __construct(MediaFileLinkPlaceholderHandler $placeholder_handler) {
+  public function __construct(MediaFileLinkPlaceholderHandler $placeholder_handler, MenuLinkManagerInterface $menu_manager, CacheTagsInvalidatorInterface $cache_tags_invalidator, Connection $database) {
     $this->placeholderHandler = $placeholder_handler;
+    $this->menuManager = $menu_manager;
+    $this->cacheTagsInvalidator = $cache_tags_invalidator;
+    $this->database = $database;
   }
 
   /**
@@ -64,7 +85,7 @@ class MediaFileLinkUsageTracker {
       $menuCacheCleared = FALSE;
       foreach ($mediaUsages as $mediaUsage) {
         if (!$menuCacheCleared && $mediaUsage['referencing_entity_type'] === 'menu_link_content') {
-          \Drupal::service('plugin.manager.menu.link')->rebuild();
+          $this->menuManager->rebuild();
           $menuCacheCleared = TRUE;
         }
 
@@ -73,7 +94,7 @@ class MediaFileLinkUsageTracker {
           'node',
           'paragraph',
         ])) {
-          \Drupal::service('cache_tags.invalidator')->invalidateTags([$mediaUsage['referencing_entity_type'] . ':' . $mediaUsage['referencing_entity_id']]);
+          $this->cacheTagsInvalidator->invalidateTags([$mediaUsage['referencing_entity_type'] . ':' . $mediaUsage['referencing_entity_id']]);
         }
       }
     }
@@ -133,7 +154,7 @@ class MediaFileLinkUsageTracker {
    * Store usage.
    */
   private function storeUsage(int $referencingEntityId, string $referencingEntityType, string $referencingEntityField, string $referencingEntityLangcode, int $mediaEntityId): void {
-    \Drupal::database()
+    $this->database
       ->insert('media_file_links_usage')
       ->fields([
         'referencing_entity_id'       => $referencingEntityId,
@@ -154,7 +175,7 @@ class MediaFileLinkUsageTracker {
       case $entity instanceof MenuLinkContentInterface:
       case $entity instanceof ParagraphInterface:
       case $entity instanceof MediaInterface:
-        $deleteQuery = \Drupal::database()
+        $deleteQuery = $this->database
           ->delete('media_file_links_usage')
           ->condition('referencing_entity_id', $entity->id())
           ->condition('referencing_entity_langcode', $entity->get('langcode')->getString());
@@ -191,7 +212,7 @@ class MediaFileLinkUsageTracker {
    * Get usages by media IDs.
    */
   public function getUsagesByMediaIds(array $mediaIds, bool $loadFullEntities = TRUE): array {
-    $queryResultsStatement = \Drupal::database()
+    $queryResultsStatement = $this->database
       ->select('media_file_links_usage', 'mflu')
       ->fields('mflu')
       ->condition('media_entity_id', $mediaIds, 'IN')

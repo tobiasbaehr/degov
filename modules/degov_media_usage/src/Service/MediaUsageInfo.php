@@ -80,8 +80,7 @@ final class MediaUsageInfo {
    */
   public function getRefsCount(MediaInterface $media): int {
     $refs = $this->getRefsList($media);
-
-    return $refs ? count($refs) : 0;
+    return \count($refs);
   }
 
   /**
@@ -98,7 +97,7 @@ final class MediaUsageInfo {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function getRefsList(MediaInterface $media, $excludeOrphaned = TRUE) {
+  public function getRefsList(MediaInterface $media, $excludeOrphaned = TRUE): array {
     $refs = [];
     $query = $this->database->query(
       'SELECT DISTINCT mu.eid, mu.entity_type, mu.bundle_name FROM {degov_media_usage} mu WHERE mu.mid = :mid',
@@ -116,7 +115,7 @@ final class MediaUsageInfo {
       $refs[] = $ref;
     }
 
-    return $refs ?: FALSE;
+    return $refs;
   }
 
   /**
@@ -182,6 +181,7 @@ final class MediaUsageInfo {
    */
   private function getLabel(ParagraphInterface $paragraph) {
     if (!$this->isOrphaned($paragraph)) {
+      /** @var \Drupal\paragraphs\ParagraphInterface $parent */
       $parent = $paragraph->getParentEntity();
       $parentField = $paragraph->get('parent_field_name')->value;
       $field = $parent->get($parentField);
@@ -218,10 +218,10 @@ final class MediaUsageInfo {
       if ($paragraphSummary instanceof MarkupInterface) {
         $paragraphSummary = (string) $paragraphSummary;
       }
-      $label = t(
+      $label = $this->t(
         'Orphaned @type: @summary',
         [
-          '@summary' => Unicode::truncate(strip_tags($paragraphSummary), 50, FALSE, TRUE),
+          '@summary' => Unicode::truncate(\strip_tags($paragraphSummary), 50, FALSE, TRUE),
           '@type' => $paragraph->get('type')->entity->label(),
         ]
       );
@@ -246,27 +246,20 @@ final class MediaUsageInfo {
    * @throws \Drupal\Core\Entity\EntityMalformedException
    */
   private function labelWithLink(EntityInterface $entity, FieldItemListInterface $field, string $additionalText = ''): FormattableMarkup {
+    $string = '@label (@bundleLabel) > @fieldDefinition @additionalText';
+    $arguments = [
+      '@label' => $entity->label(),
+      '@fieldDefinition' => $field->getFieldDefinition()->getLabel(),
+      '@bundleLabel' => $entity->getEntityType()->getBundleLabel(),
+      '@additionalText' => $additionalText,
+    ];
     if ($entity->getEntityTypeId() === 'node') {
-      return new FormattableMarkup(
-        '<a href=":link">@label</a> > @fieldDefinition @additionalText',
-        [
-          ':link' => $entity->toUrl()->toString(),
-          '@label' => $entity->label(),
-          '@fieldDefinition' => $field->getFieldDefinition()->getLabel(),
-          '@additionalText' => $additionalText,
-        ]
-      );
+      $string = '<a href=":link">@label</a> > @fieldDefinition @additionalText';
+      $arguments += [
+        ':link' => $entity->toUrl()->toString(),
+      ];
     }
-
-    return new FormattableMarkup(
-      '@label (@bundleLabel) > @fieldDefinition @additionalText',
-      [
-        '@label' => $entity->label(),
-        '@bundleLabel' => $entity->getEntityType()->getBundleLabel(),
-        '@fieldDefinition' => $field->getFieldDefinition()->getLabel(),
-        '@additionalText' => $additionalText,
-      ]
-    );
+    return new FormattableMarkup($string, $arguments);
   }
 
 }

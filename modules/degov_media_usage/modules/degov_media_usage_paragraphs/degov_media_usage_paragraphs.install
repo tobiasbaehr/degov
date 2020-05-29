@@ -2,8 +2,12 @@
 
 /**
  * @file
+ * Install, update and uninstall hooks for the degov_media_usage_paragraphs module.
  */
 
+/**
+ * Implements hook_install().
+ */
 function degov_media_usage_paragraphs_install() {
   $allIds = array_values(\Drupal::entityQuery('paragraph')->execute());
   $paragraphStorage = \Drupal::entityTypeManager()->getStorage('paragraph');
@@ -17,6 +21,9 @@ function degov_media_usage_paragraphs_install() {
   }
 }
 
+/**
+ * Implements hook_uninstall().
+ */
 function degov_media_usage_paragraphs_uninstall() {
   $query = \Drupal::database()->delete('degov_media_usage', ['submodule' => 'degov_media_usage_paragraphs']);
   $result = $query->execute();

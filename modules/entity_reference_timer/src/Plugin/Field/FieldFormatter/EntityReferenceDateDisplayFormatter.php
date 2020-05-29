@@ -2,11 +2,7 @@
 
 namespace Drupal\entity_reference_timer\Plugin\Field\FieldFormatter;
 
-use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\entity_reference_display\Plugin\Field\FieldFormatter\EntityReferenceDisplayFormatter;
 use Drupal\entity_reference_timer\Service\EntityReferenceTimerVisibilityService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -23,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   }
  * )
  */
-class EntityReferenceDateDisplayFormatter extends EntityReferenceDisplayFormatter {
+final class EntityReferenceDateDisplayFormatter extends EntityReferenceDisplayFormatter {
 
   /**
    * The entity reference timer visibility service.
@@ -33,30 +29,19 @@ class EntityReferenceDateDisplayFormatter extends EntityReferenceDisplayFormatte
   protected $visibilityService;
 
   /**
-   * {@inheritdoc}
+   * @param \Drupal\entity_reference_timer\Service\EntityReferenceTimerVisibilityService $visibility_service
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager, EntityDisplayRepositoryInterface $entity_display_repository, EntityReferenceTimerVisibilityService $visibility_service) {
-    parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings, $logger_factory, $entity_type_manager, $entity_display_repository);
+  public function setVisibilityService(EntityReferenceTimerVisibilityService $visibility_service): void {
     $this->visibilityService = $visibility_service;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): EntityReferenceDateDisplayFormatter {
-    return new static(
-      $plugin_id,
-      $plugin_definition,
-      $configuration['field_definition'],
-      $configuration['settings'],
-      $configuration['label'],
-      $configuration['view_mode'],
-      $configuration['third_party_settings'],
-      $container->get('logger.factory'),
-      $container->get('entity_type.manager'),
-      $container->get('entity_display.repository'),
-      $container->get('entity_reference_timer.visibility_service')
-    );
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setVisibilityService($container->get('entity_reference_timer.visibility_service'));
+    return $instance;
   }
 
   /**

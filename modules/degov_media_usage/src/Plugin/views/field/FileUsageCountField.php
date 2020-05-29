@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\degov_media_usage\Plugin\views\field;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 use Drupal\degov_media_usage\Service\MediaUsageInfo;
 use Drupal\file\FileUsage\FileUsageInterface;
@@ -20,8 +21,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @ingroup views_field_handlers
  * @ViewsField("file_usage")
  */
-class FileUsageCountField extends FieldPluginBase {
-
+final class FileUsageCountField extends FieldPluginBase {
+  use StringTranslationTrait;
   /**
    * The FileUsageInterface.
    *
@@ -59,7 +60,7 @@ class FileUsageCountField extends FieldPluginBase {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
     return new static(
       $configuration,
       $plugin_id,
@@ -76,18 +77,10 @@ class FileUsageCountField extends FieldPluginBase {
   }
 
   /**
-   * Render the given values.
-   *
-   * @param \Drupal\views\ResultRow $values
-   *   The values to render.
-   *
-   * @return array|\Drupal\Component\Render\MarkupInterface|\Drupal\views\Render\ViewsRenderPipelineMarkup|null|string
-   *   The markup to render.
-   *
-   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
-   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * {@inheritdoc}
    */
-  public function render(ResultRow $values) {
+  public function render(ResultRow $values): ?array {
+    /** @var \Drupal\file\FileInterface $file */
     $file = $values->_entity;
     $overall = 0;
     $mids = [];
@@ -95,6 +88,7 @@ class FileUsageCountField extends FieldPluginBase {
     $fileUsage = $this->fileUsage->listUsage($file);
     if (array_key_exists('file', $fileUsage) && array_key_exists('media', $fileUsage['file'])) {
       foreach ($fileUsage['file']['media'] as $mediaId => $count) {
+        /** @var \Drupal\media\MediaInterface $media */
         $media = Media::load($mediaId);
 
         $overall += $this->referenceInfo->getRefsCount($media);
@@ -102,7 +96,7 @@ class FileUsageCountField extends FieldPluginBase {
       }
     }
 
-    if (empty($mids)) {
+    if ($overall === 0) {
       return NULL;
     }
 
@@ -112,7 +106,7 @@ class FileUsageCountField extends FieldPluginBase {
     )->toString();
 
     return [
-      '#markup' => '<span class="media-usage"><a href="' . $url . '">' . \Drupal::translation()->formatPlural($overall, '@count place', '@count places', ['@count' => $overall]) . '</a></span>',
+      '#markup' => '<span class="media-usage"><a href="' . $url . '">' . $this->formatPlural($overall, '@count place', '@count places', ['@count' => $overall]) . '</a></span>',
     ];
   }
 

@@ -28,7 +28,7 @@ function degov_search_synonyms_views_pre_view(ViewExecutable $view, $display_id,
   $fulltext_key = 'volltext';
   $header = $view->getHandlers('header');
   $content = $header['result']['content'];
-  $input = HTML::escape($input[$fulltext_key]);
+  $input = Html::escape($input[$fulltext_key]);
   // Check if input matches name of assigned synonym.
   $term_ids = SynonymProcessor::getSynonymsFromString($input);
 

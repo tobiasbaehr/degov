@@ -2,7 +2,10 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_media_usage module.
  */
+
+declare(strict_types=1);
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -55,7 +58,7 @@ function degov_media_usage_form_alter(&$form, FormStateInterface $form_state, $f
       $entity = $object->getEntity();
       if ($entity instanceof MediaInterface) {
         $count = $info->getRefsCount($entity);
-        if ($count) {
+        if ($count > 0) {
           $form['description'] = [
             'alert' => [
               '#markup' => t('This action cannot be undone.'),

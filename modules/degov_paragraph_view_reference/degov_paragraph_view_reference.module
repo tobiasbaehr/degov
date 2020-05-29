@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_paragraph_view_reference module.
  */
 
 use Drupal\Component\Utility\NestedArray;
@@ -90,7 +91,7 @@ function _views_argument_field_info($argument) {
     if (!empty($keys)) {
       $info = FieldStorageConfig::loadByName($keys[0], $keys[1]);
       // If it is entity reference field try to get the target type and selector settings.
-      if ($info && $info->getType() == 'entity_reference') {
+      if ($info && $info->getType() === 'entity_reference') {
         $bundles = $info->getBundles();
         $bundles_machine_names = array_keys($bundles);
         $bundle_info = FieldConfig::loadByName($keys[0], $bundles_machine_names[0], $keys[1]);
@@ -105,12 +106,10 @@ function _views_argument_field_info($argument) {
 }
 
 /**
- * @param $element
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param $context
+ * Implements hook_field_widget_form_alter().
  */
 function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
-  /** @var \Drupal\Core\Field\EntityReferenceFieldItemList $items */
+  /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $items */
   $items = $context['items'];
   // Get the field definition.
   $field_definition = $items->getFieldDefinition();
@@ -172,7 +171,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
       $view = View::load($values[0]['target_id']);
       $entity_type = $view->getExecutable()->getBaseEntityType()->id();
       $display_id = 'default';
-      if (!empty($values[0]['display_id']) && $values[0]['display_id'] != '_none') {
+      if (!empty($values[0]['display_id']) && $values[0]['display_id'] !== '_none') {
         $display_id = $values[0]['display_id'];
       }
       // Get the view display.
@@ -190,7 +189,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
           if ($argument_value['not']) {
             $title_extra = ' (' . t('Exclude this items') . ')';
           }
-          if ($argument_name == 'tid' && $argument_value['table'] == 'taxonomy_index') {
+          if ($argument_name === 'tid' && $argument_value['table'] === 'taxonomy_index') {
             $element['argument'][$num] = [
               '#type'               => 'entity_autocomplete',
               '#title'              => t('Taxonomy term') . $title_extra,
@@ -202,7 +201,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
             $num++;
             continue;
           }
-          if ($argument_name == 'nid' && $argument_value['table'] == 'node_field_data') {
+          if ($argument_name === 'nid' && $argument_value['table'] === 'node_field_data') {
             $element['argument'][$num] = [
               '#type'               => 'entity_autocomplete',
               '#title'              => t('Node') . $title_extra,
@@ -214,7 +213,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
             $num++;
             continue;
           }
-          if ($argument_name == 'uid' && $argument_value['table'] == 'node_field_data') {
+          if ($argument_name === 'uid' && $argument_value['table'] === 'node_field_data') {
             $element['argument'][$num] = [
               '#type'               => 'entity_autocomplete',
               '#title'              => t('User') . $title_extra,
@@ -232,7 +231,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
           $bundle_info = $info['bundle_info'];
           if ($field_info) {
             $element['argument'][$num] = [
-              '#type' => ($field_info->getType() == 'entity_reference') ? 'entity_autocomplete' : 'textfield',
+              '#type' => ($field_info->getType() === 'entity_reference') ? 'entity_autocomplete' : 'textfield',
               '#title' => empty($bundle_info) ? $field_info->getLabel() : $bundle_info->getLabel(),
               '#description' => empty($bundle_info) ? $field_info->getDescription() : $bundle_info->getDescription(),
               '#default_value' => !empty($argument_values[$num]) ? $argument_values[$num] : '',
@@ -240,7 +239,7 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
             $element['argument'][$num]['#title'] .= $title_extra;
 
             // If it is entity reference and some more settings.
-            if (($field_info->getType() == 'entity_reference')) {
+            if (($field_info->getType() === 'entity_reference')) {
               $info_settings = $field_info->getSettings();
               $bundle_settings = $bundle_info->getSettings();
               $element['argument'][$num]['#target_type'] = $info_settings['target_type'];
@@ -248,13 +247,14 @@ function degov_paragraph_view_reference_field_widget_form_alter(&$element, FormS
               $element['argument'][$num]['#selection_settings'] = [];
               $element['argument'][$num]['#selection_settings']['target_bundles'] = $bundle_settings['handler_settings']['target_bundles'];
               // Default value could be only entity, let's load one.
-              $entity_storage = \Drupal::entityManager()
+              $entity_storage = \Drupal::service('entity_type.manager')
                 ->getStorage($info_settings['target_type']);
               $entity = $entity_storage->load($element['argument'][$num]['#default_value']);
               $element['argument'][$num]['#default_value'] = $entity ? $entity : '';
             }
           }
           else {
+            // TODO: $argument is undefined? What is the expected value?
             // This is not field but property of the entity.
             $property = array_shift($argument);
             $element['argument'][$num] = [

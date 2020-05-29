@@ -2,11 +2,17 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_media_usage_node module.
  */
 
-use Drupal\node\Entity\Node;
+declare(strict_types=1);
 
-function degov_media_usage_node_node_insert(Node $entity) {
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function degov_media_usage_node_node_insert(NodeInterface $entity): void {
   static $handled = [];
 
   /** @var \Drupal\degov_media_usage_node\Service\NodePersistance $persistance */
@@ -14,19 +20,17 @@ function degov_media_usage_node_node_insert(Node $entity) {
   if ($persistance->canHandle($entity) && !in_array($entity->id(), $handled, TRUE)) {
     $media = $persistance->getMedia($entity);
     if (!$media) {
-      return FALSE;
+      return;
     }
-
     $persistance->store($entity, $media);
     $handled[] = $entity->id();
-
-    return TRUE;
   }
-
-  return FALSE;
 }
 
-function degov_media_usage_node_node_update(Node $entity) {
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function degov_media_usage_node_node_update(NodeInterface $entity): void {
   static $handled = [];
 
   /** @var \Drupal\degov_media_usage_node\Service\NodePersistance $persistance */
@@ -37,19 +41,17 @@ function degov_media_usage_node_node_update(Node $entity) {
     $persistance->purge($entity);
     $media = $persistance->getMedia($entity);
     if (!$media) {
-      return FALSE;
+      return;
     }
-
     $persistance->store($entity, $media);
     $handled[] = $id;
-
-    return TRUE;
   }
-
-  return FALSE;
 }
 
-function degov_media_usage_node_node_delete(Node $entity) {
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function degov_media_usage_node_node_delete(NodeInterface $entity): void {
   static $handled = [];
 
   /** @var \Drupal\degov_media_usage_node\Service\NodePersistance $persistance */
@@ -59,9 +61,5 @@ function degov_media_usage_node_node_delete(Node $entity) {
   if ($persistance->canHandle($entity) && !in_array($id, $handled, TRUE)) {
     $persistance->purge($entity);
     $handled[] = $id;
-
-    return TRUE;
   }
-
-  return FALSE;
 }

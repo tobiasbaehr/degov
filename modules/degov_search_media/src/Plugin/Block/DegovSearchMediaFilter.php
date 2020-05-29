@@ -3,9 +3,10 @@
 namespace Drupal\degov_search_media\Plugin\Block;
 
 use Drupal\block\Entity\Block;
-use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a block to filter the media search.
@@ -15,13 +16,27 @@ use Drupal\Core\Session\AccountInterface;
  *   admin_label = @Translation("DeGov search media filters")
  * )
  */
-class DegovSearchMediaFilter extends BlockBase {
+final class DegovSearchMediaFilter extends BlockBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   */
+  public function setEntityTypeManager(EntityTypeManagerInterface $entity_type_manager): void {
+    $this->entityTypeManager = $entity_type_manager;
+  }
 
   /**
    * {@inheritdoc}
    */
-  protected function blockAccess(AccountInterface $account) {
-    return AccessResult::allowed();
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = new static($configuration, $plugin_id, $plugin_definition);
+    $instance->setEntityTypeManager($container->get('entity_type.manager'));
+    return $instance;
   }
 
   /**
@@ -45,7 +60,7 @@ class DegovSearchMediaFilter extends BlockBase {
       $block = Block::load($id);
       if ($block) {
         $block->disable();
-        $form['filter'][$id] = \Drupal::entityTypeManager()
+        $form['filter'][$id] = $this->entityTypeManager
           ->getViewBuilder('block')
           ->view($block);
       }

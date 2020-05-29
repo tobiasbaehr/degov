@@ -44,8 +44,11 @@ class RouteSubscriber extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection): void {
     $mediaType = $this->entityTypeManager->getDefinition('media');
-    $route = $this->getMediaUsageRefsRoute($mediaType);
+    if (($mediaType instanceof EntityTypeInterface) === FALSE) {
+      return;
+    }
 
+    $route = $this->getMediaUsageRefsRoute($mediaType);
     if ($route instanceof Route) {
       $collection->add('entity.media.degov_media_usage_refs', $route);
     }

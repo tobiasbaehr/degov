@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_file_links\Kernel;
 
 /**
@@ -12,7 +14,7 @@ class SuggestionsTest extends MediaFileLinksTestBase {
   /**
    * File suggester.
    *
-   * @var \Symfony\Component\DependencyInjection\ContainerInterface|null
+   * @var \Drupal\media_file_links\Service\MediaFileSuggester
    */
   private $fileSuggester;
 
@@ -22,7 +24,7 @@ class SuggestionsTest extends MediaFileLinksTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->fileSuggester = \Drupal::service('media_file_links.file_suggester');
+    $this->fileSuggester = $this->container->get('media_file_links.file_suggester');
   }
 
   /**

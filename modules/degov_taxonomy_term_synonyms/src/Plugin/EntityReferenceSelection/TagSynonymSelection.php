@@ -3,8 +3,10 @@
 namespace Drupal\degov_taxonomy_term_synonyms\Plugin\EntityReferenceSelection;
 
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Database\Connection;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Plugin\EntityReferenceSelection\TermSelection;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Reference selection for tags and synonyms.
@@ -17,14 +19,35 @@ use Drupal\taxonomy\Plugin\EntityReferenceSelection\TermSelection;
  *   group = "tag_and_synonym"
  * )
  */
-class TagSynonymSelection extends TermSelection {
+final class TagSynonymSelection extends TermSelection {
+
+  /**
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $database;
+
+  /**
+   * @param \Drupal\Core\Database\Connection $database
+   */
+  public function setDatabase(Connection $database): void {
+    $this->database = $database;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setDatabase($container->get('database'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
    */
   public function getConfiguration() {
     $config = parent::getConfiguration();
-    $config["target_bundles"] = ['tags', 'synonyms'];
+    $config['target_bundles'] = ['tags', 'synonyms'];
     return $config;
   }
 
@@ -35,7 +58,7 @@ class TagSynonymSelection extends TermSelection {
     $query = parent::buildEntityQuery($match, $match_operator);
 
     // Fetch synonyms which have been assigned to tags.
-    $synonyms = \Drupal::database()->select('taxonomy_term__field_synonyms', 'synonyms');
+    $synonyms = $this->database->select('taxonomy_term__field_synonyms', 'synonyms');
     $synonyms->addField('synonyms', 'field_synonyms_target_id', 'synonym_id');
     $synonyms->condition('bundle', 'tags');
     $synonyms = $synonyms->execute()->fetchCol();
@@ -84,7 +107,7 @@ class TagSynonymSelection extends TermSelection {
 
       // If entity is a synonym, check if it has been referenced by a tag.
       if ($entity->getVocabularyId() === 'synonyms') {
-        $synonym_id = \Drupal::entityQuery('taxonomy_term')
+        $synonym_id = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
           ->condition('field_synonyms', $entity->id())
           ->range(0, 1)
           ->execute();

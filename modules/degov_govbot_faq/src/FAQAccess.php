@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_govbot_faq;
 
 use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\paragraphs\ParagraphInterface;
 
 /**
  * Class FAQAccess.
@@ -14,7 +17,7 @@ class FAQAccess {
   /**
    * Paragraph extractor.
    *
-   * @var \Drupal\paragraphs\Entity\ParagraphsExtractor
+   * @var \Drupal\degov_govbot_faq\ParagraphsExtractor
    */
   private $paragraphsExtractor;
 
@@ -41,7 +44,7 @@ class FAQAccess {
     if ($node->getType() === 'faq') {
 
       foreach ($faqListParagraphs as $faqListParagraph) {
-        if ($faqListParagraph instanceof Paragraph && ($fieldFAQListInnerParagraphs = $faqListParagraph->get('field_faq_list_inner_paragraphs')) instanceof EntityReferenceRevisionsFieldItemList) {
+        if ($faqListParagraph instanceof ParagraphInterface && ($fieldFAQListInnerParagraphs = $faqListParagraph->get('field_faq_list_inner_paragraphs')) instanceof EntityReferenceRevisionsFieldItemList) {
 
           $paragraphFAQItems = $fieldFAQListInnerParagraphs->getValue();
 

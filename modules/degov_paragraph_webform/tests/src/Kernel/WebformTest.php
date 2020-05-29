@@ -31,7 +31,6 @@ class WebformTest extends KernelTestBase {
     $this->installEntitySchema('paragraph');
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('node');
-    \Drupal::moduleHandler()->loadInclude('paragraphs', 'install');
   }
 
   /**

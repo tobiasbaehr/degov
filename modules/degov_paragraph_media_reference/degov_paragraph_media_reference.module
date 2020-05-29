@@ -83,6 +83,6 @@ function _degov_media_reference_bundle_list() {
     }
   }
   else {
-    drupal_set_message(t('There are no media bundles available'), 'warning');
+    \Drupal::messenger()->addWarning(t('There are no media bundles available'));
   }
 }

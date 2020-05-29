@@ -42,6 +42,11 @@ class PasswordChangeService {
   private $userStorage;
 
   /**
+   * @var \Drupal\Core\Entity\Query\QueryInterface
+   */
+  private $userQuery;
+
+  /**
    * PasswordChangeService constructor.
    *
    * @param \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter

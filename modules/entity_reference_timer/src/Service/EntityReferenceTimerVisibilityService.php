@@ -5,6 +5,7 @@ namespace Drupal\entity_reference_timer\Service;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Field\FieldItemInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\entity_reference_timer\Plugin\Field\FieldType\EntityReferenceDate;
 use Drupal\node\NodeInterface;
 
@@ -21,17 +22,23 @@ class EntityReferenceTimerVisibilityService {
   private $database;
 
   /**
+   * @var \Drupal\Core\Routing\RouteMatchInterface
+   */
+  private $currentRouteMatch;
+
+  /**
    * EntityReferenceTimerVisibilityService constructor.
    */
-  public function __construct(Connection $database) {
+  public function __construct(Connection $database, RouteMatchInterface $current_route_match) {
     $this->database = $database;
+    $this->currentRouteMatch = $current_route_match;
   }
 
   /**
    * Get next expiration timestamp from item.
    */
   public function getNextExpirationTimestampFromItem(EntityReferenceDate $item): ?int {
-    $now = time();
+    $now = \time();
     $closestTimestamp = NULL;
     foreach (['start_date', 'end_date'] as $fieldName) {
       $dateTime = $item->get($fieldName)->getValue();
@@ -49,7 +56,7 @@ class EntityReferenceTimerVisibilityService {
    * Add expiration date to parent node.
    */
   public function addExpirationDateToParentNode(FieldItemInterface $item): void {
-    $node = \Drupal::routeMatch()->getParameter('node');
+    $node = $this->currentRouteMatch->getParameter('node');
     if ($node instanceof NodeInterface) {
       $cacheTagString = 'node:' . $node->id();
 
@@ -138,6 +145,7 @@ class EntityReferenceTimerVisibilityService {
         return $dtNow >= $dtFromValue;
 
     }
+    return TRUE;
   }
 
   /**
