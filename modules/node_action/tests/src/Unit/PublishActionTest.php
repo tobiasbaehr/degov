@@ -22,9 +22,6 @@ class PublishActionTest extends UnitTestCase {
    * Test allowed access.
    */
   public function testAllowedAccess(): void {
-    $accessCheck = $this->prophesize(AccessCheck::class);
-    $accessCheck->canUserAccessByNodeId(Argument::type('int'))->willReturn(TRUE);
-
     $currentUser = $this->prophesize(AccountProxyInterface::class);
     $currentUser->hasPermission(Argument::type('string'))->willReturn(TRUE);
 
@@ -33,7 +30,7 @@ class PublishActionTest extends UnitTestCase {
     $stringTranslationAdapter = $this->prophesize(StringTranslationAdapter::class);
     $stringTranslationAdapter->t(Argument::type('string'));
 
-    $publishAction = new PublishAction($accessCheck->reveal(), $currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
+    $publishAction = new PublishAction($currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
 
     $entity = $this->prophesize(Node::class);
     $entity->id()->willReturn(1);
@@ -45,9 +42,6 @@ class PublishActionTest extends UnitTestCase {
    * Test disallowed access by no permission.
    */
   public function testDisallowedAccessByNoPermission(): void {
-    $accessCheck = $this->prophesize(AccessCheck::class);
-    $accessCheck->canUserAccessByNodeId(Argument::type('int'))->willReturn(TRUE);
-
     $currentUser = $this->prophesize(AccountProxyInterface::class);
     $currentUser->hasPermission(Argument::type('string'))->willReturn(FALSE);
 
@@ -57,7 +51,7 @@ class PublishActionTest extends UnitTestCase {
     $stringTranslationAdapter = $this->prophesize(StringTranslationAdapter::class);
     $stringTranslationAdapter->t(Argument::type('string'));
 
-    $publishAction = new PublishAction($accessCheck->reveal(), $currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
+    $publishAction = new PublishAction($currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
 
     $entity = $this->prophesize(Node::class);
     $entity->id()->willReturn(1);
@@ -82,7 +76,8 @@ class PublishActionTest extends UnitTestCase {
     $stringTranslationAdapter = $this->prophesize(StringTranslationAdapter::class);
     $stringTranslationAdapter->t(Argument::type('string'));
 
-    $publishAction = new PublishAction($accessCheck->reveal(), $currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
+    $publishAction = new PublishAction($currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
+    $publishAction->setAccessCheck($accessCheck->reveal());
 
     $entity = $this->prophesize(Node::class);
     $entity->id()->willReturn(1);
@@ -95,15 +90,13 @@ class PublishActionTest extends UnitTestCase {
    * Test handling if entity no node.
    */
   public function testHandlingIfEntityNoNode(): void {
-    $accessCheck = $this->prophesize(AccessCheck::class);
-
     $currentUser = $this->prophesize(AccountProxyInterface::class);
 
     $messenger = $this->prophesize(MessengerInterface::class);
 
     $stringTranslationAdapter = $this->prophesize(StringTranslationAdapter::class);
 
-    $publishAction = new PublishAction($accessCheck->reveal(), $currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
+    $publishAction = new PublishAction($currentUser->reveal(), $messenger->reveal(), $stringTranslationAdapter->reveal());
 
     $entity = $this->prophesize(Media::class);
 

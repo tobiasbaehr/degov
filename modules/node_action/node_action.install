@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Config\Config;
+use Drupal\Core\Url;
 use Drupal\degov_common\Entity\ConfigStorageFactory;
 
 /**
@@ -55,6 +56,31 @@ function node_action_remove_unwanted_actions() {
     $config->delete();
   }
 }
+
+/**
+ * Implements hook_requirements().
+ */
+function node_action_requirements(string $phase): array {
+  $requirements = [];
+
+  if ($phase === 'runtime' && !\Drupal::service('module_handler')->moduleExists('permissions_by_term')) {
+    $requirements['node_action'] = [
+      'title' => t('Node Action'),
+      'description' => t(
+        'By <a href=":extend">enabling</a> the Permissions by Term module, additional permission checks will become available when running bulk actions on content.<br />For more information on Permissions by Term, take a look at the project page on <a href=":project_page" target="_blank">drupal.org</a>!',
+        [
+          ':extend' => Url::fromRoute('system.modules_list')->toString(),
+          ':project_page' => 'https://www.drupal.org/project/permissions_by_term',
+        ]
+      ),
+      'value' => t('Additional functionality available'),
+      'severity' => REQUIREMENT_WARNING,
+    ];
+  }
+
+  return $requirements;
+}
+
 
 /**
  * Implements hook_uninstall().
