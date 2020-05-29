@@ -63,14 +63,12 @@ class ActionAbstract {
    * ActionAbstract constructor.
    */
   public function __construct(
-    AccessCheck $accessCheck,
     AccountProxyInterface $currentUser,
     string $permission,
     MessengerInterface $messenger,
     string $actionName,
     StringTranslationAdapter $stringTranslationAdapter
   ) {
-    $this->accessCheck = $accessCheck;
     $this->currentUser = $currentUser;
     $this->permission = $permission;
     $this->messenger = $messenger;
@@ -93,7 +91,10 @@ class ActionAbstract {
    * Has permissions by term permission.
    */
   public function hasPermissionsByTermPermission(Node $node): bool {
-    return $this->accessCheck->canUserAccessByNodeId($node->id());
+    if ($this->accessCheck instanceof AccessCheck) {
+      return $this->accessCheck->canUserAccessByNodeId($node->id());
+    }
+    return TRUE;
   }
 
   /**
@@ -115,6 +116,13 @@ class ActionAbstract {
     }
 
     return AccessResult::allowed();
+  }
+
+  /**
+   * @param \Drupal\permissions_by_term\Service\AccessCheck $accessCheck
+   */
+  public function setAccessCheck(AccessCheck $accessCheck): void {
+    $this->accessCheck = $accessCheck;
   }
 
 }
