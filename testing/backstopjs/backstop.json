@@ -30,7 +30,8 @@
       "delay": 3000,
       "hideSelectors": [],
       "removeSelectors": [
-        ".alert-dismissible"
+        ".alert-dismissible",
+        "div[data-social-media-source='instagram']"
       ],
       "hoverSelector": "",
       "clickSelector": "",
