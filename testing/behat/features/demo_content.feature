@@ -22,9 +22,9 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
-    And I should see 89 ".paragraph__content article .image" elements
-    And I should see 112 ".paragraph__content article .teaser-title" elements
-    And I should see 84 ".paragraph__content article [class*=__teaser-text]" elements
+    And I should see 113 ".paragraph__content article .image" elements
+    And I should see 136 ".paragraph__content article .teaser-title" elements
+    And I should see 102 ".paragraph__content article [class*=__teaser-text]" elements
 
   Scenario: Check for missing fields
     Given I am logged in as a user with the "administrator" role

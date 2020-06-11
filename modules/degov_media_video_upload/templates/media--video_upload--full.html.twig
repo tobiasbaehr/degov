@@ -12,12 +12,6 @@
  * @ingroup themeable
  */
 #}
-{% set caption %}
-  {{- content.field_video_upload_caption -}}
-{% endset %}
-{% set copyright %}
-  {{- content.field_copyright -}}
-{% endset %}
 {%
 set media_classes = [
   'video-upload',
@@ -25,6 +19,9 @@ set media_classes = [
   'skin--background-primary',
   'row',
   ]
+%}
+{%
+set hasDownloads = content.download_mp4 or content.download_ogg or content.download_webm
 %}
 <article{{ attributes.addClass(media_classes) }}>
   {{ content.contextual_links }}
@@ -48,24 +45,18 @@ set media_classes = [
     </video>
   </div>
   <div class="below-video">
-    <div class="col-sm-8">
-      <div class="video__extra-info">
-        <div class="video-upload__top">
-          {% if content.field_media_accessibility|field_value %}
-            <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
-              {{ content.field_media_accessibility|field_value }}
-            </div>
-          {% else %}
-            <div class="media__type-label">{{ 'Video'|t }}</div>
-          {% endif %}
-          {% if content.field_copyright|field_value %}
-            <span class="video-upload__copyright">
-              <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-                {{ content.field_copyright|field_value }}
-            </span>
-          {% endif %}
+    <div class="video-upload__top col-sm-12">
+      {% if content.field_media_accessibility|field_value %}
+        <div class="media__type-label video__assets-accessibility"{{ content.field_media_accessibility|quickedit_attr }}>
+          {{ content.field_media_accessibility|field_value }}
         </div>
-
+      {% else %}
+        <div class="media__type-label">{{ 'Video'|t }}</div>
+      {% endif %}
+      {{ field_media_copyright }}
+    </div>
+    <div class="{{ hasDownloads ? 'col-sm-8' : 'col-sm-12' }}">
+      <div class="video__extra-info">
         {% if content.field_title %}
           <h2 class="video-upload__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
         {% endif %}
@@ -106,7 +97,8 @@ set media_classes = [
         {% endif %}
       </div>
     </div>
-    <div class="col-sm-4">
+    {%  if hasDownloads %}
+    <div class="{{ hasDownloads ? 'col-sm-4' : '' }}">
       <div class="video-upload__downloads">
         {% if content.download_mp4 %}
           {{ content.download_mp4 }}
@@ -119,5 +111,6 @@ set media_classes = [
         {% endif %}
       </div>
     </div>
+    {% endif %}
   </div>
 </article>

@@ -34,19 +34,7 @@ set media_classes = [
     {% if content.field_title %}
       <h2 class="video__title"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</h2>
     {% endif %}
-    {% if content.field_video_caption|field_value or content.field_copyright|field_value %}
-      <div class="video__info">
-        <div class="video__info__wrap">
-          {% if content.field_video_caption|field_value %}
-            <span class="video__caption"{{ content.field_video_caption|quickedit_attr }}>{{ content.field_video_caption|field_value }}</span>
-          {% endif %}
-          {% if content.field_copyright|field_value %}
-            {# Don't add spaces. Whitespace: pre #}
-            <span class="video__copyright"><span class="video__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>{{ content.field_copyright|field_value }}</span>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
+    {{ field_media_copyright }}
     {% if content.field_media_duration|field_value %}
       <div class="video__duration"{{ content.field_media_duration|quickedit_attr }}>{{ content.field_media_duration|field_value }}</div>
     {% endif %}

@@ -72,54 +72,44 @@
     node.isSticky() ? 'is-sticky',
     not node.isPublished() ? 'is-unpublished',
     view_mode ? view_mode|clean_class,
-    'clearfix',
-    'col-sm-6'
+    view_mode ? 'view-mode-' ~ view_mode|clean_class,
+    'slide'
   ]
 %}
-
-{% if content.field_teaser_image|field_value %}
-  {% set class_sidebar = 'col-xs-12 col-sm-12 col-md-9' %}
-  {% set class_content = 'col-xs-12 col-sm-12 col-md-3' %}
-{% else %}
-  {% set class_sidebar = 'invisible' %}
-  {% set class_content = 'col-xs-12 col-sm-12' %}
-{% endif %}
-
-
-
 <article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
+  <div class="l-slide">
+    <a href="{{ url }}" rel="bookmark" class="l-slide-media {{ node.getType }}__slideshow-image slideshow-image slide__media arrow">
 
-  <div class="event__slideshow-image slideshow-image {{ class_sidebar }} arrow">
-    {% if content.field_teaser_image %}
-      <a href="{{ url }}" rel="bookmark">
-        {{ content.field_teaser_image|field_value }}
+      {% if content.field_teaser_image|field_value  %}
+          {{ content.field_teaser_image|field_value }}
+        {% else %}
+          <div class="no-image"></div>
+        {% endif %}
       </a>
-    {% endif %}
-  </div>
 
-  <div class="event__slideshow-content slideshow-content {{ class_content }}">
-    <p class="slideshow-section">{% trans %}Event{% endtrans %}</p>
-    {#{% if content.field_event_date %}
-      <div class="event__slideshow-date"{{ content.field_event_date|quickedit_attr }}>
-        {{ content.field_event_date|field_value }}
+    <div class="l-slide-text">
+      <div class="slideshow-content {{ node.getType }}__slideshow-content">
+
+        <p class="slideshow-section slideshow-content-type-label {{ node.getType }}__slideshow-content-type-label">
+          {{ node.type.entity.label }}
+        </p>
+
+        {% if content.field_teaser_title %}
+          <a href="{{ url }}" rel="bookmark">
+            <div class="slideshow-title {{ node.getType }}__slideshow-title">
+              <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
+            </div>
+          </a>
+        {% endif %}
+
+        {% if content.field_teaser_text %}
+          <div class="slideshow-text {{ node.getType }}__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
+            {% set text = content.field_teaser_text|render|striptags %}
+            <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}#}
-
-    {% if content.field_teaser_title %}
-      <a href="{{ url }}" rel="bookmark">
-        <div class="event__slideshow-title slideshow-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>{{ content.field_teaser_title|field_value }}</h3>
-        </div>
-      </a>
-    {% endif %}
-
-    {% if content.field_teaser_text %}
-      <div class="event__slideshow-text"{{ content.field_teaser_text|quickedit_attr }}>
-        {% set text = content.field_teaser_text|render|striptags %}
-        <p>{{ text|length > 600 ? text|slice(0, 600) ~ '...' : text }}</p>
-      </div>
-    {% endif %}
+    </div>
   </div>
-
 </article>

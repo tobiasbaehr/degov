@@ -57,3 +57,19 @@ function degov_node_external_teaser_update_870600() {
   $config->set('content.field_tags.region', 'content');
   $config->save();
 }
+
+/**
+ * deGov Update 8.2.0
+ */
+function degov_node_external_teaser_update_880200() {
+  /** @var \Drupal\Core\Config\ConfigFactoryInterface $configFactory */
+  $configFactory = \Drupal::service('config.factory');
+  $config = $configFactory->getEditable('core.entity_view_display.node.external_teaser.default');
+  if (!$config->isNew()) {
+    if ($config->get('content.field_teaser_image.type') === 'entity_reference_label') {
+      $config->set('content.field_teaser_image.type', 'entity_reference_entity_view');
+      $config->set('content.field_teaser_image.settings', ['link' => FALSE, 'view_mode' => 'slider_main_16_9']);
+      $config->save(TRUE);
+    }
+  }
+}

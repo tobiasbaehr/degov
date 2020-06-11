@@ -55,18 +55,30 @@ final class MenuItemGenerator extends ContentGenerator implements GeneratorInter
    *
    * @param array $menuItemDefinitions
    *   Menu item definitions.
-   * @param \Drupal\menu_link_content\MenuLinkContentInterface|NULL $parentMenuLink
+   * @param \Drupal\menu_link_content\MenuLinkContentInterface|null $parentMenuLink
    *   Parent menu link.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function generateMenuItems(array $menuItemDefinitions, MenuLinkContentInterface $parentMenuLink = NULL): void {
     foreach ($menuItemDefinitions as $key => $menuItemDefinition) {
-      $title = $menuItemDefinition['menu_title'] ?? $menuItemDefinition['node_title'];
+
+      if (isset($menuItemDefinition['node_title'])) {
+        $title = $menuItemDefinition['menu_title'] ?? $menuItemDefinition['node_title'];
+        $uri = 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']);
+      }
+      elseif (isset($menuItemDefinition['media_title'])) {
+        $title = $menuItemDefinition['menu_title'] ?? $menuItemDefinition['media_title'];
+        $uri = 'internal:/media/' . $this->getMidByMediaTitle($menuItemDefinition['media_title']);
+      }
+      else {
+        throw new \Exception(sprintf('Menu item definition must contain node_title or media_title to create a a link. Not found in: "%s"', $key));
+      }
+
       $menuLinkParameters = [
         'title'     => $title,
         'link'      => [
-          'uri' => 'internal:/node/' . $this->getNidByNodeTitle($menuItemDefinition['node_title']),
+          'uri' => $uri,
         ],
         'menu_name' => $menuItemDefinition['menu_name'],
         'expanded'  => TRUE,
@@ -122,6 +134,28 @@ final class MenuItemGenerator extends ContentGenerator implements GeneratorInter
     }
 
     return $nid;
+  }
+
+  /**
+   * Gets the ID of a Media with the given title.
+   *
+   * @param string $mediaTitle
+   *   Node title.
+   *
+   * @return string
+   *   Media ID.
+   *
+   * @throws \Exception
+   */
+  private function getMidByMediaTitle(string $mediaTitle): string {
+    $query = $this->database->select('media_field_data', 'mfd')
+      ->fields('mfd', ['mid'])
+      ->condition('mfd.name', $mediaTitle);
+    $mid = $query->execute()->fetchField();
+    if (empty($mid) || !is_numeric($mid)) {
+      throw new \Exception(sprintf('No media has been found by title "%s"', $mediaTitle));
+    }
+    return $mid;
   }
 
   /**

@@ -8122,6 +8122,10 @@ footer.site-footer {
     .paragraph-node-reference-node-view-mode-slim .paragraph__content article h3, .paragraph-node-reference-node-view-mode-slim .paragraph__content article h2 {
       font-size: 1.4rem; } }
 
+.media-gallery-wrapper {
+  width: 100%;
+  margin: 0; }
+
 .paragraph-media-reference-media-gallery-view-mode-preview {
   background-color: #E5E7E9; }
 

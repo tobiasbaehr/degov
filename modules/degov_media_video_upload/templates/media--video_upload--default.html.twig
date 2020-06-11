@@ -12,12 +12,6 @@
  * @ingroup themeable
  */
 #}
-{% set caption %}
-  {{- content.field_video_upload_caption -}}
-{% endset %}
-{% set copyright %}
-  {{- content.field_copyright -}}
-{% endset %}
 {%
 set media_classes = [
   'video-upload',
@@ -57,12 +51,7 @@ set media_classes = [
           {% else %}
             <div class="media__type-label">{{ 'Video'|t }}</div>
           {% endif %}
-          {% if content.field_copyright|field_value %}
-            <span class="video-upload__copyright">
-              <span class="video-upload__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-                {{ content.field_copyright|field_value }}
-            </span>
-          {% endif %}
+          {{ field_media_copyright }}
         </div>
 
         {% if content.field_title %}

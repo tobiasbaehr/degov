@@ -24,13 +24,7 @@
       <span>{{ 'Audio'|trans }} <i class="fas fa-headphones"></i></span>
     </div>
     {{ teaser_image }}
-
-    {% if content.field_copyright|field_value %}
-      <div class="srmedia__copyright position-absolute py-1 px-3 font-weight-bold">
-        <span class="srmedia__copyright-label">{{ '&copy;'|trans }}</span>
-        {{ content.field_copyright|field_value }}
-      </div>
-    {% endif %}
+    {{ field_media_copright }}
 
   </div>
   <div class="srmedia__info">

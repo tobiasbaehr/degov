@@ -72,6 +72,9 @@ function degov_update_dependencies() {
   $dependencies['field_group'][8301] = [
     'degov' => 8501,
   ];
+  $dependencies['degov'][880000] = [
+    'system' => 8805
+  ];
   return $dependencies;
 }
 
@@ -253,7 +256,10 @@ function degov_update_8501() {
 }
 
 /**
- * deGov Update 5.1.0 - Removal of the Workbench Access module. Installation of deGov Email Login module., Install the Link Attributes module, if it's not already installed.
+ * deGov Update 5.1.0 - Removal of the Workbench Access module.
+ *
+ * Installation of deGov Email Login module. Install the Link Attributes module,
+ * if it is not already installed.
  */
 function degov_update_850100() {
   if (!\Drupal::moduleHandler()->moduleExists('link_attributes')) {
@@ -453,5 +459,14 @@ function degov_update_880000() {
 function degov_update_880005() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_password_policy')) {
     \Drupal::service('module_installer')->install(['degov_password_policy']);
+  }
+}
+
+/**
+ * Enable media_copyright module.
+ */
+function degov_update_880300() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_media_copyright')) {
+    \Drupal::service('module_installer')->install(['degov_media_copyright']);
   }
 }

@@ -25,10 +25,9 @@
     </div>
     {{ teaser_image }}
 
-    {% if content.field_copyright|field_value %}
+    {% if field_media_copyright %}
       <div class="srmedia__copyright position-absolute py-1 px-3 font-weight-bold">
-        <span class="srmedia__copyright-label">{{ '&copy;'|trans }}</span>
-        {{ content.field_copyright|field_value }}
+        {{ field_media_copyright }}
       </div>
     {% endif %}
 

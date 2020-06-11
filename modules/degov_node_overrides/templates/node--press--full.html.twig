@@ -85,7 +85,6 @@
     {% endif %}
     {% if not is_front %}
       <div class="content-header__text col-xs-12">
-        <div class="content-header__media-info"></div>
         {# Date #}
         {% if content.field_press_date|field_value %}
           <div class="date field"{{ content.field_press_date|quickedit_attr }}>{{ content.field_press_date|field_value }}</div>

@@ -8,6 +8,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\node\Entity\Node;
 use Drupal\pathauto\AliasCleanerInterface;
 use Drupal\pathauto\PathautoState;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Class NodeGenerator.
@@ -69,6 +70,12 @@ final class NodeGenerator extends ContentGenerator implements GeneratorInterface
     $teaserPage = NULL;
     $nodeIds = [];
 
+    // Attach Content reference Slides.
+    $attachContentSlides = [
+      'node_with_type1_slideshow' => TRUE,
+      'node_with_type2_slideshow' => TRUE,
+    ];
+
     foreach ($this->loadDefinitions('node.yml') as $srcId => $rawNode) {
       $paragraphs = [];
 
@@ -115,14 +122,62 @@ final class NodeGenerator extends ContentGenerator implements GeneratorInterface
           $nodeIds[] = $node->id();
         }
       }
+
+      if (isset($attachContentSlides[$srcId])) {
+        $attachContentSlides[$srcId] = $node;
+      }
+
       /*
        * Make sure Nodes are not all created the same second,
        * otherwise views will display them in random order.
        */
       sleep(1);
     }
+
+    foreach ($attachContentSlides as $id => $node) {
+      $this->attachContentReferenceSlides($node, $nodeIds);
+    }
+
     $this->generateNodeReferenceParagraphs($teaserPage, $nodeIds);
     $this->generateMediaReferenceParagraphs($teaserPage);
+  }
+
+  /**
+   * Generate node reference paragraphs.
+   *
+   * @param \Drupal\node\Entity\Node $node
+   *   Teaser page node.
+   * @param array $nodeIds
+   *   Node IDs.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   */
+  private function attachContentReferenceSlides(Node $node, array $nodeIds) {
+    $paragraphs = [];
+    foreach ($this->loadDefinitionByNameType('paragraphs', 'node_reference__slideshow') as $rawParagraph) {
+      $rawParagraph['field_sub_title'] = empty($rawParagraph['field_sub_title']) ? $this->generateBlindText(3) : $rawParagraph['field_sub_title'];
+      $rawParagraph['field_node_reference_nodes'] = $nodeIds;
+      $rawParagraph['type'] = 'node_reference';
+      $paragraph = Paragraph::create($rawParagraph);
+      $paragraph->save();
+      $paragraphs[] = $paragraph;
+    }
+    if (count($paragraphs)) {
+      // @var $slider \Drupal\paragraphs\Entity\Paragraph
+      $slider = $node->get('field_header_paragraphs')->first()->get('entity')->getTarget()->getValue();
+
+      // @var $slides \Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList
+      $slides = $slider->get('field_slideshow_slides');
+      $slider->set('field_slideshow_slides', array_merge($slides->getValue(), $paragraphs));
+      $slider->save();
+
+      $sliderValue[] = [
+        'target_id' => $slider->id(),
+        'target_revision_id' => $slider->getRevisionId(),
+      ];
+      $node->set('field_header_paragraphs', $sliderValue);
+      $node->save();
+    }
   }
 
   /**

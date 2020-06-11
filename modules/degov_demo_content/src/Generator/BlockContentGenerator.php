@@ -49,7 +49,7 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
    */
   public function generateContent(): void {
     foreach ($this->loadDefinitions('block_content.yml') as $definition) {
-      $block = $this->createContentBlock($definition);
+      $block = $this->createContentBlock();
       $this->generateBlockReferenceParagraphs($block);
     }
     $this->enableParagraphField();
@@ -66,12 +66,26 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function createContentBlock(array $definition): BlockContentInterface {
-    /** @var \Drupal\block_content\BlockContentInterface $block */
-    $block = BlockContent::create($definition);
+  private function createContentBlock() {
+    foreach ($this->loadDefinitions('block_content.yml') as $srcId => $rawBlock) {
+      $paragraphs = [];
+      if (isset($rawBlock['field_content_paragraphs'])) {
+        $paragraphs['field_content_paragraphs'] = $rawBlock['field_content_paragraphs'];
+      }
+      $rawBlock['field_tags'] = [
+        ['target_id' => $this->getDemoContentTagId()],
+      ];
+
+      $rawBlock['created'] = isset($rawBlock['created']) ? $rawBlock['created'] : $this->getCreatedTimestamp($srcId);
+
+      $paragraphs = array_filter($paragraphs);
+      unset($rawBlock['field_content_paragraphs']);
+      $this->generateParagraphs($paragraphs, $rawBlock);
+      $this->prepareValues($rawBlock);
+    }
+    $block = BlockContent::create($rawBlock);
     $block->save();
     $this->setBlockToRegion($block);
-
     return $block;
   }
 

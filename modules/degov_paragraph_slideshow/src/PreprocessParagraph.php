@@ -22,6 +22,8 @@ final class PreprocessParagraph implements ContainerInjectionInterface {
   protected $entityTypeManager;
 
   /**
+   * Module handler.
+   *
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
   protected $moduleHandler;
@@ -32,6 +34,7 @@ final class PreprocessParagraph implements ContainerInjectionInterface {
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager service.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   Module handler.
    */
   public function __construct(EntityTypeManagerInterface $entityTypeManager, ModuleHandlerInterface $module_handler) {
     $this->entityTypeManager = $entityTypeManager;
@@ -51,6 +54,8 @@ final class PreprocessParagraph implements ContainerInjectionInterface {
   /**
    * Preprocess the paragraphs type "slide".
    *
+   *  See degov_paragraph_slideshow_preprocess_paragraph.
+   *
    * @param array &$variables
    *   The theme preprocess function argument.
    */
@@ -68,12 +73,15 @@ final class PreprocessParagraph implements ContainerInjectionInterface {
   /**
    * Preprocess the paragraphs type "slide".
    *
+   * See degov_paragraph_slideshow_preprocess_paragraph.
+   *
    * @param array &$variables
    *   The theme preprocess function argument.
    */
   public function slider(array &$variables): void {
     /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
     $paragraph = $variables['paragraph'];
+
     // Add the variable slideshow_type.
     $variables['slideshow_type'] = $paragraph->field_slideshow_type->value;
 
@@ -109,9 +117,58 @@ final class PreprocessParagraph implements ContainerInjectionInterface {
         // Unset each slide, as last step will propagate all slides again.
         unset($variables['content']['field_slideshow_slides'][$i]);
       }
-      $variables['content']['field_slideshow_slides'] += $propagated_slides;
-    }
 
+      // Media copyright field.
+      if ($this->moduleHandler->moduleExists('degov_media_copyright')) {
+        foreach ($propagated_slides as $k => $slide) {
+          $media = NULL;
+          $mediaCopyright = NULL;
+          $slideParagraph = NULL;
+
+          // Get media from paragraph.
+          if (isset($slide['#paragraph'])) {
+            $slideParagraph = $slide['#paragraph'];
+            if (is_object($slideParagraph) && isset($slideParagraph->field_slide_media->referencedEntities()[0])) {
+              $media = $slideParagraph->field_slide_media->referencedEntities()[0];
+            }
+          }
+          // Get media from node field.
+          elseif (isset($slide['#node'])) {
+            $node = $slide['#node'];
+            if ($node->hasField('field_teaser_image') && isset($node->get('field_teaser_image')->referencedEntities()[0])) {
+              $media = $node->get('field_teaser_image')->referencedEntities()[0];
+            }
+          }
+
+          // Attach media_copyright.
+          if ($media) {
+            $mediaCopyright = $media->get('field_media_copyright')->first()->view();
+            $mediaCopyright['#attributes'] = [
+              'class' => ['copyright-slide-' . $k],
+            ];
+            if ($k === 0) {
+              $mediaCopyright['#attributes']['class'][] = 'is-visible';
+            }
+
+            // Override caption from paragraphs.
+            $hasCaptionOverride = $slideParagraph
+              && $slideParagraph->hasField('field_override_caption')
+              && !$slideParagraph->get('field_override_caption')->isEmpty();
+            if ($hasCaptionOverride) {
+              $mediaCopyright['#caption'] = $slideParagraph->get('field_override_caption')->first()->value;
+            }
+
+            // Attach to slider.
+            if ($mediaCopyright) {
+              $propagated_slides[$k]['field_media_copyright'] = $mediaCopyright;
+            }
+          }
+        }
+      }
+      $variables['content']['field_slideshow_slides'] += $propagated_slides;
+      // Add a counter variable.
+      $variables['content']['field_slideshow_slides']['#number_of_slides'] = count($propagated_slides);
+    }
     $variables['slider_id'] = Html::getUniqueId('degov-slider');
   }
 

@@ -18,6 +18,8 @@
         speed: 300,
         slidesToShow: 3,
         slidesToScroll: 3,
+        arrows: false,
+        appendDots: '.press-slider',
         responsive: [
           {
             breakpoint: 992,

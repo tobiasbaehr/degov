@@ -12,12 +12,6 @@
  * @ingroup themeable
  */
 #}
-{% set caption %}
-    {{- content.field_video_upload_caption -}}
-{% endset %}
-{% set copyright %}
-    {{- content.field_copyright -}}
-{% endset %}
 {%
 set media_classes = [
 'video-mobile',
@@ -32,20 +26,6 @@ set media_classes = [
                 {{ subtitle }}
             {% endfor %}
         </video>
-        {% if content.field_title|field_value or content.field_copyright|field_value %}
-            <div class="video-mobile__info">
-                <div class="video__info__wrap">
-                    {% if content.field_title|field_value %}
-                        <span class="video-mobile__caption"{{ content.field_title|quickedit_attr }}>{{ content.field_title|field_value }}</span>
-                    {% endif %}
-                    {% if content.field_copyright|field_value %}
-                        <span class="video-mobile__copyright">
-                        <span class="video-mobile__copyright-label"{{ content.field_copyright|quickedit_attr }}>{{ '&copy;'|trans }}</span>
-                            {{ content.field_copyright|field_value }}
-                        </span>
-                    {% endif %}
-                </div>
-            </div>
-        {% endif %}
+      {{ field_media_copyright }}
     </div>
 </article>

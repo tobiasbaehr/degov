@@ -12,3 +12,4 @@ dependencies:
   - degov:degov_theming
   - degov:degov_users_roles
   - video_embed_field:video_embed_field
+  - degov:degov_media_copyright

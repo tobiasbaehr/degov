@@ -127,7 +127,7 @@ function degov_common_update_8017() {
 }
 
 /**
- * Installs the degov_theming module for decoupling degov_common module's theming functionality.
+ * Installs the degov_theming module for decoupling degov_common modules theming functionality.
  */
 function degov_common_update_8018() {
   \Drupal::service('module_installer')->install(['degov_theming']);

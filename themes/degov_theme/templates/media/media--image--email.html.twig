@@ -22,12 +22,7 @@
   {% spaceless %}
     <div style="line-height: 1.3em; font-family: arial,sans-serif; font-size: 11px; color: #666; padding-top: .3em">
       <div>{{ content.field_image_caption|field_value }}</div>
-        {% if content.field_copyright|field_value %}
-          <div >
-            <span >{{ '&copy;'|trans }}</span>
-              {{ content.field_copyright|field_value }}
-          </div>
-        {% endif %}
+        {{ field_media_copyright }}
     </div>
   {% endspaceless %}
 </article>

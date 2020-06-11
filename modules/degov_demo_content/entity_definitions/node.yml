@@ -421,47 +421,123 @@ node_with_video_header:
     - header_video
   status: 1
   moderation_state: 'published'
-node_with_slideshow:
+node_with_type1_slideshow:
   type: 'normal_page'
-  title: 'Page with slideshow'
+  title: 'Page with type 1 slideshow'
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'Page with slideshow'
-  field_teaser_sub_title: 'A page with an slideshow'
-  field_teaser_image: '{{MEDIA_ID_IMAGE-image_2}}'
-  status: 1
-  field_header_paragraphs:
-    - header_slideshow
-  moderation_state: 'published'
-node_with_type1_video_slideshow:
-  type: 'normal_page'
-  title: 'Page with type 1 video slideshow'
-  field_teaser_text:
-    value: '{{TEXT}}'
-    format: 'rich_html'
-  field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'Page with type 1 video slideshow'
-  field_teaser_sub_title: 'A page with a type 1 video slideshow'
+  field_teaser_title: 'Page with type 1 slideshow'
+  field_teaser_sub_title: 'A page with a type 1 slideshow'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
   status: 1
   field_header_paragraphs:
-    - header_type1_video_slideshow
+    - header_slideshow_all_slides_type_1
   moderation_state: 'published'
-node_with_type2_video_slideshow:
+node_with_type1_slideshow_single_slide:
   type: 'normal_page'
-  title: 'Page with type 2 video slideshow'
+  title: 'Page with type 1 slideshow single slide'
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'Page with type 2 video slideshow'
-  field_teaser_sub_title: 'A page with a type 2 video slideshow'
+  field_teaser_title: 'Page with type 1 slideshow single slide'
+  field_teaser_sub_title: 'A page with a type 1 slideshow and a single slide'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  status: 1
+  field_header_paragraphs:
+    - header_slideshow_single_slides_type_1
+  moderation_state: 'published'
+node_with_type1_slideshow_andSidebar:
+  type: 'normal_page'
+  title: 'Page with type 1 slideshow and sidebar'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 1 slideshow and sidebar'
+  field_teaser_sub_title: 'A page with a type 1 slideshow and sidebar'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  status: 1
+  field_header_paragraphs:
+    - header_slideshow_all_slides_type_1
+  field_sidebar_right_paragraphs:
+    - text_3
+  moderation_state: 'published'
+node_with_type2_slideshow:
+  type: 'normal_page'
+  title: 'Page with type 2 slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 2 slideshow'
+  field_teaser_sub_title: 'A page with a type 2 slideshow'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   status: 1
   field_header_paragraphs:
-    - header_type2_video_slideshow
+    - header_slideshow_all_slides_type_2
+  moderation_state: 'published'
+node_with_type2_slideshow_single_slide:
+  type: 'normal_page'
+  title: 'Page with type 2 slideshow single slide'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 2 slideshow and a single slide'
+  field_teaser_sub_title: 'A page with a type 2 slideshow and a single slide'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  status: 1
+  field_header_paragraphs:
+    - header_slideshow_single_slides_type_2
+  moderation_state: 'published'
+node_with_type2_slideshow_and_sidebar:
+  type: 'normal_page'
+  title: 'Page with type 2 slideshow and sidebar'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with type 2 slideshow and sidebar'
+  field_teaser_sub_title: 'A page with a type 2 slideshow and sidebar'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
+  status: 1
+  field_header_paragraphs:
+    - header_slideshow_all_slides_type_2
+  field_sidebar_right_paragraphs:
+    - text_3
+  moderation_state: 'published'
+node_with_press_slideshow:
+  type: 'normal_page'
+  title: 'Page with press slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with press slideshow'
+  field_teaser_sub_title: 'A page with a press slideshow'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  status: 1
+  field_content_paragraphs:
+    - views_reference_latest_press_slider
+  moderation_state: 'published'
+node_with_press_slideshow_and_sidebar:
+  type: 'normal_page'
+  title: 'Page with press slideshow and sidebar'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with press slideshow'
+  field_teaser_sub_title: 'A page with a press slideshow'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_3}}'
+  status: 1
+  field_content_paragraphs:
+    - views_reference_latest_press_slider
+  field_sidebar_right_paragraphs:
+    - text_3
   moderation_state: 'published'
 node_with_banner:
   type: 'normal_page'
@@ -476,6 +552,20 @@ node_with_banner:
   status: 1
   field_header_paragraphs:
     - header_banner
+  moderation_state: 'published'
+page_with_image_overridden_caption:
+  type: 'normal_page'
+  title: 'Page with overridden Media caption'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'Page with overridden Media caption'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+    - media_reference_image
+    - media_reference_image_overridden
+  status: 1
   moderation_state: 'published'
 node_with_video_mobile:
   type: 'normal_page'

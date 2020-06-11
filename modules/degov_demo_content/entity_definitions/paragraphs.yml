@@ -22,35 +22,64 @@ teaser_slim:
   field_sub_title: 'All teasers in view mode Slim'
   field_node_reference_viewmode: 'slim'
   field_node_reference_nodes: '{{NIDS}}'
+teaser_slide:
+  type: 'node_reference__slideshow'
+  field_node_reference_viewmode: 'slide'
+  field_node_reference_nodes: '{{NIDS}}'
 header_banner:
   type: 'image_header'
   field_override_caption: 'Amet Pharetra Fusce'
   field_header_media: '{{MEDIA_ID_IMAGE-image_3}}'
-header_slideshow:
+header_type1_slideshow:
   type: 'slideshow'
   field_slideshow_slides:
     - 'paragraph_reference_slide_1'
     - 'paragraph_reference_slide_2'
     - 'paragraph_reference_slide_3'
-  field_slideshow_type: 'type_1'
-header_type1_video_slideshow:
-  type: 'slideshow'
-  field_slideshow_slides:
     - 'paragraph_reference_slide_video_1'
     - 'paragraph_reference_slide_video_2'
     - 'paragraph_reference_slide_video_3'
     - 'paragraph_reference_slide_video_4'
     - 'paragraph_reference_slide_video_5'
   field_slideshow_type: 'type_1'
-header_type2_video_slideshow:
+header_slideshow_all_slides_type_1:
   type: 'slideshow'
   field_slideshow_slides:
-    - 'paragraph_reference_slide_video_5'
-    - 'paragraph_reference_slide_video_4'
-    - 'paragraph_reference_slide_video_3'
-    - 'paragraph_reference_slide_video_2'
+    - 'paragraph_reference_slide_1'
+    - 'paragraph_reference_slide_2'
+    - 'paragraph_reference_slide_3'
     - 'paragraph_reference_slide_video_1'
+    - 'paragraph_reference_slide_video_2'
+    - 'paragraph_reference_slide_video_3'
+    - 'paragraph_reference_slide_video_4'
+    - 'paragraph_reference_slide_video_5'
+  field_slideshow_type: 'type_1'
+header_slideshow_single_slides_type_1:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_1'
+  field_slideshow_type: 'type_1'
+header_slideshow_all_slides_type_2:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_1'
+    - 'paragraph_reference_slide_2'
+    - 'paragraph_reference_slide_3'
+    - 'paragraph_reference_slide_video_1'
+    - 'paragraph_reference_slide_video_2'
+    - 'paragraph_reference_slide_video_3'
+    - 'paragraph_reference_slide_video_4'
+    - 'paragraph_reference_slide_video_5'
   field_slideshow_type: 'type_2'
+header_slideshow_single_slides_type_2:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'paragraph_reference_slide_1'
+  field_slideshow_type: 'type_2'
+press_slideshow:
+  type: 'slideshow'
+  field_slideshow_slides:
+    - 'press_latest_content'
 header_video:
   type: 'video_header'
   field_override_caption: 'Quam Dolor Vehicula'
@@ -65,7 +94,9 @@ slide_1:
             <h2>Heading 2</h2>
             <h3>Heading 3</h3>
             <p><strong>Links are stripped if the field "field_slide_link" is not empty.</strong></h3>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. rebum Stet clita <a href="/">kasd</a> gubergren äöü ÄÖÜß àéîøū <a href="/">no</a> sea takimata sanctus est <a href="/">äöü</a> ÄÖÜß àéîøū Lorem ipsum <a href="/">dolor</a> sit amet Lorem ipsum Cras justo odio, dapibus ac facilisis.</p>'
+            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. rebum Stet clita <a href="/">kasd</a> gubergren äöü ÄÖÜß àéîøū <a href="/">no</a> sea takimata sanctus est <a href="/">äöü</a> ÄÖÜß àéîøū Lorem ipsum <a href="/">dolor</a> sit amet Lorem ipsum Cras justo odio, dapibus ac facilisis.</p>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. <a href="/">ÄÖÜß</a> àéîøū rebum Stet clita <a href="/">kasd</a> gubergren äöü ÄÖÜß àéîøū <a href="/">vallum</a> sea takimata sanctus est <a href="/">ägäicum</a> ÄÖÜß àéîøū Lorem ipsum <a href="/">dolor</a> sit amet Lorem ipsum <a href="/">äöü</a> ÄÖÜß àéîøū dolor sit <a href="/">amet</a> consetetur äöüÄ ÖÜßà éîøū</p>
+            <p><strong>Nullam quis risus eget</strong>  urna mollis ornare vel eu leo <em>justo odio, dapibus ac facilisis</em> gestas eget quam <a href="/">linkum hyper referenzum</a> Duis mollis</p>'
     format: 'rich_html'
   field_slide_link:
     - "https://drupal.org"
@@ -247,6 +278,14 @@ views_reference_latest_content:
     target_id: 'content_recent'
     display_id: 'block_1'
     view_mode: 'preview'
+views_reference_latest_press_slider:
+  type: 'view_reference'
+  field_title: 'Press Slider - Latest'
+  field_sub_title: 'Latest press teasers in view mode `latest`'
+  field_view_reference_view:
+    target_id: 'press_latest_content'
+    display_id: 'press_slider'
+    view_mode: 'latest'
 views_reference_latest_press_1:
   type: 'view_reference'
   field_title: 'Teaser - Small Image'
@@ -413,3 +452,10 @@ media_reference_responsive_video:
   field_sub_title: 'motum vocis imaginem'
   field_media_reference_view_mode: 'full'
   field_media_reference_media: '{{MEDIA_ID_VIDEO_MOBILE}}'
+media_reference_image_overridden:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Bild-Mediums'
+  field_sub_title: 'Vestibulum Nibh Lorem'
+  field_media_reference_view_mode: 'preview'
+  field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_override_caption: 'Caption set in paragraph'

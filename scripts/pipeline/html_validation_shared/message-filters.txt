@@ -20,4 +20,10 @@
 # New attribute feature <video controlsList="nodownload">
 # See: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList
 #      https://developers.google.com/web/updates/2017/03/chrome-58-media-updates#controlslist
-# Attribute “controlslist” not allowed on element “video” at this point\.
+Attribute “controlslist” not allowed on element “video” at this point\.
+#
+# Documented on MDN https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+Element “track” not allowed as child of element “video” in this context.*
+#
+# Used in core/modules/media/src/Plugin/Field/FieldFormatter/OEmbedFormatter.php.
+The “frameborder” attribute on the “iframe” element is obsolete.*
