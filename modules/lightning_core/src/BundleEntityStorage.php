@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * A storage handler for entity types that are bundles of other entity types.
  */
-class BundleEntityStorage extends ConfigEntityStorage {
+final class BundleEntityStorage extends ConfigEntityStorage {
 
   /**
    * The access control handler.

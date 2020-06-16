@@ -1,7 +1,7 @@
 services:
   degov_theming.template:
     class: Drupal\degov_theming\Service\Template
-    arguments: ['@theme.manager', '@degov_theming.component_location', '@twig']
+    arguments: ['@theme.manager', '@degov_theming.component_location', '@twig', '@theme.initialization']
   degov_theming.drupal_path:
     class: Drupal\degov_theming\Service\DrupalPath
     arguments: []

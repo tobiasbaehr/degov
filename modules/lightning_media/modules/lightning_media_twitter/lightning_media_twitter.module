@@ -5,7 +5,7 @@
  * Support for tweets as media entities in Lightning.
  */
 
-use Drupal\lightning_core\OverrideHelper as Override;
+use Drupal\lightning_core\OverrideHelper;
 use Drupal\lightning_media_twitter\Plugin\media\Source\Twitter;
 
 /**
@@ -21,5 +21,5 @@ function lightning_media_twitter_media_source_info_alter(array &$sources) {
   ];
   $sources['twitter']['preview'] = TRUE;
 
-  Override::pluginClass($sources['twitter'], Twitter::class);
+  OverrideHelper::pluginClass($sources['twitter'], Twitter::class);
 }

@@ -50,7 +50,7 @@ class ContentRoleTest extends KernelTestBase {
     $this->assertCount(2, $roles);
 
     foreach ($roles as $role) {
-      $this->assertSame(FALSE, $role->get('is_admin'));
+      $this->assertFalse($role->get('is_admin'));
     }
 
     $node_type->delete();

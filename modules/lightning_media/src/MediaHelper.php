@@ -2,6 +2,7 @@
 
 namespace Drupal\lightning_media;
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\FileInterface;
 use Drupal\file\Plugin\Field\FieldType\FileItem;
@@ -50,7 +51,7 @@ class MediaHelper {
     // one that adds an optional second parameter to loadMultiple().
     $storage = $this->entityTypeManager
       ->getStorage('media_type');
-    $media_types = $storage->loadMultiple($bundles ?: NULL, $check_access);
+    $media_types = $storage->loadMultiple($bundles ?: NULL);
 
     /** @var \Drupal\media\MediaTypeInterface $media_type */
     foreach ($media_types as $media_type) {
@@ -92,7 +93,7 @@ class MediaHelper {
     // one that adds an optional second parameter to loadMultiple().
     $media_types = $this->entityTypeManager
       ->getStorage('media_type')
-      ->loadMultiple($bundles ?: NULL, $check_access);
+      ->loadMultiple($bundles ?: NULL);
     ksort($media_types);
 
     /** @var \Drupal\media\MediaTypeInterface $media_type */
@@ -148,13 +149,13 @@ class MediaHelper {
    * @return \Drupal\file\FileInterface|false
    *   The final file entity (unsaved), or FALSE if an error occurred.
    */
-  public static function useFile(MediaInterface $entity, FileInterface $file, $replace = FILE_EXISTS_RENAME) {
+  public static function useFile(MediaInterface $entity, FileInterface $file, $replace = FileSystemInterface::EXISTS_RENAME) {
     $field = static::getSourceField($entity);
     $field->setValue($file);
 
     $destination = '';
     $destination .= static::prepareFileDestination($entity);
-    if (substr($destination, -1) != '/') {
+    if (substr($destination, -1) !== '/') {
       $destination .= '/';
     }
     $destination .= $file->getFilename();
@@ -162,17 +163,17 @@ class MediaHelper {
     if ($destination == $file->getFileUri()) {
       return $file;
     }
-    else {
-      $file = file_move($file, $destination, $replace);
 
-      if ($file) {
-        $field->setValue($file);
-        return $file;
-      }
-      else {
-        return FALSE;
-      }
+    /** @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $fileSystem = \Drupal::service('file_system');
+    $file = $fileSystem->move($file, $destination, $replace);
+
+    if ($file) {
+      $field->setValue($file);
+      return $file;
     }
+
+    return FALSE;
   }
 
   /**
@@ -192,14 +193,13 @@ class MediaHelper {
     $item = static::getSourceField($entity)->first();
 
     $dir = $item->getUploadLocation();
-    $is_ready = file_prepare_directory($dir, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+    $is_ready = \Drupal::service('file_system')->prepareDirectory($dir, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
     if ($is_ready) {
       return $dir;
     }
-    else {
-      throw new \RuntimeException('Could not prepare ' . $dir . ' for writing');
-    }
+
+    throw new \RuntimeException('Could not prepare ' . $dir . ' for writing');
   }
 
   /**

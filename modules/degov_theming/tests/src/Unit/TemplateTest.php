@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\degov_theming\Unit;
 
-use Drupal\Core\Asset\LibraryDiscovery;
+use Drupal\Core\Asset\LibraryDiscoveryInterface;
 use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\Template\TwigEnvironment;
 use Drupal\Core\Theme\ActiveTheme;
-use Drupal\Core\Theme\ThemeManager;
+use Drupal\Core\Theme\ThemeInitializationInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\degov_theming\Facade\ComponentLocation;
 use Drupal\degov_theming\Service\DrupalPath;
 use Drupal\degov_theming\Service\Template;
@@ -31,8 +34,7 @@ class TemplateTest extends UnitTestCase {
    */
   protected function setUp() {
     parent::setUp();
-
-    $this->mockThemeManager();
+    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig(), $this->mockThemeInitialization());
   }
 
   /**
@@ -74,21 +76,35 @@ class TemplateTest extends UnitTestCase {
   }
 
   /**
+   * Mock ThemeInitialization service.
+   *
+   * @return \Prophecy\Prophecy\ProphecySubjectInterface|\Drupal\Core\Theme\ThemeInitializationInterface
+   */
+  private function mockThemeInitialization() {
+    $baseTheme = $this->prophesize(ActiveTheme::class);
+    $baseTheme->getPath()->willReturn('themes/custom/base_theme/');
+    $baseTheme->reveal();
+    $themeInitialization = $this->prophesize(ThemeInitializationInterface::class);
+    $themeInitialization->getActiveThemeByName(Argument::type('string'))->willReturn($baseTheme);
+    return $themeInitialization->reveal();
+  }
+
+  /**
    * Mock theme manager.
    *
-   * @return \Drupal\Core\Theme\ThemeManager
+   * @return \Drupal\Core\Theme\ThemeManagerInterface
    *   Theme manager.
    */
   private function mockThemeManager() {
-    $themeManager = $this->prophesize(ThemeManager::class);
+    $themeManager = $this->prophesize(ThemeManagerInterface::class);
 
     $activeThemeStub = $this->prophesize(ActiveTheme::class);
 
     $baseTheme = $this->prophesize(ActiveTheme::class);
     $baseTheme->getPath()->willReturn('themes/custom/base_theme/');
-
+    $baseTheme->getName()->willReturn('base_theme');
     $projectTheme = $this->prophesize(ActiveTheme::class);
-    $projectTheme->getBaseThemes()->willReturn([
+    $projectTheme->getBaseThemeExtensions()->willReturn([
       $baseTheme->reveal(),
       $activeThemeStub->reveal(),
     ]);
@@ -103,11 +119,11 @@ class TemplateTest extends UnitTestCase {
   /**
    * Mock library discovery.
    *
-   * @return \Drupal\Core\Asset\LibraryDiscovery
+   * @return \Drupal\Core\Asset\LibraryDiscoveryInterface
    *   Library discovery.
    */
   private function mockLibraryDiscovery() {
-    $libraryDiscovery = $this->prophesize(LibraryDiscovery::class);
+    $libraryDiscovery = $this->prophesize(LibraryDiscoveryInterface::class);
     $libraryDiscovery->getLibraryByName(Argument::type('string'), Argument::type('string'))
       ->willReturn('any.library');
 
@@ -291,7 +307,6 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getPreprocess()
    */
   public function testSuggestTemplateFromModule($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
@@ -323,7 +338,6 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getPreprocess()
    */
   public function testSuggestTemplateFromBaseTheme($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
@@ -355,7 +369,6 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getClientThemePreprocess()
    */
   public function testSuggestTemplateFromProjectThemeInPreviewViewMode($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
@@ -387,7 +400,6 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getClientThemePreprocess()
    */
   public function testSuggestTemplateFromProjectThemeInDefaultViewMode($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');
@@ -419,7 +431,6 @@ class TemplateTest extends UnitTestCase {
    * @dataProvider getNoTemplatePreprocess()
    */
   public function testDoNotAddSuggestionIfNoTemplateIsFound($hook, $info, $options) {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation('blog'), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('blog');
@@ -460,7 +471,6 @@ class TemplateTest extends UnitTestCase {
    *   because it caches the previously requested template in static cache
    */
   public function testDoNotFallbackToDefault() {
-    $this->template = new Template($this->mockThemeManager(), $this->mockComponentLocation(), $this->mockTwig());
 
     $node = $this->prophesize(EntityBase::class);
     $node->bundle()->willReturn('normal_page');

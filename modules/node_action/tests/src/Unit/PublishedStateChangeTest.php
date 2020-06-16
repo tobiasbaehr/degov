@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\node_action\Unit;
 
 use Drupal\content_moderation\Plugin\Field\ModerationStateFieldItemList;
 use Drupal\Core\Messenger\Messenger;
 use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\node_action\AccessChecker\PublishedStateChange;
 use Drupal\node_action\StringTranslationAdapter;
 use Drupal\node_action\UserInteractionFacade;
@@ -32,7 +35,8 @@ class PublishedStateChangeTest extends UnitTestCase {
       ->method('addMessage')
       ->willReturn(NULL);
 
-    $node = $this->getMockBuilder(Node::class)
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $this->getMockBuilder(NodeInterface::class)
       ->disableOriginalConstructor()
       ->getMock();
 

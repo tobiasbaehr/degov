@@ -12,7 +12,7 @@ use Twig_Markup;
  *
  * @package Drupal\degov_theme\Preprocess
  */
-class MenuAccount implements ContainerInjectionInterface {
+final class MenuAccount implements ContainerInjectionInterface {
 
   /**
    * The renderer.
@@ -58,7 +58,7 @@ class MenuAccount implements ContainerInjectionInterface {
         /** @var \Drupal\Core\Url $url */
         $url = $item['url'];
 
-        if (($url->isRouted()) && in_array($url->getRouteName(), array_keys($routes))) {
+        if (($url->isRouted()) && array_key_exists($url->getRouteName(), $routes)) {
           $icon = [
             '#type' => 'html_tag',
             '#tag' => 'i',

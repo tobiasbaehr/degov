@@ -6,7 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Configure example settings for this site.
+ * Configuration form of the styled_google_map module.
  */
 class StyledGoogleMapSettingsForm extends ConfigFormBase {
 
@@ -39,7 +39,7 @@ class StyledGoogleMapSettingsForm extends ConfigFormBase {
         STYLED_GOOGLE_MAP_GOOGLE_AUTH_KEY => t('API Key'),
         STYLED_GOOGLE_MAP_GOOGLE_AUTH_WORK => t('Google Maps API for Work'),
       ],
-      '#default_value' => $config->get('styled_google_map_google_auth_method', STYLED_GOOGLE_MAP_GOOGLE_AUTH_KEY),
+      '#default_value' => $config->get('styled_google_map_google_auth_method'),
     ];
 
     $form['styled_google_map_google_apikey'] = [
@@ -48,7 +48,7 @@ class StyledGoogleMapSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Obtain a Google Maps Javascript API key at <a href="@link">@link</a>', [
         '@link' => 'https://developers.google.com/maps/documentation/javascript/get-api-key',
       ]),
-      '#default_value' => $config->get('styled_google_map_google_apikey', ''),
+      '#default_value' => $config->get('styled_google_map_google_apikey'),
       '#required' => FALSE,
       '#states' => [
         'visible' => [
@@ -62,7 +62,7 @@ class StyledGoogleMapSettingsForm extends ConfigFormBase {
       '#description' => $this->t('For more information, visit: <a href="@link">@link</a>', [
         '@link' => 'https://developers.google.com/maps/documentation/javascript/get-api-key#client-id',
       ]),
-      '#default_value' => $config->get('styled_google_map_google_client_id', ''),
+      '#default_value' => $config->get('styled_google_map_google_client_id'),
       '#required' => FALSE,
       '#states' => [
         'visible' => [
@@ -78,7 +78,7 @@ class StyledGoogleMapSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = \Drupal::service('config.factory')->getEditable('styled_google_map.settings');
+    $config = $this->configFactory->getEditable('styled_google_map.settings');
     $config->set('styled_google_map_google_auth_method', $form_state->getValue('styled_google_map_google_auth_method'))
       ->set('styled_google_map_google_apikey', $form_state->getValue('styled_google_map_google_apikey'))
       ->set('styled_google_map_google_client_id', $form_state->getValue('styled_google_map_google_client_id'))

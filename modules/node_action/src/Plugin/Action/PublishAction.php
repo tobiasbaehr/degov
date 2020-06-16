@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Plugin\Action;
 
 use Drupal\Core\Access\AccessResultForbidden;
@@ -17,7 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   action_label = @Translation("Publish"),
  * )
  */
-class PublishAction extends EntityActionBase {
+final class PublishAction extends EntityActionBase {
 
   /**
    * Publish action checker.

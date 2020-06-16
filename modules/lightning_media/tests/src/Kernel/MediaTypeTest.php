@@ -4,7 +4,7 @@ namespace Drupal\Tests\lightning_media\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\lightning_core\ConfigHelper as Config;
-use Drupal\Tests\media\Functional\MediaFunctionalTestCreateMediaTypeTrait;
+use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
 
 /**
  * Tests of API-level Lightning functionality related to media types.
@@ -14,7 +14,7 @@ use Drupal\Tests\media\Functional\MediaFunctionalTestCreateMediaTypeTrait;
  */
 class MediaTypeTest extends KernelTestBase {
 
-  use MediaFunctionalTestCreateMediaTypeTrait;
+  use MediaTypeCreationTrait;
 
   /**
    * {@inheritdoc}
@@ -44,7 +44,7 @@ class MediaTypeTest extends KernelTestBase {
    * Tests that field_media_in_library is auto-cloned for new media bundles.
    */
   public function testCloneMediaInLibraryField() {
-    $type = $this->createMediaType([], 'file')->id();
+    $type = $this->createMediaType('file')->id();
 
     /** @var \Drupal\media\MediaInterface $media */
     $media = $this->container
@@ -57,10 +57,11 @@ class MediaTypeTest extends KernelTestBase {
     $this->assertTrue($media->hasField('field_media_in_library'));
 
     // The field should be present in the form as a checkbox.
-    $component = entity_get_form_display('media', $type, 'default')
+    $repository = $this->container->get('entity_display.repository');
+    $component = $repository->getFormDisplay('media', $type, 'default')
       ->getComponent('field_media_in_library');
 
-    $this->assertInternalType('array', $component);
+    $this->assertIsArray($component);
   }
 
 }

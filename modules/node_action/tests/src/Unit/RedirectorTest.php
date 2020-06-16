@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\node_action\Unit;
 
 use Drupal\Core\Messenger\MessengerInterface;
@@ -28,7 +30,7 @@ class RedirectorTest extends UnitTestCase {
     $urlFactory = $this->prophesize(UrlFactory::class);
 
     $redirector = new Redirector($messenger->reveal(), $redirectResponseFactory->reveal(), $urlFactory->reveal());
-    self::assertInternalType('null', $redirector->computeRedirectResponseByEntities([], 'some.test.route'));
+    self::assertNull($redirector->computeRedirectResponseByEntities([], 'some.test.route'));
   }
 
   /**

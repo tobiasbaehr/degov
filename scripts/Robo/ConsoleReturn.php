@@ -2,6 +2,7 @@
 
 namespace degov\Scripts\Robo;
 
+use Robo\Contract\VerbosityThresholdInterface;
 use Robo\Tasks;
 use degov\Scripts\Robo\Exception\WrongFolderLocation;
 
@@ -22,9 +23,8 @@ class ConsoleReturn extends Tasks {
     if (!empty($message)) {
       return TRUE;
     }
-    else {
-      throw new WrongFolderLocation('docroot folder is in wrong location.');
-    }
+
+    throw new WrongFolderLocation('docroot folder is in wrong location.');
   }
 
   /**
@@ -35,9 +35,8 @@ class ConsoleReturn extends Tasks {
     if (!empty($output)) {
       return TRUE;
     }
-    else {
-      return FALSE;
-    }
+
+    return FALSE;
   }
 
 }

@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Dynamically generates titles for various Field UI routes.
  */
-class FieldUiTitleController extends ControllerBase {
+final class FieldUiTitleController extends ControllerBase {
 
   /**
    * The route match service.

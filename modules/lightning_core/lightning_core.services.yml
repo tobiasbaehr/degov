@@ -1,6 +1,6 @@
 services:
   lightning.route_subscriber:
-    class: '\Drupal\lightning_core\Routing\RouteSubscriber'
+    class: Drupal\lightning_core\Routing\RouteSubscriber
     arguments:
       - '@entity_type.manager'
     tags:
@@ -8,13 +8,13 @@ services:
         name: event_subscriber
 
   lightning.display_helper:
-    class: '\Drupal\lightning_core\DisplayHelper'
+    class: Drupal\lightning_core\DisplayHelper
     arguments:
-      - '@entity.query'
+      - '@entity_type.manager'
       - '@entity_field.manager'
 
   access_check.administrator_role:
-    class: '\Drupal\lightning_core\Access\AdministrativeRoleCheck'
+    class: Drupal\lightning_core\Access\AdministrativeRoleCheck
     arguments:
       - '@entity_type.manager'
     tags:

@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Drupal\degov_theme\Preprocess
  */
-class Node implements ContainerInjectionInterface {
+final class Node implements ContainerInjectionInterface {
 
   /**
    * Definition of DateFormatter.
@@ -44,7 +44,7 @@ class Node implements ContainerInjectionInterface {
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): self {
     return new static(
       $container->get('date.formatter'),
       $container->get('path.matcher')
@@ -61,7 +61,7 @@ class Node implements ContainerInjectionInterface {
     /** @var \Drupal\node\Entity\Node $node */
     $node = $variables['node'];
     // Add created time to the search teaser template.
-    if ($variables['view_mode'] == 'teaser') {
+    if ($variables['view_mode'] === 'teaser') {
       $variables['bundle'] = $variables['node']->type->entity->label();
       $variables['date'] = $this->dateFormatter
         ->format($node->getCreatedTime(), 'custom', 'd.m.Y');
@@ -71,8 +71,8 @@ class Node implements ContainerInjectionInterface {
     // image we need in our teaser. Set it here.
     if ($node->bundle() === 'event') {
       $responsive_image_style_id = $this->determineResponsiveImageStyle($variables['view_mode']);
+      /** @var \Drupal\media\Entity\Media[] $medias */
       if ($medias = $node->get('field_teaser_image')->referencedEntities()) {
-        /** @var \Drupal\media\Entity\Media $media */
         $media = reset($medias);
         $variables['content']['field_teaser_image'] = [
           '#type' => 'responsive_image',

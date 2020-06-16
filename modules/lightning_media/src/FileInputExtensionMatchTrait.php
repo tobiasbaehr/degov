@@ -2,8 +2,10 @@
 
 namespace Drupal\lightning_media;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\FileInterface;
 use Drupal\media\MediaTypeInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Implements InputMatchInterface for media types that use a file field.
@@ -11,13 +13,34 @@ use Drupal\media\MediaTypeInterface;
 trait FileInputExtensionMatchTrait {
 
   /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   */
+  public function setEntityTypeManager(EntityTypeManagerInterface $entityTypeManager): void {
+    $this->entityTypeManager = $entityTypeManager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setEntityTypeManager($container->get('entity_type.manager'));
+    return $instance;
+  }
+
+  /**
    * Returns the entity type manager.
    *
    * @return \Drupal\Core\Entity\EntityTypeManagerInterface
    *   The entity type manager.
    */
-  private function entityTypeManager() {
-    return @($this->entityTypeManager ?: \Drupal::entityTypeManager());
+  private function entityTypeManager(): EntityTypeManagerInterface {
+    return $this->entityTypeManager;
   }
 
   /**

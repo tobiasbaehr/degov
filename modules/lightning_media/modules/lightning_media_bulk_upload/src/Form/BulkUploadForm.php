@@ -2,6 +2,7 @@
 
 namespace Drupal\lightning_media_bulk_upload\Form;
 
+use Drupal\Component\Utility\Environment;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -40,7 +41,7 @@ class BulkUploadForm extends FormBase {
    * @param \Drupal\Core\StringTranslation\TranslationInterface $translator
    *   The string translation service.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, MediaHelper $helper, TranslationInterface $translator) {
+  final public function __construct(EntityTypeManagerInterface $entity_type_manager, MediaHelper $helper, TranslationInterface $translator) {
     $this->entityTypeManager = $entity_type_manager;
     $this->helper = $helper;
     $this->setStringTranslation($translator);
@@ -81,7 +82,7 @@ class BulkUploadForm extends FormBase {
     ];
 
     $variables = [
-      '@max_size' => static::bytesToString(file_upload_max_size()),
+      '@max_size' => static::bytesToString(Environment::getUploadMaxSize()),
       '@extensions' => Element::oxford($extensions),
     ];
     $form['dropzone']['#description'] = $this->t('You can upload as many files as you like. Each file can be up to @max_size in size. The following file extensions are accepted: @extensions', $variables);
@@ -129,7 +130,7 @@ class BulkUploadForm extends FormBase {
         $entity = $this->helper->createFromInput($file);
       }
       catch (IndeterminateBundleException $e) {
-        drupal_set_message('error', (string) $e);
+        $this->messenger->addError((string) $e);
         continue;
       }
 

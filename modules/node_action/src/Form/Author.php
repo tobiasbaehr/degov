@@ -1,17 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Form;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\Node;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class Author.
  */
-class Author extends FormBase {
+final class Author extends FormBase {
 
   use ActionFormTrait;
 
@@ -69,7 +70,7 @@ class Author extends FormBase {
 
     $form['entity_ids'] = [
       '#type'  => 'hidden',
-      '#value' => json_encode($entityIds),
+      '#value' => \json_encode($entityIds),
     ];
 
     $form['submit'] = [
@@ -84,7 +85,7 @@ class Author extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $entityIds = json_decode($form_state->getValue('entity_ids'), TRUE);
+    $entityIds = \json_decode($form_state->getValue('entity_ids'), TRUE);
 
     foreach ($entityIds as $entityId => $nodeTitle) {
       $this->setAuthor($form_state, $entityId);
@@ -121,7 +122,8 @@ class Author extends FormBase {
    * Set author.
    */
   private function setAuthor(FormStateInterface $form_state, int $entityId): void {
-    $node = Node::load($entityId);
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $this->entityTypeManager->getStorage('node')->load($entityId);
     $node->set('uid', $form_state->getValue('author'));
     $node->save();
   }

@@ -98,7 +98,7 @@ function theme_styled_google_map(array $variables) {
     }
     // Sanitize the output of the style settings.
     foreach ($settings['style'] as $id => $setting) {
-      if ($id != 'style') {
+      if ($id !== 'style') {
         $location[$id] = Xss::filter($settings['style'][$id]);
       }
     }
@@ -161,7 +161,7 @@ function theme_styled_google_map(array $variables) {
  * Implements hook_library_info_alter().
  */
 function styled_google_map_library_info_alter(&$libraries, $extension) {
-  if ($extension == 'styled_google_map' && isset($libraries['styled-google-map'])) {
+  if ($extension === 'styled_google_map' && isset($libraries['styled-google-map'])) {
     if (!empty($libraries['styled-google-map']['js']['//maps.google.com/maps/api/js'])) {
       $options = $libraries['styled-google-map']['js']['//maps.google.com/maps/api/js'];
       unset($libraries['styled-google-map']['js']['//maps.google.com/maps/api/js']);

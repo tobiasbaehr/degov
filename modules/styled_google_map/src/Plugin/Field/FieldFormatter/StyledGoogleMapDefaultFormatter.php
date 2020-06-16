@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\styled_google_map\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Utility\LinkGeneratorInterface;
 use Drupal\field\Entity\FieldConfig;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the 'styled_google_map_default' formatter.
@@ -20,6 +25,40 @@ use Drupal\field\Entity\FieldConfig;
  * )
  */
 class StyledGoogleMapDefaultFormatter extends FormatterBase {
+
+  /**
+   * @var \Drupal\Core\Utility\LinkGeneratorInterface
+   */
+  protected $linkGenerator;
+
+  /**
+   * @var \Drupal\Core\Entity\EntityDisplayRepositoryInterface
+   */
+  protected $entityDisplayRepository;
+
+  /**
+   * @param \Drupal\Core\Utility\LinkGeneratorInterface $link_generator
+   */
+  public function setLinkGenerator(LinkGeneratorInterface $link_generator): void {
+    $this->linkGenerator = $link_generator;
+  }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface $entity_display_repository
+   */
+  public function setEntityDisplayRepository(EntityDisplayRepositoryInterface $entity_display_repository): void {
+    $this->entityDisplayRepository = $entity_display_repository;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->setLinkGenerator($container->get('link_generator'));
+    $instance->setEntityDisplayRepository($container->get('entity_display.repository'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -86,7 +125,7 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements = parent::settingsForm($form, $form_state);
-    $default_settings = StyledGoogleMapDefaultFormatter::defaultSettings();
+    $default_settings = self::defaultSettings();
     // Set all available setting fields for the Styled Google Map.
     $elements['width'] = [
       '#type' => 'textfield',
@@ -140,8 +179,8 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
       '#title' => $this->t('JSON Style'),
       '#default_value' => empty($style_settings['style']) ? $default_settings['style']['style'] : $style_settings['style'],
       '#description' => $this->t('Check out !url for custom styles. Also check out this !project to style and edit Google Map JSON styles.', [
-        '!url' => \Drupal::l($this->t('Snazzy maps'), Url::fromUri('http://snazzymaps.com/')),
-        '!project' => \Drupal::l($this->t('Github page'), Url::fromUri('http://instrument.github.io/styled-maps-wizard/')),
+        '!url' => $this->linkGenerator->generate($this->t('Snazzy maps'), Url::fromUri('https://snazzymaps.com/')),
+        '!project' => $this->linkGenerator->generate($this->t('Github page'), Url::fromUri('https://instrument.github.io/styled-maps-wizard/')),
       ]
       ),
     ];
@@ -151,10 +190,9 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
       '#default_value' => empty($style_settings['pin']) ? $default_settings['style']['pin'] : $style_settings['pin'],
       '#description' => $this->t('URL to the marker image. You can use a !wrapper for the url. Ex. !example (not working until !fixed)',
         [
-          '!wrapper' => \Drupal::l($this->t('Stream wrapper'),
-          Url::fromUri('https://drupal.org/project/system_stream_wrapper')),
+          '!wrapper' => $this->linkGenerator->generate($this->t('Stream wrapper'), Url::fromUri('https://drupal.org/project/system_stream_wrapper')),
           '!example' => STYLED_GOOGLE_MAP_DEFAULT_PIN,
-          '!fixed' => \Drupal::l('https://www.drupal.org/node/1308152', Url::fromUri('https://www.drupal.org/node/1308152')),
+          '!fixed' => $this->linkGenerator->generate('https://www.drupal.org/node/1308152', Url::fromUri('https://www.drupal.org/node/1308152')),
         ]
       ),
     ];
@@ -163,7 +201,6 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
       '#type' => 'details',
       '#title' => $this->t('Centering map'),
     ];
-    // Retrieve all field names from the current entity bundle.
     // Retrieve all field names from the current entity bundle.
     $field_options = [];
     $center_options = ['' => $this->t('Center automatically')];
@@ -176,7 +213,7 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
       $type = $config->get('field_type');
       $name = $config->get('field_name');
       $field_options[$field] = $config->getLabel();
-      if ($type == 'geofield' && $this->fieldDefinition->get('field_name') != $name) {
+      if ($type === 'geofield' && $this->fieldDefinition->get('field_name') != $name) {
         $center_options[$field] = $config->getLabel();
       }
     }
@@ -203,7 +240,7 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
       '#id' => 'edit-popup-choice-field',
     ];
     // Retrieve view mode settings from the current entity bundle.
-    $view_modes = \Drupal::entityManager()->getViewModeOptions($form['#entity_type']);
+    $view_modes = $this->entityDisplayRepository->getViewModeOptions($form['#entity_type']);
     $elements['popup']['view_mode'] = [
       '#type' => 'select',
       '#options' => $view_modes,

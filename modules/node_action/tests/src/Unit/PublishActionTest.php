@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\node_action\Unit;
 
 use Drupal\Core\Access\AccessResult;

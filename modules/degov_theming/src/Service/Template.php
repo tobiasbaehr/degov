@@ -1,9 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_theming\Service;
 
 use Drupal\Core\Template\TwigEnvironment;
-use Drupal\Core\Theme\ThemeManager;
+use Drupal\Core\Theme\ActiveTheme;
+use Drupal\Core\Theme\ThemeInitializationInterface;
+use Drupal\Core\Theme\ThemeManagerInterface;
 use Drupal\degov_theming\Facade\ComponentLocation;
 
 /**
@@ -14,7 +18,7 @@ class Template {
   /**
    * Theme manager.
    *
-   * @var \Drupal\Core\Theme\ThemeManager
+   * @var \Drupal\Core\Theme\ThemeManagerInterface
    */
   private $themeManager;
 
@@ -47,28 +51,35 @@ class Template {
   private $twig;
 
   /**
+   * @var \Drupal\Core\Theme\ThemeInitializationInterface
+   */
+  private $themeInitialization;
+
+  /**
    * Template constructor.
    */
   public function __construct(
-    ThemeManager $themeManager,
+    ThemeManagerInterface $themeManager,
   ComponentLocation $componentLocation,
-  TwigEnvironment $twig
+  TwigEnvironment $twig,
+    ThemeInitializationInterface $theme_initialization
   ) {
     $this->themeManager = $themeManager;
     $this->libraryDiscovery = $componentLocation->getLibraryDiscovery();
     $this->filesystem = $componentLocation->getFilesystem();
     $this->drupalPath = $componentLocation->getDrupalPath();
     $this->twig = $twig;
+    $this->themeInitialization = $theme_initialization;
   }
 
   /**
    * Get inherited theme.
    */
-  private function getInheritedTheme() {
+  private function getInheritedTheme(): ActiveTheme {
     $activeTheme = $this->themeManager->getActiveTheme();
-    $baseThemes = $activeTheme->getBaseThemes();
-
-    return array_shift($baseThemes);
+    $baseThemes = $activeTheme->getBaseThemeExtensions();
+    $base_theme = reset($baseThemes);
+    return $this->themeInitialization->getActiveThemeByName($base_theme->getName());
   }
 
   /**
@@ -124,7 +135,7 @@ class Template {
         $template_found = $this->addTemplateToArrayIfFileIsFound($info, 'themes', $template_filename, $theme_templates_dirname);
         if (!$template_found) {
           // no? does the template exist in a base theme?
-          $base_themes = $this->themeManager->getActiveTheme()->getBaseThemes();
+          $base_themes = $this->themeManager->getActiveTheme()->getBaseThemeExtensions();
           foreach ($base_themes as $base_theme) {
             if ($base_theme->getPath() !== NULL) {
               $theme_templates_dirname = $this->buildPath($base_theme->getPath(), 'templates');

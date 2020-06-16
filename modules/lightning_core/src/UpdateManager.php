@@ -106,13 +106,12 @@ class UpdateManager {
     if (isset($info[$module]['version'])) {
       return static::toSemanticVersion($info[$module]['version']);
     }
-    else {
-      // Follow core's model and try to determine the target version of the
-      // most recent update.
-      $updates = $this->getDefinitions($module);
 
-      return $updates ? end($updates)['id'] : static::VERSION_UNKNOWN;
-    }
+    // Follow core's model and try to determine the target version of the
+    // most recent update.
+    $updates = $this->getDefinitions($module);
+
+    return $updates ? end($updates)['id'] : static::VERSION_UNKNOWN;
   }
 
   /**
@@ -131,9 +130,8 @@ class UpdateManager {
     if (preg_match('/-dev$/', $semantic_version)) {
       return preg_replace('/^(\d).+-dev$/', '$1.x-dev', $semantic_version);
     }
-    else {
-      return preg_replace('/^(\d+\.\d+)(-.+)?$/', '$1.0$2', $semantic_version);
-    }
+
+    return preg_replace('/^(\d+\.\d+)(-.+)?$/', '$1.0$2', $semantic_version);
   }
 
   /**
@@ -215,7 +213,7 @@ class UpdateManager {
     }
     $style->text("Executing all available updates...");
 
-    $module_info = system_rebuild_module_data();
+    $module_info = $this->moduleExtensionList->reset()->getList();;
     $provider = NULL;
     $versions = $this->configFactory->getEditable(static::CONFIG_NAME);
 

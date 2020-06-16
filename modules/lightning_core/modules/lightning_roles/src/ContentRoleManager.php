@@ -3,7 +3,7 @@
 namespace Drupal\lightning_roles;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
  * A service for managing the configuration and deployment of content roles.
@@ -18,23 +18,23 @@ class ContentRoleManager {
   protected $configFactory;
 
   /**
-   * The entity query factory.
+   * The entity type manager.
    *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityQuery;
+  protected $entityTypeManager;
 
   /**
    * ContentRoleManager constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   The entity query factory.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, QueryFactory $entity_query) {
+  public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
     $this->configFactory = $config_factory;
-    $this->entityQuery = $entity_query;
+    $this->entityTypeManager = $entity_type_manager;
   }
 
   /**
@@ -60,7 +60,7 @@ class ContentRoleManager {
     $config->set($key, $role)->save();
 
     // Look up all node type IDs.
-    $node_types = $this->entityQuery->get('node_type')->execute();
+    $node_types = $this->entityTypeManager->getStorage('node_type')->getQuery()->execute();
 
     if ($role['enabled']) {
       foreach ($node_types as $node_type) {

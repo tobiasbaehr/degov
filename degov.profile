@@ -9,10 +9,9 @@ use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_install_tasks().
- *
- * Defines additional tasks to be performed by the deGov installation profile.
  */
-function degov_install_tasks($install_state) {
+function degov_install_tasks() {
+  // Defines additional tasks to be performed by the deGov installation profile.
   $tasks = [
     'degov_theme_setup'    => [
       'display_name' => t('Install deGov - Theme'),
@@ -37,6 +36,41 @@ function degov_install_tasks($install_state) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function degov_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
+  // Prevent Drupal status messages during profile installation.
+  \Drupal::messenger()->deleteByType('status');
+
+  // Alters the profile configuration form to add an additional list of optional
+  // deGov modules that can be enabled during profile installation.
+
+  // List all optional deGov modules.
+  $degov_optional_modules = [
+    'degov_demo_content' => t('Demo Content'),
+    'degov_devel'        => t('deGov - Devel'),
+  ];
+  $form['degov']['optional_modules'] = [
+    '#type'          => 'checkboxes',
+    '#title'         => t('ENABLE OPTIONAL FEATURES'),
+    '#description'   => t('Checked features are recommended.'),
+    '#options'       => $degov_optional_modules,
+    '#default_value' => [],
+  ];
+
+  // Add an additional submit handler for optional modules.
+  $form['#submit'][] = 'degov_optional_modules_submit';
+}
+
+/**
+ * Submit handler for degov_form_install_configure_form_alter().
+ */
+function degov_optional_modules_submit($form_id, &$form_state) {
+  $degovOptionalModules = array_filter($form_state->getValue('optional_modules'));
+  \Drupal::state()->set('degov_optional_modules', $degovOptionalModules);
+}
+
+/**
  * Install deGov modules task.
  *
  * Install all required base deGov modules and features as an additional step to
@@ -44,10 +78,7 @@ function degov_install_tasks($install_state) {
  */
 function degov_module_setup(&$install_state) {
   // Prevent Drupal status messages during profile installation.
-  drupal_get_messages('status', TRUE);
-
-  // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  \Drupal::messenger()->deleteByType('status');
 
   // Define all required base deGov modules and features.
   $modules = [
@@ -96,16 +127,11 @@ function degov_module_setup(&$install_state) {
     array_unshift($modules, 'degov_devel');
   }
 
-  $operations = [];
-  foreach ($modules as $module) {
-    if (!\Drupal::moduleHandler()->moduleExists($module)) {
-      $operations[] = ['_install_degov_module_batch', [[$module], $files[$module]->info['name']]];
-    }
-  }
-
-  // Batch operation definition.
+  /** @var \Drupal\degov\Installation $degov_installation */
+  $degov_installation = \Drupal::service('degov.installation');
+  // Batch API definition.
   $batch = [
-    'operations'    => $operations,
+    'operations'    => $degov_installation->getBatchOperations($modules),
     'title'         => t('Install deGov modules'),
     'error_message' => t('An error occurred during deGov module installation.'),
   ];
@@ -121,10 +147,7 @@ function degov_module_setup(&$install_state) {
  */
 function degov_media_setup(&$install_state) {
   // Prevent Drupal status messages during profile installation.
-  drupal_get_messages('status', TRUE);
-
-  // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
+  \Drupal::messenger()->deleteByType('status');
 
   // Define all required base deGov modules and features.
   $modules = [
@@ -150,35 +173,16 @@ function degov_media_setup(&$install_state) {
     'degov_simplenews_references'     => 'degov_simplenews_references',
   ];
 
-  // Add a batch operation to install each module.
-  $operations = [];
-  foreach ($modules as $module) {
-    if (!\Drupal::moduleHandler()->moduleExists($module)) {
-      $operations[] = [
-        '_install_degov_module_batch',
-        [[$module], $files[$module]->info['name']]
-      ];
-    }
-  }
-
-  // Batch operation definition.
+  /** @var \Drupal\degov\Installation $degov_installation */
+  $degov_installation = \Drupal::service('degov.installation');
+  // Batch API definition.
   $batch = [
-    'operations'    => $operations,
+    'operations'    => $degov_installation->getBatchOperations($modules),
     'title'         => t('Install deGov - Media'),
     'error_message' => t('An error occurred during deGov - Media installation.'),
   ];
 
   return $batch;
-}
-
-/**
- * Performs batch operation to install a deGov module or feature.
- */
-function _install_degov_module_batch($module, $module_name, &$context) {
-  set_time_limit(0);
-  \Drupal::service('module_installer')->install($module, $dependencies = TRUE);
-  $context['results'][] = $module;
-  $context['message'] = t('Installed %module module.', ['%module' => $module_name]);
 }
 
 /**
@@ -188,7 +192,7 @@ function _install_degov_module_batch($module, $module_name, &$context) {
  */
 function degov_theme_setup(&$install_state) {
   // Prevent Drupal status messages during profile installation.
-  drupal_get_messages('status', TRUE);
+  \Drupal::messenger()->deleteByType('status');
 
   // Set the default theme to be deGov.
   $themes = ['degov_theme', 'bartik'];
@@ -203,41 +207,6 @@ function degov_theme_setup(&$install_state) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
- *
- * Alters the profile configuration form to add an additional list of optional
- * deGov modules that can be enabled during profile installation.
- */
-function degov_form_install_configure_form_alter(&$form, FormStateInterface $form_state) {
-  // Prevent Drupal status messages during profile installation.
-  drupal_get_messages('status', TRUE);
-
-  // List all optional deGov modules.
-  $degov_optional_modules = [
-    'degov_demo_content' => t('Demo Content'),
-    'degov_devel'        => t('deGov - Devel'),
-  ];
-  $form['degov']['optional_modules'] = [
-    '#type'          => 'checkboxes',
-    '#title'         => t('ENABLE OPTIONAL FEATURES'),
-    '#description'   => t('Checked features are recommended.'),
-    '#options'       => $degov_optional_modules,
-    '#default_value' => [],
-  ];
-
-  // Add an additional submit handler for optional modules.
-  $form['#submit'][] = 'degov_optional_modules_submit';
-}
-
-/**
- * Submit handler for degov_form_install_configure_form_alter().
- */
-function degov_optional_modules_submit($form_id, &$form_state) {
-  $degovOptionalModules = array_filter($form_state->getValue('optional_modules'));
-  \Drupal::state()->set('degov_optional_modules', $degovOptionalModules);
-}
-
-/**
  * Finalize deGov profile installation task.
  *
  * Installs additional recommended deGov modules and features that has been
@@ -249,26 +218,32 @@ function degov_finalize_setup() {
   }
 
   // Prevent Drupal status messages during profile installation.
-  drupal_get_messages('status', TRUE);
-
-  // Rebuild, save, and return data about all currently available modules.
-  $files = system_rebuild_module_data();
-
-  $batch = [];
+  \Drupal::messenger()->deleteByType('status');
 
   // Retrieve all checked optional modules.
   $degov_optional_modules = \Drupal::state()->get('degov_optional_modules');
 
-  // Add a batch operation to install each optional module.
-  foreach ($degov_optional_modules as $module => $module_name) {
-    $batch['operations'][] = [
-      '_install_degov_module_batch',
-      [
-        [$module],
-        $files[$module]->info['name'],
-      ],
-    ];
-  }
+  /** @var \Drupal\degov\Installation $degov_installation */
+  $degov_installation = \Drupal::service('degov.installation');
+
+  // Batch API definition.
+  $batch = [
+    'operations'    => $degov_installation->getBatchOperations($degov_optional_modules),
+    'title'         => t('Install deGov - optional modules'),
+    'error_message' => t('An error occurred during installation.'),
+  ];
 
   return $batch;
+}
+
+/**
+ * Performs batch operation to install a deGov module or feature.
+ */
+function _install_degov_module_batch(array $module, string $module_name, &$context):void {
+  set_time_limit(0);
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install($module, $dependencies = TRUE);
+  $context['results'][] = $module;
+  $context['message'] = t('Installed %module module.', ['%module' => $module_name]);
 }

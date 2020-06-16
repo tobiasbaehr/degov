@@ -43,7 +43,7 @@ abstract class EntityFormProxy extends WidgetBase {
    *   The media helper service.
    * phpcs:enable
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $widget_validation_manager, MediaHelper $helper) {
+  final public function __construct(array $configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $widget_validation_manager, MediaHelper $helper) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $event_dispatcher, $entity_type_manager, $widget_validation_manager);
     $this->helper = $helper;
   }

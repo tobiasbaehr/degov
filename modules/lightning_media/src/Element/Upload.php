@@ -90,13 +90,14 @@ class Upload extends FileElement {
     if ($upload instanceof UploadedFile) {
       $destination = \Drupal::service('file_system')
         ->realPath($element['#upload_location']);
-
+      /** @var \Drupal\Core\File\FileSystemInterface $fileSystem */
+      $fileSystem = \Drupal::service('file_system');
       $name = file_munge_filename($upload->getClientOriginalName(), NULL);
-      $name = file_create_filename($name, $destination);
+      $name = $fileSystem->createFilename($name, $destination);
       $name = $upload->move($destination, $name)->getFilename();
 
       $uri = $element['#upload_location'];
-      if (substr($uri, -1) != '/') {
+      if (substr($uri, -1) !== '/') {
         $uri .= '/';
       }
       $uri .= $name;
@@ -111,9 +112,8 @@ class Upload extends FileElement {
 
       return $file->id();
     }
-    else {
-      return NULL;
-    }
+
+    return NULL;
   }
 
 }

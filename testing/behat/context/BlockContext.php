@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ResponseTextException;
@@ -52,7 +54,7 @@ class BlockContext extends RawDrupalContext {
     /** @var \Drupal\Core\Config\ConfigFactory $configFactory $configFactory */
     $block = Block::load('main_menu');
 
-    if (!empty($block) && $block instanceof Block) {
+    if ($block !== NULL && $block instanceof Block) {
       $block->delete();
     }
 
@@ -83,24 +85,18 @@ class BlockContext extends RawDrupalContext {
    * @Then /^I delete any existing blocks with comma separated ids "([^"]*)"$/
    */
   public function deleteBlocks(string $blockIds) {
-    $blockIds = explode(',', $blockIds);
+    $blockIdsArray = explode(',', $blockIds);
 
-    if (!is_array($blockIds) || count($blockIds) < 1) {
+    if (!is_array($blockIdsArray) || count($blockIdsArray) < 1) {
 
-      try {
-        throw new ResponseTextException(
-          'Could not determine any block ids. You must pass a comma separated list with machine names.',
-          $this->getSession()
-        );
-      }
-      catch (ResponseTextException $exception) {
-        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
-        throw $exception;
-      }
+      throw new ResponseTextException(
+        'Could not determine any block ids. You must pass a comma separated list with machine names.',
+        $this->getSession()
+      );
 
     }
 
-    foreach ($blockIds as $blockId) {
+    foreach ($blockIdsArray as $blockId) {
       $block = Block::load(trim($blockId));
       if ($block instanceof Block) {
         $block->delete();

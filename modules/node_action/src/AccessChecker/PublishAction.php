@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\AccessChecker;
 
 use Drupal\Core\Messenger\MessengerInterface;

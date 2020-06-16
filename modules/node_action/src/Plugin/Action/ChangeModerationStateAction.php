@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Plugin\Action;
 
 use Drupal\Core\Access\AccessResultForbidden;
@@ -21,7 +23,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  *   type = "node"
  * )
  */
-class ChangeModerationStateAction extends EntityActionBase {
+final class ChangeModerationStateAction extends EntityActionBase {
 
   /**
    * Access checker.

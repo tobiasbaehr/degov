@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action;
 
 use Drupal\Core\Messenger\MessengerInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -44,7 +45,7 @@ class Redirector {
   /**
    * Compute redirect response by entities.
    */
-  public function computeRedirectResponseByEntities(array $entities, string $routeName): ?RedirectResponse {
+  public function computeRedirectResponseByEntities(array $entities, string $routeName): ?Response {
     $entityIds = [];
 
     foreach ($entities as $entity) {

@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @package Drupal\degov_theme\Preprocess
  */
-class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
+final class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
 
   use StringTranslationTrait;
 
@@ -66,8 +66,8 @@ class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
     $plugin_block = $block_manager->createInstance($block_id, $config);
 
     $access_result = $plugin_block->access($this->currentUser);
-    if (is_object($access_result) && $access_result->isForbidden()
-      || is_bool($access_result) && !$access_result) {
+    if ((is_object($access_result) && $access_result->isForbidden())
+      || (is_bool($access_result) && !$access_result)) {
       return;
     }
 
@@ -79,7 +79,7 @@ class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
       $active_sort_label = '';
       foreach ($sorts_block['links']['#items'] as &$sorts_block_link) {
         $sorts_block_link['#attribues']['class'][] = 'dropdown-item';
-        $order = $sorts_block_link['#order'] == 'desc' ?
+        $order = $sorts_block_link['#order'] === 'desc' ?
           $this->t('descending') : $this->t('ascending');
         $sorts_block_link['#label'] = $sorts_block_link['#label'] . " ($order)";
         $sorts_block_link['#order_indicator'] = [];
@@ -87,6 +87,8 @@ class ViewsSearchContentAndMediaSorts implements ContainerInjectionInterface {
           $active_sort_label = $sorts_block_link['#label'];
         }
       }
+      // Avoid side effect with $sorts_block_link, therefore we unset the variable here.
+      unset($sorts_block_link);
       $vars['header']['sorts'] = $sorts_block;
       $vars['header']['active_sort_label'] = $active_sort_label;
     }

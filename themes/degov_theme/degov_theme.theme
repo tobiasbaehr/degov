@@ -4,6 +4,7 @@
  * @file
  */
 
+use Drupal\Core\Installer\InstallerKernel;
 use Drupal\degov_theme\NumberFormatShort;
 use Drupal\degov_theme\Preprocess\MenuFaIcons as MenuFaIconsPreprocess;
 use Drupal\degov_theme\Preprocess\MenuAccount as MenuAccountPreprocess;
@@ -238,7 +239,7 @@ function degov_theme_preprocess_media(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_degov_social_media_instagram().
+ * Implements hook_preprocess_HOOK() for theme_degov_tweets().
  */
 function degov_theme_preprocess_degov_tweets(&$variables) {
   foreach ($variables['items'] as &$tweet) {
@@ -249,7 +250,7 @@ function degov_theme_preprocess_degov_tweets(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_degov_social_media_youtube().
+ * Implements hook_preprocess_HOOK() for theme_degov_social_media_youtube().
  */
 function degov_theme_preprocess_degov_social_media_youtube(&$variables) {
   $variables['likes'] = NumberFormatShort::format($variables['likes']);
@@ -291,11 +292,9 @@ function degov_theme_preprocess_views_exposed_form(&$vars, $hook) {
 
 /**
  * Implements hook_theme_suggestions_hook_alter.
- *
- * {@inheritDoc}
  */
 function degov_theme_suggestions_html_alter(array &$suggestions) {
-  if (drupal_installation_attempted()) {
+  if (InstallerKernel::installationAttempted()) {
     $suggestions[] = 'html__installation';
   }
 }
@@ -308,7 +307,7 @@ function degov_theme_preprocess_block__footer(array &$variables) {
 }
 
 /**
- * Implements hook_theme_suggestions_container_alter().
+ * Implements hook_theme_suggestions_HOOK_alter().
  */
 function degov_theme_suggestions_container_alter(&$suggestions, array $variables) {
   $element = $variables['element'];

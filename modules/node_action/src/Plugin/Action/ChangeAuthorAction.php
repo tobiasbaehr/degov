@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Plugin\Action;
 
 use Drupal\Core\Access\AccessResultForbidden;
@@ -19,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   type = "node"
  * )
  */
-class ChangeAuthorAction extends EntityActionBase {
+final class ChangeAuthorAction extends EntityActionBase {
 
   /**
    * Access checker.

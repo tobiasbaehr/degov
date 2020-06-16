@@ -2,7 +2,6 @@
 
 namespace Drupal\lightning_core;
 
-use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\Core\Config\Entity\ConfigEntityTypeInterface;
@@ -13,7 +12,7 @@ use Drupal\Core\Extension\Extension;
 /**
  * A facade to assist with manipulating default config.
  */
-class ConfigHelper extends InstallStorage {
+final class ConfigHelper extends InstallStorage {
 
   /**
    * The extension whose default config is being manipulated by this object.
@@ -125,10 +124,10 @@ class ConfigHelper extends InstallStorage {
     foreach ($this->getConfigPrefixes() as $entity_type => $prefix) {
       $prefix .= '.';
 
-      if (Unicode::strpos($id, $prefix) === 0) {
+      if (\mb_strpos($id, $prefix) === 0) {
         $entity = $this->getEntity(
           $entity_type,
-          Unicode::substr($id, Unicode::strlen($prefix))
+          \mb_substr($id, \mb_strlen($prefix))
         );
         return $entity->delete();
       }

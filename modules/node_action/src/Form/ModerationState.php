@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Form;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\node\Entity\Node;
 use Drupal\node_action\AccessChecker\MessagesTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -14,7 +15,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 /**
  * Class ModerationState.
  */
-class ModerationState extends FormBase {
+final class ModerationState extends FormBase {
 
   /**
    * Entity type manager.
@@ -76,7 +77,7 @@ class ModerationState extends FormBase {
 
     $form['entity_ids'] = [
       '#type'  => 'hidden',
-      '#value' => json_encode($entityIds),
+      '#value' => \json_encode($entityIds),
     ];
 
     $form['date'] = [
@@ -85,8 +86,7 @@ class ModerationState extends FormBase {
       '#description'    => $this->t('The date of the scheduled publish state change. If you provide none, the moderation state will be set immediately.'),
       '#default_value'  => NULL,
       '#date_increment' => 1,
-      '#date_timezone'  => drupal_get_user_timezone(),
-      '#required'       => FALSE,
+      '#date_timezone'  => \date_default_timezone_get(),
     ];
 
     $form['submit'] = [
@@ -102,8 +102,7 @@ class ModerationState extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state): void {
     parent::validateForm($form, $form_state);
-
-    if (!empty($form_state->getValue('date')) && strtotime($form_state->getValue('date')) < time()) {
+    if (!empty($form_state->getValue('date')) && \strtotime((string) $form_state->getValue('date')) < \time()) {
       $form_state->setErrorByName('date', $this->t('The date must be in the future.'));
     }
   }
@@ -112,7 +111,7 @@ class ModerationState extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $entityIds = json_decode($form_state->getValue('entity_ids'), TRUE);
+    $entityIds = \json_decode($form_state->getValue('entity_ids'), TRUE);
 
     foreach ($entityIds as $entityId => $nodeTitle) {
 
@@ -122,7 +121,7 @@ class ModerationState extends FormBase {
           [
             '@state' => $this->getWorkflowLabelByKey($form_state->getValue('moderation_state')),
             '@num'   => \count($entityIds),
-            '@date'  => date('d.m.Y, h:i', strtotime($form_state->getValue('date'))),
+            '@date'  => \date('d.m.Y, h:i', \strtotime((string) $form_state->getValue('date'))),
           ])
         );
       }
@@ -187,10 +186,11 @@ class ModerationState extends FormBase {
    * Schedule moderation state change.
    */
   private function scheduleModerationStateChange(FormStateInterface $form_state, int $entityId): void {
-    $node = Node::load($entityId);
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $this->entityTypeManager->getStorage('node')->load($entityId);
     $node->set('field_scheduled_publish', [
       'moderation_state' => $form_state->getValue('moderation_state'),
-      'value'            => gmdate(self::DATETIME_STORAGE_FORMAT, strtotime($form_state->getValue('date'))),
+      'value'            => \gmdate(self::DATETIME_STORAGE_FORMAT, \strtotime((string) $form_state->getValue('date'))),
     ]);
     $node->save();
   }
@@ -199,7 +199,8 @@ class ModerationState extends FormBase {
    * Set moderation state.
    */
   private function setModerationState(FormStateInterface $form_state, int $entityId): void {
-    $node = Node::load($entityId);
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $this->entityTypeManager->getStorage('node')->load($entityId);
     $node->set('moderation_state', $form_state->getValue('moderation_state'));
     $node->save();
   }

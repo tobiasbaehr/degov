@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\AccessChecker;
 
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Entity\EntityBase;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
-use Drupal\node\Entity\Node;
+use Drupal\node\NodeInterface;
 use Drupal\node_action\StringTranslationAdapter;
 use Drupal\permissions_by_term\Service\AccessCheck;
 
@@ -90,7 +92,7 @@ class ActionAbstract {
   /**
    * Has permissions by term permission.
    */
-  public function hasPermissionsByTermPermission(Node $node): bool {
+  public function hasPermissionsByTermPermission(NodeInterface $node): bool {
     if ($this->accessCheck instanceof AccessCheck) {
       return $this->accessCheck->canUserAccessByNodeId($node->id());
     }
@@ -100,8 +102,8 @@ class ActionAbstract {
   /**
    * Can access.
    */
-  public function canAccess(EntityBase $entity) {
-    if (!$entity instanceof Node) {
+  public function canAccess(EntityInterface $entity) {
+    if (!$entity instanceof NodeInterface) {
       return AccessResult::neutral();
     }
 

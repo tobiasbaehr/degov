@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\node_action\Form;
 
 use Drupal\Core\Url;
@@ -13,7 +15,7 @@ trait ActionFormTrait {
   /**
    * Put together html list.
    */
-  private function putTogetherHtmlList($entityIds): string {
+  private function putTogetherHtmlList(array $entityIds = []): string {
     $nodesList = '<ul>';
 
     foreach ($entityIds as $entityId => $entityTitle) {

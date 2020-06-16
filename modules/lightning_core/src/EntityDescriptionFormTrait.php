@@ -2,12 +2,35 @@
 
 namespace Drupal\lightning_core;
 
+use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Adds description support to entity forms.
  */
 trait EntityDescriptionFormTrait {
+
+  /**
+   * @var \Drupal\Core\Cache\CacheTagsInvalidatorInterface
+   */
+  protected $cacheTagInvalidator;
+
+  /**
+   * @param \Drupal\Core\Cache\CacheTagsInvalidatorInterface $cacheTagInvalidator
+   */
+  public function setCacheTagInvalidator(CacheTagsInvalidatorInterface $cacheTagInvalidator): void {
+    $this->cacheTagInvalidator = $cacheTagInvalidator;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public static function create(ContainerInterface $container): self {
+    $instance = parent::create($container);
+    $instance->setCacheTagInvalidator($container->get('cache_tags.invalidator'));
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}
@@ -54,8 +77,8 @@ trait EntityDescriptionFormTrait {
    * @return \Drupal\Core\Cache\CacheTagsInvalidatorInterface
    *   The cache tag invalidator.
    */
-  private function cacheTagInvalidator() {
-    return @$this->cacheTagInvalidator ?: \Drupal::service('cache_tags.invalidator');
+  private function cacheTagInvalidator(): CacheTagsInvalidatorInterface {
+    return $this->cacheTagInvalidator;
   }
 
 }
