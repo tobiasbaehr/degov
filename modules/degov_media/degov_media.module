@@ -55,3 +55,12 @@ function degov_media_entity_delete(EntityInterface $entity) {
     }
   }
 }
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function degov_media_preprocess_views_view(&$variables) {
+  if ($variables['id'] === 'latest_media' && $variables['display_id'] === 'block_1') {
+    $variables['#attached']['library'][] = 'degov_common/slick';
+  }
+}
