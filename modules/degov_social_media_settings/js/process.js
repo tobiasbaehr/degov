@@ -16,10 +16,10 @@
       if ($('.social-media-settings.modal', context)) {
         $('.social-media-settings.modal').detach().appendTo('body');
       }
+
       // Initialize when cookies are accepted by eu_cookie_compliance module.
       $('.agree-button', context).once('social-media-settings').click(function () {
         initializeSettings();
-
         $('.js-social-media-wrapper').each(function () {
           applySettings($(this));
         })
@@ -220,6 +220,8 @@
 
   function initSoMeSlider(source) {
     var selector = source === 'twitter' ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview');
+
+    // TODO If this is workaround to show multiple blocks per page, it does not work.
     if (selector.hasClass("slick-slider")) {
       selector.slick('unslick');
     }
@@ -234,9 +236,11 @@
         slidesToScroll: 2,
         autoplay: true,
         arrows: true,
+        appendArrows: '.l-slick-navi',
+        appendDots: '.l-slick-navi',
         responsive: [
           {
-            breakpoint: 1319,
+            breakpoint: 992,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1
@@ -245,12 +249,14 @@
         ]
       });
 
-      var slickControlls = selector.parent();
+      var slickControlls = selector.parent().find('.slick-controls');
       slickControlls.find('.slick__pause').click(function () {
         selector.slick('slickPause');
         $(this).hide().siblings('.slick__play').show();
       });
-      slickControlls.find('.slick__play').on('click', function () {
+      var slickPlay = slickControlls.find('.slick__play');
+      slickPlay.hide(); // Initial hide.
+      slickPlay.on('click', function () {
         selector.slick('slickPlay').slick('setOption', 'autoplay', true);
         $(this).hide().siblings('.slick__pause').show();
       });

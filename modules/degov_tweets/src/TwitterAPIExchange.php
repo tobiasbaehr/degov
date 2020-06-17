@@ -118,6 +118,15 @@ class TwitterAPIExchange {
   }
 
   /**
+   * Enable/disable devMode.
+   *
+   * @param bool $devMode
+   */
+  public function setDevMode(bool $devMode) {
+    $this->devMode = $devMode;
+  }
+
+  /**
    * Set settings for the API access object.
    *
    * Requires an array of settings::oauth access token,

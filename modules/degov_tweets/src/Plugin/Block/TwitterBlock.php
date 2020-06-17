@@ -9,6 +9,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\degov_tweets\TwitterAPIExchange;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
  * Provides a 'TwitterBlock' block.
@@ -27,8 +28,8 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
    */
   protected $twitter;
 
-  /** @var \Drupal\Core\Config\ConfigFactoryInterface*/
-  private $configFactory;
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface*/
+  private $moduleHandler;
 
   /**
    * TwitterFeedBlock constructor.
@@ -42,8 +43,9 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
    *   Block plugin definition.
    * @param \Drupal\degov_tweets\TwitterAPIExchange $twitter
    *   The Twitter service.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $twitter
-   *   The config factory service.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
+   *   The module handler.
+   *
    * phpcs:enable
    */
   public function __construct(
@@ -51,10 +53,11 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
     $plugin_id,
     $plugin_definition,
     TwitterAPIExchange $twitter,
-    ConfigFactoryInterface $config_factory) {
+    ModuleHandlerInterface $moduleHandler
+    ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->twitter = $twitter;
-    $this->configFactory = $config_factory;
+    $this->moduleHandler = $moduleHandler;
   }
 
   /**
@@ -66,7 +69,7 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
       $plugin_id,
       $plugin_definition,
       $container->get('degov_tweets.twitter'),
-      $container->get('config.factory')
+      $container->get('module_handler')
     );
   }
 
@@ -143,9 +146,8 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
    */
   public function build() {
     $build = [];
-
-    $dev_mode = $this->configFactory->get('degov_devel.settings')->get('dev_mode');
-    if ($dev_mode) {
+    if ($this->moduleHandler->moduleExists('degov_demo_content')) {
+      $this->twitter->setDevMode(TRUE);
       $response = $this->twitter->performRequest();
     }
     else {
