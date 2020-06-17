@@ -149,3 +149,35 @@ function degov_image_and_crop_styles_update_880000() {
     }
   }
 }
+
+/**
+ * deGov Update 8.1.6 — Enforce image styles optimized for the nrwGOV theme.
+ */
+function degov_image_and_crop_styles_update_880106() {
+  $modulePath = \Drupal::service('module_handler')
+    ->getModule('degov_image_and_crop_styles')
+    ->getPath();
+  $configsToInstall = [
+    'image.style.teaser_squared_1_1_180'               => $modulePath . '/config/install/image.style.teaser_squared_1_1_180.yml',
+    'responsive_image.styles.teaser_squared'           => $modulePath . '/config/install/responsive_image.styles.teaser_squared.yml',
+    'image.style.teaser_landscape_2_1_320'             => $modulePath . '/config/install/image.style.teaser_landscape_2_1_320.yml',
+    'image.style.teaser_landscape_2_1_640'             => $modulePath . '/config/install/image.style.teaser_landscape_2_1_640.yml',
+    'image.style.teaser_squared_1_1_427'               => $modulePath . '/config/install/image.style.teaser_squared_1_1_427.yml',
+    'image.style.teaser_squared_1_1_640'               => $modulePath . '/config/install/image.style.teaser_squared_1_1_640.yml',
+    'image.style.teaser_squared_1_1_854'               => $modulePath . '/config/install/image.style.teaser_squared_1_1_854.yml',
+    'responsive_image.styles.teaser_landscape_squared' => $modulePath . '/config/install/responsive_image.styles.teaser_landscape_squared.yml',
+    'image.style.teaser_landscape_2_1_384'             => $modulePath . '/config/install/image.style.teaser_landscape_2_1_384.yml',
+    'image.style.teaser_landscape_2_1_576'             => $modulePath . '/config/install/image.style.teaser_landscape_2_1_576.yml',
+    'image.style.teaser_landscape_2_1_768'             => $modulePath . '/config/install/image.style.teaser_landscape_2_1_768.yml',
+    'responsive_image.styles.teaser_landscape'         => $modulePath . '/config/install/responsive_image.styles.teaser_landscape.yml',
+    'image.style.citation_320x120'                     => $modulePath . '/config/install/image.style.citation_320x120.yml',
+    'image.style.citation_384x144'                     => $modulePath . '/config/install/image.style.citation_384x144.yml',
+    'image.style.citation_640x240'                     => $modulePath . '/config/install/image.style.citation_640x240.yml',
+    'responsive_image.styles.citation_teaser'          => $modulePath . '/config/install/responsive_image.styles.citation_teaser.yml',
+  ];
+
+  foreach ($configsToInstall as $configKey => $pathToConfigFile) {
+    $configObject = \Drupal::configFactory()->getEditable($configKey);
+    $configObject->setData(Yaml::parseFile($pathToConfigFile))->save(TRUE);
+  }
+}

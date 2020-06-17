@@ -18,7 +18,7 @@ degov_image_and_crop_styles.media.sm:
   group: degov_image_and_crop_styles.media
 degov_image_and_crop_styles.media.md:
   label: "Medium"
-  mediaQuery: 'all and (min-width: 720px)'
+  mediaQuery: 'all and (min-width: 768px)'
   weight: 2
   multipliers:
     - 1x

@@ -8151,6 +8151,9 @@ footer.site-footer {
     overflow: hidden; }
     .media-citation .citation-image.col-lg-6 {
       padding: 0; }
+    .media-citation .citation-image .image__image picture, .media-citation .citation-image .image__image img {
+      height: auto;
+      width: 100%; }
   .media-citation blockquote.citation-content .citation-title {
     font-weight: bold;
     font-size: 1.375rem;
@@ -19608,3 +19611,5 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }
 
+
+/*# sourceMappingURL=main.css.map*/
