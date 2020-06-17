@@ -9,6 +9,13 @@
     }
     max-height: 307px;
     overflow: hidden;
+
+    .image__image {
+      picture, img {
+        height: auto;
+        width: 100%;
+      }
+    }
   }
   blockquote.citation-content {
     .citation-title {
