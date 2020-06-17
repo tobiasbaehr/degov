@@ -20,6 +20,7 @@ module.exports = {
         './javascript/favicon_animation.js',
     ],
   },
+  devtool: 'source-map',
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

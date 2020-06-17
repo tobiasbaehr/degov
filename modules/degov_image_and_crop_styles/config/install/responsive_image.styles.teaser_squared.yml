@@ -1,10 +1,10 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   config:
     - image.style.teaser_squared_1_1_120
-    - image.style.teaser_squared_1_1_320
-    - image.style.teaser_squared_1_1_480
+    - image.style.teaser_squared_1_1_180
+    - image.style.teaser_squared_1_1_240
   enforced:
     module:
       - degov_image_and_crop_styles
@@ -14,40 +14,10 @@ id: teaser_squared
 label: 'Teaser squared'
 image_style_mappings:
   -
-    breakpoint_id: degov_image_and_crop_styles.media.md
-    multiplier: 1.5x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_320
-  -
-    breakpoint_id: degov_image_and_crop_styles.media.md
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_320
-  -
-    breakpoint_id: degov_image_and_crop_styles.media.md
-    multiplier: 2x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_480
-  -
-    breakpoint_id: degov_image_and_crop_styles.media.sm
-    multiplier: 1.5x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_480
-  -
-    breakpoint_id: degov_image_and_crop_styles.media.sm
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_480
-  -
-    breakpoint_id: degov_image_and_crop_styles.media.sm
-    multiplier: 2x
-    image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_480
-  -
     breakpoint_id: degov_image_and_crop_styles.media.xs
     multiplier: 1.5x
     image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_120
+    image_mapping: teaser_squared_1_1_180
   -
     breakpoint_id: degov_image_and_crop_styles.media.xs
     multiplier: 1x
@@ -57,6 +27,6 @@ image_style_mappings:
     breakpoint_id: degov_image_and_crop_styles.media.xs
     multiplier: 2x
     image_mapping_type: image_style
-    image_mapping: teaser_squared_1_1_320
+    image_mapping: teaser_squared_1_1_240
 breakpoint_group: degov_image_and_crop_styles.media
-fallback_image_style: teaser_squared_1_1_320
+fallback_image_style: teaser_squared_1_1_120

@@ -78,6 +78,7 @@ install:
   - permissions_by_term_redirect
   - degov_email_login
   - block_permissions
+  - advagg
 
 themes:
   - degov_theme

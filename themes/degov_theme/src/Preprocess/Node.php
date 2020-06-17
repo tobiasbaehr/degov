@@ -67,21 +67,6 @@ class Node implements ContainerInjectionInterface {
         ->format($node->getCreatedTime(), 'custom', 'd.m.Y');
     }
 
-    // The configuration for "event" content type doesn't use the responsive
-    // image we need in our teaser. Set it here.
-    if ($node->bundle() === 'event') {
-      $responsive_image_style_id = $this->determineResponsiveImageStyle($variables['view_mode']);
-      if ($medias = $node->get('field_teaser_image')->referencedEntities()) {
-        /** @var \Drupal\media\Entity\Media $media */
-        $media = reset($medias);
-        $variables['content']['field_teaser_image'] = [
-          '#type' => 'responsive_image',
-          '#responsive_image_style_id' => $responsive_image_style_id,
-          '#uri' => $media->image->entity->getFileUri(),
-        ];
-      }
-    }
-
     $variables['is_front'] = $this->pathMatcher->isFrontPage();
   }
 
