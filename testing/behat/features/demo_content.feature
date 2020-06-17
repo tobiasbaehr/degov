@@ -22,7 +22,7 @@ Feature: deGov - Demo Content
     And I should see "TEASER - LONG TEXT"
     And I should see "TEASER - SLIM"
     And I should see "TEASER - PREVIEW"
-    And I should see 113 ".paragraph__content article .image" elements
+    And I should see 133 ".paragraph__content article .image" elements
     And I should see 136 ".paragraph__content article .teaser-title" elements
     And I should see 102 ".paragraph__content article [class*=__teaser-text]" elements
 
