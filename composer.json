@@ -123,7 +123,6 @@
                 "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
                 "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-12-05/w3c-rel-validation-node-view-controller-with-updated-tests-8.8.0.patch",
                 "2891603 - Contextual links can't handle multiple occurrences of the same contextual link":  "https://www.drupal.org/files/issues/2018-11-07/2891603-18.patch",
-                "3070745 - Off canvas filling up localStorage's quota, causing errors":  "https://www.drupal.org/files/issues/2020-02-24/3070745-20.patch",
                 "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-04-27/drupal-3101714-11.patch"
             },
             "drupal/ultimate_cron": {
