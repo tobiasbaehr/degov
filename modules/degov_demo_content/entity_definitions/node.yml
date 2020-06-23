@@ -584,8 +584,9 @@ node_with_video_mobile:
 node_external_teaser:
   type: 'external_teaser'
   title: 'External teaser'
-  field_link.0.uri: 'https://www.publicplan.de'
-  field_link.0.title: 'Publicplan'
+  field_link:
+    - uri: 'https://www.publicplan.de'
+      title: 'www.publicplan.de'
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'

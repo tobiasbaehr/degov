@@ -326,4 +326,16 @@ class JavaScriptContext extends RawMinkContext {
     $this->getSession()->executeScript("jQuery('" . $selector . "').after('<div id=\"mock-play\" onclick=\"document.querySelector(\'.slick-current video\').play();\">mock play</div>')");
   }
 
+  /**
+   * @Then /^I (?:am|should be) redirected to "([^"]*)"$/
+   */
+  public function iAmRedirectedTo($actualPath) {
+    // Ignoring trailing slashes.
+    $actualPath = rtrim($actualPath, '/');
+    $pageUrl = rtrim($this->getSession()->getCurrentUrl(), '/');
+    if ($pageUrl !== $actualPath) {
+      throw new \Exception("Expected to be on $actualPath after being redirected, but I am on $pageUrl");
+    }
+  }
+
 }

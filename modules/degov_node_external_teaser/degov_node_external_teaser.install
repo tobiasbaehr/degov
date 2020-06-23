@@ -6,6 +6,9 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Utility\UpdateException;
 
 /**
  * deGov Update 5.1.0 - Update the Preview view mode.
@@ -56,6 +59,95 @@ function degov_node_external_teaser_update_870600() {
   $config->set('content.field_tags.type', 'entity_reference_label');
   $config->set('content.field_tags.region', 'content');
   $config->save();
+}
+
+/**
+ * Change cardinality for field_link.
+ * field_link in external_teaser with delta > 0 will be removed.
+ */
+function degov_node_external_teaser_update_8820009() {
+  $database = \Drupal::database();
+  $field = 'field_link';
+  $bundle = 'external_teaser';
+  $tables = [
+    'node__' . $field,
+    'node_revision__' . $field,
+  ];
+  $dbOptions = ['return' => Database::RETURN_AFFECTED];
+
+  foreach ($tables as $i => $name) {
+    $totalCount = $database->query(
+      "SELECT * FROM $name", [], $dbOptions
+    );
+
+    $removeCount = $database->query(
+      "SELECT * FROM $name WHERE bundle = :bundle AND delta > :delta", [
+        ':bundle' => $bundle,
+        ':delta' => '0',
+      ], $dbOptions);
+
+    $tempName = $name . '_tmp_update_' . preg_replace('/[^0-9]/', '', __FUNCTION__);
+    $tables[$name] = (object) [
+      'name' => $name,
+      'tempName' => $tempName,
+      'total' => $totalCount,
+      'remove' => $removeCount,
+    ];
+    unset($tables[$i]);
+  }
+
+  foreach ($tables as $t) {
+    // Sanity check.
+    // Skip update if this field has data from unknown node types
+    //
+    // Skipping "reduce number of allowed links from n to 1" can be ok.
+    // Disadvantage:
+    // Multi-value field in Backend, but only value 0 is used in frontend.
+    //
+    $otherBundles = $database->query(
+      "SELECT * FROM $t->name WHERE bundle != :bundle", [
+        ':bundle' => $bundle,
+      ], $dbOptions);
+    if ($otherBundles > 0) {
+      \Drupal::logger('degov_node_external_teaser')->warning('Skipping cardinality update');
+      return t('Skipping cardinality update. Field @field is attached to other nodes. Expected only @bundle', [
+        '@field' => $field,
+        '@bundle' => $bundle,
+      ]);
+    }
+
+    // Create a full copy of source tables.
+    $database->query("CREATE TABLE $t->tempName LIKE $t->name");
+    $database->query("INSERT INTO $t->tempName SELECT * FROM $t->name");
+    $database->truncate($t->name)->execute();
+  }
+
+  // Update field storage configuration.
+  FieldStorageConfig::loadByName('node', 'field_link')
+    ->setCardinality('1')->save();
+  \Drupal::logger('degov_node_external_teaser')->notice(
+    'Reduced ' . $field . ' cardinality to 1 in ' . $t->name
+  );
+
+  // Copy back everything expect external_teaser with delta > 0.
+  foreach ($tables as $t) {
+    $affectedRows = $database->query(
+      "INSERT INTO $t->name SELECT * FROM $t->tempName WHERE bundle != :bundle OR ( bundle = :bundle AND delta = :delta )", [
+        ':bundle' => $bundle,
+        ':delta' => 0
+      ], $dbOptions);
+
+    if ($affectedRows === ($t->total - $t->remove)) {
+      $database->query("DROP TABLE $t->tempName");
+      \Drupal::logger('degov_node_external_teaser')->notice(
+        'Deleted ' . $t->remove . ' items in ' . $field . ' with delta > 0 in'
+         . $t->name
+      );
+    }
+    else {
+      throw new UpdateException('Could not restore data after cardinality change in table ' . $t->tempName . '. Origial data is backed up in ' . $t->tempName);
+    }
+  }
 }
 
 /**

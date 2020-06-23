@@ -82,3 +82,15 @@ Feature: deGov - Content types
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/reports/status"
     Then I should not see text matching "Mismatched entity and/or field definitions" via translated text
+
+  Scenario: External Teaser field_link has only one url
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/admin/structure/types/manage/external_teaser/fields/node.external_teaser.field_link/storage"
+    And I should see HTML content matching "Limited" via translated text
+    Then I verify that field value of '#edit-cardinality-number' matches "1"
+
+  Scenario: External teaser is redicected to destinnation url
+    Given I am not logged in
+    And I am on "/degov-demo-content/external-teaser"
+    Then I am redirected to "https://publicplan.de"
+
