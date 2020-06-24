@@ -4,6 +4,7 @@ namespace Drupal\degov\Behat\Context\Traits;
 
 use Behat\Behat\Hook\Scope\AfterStepScope;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
+use WebDriver\Exception\StaleElementReference;
 
 /**
  * Trait DebugOutputTrait.
@@ -79,27 +80,33 @@ trait DebugOutputTrait {
    * @AfterStep
    */
   public function checkErrorsWithScope(AfterStepScope $scope): void {
-    if (empty(self::$errorTexts)) {
-      return;
-    }
+    try {
+      if (empty(self::$errorTexts)) {
+        return;
+      }
 
-    foreach (self::$errorTexts as $errorText) {
-      $pageText = $this->getSession()->getPage()->getText();
-      if (substr_count($pageText, $errorText) > 0) {
+      foreach (self::$errorTexts as $errorText) {
+        $pageText = $this->getSession()->getPage()->getText();
+        if (substr_count($pageText, $errorText) > 0) {
 
-        try {
-          throw new TextNotFoundException(
-            sprintf('Task failed due "%s" text on page \'', $pageText . '\''),
-            $this->getSession()
-          );
-        }
-        catch (TextNotFoundException $exception) {
-          $this->generateCurrentBrowserViewDebuggingOutput($scope->getFeature()->getTitle());
+          try {
+            throw new TextNotFoundException(
+              sprintf('Task failed due "%s" text on page \'', $pageText . '\''),
+              $this->getSession()
+            );
+          }
+          catch (TextNotFoundException $exception) {
+            $this->generateCurrentBrowserViewDebuggingOutput($scope->getFeature()->getTitle());
 
-          throw $exception;
+            throw $exception;
+          }
         }
       }
+
     }
+    catch (StaleElementReference $exception) {
+    }
+
   }
 
   /**
