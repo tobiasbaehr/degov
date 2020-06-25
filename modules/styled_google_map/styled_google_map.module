@@ -54,19 +54,6 @@ define('STYLED_GOOGLE_MAP_GOOGLE_AUTH_WORK', 2);
 define('STYLED_GOOGLE_MAP_DEFAULT_GESTURE', 'cooperative');
 
 /**
- * Implements hook_theme().
- */
-function styled_google_map_theme() {
-  $themes['styled_google_map'] = [
-    'variables' => [
-      'location' => NULL,
-    ],
-  ];
-
-  return $themes;
-}
-
-/**
  * Returns HTML for the styled google map.
  *
  * @param array $variables
@@ -80,79 +67,40 @@ function styled_google_map_theme() {
  *   Rendered map.
  */
 function theme_styled_google_map(array $variables) {
-  $language = Drupal::languageManager()->getCurrentLanguage();
-  /* @var $location \Drupal\geofield\Plugin\Field\FieldType\GeofieldItem */
-  $location = $variables['location']->getValue();
-  /* @var $field_list \Drupal\Core\Field\FieldItemList */
-  $field_list = $variables['location']->getParent();
-  /* @var $entity \Drupal\media\Entity\Media */
-  $entity = $field_list->getEntity();
-  $settings = $variables['settings'];
-
-  $output = [];
-  // TODO: Split this function so logic is out of the theming function.
-  if (!empty($location) && $location['geohash']) {
-    // Get the pin file url.
-    if (isset($settings['style']['pin']) && !empty($settings['style']['pin'])) {
-      $settings['style']['pin'] = file_create_url($settings['style']['pin']);
-    }
-    // Sanitize the output of the style settings.
-    foreach ($settings['style'] as $id => $setting) {
-      if ($id !== 'style') {
-        $location[$id] = Xss::filter($settings['style'][$id]);
-      }
-    }
-    // Get the label settings.
-    if (isset($entity) && !empty($entity)) {
-      switch ($settings['popup']['choice']) {
-        // Create popup from label.
-        case 1:
-          $settings['popup']['label'] = $settings['popup']['label'] ? 'inline' : 'hidden';
-          $popup_field = $entity->{$settings['popup']['text']}->view(['label' => $settings['popup']['label']], $language->getId());
-          break;
-
-        // Create popup from view mode.
-        case 2:
-          $display = EntityViewDisplay::collectRenderDisplay($entity, $settings['popup']['view_mode']);
-          $popup_field = $display->build($entity);
-          break;
-
-        // Default to empty.
-        default:
-          $popup_field = [];
-      }
-      $location['popup'] = render($popup_field);
-    }
-    else {
-      // Not an entity object.
-      $location['popup'] = [];
-    }
-    if ($settings['map_center']['center_coordinates']) {
-      $map_center = $entity->getTranslation($language->getId())->get($settings['map_center']['center_coordinates'])->getValue();
-      if ($map_center && isset($map_center[0]['lat']) && isset($map_center[0]['lon'])) {
-        $settings['map_center']['center_coordinates'] = $map_center[0];
-      }
-      else {
-        $settings['map_center']['center_coordinates'] = FALSE;
-      }
-    }
-
-    $map_id = 'styled-google-map-' . md5(uniqid('', TRUE));
-    // Include the Google Maps API.
-    // Include the map location settings.
-    $map_settings = [
-      'id' => $map_id,
-      'locations' => [$location],
-      'settings' => $settings,
-      'address' => degov_media_address_get_js_fields($entity->get("field_address_address")->getEntity()),
-    ];
-    $output['#attached']['drupalSettings']['styled_google_map'][$map_id] = $map_settings;
-
-    // Output a div placeholder for the Styled Google Map.
-    $output['styled_google_map']['#markup'] = '<div class="styled-google-map" id="' . $map_id . '"></div>';
-    // Attach the Styled Google Map javascript file.
-    $output['#attached']['library'][] = 'styled_google_map/styled-google-map';
+  $mapsData = [];
+  foreach ($variables['locations'] as $location) {
+    $mapsData[] = _styled_google_map_compute_location_and_settings_for_one_map($location, $variables['settings']);
   }
+
+  $locations = [];
+
+  foreach ($mapsData as $mapData) {
+    $locations[] = $mapData['location'];
+  }
+
+  $addresses = [];
+
+  foreach ($variables['addressEntities'] as $addressEntity) {
+    $addresses[] = degov_media_address_get_js_fields($addressEntity);
+  }
+
+  $map_id = 'styled-google-map-' . md5(uniqid('', TRUE));
+  // Include the Google Maps API.
+  // Include the map location settings.
+  $map_settings = [
+    'id'        => $map_id,
+    'locations' => $locations,
+    'settings'  => $mapsData['0']['settings'],
+    'addresses' => $addresses,
+  ];
+
+  $output['#attached']['drupalSettings']['styled_google_map'][$map_id] = $map_settings;
+  $output['#attached']['drupalSettings']['pin_path'] = '/' . drupal_get_path('profile', 'degov') . '/modules/degov_media_address/images/map-icon.png';
+
+  // Output a div placeholder for the Styled Google Map.
+  $output['styled_google_map']['#markup'] = '<div class="styled-google-map" id="' . $map_id . '"></div>';
+  // Attach the Styled Google Map javascript file.
+  $output['#attached']['library'][] = 'styled_google_map/styled-google-map';
 
   return render($output);
 }
@@ -202,4 +150,70 @@ function styled_google_map_build_api_url() {
     $api_url .= '?' . UrlHelper::buildQuery($query);
   }
   return $api_url;
+}
+
+function _styled_google_map_compute_location_and_settings_for_one_map($location, $settings) {
+  $language = Drupal::languageManager()->getCurrentLanguage();
+  /* @var $location \Drupal\geofield\Plugin\Field\FieldType\GeofieldItem */
+  $locationArray = $location->getValue()['0'];
+  /* @var $field_list \Drupal\Core\Field\FieldItemList */
+  $field_list = $location->getParent();
+  /* @var $entity \Drupal\media\Entity\Media */
+  $entity = $field_list->getEntity();
+
+  // TODO: Split this function so logic is out of the theming function.
+  if (!empty($locationArray) && $locationArray['geohash']) {
+    // Get the pin file url.
+    if (isset($settings['style']['pin']) && !empty($settings['style']['pin'])) {
+      $settings['style']['pin'] = file_create_url($settings['style']['pin']);
+    }
+    // Sanitize the output of the style settings.
+    foreach ($settings['style'] as $id => $setting) {
+      if ($id != 'style') {
+        $locationArray[$id] = Xss::filter($settings['style'][$id]);
+      }
+    }
+    // Get the label settings.
+    if (isset($entity) && !empty($entity)) {
+      switch ($settings['popup']['choice']) {
+        // Create popup from label.
+        case 1:
+          $settings['popup']['label'] = $settings['popup']['label'] ? 'inline' : 'hidden';
+          $popup_field = $entity->{$settings['popup']['text']}->view(['label' => $settings['popup']['label']], $language->getId());
+          break;
+
+        // Create popup from view mode.
+        case 2:
+          $display = EntityViewDisplay::collectRenderDisplay($entity, $settings['popup']['view_mode']);
+          $popup_field = $display->build($entity);
+          break;
+
+        // Default to empty.
+        default:
+          $popup_field = [];
+      }
+      $locationArray['popup'] = render($popup_field);
+    }
+    else {
+      // Not an entity object.
+      $locationArray['popup'] = [];
+    }
+    if ($settings['map_center']['center_coordinates']) {
+      $map_center = $entity->getTranslation($language->getId())
+        ->get($settings['map_center']['center_coordinates'])
+        ->getValue();
+      if ($map_center && isset($map_center[0]['lat']) && isset($map_center[0]['lon'])) {
+        $settings['map_center']['center_coordinates'] = $map_center[0];
+      }
+      else {
+        $settings['map_center']['center_coordinates'] = FALSE;
+      }
+    }
+  }
+
+  return [
+    'settings' => $settings,
+    'location' => $locationArray,
+    'entity'   => $entity,
+  ];
 }

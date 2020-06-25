@@ -232,27 +232,35 @@ iframe_1:
   field_iframe_height: 400
 map_1:
   type: 'map'
-  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_1}}'
+  field_map_address_reference:
+    - '{{MEDIA_ID_ADDRESS-address_1}}'
+    - '{{MEDIA_ID_ADDRESS-address_2}}'
   field_map_address_view_mode: 'osm_map'
-  field_title: 'Open Street map publicplan'
+  field_title: 'Open Street map'
   field_sub_title: '{{SUBTITLE}}'
 map_2:
   type: 'map'
-  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_1}}'
+  field_map_address_reference:
+    - '{{MEDIA_ID_ADDRESS-address_1}}'
+    - '{{MEDIA_ID_ADDRESS-address_2}}'
   field_map_address_view_mode: 'default_map'
-  field_title: 'Google map publicplan'
+  field_title: 'Google map'
   field_sub_title: '{{SUBTITLE}}'
 map_3:
   type: 'map'
-  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_2}}'
+  field_map_address_reference:
+    - '{{MEDIA_ID_ADDRESS-address_1}}'
+    - '{{MEDIA_ID_ADDRESS-address_2}}'
   field_map_address_view_mode: 'osm_map'
-  field_title: 'Open Street map GzevD'
+  field_title: 'Open Street map'
   field_sub_title: '{{SUBTITLE}}'
 map_4:
   type: 'map'
-  field_map_address_reference: '{{MEDIA_ID_ADDRESS-address_2}}'
+  field_map_address_reference:
+    - '{{MEDIA_ID_ADDRESS-address_1}}'
+    - '{{MEDIA_ID_ADDRESS-address_2}}'
   field_map_address_view_mode: 'default_map'
-  field_title: 'Google map GzevD'
+  field_title: 'Google map'
   field_sub_title: '{{SUBTITLE}}'
 video_upload_subtitle_file_1:
   type: 'video_subtitle'

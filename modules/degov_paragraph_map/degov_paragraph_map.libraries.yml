@@ -12,7 +12,7 @@ osm_map:
       css/osm_map.css: {}
   js:
     /libraries/leaflet/dist/leaflet.js: {}
-    js/osm-map.js: {}
+    js/osm_map.js: {}
   dependencies:
     - core/jquery
     - core/drupal

@@ -10,7 +10,6 @@
 (function ($, Drupal) {
   Drupal.behaviors.styled_google_maps = {
     attach: function (context) {
-
       $('.styled-google-map', context).each(function (i, mapElement) {
         const conf = drupalSettings.styled_google_map[mapElement.id];
         if (conf) {
@@ -20,7 +19,6 @@
           let map_center;
 
           elm.css({
-            width: conf.settings.width,
             height: conf.settings.height
           });
 
@@ -40,42 +38,45 @@
             draggable: $(window).width() > 480 ? conf.settings.draggable : conf.settings.mobile_draggable
           });
 
-          const infoBubble = new InfoBubble({
-            shadowStyle: parseInt(conf.settings.popup.shadow_style),
-            padding: parseInt(conf.settings.popup.padding),
-            borderRadius: parseInt(conf.settings.popup.border_radius),
-            borderWidth: parseInt(conf.settings.popup.border_width),
-            borderColor: conf.settings.popup.border_color,
-            backgroundColor: conf.settings.popup.background_color,
-            minWidth: conf.settings.popup.min_width,
-            maxWidth: conf.settings.popup.max_width,
-            maxHeight: conf.settings.popup.min_height,
-            minHeight: conf.settings.popup.max_height,
-            arrowStyle: parseInt(conf.settings.popup.arrow_style),
-            arrowSize: parseInt(conf.settings.popup.arrow_size),
-            arrowPosition: parseInt(conf.settings.popup.arrow_position),
-            disableAutoPan: parseInt(conf.settings.popup.disable_auto_pan),
-            disableAnimation: parseInt(conf.settings.popup.disable_animation),
-            hideCloseButton: parseInt(conf.settings.popup.hide_close_button),
-            backgroundClassName: conf.settings.popup.classes.background,
-          });
-          // Set extra custom classes for easy styling.
-          infoBubble.bubble_.className = 'sgmpopup sgmpopup-' + this.category;
-          // infoBubble.close_.src = conf.settings.style.active_pin;.
-          infoBubble.contentContainer_.className = conf.settings.popup.classes.container;
-          infoBubble.arrow_.className = conf.settings.popup.classes.arrow;
-          infoBubble.arrowOuter_.className = conf.settings.popup.classes.arrow_outer;
-          infoBubble.arrowInner_.className = conf.settings.popup.classes.arrow_inner;
+          let infoBubble = [];
 
-          conf.locations.forEach(function (loc) {
+          conf.locations.forEach(function (loc, i) {
             // Currently there is only one marker/address per map possible
             // therefore all markers have same content.
-            const popupHtml = Drupal.theme('degovMediaAddressPopup', conf.address);
+            const popupHtml = Drupal.theme('degovMediaAddressPopup', conf.addresses[i]);
+
+            infoBubble[i] = new InfoBubble({
+              shadowStyle: parseInt(conf.settings.popup.shadow_style),
+              padding: parseInt(conf.settings.popup.padding),
+              borderRadius: parseInt(conf.settings.popup.border_radius),
+              borderWidth: parseInt(conf.settings.popup.border_width),
+              borderColor: conf.settings.popup.border_color,
+              backgroundColor: conf.settings.popup.background_color,
+              minWidth: conf.settings.popup.min_width,
+              maxWidth: conf.settings.popup.max_width,
+              maxHeight: conf.settings.popup.min_height,
+              minHeight: conf.settings.popup.max_height,
+              arrowStyle: parseInt(conf.settings.popup.arrow_style),
+              arrowSize: parseInt(conf.settings.popup.arrow_size),
+              arrowPosition: parseInt(conf.settings.popup.arrow_position),
+              disableAutoPan: parseInt(conf.settings.popup.disable_auto_pan),
+              disableAnimation: parseInt(conf.settings.popup.disable_animation),
+              hideCloseButton: parseInt(conf.settings.popup.hide_close_button),
+              backgroundClassName: conf.settings.popup.classes.background,
+            });
+            // Set extra custom classes for easy styling.
+            infoBubble[i].bubble_.className = 'sgmpopup sgmpopup-' + this.category;
+            // infoBubble.close_.src = conf.settings.style.active_pin;.
+            infoBubble[i].contentContainer_.className = conf.settings.popup.classes.container;
+            infoBubble[i].arrow_.className = conf.settings.popup.classes.arrow;
+            infoBubble[i].arrowOuter_.className = conf.settings.popup.classes.arrow_outer;
+            infoBubble[i].arrowInner_.className = conf.settings.popup.classes.arrow_inner;
+
             const marker = new google.maps.Marker({
               position: new google.maps.LatLng(loc.lat , loc.lon),
               map: map,
               html: popupHtml,
-              icon: loc.pin,
+              icon: drupalSettings.pin_path,
               original_icon: loc.pin,
               active_icon: loc.pin,
               category: loc.category
@@ -83,7 +84,7 @@
             markers.push(marker);
 
             if (popupHtml) {
-              infoBubble.setContent(popupHtml);
+              infoBubble[i].setContent(popupHtml);
               google.maps.event.addListener(marker, 'click', (function (map) {
                 return function () {
                   markers.forEach(function (m) {
@@ -93,8 +94,8 @@
                   infoBubble.open(map, this);
                 };
               }(map)));
-              // Initially open bubble.
-              infoBubble.open(map, marker);
+              // Uncomment the following line, if you want to open the bubble initially.
+              // infoBubble[i].open(map, marker);
             }
             bounds.extend(marker.getPosition());
           });

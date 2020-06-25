@@ -3,6 +3,7 @@
 namespace Drupal\degov\Behat\Context\Tests\Unit;
 
 use Drupal\degov\Behat\Context\DebugOutput;
+use Drupal\degov\Behat\Context\Exception\ErrorTextFoundException;
 use Drupal\degov\Behat\Context\Traits\ErrorTrait;
 use PHPUnit\Framework\TestCase;
 
@@ -24,10 +25,8 @@ Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit ame
 consetetur sadipscing elitr.
 TESTSTRING;
 
-  /**
-   * @expectedException \Drupal\degov\Behat\Context\Exception\ErrorTextFoundException
-   */
   public function testExceptionOnErrorString(): void {
+    $this->expectException(ErrorTextFoundException::class);
     $debugOutput = new DebugOutput();
     $chooseErrorText = random_int(1, \count(self::$errorTexts));
     $chooseErrorText--;

@@ -60,6 +60,9 @@ class InstallationContext extends RawMinkContext {
           $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
           throw $exception2;
         }
+        catch (StaleElementReference $e) {
+          return TRUE;
+        }
 
         if (\count($task) > 0) {
           return TRUE;

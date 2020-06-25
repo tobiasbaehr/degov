@@ -36,7 +36,7 @@ class ContentRoleTest extends KernelTestBase {
   /**
    * Test content role.
    */
-  public function testContentRole() {
+  public function testContentRole(): void {
     $node_type = NodeType::create([
       'type' => $this->randomMachineName(),
     ]);
@@ -50,7 +50,7 @@ class ContentRoleTest extends KernelTestBase {
     $this->assertCount(2, $roles);
 
     foreach ($roles as $role) {
-      $this->assertFalse($role->get('is_admin'));
+      self::assertFalse($role->get('is_admin'));
     }
 
     $node_type->delete();

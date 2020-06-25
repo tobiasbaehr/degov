@@ -51,12 +51,13 @@ class StyledGoogleMapDefaultFormatter extends FormatterBase {
   }
 
   /**
-   * @inheritDoc
+   * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
     $instance->setLinkGenerator($container->get('link_generator'));
     $instance->setEntityDisplayRepository($container->get('entity_display.repository'));
+
     return $instance;
   }
 

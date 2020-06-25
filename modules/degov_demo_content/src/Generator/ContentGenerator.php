@@ -355,14 +355,14 @@ abstract class ContentGenerator {
       if (\is_array($rawField)) {
         foreach ($rawField as $innerIndex => $rawValue) {
           $fieldName = preg_replace('/(paragraph|media)_reference_/', '', $rawValue);
-          if (strpos($rawValue, 'paragraph_reference_') !== FALSE) {
+          if (is_string($rawValue) && strpos($rawValue, 'paragraph_reference_') !== FALSE) {
             $rawInnerParagraph = $this->loadDefinitionByNameTag('paragraphs', $fieldName);
             $this->prepareValues($rawInnerParagraph);
             $innerParagraph = Paragraph::create($rawInnerParagraph);
             $innerParagraph->save();
             $rawParagraph[$index][$innerIndex] = $innerParagraph;
           }
-          if (strpos($rawValue, 'media_reference_') !== FALSE) {
+          if (is_string($rawValue) && strpos($rawValue, 'media_reference_') !== FALSE) {
             $rawMedia = $this->loadDefinitionByNameTag('media', $fieldName);
             $mediaIds = $this->entityTypeManager
               ->getStorage('media')
@@ -576,7 +576,7 @@ abstract class ContentGenerator {
    *
    * @throws \Exception
    */
-  protected function loadDefinitionByNameTag(string $defName, $tag) {
+  protected function loadDefinitionByNameTag(string $defName, string $tag): array {
     $def = $this->loadDefinitions($defName . '.yml');
     return $def[$tag];
   }

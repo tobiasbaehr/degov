@@ -52,40 +52,6 @@ function degov_media_address_preprocess_media(&$variables) {
   if (isset($variables['view_mode']) && $variables['view_mode'] === 'default_map') {
     $variables['#attached']['library'][] = 'degov_media_address/address_popup';
   }
-  if (isset($variables['view_mode']) && $variables['view_mode'] === 'osm_map') {
-    $variables['#attached']['library'][] = 'degov_media_address/osm_map';
-  }
-}
-
-/**
- * Preprocess address media entity osm_map.
- */
-function degov_media_address_preprocess_media__address(&$variables) {
-  if (!empty($variables['elements']['#view_mode'])
-    && $variables['elements']['#view_mode'] === 'osm_map') {
-    $address = $variables['elements']['#media'];
-
-    if ($address instanceof MediaInterface) {
-      $location = $address->get('field_address_location');
-      if (!$location->isEmpty()) {
-        $map_id = 'osm-' . md5(uniqid('', TRUE));
-        $variables['content']['map_id'] = $map_id;
-        // Further settings for the different maps.
-        $settings = [
-          'id' => $map_id,
-          'address' => degov_media_address_get_js_fields($variables['media']->get('field_address_address')->getEntity()),
-        ];
-        $variables['#attached']['drupalSettings']['degov_media_address'][$map_id] = $settings;
-        // Add latitude and longitude.
-        $variables['#attached']['drupalSettings']['degov_media_address'][$map_id]['lat'] = $location->lat;
-        $variables['#attached']['drupalSettings']['degov_media_address'][$map_id]['lon'] = $location->lon;
-        // Add pin image location.
-        $variables['#attached']['drupalSettings']['degov_media_address'][$map_id]['pin'] = '/' . drupal_get_path('module', 'degov_media_address')
-          . '/images/map-icon.png';
-        $variables['#attached']['drupalSettings']['degov_media_address'][$map_id]['type'] = 'leaflet';
-      }
-    }
-  }
 }
 
 /**
@@ -120,6 +86,7 @@ function degov_media_address_get_js_fields(MediaInterface $entity) {
       ];
     }
   }
+
   return $js_settings;
 }
 

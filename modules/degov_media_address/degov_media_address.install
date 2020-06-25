@@ -125,3 +125,14 @@ function degov_media_address_update_870600() {
   $config->save(TRUE);
 
 }
+
+/**
+ * Switch cardinality of field_map_address_reference to unlimited.
+ */
+function degov_media_address_update_880300() {
+  $paragraphMapConfig = \Drupal::configFactory()->getEditable('field.storage.paragraph.field_map_address_reference');
+
+  if (!$paragraphMapConfig->isNew()) {
+    $paragraphMapConfig->set('cardinality', -1)->save();
+  }
+}
