@@ -9,6 +9,7 @@ parameters:
   paths:
     - docroot/profiles/contrib/degov
     - docroot/modules/contrib/scheduled_publish
+    - docroot/modules/contrib/degov_simplenews
   excludes_analyse:
     - docroot/profiles/contrib/degov/modules/lightning_media/tests/contexts/
     - docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/

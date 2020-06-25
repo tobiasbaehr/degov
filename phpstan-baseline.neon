@@ -7,6 +7,16 @@ parameters:
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 1
+			path: docroot/modules/contrib/degov_simplenews/tests/src/Kernel/InstallationTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 6
+			path: docroot/modules/contrib/degov_simplenews/tests/src/Kernel/SubscriberManagementTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 6
 			path: docroot/modules/contrib/scheduled_publish/src/Form/EditUpdateForm.php
 
