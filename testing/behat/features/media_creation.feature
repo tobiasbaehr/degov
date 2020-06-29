@@ -12,7 +12,7 @@ Feature: deGov - Media creation
     Given I am installing the "degov_paragraph_media_reference" module
     And I am logged in as a user with the "administrator" role
     Given I have dismissed the cookie banner if necessary
-    
+
   Scenario: I am creating a address media entity
     Given I am on "/media/add/address"
     Then I fill in "Example address" for "Name"
@@ -250,7 +250,7 @@ Feature: deGov - Media creation
     Given I am on "/node/add/faq"
     Then I should see HTML content matching "cke_button cke_button__media_browser" after a while
     When I click by CSS class "cke_button__media_browser"
-    Then I should see HTML content matching "medien zum Einbetten auswählen" after a while
+    Then I should see HTML content matching "Medieneintrag zum Einbetten auswählen" after a while
     And I should see HTML content matching 'id="entity_browser_iframe_ckeditor_media_browser' after a while
     When I switch to the "entity_browser_iframe_ckeditor_media_browser" frame
     And I click "Bilder hochladen"
