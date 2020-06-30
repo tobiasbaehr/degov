@@ -64,7 +64,19 @@ function degov_requirements(string $phase) {
       ];
     }
   }
-
+  if ($phase === 'runtime') {
+    $deprecated_dependencies = ['features'];
+    foreach ($deprecated_dependencies as $deprecated_dependency) {
+      if (\Drupal::moduleHandler()->moduleExists($deprecated_dependency)) {
+        $requirements['degov_deprecated_dependency_' . $deprecated_dependency] = [
+          'title'       => 'Deprecated dependency',
+          'description' => t('The module <i>:module_name</i> will be removed as a dependency from deGov in the next release. Please add the dependency to your project\'s composer.json or uninstall it.', [':module_name' => $deprecated_dependency]),
+          'severity'    => REQUIREMENT_WARNING,
+          'value'       => t('The dependency to the module <i>:module_name</i> is deprecated', [':module_name' => $deprecated_dependency]),
+        ];
+      }
+    }
+  }
   return $requirements;
 }
 
