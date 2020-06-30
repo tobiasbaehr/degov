@@ -38,7 +38,7 @@ _run_validation() {
       -v "$__SHARED_DIR__":/shared \
       --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL \
       --name="validator" \
-      validator/validator:latest /vnu-runtime-image/bin/vnu \
+      validator/validator:20.6.30 /vnu-runtime-image/bin/vnu \
         --filterfile  /shared/message-filters.txt \
         --errors-only \
       /files
@@ -54,7 +54,7 @@ _run_validation() {
       -v "$__TMP__":/files \
       -v "$__SHARED_DIR__":/shared \
       --cidfile="$CIDFILE" \
-      validator/validator:latest /vnu-runtime-image/bin/vnu \
+      validator/validator:20.6.30 /vnu-runtime-image/bin/vnu \
         --filterfile  /shared/message-filters.txt \
         --errors-only \
       /files
