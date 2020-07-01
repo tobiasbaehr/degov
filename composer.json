@@ -122,9 +122,8 @@
                 "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2019-10-22/2914389-14-do-not-test.patch",
                 "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
                 "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-12-05/w3c-rel-validation-node-view-controller-with-updated-tests-8.8.0.patch",
-                "2891603 - Contextual links can't handle multiple occurrences of the same contextual link":  "https://www.drupal.org/files/issues/2018-11-07/2891603-18.patch",
-                "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-04-27/drupal-3101714-11.patch",
-                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-03-05/3072231-20-core-8-8-x-.patch"
+                "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-07-01/drupal-3101714-18.patch",
+                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-06-18/3072231-26-core-8-9-x-.patch"
             },
             "drupal/ultimate_cron": {
                 "2890428 - Using 'continue' outside of a loop or switch structure": "https://www.drupal.org/files/issues/continue_in_loop-2890428-2.patch"
