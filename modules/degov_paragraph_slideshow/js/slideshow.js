@@ -35,15 +35,14 @@ function onYouTubePlayerStateChange(event) {
               slider = $('.slideshow__slides', sliderWrap);
 
         if (slider.children().length > 1) {
-
           // Start Slick player
           // @see https://kenwheeler.github.io/slick/
            slider.slick({
              dots: true,
              autoplay: false,
              speed: 500,
-             appendArrows: '.l-slick-navi',
-             appendDots: '.l-slick-navi',
+             appendArrows: $('.l-slick-navi', sliderWrap),
+             appendDots: $('.l-slick-navi', sliderWrap),
              adaptiveHeight: true,
            });
 
@@ -149,8 +148,8 @@ function onYouTubePlayerStateChange(event) {
           dots: false,
           slidesToShow: 1,
           autoplay: false,
-          appendArrows: '.l-slick-navi',
-          adaptiveHeight: true, // TODO This works around wrong view modes (some slides are not 16:9)
+          appendArrows: $('.l-slick-navi', sliderWrap),
+          adaptiveHeight: true,
         });
         slickCommon.iframeReady(sliderWrap, [
           slickCommon.initYoutube,

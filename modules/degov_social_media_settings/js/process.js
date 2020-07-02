@@ -219,12 +219,7 @@
   initializeSettings();
 
   function initSoMeSlider(source) {
-    var selector = source === 'twitter' ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview');
-
-    // TODO If this is workaround to show multiple blocks per page, it does not work.
-    if (selector.hasClass("slick-slider")) {
-      selector.slick('unslick');
-    }
+    var selector = (source === 'twitter') ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview');
 
     if (selector.length) {
       selector.parent().find(".slick-controls").show();
@@ -236,8 +231,8 @@
         slidesToScroll: 2,
         autoplay: true,
         arrows: true,
-        appendArrows: '.l-slick-navi',
-        appendDots: '.l-slick-navi',
+        appendArrows: $('.l-slick-navi', selector.parent()),
+        appendDots: $('.l-slick-navi', selector.parent()),
         responsive: [
           {
             breakpoint: 992,
@@ -248,6 +243,7 @@
           }
         ]
       });
+
 
       var slickControlls = selector.parent().find('.slick-controls');
       slickControlls.find('.slick__pause').click(function () {
