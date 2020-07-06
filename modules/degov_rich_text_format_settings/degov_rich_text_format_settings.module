@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_rich_text_format_settings module.
  */
 
 use Drupal\Core\Form\FormStateInterface;

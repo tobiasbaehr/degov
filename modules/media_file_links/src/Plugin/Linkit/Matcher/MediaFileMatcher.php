@@ -32,7 +32,7 @@ class MediaFileMatcher extends EntityMatcher {
   }
 
   /**
-   * @inheritDoc
+   * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
