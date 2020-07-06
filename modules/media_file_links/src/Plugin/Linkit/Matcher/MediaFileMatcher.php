@@ -55,8 +55,7 @@ class MediaFileMatcher extends EntityMatcher {
    */
   public function getSummary(): array {
     $summary = [];
-    $entity_type = $this->entityManager->getDefinition($this->target_type);
-
+    $entity_type = $this->entityTypeManager->getDefinition($this->targetType);
     $result_description = $this->configuration['result_description'];
     if (!empty($result_description)) {
       $summary[] = $this->t('Result description: @result_description', [
@@ -77,7 +76,7 @@ class MediaFileMatcher extends EntityMatcher {
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
-    $entity_type = $this->entityManager->getDefinition($this->target_type);
+    $entity_type = $this->entityTypeManager->getDefinition($this->targetType);
     $form['result_description'] = [
       '#title' => $this->t('Result description'),
       '#type' => 'textfield',
