@@ -62,7 +62,7 @@ function media_file_links_form_menu_link_content_menu_link_content_form_alter(&$
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function media_file_links_form_linkit_editor_dialog_form_alter(&$form, FormStateInterface $form_state) {
+function media_file_links_form_editor_link_dialog_alter(&$form, FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'media_file_links/fontawesome';
 }
 

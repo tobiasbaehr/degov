@@ -2,8 +2,9 @@
 
 namespace Drupal\media_file_links\Plugin\Linkit\Matcher;
 
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\linkit\Plugin\Linkit\Matcher\EntityMatcher;
+use Drupal\linkit\MatcherBase;
+use Drupal\linkit\Suggestion\EntitySuggestion;
+use Drupal\linkit\Suggestion\SuggestionCollection;
 use Drupal\media_file_links\Service\MediaFileSuggester;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -17,12 +18,26 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   provider = "media_file_links"
  * )
  */
-class MediaFileMatcher extends EntityMatcher {
+class MediaFileMatcher extends MatcherBase {
 
   /**
    * @var \Drupal\media_file_links\Service\MediaFileSuggester
    */
   protected $fileSuggester;
+
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * The target entity type ID.
+   *
+   * @var string
+   */
+  protected $targetType;
 
   /**
    * @param \Drupal\media_file_links\Service\MediaFileSuggester $file_suggester
@@ -37,93 +52,52 @@ class MediaFileMatcher extends EntityMatcher {
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
     $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
     $instance->setFileSuggester($container->get('media_file_links.file_suggester'));
+    $instance->entityTypeManager = $container->get('entity_type.manager');
+    $instance->targetType = 'media';
     return $instance;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function defaultConfiguration(): array {
-    return parent::defaultConfiguration() + [
-      'result_description' => '',
-      'group_by_bundle' => FALSE,
-    ];
-  }
+  public function execute($string): SuggestionCollection {
+    $suggestions = new SuggestionCollection();
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getSummary(): array {
-    $summary = [];
-    $entity_type = $this->entityTypeManager->getDefinition($this->targetType);
-    $result_description = $this->configuration['result_description'];
-    if (!empty($result_description)) {
-      $summary[] = $this->t('Result description: @result_description', [
-        '@result_description' => $result_description,
-      ]);
-    }
-
-    if ($entity_type && $entity_type->hasKey('bundle')) {
-      $summary[] = $this->t('Group by bundle: @bundle_grouping', [
-        '@bundle_grouping' => $this->configuration['group_by_bundle'] ? $this->t('Yes') : $this->t('No'),
-      ]);
-    }
-
-    return $summary;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildConfigurationForm(array $form, FormStateInterface $form_state): array {
-    $entity_type = $this->entityTypeManager->getDefinition($this->targetType);
-    $form['result_description'] = [
-      '#title' => $this->t('Result description'),
-      '#type' => 'textfield',
-      '#default_value' => $this->configuration['result_description'],
-      '#size' => 120,
-      '#maxlength' => 255,
-      '#weight' => -100,
-    ];
-
-    // Filter the possible bundles to use if the entity has bundles.
-    if ($entity_type && $entity_type->hasKey('bundle')) {
-      // Group the results by bundle.
-      $form['group_by_bundle'] = [
-        '#type' => 'checkbox',
-        '#title' => $this->t('Group by bundle'),
-        '#default_value' => $this->configuration['group_by_bundle'],
-        '#weight' => -50,
-      ];
-    }
-
-    return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getMatches($string): array {
     $mediaEntities = \json_decode($this->fileSuggester->findBySearchString($string), TRUE);
-    $returnMatches = [];
 
     if (!empty($mediaEntities)) {
-      foreach ($mediaEntities as $mediaEntity) {
-        $returnMatches[$mediaEntity['id']] = [
-          'title' => $mediaEntity['title'],
-          'description' => sprintf(
-            '<i class="%s" /> %s, %s',
-            $mediaEntity['iconClass'],
-            $mediaEntity['bundleLabel'],
-            $mediaEntity['filename']
-          ),
-          'path' => '[media/file/' . $mediaEntity['id'] . ']',
-          'group' => $this->t('Media file links'),
-        ];
+      foreach ($mediaEntities as $mediaEntityResult) {
+        $suggestion = $this->createSuggestion($mediaEntityResult);
+        $suggestions->addSuggestion($suggestion);
       }
     }
 
-    return $returnMatches;
+    return $suggestions;
   }
+
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function createSuggestion(array $mediaEntityResult) {
+    $mediaEntity = $this->entityTypeManager->getStorage($this->targetType)->load($mediaEntityResult['id']);
+
+    $suggestion = new EntitySuggestion();
+    $suggestion->setEntityTypeId($this->targetType);
+    $suggestion->setLabel($mediaEntityResult['title'])
+      ->setGroup($this->t('Media file links'))
+      ->setDescription(sprintf(
+        '<i class="%s" /> %s, %s',
+        $mediaEntityResult['iconClass'],
+        $mediaEntityResult['bundleLabel'],
+        $mediaEntityResult['filename']
+      ))
+      ->setSubstitutionId('canonical')
+      ->setEntityUuid($mediaEntity->uuid())
+      ->setPath('[media/file/' . $mediaEntityResult['id'] . ']');
+    return $suggestion;
+  }
+
+
 
 }

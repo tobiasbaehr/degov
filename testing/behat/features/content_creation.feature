@@ -228,7 +228,7 @@ Feature: deGov - Content creation
     Then I am on "/node/add/normal_page"
     And I wait 3 seconds
     And I should see 1 ".cke" elements via jQuery
-    And I click by selector ".cke_button__linkit" via JavaScript
+    And I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
     And I fill in "Link" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
