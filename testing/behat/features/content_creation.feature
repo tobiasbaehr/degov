@@ -230,7 +230,7 @@ Feature: deGov - Content creation
     And I should see 1 ".cke" elements via jQuery
     And I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
-    And I fill in "Link" with "dummy"
+    And I fill in "URL" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
     Then I should see HTML content matching "linkit-result" after a while
     And I click by selector ".linkit-result" via JavaScript
