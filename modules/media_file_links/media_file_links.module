@@ -64,6 +64,17 @@ function media_file_links_form_menu_link_content_menu_link_content_form_alter(&$
  */
 function media_file_links_form_editor_link_dialog_alter(&$form, FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'media_file_links/fontawesome';
+  if (!empty($form['attributes']['href']['#description'])) {
+    $descriptionOld = $form['attributes']['href']['#description'];
+    $form['attributes']['href']['#description'] = [
+      '#theme' => 'item_list',
+      '#items' => [
+        $descriptionOld,
+        new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.'),
+      ],
+    ];
+  }
+
 }
 
 /**
@@ -130,17 +141,6 @@ function media_file_links_form_alter(&$form, FormStateInterface $form_state, $fo
         }
       }
     }
-  }
-
-  if ($form_id === 'linkit_editor_dialog_form' && !empty($form['attributes']['href']['#description'])) {
-    $descriptionOld = $form['attributes']['href']['#description'];
-    $form['attributes']['href']['#description'] = [
-      '#theme' => 'item_list',
-      '#items' => [
-        $descriptionOld,
-        new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.'),
-      ],
-    ];
   }
 }
 
