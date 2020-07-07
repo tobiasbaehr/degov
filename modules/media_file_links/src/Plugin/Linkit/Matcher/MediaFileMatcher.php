@@ -75,7 +75,6 @@ class MediaFileMatcher extends MatcherBase {
     return $suggestions;
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -97,7 +96,5 @@ class MediaFileMatcher extends MatcherBase {
       ->setPath('[media/file/' . $mediaEntityResult['id'] . ']');
     return $suggestion;
   }
-
-
 
 }
