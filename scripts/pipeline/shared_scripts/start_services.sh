@@ -26,7 +26,7 @@ main() {
 
   _info "### Start chromedriver"
   # See the following page for info for the Docker image, which is a meta image from the following one: https://github.com/SeleniumHQ/docker-selenium
-  docker run --name testing -e START_XVFB=false --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-lithium
+  docker run --name testing -e START_XVFB=false --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-oxygen
   bash "$BITBUCKET_CLONE_DIR/scripts/pipeline/shared_scripts/wait-for-grid.sh"
 
   _info "### Start php-server"
