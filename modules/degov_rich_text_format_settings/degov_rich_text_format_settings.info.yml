@@ -13,3 +13,4 @@ dependencies:
   - entity_embed:entity_embed
   - spamspan:spamspan
   - embed:embed
+  - editor_advanced_link:editor_advanced_link

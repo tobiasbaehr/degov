@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @file
  * Install, update and uninstall hooks for the degov_rich_text_format_settings module.
@@ -8,6 +10,18 @@
 /**
  * Implements hook_update_last_removed().
  */
-function degov_rich_text_format_settings_update_last_removed() {
+function degov_rich_text_format_settings_update_last_removed(): int {
   return 870100;
+}
+
+/**
+ * deGov 8.4.0
+ *  - Install editor_advanced_link.
+ */
+function degov_rich_text_format_settings_update_880400(&$sandbox): void {
+  // The functionality of editor_advanced_link was part of linkit 4.x.
+  // In version 5.x this now part of editor_advanced_link.
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install(['editor_advanced_link']);
 }
