@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Install, update and uninstall hooks for the degov_rich_text_format_settings module.
  */
+
+declare(strict_types=1);
 
 /**
  * Implements hook_update_last_removed().

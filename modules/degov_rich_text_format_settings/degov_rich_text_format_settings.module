@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Drupal hooks implementations for the degov_rich_text_format_settings module.
  */
+
+declare(strict_types=1);
 
 use Drupal\Core\Form\FormStateInterface;
 
