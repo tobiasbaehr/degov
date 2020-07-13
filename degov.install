@@ -454,3 +454,10 @@ function degov_update_880005() {
     \Drupal::service('module_installer')->install(['degov_password_policy']);
   }
 }
+
+/**
+ * deGov 8.1.8 - Reimport translations
+ */
+function degov_update_880108() {
+  TranslationImporter::importForProfile('degov');
+}
