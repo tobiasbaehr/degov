@@ -63,3 +63,12 @@ msgstr "Kopfzeile"
 
 msgid "Preview"
 msgstr "Vorschau"
+
+msgid "When"
+msgstr "Wann"
+
+msgid "Where"
+msgstr "Wo"
+
+msgid "to"
+msgstr "bis"
