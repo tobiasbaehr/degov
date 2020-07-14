@@ -478,10 +478,24 @@ function degov_update_880005() {
 }
 
 /**
+ * deGov 8.1.8 - Reimport translations
+ */
+function degov_update_880108() {
+  TranslationImporter::importForProfile('degov');
+}
+
+/**
  * Enable media_copyright module.
  */
 function degov_update_880300() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_media_copyright')) {
     \Drupal::service('module_installer')->install(['degov_media_copyright']);
   }
+}
+
+/**
+ * deGov 8.3.2 - Reimport translations
+ */
+function degov_update_880302() {
+  TranslationImporter::importForProfile('degov');
 }
