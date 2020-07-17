@@ -38,3 +38,13 @@ Feature: deGov - Entity browser
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/config/content/entity_browser/ckeditor_media_browser/widgets"
     Then I should see 1 "option[value='media.entity_browser_1'][selected]" elements
+
+  Scenario: Verify that the entity browser widgets (document upload) has proper file extensions
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    And I am on "admin/structure/media/manage/document/fields/media.document.field_document"
+    Then I verify that field value of "#edit-settings-file-extensions" matches "doc, docx, xls, xlsx, csv, ppt, pptx, pdf, odt, ods, odp"
+    Given I am on "admin/config/content/entity_browser/ckeditor_media_browser/widgets"
+    Then I verify that field value of "#edit-table-88a662a5-10c0-4229-b807-07b76e36b771-form-extensions" matches "doc docx xls xlsx csv ppt pptx pdf odt ods odp"
+    Given I am on "admin/config/content/entity_browser/media_browser/widgets"
+    Then I verify that field value of "#edit-table-88a662a5-10c0-4229-b807-07b76e36b771-form-extensions" matches "doc docx xls xlsx csv ppt pptx pdf odt ods odp"

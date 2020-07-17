@@ -7,6 +7,7 @@
 
 use Drupal\Core\Url;
 use Drupal\degov_common\Common;
+use Drupal\field\Entity\FieldConfig;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -111,7 +112,8 @@ function degov_media_document_update_860000(): void {
 }
 
 /**
- * deGov Update 7.6.0 - Add new view mode content_search, add description and preview image fields, add the fields to the default display.
+ * deGov Update 7.6.0 - Add new view mode content_search, add description and
+ * preview image fields, add the fields to the default display.
  */
 function degov_media_document_update_876000(): void {
   // Add new display mode and fields.
@@ -134,4 +136,48 @@ function degov_media_document_update_876000(): void {
   $hiddenConfig = array_merge($hiddenConfig, ['field_description' => TRUE, 'field_document_preview' => TRUE]);
   $defaultDisplayConfig->set('hidden', $hiddenConfig);
   $defaultDisplayConfig->save();
+}
+
+/**
+ * deGov Update 8.3.2
+ * - Allows only those file extentions in document media browser, which are
+ * allow for the media type document.
+ */
+function degov_media_document_update_883002(): string {
+  // Default list: doc docx xls xlsx csv ppt pptx pdf odt ods odp.
+  $field_config = FieldConfig::loadByName('media', 'document', 'field_document');
+  $file_extensions = implode(' ', explode(',', $field_config->getSetting('file_extensions')));
+
+  $entity_browser_ids = ['media_browser', 'ckeditor_media_browser'];
+
+  $labels = [];
+
+  foreach ($entity_browser_ids as $entity_browser_id) {
+    /** @var \Drupal\entity_browser\EntityBrowserInterface $entity_browser */
+    $entity_browser = \Drupal::entityTypeManager()->getStorage('entity_browser')->load($entity_browser_id);
+    $widgets = $entity_browser->getWidgets();
+    /** @var \Drupal\entity_browser\WidgetInterface $widget */
+    foreach ($widgets as $uuid => $widget) {
+      $config = $widget->getConfiguration();
+      $keys = array_key_exists('media_type', $config['settings']) && array_key_exists('form_mode', $config['settings']);
+      if (!$keys) {
+        continue;
+      }
+      $values = ($config['settings']['media_type'] === 'document') && ($config['settings']['form_mode'] === 'media_browser');
+      if (!$values) {
+        continue;
+      }
+      if ($config['settings']['extensions'] === $file_extensions) {
+        continue;
+      }
+      $config['settings']['extensions'] = $file_extensions;
+      $widget->setConfiguration($config);
+      $labels[] = sprintf('%s (%s)', $entity_browser->label(), $widget->label());
+    }
+    $entity_browser->save();
+  }
+  if (\count($labels) > 0) {
+    return sprintf('Set file extensions list of %s to: %s.', implode(', ', $labels), $file_extensions);
+  }
+  return 'Skipped update.';
 }
