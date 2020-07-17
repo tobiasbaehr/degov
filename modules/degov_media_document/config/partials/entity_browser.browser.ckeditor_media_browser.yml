@@ -5,7 +5,7 @@
     upload_location: 'public://documents/[date:custom:Y]-[date:custom:m]'
     dropzone_description: 'Drop files here to upload them'
     max_filesize: 50M
-    extensions: 'txt doc xls pdf ppt pps odt ods odp'
+    extensions: 'doc docx xls xlsx csv ppt pptx pdf odt ods odp'
     submit_text: 'Select entities'
   uuid: 88a662a5-10c0-4229-b807-07b76e36b771
   weight: -8
