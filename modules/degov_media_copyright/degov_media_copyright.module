@@ -50,8 +50,8 @@ function degov_media_copyright_preprocess_media(array &$variables) {
   $media = isset($variables['elements']['#media']) ? $variables['elements']['#media'] : NULL;
   $caption_field = 'field_' . $media->bundle() . '_caption';
   if ($media && ($media->hasField($caption_field) || $media->hasField('field_copyright'))) {
-    $caption = $media->get($caption_field)->isEmpty() ? NULL : $media->get($caption_field)->first()->value;
-    $copyright = $media->get('field_copyright')->isEmpty() ? NULL : $media->get('field_copyright')->first()->get('entity')->getString();
+    $caption = (!$media->hasField($caption_field) || $media->get($caption_field)->isEmpty()) ? NULL : $media->get($caption_field)->first()->value;
+    $copyright = (!$media->hasField('field_copyright') || $media->get('field_copyright')->isEmpty()) ? NULL : $media->get('field_copyright')->first()->get('entity')->getString();
     $variables['field_media_copyright'] = [
       '#theme' => 'field_media_copyright',
       '#caption' => $caption,
