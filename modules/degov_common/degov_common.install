@@ -38,7 +38,6 @@ function degov_common_install():void {
 
   // Set the first day of the week to Monday.
   \Drupal::configFactory()->getEditable('system.date')->set('first_day', 1)->save();
-  \Drupal::configFactory()->getEditable('degov_common.default_settings')->set('netiquette_url', '/netiquette')->set('privacy_url', '/datenschutzhinweise')->save();
 
   // Disable Webform CDN and SPAM protection warnings in the status overview page.
   if (\Drupal::moduleHandler()->moduleExists('webform')) {

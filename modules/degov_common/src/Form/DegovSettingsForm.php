@@ -10,24 +10,19 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class DegovSettingsForm extends ConfigFormBase {
 
+  private const CONFIGNAME = 'degov_common.default_settings';
+
   /**
-   * Gets the configuration names that will be editable.
-   *
-   * @return array
-   *   An array of configuration object names that are editable if called in
-   *   conjunction with the trait's config() method.
+   * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
     return [
-      'degov_common.default_settings',
+      self::CONFIGNAME,
     ];
   }
 
   /**
-   * Returns a unique string identifying the form.
-   *
-   * @return string
-   *   The unique string identifying the form.
+   * {@inheritdoc}
    */
   public function getFormId() {
     return 'degov_default_settings';
@@ -37,7 +32,7 @@ class DegovSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $config = $this->config('degov_common.default_settings');
+    $config = $this->config(self::CONFIGNAME);
 
     $form['help'] = [
       '#type' => 'markup',
@@ -47,14 +42,14 @@ class DegovSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Privacy URL Path'),
       '#description' => $this->t('The path at which the privacy terms can be found.'),
-      '#default_value' => $config->get('privacy_url') ?: '/datenschutzhinweise',
+      '#default_value' => $config->get('privacy_url'),
       '#required' => TRUE,
     ];
     $form['netiquette_url'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Netiquette URL Path'),
       '#description' => $this->t('The path at which the netiquette can be found.'),
-      '#default_value' => $config->get('netiquette_url') ?: '/netiquette',
+      '#default_value' => $config->get('netiquette_url'),
       '#required' => TRUE,
     ];
     $form['youtube_apikey'] = [
@@ -63,8 +58,7 @@ class DegovSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Obtain a Youtube API key at <a href="@link">@link</a>', [
         '@link' => 'https://console.developers.google.com/apis/credentials',
       ]),
-      '#default_value' => $config->get('youtube_apikey') ?: '',
-      '#required' => FALSE,
+      '#default_value' => $config->get('youtube_apikey'),
     ];
     return parent::buildForm($form, $form_state);
   }
@@ -73,7 +67,7 @@ class DegovSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $config = $this->config('degov_common.default_settings');
+    $config = $this->config(self::CONFIGNAME);
     $config
       ->set('privacy_url', $form_state->getValue('privacy_url'))
       ->set('netiquette_url', $form_state->getValue('netiquette_url'))
