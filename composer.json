@@ -33,7 +33,7 @@
         "drupal/entity_reference_display": "^1.0",
         "drupal/entity_reference_revisions": "^1.2",
         "drupal/eu_cookie_compliance": "^1.5",
-        "drupal/facets": "^1.0@beta",
+        "drupal/facets": "^1.5",
         "drupal/features": "^3.5",
         "drupal/field_group": "^3.0",
         "drupal/geocoder": "^2.0-alpha5",
@@ -133,6 +133,9 @@
             },
             "drupal/simple_sitemap": {
                 "3070132 - Undefined index: changefreq Notice message": "https://www.drupal.org/files/issues/2020-03-04/3070132-changefreq-notice-message.patch"
+            },
+            "drupal/facets": {
+                "Notice: Undefined index: #attributes": "https://www.drupal.org/files/issues/2020-07-23/undefined-index-attributes-3160570-4.patch"
             }
         }
     },

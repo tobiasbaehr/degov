@@ -18,8 +18,8 @@ widget:
   type: degov_date_range_picker
   config:
     show_numbers: true
-    display_relative: '0'
-    granularity: '4'
+    display_relative: 0
+    granularity: 4
     date_display: Y-m-d
 query_operator: or
 use_hierarchy: false
