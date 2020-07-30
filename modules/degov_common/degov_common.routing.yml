@@ -1,5 +1,12 @@
-degov.default_settings:
+degov_common.admin_config_degov:
   path: '/admin/config/degov'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'deGov'
+  requirements:
+    _permission: 'access administration pages'
+degov_common.settings:
+  path: '/admin/config/degov/common'
   defaults:
     _form: '\Drupal\degov_common\Form\DegovSettingsForm'
     _title: 'deGov distribution settings'

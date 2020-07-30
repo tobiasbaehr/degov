@@ -191,7 +191,7 @@ final class DateRangePicker extends WidgetPluginBase implements ContainerFactory
    */
   public function defaultConfiguration() {
     return [
-      'display_relative' => FALSE,
+      'display_relative' => 0,
       'granularity' => SearchApiDate::FACETAPI_DATE_MONTH,
       'date_display' => '',
       'relative_granularity' => 1,
@@ -212,8 +212,8 @@ final class DateRangePicker extends WidgetPluginBase implements ContainerFactory
       '#title' => $this->t('Date display'),
       '#default_value' => $configuration['display_relative'],
       '#options' => [
-        FALSE => $this->t('Actual date with granularity'),
-        TRUE => $this->t('Relative date'),
+        0 => $this->t('Actual date with granularity'),
+        1 => $this->t('Relative date'),
       ],
     ];
 

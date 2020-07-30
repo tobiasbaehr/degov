@@ -12,6 +12,7 @@ Feature: deGov - Content creation
       | degov_simplenews_references |
       | filter_disallow             |
       | media_file_links            |
+      | permissions_by_term         |
 
   Scenario: I create a press entity and check that the header section is being displayed as expected
     Given I am logged in as a user with the "administrator" role
@@ -337,3 +338,9 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press the "edit-preview" button
     Then I should see 1 "#block-sidebarparagraphsfromnodeentity" elements
+
+  Scenario: I verify that taxonomy term restriction is enabled for the section vocabulary only
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/permissions-by-term/settings"
+    And the "target_bundles[section]" checkbox should be checked

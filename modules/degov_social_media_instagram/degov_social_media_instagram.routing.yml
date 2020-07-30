@@ -1,5 +1,5 @@
 degov_social_media_instagram.admin_settings:
-  path: '/admin/config/degov_social_media_instagram'
+  path: '/admin/config/degov/instagram'
   defaults:
     _form: '\Drupal\degov_social_media_instagram\Form\ModuleConfigurationForm'
     _title: 'Instagram Feed Block configuration screen'

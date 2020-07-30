@@ -18,9 +18,7 @@ selection_display_configuration:
   display_settings:
     view_mode: preview
   select_text: 'Use selected'
-  selection_hidden: 0
-  view: null
-  view_display: null
+  selection_hidden: false
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
