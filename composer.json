@@ -15,7 +15,7 @@
         "drupal/address": "^1.0",
         "drupal/advagg": "^4.0",
         "drupal/admin_toolbar": "^2.0",
-        "drupal/block_field": "^1.0.0",
+        "drupal/block_field": "1.0-alpha8",
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "~1.0@alpha",
         "drupal/config_replace": "^2.0",
