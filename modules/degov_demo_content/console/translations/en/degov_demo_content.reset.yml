@@ -1,5 +1,0 @@
-description: 'Deletes and regenerates demo content.'
-options: {}
-arguments: {}
-messages:
-    success: 'Content successfully regenerated.'
