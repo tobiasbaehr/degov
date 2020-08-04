@@ -65,7 +65,7 @@ function degov_requirements(string $phase) {
     }
   }
   if ($phase === 'runtime') {
-    $deprecated_dependencies = ['features'];
+    $deprecated_dependencies = [];
     foreach ($deprecated_dependencies as $deprecated_dependency) {
       if (\Drupal::moduleHandler()->moduleExists($deprecated_dependency)) {
         $requirements['degov_deprecated_dependency_' . $deprecated_dependency] = [

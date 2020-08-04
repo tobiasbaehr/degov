@@ -54,9 +54,7 @@ elif [[ "$2" == "db_dump" ]]; then
     _info "### Drop any existing db"
     _drush sql:drop
     _info "### Importing db dump"
-    # Pipeline creates from every artifacts a tar archive. The dump was also gzipped.
-    (cd $TEST_DIR/lfs_data/ && tar -xzf "$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.tar.gz")
-    _drush sql-query --file="$TEST_DIR/lfs_data/$CONTRIBNAME-stable.sql.gz"
+    _drush sql-query --file="$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz"
     _info "### Clear cache"
     _drush cr
     _info "### Checking if the degov_demo_content module is not installed."
