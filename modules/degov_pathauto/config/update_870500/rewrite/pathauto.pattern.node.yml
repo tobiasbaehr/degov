@@ -1,1 +1,0 @@
-pattern: '[node:menu-link:parents:join-path]/[node:menu-link-title-or-node-title]'

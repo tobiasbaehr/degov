@@ -6,30 +6,39 @@
  */
 
 /**
- * degov_pathauto update_870500
- *  - Replace outdated pattern with new custom token and update default settings.
+ * Implements hook_update_last_removed().
  */
-function degov_pathauto_update_870500() {
-  /** @var \Drupal\degov_common\DegovModuleUpdater $module_updater */
-  $module_updater = \Drupal::service('degov_config.module_updater');
-  $module_updater->applyUpdates('degov_pathauto', '870500');
+function degov_pathauto_update_last_removed() {
+  return 870501;
 }
 
 /**
- * degov_pathauto update_870501
- *  - Update default media pattern to working standard.
+ * Update the url aliases for media entities for not
+ * making the internal title publicly available.
+ * - Switch the url alias pattern from internal title based to public title instead.
+ * - Re-generate the url aliases for media entities .
  */
-function degov_pathauto_update_870501() {
-  $pathautoConfig = \Drupal::configFactory()
-    ->getEditable('pathauto.pattern.media');
-  if (!$pathautoConfig->isNew()) {
-    $currentPattern = $pathautoConfig->get('pattern');
-    $oldPattern = '[media:bundle-name]/[media:name]';
-    $newPattern = '[media:bundle]/[media:name]';
-    if ($currentPattern === $oldPattern) {
-      $pathautoConfig
-        ->set('pattern', $newPattern)
-        ->save();
+function degov_pathauto_update_880500(): void {
+  $mediaEntityStorage = \Drupal::entityTypeManager()->getStorage('media');
+  $pathAliasStorage = \Drupal::entityTypeManager()->getStorage('path_alias');
+  $mediaDocuments = $mediaEntityStorage->loadByProperties([]);
+
+  foreach ($mediaDocuments as $mediaDocument) {
+    $mediaDocumentId = $mediaDocument->id();
+    $pathAliasArray = $pathAliasStorage->loadByProperties(['path' => '/media/' . $mediaDocumentId]);
+    if (empty($pathAliasArray)) {
+      \Drupal::logger('degov_pathauto')->warning('Could not retrieve any path alias for the following media document id: ' . $mediaDocumentId);
+      continue;
     }
+  }
+
+  $pathautoPatternMedia = \Drupal::configFactory()
+    ->getEditable('pathauto.pattern.media');
+  if (!$pathautoPatternMedia->isNew()) {
+    $pathautoPatternMedia->set('pattern', '[media:bundle]/[media:field_title]')->save();
+  }
+
+  foreach ($mediaDocuments as $mediaDocument) {
+    \Drupal::service('pathauto.generator')->updateEntityAlias($mediaDocument, 'update');
   }
 }
