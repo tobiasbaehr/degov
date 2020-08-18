@@ -125,6 +125,8 @@ page_with_all_media:
     - media_reference_person
     - media_reference_contact_1
     - media_reference_contact_2
+    - media_reference_contact_3
+    - media_reference_contact_4
     - media_reference_tweet
     - media_reference_instagram
     - media_reference_some_embed
@@ -181,6 +183,8 @@ press_release_1:
   field_content_paragraphs:
   - text_1
   - text_2
+  field_header_paragraphs:
+    - header_slideshow_all_slides_type_1
   status: 1
   field_social_media: 1
   moderation_state: 'published'
@@ -198,6 +202,8 @@ press_release_2:
   field_content_paragraphs:
     - text_1
     - text_2
+  field_header_paragraphs:
+    - header_slideshow_all_slides_type_2
   status: 1
   field_social_media: 1
   moderation_state: 'published'
@@ -215,6 +221,8 @@ press_release_3:
   field_content_paragraphs:
     - text_1
     - text_2
+  field_header_paragraphs:
+    - header_banner
   status: 1
   field_social_media: 1
   moderation_state: 'published'
@@ -237,13 +245,13 @@ press_release_4:
   moderation_state: 'published'
 press_release_5:
   type: 'press'
-  title: 'This is a press release'
+  title: 'This is one more press release'
   field_teaser_text:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_press_date: '2020-01-28'
-  field_teaser_title: 'This is a press release'
+  field_teaser_title: 'This is one more press release'
   field_teaser_sub_title: 'Inceptos Sollicitudin'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_5}}'
   field_content_paragraphs:
@@ -269,7 +277,7 @@ press_release_6:
   status: 1
   field_social_media: 1
   moderation_state: 'published'
-blog_post:
+blog_post_1:
   type: 'blog'
   title: 'A blog post'
   field_teaser_text:
@@ -282,6 +290,63 @@ blog_post:
   field_content_paragraphs:
   - text_1
   - text_2
+  status: 1
+  field_social_media: 1
+  field_blog_author: '{{MEDIA_ID_PERSON}}'
+  moderation_state: 'published'
+blog_post_2:
+  type: 'blog'
+  title: 'A blog post with type 1 slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'A blog post with type 1 slideshow'
+  field_teaser_sub_title: 'Risus Quam Condimentum Lorem Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  field_header_paragraphs:
+  - header_slideshow_all_slides_type_1
+  status: 1
+  field_social_media: 1
+  field_blog_author: '{{MEDIA_ID_PERSON}}'
+  moderation_state: 'published'
+blog_post_3:
+  type: 'blog'
+  title: 'A blog post with type 2 slideshow'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'A blog post with type 2 slideshow'
+  field_teaser_sub_title: 'Risus Quam Condimentum Lorem Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  field_header_paragraphs:
+  - header_slideshow_all_slides_type_1
+  status: 1
+  field_social_media: 1
+  field_blog_author: '{{MEDIA_ID_PERSON}}'
+  moderation_state: 'published'
+blog_post_4:
+  type: 'blog'
+  title: 'A blog post with header banner'
+  field_teaser_text:
+    value: '{{TEXT}}'
+    format: 'rich_html'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_title: 'A blog post with header banner'
+  field_teaser_sub_title: 'Risus Quam Condimentum Lorem Fusce'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+  - text_1
+  - text_2
+  field_header_paragraphs:
+  - header_banner
   status: 1
   field_social_media: 1
   field_blog_author: '{{MEDIA_ID_PERSON}}'
@@ -299,6 +364,8 @@ event_1:
   field_content_paragraphs:
   - text_1
   - text_2
+  field_header_paragraphs:
+  - header_slideshow_all_slides_type_1
   field_event_date: '2018-01-01 09:00:00'
   field_event_date_end: '2018-01-01 16:00:00'
   field_event_location:
@@ -323,6 +390,8 @@ event_2:
   field_content_paragraphs:
   - text_1
   - text_2
+  field_header_paragraphs:
+  - header_slideshow_all_slides_type_2
   field_event_date: '2028-01-06 09:00:00'
   field_event_date_end: '2028-01-06 16:00:00'
   field_event_location:
@@ -347,6 +416,8 @@ event_3:
   field_content_paragraphs:
     - text_1
     - text_2
+  field_header_paragraphs:
+  - header_banner
   field_event_date: '2028-01-05 09:00:00'
   field_event_date_end: '2028-01-05 16:00:00'
   field_event_location:

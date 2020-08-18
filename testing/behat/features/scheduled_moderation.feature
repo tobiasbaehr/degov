@@ -6,10 +6,11 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Creating node with scheduled publish" for "Titel"
+      And I click by selector "#edit-field-scheduled-publish > summary" via JavaScript
       And I select "published" in "edit-field-scheduled-publish-moderation-state"
       And I fill in "field_scheduled_publish[value][date]" with date "now" formatted "mdY"
       And I fill in "field_scheduled_publish[value][time]" with date "+10 seconds" formatted "hisA"
-      And I press button with label "Add status update" via translated text
+      And I press the "edit-field-scheduled-publish-add" button
       And I wait for AJAX to finish
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
@@ -30,10 +31,11 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
+      And I click by selector "#edit-field-scheduled-publish > summary" via JavaScript
       And I select "published" in "edit-field-scheduled-publish-moderation-state"
       And I fill in "01012118" for "field_scheduled_publish[value][date]"
       And I fill in "010000AM" for "field_scheduled_publish[value][time]"
-      And I press button with label "Add status update" via translated text
+      And I press the "edit-field-scheduled-publish-add" button
       And I wait for AJAX to finish
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
@@ -53,10 +55,11 @@
       And I proof that Drupal module "degov_scheduled_updates" is installed
       And I am on "/node/add/normal_page"
       And I fill in "Test" for "Titel"
+      And I click by selector "#edit-field-scheduled-publish > summary" via JavaScript
       And I select "published" in "edit-field-scheduled-publish-moderation-state"
       And I fill in "01012118" for "field_scheduled_publish[value][date]"
       And I fill in "010000AM" for "field_scheduled_publish[value][time]"
-      And I press button with label "Add status update" via translated text
+      And I press the "edit-field-scheduled-publish-add" button
       And I wait for AJAX to finish
       And I select "draft" in "edit-moderation-state-0-state"
       And I press button with label "Save" via translated text
