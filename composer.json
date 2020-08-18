@@ -109,7 +109,8 @@
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
             },
             "drupal/simplenews": {
-              "3031919 - Bugs if user has blank email address": "https://www.drupal.org/files/issues/2020-06-25/simplenews-3031919-bugs-user-blank-email.patch"
+                "3031919 - Bugs if user has blank email address": "https://www.drupal.org/files/issues/2020-06-25/simplenews-3031919-bugs-user-blank-email.patch",
+                "3163990 - Multi-value": "https://www.drupal.org/files/issues/2020-08-13/3163990-8.simplenews.Issue-Widget-does-not-allow-more-than-1-selected-newsletter.patch"
             },
             "drupal/block_permissions": {
                 "Issue 3024492 - Add an all themes permission": "https://www.drupal.org/files/issues/2020-06-19/block_permissions-all-themes-permission-3024492-3-8.patch"
