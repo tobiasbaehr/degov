@@ -161,7 +161,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof NodeInterface:
       return new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the node <i>:referencingNodeTitle</i> in field <i>:referencingFieldName</i>. <a href="/node/:referencingNodeId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
         [
@@ -172,7 +171,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof MenuLinkContentInterface:
       return new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the menu entry <i>:referencingMenuLinkTitle</i>. <a href="/admin/structure/menu/item/:referencingMenuLinkId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
         [
@@ -182,7 +180,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof ParagraphInterface:
       do {
         $parentEntity = $mediaUsage['referencing_entity']->getParentEntity();
@@ -200,7 +197,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
             ]
           );
 
-        break;
         case $parentEntity instanceof NodeInterface:
           return new TranslatableMarkup(
             'The media <i>:mediaName</i> is used in a file link reference in a paragraph in the node <i>:parentNodeName</i>. <a href="/paragraphs_edit/node/:parentNodeId/paragraphs/:referencingParagraphId/edit?destination=/node/:parentNodeId" target="_blank">Edit the reference</a> first to avoid dead links.',
@@ -211,11 +207,7 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
               ':referencingParagraphId' => $mediaUsage['referencing_entity']->id(),
             ]
           );
-
-        break;
       }
-
-      break;
   }
 
   return NULL;
