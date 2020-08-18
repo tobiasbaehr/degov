@@ -2,11 +2,6 @@ parameters:
 	ignoreErrors:
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 5
-			path: docroot/modules/contrib/scheduled_publish/src/Form/DeleteUpdateForm.php
-
-		-
-			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 1
 			path: docroot/modules/contrib/degov_simplenews/tests/src/Kernel/InstallationTest.php
 
@@ -14,6 +9,11 @@ parameters:
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 6
 			path: docroot/modules/contrib/degov_simplenews/tests/src/Kernel/SubscriberManagementTest.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 5
+			path: docroot/modules/contrib/scheduled_publish/src/Form/DeleteUpdateForm.php
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
@@ -32,7 +32,7 @@ parameters:
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 3
+			count: 4
 			path: docroot/modules/contrib/scheduled_publish/src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php
 
 		-

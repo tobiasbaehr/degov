@@ -58,7 +58,7 @@
         "drupal/redirect": "^1.0.0",
         "drupal/restrict_ip": "^1.0",
         "drupal/role_delegation": "^1.0.0",
-        "drupal/scheduled_publish": "3.6",
+        "drupal/scheduled_publish": "^3.8",
         "drupal/search_api": "^1.2",
         "drupal/search_api_solr": "^3.0",
         "drupal/search_api_sorts": "^1.0@beta",
