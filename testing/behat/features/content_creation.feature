@@ -229,7 +229,7 @@ Feature: deGov - Content creation
     And I click by selector "#edit-submit" via JavaScript
     And I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
     Then I should be on "/mediafilelink"
-    And I should see HTML content matching 'sites/default/files/degov_demo_content/dummy.pdf">'
+    And I should see 1 'a[href$="/sites/default/files/degov_demo_content/dummy.pdf"]' elements via jQuery after a while
     When I open medias delete url by title "A document with a PDF"
     Then I should see HTML content matching "messages--warning" after a while
     When I open node delete form by node title "media_file_link"
