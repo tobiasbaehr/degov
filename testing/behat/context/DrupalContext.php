@@ -126,6 +126,22 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Open node delete form by title.
+   *
+   * @param string $title
+   *   Title.
+   *
+   * @Then /^I open node delete form by node title "([^"]*)"$/
+   */
+  public function openNodeDeleteFormByTitle($title) {
+    $query = \Drupal::service('database')->select('node_field_data', 'nfd')
+      ->fields('nfd', ['nid'])
+      ->condition('nfd.title', $title);
+
+    $this->visitPath('/node/' . $query->execute()->fetchField() . '/delete');
+  }
+
+  /**
    * Open node edit form by title and vertical tab ID.
    *
    * @param string $title
