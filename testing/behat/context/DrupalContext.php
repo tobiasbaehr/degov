@@ -25,7 +25,7 @@ class DrupalContext extends RawDrupalContext {
 
   use DebugOutputTrait;
 
-  private const MAX_DURATION_SECONDS = 1200;
+  private const MAX_DURATION_SECONDS = 120;
   private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /**

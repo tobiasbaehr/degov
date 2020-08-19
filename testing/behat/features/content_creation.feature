@@ -210,27 +210,29 @@ Feature: deGov - Content creation
     And I should not see text matching "BehatFont"
 
   Scenario: I verify that I can enter Media file links using linkit
-    And I am logged in as a user with the "administrator" role
-    Given I have dismissed the cookie banner if necessary
-    Then I am on "/node/add/normal_page"
-    And I should see 1 ".cke" elements via jQuery after a while
-    And I click by selector ".cke_button__drupallink_icon" via JavaScript
+    Given I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    And I am on "/node/add/normal_page"
+    Then I should see 1 ".cke" elements via jQuery after a while
+    When I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
-    And I fill in "URL" with "dummy"
+    When I fill in "URL" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
     Then I should see HTML content matching "linkit-result-line" after a while
-    And I click by selector ".linkit-result-line" via JavaScript
+    When I click by selector ".linkit-result-line" via JavaScript
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
-    And I click by selector ".ui-dialog-buttonpane .button" via JavaScript
+    When I click by selector ".ui-dialog-buttonpane .button" via JavaScript
     And I fill in "Titel" with "media_file_link"
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
-    And I am on "/mediafilelink"
-    Then I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
-    Then I open node edit form by node title "media_file_link"
-    And I scroll to the "#edit-submit" element
-    And I click "#edit-delete"
+    Then I should be redirected to "/mediafilelink"
+    And I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
+    When I open node edit form by node title "media_file_link"
+    And I scroll to the "#edit-delete" element
+    Then I should see "#edit-delete" element visible on the page
+    When I click "#edit-delete"
     And I press button with label "Delete" via translated text
+    Then I should be redirected to "/admin/content"
 
   Scenario: I verify that trying to delete a referenced Media item will cause warning messages
     Given I have dismissed the cookie banner if necessary

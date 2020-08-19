@@ -19,7 +19,7 @@ class DrupalIndependentContext extends RawMinkContext {
 
   use DebugOutputTrait;
 
-  private const MAX_DURATION_SECONDS = 600;
+  private const MAX_DURATION_SECONDS = 120;
   private const MAX_SHORT_DURATION_SECONDS = 10;
 
   /**
