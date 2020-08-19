@@ -213,7 +213,7 @@ Feature: deGov - Content creation
     Given I have dismissed the cookie banner if necessary
     And I am logged in as a user with the "administrator" role
     Then I am on "/degov-demo-content/page-text-paragraph"
-    And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
+    And I should not see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
     Then I open node edit form by node title "Page with text paragraph"
     And I should see HTML content matching "node-normal-page-edit-form" after a while
     And I should see 1 ".cke_top.cke_reset_all" elements via jQuery after a while
@@ -221,7 +221,7 @@ Feature: deGov - Content creation
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
     Then I am on "/degov-demo-content/page-text-paragraph"
-    Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
+    Then I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"' after a while
 
   Scenario: I verify that I can enter Media file links using linkit
     Given I have dismissed the cookie banner if necessary

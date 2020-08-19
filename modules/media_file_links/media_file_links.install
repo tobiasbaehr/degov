@@ -150,7 +150,7 @@ function _media_file_links_disable_linkit_filter() {
   $config_factory = \Drupal::configFactory();
   foreach ($config_factory->listAll('filter.format.') as $id) {
     $filter = $config_factory->getEditable($id);
-    if ($filter->get('filters.linkit')) {
+    if ($filter->get('filters.linkit') && $filter->get('filters.filter_mediafilelinks')) {
       $filter->clear('filters.linkit');
       $filter->save(TRUE);
     }
