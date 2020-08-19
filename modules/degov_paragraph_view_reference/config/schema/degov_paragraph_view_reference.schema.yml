@@ -1,0 +1,17 @@
+degov_paragraph_view_reference.views_helper_settings:
+  type: config_object
+  label: 'deGov - Paragraph views reference'
+  mapping:
+    allowed_views:
+      type: sequence
+      label: 'Allowed View Options'
+      sequence:
+        type: string
+    form_ids:
+      type: sequence
+      label: 'Form Ids to apply the filter'
+      sequence:
+        type: string
+
+field.formatter.settings.degov_viewsreference_formatter:
+  type: field.formatter.settings.viewsreference_formatter

@@ -5,16 +5,88 @@
  * Install, update and uninstall hooks for the degov_paragraph_view_reference module.
  */
 
+declare(strict_types=1);
+
 use Drupal\degov_common\Common;
+use Drupal\degov_paragraph_view_reference\Form\ViewsSettingsForm;
 
 /**
  * Implements hook_uninstall().
  */
 function degov_paragraph_view_reference_uninstall() {
-  \Drupal::configFactory()->getEditable('degov_paragraph_view_reference.views_helper_settings')->delete();
   // Removes all module type defined content when uninstalling the module.
   Common::removeContent([
     'entity_type' => 'paragraph',
     'entity_bundles' => ['view_reference'],
   ]);
+}
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_paragraph_view_reference_update_dependencies() {
+  $dependencies['degov_paragraph_view_reference'][880500] = [
+    'viewsreference' => 8103,
+  ];
+  return $dependencies;
+}
+
+/**
+ * deGov Update 8.5.0
+ *  - Enables some viewsreference plugins and migrates data.
+ *  - Set default values for empty values.
+ */
+function degov_paragraph_view_reference_update_880500(): string {
+  $configFactory = \Drupal::configFactory();
+  $config = $configFactory->getEditable(ViewsSettingsForm::CONFIG_NAME);
+  if (empty($config->get('allowed_views'))) {
+    $config->set('allowed_views', []);
+  }
+  if (empty($config->get('form_ids'))) {
+    $config->set('form_ids', []);
+  }
+  $config->save(TRUE);
+
+  $config = $configFactory->getEditable('field.field.paragraph.view_reference.field_view_reference_view');
+  $enabled_settings = [
+    'view_mode' => 'view_mode',
+    'argument' => 'argument',
+    'limit' => 'limit'
+  ];
+  $config->set('settings.enabled_settings', array_filter($enabled_settings));
+  $config->save(TRUE);
+
+  $database = \Drupal::database();
+  $entity_type_id = 'paragraph';
+  $field_name = 'field_view_reference_view';
+  $tables = [
+    "{$entity_type_id}__$field_name",
+    "{$entity_type_id}_revision__$field_name",
+  ];
+  foreach ($tables as $table) {
+    $data_field_name = $field_name . '_data';
+
+    // Get the old data.
+    $existing_data[$table] = $database->select($table)
+      ->fields($table, ['entity_id', 'revision_id', $data_field_name])
+      ->execute()
+      ->fetchAll(\PDO::FETCH_ASSOC);
+
+    $table_fields = end($existing_data[$table]);
+    if (!empty($table_fields) && is_array($table_fields)) {
+      foreach ($existing_data[$table] as $row) {
+        $update_query = $database
+          ->update($table);
+        $existing_data = unserialize($row[$data_field_name], ['allowed_class' => FALSE]);
+        $existing_data['limit'] = $existing_data['page_limit'] ?? NULL;
+        unset($existing_data['page_limit']);
+        $data = serialize(array_filter($existing_data));
+        $update_query->fields([$data_field_name => $data]);
+        $update_query->condition('entity_id', $row['entity_id']);
+        $update_query->condition('revision_id', $row['revision_id']);
+        $update_query->execute();
+      }
+    }
+  }
+  return 'Enabled some viewsreference plugins and migrated data.';
 }

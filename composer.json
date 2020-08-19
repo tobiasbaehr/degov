@@ -82,7 +82,7 @@
         "php-coord/php-coord": "^2.1",
         "phpdocumentor/reflection-docblock": "^3.0|^4.0",
         "raiym/instagram-php-scraper": "^0.8.22",
-        "drupal/viewsreference": "1.4",
+        "drupal/viewsreference": "^2.0-beta1",
         "drupal/views_parity_row": "^1.8",
         "enyo/dropzone": "^4.3.0",
         "fengyuanchen/cropper": "^3.1.3",
@@ -135,6 +135,10 @@
             },
             "drupal/facets": {
                 "Notice: Undefined index: #attributes": "https://www.drupal.org/files/issues/2020-07-23/undefined-index-attributes-3160570-4.patch"
+            },
+            "drupal/viewsreference": {
+                "2957529 - Implement configuration schema for Views reference" : "https://www.drupal.org/files/issues/2020-07-16/2957529-10.viewsreference.patch",
+                "2925609 - Update viewsreference_update_8103 fails if table name is too long and shortened by Drupal": "https://www.drupal.org/files/issues/2020-07-23/2925609-13.viewsreference.patch"
             }
         }
     },

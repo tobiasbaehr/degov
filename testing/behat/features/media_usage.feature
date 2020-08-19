@@ -21,4 +21,4 @@ Feature: deGov - Media usage
     And I am on "/admin/content/media"
     Then I should see the text "Some image" in the "Some image" row
     When I click "1" in the "Some image" row
-    Then I should see the text 'Browse media "Some image" references'
+    Then I should see text matching 'Browse media "Some image" references' after a while

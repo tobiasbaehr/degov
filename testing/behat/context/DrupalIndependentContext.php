@@ -148,6 +148,7 @@ class DrupalIndependentContext extends RawMinkContext {
    * Should see text after a while.
    *
    * @Then /^I should see text matching "([^"]*)" after a while$/
+   * @Then /^I should see text matching '([^']*)' after a while$/
    */
   public function iShouldSeeTextAfterWhile(string $text): bool {
     try {

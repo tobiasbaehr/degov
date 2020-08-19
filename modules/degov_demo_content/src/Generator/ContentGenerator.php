@@ -311,7 +311,10 @@ abstract class ContentGenerator {
     while (strpos($value, '{{TEXT}}') !== FALSE) {
       $value = preg_replace('/{{TEXT}}/', $this->generateBlindText(50, TRUE), $value, 1);
     }
-
+    // Views reference plugins values.
+    if (array_key_exists('data', $rawElement) && is_array($rawElement['data'])) {
+      $rawElement['data'] = serialize($rawElement['data']);
+    }
     $rawElement[$index] = $value;
   }
 

@@ -61,11 +61,6 @@ parameters:
 			path: docroot/profiles/contrib/degov/modules/degov_common/src/Entity/WorkflowHandler.php
 
 		-
-			message: "#^Undefined variable\\: \\$argument$#"
-			count: 1
-			path: docroot/profiles/contrib/degov/modules/degov_paragraph_view_reference/degov_paragraph_view_reference.module
-
-		-
 			message: "#^Call to an undefined method Drupal\\\\degov\\\\Robo\\\\Plugin\\\\Commands\\\\DeGovCommands\\:\\:checkNodeVersion\\(\\)\\.$#"
 			count: 1
 			path: docroot/profiles/contrib/degov/src/Robo/Plugin/Commands/DeGovCommands.php

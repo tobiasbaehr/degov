@@ -17,7 +17,8 @@ abstract class ModuleInstallationTestAbstract extends KernelTestBase {
    */
   protected function setUp(): void {
     parent::setUp();
-    $this->installConfig(self::$modules);
+    $class = get_called_class();
+    $this->installConfig($class::$modules);
   }
 
   /**
@@ -26,7 +27,8 @@ abstract class ModuleInstallationTestAbstract extends KernelTestBase {
   public function testSetup(): void {
     /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
     $moduleHandler = $this->container->get('module_handler');
-    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule(reset(self::$modules)));
+    $class = get_called_class();
+    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule(reset($class::$modules)));
   }
 
 }

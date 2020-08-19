@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_paragraph_view_reference\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
@@ -18,16 +20,7 @@ use Drupal\views\Views;
 class ViewsReferenceLabelFormatter extends FormatterBase {
 
   /**
-   * Builds a renderable array for a field value.
-   *
-   * @param \Drupal\Core\Field\FieldItemListInterface $items
-   *   The field values to be rendered.
-   * @param string $langcode
-   *   The language that should be used to render the field.
-   *
-   * @return array
-   *   A renderable array for $items, as an array of child elements keyed by
-   *   consecutive numeric indexes starting from 0.
+   * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
     $elements = [];
@@ -35,7 +28,7 @@ class ViewsReferenceLabelFormatter extends FormatterBase {
       $view_name = $item->getValue()['target_id'];
       $view = Views::getView($view_name);
       // Someone may have deleted the View.
-      if (!is_object($view)) {
+      if ($view === NULL) {
         continue;
       }
       $title = $view->getTitle();
