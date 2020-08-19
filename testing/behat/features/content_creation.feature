@@ -225,8 +225,9 @@ Feature: deGov - Content creation
     And I fill in "Titel" with "media_file_link"
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
-    And I am on "/media_file_link"
-    Then I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"' after a while
+    And I am on "/mediafilelink"
+    Then I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
+    And I delete the latest "node"
 
   Scenario: I verify that trying to delete a referenced Media item will cause warning messages
     Given I have dismissed the cookie banner if necessary
