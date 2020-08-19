@@ -225,14 +225,14 @@ Feature: deGov - Content creation
     And I fill in "Titel" with "media_file_link"
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
-    Then I should be redirected to "mediafilelink"
+    Then I should be on "/mediafilelink"
     And I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
     When I open node edit form by node title "media_file_link"
     And I scroll to the "#edit-delete" element
     Then I should see "#edit-delete" element visible on the page
     When I click "#edit-delete"
     And I press button with label "Delete" via translated text
-    Then I should be redirected to "admin/content"
+    Then I should be on "/admin/content"
 
   Scenario: I verify that trying to delete a referenced Media item will cause warning messages
     Given I have dismissed the cookie banner if necessary
