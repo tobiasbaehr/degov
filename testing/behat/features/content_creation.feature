@@ -221,7 +221,7 @@ Feature: deGov - Content creation
     Then I should see HTML content matching "linkit-result-line" after a while
     And I click by selector ".linkit-result-line" via JavaScript
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
-    And I press button with label "Save" via translated text
+    And I click by selector ".ui-dialog-buttonpane .button" via JavaScript
     And I fill in "Titel" with "media_file_link"
     And I scroll to the "#edit-submit" element
     And I press button with label "Save" via translated text
