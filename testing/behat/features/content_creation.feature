@@ -228,8 +228,9 @@ Feature: deGov - Content creation
     And I am on "/mediafilelink"
     Then I should see HTML content matching 'href="http://host.docker.internal/sites/default/files/degov_demo_content/dummy.pdf"'
     Then I open node edit form by node title "media_file_link"
-    And I scroll to the "#edit-submit" element
+    And I scroll to bottom
     And I click "Löschen"
+    And I click "#edit-delete"
     And I press button with label "Delete" via translated text
     #And I delete the latest "node"
 
