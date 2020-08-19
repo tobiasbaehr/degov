@@ -558,7 +558,7 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedPageWithMedia($pageName, $mediaType) {
-    self::iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
+    $this->iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
   }
 
   /**

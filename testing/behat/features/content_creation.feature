@@ -224,23 +224,20 @@ Feature: deGov - Content creation
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
     When I click by selector ".ui-dialog-buttonpane .button" via JavaScript
     And I wait 1 second
+    And I select "published" by name "moderation_state[0][state]"
     And I scroll to bottom
     And I click by selector "#edit-submit" via JavaScript
     And I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
     Then I should be on "/mediafilelink"
     And I should see HTML content matching 'sites/default/files/degov_demo_content/dummy.pdf">'
+    When I open medias delete url by title "A document with a PDF"
+    Then I should see HTML content matching "messages--warning" after a while
     When I open node delete form by node title "media_file_link"
     And I press button with label "Delete" via translated text
     Then I should be on the homepage
     And I should see text matching "Der Inhaltsseite media_file_link wurde gelöscht." after a while
-
-  Scenario: I verify that trying to delete a referenced Media item will cause warning messages
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "A document with a PDF"
-    And I scroll to bottom
-    And I click by selector "#edit-delete" via JavaScript
-    Then I should see HTML content matching "messages--warning" after a while
+    When I open medias delete url by title "A document with a PDF"
+    Then I should not see HTML content matching "messages--warning"
 
   Scenario: I verify that the selected views reference values are preserved in the form
     Given I reset the demo content
