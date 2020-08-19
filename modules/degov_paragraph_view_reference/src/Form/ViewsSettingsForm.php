@@ -15,24 +15,20 @@ use Drupal\views\Views;
  */
 final class ViewsSettingsForm extends ConfigFormBase {
 
+
+  const CONFIG_NAME = 'degov_paragraph_view_reference.views_helper_settings';
+
   /**
-   * Gets the configuration names that will be editable.
-   *
-   * @return array
-   *   An array of configuration object names that are editable if called in
-   *   conjunction with the trait's config() method.
+   * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
     return [
-      'degov_paragraph_view_reference.views_helper_settings',
+      self::CONFIG_NAME,
     ];
   }
 
   /**
-   * Returns a unique string identifying the form.
-   *
-   * @return string
-   *   The unique string identifying the form.
+   * {@inheritdoc}
    */
   public function getFormId() {
     return 'degov_views_helper_settings';
@@ -42,26 +38,19 @@ final class ViewsSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    // Get the current configuration settings.
-    $config = $this->config('degov_paragraph_view_reference.views_helper_settings');
-
-    // Get the list of all view names available in the system.
-    $view_list = $this->getAllViewsNames();
-    $allowed_views = $config->get('allowed_views');
-    $form_ids = $config->get('form_ids');
-
+    $config = $this->config(self::CONFIG_NAME);
     $form['allowed_views'] = [
       '#type' => 'checkboxes',
-      '#title' => t('Allowed View Options'),
-      '#options' => $view_list,
-      '#default_value' => \is_array($allowed_views) ? $allowed_views : [],
+      '#title' => $this->t('Allowed View Options'),
+      '#options' => $this->getAllViewsNames(),
+      '#default_value' => $config->get('allowed_views'),
       '#weight' => 2,
     ];
 
     $form['form_ids'] = [
       '#type' => 'textarea',
-      '#title' => t('Form Ids to apply the filter'),
-      '#default_value' => \is_array($form_ids) ? \implode(PHP_EOL, $form_ids) : '',
+      '#title' => $this->t('Form Ids to apply the filter'),
+      '#default_value' => \implode(PHP_EOL, $config->get('form_ids')),
       '#weight' => 3,
     ];
 
@@ -73,8 +62,7 @@ final class ViewsSettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->configFactory->getEditable('degov_paragraph_view_reference.views_helper_settings');
-    $config->set('allowed_views', $form_state->getValue('allowed_views'))
-      ->save();
+    $config->set('allowed_views', array_filter($form_state->getValue('allowed_views')));
     $form_ids = $form_state->getValue('form_ids');
     if ($form_ids !== '') {
       $form_ids = \explode(PHP_EOL, $form_ids);

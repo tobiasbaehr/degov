@@ -277,7 +277,8 @@ views_reference_latest_media:
   field_view_reference_view:
     target_id: 'latest_media'
     display_id: 'block_1'
-    view_mode: 'preview_wide'
+    data:
+     view_mode: 'preview_wide'
 views_reference_latest_content:
   type: 'view_reference'
   field_title: 'A view displaying the latest content'
@@ -285,7 +286,8 @@ views_reference_latest_content:
   field_view_reference_view:
     target_id: 'content_recent'
     display_id: 'block_1'
-    view_mode: 'preview'
+    data:
+      view_mode: 'preview'
 views_reference_latest_press_slider:
   type: 'view_reference'
   field_title: 'Press Slider - Latest'
@@ -293,7 +295,8 @@ views_reference_latest_press_slider:
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'press_slider'
-    view_mode: 'latest'
+    data:
+      view_mode: 'latest'
 views_reference_latest_press_1:
   type: 'view_reference'
   field_title: 'Teaser - Small Image'
@@ -301,7 +304,8 @@ views_reference_latest_press_1:
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
-    view_mode: 'small_image'
+    data:
+      view_mode: 'small_image'
 views_reference_latest_press_2:
   type: 'view_reference'
   field_title: 'Teaser - Long Text'
@@ -309,7 +313,8 @@ views_reference_latest_press_2:
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
-    view_mode: 'long_text'
+    data:
+      view_mode: 'long_text'
 views_reference_latest_press_3:
   type: 'view_reference'
   field_title: 'Teaser - Preview'
@@ -317,7 +322,8 @@ views_reference_latest_press_3:
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
-    view_mode: 'preview'
+    data:
+      view_mode: 'preview'
 views_reference_latest_press_4:
   type: 'view_reference'
   field_title: 'Teaser - Slim'
@@ -325,7 +331,8 @@ views_reference_latest_press_4:
   field_view_reference_view:
     target_id: 'press_latest_content'
     display_id: 'latest_press'
-    view_mode: 'slim'
+    data:
+      view_mode: 'slim'
 views_reference_latest_events_1:
   type: 'view_reference'
   field_title: 'Teaser - Small Image'
@@ -333,7 +340,8 @@ views_reference_latest_events_1:
   field_view_reference_view:
     target_id: 'latest_events'
     display_id: 'latest_event'
-    view_mode: 'small_image'
+    data:
+      view_mode: 'small_image'
 views_reference_latest_events_2:
   type: 'view_reference'
   field_title: 'Teaser - Long Text'
@@ -341,7 +349,8 @@ views_reference_latest_events_2:
   field_view_reference_view:
     target_id: 'latest_events'
     display_id: 'latest_event'
-    view_mode: 'long_text'
+    data:
+      view_mode: 'long_text'
 views_reference_latest_events_3:
   type: 'view_reference'
   field_title: 'Teaser - Preview'
@@ -349,7 +358,8 @@ views_reference_latest_events_3:
   field_view_reference_view:
     target_id: 'latest_events'
     display_id: 'latest_event'
-    view_mode: 'preview'
+    data:
+      view_mode: 'preview'
 views_reference_latest_events_4:
   type: 'view_reference'
   field_title: 'Teaser - Slim'
@@ -357,7 +367,8 @@ views_reference_latest_events_4:
   field_view_reference_view:
     target_id: 'latest_events'
     display_id: 'latest_event'
-    view_mode: 'slim'
+    data:
+      view_mode: 'slim'
 ## Media References
 media_reference_image:
   type: 'media_reference'

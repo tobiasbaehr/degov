@@ -11,8 +11,6 @@ dependencies:
   enforced:
     module:
       - degov_paragraph_view_reference
-  module:
-    - degov_common
 id: paragraph.view_reference.preview
 targetEntityType: paragraph
 bundle: view_reference

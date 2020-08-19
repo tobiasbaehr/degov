@@ -24,7 +24,7 @@ function degov_simplenews_references_install(): void {
 /**
  * Delete field_scheduled_publish from simplenews_issue.
  */
-function degov_simplenews_references_update_890500(): string {
+function degov_simplenews_references_update_880500(): string {
   $field = FieldConfig::loadByName('node', 'simplenews_issue', 'field_scheduled_publish');
   if ($field) {
     $field->delete();
