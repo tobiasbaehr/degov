@@ -212,7 +212,7 @@ Feature: deGov - Content creation
   Scenario: I verify that I can enter Media file links using linkit
     Given I am logged in as a user with the "administrator" role
     And I have dismissed the cookie banner if necessary
-    And I am on "/node/add/normal_page"
+    When I am on "/node/add/normal_page"
     And I fill in "Titel" with "media_file_link"
     Then I should see 1 ".cke" elements via jQuery after a while
     When I click by selector ".cke_button__drupallink_icon" via JavaScript
@@ -226,8 +226,8 @@ Feature: deGov - Content creation
     And I select "draft" by name "moderation_state[0][state]"
     And I scroll to bottom
     And I click by selector "#edit-submit" via JavaScript
-    And I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
-    Then I should be on "/mediafilelink"
+    Then I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
+    And I should be on "/mediafilelink"
     And I should see 1 'a[href$="/sites/default/files/degov_demo_content/dummy.pdf"]' elements via jQuery after a while
     When I open medias delete url by title "A document with a PDF"
     Then I should see the element with css selector "div.messages.messages--warning"
