@@ -5,4 +5,3 @@ type: module
 core: 8.x
 dependencies:
   - 'degov_common:degov_common'
-  - 'degov_social_media_settings:degov_social_media_settings'

@@ -5,11 +5,35 @@
  * Install, update and uninstall hooks for the degov_tweets module.
  */
 
+declare(strict_types=1);
+
+use Drupal\block\Entity\Block;
+
 /**
- * Add tweets block, set tweeter account credentials.
+ * Add tweets block, set twitter account credentials.
  */
 function degov_tweets_update_870200() {
   /* @var \Drupal\degov_common\DegovModuleUpdater $updater */
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_tweets', '870200');
+}
+
+/**
+ * Re-save blocks with plugin id degov_twitter_block for a proper config schema.
+ */
+function degov_tweets_update_890500(): string {
+  $block_storage = \Drupal::entityTypeManager()->getStorage('block');
+  /** @var \Drupal\block\BlockInterface[] $blocks */
+  $blocks = $block_storage->loadMultiple();
+  $resaved = FALSE;
+  foreach ($blocks as $block) {
+    if ($block->getPluginId() === 'degov_twitter_block') {
+      $resaved = TRUE;
+      $block->save();
+    }
+  }
+  if ($resaved) {
+    return 'Re-saved blocks with plugin id degov_twitter_block';
+  }
+  return 'Skipped.';
 }

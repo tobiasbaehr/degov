@@ -22,8 +22,8 @@ settings:
   consumer_key: ''
   consumer_secret: ''
   tweets_username: ''
-  tweets_limit: '4'
-  tweets_update_every: '7200'
+  tweets_limit: 4
+  tweets_update_every: 7200
 visibility:
   request_path:
     id: request_path

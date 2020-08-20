@@ -187,11 +187,11 @@ final class NodeGenerator extends ContentGenerator implements GeneratorInterface
    *   Path to set.
    */
   private function setFrontPage(string $path_to_set) {
-    $original_front_page = $this->configFactory->get('degov.degov_demo_content')->get('original_front_page');
+    $original_front_page = $this->configFactory->get('degov_demo_content.settings')->get('original_front_page');
     if (empty($original_front_page)) {
       // Save original front page.
       $front = $this->configFactory->get('system.site')->get('page.front');
-      $this->configFactory->getEditable('degov.degov_demo_content')->set('original_front_page', $front)->save();
+      $this->configFactory->getEditable('degov_demo_content.settings')->set('original_front_page', $front)->save();
     }
     $this->configFactory->getEditable('system.site')->set('page.front', $path_to_set)->save();
   }
@@ -200,10 +200,10 @@ final class NodeGenerator extends ContentGenerator implements GeneratorInterface
    * Reset front page.
    */
   private function resetFrontPage() {
-    $original_front_page = $this->configFactory->get('degov.degov_demo_content')->get('original_front_page');
+    $original_front_page = $this->configFactory->get('degov_demo_content.settings')->get('original_front_page');
     if (!empty($original_front_page)) {
       $this->setFrontPage($original_front_page);
-      $this->configFactory->getEditable('degov.degov_demo_content')->set('original_front_page', NULL)->save();
+      $this->configFactory->getEditable('degov_demo_content.settings')->clear('original_front_page')->save();
     }
   }
 

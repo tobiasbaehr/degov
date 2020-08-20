@@ -29,9 +29,6 @@ main() {
   _info "### Load Admin cookie for BackstopJS test"
   _robo degov:create-admin-cookie
   _info "### Running BackstopJS test"
-  _info "### Set the Development Mode"
-  _drush en degov_devel
-  _drush config:set degov_devel.settings dev_mode true
   _info "### Clear cache before BackstopJS"
   _drush cr
   _info "### Running BackstopJS test"

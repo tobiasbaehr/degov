@@ -169,6 +169,22 @@ page_with_events_views_reference:
   - views_reference_latest_events_1
   status: 1
   moderation_state: 'published'
+node_block_reference:
+  type: 'normal_page'
+  title: 'Page with block reference'
+  field_internal_title: 'Page with block reference'
+  moderation_state: 'published'
+  field_tags: '{{DEMOTAG}}'
+  field_teaser_text:
+    value: '<p>äöü ÄÖÜß àéîøū voluptua At <a href="/">vero</a> eos et accusam äöü <a href="/">ÄÖÜß</a> àéîøū et justo duo <a href="/">dolores</a> et ea äöü ÄÖÜß <a href="/">àéîøū</a> rebum Stet clita kasd <a href="/">gubergren</a> äöü ÄÖÜß àéîøū no <a href="/">sea</a> takimata sanctus est äöü <a href="/">ÄÖÜß</a> àéîøū Lorem ipsum dolor <a href="/">sit</a> amet Lorem ipsum äöü <a href="/">ÄÖÜß</a> àéîøū dolor sit amet</p>'
+    format: 'rich_html'
+  field_teaser_title: 'Page with block reference'
+  field_teaser_sub_title: 'Bibendum Vulputate Ligula'
+  field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
+  field_content_paragraphs:
+    - block_reference_degov_social_media_instagram
+    - block_reference_degov_social_media_youtube
+    - block_reference_degov_twitter_block
 press_release_1:
   type: 'press'
   title: 'A press release'

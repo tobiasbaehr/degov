@@ -1,0 +1,25 @@
+block.settings.degov_twitter_block:
+  type: block_settings
+  label: 'Twitter block'
+  mapping:
+    tweets_username:
+      type: string
+      label: 'Twitter username'
+    tweets_limit:
+      type: integer
+      label: 'Limit'
+    tweets_update_every:
+      type: integer
+      label: 'Update every'
+    access_token:
+      type: string
+      label: 'Access token'
+    token_secret:
+      type: string
+      label: 'Token secret'
+    consumer_key:
+      type: string
+      label: 'Consumer key'
+    consumer_secret:
+      type: string
+      label: 'Consumer secret'

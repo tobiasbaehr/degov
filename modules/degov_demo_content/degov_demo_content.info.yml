@@ -21,6 +21,10 @@ dependencies:
   - degov:degov_media_video
   - degov:degov_media_video_mobile
   - degov:degov_media_video_upload
+  - degov:degov_social_media_youtube
+  - degov:degov_social_media_instagram
+  - degov:degov_tweets
+  - degov:degov_social_media_settings
   - degov:degov_node_blog
   - degov:degov_node_event
   - degov:degov_node_normal_page

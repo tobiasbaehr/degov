@@ -7,6 +7,7 @@ namespace Drupal\degov_demo_content\Generator;
 use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
 use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Database\Connection;
 
 /**
  * Class BlockContentGenerator.
@@ -45,13 +46,25 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
   protected $blockType = 'basic';
 
   /**
+   * Database.
+   *
+   * @var \Drupal\Core\Database\Connection
+   *   The database connection.
+   */
+  private $database;
+
+  /**
+   * @param \Drupal\Core\Database\Connection $database
+   */
+  public function setDatabase(Connection $database): void {
+    $this->database = $database;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function generateContent(): void {
-    foreach ($this->loadDefinitions('block_content.yml') as $definition) {
-      $block = $this->createContentBlock();
-      $this->generateBlockReferenceParagraphs($block);
-    }
+    $this->createContentBlocks();
     $this->enableParagraphField();
   }
 
@@ -61,12 +74,10 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
    * @param array $definition
    *   Definition array.
    *
-   * @return \Drupal\block_content\BlockContentInterface
-   *   Content block.
-   *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function createContentBlock() {
+  private function createContentBlocks(): void {
+    $block_placements = $this->loadDefinitions('block_placement.yml');
     foreach ($this->loadDefinitions('block_content.yml') as $srcId => $rawBlock) {
       $paragraphs = [];
       if (isset($rawBlock['field_content_paragraphs'])) {
@@ -76,17 +87,23 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
         ['target_id' => $this->getDemoContentTagId()],
       ];
 
-      $rawBlock['created'] = isset($rawBlock['created']) ? $rawBlock['created'] : $this->getCreatedTimestamp($srcId);
+      $rawBlock['created'] = isset($rawBlock['created']) ? $rawBlock['created'] : self::getCreatedTimestamp($srcId);
 
       $paragraphs = array_filter($paragraphs);
       unset($rawBlock['field_content_paragraphs']);
       $this->generateParagraphs($paragraphs, $rawBlock);
       $this->prepareValues($rawBlock);
+      /** @var \Drupal\block_content\BlockContentInterface $block */
+      $block = BlockContent::create($rawBlock);
+      $block->save();
+
+      if (isset($block_placements[$srcId])) {
+        foreach ($block_placements[$srcId] as $placement) {
+          $this->setBlockToRegion($block, (object) $placement);
+        }
+      }
+      $this->generateBlockReferenceParagraphs($block);
     }
-    $block = BlockContent::create($rawBlock);
-    $block->save();
-    $this->setBlockToRegion($block);
-    return $block;
   }
 
   /**
@@ -94,36 +111,78 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
    *
    * @param \Drupal\block_content\BlockContentInterface $block
    *   The Block entity.
+   * @param object $placement
+   *   Placement definition. See block_placements.yml.
    *
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  private function setBlockToRegion(BlockContentInterface $block): void {
+  private function setBlockToRegion(BlockContentInterface $block, object $placement): void {
+
+    foreach ($placement->visibility as $viz) {
+      if (isset($viz['request_path'])) {
+        // Attach static filters like '<front>'.
+        $block_visibility = [
+          'request_path' => [
+            'id' => 'request_path',
+            'negate' => isset($viz['request_path']['negate']) ? $viz['request_path']['negate'] : FALSE,
+            'pages' => $viz['request_path']['pages'],
+          ],
+        ];
+      }
+      elseif (isset($viz['node_page'])) {
+        // Get Nid via entity_definitions/node.yml.
+        $block_visibility = [
+          'request_path' => [
+            'id' => 'request_path',
+            'negate' => isset($viz['negate']) ? $viz['negate'] : FALSE,
+            'pages' => 'node/' . $this->getNidByYmlId($viz['node_page']),
+          ],
+        ];
+      }
+    }
+    if (!$block_visibility) {
+      throw new \Exception('Block placement requires a visibility setting.');
+    }
+
     $placed_block = Block::create([
-      'id' => 'slideshow',
-      'theme' => 'degov_theme',
-      'weight' => -50,
+      'id' => $placement->id,
+      'theme' => $placement->theme,
+      'weight' => $placement->weight,
       'status' => TRUE,
-      'region' => 'content',
+      'region' => $placement->region,
       'plugin' => 'block_content:' . $block->uuid(),
       'settings' => [
         'id' => 'block_content:' . $block->uuid(),
-        'label' => 'Slideshow',
-        'provider' => 'block_content',
-        'label_display' => '0',
         'status' => TRUE,
-        'info' => '',
-        'view_mode' => 'full',
+        'label' => $placement->settings['label'],
+        'view_mode' => $placement->settings['view_mode'],
+        'provider' => 'block_content',
+        'label_display' => isset($placement->settings['label_display']) ? $placement->settings['label_display'] : 1,
+        'info' => isset($placement->settings['info']) ? $placement->settings['info'] : '',
       ],
-      'visibility' => [
-        'request_path' => [
-          'id' => 'request_path',
-          'negate' => FALSE,
-          'pages' => '<front>',
-        ],
-      ],
+      'visibility' => $block_visibility,
     ]);
-
     $placed_block->save();
+  }
+
+  /**
+   * Returns node entity for any node generated by this generator.
+   *
+   * @param string $ymlId
+   *   Id of node a node defined in entity_definitions/node.yml.
+   */
+  public function getNidByYmlId(string $ymlId): int {
+    $nodes = $this->loadDefinitions('node.yml');
+    if (isset($nodes[$ymlId])) {
+      $query = $this->database->select('node_field_data', 'nfd')
+        ->fields('nfd', ['nid'])
+        ->condition('nfd.title', $nodes[$ymlId]['title']);
+      $nid = $query->execute()->fetchField();
+      if (is_numeric($nid)) {
+        return $nid;
+      }
+    }
+    throw new \Exception($ymlId . ' is not found in entity_definitions/node.yml');
   }
 
   /**
@@ -136,8 +195,7 @@ final class BlockContentGenerator extends ContentGenerator implements GeneratorI
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function generateBlockReferenceParagraphs(
-    BlockContentInterface $block_content): void {
+  protected function generateBlockReferenceParagraphs(BlockContentInterface $block_content): void {
     $nodes_array = $this->entityTypeManager->getStorage('node')
       ->loadByProperties([
         'type' => 'normal_page',

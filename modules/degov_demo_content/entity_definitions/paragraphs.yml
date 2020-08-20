@@ -488,3 +488,16 @@ media_reference_image_overridden:
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
   field_override_caption: 'Caption set in paragraph'
+
+block_reference_degov_social_media_instagram:
+  type: 'block_reference'
+  field_title: 'Demo Instagram Feed'
+  field_block_plugin: 'degov_social_media_instagram'
+block_reference_degov_social_media_youtube:
+  type: 'block_reference'
+  field_title: 'Demo Youtube Feed'
+  field_block_plugin: 'degov_social_media_youtube'
+block_reference_degov_twitter_block:
+  type: 'block_reference'
+  field_title: 'Demo tweets Feed'
+  field_block_plugin: 'degov_twitter_block'

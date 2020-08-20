@@ -88,7 +88,7 @@ function degov_tweets_parse_tweet($text) {
  * Implements hook_preprocess_block().
  */
 function degov_tweets_preprocess_block(&$variables) {
-  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_twitter_block') {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] === 'degov_twitter_block') {
     $variables['#attached']['library'][] = 'degov_common/slick';
     $markup = render($variables['content']);
 

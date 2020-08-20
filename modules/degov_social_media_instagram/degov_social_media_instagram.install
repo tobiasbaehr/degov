@@ -22,9 +22,9 @@ function degov_social_media_instagram_update_870200() {
 function degov_social_media_instagram_requirements(string $phase): array {
   $requirements = [];
   if ($phase === 'runtime') {
-    $degov_devel_settings = Drupal::config('degov_devel.settings');
-    if ($degov_devel_settings->get('dev_mode')) {
-      // Nothing to do here. In Dev-Mode we use fixtures.
+    $degov_demo_content = Drupal::moduleHandler()->moduleExists('degov_demo_content');
+    if ($degov_demo_content) {
+      // Nothing to do here. In demo-Mode we use fixtures.
       return $requirements;
     }
     $degov_social_media_instagram = Drupal::config('degov_social_media_instagram.settings');

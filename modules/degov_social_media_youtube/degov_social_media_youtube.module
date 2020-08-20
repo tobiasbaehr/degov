@@ -27,7 +27,7 @@ function degov_social_media_youtube_help($route_name, RouteMatchInterface $route
  * Implements hook_preprocess_block().
  */
 function degov_social_media_youtube_preprocess_block(&$variables) {
-  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_social_media_youtube') {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] === 'degov_social_media_youtube') {
     $variables['#attached']['library'][] = 'degov_common/slick';
     $markup = render($variables['content']);
 
