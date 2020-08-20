@@ -223,7 +223,6 @@ Feature: deGov - Content creation
     When I click by selector ".linkit-result-line" via JavaScript
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
     When I click by selector ".ui-dialog-buttonpane .button" via JavaScript
-    And I wait 1 second
     And I select "draft" by name "moderation_state[0][state]"
     And I scroll to bottom
     And I click by selector "#edit-submit" via JavaScript
