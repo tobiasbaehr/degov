@@ -231,13 +231,13 @@ Feature: deGov - Content creation
     Then I should be on "/mediafilelink"
     And I should see 1 'a[href$="/sites/default/files/degov_demo_content/dummy.pdf"]' elements via jQuery after a while
     When I open medias delete url by title "A document with a PDF"
-    Then I should see HTML content matching "messages--warning" after a while
+    Then I should see the element with css selector "div.messages.messages--warning"
     When I open node delete form by node title "media_file_link"
     And I press button with label "Delete" via translated text
     Then I should be on the homepage
     And I should see text matching "Der Inhaltsseite media_file_link wurde gelöscht." after a while
     When I open medias delete url by title "A document with a PDF"
-    Then I should not see HTML content matching "messages--warning"
+    Then I should not see the element with css selector "div.messages.messages--warning"
 
   Scenario: I verify that the selected views reference values are preserved in the form
     Given I reset the demo content
