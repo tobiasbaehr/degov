@@ -50,7 +50,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Suche
           reset_button: false
           reset_button_label: Zurücksetzen
           exposed_sorts_label: 'Sortieren nach'
@@ -414,7 +414,7 @@ display:
         options:
           calendar_type: month
           mini: '1'
-          name_size: '3'
+          name_size: '2'
           with_weekno: '0'
           max_items: '1'
           max_items_behavior: hide

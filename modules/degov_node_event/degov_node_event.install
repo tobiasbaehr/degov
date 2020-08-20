@@ -142,3 +142,15 @@ function degov_node_event_update_880200() {
     $config->save();
   }
 }
+
+/**
+ * deGov 8.5.0 – Set day-of-week length to 2 characters
+ */
+function degov_node_event_update_880500() {
+  $viewConfig = \Drupal::configFactory()->getEditable('views.view.events');
+  $viewConfig
+    ->set('display.calendar_widget.display_options.style.options.name_size', '2')
+    ->set('display.default.display_options.filters.field_event_date_value.value.value', '')
+    ->set('display.default.display_options.filters.field_event_date_value.value.type', 'date')
+    ->save(TRUE);
+}
