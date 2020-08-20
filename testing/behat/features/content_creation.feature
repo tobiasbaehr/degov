@@ -224,7 +224,7 @@ Feature: deGov - Content creation
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
     When I click by selector ".ui-dialog-buttonpane .button" via JavaScript
     And I wait 1 second
-    And I select "published" by name "moderation_state[0][state]"
+    And I select "draft" by name "moderation_state[0][state]"
     And I scroll to bottom
     And I click by selector "#edit-submit" via JavaScript
     And I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
