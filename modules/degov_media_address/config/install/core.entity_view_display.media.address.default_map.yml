@@ -32,7 +32,7 @@ content:
       style:
         maptype: ROADMAP
         style: '[]'
-        pin: 'module://degov_media_address/images/map-icon.png'
+        pin: 'profiles/degov/modules/degov_media_address/images/map-icon.png'
       map_center:
         center_coordinates: ''
       popup:
