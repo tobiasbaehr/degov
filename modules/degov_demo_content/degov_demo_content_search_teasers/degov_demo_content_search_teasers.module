@@ -1,0 +1,130 @@
+<?php
+
+/**
+ * @file
+ * Drupal module to support testing of search in pipeline.
+ */
+
+declare(strict_types=1);
+
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
+// Search_media search_content
+// Try to bring this number to 2 pages in regards of available demo content.
+// With two pages we can test all teasers and the page with two backstop tests.
+define('DEGOV_DEMO_CONTENT_SEARCH_TEASERS_ITEMS_PER_PAGE', 20);
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function degov_demo_content_search_teasers_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  // Increase Items per page.
+  $views = ['search_media', 'search_content'];
+  if (in_array($view->id(), $views)) {
+    $view->setItemsPerPage(DEGOV_DEMO_CONTENT_SEARCH_TEASERS_ITEMS_PER_PAGE);
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function degov_demo_content_search_teasers_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  $views = ['search_media', 'search_content'];
+  if (in_array($view->id(), $views)) {
+    $demo_content_info = degov_demo_content_search_teasers_get_search_info($view);
+    $options = [
+      'id' => 'area_text_custom',
+      'table' => 'views',
+      'field' => 'area_text_custom',
+      'relationship' => 'none',
+      'group_type' => 'none',
+      'admin_label' => 'Demo Content Serarch Info',
+      'empty' => TRUE,
+      'tokenize' => FALSE,
+      'content' => \Drupal::service('renderer')->renderRoot($demo_content_info),
+    ];
+    $view->setHandler($view->current_display, 'footer', 'area_text_custom', $options);
+  }
+}
+
+/**
+ * Provide some Meta Info for Demo content search.
+ */
+function degov_demo_content_search_teasers_get_search_info(ViewExecutable $view): array {
+  $build = [];
+  $conf = \Drupal::config('search_api.index.' . $view->id())->get('datasource_settings');
+  $build['title'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'h3',
+    '#value' => t('Search meta data info'),
+  ];
+  $build['pager_info'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'p',
+    '#value' => t('Pager is overridden by demo content to @currentIpp Default Items per page is @defaultIpp.', [
+      '@defaultIpp' => $view->getPager()->getItemsPerPage(),
+      '@currentIpp' => DEGOV_DEMO_CONTENT_SEARCH_TEASERS_ITEMS_PER_PAGE,
+    ]),
+  ];
+
+  $entitiesInUse = [
+    'node' => [
+      'bundles' => [],
+    ],
+    'media' => [
+      'bundles' => [],
+    ],
+  ];
+  foreach ($entitiesInUse as $entityType => $data) {
+    $config_key = 'entity:' . $entityType;
+    $bundles = array_key_exists($config_key, $conf) ? $conf[$config_key]['bundles'] : NULL;
+    if ($bundles) {
+      if ($bundles['default']) {
+        // If True All but selected, else only selected.
+        $all = array_keys(\Drupal::service('entity_type.bundle.info')->getBundleInfo($entityType));
+        foreach ($bundles['selected'] as $excluded) {
+          unset($all[$excluded]);
+        }
+        $entitiesInUse[$entityType]['bundles'] = array_merge($all, $entitiesInUse[$entityType]['bundles']);
+      }
+      else {
+        $entitiesInUse[$entityType]['bundles'] = array_merge($bundles['selected'], $entitiesInUse[$entityType]['bundles']);
+      }
+    }
+  }
+
+  if (count($entitiesInUse['node']['bundles'])) {
+    $build['info_node'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+      '#value' => t('Node bundles configured with this search:'),
+    ];
+    $build['info_node']['content'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'strong',
+      '#value' => ' ' . rtrim(implode(', ', $entitiesInUse['node']['bundles']), ', '),
+    ];
+  }
+
+  if (count($entitiesInUse['media']['bundles'])) {
+    $build['info_media'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+      '#value' => t('Media bundles configured with this search:'),
+    ];
+    $build['info_media']['content'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'strong',
+      '#value' => ' ' . rtrim(implode(', ', $entitiesInUse['media']['bundles']), ', ') . '<br/><br/>',
+    ];
+  }
+
+  return [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => 'col-xs-12',
+    ],
+    'content' => $build,
+  ];
+}
