@@ -344,3 +344,11 @@ Feature: deGov - Content creation
     And I am logged in as a user with the "administrator" role
     Then I am on "/admin/permissions-by-term/settings"
     And the "target_bundles[section]" checkbox should be checked
+
+  Scenario: I verify the options of the status filter on the content overview
+    Given I have dismissed the cookie banner if necessary
+    And I am logged in as a user with the "administrator" role
+    Then I am on "/admin/content"
+    And I should see HTML content matching '<option value="1">Veröffentlicht</option>'
+    And I should see HTML content matching '<option value="2">Nicht veröffentlicht</option>'
+    And I should see 3 "#edit-status > option" elements

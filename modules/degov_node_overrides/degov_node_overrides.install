@@ -5,6 +5,8 @@
  * Install, update and uninstall hooks for the degov_node_overrides module.
  */
 
+declare(strict_types=1);
+
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -120,4 +122,26 @@ function degov_node_overrides_update_860200() {
       }
     }
   }
+}
+
+/**
+ * Fix grouping options of status filter and remove empty filter groups in views.view.content.
+ */
+function degov_node_overrides_update_880400(): string {
+  /** @var \Drupal\Core\Config\ConfigFactory $configFactory */
+  $configFactory = \Drupal::service('config.factory');
+  /** @var Drupal\Core\Config\Config $config */
+  $config = $configFactory->getEditable('views.view.content');
+  if (!$config->isNew()) {
+    $config->clear('core');
+    $configFile = drupal_get_path('module', 'degov_node_overrides') . '/config/rewrite/views.view.content.yml';
+    if (file_exists($configFile)) {
+      $configFromFile = Yaml::parseFile($configFile);
+      $config->set('display.default.display_options.filters.status', $configFromFile['display']['default']['display_options']['filters']['status']);
+      $config->set('display.default.display_options.filter_groups', $configFromFile['display']['default']['display_options']['filter_groups']);
+      $config->save();
+      return 'Fixed grouping options of status filter and removed filter groups in view views.view.content.';
+    }
+  }
+  return 'Skipped';
 }

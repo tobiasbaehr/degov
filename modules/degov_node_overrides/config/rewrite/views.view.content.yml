@@ -13,7 +13,6 @@ description: 'Inhalte finden und verwalten.'
 tag: default
 base_table: node_field_data
 base_field: nid
-core: 8.x
 display:
   default:
     display_options:
@@ -46,8 +45,8 @@ display:
         options:
           items_per_page: 100
           tags:
-            previous: '‹ Zurück'
-            next: 'Weiter >'
+            previous: '‹ Vorherige Seite'
+            next: 'Nächste Seite ›'
             first: '« Anfang'
             last: 'Ende »'
       style:
@@ -490,13 +489,9 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              manager: '0'
-              editor: '0'
-              usermanager: '0'
+            remember_roles: {  }
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -533,11 +528,10 @@ display:
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
+            remember_roles: {  }
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -561,21 +555,22 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '1'
+          value: All
           group: 1
           exposed: true
           expose:
             operator_id: ''
-            label: Status
+            label: Veröffentlicht
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
+            remember_roles: {  }
           is_grouped: true
           group_info:
             label: 'Status veröffentlicht'
@@ -625,6 +620,8 @@ display:
               anonymous: '0'
               administrator: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -649,6 +646,9 @@ display:
           plugin_id: node_status
           group: 1
           entity_type: node
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
         field_internal_title_value:
           id: field_internal_title_value
           table: node__field_internal_title
@@ -677,6 +677,8 @@ display:
               manager: '0'
               editor: '0'
               usermanager: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -719,6 +721,8 @@ display:
               editor: '0'
               usermanager: '0'
             reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -757,8 +761,7 @@ display:
       filter_groups:
         operator: AND
         groups:
-          - AND
-          - AND
+          1: AND
       display_extenders: {  }
     display_plugin: default
     display_title: Master
