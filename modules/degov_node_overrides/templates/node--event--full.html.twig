@@ -80,13 +80,12 @@
 <article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
 
-
   {% if node.field_header_paragraphs.value %}
-    <div class="event__header-paragraphs">
+    <div class="event__header-paragraphs skin--background-primary skin--font-header">
       {{ content.field_header_paragraphs }}
     </div>
     {% if not is_front %}
-      <div class="content-header__text">
+      <div class="event__header event__header--title content-header__text skin--background-primary skin--font-header">
         <h2>{{ label }}</h2>
         {% if content.field_teaser_sub_title %}
           <h3 class="normal-page__teaser-sub-title"{{ content.field_teaser_sub_title|quickedit_attr }}>
@@ -101,6 +100,7 @@
       </div>
     {% endif %}
   {% endif %}
+
   {% if node.field_event_date.value or node.field_event_location.value %}
     <div class="event__address">
       {% if start_date_timestamp %}

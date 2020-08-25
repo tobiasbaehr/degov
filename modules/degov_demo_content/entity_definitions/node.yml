@@ -130,6 +130,7 @@ page_with_all_media:
     - media_reference_tweet
     - media_reference_instagram
     - media_reference_some_embed
+    - media_reference_image_viewmode_default
     - media_reference_responsive_video
   status: 1
   moderation_state: 'published'

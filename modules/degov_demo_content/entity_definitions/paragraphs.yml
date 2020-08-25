@@ -362,7 +362,7 @@ views_reference_latest_events_4:
 media_reference_image:
   type: 'media_reference'
   field_title: 'Vorschau eines Bild-Mediums'
-  field_sub_title: 'Vestibulum Nibh Lorem'
+  field_sub_title: 'In View Mode `preview`'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
 media_reference_video_upload:
@@ -477,3 +477,9 @@ media_reference_image_overridden:
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
   field_override_caption: 'Caption set in paragraph'
+media_reference_image_viewmode_default:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Bild-Mediums'
+  field_sub_title: 'In View Mode `default`'
+  field_media_reference_view_mode: 'default'
+  field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
