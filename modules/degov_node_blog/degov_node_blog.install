@@ -7,6 +7,7 @@
 
 use Drupal\degov_common\Common;
 use Drupal\language\Config\LanguageConfigOverride;
+use Drupal\block\Entity\Block;
 
 /**
  * Implements hook_uninstall().
@@ -135,5 +136,28 @@ function degov_node_blog_update_870500() {
     $configTranslation->set('third_party_settings.field_group.group_right_sidebar.label', 'Seitenleiste rechts');
     $configTranslation->set('third_party_settings.field_group.group_common.label', 'Allgemein');
     $configTranslation->save(TRUE);
+  }
+}
+
+/**
+ * DeGov Update 8.4.0 - Fix Render author block only on blog pages.
+ */
+function degov_node_blog_update_880400() {
+  // Change visibility of author block.
+  $block = Block::load('nrw_base_theme_blog_author');
+  if ($block) {
+    $visibility = $block->getVisibility();
+    $visibility['entity_bundle:node'] = [
+      'id' => 'entity_bundle:node',
+      'bundles' => [
+        'blog' => 'blog',
+      ],
+      'negate' => FALSE,
+      'context_mapping' => [
+        'node' => '@node.node_route_context:node',
+      ],
+    ];
+    $block->setVisibilityConfig('entity_bundle:node', $visibility['entity_bundle:node']);
+    $block->save();
   }
 }
