@@ -1,0 +1,34 @@
+entity.degov_social_media_links.collection:
+  path: '/admin/config/degov/social_media_links'
+  defaults:
+    _entity_list: 'degov_social_media_links'
+    _title: 'Social media links'
+  requirements:
+    _permission: 'administer social media links'
+
+entity.degov_social_media_links.add_form:
+  path: '/admin/config/degov/social_media_links/add'
+  defaults:
+    _entity_form: 'degov_social_media_links.add'
+    _title: 'Add social media link'
+  requirements:
+    _permission: 'administer social media links'
+
+entity.degov_social_media_links.edit_form:
+  path: '/admin/config/degov/social_media_links/edit/{degov_social_media_links}'
+  defaults:
+    _entity_form: 'degov_social_media_links.edit'
+    _title: 'Edit'
+  requirements:
+    _permission: 'administer social media links'
+  options:
+    parameters:
+      entity:
+        type: entity:id
+entity.degov_social_media_links.delete_form:
+  path: '/admin/config/degov/social_media_links/{degov_social_media_links}/delete'
+  defaults:
+    _entity_form: 'degov_social_media_links.delete'
+    _title: 'Delete'
+  requirements:
+    _permission: 'administer social media links'

@@ -45,6 +45,7 @@ permissions:
   - 'administer menu'
   - 'administer simplenews settings'
   - 'administer site configuration'
+  - 'administer social media links'
   - 'administer themes'
   - 'configure color schema ui'
   - 'create media'

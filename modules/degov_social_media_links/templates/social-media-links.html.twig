@@ -1,0 +1,21 @@
+{#
+/**
+* @file
+* Social media links Template.
+*
+* @ingroup themeable
+*/
+#}
+{% set first_child = '' %}
+<ul class="social-media-links">
+  {% for item in content %}
+    {% set appendClass %}{% if loop.first %}first{% endif %}{% if loop.last %}last{% endif %}{% endset %}
+    <li class="social-media-links__item {{ item.label|clean_class }} {{ appendClass }}">
+      <a href="{{item.url}}" target="_blank" tabindex="0" class="social-media-links__link">{% spaceless %}
+        <span class="social-media-links__icon fa {{ item.icon }}" aria-hidden="true"></span>
+        <span class="social-media-links__label">{{item.label}}</span>
+        <span class="fa fa-external-link" aria-hidden="true"></span>
+      {% endspaceless %}</a>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,19 @@
+degov_social_media_links.link.*:
+  type: config_entity
+  label: 'Social media links'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    url:
+      type: uri
+      label: 'Link url'
+    label:
+      type: label
+      label: 'Name'
+    icon:
+      type: string
+      label: 'Font Awesome Icon class'
+    weight:
+      type: integer
+      label: 'Weight'

@@ -1,0 +1,4 @@
+administer social media links:
+  title: 'Administer social media links'
+  description: 'A custom permission to change the social media Links in Header.'
+  restrict access: TRUE
