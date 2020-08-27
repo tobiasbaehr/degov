@@ -1,0 +1,8 @@
+name: 'deGov - Social Media Links'
+description: 'Allows a block with list of links with icons.'
+package: deGov
+type: module
+core_version_requirement: ^8 || ^9
+configure: entity.degov_social_media_links.collection
+dependencies:
+  - degov:degov_fa_icon_picker

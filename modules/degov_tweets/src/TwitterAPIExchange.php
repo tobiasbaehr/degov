@@ -6,16 +6,13 @@ use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\degov_social_media_settings\SocialMediaAssetsTrait;
 
 /**
  * Twitter-API-PHP : Simple PHP wrapper for the v1.1 API.
  *
  * An altered version of the Twitter-API-PHP library.
  */
-class TwitterAPIExchange {
-
-  use SocialMediaAssetsTrait;
+class TwitterAPIExchange implements TwitterAPIExchangeInterface {
 
   /**
    * OAuth access token.
@@ -81,13 +78,6 @@ class TwitterAPIExchange {
   public $requestMethod;
 
   /**
-   * Development mode status.
-   *
-   * @var bool
-   */
-  protected $devMode;
-
-  /**
    * The messenger.
    *
    * @var \Drupal\Core\Messenger\MessengerInterface
@@ -104,43 +94,20 @@ class TwitterAPIExchange {
   /**
    * TwitterAPIExchange constructor.
    *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config
-   *   The configuration factory.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger
    *   The logger service.
    */
-  public function __construct(ConfigFactoryInterface $config, MessengerInterface $messenger, LoggerChannelFactoryInterface $logger) {
-    $this->devMode = $config->get('degov_devel.settings')->get('dev_mode');
+  public function __construct(MessengerInterface $messenger, LoggerChannelFactoryInterface $logger) {
     $this->logger = $logger->get('degov_tweets');
     $this->messenger = $messenger;
   }
 
   /**
-   * Enable/disable devMode.
-   *
-   * @param bool $devMode
-   */
-  public function setDevMode(bool $devMode) {
-    $this->devMode = $devMode;
-  }
-
-  /**
-   * Set settings for the API access object.
-   *
-   * Requires an array of settings::oauth access token,
-   * oauth access token secret, consumer key, consumer secret.
-   * These are all available by creating your own application on
-   * dev.twitter.com. Requires the cURL library.
-   *
-   * @param array $settings
-   *   Settings for TwitterAPIExchange.
+   * {@inheritdoc}
    */
   public function setSettings(array $settings) {
-    if ($this->devMode) {
-      return;
-    }
 
     if (empty($settings['oauth_access_token'])
       || empty($settings['oauth_access_token_secret'])
@@ -196,21 +163,9 @@ class TwitterAPIExchange {
   }
 
   /**
-   * Set getfield string, example: '?screen_name=J7mbo'.
-   *
-   * @param array $getfieldParams
-   *   Key and value pairs.
-   *
-   * @throws \Exception
-   *
-   * @return \Drupal\degov_tweets\TwitterAPIExchange
-   *   Instance of self for method chaining
+   * {@inheritdoc}
    */
   public function setGetfield(array $getfieldParams) {
-    if ($this->devMode) {
-      return self::getDataFromFile('degov_tweets', 'set_get_field.txt');
-    }
-
     if (!is_null($this->getPostfields())) {
       $message = 'You can only choose get OR post fields.';
       $this->logger->notice($message);
@@ -243,27 +198,9 @@ class TwitterAPIExchange {
   }
 
   /**
-   * Build OAuth.
-   *
-   * Build the Oauth object using params set in construct and additionals
-   * passed to this method. For v1.1, see: https://dev.twitter.com/docs/api/1.1.
-   *
-   * @param string $url
-   *   The API url to use.
-   *   Example: https://api.twitter.com/1.1/search/tweets.json.
-   * @param string $requestMethod
-   *   Either POST or GET.
-   *
-   * @throws \Exception
-   *
-   * @return \Drupal\degov_tweets\TwitterAPIExchange
-   *   Instance of self for method chaining
+   * {@inheritdoc}
    */
   public function buildOauth($url, $requestMethod = 'GET') {
-    if ($this->devMode) {
-      return self::getDataFromFile('degov_tweets', 'build_oauth.txt');
-    }
-
     if (!in_array(strtolower($requestMethod), ['post', 'get'])) {
       $message = 'Request method must be either POST or GET.';
       $this->logger->notice($message);
@@ -316,29 +253,9 @@ class TwitterAPIExchange {
   }
 
   /**
-   * Perform the actual data retrieval from the API.
-   *
-   * @param bool $return
-   *   If true, returns data. This is left in for backward
-   *   compatibility reasons.
-   * @param array $curlOptions
-   *   Additional Curl options for this request.
-   *
-   * @throws \Exception
-   *
-   * @return string
-   *   json If $return param is true, returns json data.
+   * {@inheritdoc}
    */
-  public function performRequest($return = TRUE, array $curlOptions = []) {
-    if ($this->devMode) {
-      return self::getDataFromFile('degov_tweets', 'perform_request.txt');
-    }
-
-    if (!is_bool($return)) {
-      $message = 'performRequest parameter must be True or False.';
-      $this->logger->notice($message);
-      $this->messenger->addMessage($message, 'warning');
-    }
+  public function performRequest(bool $return = TRUE, array $curlOptions = []) {
 
     $header = [$this->buildAuthorizationHeader($this->oauth), 'Expect:'];
     $getfield = $this->getGetfield();

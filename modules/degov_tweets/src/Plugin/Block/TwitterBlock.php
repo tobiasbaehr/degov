@@ -1,14 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_tweets\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\degov_tweets\TwitterAPIExchange;
+use Drupal\degov_tweets\TwitterAPIExchangeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 
 /**
@@ -17,6 +17,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
  * @Block(
  *  id = "degov_twitter_block",
  *  admin_label = @Translation("Twitter block"),
+ *  category = @Translation("Social media")
  * )
  */
 final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInterface {
@@ -24,7 +25,7 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
   /**
    * Definition of TwitterAPIExchange.
    *
-   * @var \Drupal\degov_tweets\TwitterAPIExchange
+   * @var \Drupal\degov_tweets\TwitterAPIExchangeInterface
    */
   protected $twitter;
 
@@ -41,7 +42,7 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
    *   Block plugin plugin_id.
    * @param mixed $plugin_definition
    *   Block plugin definition.
-   * @param \Drupal\degov_tweets\TwitterAPIExchange $twitter
+   * @param \Drupal\degov_tweets\TwitterAPIExchangeInterface $twitter
    *   The Twitter service.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler
    *   The module handler.
@@ -52,7 +53,7 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
     array $configuration,
     $plugin_id,
     $plugin_definition,
-    TwitterAPIExchange $twitter,
+    TwitterAPIExchangeInterface $twitter,
     ModuleHandlerInterface $moduleHandler
     ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -74,56 +75,71 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
   }
 
   /**
+   * {@inheritDoc}
+   */
+  public function defaultConfiguration() {
+    $config = parent::defaultConfiguration();
+    $config['tweets_username'] = '';
+    $config['tweets_limit'] = 4;
+    $config['tweets_update_every'] = 7200;
+    $config['access_token'] = '';
+    $config['token_secret'] = '';
+    $config['consumer_key'] = '';
+    $config['consumer_secret'] = '';
+    return $config;
+  }
+
+  /**
    * {@inheritdoc}
    */
-  public function blockForm($form, FormStateInterface $form_state) {
+  public function blockForm($form, FormStateInterface $form_state): array {
     $configuration = $this->getConfiguration();
     $form['markup'] = [
       '#type' => 'markup',
-      '#markup' => t('<a href="@url">Create a twitter app on the twitter developer site</a>', ['@url' => 'https://dev.twitter.com/apps/']),
+      '#markup' => t('<a href="@url">Create a twitter app on the twitter developer site</a>', ['@url' => 'https://developer.twitter.com/en/apps']),
     ];
     $form['tweets_username'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Twitter username'),
-      '#default_value' => $configuration['tweets_username'] ?? 'deGov',
+      '#default_value' => $configuration['tweets_username'],
       '#required' => TRUE,
     ];
     $form['tweets_limit'] = [
       '#type' => 'number',
       '#title' => $this->t('Limit'),
-      '#default_value' => $configuration['tweets_limit'] ?? 12,
+      '#default_value' => $configuration['tweets_limit'],
       '#min' => 1
     ];
     $form['tweets_update_every'] = [
       '#type' => 'number',
       '#title' => $this->t('Update every'),
       '#description' => $this->t('Set the number in seconds. E.g. 3600 = 1 hour'),
-      '#default_value' => $configuration['tweets_update_every'] ?? 7200,
+      '#default_value' => $configuration['tweets_update_every'],
       '#min' => 300,
       '#step' => 60
     ];
     $form['access_token'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Access token'),
-      '#default_value' => $configuration['access_token'] ?? '',
+      '#default_value' => $configuration['access_token'],
       '#required' => TRUE,
     ];
     $form['token_secret'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Token secret'),
-      '#default_value' => $configuration['token_secret'] ?? '',
+      '#default_value' => $configuration['token_secret'],
       '#required' => TRUE,
     ];
     $form['consumer_key'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Consumer key'),
-      '#default_value' => $configuration['consumer_key'] ?? '',
+      '#default_value' => $configuration['consumer_key'],
       '#required' => TRUE,
     ];
     $form['consumer_secret'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Consumer secret'),
-      '#default_value' => $configuration['consumer_secret'] ?? '',
+      '#default_value' => $configuration['consumer_secret'],
       '#required' => TRUE,
     ];
     return $form;
@@ -132,7 +148,7 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
   /**
    * {@inheritdoc}
    */
-  public function blockSubmit($form, FormStateInterface $form_state) {
+  public function blockSubmit($form, FormStateInterface $form_state): void {
     $form_state->cleanValues();
     foreach ($form_state->getValues() as $key => $value) {
       $this->configuration[$key] = $value;
@@ -144,32 +160,26 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
    *
    * @throws \Exception
    */
-  public function build() {
+  public function build(): array {
     $build = [];
-    if ($this->moduleHandler->moduleExists('degov_demo_content')) {
-      $this->twitter->setDevMode(TRUE);
-      $response = $this->twitter->performRequest();
-    }
-    else {
-      // Make a request to Twitter API.
-      $settings = [
-        'oauth_access_token' => $this->configuration['access_token'],
-        'oauth_access_token_secret' => $this->configuration['token_secret'],
-        'consumer_key' => $this->configuration['consumer_key'],
-        'consumer_secret' => $this->configuration['consumer_secret'],
-      ];
-      $this->twitter->setSettings($settings);
+    // Make a request to Twitter API.
+    $settings = [
+      'oauth_access_token' => $this->configuration['access_token'],
+      'oauth_access_token_secret' => $this->configuration['token_secret'],
+      'consumer_key' => $this->configuration['consumer_key'],
+      'consumer_secret' => $this->configuration['consumer_secret'],
+    ];
+    $this->twitter->setSettings($settings);
 
-      $params = [
-        'screen_name' => $this->configuration['tweets_username'],
-        'count' => $this->configuration['tweets_limit'],
-      ];
+    $params = [
+      'screen_name' => $this->configuration['tweets_username'],
+      'count' => $this->configuration['tweets_limit'],
+    ];
 
-      $response = $this->twitter
-        ->setGetfield($params)
-        ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json')
-        ->performRequest();
-    }
+    $response = $this->twitter
+      ->setGetfield($params)
+      ->buildOauth('https://api.twitter.com/1.1/statuses/user_timeline.json')
+      ->performRequest();
 
     if ($response) {
       $tweets = json_decode($response);
@@ -177,36 +187,12 @@ final class TwitterBlock extends BlockBase implements ContainerFactoryPluginInte
         '#theme' => 'degov_tweets',
         '#tweets' => $tweets,
         '#cache' => [
-          'max-age' => is_numeric($this->configuration['tweets_update_every']) ? $this->configuration['tweets_update_every'] : self::getMaxAge(),
+          'max-age' => $this->configuration['tweets_update_every'],
         ],
       ];
     }
 
     return $build;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCacheTags() {
-    $cache_tags = parent::getCacheTags();
-    $cache_tags[] = 'config:degov_devel.settings';
-    return $cache_tags;
-  }
-
-  /**
-   * Returns default max-age value for caching.
-   */
-  public static function getMaxAge() {
-    $path = [
-      drupal_get_path('module', 'degov_tweets'),
-      'config',
-      'block',
-      'block.block.twitterblock.yml',
-    ];
-    $content = Yaml::parseFile(implode('/', $path));
-
-    return $content['settings']['tweets_update_every'];
   }
 
 }

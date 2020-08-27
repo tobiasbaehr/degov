@@ -9,7 +9,7 @@ use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\degov_social_media_instagram\Instagram;
+use Drupal\degov_social_media_instagram\InstagramInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -18,6 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @Block(
  *  id = "degov_social_media_instagram",
  *  admin_label = @Translation("Instagram Feed Block"),
+ *  category = @Translation("Social media")
  * )
  */
 class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInterface {
@@ -44,7 +45,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
   /**
    * Definition of Instagram.
    *
-   * @var \Drupal\degov_social_media_instagram\Instagram
+   * @var \Drupal\degov_social_media_instagram\InstagramInterface
    */
   protected $instagram;
 
@@ -67,7 +68,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    *   The config service.
    * @param \Drupal\Core\Datetime\DateFormatterInterface $date_formatter
    *   The date formatter service.
-   * @param \Drupal\degov_social_media_instagram\Instagram $instagram
+   * @param \Drupal\degov_social_media_instagram\InstagramInterface $instagram
    *   The Instagram service.
    * phpcs:enable
    */
@@ -77,7 +78,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
     $plugin_definition,
     ImmutableConfig $config,
     DateFormatterInterface $date_formatter,
-    Instagram $instagram,
+    InstagramInterface $instagram,
   ModuleHandlerInterface $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->degovSocialMediaInstagramConfig = $config;
@@ -118,7 +119,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
     }
 
     if (is_numeric($max)) {
-      $max = intval($max);
+      $max = (int) $max;
     }
     if ($medias = $this->instagram->getMedias($user, $max)) {
       /** @var \InstagramScraper\Model\Media $media */
@@ -173,7 +174,6 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
    */
   public function getCacheTags() {
     $cache_tags = parent::getCacheTags();
-    $cache_tags[] = 'config:degov_devel.settings';
     $cache_tags[] = 'config:degov_social_media_instagram.settings';
     return $cache_tags;
   }

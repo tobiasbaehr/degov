@@ -34,6 +34,8 @@ services:
   degov_demo_content.block_content_generator:
     class: Drupal\degov_demo_content\Generator\BlockContentGenerator
     parent: degov_demo_content.content_generator
+    calls:
+      - ['setDatabase', ['@database']]
   degov_demo_content.documentation_generator:
     class: Drupal\degov_demo_content\Generator\DocumentationGenerator
     arguments: ['@entity_type.manager', '@file_system', '@path_alias.manager']

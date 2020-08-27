@@ -10,7 +10,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\degov_social_media_youtube\Youtube;
+use Drupal\degov_social_media_youtube\YoutubeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -19,6 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @Block(
  *  id = "degov_social_media_youtube",
  *  admin_label = @Translation("Youtube Feed Block"),
+ *  category = @Translation("Social media")
  * )
  */
 final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPluginInterface {
@@ -40,7 +41,7 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
   /**
    * Definition of Youtube.
    *
-   * @var \Drupal\degov_social_media_youtube\Youtube
+   * @var \Drupal\degov_social_media_youtube\YoutubeInterface
    */
   protected $youTube;
 
@@ -50,7 +51,6 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
   /**
    * YoutubeFeedBlock constructor.
    * phpcs:disable
-   *
    * @param array $configuration
    *   Block plugin config.
    * @param string $plugin_id
@@ -61,7 +61,7 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
    *   The logger service.
    * @param \Drupal\Core\Config\ImmutableConfig $config
    *   The config service.
-   * @param \Drupal\degov_social_media_youtube\Youtube $youtube
+   * @param \Drupal\degov_social_media_youtube\YoutubeInterface $youtube
    *   The Youtube service.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler service.
@@ -73,7 +73,7 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
     $plugin_definition,
     LoggerChannelInterface $logger,
     ImmutableConfig $config,
-    Youtube $youtube,
+    YoutubeInterface $youtube,
     ModuleHandlerInterface $module_handler) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->logger = $logger;
@@ -99,8 +99,6 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
 
   /**
    * {@inheritdoc}
-   *
-   * @throws \Exception
    */
   public function build() {
     $build = [];
@@ -151,7 +149,6 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
    */
   public function getCacheTags() {
     $cache_tags = parent::getCacheTags();
-    $cache_tags[] = 'config:degov_devel.settings';
     $cache_tags[] = 'config:degov_social_media_youtube.settings';
     return $cache_tags;
   }

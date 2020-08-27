@@ -1,0 +1,9 @@
+degov_social_media_settings.default:
+  type: config_object
+  mapping:
+    sources:
+      label: 'Sources'
+      type: sequence
+      sequence:
+        type: string
+        label: 'Source'

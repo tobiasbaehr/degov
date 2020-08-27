@@ -22,5 +22,4 @@ dependencies:
   - path
   - spamspan
   - styled_google_map
-  - system_stream_wrapper
   - taxonomy

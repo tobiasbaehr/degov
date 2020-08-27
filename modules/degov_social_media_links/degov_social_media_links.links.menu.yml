@@ -1,0 +1,5 @@
+entity.degov_social_media_links.collection:
+  title: 'Social media links'
+  parent: 'degov.default'
+  description: 'Configure social media links'
+  route_name: entity.degov_social_media_links.collection

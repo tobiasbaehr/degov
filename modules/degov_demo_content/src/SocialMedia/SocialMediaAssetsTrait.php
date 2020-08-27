@@ -1,29 +1,31 @@
 <?php
 
-namespace Drupal\degov_social_media_settings;
+namespace Drupal\degov_demo_content\SocialMedia;
 
 /**
  * Trait SocialMediaAssetsTrait.
  *
- * @package Drupal\degov_social_media_settings
+ * @package Drupal\degov_demo_content
  */
 trait SocialMediaAssetsTrait {
 
   /**
    * Returns the content from storage file.
    *
-   * @param string $moduleName
-   *   The name of module.
+   * @param string $provider
+   *   The name of the social media provider.
    * @param string $fileName
    *   The name of file.
    *
    * @return mixed
    *   Unserialized data.
    */
-  private static function getDataFromFile($moduleName, $fileName) {
+  private static function getDataFromFile(string $provider, string $fileName) {
     $path = [
-      drupal_get_path('module', $moduleName),
-      'assets',
+      drupal_get_path('module', 'degov_demo_content'),
+      'fixtures',
+      'social_media',
+      $provider,
       $fileName,
     ];
     // TODO refactor this.

@@ -1,0 +1,5 @@
+entity.degov_social_media_links.add_form:
+  route_name: 'entity.degov_social_media_links.add_form'
+  title: 'Add social media link'
+  appears_on:
+    - entity.degov_social_media_links.collection

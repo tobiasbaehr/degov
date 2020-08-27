@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Drupal hooks implementations for the degov_social_media_links module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function degov_social_media_links_theme() {
+  return [
+    'social_media_links' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function degov_social_media_links_form_alter(&$form, FormStateInterface $form_state, string $form_id) {
+  if ($form_id === 'social_media_links_settings_list_builder_form') {
+    // Icon styling at any backend theme.
+    $form['#attached']['library'][] = 'degov_fa_icon_picker/degov_fa_icon_picker';
+  }
+}

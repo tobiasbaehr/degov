@@ -4,6 +4,7 @@ namespace Drupal\degov_node_press\Plugin\views\area;
 
 use Drupal\calendar\CalendarHelper;
 use Drupal\calendar\Plugin\views\area\CalendarHeader;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
  * Views area Calendar Header area.
@@ -23,7 +24,8 @@ class CalendarPressWidgetHeader extends CalendarHeader {
     }
     /** @var \Drupal\calendar\DateArgumentWrapper $argument */
     $argument = CalendarHelper::getDateArgumentHandler($this->view);
-    return $argument->format('M Y');
+    $argumentDrupalDateTime = DrupalDateTime::createFromDateTime($argument->createDateTime());
+    return $argumentDrupalDateTime->format('F Y');
   }
 
 }

@@ -13,6 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @Block(
  *  id = "social_media_settings_block",
  *  admin_label = @Translation("Social media settings block"),
+ *  category = @Translation("Social media")
  * )
  */
 final class SocialMediaSettingsBlock extends BlockBase implements ContainerFactoryPluginInterface {

@@ -15,7 +15,7 @@ define('STYLED_GOOGLE_MAP_DEFAULT_STYLE', '[]');
 define('STYLED_GOOGLE_MAP_DEFAULT_ZOOM', 15);
 define('STYLED_GOOGLE_MAP_DEFAULT_MAX_ZOOM', 17);
 define('STYLED_GOOGLE_MAP_DEFAULT_MIN_ZOOM', 5);
-define('STYLED_GOOGLE_MAP_DEFAULT_PIN', 'module://styled_google_map/pin.png');
+define('STYLED_GOOGLE_MAP_DEFAULT_PIN', \Drupal::service('module_handler')->getModule('styled_google_map')->getPath() . '/pin.png');
 define('STYLED_GOOGLE_MAP_DEFAULT_MAP_TYPE', 'ROADMAP');
 define('STYLED_GOOGLE_MAP_DEFAULT_LABEL', FALSE);
 define('STYLED_GOOGLE_MAP_DEFAULT_MAP_TYPE_CONTROL', TRUE);

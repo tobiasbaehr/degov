@@ -6,5 +6,3 @@ package: 'deGov - Social Media'
 configure: degov_social_media_instagram.admin_settings
 dependencies:
   - degov:degov_common
-  - degov:degov_social_media_settings
-  - eu_cookie_compliance:eu_cookie_compliance

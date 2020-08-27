@@ -132,6 +132,8 @@ menu_item_1:
           node_title: 'Page with overridden Media caption'
         - menu_name: main
           node_title: 'Page with responsive video'
+        - menu_name: main
+          node_title: 'Page with block reference'
     - menu_name: main
       node_title: 'Page with type 1 slideshow'
       menu_title: 'Page with Slideshow'
@@ -153,6 +155,8 @@ menu_item_1:
           node_title: 'Page with type 2 slideshow single slide'
         - menu_name: main
           node_title: 'Page with type 2 slideshow and sidebar'
+        - menu_name: main
+          node_title: 'Page with block reference'
 menu_item_2:
   menu_name: main
   node_title: 'Page with video header'

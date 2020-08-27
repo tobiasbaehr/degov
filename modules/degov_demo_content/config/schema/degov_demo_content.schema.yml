@@ -1,0 +1,7 @@
+degov_demo_content.settings:
+  type: config_object
+  label: 'deGov - Demo Content settings'
+  mapping:
+    original_front_page:
+      type: string
+      label: 'Original front page path'

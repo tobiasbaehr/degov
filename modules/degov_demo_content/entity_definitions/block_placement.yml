@@ -1,0 +1,14 @@
+homepage_slider:
+  - id: slideshow
+    theme: degov_theme
+    weight: -50
+    region: content
+    settings:
+      label: Slideshow
+      label_display: 0
+      info: ''
+      view_mode: full
+    visibility:
+      - request_path:
+          negate: false
+          pages: <front>

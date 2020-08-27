@@ -27,7 +27,7 @@ function degov_social_media_instagram_help($route_name, RouteMatchInterface $rou
  * Implements hook_preprocess().
  */
 function degov_social_media_instagram_preprocess_block(&$variables) {
-  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] == 'degov_social_media_instagram') {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] === 'degov_social_media_instagram') {
     $variables['#attached']['library'][] = 'degov_common/slick';
     $markup = render($variables['content']);
 
