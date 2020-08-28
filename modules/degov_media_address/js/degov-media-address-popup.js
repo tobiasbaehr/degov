@@ -15,9 +15,13 @@
    */
   Drupal.theme.degovMediaAddressPopup = function (data) {
     if (data) {
-      let html = data.title + '<br />' +
-        data.organization + '<br />' +
-        data.address_line1 + '<br />';
+      let html = data.title + '<br />';
+      if (data.organization) {
+        html += data.organization + '<br />';
+      }
+      if (data.address_line1) {
+        html += data.address_line1 + '<br />';
+      }
       if (data.address_line2) {
         html += data.address_line2 + '<br />';
       }

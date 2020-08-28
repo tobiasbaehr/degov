@@ -19,7 +19,7 @@
           let map_center;
 
           elm.css({
-            height: conf.settings.height
+            height: conf.settings.height,
           });
 
           const map = new google.maps.Map(mapElement, {
@@ -35,14 +35,12 @@
             rotateControl: conf.settings.rotatecontrol,
             streetViewControl: conf.settings.streetviewcontrol,
             zoomControl: conf.settings.zoomcontrol,
-            draggable: $(window).width() > 480 ? conf.settings.draggable : conf.settings.mobile_draggable
+            draggable: elm.width > 480 ? conf.settings.draggable : conf.settings.mobile_draggable,
           });
 
           let infoBubble = [];
 
           conf.locations.forEach(function (loc, i) {
-            // Currently there is only one marker/address per map possible
-            // therefore all markers have same content.
             const popupHtml = Drupal.theme('degovMediaAddressPopup', conf.addresses[i]);
 
             infoBubble[i] = new InfoBubble({
@@ -91,7 +89,7 @@
                     m.setIcon(m.original_icon);
                   });
                   this.setIcon(this.active_icon);
-                  infoBubble.open(map, this);
+                  infoBubble[i].open(map, this);
                 };
               }(map)));
               // Uncomment the following line, if you want to open the bubble initially.
@@ -100,38 +98,17 @@
             bounds.extend(marker.getPosition());
           });
 
-          // Currently there is only one marker/address per map possible
-          // therefore all markers have same content -> no clustering.
-          /**
-          if (conf.settings.style.cluster_pin) {
-            var mcOptions = {
-              gridSize: 60,
-              styles: [
-                {
-                  textColor: 'white',
-                  url: conf.settings.style.cluster_pin,
-                  height: 73,
-                  width: 73,
-                  textSize: 17
-                }
-              ],
-              minimumClusterSize: 2,
-            };
-            const markerCluster = new MarkerClusterer(map, markers, mcOptions);
-          }
-          **/
-
           if (conf.settings.map_center.center_coordinates) {
             map_center = new google.maps.LatLng(
               conf.settings.map_center.center_coordinates.lat,
               conf.settings.map_center.center_coordinates.lon
             );
             bounds.extend(map_center);
+            map.setCenter(map_center);
           }
           else {
-            map_center = bounds.getCenter()
+            map.fitBounds(bounds);
           }
-          map.setCenter(map_center);
 
           // This is needed to set the zoom after fitbounds,.
           google.maps.event.addListener(map, 'zoom_changed', function () {
@@ -147,6 +124,12 @@
           });
           map.initialZoom = true;
           map.fitBounds(bounds);
+
+          // Helper fonction for backstopjs tests.
+          elm.on('clickFirstMarker', function () {
+            infoBubble[0].open(map, markers[0]);
+            map.setCenter(markers[0].getPosition());
+          });
         }
       });
     }
