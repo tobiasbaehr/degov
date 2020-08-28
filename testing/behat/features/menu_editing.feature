@@ -53,7 +53,7 @@ Feature: deGov - Menu editing
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/taxonomy/manage/section/add"
     And I click by selector "#fieldset_term_access > summary" via JavaScript
-    Then I should see text matching "To limit access to this term by user(s) or role(s), select users or roles below. If left empty, all users will have access to content, related to this taxonomy term and this taxonomy term itself." via translated text
+    Then I should see text matching "Allowed users" via translated text after a while
     And I fill in "edit-access-user" with "a"
     And I trigger the keydown event on "#edit-access-user"
     Then I should see HTML content matching "admin" after a while
