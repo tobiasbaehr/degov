@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_html_mail module.
+ */
+
+declare(strict_types=1);
+
+/**
+ * Implements hook_update_dependencies().
+ */
+function degov_html_mail_update_dependencies() {
+  $dependencies['degov_html_mail'][880500] = [
+    'swiftmailer' => 8102
+  ];
+}
+
+/**
+ * Remove outdated config keys swiftmailer.transport.
+ */
+function degov_html_mail_update_880500(): string {
+  $needs_update = FALSE;
+  $config = Drupal::configFactory()->getEditable('swiftmailer.transport');
+
+  if ($config->get('smtp_username') !== NULL) {
+    $config->clear('smtp_username');
+    $needs_update = TRUE;
+  }
+  if ($config->get('smtp_password') !== NULL) {
+    $config->clear('smtp_password');
+    $needs_update = TRUE;
+  }
+
+  // We had outdated rewrite copy of the config since 04/2018.
+  // Lets also cleanup the config for sites which are installed after 04/2018 and swiftmailer_update_8102().
+  if ($needs_update) {
+    $config->save();
+    return 'Deleted outdated config keys in swiftmailer.transport';
+  }
+  return 'Skipped';
+}
