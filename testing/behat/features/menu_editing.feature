@@ -1,4 +1,4 @@
-@api @drupal @menu_editing
+@api @drupal @menu_editing @javascript
 Feature: deGov - Menu editing
 
   Background:
@@ -53,7 +53,7 @@ Feature: deGov - Menu editing
     And I am logged in as a user with the "administrator" role
     And I am on "/admin/structure/taxonomy/manage/section/add"
     And I click by selector "#fieldset_term_access > summary" via JavaScript
-    Then I should see text matching "To limit access to this term by" after a while
+    Then I should see text matching "Um den Zugriff auf diesen Begriff auf Benutzer" after a while
     And I fill in "edit-access-user" with "a"
     And I trigger the keydown event on "#edit-access-user"
     Then I should see HTML content matching "admin" after a while
