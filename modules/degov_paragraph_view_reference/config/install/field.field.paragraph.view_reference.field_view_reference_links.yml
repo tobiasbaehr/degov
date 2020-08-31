@@ -1,0 +1,22 @@
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_reference_links
+    - paragraphs.paragraphs_type.view_reference
+  module:
+    - link
+id: paragraph.view_reference.field_view_reference_links
+field_name: field_view_reference_links
+entity_type: paragraph
+bundle: view_reference
+label: 'Weiterführende Links'
+description: 'Weiterführende Links werden unter dem View ausgegeben.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

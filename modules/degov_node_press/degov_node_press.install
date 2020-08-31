@@ -81,9 +81,15 @@ function degov_node_press_update_8014() {
 
 }
 
+/**
+ * Implements hook_update_dependencies().
+ */
 function degov_node_press_update_dependencies() {
   $dependencies['degov_node_press'][8013] = [
     'degov_common' => 8029,
+  ];
+  $dependencies['degov_node_press'][890402] = [
+    'degov' => 890401,
   ];
   return $dependencies;
 }
@@ -126,12 +132,107 @@ function degov_node_press_update_880000() {
 }
 
 /**
- * deGov 8.5.0 – Set day-of-week length to 2 characters
+ * Replace views deprecated footer with paragraph links if default content.
  */
-function degov_node_press_update_880500() {
-  $viewConfig = \Drupal::configFactory()->getEditable('views.view.press_dates');
-  $viewConfig
-    ->set('display.press_calendar_widget.display_options.style.options.name_size', '2')
-    ->set('display.default.display_options.exposed_form.options.submit_button', 'Suche')
-    ->save(TRUE);
+function degov_node_press_update_890402() {
+  if (\Drupal::moduleHandler()->moduleExists('degov_paragraph_view_reference')) {
+    define('DEGOV_NODE_PRESS_OLD_VIEWS_FOOTER_CONTENT', "<p> <a href=\"/de/pressetermine\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSETERMINE</a>\n<a href=\"/de/aktuelles-und-presse/pressekontakt\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSEKONTAKT</a></p>");
+    $config_factory = \Drupal::configFactory();
+    $config = $config_factory->getEditable('views.view.press_latest_content');
+
+    // Remove deprecated footer for all displays.
+    $updatedDisplays = [];
+    $allDisplays = $config->get('display');
+    foreach ($allDisplays as $displayId => $display) {
+      if (isset($display['display_options']['footer']['area_text_custom']['content'])) {
+        // We had a master display with custom text
+        // and another display overriding that with a empty string.
+        // Intentionally ignoring non empty, non default footer contents.
+        if ($display['display_options']['footer']['area_text_custom']['content'] === DEGOV_NODE_PRESS_OLD_VIEWS_FOOTER_CONTENT) {
+          // Remove text from views footer.
+          unset($allDisplays[$displayId]['display_options']['footer']['area_text_custom']);
+        }
+        elseif (trim($display['display_options']['footer']['area_text_custom']['content']) === '') {
+          // Remove inherited text area leftovers.
+          unset($allDisplays[$displayId]['display_options']['footer']['area_text_custom']);
+        }
+      }
+      else {
+        // Add not overridden displays to update as they had links from master.
+        $updatedDisplays[] = $displayId;
+      }
+    }
+    $config->set('display', $allDisplays);
+    $config->save();
+
+    // Add default links from code if there was a default footer before.
+    if (count($updatedDisplays)) {
+      $paragraphs = \Drupal::entityTypeManager()->getStorage('paragraph');
+      $query = \Drupal::entityQuery('paragraph');
+
+      // Get all paragraphs referencing the view.
+      if (count($updatedDisplays) == 1) {
+        $query
+          ->condition('field_view_reference_view.target_id', 'press_latest_content', '=')
+          ->condition('field_view_reference_view.display_id', $updatedDisplays[0]);
+      }
+      else {
+        $group = $query->orConditionGroup();
+        foreach ($updatedDisplays as $dId) {
+          $group->condition('field_view_reference_view.display_id', $dId);
+        }
+        $query
+          ->condition('field_view_reference_view.target_id', 'press_latest_content', '=')
+          ->condition($group);
+      }
+      $referencing_paragraphs = array_values($query->execute());
+
+      // Default links.
+      $links = [
+        0 => [
+          'uri' => 'internal:/de/aktuelles-und-presse/pressekontakt',
+          'title' => 'Pressekontakt',
+        ],
+        1 => [
+          'uri' => 'internal:/de/pressetermine',
+          'title' => 'Pressetermine',
+        ],
+      ];
+      foreach ($paragraphs->loadMultiple($referencing_paragraphs) as $paragraph) {
+        /* @var $linkList \Drupal\Core\Field\FieldItemList*/
+        $linkList = $paragraph->get('field_view_reference_links');
+        $paragraphId = $paragraph->id();
+        $values = $linkList->isEmpty() ? [] : $linkList->getValue();
+
+        // Add link if it is not there yet.
+        foreach ($links as $l) {
+          $linkExists = FALSE;
+          foreach ($values as $old_l) {
+            if ($l['uri'] === $old_l['uri']) {
+              $linkExists = TRUE;
+            }
+          }
+          if (!$linkExists) {
+            $values[] = $l;
+          }
+        }
+        $paragraph->set('field_view_reference_links', $values);
+        $paragraph->setNewRevision();
+        $paragraph->save();
+        $paragraphRevId = $paragraph->getRevisionId();
+
+        /* @var $node \Drupal\node\NodeInterface*/
+        $node = $paragraph->getParentEntity();
+        $content_paragraphs = $node->get('field_content_paragraphs')->getValue();
+        foreach ($content_paragraphs as $delta => $entity_ref) {
+          if ($paragraphId === $entity_ref['target_id']) {
+            $content_paragraphs[$delta]['target_revision_id'] = $paragraphRevId;
+          }
+        }
+        $node->set('field_content_paragraphs', $content_paragraphs);
+        $node->setNewRevision();
+        $node->save();
+      }
+    }
+  }
 }
