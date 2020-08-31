@@ -33,6 +33,19 @@ function degov_node_press_install() {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_node_press_update_dependencies() {
+  $dependencies['degov_node_press'][8013] = [
+    'degov_common' => 8029,
+  ];
+  $dependencies['degov_node_press'][880500] = [
+    'degov' => 880500,
+  ];
+  return $dependencies;
+}
+
+/**
  * Enable workflow for content type
  * */
 function degov_node_press_update_8012() {
@@ -82,19 +95,6 @@ function degov_node_press_update_8014() {
 }
 
 /**
- * Implements hook_update_dependencies().
- */
-function degov_node_press_update_dependencies() {
-  $dependencies['degov_node_press'][8013] = [
-    'degov_common' => 8029,
-  ];
-  $dependencies['degov_node_press'][890402] = [
-    'degov' => 890401,
-  ];
-  return $dependencies;
-}
-
-/**
  * Update paragraph experimental
  */
 function degov_node_press_update_8015() {
@@ -134,7 +134,7 @@ function degov_node_press_update_880000() {
 /**
  * Replace views deprecated footer with paragraph links if default content.
  */
-function degov_node_press_update_890402() {
+function degov_node_press_update_880500() {
   if (\Drupal::moduleHandler()->moduleExists('degov_paragraph_view_reference')) {
     define('DEGOV_NODE_PRESS_OLD_VIEWS_FOOTER_CONTENT', "<p> <a href=\"/de/pressetermine\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSETERMINE</a>\n<a href=\"/de/aktuelles-und-presse/pressekontakt\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSEKONTAKT</a></p>");
     $config_factory = \Drupal::configFactory();

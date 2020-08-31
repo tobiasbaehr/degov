@@ -503,7 +503,7 @@ function degov_update_880302() {
 /**
  * Add new field view_reference_links to paragraph_view_reference.
  */
-function degov_update_890401() {
+function degov_update_880500() {
   if (\Drupal::moduleHandler()->moduleExists('degov_paragraph_view_reference')) {
     /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
     $moduleUpdater = \Drupal::service('degov_config.module_updater');

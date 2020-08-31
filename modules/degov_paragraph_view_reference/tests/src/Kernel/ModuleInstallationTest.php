@@ -37,7 +37,8 @@ class ModuleInstallationTest extends KernelTestBase {
     'views_parity_row',
     'lightning_core',
     'entity_reference',
-    'degov_paragraph_view_reference'
+    'link_attributes',
+    'degov_paragraph_view_reference',
   ];
 
   /**
