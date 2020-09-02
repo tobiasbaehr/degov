@@ -18,7 +18,7 @@ function degov_rich_text_format_settings_update_last_removed(): int {
  * deGov 8.5.0
  *  - Install editor_advanced_link.
  */
-function degov_rich_text_format_settings_update_890500(): void {
+function degov_rich_text_format_settings_update_880500(): void {
   // The functionality of editor_advanced_link was part of linkit 4.x.
   // In version 5.x this now part of editor_advanced_link.
   /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
