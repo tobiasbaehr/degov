@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_file_links\Kernel;
 
 use Drupal\editor\EditorXssFilter\Standard;
