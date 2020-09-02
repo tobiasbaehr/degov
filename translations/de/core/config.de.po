@@ -1,0 +1,396 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  config.module: n/a
+#  src/Form/ConfigSync.php: n/a
+#  config.info.yml: n/a
+#  config.links.menu.yml: n/a
+#  config.links.task.yml: n/a
+#  config.routing.yml: n/a
+#  src/Form/ConfigSingleImportForm.php: n/a
+#  src/Form/ConfigExportForm.php: n/a
+#  config.permissions.yml: n/a
+#  src/ConfigSubscriber.php: n/a
+#  src/Controller/ConfigController.php: n/a
+#  src/Form/ConfigImportForm.php: n/a
+#  src/Form/ConfigSingleExportForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config.module:18
+msgid "About"
+msgstr "Über"
+
+#: config.module:19
+msgid "The Configuration Manager module provides a user interface for importing and exporting configuration changes between installations of your website in different environments. Configuration is stored in YAML format. For more information, see the <a href=\":url\">online documentation for the Configuration Manager module</a>."
+msgstr "Mit dem Configuration-Manager-Modul können Änderungen der Konfigurationseinstellungen verschiedener Installationen einer Website im- und exportiert werden. Die Konfigurationseinstellungen werden im YAML-Format gespeichert. Weitere Informationen gibt es in der <a href=\":url\">Online-Dokumentation für das Configuration-Manager-Modul</a>."
+
+#: config.module:20
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: config.module:22
+msgid "Exporting the full configuration"
+msgstr "Die vollständige Konfiguration exportieren"
+
+#: config.module:23
+msgid "You can create and download an archive consisting of all your site's configuration exported as <em>*.yml</em> files on the <a href=\":url\">Export</a> page."
+msgstr "Auf der Seite <a href=\":url\">Export</a> können Sie ein vollständiges Archiv Ihrer Konfigurationseinstellungen im <em>*.yml</em>-Format erzeugen und herunterladen."
+
+#: config.module:24
+msgid "Importing a full configuration"
+msgstr "Eine vollständige Konfiguration importieren"
+
+#: config.module:25
+msgid "You can upload a full site configuration from an archive file on the <a href=\":url\">Import</a> page. When importing data from a different environment, the site and import files must have matching configuration values for UUID in the <em>system.site</em> configuration item. That means that your other environments should initially be set up as clones of the target site. Migrations are not supported."
+msgstr "Auf der <a href=\":url\">Import</a>-Seite kann eine vollständige Konfiguration im tar-Archivformat importiert werden. Wenn Daten aus einer anderen Installation importiert werden sollen, müssen die UUID-Werte der Konfigurationen mit denen in der <em>system.site</em>-Konfiguration übereinstimmen. Das bedeutet, dass die entsprechenden Werte der Quellinstallation zunächst denen der Zielinstallation angepasst werden müssen. Migrationen werden nicht unterstützt."
+
+#: config.module:26 src/Form/ConfigSync.php:342
+msgid "Synchronizing configuration"
+msgstr "Konfiguration synchronisieren"
+
+#: config.module:27
+msgid "You can review differences between the active configuration and an imported configuration archive on the <a href=\":synchronize\">Synchronize</a> page to ensure that the changes are as expected, before finalizing the import. The Synchronize page also shows configuration items that would be added or removed."
+msgstr "Die Unterschiede zwischen der aktiven und der importierten Konfiguration können zur Überprüfung angezeigt werden. DIe Überprüfung kann auf der Seite <a href=\":synchronize\">Synchronisieren</a> durchgeführt werden.  Die Überprüfung soll sicherstellen, dass die Änderungen dem erwarteten Ergebnis entsprechen, bevor diese durch den Abschluss des Importvorgangs übernommen werden. Die Seite Synchronisieren zeigt außerdem Einträge in der Konfiguration, die entweder neu hinzugefügt oder entfernt werden."
+
+#: config.module:28
+msgid "Exporting a single configuration item"
+msgstr "Eine einzelne Konfigurationseinstellung exportieren"
+
+#: config.module:29
+msgid "You can export a single configuration item by selecting a <em>Configuration type</em> and <em>Configuration name</em> on the <a href=\":single-export\">Single export</a> page. The configuration and its corresponding <em>*.yml file name</em> are then displayed on the page for you to copy."
+msgstr "Einzelne Konfigurationseinstellungen können Sie exportieren, indem Sie auf der Seite <a href=\":single-export\">Einzelner Export</a> den entsprechenden <em>Konfigurationstyp</em> und <em>Konfigurationsnamen</em> auswählen. Die exportierten Konfigurationseinstellungen und der zugehörige Dateiname im <em>*.yml</em>-Format werden dann angezeigt und können kopiert werden."
+
+#: config.module:30
+msgid "Importing a single configuration item"
+msgstr "Eine einzelne Konfigurationseinstellung importieren"
+
+#: config.module:31
+msgid "You can import a single configuration item by pasting it in YAML format into the form on the <a href=\":single-import\">Single import</a> page."
+msgstr "Es ist möglich einen einzelnen Konfigurationseintrag zu importieren, indem der Eintrag im YAML-Format auf der Seite  <a href=\":single-import\">Einzeln importieren</a> einfügt wird."
+
+#: config.module:37
+msgid "Compare the configuration uploaded to your sync directory with the active configuration before completing the import."
+msgstr "Vergleichen Sie die Konfiguration, die in Ihr Synchronisierungsverzeichnis hochgeladen wurde mit der aktiven Konfiguration, bevor Sie den Import abschließen."
+
+#: config.module:42
+msgid "Export and download the full configuration of this site as a gzipped tar file."
+msgstr "Die komplette Konfiguration dieser Website exportieren und als gzip.tar-Datei herunterladen."
+
+#: config.module:47
+msgid "Upload a full site configuration archive to the sync directory. It can then be compared and imported on the Synchronize page."
+msgstr "Ein Konfigurationsarchiv in das Synchronisierungsverzeichnis hochladen. Die Konfiguration kann dann auf der Synchronisationsseite mit der aktiven Konfiguration verglichen und importiert werden."
+
+#: config.module:52
+msgid "Choose a configuration item to display its YAML structure."
+msgstr "Ein Konfigurationselement auswählen, um seine YAML-Struktur anzuzeigen."
+
+#: config.module:57
+msgid "Import a single configuration item by pasting its YAML structure into the text field."
+msgstr "Zum Import einer einzelnen Konfigurationseinstellung den entsprechenden YAML-Code in das Textfeld kopieren."
+
+#: config.info.yml:0
+msgid "Configuration Manager"
+msgstr "Konfigurationsmanager"
+
+#: config.info.yml:0
+msgid "Allows administrators to manage configuration changes."
+msgstr "Ermöglicht Administratoren, Konfigurationsänderungen zu verwalten"
+
+#: config.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: config.links.menu.yml:0
+msgid "Configuration synchronization"
+msgstr "Konfigurationssynchronisierung"
+
+#: config.links.menu.yml:0
+msgid "Import and export your configuration."
+msgstr "Import und Export der Konfiguration."
+
+#: config.links.task.yml:0 config.routing.yml:0
+msgid "Synchronize"
+msgstr "Synchronisieren"
+
+#: config.links.task.yml:0 config.routing.yml:0 src/Form/ConfigSingleImportForm.php:283
+msgid "Import"
+msgstr "Importieren"
+
+#: config.links.task.yml:0 config.routing.yml:0 src/Form/ConfigExportForm.php:28
+msgid "Export"
+msgstr "Exportieren"
+
+#: config.links.task.yml:0;0
+msgid "Full archive"
+msgstr "Vollständiges Archiv"
+
+#: config.links.task.yml:0;0
+msgid "Single item"
+msgstr "Einzelnes Element"
+
+#: config.permissions.yml:0
+msgid "Synchronize configuration"
+msgstr "Konfiguration synchronisieren"
+
+#: config.permissions.yml:0
+msgid "Export configuration"
+msgstr "Konfiguration exportieren"
+
+#: config.permissions.yml:0
+msgid "Import configuration"
+msgstr "Konfiguration importieren"
+
+#: config.routing.yml:0
+msgid "Single import"
+msgstr "Einzelimport"
+
+#: config.routing.yml:0
+msgid "Single export"
+msgstr "Einzelner Export"
+
+#: src/ConfigSubscriber.php:29
+msgid "Can not uninstall the Configuration module as part of a configuration synchronization through the user interface."
+msgstr "Das Configuration-Modul kann im Rahmen einer Synchronisierung der Konfiguration über die Benutzeroberfläche nicht deinstalliert werden."
+
+#: src/Controller/ConfigController.php:156
+msgid "View changes of @config_file"
+msgstr "Änderungen in @config_file anzeigen"
+
+#: src/Controller/ConfigController.php:166
+msgid "Active"
+msgstr "Aktiv"
+
+#: src/Controller/ConfigController.php:167
+msgid "Staged"
+msgstr "Bereitgestellt"
+
+#: src/Form/ConfigImportForm.php:58
+msgid "The directory %directory is not writable."
+msgstr "Das Verzeichnis %directory ist nicht beschreibbar."
+
+#: src/Form/ConfigImportForm.php:62
+msgid "Configuration archive"
+msgstr "Konfigurationsarchiv"
+
+#: src/Form/ConfigImportForm.php:63
+msgid "Allowed types: @extensions."
+msgstr "Erlaubte Dateitypen: @extensions."
+
+#: src/Form/ConfigImportForm.php:68
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/Form/ConfigImportForm.php:87
+msgid "The file could not be uploaded."
+msgstr "Die Datei konnte nicht hochgeladen werden."
+
+#: src/Form/ConfigImportForm.php:103
+msgid "Your configuration files were successfully uploaded and are ready for import."
+msgstr "Die Konfigurationsdateien wurden erfolgreich hochgeladen und können jetzt importiert werden."
+
+#: src/Form/ConfigImportForm.php:107
+msgid "Could not extract the contents of the tar file. The error message is <em>@message</em>"
+msgstr "Der Inhalt der TAR-Datei konnte nicht entpackt werden. Die Fehlermeldung lautet <em>@message</em>"
+
+#: src/Form/ConfigSingleExportForm.php:98 src/Form/ConfigSingleImportForm.php:244
+msgid "Simple configuration"
+msgstr "Einfache Konfiguration"
+
+#: src/Form/ConfigSingleExportForm.php:101 src/Form/ConfigSingleImportForm.php:247
+msgid "Configuration type"
+msgstr "Konfigurationstyp"
+
+#: src/Form/ConfigSingleExportForm.php:112 src/Form/ConfigSingleImportForm.php:253
+msgid "Configuration name"
+msgstr "Konfigurationsname"
+
+#: src/Form/ConfigSingleExportForm.php:125
+msgid "Here is your configuration:"
+msgstr "Die Konfiguration befindet sich hier:"
+
+#: src/Form/ConfigSingleExportForm.php:164
+msgid "Filename: %name"
+msgstr "Dateiname: %name"
+
+#: src/Form/ConfigSingleExportForm.php:173
+msgid "- Select -"
+msgstr "- Auswählen -"
+
+#: src/Form/ConfigSingleExportForm.php:181
+msgid "@label (@id)"
+msgstr "@label (@id)"
+
+#: src/Form/ConfigSingleImportForm.php:205
+msgid "simple configuration"
+msgstr "einfache Konfiguration"
+
+#: src/Form/ConfigSingleImportForm.php:218
+msgid "Are you sure you want to update the %name @type?"
+msgstr "Möchten Sie %name @type wirklich aktualisieren?"
+
+#: src/Form/ConfigSingleImportForm.php:221
+msgid "Are you sure you want to create a new %name @type?"
+msgstr "Möchten Sie wirklich einen neuen %name @type anlegen?"
+
+#: src/Form/ConfigSingleImportForm.php:254
+msgid "Enter the name of the configuration file without the <em>.yml</em> extension. (e.g. <em>system.site</em>)"
+msgstr "Der Namen der Konfigurationsdatei, ohne die Erweiterung <em>.yml</em> muss eingegeben werden. Ein Beispiel: <em>system.site</em>"
+
+#: src/Form/ConfigSingleImportForm.php:266
+msgid "Paste your configuration here"
+msgstr "Konfiguration hier einfügen"
+
+#: src/Form/ConfigSingleImportForm.php:273
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: src/Form/ConfigSingleImportForm.php:276
+msgid "Custom Entity ID"
+msgstr "Benutzerdefinierte Entitäts-ID"
+
+#: src/Form/ConfigSingleImportForm.php:278
+msgid "Specify a custom entity ID. This will override the entity ID in the configuration above."
+msgstr "Geben Sie eine benutzerdefinierte Entitäts-ID an. Diese überschreibt die Entitäts-ID in der obigen Konfiguration."
+
+#: src/Form/ConfigSingleImportForm.php:303
+msgid "The import failed with the following message: %message"
+msgstr "Der Import brach mit folgender Meldung ab: %message"
+
+#: src/Form/ConfigSingleImportForm.php:320
+msgid "Missing ID key \"@id_key\" for this @entity_type import."
+msgstr "Fehlender ID-Schlüssel \"@id_key\" für diesen @entity_type-Import."
+
+#: src/Form/ConfigSingleImportForm.php:329
+msgid "An entity with this machine name already exists but the import did not specify a UUID."
+msgstr "Es existiert bereits eine Entität mit diesem Systemnamen, jedoch hatte der Import keine UUID spezifiziert."
+
+#: src/Form/ConfigSingleImportForm.php:333
+msgid "An entity with this machine name already exists but the UUID does not match."
+msgstr "Eine Entität mit diesem Systemnamen existiert bereits, aber die UUID stimmt nicht überein."
+
+#: src/Form/ConfigSingleImportForm.php:339
+msgid "An entity with this UUID already exists but the machine name does not match."
+msgstr "Eine Entität mit dieser UUID existiert bereits, allerdings unterscheiden sich beide Varianten im Systemnamen."
+
+#: src/Form/ConfigSingleImportForm.php:355
+msgid "There are no changes to import."
+msgstr "Es sind keine zu importierenden Änderungen vorhanden."
+
+#: src/Form/ConfigSingleImportForm.php:379 src/Form/ConfigSync.php:355
+msgid "The configuration cannot be imported because it failed validation for the following reasons:"
+msgstr "Die Konfiguration kann nicht importiert werden, da die Validierung aus folgendem Grund fehlschlägt:"
+
+#: src/Form/ConfigSingleImportForm.php:404
+msgid "Another request may be importing configuration already."
+msgstr "Es ist möglich, dass bereits ein anderer Konfigurationsimport aktiv ist."
+
+#: src/Form/ConfigSingleImportForm.php:412
+msgid "Importing configuration"
+msgstr "Konfiguration wird importiert"
+
+#: src/Form/ConfigSingleImportForm.php:413
+msgid "Starting configuration import."
+msgstr "Konfigurationsimport starten."
+
+#: src/Form/ConfigSingleImportForm.php:414
+msgid "Completed @current step of @total."
+msgstr "@current von @total abgeschlossen."
+
+#: src/Form/ConfigSingleImportForm.php:415
+msgid "Configuration import has encountered an error."
+msgstr "Beim Konfigurationsimport ist ein Fehler aufgetreten."
+
+#: src/Form/ConfigSingleImportForm.php:425
+msgid "The configuration import failed for the following reasons:"
+msgstr "Der Konfigurationsimport ist aus folgendem Grund fehlgeschlagen:"
+
+#: src/Form/ConfigSync.php:180
+msgid "Import all"
+msgstr "Alle importieren"
+
+#: src/Form/ConfigSync.php:187;273
+msgid "Name"
+msgstr "Name"
+
+#: src/Form/ConfigSync.php:187;273
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/ConfigSync.php:189
+msgid "There are no configuration changes to import."
+msgstr "Es gibt keine Konfigurationsänderungen zum Importieren."
+
+#: src/Form/ConfigSync.php:195
+msgid "The staged configuration cannot be imported, because it originates from a different site than this site. You can only synchronize configuration between cloned instances of this site."
+msgstr "Die vorgesehene Konfiguration kann nicht importiert werden, da Sie von einer anderen Installation stammt als dieser. Es können nur geklonte Instanzen ein und derselben Website synchronisiert werden."
+
+#: src/Form/ConfigSync.php:218
+msgid "The following items in your active configuration have changes since the last import that may be lost on the next import."
+msgstr "Die folgenden Werte der aktuellen Konfiguration haben sich seit dem letzten Import geändert. Diese Änderungen könnten beim nächsten Import verloren gehen."
+
+#: src/Form/ConfigSync.php:240
+msgid "@collection configuration collection"
+msgstr "Konfigurationssammlung @collection"
+
+#: src/Form/ConfigSync.php:280
+msgid "@source_name to @target_name"
+msgstr "@source_name nach @target_name"
+
+#: src/Form/ConfigSync.php:293
+msgid "View differences"
+msgstr "Unterschiede anzeigen"
+
+#: src/Form/ConfigSync.php:334
+msgid "Another request may be synchronizing configuration already."
+msgstr "Es ist möglich, dass eine andere Synchronisierung aktiv ist."
+
+#: src/Form/ConfigSync.php:343
+msgid "Starting configuration synchronization."
+msgstr "Synchronisierung der Konfiguration starten."
+
+#: src/Form/ConfigSync.php:344
+msgid "Completed step @current of @total."
+msgstr "Schritt @current von @total abgeschlossen."
+
+#: src/Form/ConfigSync.php:345
+msgid "Configuration synchronization has encountered an error."
+msgstr "Bei der Synchronisierung der Konfiguration ist ein Fehler aufgetreten."
+
+#: src/Form/ConfigSync.php:256
+msgid "@count new"
+msgid_plural "@count new"
+msgstr[0] "@count neu"
+msgstr[1] "@count neu"
+
+#: src/Form/ConfigSync.php:260
+msgid "@count changed"
+msgid_plural "@count changed"
+msgstr[0] "@count geändert"
+msgstr[1] "@count geändert"
+
+#: src/Form/ConfigSync.php:264
+msgid "@count removed"
+msgid_plural "@count removed"
+msgstr[0] "@count entfernt"
+msgstr[1] "@count entfernt"
+
+#: src/Form/ConfigSync.php:268
+msgid "@count renamed"
+msgid_plural "@count renamed"
+msgstr[0] "@count umbenannt"
+msgstr[1] "@count umbenannt"
+

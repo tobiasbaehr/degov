@@ -1,0 +1,131 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_paragraph_view_reference.module: n/a
+#  degov_paragraph_view_reference.info.yml: n/a
+#  degov_paragraph_view_reference.links.menu.yml: n/a
+#  degov_paragraph_view_reference.routing.yml: n/a
+#  src/Form/ViewsSettingsForm.php: n/a
+#  src/Plugin/Field/FieldFormatter/ViewsReferenceLabelFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/ViewsReferenceOverridenFieldFormatter.php: n/a
+#  config/install/field.field.paragraph.view_reference.field_sub_title.yml: n/a
+#  config/install/field.field.paragraph.view_reference.field_title.yml: n/a
+#  config/install/field.field.paragraph.view_reference.field_title_link.yml: n/a
+#  config/install/field.field.paragraph.view_reference.field_view_reference_view.yml: n/a
+#  config/install/paragraphs.paragraphs_type.view_reference.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:02+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_paragraph_view_reference.module:138
+msgid "-- Choose view display --"
+msgstr "-- Ansicht zur Darstellung auswählen --"
+
+#: degov_paragraph_view_reference.module:143
+msgid "Loading view details ..."
+msgstr "Einzelheiten zur Darstellung werden geladen ..."
+
+#: degov_paragraph_view_reference.module:162
+msgid "Page limit"
+msgstr "Seitenbegrenzung"
+
+#: degov_paragraph_view_reference.module:192
+msgid "Exclude this items"
+msgstr "Diese Positionen ausschließen"
+
+#: degov_paragraph_view_reference.module:197
+msgid "Taxonomy term"
+msgstr "Taxonomie-Begriff"
+
+#: degov_paragraph_view_reference.module:209
+msgid "Node"
+msgstr "Beitrag"
+
+#: degov_paragraph_view_reference.module:221
+msgid "User"
+msgstr "Benutzer"
+
+#: degov_paragraph_view_reference.module:273
+msgid "View arguments"
+msgstr "Argumente anzeigen"
+
+#: degov_paragraph_view_reference.module:277
+msgid "As defined in the view"
+msgstr "Wie in der Ansicht definiert"
+
+#: degov_paragraph_view_reference.module:289
+msgid "Views row view mode"
+msgstr "Ansicht im Zeilenmodus"
+
+#: degov_paragraph_view_reference.info.yml:0
+msgid "deGov - Paragraph Ansichtsreferenz"
+msgstr "deGov - Paragraph Ansichtsreferenz"
+
+#: degov_paragraph_view_reference.info.yml:0
+msgid "Mit diesem Paragraphen können an beliebigen Stellen Ansichten (Views) eingeblendet werden. "
+msgstr "Mit diesem Paragraphen können an beliebigen Stellen Ansichten (Views) eingeblendet werden. "
+
+#: degov_paragraph_view_reference.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: degov_paragraph_view_reference.links.menu.yml:0 degov_paragraph_view_reference.routing.yml:0
+msgid "Views Helper Settings"
+msgstr "Einstellungen für Ansichtshelfer"
+
+#: degov_paragraph_view_reference.links.menu.yml:0
+msgid "Administer deGov views reference."
+msgstr "Verwalten der deGov Ansichtsreferenz."
+
+#: src/Form/ViewsSettingsForm.php:57
+msgid "Allowed View Options"
+msgstr "Freigegebene Ansichtsoptionen"
+
+#: src/Form/ViewsSettingsForm.php:65
+msgid "Form Ids to apply the filter"
+msgstr "Form-IDs zur Anwendung des Filters"
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceLabelFormatter.php:9
+msgid "Views Label"
+msgstr "Ansichten Beschriftung"
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceOverridenFieldFormatter.php:122
+msgid "@title"
+msgstr "@title"
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceOverridenFieldFormatter.php:11
+msgid "Views Reference with extra options"
+msgstr "Ansichtsreferenz mit zusätzlichen Optionen"
+
+#: config/install/field.field.paragraph.view_reference.field_sub_title.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.paragraph.view_reference.field_title.yml:0
+msgid "Titel"
+msgstr "Titel"
+
+#: config/install/field.field.paragraph.view_reference.field_title_link.yml:0
+msgid "Titellink"
+msgstr "Titellink"
+
+#: config/install/field.field.paragraph.view_reference.field_view_reference_view.yml:0
+msgid "Ansicht"
+msgstr "Ansicht"
+
+#: config/install/paragraphs.paragraphs_type.view_reference.yml:0
+msgid "Ansichtsreferenz"
+msgstr "Ansichtsreferenz"
+

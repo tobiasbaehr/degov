@@ -1,0 +1,3208 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  system.post_update.php: n/a
+#  system.admin.inc: n/a
+#  system.tokens.inc: n/a
+#  config/schema/system.schema.yml: n/a
+#  src/DateFormatListBuilder.php: n/a
+#  src/Plugin/migrate/source/Extension.php: n/a
+#  templates/system-modules-details.html.twig: n/a
+#  templates/system-modules-uninstall.html.twig: n/a
+#  src/Form/SiteInformationForm.php: n/a
+#  src/Form/SystemBrandingOffCanvasForm.php: n/a
+#  system.module: n/a
+#  system.links.menu.yml: n/a
+#  system.links.task.yml: n/a
+#  system.routing.yml: n/a
+#  config/install/system.menu.footer.yml: n/a
+#  src/Form/ModulesListForm.php: n/a
+#  system.install: n/a
+#  templates/status-report-general-info.html.twig: n/a
+#  src/Form/CronForm.php: n/a
+#  src/Element/StatusReportPage.php: n/a
+#  system.info.yml: n/a
+#  system.links.action.yml: n/a
+#  src/Form/DateFormatAddForm.php: n/a
+#  config/install/system.menu.admin.yml: n/a
+#  src/Controller/SystemController.php: n/a
+#  src/Form/ModulesUninstallConfirmForm.php: n/a
+#  src/Form/ModulesUninstallForm.php: n/a
+#  system.permissions.yml: n/a
+#  src/Form/ModulesListConfirmForm.php: n/a
+#  src/PathBasedBreadcrumbBuilder.php: n/a
+#  src/Plugin/Block/SystemBrandingBlock.php: n/a
+#  templates/block--system-branding-block.html.twig: n/a
+#  templates/maintenance-page.html.twig: n/a
+#  src/Plugin/Condition/RequestPath.php: n/a
+#  src/Form/SiteMaintenanceModeForm.php: n/a
+#  src/Form/RegionalForm.php: n/a
+#  src/Form/LoggingForm.php: n/a
+#  src/Form/PerformanceForm.php: n/a
+#  src/Form/RssFeedsForm.php: n/a
+#  src/Form/ThemeAdminForm.php: n/a
+#  src/Entity/Menu.php: n/a
+#  src/Plugin/Block/SystemMenuBlock.php: n/a
+#  src/Form/FileSystemForm.php: n/a
+#  src/Plugin/ImageToolkit/GDToolkit.php: n/a
+#  js/system.modules.es6.js: n/a
+#  js/system.modules.js: n/a
+#  src/CronController.php: n/a
+#  src/SystemConfigSubscriber.php: n/a
+#  src/SystemManager.php: n/a
+#  src/Access/CronAccessCheck.php: n/a
+#  src/Controller/DbUpdateController.php: n/a
+#  src/Controller/Http4xxController.php: n/a
+#  src/Controller/SystemInfoController.php: n/a
+#  src/Controller/ThemeController.php: n/a
+#  src/Entity/Action.php: n/a
+#  src/Form/DateFormatDeleteForm.php: n/a
+#  src/Form/DateFormatEditForm.php: n/a
+#  src/Form/DateFormatFormBase.php: n/a
+#  src/Form/ImageToolkitForm.php: n/a
+#  src/Form/ModulesListExperimentalConfirmForm.php: n/a
+#  src/Form/PrepareModulesEntityUninstallForm.php: n/a
+#  src/Form/SystemMenuOffCanvasForm.php: n/a
+#  src/Form/ThemeSettingsForm.php: n/a
+#  src/Plugin/Archiver/Tar.php: n/a
+#  src/Plugin/Archiver/Zip.php: n/a
+#  src/Plugin/Block/SystemBreadcrumbBlock.php: n/a
+#  src/Plugin/Block/SystemMainBlock.php: n/a
+#  src/Plugin/Block/SystemMessagesBlock.php: n/a
+#  src/Plugin/Block/SystemPoweredByBlock.php: n/a
+#  src/Plugin/Condition/CurrentThemeCondition.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Convert.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/CreateNew.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Crop.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Desaturate.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Resize.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Rotate.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/Scale.php: n/a
+#  src/Plugin/ImageToolkit/Operation/gd/ScaleAndCrop.php: n/a
+#  src/Plugin/migrate/source/Menu.php: n/a
+#  src/Plugin/migrate/source/d7/ThemeSettings.php: n/a
+#  templates/breadcrumb.html.twig: n/a
+#  templates/feed-icon.html.twig: n/a
+#  templates/html.html.twig: n/a
+#  templates/maintenance-task-list.html.twig: n/a
+#  templates/mark.html.twig: n/a
+#  templates/menu-local-tasks.html.twig: n/a
+#  templates/pager.html.twig: n/a
+#  templates/tablesort-indicator.html.twig: n/a
+#  config/install/core.date_format.fallback.yml: n/a
+#  config/install/core.date_format.html_date.yml: n/a
+#  config/install/core.date_format.html_datetime.yml: n/a
+#  config/install/core.date_format.html_month.yml: n/a
+#  config/install/core.date_format.html_time.yml: n/a
+#  config/install/core.date_format.html_week.yml: n/a
+#  config/install/core.date_format.html_year.yml: n/a
+#  config/install/core.date_format.html_yearless_date.yml: n/a
+#  config/install/core.date_format.long.yml: n/a
+#  config/install/core.date_format.medium.yml: n/a
+#  config/install/core.date_format.short.yml: n/a
+#  config/install/system.maintenance.yml: n/a
+#  config/install/system.menu.account.yml: n/a
+#  config/install/system.menu.main.yml: n/a
+#  config/install/system.menu.tools.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: system.post_update.php:39
+msgid "Configuration dependencies recalculated"
+msgstr "Konfigurationsabhängigkeiten neu berechnet"
+
+#: system.admin.inc:277;278
+msgid "No screenshot"
+msgstr "Kein Screenshot"
+
+#: system.admin.inc:296
+msgid "This theme is not compatible with Drupal @core_version. Check that the .info.yml file contains a compatible 'core' or 'core_version_requirement' value."
+msgstr "Dieses Theme ist nicht mit Drupal @core_version kompatibel. Überprüfen Sie, ob die Datei .info.yml einen kompatiblen Wert für'core' oder'core_version_requirement' enthält."
+
+#: system.admin.inc:299
+msgid "This theme is missing a 'content' region."
+msgstr "Diesem Theme fehlt die Region „Inhalt“."
+
+#: system.admin.inc:305
+msgid "This theme requires PHP version @php_required and is incompatible with PHP version @php_version."
+msgstr "Dieses Theme erfordert PHP-Version @php_required und ist mit  der installierten PHP-Version @php_version nicht kompatibel."
+
+#: system.admin.inc:308
+msgid "This theme requires the base theme @base_theme to operate correctly."
+msgstr "Dieses Theme benötigt eine Basis-Theme @base_theme um richtig zu funktionieren."
+
+#: system.admin.inc:311
+msgid "This theme requires the theme engine @theme_engine to operate correctly."
+msgstr "Dieses Theme erfordert die Theme-Engine @theme_engine, damit es richtig funktioniert."
+
+#: system.tokens.inc:19 config/schema/system.schema.yml:0
+msgid "Site information"
+msgstr "Website-Informationen"
+
+#: system.tokens.inc:20
+msgid "Tokens for site-wide settings and other global information."
+msgstr "Token für seiten-übergreifende Einstellungen und andere globale Informationen."
+
+#: system.tokens.inc:23
+msgid "Dates"
+msgstr "Termine"
+
+#: system.tokens.inc:24
+msgid "Tokens related to times and dates."
+msgstr "Token mit Bezug auf Datum und Uhrzeit"
+
+#: system.tokens.inc:29 src/DateFormatListBuilder.php:57 src/Plugin/migrate/source/Extension.php:37 templates/system-modules-details.html.twig:31 templates/system-modules-uninstall.html.twig:30
+msgid "Name"
+msgstr "Name"
+
+#: system.tokens.inc:30
+msgid "The name of the site."
+msgstr "Der Name der Website."
+
+#: system.tokens.inc:33 config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:110 src/Form/SystemBrandingOffCanvasForm.php:93
+msgid "Slogan"
+msgstr "Slogan"
+
+#: system.tokens.inc:34
+msgid "The slogan of the site."
+msgstr "Der Slogan der Website."
+
+#: system.tokens.inc:37
+msgid "Email"
+msgstr "E-Mail"
+
+#: system.tokens.inc:38
+msgid "The administrative email address for the site."
+msgstr "Die E-Mail-Adresse der Website für Verwaltungszwecke."
+
+#: system.tokens.inc:41
+msgid "URL"
+msgstr "URL"
+
+#: system.tokens.inc:42
+msgid "The URL of the site's front page."
+msgstr "Die URL der Startseite der Website."
+
+#: system.tokens.inc:45
+msgid "URL (brief)"
+msgstr "URL (kurz)"
+
+#: system.tokens.inc:46
+msgid "The URL of the site's front page without the protocol."
+msgstr "Die URL der Startseite dieser Website ohne Angabe des Protokolls."
+
+#: system.tokens.inc:49
+msgid "Login page"
+msgstr "Anmeldeseite"
+
+#: system.tokens.inc:50
+msgid "The URL of the site's login page."
+msgstr "Die URL der Anmeldeseite der Website."
+
+#: system.tokens.inc:58
+msgid "Short format"
+msgstr "Kurzes Format"
+
+#: system.tokens.inc:59
+msgid "A date in 'short' format. (%date)"
+msgstr "Ein Datum im ‚kurzen‘ Format. (%date)"
+
+#: system.tokens.inc:62
+msgid "Medium format"
+msgstr "Mittleres Format"
+
+#: system.tokens.inc:63
+msgid "A date in 'medium' format. (%date)"
+msgstr "Ein Datum im ‚mittleren‘ Format. (%date)"
+
+#: system.tokens.inc:66
+msgid "Long format"
+msgstr "Langes Format"
+
+#: system.tokens.inc:67
+msgid "A date in 'long' format. (%date)"
+msgstr "Ein Datum im ‚langen‘ Format. (%date)"
+
+#: system.tokens.inc:70
+msgid "Custom format"
+msgstr "Benutzerdefiniertes Format"
+
+#: system.tokens.inc:71
+msgid "A date in a custom format. See <a href=\"http://php.net/manual/function.date.php\">the PHP documentation</a> for details."
+msgstr "Ein Datum in einem benutzerdefinierten Format. Weitere Informationen sind in der <a href=\"http://php.net/manual/function.date.php\">PHP-Dokumentation</a> verfügbar."
+
+#: system.tokens.inc:74
+msgid "Time-since"
+msgstr "Vergangene Zeit"
+
+#: system.tokens.inc:75
+msgid "A date in 'time-since' format. (%date)"
+msgstr "Ein Datum im Format 'time-since'. (%date)"
+
+#: system.tokens.inc:78
+msgid "Raw timestamp"
+msgstr "direkter Zeitstempel"
+
+#: system.tokens.inc:79
+msgid "A date in UNIX timestamp format (%date)"
+msgstr "Ein Datum im UNIX Zeitstempel Format (%date)"
+
+#: system.module:106
+msgid "About"
+msgstr "Über"
+
+#: system.module:107
+msgid "The System module is integral to the site: it provides user interfaces for many core systems and settings, as well as the basic administrative menu structure. For more information, see the <a href=\":system\">online documentation for the System module</a>."
+msgstr "Das System Modul ist ein integraler Bestandteil der Website. Es stellt die Benutzeroberfläche für viele Untersysteme im Drupal-Kernsystems und die dazugehörigen Einstellungen zur Verfügung. Außerdem stellt es die Grundlegende Menüstruktur der Administrativen Oberfläche zur Verfügung. Weitere Informationen sind in der <a href=\":system\">Online-Dokumentation des System-Moduls</a> verfügbar."
+
+#: system.module:108
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: system.module:110
+msgid "Managing modules"
+msgstr "Module verwalten"
+
+#: system.module:111
+msgid "Users with appropriate permission can install and uninstall modules from the <a href=\":modules\">Extend page</a>. Depending on which distribution or installation profile you choose when you install your site, several modules are installed and others are provided but not installed. Each module provides a discrete set of features; modules may be installed or uninstalled depending on the needs of the site. Many additional modules contributed by members of the Drupal community are available for download from the <a href=\":drupal-modules\">Drupal.org module page</a>. Note that uninstalling a module is a destructive action: when you uninstall a module, you will permanently lose all data connected to the module."
+msgstr "Benutzer mit der entsprechenden Berechtigung können auf der Seite <a href=\":modules\">Erweitern</a>. Module installieren und deinstallieren. Abhängig davon welche Distribution bzw. welches Installationsprofil  bei der Installation der Website verwendet wurde, werden eigene Module vorinstalliert und andere zum Aktivieren angeboten. Jedes Modul stellt eine Ansammlung zusätzlicher Funktionen zur Verfügung. Module können je nachdem, welche Funktionen auf Ihrer Seite benötigt werden, hinzugefügt oder entfernt werden. Viele Zusatzmodule, die von den Mitgliedern der Drupal-Community zur Verfügung gestellt werden können über die Seite <a href=\":drupal-modules\">Drupal erweitern</a> Zu beachten ist, dass die Deinstallation zur Minimierung des Funktionsumfangs sowie zum Verlust von Daten auf der Website führen kann."
+
+#: system.module:112
+msgid "Managing themes"
+msgstr "Themes verwalten"
+
+#: system.module:113
+msgid "Users with appropriate permission can install and uninstall themes on the <a href=\":themes\">Appearance page</a>. Themes determine the design and presentation of your site. Depending on which distribution or installation profile you choose when you install your site, a default theme is installed, and possibly a different theme for administration pages. Other themes are provided but not installed, and additional contributed themes are available at the <a href=\":drupal-themes\">Drupal.org theme page</a>."
+msgstr "Auf der <a href=\":themes\">Seite Design</a> können Benutzer mit der entsprechenden Berechtigung Themes installieren und deinstallieren. Themes legen das Design und die Präsentation der Website fest. Je nachdem in welchem Verzeichnis oder welche Auswahl getroffen wurde, kann das installierte Standard-Theme sich erheblich vom Verwaltungs-Theme unterscheiden. Andere Themes, sofern sie nicht bereits installiert sind, sind verfügbar auf der Theme Seite von <a href=\":drupal-themes\">Drupal.org</a>."
+
+#: system.module:114
+msgid "Disabling drag-and-drop functionality"
+msgstr "Funktionalität für das Ziehen und Ablegen von Elementen deaktivieren"
+
+#: system.module:115
+msgid "The default drag-and-drop user interface for ordering tables in the administrative interface presents a challenge for some users, including users of screen readers and other assistive technology. The drag-and-drop interface can be disabled in a table by clicking a link labeled \"Show row weights\" above the table. The replacement interface allows users to order the table by choosing numerical weights instead of dragging table rows."
+msgstr "Die Standardbenutzeroberfläche um Tabelleneinträge im Administrationsbereich durch ziehen und Ablegen zu sortieren stellt für einige Nutzer eine Herausforderung dar. Dazu gehören Nutzer, die Screen Reader und andere Assistenztechnologien verwenden. Daher kann die Benutzeroberfläche innerhalb einer Tabelle durch einen Klick auf einen Link mit der Beschriftung „Zeilenreihenfolge anzeigen“ oberhalb der Tabelle abgestellt werden. Daraufhin erscheinen vor den einzelnen Zeilen Eingabefelder, in denen  sowohl negative als auch positive Zahlen eingegeben werden können, die das „Gewicht“ jeder Zeile wiederspiegeln. Es können sowohl negative  als auch positive Zahlen eingegeben werden. Je niedriger die Zahl ist, die einer Zeile zugeordnet wird, desto weiter oben in der Tabelle befindet sich die Zeile. Je höher die Zahl ist, die einer Zeile zugeordnet wird, desto weiter unten befindet sich die jeweilige Zeile in der Tabelle."
+
+msgid "Show row weights"
+msgstr "Zeilenreihenfolge anzeigen"
+
+#: system.module:116
+msgid "Configuring basic site settings"
+msgstr "Grundeinstellungen der Website konfigurieren"
+
+#: system.module:117
+msgid "The System module provides pages for managing basic site configuration, including <a href=\":date-time-settings\">Date and time formats</a> and <a href=\":site-info\">Basic site settings</a> (site name, email address to send mail from, home page, and error pages). Additional configuration pages are listed on the main <a href=\":config\">Configuration page</a>."
+msgstr "Das System-Modul stellt Seiten für die Verwaltung von Grundeinstellungen der Website zur Verfügung, inklusive <a href=\":date-time-settings\">Datums- und Zeitformate</a> sowie <a href=\":site-info\">Grundeinstellungen</a> (Name der Website, E-Mail-Adresse von der Nachrichten geschickt werden, Startseite und Fehlerseiten). Zusätzliche Seiten für Einstellungen sind auf der Haupt-<a href=\":config\">Konfigurationsseite</a> gelistet."
+
+#: system.module:118
+msgid "Checking site status"
+msgstr "Der Website-Status wird geprüft"
+
+#: system.module:119
+msgid "The <a href=\":status\">Status report</a> provides an overview of the configuration, status, and health of your site. Review this report to make sure there are not any problems to address, and to find information about the software your site and web server are using."
+msgstr "Der <a href=\":status\">Statusbericht </a>bietet einen Überblick über den Konfigurationsstatus und die Sicherheit der Website an sowie Informationen über den Webserver,  und die verwendete Software. Der Bricht sollte regelmäßig geprüft werden um sicherzustellen, dass keine Probleme auftreten, die behoben werden müssen."
+
+#: system.module:120
+msgid "Using maintenance mode"
+msgstr "Wartungsmodus verwenden"
+
+#: system.module:121
+msgid "When you are performing site maintenance, you can prevent non-administrative users (including anonymous visitors) from viewing your site by putting it in <a href=\":maintenance-mode\">Maintenance mode</a>. This will prevent unauthorized users from making changes to the site while you are performing maintenance, or from seeing a broken site while updates are in progress."
+msgstr "Wenn Wartungsarbeiten auf der Website durchführt werden, können Besucher der Website daran gehindert werden diese zu betrachten, indem die Website in den <a href=\":maintenance-mode\">Wartungsmodus</a> versetzt wird. Dies verhindert, das Benutzer, die keine Administrationsrechte besitzen, Änderungen an der Website vornehmen, während Wartungsarbeiten an der Website durchgeführt werden."
+
+#: system.module:122
+msgid "Configuring for performance"
+msgstr "Leistungskonfiguration"
+
+#: system.module:123
+msgid "On the <a href=\":performance-page\">Performance page</a>, the site can be configured to aggregate CSS and JavaScript files, making the total request size smaller. Note that, for small- to medium-sized websites, the <a href=\":page-cache\">Internal Page Cache module</a> should be installed so that pages are efficiently cached and reused for anonymous users. Finally, for websites of all sizes, the <a href=\":dynamic-page-cache\">Dynamic Page Cache module</a> should also be installed so that the non-personalized parts of pages are efficiently cached (for all users)."
+msgstr "Auf der Seite <a href=\":performance-page\">Leistung</a>kann die Website so konfiguriert werden, dass CSS- und JavaScript-Dateien zusammengefasst werden, sodass die Größe der übermittelten Daten pro Anfrage an die Website geringer ist. Zu beachten ist, dass für kleinere bis mittelgroße Websites das <a href=\":page-cache\">Internal Page Cache-Modul</a> verwendet werden sollte. Damit wird die Website in effizienter Weise aufbereitet und schneller an anonyme Besucher der Website ausgegeben. Außerdem sollte das <a href=\":dynamic-page-cache\">Dynamic-Page-Cache-Modul</a> auch für alle anderen Arten von Websites installiert werden um sicherzustellen, dass die nicht personalisierten Teile einer Website für alle Benutzer effizient aufbereitet werden, um diese schneller auszuliefern."
+
+#: system.module:124
+msgid "Configuring cron"
+msgstr "Cron konfigurieren"
+
+#: system.module:125
+msgid "In order for the site and its modules to continue to operate well, a set of routine administrative operations must run on a regular basis; these operations are known as <em>cron</em> tasks. On the <a href=\":cron\">Cron page</a>, you can configure cron to run periodically as part of server responses by installing the <em>Automated Cron</em> module, or you can turn this off and trigger cron from an outside process on your web server. You can verify the status of cron tasks by visiting the <a href=\":status\">Status report page</a>. For more information, see the <a href=\":handbook\">online documentation for configuring cron jobs</a>."
+msgstr "Damit die Website und die verwendeten Module ordnungsgemäß funktionieren können müssen in regelmäßigen Abständen automatisierte administrative Aufgaben ausgeführt werden. Diese regelmäßige Stapelverarbeitung von Aufgaben ist allgemein als <em>Cron-Job bekannt</em> bekannt.  Auf der Seite <a href=\":cron\">Cron</a> können Sie den Aufgabenplaner so einstellen, das er in regelmäßigen Abständen oder am Ende von Serveranfragen ausgeführt wird. Damit die Aufgabenplanung am Ende von Serveranfragen ausgeführt werden kann, müssen Sie das Automated-Cron-Modul installieren. Alternativ kann das Modul auch abgeschaltet und Cron-Wartungsaufgaben außerhalb der Drupal-Installation mit Hilfe eines regulären Cron-Jobs angestoßen werden. Der Status der Cron-Aufgaben kann auf der Seite <a href=\":status\">Statusbericht</a> überprüft werden. Weitere Informationen sind in der   <a href=\":handbook\">Online-Dokumentation zum Thema Konfigurieren von Cron-Jobs verfügbar.</a>."
+
+#: system.module:126
+msgid "Configuring the file system"
+msgstr "Dateisystem konfigurieren"
+
+#: system.module:127
+msgid "Your site has several file directories, which are used to store and process uploaded and generated files. The <em>public</em> file directory, which is configured in your settings.php file, is the default place for storing uploaded files. Links to files in this directory contain the direct file URL, so when the files are requested, the web server will send them directly without invoking your site code. This means that the files can be downloaded by anyone with the file URL, so requests are not access-controlled but they are efficient. The <em>private</em> file directory, also configured in your settings.php file and ideally located outside the site web root, is access controlled. Links to files in this directory are not direct, so requests to these files are mediated by your site code. This means that your site can check file access permission for each file before deciding to fulfill the request, so the requests are more secure, but less efficient. You should only use the private storage for files that need access control, not for files like your site logo and background images used on every page. The <em>temporary</em> file directory is used internally by your site code for various operations, and is configured on the <a href=\":file-system\">File system settings</a> page. You can also see the configured public and private file directories on this page, and choose whether public or private should be the default for uploaded files."
+msgstr "Die Website besitzt mehrere Verzeichnisse, in denen hochgeladene und automatisch erstellte Dateien verarbeitet werden. Das <em>Öffentliche (public) Verzeichnis</em>, dass in der settings.php-Datei konfiguriert wird ist der Standardspeicherort für hochgeladene Dateien. Links auf Dateien in diesem Verzeichnis verweisen immer auf die Originaldatei. Wenn diese Dateien abgefragt werden, sendet der Webserver diese also direkt zum Client des Besuchers der Website, ohne den Code der Website zu verarbeiten. Das bedeutet, dass die Dateien von jedem heruntergeladen werden können, der den URL auf eine in diesem Verzeichnis abgelegten Datei kennt. Die Zugriffe auf diese Dateien unterliegen also keiner Zugriffskontrolle sind aber sehr effizient. Das <em>Private</em> Dateiverzeichnis wird ebenfalls in der settings.php-Datei konfiguriert. Außerdem befindet es sich idealerweise außerhalb des Verzeichnisses in dem der sich Rest der Drupal-Installation befindet. Das private Dateiverzeichnis unterliegt der Zugriffskontrolle. Links auf Dateien in diesem Verzeichnis sind nicht direkt. Abrufanfragen für diese Dateien werden also vom Code der Website verwaltet. Das bedeutet, dass die Website die Zugriffsberechtigung für jede Datei überprüfen kann, bevor der Zugriff auf die Datei zugelassen wird.  Dadurch sind die Zugriffe wesentlich sicherer aber auch weniger effizient. Grundsätzlich sollten das private Dateiverzeichnis nur für Dateien verwendet werden, für die eine Zugriffskontrolle sinnvoll ist. Dateien die Dinge wie das Logo Ihrer Seite oder Hintergrundbilder, die auf jeder Seite verwendet werden enthalten, sollten nicht im privaten Dateiverzeichnis abgelegte werden. Das <em>temporäre</em> Dateiverzeichnis wird intern von der Website verwendet, um verschiedene Aktionen auszuführen. Die Pfadangaben für die Verzeichnisse werden auf der Seite <a href=\":file-system\">Dateisystem</a> festgelegt. Auf dieser Seite können kann außerdem ausgewählt werden ob die öffentliche oder die Private Download-Methode standardmäßig verwendet werden soll."
+
+#: system.module:128
+msgid "Configuring the image toolkit"
+msgstr "Das Bildverarbeitungswerkzeugset konfigurieren"
+
+#: system.module:129
+msgid "On the <a href=\":toolkit\">Image toolkit page</a>, you can select and configure the PHP toolkit used to manipulate images. Depending on which distribution or installation profile you choose when you install your site, the GD2 toolkit and possibly others are included; other toolkits may be provided by contributed modules."
+msgstr "Auf der Seite <a href=\":toolkit\">Bild-Toolkit</a>kann das Toolkit zum Manipulieren von Bildern auswählt und konfiguriert werden. Abhängig davon welche Distribution bzw. welches Installationsprofil  bei der Installation der Website gewählt wurde, sind das GD2-Toolkit und eventuell weitere Bildverarbeitungswerkzeuge verfügbar. Weitere Toolkits können von Zusatzmodulen zur Verfügung gestellt werden."
+
+#: system.module:134
+msgid "This page shows you all available administration tasks for each module."
+msgstr "Diese Seite listet alle verfügbaren Verwaltungsaufgaben für jedes Modul auf."
+
+#: system.module:137
+msgid "Set and configure the default theme for your website.  Alternative <a href=\":themes\">themes</a> are available."
+msgstr "Das Standard-Theme der Website festlegen und konfigurieren. Es sind weitere <a href=\":themes\">Themes</a> verfügbar."
+
+#: system.module:139
+msgid "You can place blocks for each theme on the <a href=\":blocks\">block layout</a> page."
+msgstr "Blöcke können für jedes Theme auf der Seite <a href=\":blocks\">Blocklayout</a> platziert werden."
+
+#: system.module:146
+msgid "These options control the display settings for the %name theme. When your site is displayed using this theme, these settings will be used."
+msgstr "Die Optionen kontrollieren die Anzeigeeinstellungen für das %name Theme. Wenn die Website mit diesem Theme angezeigt wird, werden diese Einstellungen verwendet."
+
+#: system.module:149
+msgid "Control default display settings for your site, across all themes. Use theme-specific settings to override these defaults."
+msgstr "Mit den Standardanzeigeeinstellungen werden alle Themes der Website kontrolliert. Diese Vorgaben können für jedes installierte Theme gesondert angepasst werden."
+
+#: system.module:152
+msgid "Download additional <a href=\":modules\">contributed modules</a> to extend your site's functionality."
+msgstr "<a href=\":modules\">Von der Community bereitgestellte Zusatzmodule herunterladen</a>, um die Funktionalität der Website zu erweitern."
+
+#: system.module:154
+msgid "Regularly review available updates to maintain a secure and current site. Always run the <a href=\":update-php\">update script</a> each time a module is updated. Enable the <a href=\":update-manager\">Update Manager module</a> to update and install modules and themes."
+msgstr "Um eine sichere und aktuelle Website zu gewährleisten, müssen die verfügbaren Updates regelmäßig geprüft werden. Bei jedem einzelnen Modul-Update das <a href=\":update-php\">Update Skript</a> laufen lassen und für die Aktualisierung und Installation von Modulen und Themes das <a href=\":update-manager\">Update Manager Modul</a> aktivieren."
+
+#: system.module:159
+msgid "The uninstall process removes all data related to a module."
+msgstr "Der Deinstallationsprozess entfernt alle Daten, die zu einem Modul gehören."
+
+#: system.module:163;169
+msgid "The <em>Powered by Drupal</em> block is an optional link to the home page of the Drupal project. While there is absolutely no requirement that sites feature this link, it may be used to show support for Drupal."
+msgstr "Der optionale Block <em>Powered by Drupal</em> verlinkt auf die Homepage des Drupal-Projektes. Es gibt zwar keine Notwendigkeit, diesen Block zu verwenden, aber es zeigt, dass man Drupal unterstützt."
+
+#: system.module:175
+msgid "Use maintenance mode when making major updates, particularly if the updates could disrupt visitors or the update process. Examples include upgrading, importing or exporting content, modifying a theme, modifying content types, and making backups."
+msgstr "Für wichtige Aktualisierungen sollte der Wartungsmodus verwendet werden, insbesondere wenn die Aktualisierungen die Besucher oder den Aktualisierungsprozess behindern könnten. Beispiele für wichtige Aktualisierungen sind Kernsystem-Upgrades, das Importieren oder Exportieren von Inhalten, das Ändern eines Themes, das Ändern von Inhaltstypen und das Erstellen von Sicherungen."
+
+#: system.module:180
+msgid "Here you can find a short overview of your site's parameters as well as any problems detected with your installation. It may be useful to copy and paste this information into support requests filed on Drupal.org's support forums and project issue queues. Before filing a support request, ensure that your web server meets the <a href=\":system-requirements\">system requirements.</a>"
+msgstr "Hier findet sich eine kurzer Überblick über die wichtigsten Parameter der Website, genauso wie jedes Probleme, welches bei der aktuellen Installation aufgedeckt wurde. Es kann hilfreich sein diese Informationen mittels Copy-and-Paste einer Support-Anfrage in den Support-Foren auf drupal.org oder einem Ticket in der Issue-Queue des Projekts anzuhängen. Bevor eine Support-Anfrage gestellt wird, sollte sichergestellt sein, dass der Webserver die <a href=\":system-requirements\">Systemvoraussetzungen</a> erfüllt."
+
+#: system.module:549
+msgid "Update modules"
+msgstr "Module aktualisieren"
+
+#: system.module:554
+msgid "Update themes"
+msgstr "Themes aktualisieren"
+
+#: system.module:569
+msgid "FTP"
+msgstr "FTP"
+
+#: system.module:579
+msgid "SSH"
+msgstr "SSH"
+
+#: system.module:840
+msgid "Configure your <a href=\":user-edit\">account time zone setting</a>."
+msgstr "Konfigurieren Sie die für Ihr Benutzerkonto gültigen <a href=\":user-edit\">Zeitzoneneinstellungen</a>"
+
+#: system.module:858
+msgid "Locale settings"
+msgstr "Regionaleinstellungen"
+
+#: system.module:864
+msgid "Time zone"
+msgstr "Zeitzone"
+
+#: system.module:867
+msgid "Select the desired local time and time zone. Dates and times throughout this site will be displayed using this time zone."
+msgstr "Wählen Sie die gewünschte lokale Uhrzeit und Zeitzone. Datumsangaben und Zeiten der Website werden für diese Zeitzone angezeigt."
+
+#: system.module:926;927
+msgid "The directory %directory does not exist and could not be created."
+msgstr "Das Verzeichnis %directory existiert nicht und konnte nicht erstellt werden."
+
+#: system.module:932;933
+msgid "The directory %directory exists but is not writable and could not be made writable."
+msgstr "Das Verzeichnis %directory existiert, ist aber nicht beschreibbar und konnte nicht beschreibbar gemacht werden."
+
+#: system.module:1005
+msgid "Dependency of required module @module"
+msgstr "Abhängigkeit des erforderlichen Moduls @module"
+
+#: system.module:1203
+msgid "Configure @module permissions"
+msgstr "Berechtigungen des Moduls @module konfigurieren."
+
+#: system.module:1272
+msgid "- None selected -"
+msgstr "- Keine ausgewählt -"
+
+#: system.module:1278
+msgid "@zone"
+msgstr "@zone"
+
+#: system.module:1360
+msgid "Failed to fetch file due to error \"%error\""
+msgstr "Die Datei konnte nicht verarbeitet werden. Bei der Verarbeitung ist folgender Fehler aufgetreten: „%error\""
+
+#: system.module:1364
+msgid "Failed to save file due to error \"%error\""
+msgstr "Datei konnte aufgrund des Fehlers „%error“ nicht gespeichert werden."
+
+#: system.module:1368
+msgid "@remote could not be saved to @path."
+msgstr "@remote konnte nicht unter @path gespeichert werden."
+
+#: system.module:0
+msgid "Left sidebar"
+msgstr "Linke Seitenleiste"
+
+#: system.module:0
+msgid "Right sidebar"
+msgstr "Rechte Seitenleiste"
+
+#: system.module:0 system.links.menu.yml:0 system.links.task.yml:0 system.routing.yml:0
+msgid "Content"
+msgstr "Inhalt"
+
+#: system.module:0
+msgid "Header"
+msgstr "Kopfzeile"
+
+#: system.module:0 config/install/system.menu.footer.yml:0
+msgid "Footer"
+msgstr "Fußzeile"
+
+#: system.module:0
+msgid "Highlighted"
+msgstr "Hervorgehoben"
+
+#: system.module:0 src/Form/ModulesListForm.php:228;230
+msgid "Help"
+msgstr "Hilfe"
+
+#: system.module:0
+msgid "Page bottom"
+msgstr "Fußzeile"
+
+#: system.install:39
+msgid "Drupal"
+msgstr "Drupal"
+
+#: system.install:51
+msgid "Installation profile"
+msgstr "Installationsprofil"
+
+#: system.install:52
+msgid "%profile_name (%profile-%version)"
+msgstr "%profile_name (%profile-%version)"
+
+#: system.install:73
+msgid "Experimental modules enabled"
+msgstr "Experimentelle Module aktiviert"
+
+#: system.install:74
+msgid "Experimental modules found: %module_list. <a href=\":url\">Experimental modules</a> are provided for testing purposes only. Use at your own risk."
+msgstr "Experimentelle Module gefunden %module_list. <a href=\":url\">Experimentelle Module</a> sind nur zum Ausprobieren gedacht. Die Verwendung dieser Module geschieht auf eigene Gefahr!"
+
+#: system.install:84
+msgid "Web server"
+msgstr "Webserver"
+
+#: system.install:136;145
+msgid "Apache version"
+msgstr "Apache-Version"
+
+#: system.install:139
+msgid "Due to the settings for ServerTokens in httpd.conf, it is impossible to accurately determine the version of Apache running on this server. The reported value is @reported, to run Drupal without mod_rewrite, a minimum version of 2.2.16 is needed."
+msgstr "Wegen der Einstellungen für ServerTokens in der Datei httpd.conf ist es unmöglich die Version des verwendeten Apache Servers genau zu bestimmen. Der zurückgegebene Wert ist: @reported. Um Drupal ohne mod_riwrite zu betreiben wird mindestens Version 2.2.16 benötigt."
+
+#: system.install:148
+msgid "The minimum version of Apache needed to run Drupal without mod_rewrite enabled is 2.2.16. See the <a href=\":link\">enabling clean URLs</a> page for more information on mod_rewrite."
+msgstr "Die minimale Version des Apache-Webservers, die benötigt wird um Drupal auszuführen, ist 2.2.1.6. Weitere Informationen über lesbare URLs und das Apache-Modul mod_rewrite sind auf der Seite <a href=\":link\"> Lesbare URLs aktivieren</a> verfügbar."
+
+#: system.install:154
+msgid "Clean URLs"
+msgstr "Lesbare URLs"
+
+#: system.install:155;272;366
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: system.install:157
+msgid "Your server is capable of using clean URLs, but it is not enabled. Using clean URLs gives an improved user experience and is recommended. <a href=\":link\">Enable clean URLs</a>"
+msgstr "Der Server kann lesbare URLs generieren. Die entsprechende Konfiguration ist jedoch nicht aktiviert. Lesbare URLs sorgen für eine Verbesserung des Erlebnisses, das Benutzer der Website haben. Es wird empfohlen <a href=\":link\">Lesbare URLs zu aktivieren</a>."
+
+#: system.install:170
+msgid "@phpversion (<a href=\":url\">more information</a>)"
+msgstr "@phpversion (<a href=\":url\">Weitere Informationen</a>)"
+
+#: system.install:173;181 templates/status-report-general-info.html.twig:59
+msgid "PHP"
+msgstr "PHP"
+
+#: system.install:183
+msgid "The phpinfo() function has been disabled for security reasons. To see your server's phpinfo() information, change your PHP settings or contact your server administrator. For more information, <a href=\":phpinfo\">Enabling and disabling phpinfo()</a> handbook page."
+msgstr "Die Funktion phpinfo() wurde aus Sicherheitsgründen deaktiviert. Um die phpinfo() Informationen des Servers zu sehen, entweder die PHP-Einstellungen ändern oder den Administrator kontaktieren. Für mehr Informationen die Seite <a href=\":phpinfo\">phpinfo() aktivieren und deaktivieren</a> im Handbuch konsultieren."
+
+#: system.install:190
+msgid "Your PHP installation is too old. Drupal requires at least PHP %version. It is recommended to upgrade to PHP version %recommended or higher for the best ongoing support. See <a href=\"http://php.net/supported-versions.php\">PHP's version support documentation</a> and the <a href=\":php_requirements\">Drupal 8 PHP requirements handbook page</a> for more information."
+msgstr "Die installierte PHP-Version ist zu alt. Drupal erfordert mindestens PHP %version. Es wird empfohlen, auf PHP-Version %recommended zu aktualisieren, um die bestmögliche Unterstützung erhalten zu können. Weitere Informationen sind auf PHP.net in der <a href=\"http://php.net/supported-versions.php\">PHP-Dokumentation zur Versionsunterstützung</a> und in der <a href=\":php_requirements\">Dokumentation zu Drupal 8 im Abschnitt PHP-Systemanforderungen</a> verfügbar."
+
+#: system.install:223
+msgid "It is recommended to upgrade to PHP version %recommended or higher for the best ongoing support.  See <a href=\"http://php.net/supported-versions.php\">PHP's version support documentation</a> and the <a href=\":php_requirements\">Drupal 8 PHP requirements handbook page</a> for more information."
+msgstr "Es wird empfohlen auf die PHP-Version %recommended oder höher zu aktualisieren, um für Drupal zukünftig den bestmöglichen Support zu erhalten. Weitere Informationen finden Sie in der <a href=\"http://php.net/supported-versions.php\">PHP-Dokumentation</a> und der <a href=\":php_requirements\">Drupal-Dokumentation von Drupal 8\r\n</a>."
+
+#: system.install:229
+msgid "PHP extensions"
+msgstr "PHP-Erweiterungen"
+
+#: system.install:255
+msgid "Drupal requires you to enable the PHP extensions in the following list (see the <a href=\":system_requirements\">system requirements page</a> for more information):"
+msgstr "Für Drupal müssen die PHP-Erweiterungen der folgenden Liste aktiviert werden (weitere Informationen unter <a href=\":system_requirements\">System Anforderungen</a>):"
+
+#: system.install:277;290;371;899;907;929
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: system.install:284;889;921
+msgid "Not enabled"
+msgstr "Nicht aktiviert"
+
+#: system.install:286
+msgid "PHP OPcode caching can improve your site's performance considerably. It is <strong>highly recommended</strong> to have <a href=\"http://php.net/manual/opcache.installation.php\" target=\"_blank\">OPcache</a> installed on your server."
+msgstr "PHP-OPcode-Caching kann die Leistung der Website deutlich verbessern. Es wird <strong>dringend empfohlen</strong> <a href=\"http://php.net/manual/opcache.installation.php\" target=\"_blank\">OPcache</a> auf dem Server zu installieren."
+
+#: system.install:292
+msgid "PHP OPcode caching"
+msgstr "PHP-OPcode-Caching"
+
+#: system.install:298
+msgid "Random number generation"
+msgstr "Zufallszahlengenerierung"
+
+#: system.install:303
+msgid "Tried to generate 10 random bytes, generated @count"
+msgstr "Es wurde versucht, 10 zufällige Bytes zu generieren; generiert wurden @count"
+
+#: system.install:305
+msgid "Successful"
+msgstr "Erfolgreich"
+
+#: system.install:323
+msgid "Drupal is unable to generate highly randomized numbers, which means certain security features like password reset URLs are not as secure as they should be. Instead, only a slow, less-secure fallback generator is available. The most likely cause is that open_basedir restrictions are in effect and /dev/urandom is not on the whitelist. See the <a href=\":drupal-php\">system requirements</a> page for more information. %exception_message"
+msgstr "Drupal kann keine zufälligen Zahlen einer höheren Kategorie generieren, sodass bestimmte Sicherheitsfunktionen, wie URLs zum Zurücksetzen des Kennworts, nicht besonders sicher sind. Stattdessen ist nur ein langsamer, weniger sicherer Rückgriff-Generator verfügbar. Die wahrscheinlichste Ursache ist, dass Einschränkungen für open_basedir gelten und /dev/urandom nicht in der Whitelist enthalten ist. Weitere Informationen finden Sie auf der Seite <a href=\":drupal-php\">Systemvoraussetzungen</a>. %exception_message"
+
+#: system.install:326
+msgid "Drupal is unable to generate highly randomized numbers, which means certain security features like password reset URLs are not as secure as they should be. Instead, only a slow, less-secure fallback generator is available. See the <a href=\":drupal-php\">system requirements</a> page for more information. %exception_message"
+msgstr "Drupal kann keine sicheren zufällig generierten Nummern erstellen. Dadurch sind einige Funktionen, wie zum Beispiel automatisch generierte URLs zum Zurücksetzen von Passwörtern nicht so sicher, wie diese sein könnten. Stattdessen steht nur eine Notfallgenerierungsroutine zu Verfügung, die wesentlich unsichere Werte generiert. Weitere Informationen zu den Anforderungen für das Generieren sicherer Zufallswerte sind in den <a href=\":drupal-php\">Systemanforderungen von Drupal</a> verfügbar. %exception_message"
+
+#: system.install:328
+msgid "Less secure"
+msgstr "Weniger sicher"
+
+#: system.install:336
+msgid "Database support"
+msgstr "Datenbank-Unterstützung"
+
+#: system.install:342
+msgid "Your web server does not appear to support PDO (PHP Data Objects). Ask your hosting provider if they support the native PDO extension. See the <a href=\":link\">system requirements</a> page for more information."
+msgstr "Der Webserver scheint PDO (PHP Data Objects) nicht zu unterstützen. Bitte mit dem Hosting-Anbieter klären, ob die native PDO-Erweiterung unterstützt werden kann. Weitere Informationen finden sich unter <a href=\":link\">System Anforderungen</a>."
+
+#: system.install:351
+msgid "Your web server does not appear to support any common PDO database extensions. Check with your hosting provider to see if they support PDO (PHP Data Objects) and offer any databases that <a href=\":drupal-databases\">Drupal supports</a>."
+msgstr "Der Webserver scheint keine gängige PDO Datenbank-Erweiterung zu unterstützen. Bitte beim Hosting-Anbieter prüfen, ob PDO (PHP Data Objects) und eine von <a href=\":drupal-databases\">Drupal unterstützte</a> Datenbank angeboten werden kann."
+
+#: system.install:359
+msgid "Your web server seems to have the wrong version of PDO installed. Drupal requires the PDO extension from PHP core. This system has the older PECL version. See the <a href=\":link\">system requirements</a> page for more information."
+msgstr "Drupal benötigt die PDO-Erweiterung von PHP Core. Am Webserver ist jedoch die ältere PECL-Version installiert. Weitere Informationen finden sich unter<a href=\":link\">System Anforderungen</a>."
+
+#: system.install:379
+msgid "Database system"
+msgstr "Datenbanksystem"
+
+#: system.install:383
+msgid "Database system version"
+msgstr "Version des Datenbanksystems"
+
+#: system.install:391
+msgid "PHP memory limit"
+msgstr "PHP-Speicherlimit"
+
+#: system.install:392
+msgid "-1 (Unlimited)"
+msgstr "-1 (unbegrenzt)"
+
+#: system.install:398
+msgid "Consider increasing your PHP memory limit to %memory_minimum_limit to help prevent errors in the installation process."
+msgstr "Erhöhung des PHP-Speicherlimits auf %memory_minimum_limit hilft Fehler während der Installation zu vermeiden."
+
+#: system.install:401
+msgid "Consider increasing your PHP memory limit to %memory_minimum_limit to help prevent errors in the update process."
+msgstr "Die Erhöhung des PHP-Speicherlimits auf %memory_minimum_limit verringert die Wahrscheinlichkeit von Fehlern während einer Aktualisierung."
+
+#: system.install:404
+msgid "Depending on your configuration, Drupal can run with a %memory_limit PHP memory limit. However, a %memory_minimum_limit PHP memory limit or above is recommended, especially if your site uses additional custom or contributed modules."
+msgstr "In Abhängigkeit von der Konfiguration kann Drupal mit einem %memory_limit PHP-Speicherlimit ausgeführt werden. Allerdings wird ein %memory_minimum_limit PHP-Speicherlimit oder höher empfohlen, vor allem dann, wenn die Website benutzerdefinierte oder zusätzliche Module verwendet."
+
+#: system.install:409
+msgid "Increase the memory limit by editing the memory_limit parameter in the file %configuration-file and then restart your web server (or contact your system administrator or hosting provider for assistance)."
+msgstr "Erhöhen Sie die PHP-Speicherlimit durch bearbeiten des „memory_limit“-Parameters in der Datei %configuration-file und starten dann den Webserver neu (oder wenden Sie sich an Ihren Systemadministrator oder Hosting-Anbieter, um Unterstützung zu erhalten)."
+
+#: system.install:412
+msgid "Contact your system administrator or hosting provider for assistance with increasing your PHP memory limit."
+msgstr "Wenden Sie sich an Ihren Systemadministrator oder Hosting-Anbieter für weitere Unterstützung bei der Erhöhung der PHP-Speichergrenze."
+
+#: system.install:415
+msgid "For more information, see the online handbook entry for <a href=\":memory-limit\">increasing the PHP memory limit</a>."
+msgstr "Weitere Informationen sind im Abschnitt <a href=\":memory-limit\">Den für PHP-Skripte maximal zur Verfügung stehenden Speicher erhöhen</a>in der Online-Dokumentation verfügbar."
+
+#: system.install:447
+msgid "Protection disabled"
+msgstr "Schutz deaktiviert."
+
+#: system.install:453;784
+msgid "Not protected"
+msgstr "Ungeschützt"
+
+#: system.install:457
+msgid "The directory %file is not protected from modifications and poses a security risk. You must change the directory's permissions to be non-writable."
+msgstr "Das Verzeichnis %file ist nicht gegen Änderungen geschützt und stellt ein Sicherheitsrisiko dar. Die Schreib- und Leseberechtigungen des Verzeichnisses müssen angepasst werden, damit das Verzeichnis nicht beschrieben werden kann."
+
+#: system.install:463
+msgid "The file %file is not protected from modifications and poses a security risk. You must change the file's permissions to be non-writable."
+msgstr "Die Datei %file ist nicht vor Veränderungen geschützt und stellt ein Sicherheitsrisiko dar. Die Dateiberechtigung muss auf nicht beschreibbar gesetzt werden."
+
+#: system.install:491;791
+msgid "Protected"
+msgstr "Geschützt"
+
+#: system.install:494
+msgid "Configuration files"
+msgstr "Konfigurationsdateien"
+
+#: system.install:504
+msgid "Public files directory"
+msgstr "Öffentliches Dateiverzeichnis"
+
+#: system.install:509
+msgid "Private files directory"
+msgstr "Geschützes Dateiverzeichnis"
+
+#: system.install:514
+msgid "Temporary files directory"
+msgstr "Verzeichnis temporärer Dateien"
+
+#: system.install:524
+msgid "Not fully protected"
+msgstr "Nicht vollständig geschützt"
+
+#: system.install:526
+msgid "See <a href=\":url\">@url</a> for information about the recommended .htaccess file which should be added to the %directory directory to help protect against arbitrary code execution."
+msgstr "Informationen zur empfohlenen .htaccess-Datei, die zum Verzeichnis %directory hinzugefügt werden sollte, um Schutz gegen die Ausführung von beliebigem Code zu bieten, finden Sie unter <a href=\":url\">@url</a>."
+
+#: system.install:556
+msgid "Last run @time ago"
+msgstr "Zuletzt ausgeführt vor @time"
+
+#: system.install:559
+msgid "Cron maintenance tasks"
+msgstr "Cron-Wartungsaufgaben"
+
+#: system.install:566
+msgid "Cron has not run recently."
+msgstr "Cron wurde in letzter Zeit nicht ausgeführt."
+
+#: system.install:570
+msgid "For more information, see the online handbook entry for <a href=\":cron-handbook\">configuring cron jobs</a>."
+msgstr "Weitere Informationen sind in der <a href=\":cron-handbook\">Online-Dokumentation, im Abschnitt Einrichtung von geplanten Aufgaben</a> verfügbar."
+
+#: system.install:579
+msgid "more information"
+msgstr "Weitere Informationen"
+
+#: system.install:587 src/Form/CronForm.php:109
+msgid "Run cron"
+msgstr "Cron ausführen"
+
+#: system.install:642
+msgid "An automated attempt to create the directory %directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=\":handbook_url\">online handbook</a>."
+msgstr "Ein Versuch das Verzeichnis %directory zu erstellen schlug, wahrscheinlich wegen eines Berechtigungsproblems fehl. Um die Installation fortzusetzen erstellen Sie das Verzeichnis entweder manuell und modifizieren die Schreib und Leseberechtigungen des Verzeichnisses von Hand oder stellen Sie sicher, dass das Installationsskript die Berechtigung hat Verzeichnisse automatisch zu erstellen. Weitere Informationen sind in der INSTALL.txt oder in der <a href=\":handbook_url\">Online-Dokumentation</a> verfügbar."
+
+#: system.install:645;683
+msgid "The directory %directory does not exist."
+msgstr "Das Verzeichnis %directory ist nicht vorhanden."
+
+#: system.install:648
+msgid "Configuration directory: %type"
+msgstr "Konfigurationsverzeichnis: %type"
+
+#: system.install:657
+msgid "Configuration directories"
+msgstr "Konfigurationsverzeichnisse"
+
+#: system.install:658
+msgid "Not present"
+msgstr "Nicht vorhanden"
+
+#: system.install:659
+msgid "Your %file file must define the $config_directories variable as an array containing the names of directories in which configuration files can be found. It must contain a %sync_key key."
+msgstr "In der Datei %file muss die Variable $config_directories als ein Array definiert werden, das die Namen der Verzeichnisse enthält, in denen die Konfigurationsdateien gespeichert sind. Das Array muss einen %sync_key Schlüsselwert enthalten."
+
+#: system.install:665 system.links.menu.yml:0 system.routing.yml:0 config/schema/system.schema.yml:0
+msgid "File system"
+msgstr "Dateisystem"
+
+#: system.install:681
+msgid "Not writable"
+msgstr "Nicht beschreibbar"
+
+#: system.install:686
+msgid "The directory %directory is not writable."
+msgstr "Das Verzeichnis %directory ist nicht beschreibbar."
+
+#: system.install:690
+msgid "You may need to set the correct directory at the <a href=\":admin-file-system\">file system settings page</a> or change the current directory's permissions so that it is writable."
+msgstr "Das richtige Verzeichnis muss auf der Seite <a href=\":admin-file-system\">Dateisystem</a> eingestellt werden. Alternativ können auch die Lese- und Schreibberechtigung des aktuellen Verzeichnisses manuell  so verändert werden, dass das Verzeichnis beschreibbar ist."
+
+#: system.install:695
+msgid "An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=\":handbook_url\">online handbook</a>."
+msgstr "Ein Versuch das Verzeichnis automatisch zu erstellen schlug fehl. Eventuell geschah das wegen eines Problems mit den Schreib- und Leseberechtigungen im Dateisystem des Servers. Um mit der Installation fortzufahren, stellen Sie sicher, dass das Installationsskript die Berechtigung hat Verzeichnisse zu erstellen oder erstellen Sie das Verzeichnis manuell und passen Sie die Schreib- und Leseberechtigungen des Verzeichnisses manuell an. Weitere Informationen sind in der INSTALL.txt oder in der <a href=\":handbook_url\">Online-Dokumentation</a> verfügbar."
+
+#: system.install:715
+msgid "Writable (<em>public</em> download method)"
+msgstr "Beschreibbar (<em>öffentliche</em> Download-Methode)"
+
+#: system.install:718
+msgid "Writable (<em>private</em> download method)"
+msgstr "Beschreibbar (<em>private</em> Download-Methode)"
+
+#: system.install:726
+msgid "Database updates"
+msgstr "Datenbankaktualisierungen"
+
+#: system.install:727;759
+msgid "Up to date"
+msgstr "Aktuell"
+
+#: system.install:753
+msgid "Out of date"
+msgstr "Veraltet"
+
+#: system.install:754
+msgid "Some modules have database schema updates to install. You should run the <a href=\":update\">database update script</a> immediately."
+msgstr "Einige Module müssen Änderungen an der Datenbank vornehmen. Das <a href=\":update\">Datenbankaktualisierungsskript</a> sollte umgehend ausgeführt werden."
+
+#: system.install:758
+msgid "Entity/field definitions"
+msgstr "Entitäts- bzw. Felddefinitionen"
+
+#: system.install:775
+msgid "Mismatched entity and/or field definitions"
+msgstr "Nicht übereinstimmende Entitäts- und/oder Felddefinitionen."
+
+#: system.install:776
+msgid "The following changes were detected in the entity type and field definitions. @updates"
+msgstr "Folgende Änderungen an den Entitätstypen und Felddefinitionen wurden festgestellt: @updates"
+
+#: system.install:786
+msgid "The update.php script is accessible to everyone without authentication check, which is a security risk. You must change the @settings_name value in your settings.php back to FALSE."
+msgstr "Das Update.php-Skript kann von jedem ausgeführt werden, ohne dass überprüft wird, ob eine Berechtigung zur Ausführung des Skripts vorliegt. Hierdurch entsteht ein Sicherheitsrisiko. Der Wert der Einstellung  @settings_name in der Datei settings.php mss zurück auf FALSE gesetzt werden."
+
+#: system.install:794
+msgid "Access to update.php"
+msgstr "Zugriff auf update.php"
+
+#: system.install:810
+msgid "@name requires at least PHP @version."
+msgstr "@name benötigt mindestens PHP @version."
+
+#: system.install:820;833
+msgid "Unresolved dependency"
+msgstr "Nicht auflösbare Abhängigkeit"
+
+#: system.install:821
+msgid "@name requires this module."
+msgstr "@name benötigt dieses Modul."
+
+#: system.install:822
+msgid "@required_name (Missing)"
+msgstr "@required_name (fehlt)"
+
+#: system.install:834
+msgid "@name requires this module and version. Currently using @required_name version @version"
+msgstr "@name benötigt dieses Modul und Version. Aktuell wird @required_name Version @version verwendet."
+
+#: system.install:835
+msgid "@required_name (Version @compatibility required)"
+msgstr "@required_name (Version @compatibility erforderlich)"
+
+#: system.install:846
+msgid "Standard PHP"
+msgstr "Standard-PHP"
+
+#: system.install:847
+msgid "PHP Mbstring Extension"
+msgstr "PHP-Erweiterung „mbstring“"
+
+#: system.install:848 src/Element/StatusReportPage.php:79
+msgid "Error"
+msgstr "Fehler"
+
+#: system.install:859
+msgid "Unicode library"
+msgstr "Unicode-Bibliothek"
+
+#: system.install:865
+msgid "Operations on Unicode strings are emulated on a best-effort basis. Install the <a href=\"http://php.net/mbstring\">PHP mbstring extension</a> for improved Unicode support."
+msgstr "Manipulationen an Unicode-Zeichenketten werden bestmöglich emuliert. Für verbesserten Unicode-Support installieren Sie die PHP-Erweiterung <a href=\"http://php.net/mbstring\">mbstring</a>."
+
+#: system.install:869
+msgid "Multibyte string function overloading in PHP is active and must be disabled. Check the php.ini <em>mbstring.func_overload</em> setting. Please refer to the <a href=\"http://php.net/mbstring\">PHP mbstring documentation</a> for more information."
+msgstr "„Multibyte string function overloading“ ist in PHP aktiviert und muss deaktiviert werden. Überprüfen Sie den <em>mbstring.func_overload</em> Eintrag in der php.ini. In der <a href=\"http://php.net/mbstring\">PHP mbstring Dokumentation</a> finden Sie weitere Informationen."
+
+#: system.install:873
+msgid "Multibyte string input conversion in PHP is active and must be disabled. Check the php.ini <em>mbstring.encoding_translation</em> setting. Please refer to the <a href=\"http://php.net/mbstring\">PHP mbstring documentation</a> for more information."
+msgstr "„Multibyte string input conversion“ ist in PHP aktiviert und muss deaktiviert werden. Überprüfen Sie den <em>mbstring.encoding_translation</em> Eintrag in der php.ini. In der <a href=\"http://php.net/mbstring\">PHP mbstring Dokumentation</a> finden Sie weitere Informationen."
+
+#: system.install:877
+msgid "Multibyte string input conversion in PHP is active and must be disabled. Check the php.ini <em>mbstring.http_input</em> setting. Please refer to the <a href=\"http://php.net/mbstring\">PHP mbstring documentation</a> for more information."
+msgstr "„Multibyte string input conversion“ ist in PHP aktiviert und muss deaktiviert werden. Überprüfen Sie den <em>mbstring.http_input</em> Eintrag in der php.ini. In der <a href=\"http://php.net/mbstring\">PHP mbstring Dokumentation</a> finden Sie weitere Informationen."
+
+#: system.install:881
+msgid "Multibyte string output conversion in PHP is active and must be disabled. Check the php.ini <em>mbstring.http_output</em> setting. Please refer to the <a href=\"http://php.net/mbstring\">PHP mbstring documentation</a> for more information."
+msgstr "„Multibyte string output conversion“ ist in PHP aktiviert und muss deaktiviert werden. Überprüfen Sie den <em>mbstring.http_output</em> Eintrag in der php.ini. In der <a href=\"http://php.net/mbstring\">PHP mbstring Dokumentation</a> finden Sie weitere Informationen."
+
+#: system.install:891
+msgid "Update notifications are not enabled. It is <strong>highly recommended</strong> that you enable the Update Manager module from the <a href=\":module\">module administration page</a> in order to stay up-to-date on new releases. For more information, <a href=\":update\">Update status handbook page</a>."
+msgstr "Die Aktualisierungsbenachrichtigungen sind nicht aktiviert. es wird <strong>dringend empfohlen</em> das Update-Manager-Modul</strong> zu aktivieren. Die Aktivierung des Moduls kann auf der Seite <a href=\":module\">Erweitern</a> durchgeführt werden. Weitere Informationen sind in der  <a href=\":update\">Online-Dokumentation zum Aktualisierungsstatus von Drupal</a> verfügbar."
+
+#: system.install:902
+msgid "Update notifications"
+msgstr "Aktualisierungsbenachrichtigung"
+
+#: system.install:906
+msgid "Rebuild access"
+msgstr "Zugriff neu aufbauen"
+
+#: system.install:909
+msgid "The rebuild_access setting is enabled in settings.php. It is recommended to have this setting disabled unless you are performing a rebuild."
+msgstr "Die Einstellung rebuild_access, in der Datei settings.php. ist aktiviert. Es wird empfohlen, diese Einstellung zu deaktivieren, wenn Sie keinen Neuaufbau der Drupal-Caches durchführen."
+
+#: system.install:920;928
+msgid "Trusted Host Settings"
+msgstr "Einstellungen für vertrauenswürdige Hosts"
+
+#: system.install:922
+msgid "The trusted_host_patterns setting is not configured in settings.php. This can lead to security vulnerabilities. It is <strong>highly recommended</strong> that you configure this. See <a href=\":url\">Protecting against HTTP HOST Header attacks</a> for more information."
+msgstr "Die Einstellung zu den trusted_host_patterns wird nicht über die settings.php Datei konfiguriert. Dies ist ein Sicherheitsrisiko. Es wird <strong>dringend empfohlen</strong> die Einstellung zu konfigurieren. Weitere Informationen zum <a href=\":url\">Schutz vor HTTP-Host-Header-Attacken</a> sind in der Online-Dokumentation verfügbar."
+
+#: system.install:930
+msgid "The trusted_host_patterns setting is set to allow %trusted_host_patterns"
+msgstr "Die Einstellung „trusted_host_patterns“ wurde so eingestellt, dass folgende Hostnamen vertrauenswürdig sind: %trusted_host_patterns"
+
+#: system.install:945
+msgid "Xdebug settings"
+msgstr "Xdebug-Einstellungen"
+
+#: system.install:946
+msgid "xdebug.max_nesting_level is set to %value."
+msgstr "Der Wert der Variable xdebug.max_nesting_level wurde auf %value gesetzt."
+
+#: system.install:947
+msgid "Set <code>xdebug.max_nesting_level=@level</code> in your PHP configuration as some pages in your Drupal site will not work when this setting is too low."
+msgstr "Der Wert <code>xdebug.max_nesting_level=@level</code> in  der Datei php.ini muss gesetzt werden, da einige Seiten der Drupal-Webseite nicht funktionieren werden, wenn dieser Wert zu niedrig eingestellt ist."
+
+#: system.install:978
+msgid "IIS httpoxy protection"
+msgstr "IIS Httpoxy-Schutz"
+
+#: system.install:979
+msgid "Your PHP runtime version is affected by the httpoxy vulnerability."
+msgstr "Die verwendete PHP-Version besitzt die Httpoxy-Sicherheitslücke."
+
+#: system.install:980
+msgid "Either update your PHP runtime version or uncomment the \"Erase HTTP_PROXY\" rule in your web.config file and add HTTP_PROXY to the allowed headers list. See more details in the <a href=\":link\">security advisory</a>."
+msgstr "Die Sicherheitslücke kann durch eine Aktualisierung der  PHP-Version oder das Entfernen des Kommentarzeichens vor der Zeile der in Erase HTTP_PROXY in der Datei web.config und dem Hinzufügen des HTTP_PROXY zur Liste der erlaubten Kopfdaten  geschlossen werden. Weitere Informationen hierzu sind in den <a href=\":link\">Sicherheitsanweisungen</a> verfügbar."
+
+#: system.install:996
+msgid "Windows installation depth"
+msgstr "Windows Installationstiefe"
+
+#: system.install:997
+msgid "The public files directory path is %depth characters. Paths longer than 120 characters will cause problems on Windows."
+msgstr "Der Pfad des öffentlichen Dateiverzeichnisses weist %depth Zeichen auf. Pfade mit mehr als 120 Zeichen verursachen unter Windows Probleme."
+
+#: system.install:1005
+msgid "Limited date range"
+msgstr "Begrenzter Datumsbereich"
+
+#: system.install:1006
+msgid "Your PHP installation has a limited date range."
+msgstr "Die PHP-Installation des Webservers hat einen begrenzten Datumsbereich."
+
+#: system.install:1007
+msgid "You are running on a system where PHP is compiled or limited to using 32-bit integers. This will limit the range of dates and timestamps to the years 1901-2038. Read about the <a href=\":url\">limitations of 32-bit PHP</a>."
+msgstr "Drupal wird auf einem System ausgeführt, auf dem PHP so kompiliert ist, dass es nur 32-Bit.Integer verwenden kann. Dies beschränkt den Datumsbereich von Datumsangaben und Zeitangaben auf die Jahre 1901-2038. Weitere Details sind unter  <a href=\":url\">Einschränkungen von 32-bit PHP-Systemen</a> verfügbar."
+
+#: system.install:1018
+msgid "Configuration install"
+msgstr "Konfigurationsinstallation"
+
+#: system.install:1020
+msgid "The selected profile has a hook_install() implementation and therefore can not be installed from configuration."
+msgstr "Das ausgewählte Profil hat eine hook_install() Implementierung und kann deshalb anhand dieser Konfiguration nicht installiert werden."
+
+#: system.install:1033
+msgid "Install profile in settings"
+msgstr "Installationsprofil in den Einstellungen"
+
+#: system.install:1034
+msgid "Drupal 8 no longer uses the $settings['install_profile'] value in settings.php and it can be removed."
+msgstr "Drupal 8 verwendet den $settings['install_profile'] Wert in settings.php nicht mehr. Deshalb kann dieser entfernt werden."
+
+#: system.install:1277
+msgid "Menu links converted"
+msgstr "Menülinks umgewandelt"
+
+#: system.install:1280
+msgid "Menu link conversion skipped, because the {menu_tree} table did not exist yet."
+msgstr "Die Menülinkumwandlung wurde  übersprungen, weil die {menu_tree}-Tabelle noch nicht existiert."
+
+#: system.install:1289
+msgid "The system.filter configuration has been moved to a container parameter, see default.services.yml for more information."
+msgstr "Die system.filter-Konfiguration wurde in einen Kontainerparameter verschoben. Weitere Informationen sind in der Datei default.service.yml verfügbar."
+
+#: system.install:1350
+msgid "Block module is not enabled so local actions and tasks which have been converted to blocks, are not visible anymore."
+msgstr "Das Block-Modul ist nicht aktiviert. Darum sind alle Aktionen und Aufgaben, die in Blöcke umgewandelt wurden nicht länger sichtbar."
+
+#: system.install:1488
+msgid "Because your site has custom theme(s) installed, we had to set local actions and tasks blocks into the content region. Please manually review the block configurations and remove the removed variables from your templates."
+msgstr "Weil auf der Website ein oder mehrere benutzerdefinierte Designs installiert sind, wurden die lokalen Aktions- und Aufgaben-Blöcke im Inhaltsbereich platziert. Die Blockkonfiguration muss manuell überprüft und die entfernten Variablen aus den Templates gelöscht werden."
+
+#: system.install:1501
+msgid "Block module is not enabled so site branding elements, which have been converted to a block, are not visible anymore."
+msgstr "Das Block-Modul ist nicht aktiviert. Solange das Block-Modul nicht aktiviert ist, können die Branding-Elemente auf der Website, die in Drupal 8 in Blöcke konvertiert wurden  nicht mehr angezeigt werden."
+
+#: system.install:1559
+msgid "Because your site has custom theme(s) installed, we had to set the branding block into the content region. Please manually review the block configuration and remove the site name, slogan, and logo variables from your templates."
+msgstr "Nachdem benutzerdefinierte Theme(s) auf der Website installiert sind wurde ein Branding-Block in der Inhalts-Region platziert. Bitte die Block-Einstellungen manuell überprüfen und Namen der Website-, Slogan- und Logo-Variablen aus den Templates entfernen."
+
+#: system.install:1709
+msgid "Block module is not enabled. The page title has been converted to a block, but default page title markup will still display at the top of the main content area."
+msgstr "Das Block-Modul ist nicht aktiviert. Der Seitentitel wurde in einen Block umgewandelt, wird jedoch nach wie vor zu Beginn des Hauptinhaltsbereichs angezeigt."
+
+#: system.install:1779
+msgid "Because your site has custom theme(s) installed, we have placed the page title block in the content region. Please manually review the block configuration and remove the page title variables from your page templates."
+msgstr "Weil auf der Website ein oder mehrere benutzerdfinierte Designs installiert sind, wurde der Block der den Seitentitel enthält im Abschnitt Inhalt platziert. Die Blockkonfiguration muss manuell überprüft und die Variable page title aus dem Template entfernt werden."
+
+#: system.install:2081
+msgid "Revision translation affected"
+msgstr "Auswirkung auf die Übersetzung der Revision"
+
+#: system.install:2082
+msgid "Indicates if the last edit of a translation belongs to current revision."
+msgstr "Zeigt an, ob die letzte Bearbeitung einer Übersetzung der aktuellen Revision entspricht."
+
+#: system.install:2160
+msgid "Default revision"
+msgstr "Standard-Revision"
+
+#: system.install:2161
+msgid "A flag indicating whether this was a default revision when it was saved."
+msgstr "Eine Kennzeichnung, die angibt, ob dies die Standardrevision zum Zeitpunkt des Speicherns war oder nicht."
+
+#: system.install:2203
+msgid "The %install_profile install profile configured in core.extension is not available."
+msgstr "Das in core.extension konfigurierte Installationsprofil %install_profile ist nicht verfügbar."
+
+#: system.install:2246
+msgid "The %install_profile install profile has been added to the installed module list."
+msgstr "Das Installationsprofil %install_profile wurde der Liste der installierten Module hinzugefügt."
+
+#: system.install:2176
+msgid "An existing \"Default revision\" field was found for the @entity_type_label entity type, but no \"revision_default\" revision metadata key was found in its definition."
+msgstr "Für den Entitätstype @entity_type_label wurde ein bereits vorhandenes „Standardrevisionsfeld“ gefunden. In dieser Definition wurde jedoch kein Metadaten für die Standardrevision gefunden."
+
+#: system.install:2179
+msgid "An existing \"Default revision\" field was found for the @entity_type_label entity type."
+msgstr "Für den Entitätstype @entity_type_label wurde ein bereits vorhandenes „Standardrevisionsfeld“ gefunden."
+
+#: system.info.yml:0 system.links.menu.yml:0 system.routing.yml:0 templates/status-report-general-info.html.twig:77
+msgid "System"
+msgstr "System"
+
+#: system.info.yml:0
+msgid "Handles general site configuration for administrators."
+msgstr "Ermöglicht Administratoren die Konfiguration grundlegender Informationen der Webseite."
+
+#: system.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: system.links.action.yml:0 src/Form/DateFormatAddForm.php:19
+msgid "Add format"
+msgstr "Format hinzufügen"
+
+#: system.links.menu.yml:0 system.routing.yml:0;0 config/install/system.menu.admin.yml:0
+msgid "Administration"
+msgstr "Verwaltung"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Structure"
+msgstr "Struktur"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Appearance"
+msgstr "Design"
+
+#: system.links.menu.yml:0
+msgid "Extend"
+msgstr "Erweitern"
+
+#: system.routing.yml:0
+msgctxt "With components"
+msgid "Extend"
+msgstr "Erweitern"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Media"
+msgstr "Media"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Image toolkit"
+msgstr "Bild-Toolkit"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Web services"
+msgstr "Web-Dienste"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "RSS publishing"
+msgstr "RSS-Feeds"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Development"
+msgstr "Entwicklung"
+
+#: system.links.menu.yml:0 system.routing.yml:0 config/schema/system.schema.yml:0
+msgid "Maintenance mode"
+msgstr "Wartungsmodus"
+
+#: system.links.menu.yml:0 system.links.task.yml:0 system.routing.yml:0
+msgid "Performance"
+msgstr "Leistung"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Logging and errors"
+msgstr "Protokollierung und Fehler"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Regional and language"
+msgstr "Länderspezifisches und Sprache"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Regional settings"
+msgstr "Regionale Einstellungen"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Date and time formats"
+msgstr "Datums- und Zeitformate"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Search and metadata"
+msgstr "Suche und Metadaten"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Basic site settings"
+msgstr "Grundeinstellungen der Website"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Cron"
+msgstr "Cron"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "User interface"
+msgstr "Benutzeroberfläche"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Workflow"
+msgstr "Arbeitsablauf"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Content authoring"
+msgstr "Inhaltserstellung"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Reports"
+msgstr "Berichte"
+
+#: system.links.menu.yml:0 system.routing.yml:0
+msgid "Status report"
+msgstr "Statusbericht"
+
+#: system.links.menu.yml:0
+msgid "Find and manage content."
+msgstr "Inhalte finden und verwalten."
+
+#: system.links.menu.yml:0
+msgid "Administer blocks, content types, menus, etc."
+msgstr "Blöcke, Inhaltstypen, Menüs, etc. verwalten"
+
+#: system.links.menu.yml:0
+msgid "Select and configure themes."
+msgstr "Designs auswählen und verwalten."
+
+#: system.links.menu.yml:0
+msgid "Add and enable modules to extend site functionality."
+msgstr "Module hinzufügen und aktivieren, um die Funktionalität der Website zu erweitern."
+
+#: system.links.menu.yml:0
+msgid "Administer settings."
+msgstr "Einstellungen verwalten."
+
+#: system.links.menu.yml:0
+msgid "Configure the location of uploaded files and how they are accessed."
+msgstr "Den Speicherort für hochgeladene Dateien und den Zugriff auf diese konfigurieren."
+
+#: system.links.menu.yml:0
+msgid "Choose which image toolkit to use if you have installed optional toolkits."
+msgstr "Auswählen, welches Bilder-Tookit benutzt wird, wenn mehrere installiert sind."
+
+#: system.links.menu.yml:0
+msgid "Configure the site description, the number of items per feed, and whether feeds should be titles/teasers/full-text."
+msgstr "Hier können die Beschreibung der Website, die Anzahl der Einträge und der Inhalt des Feeds konfiguriert werden."
+
+#: system.links.menu.yml:0
+msgid "Configure and use development tools."
+msgstr "Entwicklerwerkzeuge konfigurieren und benutzen."
+
+#: system.links.menu.yml:0
+msgid "Take the site offline for updates and other maintenance tasks."
+msgstr "Die Website für Aktualisierungen und weitere Wartungsaufgaben offline setzen."
+
+#: system.links.menu.yml:0
+msgid "Configure caching and bandwidth optimization."
+msgstr "Cache-Einstellungen und Bandbreitenoptimierung konfigurieren."
+
+#: system.links.menu.yml:0
+msgid "Configure the display of error messages and database logging."
+msgstr "Die Anzeige von Fehlermeldungen sowie die Aufzeichnung des Stystemprotokolls konfigurieren."
+
+#: system.links.menu.yml:0
+msgid "Configure regional settings, localization, and translation."
+msgstr "Regionale Einstellungen, Lokalisierung und Übersetzung."
+
+#: system.links.menu.yml:0
+msgid "Configure the locale and timezone settings."
+msgstr "Regional- und Zeitzoneneinstellungen vornehmen."
+
+#: system.links.menu.yml:0
+msgid "Configure how dates and times are displayed."
+msgstr "Die Darstellung von Datums- und Zeitangaben konfigurieren."
+
+#: system.links.menu.yml:0
+msgid "Configure site search, metadata, and search engine optimization."
+msgstr "Konfigurieren der Website-Suche, Metadaten und Suchmaschinenoptimierung."
+
+#: system.links.menu.yml:0
+msgid "Configure basic site settings, actions, and cron."
+msgstr "Grundeinstellungen der Website, Aktionen und Cron konfigurieren."
+
+#: system.links.menu.yml:0
+msgid "Change site name, email address, slogan, default front page, and error pages."
+msgstr "Ändern von Name, E-Mail-Adresse, Slogan, Standard-Startseite und Fehlerseiten der Website."
+
+#: system.links.menu.yml:0
+msgid "Manage automatic site maintenance tasks."
+msgstr "Automatische Wartungsaufgaben steuern."
+
+#: system.links.menu.yml:0
+msgid "Configure the administrative user interface."
+msgstr "Die Benutzeroberfläche des Administrationsbereichs verwalten."
+
+#: system.links.menu.yml:0
+msgid "Manage the content workflow."
+msgstr "Arbeitsabläufe für Inhalte verwalten."
+
+#: system.links.menu.yml:0
+msgid "Configure content formatting and authoring."
+msgstr "Formatierung und Bearbeitungsoptionen konfigurieren"
+
+#: system.links.menu.yml:0
+msgid "View reports, updates, and errors."
+msgstr "Berichte, Aktualisierungen und Fehler anzeigen."
+
+#: system.links.menu.yml:0
+msgid "Get a status report about your site's operation."
+msgstr "Einen Statusbericht über die Funktionalität der Website erhalten."
+
+#: system.links.task.yml:0;0;0;0 src/Controller/SystemController.php:240
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: system.links.task.yml:0;0;0
+msgid "List"
+msgstr "Liste"
+
+#: system.links.task.yml:0
+msgid "Global settings"
+msgstr "Globale Einstellungen"
+
+#: system.links.task.yml:0
+msgid "Theme name"
+msgstr "Theme-Name"
+
+#: system.links.task.yml:0 system.routing.yml:0 src/Controller/SystemController.php:259 src/Form/ModulesUninstallConfirmForm.php:109 src/Form/ModulesUninstallForm.php:163 templates/system-modules-uninstall.html.twig:29
+msgid "Uninstall"
+msgstr "Deinstallieren"
+
+#: system.links.task.yml:0
+msgid "Tasks"
+msgstr "Aufgaben"
+
+#: system.links.task.yml:0
+msgid "Index"
+msgstr "Index"
+
+#: system.links.task.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: system.permissions.yml:0
+msgid "Administer modules"
+msgstr "Module verwalten"
+
+#: system.permissions.yml:0
+msgid "Administer site configuration"
+msgstr "Konfiguration der Website verwalten"
+
+#: system.permissions.yml:0
+msgid "Administer themes"
+msgstr "Themes verwalten"
+
+#: system.permissions.yml:0
+msgid "Administer software updates"
+msgstr "Softwareaktualisierung verwalten"
+
+#: system.permissions.yml:0
+msgid "Use the administration pages and help"
+msgstr "Verwaltungsbereich und Hilfe verwenden"
+
+#: system.permissions.yml:0
+msgid "Use the site in maintenance mode"
+msgstr "Die Website im Wartungsmodus verwenden"
+
+#: system.permissions.yml:0
+msgid "View the administration theme"
+msgstr "Verwaltungs-Theme anzeigen"
+
+#: system.permissions.yml:0
+msgid "This is only used when the site is configured to use a separate administration theme on the Appearance page."
+msgstr "Dies wird nur verwendet, wenn für die Website auf der Seite Design ein anderes Verwaltungs-Theme eingerichtet wurde."
+
+#: system.permissions.yml:0
+msgid "View published content"
+msgstr "Veröffentlichte Inhalte anzeigen"
+
+#: system.permissions.yml:0
+msgid "View site reports"
+msgstr "Website-Berichte anzeigen"
+
+#: system.permissions.yml:0
+msgid "Link to any page"
+msgstr "Auf eine beliebige Seite verlinken"
+
+#: system.permissions.yml:0
+msgid "This allows to bypass access checking when linking to internal paths."
+msgstr "Dies ermöglicht die Umgehung der Überprüfung der Zugriffsberechtigung, wenn auf interne Pfade verlinkt wird."
+
+#: system.permissions.yml:0
+msgid "Administer menus and menu items"
+msgstr "Menüs und Menüeinträge verwalten"
+
+#: system.routing.yml:0
+msgid "Unauthorized"
+msgstr "Nicht autorisiert"
+
+#: system.routing.yml:0
+msgid "Access denied"
+msgstr "Zugriff verweigert"
+
+#: system.routing.yml:0
+msgid "Page not found"
+msgstr "Die Seite wurde nicht gefunden"
+
+#: system.routing.yml:0
+msgid "Client error"
+msgstr "Clientfehler"
+
+#: system.routing.yml:0
+msgid "Add date format"
+msgstr "Datumsformat hinzufügen"
+
+#: system.routing.yml:0
+msgid "Edit date format"
+msgstr "Datumsformat bearbeiten"
+
+#: system.routing.yml:0
+msgid "Delete date format"
+msgstr "Datumsformat löschen"
+
+#: system.routing.yml:0 src/Form/ModulesListConfirmForm.php:81
+msgid "Some required modules must be enabled"
+msgstr "Benötigte Module müssen aktiviert werden."
+
+#: system.routing.yml:0
+msgid "Experimental modules"
+msgstr "Experimentelle Module"
+
+#: system.routing.yml:0
+msgid "Set as default theme"
+msgstr "Als Standard-Theme festlegen"
+
+#: system.routing.yml:0
+msgid "Appearance settings"
+msgstr "Design-Einstellungen"
+
+#: system.routing.yml:0 src/PathBasedBreadcrumbBuilder.php:190 src/Plugin/Block/SystemBrandingBlock.php:162 templates/block--system-branding-block.html.twig:20;21;25 templates/maintenance-page.html.twig:16;17;24
+msgid "Home"
+msgstr "Startseite"
+
+#: system.routing.yml:0 src/Form/ModulesUninstallConfirmForm.php:102
+msgid "Confirm uninstall"
+msgstr "Deinstallation bestätigen"
+
+#: config/schema/system.schema.yml:0
+msgid "Site UUID"
+msgstr "UUID der Website"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:104 src/Form/SystemBrandingOffCanvasForm.php:87 src/Plugin/Block/SystemBrandingBlock.php:129
+msgid "Site name"
+msgstr "Name der Website"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:116
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: config/schema/system.schema.yml:0 src/Plugin/Condition/RequestPath.php:105
+msgid "Pages"
+msgstr "Seiten"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:142
+msgid "Default 403 (access denied) page"
+msgstr "Seite für 403-Fehler (Zugriff verweigert)"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:149
+msgid "Default 404 (not found) page"
+msgstr "Seite für 404-Fehler (Seite wurde nicht gefunden)"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteInformationForm.php:129
+msgid "Default front page"
+msgstr "Standard-Startseite"
+
+#: config/schema/system.schema.yml:0
+msgid "Compact mode"
+msgstr "Kompakter Modus"
+
+#: config/schema/system.schema.yml:0
+msgid "Weight element maximum value"
+msgstr "Maximalwert für die Gewichtung der Elemente"
+
+#: config/schema/system.schema.yml:0
+msgid "Site default language code"
+msgstr "Standard-Sprachkürzel der Website"
+
+#: config/schema/system.schema.yml:0
+msgid "Notification email address"
+msgstr "E-Mail-Adresse für Benachrichtigungen"
+
+#: config/schema/system.schema.yml:0 src/Form/SiteMaintenanceModeForm.php:89
+msgid "Message to display when in maintenance mode"
+msgstr "Im Wartungsmodus anzuzeigende Nachricht"
+
+#: config/schema/system.schema.yml:0
+msgid "Authorize settings"
+msgstr "Autorisierungseinstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Default file transfer protocol"
+msgstr "Standardprotokoll für die Dateiübertragung"
+
+#: config/schema/system.schema.yml:0 src/Form/CronForm.php:129
+msgid "Cron settings"
+msgstr "Cron-Einstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Thresholds"
+msgstr "Grenzwerte"
+
+#: config/schema/system.schema.yml:0
+msgid "Requirements warning period"
+msgstr "Warnungsperiode der Anforderungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Requirements error period"
+msgstr "Fehlerperiode der Anforderungen"
+
+#: config/schema/system.schema.yml:0 src/Form/CronForm.php:136
+msgid "Detailed cron logging"
+msgstr "Detaillierte Cron-Protokollierung"
+
+#: config/schema/system.schema.yml:0
+msgid "Date settings"
+msgstr "Datumseinstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:89
+msgid "First day of week"
+msgstr "Erster Tag der Woche"
+
+#: config/schema/system.schema.yml:0
+msgid "Country"
+msgstr "Land"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:80
+msgid "Default country"
+msgstr "Standard-Land"
+
+#: config/schema/system.schema.yml:0
+msgid "Time zone settings"
+msgstr "Zeitzoneneinstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:102;136
+msgid "Default time zone"
+msgstr "Standardzeitzone"
+
+#: config/schema/system.schema.yml:0
+msgid "User"
+msgstr "Benutzer"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:110
+msgid "Users may set their own time zone"
+msgstr "Benutzer dürfen ihre Zeitzone selbst einstellen"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:133
+msgid "Time zone for new users"
+msgstr "Zeitzone für neue Benutzer"
+
+#: config/schema/system.schema.yml:0 src/Form/RegionalForm.php:126
+msgid "Remind users at login if their time zone is not set"
+msgstr "Benutzer beim Anmelden erinnern, wenn ihre Zeitzone nicht eingestellt ist"
+
+#: config/schema/system.schema.yml:0
+msgid "Diff settings"
+msgstr "Diff-Einstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Context"
+msgstr "Kontext"
+
+#: config/schema/system.schema.yml:0
+msgid "Number of leading lines in a diff"
+msgstr "Anzahl der anführenden Zeilen in einem Diff"
+
+#: config/schema/system.schema.yml:0
+msgid "Number of trailing lines in a diff"
+msgstr "Anzahl der abschließenden Zeilen in einem Diff"
+
+#: config/schema/system.schema.yml:0
+msgid "Logging settings"
+msgstr "Protokollierungseinstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/LoggingForm.php:36
+msgid "Error messages to display"
+msgstr "Anzuzeigende Fehlermeldungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Performance settings"
+msgstr "Leistungseinstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/PerformanceForm.php:121
+msgid "Caching"
+msgstr "Cache"
+
+#: config/schema/system.schema.yml:0
+msgid "Page caching"
+msgstr "Seitencaching"
+
+#: config/schema/system.schema.yml:0
+msgid "Max age"
+msgstr "Max. Alter"
+
+#: config/schema/system.schema.yml:0
+msgid "CSS performance settings"
+msgstr "CSS-Performance-Einstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/PerformanceForm.php:158
+msgid "Aggregate CSS files"
+msgstr "CSS-Dateien aggregieren"
+
+#: config/schema/system.schema.yml:0
+msgid "Compress CSS files"
+msgstr "CSS-Dateien komprimieren"
+
+#: config/schema/system.schema.yml:0
+msgid "Fast 404 settings"
+msgstr "„Fast 404“-Einstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Fast 404 enabled"
+msgstr "„Fast-404“ aktiviert"
+
+#: config/schema/system.schema.yml:0
+msgid "Regular expression to match"
+msgstr "Zu erfüllender regulärer Ausdruchk"
+
+#: config/schema/system.schema.yml:0
+msgid "Regular expression to not match"
+msgstr "Regulärer Ausdruck, der nicht erfüllt werden darf"
+
+#: config/schema/system.schema.yml:0
+msgid "Fast 404 page html"
+msgstr "Fast 404 HTML-Seite"
+
+#: config/schema/system.schema.yml:0
+msgid "JavaScript performance settings"
+msgstr "JavaScript-Leistungseinstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "JavaScript preprocess"
+msgstr "JavaScript-Aufbereitung"
+
+#: config/schema/system.schema.yml:0
+msgid "Compress JavaScript files."
+msgstr "JavaScript-Dateien komprimieren."
+
+#: config/schema/system.schema.yml:0
+msgid "Stale file threshold"
+msgstr "Schwellwert für veraltete Dateien"
+
+#: config/schema/system.schema.yml:0
+msgid "Feed settings"
+msgstr "Newsfeed-Einstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Feed channel"
+msgstr "Feed-Kanal"
+
+#: config/schema/system.schema.yml:0 src/Form/RssFeedsForm.php:36
+msgid "Feed description"
+msgstr "Feed-Beschreibung"
+
+#: config/schema/system.schema.yml:0
+msgid "Feed items"
+msgstr "Newsfeed-Elemente"
+
+#: config/schema/system.schema.yml:0
+msgid "Feed item limit"
+msgstr "Feed-Eintragsbegrenzung"
+
+#: config/schema/system.schema.yml:0 src/Form/RssFeedsForm.php:50
+msgid "Feed content"
+msgstr "Inhalt des Feeds"
+
+#: config/schema/system.schema.yml:0
+msgid "Theme settings"
+msgstr "Theme-Einstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/ThemeAdminForm.php:36;42
+msgid "Administration theme"
+msgstr "Verwaltungs-Theme"
+
+#: config/schema/system.schema.yml:0 src/Form/ThemeAdminForm.php:41
+msgid "Default theme"
+msgstr "Standard-Theme"
+
+#: config/schema/system.schema.yml:0 src/Entity/Menu.php:9 src/Plugin/Block/SystemMenuBlock.php:14
+msgid "Menu"
+msgstr "Menü"
+
+#: config/schema/system.schema.yml:0;0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/system.schema.yml:0
+msgid "Menu description"
+msgstr "Menü-Beschreibung"
+
+#: config/schema/system.schema.yml:0
+msgid "System action"
+msgstr "System-Aktion"
+
+#: config/schema/system.schema.yml:0 src/Plugin/migrate/source/Extension.php:38
+msgid "Type"
+msgstr "Typ"
+
+#: config/schema/system.schema.yml:0
+msgid "Plugin"
+msgstr "Plugin"
+
+#: config/schema/system.schema.yml:0
+msgid "Allow insecure uploads"
+msgstr "Unsichere Uploads erlauben"
+
+#: config/schema/system.schema.yml:0 src/Form/FileSystemForm.php:118
+msgid "Default download method"
+msgstr "Standard-Downloadmethode"
+
+#: config/schema/system.schema.yml:0
+msgid "Path settings"
+msgstr "Pfadeinstellungen"
+
+#: config/schema/system.schema.yml:0 src/Form/FileSystemForm.php:105
+msgid "Temporary directory"
+msgstr "Temporäres Verzeichnis"
+
+#: config/schema/system.schema.yml:0
+msgid "Maximum age for temporary files"
+msgstr "Höchstalter für temporäre Dateien"
+
+#: config/schema/system.schema.yml:0;0
+msgid "Image settings"
+msgstr "Bildeinstellungen"
+
+#: config/schema/system.schema.yml:0
+msgid "Toolkit"
+msgstr "Toolkit"
+
+#: config/schema/system.schema.yml:0 src/Plugin/ImageToolkit/GDToolkit.php:164
+msgid "JPEG quality"
+msgstr "JPEG-Qualität"
+
+#: config/schema/system.schema.yml:0
+msgid "Mail system"
+msgstr "Mailsystem"
+
+#: config/schema/system.schema.yml:0
+msgid "Interfaces"
+msgstr "Schnittstellen"
+
+#: config/schema/system.schema.yml:0
+msgid "Interface"
+msgstr "Benutzeroberfläche"
+
+#: config/schema/system.schema.yml:0
+msgid "Theme global settings"
+msgstr "Globale Einstellungen des Themes"
+
+#: config/schema/system.schema.yml:0
+msgid "Branding block"
+msgstr "Branding-Block"
+
+#: config/schema/system.schema.yml:0
+msgid "Use site logo"
+msgstr "Logo der Website verwenden"
+
+#: config/schema/system.schema.yml:0
+msgid "Use site name"
+msgstr "Namen der Website verwenden"
+
+#: config/schema/system.schema.yml:0
+msgid "Use site slogan"
+msgstr "Website-Slogan verwenden"
+
+#: config/schema/system.schema.yml:0
+msgid "Menu block"
+msgstr "Menüblock"
+
+#: config/schema/system.schema.yml:0
+msgid "Starting level"
+msgstr "Startebene"
+
+#: config/schema/system.schema.yml:0
+msgid "Maximum number of levels"
+msgstr "Maximale Anzahl an Ebenen"
+
+#: config/schema/system.schema.yml:0
+msgid "Expand all items"
+msgstr "Alle Elemente ausklappen"
+
+#: config/schema/system.schema.yml:0
+msgid "Tabs block"
+msgstr "Reiterblock"
+
+#: config/schema/system.schema.yml:0
+msgid "Whether primary tabs are shown"
+msgstr "Ob primäre Reiter angezeigt werden"
+
+#: config/schema/system.schema.yml:0
+msgid "Whether secondary tabs are shown"
+msgstr "Ob sekundäre Reiter angezeigt werden"
+
+#: js/system.modules.es6.js:0 js/system.modules.js:0
+msgid "!modules modules are available in the modified list."
+msgstr "!modules Module sind in der Modulfeldlsite verfügbar."
+
+#: src/CronController.php:60 src/Form/CronForm.php:166
+msgid "Cron ran successfully."
+msgstr "Cron-Lauf erfolgreich."
+
+#: src/CronController.php:63 src/Form/CronForm.php:169
+msgid "Cron run failed."
+msgstr "Cron-Lauf fehlgeschlagen."
+
+#: src/DateFormatListBuilder.php:58
+msgid "Pattern"
+msgstr "Muster"
+
+#: src/SystemConfigSubscriber.php:60
+msgid "This import is empty and if applied would delete all of your configuration, so has been rejected."
+msgstr "Dieser Import ist leer. Würde dieser Import übernommen gingen all Ihre Konfigurationseinstellungen verloren. Deshalb wurde der Import nicht durchgeführt."
+
+#: src/SystemConfigSubscriber.php:76
+msgid "This import does not contain system.site configuration, so has been rejected."
+msgstr "Dieser Import enthält keine system.site-Konfiguration und wurde deshalb zurückgewiesen."
+
+#: src/SystemConfigSubscriber.php:79
+msgid "Site UUID in source storage does not match the target storage."
+msgstr "Die UUID der Seite im Quellspeicher entspricht nicht der UUID im Zielspeicher."
+
+#: src/SystemManager.php:170 src/Controller/SystemController.php:148
+msgid "You do not have any administrative items."
+msgstr "Keine Administrationsobjekte verfügbar."
+
+#: src/Access/CronAccessCheck.php:24
+msgid "Cron could not run because an invalid key was used."
+msgstr "Cron konnte nicht durchgeführt werden, weil ein ungültiger Schlüssel verwendet wurde."
+
+#: src/Access/CronAccessCheck.php:28
+msgid "Cron could not run because the site is in maintenance mode."
+msgstr "Cron konnte nicht durchgeführt werden, weil sich die Website im Wartungsmodus befindet."
+
+#: src/Controller/DbUpdateController.php:194
+msgid "Drupal database update"
+msgstr "Drupal-Datenbankaktualisierung"
+
+#: src/Controller/DbUpdateController.php:216
+msgid "Use this utility to update your database whenever a new release of Drupal or a module is installed."
+msgstr "Diese Funktion sollte jedesmal verwendet werden, wenn eine neue Version von Drupal oder ein Modul installiert wurde."
+
+#: src/Controller/DbUpdateController.php:216
+msgid "For more detailed information, see the <a href=\"https://www.drupal.org/upgrade\">upgrading handbook</a>. If you are unsure what these terms mean you should probably contact your hosting provider."
+msgstr "Weitere Informationen sind im <a href=\"https://www.drupal.org/upgrade\">Aktualisierungshandbuch</a> Verfügbar. Wenn Sie sich nicht sicher sind, was diese Meldung bedeutet, nehmen Sie bitte Kontakt zu Ihrem Hosting-Anbieter auf."
+
+#: src/Controller/DbUpdateController.php:219
+msgid "<strong>Back up your code</strong>. Hint: when backing up module code, do not leave that backup in the 'modules' or 'sites/*/modules' directories as this may confuse Drupal's auto-discovery mechanism."
+msgstr "<strong>Alle Dateien sichern</strong>. Hinweis: Backups von Modulcode nicht in den Verzeichnissen 'modules' oder 'sites/*/modules' speichern, denn diese würden Drupals Auto-Discovery-Mechanismus durcheinander bringen."
+
+#: src/Controller/DbUpdateController.php:220
+msgid "Put your site into <a href=\":url\">maintenance mode</a>."
+msgstr "Ihre Website in den <a href=\":url\">Wartungsmodus</a> versetzen."
+
+#: src/Controller/DbUpdateController.php:223
+msgid "<strong>Back up your database</strong>. This process will change your database values and in case of emergency you may need to revert to a backup."
+msgstr "<strong>Führen Sie eine Sicherung der Datenbank durch</strong>. Dieser Prozess ändert Ihre Datenbankwerte und im Notfall kann es erforderlich sein, zu einer Sicherung zurückzukehren."
+
+#: src/Controller/DbUpdateController.php:224
+msgid "Install your new files in the appropriate location, as described in the handbook."
+msgstr "Neue Dateien am entsprechenden Ort ablegen (wie in der Online-Dokumentation beschrieben)."
+
+#: src/Controller/DbUpdateController.php:231
+msgid "When you have performed the steps above, you may proceed."
+msgstr "Wenn Sie die obigen Schritte durchgeführt haben, können Sie fortfahren."
+
+#: src/Controller/DbUpdateController.php:236 src/Form/ModulesListConfirmForm.php:95
+msgid "Continue"
+msgstr "Weiter"
+
+#: src/Controller/DbUpdateController.php:324
+msgid "This update will been skipped due to the following missing dependencies:"
+msgstr "Diese Aktualisierung wird wegen folgender fehlender Abhängigkeiten übersprungen:"
+
+#: src/Controller/DbUpdateController.php:327
+msgid "This update will be skipped due to an error in the module's code."
+msgstr "Diese Aktualisierung wird wegen eines Fehlers im Code des Moduls übersprungen."
+
+#: src/Controller/DbUpdateController.php:338
+msgid "Some of the pending updates cannot be applied because their dependencies were not met."
+msgstr "Manche der anstehenden Aktualisierungen können nicht angewendet werden, da die Voraussetzungen nicht erfüllt sind."
+
+#: src/Controller/DbUpdateController.php:342
+msgid "No pending updates."
+msgstr "Keine ausstehenden Aktualisierungen."
+
+#: src/Controller/DbUpdateController.php:354
+msgid "The version of Drupal you are updating from has been automatically detected."
+msgstr "Die bestehende Drupal-Version, die aktualisiert werden soll, wurde automatisch ermittelt."
+
+#: src/Controller/DbUpdateController.php:373
+msgid "Apply pending updates"
+msgstr "Ausstehende Aktualisierungen durchführen"
+
+#: src/Controller/DbUpdateController.php:400
+msgid "All errors have been <a href=\":url\">logged</a>."
+msgstr "Alle Fehler wurden  <a href=\":url\">protokolliert</a>."
+
+#: src/Controller/DbUpdateController.php:405
+msgid "All errors have been logged."
+msgstr "Alle Fehlermeldungen wurden protokolliert."
+
+#: src/Controller/DbUpdateController.php:409
+msgid "Updates were attempted. If you see no failures below, you may proceed happily back to your <a href=\":url\">site</a>. Otherwise, you may need to update your database manually."
+msgstr "Alle Aktualisierungen wurden angewendet. Werden weiter unten keine Fehler aufgeführt, kann die <a href=\":url\">Website</a> wieder verwendet werden. Andernfalls muss die Datenbank manuell aktualisiert werden."
+
+#: src/Controller/DbUpdateController.php:414
+msgid "The update process was aborted prematurely while running <strong>update #@version in @module.module</strong>."
+msgstr "Der Aktualisierungsvorgang wurde an folgender Stelle vorzeitig unterbrochen: <strong>Aktualisierung #@version in @module.module</strong>."
+
+#: src/Controller/DbUpdateController.php:419
+msgid "You may need to check the <code>watchdog</code> database table manually."
+msgstr "Die <code>Watchdog</code>-Datenbanktabelle muss eventuell manuell überprüft werden."
+
+#: src/Controller/DbUpdateController.php:425
+msgid "<strong>Reminder: don't forget to set the <code>$settings['update_free_access']</code> value in your <code>settings.php</code> file back to <code>FALSE</code>.</strong>"
+msgstr "<strong>Zur Erinnerung: vergessen Sie nicht den Wert <code>$settings['update_free_access']</code> in Ihrer Datei <code>settings.php</code> wieder auf <code>FALSE</code> zu setzen.</strong>"
+
+#: src/Controller/DbUpdateController.php:460
+msgid "Failed:"
+msgstr "Fehlgeschlagen:"
+
+#: src/Controller/DbUpdateController.php:468
+msgid "Update #@count"
+msgstr "Aktualisierung #@count"
+
+#: src/Controller/DbUpdateController.php:471
+msgid "Update @name"
+msgstr "@name aktualisieren"
+
+#: src/Controller/DbUpdateController.php:486
+msgid "@module module"
+msgstr "Modul @module"
+
+#: src/Controller/DbUpdateController.php:497
+msgid "The following updates returned messages:"
+msgstr "Die folgenden Aktualisierungen haben Nachrichten zurückgegeben:"
+
+#: src/Controller/DbUpdateController.php:527
+msgid "Check the messages and <a href=\":url\">try again</a>."
+msgstr "Die Meldungen überprüfen und <a href=\":url\">nochmal versuchen</a>."
+
+#: src/Controller/DbUpdateController.php:530
+msgid "Requirements problem"
+msgstr "Nicht erfüllte Systemvoraussetzungen"
+
+#: src/Controller/DbUpdateController.php:547
+msgid "Verify requirements"
+msgstr "Systemvoraussetzungen überprüfen"
+
+#: src/Controller/DbUpdateController.php:548
+msgid "Overview"
+msgstr "Übersicht"
+
+#: src/Controller/DbUpdateController.php:549
+msgid "Review updates"
+msgstr "Aktualisierungen prüfen"
+
+#: src/Controller/DbUpdateController.php:550
+msgid "Run updates"
+msgstr "Aktualisierungen durchführen"
+
+#: src/Controller/DbUpdateController.php:551
+msgid "Review log"
+msgstr "Protokollmeldungen prüfen"
+
+#: src/Controller/DbUpdateController.php:622
+msgid "Updating"
+msgstr "Aktualisiere"
+
+#: src/Controller/DbUpdateController.php:623
+msgid "Starting updates"
+msgstr "Aktualisierungen werden gestartet"
+
+#: src/Controller/DbUpdateController.php:624
+msgid "An unrecoverable error has occurred. You can find the error message below. It is advised to copy it to the clipboard for reference."
+msgstr "Ein nicht zu behebender Fehler ist aufgetreten – siehe nachfolgende Fehlermeldung. Es empfiehlt sich, diese zwecks Bezugnahme in die Zwischenablage zu kopieren."
+
+#: src/Controller/DbUpdateController.php:677 src/Form/SiteInformationForm.php:123
+msgid "Front page"
+msgstr "Startseite"
+
+#: src/Controller/DbUpdateController.php:682
+msgid "Administration pages"
+msgstr "Verwaltungsseiten"
+
+#: src/Controller/DbUpdateController.php:358
+msgid "1 pending update (@number_applied to be applied, @number_incompatible skipped)"
+msgid_plural "@count pending updates (@number_applied to be applied, @number_incompatible skipped)"
+msgstr[0] "1 ausstehende Aktualisierung (@number_applied anzuwenden, @number_incompatible übersprungen)"
+msgstr[1] "@count ausstehende Aktualisierungen (@number_applied anzuwenden, @number_incompatible übersprungen)"
+
+#: src/Controller/DbUpdateController.php:366
+msgid "1 pending update"
+msgid_plural "@count pending updates"
+msgstr[0] "1 ausstehende Aktualisierung"
+msgstr[1] "@count ausstehende Aktualisierungen"
+
+#: src/Controller/Http4xxController.php:20
+msgid "A client error happened"
+msgstr "Ein Client-Fehler ist aufgetreten"
+
+#: src/Controller/Http4xxController.php:32
+msgid "Please log in to access this page."
+msgstr "Melden Sie sich bitte an, um auf diese Seite zuzugreifen."
+
+#: src/Controller/Http4xxController.php:44
+msgid "You are not authorized to access this page."
+msgstr "Sie haben keine Zugriffsberechtigung für diese Seite."
+
+#: src/Controller/Http4xxController.php:56
+msgid "The requested page could not be found."
+msgstr "Die angeforderte Seite konnte nicht gefunden werden."
+
+#: src/Controller/SystemController.php:103
+msgid "One or more problems were detected with your Drupal installation. Check the <a href=\":status\">status report</a> for more information."
+msgstr "Es wurden ein oder mehrere Probleme in der vorliegenden Drupal-Installation entdeckt. Weitere Informationen hierzu sind im <a href=\":status\">Statusbericht</a> verfügbar."
+
+#: src/Controller/SystemController.php:216;217
+msgid "Screenshot for @theme theme"
+msgstr "Screenshot des @theme Themes"
+
+#: src/Controller/SystemController.php:242
+msgid "Settings for @theme theme"
+msgstr "Einstellungen des @theme Themes"
+
+#: src/Controller/SystemController.php:262
+msgid "Uninstall @theme theme"
+msgstr "@theme Theme deinstallieren"
+
+#: src/Controller/SystemController.php:266
+msgid "Set as default"
+msgstr "Als Standard verwenden"
+
+#: src/Controller/SystemController.php:269
+msgid "Set @theme as default theme"
+msgstr "@theme als Standardtheme festlegen"
+
+#: src/Controller/SystemController.php:276 src/Form/ModulesListForm.php:193;264
+msgid "Install"
+msgstr "Installieren"
+
+#: src/Controller/SystemController.php:279
+msgid "Install @theme theme"
+msgstr "@theme Theme installieren"
+
+#: src/Controller/SystemController.php:282
+msgid "Install and set as default"
+msgstr "Installieren und als Standard festlegen"
+
+#: src/Controller/SystemController.php:285
+msgid "Install @theme as default theme"
+msgstr "Theme @theme als Standard installieren"
+
+#: src/Controller/SystemController.php:293
+msgid "default theme"
+msgstr "Standard-Theme"
+
+#: src/Controller/SystemController.php:296
+msgid "administration theme"
+msgstr "Verwaltungs-Theme"
+
+#: src/Controller/SystemController.php:305
+msgid "Installed theme"
+msgid_plural "Installed themes"
+msgstr[0] "Installiertes Theme"
+msgstr[1] "Installierte Themes"
+
+#: src/Controller/SystemController.php:308
+msgid "Uninstalled theme"
+msgid_plural "Uninstalled themes"
+msgstr[0] "Deinstalliertes Theme"
+msgstr[1] "Deinstallierte Themes"
+
+#: src/Controller/SystemInfoController.php:66
+msgid "The phpinfo() function has been disabled for security reasons. For more information, visit <a href=\":phpinfo\">Enabling and disabling phpinfo()</a> handbook page."
+msgstr "Die Funktion phpinfo() wurde aus Sicherheitsgründen deaktiviert. Weitere Informationen sind auf der Seite <a href=\":phpinfo\">phpinfo() aktivieren und deaktivieren</a> in der Online-Dokumentation verfügbar.."
+
+#: src/Controller/ThemeController.php:74
+msgid "%theme is the default theme and cannot be uninstalled."
+msgstr "%theme ist das Standard-Theme und kann nicht deinstalliert werden."
+
+#: src/Controller/ThemeController.php:78
+msgid "The %theme theme has been uninstalled."
+msgstr "Das Theme %theme wurde deinstalliert."
+
+#: src/Controller/ThemeController.php:82;114;184
+msgid "The %theme theme was not found."
+msgstr "Das Theme %theme wurde nicht gefunden."
+
+#: src/Controller/ThemeController.php:111
+msgid "The %theme theme has been installed."
+msgstr "Das Theme %theme wurde installiert."
+
+#: src/Controller/ThemeController.php:174
+msgid "Please note that the administration theme is still set to the %admin_theme theme; consequently, the theme on this page remains unchanged. All non-administrative sections of the site, however, will show the selected %selected_theme theme by default."
+msgstr "Beachten Sie, dass das Verwaltungs-Theme derzeit auf %admin_theme eingestellt ist und deshalb das Theme auf dieser Seite unverändert bleibt. Alle Seiten außerhalb des Verwaltungsbereiches der Website, werden in dem ausgewählten Standard-Theme %selected_theme angezeigt."
+
+#: src/Controller/ThemeController.php:180
+msgid "%theme is now the default theme."
+msgstr "%theme ist jetzt das Standard-Theme."
+
+#: src/Controller/ThemeController.php:120 src/Form/ModulesListConfirmForm.php:178 src/Form/ModulesListForm.php:474
+msgid "Unable to install @extension, %config_names already exists in active configuration."
+msgid_plural "Unable to install @extension, %config_names already exist in active configuration."
+msgstr[0] "Es war nicht möglich, @extension zu installieren. %config_names ist bereits in der aktiven Konfiguration vorhanden."
+msgstr[1] "Es war nicht möglich, @extension zu installieren. %config_names sind bereits in der aktiven Konfiguration vorhanden."
+
+#: src/Element/StatusReportPage.php:80
+msgid "Errors"
+msgstr "Fehlermeldungen"
+
+#: src/Element/StatusReportPage.php:84
+msgid "Warning"
+msgstr "Warnung"
+
+#: src/Element/StatusReportPage.php:85
+msgid "Warnings"
+msgstr "Warnungen"
+
+#: src/Element/StatusReportPage.php:89;90
+msgctxt "Examined"
+msgid "Checked"
+msgstr "Überprüft"
+
+#: src/Entity/Action.php:12
+msgid "Action"
+msgstr "Aktion"
+
+#: src/Entity/Action.php:12
+msgid "Actions"
+msgstr "Aktionen"
+
+#: src/Entity/Action.php:12
+msgid "action"
+msgstr "Aktion"
+
+#: src/Entity/Action.php:12
+msgid "actions"
+msgstr "Aktionen"
+
+#: src/Entity/Menu.php:9 src/Plugin/Block/SystemMenuBlock.php:14
+msgid "Menus"
+msgstr "Menüs"
+
+#: src/Entity/Menu.php:9
+msgid "menu"
+msgstr "Menü"
+
+#: src/Entity/Menu.php:9
+msgid "menus"
+msgstr "Menüs"
+
+#: src/Form/CronForm.php:105
+msgid "Cron takes care of running periodic tasks like checking for updates and indexing content for search."
+msgstr "Cron ist verantwortlich dafür, dass regelmässige Aufgaben, wie das Prüfen von Updates und das Indizieren von Inhalten für die Suche, durchgeführt werden."
+
+#: src/Form/CronForm.php:112
+msgid "Last run: %time ago."
+msgstr "Zuletzt ausgeführt vor %time."
+
+#: src/Form/CronForm.php:119
+msgid "To run cron from outside the site, go to <a href=\":cron\" class=\"system-cron-settings__link\">@cron</a>"
+msgstr "Um Cron außerhalb von Drupal aufzurufen, muss die Seite <a href=\":cron\" class=\"system-cron-settings__link\">@cron</a> aufgerufen werden."
+
+#: src/Form/CronForm.php:124
+msgid "Enable the <em>Automated Cron</em> module to allow cron execution at the end of a server response."
+msgstr "Das <em>Automated- Cron</em>-Modul muss aktiviert werden, um die Ausführung von Cron nach einer abgeschlossenen Serverantwort zu erlauben."
+
+#: src/Form/CronForm.php:138
+msgid "Run times of individual cron jobs will be written to watchdog"
+msgstr "Laufzeiten individueller Con-Wartungsaufgaben werden in Watchdog eingetragen"
+
+#: src/Form/CronForm.php:144 src/Form/ThemeAdminForm.php:49
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: src/Form/CronForm.php:158
+msgid "The configuration options have been saved."
+msgstr "Die Konfigurationsoptionen wurden gespeichert."
+
+#: src/Form/DateFormatDeleteForm.php:46
+msgid "Are you sure you want to delete the format %name : %format?"
+msgstr "Möchten Sie das Format %name : %format wirklich löschen?"
+
+#: src/Form/DateFormatEditForm.php:20
+msgid "Displayed as %date"
+msgstr "Angezeigt als %date"
+
+#: src/Form/DateFormatEditForm.php:32
+msgid "Save format"
+msgstr "Format speichern"
+
+#: src/Form/DateFormatFormBase.php:83
+msgid "Name of the date format"
+msgstr "Name des Datumsformats"
+
+#: src/Form/DateFormatFormBase.php:89
+msgid "A unique machine-readable name. Can only contain lowercase letters, numbers, and underscores."
+msgstr "Ein eindeutiger maschinenlesbarer Name kann nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: src/Form/DateFormatFormBase.php:95
+msgid "The machine-readable name must be unique, and can only contain lowercase letters, numbers, and underscores. Additionally, it can not be the reserved word \"custom\"."
+msgstr "Der Systemname muss eindeutig sein und darf nur Kleinbuchstaben, Ziffern und Unterstriche enthalten. Außerdem darf das reservierte Wort „custom“ <em>nicht</em> enthalten sein."
+
+#: src/Form/DateFormatFormBase.php:100
+msgid "Format string"
+msgstr "Formatierung"
+
+#: src/Form/DateFormatFormBase.php:102
+msgid "A user-defined date format. See the <a href=\"http://php.net/manual/function.date.php\">PHP manual</a> for available options."
+msgstr "Ein benutzerdefiniertes Datumsformat. Weitere Informationen finden Sie im <a href=\"http://php.net/manual/function.date.php\">PHP-Handbuch</a>."
+
+#: src/Form/DateFormatFormBase.php:107
+msgid "Displayed as %date_format"
+msgstr "Dargestellt als %date_format"
+
+#: src/Form/DateFormatFormBase.php:112
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Form/DateFormatFormBase.php:132
+msgid "The existing format/name combination has not been altered."
+msgstr "Die vorhandene Kombination aus Format und Name wurde nicht verändert."
+
+#: src/Form/DateFormatFormBase.php:152
+msgid "Custom date format updated."
+msgstr "Benutzerdefiniertes Datumsformat aktualisiert."
+
+#: src/Form/DateFormatFormBase.php:155
+msgid "Custom date format added."
+msgstr "Benutzerdefiniertes Datumsformat hinzugefügt."
+
+#: src/Form/FileSystemForm.php:84
+msgid "Public file system path"
+msgstr "Pfad des öffentlichen Dateisystems"
+
+#: src/Form/FileSystemForm.php:86
+msgid "A local file system path where public files will be stored. This directory must exist and be writable by Drupal. This directory must be relative to the Drupal installation directory and be accessible over the web. This must be changed in settings.php"
+msgstr "Ein lokaler Pfad des Dateisystems um öffentliche Dateien zu speichern. Das Verzeichnis muss vorhanden sein und Drupal muss Schreibrechte dafür besitzen. Das Verzeichnis muss relativ zum Installationsverzeichnis von Drupal liegen und über das Web erreichbar sein. Dies muss in der Datei settings.php geändert werden."
+
+#: src/Form/FileSystemForm.php:91
+msgid "Public file base URL"
+msgstr "Basis-URL für öffentliche Dateien"
+
+#: src/Form/FileSystemForm.php:93
+msgid "The base URL that will be used for public file URLs. This can be changed in settings.php"
+msgstr "Die Basis-URL wird für die URLs der öffentlich verfügbaren Dateien benutzt. Dies kann in der Datei settings.php geändert werden."
+
+#: src/Form/FileSystemForm.php:98
+msgid "Private file system path"
+msgstr "Pfad des privaten Dateisystems"
+
+#: src/Form/FileSystemForm.php:99
+msgid "Not set"
+msgstr "Nicht eingerichtet"
+
+#: src/Form/FileSystemForm.php:100
+msgid "An existing local file system path for storing private files. It should be writable by Drupal and not accessible over the web. This must be changed in settings.php"
+msgstr "Ein bestehender Pfad im lokalen Dateisystem für das Speichern privater Dateien. Drupal muss für das Verzeichnis Schreibrechte besitzen. Dieser Pfad sollte über das Web nicht erreichbar sein und muss in der Datei settings.php eingetragen werden."
+
+#: src/Form/FileSystemForm.php:108
+msgid "A local file system path where temporary files will be stored. This directory should not be accessible over the web."
+msgstr "Ein Pfad des lokalen Dateisystems in den temporäre Dateien gespeichert werden. Dieses Verzeichnis sollte nicht über das Web erreichbar sein."
+
+#: src/Form/FileSystemForm.php:121
+msgid "This setting is used as the preferred download method. The use of public files is more efficient, but does not provide any access control."
+msgstr "Diese Einstellung wird als die bevorzugte Download-Methode verwendet. Die Nutzung von öffentlich zugänglichen Dateien ist zwar effizienter, bietet jedoch keinerlei Zugriffskontrolle."
+
+#: src/Form/FileSystemForm.php:127
+msgid "Never"
+msgstr "Nie"
+
+#: src/Form/FileSystemForm.php:130
+msgid "Delete temporary files after"
+msgstr "Temporäre Dateien löschen nach:"
+
+#: src/Form/FileSystemForm.php:133
+msgid "Temporary files are not referenced, but are in the file system and therefore may show up in administrative lists. <strong>Warning:</strong> If enabled, temporary files will be permanently deleted and may not be recoverable."
+msgstr "Temporäre Dateien werden nicht referenziert, befinden sich aber immer noch im Dateisystem. Darum werden Sie eventuell noch in Dateilisten des Administrationsbereichs angezeigt. <strong>Warnung:</strong> Ist dies Option aktiviert, werden temporäre Dateien dauerhaft gelöscht und können nicht wiederhergestellt werden."
+
+#: src/Form/ImageToolkitForm.php:73
+msgid "Select an image processing toolkit"
+msgstr "Ein Toolkit zur Bildbearbeitung auswählen"
+
+#: src/Form/ImageToolkitForm.php:85
+msgid "@toolkit settings"
+msgstr "Einstellungen für @toolkit"
+
+#: src/Form/LoggingForm.php:39
+msgid "None"
+msgstr "Keine"
+
+#: src/Form/LoggingForm.php:40
+msgid "Errors and warnings"
+msgstr "Fehler und Warnungen"
+
+#: src/Form/LoggingForm.php:41
+msgid "All messages"
+msgstr "Alle Nachrichten"
+
+#: src/Form/LoggingForm.php:42
+msgid "All messages, with backtrace information"
+msgstr "Alle Nachrichten mit Rückverfolgungsinformationen"
+
+#: src/Form/LoggingForm.php:44
+msgid "It is recommended that sites running on production environments do not display any errors."
+msgstr "Es wird empfohlen, dass Websites die in einer Live-Umgebung laufen keine Fehler anzeigen."
+
+#: src/Form/ModulesListConfirmForm.php:102
+msgid "Would you like to continue with the above?"
+msgstr "Möchten Sie mit obiger Funktion fortfahren?"
+
+#: src/Form/ModulesListConfirmForm.php:147
+msgid "You must enable the @required module to install @module."
+msgid_plural "You must enable the @required modules to install @module."
+msgstr[0] "Das Modul @required muss aktiviert werden, um @module zu installieren."
+msgstr[1] "Die Module @required müssen aktiviert werden, um @module zu installieren."
+
+#: src/Form/ModulesListConfirmForm.php:197 src/Form/ModulesListForm.php:466
+msgid "Module %name has been enabled."
+msgid_plural "@count modules have been enabled: %names."
+msgstr[0] "Module %name wurde aktiviert."
+msgstr[1] "@count Module wurden aktiviert: %names."
+
+#: src/Form/ModulesListExperimentalConfirmForm.php:16
+msgid "Are you sure you wish to enable experimental modules?"
+msgstr "Möchten Sie wirklich experimentelle Module aktivieren?"
+
+#: src/Form/ModulesListExperimentalConfirmForm.php:30
+msgid "<a href=\":url\">Experimental modules</a> are provided for testing purposes only. Use at your own risk."
+msgstr "<a href=\":url\">Experimentelle Module</a> werden nur für Testzwecke bereitgestellt. Verwendung auf „Eigene Gefahr!“"
+
+#: src/Form/ModulesListExperimentalConfirmForm.php:34
+msgid "The following modules are experimental: @modules"
+msgstr "Folgende Module sind experimentell: @modules"
+
+#: src/Form/ModulesListForm.php:134 src/Form/ModulesUninstallForm.php:99
+msgid "Filter modules"
+msgstr "Module filtern"
+
+#: src/Form/ModulesListForm.php:137 src/Form/ModulesUninstallForm.php:102
+msgid "Filter by name or description"
+msgstr "Nach Name oder Beschreibung filtern"
+
+#: src/Form/ModulesListForm.php:138 src/Form/ModulesUninstallForm.php:103
+msgid "Enter a part of the module name or description"
+msgstr "Geben Sie einen Teil des Modulnamens oder der Modulbeschreibung ein"
+
+#: src/Form/ModulesListForm.php:152
+msgid "Modules could not be listed due to an error: %error"
+msgstr "Module konnten aufgrund eines Fehlers nicht aufgelistet werden: %error"
+
+#: src/Form/ModulesListForm.php:238
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: src/Form/ModulesListForm.php:240
+msgid "Configure permissions"
+msgstr "Berechtigungen konfigurieren"
+
+#: src/Form/ModulesListForm.php:250
+msgid "Configure <span class=\"visually-hidden\">the @module module</span>"
+msgstr "Konfigurieren <span class=\"visually-hidden\">des @module-Moduls</span>"
+
+#: src/Form/ModulesListForm.php:286
+msgid "This version is not compatible with Drupal @core_version and should be replaced."
+msgstr "Diese Version ist nicht kompatibel mit Drupal @core_version und sollte ersetzt werden."
+
+#: src/Form/ModulesListForm.php:289
+msgid "Drupal Core (@core_requirement) (<span class=\"admin-missing\">incompatible with</span> version @core_version)"
+msgstr "Drupal Core (@core_requirement) (<span class=\"admin-missing\">inkompatibel mit</span> Version @core_version)"
+
+#: src/Form/ModulesListForm.php:299
+msgid "This module requires PHP version @php_required and is incompatible with PHP version @php_version."
+msgstr "Dieses Modul erfordert PHP-Version @php_required und ist mit der aktuellen PHP-Version @php_version inkompatibel."
+
+#: src/Form/ModulesListForm.php:317
+msgid "@module (<span class=\"admin-missing\">missing</span>)"
+msgstr "@module (<span class=\"admin-missing\">fehlt</span>)"
+
+#: src/Form/ModulesListForm.php:326
+msgid "@module (@constraint) (<span class=\"admin-missing\">incompatible with</span> version @version)"
+msgstr "@module (@constraint) (<span class=\"admin-missing\">inkompatibel mit</span> Version @version)"
+
+#: src/Form/ModulesListForm.php:336
+msgid "@module (<span class=\"admin-missing\">incompatible with</span> this version of Drupal core)"
+msgstr "@module (<span class=\"admin-missing\">Inkompatibel mit</span> der vorliegenden Version des Drupal-Kernsystems)"
+
+#: src/Form/ModulesListForm.php:342;355
+msgid "@module"
+msgstr "@module"
+
+#: src/Form/ModulesListForm.php:345;359
+msgid "@module (<span class=\"admin-disabled\">disabled</span>)"
+msgstr "@module (<span class=\"admin-disabled\">deaktiviert</span>)"
+
+#: src/Form/ModulesUninstallConfirmForm.php:123
+msgid "Would you like to continue with uninstalling the above?"
+msgstr "Möchten Sie mit der Deinstallation der oben angeführten Module fortfahren?"
+
+#: src/Form/ModulesUninstallConfirmForm.php:143
+msgid "The selected modules could not be uninstalled, either due to a website problem or due to the uninstall confirmation form timing out. Please try again."
+msgstr "Die ausgewählten Module konnten nicht deinstalliert werden, entweder aufgrund eines Website-Problems oder weil es eine Zeitüberschreitung beim Deinstallations-Bestätigungsformular gab. Bitte erneut versuchen."
+
+#: src/Form/ModulesUninstallConfirmForm.php:148
+msgid "The following modules will be completely uninstalled from your site, and <em>all data from these modules will be lost</em>!"
+msgstr "Die folgenden Module werden vollständig von ihrer Website deinstalliert und <em>alle Daten dieser Module gehen verloren</em>!"
+
+#: src/Form/ModulesUninstallConfirmForm.php:173
+msgid "The selected modules have been uninstalled."
+msgstr "Die ausgewählten Module wurden deinstalliert."
+
+#: src/Form/ModulesUninstallForm.php:137
+msgid "Uninstall @module module"
+msgstr "Modul @module deinstallieren"
+
+#: src/Form/ModulesUninstallForm.php:175
+msgid "No modules selected."
+msgstr "Keine Module ausgewählt."
+
+#: src/Form/PerformanceForm.php:109
+msgid "Clear cache"
+msgstr "Cache leeren"
+
+#: src/Form/PerformanceForm.php:115
+msgid "Clear all caches"
+msgstr "Alle Caches leeren"
+
+#: src/Form/PerformanceForm.php:128
+msgid "no caching"
+msgstr "kein Zwischenspeichern"
+
+#: src/Form/PerformanceForm.php:131
+msgid "Browser and proxy cache maximum age"
+msgstr "Maximalalter des Browser- und Proxy-Caches"
+
+#: src/Form/PerformanceForm.php:134
+msgid "This is used as the value for max-age in Cache-Control headers."
+msgstr "Dieser Wert wird für die Angabe der Zeit verwendet, die über die Header-Daten des Caching-Systems festlegt, wie lange etwas im Cache abgelegt wird."
+
+#: src/Form/PerformanceForm.php:137
+msgid "Drupal provides an <a href=\":module_enable\">Internal Page Cache module</a> that is recommended for small to medium-sized websites."
+msgstr "Drupal stellt ein <a href=\":module_enable\">Internal-Page-Cache-Modul</a> bereit, das für kleine und mittlere Websites empfohlen wird."
+
+#: src/Form/PerformanceForm.php:146
+msgid "<strong class=\"error\">Set up the <a href=\":file-system\">public files directory</a> to make these optimizations available.</strong>"
+msgstr "<strong class=\"error\"> Legen Sie das <a href=\":file-system\">Verzeichnis für öffentliche Dateien </a> fest, damit diese Optimierungen verfügbar gemacht werden können.</strong>"
+
+#: src/Form/PerformanceForm.php:151
+msgid "Bandwidth optimization"
+msgstr "Bandbreitenoptimierung"
+
+#: src/Form/PerformanceForm.php:153
+msgid "External resources can be optimized automatically, which can reduce both the size and number of requests made to your website."
+msgstr "Externe Ressourcen können automatisch optimiert werden, die sowohl die Größe und Anzahl der Zugriffe auf Ihre Website reduzieren können."
+
+#: src/Form/PerformanceForm.php:164
+msgid "Aggregate JavaScript files"
+msgstr "JavaScript-Dateien aggregieren"
+
+#: src/Form/PerformanceForm.php:193
+msgid "Caches cleared."
+msgstr "Die Caches wurden geleert."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:66
+msgid "Are you sure you want to delete all @entity_type_plural?"
+msgstr "Möchten Sie wirklich alle @entity_type_plural löschen?"
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:73
+msgid "This action cannot be undone.<br />Make a backup of your database if you want to be able to restore these items."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden.<br />Um die Elemente wieder herstellen zu können macht ein Backup der Datenbank Sinn."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:82
+msgid "Delete all @entity_type_plural"
+msgstr "All @entity_type_plural löschen"
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:114
+msgid "There are 0 @entity_type_plural to delete."
+msgstr "Es gibt keine @entity_type_plural , die gelöscht werden können."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:184
+msgid "Deleting @entity_type_plural"
+msgstr "Lösche @entity_type_plural"
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:237
+msgid "Deleting items... Completed @percentage% (@current of @total)."
+msgstr "Löschvorgang ...  @percentage% (@current von @total) abgeschlossen."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:253
+msgid "All @entity_type_plural have been deleted."
+msgstr "Alle @entity_type_plural wurden gelöscht."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:139
+msgid "And <strong>@count</strong> more @entity_type_singular."
+msgid_plural "And <strong>@count</strong> more @entity_type_plural."
+msgstr[0] "Und <strong>@count</strong> zusätzliche @entity_type_singular."
+msgstr[1] "Und <strong>@count</strong> zusätzliche @entity_type_plural."
+
+#: src/Form/PrepareModulesEntityUninstallForm.php:154
+msgid "This will delete <strong>@count</strong> @entity_type_singular."
+msgid_plural "This will delete <strong>@count</strong> @entity_type_plural."
+msgstr[0] "<strong>@count</strong> @entity_type_singular werden gelöscht."
+msgstr[1] "<strong>@count</strong> @entity_type_plural werden gelöscht."
+
+#: src/Form/RegionalForm.php:74
+msgid "Locale"
+msgstr "Spracheinstellung"
+
+#: src/Form/RegionalForm.php:91
+msgid "Sunday"
+msgstr "Sonntag"
+
+#: src/Form/RegionalForm.php:91
+msgid "Monday"
+msgstr "Montag"
+
+#: src/Form/RegionalForm.php:91
+msgid "Tuesday"
+msgstr "Dienstag"
+
+#: src/Form/RegionalForm.php:91
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+#: src/Form/RegionalForm.php:91
+msgid "Thursday"
+msgstr "Donnerstag"
+
+#: src/Form/RegionalForm.php:91
+msgid "Friday"
+msgstr "Freitag"
+
+#: src/Form/RegionalForm.php:91
+msgid "Saturday"
+msgstr "Samstag"
+
+#: src/Form/RegionalForm.php:96
+msgid "Time zones"
+msgstr "Zeitzonen"
+
+#: src/Form/RegionalForm.php:128;140
+msgid "Only applied if users may set their own time zone."
+msgstr "Wird nur angewendet, wenn Benutzer ihre eigene Zeitzone einstellen dürfen."
+
+#: src/Form/RegionalForm.php:137
+msgid "Empty time zone"
+msgstr "Zeitzone nicht angegeben"
+
+#: src/Form/RegionalForm.php:138
+msgid "Users may set their own time zone at registration"
+msgstr "Benutzer können bei der Registrierung ihre eigene Zeitzone einstellen"
+
+#: src/Form/RssFeedsForm.php:38
+msgid "Description of your site, included in each feed."
+msgstr "Die Beschreibung der Website, die in jedem Feed eingebunden wird."
+
+#: src/Form/RssFeedsForm.php:43
+msgid "Number of items in each feed"
+msgstr "Anzahl der Einträge pro Feed"
+
+#: src/Form/RssFeedsForm.php:46
+msgid "Default number of items to include in each feed."
+msgstr "Die standardmäßige Anzahl an Einträgen in einem Feed."
+
+#: src/Form/RssFeedsForm.php:53
+msgid "Titles only"
+msgstr "Nur Titel"
+
+#: src/Form/RssFeedsForm.php:54
+msgid "Titles plus teaser"
+msgstr "Titel und Anrisstext"
+
+#: src/Form/RssFeedsForm.php:55
+msgid "Full text"
+msgstr "Gesamter Text"
+
+#: src/Form/RssFeedsForm.php:57
+msgid "Global setting for the default display of content items in each feed."
+msgstr "Globale Einstellung für die standardmäßige Anzeige vom Inhalt der Beiträge in jeden Feed."
+
+#: src/Form/SiteInformationForm.php:99 src/Form/SystemBrandingOffCanvasForm.php:81
+msgid "Site details"
+msgstr "Details zur Website"
+
+#: src/Form/SiteInformationForm.php:112 src/Form/SystemBrandingOffCanvasForm.php:95
+msgid "How this is used depends on your site's theme."
+msgstr "Wie genau dies verwendet wird hängt von dem Theme Ihrer Site ab."
+
+#: src/Form/SiteInformationForm.php:118
+msgid "The <em>From</em> address in automated emails sent during registration and new password requests, and other notifications. (Use an address ending in your site's domain to help prevent this email being flagged as spam.)"
+msgstr "Die <em>Absenderadresse</em> für den Versand von automatisierten E-Mails während der Registrierung, beim Anfordern neuer Passwörter und anderen Benachrichtigungen. (Am besten für die E-Mail-Adresse die Domain der aktuellen Website verwenden, um zu verhindern, dass E-Mails als Spam eingestuft werden.)"
+
+#: src/Form/SiteInformationForm.php:132
+msgid "Optionally, specify a relative URL to display as the front page. Leave blank to display the default front page."
+msgstr "Optional kann eine relative URL angegeben werden um diese als Startseite anzuzeigen. Leer lassen um die Standard-Startseite anzuzeigen."
+
+#: src/Form/SiteInformationForm.php:137
+msgid "Error pages"
+msgstr "Fehlerseiten"
+
+#: src/Form/SiteInformationForm.php:145
+msgid "This page is displayed when the requested document is denied to the current user. Leave blank to display a generic \"access denied\" page."
+msgstr "Diese Seite wird angezeigt, wenn der Zugriff auf das angeforderte Dokument für den Benutzer verweigert wird. Leer belassen, um eine generische „Zugriff verweigert“ Seite anzuzeigen."
+
+#: src/Form/SiteInformationForm.php:152
+msgid "This page is displayed when no other content matches the requested document. Leave blank to display a generic \"page not found\" page."
+msgstr "Diese Seite wird angezeigt, wenn kein anderer Inhalt mit dem angefragten Dokument übereinstimmt. Leer lassen, um eine allgemeine „Seite wurde nicht gefunden“-Seite anzuzeigen."
+
+#: src/Form/SiteInformationForm.php:173;187;190
+msgid "The path '%path' has to start with a slash."
+msgstr "Der Pfad '%path' muss mit einem Schrägstrich beginnen."
+
+#: src/Form/SiteInformationForm.php:177;194;198
+msgid "Either the path '%path' is invalid or you do not have access to it."
+msgstr "Entweder ist der Pfad '%path' nicht korrekt oder Sie haben keine Zugriffsberechtigung."
+
+#: src/Form/SiteMaintenanceModeForm.php:83
+msgid "Put site into maintenance mode"
+msgstr "Website in den Wartungsmodus versetzen"
+
+#: src/Form/SiteMaintenanceModeForm.php:85
+msgid "Visitors will only see the maintenance mode message. Only users with the \"@permission-label\" <a href=\":permissions-url\">permission</a> will be able to access the site. Authorized users can log in directly via the <a href=\":user-login\">user login</a> page."
+msgstr "Für Besucher wird nur die Wartungsmodusnachricht angezeigt. Nur Benutzer mit der <a href=\":permissions-url\">Berechtigung</a> \"@permission-label\" können auf die Website zugreifen. Berechtigte Benutzer können sich direkt über die Seite <a href=\":user-login\">Benutzeranmeldung</a> anmelden."
+
+#: src/Form/SystemMenuOffCanvasForm.php:98
+msgid "Edit menu %label"
+msgstr "Menü %label bearbeiten"
+
+#: src/Form/SystemMenuOffCanvasForm.php:112
+msgid "Link"
+msgstr "Link"
+
+#: src/Form/SystemMenuOffCanvasForm.php:113
+msgid "On"
+msgstr "An"
+
+#: src/Form/ThemeAdminForm.php:43
+msgid "Choose \"Default theme\" to always use the same theme as the rest of the site."
+msgstr "„Standard-Theme“ auswählen, um immer dasselbe Theme zu verwenden wie der Rest der Website."
+
+#: src/Form/ThemeSettingsForm.php:167
+msgid "User pictures in posts"
+msgstr "Benutzerbilder in Beiträgen"
+
+#: src/Form/ThemeSettingsForm.php:168
+msgid "User pictures in comments"
+msgstr "Benutzerbilder in Kommentaren"
+
+#: src/Form/ThemeSettingsForm.php:169
+msgid "User verification status in comments"
+msgstr "Überprüfungsstatus eines Benutzers in Kommentaren"
+
+#: src/Form/ThemeSettingsForm.php:170
+msgid "Shortcut icon"
+msgstr "Favicon"
+
+#: src/Form/ThemeSettingsForm.php:186
+msgid "Page element display"
+msgstr "Anzuzeigende Seiten-Elemente"
+
+#: src/Form/ThemeSettingsForm.php:209
+msgid "Logo image"
+msgstr "Logo"
+
+#: src/Form/ThemeSettingsForm.php:214
+msgid "Use the logo supplied by the theme"
+msgstr "Das vom Theme bereitgestellte Logo verwenden"
+
+#: src/Form/ThemeSettingsForm.php:229
+msgid "Path to custom logo"
+msgstr "Pfad zum eigenen Logo"
+
+#: src/Form/ThemeSettingsForm.php:234
+msgid "Upload logo image"
+msgstr "Logo hochladen"
+
+#: src/Form/ThemeSettingsForm.php:236
+msgid "If you don't have direct file access to the server, use this field to upload your logo."
+msgstr "Falls kein direkter Dateizugriff auf den Server besteht, kann dieses Feld zum Hochladen eines eigenen Logos verwendet werden."
+
+#: src/Form/ThemeSettingsForm.php:246
+msgid "Favicon"
+msgstr "Favicon"
+
+#: src/Form/ThemeSettingsForm.php:248
+msgid "Your shortcut icon, or favicon, is displayed in the address bar and bookmarks of most browsers."
+msgstr "Das Verknüpfungssymbol oder Favicon wird in der Adresszeile und in den Lesezeichen der meisten Browser angezeigt."
+
+#: src/Form/ThemeSettingsForm.php:259
+msgid "Use the favicon supplied by the theme"
+msgstr "Das vom Theme bereitgestellte Favicon verwenden"
+
+#: src/Form/ThemeSettingsForm.php:273
+msgid "Path to custom icon"
+msgstr "Pfad zum eigenen Icon"
+
+#: src/Form/ThemeSettingsForm.php:278
+msgid "Upload favicon image"
+msgstr "Favicon hochladen"
+
+#: src/Form/ThemeSettingsForm.php:279
+msgid "If you don't have direct file access to the server, use this field to upload your shortcut icon."
+msgstr "Falls kein direkter Zugang zum Server vorhanden ist, kann dieses Feld zum Hochladen des Favicons verwendet werden."
+
+#: src/Form/ThemeSettingsForm.php:314
+msgid "Examples: <code>@implicit-public-file</code> (for a file in the public filesystem), <code>@explicit-file</code>, or <code>@local-file</code>."
+msgstr "Beispiele: <code>@implicit-public-file</code> (für eine Datei im öffentlichen Dateisystem), <code>@explicit-file</code> oder <code>@local-file</code>."
+
+#: src/Form/ThemeSettingsForm.php:328
+msgid "Theme-engine-specific settings"
+msgstr "Einstellungen für die jeweilige Theme-Engine"
+
+#: src/Form/ThemeSettingsForm.php:330
+msgid "These settings only exist for the themes based on the %engine theme engine."
+msgstr "Diese Einstellungen sind nur für Themes verfügbar, die auf der %engine Theme Engine basieren."
+
+#: src/Form/ThemeSettingsForm.php:433
+msgid "The custom logo path is invalid."
+msgstr "Der Pfad zum benutzerdefinierten Logo ist ungültig."
+
+#: src/Form/ThemeSettingsForm.php:439
+msgid "The custom favicon path is invalid."
+msgstr "Der Pfad zum benutzerdefinierten Favicon ist ungültig."
+
+#: src/Plugin/Archiver/Tar.php:7
+msgid "Tar"
+msgstr "Tar"
+
+#: src/Plugin/Archiver/Tar.php:7
+msgid "Handles .tar files."
+msgstr "Verarbeitet .tar Dateien."
+
+#: src/Plugin/Archiver/Zip.php:7
+msgid "Zip"
+msgstr "Zip"
+
+#: src/Plugin/Archiver/Zip.php:7
+msgid "Handles zip files."
+msgstr "Verarbeitet .zip Dateien."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:88
+msgid "Defined on the <a href=\":appearance\">Appearance Settings</a> or <a href=\":theme\">Theme Settings</a> page."
+msgstr "Definiert unter den <a href=\":appearance\">allgemeinen Design-Einstellungen</a> oder unter den speziellen <a href=\":theme\">Theme-Einstellungen</a>."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:96
+msgid "Defined on the Appearance or Theme Settings page. You do not have the appropriate permissions to change the site logo."
+msgstr "Definiert unter den allgemeinen Design-Einstellungen oder den speziellen Theme-Einstellungen. Sie verfügen nicht über die Berechtigung, das Logo der Website zu ändern."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:105;106
+msgid "Defined on the <a href=\":information\">Site Information</a> page."
+msgstr "Wird auf der Seite <a href=\":information\">Grundeinstellungen der Webseite</a> festlegt."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:111;112
+msgid "Defined on the Site Information page. You do not have the appropriate permissions to change the site logo."
+msgstr "Wird auf der Seite Grundeinstellungen der Website definiert.  Sie haben nicht die Berechtigung das Logo der Website zu ändern."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:117
+msgid "Toggle branding elements"
+msgstr "Branding-Elemente anzeigen/verstecken"
+
+#: src/Plugin/Block/SystemBrandingBlock.php:118
+msgid "Choose which branding elements you want to show in this block instance."
+msgstr "Die Branding-Elemente, die in dieser Version des Blocks angezeigt werden sollen, müssen ausgewählt werden."
+
+#: src/Plugin/Block/SystemBrandingBlock.php:122
+msgid "Site logo"
+msgstr "Logo der Website"
+
+#: src/Plugin/Block/SystemBrandingBlock.php:135
+msgid "Site slogan"
+msgstr "Slogan der Website"
+
+#: src/Plugin/Block/SystemBrandingBlock.php:13
+msgid "Site branding"
+msgstr "Branding der Website"
+
+#: src/Plugin/Block/SystemBreadcrumbBlock.php:11
+msgid "Breadcrumbs"
+msgstr "Pfadnavigation"
+
+#: src/Plugin/Block/SystemMainBlock.php:8
+msgid "Main page content"
+msgstr "Haupt-Seiteninhalt"
+
+#: src/Plugin/Block/SystemMenuBlock.php:89
+msgid "Menu levels"
+msgstr "Menüebenen"
+
+#: src/Plugin/Block/SystemMenuBlock.php:100
+msgid "Initial visibility level"
+msgstr "Anfängliche Sichtbarkeitsebene"
+
+#: src/Plugin/Block/SystemMenuBlock.php:103
+msgid "The menu is only visible if the menu item for the current page is at this level or below it. Use level 1 to always display this menu."
+msgstr "Das Menü ist nur dann sichtbar, wenn der Menüeintrag für die Aktuelle Seite auf dieser Ebene oder darunter liegt. Verwenden Sie den Wert 1 um das Menü immer anzuzeigen."
+
+#: src/Plugin/Block/SystemMenuBlock.php:107
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: src/Plugin/Block/SystemMenuBlock.php:111
+msgid "Number of levels to display"
+msgstr "Anzahl der anzuzeigenden Ebenen"
+
+#: src/Plugin/Block/SystemMenuBlock.php:114
+msgid "This maximum number includes the initial level."
+msgstr "Diese maximale Anzahl schließt die anfängliche Ebene mit ein."
+
+#: src/Plugin/Block/SystemMenuBlock.php:120
+msgid "Expand all menu items"
+msgstr "Alle Menüpunkte ausklappen"
+
+#: src/Plugin/Block/SystemMenuBlock.php:122
+msgid "Override the option found on each menu link used for expanding children and instead display the whole menu tree as expanded."
+msgstr "Übersteuern der Option, die sich auf jedem Menü-Link befindet und zum Ausklappen von Untermenüs verwendet wird, und stattdessen den gesamten Menübaum als ausgeklappt anzeigen."
+
+#: src/Plugin/Block/SystemMessagesBlock.php:9
+msgid "Messages"
+msgstr "Benachrichtigungen"
+
+#: src/Plugin/Block/SystemPoweredByBlock.php:28
+msgid "Powered by <a href=\":poweredby\">Drupal</a>"
+msgstr "Angetrieben durch <a href=\"@poweredby\">Drupal</a>"
+
+#: src/Plugin/Block/SystemPoweredByBlock.php:7
+msgid "Powered by Drupal"
+msgstr "Powered by Drupal"
+
+#: src/Plugin/Condition/CurrentThemeCondition.php:82
+msgid "Theme"
+msgstr "Theme"
+
+#: src/Plugin/Condition/CurrentThemeCondition.php:115
+msgid "The current theme is not @theme"
+msgstr "Das aktuelle Theme ist nicht @theme"
+
+#: src/Plugin/Condition/CurrentThemeCondition.php:118
+msgid "The current theme is @theme"
+msgstr "Das aktuelle Theme ist @theme"
+
+#: src/Plugin/Condition/CurrentThemeCondition.php:12
+msgid "Current Theme"
+msgstr "Aktuelles Theme"
+
+#: src/Plugin/Condition/RequestPath.php:107
+msgid "Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. An example path is %user-wildcard for every user page. %front is the front page."
+msgstr "Bestimmte Seiten können angegeben werden indem deren Pfadangaben eintragen werden. Dabei wird eine Pfadangabe pro Zeile gemacht. Das Zeichen „*“ kann als Platzhalter verwendet werden. Ein Beispiel für eine Pfadangabe ist: %user-wildcard für jede Seite innerhalb der Nutzerkonten. %front ist die Startseite."
+
+#: src/Plugin/Condition/RequestPath.php:130
+msgid "Do not return true on the following pages: @pages"
+msgstr "War (true) wird auf den folgenden Seiten nicht zurückgegeben: @pages"
+
+#: src/Plugin/Condition/RequestPath.php:132
+msgid "Return true on the following pages: @pages"
+msgstr "Gibt auf folgenden Siete Wahr (TRUE) zurück: @pages"
+
+#: src/Plugin/Condition/RequestPath.php:14
+msgid "Request Path"
+msgstr "URL-Pfad"
+
+#: src/Plugin/ImageToolkit/GDToolkit.php:165
+msgid "Define the image quality for JPEG manipulations. Ranges from 0 to 100. Higher values mean better image quality but bigger files."
+msgstr "Legt die Bildqualität für JPEG-Bilder fest. Sie kann Werte von 0 bis 100 annehmen, wobei größere Werte bessere Bildqualität, aber größere Dateien bedeuten."
+
+#: src/Plugin/ImageToolkit/GDToolkit.php:169
+msgid "%"
+msgstr "%"
+
+#: src/Plugin/ImageToolkit/GDToolkit.php:391
+msgid "GD library"
+msgstr "GD-Grafikbibliothek"
+
+#: src/Plugin/ImageToolkit/GDToolkit.php:398
+msgid "The GD Library for PHP is enabled, but was compiled without support for functions used by the rotate and desaturate effects. It was probably compiled using the official GD libraries from http://www.libgd.org instead of the GD library bundled with PHP. You should recompile PHP --with-gd using the bundled GD library. See <a href=\"http://php.net/manual/book.image.php\">the PHP manual</a>."
+msgstr "Die GD Bibliothek für PHP ist aktiviert, wurde aber ohne die Unterstützung für Funktionen, die von Rotations- und Sättigung verringern- Effekten verwendet werden, kompiliert. Sie wurde wahrscheinlich mit den offiziellen GD Bibliotheken von http://www.libgd.org, anstelle der GD Bibliothek mit der PHP ausgeliefert wird, kompiliert. PHP sollte unter Nutzung der mitgelieferten GD Bibliothek, mit der Option --with-gd, neu kompiliert werden. <a href=\"http://php.net/manual/book.image.php\">Das PHP Handbuch</a> ansehen."
+
+#: src/Plugin/ImageToolkit/GDToolkit.php:17
+msgid "GD2 image manipulation toolkit"
+msgstr "GD2-Toolkit zur Bildbearbeitung"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Convert.php:5
+msgid "Convert"
+msgstr "Konvertieren"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Convert.php:5
+msgid "Instructs the toolkit to save the image with a specified extension."
+msgstr "Legt fest, dass das Bild mit einer bestimmten Dateierweiterung abgespeichert werden soll"
+
+#: src/Plugin/ImageToolkit/Operation/gd/CreateNew.php:7
+msgid "Set a new image"
+msgstr "Neues Bild festlegen"
+
+#: src/Plugin/ImageToolkit/Operation/gd/CreateNew.php:7
+msgid "Creates a new transparent resource and sets it for the image."
+msgstr "Erstellt eine neue transparente Ressource und setzt diese anstelle des Bildes ein."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Crop.php:5
+msgid "Crop"
+msgstr "Zuschneiden"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Crop.php:5
+msgid "Crops an image to a rectangle specified by the given dimensions."
+msgstr "Schneidet ein Bild unter Berücksichtigung der angegebenen Werte rechteckig zu."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Desaturate.php:32
+msgid "The image '@file' could not be desaturated because the imagefilter() function is not available in this PHP installation."
+msgstr "Das Bild  '@file'  kann nicht entsättigt werden, weil die Funktion imagefilter() in dieser PHP-Installation nicht verfügbar ist."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Desaturate.php:5
+msgid "Desaturate"
+msgstr "Entsättigen"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Desaturate.php:5
+msgid "Converts an image to grayscale."
+msgstr "Konvertiert ein Bild in Graustufen."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Resize.php:5
+msgid "Resize"
+msgstr "Größe ändern"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Resize.php:5
+msgid "Resizes an image to the given dimensions (ignoring aspect ratio)."
+msgstr "Passt ein Bild an bestimmte Abmessungen an (ohne Rücksicht auf Seitenverhältnis)"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Rotate.php:92
+msgid "The image %file could not be rotated because the imagerotate() function is not available in this PHP installation."
+msgstr "Das Bild %file konnte nicht gedreht werden, da die Funktion imagerotate() in dieser PHP-Installation nicht verfügbar ist."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Rotate.php:7
+msgid "Rotate"
+msgstr "Drehen"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Rotate.php:7
+msgid "Rotates an image by the given number of degrees."
+msgstr "Rotiert ein Bild um eine bestimmte Gradzahl."
+
+#: src/Plugin/ImageToolkit/Operation/gd/Scale.php:5
+msgid "Scale"
+msgstr "Skalierung"
+
+#: src/Plugin/ImageToolkit/Operation/gd/Scale.php:5
+msgid "Scales an image while maintaining aspect ratio. The resulting image can be smaller for one or both target dimensions."
+msgstr "Skaliert ein Bild unter Beibehaltung des Seitenverhältnisses. Das sich ergebende Bid kann bezüglich einer oder beider Zieldimensionen kleiner sein."
+
+#: src/Plugin/ImageToolkit/Operation/gd/ScaleAndCrop.php:5
+msgid "Scale and crop"
+msgstr "Skalieren und zuschneiden"
+
+#: src/Plugin/ImageToolkit/Operation/gd/ScaleAndCrop.php:5
+msgid "Scales an image to the exact width and height given. This plugin achieves the target aspect ratio by cropping the original image equally on both sides, or equally on the top and bottom. This function is useful to create uniform sized avatars from larger images."
+msgstr "Skaliert ein Bild genau auf die angegebene Breite und Höhe. Das Plugin erreicht das angestrebte Seitenverhältnis indem das Ausgangsbild gleichmäßig auf beiden Seiten oder oben und unten beschnitten wird. Diese Funktion ist hilfreich um einheitlich große Avatare aus größeren Bildern zu erstellen."
+
+#: src/Plugin/migrate/source/Extension.php:36
+msgid "Filename"
+msgstr "Dateiname"
+
+#: src/Plugin/migrate/source/Extension.php:39
+msgid "Owner"
+msgstr "Eigentümer"
+
+#: src/Plugin/migrate/source/Extension.php:40
+msgid "Status"
+msgstr "Status"
+
+#: src/Plugin/migrate/source/Extension.php:41
+msgid "Throttle"
+msgstr "Lastreduzierung"
+
+#: src/Plugin/migrate/source/Extension.php:42
+msgid "Bootstrap"
+msgstr "Bootstrap"
+
+#: src/Plugin/migrate/source/Extension.php:43
+msgid "Schema version"
+msgstr "Schema-Version"
+
+#: src/Plugin/migrate/source/Extension.php:44
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Plugin/migrate/source/Extension.php:45
+msgid "Information array"
+msgstr "Informations-Array"
+
+#: src/Plugin/migrate/source/Menu.php:29
+msgid "The menu name. Primary key."
+msgstr "Der Menüname. Primärschlüssel."
+
+#: src/Plugin/migrate/source/Menu.php:30
+msgid "The human-readable name of the menu."
+msgstr "Der menschenlesbare Name des Menüs."
+
+#: src/Plugin/migrate/source/Menu.php:31
+msgid "A description of the menu"
+msgstr "Eine Beschreibung des Menüs"
+
+#: src/Plugin/migrate/source/d7/ThemeSettings.php:31
+msgid "Theme settings variable for a theme."
+msgstr "Einstellungsvariable für ein Theme."
+
+#: src/Plugin/migrate/source/d7/ThemeSettings.php:32
+msgid "The theme settings variable value."
+msgstr "Der Wert der Einstellungsvariable des Themes."
+
+#: templates/breadcrumb.html.twig:14
+msgid "Breadcrumb"
+msgstr "Pfadnavigation"
+
+#: templates/feed-icon.html.twig:16
+msgid "Subscribe to @title"
+msgstr "@title abonnieren"
+
+#: templates/html.html.twig:42
+msgid "Skip to main content"
+msgstr "Direkt zum Inhalt"
+
+#: templates/maintenance-task-list.html.twig:17
+msgid "Installation tasks"
+msgstr "Installationsaufgaben"
+
+#: templates/mark.html.twig:18
+msgid "New"
+msgstr "Neu"
+
+#: templates/mark.html.twig:20
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: templates/menu-local-tasks.html.twig:17
+msgid "Primary tabs"
+msgstr "Primäre Reiter"
+
+#: templates/menu-local-tasks.html.twig:21
+msgid "Secondary tabs"
+msgstr "Sekundäre Reiter"
+
+#: templates/pager.html.twig:37
+msgid "Pagination"
+msgstr "Seitennummerierung"
+
+#: templates/pager.html.twig:42
+msgid "Go to first page"
+msgstr "Zur ersten Seite"
+
+#: templates/pager.html.twig:43
+msgid "First page"
+msgstr "Erste Seite"
+
+#: templates/pager.html.twig:51
+msgid "Go to previous page"
+msgstr "Zur vorherigen Seite"
+
+#: templates/pager.html.twig:52
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: templates/pager.html.twig:84
+msgid "Go to next page"
+msgstr "Zur nächsten Seite"
+
+#: templates/pager.html.twig:85
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: templates/pager.html.twig:93
+msgid "Go to last page"
+msgstr "Zur letzten Seite"
+
+#: templates/pager.html.twig:94
+msgid "Last page"
+msgstr "Letzte Seite"
+
+#: templates/status-report-general-info.html.twig:33
+msgid "General System Information"
+msgstr "Allgemeine Systeminformationen"
+
+#: templates/status-report-general-info.html.twig:35
+msgid "Drupal Version"
+msgstr "Drupal-Version"
+
+#: templates/status-report-general-info.html.twig:42
+msgid "Last Cron Run"
+msgstr "Letzter Cronlauf"
+
+#: templates/status-report-general-info.html.twig:52
+msgid "Web Server"
+msgstr "Webserver"
+
+#: templates/status-report-general-info.html.twig:60;72
+msgid "Version"
+msgstr "Version"
+
+#: templates/status-report-general-info.html.twig:65
+msgid "Memory limit"
+msgstr "Speicherbegrenzung"
+
+#: templates/status-report-general-info.html.twig:71
+msgid "Database"
+msgstr "Datenbank"
+
+#: templates/system-modules-details.html.twig:30
+msgid "Installed"
+msgstr "Installiert"
+
+#: templates/system-modules-details.html.twig:32 templates/system-modules-uninstall.html.twig:31
+msgid "Description"
+msgstr "Description"
+
+#: templates/system-modules-details.html.twig:51
+msgid "Machine name: <span dir=\"ltr\" class=\"table-filter-text-source\">@machine-name</span>"
+msgstr "Systemname: <span dir=\"ltr\" class=\"table-filter-text-source\">@machine-name</span>"
+
+#: templates/system-modules-details.html.twig:53
+msgid "Version: @module-version"
+msgstr "Version: @module-version"
+
+#: templates/system-modules-details.html.twig:56
+msgid "Requires: @module-list"
+msgstr "Benötigt: @module-list"
+
+#: templates/system-modules-details.html.twig:59
+msgid "Required by: @module-list"
+msgstr "Erforderlich für: @module-list"
+
+#: templates/system-modules-uninstall.html.twig:48
+msgid "The following reason prevents @module.module_name from being uninstalled:"
+msgid_plural "The following reasons prevent @module.module_name from being uninstalled:"
+msgstr[0] "Das Modul @module.module_name kann aus folgendem Grund nicht deinstalliert werden:"
+msgstr[1] "Das Modul @module.module_name kann aus folgenden Gründen nicht deinstalliert werden:"
+
+#: templates/system-modules-uninstall.html.twig:69
+msgid "No modules are available to uninstall."
+msgstr "Keine Module zum Deinstallieren verfügbar."
+
+#: templates/tablesort-indicator.html.twig:21
+msgid "Sort ascending"
+msgstr "Aufsteigend sortieren"
+
+#: templates/tablesort-indicator.html.twig:23
+msgid "Sort descending"
+msgstr "Absteigend sortieren"
+
+#: config/install/core.date_format.fallback.yml:0
+msgid "Fallback date format"
+msgstr "Ersatz-Datumsformat"
+
+#: config/install/core.date_format.html_date.yml:0
+msgid "HTML Date"
+msgstr "Datum (HTML)"
+
+#: config/install/core.date_format.html_datetime.yml:0
+msgid "HTML Datetime"
+msgstr "HTML Datum und Zeit"
+
+#: config/install/core.date_format.html_month.yml:0
+msgid "HTML Month"
+msgstr "Monat (HTML)"
+
+#: config/install/core.date_format.html_time.yml:0
+msgid "HTML Time"
+msgstr "Zeit (HTML)"
+
+#: config/install/core.date_format.html_week.yml:0
+msgid "HTML Week"
+msgstr "Woche (HTML)"
+
+#: config/install/core.date_format.html_year.yml:0
+msgid "HTML Year"
+msgstr "Jahr (HTML)"
+
+#: config/install/core.date_format.html_yearless_date.yml:0
+msgid "HTML Yearless date"
+msgstr "Datum ohne Jahr (HTML)"
+
+#: config/install/core.date_format.long.yml:0
+msgid "Default long date"
+msgstr "Standard-Datum lang"
+
+#: config/install/core.date_format.long.yml:0
+msgctxt "PHP date format"
+msgid "l, F j, Y - H:i"
+msgstr "l, j. F Y - H:i"
+
+#: config/install/core.date_format.medium.yml:0
+msgid "Default medium date"
+msgstr "Standard-Datum mittellang"
+
+#: config/install/core.date_format.medium.yml:0
+msgctxt "PHP date format"
+msgid "D, m/d/Y - H:i"
+msgstr "D, d.m.Y - H:i"
+
+#: config/install/core.date_format.short.yml:0
+msgid "Default short date"
+msgstr "Standard-Datum kurz"
+
+#: config/install/core.date_format.short.yml:0
+msgctxt "PHP date format"
+msgid "m/d/Y - H:i"
+msgstr "d.m.Y - H:i"
+
+#: config/install/system.maintenance.yml:0
+msgid "@site is currently under maintenance. We should be back shortly. Thank you for your patience."
+msgstr "Wir führen auf @site momentan Wartungsarbeiten durch und sollten bald wieder erreichbar sein. Vielen Dank für Ihre Geduld."
+
+#: config/install/system.menu.account.yml:0
+msgid "User account menu"
+msgstr "Benutzermenü"
+
+#: config/install/system.menu.account.yml:0
+msgid "Links related to the active user account"
+msgstr "Links im Bezug auf das aktive Benutzerkonto"
+
+#: config/install/system.menu.admin.yml:0
+msgid "Administrative task links"
+msgstr "Links für administrative Aufgaben"
+
+#: config/install/system.menu.footer.yml:0
+msgid "Site information links"
+msgstr "Links zu Website-Informationen"
+
+#: config/install/system.menu.main.yml:0
+msgid "Main navigation"
+msgstr "Hauptnavigation"
+
+#: config/install/system.menu.main.yml:0
+msgid "Site section links"
+msgstr "Links zu den wichtigsten Seitenbereichen"
+
+#: config/install/system.menu.tools.yml:0
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: config/install/system.menu.tools.yml:0
+msgid "User tool links, often added by modules"
+msgstr "Links zu Benutzerwerkzeugen, meist von Modulen hinzugefügt"
+
+msgid "UTC"
+msgstr "UTC"
+
+msgid "CET"
+msgstr "MEZ"
+
+msgid "Go to page @key"
+msgstr "Gehe zu Seite @key"
+
+msgid "System information"
+msgstr "Systeminformationen"
+
+msgid "System maintenance"
+msgstr "Systemwartung"

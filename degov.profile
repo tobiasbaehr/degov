@@ -5,6 +5,7 @@
  * Enables modules and site configuration for the deGov profile.
  */
 
+use Drupal\degov\TranslationImporter;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -246,4 +247,13 @@ function _install_degov_module_batch(array $module, string $module_name, &$conte
   $module_installer->install($module, $dependencies = TRUE);
   $context['results'][] = $module;
   $context['message'] = t('Installed %module module.', ['%module' => $module_name]);
+}
+
+function degov_import_translation_files() {
+  $degovPath = \Drupal::service('extension.list.profile')
+    ->get('degov')
+    ->getPath();
+  TranslationImporter::importTranslationsFromDirectory($degovPath . '/translations/de/core', 'de', FALSE);
+  TranslationImporter::importTranslationsFromDirectory($degovPath . '/translations/de/contrib', 'de', FALSE);
+  TranslationImporter::importTranslationsFromDirectory($degovPath . '/translations/de/degov', 'de');
 }

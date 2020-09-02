@@ -1,0 +1,147 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  spamspan.module: n/a
+#  spamspan.info.yml: n/a
+#  spamspan.links.task.yml: n/a
+#  spamspan.routing.yml: n/a
+#  src/Form/SpamSpanTestForm.php: n/a
+#  src/Plugin/SpamspanSettingsFormTrait.php: n/a
+#  src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php: n/a
+#  src/Plugin/Filter/FilterSpamspan.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: spamspan.module:27
+msgid "<p>The SpamSpan module obfuscates email addresses to help prevent spambots from collecting them. See the <a href=\"@url\">Spamspan test page</a>.</p>"
+msgstr "<p>Das SpamSpan-Modul verschleiert E-Mail-Adressen, damit Spambots sie nicht sammeln können. Siehe <a href=\"@url\">Spamspan Testseite</a>.</p>"
+
+#: spamspan.info.yml:0
+msgid "SpamSpan"
+msgstr "SpamSpan"
+
+#: spamspan.info.yml:0
+msgid "The SpamSpan module obfuscates email addresses to help prevent spambots from collecting them. It implements the technique at http://www.spamspan.com."
+msgstr "Das SpamSpan-Modul verschleiert E-Mail-Adressen, damit Spambots sie nicht sammeln können. Es implementiert die Technik unter http://www.spamspan.com."
+
+#: spamspan.info.yml:0
+msgid "Input filters"
+msgstr "Eingabefilter"
+
+#: spamspan.links.task.yml:0 spamspan.routing.yml:0
+msgid "Spamspan test page"
+msgstr "SpamSpan Testseite"
+
+#: src/Form/SpamSpanTestForm.php:69
+msgid "Test text"
+msgstr "Testtext"
+
+#: src/Form/SpamSpanTestForm.php:93
+msgid "Test"
+msgstr "Test"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:20
+msgid "Replacement for \"@\""
+msgstr "Ersatz für „@“"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:23
+msgid "Replace \"@\" with this text when javascript is disabled."
+msgstr "Ersetzt „@“ durch diesen Text, wenn JavaScript deaktiviert ist."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:27 src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php:53
+msgid "Use a graphical replacement for \"@\""
+msgstr "Grafischen Ersatz für „@“ verwenden"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:29
+msgid "Replace \"@\" with a graphical representation when javascript is disabled (and ignore the setting \"Replacement for @\" above)."
+msgstr "„@“ durch eine grafische Darstellung ersetzen, wenn JavaScript deaktiviert ist (und die Einstellung ‚Ersatz für @‘ oben ignorieren)."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:33
+msgid "Replace dots in email with text"
+msgstr "Punkte in E-Mail durch Text ersetzen"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:35
+msgid "Switch on dot replacement."
+msgstr "Ersetzen von Punkten einschalten."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:39
+msgid "Replacement for \".\""
+msgstr "Ersatz für „.“"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:42
+msgid "Replace \".\" with this text."
+msgstr "„.“ durch diesen Text ersetzen."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:49;54
+msgid "Use a form instead of a link"
+msgstr "Ein Formular anstelle eines Links verwenden"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:56
+msgid "Link to a contact form instead of an email address. The following settings are used only if you select this option."
+msgstr "Link zu einem Kontaktformular anstelle einer E-Mail-Adresse. Die folgenden Einstellungen werden nur genutzt, wenn Sie diese Option wählen."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:60
+msgid "Replacement string for the email address"
+msgstr "Ersatz-Zeichenkette für die E-Mail-Adresse"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:63
+msgid "Replace the email link with this string and substitute the following <br />%url = the url where the form resides,<br />%email = the email address (base64 and urlencoded),<br />%displaytext = text to display instead of the email address."
+msgstr "Ersetzt die E-Mail-Link durch diese Zeichenkette und setzt stattdessen ein: <br />%url = die URL, wo das Formular liegt,<br />%email = die E-Mail-Adresse (base64- und urlencodiert),<br />%displaytext = Text zur Anzeige anstelle der E-Mail-Adresse."
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:76
+msgid "Default url"
+msgstr "Standard-URL"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:79
+msgid "Default url to form to use if none specified (e.g. me@example.com[custom_url_to_form])"
+msgstr "Standard-URL des Formulars, die verwendet werden soll, wenn keine URL spezifiziert ist (z. B. me@example.com[custom_url_to_form])"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:83
+msgid "Default displaytext"
+msgstr "Standard-Anzeigetext"
+
+#: src/Plugin/SpamspanSettingsFormTrait.php:86
+msgid "Default displaytext to use if none specified (e.g. me@example.com[custom_url_to_form|custom_displaytext])"
+msgstr "Standard-Anzeigetext, der verwendet werden soll, wenn kein Text spezifiziert ist (z. B. me@example.com[custom_url_to_form|custom_displaytext])"
+
+#: src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php:48
+msgid "Link to a contact form instead of an email address"
+msgstr "Link zu einem Kontaktformular anstelle einer E-Mail-Adresse"
+
+#: src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php:51
+msgid "Replacement for \"@\" is %1"
+msgstr "Ersatz für „@“ ist %1"
+
+#: src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php:56
+msgid "Replacement for \".\" is %1"
+msgstr "Ersatz für „.“ ist %1"
+
+#: src/Plugin/Field/FieldFormatter/EmailSpamspanFormatter.php:15
+msgid "Email SpamSpan"
+msgstr "Email SpamSpan"
+
+#: src/Plugin/Filter/FilterSpamspan.php:133
+msgid "Each email address will be obfuscated in a human readable fashion or, if JavaScript is enabled, replaced with a spam resistent clickable link. Email addresses will get the default web form unless specified. If replacement text (a persons name) is required a webform is also required. Separate each part with the \"|\" pipe symbol. Replace spaces in names with \"_\"."
+msgstr "Jede E-Mail-Adresse wird in einer vom Menschen lesbaren Form verschleiert oder, falls JavaScript aktiviert ist, durch einen spamsicheren anklickbaren Link ersetzt. E-Mail-Adressen erhalten, soweit nichts spezifiziert wird, das Standard-Webformular. Wenn Ersatztext (der Name einer Person) erforderlich ist, wird auch ein Webformular benötigt. Trennen Sie die einzelnen Teile mit einem senkrechten Strich „|“. Ersetzen Sie Leerzeichen in Namen durch „_“."
+
+#: src/Plugin/Filter/FilterSpamspan.php:27
+msgid "SpamSpan email address encoding filter"
+msgstr "SpamSpan Kodierfilter für E-Mail-Adressen"
+
+#: src/Plugin/Filter/FilterSpamspan.php:27
+msgid "Attempt to hide email addresses from spam-bots."
+msgstr "Versucht, die E-Mail-Adressen vor Spambots zu verstecken."
+

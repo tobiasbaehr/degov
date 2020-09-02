@@ -1,0 +1,458 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  crop.module: n/a
+#  crop.install: n/a
+#  crop.info.yml: n/a
+#  src/Plugin/Crop/EntityProvider/Media.php: n/a
+#  crop.links.action.yml: n/a
+#  crop.routing.yml: n/a
+#  src/Form/CropTypeForm.php: n/a
+#  crop.links.menu.yml: n/a
+#  crop.permissions.yml: n/a
+#  src/Form/CropTypeDeleteForm.php: n/a
+#  config/schema/crop.schema.yml: n/a
+#  src/Entity/Crop.php: n/a
+#  src/Entity/CropType.php: n/a
+#  src/Plugin/ImageEffect/CropEffect.php: n/a
+#  src/CropTypeListBuilder.php: n/a
+#  src/Plugin/Crop/EntityProvider/File.php: n/a
+#  src/Plugin/Validation/Constraint/CropTypeAspectRatioValidationConstraint.php: n/a
+#  src/Plugin/Validation/Constraint/CropTypeMachineNameValidationConstraint.php: n/a
+#  templates/crop-crop-summary.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: crop.module:64
+msgid "Crop configuration"
+msgstr "Zuschnitt-Konfiguration"
+
+#: crop.module:75
+msgid "There are no file or image fields on this bundle at the moment. In order to configure crop add at least one such field and come back."
+msgstr "Es gibt derzeit in diesem Bundle keine Datei- oder Bildfelder. Fügen Sie zum Konfigurieren des Zuschnitts mindestens ein solches Feld hinzu und kommen Sie hier zurück."
+
+#: crop.module:83
+msgid "Image field"
+msgstr "Bildfeld"
+
+#: crop.module:86
+msgid "- Skip field -"
+msgstr "- Feld überspringen -"
+
+#: crop.module:88
+msgid "Select field that stores image which needs to be cropped."
+msgstr "Auswahl des Felds in dem das zuzuschneidende Bild gespeichert ist."
+
+#: crop.install:32 crop.info.yml:0
+msgid "Crop API"
+msgstr "Crop-API"
+
+#: crop.install:33;34
+msgid "This branch of Crop API is not compatible with the version of Media Entity installed."
+msgstr "Diese Ausgabe der Crop-API ist mit der installierten Version von Media Entity nicht kompatibel."
+
+#: crop.install:75
+msgid "The orphaned crop @cid referring to image with URI @uri has been deleted."
+msgstr "Der verwaiste Zuschnitt @cid zum Bild mit der URI @uri ist gelöscht worden."
+
+#: crop.info.yml:0
+msgid "Provides storage and API for image crops."
+msgstr "Stellt Speicherung und API für Bildzuschnitte bereit."
+
+#: crop.info.yml:0 src/Plugin/Crop/EntityProvider/Media.php:11
+msgid "Media"
+msgstr "Media"
+
+#: crop.links.action.yml:0 crop.routing.yml:0 src/Form/CropTypeForm.php:22
+msgid "Add crop type"
+msgstr "Zuschnittstyp hinzufügen"
+
+#: crop.links.menu.yml:0 crop.routing.yml:0
+msgid "Crop types"
+msgstr "Zuschnittstypen"
+
+#: crop.links.menu.yml:0
+msgid "Manage crop types."
+msgstr "Zuschnittstypen verwalten."
+
+#: crop.permissions.yml:0
+msgid "Administer crop settings"
+msgstr "Zuschnittseinstellungen verwalten"
+
+#: crop.permissions.yml:0
+msgid "Administer the basic settings for Crop API."
+msgstr "Grundeinstellungen für Crop-API verwalten."
+
+#: crop.permissions.yml:0
+msgid "Administer crop types"
+msgstr "Zuschnittstypen verwalten"
+
+#: crop.permissions.yml:0
+msgid "Administer crop types."
+msgstr "Zuschnittstypen verwalten."
+
+#: crop.routing.yml:0 src/Form/CropTypeDeleteForm.php:72
+msgid "Delete"
+msgstr "Löschen"
+
+#: config/schema/crop.schema.yml:0;0 src/Entity/Crop.php:13 src/Entity/CropType.php:9 src/Plugin/ImageEffect/CropEffect.php:143
+msgid "Crop type"
+msgstr "Zuschnittstyp"
+
+#: config/schema/crop.schema.yml:0
+msgid "Machine-readable name"
+msgstr "Systemname"
+
+#: config/schema/crop.schema.yml:0 src/CropTypeListBuilder.php:73 src/Form/CropTypeForm.php:48
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/crop.schema.yml:0
+msgid "Aspect ratio"
+msgstr "Seitenverhältnis"
+
+#: config/schema/crop.schema.yml:0
+msgid "Soft limit width"
+msgstr "Weicher Grenzwert Breite"
+
+#: config/schema/crop.schema.yml:0
+msgid "Soft limit height"
+msgstr "Weicher Grenzwert Höhe"
+
+#: config/schema/crop.schema.yml:0
+msgid "Hard limit width"
+msgstr "Harter Grenzwert Breite"
+
+#: config/schema/crop.schema.yml:0
+msgid "Hard limit height"
+msgstr "Harter Grenzwert Höhe"
+
+#: config/schema/crop.schema.yml:0
+msgid "Third party settings"
+msgstr "Einstellungen von Drittanbietern"
+
+#: config/schema/crop.schema.yml:0
+msgid "Crop settings"
+msgstr "Zuschnitt-Einstellungen"
+
+#: config/schema/crop.schema.yml:0
+msgid "Field storing image to be cropped"
+msgstr "Feld, in dem das zuzuschneidende Bild gespeichert ist"
+
+#: config/schema/crop.schema.yml:0
+msgid "Crop effect configuration"
+msgstr "Konfiguration des Zuschnitt-Effekts"
+
+#: config/schema/crop.schema.yml:0
+msgid "Crop API settings"
+msgstr "Einstellungen der Crop-API"
+
+#: config/schema/crop.schema.yml:0
+msgid "Indicates whether to flush image derivatives when a crop entity is change"
+msgstr "Gibt an, ob geänderte Bildversionen gelöscht werden, wenn eine Zuschnitts-Entität geändert wird"
+
+#: src/CropTypeListBuilder.php:71 src/Form/CropTypeForm.php:27
+msgid "Name"
+msgstr "Name"
+
+#: src/CropTypeListBuilder.php:77 src/Form/CropTypeForm.php:55
+msgid "Aspect Ratio"
+msgstr "Seitenverhältnis"
+
+#: src/CropTypeListBuilder.php:79
+msgid "Used in"
+msgstr "Verwendet in"
+
+#: src/CropTypeListBuilder.php:111
+msgid "@first, @second and @count more"
+msgstr "@first, @second und @count weitere"
+
+#: src/CropTypeListBuilder.php:130
+msgid "No crop types available. <a href=\"@link\">Add crop type</a>."
+msgstr "Keine Zuschnittstypen verfügbar. <a href=\"@link\">Zuschnittstyp hinzufügen</a>."
+
+#: src/Entity/Crop.php:116
+msgid "Entity provider @id not found."
+msgstr "Anbieter der Entität @id nicht gefunden."
+
+#: src/Entity/Crop.php:237
+msgid "Crop ID"
+msgstr "Zuschnitts-ID"
+
+#: src/Entity/Crop.php:238
+msgid "The crop ID."
+msgstr "Die ID des Zuschnitts."
+
+#: src/Entity/Crop.php:243
+msgid "UUID"
+msgstr "UUID"
+
+#: src/Entity/Crop.php:244
+msgid "The crop UUID."
+msgstr "Die UUID des Zuschnitts."
+
+#: src/Entity/Crop.php:248
+msgid "Revision ID"
+msgstr "Revisions-ID"
+
+#: src/Entity/Crop.php:249
+msgid "The crop revision ID."
+msgstr "Die Revisions-ID des Zuschnitts."
+
+#: src/Entity/Crop.php:254
+msgid "Type"
+msgstr "Typ"
+
+#: src/Entity/Crop.php:255
+msgid "The crop type."
+msgstr "Der Zuschnittstyp."
+
+#: src/Entity/Crop.php:260
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Entity/Crop.php:261
+msgid "The node language code."
+msgstr "Das Sprachkürzel des Beitrags."
+
+#: src/Entity/Crop.php:265
+msgid "Entity ID"
+msgstr "Entitäts-ID"
+
+#: src/Entity/Crop.php:266
+msgid "ID of entity crop belongs to."
+msgstr "Die ID der Entität, zu der der Zuschnitt gehört."
+
+#: src/Entity/Crop.php:272
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: src/Entity/Crop.php:273
+msgid "The type of entity crop belongs to."
+msgstr "Der Typ der Entität, zu der der Zuschnitt gehört."
+
+#: src/Entity/Crop.php:290
+msgid "URI"
+msgstr "URI"
+
+#: src/Entity/Crop.php:291
+msgid "The URI of the image crop belongs to."
+msgstr "Die URI des Bilds, zu dem der Zuschnitt gehört."
+
+#: src/Entity/Crop.php:297 src/Form/CropTypeForm.php:79;104
+msgid "Height"
+msgstr "Höhe"
+
+#: src/Entity/Crop.php:298
+msgid "The crop height."
+msgstr "Die Höhe des Zuschnitts."
+
+#: src/Entity/Crop.php:305 src/Form/CropTypeForm.php:70;95
+msgid "Width"
+msgstr "Breite"
+
+#: src/Entity/Crop.php:306
+msgid "The crop width."
+msgstr "Die Breite des Zuschnitts."
+
+#: src/Entity/Crop.php:313
+msgid "X coordinate"
+msgstr "X-Koordinate"
+
+#: src/Entity/Crop.php:314
+msgid "The crop's X coordinate."
+msgstr "Die X-Koordinate des Zuschnitts."
+
+#: src/Entity/Crop.php:321
+msgid "Y coordinate"
+msgstr "Y-Koordinate"
+
+#: src/Entity/Crop.php:322
+msgid "The crop's Y coordinate."
+msgstr "Die Y-Koordinate des Zuschnitts."
+
+#: src/Entity/Crop.php:329
+msgid "Revision timestamp"
+msgstr "Datum der Revision"
+
+#: src/Entity/Crop.php:330
+msgid "The time that the current revision was created."
+msgstr "Der Zeitpunkt, an dem die aktuelle Revision erstellt wurde."
+
+#: src/Entity/Crop.php:334
+msgid "Revision author ID"
+msgstr "ID des Revisionsautors"
+
+#: src/Entity/Crop.php:335
+msgid "The user ID of the author of the current revision."
+msgstr "Die Benutzerkennung des Autors der aktuellen Revision."
+
+#: src/Entity/Crop.php:340
+msgid "Revision Log"
+msgstr "Revisionsprotokoll"
+
+#: src/Entity/Crop.php:341
+msgid "The log entry explaining the changes in this revision."
+msgstr "Protokolleintrag, der die Änderungen dieser Revision erklärt"
+
+#: src/Entity/Crop.php:13
+msgid "Crop"
+msgstr "Zuschneiden"
+
+#: src/Form/CropTypeDeleteForm.php:58
+msgid "Are you sure you want to delete the crop type %type?"
+msgstr "Sind Sie sicher, dass Sie den Zuschnittstyp %type löschen wollen?"
+
+#: src/Form/CropTypeDeleteForm.php:102
+msgid "The crop type %name has been deleted."
+msgstr "Der Zuschnittstyp %name wurde gelöscht."
+
+#: src/Form/CropTypeDeleteForm.php:103
+msgid "Deleted crop type %name."
+msgstr "Zuschnittstyp %name gelöscht."
+
+#: src/Form/CropTypeDeleteForm.php:87
+msgid "%type is used by 1 piece of content on your site. You can not remove this content type until you have removed all of the %type content."
+msgid_plural "%type is used by @count pieces of content on your site. You may not remove %type until you have removed all of the %type content."
+msgstr[0] "%type wird von einem Inhalt auf der Website verwendet. Sie können diesen Inhaltstyp nicht entfernen, solange Sie nicht alle Inhalte des Typs %type entfernt haben."
+msgstr[1] "%type wird von @count Inhalten auf der Website verwendet. Sie können %type nicht entfernen, solange Sie nicht alle Inhalte des Typs %type entfernt haben."
+
+#: src/Form/CropTypeForm.php:24
+msgid "Edit %label crop type"
+msgstr "Zuschnittstyp %label bearbeiten"
+
+#: src/Form/CropTypeForm.php:30
+msgid "The human-readable name of this crop type. This name must be unique."
+msgstr "Der menschenlesbare Name dieses Zuschnittstyps. Dieser Name muss eindeutig sein."
+
+#: src/Form/CropTypeForm.php:44
+msgid "A unique machine-readable name for this crop type. It must only contain lowercase letters, numbers, and underscores."
+msgstr "Ein eindeutiger Systemname für diesen Zuschnittstyp. Er darf nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: src/Form/CropTypeForm.php:51
+msgid "Describe this crop type."
+msgstr "Beschreiben Sie diesen Zuschnittstyp."
+
+#: src/Form/CropTypeForm.php:59
+msgid "Set an aspect ratio <b>eg: 16:9</b> or leave this empty for arbitrary aspect ratio"
+msgstr "Legen Sie ein Seitenverhältnis <b>z. B. 16:9</b> fest oder lassen Sie diesen Eintrag für ein willkürliches Seitenverhältnis frei."
+
+#: src/Form/CropTypeForm.php:64
+msgid "Soft limit"
+msgstr "Weicher Grenzwert"
+
+#: src/Form/CropTypeForm.php:65
+msgid "Define crop size soft limit. Warning will be displayed if crop smaller than that is selected."
+msgstr "Definieren Sie den weichen Grenzwert für den Zuschnitt. Wenn ein kleinerer Zuschnitt gewählt wird, erscheint ein Warnhinweis."
+
+#: src/Form/CropTypeForm.php:72
+msgid "Limit for width."
+msgstr "Grenzwert für Breite."
+
+#: src/Form/CropTypeForm.php:81;106
+msgid "Limit for height."
+msgstr "Grenzwert für Höhe."
+
+#: src/Form/CropTypeForm.php:89
+msgid "Hard limit"
+msgstr "Harter Grenzwert"
+
+#: src/Form/CropTypeForm.php:90
+msgid "Define crop size hard limit. User is not allowed to make a smaller selection than defined here."
+msgstr "Definieren Sie den harten Grenzwert für den Zuschnitt. Der Benutzer darf keine kleineren Werte als hier definiert wählen."
+
+#: src/Form/CropTypeForm.php:97
+msgid "Limit for width"
+msgstr "Grenzwert für Breite"
+
+#: src/Form/CropTypeForm.php:120
+msgid "Save crop type"
+msgstr "Zuschnittstyp speichern"
+
+#: src/Form/CropTypeForm.php:121
+msgid "Delete crop type"
+msgstr "Zuschnittstyp löschen"
+
+#: src/Form/CropTypeForm.php:174
+msgid "The crop type %name has been updated."
+msgstr "Der Zuschnittstyp %name wurde aktualisiert."
+
+#: src/Form/CropTypeForm.php:177
+msgid "The crop type %name has been added."
+msgstr "Der Zuschnittstyp %name wurde hinzugefügt."
+
+#: src/Form/CropTypeForm.php:178
+msgid "View"
+msgstr "Ansicht"
+
+#: src/Form/CropTypeForm.php:179
+msgid "Added crop type %name."
+msgstr "Zuschnittstyp %name hinzugefügt."
+
+#: src/Plugin/Crop/EntityProvider/File.php:8
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/Crop/EntityProvider/File.php:8
+msgid "Provides crop integration for core files."
+msgstr "Stellt die Zuschnittsintegration für Dateien des Kernsystems bereit."
+
+#: src/Plugin/Crop/EntityProvider/Media.php:11
+msgid "Provides crop integration for media."
+msgstr "Stellt die Zuschnittsintegration für Medien bereit."
+
+#: src/Plugin/ImageEffect/CropEffect.php:146
+msgid "Crop type to be used for the image style."
+msgstr "Für den Bildstil zu verwendender Zuschnittstyp."
+
+#: src/Plugin/ImageEffect/CropEffect.php:86
+msgid "Manual image crop failed due to misconfigured crop type on %path."
+msgstr "Manueller Bildzuschnitt ist wegen falsch konfiguriertem Zuschnittstyp in %path fehlgeschlagen."
+
+#: src/Plugin/ImageEffect/CropEffect.php:95
+msgid "Manual image crop failed using the %toolkit toolkit on %path (%mimetype, %width x %height)"
+msgstr "Manueller Bildzuschnitt mit Toolkit %toolkit in Pfad %path ist fehlgeschlagen (%mimetype, %width x %height)"
+
+#: src/Plugin/ImageEffect/CropEffect.php:17
+msgid "Manual crop"
+msgstr "Manueller Zuschnitt"
+
+#: src/Plugin/ImageEffect/CropEffect.php:17
+msgid "Applies manually provided crop to the image."
+msgstr "Wendet manuell erstellten Zuschnitt auf das Bild an."
+
+#: src/Plugin/Validation/Constraint/CropTypeAspectRatioValidationConstraint.php:7
+msgctxt "Validation"
+msgid "Crop Type aspect ratio"
+msgstr "Seitenverhältnis des Zuschnittstyps"
+
+#: src/Plugin/Validation/Constraint/CropTypeAspectRatioValidationConstraint.php:22
+msgid "Invalid aspect ratio format. Should be defined in H:W form."
+msgstr "Ungültiges Format für Seitenverhältnis. Sollte im Format „H:B“ definiert werden."
+
+#: src/Plugin/Validation/Constraint/CropTypeMachineNameValidationConstraint.php:7
+msgctxt "Validation"
+msgid "Crop Type machine name"
+msgstr "Systemname des Zuschnittstyps"
+
+#: src/Plugin/Validation/Constraint/CropTypeMachineNameValidationConstraint.php:22
+msgid "Invalid machine-readable name."
+msgstr "Ungültiger Systemname."
+
+#: templates/crop-crop-summary.html.twig:18
+msgid "uses <em>@data.crop_type</em> crop type"
+msgstr "verwendet Zuschnittstyp <em>@data.crop_type</em>"
+

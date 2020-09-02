@@ -1,0 +1,485 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  swiftmailer.module: n/a
+#  swiftmailer.install: n/a
+#  swiftmailer.info.yml: n/a
+#  swiftmailer.links.menu.yml: n/a
+#  swiftmailer.routing.yml: n/a
+#  src/Plugin/Mail/SwiftMailer.php: n/a
+#  swiftmailer.links.task.yml: n/a
+#  swiftmailer.permissions.yml: n/a
+#  config/schema/swiftmailer.schema.yml: n/a
+#  src/Form/MessagesForm.php: n/a
+#  src/Form/SettingsForm.php: n/a
+#  includes/helpers/utilities.inc: n/a
+#  src/Form/TestForm.php: n/a
+#  src/Utility/Conversion.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: swiftmailer.module:50
+msgid "Dear @user,"
+msgstr "Liebe/r @user,"
+
+#: swiftmailer.module:51
+msgid "This e-mail has been sent from @site by the Swift Mailer module. The module has been successfully configured."
+msgstr "Diese E-Mail wurde vom Swift Mailer Modul auf @site verschickt. Die Konfiguration des Moduls ist damit erfolgreich abgeschlossen."
+
+#: swiftmailer.module:52
+msgid "Kind regards"
+msgstr "Mit freundlichen Grüßen"
+
+#: swiftmailer.module:53
+msgid "The Swift Mailer module"
+msgstr "Das Swift-Mailer-Modul"
+
+#: swiftmailer.module:55
+msgid "Swift Mailer has been successfully configured!"
+msgstr "Swift Mailer wurde erfolgreich konfiguriert!"
+
+#: swiftmailer.module:114
+msgid "The Swift Mailer module is designed to replace the default mail system that is shipped with Drupal. The initial configuration of this is done through the <a href=\":mailsystem_settings\">Mail System module</a>. Swift Mailer allows you to choose how e-mails should be sent. To read more about how this module works, please have a look at the <a href=\":documentation\">Swift Mailer documentation</a>."
+msgstr "Das Swift Mailer-Modul wurde entwickelt, um das Standard-Mailsystem zu ersetzen, das mit Drupal mitgeliefert wird. Die erste Konfiguration erfolgt über das <a href=\":mailsystem_settings\">Mail System Modul</a>. Mit Swift Mailer kann ausgewählt werden, wie E-Mails gesendet werden sollen. Um mehr darüber zu erfahren, wie dieses Modul funktioniert, bitte die <a href=\":documentation\">Swift Mailer documentation</a> ansehen."
+
+#: swiftmailer.install:16
+msgid "Swift Mailer requires the external Swift Mailer library. The recommended way of solving this dependency is using the <a href=\":url\">Composer Manager</a> module."
+msgstr "Swift Mailer benötigt die externe Swift-Mailer-Bibliothek. Die empfohlene Methode für das Lösen dieser Abhängigkeit ist die Verwendung des Moduls <a href=\":url\">Composer Manager</a>."
+
+#: swiftmailer.info.yml:0 swiftmailer.links.menu.yml:0 swiftmailer.routing.yml:0 src/Plugin/Mail/SwiftMailer.php:34
+msgid "Swift Mailer"
+msgstr "Swift Mailer"
+
+#: swiftmailer.info.yml:0
+msgid "Installs Swift Mailer as a mail system."
+msgstr "Installiert Swift Mailer als E-Mail-System."
+
+#: swiftmailer.info.yml:0
+msgid "Mail"
+msgstr "E-Mail"
+
+#: swiftmailer.links.menu.yml:0 swiftmailer.routing.yml:0
+msgid "Transport settings"
+msgstr "Transporteinstellungen"
+
+#: swiftmailer.links.menu.yml:0 swiftmailer.routing.yml:0
+msgid "Message settings"
+msgstr "Nachrichteneinstellungen"
+
+#: swiftmailer.links.menu.yml:0
+msgid "Test e-mail settings"
+msgstr "Email-Einstellungen testen"
+
+#: swiftmailer.links.menu.yml:0
+msgid "Configure Swift Mailer transport and message settings."
+msgstr "Swift-Mailer-Transport- und Nachrichteneinstellungen konfigurieren"
+
+#: swiftmailer.links.menu.yml:0
+msgid "Configure how Swift Mailer will send e-mails."
+msgstr "Festlegen, wie Swift-Mailer E-Mails versendet."
+
+#: swiftmailer.links.menu.yml:0
+msgid "Configure how Swift Mailer will compose messages."
+msgstr "Festlegen, wie Swift-Mailer Nachrichten erstellen soll."
+
+#: swiftmailer.links.menu.yml:0
+msgid "Send a test e-mail to verify that the configuration works."
+msgstr "Eine Test-E-Mail senden, um sicherzustellen, dass die Konfiguration korrekt ist."
+
+#: swiftmailer.links.task.yml:0
+msgid "Transport"
+msgstr "Transport"
+
+#: swiftmailer.links.task.yml:0
+msgid "Messages"
+msgstr "Benachrichtigungen"
+
+#: swiftmailer.links.task.yml:0 swiftmailer.routing.yml:0
+msgid "Test"
+msgstr "Test"
+
+#: swiftmailer.permissions.yml:0
+msgid "Administer Swift Mailer"
+msgstr "Swift-Mailer verwalten"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Swift Mailer message settings"
+msgstr "Swift-Mailer-Nachrichteneinstellungen"
+
+#: config/schema/swiftmailer.schema.yml:0 src/Form/MessagesForm.php:46
+msgid "Message format"
+msgstr "Nachrichtenformat"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Filter format"
+msgstr "Filterformat"
+
+#: config/schema/swiftmailer.schema.yml:0;0
+msgid "Respect format"
+msgstr "Format beibehalten"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Character set"
+msgstr "Zeichensatz"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Swift Mailer transport settings"
+msgstr "Swift-Mailer-Transporteinstellungen"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Transport method"
+msgstr "Transportmethode"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP Host"
+msgstr "SMTP-Host"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP Port"
+msgstr "SMTP-Port"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP encryption"
+msgstr "SMTP-Verschlüsselung"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Sendmail path"
+msgstr "Sendmail-Pfad"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Sendmail mode"
+msgstr "Sendmail-Modus"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP Credential provider"
+msgstr "SMTP-Zugangsdatenanbieter"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP Credentials"
+msgstr "SMTP-Zugangsdaten"
+
+#: config/schema/swiftmailer.schema.yml:0 src/Form/SettingsForm.php:285
+msgid "Spool directory"
+msgstr "Spool-Verzeichnis"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Swift Mailer SMTP credentials"
+msgstr "Swift-Mailer-SMTP-Zugangsdaten"
+
+#: config/schema/swiftmailer.schema.yml:0;0
+msgid "SMTP Username key"
+msgstr "SMTP-Benutzername"
+
+#: config/schema/swiftmailer.schema.yml:0;0
+msgid "SMTP Password key"
+msgstr "SMTP-Passwort"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Swift Mailer SMTP credentials with Key Module"
+msgstr "Swift Mailer SMTP-Anmeldeinformationen mit Key-Modul"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "Swift Mailer SMTP credentials with Key Module (user/password keys)"
+msgstr "Swift Mailer SMTP-Anmeldeinformationen mit Key-Modul Benutzernamen und Passwort"
+
+#: config/schema/swiftmailer.schema.yml:0
+msgid "SMTP User/Password key"
+msgstr "SMTP-Benutzername/Passwort"
+
+#: includes/helpers/utilities.inc:17
+msgid "No Encryption"
+msgstr "Keine Verschlüsselung"
+
+#: includes/helpers/utilities.inc:24
+msgid "SSL"
+msgstr "SSL"
+
+#: includes/helpers/utilities.inc:29
+msgid "TLS"
+msgstr "TLS"
+
+#: src/Form/MessagesForm.php:41
+msgid "This page allows you to configure settings which determines how e-mail messages are created."
+msgstr "Auf dieser Seite kann festgelegt werden, wie E-Mails erstellt werden sollen."
+
+#: src/Form/MessagesForm.php:47
+msgid "You can set the default message format which should be applied to e-mail\n        messages."
+msgstr "Das Standardformat, das für E-Mails angewendet werden soll, kann festgelegt werden."
+
+#: src/Form/MessagesForm.php:53
+msgid "Plain Text"
+msgstr "Klartext"
+
+#: src/Form/MessagesForm.php:53
+msgid "HTML"
+msgstr "HTML"
+
+#: src/Form/MessagesForm.php:59
+msgid "Respect provided e-mail format."
+msgstr "Eingestelltes E-Mail-Format beibehalten."
+
+#: src/Form/MessagesForm.php:61
+msgid "The header \"Content-Type\", if available, will be respected if you enable this setting.\n        Settings such as e-mail format (\"text/plain\" or \"text/html\") and character set may be provided through this\n        header. Unless your site somehow alters e-mails, enabling this setting will result in all e-mails to be sent\n        as plain text as this is the content type Drupal by default will apply to all e-mails."
+msgstr "Die Header-Angabe\"Content-Type\", wird berücksichtigt, falls vorhanden,  wenn diese Einstellung aktiviert wird.\r\n        Einstellungen wie E-Mail-Format (\"text/plain\" oder \"text/html\") und der Zeichensatz können mittels dieser Header-Angabe vorgenommen werden.\r\n        Wenn Ihre Website nicht irgendwie E-Mails ändert, führt die Aktivierung dieser Einstellung dazu, dass alle E-Mails  als normaler Text gesendet werden, da dies die Header-Angabe ist, die vio Drupal verwendet wird. Dies gilt grundsätzlich für alle E-Mails."
+
+#: src/Form/MessagesForm.php:69
+msgid "Plain Text Version"
+msgstr "E-Mails im Textformat"
+
+#: src/Form/MessagesForm.php:70
+msgid "An alternative plain text version can be generated based on the HTML version if no plain text version\n        has been explicitly set. The plain text version will be used by e-mail clients not capable of displaying HTML content."
+msgstr "Auf Basis der HTML-Version kann eine alternative Klartextversion generiert werden, wenn keine Klartextversion vorliegt.\r\n        wird explizit gewählt. Die Klartextversion wird von E-Mail-Clients verwendet, die nicht in der Lage sind, HTML-Inhalte anzuzeigen."
+
+#: src/Form/MessagesForm.php:81
+msgid "Generate alternative plain text version."
+msgstr "Alternative Textvariante der E-Mail erzeugen."
+
+#: src/Form/MessagesForm.php:83
+msgid "Please refer to @link for more details about how the alternative plain text version will be generated."
+msgstr "Weitere Informationen darüber, wie die alternative Klartextversion erzeugt wird, sind unter @link verfügbar."
+
+#: src/Form/MessagesForm.php:88
+msgid "Character Set"
+msgstr "Zeichensatz"
+
+#: src/Form/MessagesForm.php:89
+msgid "E-mails need to carry details about the character set which the\n        receiving client should use to understand the content of the e-mail.\n        The default character set is UTF-8."
+msgstr "E-Mails müssen Details über den Zeichensatz enthalten, der vom Empfänger verwendet werden muss, um die E-Mail darzustellen.\r\n        Der Standardzeichensatz ist UTF-8."
+
+#: src/Form/SettingsForm.php:45
+msgid "This page allows you to configure settings which determines how e-mail messages are sent."
+msgstr "Auf dieser Seite können die Einstellungen konfiguriert werden, die festlegen, wie E-Mail-Nachrichten gesendet werden."
+
+#: src/Form/SettingsForm.php:51
+msgid "Transport types"
+msgstr "Transportarten"
+
+#: src/Form/SettingsForm.php:52
+msgid "Which transport type should Drupal use to send e-mails?"
+msgstr "Welche Transportart soll Drupal für den E-Mail-Versand verwenden?"
+
+#: src/Form/SettingsForm.php:65
+msgid "SMTP"
+msgstr "SMTP"
+
+#: src/Form/SettingsForm.php:66
+msgid "Sendmail"
+msgstr "Sendmail"
+
+#: src/Form/SettingsForm.php:67
+msgid "PHP"
+msgstr "PHP"
+
+#: src/Form/SettingsForm.php:68
+msgid "Spool"
+msgstr "Spool"
+
+#: src/Form/SettingsForm.php:77
+msgid "Not sure which transport type to choose? The @documentation gives you a good overview of the various transport types."
+msgstr "Noch unsicher, welche Transportart Sie auswählen sollen? @documentation vermittelt Ihnen einen guten Überblick über die verschiedenen Transportarten."
+
+#: src/Form/SettingsForm.php:77;99;231;245
+msgid "Swift Mailer documentation"
+msgstr "Swift-Mailer-Dokumentation"
+
+#: src/Form/SettingsForm.php:91
+msgid "SMTP transport options"
+msgstr "SMTP-Transportoptionen"
+
+#: src/Form/SettingsForm.php:95
+msgid "This transport type will send all e-mails using a SMTP\n      server of your choice. You need to specify which SMTP server\n      to use. Please refer to the @documentation for more details\n      about this transport type."
+msgstr "Dieser Transporttyp sendet alle E-Mails über einen\r\n        SMTP-Server Ihrer Wahl. Sie müssen angeben, welchen SMTP-Server Sie\r\n        verwenden möchten. Weitere Informationen über diesen Transportttyp sind \r\n        in @documentation verfügbar."
+
+#: src/Form/SettingsForm.php:104
+msgid "SMTP server"
+msgstr "SMTP-Server"
+
+#: src/Form/SettingsForm.php:105
+msgid "The hostname or IP address at which the SMTP server can be reached."
+msgstr "Der Hostname oder IP-Adresse des SMTP Servers."
+
+#: src/Form/SettingsForm.php:112
+msgid "Port"
+msgstr "Port"
+
+#: src/Form/SettingsForm.php:113
+msgid "The port at which the SMTP server can be reached (defaults to 25)"
+msgstr "Die Portnummer unter der der SMTP Server erreichbar ist (standardmäßig 25)"
+
+#: src/Form/SettingsForm.php:120
+msgid "Encryption"
+msgstr "Verschlüsselung"
+
+#: src/Form/SettingsForm.php:122
+msgid "The type of encryption which should be used (if any)"
+msgstr "Die Art der Verschlüsselung, die verwendet werden soll (falls vorhanden)."
+
+#: src/Form/SettingsForm.php:128
+msgid "Credential provider"
+msgstr "Zugangsdatenanbieter"
+
+#: src/Form/SettingsForm.php:156;186
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/Form/SettingsForm.php:157
+msgid "A username required by the SMTP server (leave blank if not required)"
+msgstr "Ein vom SMTP-Server benötigter Benutzername (leer lassen, wenn nicht erforderlich)."
+
+#: src/Form/SettingsForm.php:166;195
+msgid "Password"
+msgstr "Passwort"
+
+#: src/Form/SettingsForm.php:167
+msgid "A password required by the SMTP server (leave blank if not required)"
+msgstr "Ein vom SMTP-Server benötigtes Passwort (leer lassen, wenn nicht erforderlich)."
+
+#: src/Form/SettingsForm.php:176
+msgid "A password required by the SMTP server. <em>The currently set password is hidden for security reasons</em>."
+msgstr "Ein Passwort, das vom SMTP-Server benötigt wird. <em>Das aktuell eingestellte Passwort ist aus Sicherheitsgründen versteckt</em>."
+
+#: src/Form/SettingsForm.php:180
+msgid "Delete the stored password"
+msgstr "Das gespeicherte Passwort löschen"
+
+#: src/Form/SettingsForm.php:187
+msgid "A username required by the SMTP server."
+msgstr "Ein Benutzername, der vom SMTP-Server benötigt wird."
+
+#: src/Form/SettingsForm.php:189;198;209
+msgid "- Please select -"
+msgstr "- Bitte auswählen -"
+
+#: src/Form/SettingsForm.php:196
+msgid "A password required by the SMTP server."
+msgstr "Ein Passwort, das vom SMTP-Server benötigt wird."
+
+#: src/Form/SettingsForm.php:206
+msgid "User/password"
+msgstr "Benutzer/Passwort"
+
+#: src/Form/SettingsForm.php:207
+msgid "A username + password required by the SMTP server."
+msgstr "Ein Benutzername + Passwort, das vom SMTP-Server benötigt wird."
+
+#: src/Form/SettingsForm.php:221
+msgid "Sendmail transport options"
+msgstr "Sendmail-Transportoptionen"
+
+#: src/Form/SettingsForm.php:225
+msgid "This transport type will send all e-mails using a locally\n      installed MTA such as Sendmail. You need to specify which\n      locally installed MTA to use by providing a path to the\n      MTA. If you do not provide any path then Swift Mailer\n      defaults to /usr/sbin/sendmail. You can read more about\n      this transport type in the @documentation."
+msgstr "Diese Transportart sendet alle E-Mails über einen lokal\r\n        installierten MTA wie Sendmail. Es muss angegeben werden, welcher lokal installierte MTA verwendet werden soll, indem ein Pfad zum MTA angegeben wird. Wenn keine Pfadangabe gemacht wird, dann wird Swift Mailer den Standardwert /usr/sbin/sendmail verwenden. Mehr Details über diesen Transport-Typ in der @documentation."
+
+#: src/Form/SettingsForm.php:236
+msgid "MTA path"
+msgstr "MTA-Pfad"
+
+#: src/Form/SettingsForm.php:237
+msgid "The absolute path to the locally installed MTA."
+msgstr "Der absolute Pfad zum lokal installierten MTA."
+
+#: src/Form/SettingsForm.php:243
+msgid "Mode"
+msgstr "Modus"
+
+#: src/Form/SettingsForm.php:245
+msgid "Not sure which option to choose? Go with <em>bs</em>. You can read more about the above two modes in the @documentation."
+msgstr "Sie sind sich nicht sicher, welche Option Sie wählen sollen? Nehmen Sie <em>bs</em>. Mehr über die beiden oben genannten Modi erfahren Sie in der @documentation."
+
+#: src/Form/SettingsForm.php:255
+msgid "PHP transport options"
+msgstr "PHP-Transportoptionen"
+
+#: src/Form/SettingsForm.php:259
+msgid "This transport type will send all e-mails using the built-in\n      mail functionality of PHP. This transport type can not be\n      configured here. Please refer to the @documentation if you\n      would like to read more about how the built-in mail functionality\n      in PHP can be configured."
+msgstr "Diese Transportart sendet alle E-Mails mit der integrierten\r\n      Mail-Funktionalität von PHP. Diese Transportart kann hier nicht konfiguriert werden.\r\n  Bitte lesen Sie die @documentation, wenn Sie\r\n      mehr darüber erfahren möchten, wie die eingebaute Mail-Funktionalität\r\n      in PHP konfiguriert werden kann."
+
+#: src/Form/SettingsForm.php:264
+msgid "PHP documentation"
+msgstr "PHP-Dokumentation"
+
+#: src/Form/SettingsForm.php:273
+msgid "Spool transport options"
+msgstr "Spool-Transportoptionen"
+
+#: src/Form/SettingsForm.php:277
+msgid "This transport does not attempt to send the email\n    but instead saves the message to a spool file. Another process can then\n    read from the spool and take care of sending the emails."
+msgstr "Dieser Verarbeitungsprozess versucht nicht, die E-Mail zu senden.\r\n    sondern speichert die Nachricht in einer Warteschlange. Ein anderer Prozess kann dann\r\n    die Warteschlange auslesen und sich um den Versand der E-Mails kümmern."
+
+#: src/Form/SettingsForm.php:286
+msgid "The absolute path to the spool directory."
+msgstr "Der absolute Pfad zum Spool-Verzeichnis."
+
+#: src/Form/SettingsForm.php:330
+msgid "Drupal has been configured to send all e-mails using the SMTP transport type."
+msgstr "Drupal wurde konfiguriert um alle E-Mails mit dem SMTP Protokoll zu versenden."
+
+#: src/Form/SettingsForm.php:337
+msgid "Drupal has been configured to send all e-mails using the Sendmail transport type."
+msgstr "Drupal wurde so konfiguriert, dass alle E-Mails mit der Sendmail-Transportart gesendet werden."
+
+#: src/Form/SettingsForm.php:342
+msgid "Drupal has been configured to send all e-mails using the PHP transport type."
+msgstr "Drupal wurde so konfiguriert, dass alle E-Mails mit der PHP-Transportart gesendet werden."
+
+#: src/Form/SettingsForm.php:348
+msgid "Drupal has been configured to send all e-mails using the Spool transport type."
+msgstr "Drupal wurde so konfiguriert, dass alle E-Mails mit dem Transport-Typ Warteschlange (Cron) gesendet werden."
+
+#: src/Form/TestForm.php:27
+msgid "This page allows you to send a test e-mail to a recipient of your choice."
+msgstr "Diese Seite ermöglicht das Verschicken einer Test-E-Mail an einen selbstgewählten Empfänger."
+
+#: src/Form/TestForm.php:32
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: src/Form/TestForm.php:33
+msgid "You can send a test e-mail to a recipient of your choice. The e-mail will be sent using the default values as provided by the Swift Mailer module or as configured by you."
+msgstr "Sie können eine Testmail an einen Empfänger Ihrer Wahl senden. Die E-Mail wird mit den Standardwerten gesendet, die vom Swift-Mailer-Modul bereitgestellt oder von Ihnen konfiguriert wurden."
+
+#: src/Form/TestForm.php:37
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: src/Form/TestForm.php:46
+msgid "Send"
+msgstr "Senden"
+
+#: src/Form/TestForm.php:58
+msgid "An attempt has been made to send an e-mail to @email."
+msgstr "Es wurde versucht eine E-Mail an @email zu senden."
+
+#: src/Plugin/Mail/SwiftMailer.php:406
+msgid "An attempt to send an e-mail message failed."
+msgstr "Ein Versuch, eine E-Mail zu versenden, ist fehlgeschlagen"
+
+#: src/Plugin/Mail/SwiftMailer.php:401
+msgid "An attempt to send an e-mail message failed, and the following error\n        message was returned : @exception_message<br /><br />The e-mail carried\n        the following headers:<br /><br />@headers"
+msgstr "Der Versuch eine E-Mail zu versenden ist fehlgeschlagen und es ist folgender\r\n        Fehler aufgetreten : @exception_message<br><br>Die E-Mail besaß\r\n        die folgenden Kopfzeilen:<br><br>@headers"
+
+#: src/Plugin/Mail/SwiftMailer.php:34
+msgid "Swift Mailer Plugin."
+msgstr "Swift Mailer Plugin."
+
+#: src/Utility/Conversion.php:418
+msgid "The invalid \"From\" e-mail address \"@mail\" was skipped."
+msgstr "Die ungültige Absender-E-Mail-Adresse @mail wurde übersprungen."
+
+#: src/Utility/Conversion.php:428
+msgid "The invalid \"To\" e-mail address \"@mail\" was skipped."
+msgstr "Die ungültige Empfänger-E-Mail-Adresse @mail wurde übersprungen."
+

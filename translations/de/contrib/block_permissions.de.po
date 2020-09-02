@@ -1,0 +1,62 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  block_permissions.info.yml: n/a
+#  src/BlockPermissionsAccessControlHandler.php: n/a
+#  src/BlockPermissionsPermissions.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:37+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: block_permissions.info.yml:0
+msgid "Block permissions"
+msgstr "Blockberechtigungen"
+
+#: block_permissions.info.yml:0
+msgid "Adds specific permissions for administering blocks."
+msgstr "Fügt spezielle Berechtigungen zum Verwalten von Blöcken hinzu."
+
+#: block_permissions.info.yml:0
+msgid "Block"
+msgstr "Block"
+
+#: src/BlockPermissionsAccessControlHandler.php:98
+msgid "User @user has the administer block settings permission but no access to the default theme @theme, this is required."
+msgstr "Benutzer @user hat die Berechtigung, Blockeinstellungen zu verwalten, hat jedoch keinen Zugang zum Standard-Theme @theme. Dies ist jedoch erforderlich."
+
+#: src/BlockPermissionsPermissions.php:64
+msgid "Administer block settings for all themes"
+msgstr "Blockeinstellungen für alle Themes verwalten"
+
+#: src/BlockPermissionsPermissions.php:65
+msgid "This permission refines the administer blocks permission."
+msgstr "Diese Berechtigung ergänzt die Berechtigung zum Verwalten von Blöcken."
+
+#: src/BlockPermissionsPermissions.php:74
+msgid "Administer block settings for the theme @label"
+msgstr "Block-Einstellungen für das Theme @label verwalten"
+
+#: src/BlockPermissionsPermissions.php:75
+msgid "This permission s the administer blocks permission."
+msgstr "Diese Berechtigung ist die Berechtigung zum Verwalten von Blöcken."
+
+#: src/BlockPermissionsPermissions.php:88
+msgid "Manage blocks provided by @label"
+msgstr "Von @label bereitgestellte Blöcke verwalten"
+
+#: src/BlockPermissionsPermissions.php:89
+msgid "When not given, the user cannot manage blocks provided by this provider."
+msgstr "Ohne diese Berechtigung kann der Benutzer von diesem Anbieter bereitgestellte Blöcke nicht verwalten."
+

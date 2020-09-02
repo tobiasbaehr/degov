@@ -1,0 +1,318 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  link.module: n/a
+#  link.info.yml: n/a
+#  src/Plugin/Field/FieldFormatter/LinkFormatter.php: n/a
+#  src/Plugin/Field/FieldType/LinkItem.php: n/a
+#  src/Plugin/Field/FieldWidget/LinkWidget.php: n/a
+#  config/schema/link.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/LinkSeparateFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/LinkAccessConstraint.php: n/a
+#  src/Plugin/Validation/Constraint/LinkExternalProtocolsConstraint.php: n/a
+#  src/Plugin/Validation/Constraint/LinkNotExistingInternalConstraint.php: n/a
+#  src/Plugin/Validation/Constraint/LinkTypeConstraint.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: link.module:18
+msgid "About"
+msgstr "Über"
+
+#: link.module:19
+msgid "The Link module allows you to create fields that contain internal or external URLs and optional link text. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href=\":link_documentation\">online documentation for the Link module</a>."
+msgstr "Das Link-Modul erlaubt das Erstellen von Feldern, die interne oder externe URLS sowie optionalen Linktext enthalten. Allgemeine Informationen über das Erstellen und Verwalten von Feldern sind in der <a href=\":field\">Field-Module-Hilfe</a> sowie der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar. Weiterführende Informationen zum Link-Modul sind in der <a href=\":link_documentation\">Online-Dokumentation des Link-Moduls</a> enthalten."
+
+#: link.module:20
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: link.module:22
+msgid "Managing and displaying link fields"
+msgstr "Anzeigen und Verwalten von Link-Feldern"
+
+#: link.module:23
+msgid "The <em>settings</em> and the <em>display</em> of the link field can be configured separately. See the <a href=\":field_ui\">Field UI help</a> for more information on how to manage fields and their display."
+msgstr "Die <em>Einstellungen</em> und die <em>Darstellung</em> des Link-Feldes können getrennt voneinander konfiguriert werden. Weitere Informationen über das Verwalten von Feldern und deren Anzeige sind in der Hilfe der <a href=\":field_ui\">Field-UI</a> verfügbar."
+
+#: link.module:24
+msgid "Setting the allowed link type"
+msgstr "Den erlaubten Linktyp festlegen"
+
+#: link.module:25
+msgid "In the field settings you can define the allowed link type to be <em>internal links only</em>, <em>external links only</em>, or <em>both internal and external links</em>. <em>Internal links only</em> and <em>both internal and external links</em> options enable an autocomplete widget for internal links, so a user does not have to copy or remember a URL."
+msgstr "In den Feldeinstellungen kann definiert werden, ob das Feld <em>nur interne Links</em> oder <em>nur externe Links</em> enthalten soll. Es kann auch eingestellt werden, dass <em>sowohl interne als auch externe Links erlaubt sind.</em> Die Optionen <em>nur Interne Links</em> bzw. <em>Interne und externe Links</em> zeigen Benutzern ein Steuerelement an, das Eingaben automatisch vervollständigt. Auf diese Weise müssen sich Benutzer an keine URLs erinnern oder diese kopieren."
+
+#: link.module:26
+msgid "Adding link text"
+msgstr "Linktext hinzufügen"
+
+#: link.module:27
+msgid "In the field settings you can define additional link text to be <em>optional</em> or <em>required</em> in any link field."
+msgstr "In den Feldeinstellungen kann festgelegt werden, ob ein zusätzlicher Linktext für jedes Link-Feld <em>optional</em> oder erforderlich ist."
+
+#: link.module:28
+msgid "Displaying link text"
+msgstr "Linktext anzeigen"
+
+#: link.module:29
+msgid "If link text has been submitted for a URL, then by default this link text is displayed as a link to the URL. If you want to display both the link text <em>and</em> the URL, choose the appropriate link format from the drop-down menu in the <em>Manage display</em> page. If you only want to display the URL even if link text has been submitted, choose <em>Link</em> as the format, and then change its <em>Format settings</em> to display <em>URL only</em>."
+msgstr "Wenn der Linktext für eine URL angegeben wurde wird dieser Text standardmäßig als Link zur URL angezeigt. Wenn <em>sowohl der Linktext als auch die URL</em> angezeigt werden soll, kann das entsprechende Linkformat aus dem Drop-Down-Menü auf der Seite <em>Anzeige verwalten</em> gewählt werden. Wenn nur die URL angezeigt werden soll, obwohl ein Text für den Link angegeben worden ist, kann das Format <em>Link</em> gewählt werden. Anschließend kann durch eine Änderung der <em>Formatierungseinstellungen</em> die Anzeige des Links entsprechend angepasst werden."
+
+#: link.module:30
+msgid "Adding attributes to links"
+msgstr "Attribute zu Links hinzufügen"
+
+#: link.module:31
+msgid "You can add attributes to links, by changing the <em>Format settings</em> in the <em>Manage display</em> page. Adding <em>rel=\"nofollow\"</em> notifies search engines that links should not be followed."
+msgstr "Eigenschaften können zu Links  hinzufügt werden, indem die <em>Formateinstellung</em> auf der Seite <em>Darstellung verwalten</em>  geändert werden. Das Hinzufügen von <em>rel=\"nofollow\"</em> weist Suchmaschinen an, einem Link bei der Indexierung eines Inhaltes nicht zu folgen."
+
+#: link.module:32
+msgid "Validating URLs"
+msgstr "URLs überprüfen"
+
+#: link.module:33
+msgid "All links are validated after a link field is filled in. They can include anchors or query strings."
+msgstr "Alle Links werden nach dem Ausfüllen eines Link-Felds validiert. Sie können Anker oder Abfragezeichenketten enthalten."
+
+#: link.info.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:16 src/Plugin/Field/FieldType/LinkItem.php:15 src/Plugin/Field/FieldWidget/LinkWidget.php:14
+msgid "Link"
+msgstr "Link"
+
+#: link.info.yml:0
+msgid "Provides a simple link field type."
+msgstr "Definiert einen einfachen Link-Feldtyp."
+
+#: link.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: config/schema/link.schema.yml:0;0;0
+msgid "Link format settings"
+msgstr "Linkformat-Einstellungen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:98
+msgid "Trim link text length"
+msgstr "Linktext kürzen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:106
+msgid "URL only"
+msgstr "Nur URL"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:112
+msgid "Show URL as plain text"
+msgstr "URL als Klartext anzeigen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:123
+msgid "Add rel=\"nofollow\" to links"
+msgstr "Die Eigenschaft  rel=\"nofollow\" zu Links hinzufügen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldFormatter/LinkFormatter.php:129;163
+msgid "Open link in new window"
+msgstr "Link in neuem Fenster öffnen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldWidget/LinkWidget.php:349
+msgid "Placeholder for URL"
+msgstr "Platzhalter für URL"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldWidget/LinkWidget.php:355
+msgid "Placeholder for link text"
+msgstr "Platzhalter für Linktext"
+
+#: config/schema/link.schema.yml:0;0
+msgid "Link settings"
+msgstr "Link-Einstellungen"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldType/LinkItem.php:103
+msgid "Allow link text"
+msgstr "Linktext erlauben"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldType/LinkItem.php:92
+msgid "Allowed link type"
+msgstr "Erlaubter Linktyp"
+
+#: config/schema/link.schema.yml:0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldType/LinkItem.php:47 src/Plugin/Field/FieldWidget/LinkWidget.php:227
+msgid "Link text"
+msgstr "Link-Text"
+
+#: config/schema/link.schema.yml:0 src/Plugin/Field/FieldWidget/LinkWidget.php:181
+msgid "URL"
+msgstr "URL"
+
+#: config/schema/link.schema.yml:0
+msgid "Link options"
+msgstr "Link-Optionen"
+
+#: config/schema/link.schema.yml:0
+msgid "URL query key value pairs"
+msgstr "URL-Schlüssel/URL-Wert-Paar-Abfrage"
+
+#: config/schema/link.schema.yml:0
+msgid "URL fragment"
+msgstr "URL-Fragment"
+
+#: config/schema/link.schema.yml:0
+msgid "Is this URL absolute"
+msgstr "Ist diese URL absolut"
+
+#: config/schema/link.schema.yml:0
+msgid "If the URL should use a secure protocol"
+msgstr "Falls die URL ein sicheres Verbindungsprotokoll verwenden soll"
+
+#: config/schema/link.schema.yml:0
+msgid "Link attributes"
+msgstr "Link-Attribute"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:99
+msgid "characters"
+msgstr "Zeichen"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:102
+msgid "Leave blank to allow unlimited link text lengths."
+msgstr "Leer lassen, um die Länge der Linktexte nicht zu begrenzen."
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:146
+msgid "Link text trimmed to @limit characters"
+msgstr "Linktext auf @limit Zeichen gekürzt"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:149
+msgid "Link text not trimmed"
+msgstr "Linktext ungekürzt"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:153
+msgid "Show URL only as plain-text"
+msgstr "URL nur als reinen Text anzeigen"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:156
+msgid "Show URL only"
+msgstr "Nur URL anzeigen"
+
+#: src/Plugin/Field/FieldFormatter/LinkFormatter.php:160
+msgid "Add rel=\"@rel\""
+msgstr "rel=\"@rel\" hinzufügen"
+
+#: src/Plugin/Field/FieldFormatter/LinkSeparateFormatter.php:8
+msgid "Separate link text and URL"
+msgstr "Linktext und URL voneinander trennen."
+
+#: src/Plugin/Field/FieldType/LinkItem.php:44
+msgid "URI"
+msgstr "URI"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:50
+msgid "Options"
+msgstr "Optionen"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:95
+msgid "Internal links only"
+msgstr "Nur interne Links"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:96
+msgid "External links only"
+msgstr "Nur externe Links"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:97
+msgid "Both internal and external links"
+msgstr "Interne und externe Links"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:106
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:107
+msgid "Optional"
+msgstr "Optional"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:108
+msgid "Required"
+msgstr "Erforderlich"
+
+#: src/Plugin/Field/FieldType/LinkItem.php:15
+msgid "Stores a URL string, optional varchar link text, and optional blob of attributes to assemble a link."
+msgstr "Speichert eine URL-Zeichenkette, optionalen VARCHAR Link-Text und einen optionalen BLOB von Attributen um einen Link zu erzeugen."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:143
+msgid "Manually entered paths should start with one of the following characters: / ? #"
+msgstr "Manuell eingegebene Pfade sollten mit einem der folgenden Zeichen beginnen: / ? #"
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:157
+msgid "@title field is required if there is @uri input."
+msgstr "Das Feld @title ist erforderlich, wenn eine Eingabe für @uri vorliegt."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:168
+msgid "The @uri field is required when the @title field is specified."
+msgstr "Das Feld @uri  ist erforderlich, wenn das Feld @title ausgefüllt ist."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:212
+msgid "This must be an internal path such as %add-node. You can also start typing the title of a piece of content to select it. Enter %front to link to the front page."
+msgstr "Es muss ein interner Pfad wie %add-node angegeben werden. Außerdem kann der Titel eines vorhandenen Inhalts \r\neingegeben werden. Der Titel wird dann automatisch gefunden und vervollständigt und kann anschließend ausgewählt werden. Geben sie %front ein, um auf die Startseite zu verweisen."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:217
+msgid "Start typing the title of a piece of content to select it. You can also enter an internal path such as %add-node or an external URL such as %url. Enter %front to link to the front page."
+msgstr "Beginnen Sie einen Teil des Titel einer Seite zu tippen um Vorschläge zum Auswählen zu erhalten. Sie können interne Pfade wie %add-node oder externe URLs wie %url eingeben. Geben Sie %front ein um auf die Startseite zu verlinken."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:222
+msgid "This must be an external URL such as %url."
+msgstr "Hierbei muss es sich um eine externe URL wie %url handeln."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:351;357
+msgid "Text that will be shown inside the field until a value is entered. This hint is usually a sample value or a brief description of the expected format."
+msgstr "Text, der bis zur Eingabe eines Wertes im Feld angezeigt wird. Dies ist üblicherweise ein Beispiel für das erwartete Format oder eine kurze Beschreibung."
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:377
+msgid "No placeholders"
+msgstr "Keine Platzhalter"
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:381
+msgid "Title placeholder: @placeholder_title"
+msgstr "Titel-Platzhalter: @placeholder_title"
+
+#: src/Plugin/Field/FieldWidget/LinkWidget.php:384
+msgid "URL placeholder: @placeholder_url"
+msgstr "URL-Platzhalter: @placeholder_url"
+
+#: src/Plugin/Validation/Constraint/LinkAccessConstraint.php:7
+msgctxt "Validation"
+msgid "Link URI can be accessed by the user."
+msgstr "Die Link-URI kann durch den Benutzer abgerufen werden."
+
+#: src/Plugin/Validation/Constraint/LinkAccessConstraint.php:17
+msgid "The path '@uri' is inaccessible."
+msgstr "Auf den Pfad „@uri“ kann nicht zugegriffen werden."
+
+#: src/Plugin/Validation/Constraint/LinkExternalProtocolsConstraint.php:7
+msgctxt "Validation"
+msgid "No dangerous external protocols"
+msgstr "Keine gefährlichen externen Protokolle"
+
+#: src/Plugin/Validation/Constraint/LinkExternalProtocolsConstraint.php:17 src/Plugin/Validation/Constraint/LinkNotExistingInternalConstraint.php:17 src/Plugin/Validation/Constraint/LinkTypeConstraint.php:17
+msgid "The path '@uri' is invalid."
+msgstr "Der Pfad „@uri“ ist ungültig."
+
+#: src/Plugin/Validation/Constraint/LinkNotExistingInternalConstraint.php:7
+msgctxt "Validation"
+msgid "No broken internal links"
+msgstr "Keine fehlerhaften internen Links"
+
+#: src/Plugin/Validation/Constraint/LinkTypeConstraint.php:7
+msgctxt "Validation"
+msgid "Link data valid for link type."
+msgstr "Die Daten des Linktyps sind korrekt."
+

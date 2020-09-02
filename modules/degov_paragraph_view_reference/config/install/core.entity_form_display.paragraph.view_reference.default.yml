@@ -5,6 +5,7 @@ dependencies:
     - field.field.paragraph.view_reference.field_sub_title
     - field.field.paragraph.view_reference.field_title
     - field.field.paragraph.view_reference.field_title_link
+    - field.field.paragraph.view_reference.field_view_reference_links
     - field.field.paragraph.view_reference.field_view_reference_view
     - paragraphs.paragraphs_type.view_reference
   enforced:
@@ -12,6 +13,7 @@ dependencies:
       - degov_paragraph_view_reference
   module:
     - link
+    - link_attributes
     - viewsreference
 id: paragraph.view_reference.default
 targetEntityType: paragraph
@@ -41,6 +43,21 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_view_reference_links:
+    weight: 10
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
     region: content
   field_view_reference_view:
     weight: 9

@@ -17,7 +17,7 @@ msgstr ""
 
 #: src/Plugin/Field/FieldFormatter/EntityReferenceDateDisplayFormatter.php:7
 msgid "This formatter allows you to render referenced entities by selected display mode."
-msgstr ""
+msgstr "Mit diesem Anzeigeformat können Sie referenzierte Entitäten im ausgewählten Anzeigemodus darstellen."
 
 #: src/Plugin/Field/FieldType/EntityReferenceDate.php:40
 msgid "The start datetime"

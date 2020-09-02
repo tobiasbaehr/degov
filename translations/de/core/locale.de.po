@@ -1,0 +1,1111 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  locale.batch.inc: n/a
+#  locale.bulk.inc: n/a
+#  locale.compare.inc: n/a
+#  locale.fetch.inc: n/a
+#  locale.pages.inc: n/a
+#  locale.module: n/a
+#  config/schema/locale.schema.yml: n/a
+#  locale.datepicker.es6.js: n/a
+#  locale.datepicker.js: n/a
+#  locale.install: n/a
+#  locale.admin.es6.js: n/a
+#  locale.admin.js: n/a
+#  locale.info.yml: n/a
+#  locale.links.menu.yml: n/a
+#  locale.routing.yml: n/a
+#  config/optional/tour.tour.locale.yml: n/a
+#  locale.links.task.yml: n/a
+#  src/Form/ImportForm.php: n/a
+#  src/Form/ExportForm.php: n/a
+#  locale.permissions.yml: n/a
+#  src/Form/LocaleSettingsForm.php: n/a
+#  src/PoDatabaseWriter.php: n/a
+#  src/Form/TranslationStatusForm.php: n/a
+#  src/Form/TranslateEditForm.php: n/a
+#  src/Form/TranslateFilterForm.php: n/a
+#  src/Form/TranslateFormBase.php: n/a
+#  src/Plugin/QueueWorker/LocaleTranslation.php: n/a
+#  src/StreamWrapper/TranslationsStream.php: n/a
+#  templates/locale-translation-last-check.html.twig: n/a
+#  templates/locale-translation-update-info.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: locale.batch.inc:86
+msgid "Checked translation for %project."
+msgstr "Übersetzung für %project überprüft."
+
+#: locale.batch.inc:118
+msgid "Nothing to check."
+msgstr "Nichts zum Überprüfen."
+
+#: locale.batch.inc:123
+msgid "An error occurred trying to check available interface translation updates."
+msgstr "Bei der Prüfung auf neue Übersetzungen trat ein Fehler auf."
+
+#: locale.batch.inc:148
+msgid "Downloaded translation for %project."
+msgstr "Übersetzung für %project heruntergeladen."
+
+#: locale.batch.inc:185
+msgid "Importing translation for %project."
+msgstr "Importiere Übersetzungen für %project."
+
+#: locale.batch.inc:195
+msgid "Imported translation for %project."
+msgstr "Übersetzung für %project importiert."
+
+#: locale.batch.inc:268
+msgid "Translation file not found: @uri."
+msgstr "Übersetzungsdatei nicht gefunden: @uri."
+
+#: locale.batch.inc:271
+msgid "HTTP request to @url failed with error: @error."
+msgstr "HTTP-Anfrage an @url schlug mit folgender Fehlermeldung fehhl: @error."
+
+#: locale.batch.inc:304
+msgid "Unable to download translation file @uri."
+msgstr "Die Übersetzungsdatei @uri konnte nicht heruntergeladen werden."
+
+#: locale.batch.inc:103
+msgid "One translation file could not be checked. <a href=\":url\">See the log</a> for details."
+msgid_plural "@count translation files could not be checked. <a href=\":url\">See the log</a> for details."
+msgstr[0] "Eine Übersetzungsdatei konnte nicht überprüft werden. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+msgstr[1] "@count Übersetzungsdateien konnten nicht überprüft werden. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+
+#: locale.batch.inc:106
+msgid "One translation files could not be checked. See the log for details."
+msgid_plural "@count translation files could not be checked. See the log for details."
+msgstr[0] "Eine Übersetzungsdatei konnte nicht überprüft werden. Weitere Einzelheiten sind im Protokoll einsehbar."
+msgstr[1] "@count Übersetzungsdateien konnten nicht überprüft werden. Weitere Einzelheiten sind im Protokoll einsehbar."
+
+#: locale.batch.inc:111
+msgid "Checked available interface translation updates for one project."
+msgid_plural "Checked available interface translation updates for @count projects."
+msgstr[0] "Verfügbare Aktualisierungen für Oberflächenübersetzungen für ein Projekt geprüft."
+msgstr[1] "Verfügbare Aktualisierungen für Oberflächenübersetzungen für @count Projekte geprüft."
+
+#: locale.bulk.inc:156
+msgid "Importing interface translations"
+msgstr "Importieren der Oberflächenübersetzung"
+
+#: locale.bulk.inc:158
+msgid "Error importing interface translations"
+msgstr "Fehler beim Importieren der Oberflächenübersetzung"
+
+#: locale.bulk.inc:225
+msgid "@message (@percent%)."
+msgstr "@message (@percent%)."
+
+#: locale.bulk.inc:228
+msgid "Importing translation file: %filename (@percent%)."
+msgstr "Übersetzungsdatei importieren: %filename (@percent%)."
+
+#: locale.bulk.inc:289
+msgid "Translations imported."
+msgstr "Übersetzungen importiert."
+
+#: locale.bulk.inc:313
+msgid "Updating translations for JavaScript and default configuration."
+msgstr "Updating translations for JavaScript and default configuration."
+
+#: locale.bulk.inc:334
+msgid "Updating default configuration (@percent%)."
+msgstr "Standardkonfiguration wird aktualisiert (@percent%)."
+
+#: locale.bulk.inc:351
+msgid "Updated default configuration."
+msgstr "Standardkonfiguration aktualisiert."
+
+#: locale.bulk.inc:584
+msgid "Updating configuration translations"
+msgstr "Aktualisiere Übersetzungen der Konfiguration"
+
+#: locale.bulk.inc:585
+msgid "Starting configuration update"
+msgstr "Konfigurationsaktualisierung starten"
+
+#: locale.bulk.inc:586
+msgid "Error updating configuration translations"
+msgstr "Fehler beim Aktualisieren der Übersetzung der Konfiguration"
+
+#: locale.bulk.inc:637
+msgid "The configuration was successfully updated. There are %number configuration objects updated."
+msgstr "Die Konfiguration wurde erfolgreich aktualisiert. %objects Konfigurationsobjekte wurden aktualisiert."
+
+#: locale.bulk.inc:641;642
+msgid "No configuration objects have been updated."
+msgstr "Es wurden keine Konfigurationsobjekte aktualisiert."
+
+#: locale.bulk.inc:263
+msgid "Unable to import translations file: @file"
+msgstr "Die Übersetzungsdatei @file konnte nicht importiert werden."
+
+#: locale.bulk.inc:399
+msgid "Translations imported: %number added, %update updated, %delete removed."
+msgstr "Übersetzungen wurden importiert: %number hinzugefügt, %update aktualisiert, %delete entfernt."
+
+#: locale.bulk.inc:638
+msgid "The configuration was successfully updated. %number configuration objects updated."
+msgstr "Die Konfiguration wurde erfolgreich aktualisiert. %number Konfigurationsobjekte wurden aktualisiert."
+
+#: locale.bulk.inc:409
+msgid "@count disallowed HTML string(s) in files: @files."
+msgstr "@count nicht erlaubte HTML Zeichenkette(n) in Dateien: @files."
+
+#: locale.bulk.inc:372
+msgid "One translation file could not be imported. <a href=\":url\">See the log</a> for details."
+msgid_plural "@count translation files could not be imported. <a href=\":url\">See the log</a> for details."
+msgstr[0] "Eine Übersetzungsdatei konnte nicht importiert werden. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+msgstr[1] "@count Übersetzungsdateien konnten nicht importiert werden. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+
+#: locale.bulk.inc:375
+msgid "One translation file could not be imported. See the log for details."
+msgid_plural "@count translation files could not be imported. See the log for details."
+msgstr[0] "Eine Übersetzungsdatei konnte nicht importiert werden. Weitere Einzelheiten sind im Protokoll einsehbar."
+msgstr[1] "@count Übersetzungsdateien konnten nicht importiert werden. Weitere Einzelheiten sind im Protokoll einsehbar."
+
+#: locale.bulk.inc:394
+msgid "One translation file imported. %number translations were added, %update translations were updated and %delete translations were removed."
+msgid_plural "@count translation files imported. %number translations were added, %update translations were updated and %delete translations were removed."
+msgstr[0] "Eine Übersetzungsdatei wurde importiert. %number Übersetzungen wurden hinzugefügt, %update Übersetzungen wurden aktualisiert und %delete Übersetzungen wurden entfernt."
+msgstr[1] "@count Übersetzungsdateien wurden importiert. %number Übersetzungen wurden hinzugefügt, %update Übersetzungen wurden aktualisiert und %delete Übersetzungen wurden entfernt."
+
+#: locale.bulk.inc:403
+msgid "One translation string was skipped because of disallowed or malformed HTML. <a href=\":url\">See the log</a> for details."
+msgid_plural "@count translation strings were skipped because of disallowed or malformed HTML. <a href=\":url\">See the log</a> for details."
+msgstr[0] "Eine Übersetzungszeichenkette wurde wegen unerlaubtem oder ungültigem HTML übersprungen. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+msgstr[1] "@count Übersetzungszeichenketten wurden wegen unerlaubtem oder ungültigem HTML übersprungen. Weitere Einzelheiten sind <a href=\":url\">im Protokoll</a> einsehbar."
+
+#: locale.bulk.inc:406
+msgid "One translation string was skipped because of disallowed or malformed HTML. See the log for details."
+msgid_plural "@count translation strings were skipped because of disallowed or malformed HTML. See the log for details."
+msgstr[0] "Eine Übersetzungszeichenkette wurde wegen unerlaubtem oder ungültigem HTML übersprungen. Weitere Einzelheiten sind im Protokoll einsehbar."
+msgstr[1] "@count Übersetzungszeichenketten wurden wegen unerlaubtem oder ungültigem HTML übersprungen. Weitere Einzelheiten sind im Protokoll einsehbar."
+
+#: locale.compare.inc:243
+msgid "Checking translations"
+msgstr "Übersetzungen überprüfen"
+
+#: locale.compare.inc:246
+msgid "Error checking translation updates."
+msgstr "Fehler beim Überprüfen auf Übersetzungsaktualisierungen."
+
+#: locale.fetch.inc:43
+msgid "Updating translations"
+msgstr "Übersetzungen aktualisieren"
+
+#: locale.fetch.inc:45;74
+msgid "Error importing translation files"
+msgstr "Fehler beim Importieren von Übersetzungsdateien"
+
+#: locale.fetch.inc:72
+msgid "Updating translations."
+msgstr "Übersetzungen werden aktualisiert."
+
+#: locale.pages.inc:80
+msgid "Check manually"
+msgstr "Manuell überprüfen"
+
+#: locale.module:151
+msgid "About"
+msgstr "Über"
+
+#: locale.module:152
+msgid "The Interface Translation module allows you to translate interface text (<em>strings</em>) into different languages, and to switch between them for the display of interface text. It uses the functionality provided by the <a href=\":language\">Language module</a>. For more information, see the <a href=\":doc-url\">online documentation for the Interface Translation module</a>."
+msgstr "Das Modul <a href=\": interface\">Interface Translation</a> ermöglicht das Übersetzen von <em>Zeichenketten</em> der Benutzeroberfläche sowie die Umschaltung zwischen den Sprachen. Es basiert auf der vom <a href=\":language\">Language</a>-Modul zur Verfügung gestellten Funktionalität. Weitere Informationen sind in der <a href=\":doc-url\">Online-Dokumentation des Moduls Interface Translation</a> verfügbar."
+
+#: locale.module:153
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: locale.module:155
+msgid "Importing translation files"
+msgstr "Übersetzungsdateien importieren"
+
+#: locale.module:156
+msgid "Translation files with translated interface text are imported automatically when languages are added on the <a href=\":languages\">Languages</a> page, or when modules or themes are enabled. On the <a href=\":locale-settings\">Interface translation settings</a> page, the <em>Translation source</em> can be restricted to local files only, or to include the <a href=\":server\">Drupal translation server</a>. Although modules and themes may not be fully translated in all languages, new translations become available frequently. You can specify whether and how often to check for translation file updates and whether to overwrite existing translations on the <a href=\":locale-settings\">Interface translation settings</a> page. You can also manually import a translation file on the <a href=\":import\">Interface translation import</a> page."
+msgstr "Die Übersetzungsdateien für die Benutzeroberfläche werden automatisch importiert, wenn eine Sprache auf der Seite <a href=\":languages\">Sprachen</a> hinzugefügt wird oder wenn Module oder Themes aktiviert werden. Auf der Seite <a href=\":locale-settings\">Einstellungen der Oberflächenübersetzung</a> kann die <em>Übersetzungsquelle</em> so eingestellt werden, dass nur lokale Dateien verwendet werden. Es können auch Dateien vom <a href=\":server\">Drupal-Übersetzungsserver</a> mit einbezogen werden. Obwohl Module und Themes nicht in alle Sprachen vollständig übersetzt sind, werden regelmäßig neue Übersetzungen verfügbar. Auf der Seite <a href=\":locale-settings\"> Einstellungen der Oberflächenübersetzung</a> kann festgelegt werden, ob und wie oft nach Aktualisierungen gesucht werden soll und ob bereits vorhandene Übersetzungen überschrieben werden sollen. Eine Übersetzungsdatei kann auf der Seite <a href=\":import\">Übersetzungen importieren</a> auch manuell importiert werden."
+
+#: locale.module:157
+msgid "Checking the translation status"
+msgstr "Übersetzungsstatus prüfen"
+
+#: locale.module:158
+msgid "You can check how much of the interface on your site is translated into which language on the <a href=\":languages\">Languages</a> page. On the <a href=\":translation-updates\">Available translation updates</a> page, you can check whether interface translation updates are available on the <a href=\":server\">Drupal translation server</a>."
+msgstr "Auf der Seite <a href=\":languages\">Sprachen</a> kann überprüft werden, wie viel Prozent einer bestimmten Sprache auf der Website bereits übersetzt sind. Auf der Site <a href=\":translation-updates\">Verfügbare Aktualisierungen für Übersetzungen.</a> kann die Verfügbarkeit von Aktualisierungen für Übersetzungen auf dem <a href=\":server\">Drupal Übersetzungsserver</a> überprüfen."
+
+#: locale.module:159
+msgid "Translating individual strings"
+msgstr "Einzelne Zeichenketten übersetzen"
+
+#: locale.module:160
+msgid "You can translate individual strings directly on the <a href=\":translate\">User interface translation</a> page, or download the currently-used translation file for a specific language on the <a href=\":export\">Interface translation export</a> page. Once you have edited the translation file, you can then import it again on the <a href=\":import\">Interface translation import</a> page."
+msgstr "Die Zeichenketten können auf der Seite <a href=\":translate\">Benutzeroberfläche übersetzen</a> individuell übersetzt werden. Die momentan auf der Website für eine bestimmte Sprache verwendete Übersetzungsdatei kann auf der Seite <a href=\":export\">Oberflächenübersetzung exportieren</a> heruntergeladen werden. Sind die notwendigen Anpassungen an der Datei abgeschlossen, so kann diese auf der Seite <a href=\":import\">Oberflächenübersetzung importieren</a> wieder importiert werden."
+
+#: locale.module:161
+msgid "Overriding default English strings"
+msgstr "Die englischen Standardzeichenfolgen übersteuern."
+
+#: locale.module:162
+msgid "If translation is enabled for English, you can <em>override</em> the default English interface text strings in your site with other English text strings on the <a href=\":translate\">User interface translation</a> page. Translation is off by default for English, but you can turn it on by visiting the <em>Edit language</em> page for <em>English</em> from the <a href=\":languages\">Languages</a> page."
+msgstr "Wenn die englische Übersetzung aktiviert ist können die Zeichenfolgen der englischen Benutzeroberfläche auf der Seite <a href=\":translate\">Benutzeroberfläche übersetzen</a> <em>Überschreiben</em> werden. Normalerweise ist die Übersetzung der Sprache Englisch abgeschaltet. Diese Funktion kann auf der Seite <em>Sprache Bearbeiten</em> für <em>English</em> Im Bereich <a href=\":languages\">Sprachen</a> eingeschaltet werden."
+
+#: locale.module:167
+msgid "Interface translations are automatically imported when a language is added, or when new modules or themes are enabled. The report <a href=\":update\">Available translation updates</a> shows the status. Interface text can be customized in the <a href=\":translate\">user interface translation</a> page."
+msgstr "Übersetzungen der Benutzeroberfläche werden automatisch importiert wenn eine Sprache hinzugefügt oder ein neues Modul oder Theme aktiviert wird. Der Bericht <a href=\":update\">Verfügbare Aktualisierungen für Übersetzungen</a> zeigt den aktuellen Status. Texte der Benutzeroberfläche können auf der Seite <a href=\":translate\">Benutzeroberfläche übersetzen</a> angepasst werden."
+
+#: locale.module:170
+msgid "This page allows a translator to search for specific translated and untranslated strings, and is used when creating or editing translations. (Note: Because translation tasks involve many strings, it may be more convenient to <a title=\"User interface translation export\" href=\":export\">export</a> strings for offline editing in a desktop Gettext translation editor.) Searches may be limited to strings in a specific language."
+msgstr "Diese Seite erlaubt einem Übersetzer nach bestimmten bereits übersetzten sowie noch nicht übersetzten Zeichenketten zu suchen. Außerdem wird sie dazu verwendet Übersetzungen zu erstellen und zu bearbeiten. (Hinweis: Da Übersetzungsaufgaben viele Zeichenketten beinhalten können, ist es unter Umständen sinnvoller Zeichenketten zu <a title=\"Exportieren der Übersetzungen der Benutzeroberfläche\" href=\":export\">exportieren</a> und offline in einem Gettext-Übersetzungseditor zu bearbeiten.) Die Suche kann auf Zeichenketten in einer bestimmten Sprache beschränkt werden."
+
+#: locale.module:174
+msgid "Translation files are automatically downloaded and imported when <a title=\"Languages\" href=\":language\">languages</a> are added, or when modules or themes are enabled."
+msgstr "Übersetzungsdateien werden automatisch heruntergeladen und importiert wenn <a title=\"Languages\" href=\":language\">Sprachen</a>, Module oder Themes hinzugefügt oder aktiviert werden."
+
+#: locale.module:175
+msgid "This page allows translators to manually import translated strings contained in a Gettext Portable Object (.po) file. Manual import may be used for customized translations or for the translation of custom modules and themes. To customize translations you can download a translation file from the <a href=\":url\">Drupal translation server</a> or <a title=\"User interface translation export\" href=\":export\">export</a> translations from the site, customize the translations using a Gettext translation editor, and import the result using this page."
+msgstr "Diese Seite erlaubt es Übersetzern, die in Gettext Portable Object (.po) Dateien enthaltenen Übersetzungen manuell zu importieren.\r\nDer manuelle Import kann für benutzerdefinierte Übersetzungen oder die Übersetzung von benutzerdefinierten Modulen und Themes genutzt werden. Um Übersetzungen anzupassen, kann die Übersetzungsdatei vom <a href=\":url\">Drupal Übersetzungsserver</a> geladen oder Übersetzungen von der Website <a title=\"User interface translation export\" href=\":export\">exportiert</a>, die Übersetzungen mit einem Gettext Übersetzungseditor angepasst und die Ergebnisse wieder auf die Seite importiert werden."
+
+#: locale.module:176
+msgid "Note that importing large .po files may take several minutes."
+msgstr "Achtung: der Import großer .po-Dateien kann mehrere Minuten dauern."
+
+#: locale.module:180
+msgid "This page exports the translated strings used by your site. An export file may be in Gettext Portable Object (<em>.po</em>) form, which includes both the original string and the translation (used to share translations with others), or in Gettext Portable Object Template (<em>.pot</em>) form, which includes the original strings only (used to create new translations with a Gettext translation editor)."
+msgstr "Auf dieser Seite können Drupal-Zeichenketten exportiert werden. Zum einen kann man eine Übersetzung exportieren, damit sie verteilt werden kann. (Gettext Portable Object <em>.po</em>) Die zweite Möglichkeit erstellt eine Übersetzungsvorlage, die alle Zeichenketten aus Drupal ohne Übersetzung enthält. (Gettext Portable Object Template <em>.pot</em>) Diese kann mit einem speziellen Programm als Grundlage für eine neue Übersetzung dienen."
+
+#: locale.module:642
+msgid "Interface translation"
+msgstr "Übersetzung der Benutzeroberfläche"
+
+#: locale.module:652
+msgid "@translated/@total (@ratio%)"
+msgstr "@translated/@total (@ratio%)"
+
+#: locale.module:663
+msgid "not applicable"
+msgstr "Nicht zutreffend"
+
+#: locale.module:721
+msgid "Enable interface translation to English"
+msgstr "Übersetzung der Benutzeroberfläche ins Englische aktivieren"
+
+#: locale.module:757 config/schema/locale.schema.yml:0
+msgid "Interface translations directory"
+msgstr "Verzeichnis für die Übersetzung der Benutzeroberfläche"
+
+#: locale.module:760
+msgid "A local file system path where interface translation files will be stored."
+msgstr "Ein lokaler Pfad im Dateisystem, in dem die Übersetzungen der Benutzeroberfläche gespeichert werden."
+
+#: locale.module:1358
+msgid "Updated JavaScript translation file for the language %language."
+msgstr "Die JavaScript-Übersetzungsdatei für die Sprache %language wurde aktualisiert."
+
+#: locale.module:1367
+msgid "Created JavaScript translation file for the language %language."
+msgstr "Die JavaScript-Übersetzungsdatei für die Sprache %language wurde erstellt."
+
+#: locale.module:1371
+msgid "Removed JavaScript translation file for the language %language because no translations currently exist for that language."
+msgstr "Die Javascript-Datei für die Übersetzung der Sprache %language wurde entfernt, da momentan keine Übersetzungen für diese Sprache existieren."
+
+#: locale.module:1362
+msgid "JavaScript translation file %file.js was lost."
+msgstr "Die JavaScript-Übersetzungsdatei %file.js wurde nicht mehr gefunden."
+
+#: locale.module:1375
+msgid "An error occurred during creation of the JavaScript translation file for the language %language."
+msgstr "Während der Erstellung der JavaScript-Übersetzungsdatei für die Sprache %language ist ein Fehler aufgetreten."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "January"
+msgstr "Januar"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Jan"
+msgstr "Jan."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "February"
+msgstr "Februar"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Feb"
+msgstr "Febr."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "March"
+msgstr "März"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Mar"
+msgstr "März"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "April"
+msgstr "April"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Apr"
+msgstr "Apr."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "May"
+msgstr "Mai"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "May"
+msgstr "Mai"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "June"
+msgstr "Juni"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Jun"
+msgstr "Juni"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "July"
+msgstr "Juli"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Jul"
+msgstr "Juli"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "August"
+msgstr "August"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Aug"
+msgstr "Aug."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "September"
+msgstr "September"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Sep"
+msgstr "Sep"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "October"
+msgstr "Oktober"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Oct"
+msgstr "Okt."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "November"
+msgstr "November"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Nov"
+msgstr "Nov."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgctxt "Long month name"
+msgid "December"
+msgstr "Dezember"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Dec"
+msgstr "Dez."
+
+#: locale.module:0;0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Thu"
+msgstr "Do."
+
+#: locale.module:0;0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Thursday"
+msgstr "Donnerstag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Fri"
+msgstr "Fr."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Friday"
+msgstr "Freitag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Sat"
+msgstr "Sa."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Saturday"
+msgstr "Samstag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Sun"
+msgstr "So."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Sunday"
+msgstr "Sonntag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Mon"
+msgstr "Mo."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Monday"
+msgstr "Montag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Tue"
+msgstr "Di."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Tuesday"
+msgstr "Dienstag"
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Wed"
+msgstr "Mi."
+
+#: locale.module:0 locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+#: locale.module:0
+msgid "am"
+msgstr "am"
+
+#: locale.module:0
+msgid "pm"
+msgstr "pm"
+
+#: locale.module:0
+msgid "AM"
+msgstr "AM"
+
+#: locale.module:0
+msgid "PM"
+msgstr "PM"
+
+#: locale.install:270;278;287;295
+msgid "Translation update status"
+msgstr "Übersetzung-Aktualisierungstatus"
+
+#: locale.install:271
+msgid "Updates available"
+msgstr "Aktualisierungen verfügbar"
+
+#: locale.install:273
+msgid "Updates available for: @languages. See the <a href=\":updates\">Available translation updates</a> page for more information."
+msgstr "Es sind Aktualisierungen für @languages verfügbar. Weitere Informationen sind auf der Seite <a href=\":updates\">Verfügbare Aktualisierungen für Übersetzungen</a> verfügbar."
+
+#: locale.install:279
+msgid "Missing translations"
+msgstr "Fehlende Übersetzungen"
+
+#: locale.install:281
+msgid "Missing translations for: @languages. See the <a href=\":updates\">Available translation updates</a> page for more information."
+msgstr "Fehlende Übersetzungen für: @languages. Die Seite <a href=\":updates\">Verfügbare Aktualisierungen für Übersetzungen</a> enthält weitere Informationen."
+
+#: locale.install:288
+msgid "Up to date"
+msgstr "Aktuell"
+
+#: locale.install:296
+msgid "Can not determine status"
+msgstr "Der Status konnte nicht ermittelt werden"
+
+#: locale.install:298
+msgid "No translation status is available. See the <a href=\":updates\">Available translation updates</a> page for more information."
+msgstr "Für die Übersetzung ist kein Status verfügbar. Die Seite <a href=\":updates\">Aktualisierungen für verfügbare Übersetzungen</a> enthält weitere Informationen."
+
+#: locale.admin.es6.js:0 locale.admin.js:0
+msgid "Hide description"
+msgstr "Beschreibung ausblenden"
+
+#: locale.admin.es6.js:0 locale.admin.js:0
+msgid "Show description"
+msgstr "Beschreibung anzeigen"
+
+#: locale.admin.js:0
+msgid "Changed"
+msgstr "Geändert"
+
+#: locale.admin.js:0
+msgid "Changes made in this table will not be saved until the form is submitted."
+msgstr "Änderungen in dieser Tabelle werden nicht gespeichert, bis dieses Formular abgesendet wurde."
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Done"
+msgstr "Fertig"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Prev"
+msgstr "Vorheriges"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Next"
+msgstr "Weiter"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Today"
+msgstr "Heute"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Su"
+msgstr "So"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Mo"
+msgstr "Mo"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Tu"
+msgstr "Di"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "We"
+msgstr "Mi"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Th"
+msgstr "Do"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Fr"
+msgstr "Fr"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "Sa"
+msgstr "Sa"
+
+#: locale.datepicker.es6.js:0 locale.datepicker.js:0
+msgid "mm/dd/yy"
+msgstr "dd.mm.yy"
+
+#: locale.info.yml:0
+msgid "Interface Translation"
+msgstr "Benutzeroberflächenübersetzung"
+
+#: locale.info.yml:0
+msgid "Translates the built-in user interface."
+msgstr "Ermöglicht das Übersetzen der mitgelieferten Benutzeroberfläche."
+
+#: locale.info.yml:0
+msgid "Multilingual"
+msgstr "Mehrsprachenunterstützung"
+
+#: locale.links.menu.yml:0 locale.routing.yml:0 config/optional/tour.tour.locale.yml:0
+msgid "User interface translation"
+msgstr "Benutzeroberfläche übersetzen"
+
+#: locale.links.menu.yml:0 locale.routing.yml:0
+msgid "Available translation updates"
+msgstr "Verfügbare Aktualisierungen für Übersetzungen"
+
+#: locale.links.menu.yml:0
+msgid "Configure the import of translation files, and add or customize interface translations."
+msgstr "Den Import von Übersetzungsdateien konfigurieren und Übersetzungen der Benutzeroberfläche hinzufügen oder anpassen."
+
+#: locale.links.menu.yml:0
+msgid "Get a status report about available interface translations for your installed modules and themes."
+msgstr "Einen Statusbericht über verfügbare Übersetzungen für die Benutzeroberfläche der auf der Website installierten Module und Themes abrufen."
+
+#: locale.links.task.yml:0 config/optional/tour.tour.locale.yml:0
+msgid "Translate"
+msgstr "Übersetzen"
+
+#: locale.links.task.yml:0 src/Form/ImportForm.php:153
+msgid "Import"
+msgstr "Importieren"
+
+#: locale.links.task.yml:0 src/Form/ExportForm.php:131
+msgid "Export"
+msgstr "Exportieren"
+
+#: locale.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: locale.permissions.yml:0
+msgid "Translate interface text"
+msgstr "Text der Benutzeroberfläche übersetzen"
+
+#: locale.permissions.yml:0
+msgid "Translate any interface text including configuration shipped with modules and themes."
+msgstr "Alle Texte der Benutzeroberfläche übersetzen, einschließlich der Konfiguration, die mit Modulen und Themes für Drupal ausgeliefert werden."
+
+#: locale.routing.yml:0
+msgid "Interface translation settings"
+msgstr "Einstellungen zur Benutzeroberflächenübersetzung"
+
+#: locale.routing.yml:0
+msgid "Interface translation import"
+msgstr "Import von Benutzeroberflächenübersetzungen"
+
+#: locale.routing.yml:0
+msgid "Interface translation export"
+msgstr "Export der Übersetzungen der Benutzeroberflöche"
+
+#: config/schema/locale.schema.yml:0
+msgid "Translate interface settings"
+msgstr "Benutzeroberflächeneinstellungen übersetzen"
+
+#: config/schema/locale.schema.yml:0
+msgid "Cache strings"
+msgstr "Zeichenketten zwischenspeichern"
+
+#: config/schema/locale.schema.yml:0
+msgid "Enable English translation"
+msgstr "Englische Übersetzung aktivieren"
+
+#: config/schema/locale.schema.yml:0
+msgid "JavaScript settings"
+msgstr "JavaScript-Einstellungen"
+
+#: config/schema/locale.schema.yml:0
+msgid "Translation directory"
+msgstr "Übersetzungsverzeichnis"
+
+#: config/schema/locale.schema.yml:0
+msgid "Translation settings"
+msgstr "Übersetzungseinstellungen"
+
+#: config/schema/locale.schema.yml:0 src/Form/LocaleSettingsForm.php:56
+msgid "Translation source"
+msgstr "Übersetzungsquelle"
+
+#: config/schema/locale.schema.yml:0
+msgid "Default translation filename pattern"
+msgstr "Muster für Standard-Übersetzungsdateinamen"
+
+#: config/schema/locale.schema.yml:0
+msgid "Default translation server pattern"
+msgstr "Muster für Standard-Übersetzungsserver"
+
+#: config/schema/locale.schema.yml:0
+msgid "Overwrite customized translations"
+msgstr "angepasste Übersetzungen überschreiben"
+
+#: config/schema/locale.schema.yml:0
+msgid "Overwrite non customized translations"
+msgstr "Nicht angepasste Übersetzungen überschreiben"
+
+#: config/schema/locale.schema.yml:0 src/Form/LocaleSettingsForm.php:37
+msgid "Check for updates"
+msgstr "Auf Aktualisierungen prüfen"
+
+#: config/schema/locale.schema.yml:0
+msgid "Import enabled"
+msgstr "Import aktiviert"
+
+#: src/PoDatabaseWriter.php:240
+msgid "Import of string \"%string\" was skipped because of disallowed or malformed HTML."
+msgstr "Der Import der Zeichenkette „%string“ wurde wegen unerlaubtem oder ungültigem HTML übersprungen."
+
+#: src/Form/ExportForm.php:86;93 src/Form/ImportForm.php:120 src/Form/TranslationStatusForm.php:122
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Form/ExportForm.php:87
+msgid "No language available. The export will only contain source strings."
+msgstr "Keine Sprache verfügbar. Der Export enthält nur Quellzeichenketten."
+
+#: src/Form/ExportForm.php:96
+msgid "Source text only, no translations"
+msgstr "Nur Originaltext, keine Übersetzungen"
+
+#: src/Form/ExportForm.php:101
+msgid "Export options"
+msgstr "Exporteinstellungen"
+
+#: src/Form/ExportForm.php:111
+msgid "Include non-customized translations"
+msgstr "Nicht angepasste Übersetzungen einschließen"
+
+#: src/Form/ExportForm.php:116
+msgid "Include customized translations"
+msgstr "Benutzerdefinierte Übersetzungen einschließen"
+
+#: src/Form/ExportForm.php:121
+msgid "Include untranslated text"
+msgstr "Nicht übersetzten Text einschließen"
+
+#: src/Form/ExportForm.php:183
+msgid "Nothing to export."
+msgstr "Nichts zum Exportieren."
+
+#: src/Form/ImportForm.php:96
+msgid "Existing languages"
+msgstr "Vorhandene Sprachen"
+
+#: src/Form/ImportForm.php:97
+msgid "Languages not yet added"
+msgstr "Noch nicht hinzugefügte Sprachen"
+
+#: src/Form/ImportForm.php:107
+msgid "Translation file"
+msgstr "Übersetzungsdatei"
+
+#: src/Form/ImportForm.php:110
+msgid "A Gettext Portable Object file."
+msgstr "Eine Gettext Portable Object Datei."
+
+#: src/Form/ImportForm.php:127
+msgid "Treat imported strings as custom translations"
+msgstr "Importierte Zeichenketten als benutzerdefinierte Übersetzungen behandeln."
+
+#: src/Form/ImportForm.php:135
+msgid "Overwrite non-customized translations"
+msgstr "Nicht angepasste Übersetzungen überschreiben"
+
+#: src/Form/ImportForm.php:144
+msgid "Overwrite existing customized translations"
+msgstr "Vorhandene angepasste Übersetzungen überschreiben"
+
+#: src/Form/ImportForm.php:166
+msgid "File to import not found."
+msgstr "Die zu importierende Datei wurde nicht gefunden."
+
+#: src/Form/ImportForm.php:180
+msgid "The language %language has been created."
+msgstr "Die Sprache %language wurde erstellt."
+
+#: src/Form/LocaleSettingsForm.php:40
+msgid "Never (manually)"
+msgstr "Nie (nur manuell)"
+
+#: src/Form/LocaleSettingsForm.php:41
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+#: src/Form/LocaleSettingsForm.php:42
+msgid "Monthly"
+msgstr "Monatlich"
+
+#: src/Form/LocaleSettingsForm.php:44
+msgid "Select how frequently you want to check for new interface translations for your currently installed modules and themes. <a href=\":url\">Check updates now</a>."
+msgstr "Auswählen wie oft auf neue Übersetzungen der Benutzeroberfläche für aktuell installierte Module und Themes gesucht wird. <a href=\":url\">Jetzt nach Aktualisierungen suchen</a>."
+
+#: src/Form/LocaleSettingsForm.php:48
+msgid "Translation files are stored locally in the  %path directory. You can change this directory on the <a href=\":url\">File system</a> configuration page."
+msgstr "Übersetzungsdateien werden lokal im Verzeichnis %path gespeichert. Das Verzeichnis kann auf der Seite <a href=\":url\">Dateisystem</a> geändert werden."
+
+#: src/Form/LocaleSettingsForm.php:51
+msgid "Translation files will not be stored locally. Change the Interface translation directory on the <a href=\":url\">File system configuration</a> page."
+msgstr "Übersetzungsdateien werden nicht lokal gespeichert. Die Angabe für das Verzeichnis zum Speichern von Übersetzungsdateien muss auf der Seite <a href=\":url\">Dateisystem</a> geändert werden, damit die Dateien für Übersetzungen lokal gespeichert werden können."
+
+#: src/Form/LocaleSettingsForm.php:59
+msgid "Drupal translation server and local files"
+msgstr "Drupal-Übersetzungsserver und lokale Dateien"
+
+#: src/Form/LocaleSettingsForm.php:60
+msgid "Local files only"
+msgstr "Nur lokale Dateien"
+
+#: src/Form/LocaleSettingsForm.php:62
+msgid "The source of translation files for automatic interface translation."
+msgstr "Die Quelle der Übersetzungsdateien für die automatische Übersetzung der Benutzeroberfläche."
+
+#: src/Form/LocaleSettingsForm.php:76
+msgid "Import behavior"
+msgstr "Importverhalten"
+
+#: src/Form/LocaleSettingsForm.php:79
+msgid "Don't overwrite existing translations."
+msgstr "Bestehende Übersetzungen nicht überschreiben."
+
+#: src/Form/LocaleSettingsForm.php:80
+msgid "Only overwrite imported translations, customized translations are kept."
+msgstr "Nur importierte Übersetzungen überschreiben, angepasste Übersetzungen werden behalten."
+
+#: src/Form/LocaleSettingsForm.php:81
+msgid "Overwrite existing translations."
+msgstr "Bestehende Übersetzungen überschreiben."
+
+#: src/Form/LocaleSettingsForm.php:83
+msgid "How to treat existing translations when automatically updating the interface translations."
+msgstr "Wie mit existierenden Übersetzungen bei der automatischen Aktualisierung der Übersetzung der Benutzeroberfläche umgegangen werden soll."
+
+#: src/Form/LocaleSettingsForm.php:96
+msgid "You have selected local translation source, but no <a href=\":url\">Interface translation directory</a> was configured."
+msgstr "Es wurde ausgewähöt, das nur lokale Dateien aus Quelle für die Übersetzungen der Benutzeroberfläche verwendet werden sollen, Es wurde aber kein  <a href=\":url\">Verzeichnis für Benutzeroberflächenübersetzungen</a> konfiguriert."
+
+#: src/Form/TranslateEditForm.php:48
+msgid "Source string"
+msgstr "Quellzeichenkette"
+
+#: src/Form/TranslateEditForm.php:49
+msgid "Translation for @language"
+msgstr "Übersetzung für @language"
+
+#: src/Form/TranslateEditForm.php:51
+msgid "No strings available."
+msgstr "Keine Zeichenketten verfügbar."
+
+#: src/Form/TranslateEditForm.php:71;85
+msgid "Source string (@language)"
+msgstr "Quellzeichenkette (@language)"
+
+#: src/Form/TranslateEditForm.php:71;85
+msgid "Built-in English"
+msgstr "Englisch (integriert)"
+
+#: src/Form/TranslateEditForm.php:83;129
+msgid "Singular form"
+msgstr "Singularform"
+
+#: src/Form/TranslateEditForm.php:90;138
+msgid "Plural form"
+msgstr "Pluralform"
+
+#: src/Form/TranslateEditForm.php:106
+msgid "In Context"
+msgstr "Im Kontext"
+
+#: src/Form/TranslateEditForm.php:116;133
+msgid "Translated string (@language)"
+msgstr "Übersetzte Zeichenkette (@language)"
+
+#: src/Form/TranslateEditForm.php:146
+msgid "Save translations"
+msgstr "Übersetzungen speichern"
+
+#: src/Form/TranslateEditForm.php:162;163
+msgid "The submitted string contains disallowed HTML: %string"
+msgstr "Die übermittelte Zeichenkette enthält unerlaubtes HTML: %string"
+
+#: src/Form/TranslateEditForm.php:223
+msgid "The strings have been saved."
+msgstr "Die Zeichenketten wurden gespeichert."
+
+#: src/Form/TranslateEditForm.php:164
+msgid "Attempted submission of a translation string with disallowed HTML: %string"
+msgstr "Es wurde versucht eine Übersetzung mit nicht erlaubtem HTML zu erstellen: %string"
+
+#: src/Form/TranslateEditForm.php:129
+msgid "First plural form"
+msgid_plural "@count. plural form"
+msgstr[0] "Erste Pluralform"
+msgstr[1] "@count. Pluralform"
+
+#: src/Form/TranslateFilterForm.php:32
+msgid "Filter translatable strings"
+msgstr "Übersetzbare Zeichenketten filtern"
+
+#: src/Form/TranslateFilterForm.php:68
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Form/TranslateFilterForm.php:73
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/Form/TranslateFormBase.php:175
+msgid "String contains"
+msgstr "Zeichenkette enthält"
+
+#: src/Form/TranslateFormBase.php:176
+msgid "Leave blank to show all strings. The search is case sensitive."
+msgstr "Leer lassen, um alle Zeichenketten anzuzeigen. Die Suche berücksichtigt Groß- und Kleinschreibung."
+
+#: src/Form/TranslateFormBase.php:181 config/optional/tour.tour.locale.yml:0
+msgid "Translation language"
+msgstr "Übersetzungssprache"
+
+#: src/Form/TranslateFormBase.php:187
+msgid "Search in"
+msgstr "Suchen in"
+
+#: src/Form/TranslateFormBase.php:189
+msgid "Both translated and untranslated strings"
+msgstr "Sowohl übersetzte als auch nicht übersetzte Zeichenketten"
+
+#: src/Form/TranslateFormBase.php:190
+msgid "Only translated strings"
+msgstr "Nur übersetzte Zeichenketten"
+
+#: src/Form/TranslateFormBase.php:191
+msgid "Only untranslated strings"
+msgstr "Nur nicht übersetzte Zeichenketten"
+
+#: src/Form/TranslateFormBase.php:197
+msgid "Translation type"
+msgstr "Übersetzungstyp"
+
+#: src/Form/TranslateFormBase.php:199
+msgid "All"
+msgstr "Alle"
+
+#: src/Form/TranslateFormBase.php:200
+msgid "Non-customized translation"
+msgstr "Nicht angepasste Übersetzung"
+
+#: src/Form/TranslateFormBase.php:201
+msgid "Customized translation"
+msgstr "Angepasste Übersetzung"
+
+#: src/Form/TranslationStatusForm.php:126
+msgid "Status"
+msgstr "Status"
+
+#: src/Form/TranslationStatusForm.php:132
+msgid "No translatable languages available. <a href=\":add_language\">Add a language</a> first."
+msgstr "Es gibt keine Sprachen, für die Übersetzungen angefertigt werden können. zunächst muss  <a href=\":add_language\">eine Sprache hinzugefügt</a> werden."
+
+#: src/Form/TranslationStatusForm.php:137
+msgid "All translations up to date."
+msgstr "Alle Übersetzungen sind aktuell"
+
+#: src/Form/TranslationStatusForm.php:140
+msgid "No translation status available. <a href=\":check\">Check manually</a>."
+msgstr "Kein Übersetzungsstatus verfügbar. <a href=\":check\">Manuell prüfen</a>."
+
+#: src/Form/TranslationStatusForm.php:170 src/Plugin/QueueWorker/LocaleTranslation.php:11
+msgid "Update translations"
+msgstr "Übersetzungen aktualisieren"
+
+#: src/Form/TranslationStatusForm.php:202;213
+msgid "Drupal core"
+msgstr "Drupal-Kernsystem"
+
+#: src/Form/TranslationStatusForm.php:243
+msgid "File not found at %remote_path nor at %local_path"
+msgstr "Datei weder unter %remote_path noch unter %local_path gefunden"
+
+#: src/Form/TranslationStatusForm.php:249
+msgid "File not found at %local_path"
+msgstr "Datei nicht gefunden in %local_path"
+
+#: src/Form/TranslationStatusForm.php:251
+msgid "Translation file location could not be determined."
+msgstr "Der Speicherort der Übersetzungsdatei kann nicht bestimmt werden."
+
+#: src/Form/TranslationStatusForm.php:260
+msgid "Select a language to update."
+msgstr "Wählen Sie eine zu aktualisierende Sprache."
+
+#: src/StreamWrapper/TranslationsStream.php:26;33
+msgid "Translation files"
+msgstr "Übersetzungsdateien"
+
+#: templates/locale-translation-last-check.html.twig:20
+msgid "Last checked: @time ago"
+msgstr "Zuletzt überprüft: vor @time"
+
+#: templates/locale-translation-last-check.html.twig:22
+msgid "Last checked: never"
+msgstr "Zuletzt überprüft: nie"
+
+#: templates/locale-translation-update-info.html.twig:22
+msgid "Updates for: @module_list"
+msgstr "Aktualisierungen für: @module_list"
+
+#: templates/locale-translation-update-info.html.twig:25
+msgid "Missing translations for one project"
+msgid_plural "Missing translations for @count projects"
+msgstr[0] "Fehlende Übersetzungen für ein Projekt"
+msgstr[1] "Fehlende Übersetzungen für @count Projekte"
+
+#: templates/locale-translation-update-info.html.twig:47
+msgid "Missing translations for:"
+msgstr "Fehlende Übersetzungen für:"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Translation"
+msgstr "Übersetzung"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "This page allows you to translate the user interface or modify existing translations. If you have installed your site initially in English, you must first add another language on the <a href=\"[site:url]admin/config/regional/language\">Languages page</a>, in order to use this page."
+msgstr "Diese Seite erlaubt es die Benutzeroberfläche zu übersetzen oder bestehende Übersetzungen zu abzuändern. Falls die Website eingangs in Englisch installiert wurde, muss zuerst eine weitere Sprache auf der <a href=\"[site:url]admin/config/regional/language\">Sprachen-Seite</a> hinzugefügt werden, um diese Seite nutzen zu können."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Choose the language you want to translate."
+msgstr "Die Sprache, die übersetzt werden soll, auswählen."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Search"
+msgstr "Suche"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Enter the specific word or sentence you want to translate, you can also write just a part of a word."
+msgstr "Eingabe eines bestimmten Wortes oder Satzes, das übersetzt werden soll. Es kann auch nur ein Teil eines Wortes angegeben werden."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Filter the search"
+msgstr "Die Suche eingrenzen"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "You can search for untranslated strings if you want to translate something that isn't translated yet. If you want to modify an existing translation, you might want to search only for translated strings."
+msgstr "Es kann nach nicht übersetzten Zeichenketten gesucht werden, um etwas zu übersetzen, was bisher noch nicht übersetzt worden ist. Falls eine bereits bestehende Übersetzung abgeändert werden soll, dann sollte besser nur nach bereits übersetzten Zeichenketten gesucht werden."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Apply your search criteria"
+msgstr "Suchkriterien anwenden"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "To apply your search criteria, click on the <em>Filter</em> button."
+msgstr "Um die Suchkriterien anzuwenden, auf den <em>Filter</em>-Button klicken."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "You can write your own translation in the text fields of the right column. Try to figure out in which context the text will be used in order to translate it in the appropriate way."
+msgstr "Die eigene Übersetzung kann in die Textfelder in der rechten Spalte eingegeben werden. Es sollte versucht werden herauszufinden in welchem Kontext der Text verwendet werden soll, um ihn sachgemäß zu übersetzen."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Validate the translation"
+msgstr "Die Übersetzungen prüfen und speichern"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "When you have finished your translations, click on the <em>Save translations</em> button. You must save your translations, each time before changing the page or making a new search."
+msgstr "Sobald die Übersetzungen abgeschlossen sind, werden diese über einen Klick auf den Button </em>Übersetzungen speichern</em> abgespeichert. Die Übersetzungen müssen immer abgespeichert werden, bevor Änderungen an der Seite vorgenommen werden oder eine neue Suche durchgeführt wird. Andernfalls gehen die vorgenommenen Änderungen verloren."
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "Continuing on"
+msgstr "Übersetzungen wiederverwenden"
+
+#: config/optional/tour.tour.locale.yml:0
+msgid "The translations you have made here will be used on your site's user interface. If you want to use them on another site or modify them on an external translation editor, you can <a href=\"[site:url]admin/config/regional/translate/export\">export them</a> to a .po file and <a href=\"[site:url]admin/config/regional/translate/import\">import them</a> later."
+msgstr "Hier erstellte Übersetzungen werden in der Benutzeroberfläche der vorliegenden Website verwendet. Sollen diese auf einer weiteren Website verwendet oder in einem externen Übersetzungseditor abgeändert werden, kann eine .po Datei \r\n<a href=\"[site:url]admin/config/regional/translate/export\">exportiert</a> und im Anschluss <a href=\"[site:url]admin/config/regional/translate/import\">importiert</a> werden."
+
+msgid "no version"
+msgstr "keine Version"
+
+msgid "Checked %langcode translation for %project."
+msgstr "%langcode Übersetzungen für %project überprüft."
+
+msgid "Downloaded %langcode translation for %project."
+msgstr "%langcode Übersetzungen für %project heruntergeladen."
+
+msgid "Imported %langcode translation for %project."
+msgstr "%langcode Übersetzungen für %project importiert."
+
+msgid "Importing %langcode translation for %project."
+msgstr "%langcode Übersetzungen für %project werden importiert."

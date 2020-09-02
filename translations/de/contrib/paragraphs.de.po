@@ -1,0 +1,1426 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  paragraphs.module: n/a
+#  modules/paragraphs_demo/paragraphs_demo.module: n/a
+#  modules/paragraphs_type_permissions/paragraphs_type_permissions.module: n/a
+#  src/Plugin/Field/FieldWidget/ParagraphsWidget.php: n/a
+#  paragraphs.install: n/a
+#  modules/paragraphs_library/paragraphs_library.install: n/a
+#  src/Entity/Paragraph.php: n/a
+#  modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml: n/a
+#  paragraphs.info.yml: n/a
+#  modules/paragraphs_demo/paragraphs_demo.info.yml: n/a
+#  modules/paragraphs_library/paragraphs_library.info.yml: n/a
+#  modules/paragraphs_library/paragraphs_library.links.menu.yml: n/a
+#  modules/paragraphs_library/paragraphs_library.links.task.yml: n/a
+#  modules/paragraphs_library/src/LibraryItemViewsData.php: n/a
+#  modules/paragraphs_library/src/Entity/LibraryItem.php: n/a
+#  modules/paragraphs_type_permissions/paragraphs_type_permissions.info.yml: n/a
+#  src/Plugin/EntityReferenceSelection/ParagraphSelection.php: n/a
+#  src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php: n/a
+#  modules/paragraphs_demo/config/install/core.entity_form_display.node.paragraphed_content_demo.default.yml: n/a
+#  modules/paragraphs_demo/config/install/core.entity_form_display.paragraph.nested_paragraph.default.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.node.paragraphed_content_demo.field_paragraphs_demo.yml: n/a
+#  modules/paragraphs_library/config/install/views.view.paragraphs_library.yml: n/a
+#  modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml: n/a
+#  paragraphs.links.action.yml: n/a
+#  paragraphs.links.menu.yml: n/a
+#  paragraphs.routing.yml: n/a
+#  paragraphs.links.task.yml: n/a
+#  paragraphs.permissions.yml: n/a
+#  src/Entity/ParagraphsType.php: n/a
+#  modules/paragraphs_library/src/Controller/LibraryItemController.php: n/a
+#  modules/paragraphs_library/src/Form/LibraryItemRevisionDeleteForm.php: n/a
+#  config/schema/paragraphs.schema.yml: n/a
+#  config/schema/paragraphs_type.schema.yml: n/a
+#  src/Controller/ParagraphsTypeListBuilder.php: n/a
+#  src/Form/ParagraphsTypeForm.php: n/a
+#  js/paragraphs.add_above_button.js: n/a
+#  modules/paragraphs_library/paragraphs_library.module: n/a
+#  modules/paragraphs_library/paragraphs_library.links.action.yml: n/a
+#  modules/paragraphs_library/paragraphs_library.routing.yml: n/a
+#  modules/paragraphs_library/paragraphs_library.permissions.yml: n/a
+#  modules/paragraphs_library/config/schema/paragraphs_library.schema.yml: n/a
+#  modules/paragraphs_library/src/Form/LibraryItemRevisionRevertForm.php: n/a
+#  modules/paragraphs_library/config/optional/entity_browser.browser.paragraphs_library_items.yml: n/a
+#  modules/paragraphs_library/src/Form/LibraryItemForm.php: n/a
+#  modules/paragraphs_library/src/Form/LibraryItemSettingsForm.php: n/a
+#  modules/paragraphs_library/src/Plugin/Validation/Constraint/ParagraphsLibraryItemHasAllowedParagraphsTypeConstraint.php: n/a
+#  modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php: n/a
+#  src/Feeds/Target/Paragraphs.php: n/a
+#  src/Form/ParagraphsSettingsForm.php: n/a
+#  src/Form/ParagraphsTypeDeleteConfirm.php: n/a
+#  src/Plugin/Field/FieldFormatter/ParagraphsSummaryFormatter.php: n/a
+#  config/install/core.entity_view_mode.paragraph.preview.yml: n/a
+#  modules/paragraphs_library/config/install/core.entity_view_mode.paragraphs_library_item.summary.yml: n/a
+#  src/Plugin/migrate/source/d7/FieldCollectionItem.php: n/a
+#  src/Plugin/migrate/source/d7/FieldCollectionType.php: n/a
+#  src/Plugin/migrate/source/d7/ParagraphsType.php: n/a
+#  src/Plugin/migrate/source/d7/ParagraphsItem.php: n/a
+#  templates/paragraphs-actions.html.twig: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.image_text.field_image_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.text_image.field_image_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.image_text.field_text_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.text.field_text_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.text_image.field_text_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.images.field_images_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.images.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.nested_paragraph.field_paragraphs_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/field.field.paragraph.user.field_user_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.user.yml: n/a
+#  modules/paragraphs_demo/config/install/node.type.paragraphed_content_demo.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.image_text.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.nested_paragraph.yml: n/a
+#  modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text_image.yml: n/a
+#  modules/paragraphs_demo/config/optional/filter.format.basic_html.yml: n/a
+#  modules/paragraphs_demo/config/optional/language.entity.de.yml: n/a
+#  modules/paragraphs_demo/config/optional/language.entity.fr.yml: n/a
+#  modules/paragraphs_demo/config/optional/search_api.index.paragraphs_demo_index.yml: n/a
+#  modules/paragraphs_demo/config/optional/search_api.server.paragraphs_demo_server.yml: n/a
+#  modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml: n/a
+#  modules/paragraphs_library/config/install/paragraphs.paragraphs_type.from_library.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:42+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: paragraphs.module:28 modules/paragraphs_demo/paragraphs_demo.module:19 modules/paragraphs_type_permissions/paragraphs_type_permissions.module:22
+msgid "About"
+msgstr "Über"
+
+#: paragraphs.module:29
+msgid "The Paragraphs module provides a field type that can contain several other fields and thereby allows users to break content up on a page. Administrators can predefine <em>Paragraphs types</em> (for example a simple text block, a video, or a complex and configurable slideshow). Users can then place them on a page in any order instead of using a text editor to add and configure such elements. For more information, see the <a href=\":online\">online documentation for the Paragraphs module</a>."
+msgstr "Das Paragraphs-Modul stellt einen Feldtyp bereit, der verschiedene andere Felder enthalten kann und erlaubt Benutzern so Inhalte auf einer Seite mit Hilfe von Seitenabschnitten zu unterteilen. Administratoren können im Vorfeld <em>Seitenabschnitttypen</em> erstellen (beispielsweise einen einfachen Textblock, ein Video oder eine komplexe und konfigurierbare Slideshow). Benutzer können diese Seitenabschnitte dann auf einer Seite platzieren und in beliebiger Reihenfolge anordnen und müssen keinen Texteditor mehr verwenden, um solche Elemente zum Inhalt der Seite hinzuzufügen. Weitere Informationen sind in der <a href=\":online\">Online-Dokumentation des Paragraphs-Moduls</a> verfügbar."
+
+#: paragraphs.module:30 modules/paragraphs_demo/paragraphs_demo.module:21 modules/paragraphs_type_permissions/paragraphs_type_permissions.module:24
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: paragraphs.module:31
+msgid "Creating Paragraphs types"
+msgstr "Seitenabschnittstypen erstellen"
+
+#: paragraphs.module:32
+msgid "<em>Paragraphs types</em> can be created by clicking <em>Add Paragraphs type</em> on the <a href=\":paragraphs\">Paragraphs types page</a>. By default a new Paragraphs type does not contain any fields."
+msgstr "<em>Seitenabschnittstypen</em> können mit einem Klick auf <em>Seitenabschnittstyp hinzufügen</em> auf der Seite <a href=\":paragraphs\">Seitenabschnittstypen</a> erstellt werden. Standardmäßig enthält ein neuer Seitenabschnittstyp keine Felder."
+
+#: paragraphs.module:33
+msgid "Configuring Paragraphs types"
+msgstr "Seitenabschnittstypen konfigurieren"
+
+#: paragraphs.module:34
+msgid "Administrators can add fields to a <em>Paragraphs type</em> on the <a href=\":paragraphs\">Paragraphs types page</a> if the <a href=\":field_ui\">Field UI</a> module is enabled. The form display and the display of the Paragraphs type can also be managed on this page. For more information on fields and entities, see the <a href=\":field\">Field module help page</a>."
+msgstr "Administratoren können auf der Seite <a href=\":paragraphs\">Seitenabschnitttypen</a> Felder zu einem <em>Seitenabschnitttyp</em> hinzufügen,  wenn das <a href=\":field_ui\">Field-UI-Modul</a> aktiviert ist. Die Formularanzeige- und die Anzeigeeinstellungen des Seitenabschnittstyps können auch auf dieser Seite verwaltet werden. Weitere Informationen über Felder und Entitäten sind auf der <a href=\":field\">Hilfeseite des Field-Moduls</a> verfügbar."
+
+#: paragraphs.module:35
+msgid "Creating content with Paragraphs"
+msgstr "Inhalte mit Seitenabschnitten erstellen"
+
+#: paragraphs.module:36
+msgid "Administrators can add a <em>Paragraph</em> field to content types or other entities, and configure which <em>Paragraphs types</em> to include. When users create content, they can then add one or more paragraphs by choosing the appropriate type from the dropdown list. Users can also dragdrop these paragraphs. This allows users to add structure to a page or other content (for example by adding an image, a user reference, or a differently formatted block of text) more easily then including it all in one text field or by using fields in a pre-defined order."
+msgstr "Administratoren können ein <em>Seitenabschnitts</em>-Feld zu Inhaltstypen oder anderen Entitäten hinzufügen und festlegen, welche <em>Seitenabschnittstypen</em> hierfür verfügbar sein sollen. Wenn Benutzer anschließend Inhalte erstellen, können sie einen oder mehrere Seitenabschnitte hinzufügen, indem sie den gewünschten Seitenabschnittstyp aus der Liste wählen. Außerdem können Benutzerr die Anzeigereihenfolge dieser Seiteanabschnitte per Drag-and-drop festlegen. So können Benutzer einer Seite oder anderen Inhalten eine Struktur verleihen (indem beispielsweise ein Bild, eine Benutzerreferenz oder ein anders formatierter Textblock hinzugefügt wird) und das wesentlich einfacher, als wenn sie all das in einem Textfeld oder in Vordefinierte Felder einfügen, deren Reihenfolge durch die Administratoren vorgegeben wurde und durch einen Benutzer nicht geändert werden kann."
+
+#: paragraphs.module:126
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1064
+msgctxt "paragraphs"
+msgid "Content"
+msgstr "Inhalt"
+
+#: paragraphs.module:153
+msgid "Paragraphs fields do not support translation. See the <a href=\":documentation\">online documentation</a>."
+msgstr "Seitenabschnittfelder können nicht übersetzt werden. Weitere Informationen darüber sind in der<a href=\":documentation\">Online-Dokumentation</a> verfügbar."
+
+#: paragraphs.module:206
+msgid "(* unsupported) Paragraphs fields do not support translation. See the <a href=\":documentation\">online documentation</a>."
+msgstr "(* nicht unterstützte) Felder von Seitenabschnitten können nicht übersetzt werden. Weitere Informationen sind in der <a href=\":documentation\">Online-Dokumentation</a> verfügbar."
+
+#: paragraphs.module:238
+msgid "@field_label (* unsupported)"
+msgstr "@field_label (* nicht unterstützt)"
+
+#: paragraphs.module:250
+msgid "Paragraph types that are used in moderated content requires non-translatable fields to be edited in the original language form and this must be checked."
+msgstr "Seitenabschnittstypen, die in moderierten Inhalten verwendet werden, erfordern, dass nicht übersetzbare Felder in der Originalsprache bearbeitet werden, und dies muss ausgewählt werden."
+
+#: paragraphs.install:26 modules/paragraphs_library/paragraphs_library.install:295 src/Entity/Paragraph.php:366
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow state label"
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: paragraphs.install:38 src/Entity/Paragraph.php:384
+msgid "Parent ID"
+msgstr "Übergeordnete ID"
+
+#: paragraphs.install:39 src/Entity/Paragraph.php:385
+msgid "The ID of the parent entity of which this entity is referenced."
+msgstr "Die ID der übergeordneten Entität, von der diese Entität referenziert wird."
+
+#: paragraphs.install:45 src/Entity/Paragraph.php:390
+msgid "Parent type"
+msgstr "Übergeordneter Typ"
+
+#: paragraphs.install:46 src/Entity/Paragraph.php:391
+msgid "The entity parent type to which this entity is referenced."
+msgstr "Der übergeordnete Entitätstyp, zu dem diese Entität gehört."
+
+#: paragraphs.install:53 src/Entity/Paragraph.php:397
+msgid "Parent field name"
+msgstr "Name des übergeordneten Feldes"
+
+#: paragraphs.install:54 src/Entity/Paragraph.php:398
+msgid "The entity parent field name to which this entity is referenced."
+msgstr "Der Feldname der übergeordneten Entität, die diese Entität referenziert."
+
+#: paragraphs.install:137
+msgid "Translation changed time"
+msgstr "Änderungszeitpunkt der Übersetzung"
+
+#: paragraphs.install:138
+msgid "The Unix timestamp when the translation was most recently saved."
+msgstr "Das Datum der letzten Speicherung der Übersetzung (Unix Zeitstempel)."
+
+#: paragraphs.install:189 src/Entity/Paragraph.php:404
+msgid "Behavior settings"
+msgstr "Verhaltenseinstellungen"
+
+#: paragraphs.install:190 src/Entity/Paragraph.php:405
+msgid "The behavior plugin settings"
+msgstr "Die Verhaltensplugineinstellungen"
+
+#: paragraphs.install:242
+msgid "Paragraphs can now display unpublished Paragraphs to users with the \"View unpublished paragraphs\" permission. Enable it on Adminstration > Configuration > Content > Paragraphs and grant to permission to use it."
+msgstr "Paragraphs erlaubt es jetzt Benutzern mit der Berechtigung „Unveröffentlichte Seitenabschnitte anzeigen“ unveröffentlichte Seitenabschnitte anzuzeigen. Diese Option kann unter Verwaltung > Konfiguration > Inhalt > Seitenabschnitte aktiviert werden. Anschließend kann die Berechtigung vergeben werden."
+
+#: paragraphs.install:367
+msgid "No Paragraphs to be processed."
+msgstr "Keine zu verarbeitenden Seitenabschnitte."
+
+#: paragraphs.install:389
+msgid "@count Paragraphs processed."
+msgstr "@count Seitenabschnitte verarbeitet."
+
+#: paragraphs.info.yml:0;0 modules/paragraphs_demo/paragraphs_demo.info.yml:0 modules/paragraphs_library/paragraphs_library.info.yml:0 modules/paragraphs_library/paragraphs_library.links.menu.yml:0 modules/paragraphs_library/paragraphs_library.links.task.yml:0 modules/paragraphs_library/src/LibraryItemViewsData.php:23 modules/paragraphs_library/src/Entity/LibraryItem.php:104 modules/paragraphs_type_permissions/paragraphs_type_permissions.info.yml:0 src/Entity/Paragraph.php:24;24 src/Plugin/EntityReferenceSelection/ParagraphSelection.php:15 src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:85 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:125 modules/paragraphs_demo/config/install/core.entity_form_display.node.paragraphed_content_demo.default.yml:0 modules/paragraphs_demo/config/install/core.entity_form_display.paragraph.nested_paragraph.default.yml:0 modules/paragraphs_demo/config/install/field.field.node.paragraphed_content_demo.field_paragraphs_demo.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0;0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0;0
+msgid "Paragraphs"
+msgstr "Paragraphs"
+
+#: paragraphs.info.yml:0
+msgid "Enables the creation of paragraphs entities."
+msgstr "Ermöglicht das Erstellen von Seitenabschnittsentitäten."
+
+#: paragraphs.links.action.yml:0
+msgid "Add paragraph type"
+msgstr "Seitenabschnittstyp hinzufügen"
+
+#: paragraphs.links.menu.yml:0 src/Plugin/EntityReferenceSelection/ParagraphSelection.php:135
+msgid "Paragraph types"
+msgstr "Seitenabschnittstypen"
+
+#: paragraphs.links.menu.yml:0 paragraphs.routing.yml:0
+msgid "Paragraphs settings"
+msgstr "Seitenabschnittseinstellungen"
+
+#: paragraphs.links.menu.yml:0
+msgid "Create and manage Paragraph types."
+msgstr "Seitenabschnittstypen erstellen und verwalten"
+
+#: paragraphs.links.task.yml:0 modules/paragraphs_library/paragraphs_library.links.task.yml:0 src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:471 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:657;673
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: paragraphs.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: paragraphs.permissions.yml:0
+msgid "Administer Paragraphs types"
+msgstr "Seitenabschnittstypen verwalten"
+
+#: paragraphs.permissions.yml:0
+msgid "Allow to define the existing Paragraphs types and their Fields"
+msgstr "Erlaubt das Definieren von bestehenden Seitenabschnittstypen und deren Feldern"
+
+#: paragraphs.permissions.yml:0
+msgid "Edit behavior plugin settings"
+msgstr "Verhaltensplugineinstellungen bearbeiten"
+
+#: paragraphs.permissions.yml:0
+msgid "Users with this permission can edit behavior plugin settings on Paragraphs behavior instance"
+msgstr "Benutzer mit dieser Berechtigung können Verhaltens-Plugin-Einstellungen einer Seitenabschnittsinstanz bearbeiten."
+
+#: paragraphs.permissions.yml:0
+msgid "View unpublished paragraphs"
+msgstr "Unveröffentlichte Seitenabschnitte anzeigen"
+
+#: paragraphs.permissions.yml:0
+msgid "Users with this permission can view paragraphs that are unpublished"
+msgstr "Benutzer mit dieser Berechtigung können unveröffentlichte Seitenabschnitte anzeigen."
+
+#: paragraphs.permissions.yml:0;0
+msgid "Administer Paragraphs settings"
+msgstr "Seitenabschnittseinstellungen verwalten"
+
+#: paragraphs.routing.yml:0 src/Entity/ParagraphsType.php:11;11
+msgid "Paragraphs types"
+msgstr "Seitenabschnittstypen"
+
+#: paragraphs.routing.yml:0
+msgid "Add Paragraphs type"
+msgstr "Seitenabschnittstyp hinzufügen"
+
+#: paragraphs.routing.yml:0 modules/paragraphs_library/paragraphs_library.links.task.yml:0 modules/paragraphs_library/src/Controller/LibraryItemController.php:113 modules/paragraphs_library/src/Form/LibraryItemRevisionDeleteForm.php:115
+msgid "Delete"
+msgstr "Löschen"
+
+#: config/schema/paragraphs.schema.yml:0
+msgid "Allow users with \"View unpublished paragraphs\" permission to see unpublished paragraphs."
+msgstr "Ermöglicht es Benutzern mit der Berechtigung „Unveröffentlichte Seitenabschnitte anzeigen“ unveröffentlichte Seitenabschnitte anzuzeigen."
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Paragraphs type config"
+msgstr "Konfiguration des Seitenabschnittstypen"
+
+#: config/schema/paragraphs_type.schema.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Icon uuid"
+msgstr "Symbol-UUID"
+
+#: config/schema/paragraphs_type.schema.yml:0 src/Controller/ParagraphsTypeListBuilder.php:22 src/Form/ParagraphsTypeForm.php:109
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Plugins"
+msgstr "Plugins"
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Behavior plugins"
+msgstr "Verhaltens-Plugins"
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Settings for base paragraphs behavior plugin"
+msgstr "Einstellungen des Basisseitenabschnittverhaltens-Plugins"
+
+#: config/schema/paragraphs_type.schema.yml:0
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: js/paragraphs.add_above_button.js:0;0 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:301
+msgid "Add above"
+msgstr "Oberhalb hinzufügen"
+
+#: modules/paragraphs_demo/paragraphs_demo.module:20
+msgid "The Paragraphs Demo module provides several <em>Paragraphs types</em> for the <a href=\":paragraphs\">Paragraphs module</a>, but no separate user interface. For more information, see the <a href=\":online\">online documentation for the Paragraphs module</a>."
+msgstr "Das Paragraphs-Demo-Modul stellt mehrere <em>Seitenabschnittstypen</em> für das <a href=\":paragraphs\">Paragraphs-Modul</a> zur Verfügung, aber keine separate Benutzeroberfläche. Weitere Informationen sind in der <a href=\":online\">Online-Dokumentation des Paragraphs-Modul</a> verfügbar."
+
+#: modules/paragraphs_demo/paragraphs_demo.module:22
+msgid "Changing demo Paragraphs types"
+msgstr "Seitenabschnittsdemotypen werden geändert"
+
+#: modules/paragraphs_demo/paragraphs_demo.module:23
+msgid "Administrators can edit the provided <em>Paragraphs types</em> on the <a href=\":paragraphs\">Paragraphs types page</a> if the <a href=\":field_ui\">Field UI</a> module is enabled. For more information on fields and entities, see the <a href=\":field\">Field module help page</a>."
+msgstr "Administratoren können die verfügbaren <em>Seitenabschnittstypen</em> auf der Seite <a href=\":paragraphs\">Seitenabschnitte</a> bearbeiten, wenn das <a href=\":field_ui\">Field-UI-Modul</a> aktiviert ist Weitere Informationen über Felder und Entitäten sind in der <a href=\":field\">Hilfe des Field-Moduls</a> verfügbar."
+
+#: modules/paragraphs_demo/paragraphs_demo.module:24
+msgid "Deleting demo Paragraphs types"
+msgstr "Seitenabschnittsdemotypen werden gelöscht"
+
+#: modules/paragraphs_demo/paragraphs_demo.module:25
+msgid "The provided <em>demo Paragraph types</em> stay available even when the Paragraphs Demo module is uninstalled. They can be deleted individually on the <a href=\":paragraphs\">Paragraphs types page</a>."
+msgstr "Die bereitgestellten <em>Demo-Seitenabschnittstypen</em> stehen weiterhin zur Verfügung, auch wenn das Paragraphs-Demo-Modul deinstalliert wurde. Sie können diese Seitenabschnittstypen einzeln auf der Seite <a href=\":paragraphs\">Seitenabschnittstypen</a> löschen."
+
+#: modules/paragraphs_demo/paragraphs_demo.info.yml:0
+msgid "Provides multilingual demo Paragraphs types."
+msgstr "Stellt mehrsprachige Beispiels-Seitenabschnittstypen bereit."
+
+#: modules/paragraphs_demo/paragraphs_demo.info.yml:0
+msgid "Paragraphs Demo"
+msgstr "Paragraphs Demo"
+
+#: modules/paragraphs_library/paragraphs_library.module:65
+msgid "Unlink from library"
+msgstr "Aus Bibliothek lösen"
+
+#: modules/paragraphs_library/paragraphs_library.module:81
+msgid "Promote to library"
+msgstr "Zur Bibliothek hinzufügen"
+
+#: modules/paragraphs_library/paragraphs_library.module:190
+msgid "Allow adding to library"
+msgstr "Hinzufügen zur Bibliothek zulassen"
+
+#: modules/paragraphs_library/paragraphs_library.module:286
+msgid "Revisions allow you to track differences between multiple versions of your content, and revert to older versions."
+msgstr "Revisionen erlauben es, Unterschiede zwischen mehreren Versionen an Inhalten zu verfolgen und zu älteren Versionen zurückzukehren."
+
+#: modules/paragraphs_library/paragraphs_library.install:92 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "Language"
+msgstr "Sprache"
+
+#: modules/paragraphs_library/paragraphs_library.install:104
+msgid "Default translation"
+msgstr "Standardübersetzung"
+
+#: modules/paragraphs_library/paragraphs_library.install:105
+msgid "A flag indicating whether this is the default translation."
+msgstr "Eine Kennzeichnung, die angibt, ob es sich um die Standardübersetzung handelt."
+
+#: modules/paragraphs_library/paragraphs_library.install:142
+msgid "Revision log message"
+msgstr "Protokollnachricht der Revision"
+
+#: modules/paragraphs_library/paragraphs_library.install:143
+msgid "The log entry explaining the changes in this revision."
+msgstr "Protokolleintrag, der die Änderungen dieser Revision erklärt"
+
+#: modules/paragraphs_library/paragraphs_library.install:215 modules/paragraphs_library/src/Entity/LibraryItem.php:139
+msgid "Authored by"
+msgstr "Geschrieben von"
+
+#: modules/paragraphs_library/paragraphs_library.install:216 modules/paragraphs_library/src/Entity/LibraryItem.php:140
+msgid "The user ID of the library item author."
+msgstr "Die Benutzer-ID des Autors des Bibliothekseintrags."
+
+#: modules/paragraphs_library/paragraphs_library.install:229
+msgid "Revision create time"
+msgstr "Erstellungsdatum der Revision"
+
+#: modules/paragraphs_library/paragraphs_library.install:230
+msgid "The time that the current revision was created."
+msgstr "Der Zeitpunkt, an dem die aktuelle Revision erstellt wurde."
+
+#: modules/paragraphs_library/paragraphs_library.install:234
+msgid "Revision user"
+msgstr "Revisionsbenutzer"
+
+#: modules/paragraphs_library/paragraphs_library.install:235
+msgid "The user ID of the author of the current revision."
+msgstr "Die Benutzerkennung des Autors der aktuellen Revision."
+
+#: modules/paragraphs_library/paragraphs_library.info.yml:0
+msgid "Paragraphs Library"
+msgstr "Seitenabschnittsbibliothek"
+
+#: modules/paragraphs_library/paragraphs_library.info.yml:0
+msgid "Provides a library for reusing paragraphs."
+msgstr "Ermöglicht die Verwendung einer Bibliothek für wiederverwendbaren Seitenabschnitte."
+
+#: modules/paragraphs_library/paragraphs_library.links.action.yml:0
+msgid "Add library item"
+msgstr "Bibliothekseintrag hinzufügen"
+
+#: modules/paragraphs_library/paragraphs_library.links.menu.yml:0 modules/paragraphs_library/paragraphs_library.links.task.yml:0 modules/paragraphs_library/paragraphs_library.routing.yml:0
+msgid "Paragraphs library item settings"
+msgstr "Seitenabschnittbibliothekseintrageinstellungen"
+
+#: modules/paragraphs_library/paragraphs_library.links.menu.yml:0
+msgid "Manage paragraphs library items."
+msgstr "Seitenabschnittbibliothekseinträge konfigurieren"
+
+#: modules/paragraphs_library/paragraphs_library.links.menu.yml:0
+msgid "Configure Paragraphs library item."
+msgstr "Seitenabschnittbibliothekseintrag konfigurieren"
+
+#: modules/paragraphs_library/paragraphs_library.links.task.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: modules/paragraphs_library/paragraphs_library.links.task.yml:0
+msgid "Revisions"
+msgstr "Revisionen"
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Administer Paragraphs library"
+msgstr "Seitenabschnittsbibliothek verwalten"
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Allow to manage the library of re-usable paragraphs."
+msgstr "Verwalten der Bibliothek von wiederverwendbaren Seitenabschnitten zulassen."
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Create paragraph library item"
+msgstr "Seitenabschnittbibliothekseintrag erstellen"
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Allow to create the paragraph library items."
+msgstr "Erstellen von Seitenabschnittbibliothekseinträgen zulassen."
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Edit paragraph library item"
+msgstr "Seitenabschnittbibliothekseintrag bearbeiten"
+
+#: modules/paragraphs_library/paragraphs_library.permissions.yml:0
+msgid "Allow to edit the paragraph library items."
+msgstr "Bearbeiten von Einträgen in der Seitenabschnittbibliothek zulassen."
+
+#: modules/paragraphs_library/config/schema/paragraphs_library.schema.yml:0
+msgid "Paragraphs library per-paragraph type third party settings"
+msgstr "Seitenabschnittsbibliothek Drittanbietereinstellungen pro Seitenabschnittstyp"
+
+#: modules/paragraphs_library/config/schema/paragraphs_library.schema.yml:0
+msgid "Allow conversion to paragraph library item"
+msgstr "Umwandlung in Seitenabschnittsbibliothekseintrag zulassen."
+
+#: modules/paragraphs_library/src/LibraryItemViewsData.php:18
+msgid "Paragraph relationship"
+msgstr "Seitenabschnittsbeziehung"
+
+#: modules/paragraphs_library/src/LibraryItemViewsData.php:19
+msgid "Allows users to add paragraphs entity fields."
+msgstr "Erlaubt es Benutzern, Seitenabschnittsentitätsfelder hinzuzufügen."
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:64
+msgid "Revisions for %label"
+msgstr "Revisionen für %label"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:66
+msgid "Revision"
+msgstr "Revision"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:66 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:96
+msgid "Current revision"
+msgstr "Aktuelle Revision"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:109 modules/paragraphs_library/src/Form/LibraryItemRevisionRevertForm.php:159
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:109
+msgid "Set as current revision"
+msgstr "Als aktuelle Revision festlegen"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:151
+msgid "Revision of %title from %date"
+msgstr "Revision von %title vom %date"
+
+#: modules/paragraphs_library/src/Controller/LibraryItemController.php:1
+msgid "@date: @label by @author"
+msgstr "@date: @label von @author"
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:84 src/Controller/ParagraphsTypeListBuilder.php:20 src/Form/ParagraphsTypeForm.php:78 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0;0;0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0;0;0
+msgid "Label"
+msgstr "Beschriftung"
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:122 src/Entity/Paragraph.php:373
+msgid "Authored on"
+msgstr "Geschrieben am"
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:123
+msgid "The time that the library item was created."
+msgstr "Der Zeitpunkt, zu dem dieser Bibliothekseintrag erstellt wurde."
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:133 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Changed"
+msgstr "Geändert"
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:134
+msgid "The time that the library item was last edited."
+msgstr "Der Zeitpunkt, zu dem dieser Bibliothekseintrag zuletzt bearbeitet wurde."
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:14;14
+msgid "Paragraphs library item"
+msgstr "Seitenabschnittsbibliothekseintrag"
+
+#: modules/paragraphs_library/src/Entity/LibraryItem.php:14;14 modules/paragraphs_library/config/optional/entity_browser.browser.paragraphs_library_items.yml:0
+msgid "Paragraphs library items"
+msgstr "Seitenabschnittbibliothekselemente"
+
+#: modules/paragraphs_library/src/Form/LibraryItemForm.php:80
+msgid "Paragraph %label has been created."
+msgstr "Seitenabschnitt %label wurde erstellt."
+
+#: modules/paragraphs_library/src/Form/LibraryItemForm.php:83
+msgid "Paragraph %label has been updated."
+msgstr "Seitenabschnitt %label wurde aktualisiert."
+
+#: modules/paragraphs_library/src/Form/LibraryItemRevisionDeleteForm.php:93
+msgid "Revision from %revision-date has been deleted."
+msgstr "Die Revision vom %revision-date wurde gelöscht."
+
+#: modules/paragraphs_library/src/Form/LibraryItemRevisionDeleteForm.php:122
+msgid "Are you sure you want to delete revision from %revision-date?"
+msgstr "Möchten sie die Revision vom %revision-date wirklich löschen?"
+
+#: modules/paragraphs_library/src/Form/LibraryItemRevisionRevertForm.php:94
+msgid "Are you sure you want to revert revision from %revision-date?"
+msgstr "Möchten Sie wirklich zur Revision vom %revision-date zurückkehren?"
+
+#: modules/paragraphs_library/src/Form/LibraryItemRevisionRevertForm.php:105
+msgid "Copy of the revision from %date."
+msgstr "Kopie der Revision vom %date."
+
+#: modules/paragraphs_library/src/Form/LibraryItemRevisionRevertForm.php:111
+msgid "%title has been reverted to the revision from %revision-date."
+msgstr "%title wurde auf die Revision vom %revision-date zurückgesetzt."
+
+#: modules/paragraphs_library/src/Form/LibraryItemSettingsForm.php:33
+msgid "There are no settings yet."
+msgstr "Es wurden noch keine Einstellungen vorgenommen."
+
+#: modules/paragraphs_library/src/Plugin/Validation/Constraint/ParagraphsLibraryItemHasAllowedParagraphsTypeConstraint.php:7
+msgctxt "Validation"
+msgid "Paragraphs type of Paragraphs library item's root is allowed in the parent field."
+msgstr "Der übergeordnete Seitenabschnittstyp des Seitenabschnittstyps ist im übergeordneten Feld zulässig."
+
+#: modules/paragraphs_library/src/Plugin/Validation/Constraint/ParagraphsLibraryItemHasAllowedParagraphsTypeConstraint.php:29
+msgid "The @library_item_field_label field cannot contain a @paragraphs_type_label paragraph, because the parent @paragraph_field_label field disallows it."
+msgstr "Das Feld @library_item_field_label darf keinen Seitenabschnitt @paragraphs_type_label enthalten, weil das übergeordnete Feld @paragraph_field_label dies nicht erlaubt."
+
+#: modules/paragraphs_type_permissions/paragraphs_type_permissions.module:23
+msgid "The Paragraphs Type permission module allows administrators to configure permissions individually for each <em>Paragraphs type</em>. For more information, see the <a href=\":online\">online documentation for the Paragraphs module</a>."
+msgstr "Das Paragraphs-Type-Permission-Modul ermöglicht Administratoren für jeden <em>Seitenabschnittstyp</em> individuelle Berechtigungen zu vergeben. Weitere Informatioenen sind in der <a href=\":online\">Online-Dokumentation des Paragraphs-Moduls</a> verfügbar."
+
+#: modules/paragraphs_type_permissions/paragraphs_type_permissions.module:25
+msgid "Configuring permissions per Paragraphs type"
+msgstr "Berechtigungen für den jeweiligen Seitenabschnittstyp konfigurieren"
+
+#: modules/paragraphs_type_permissions/paragraphs_type_permissions.module:26
+msgid "Administrators can configure the permissions to view, create, edit, and delete each <em>Paragraphs type</em> individually on the <a href=\":permissions\">Permissions page</a>."
+msgstr "Administratoren können auf der Seite <a href=\":permissions\">Berechtigungen</a> für jeden  <em>Seitenabschnitttyp</em> die Berechtigung zum Anzeigen, Erstellen, Bearbeiten und Löschen separat vergeben."
+
+#: modules/paragraphs_type_permissions/paragraphs_type_permissions.info.yml:0
+msgid "Paragraphs Type Permissions"
+msgstr "Seitenabschnittstypberechtigungen"
+
+#: modules/paragraphs_type_permissions/paragraphs_type_permissions.info.yml:0
+msgid "Allows users to configure permissions for individual Paragraphs types."
+msgstr "Benutzern erlauben die Berechtigungen für einzelne Seitenabschnittstypen zu konfigurieren."
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:25
+msgid "Bypass Paragraphs type content access control"
+msgstr "Zugriffskontrolle für Inhalt des Seitenabschnittstyps übergehen"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:26
+msgid "Is able to administer content for all Paragraph types"
+msgstr "Kann alle Seitenabschnittstypen verwalten"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:62
+msgid "%type_name: View content"
+msgstr "%type_name: Inhalt anzeigen"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:63
+msgid "Is able to view Paragraphs content of type %type_name"
+msgstr "Kann Seitenabschnittinhalte vom Typ %type_name anzeigen."
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:66
+msgid "%type_name: Create content"
+msgstr "%type_name: Inhalt erstellen"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:67
+msgid "Is able to create Paragraphs content of type %type_name"
+msgstr "Kann Seitenabschnittinhalte vom Typ %type_name erstellen."
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:70
+msgid "%type_name: Edit content"
+msgstr "%type_name: Inhalt bearbeiten"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:71
+msgid "Is able to update Paragraphs content of type %type_name"
+msgstr "Kann Seitenabschnittinhalte vom Typ %type_name aktualisieren."
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:74
+msgid "%type_name: Delete content"
+msgstr "%type_name: Inhalt löschen"
+
+#: modules/paragraphs_type_permissions/src/ParagraphsTypePermissions.php:75
+msgid "Is able to delete Paragraphs content of type %type_name"
+msgstr "Kann Seitenabschnitte des Typs %type_name löschen"
+
+#: src/Controller/ParagraphsTypeListBuilder.php:18
+msgid "Icon"
+msgstr "Symbol"
+
+#: src/Controller/ParagraphsTypeListBuilder.php:21
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/Entity/Paragraph.php:167
+msgid "Orphaned @type: @summary"
+msgstr "Verwaiste @type: @summary"
+
+#: src/Entity/Paragraph.php:361
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Entity/Paragraph.php:362
+msgid "The paragraphs entity language code."
+msgstr "Das Sprachkürzel der Seitenabschnittsentität."
+
+#: src/Entity/Paragraph.php:374
+msgid "The time that the Paragraph was created."
+msgstr "Der Zeitpunkt, zu dem der Seitenabschnittstyp erstellt wurde."
+
+#: src/Entity/Paragraph.php:556
+msgid "1 child"
+msgid_plural "@count children"
+msgstr[0] "1 Unterelement"
+msgstr[1] "@count Unterelemente"
+
+#: src/Entity/Paragraph.php:24;24 src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:84 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:124 modules/paragraphs_demo/config/install/core.entity_form_display.node.paragraphed_content_demo.default.yml:0 modules/paragraphs_demo/config/install/core.entity_form_display.paragraph.nested_paragraph.default.yml:0
+msgid "Paragraph"
+msgstr "Paragraph"
+
+#: src/Entity/Paragraph.php:24
+msgid "Paragraph type"
+msgstr "Seitenabschnittstyp"
+
+#: src/Entity/ParagraphsType.php:11;11 src/Feeds/Target/Paragraphs.php:70
+msgid "Paragraphs type"
+msgstr "Seitenabschnittstyp"
+
+#: src/Feeds/Target/Paragraphs.php:93
+msgid "Paragraph field"
+msgstr "Seitenabschnittsfeld"
+
+#: src/Feeds/Target/Paragraphs.php:94
+msgid "<strong>Note:</strong> Field options do not appear until a type has been chosen and saved."
+msgstr "<strong>Achtung:</strong> Feldoptionen werden solange nicht angezeigt, bis ein Typ ausgewählt und gespeichert wurde."
+
+#: src/Feeds/Target/Paragraphs.php:107
+msgid "Not yet configured."
+msgstr "Noch nicht konfiguriert."
+
+#: src/Feeds/Target/Paragraphs.php:112
+msgid "Using the %field field on a %type paragraph."
+msgstr "Verwende das Feld %field in einem Seitenabschnitt des Typs %type."
+
+#: src/Form/ParagraphsSettingsForm.php:34
+msgid "Show unpublished Paragraphs"
+msgstr "Unveröffentlichte Seitenabschnitte anzeigen"
+
+#: src/Form/ParagraphsSettingsForm.php:36
+msgid "Allow users with \"View unpublished paragraphs\" permission to see unpublished Paragraphs."
+msgstr "Erlaubt Benutzern mit der Berechtigung „Unveröffentlichte Seitenabschnitte anzeigen\" unveröffentlichte Seitenabschnitte einzusehen."
+
+#: src/Form/ParagraphsTypeDeleteConfirm.php:23
+msgid "%type Paragraphs type is used by 1 piece of content on your site. You can not remove this %type Paragraphs type until you have removed all from the content."
+msgid_plural "%type Paragraphs type is used by @count pieces of content on your site. You may not remove %type Paragraphs type until you have removed all from the content."
+msgstr[0] "Seitenabschnittstyp %type wird von einem Inhalt auf der Website verwendet. Sie können diesen Seitenabschnittstyp %type nicht entfernen, solange Sie nicht alle aus dem Inhalt entfernt haben."
+msgstr[1] "Seitenabschnittstyp %type wird von @count Inhalten auf der Website verwendet. Sie können diesen Seitenabschnittstyp %type nicht entfernen, solange Sie nicht alle aus dem Inhalt entfernt haben."
+
+#: src/Form/ParagraphsTypeDeleteConfirm.php:31
+msgid "Delete existing Paragraph"
+msgid_plural "Delete all @count existing Paragraphs"
+msgstr[0] "Bestehenden Seitenabschnitt löschen"
+msgstr[1] "Alle @count bestehenden Seitenabschnitte löschen"
+
+#: src/Form/ParagraphsTypeDeleteConfirm.php:59
+msgid "Entity is successfully deleted."
+msgid_plural "All @count entities are successfully deleted."
+msgstr[0] "Entität wurde erfolgreich gelöscht."
+msgstr[1] "Alle @count Entitäten wurden erfolgreich gelöscht."
+
+#: src/Form/ParagraphsTypeForm.php:71
+msgid "Edit %title paragraph type"
+msgstr "Seitenabschnittstyp %title bearbeiten"
+
+#: src/Form/ParagraphsTypeForm.php:81
+msgid "Label for the Paragraphs type."
+msgstr "Beschriftung des Seitenabschnittstyps"
+
+#: src/Form/ParagraphsTypeForm.php:96
+msgid "Paragraph type icon"
+msgstr "Seitenabschnittstypsymbol"
+
+#: src/Form/ParagraphsTypeForm.php:112
+msgid "This text will be displayed on the <em>Add new paragraph</em> page."
+msgstr "Dieser Text wird auf der Seite <em>Neuen Seitenabschnitt hinzufügen</em> angezeigt."
+
+#: src/Form/ParagraphsTypeForm.php:119
+msgctxt "paragraphs"
+msgid "Behavior plugins are only supported by the EXPERIMENTAL paragraphs widget."
+msgstr "Verhaltensplugins werden nur vom EXPERIMENTELLEN Seitenabschnitts-Steuerelement unterstützt."
+
+#: src/Form/ParagraphsTypeForm.php:124
+msgctxt "paragraphs"
+msgid "Behaviors"
+msgstr "Verhaltensweisen"
+
+#: src/Form/ParagraphsTypeForm.php:218
+msgid "Saved the %label Paragraphs type."
+msgstr "Seitenabschnittstyp %label gespeichert."
+
+#: src/Form/ParagraphsTypeForm.php:238
+msgid "Save and manage fields"
+msgstr "Speichern und Felder verwalten"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:109
+msgid "Exclude the selected below"
+msgstr "Unten ausgewählte ausschließen"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:110
+msgid "Include the selected below"
+msgstr "Die unten ausgewählten mit einschließen"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:112
+msgid "Which Paragraph types should be allowed?"
+msgstr "Welche Seitenabschnittstypen sollen verwendet werden können?"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:129 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0;0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0;0
+msgid "Type"
+msgstr "Typ"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:130
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:136
+msgid "Selection of Paragraph types for this field. Select none to allow all Paragraph types."
+msgstr "Auswahl an Seitenabschnittstypen für dieses Feld. Keine auswählen, um alle Seitenabschnittstypen zuzulassen."
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:170
+msgid "Weight for type @type"
+msgstr "Steuerelement für den Typ: @type"
+
+#: src/Plugin/EntityReferenceSelection/ParagraphSelection.php:182
+msgid "You did not add any Paragraph types yet, click <a href=\":here\">here</a> to add one."
+msgstr "Es wurden noch keine Seitenabschnittstypen hinzugefügt. <a href=\":here\">Seitenabschnittsypen hinzufügen</a>."
+
+#: src/Plugin/Field/FieldFormatter/ParagraphsSummaryFormatter.php:10
+msgid "Paragraph summary"
+msgstr "Seitenabschnittszusammenfassung"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:101 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:145
+msgid "Paragraph Title"
+msgstr "Seitenabschnittstitel"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:102 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:146
+msgid "Label to appear as title on the button as \"Add new [title]\", this label is translatable"
+msgstr "Beschriftung, die als Titel auf dem Button „[Titel] hinzufügen“ erscheinen soll. Diese Beschriftung ist übersetzbar."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:109 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:153
+msgid "Plural Paragraph Title"
+msgstr "Titel des Seitenabschnitts im Plural"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:110 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:154
+msgid "Title in its plural form."
+msgstr "Titel in der Pluralform."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:117 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:161
+msgid "Edit mode"
+msgstr "Bearbeitungsmodus"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:118
+msgid "The mode the paragraph is in by default. Preview will render the paragraph in the preview view mode."
+msgstr "Der Modus, in dem sich der Seitenabschnitt mit den Standardeinstellungen befindet. Vorschau stellt den Seitenabschnitt im Anzeigemodus Vorschau dar."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:120;180 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:269
+msgid "Open"
+msgstr "Geöffnet"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:121;183 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:270
+msgid "Closed"
+msgstr "Geschlossen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:122;186 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:277 config/install/core.entity_view_mode.paragraph.preview.yml:0
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:130 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:206
+msgid "Add mode"
+msgstr "Modus hinzufügen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:131 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:207
+msgid "The way to add new Paragraphs."
+msgstr "Der Weg, um neue Seitenabschnitte hinzuzufügen."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:133;193 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:288
+msgid "Select list"
+msgstr "Auswahlliste"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:134;196 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:289
+msgid "Buttons"
+msgstr "Buttons"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:135;199 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:290
+msgid "Dropdown button"
+msgstr "Drop-down-Button"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:144 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:216
+msgid "The form display mode to use when rendering the paragraph form."
+msgstr "Der Formularanzeigemouds, der verwendet werden soll, wenn das Bearbeitungsformular für Seitenabschnitte dargestellt wird."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:145 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:217
+msgid "Form display mode"
+msgstr "Formularanzeigemodus"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:157 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:229
+msgid "Default paragraph type"
+msgstr "Standard-Seitenabschnittstyp"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:161 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:233
+msgid "When creating a new host entity, a paragraph of this type is added."
+msgstr "Wenn eine neue übergeordnete Entität erstellt wird, wird ein Seitenabschnitt dieses Typs hinzugefügt."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:172 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:314
+msgid "Title: @title"
+msgstr "Titel: @title"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:173 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:315
+msgid "Plural title: @title_plural"
+msgstr "Titel im Plural: @title_plural"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:203 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:323
+msgid "Edit mode: @edit_mode"
+msgstr "Bearbeitungsmodus: @edit_mode"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:204 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:332
+msgid "Add mode: @add_mode"
+msgstr "Modus hinzufügen: @add_mode"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:205 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:334
+msgid "Form display mode: @form_display_mode"
+msgstr "Formularanzeigemodus: @form_display_mode"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:209 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:338
+msgid "Default paragraph type: @default_paragraph_type"
+msgstr "Standard-Seitenabschnittstyp: @default_paragraph_type"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:291
+msgid "@messages"
+msgstr "@messages"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:404 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:614
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:428 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:634;649
+msgid "Collapse"
+msgstr "Zusammenklappen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:449;505 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:707
+msgid "You are not allowed to edit this @title."
+msgstr "Keine Berechtigung, das Element @title zu bearbeiten."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:456;512 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:714
+msgid "You are not allowed to remove this @title."
+msgstr "Keine Berechtigung, das Element @title zu entfernen."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:463;519 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:698
+msgid "You are not allowed to edit or remove this @title."
+msgstr "Keine Berechtigung, das Element @title zu bearbeiten oder zu entfernen."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:491 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:680
+msgid "You have unsaved changes on this @title item."
+msgstr "Es gibt nicht gespeicherte Änderungen am Element @title."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:498
+msgid "You are not allowed to view this @title."
+msgstr "Keine Berechtigung, das Element @title zu sehen."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:527
+msgid "Deleted @title: %type"
+msgstr "@title: %type gelöscht"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:532
+msgid "Confirm removal"
+msgstr "Entfernen bestätigen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:550
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow transition label"
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:843 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1122
+msgid "Weight for row @number"
+msgstr "Reihenfolge für Zeile @number"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:900
+msgid "No @title added yet."
+msgstr "Noch kein @title hinzugefügt."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:942 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1204
+msgid "No widget available for: %label."
+msgstr "Es ist kein Steuerelement für %label verfügbar."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:965 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1397
+msgid "You are not allowed to add any of the @title types."
+msgstr "Keine Berechtigung, Element @title hinzuzufügen."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:972 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1400
+msgid "You did not add any @title types yet."
+msgstr "Es wurden noch keine Typen @title hinzugefügt."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1044;1108 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1673
+msgid " to %type"
+msgstr " zu %type"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1051 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1591
+msgid "Add @type"
+msgstr "@type hinzufügen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1084 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1643
+msgid "@title type"
+msgstr "Typ @title"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1088 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:937;1653
+msgid "Add @title"
+msgstr "@title hinzufügen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1091 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1656
+msgid "Add another @title"
+msgstr "Weiteren @title hinzufügen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1284 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2189
+msgid "@name field is required."
+msgstr "Das Feld @name ist erforderlich."
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:1398 src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2380
+msgid "all languages"
+msgstr "alle Sprachen"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:20
+msgid "Paragraphs Classic"
+msgstr "Paragraphs Classic"
+
+#: src/Plugin/Field/FieldWidget/InlineParagraphsWidget.php:20
+msgid "A paragraphs inline form widget."
+msgstr "Ein Inline-Formularsteuerelement für Seitenabschnitte."
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:162
+msgid "The mode the paragraph is in by default."
+msgstr "Der Standardmodus des Seitenabschnitts."
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:170
+msgid "Closed mode"
+msgstr "Geschlossener Modus"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:171
+msgid "How to display the paragraphs, when the widget is closed. Preview will render the paragraph in the preview view mode and typically needs a custom admin theme."
+msgstr "Wie die Seitenabschnitte angezeigt werden sollen, wenn das Steuerelement geschlossen ist. Vorschau stellt die Seitenabschnitte im Anzeigemodus Vorschau dar und benötigt normalerweise ein benutzerdefiniertes Verwaltungs-Theme."
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:179
+msgid "Autocollapse"
+msgstr "Automatisch zusammenklappen"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:180
+msgid "When a paragraph is opened for editing, close others."
+msgstr "Andere Seitenabschnitte schließen, wenn ein Seitenabschnitt zur Bearbeitung geöffnet wird."
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:193
+msgid "Closed mode threshold"
+msgstr "Schwellenwert für den geschlossenen Modus"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:195
+msgid "Number of items considered to leave paragraphs open e.g the threshold is 3, if a paragraph has less than 3 items, leave it open."
+msgstr "Anzahl der Elemente, bei denen davon ausgegangen wird, dass Seitenabschnitte geöffnet bleiben, z. B. ist der Schwellenwert 3, wenn ein Seitenabschnitt weniger als 3 Elemente hat, geöffnet lassen."
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:238
+msgid "Enable widget features"
+msgstr "Steuerelementfunktionen aktivieren"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:241
+msgid "When editing, available as action. \"Add above\" only works in add mode \"Modal form\""
+msgstr "Wenn Bearbeiten als Aktion verfügbar ist, funktioniert „Darüber hinzufügen\" nur im Hinzufügenmodus „Modal-Formular“"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:271
+msgid "Closed, show nested"
+msgstr "Geschlossen, verschachtelte Seitenabschnitte anzeigen"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:276 modules/paragraphs_library/config/install/core.entity_view_mode.paragraphs_library_item.summary.yml:0
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:282
+msgid "None"
+msgstr "Keine"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:283
+msgid "All"
+msgstr "Alle"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:291
+msgid "Modal form"
+msgstr "Modalformular"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:296;593
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:297
+msgid "Collapse / Edit all"
+msgstr "Alle zusammenklappen/bearbeiten"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:324
+msgid "Closed mode: @closed_mode"
+msgstr "Geschlossener Modus: @closed_mode"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:327
+msgid "Autocollapse: @autocollapse"
+msgstr "Automatisch zusammenklappen: @autocollapse"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:330
+msgid "Closed mode threshold: @mode_limit"
+msgstr "Schwellenwert für den geschlossenen Modus: @mode_limit"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:344
+msgid "Features: @features"
+msgstr "Funktionen: @features"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:688
+msgid "Unpublished"
+msgstr "Nicht veröffentlicht"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1064
+msgctxt "paragraphs"
+msgid "Behavior"
+msgstr "Verhaltensweise"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1083
+msgid "Complete drag & drop"
+msgstr "Drag-and-drop abschließen"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1348
+msgid "Current path for @number"
+msgstr "Aktueller Pfad für @number"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:1610;1614
+msgid "to %type"
+msgstr "zu %type"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2281
+msgid "Validation error on collapsed paragraph @path: @message"
+msgstr "Validierungsfehler beim zusammengeklappten Abschnitt @path: @message"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2510
+msgid "Drag & drop"
+msgstr "Drag-and-drop"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2530;2575
+msgid "Collapse all"
+msgstr "Alle einklappen"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2547;2566
+msgid "Edit all"
+msgstr "Alle bearbeiten"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:2568
+msgid "Edit All"
+msgstr "Alle bearbeiten"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:24
+msgid "Paragraphs EXPERIMENTAL"
+msgstr "Paragraphs EXPERIMENTELL"
+
+#: src/Plugin/Field/FieldWidget/ParagraphsWidget.php:24
+msgid "An experimental paragraphs inline form widget."
+msgstr "Ein experimentelles Inline-Formularsteuerelement"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionItem.php:84
+msgid "The field_collection_item id"
+msgstr "Die Feldkollektionselement-ID"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionItem.php:85
+msgid "The field_collection_item revision id"
+msgstr "Die Feldkollektionselement-Revisions-ID"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionItem.php:86
+msgid "The field_collection bundle"
+msgstr "Der Feldkollektionssubtyp"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionItem.php:87
+msgid "The field_collection field_name"
+msgstr "Der Feldkollektionsfeldname"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionType.php:74
+msgid "Original field collection bundle/field_name"
+msgstr "Original Feldkollektionssubtyp/Feldname"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionType.php:75 src/Plugin/migrate/source/d7/ParagraphsType.php:63
+msgid "Paragraph type machine name"
+msgstr "Seitenabschnittstyp-Systemname"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionType.php:76 src/Plugin/migrate/source/d7/ParagraphsType.php:64
+msgid "Paragraph type label"
+msgstr "Seitenabschnittstyp-Beschriftung"
+
+#: src/Plugin/migrate/source/d7/FieldCollectionType.php:77 src/Plugin/migrate/source/d7/ParagraphsType.php:65
+msgid "Paragraph type description"
+msgstr "Seitenabschnittstyp-Beschreibung"
+
+#: src/Plugin/migrate/source/d7/ParagraphsItem.php:78
+msgid "The paragraph_item id"
+msgstr "Die ID des Seitenabschnitts"
+
+#: src/Plugin/migrate/source/d7/ParagraphsItem.php:79
+msgid "The paragraph_item revision id"
+msgstr "Die Revisions-ID des Seitenabschnitts"
+
+#: src/Plugin/migrate/source/d7/ParagraphsItem.php:80
+msgid "The paragraph bundle"
+msgstr "Der Seitenabschnitts-Subtyp"
+
+#: src/Plugin/migrate/source/d7/ParagraphsItem.php:81
+msgid "The paragraph field_name"
+msgstr "Der Seitenabschnitts field_name"
+
+#: templates/paragraphs-actions.html.twig:23
+msgid "Toggle Actions"
+msgstr "Aktionen an oder abschalten"
+
+#: modules/paragraphs_demo/config/install/field.field.paragraph.image_text.field_image_demo.yml:0 modules/paragraphs_demo/config/install/field.field.paragraph.text_image.field_image_demo.yml:0
+msgid "Image"
+msgstr "Bild"
+
+#: modules/paragraphs_demo/config/install/field.field.paragraph.image_text.field_text_demo.yml:0 modules/paragraphs_demo/config/install/field.field.paragraph.text.field_text_demo.yml:0 modules/paragraphs_demo/config/install/field.field.paragraph.text_image.field_text_demo.yml:0 modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text.yml:0
+msgid "Text"
+msgstr "Text"
+
+#: modules/paragraphs_demo/config/install/field.field.paragraph.images.field_images_demo.yml:0 modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.images.yml:0
+msgid "Images"
+msgstr "Bilder"
+
+#: modules/paragraphs_demo/config/install/field.field.paragraph.nested_paragraph.field_paragraphs_demo.yml:0
+msgid "Nested Content"
+msgstr "Verschachtelter Inhalt"
+
+#: modules/paragraphs_demo/config/install/field.field.paragraph.user.field_user_demo.yml:0 modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.user.yml:0
+msgid "User"
+msgstr "Benutzer"
+
+#: modules/paragraphs_demo/config/install/node.type.paragraphed_content_demo.yml:0
+msgid "Paragraphed article"
+msgstr "In Seitenabschnitte unterteilter Artikel"
+
+#: modules/paragraphs_demo/config/install/node.type.paragraphed_content_demo.yml:0
+msgid "Article with Paragraphs."
+msgstr "Artikel mit Seitenabschnitten."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.image_text.yml:0
+msgid "Image + Text"
+msgstr "Bild + Text"
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.image_text.yml:0
+msgid "Use <em>Image + Text</em> for adding an image on the left and a text on the right."
+msgstr "Mit <em>Bild + Text</em> können ein Bild links und Text rechts hinzugefügt werden."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.images.yml:0
+msgid "Use <em>Images</em> for adding one or multiple images."
+msgstr "Mit <em>Bilder</em> können ein oder mehrere Bilder hinzugefügt werden."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.nested_paragraph.yml:0
+msgid "Nested Paragraph"
+msgstr "Verschachtelter Seitenabschnitt"
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.nested_paragraph.yml:0
+msgid "Use <em>Nested Paragraph</em> for nesting more paragraphs inside."
+msgstr "Mit <em>Verschachtelter Seitenabschnitt</em> können weitere Seitenabschnitte ineinander verschachtelt werden."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text.yml:0
+msgid "Use <em>Text</em> for adding a text."
+msgstr "Mit <em>Text</em> kann Text hinzugefügt werden."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text_image.yml:0
+msgid "Text + Image"
+msgstr "Text + Bild"
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.text_image.yml:0
+msgid "Use <em>Text + Image</em> for adding a text on the left and an image  on the right."
+msgstr "Mit <em>Text + Bild</em> können ein Text links und ein Bild rechts hinzugefügt werden."
+
+#: modules/paragraphs_demo/config/install/paragraphs.paragraphs_type.user.yml:0
+msgid "Use <em>User</em> for adding a reference to an existing user."
+msgstr "Mit <em>Benutzer</em> kann auf einen vorhandenen Benutzer verwiesen werden."
+
+#: modules/paragraphs_demo/config/optional/filter.format.basic_html.yml:0
+msgid "Basic HTML"
+msgstr "Einfaches HTML"
+
+#: modules/paragraphs_demo/config/optional/language.entity.de.yml:0
+msgid "German"
+msgstr "Deutsch"
+
+#: modules/paragraphs_demo/config/optional/language.entity.fr.yml:0
+msgid "French"
+msgstr "Französisch"
+
+#: modules/paragraphs_demo/config/optional/search_api.index.paragraphs_demo_index.yml:0
+msgid "Paragraphs demo index"
+msgstr "Paragraphs demo index"
+
+#: modules/paragraphs_demo/config/optional/search_api.server.paragraphs_demo_server.yml:0
+msgid "Paragraphs demo server"
+msgstr "Paragraphs demo server"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0
+msgid "Paragraphs search"
+msgstr "Paragraphs search"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0
+msgid "Add a text and click on Apply to see results."
+msgstr "Fügen Sie Text hinzu und klicken Sie auf Anwenden, um Ergebnisse anzuzeigen."
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "››"
+msgstr "››"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0;0;0;0;0;0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0;0;0;0
+msgid ", "
+msgstr ", "
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0
+msgid "Fulltext Paragraphs demo search"
+msgstr "Fulltext-Paragraphs-Demo-Suche"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0 modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "Page"
+msgstr "Seite"
+
+#: modules/paragraphs_demo/config/optional/views.view.paragraphs_search.yml:0
+msgid "Paragraphs_demo"
+msgstr "Paragraphs_demo"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgid "Editorial"
+msgstr "Editorial"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow state label"
+msgid "Archived"
+msgstr "Archiviert"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow state label"
+msgid "Draft"
+msgstr "Entwurf"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow transition label"
+msgid "Archive"
+msgstr "Archiv"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow transition label"
+msgid "Restore to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow transition label"
+msgid "Create New Draft"
+msgstr "Neuen Entwurf erstellen"
+
+#: modules/paragraphs_demo/config/optional/workflows.workflow.editorial.yml:0
+msgctxt "Workflow transition label"
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#: modules/paragraphs_library/config/install/paragraphs.paragraphs_type.from_library.yml:0
+msgid "From library"
+msgstr "Aus der Bibliothek"
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0;0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Paragraphs library"
+msgstr "Seitenabschnittsbibliothek"
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "Used"
+msgstr "Verwendet"
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "1 place"
+msgid_plural "@count places"
+msgstr[0] "1 Position"
+msgstr[1] "@count Positionen"
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0 modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "No library items available."
+msgstr "Keine Bibliothekeinträge vorhanden."
+
+#: modules/paragraphs_library/config/install/views.view.paragraphs_library.yml:0
+msgid "Usage information (Paragraphs library item)"
+msgstr "Nutzungsinformationen (Paragraphs-Bibliothekselement)"
+
+#: modules/paragraphs_library/config/optional/entity_browser.browser.paragraphs_library_items.yml:0;0
+msgid "Select reusable paragraph"
+msgstr "Wiederverwendbaren Seitenabschnitt auswählen"
+
+#: modules/paragraphs_library/config/optional/entity_browser.browser.paragraphs_library_items.yml:0
+msgid "Available library items"
+msgstr "Verfügbare Bibliothekeinträge"
+
+#: modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Paragraphs library browser"
+msgstr "Seitenabschnittsbibliothek-Browser"
+
+#: modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Select"
+msgstr "Auswählen"
+
+#: modules/paragraphs_library/config/optional/views.view.paragraphs_library_browser.yml:0
+msgid "Entity browser"
+msgstr "Entity-Browser"
+

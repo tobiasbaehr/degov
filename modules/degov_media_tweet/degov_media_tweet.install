@@ -6,6 +6,7 @@
  */
 
 use Drupal\degov_common\Common;
+use Drupal\degov\TranslationImporter;
 
 /**
  * Implements hook_uninstall().
@@ -15,4 +16,11 @@ function degov_media_tweet_uninstall() {
     'entity_type' => 'media',
     'entity_bundles' => ['tweet'],
   ]);
+}
+
+/**
+ * deGov 8.5.0 - Import config translations.
+ */
+function degov_media_tweet_update_880500() {
+  TranslationImporter::importConfigTranslationOfModule('field.field.media.tweet.embed_code', 'degov_media_tweet');
 }

@@ -1,0 +1,273 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  path.module: n/a
+#  src/Plugin/Field/FieldWidget/PathWidget.php: n/a
+#  path.es6.js: n/a
+#  path.js: n/a
+#  path.info.yml: n/a
+#  src/Plugin/Field/FieldType/PathItem.php: n/a
+#  path.links.action.yml: n/a
+#  path.routing.yml: n/a
+#  path.links.menu.yml: n/a
+#  path.links.task.yml: n/a
+#  path.permissions.yml: n/a
+#  config/schema/path.schema.yml: n/a
+#  src/Controller/PathController.php: n/a
+#  src/Form/PathFormBase.php: n/a
+#  src/Form/EditForm.php: n/a
+#  src/Form/DeleteForm.php: n/a
+#  src/Form/PathFilterForm.php: n/a
+#  src/Plugin/Validation/Constraint/PathAliasConstraint.php: n/a
+#  src/Plugin/migrate/source/UrlAliasBase.php: n/a
+#  src/Plugin/migrate/source/d6/UrlAlias.php: n/a
+#  src/Plugin/migrate/source/d7/UrlAlias.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: path.module:21
+msgid "About"
+msgstr "Über"
+
+#: path.module:22
+msgid "The Path module allows you to specify an alias, or custom URL, for any existing internal system path. Aliases should not be confused with URL redirects, which allow you to forward a changed or inactive URL to a new URL. In addition to making URLs more readable, aliases also help search engines index content more effectively. Multiple aliases may be used for a single internal system path. To automate the aliasing of paths, you can install the contributed module <a href=\":pathauto\">Pathauto</a>. For more information, see the <a href=\":path\">online documentation for the Path module</a>."
+msgstr "Das Path-Modul ermöglicht das Erstellen von Aliasen oder benutzerdefinierten URLs für alle internen Systempfade. Aliase sollten nicht mit URL-Weiterleitungen verwechselt werden. Diese erlauben es eine inaktive oder geänderte URL auf eine neue URL- weiterzuleiten. Zusätzlich zur Erhöhung der Lesbarkeit von URLs sorgen Aliase auch dafür, dass Suchmaschinen Inhalte einfacher erfassen können. Es kann sein, dass mehrere Aliase auf den gleichen internen Systempfad verweisen. Um die Zuweisung und das Erstellen von Aliasen zu automatisieren, kann das Zusatzmodul <a href=\":pathauto\">Pathauto</a> installiert werden. Weitere Informationen sind in der <a href=\":path\">Online-Dokumentation des Path-Moduls</a> verfügbar."
+
+#: path.module:23
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: path.module:25
+msgid "Creating aliases"
+msgstr "Aliase erstellen"
+
+#: path.module:26
+msgid "If you create or edit a taxonomy term you can add an alias (for example <em>music/jazz</em>) in the field \"URL alias\". When creating or editing content you can add an alias (for example <em>about-us/team</em>) under the section \"URL path settings\" in the field \"URL alias\". Aliases for any other path can be added through the page <a href=\":aliases\">URL aliases</a>. To add aliases a user needs the permission <a href=\":permissions\">Create and edit URL aliases</a>."
+msgstr "Wird ein Taxonomiebegriff erstellt oder bearbeitet kann im Feld „URL-Alias“ ein Alias hinzugefügt werden ( z. B. <em>musik/jazz</em>). Werden Inhalte erstellt oder bearbeitet. (z. B. <em>über-uns/team</em>) kann1 im Bereich URl-Alias-Eintstellungen bzw. im Feld URL-Alias ein lesbarer URL hinzugefügt werden. Aliase für alle anderen Pfade können auf der Seite  <a href=\":aliases\">URL-Aliasse</a> angelegt werden. Damit ein Benutzer Aliase hinzufügen kann, muss diesem die Berechtigung  <a href=\":permissions\">URL-Aliase erstellen und bearbeiten</a> zugewiesen werden."
+
+#: path.module:27
+msgid "Managing aliases"
+msgstr "Aliase verwalten"
+
+#: path.module:28
+msgid "The Path module provides a way to search and view a <a href=\":aliases\">list of all aliases</a> that are in use on your website. Aliases can be added, edited and deleted through this list."
+msgstr "Das Path-Modul stellt eine Möglichkeit zur Verfügung eine <a href=\":aliases\">Liste mit lesbaren URLs</a>zu durchsuchen und anzuzeigen, die auf der Website verwendet werden. Diese werden auch Aliase genannt Aliase können zur Liste hinzugefügt, bearbeitet und von der Liste gelöscht werden."
+
+#: path.module:33
+msgid "An alias defines a different name for an existing URL path - for example, the alias 'about' for the URL path 'node/1'. A URL path can have multiple aliases."
+msgstr "Ein Alias definiert einen anderen Namen für einen bestehenden URL-Pfad - als Beispiel, der Alias „ueber-uns“ für den URL-Pfad „node/1“. Ein URL-Pfad kann mehrere Aliase haben."
+
+#: path.module:36
+msgid "Enter the path you wish to create the alias for, followed by the name of the new alias."
+msgstr "Geben Sie den Pfad ein, für den ein Alias erstellt werden soll, gefolgt vom Namen des neuen Alias."
+
+#: path.module:46 src/Plugin/Field/FieldWidget/PathWidget.php:10
+msgid "URL alias"
+msgstr "URL-Alias"
+
+#: path.es6.js:0 path.js:0
+msgid "Alias: @alias"
+msgstr "Alias: @alias"
+
+#: path.es6.js:0 path.js:0
+msgid "No alias"
+msgstr "Kein Alias"
+
+#: path.info.yml:0 src/Plugin/Field/FieldType/PathItem.php:11
+msgid "Path"
+msgstr "Pfad"
+
+#: path.info.yml:0
+msgid "Allows users to rename URLs."
+msgstr "Ermöglicht das Umbenennen von URLs."
+
+#: path.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: path.links.action.yml:0 path.routing.yml:0
+msgid "Add alias"
+msgstr "Alias hinzufügen"
+
+#: path.links.menu.yml:0 path.routing.yml:0;0
+msgid "URL aliases"
+msgstr "URL-Aliase"
+
+#: path.links.menu.yml:0
+msgid "Add custom URLs to existing paths."
+msgstr "Alternative benutzerdefinierte Pfade (URLs) für vorhandene Pfade erstellen."
+
+#: path.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: path.permissions.yml:0
+msgid "Administer URL aliases"
+msgstr "URL-Aliase verwalten"
+
+#: path.permissions.yml:0
+msgid "Create and edit URL aliases"
+msgstr "URL-Aliase erstellen und bearbeiten"
+
+#: path.routing.yml:0
+msgid "Delete alias"
+msgstr "Alias löschen"
+
+#: path.routing.yml:0
+msgid "Edit alias"
+msgstr "Alias bearbeiten"
+
+#: config/schema/path.schema.yml:0
+msgid "Link format settings"
+msgstr "Linkformat-Einstellungen"
+
+#: src/Controller/PathController.php:74
+msgid "Alias"
+msgstr "Alias"
+
+#: src/Controller/PathController.php:75
+msgid "System"
+msgstr "System"
+
+#: src/Controller/PathController.php:77 src/Form/PathFormBase.php:129
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Controller/PathController.php:79
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Controller/PathController.php:100
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Controller/PathController.php:104 src/Form/EditForm.php:51
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Controller/PathController.php:127
+msgid "No URL aliases available. <a href=\":link\">Add URL alias</a>."
+msgstr "Keine URL-Aliase verfügbar. <a href=\":link\">URL-Alias hinzufügen</a>."
+
+#: src/Form/DeleteForm.php:62
+msgid "Are you sure you want to delete path alias %title?"
+msgstr "Möchten Sie den Pfad-Alias %title wirklich löschen?"
+
+#: src/Form/PathFilterForm.php:29
+msgid "Filter aliases"
+msgstr "Aliase filtern"
+
+#: src/Form/PathFilterForm.php:35 src/Form/PathFormBase.php:110 src/Plugin/Field/FieldType/PathItem.php:31
+msgid "Path alias"
+msgstr "Pfad-Alias"
+
+#: src/Form/PathFilterForm.php:43
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Form/PathFilterForm.php:48
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/Form/PathFormBase.php:100
+msgid "Existing system path"
+msgstr "Bestehender Systempfad"
+
+#: src/Form/PathFormBase.php:104
+msgid "Specify the existing path you wish to alias. For example: /node/28, /forum/1, /taxonomy/term/1."
+msgstr "Der Pfad für den ein Alias angelegt werden soll muss angegeben werden. Zum, Beispiel: /node/28, /forum/1, /taxonomy/term/1"
+
+#: src/Form/PathFormBase.php:114 src/Plugin/Field/FieldWidget/PathWidget.php:38
+msgid "Specify an alternative path by which this data can be accessed. For example, type \"/about\" when writing an about page."
+msgstr "Einen alternativen Pfad angeben über den auf diese Daten zugegriffen werden kann. Zum Beispiel „/ueber“ eingeben, wenn eine \"Über uns\"-Seite erstellt werden soll."
+
+#: src/Form/PathFormBase.php:132
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Form/PathFormBase.php:135
+msgid "A path alias set for a specific language will always be used when displaying this page in that language, and takes precedence over path aliases set as <em>- None -</em>."
+msgstr "Ein Pfadaliasname, der für eine bestimmte Sprache festgelegt wird, wird immer dann verwendet, wenn diese Seite in dieser Sprache angezeigt wird, und hat Vorrang vor Pfadaliasnamen, die als <em>- Kein -</em> festgelegt sind."
+
+#: src/Form/PathFormBase.php:148
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/PathFormBase.php:184
+msgid "The alias %alias could not be added because it is already in use in this language with different capitalization: %stored_alias."
+msgstr "Der Alias %alias kann nicht hinzugefügt werden, da er mit einer anderen Schreibweise bereits für diese Sprache verwendet wird: %stored_alias."
+
+#: src/Form/PathFormBase.php:190
+msgid "The alias %alias is already in use in this language."
+msgstr "Der Alias %alias wird in dieser Sprache bereits verwendet."
+
+#: src/Form/PathFormBase.php:195
+msgid "Either the path '@link_path' is invalid or you do not have access to it."
+msgstr "Entweder ist der Pfad @link_path ungültig oder Sie haben keine Zugriffsberechtigung."
+
+#: src/Form/PathFormBase.php:215
+msgid "The alias has been saved."
+msgstr "Der Alias wurde gespeichert."
+
+#: src/Plugin/Field/FieldType/PathItem.php:33
+msgid "Path id"
+msgstr "Pfad-ID"
+
+#: src/Plugin/Field/FieldType/PathItem.php:35
+msgid "Language Code"
+msgstr "Sprachkürzel"
+
+#: src/Plugin/Field/FieldType/PathItem.php:11
+msgid "An entity field containing a path alias and related data."
+msgstr "Ein Entitätsfeld, das einen Pfadaliasnamen und zugehörige Daten enthält."
+
+#: src/Plugin/Field/FieldWidget/PathWidget.php:59
+msgid "URL path settings"
+msgstr "URL-Pfadeinstellungen"
+
+#: src/Plugin/Field/FieldWidget/PathWidget.php:93
+msgid "The alias is already in use."
+msgstr "Der Alias wird bereits verwendet."
+
+#: src/Plugin/Field/FieldWidget/PathWidget.php:98
+msgid "The alias needs to start with a slash."
+msgstr "Der Alias muss mit einem Schrägstrich beginnen."
+
+#: src/Plugin/Validation/Constraint/PathAliasConstraint.php:7
+msgctxt "Validation"
+msgid "Path alias."
+msgstr "Pfadalias"
+
+#: src/Plugin/Validation/Constraint/PathAliasConstraint.php:17
+msgid "You can only change the URL alias for the <em>published</em> version of this content."
+msgstr "Es kann nur der URL-Alias für die <em>veröffentlichte Version</em> des Inhalts geändert werden."
+
+#: src/Plugin/migrate/source/UrlAliasBase.php:28
+msgid "The numeric identifier of the path alias."
+msgstr "Die ID des Pfadaliases."
+
+#: src/Plugin/migrate/source/UrlAliasBase.php:29
+msgid "The language code of the URL alias."
+msgstr "Das Sprachkürzel des URL-Alias."
+
+#: src/Plugin/migrate/source/d6/UrlAlias.php:22 src/Plugin/migrate/source/d7/UrlAlias.php:22
+msgid "The internal system path."
+msgstr "Der interne Systempfad."
+
+#: src/Plugin/migrate/source/d6/UrlAlias.php:23 src/Plugin/migrate/source/d7/UrlAlias.php:23
+msgid "The path alias."
+msgstr "Der Pfad-Alias."
+

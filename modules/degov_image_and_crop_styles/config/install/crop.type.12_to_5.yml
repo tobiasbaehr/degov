@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   enforced:
@@ -26,7 +26,7 @@ third_party_settings:
         right: 1
 label: '12 to 5'
 id: 12_to_5
-description: '12:5 cropping, for example for Full Width slider'
+description: '12:5 crop, for example for Full Width slider'
 aspect_ratio: '12:5'
 soft_limit_width: 480
 soft_limit_height: 200

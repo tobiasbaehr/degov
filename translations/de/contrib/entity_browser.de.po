@@ -1,0 +1,1386 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  entity_browser.views.inc: n/a
+#  entity_browser.module: n/a
+#  entity_browser.install: n/a
+#  entity_browser.info.yml: n/a
+#  config/schema/entity_browser.schema.yml: n/a
+#  modules/entity_form/entity_browser_entity_form.info.yml: n/a
+#  modules/example/entity_browser_example.info.yml: n/a
+#  entity_browser.links.action.yml: n/a
+#  entity_browser.routing.yml: n/a
+#  entity_browser.links.menu.yml: n/a
+#  entity_browser.links.task.yml: n/a
+#  src/Controllers/EntityBrowserListBuilder.php: n/a
+#  src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/FileBrowserWidget.php: n/a
+#  src/Form/WidgetsConfig.php: n/a
+#  entity_browser.permissions.yml: n/a
+#  modules/entity_form/entity_browser_entity_form.module: n/a
+#  src/Entity/EntityBrowser.php: n/a
+#  src/Plugin/EntityBrowser/Display/IFrame.php: n/a
+#  src/Plugin/views/display/EntityBrowser.php: n/a
+#  modules/example/config/install/views.view.files_entity_browser.yml: n/a
+#  modules/example/config/install/views.view.nodes_entity_browser.yml: n/a
+#  modules/entity_form/config/schema/entity_browser_entity_form.schema.yml: n/a
+#  src/WidgetBase.php: n/a
+#  src/Plugin/EntityBrowser/Widget/Upload.php: n/a
+#  modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php: n/a
+#  src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php: n/a
+#  src/Form/EntityBrowserEditForm.php: n/a
+#  src/Plugin/EntityBrowser/FieldWidgetDisplay/ImageThumbnail.php: n/a
+#  src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php: n/a
+#  src/Plugin/views/argument_default/EntityBrowserWidgetContext.php: n/a
+#  js/entity_browser.multi_step_display.js: n/a
+#  modules/example/config/install/entity_browser.browser.test_files.yml: n/a
+#  modules/example/config/install/entity_browser.browser.test_files1.yml: n/a
+#  modules/example/config/install/entity_browser.browser.test_files_ajax.yml: n/a
+#  modules/example/config/install/entity_browser.browser.test_nodes.yml: n/a
+#  src/Controllers/EntityBrowserController.php: n/a
+#  src/Element/EntityBrowserElement.php: n/a
+#  src/Element/EntityBrowserPagerElement.php: n/a
+#  src/Form/EntityBrowserDeleteForm.php: n/a
+#  src/Plugin/EntityBrowser/FieldWidgetDisplay/EntityLabel.php: n/a
+#  src/Form/EntityBrowserForm.php: n/a
+#  src/Plugin/EntityBrowser/Display/Modal.php: n/a
+#  src/Plugin/EntityBrowser/Display/Standalone.php: n/a
+#  src/Plugin/EntityBrowser/SelectionDisplay/NoDisplay.php: n/a
+#  src/Plugin/EntityBrowser/SelectionDisplay/View.php: n/a
+#  src/Plugin/EntityBrowser/Widget/View.php: n/a
+#  src/Plugin/EntityBrowser/Widget/MediaImageUpload.php: n/a
+#  src/Plugin/EntityBrowser/WidgetSelector/DropDown.php: n/a
+#  src/Plugin/EntityBrowser/WidgetSelector/Single.php: n/a
+#  src/Plugin/EntityBrowser/WidgetSelector/Tabs.php: n/a
+#  src/Plugin/EntityBrowser/WidgetValidation/Cardinality.php: n/a
+#  src/Plugin/EntityBrowser/WidgetValidation/EntityType.php: n/a
+#  src/Plugin/EntityBrowser/WidgetValidation/File.php: n/a
+#  src/Plugin/views/field/SelectForm.php: n/a
+#  src/Plugin/views/filter/ContextualBundle.php: n/a
+#  templates/html--entity-browser--iframe.html.twig: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.body.yml: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.field_files.yml: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.field_files1.yml: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.field_files_over_ajax.yml: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.field_image_browser.yml: n/a
+#  modules/example/config/install/field.field.node.entity_browser_test.field_nodes.yml: n/a
+#  modules/example/config/install/node.type.entity_browser_test.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: entity_browser.views.inc:18
+msgid "Entity browser bulk select form"
+msgstr "Entity-Browser Mehrfachauswahlformular"
+
+#: entity_browser.views.inc:19;43
+msgid "Add a form element that lets you use a view as a base to select entities in entity browser."
+msgstr "Fügt ein Formularelement hinzu, das es ermöglicht eine Ansicht als Basis für die Auswahl von Entitäten in einem Entity-Browser zu verwenden."
+
+#: entity_browser.views.inc:28
+msgid "Entity Browser Target Bundles"
+msgstr "Entitätsbrowser-Zielsubtypen"
+
+#: entity_browser.views.inc:42
+msgid "Entity browser bulk select form for Search API views"
+msgstr "Entity-Browser-Massenauswahlformular für Search-API-Ansichten"
+
+#: entity_browser.module:21
+msgid "About"
+msgstr "Über"
+
+#: entity_browser.module:22
+msgid "The Entity Browser module provides a generic entity browser/picker/selector. It can be used in any context where one needs to select a few entities and do something with them. For more information, see the online documentation for <a href=\":entity_browser-documentation\">Entity Browser</a>."
+msgstr "Das Entity-Browser-Modul stellt einen allgemeinen Dialog zum Durchsuchen und Auswählen von Entitäten zur Verfügung. Das Modul kann immer dann verwendet werden, wenn jemand ein paar Entitäten auswählen muss um damit in irgendeiner Weise zu arbeiten. Weitere Informationen sind in der <a href=\":entity_browser-documentation\">Online-Dokumentation des Entity-Browser-Moduls</a> verfügbar."
+
+#: entity_browser.module:23
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: entity_browser.module:25
+msgid "General"
+msgstr "Allgemein"
+
+#: entity_browser.module:26
+msgid "Entity browser comes with an example module that can be used as a starting point."
+msgstr "Entity-Browser liefert ein Beispielmodul mit, das als Einstiegshilfe verwendet werden kann."
+
+#: entity_browser.module:27
+msgid "Example use cases"
+msgstr "Anwendungsbeispiele"
+
+#: entity_browser.module:28
+msgid "Powerfull entity reference widget"
+msgstr "Mächtiges Entitätsreferenzsteuerelement"
+
+#: entity_browser.module:29
+msgid "Embedding entities into wysiwyg"
+msgstr "Entitäten in Wysiwyg einbetten"
+
+#: entity_browser.module:152
+msgid "The image was resized to fit within the maximum allowed dimensions of %dimensions pixels."
+msgstr "Die Bildgröße wurde an die maximal zulässigen Abmessungen von %dimensions Pixel angepasst."
+
+#: entity_browser.module:155
+msgid "The image exceeds the maximum allowed dimensions."
+msgstr "Das Bild übersteigt die maximal erlaubten Dimensionen."
+
+#: entity_browser.module:164
+msgid "The image is too small; the minimum dimensions are %dimensions pixels."
+msgstr "Das Bild ist zu klein, die minimalen Abmessungen sind %dimensions Pixel."
+
+#: entity_browser.install:38 entity_browser.info.yml:0 config/schema/entity_browser.schema.yml:0;0
+msgid "Entity Browser"
+msgstr "Entity-Browser"
+
+#: entity_browser.install:39;40
+msgid "This branch of Entity Browser is not compatible with the version of Media Entity installed."
+msgstr "Diese Ausgabe des Entity-Browsers ist nicht kompatibel mit der installierten Version von Media-Entity."
+
+#: entity_browser.info.yml:0
+msgid "Provide a generic entity browser/picker/selector."
+msgstr "Stellt einen allgemeinen Auswahl-Entity-Browser zur Verfügung."
+
+#: entity_browser.info.yml:0 modules/entity_form/entity_browser_entity_form.info.yml:0 modules/example/entity_browser_example.info.yml:0
+msgid "Media"
+msgstr "Media"
+
+#: entity_browser.links.action.yml:0 entity_browser.routing.yml:0
+msgid "Add Entity browser"
+msgstr "Entity-Browser hinzufügen"
+
+#: entity_browser.links.menu.yml:0
+msgid "Entity browsers"
+msgstr "Entity-Browser"
+
+#: entity_browser.links.menu.yml:0
+msgid "Manage entity browsers."
+msgstr "Entity-Browser verwalten."
+
+#: entity_browser.links.task.yml:0 src/Controllers/EntityBrowserListBuilder.php:46 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:651 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:367
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: entity_browser.links.task.yml:0
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: entity_browser.links.task.yml:0
+msgid "Widget Settings"
+msgstr "Steuerelement-Einstellungen"
+
+#: entity_browser.links.task.yml:0 src/Controllers/EntityBrowserListBuilder.php:58 src/Form/WidgetsConfig.php:138
+msgid "Delete"
+msgstr "Löschen"
+
+#: entity_browser.permissions.yml:0
+msgid "Administer entity browsers"
+msgstr "Entity-Browser verwalten."
+
+#: entity_browser.permissions.yml:0
+msgid "Create and modify entity browsers for generating browsing, creating and selecting entities."
+msgstr "Hiermit können Entitätsbrowser zum Erzeugen, Durchsuchen, Erstellen und Auswählen von Entitäten erstellt werden."
+
+#: entity_browser.routing.yml:0
+msgid "Edit Entity Browser"
+msgstr "Entity-Browser bearbeiten"
+
+#: entity_browser.routing.yml:0 src/Controllers/EntityBrowserListBuilder.php:52
+msgid "Edit Widgets"
+msgstr "Steuerelemente bearbeiten"
+
+#: entity_browser.routing.yml:0
+msgid "Entity Browsers"
+msgstr "Entity-Browser"
+
+#: entity_browser.routing.yml:0
+msgid "Delete Entity browser"
+msgstr "Entity-Browser löschen"
+
+#: config/schema/entity_browser.schema.yml:0 modules/entity_form/entity_browser_entity_form.module:173 src/Entity/EntityBrowser.php:15 src/Plugin/EntityBrowser/Display/IFrame.php:228 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:160;28 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:22 src/Plugin/views/display/EntityBrowser.php:8;8 modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Entity browser"
+msgstr "Entity-Browser"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Display plugin ID"
+msgstr "Anzeige Plugin-ID"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Selection display plugin ID"
+msgstr "Auswahlanzeigen Plugin-ID"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Widget selector plugin ID"
+msgstr "Steuerelementauswahl Plugin-ID"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Widgets"
+msgstr "Steuerelemente"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Standalone display configuration"
+msgstr "Konfiguration für eigenständige Anzeigen"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Page path"
+msgstr "Pfad zur Seite"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "iFrame display configuration"
+msgstr "Konfiguration der IFrame-Ansicht"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "iFrame width"
+msgstr "iFrame-Breite"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "iFrame height"
+msgstr "iFrame-Höhe"
+
+#: config/schema/entity_browser.schema.yml:0;0 src/Plugin/EntityBrowser/Display/IFrame.php:259
+msgid "Link text"
+msgstr "Link-Text"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "Auto open"
+msgstr "Automatisch öffnen"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Modal display configuration"
+msgstr "Konfiguration der Anzeige im Modal-Fenster"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Modal width"
+msgstr "Modal-Breite"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Modal height"
+msgstr "Modal-Höhe"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Upload widget configuration"
+msgstr "Hochlade-Formular Konfiguration"
+
+#: config/schema/entity_browser.schema.yml:0;0 modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0 src/WidgetBase.php:212
+msgid "Submit button text"
+msgstr "Text des „Speichern“-Buttons"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/EntityBrowser/Widget/Upload.php:171
+msgid "Upload location"
+msgstr "Uploadort"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Allow multiple uploads"
+msgstr "Mehrere Uploads erlauben"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/EntityBrowser/Widget/Upload.php:182
+msgid "Allowed file extensions"
+msgstr "Zulässige Dateiendungen"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "View widget configuration"
+msgstr "Steuerelementkonfiguration betrachten"
+
+#: config/schema/entity_browser.schema.yml:0 src/WidgetBase.php:220
+msgid "Automatically submit selection"
+msgstr "Auswahl automatisch übermitteln"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "View ID"
+msgstr "ID anzeigen"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "View display ID"
+msgstr "Ansichts-ID anzeigen"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "View display arguments"
+msgstr "Argumente der Ansicht anzeigen"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Multistep display configuration"
+msgstr "Mehrschrittanzeigenkonfiguration"
+
+#: config/schema/entity_browser.schema.yml:0 modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:168 src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:445
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: config/schema/entity_browser.schema.yml:0 src/Form/EntityBrowserEditForm.php:122
+msgid "Display"
+msgstr "Anzeige"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Select text"
+msgstr "Text für die Auswahl"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:493
+msgid "Selection hidden by default"
+msgstr "Auswahl standardmäßig ausblenden"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "View display configuration"
+msgstr "Konfiguration der Anzeige betrachten"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Entity browser entity reference widget"
+msgstr "Entity-Browser-Referenzsteurelement"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Field widget display"
+msgstr "Feld-Steuerelementdarstellung"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "Field widget edit"
+msgstr "Bearbeiten-Feldsteuerelement"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "Field widget remove"
+msgstr "Entfernen-Feldsteuerelement"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "Field widget replace"
+msgstr "Feldsteuerelement ersetzen"
+
+#: config/schema/entity_browser.schema.yml:0;0
+msgid "Open"
+msgstr "Geöffnet"
+
+#: config/schema/entity_browser.schema.yml:0;0 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:261
+msgid "Selection mode"
+msgstr "Auswahlmodus"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Entity label display config"
+msgstr "Konfiguration der Entitätsbeschriftungsanzeige"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Image thumbnail display config"
+msgstr "Konfiguration der Darstellung von Vorschaubildern"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/EntityBrowser/FieldWidgetDisplay/ImageThumbnail.php:86
+msgid "Image style"
+msgstr "Bildstil"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Rendered entity display config"
+msgstr "Konfiguration der Gerenderten Anzeige"
+
+#: config/schema/entity_browser.schema.yml:0;0 src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php:106
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Entity browser file widget"
+msgstr "Entity-Browser-Dateisteuerelement"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:168
+msgid "Preview image style"
+msgstr "Bildstil-Vorschau"
+
+#: config/schema/entity_browser.schema.yml:0 modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:188
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: config/schema/entity_browser.schema.yml:0
+msgid "Entity browser display options"
+msgstr "Entity-Browser-Darstellungsoptionen"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:10
+msgid "Entity Browser Context"
+msgstr "Entitätsbrowserkontext"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:65
+msgid "Context key"
+msgstr "Kontetschlüssel"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:71
+msgid "Fallback value"
+msgstr "Ersatzwert"
+
+#: config/schema/entity_browser.schema.yml:0 src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:77
+msgid "Multiple values"
+msgstr "Mehrere Werte"
+
+#: js/entity_browser.multi_step_display.js:0 src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:170
+msgid "Show selected"
+msgstr "Ausgewählte anzeigen"
+
+#: js/entity_browser.multi_step_display.js:0
+msgid "Hide selected"
+msgstr "Ausgewählte ausblenden"
+
+#: modules/entity_form/entity_browser_entity_form.module:107
+msgid "The selected @label has already been added."
+msgstr "@label in Auswahl wurde bereits hinzugefügt."
+
+#: modules/entity_form/entity_browser_entity_form.module:175
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: modules/entity_form/entity_browser_entity_form.module:182
+msgid "There are no entity browsers available. You can create one <a href=\"@url\">here</a>."
+msgstr "Es ist kein Entity-Browser verfügbar. <a href=\"@url\">Hier kann ein Entity-Browser erstellt werden.</a>"
+
+#: modules/entity_form/entity_browser_entity_form.module:198
+msgid "Entity browser: @entity_browser."
+msgstr "Entity-Browser: @entity_browser."
+
+#: modules/entity_form/entity_browser_entity_form.info.yml:0
+msgid "Entity Browser IEF"
+msgstr "Entity-Browser IEF"
+
+#: modules/entity_form/entity_browser_entity_form.info.yml:0
+msgid "Entity browser inline entity form integration."
+msgstr "Entity browser inline entity form integration."
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "IEF entity browser existing functionality"
+msgstr "IEF Entity-Browser vorhandene Funktionalität."
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "ID of entity browser to be used as replacement for autocomplete field"
+msgstr "Die ID des Entity-Browseres, der als Ersatz für das Autovervollständigungsfeld dienen soll"
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "Entity form widget configuration"
+msgstr "Entitätsformularsteuerelementkonfiguration"
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "Entity type ID"
+msgstr "Entitätstyp-Id"
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "Bundle ID"
+msgstr "Subtyp-ID"
+
+#: modules/entity_form/config/schema/entity_browser_entity_form.schema.yml:0
+msgid "Form display mode ID"
+msgstr "Formularanzeigemodus-Id"
+
+#: modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:94
+msgid "Save entity"
+msgstr "Entität speichern"
+
+#: modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:103
+msgid "The settings for this widget (Entity type, Bundle or Form mode) are not configured correctly."
+msgstr "Die Einstellungen für dieses Steuerelement (Entitätstyp, Subtyp oder Formularmodus) sind nicht richtig konfiguriert."
+
+#: modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:199
+msgid "Form mode"
+msgstr "Formulardarstellung"
+
+#: modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:18
+msgid "Entity form"
+msgstr "Entitätsformular"
+
+#: modules/entity_form/src/Plugin/EntityBrowser/Widget/EntityForm.php:18
+msgid "Provides entity form widget."
+msgstr "Stellt ein Entitätsformularsteurelement zur Verfügung."
+
+#: modules/example/entity_browser_example.info.yml:0
+msgid "Entity Browser example"
+msgstr "Entity-Browser-Beispiel"
+
+#: modules/example/entity_browser_example.info.yml:0
+msgid "Entity browser example module."
+msgstr "Entity-Browser-Beispielmodul"
+
+#: src/WidgetBase.php:150 src/Plugin/EntityBrowser/Display/IFrame.php:132 modules/example/config/install/entity_browser.browser.test_files.yml:0 modules/example/config/install/entity_browser.browser.test_files1.yml:0 modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0;0 modules/example/config/install/entity_browser.browser.test_nodes.yml:0
+msgid "Select entities"
+msgstr "Entitäten auswählen"
+
+#: src/Controllers/EntityBrowserController.php:76
+msgid "Edit entity @entity"
+msgstr "Entität @entity bearbeiten"
+
+#: src/Controllers/EntityBrowserController.php:89
+msgid "An edit form couldn't be found."
+msgstr "Es konnte kein Bearbeitungsformular gefunden werden."
+
+#: src/Controllers/EntityBrowserListBuilder.php:24
+msgid "ID"
+msgstr "ID"
+
+#: src/Controllers/EntityBrowserListBuilder.php:25
+msgid "Name"
+msgstr "Name"
+
+#: src/Element/EntityBrowserElement.php:106
+msgid "Append to selection"
+msgstr "Am Ende der Auswahl anhängen"
+
+#: src/Element/EntityBrowserElement.php:107
+msgid "Prepend selection"
+msgstr "Vor der Auswahl einfügen"
+
+#: src/Element/EntityBrowserElement.php:108
+msgid "Edit selection"
+msgstr "Auswahl bearbeiten"
+
+#: src/Element/EntityBrowserElement.php:162
+msgid "There is a configuration problem with field \"@field_name\". The selection mode %selection_mode requires an entity browser with a selection display plugin that supports preselection.  Either change the selection mode or update the @browser_link entity browser to use a selection display plugin that supports preselection."
+msgstr "Es gibt ein Konfigurationsproblem mit dem Feld „@field_name\". Der Auswahlmodus %selection_mode erfordert einen entitäts-Browser, mit einem Auswahlanzeige-Plugin, dass die Vorauswahl von Entitäten unterstützt.  Ändern Sie bitte entweder den Auwahlmodus oder aktualisieren sie den Entitäts-Browser @browser_link so, dass er ein Auswahlanzeige-Plugin verwendet, das die Vorauswahl von Entitäten unterstützt."
+
+#: src/Element/EntityBrowserElement.php:181
+msgid "Entity browser @browser not found."
+msgstr "Entitätsbrwser @browser nicht gefunden,"
+
+#: src/Element/EntityBrowserElement.php:181
+msgid "Entity browser not found."
+msgstr "Entitätsbrowser nicht gefunden."
+
+#: src/Element/EntityBrowserPagerElement.php:62
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: src/Element/EntityBrowserPagerElement.php:71
+msgid "Page @page"
+msgstr "Seite @page"
+
+#: src/Element/EntityBrowserPagerElement.php:77
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: src/Form/EntityBrowserDeleteForm.php:17
+msgid "Are you sure you want to delete entity browser %label?"
+msgstr "Möchten Sie den Entitätsbrowser %label wirklich löschen?"
+
+#: src/Form/EntityBrowserDeleteForm.php:27
+msgid "Delete Entity Browser"
+msgstr "Entity-Browser löschen"
+
+#: src/Form/EntityBrowserDeleteForm.php:41
+msgid "Entity browser %label was deleted."
+msgstr "Entity-Browser %label wurde gelöscht."
+
+#: src/Form/EntityBrowserEditForm.php:94
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/EntityBrowserEditForm.php:97
+msgid "Label for the Entity Browser."
+msgstr "Bezeichnung für den Entity-Browser."
+
+#: src/Form/EntityBrowserEditForm.php:111
+msgid "Entity Browser creation instructions"
+msgstr "Anweisungen zum Erstellen eines Entity-Browsers"
+
+#: src/Form/EntityBrowserEditForm.php:112
+msgid "When you save this form, you will be taken to another form to configure widgets for the entiry browser."
+msgstr "Wenn Sie dieses Formular speichern, werden Sie zu einem anderen Formular weitergeleitet, um Steuerelemente für den Entitätsbrowser zu konfigurieren."
+
+#: src/Form/EntityBrowserEditForm.php:113
+msgid "You can find more detailed information about creating and configuring Entity Browsers at the <a href=\"@guide_href\" target=\"_blank\">official documentation</a>."
+msgstr "Weitere Informationen zur Konfiguration und zur Einrichtung von Entity-Browsern sind in der <a href=\"@guide_href\" target=\"_blank\">offiziellen Dokumentation</a> verfügbar."
+
+#: src/Form/EntityBrowserEditForm.php:135
+msgid "Display plugin"
+msgstr "Anzeige-Plugin"
+
+#: src/Form/EntityBrowserEditForm.php:151
+msgid "Display Plugin settings"
+msgstr "Anzeige-Plugin-Einstellungen"
+
+#: src/Form/EntityBrowserEditForm.php:165;215;264 src/Plugin/EntityBrowser/FieldWidgetDisplay/EntityLabel.php:34
+msgid "This plugin has no configuration options."
+msgstr "Das Plug-In besitzt kein Konfigurationsoptionen."
+
+#: src/Form/EntityBrowserEditForm.php:171
+msgid "Widget Selector"
+msgstr "Steuerelementauswahl"
+
+#: src/Form/EntityBrowserEditForm.php:185
+msgid "Widget selector plugin"
+msgstr "Plugin für die Steuerelementauswahl"
+
+#: src/Form/EntityBrowserEditForm.php:201
+msgid "Widget Selector Plugin settings"
+msgstr "Steuerelementauswahl-Plugin-Einstellungen"
+
+#: src/Form/EntityBrowserEditForm.php:221
+msgid "Selection Display"
+msgstr "Auswahlanzeige"
+
+#: src/Form/EntityBrowserEditForm.php:234
+msgid "Selection display plugin"
+msgstr "Plugin für die Auswahlanzeige"
+
+#: src/Form/EntityBrowserEditForm.php:250
+msgid "Selection Display Plugin settings"
+msgstr "Auswahlanzige-Plugin-Einstellungen"
+
+#: src/Form/EntityBrowserEditForm.php:317
+msgid "Choose here how the entity browser should be presented to the end user."
+msgstr "Auswählen, wie der Entiity Browser dem Endnutzer angezeigt werden soll."
+
+#: src/Form/EntityBrowserEditForm.php:322
+msgid "In the last step of the entity browser configuration you can decide how the widgets will be available to the editor."
+msgstr "Im letzten Schritt der Entitätsbrowser-Konfiguration können Sie entscheiden, wie die Steuerelemente dem Editor zur Verfügung stehen sollen."
+
+#: src/Form/EntityBrowserEditForm.php:327
+msgid "You can optionally allow a \"work-in-progress selection zone\" to be available to the editor, while still navigating, browsing and selecting the entities."
+msgstr "Sie können optional zulassen, dass dem Editor eine „Auswahlzone für laufende Arbeiten“ zur Verfügung steht, während er noch durch die Objekte navigiert, diese durchsucht und auswählt."
+
+#: src/Form/EntityBrowserEditForm.php:336 src/Form/WidgetsConfig.php:68
+msgid "The available plugins are:"
+msgstr "Die verfügbaren Plug-Ins sind:"
+
+#: src/Form/EntityBrowserEditForm.php:465 src/Form/WidgetsConfig.php:230
+msgid "The entity browser %name has been updated."
+msgstr "Der Enitätsbrowser %name wurde aktualisiert."
+
+#: src/Form/EntityBrowserEditForm.php:468
+msgid "The entity browser %name has been added. Now you may configure the widgets you would like to use."
+msgstr "Der Entitäts-Browser %name wurde hinzugefügt. Nun können die benötigten Steuerelemente konfiguriert werden."
+
+#: src/Form/EntityBrowserForm.php:161
+msgid "No widgets are available."
+msgstr "Es sind keine Steuerelemente verfügbar."
+
+#: src/Form/EntityBrowserForm.php:177
+msgid "Access to the widget forbidden."
+msgstr "Der Zugriff auf das Steuerelement ist nicht gestattet."
+
+#: src/Form/WidgetsConfig.php:62
+msgid "Select a widget to add it"
+msgstr "Ein Steuerelement zum Hinzufügen auswählen"
+
+#: src/Form/WidgetsConfig.php:84
+msgid "Add widget plugin"
+msgstr "Steuerelement-Plugin hinzufügen"
+
+#: src/Form/WidgetsConfig.php:106
+msgid "Form"
+msgstr "Formular"
+
+#: src/Form/WidgetsConfig.php:107 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:254
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/WidgetsConfig.php:108
+msgid "Actions"
+msgstr "Aktionen"
+
+#: src/Form/WidgetsConfig.php:109
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Form/WidgetsConfig.php:111
+msgid "There are no widgets."
+msgstr "Es gibt keine Steuerelemente."
+
+#: src/Form/WidgetsConfig.php:130
+msgid "Label (%label)"
+msgstr "Beschriftung (%label)"
+
+#: src/Form/WidgetsConfig.php:153
+msgid "Weight for @widget widget"
+msgstr "Breite des Steuerelements @widget"
+
+#: src/Form/WidgetsConfig.php:164
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:245
+msgid "Width of the iFrame"
+msgstr "Breite des iFrames"
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:247
+msgid "Positive integer for absolute size or a relative size in percentages."
+msgstr "Positive Ganzzahl für absolute Größe oder relative Größe in Prozent."
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:252
+msgid "Height of the iFrame"
+msgstr "Höhe des iFrames"
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:265
+msgid "Auto open entity browser"
+msgstr "Entity-Browser automatisch öffnen"
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:279
+msgid "Width must be a number greater than 0, or a percentage between 1% and 100%."
+msgstr "Die Wert für  die Breite muss einer Zahl entsprechen, die größer als 0 ist. Es kann auch eine Prozentangabe zwischen 1% und 100% gemacht werden."
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:283
+msgid "Height must be greater than 0."
+msgstr "Die Höhe muss größer als 0 sein."
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:24
+msgid "iFrame"
+msgstr "iFrame"
+
+#: src/Plugin/EntityBrowser/Display/IFrame.php:24
+msgid "Displays the entity browser in an iFrame container embedded into the main page."
+msgstr "Den Entity-Browser in einem iFrame-Container anzeigen, der auf der Hauptseite eingebettet wird."
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:165
+msgid "Width of the modal"
+msgstr "Breite des Modal-Fensters"
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:167
+msgid "Empty value for responsive width."
+msgstr "Kein Wert für responsive Breite."
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:171
+msgid "Height of the modal"
+msgstr "Höhe des Modal-Dialogfensters"
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:173
+msgid "Empty value for responsive height."
+msgstr "Das Feld kann freigelassen werden, wenn die Höhe responsive berechnet werden soll."
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:175
+msgid "Will open Entity browser modal as soon as page is loaded, which might cause unwanted results. Should be used only in very specific cases such as Inline entity form integration. It is also advised not to use Entity browsers with this option enabled more than once per page."
+msgstr "Öffnet das Modal-Fenster des Entity-Browsers, sobald die Seite geladen wird. Dies kann zu unerwünschten Ergebnissen führen. Daher sollte diese Option nur in sehr speziellen Anwendungsfällen verwendet werden. Ein solcher Fall ist zum Beispiel eine Integration in das Inline-Entity-Form-Integration-Modul. Außerdem sollte diese Option nicht auf mehr als einen Entity-Browser pro Seite angewendet werden"
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:16
+msgid "Modal"
+msgstr "Modal"
+
+#: src/Plugin/EntityBrowser/Display/Modal.php:16
+msgid "Displays the entity browser in a modal window."
+msgstr "Zeigt den Entity-Browser in einem Modal-Fenster an."
+
+#: src/Plugin/EntityBrowser/Display/Standalone.php:27
+msgid "Path"
+msgstr "Pfad"
+
+#: src/Plugin/EntityBrowser/Display/Standalone.php:29
+msgid "The path at which the browser will be accessible. Must begin with a forward slash."
+msgstr "Der Pfad, über den der Browser zur Verfügung steht. Der Pfad muss mit einem Schrägstrich beginnen."
+
+#: src/Plugin/EntityBrowser/Display/Standalone.php:74
+msgid "The Path field must begin with a forward slash."
+msgstr "Die Pfadangabe musss mit einem „/“ beginnen"
+
+#: src/Plugin/EntityBrowser/Display/Standalone.php:9
+msgid "Standalone form"
+msgstr "Eigenständiges Formular"
+
+#: src/Plugin/EntityBrowser/Display/Standalone.php:9
+msgid "Displays the entity browser as a standalone form. Only intended for testing or very specific use cases."
+msgstr "Zeigt den Entity-Browser als eigenständiges Formular an. Diese Option dient nur zu Testzwecken oder für bestimmte Anwendungszwecke."
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/EntityLabel.php:9
+msgid "Entity label"
+msgstr "Entitätsbeschriftung"
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/EntityLabel.php:9
+msgid "Displays entity with a label."
+msgstr "Zeigt Entitäten mit einer Beschriftung an."
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/ImageThumbnail.php:87
+msgid "Select image style to be used to display thumbnails."
+msgstr "Ein Bildstil zur Darstellung der Vorschaubilder muss gewählt werden."
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/ImageThumbnail.php:14
+msgid "Image thumbnail"
+msgstr "Miniaturbild"
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/ImageThumbnail.php:14
+msgid "Displays image files as thumbnails"
+msgstr "Bilddateien als Miniaturbilder anzeigen"
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php:91
+msgid "Default"
+msgstr "Standard"
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php:107
+msgid "Select view mode to be used when rendering entities."
+msgstr "Anzeigemodus zur Darstellung von Entitäten auswählen."
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php:13
+msgid "Rendered entity"
+msgstr "Dargestellte Entität"
+
+#: src/Plugin/EntityBrowser/FieldWidgetDisplay/RenderedEntity.php:13
+msgid "Displays fully rendered entity."
+msgstr "Vollständig dargestellte Entität anzeigen."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:125 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:617 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:398
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:446
+msgid "Entity browser itself does not need information about entity type being selected. It can actually select entities of different type. However, some of the display plugins need to know which entity type they are operating with. Display plugins that do not need this info will ignore this configuration value."
+msgstr "Ein Entity-Browser selbst braucht keine Informationen über die Art eines ausgewählten Entitätstyps. Mit  einem Entity-Browser können sogar Entiäten verschiedenen Typs ausgewählt werden. Einige Darstellungs-Plug-Ins müssen wissen, mit welchem Entitätstyp sie es zu tun haben. Darstellungs-Plug-Ins, die diese Information nicht benötigen ignorieren diese Konfigurationsangabe."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:463 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:178
+msgid "Entity display plugin"
+msgstr "Entitäts-Anzeige-Plug-In"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:475 src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:192
+msgid "Entity display plugin configuration"
+msgstr "Entitäts-Anzeige-Plug-In-Konfiguration"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:486
+msgid "Select button text"
+msgstr "Text des Auswählen-Buttons"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:488
+msgid "Text to display on the entity browser select button."
+msgstr "Der Text wird auf dem Auswählen-Button des Entity-Browsers angezeigt."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:495
+msgid "Whether or not the selection should be hidden by default."
+msgstr "Ob die Auswahl in der Standardkonfiguration ausgeblendet werden soll oder nicht."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:16
+msgid "Multi step selection display"
+msgstr "Mehrschrittauswahlanzeige"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/MultiStepDisplay.php:16
+msgid "Shows the current selection display, allowing to mix elements selected through different widgets in several steps."
+msgstr "Zeigt den aktuellen Auswahldialog mit der Möglichkeit verschiedene Elemente in mehreren Schritten, die aus verschiedenen Steuerelementen bestehen zu kombinieren."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/NoDisplay.php:8
+msgid "No selection display"
+msgstr "Auswahldialog nicht anzeigen"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/NoDisplay.php:8
+msgid "Skips the current selection display and immediately delivers the entities selected."
+msgstr "Überspringt den Aktuellen Auswahldialog und übergibt die ausgewählten Entitäten sofort."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:67
+msgid "Use selection"
+msgstr "Auswahl verwenden"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:93 src/Plugin/EntityBrowser/Widget/View.php:238
+msgid "@view : @display"
+msgstr "@view : @display"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:99 src/Plugin/EntityBrowser/Widget/View.php:243
+msgid "View : View display"
+msgstr "Ansicht: Ansicht anzeigen"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:103
+msgid "View display to use for displaying currently selected items. Do note that to get something useful out of this display, its first contextual filter should be a filter on the primary identifier field of your entity type (e.g., Node ID, Media ID)."
+msgstr "Ansichtsanzeige, die für die Anzeige der aktuell ausgewählten Elemente verwendet werden soll. Beachten Sie, dass, um etwas Nützliches aus dieser Anzeige herauszuholen, der erste kontextuelle Filter ein Filter für das primäre ID-Feld Ihres Entitätstyps sein sollte (z. B. Beitrags-ID, Medien-ID)."
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:11
+msgid "View selection display"
+msgstr "Auswahldialog anzeigen"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/View.php:11
+msgid "Use a pre-configured view as selection area."
+msgstr "Vordefinierte Ansicht als Auswahlbereich verwenden."
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:38
+msgid "The media type is not configured correctly."
+msgstr "Der Medientyp ist nicht korrekt konfiguriert."
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:42
+msgid "The configured media type is not using the image plugin."
+msgstr "Der konfigurierte Medientyp verwendet das Image-Plugin nicht."
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:100
+msgid "Allowed extensions"
+msgstr "Erlaubte Erweiterungen"
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:118
+msgid "You don't have media type of the Image type. You should <a href='!link'>create one</a>"
+msgstr "Es gibt noch keinen Medientyp mit der Bezeichnung Bild. Sie sollten einen<a href='!link'>Medientyp erstellen</a>."
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:124
+msgid "Media type"
+msgstr "Medientyp"
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:10
+msgid "Upload images as media items"
+msgstr "Bilder als Medien hochladen."
+
+#: src/Plugin/EntityBrowser/Widget/MediaImageUpload.php:10
+msgid "Upload widget that will create media entities of the uploaded images."
+msgstr "Steuerelement zum Hochladen von Bildern, das Medienentitäten aus den hochgeladenen Bildern erzeugt."
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:91 modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0
+msgid "Select files"
+msgstr "Dateien auswählen"
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:105
+msgid "Choose a file"
+msgstr "Datei auswählen"
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:176
+msgid "Accept multiple files"
+msgstr "Mehrere Dateien akzeptieren"
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:178
+msgid "Multiple uploads will only be accepted if the source field allows more than one value."
+msgstr "Mehrer Uploads werden nur dann akzeptiert, wenn das Quellfeld mehr als einen Wert erlaubt."
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:183
+msgid "Separate extensions with a space or comma and do not include the leading dot."
+msgstr "Erweiterungen mit einem Leerzeichen oder Komma trennen und den führenden Punkt nicht einschliessen."
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:194
+msgid "You can use tokens in the upload location."
+msgstr "In der Angabe des Speicherorts für den Upload können Token verwendet werden."
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:211
+msgid "The list of allowed extensions is not valid, be sure to exclude leading dots and to separate extensions with a comma or space."
+msgstr "Die Liste der erlaubten Dateierweiterungen ist nicht gültig. Bitte achten Sie darauf, dass vorangestellte Punkte weggelassen werden (z. B. „jpg“ statt „.jpg“) und mehrere Erweiterungen durch Kommata oder Leerstellen getrennt werden (z. B. „jpg png gif“)."
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:16
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/Plugin/EntityBrowser/Widget/Upload.php:16
+msgid "Adds an upload field browser's widget."
+msgstr "Fügt ein Steuerelement für den Upload von Dateien hinzu."
+
+#: src/Plugin/EntityBrowser/Widget/View.php:120
+msgid "Entity browser select form field not found on a view. <a href=\":link\">Go fix it</a>!"
+msgstr "Das Auswahlformularfeld des Entity-Browsers wurde in keiner Ansicht gefunden. <a href=\":link\">Dies kann hier repariert werden!</a>"
+
+#: src/Plugin/EntityBrowser/Widget/View.php:125
+msgid "Entity browser select form field not found on a view. Go fix it!"
+msgstr "Das Auswahlfeld des Entity-Browsers konnte in keiner Ansicht gefunden werden. Dieses Feld muss eingerichtet werden!"
+
+#: src/Plugin/EntityBrowser/Widget/View.php:178
+msgid "The @type Entity @id does not exist."
+msgstr "Die @type Entität @id existiert nicht."
+
+#: src/Plugin/EntityBrowser/Widget/View.php:186
+msgid "The Entity Type @type does not exist."
+msgstr "Der Entitätstyp @type existiert nicht."
+
+#: src/Plugin/EntityBrowser/Widget/View.php:246
+msgid "- Select a view -"
+msgstr "- Ansicht auswählen -"
+
+#: src/Plugin/EntityBrowser/Widget/View.php:20
+msgid "View"
+msgstr "Ansicht"
+
+#: src/Plugin/EntityBrowser/Widget/View.php:20
+msgid "Uses a view to provide entity listing in a browser's widget."
+msgstr "Verwendet eine Ansicht um eine Entitätenliste in einem Steuerelement des Browsers anzuzeigen."
+
+#: src/Plugin/EntityBrowser/WidgetSelector/DropDown.php:54
+msgid "Change"
+msgstr "Ändern"
+
+#: src/Plugin/EntityBrowser/WidgetSelector/DropDown.php:8
+msgid "Drop down widget"
+msgstr "Drop-Down-Steuerelement"
+
+#: src/Plugin/EntityBrowser/WidgetSelector/DropDown.php:8
+msgid "Displays the widgets in a drop down."
+msgstr "Zeigt die Steuerelemente in einem Drop-Down-Menü an."
+
+#: src/Plugin/EntityBrowser/WidgetSelector/Single.php:8
+msgid "Single widget"
+msgstr "Einzelnes Steuerelement"
+
+#: src/Plugin/EntityBrowser/WidgetSelector/Single.php:8
+msgid "Displays only the first configured widget. Use this if you plan to have only one widget available."
+msgstr "Zeigt nur das Steuerelement an, das als erstes konfiguriert wurde. Diese Option kann verwendet werden, wenn nur ein Steuerelement angezeigt werden kann."
+
+#: src/Plugin/EntityBrowser/WidgetSelector/Tabs.php:8
+msgid "Tabs"
+msgstr "Reiter"
+
+#: src/Plugin/EntityBrowser/WidgetSelector/Tabs.php:8
+msgid "Creates horizontal tabs on the top of the entity browser, each tab representing one available widget."
+msgstr "Erzeugt horizontale Reiter am oberen Rand des Entity-Browsers. Jeder Reiter stellt eines der verfügbaren Steuerelemente dar."
+
+#: src/Plugin/EntityBrowser/WidgetValidation/Cardinality.php:31
+msgid "You can not select more than 1 entity."
+msgid_plural "You can not select more than @count entities."
+msgstr[0] "Sie können nicht mehr als eine Entität auswählen."
+msgstr[1] "Sie können nicht mehr als @count Entitäten auswählen."
+
+#: src/Plugin/EntityBrowser/WidgetValidation/Cardinality.php:10
+msgid "Cardinality validator"
+msgstr "Kardinalitätsvaldierer"
+
+#: src/Plugin/EntityBrowser/WidgetValidation/EntityType.php:7
+msgid "Entity type validator"
+msgstr "Entitätstypvalidierer"
+
+#: src/Plugin/EntityBrowser/WidgetValidation/File.php:9
+msgid "File validator"
+msgstr "Dateivalidierer"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:234
+msgid "Display Edit button"
+msgstr "Bearbeiten-Button anzeigen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:241
+msgid "Display Remove button"
+msgstr "Entfernen-Button anzeigen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:247
+msgid "Display Replace button"
+msgstr "Ersetzen-Button anziegen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:248
+msgid "This button will only be displayed if there is a single entity in the current selection."
+msgstr "Der Button wird nur angezeigt, wenn mit der aktuellen Auswahl nur eine Entität ausgewählt worden ist."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:254
+msgid "Show widget details as open by default"
+msgstr "Einzelheiten des Steuerelements grundsätzlich als geöffnet anzeigen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:255
+msgid "If marked, the fieldset container that wraps the browser on the entity form will be loaded initially expanded."
+msgstr "Wenn diese Option ausgewählt ist wird der Feldsetcontainer, der den Entity-Browser auf dem Entitätsformualr umgibt von Anfang an ausgeklappt geladen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:262
+msgid "Determines how selection in entity browser will be handled. Will selection be appended/prepended or it will be replaced in case of editing."
+msgstr "Legt fest, wie Auswahl-Entitätsbrowser behandelt werden. Ob die Auswahl vorangestellt oder angehängt bzw. währen der Bearbeitung ersetzt wird."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:289
+msgid "The selection mode %selection_mode requires an entity browser with a selection display plugin that supports preselection.  Either change the selection mode or update the @browser_link entity browser to use a selection display plugin that supports preselection."
+msgstr "Der Auswahlmodus %selection_mode erfordert einen Entitäts-Browser, der über ein Auswahlanzeige-Plugin verfügt, dass das vorselektieren von Entitäten unterstützt. Ändern Sie bitte entweder den Auswahlmodus oder aktualisieren Sie den Entitäts-Browser @browser_link so, dass er ein Auswahlanzeige-Plugin verwendet, dass die Vorauswahl von Entitäten unterstützt."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:319
+msgid "Entity display: @name"
+msgstr "Entitätsanzeige: @name"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:322
+msgid "View Mode: @view_mode"
+msgstr "Anzeigemodus: @view_mode"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:340
+msgid "@name field is required."
+msgstr "Das Feld @name ist erforderlich."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:634 src/Plugin/Field/FieldWidget/FileBrowserWidget.php:381
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:701
+msgid "You can select one @entity_type."
+msgstr "Sie können einen @entity_type auswählen."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:706
+msgid "You can select up to @maximum @entity_type (@remaining left)."
+msgstr "Sie können bis zu @maximum @entity_type auswählen (noch @remaining möglich)."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:742
+msgid "Append"
+msgstr "Anhängen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:742
+msgid "Prepend"
+msgstr "Vorne anstellen"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:756
+msgid "No entity browser selected."
+msgstr "Es wurde kein Entitybrowser ausgewählt."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:760
+msgid "Entity browser: @browser"
+msgstr "Entity-Browser: @browser"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:763;764
+msgid "Missing entity browser!"
+msgstr "Entity-Browser fehlt!"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:771
+msgid "Selection mode: @selection_mode"
+msgstr "Auswahlmodus: @selection_mode"
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:774
+msgid "Undefined selection mode."
+msgstr "Nicht definierter Auswahlmodus."
+
+#: src/Plugin/Field/FieldWidget/EntityReferenceBrowserWidget.php:28
+msgid "Uses entity browser to select entities."
+msgstr "Entity-Browser zur Auswahl von Entitäten verwenden."
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:160
+msgid "File view mode"
+msgstr "Dateibetrachtungsmodus"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:172
+msgid "The preview image will be shown while editing the content. Only relevant if using the default file view mode."
+msgstr "Das Vorschaubild wird angezeigt, während der Inhalt bearbeitet wird. Dies gilt nur, wenn der Standardanzeigemodus verwendet wird."
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:189
+msgid "Preview with @view_mode"
+msgstr "Vorschau als @view_mode"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:194
+msgid "Preview image style: @style"
+msgstr "Bildstil des Vorschaubildes: @style"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:197
+msgid "No preview image"
+msgstr "Kein Vorschaubild"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:231
+msgid "No files yet"
+msgstr "Es gibt noch keine Dateien"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:244
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:249 modules/example/config/install/views.view.files_entity_browser.yml:0
+msgid "Filename"
+msgstr "Dateiname"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:253
+msgid "Metadata"
+msgstr "Metadaten"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:255
+msgctxt "Sort order"
+msgid "Order"
+msgstr "Reihenfolge"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:331
+msgid "Include file in display"
+msgstr "Datei in Anzeige einbeziehen"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:337
+msgid "Description"
+msgstr "Description"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:341
+msgid "The description may be used as the label of the link to the file."
+msgstr "Die Beschreibung kann als Linktext für die Datei verwendet werden."
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:346
+msgid "Alternative text"
+msgstr "Alternativer Text"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:350
+msgid "This text will be used by screen readers, search engines, or when the image cannot be loaded."
+msgstr "Dieser Text wird von Screenreadern und Suchmaschinen oder dann verwendet, wenn das Bild nicht geladen werden kann."
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:356 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Title"
+msgstr "Titel"
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:360
+msgid "The title is used as a tool tip when the user hovers the mouse over the image."
+msgstr "Der Titel erscheint als Tooltip, wenn der Benutzer den Mauszeiger über dem Bild stehenlässt."
+
+#: src/Plugin/Field/FieldWidget/FileBrowserWidget.php:415
+msgid "Weight for row @number"
+msgstr "Reihenfolge für Zeile @number"
+
+#: src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:66
+msgid "The key within the widget context."
+msgstr "Der Schlüssel mit dem Kontext des Steuerelements"
+
+#: src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:72
+msgid "The fallback value to use when the context is not present. (ex: \"all\")"
+msgstr "Der Wert, der als Ausfalsicherung verwende werden soll, wenn der Kontext nicht zu Verfügung steht. (z. B.: „all\")"
+
+#: src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:78
+msgid "Conjunction to use when handling multiple values. NOTE: for multiple values to work, at the bottom of this form expand the \"More\" fieldset and and check \"Allow multiple values\"."
+msgstr "Zu verwendende Verbindung, bei der Angabe von mehreren Werten. Hinweis: Damit die Angabe von mehreren Werten funktioniert, muss im unteren Bereich des Formulars im Feldsatz „Mehr“ das Kontrollkästchen „Mehrere Werte zulassen“ angehakt werden."
+
+#: src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:81
+msgid "OR"
+msgstr "ODER"
+
+#: src/Plugin/views/argument_default/EntityBrowserWidgetContext.php:82
+msgid "AND"
+msgstr "UND"
+
+#: src/Plugin/views/display/EntityBrowser.php:78
+msgid "Yes (Forced)"
+msgstr "Ja (erzwungen)"
+
+#: src/Plugin/views/display/EntityBrowser.php:91
+msgid "Entity Browser requires Views to use AJAX."
+msgstr "Der Entity-Browser erfordert, dass die Ansicht AJAX verwendet."
+
+#: src/Plugin/views/display/EntityBrowser.php:93
+msgid "Use AJAX"
+msgstr "AJAX verwenden"
+
+#: src/Plugin/views/display/EntityBrowser.php:8
+msgid "Displays a view as Entity browser widget."
+msgstr "Eine Ansicht als Steuerelement des Entity-Browsers anzeigen."
+
+#: src/Plugin/views/field/SelectForm.php:71
+msgid "Select this item"
+msgstr "Diesen Eintrag auswählen"
+
+#: src/Plugin/views/filter/ContextualBundle.php:223
+msgid "You cannot edit this list because the options update in response to entity browser context."
+msgstr "Dieses liste kann auf Grund der Optionsaktualisierung in Verbindung mit Entity-Browser-Context nicht bearbeitet werden."
+
+#: templates/html--entity-browser--iframe.html.twig:42
+msgid "Skip to main content"
+msgstr "Direkt zum Inhalt"
+
+#: modules/example/config/install/entity_browser.browser.test_files.yml:0 modules/example/config/install/entity_browser.browser.test_files1.yml:0
+msgid "Test entity browser for files"
+msgstr "Entity-Browser für Dateien testen"
+
+#: modules/example/config/install/entity_browser.browser.test_files.yml:0 modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0
+msgid "Files listing"
+msgstr "Dateiliste"
+
+#: modules/example/config/install/entity_browser.browser.test_files.yml:0 modules/example/config/install/entity_browser.browser.test_files1.yml:0 modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0
+msgid "Upload files"
+msgstr "Dateien hochladen"
+
+#: modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0
+msgid "Test entity browser for files (with auto loading)"
+msgstr "Entitätsbrowser für Dateien testen (mit automatischem Ladevorgang)"
+
+#: modules/example/config/install/entity_browser.browser.test_files_ajax.yml:0
+msgid "Use selected"
+msgstr "Ausgewählte Einträge verwenden"
+
+#: modules/example/config/install/entity_browser.browser.test_nodes.yml:0
+msgid "Test entity browser for nodes"
+msgstr "Entity-Browser für Beiträge testen"
+
+#: modules/example/config/install/entity_browser.browser.test_nodes.yml:0
+msgid "Node listing"
+msgstr "Beitragsliste"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.body.yml:0
+msgid "Body"
+msgstr "Textkörper"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_files.yml:0 modules/example/config/install/field.field.node.entity_browser_test.field_files1.yml:0
+msgid "Files"
+msgstr "Dateien"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_files.yml:0
+msgid "Attach files. Click on the link below and pick or upload them."
+msgstr "Datein hinzufügen. Auf den Link unten klicken, um Dateien auszuwählen oder für den Upload bereitzustellen."
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_files1.yml:0
+msgid "Attach files. Click on the link below and upload them."
+msgstr "Dateien hinzufügen. Auf den Link unten klicken, um hochzuladen."
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_files_over_ajax.yml:0
+msgid "Files (with auto loading)"
+msgstr "Dateien (mit automatischem Ladevprgang)"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_image_browser.yml:0
+msgid "Image"
+msgstr "Bild"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_nodes.yml:0
+msgid "Nodes"
+msgstr "Beiträge"
+
+#: modules/example/config/install/field.field.node.entity_browser_test.field_nodes.yml:0
+msgid "Click on the link below and pick related content."
+msgstr "Auf den Link unten klicken und verwandte Inhalte auswählen."
+
+#: modules/example/config/install/node.type.entity_browser_test.yml:0
+msgid "Entity browser test"
+msgstr "Entity-Browser-Test"
+
+#: modules/example/config/install/node.type.entity_browser_test.yml:0
+msgid "Testing entity browser."
+msgstr "Teste Entity-Browser."
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0
+msgid "Files entity browser"
+msgstr "Dateientitätsbrowser"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "‹ previous"
+msgstr "‹ vorherige Seite"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "next ›"
+msgstr "nächste Seite ›"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "« first"
+msgstr "« erste Seite"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "last »"
+msgstr "letzte Seite »"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0
+msgid "Created"
+msgstr "Erstellt"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0
+msgid "File size"
+msgstr "Dateigröße"
+
+#: modules/example/config/install/views.view.files_entity_browser.yml:0 modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Status"
+msgstr "Status"
+
+#: modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Nodes entity browser"
+msgstr "Beitrags-Entity-Browser"
+
+#: modules/example/config/install/views.view.nodes_entity_browser.yml:0;0
+msgid ", "
+msgstr ", "
+
+#: modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Created on"
+msgstr "Erstellt am"
+
+#: modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Type"
+msgstr "Typ"
+
+#: modules/example/config/install/views.view.nodes_entity_browser.yml:0
+msgid "Authored on"
+msgstr "Geschrieben am"
+

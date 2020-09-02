@@ -1,0 +1,458 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  ctools.info.yml: n/a
+#  config/schema/ctools.schema.yml: n/a
+#  modules/ctools_block/config/schema/ctools_block.schema.yml: n/a
+#  modules/ctools_views/src/Plugin/Display/Block.php: n/a
+#  modules/ctools_block/ctools_block.info.yml: n/a
+#  modules/ctools_views/ctools_views.info.yml: n/a
+#  modules/ctools_block/src/Plugin/Block/EntityField.php: n/a
+#  src/Form/ContextConfigure.php: n/a
+#  src/Form/ManageContext.php: n/a
+#  src/Form/ManageResolverRelationships.php: n/a
+#  src/Form/ResolverRelationshipConfigure.php: n/a
+#  modules/ctools_block/src/Plugin/Deriver/EntityFieldDeriver.php: n/a
+#  modules/ctools_entity_mask/ctools_entity_mask.info.yml: n/a
+#  src/Form/ConditionConfigure.php: n/a
+#  src/Form/RelationshipConfigure.php: n/a
+#  src/Form/ConditionDelete.php: n/a
+#  src/Form/RequiredContextDelete.php: n/a
+#  src/Form/ContextDelete.php: n/a
+#  src/Form/ManageConditions.php: n/a
+#  src/Form/RequiredContext.php: n/a
+#  src/Form/ResolverRelationshipDelete.php: n/a
+#  src/Plugin/Block/EntityView.php: n/a
+#  src/Plugin/Condition/EntityBundle.php: n/a
+#  src/Plugin/Deriver/EntityBundle.php: n/a
+#  src/Plugin/Deriver/EntityViewDeriver.php: n/a
+#  src/Wizard/EntityFormWizardBase.php: n/a
+#  src/Wizard/FormWizardBase.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ctools.info.yml:0
+msgid "Chaos Tools"
+msgstr "Chaos Tools"
+
+#: ctools.info.yml:0
+msgid "Provides a number of utility and helper APIs for Drupal developers and site builders."
+msgstr "Stellt eine Reihe von Dienstprogramm- und Hilfs-APIs für Drupal-Entwickler und Site-Builder zur Verfügung."
+
+#: ctools.info.yml:0
+msgid "Chaos tool suite"
+msgstr "Chaos Tool Suite"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Context"
+msgstr "Kontext"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Context type"
+msgstr "Kontext-Art"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Description of the context"
+msgstr "Beschreibung des Kontexts"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Context value"
+msgstr "Kontextwert"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Relationship"
+msgstr "Beziehung"
+
+#: config/schema/ctools.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/ctools.schema.yml:0 modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Region"
+msgstr "Region"
+
+#: config/schema/ctools.schema.yml:0 modules/ctools_block/config/schema/ctools_block.schema.yml:0 modules/ctools_views/src/Plugin/Display/Block.php:115
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/ctools.schema.yml:0
+msgid "UUID"
+msgstr "UUID"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Context assignments"
+msgstr "Kontextzuweisungen"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Block display variant"
+msgstr "Blockanzeigevariante"
+
+#: config/schema/ctools.schema.yml:0
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: modules/ctools_block/ctools_block.info.yml:0
+msgid "Chaos Tools Blocks"
+msgstr "Chaos Tools Blöcke"
+
+#: modules/ctools_block/ctools_block.info.yml:0
+msgid "Provides improvements to blocks that will one day be added to Drupal core."
+msgstr "Stellt Verbesserungen für Blöcke bereit, die eines Tages dem Drupal-Kernsystem hinzugefügt werden."
+
+#: modules/ctools_block/ctools_block.info.yml:0 modules/ctools_views/ctools_views.info.yml:0
+msgid "Chaos tool suite (Experimental)"
+msgstr "Chaos tool suite (Experimentell)"
+
+#: modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Entity field block"
+msgstr "Entitätsfeldblock"
+
+#: modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Field formatter"
+msgstr "Feldanzeigeformat"
+
+#: modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Format type machine name"
+msgstr "Systemname des Format-Typs"
+
+#: modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: modules/ctools_block/config/schema/ctools_block.schema.yml:0
+msgid "Third party settings"
+msgstr "Einstellungen von Drittanbietern"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:207 modules/ctools_views/src/Plugin/Display/Block.php:113 src/Form/ContextConfigure.php:94 src/Form/ManageContext.php:105 src/Form/ManageResolverRelationships.php:84 src/Form/ResolverRelationshipConfigure.php:81
+msgid "Label"
+msgstr "Beschriftung"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:209
+msgid "Above"
+msgstr "Oberhalb"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:210
+msgid "Inline"
+msgstr "Inline"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:211
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:212
+msgid "Visually Hidden"
+msgstr "Visuell ausgeblendet"
+
+#: modules/ctools_block/src/Plugin/Block/EntityField.php:219
+msgid "Formatter"
+msgstr "Anzeigeformat"
+
+#: modules/ctools_block/src/Plugin/Deriver/EntityFieldDeriver.php:52
+msgid "@entity"
+msgstr "@entity"
+
+#: modules/ctools_entity_mask/ctools_entity_mask.info.yml:0
+msgid "Entity Mask"
+msgstr "Entitätsmaske"
+
+#: modules/ctools_entity_mask/ctools_entity_mask.info.yml:0
+msgid "Allows an entity type to borrow the fields and display configuration of another entity type."
+msgstr "Ermöglicht es einem Entitätstyp, die Felder zu übernehmen und die Konfiguration eines anderen Entitätstyps anzuzeigen."
+
+#: modules/ctools_views/ctools_views.info.yml:0
+msgid "Chaos Tools Views"
+msgstr "Chaos Tools Views"
+
+#: modules/ctools_views/ctools_views.info.yml:0
+msgid "A set of improvements to the core Views code that allows for greater control over Blocks."
+msgstr "Eine Reihe von Verbesserungen am Views-Code des Kernsystems, die eine bessere Kontrolle über Blöcke ermöglichen."
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:22
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:23;45;84
+msgid "Pager offset"
+msgstr "Offset der Seitennavigation"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:24;46
+msgid "Pager type"
+msgstr "Pager-Typ"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:25;47
+msgid "Hide fields"
+msgstr "Felder ausblenden"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:26;48
+msgid "Reorder fields"
+msgstr "Felder umordnen"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:27;49
+msgid "Disable filters"
+msgstr "Filter deaktivieren"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:28;50
+msgid "Configure sorts"
+msgstr "Sortierung konfigurieren"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:34
+msgid "Allow settings"
+msgstr "Einstellungen zulassen"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:35
+msgid "None"
+msgstr "Keine"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:86
+msgid "For example, set this to 3 and the first 3 items will not be displayed."
+msgstr "Wenn dies z.B. auf 3 eingestellt ist, so werrden die ersten 3 Elemente nicht angezeigt."
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:93
+msgid "Inherit from view"
+msgstr "Von Ansicht geerbt"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:94
+msgid "Display a specified number of items"
+msgstr "Angegebene Anzahl von Elementen anzeigen"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:95
+msgid "Display all items"
+msgstr "Alle Elemente anzeigen"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:99
+msgid "Pager"
+msgstr "Seitennavigation"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:111
+msgid "Hide"
+msgstr "Ausblenden"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:175
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:210
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:222
+msgid "Sort ascending"
+msgstr "Aufsteigend sortieren"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:223
+msgid "Sort descending"
+msgstr "Absteigend sortieren"
+
+#: modules/ctools_views/src/Plugin/Display/Block.php:235
+msgid "Order"
+msgstr "Reihenfolge"
+
+#: src/Form/ConditionConfigure.php:93 src/Form/ContextConfigure.php:138 src/Form/RelationshipConfigure.php:88 src/Form/ResolverRelationshipConfigure.php:98
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/ConditionDelete.php:104
+msgid "Are you sure you want to delete the @label condition?"
+msgstr "Möchten Sie die Bedingung @label wirklich löschen?"
+
+#: src/Form/ConditionDelete.php:113 src/Form/RequiredContextDelete.php:109
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/ConditionDelete.php:158 src/Form/ContextDelete.php:56 src/Form/ManageConditions.php:163 src/Form/ManageContext.php:264 src/Form/ManageResolverRelationships.php:197 src/Form/RequiredContext.php:163 src/Form/RequiredContextDelete.php:151
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/ConditionDelete.php:165 src/Form/RequiredContextDelete.php:158
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/ContextConfigure.php:100 src/Form/ResolverRelationshipConfigure.php:87
+msgid "Machine Name"
+msgstr "Systemname"
+
+#: src/Form/ContextConfigure.php:112 src/Form/RequiredContext.php:71 src/Form/ResolverRelationshipConfigure.php:93
+msgid "Description"
+msgstr "Description"
+
+#: src/Form/ContextConfigure.php:124
+msgid "Select entity"
+msgstr "Entität auswählen"
+
+#: src/Form/ContextConfigure.php:130
+msgid "Set a context value"
+msgstr "Einen Kontextwert festlegen"
+
+#: src/Form/ContextConfigure.php:155 src/Form/ResolverRelationshipConfigure.php:111
+msgid "That machine name is in use by another context definition."
+msgstr "Der Systemname wird bereits von einer anderen Kontextdefinition verwendet."
+
+#: src/Form/ManageConditions.php:71
+msgid "Plugin Id"
+msgstr "Plugin-ID"
+
+#: src/Form/ManageConditions.php:71
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: src/Form/ManageConditions.php:71 src/Form/RequiredContext.php:71
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/ManageConditions.php:73
+msgid "No required conditions have been configured."
+msgstr "Es sind keine erforderlichen Bedingungen konfiguriert."
+
+#: src/Form/ManageConditions.php:82
+msgid "Add Condition"
+msgstr "Bedingung hinzufügen"
+
+#: src/Form/ManageConditions.php:118 src/Form/RequiredContext.php:116
+msgid "Configure Required Context"
+msgstr "Erforderlichen Kontext konfigurieren"
+
+#: src/Form/ManageConditions.php:150 src/Form/ManageContext.php:252 src/Form/ManageResolverRelationships.php:184 src/Form/RequiredContext.php:147
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Form/ManageContext.php:105 src/Form/ManageResolverRelationships.php:84
+msgid "Context ID"
+msgstr "Kontext-ID"
+
+#: src/Form/ManageContext.php:105 src/Form/ManageResolverRelationships.php:84
+msgid "Data Type"
+msgstr "Datentyp"
+
+#: src/Form/ManageContext.php:105 src/Form/ManageResolverRelationships.php:84
+msgid "Options"
+msgstr "Optionen"
+
+#: src/Form/ManageContext.php:107
+msgid "No contexts or relationships have been added."
+msgstr "Es wurde keine Kontexte oder Beziehungen hinzugefügt."
+
+#: src/Form/ManageContext.php:123;186
+msgid "Add new context"
+msgstr "Neuen Kontext hinzufügen"
+
+#: src/Form/ManageContext.php:135 src/Form/ManageResolverRelationships.php:91
+msgid "Add a relationship"
+msgstr "Eine Beziehung hinzufügen"
+
+#: src/Form/ManageContext.php:142 src/Form/ManageResolverRelationships.php:97
+msgid "Add Relationship"
+msgstr "Beziehung hinzufügen"
+
+#: src/Form/ManageContext.php:205 src/Form/ManageResolverRelationships.php:135
+msgid "Configure Relationship"
+msgstr "Beziehung konfigurieren"
+
+#: src/Form/ManageResolverRelationships.php:86
+msgid "No relationships have been added."
+msgstr "Es wurde keine Beziehungen hinzugefügt."
+
+#: src/Form/RelationshipConfigure.php:77
+msgid "Context label"
+msgstr "Kontextbeschriftung"
+
+#: src/Form/RelationshipConfigure.php:83
+msgid "Data type"
+msgstr "Datentyp"
+
+#: src/Form/RequiredContext.php:71
+msgid "Information"
+msgstr "Information"
+
+#: src/Form/RequiredContext.php:73
+msgid "No required contexts have been configured."
+msgstr "Es sind keine erforderlichen Kontexte konfiguriert."
+
+#: src/Form/RequiredContext.php:82
+msgid "Add required context"
+msgstr "Erforderlichen Kontext hinzufügen"
+
+#: src/Form/RequiredContext.php:135
+msgid "<strong>Label:</strong> @label<br /> <strong>Type:</strong> @type"
+msgstr "<strong>Beschriftung:</strong> @label<br> <strong>Typ:</strong> @type"
+
+#: src/Form/RequiredContext.php:136
+msgid "@description"
+msgstr "@description"
+
+#: src/Form/RequiredContextDelete.php:100
+msgid "Are you sure you want to delete the @label context?"
+msgstr "Möchten Sie den Kontext @label wirklich löschen?"
+
+#: src/Form/ResolverRelationshipDelete.php:69
+msgid "Are you sure you want to delete the @label relationship?"
+msgstr "Möchten Sie die Beziehung @label wirklich löschen?"
+
+#: src/Plugin/Block/EntityView.php:88
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: src/Plugin/Condition/EntityBundle.php:118
+msgid "@bundle_type is @bundles or @last"
+msgstr "@bundle_type ist @bundles oder @last"
+
+#: src/Plugin/Condition/EntityBundle.php:121
+msgid "@bundle_type is @bundle"
+msgstr "@bundle_type ist @bundle"
+
+#: src/Plugin/Deriver/EntityBundle.php:40
+msgid "@label"
+msgstr "@label"
+
+#: src/Plugin/Deriver/EntityBundle.php:49
+msgid "@label bundle"
+msgstr "Subtyp @label"
+
+#: src/Plugin/Deriver/EntityViewDeriver.php:19
+msgid "Entity view (@label)"
+msgstr "Entitätsansicht (@label)"
+
+#: src/Wizard/EntityFormWizardBase.php:105
+msgid "The @entity-type %label has been updated."
+msgstr "@entity-type %label wurde aktualisiert."
+
+#: src/Wizard/EntityFormWizardBase.php:109
+msgid "The @entity-type %label has been added."
+msgstr "@entity-type %label wurde hinzugefügt."
+
+#: src/Wizard/EntityFormWizardBase.php:174
+msgid "A unique machine-readable name for this @entity_type. It must only contain lowercase letters, numbers, and underscores."
+msgstr "Ein eindeutiger Systemname für @entity_type. Es dürfen nur Kleinbuchstaben, Zahlen und Unterstriche verwendet werden."
+
+#: src/Wizard/EntityFormWizardBase.php:106
+msgid "Updated @entity-type %label."
+msgstr "@entity-type %label wurde aktualisiert."
+
+#: src/Wizard/EntityFormWizardBase.php:110
+msgid "Added @entity-type %label."
+msgstr "@entity-type %label wurde hinzugefügt."
+
+#: src/Wizard/FormWizardBase.php:177;369
+msgid "Next"
+msgstr "Weiter"
+
+#: src/Wizard/FormWizardBase.php:407
+msgid "Previous"
+msgstr "Zurück"
+
+#: src/Wizard/FormWizardBase.php:431
+msgid "Finish"
+msgstr "Abschließen"
+

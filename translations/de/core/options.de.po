@@ -1,0 +1,254 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  options.module: n/a
+#  options.info.yml: n/a
+#  config/schema/options.schema.yml: n/a
+#  src/Plugin/Field/FieldType/ListItemBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/OptionsDefaultFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/OptionsKeyFormatter.php: n/a
+#  src/Plugin/Field/FieldType/ListFloatItem.php: n/a
+#  src/Plugin/Field/FieldType/ListIntegerItem.php: n/a
+#  src/Plugin/Field/FieldType/ListStringItem.php: n/a
+#  src/Plugin/views/argument/NumberListField.php: n/a
+#  src/Plugin/views/argument/StringListField.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: options.module:22
+msgid "About"
+msgstr "Über"
+
+#: options.module:23
+msgid "The Options module allows you to create fields where data values are selected from a fixed list of options. Usually these items are entered through a select list, checkboxes, or radio buttons. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href=\":options_do\">online documentation for the Options module</a>."
+msgstr "Das Options-Modul erlaubt es Felder zu erstellen, indem Datenwerte au seiner vorgegebenen Liste von Optionen ausgewählt werden. Normalerweise werden Diese Daten mit Hilfe einer Auswahlliste, Checkboxen oder Radio-Buttons eingegeben. Weitere Informationen sind in der der <a href=\":field\">Hilfe des Field-Moduls</a> und der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar. Noch ausführlichere Informationen sind in der  <a href=\":options_do\">Online-Dokumentation des Options-Moduls</a> nachzulesen."
+
+#: options.module:24
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: options.module:26
+msgid "Managing and displaying list fields"
+msgstr "Listenfelder verwalten und anzeigen"
+
+#: options.module:27
+msgid "The <em>settings</em> and the <em>display</em> of the list fields can be configured separately. See the <a href=\":field_ui\">Field UI help</a> for more information on how to manage fields and their display."
+msgstr "Die <em>Einstellungen</em> und die <em>Darstellung</em> der Listenfelder können getrennt voneinander konfiguriert werden. Weitere Informationen über das Verwalten von Feldern sowie das Anpassen der Darstellung von Feldern sind in der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar."
+
+#: options.module:28
+msgid "Defining option keys and labels"
+msgstr "Definiert Optionsschlüssel und Optionsbeschriftungen"
+
+#: options.module:29
+msgid "When you define the list options you can define a key and a label for each option in the list. The label will be shown to the users while the key gets stored in the database."
+msgstr "Beim Festlegen der einzelnen Auswahlmöglichkeiten der Liste  können ein Schlüssel und eine Beschriftung für jeden Eintrag in der Liste definiert werden. Die Beschriftung wird dem Benutzer angezeigt und der Schlüssel wird in der Datenbank gespeichert."
+
+#: options.module:30
+msgid "Choosing list field type"
+msgstr "Listenfeldtyp wählen"
+
+#: options.module:31
+msgid "There are three types of list fields, which store different types of data: <em>float</em>, <em>integer</em> or, <em>text</em>. The <em>float</em> type allows storing approximate decimal values. The <em>integer</em> type allows storing whole numbers, such as years (for example, 2012) or values (for example, 1, 2, 5, 305). The <em>text</em> list field type allows storing text values. No matter which type of list field you choose, you can define whatever labels you wish for data entry."
+msgstr "Es gibt drei Arten von Listenfeldern. Jeder Typ speichert eine andere Art Daten. <em>Fließkommazahl</em>, <em>Ganzzahl</em> oder <em>Text</em>. Der Typ <em>Fließkommazahl</em> erlaubt die Speicherung von Dezimalzahlen. Der Typ <em>Ganzzahl</em> erlaubt das Speichern von ganzen Zahlen (wie zum Beispiel Jahreszahlen wie 2012)  oder Weten (wie, 1, 2, 5, 305).  Der Typ <em>Text</em> Erlaubt das Speichern von Text, ganz egal welche Art von Listenfeld verwendet wird, Die Beschriftung des Feldes ist dabei immer frei wählbar."
+
+#: options.module:116
+msgid "A list field (@field_name) with existing data cannot have its keys changed."
+msgstr "Der Schlüssel eines Listenfelds (@field_name) mit vorhandenen Daten kann nicht geändert werden."
+
+#: options.info.yml:0
+msgid "Options"
+msgstr "Optionen"
+
+#: options.info.yml:0
+msgid "Defines selection, check box and radio button widgets for text and numeric fields."
+msgstr "Definiert Auswahlfeld-, Ankreuzfeld- und Auswahlknopf-Steuerelemente für Texte und numerische Felder."
+
+#: options.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: config/schema/options.schema.yml:0;0
+msgid "List (integer) settings"
+msgstr "Liste (Ganzzahl) Einstellungen"
+
+#: config/schema/options.schema.yml:0;0;0 src/Plugin/Field/FieldType/ListItemBase.php:90;105
+msgid "Allowed values list"
+msgstr "Liste zulässiger Werte"
+
+#: config/schema/options.schema.yml:0;0;0
+msgid "Allowed value with label"
+msgstr "Erlaubter Wert mit Beschriftung"
+
+#: config/schema/options.schema.yml:0;0;0;0;0;0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/options.schema.yml:0;0;0
+msgid "Allowed values function"
+msgstr "Erlaubte Wertefunktion"
+
+#: config/schema/options.schema.yml:0;0;0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/options.schema.yml:0;0
+msgid "List (float) settings"
+msgstr "Liste (Fließkommazahl) Einstellungen"
+
+#: config/schema/options.schema.yml:0;0
+msgid "List (text) settings"
+msgstr "Liste (Text) Einstellungen"
+
+#: config/schema/options.schema.yml:0
+msgid "Options list default display settings"
+msgstr "Optionsliste für die Standard-Anzeigeeinstellungen"
+
+#: config/schema/options.schema.yml:0
+msgid "Key format settings"
+msgstr "Einstellungen des Schlüsselformats"
+
+#: config/schema/options.schema.yml:0
+msgid "Check boxes/radio buttons format settings"
+msgstr "Einstellungen der Kontrollkästchen/Radio-Buttons"
+
+#: config/schema/options.schema.yml:0
+msgid "Select list format settings"
+msgstr "Format der Liste festlegen"
+
+#: config/schema/options.schema.yml:0;0
+msgid "Display a summary"
+msgstr "Eine Zusammenfassung anzeigen"
+
+#: config/schema/options.schema.yml:0;0
+msgid "Sort order"
+msgstr "Sortierreihenfolge"
+
+#: config/schema/options.schema.yml:0;0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/schema/options.schema.yml:0;0
+msgid "Format"
+msgstr "Format"
+
+#: src/Plugin/Field/FieldFormatter/OptionsDefaultFormatter.php:11
+msgid "Default"
+msgstr "Standard"
+
+#: src/Plugin/Field/FieldFormatter/OptionsKeyFormatter.php:10
+msgid "Key"
+msgstr "Schlüssel"
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:27
+msgid "Float value"
+msgstr "Gleitkommazahl"
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:53 src/Plugin/Field/FieldType/ListIntegerItem.php:53 src/Plugin/Field/FieldType/ListStringItem.php:55
+msgid "The possible values this field can contain. Enter one value per line, in the format key|label."
+msgstr "Die möglichen Werte, die dieses Feld enthalten kann. Geben Sie einen Wert pro Zeile, im Format: Schlüssel|Bezeichnung."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:54 src/Plugin/Field/FieldType/ListIntegerItem.php:54
+msgid "The key is the stored value, and must be numeric. The label will be used in displayed values and edit forms."
+msgstr "Der Schlüssel ist der gespeicherte Wert und muss numerisch sein. Die Bezeichnungen werden zur Anzeige der Werte und beim Bearbeiten in Formularen verwendet."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:55 src/Plugin/Field/FieldType/ListIntegerItem.php:55
+msgid "The label is optional: if a line contains a single number, it will be used as key and label."
+msgstr "Die Beschriftung ist optional: Wenn eine Zeile eine einzige Nummer enthält, wird diese als Schlüssel und Beschriftung verwendet."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:56 src/Plugin/Field/FieldType/ListIntegerItem.php:56
+msgid "Lists of labels are also accepted (one label per line), only if the field does not hold any values yet. Numeric keys will be automatically generated from the positions in the list."
+msgstr "Listen von Bezeichnungen sind auch möglich (jeweils eine pro Zeile), solange das Feld noch keine Werte enthält. Ziffern als Schlüssel werden automatisch aus den Positionen in der Liste erzeugt."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:58 src/Plugin/Field/FieldType/ListIntegerItem.php:58 src/Plugin/Field/FieldType/ListStringItem.php:59
+msgid "Allowed HTML tags in labels: @tags"
+msgstr "Erlaubte HTML-Tags in Beschriftungen: @tags"
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:85
+msgid "Allowed values list: each key must be a valid integer or decimal."
+msgstr "Liste erlaubter Werte: Jeder Schlüssel muss eine gültige ganze Zahl oder Dezimalzahl sein."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:8
+msgid "List (float)"
+msgstr "Liste (Gleitkommazahl)"
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:8
+msgid "This field stores float values from a list of allowed 'value => label' pairs, i.e. 'Fraction': 0 => 0, .25 => 1/4, .75 => 3/4, 1 => 1."
+msgstr "Dieses Feld speichert Gleitkommawerte aus einer Liste von zulässigen Werten als Paare in der Form ‚Wert => Bezeichnung‘, z. B. ‚Brüche‘: 0 => 0; 0,25 => 1/4; 0,75 => 3/4."
+
+#: src/Plugin/Field/FieldType/ListFloatItem.php:8 src/Plugin/Field/FieldType/ListIntegerItem.php:8
+msgid "Number"
+msgstr "Zahl"
+
+#: src/Plugin/Field/FieldType/ListIntegerItem.php:27
+msgid "Integer value"
+msgstr "Ganzzahl"
+
+#: src/Plugin/Field/FieldType/ListIntegerItem.php:67
+msgid "Allowed values list: keys must be integers."
+msgstr "Liste erlaubter Werte: Schlüssel müssen ganze Zahlen sein"
+
+#: src/Plugin/Field/FieldType/ListIntegerItem.php:8
+msgid "List (integer)"
+msgstr "Liste (Ganzzahl)"
+
+#: src/Plugin/Field/FieldType/ListIntegerItem.php:8
+msgid "This field stores integer values from a list of allowed 'value => label' pairs, i.e. 'Lifetime in days': 1 => 1 day, 7 => 1 week, 31 => 1 month."
+msgstr "Dieses Feld speichert ganzzahlige Werte aus einer Liste von zulässigen Werten als Paare in der Form ‚Wert => Bezeichnung‘, z. B. ‚Lebensdauer in Tagen‘: 1 => 1 Tag, 7 => 1 Woche, 31 => 1 Monat."
+
+#: src/Plugin/Field/FieldType/ListItemBase.php:106
+msgid "The value of this field is being determined by the %function function and may not be changed."
+msgstr "Der Wert dieses Feldes wird durch die %function Funktion festgelegt und sollte nicht verändert werden."
+
+#: src/Plugin/Field/FieldType/ListItemBase.php:137
+msgid "Allowed values list: invalid input."
+msgstr "Liste der zulässigen Werte: Ungültige Eingabe."
+
+#: src/Plugin/Field/FieldType/ListItemBase.php:152
+msgid "Allowed values list: some values are being removed while currently in use."
+msgstr "Gültige Werteliste: einige Werte werden gelöscht, während sie noch in der Verwendung sind."
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:27
+msgid "Text value"
+msgstr "Textwert"
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:56
+msgid "The key is the stored value. The label will be used in displayed values and edit forms."
+msgstr "Der Schlüssel ist der gespeicherte Wert. Die Bezeichnungen werden zur Anzeige der Werte und beim Bearbeiten in Formularen verwendet."
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:57
+msgid "The label is optional: if a line contains a single string, it will be used as key and label."
+msgstr "Die Beschriftung ist optional: Wenn eine Zeile einen einzigen Text enthält, wird dieser als Schlüssel und Beschriftung verwendet."
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:68
+msgid "Allowed values list: each key must be a string at most 255 characters long."
+msgstr "Liste erlaubter Werte: Jeder Schlüssel muss eine Zeichenkette mit höchstens 255 Zeichen sein."
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:8
+msgid "List (text)"
+msgstr "Liste (Text)"
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:8
+msgid "This field stores text values from a list of allowed 'value => label' pairs, i.e. 'US States': IL => Illinois, IA => Iowa, IN => Indiana."
+msgstr "Dieses Feld speichert Textwerte aus einer Liste von Paaren im Format ‚Wert => Beschriftung‘ , d. h. ‚US Bundesstaaten‘: IL => Illinois, IA => Iowa, IN => Indiana."
+
+#: src/Plugin/Field/FieldType/ListStringItem.php:8
+msgid "Text"
+msgstr "Text"
+
+#: src/Plugin/views/argument/NumberListField.php:60 src/Plugin/views/argument/StringListField.php:60
+msgid "Display list value as human readable"
+msgstr "Listenwert für den Menschen lesbar darstellen"
+

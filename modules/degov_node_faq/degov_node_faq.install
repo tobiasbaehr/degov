@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Config\Config;
+use Drupal\degov\TranslationImporter;
 use Drupal\degov_common\Common;
 
 /**
@@ -111,4 +112,11 @@ function degov_node_faq_update_870600() {
   $config->set('content.field_tags.settings.placeholder', '');
   $config->set('content.field_tags.third_party_settings', []);
   $config->save();
+}
+
+/**
+ * deGov 8.5.0 - Import config translations.
+ */
+function degov_node_faq_update_880500() {
+  TranslationImporter::importConfigTranslationOfModule('core.entity_form_display.node.faq.default', 'degov_node_faq');
 }

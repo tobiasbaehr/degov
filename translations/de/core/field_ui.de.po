@@ -1,0 +1,626 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  field_ui.module: n/a
+#  src/Plugin/Derivative/FieldUiLocalTask.php: n/a
+#  field_ui.info.yml: n/a
+#  field_ui.links.action.yml: n/a
+#  field_ui.routing.yml: n/a
+#  field_ui.links.menu.yml: n/a
+#  field_ui.links.task.yml: n/a
+#  src/FieldConfigListBuilder.php: n/a
+#  src/Form/EntityDisplayFormBase.php: n/a
+#  field_ui.permissions.yml: n/a
+#  config/schema/field_ui.schema.yml: n/a
+#  src/EntityDisplayModeListBuilder.php: n/a
+#  src/Form/EntityDisplayModeFormBase.php: n/a
+#  src/Form/EntityDisplayModeAddForm.php: n/a
+#  src/Form/EntityViewDisplayEditForm.php: n/a
+#  src/Form/FieldConfigEditForm.php: n/a
+#  src/Form/FieldStorageAddForm.php: n/a
+#  src/FieldStorageConfigListBuilder.php: n/a
+#  src/FieldUiPermissions.php: n/a
+#  src/Form/EntityDisplayModeDeleteForm.php: n/a
+#  src/Form/EntityFormDisplayEditForm.php: n/a
+#  src/Form/FieldConfigDeleteForm.php: n/a
+#  src/Form/FieldStorageConfigEditForm.php: n/a
+#  src/Plugin/Derivative/FieldUiLocalAction.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:29+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: field_ui.module:24
+msgid "About"
+msgstr "Über"
+
+#: field_ui.module:25
+msgid "The Field UI module provides an administrative user interface (UI) for managing and displaying fields. Fields can be attached to most content entity sub-types. Different field types, widgets, and formatters are provided by the modules enabled on your site, and managed by the Field module. For background information and terminology related to fields and entities, see the <a href=\":field\">Field module help page</a>. For more information about the Field UI, see the <a href=\":field_ui_docs\">online documentation for the Field UI module</a>."
+msgstr "Das Field-UI bietet eine Benutzeroberfläche (UI) zum Verwalten und Anzeigen von Feldern.  Felder können an die meisten Entitätssubtypen angehängt werden. Verschiedene Feldtypen, Steuerelemente und Anzeigeformat werden von den auf der Seite aktivierten Modulen zur Verfügung gestellt und vom Field-Modul verwaltet. Weitere Hintergrundinformationen über Felder und Entitäten und die dazugehörige Terminologie sind auf den <a href=\":field\">Hilfeseiten des Field-Moduls</a> verfügbar. Weitere Informationen zur Field-UI sind in der <a href=\":field_ui_docs\">Online-Dokumentation des Field-Moduls</a> verfügbar."
+
+#: field_ui.module:26
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: field_ui.module:28
+msgid "Creating a field"
+msgstr "Ein Feld wird erstellt"
+
+#: field_ui.module:29
+msgid "On the <em>Manage fields</em> page for your entity type or sub-type, you can add, configure, and delete fields for that entity type or sub-type. Each field has a <em>machine name</em>, which is used internally to identify the field and must be unique across an entity type; once a field is created, you cannot change the machine name. Most fields have two types of settings. The field-level settings depend on the field type, and affect how the data in the field is stored. Once they are set, they can no longer be changed; examples include how many data values are allowed for the field and where files are stored. The sub-type-level settings are specific to each entity sub-type the field is used on, and they can be changed later; examples include the field label, help text, default value, and whether the field is required or not. You can return to these settings by choosing the <em>Edit</em> link for the field from the <em>Manage fields</em> page."
+msgstr "Auf der <em>Felder verwalten</em> Seite für den Entitätstyp oder -subtyp können Felder zu diesen hinzugefügt, konfiguriert und gelöscht werden. Jedes Feld hat einen für den Entitätstyp eindeutigen <em>Systemnamen</em> welcher intern für die Identifikation verwendet wird; nach der Erstellung des Feldes kann dieser nicht mehr geändert werden. Die meisten Felder haben zwei Arten von Einstellungen. Die Einstellung auf der Feld-Ebene hängen vom Feldtypen ab und beeinflussen wie die Daten im Feld gespeichert werden. Einmal gesetzt können sie nicht mehr geändert werden; Beispiel wären wie viele Datenwerte für das Feld erlaubt sind und wo die Dateien gespeichert werden. Die Einstellungen auf der Untertyp-Ebene sind charakteristisch für jeden Untertyp der Entität auf den das Feld angewendet wird. Sie können später noch geändert werden. Beispiele hierfür sind die Beschriftung des Feldes, Hilfetext, Standardwert und ob das Feld ausgefüllt werden muss oder nicht. Die Einstellungen können über den <em>Bearbeiten</em> Link des Feldes auf der <em>Felder verwalten</em> Seite erreicht werden."
+
+#: field_ui.module:30
+msgid "Re-using fields"
+msgstr "Felder wiederverwenden"
+
+#: field_ui.module:31
+msgid "Once you have created a field, you can use it again in other sub-types of the same entity type. For instance, if you create a field for the article content type, you can also use it for the page content type, but you cannot use it for custom blocks or taxonomy terms. If there are fields available for re-use, after clicking <em>Add field</em> from the <em>Manage fields</em> page, you will see a list of available fields for re-use. After selecting a field for re-use, you can configure the sub-type-level settings."
+msgstr "Wenn ein Feld einmal erstellt worden ist kann es in jedem Subtyp desselben Entitätstyps wieder verwendet werden. Wird ein Feld beispielsweise für den Inhaltstyp Artikel erstellt, kann dieses ebenfalls im Inhaltstyp Einfache Seite verwendet werden. Das Feld kann dann aber nicht für benutzerdefinierte Blöcke oder Taxonomiebegriffe verwendet werden. Wenn wiederverwendbare Felder verfügbar sind, werden diese nach einem Klick auf den Button <em>Feld hinzufügen</em> auf der Seite <em>Felder Verwalten</em> aufgelistet. Anschließend können die für Sub-Typen des Feldes konfigurierbaren Einstellungen angepasst werden."
+
+#: field_ui.module:32
+msgid "Configuring field editing"
+msgstr "Feldbearbeitung konfigurieren"
+
+#: field_ui.module:33
+msgid "On the <em>Manage form display</em> page of your entity type or sub-type, you can configure how the field data is edited by default and in each form mode. If your entity type has multiple form modes (on most sites, most entities do not), you can toggle between the form modes at the top of the page, and you can toggle whether each form mode uses the default settings or custom settings in the <em>Custom display settings</em> section. For each field in each form mode, you can select the widget to use for editing; some widgets have additional configuration options, such as the size for a text field, and these can be edited using the Edit button (which looks like a wheel). You can also change the order of the fields on the form. You can exclude a field from a form by choosing <em>Hidden</em> from the widget drop-down list, or by dragging it into the <em>Disabled</em> section."
+msgstr "Auf der Seite <em>Formularanzeige verwalten</em> eines Entitätstyps oder eines Untertyps einer Entität kann konfiguriert werden, welche Felder im jeweiligen Bearbeitungsformular standardmäßig zur Verfügung stehen. Außerdem kann die Bearbeitungsweise für jeden Formularmodus gesondert festgelegt werden (dies ist nur dann möglich, wenn eine Entität mehr als einen Formularmodus aufweist, was auf den meisten Seiten für die Mehrzahl der Entitäten nicht der Fall ist). Am Seitenanfang kann der Formularmodus einer Entität ein- oder ausgeblendet werden. Im Bereich <em>Benutzerdefinierte Anzeigeeinstellungen</em> kann entschieden werden, welcher Formularmodus für die Standardeinstellungen verwenden soll und für welchen Formularmodus benutzerdefinierte Einstellungen gelten sollen. Für jedes Feld kann die Bearbeitungsweise in jedem Formularmodus gesondert festgelegt werden. Einige Bearbeitungsweisen bieten zusätzliche Konfigurationsoptionen, wie zum Beispiel eine Option mit der die Größe eines Textfeldes festgelegt werden kann. Diese Konfigurationsoptionen können über den Button (der wie ein Zahnrad aussieht) bearbeitet und konfiguriert werden. Es ist außerdem möglich die Reihenfolge festzulegen, in der die einzelnen Felder im Bearbeitungsformular angezeigt werden. Ebenso können Felder von der Anzeige im Bearbeitungsformular ausgeschlossen werden, indem entweder der Eintrag <em>Ausgeblendet</em> aus dem Drop-Down-Menü hinter dem jeweiligen Feld gewählt wird oder das Feld in den Bereich <em>Deaktiviert</em> verschoben wird."
+
+#: field_ui.module:34
+msgid "Configuring field display"
+msgstr "Konfiguration der Feldanzeige"
+
+#: field_ui.module:35
+msgid "On the <em>Manage display</em> page of your entity type or sub-type, you can configure how each field is displayed by default and in each view mode. If your entity type has multiple view modes, you can toggle between the view modes at the top of the page, and you can toggle whether each view mode uses the default settings or custom settings in the <em>Custom display settings</em> section. For each field in each view mode, you can choose whether and how to display the label of the field from the <em>Label</em> drop-down list. You can also select the formatter to use for display; some formatters have configuration options, which you can edit using the Edit button (which looks like a wheel). You can also change the display order of fields. You can exclude a field from a specific view mode by choosing <em>Hidden</em> from the formatter drop-down list, or by dragging it into the <em>Disabled</em> section."
+msgstr "Auf der Seite <em>Anzeige verwalten</em> eines Entitätstyps oder Entitäts-Subtyps kann die Anzeige jedes einzelnen Feldes für jeden vorhandenen Anzeigemodus separat angepasst werden. Wenn der Entitätstyp mehrere Anzeigemodi enthält, kann am oberen Rand der Seite zwischen den einzelnen Anzeigemodi gewechselt werden. Im Abschnitt <em> Benutzerdefinierte Anzeigeeinstellungen</em> kann für jeden einzelnen Anzeigemodus entschieden werden, ob die benutzerdefinierten Einstellungen oder die Standardeinstellungen verwendet werden sollen. Im Drop-Down-Menü mit der Beschriftung <em>Beschriftung</em> kann für jedes Feld die gewünschte Beschriftung festgelegt werden. Sie können außerdem ein Anzeigeformat jedes einzelnen Feldes wählen. Einige Anzeigeformate bieten Konfigurationseinstellungen, die über den Button Bearbeiten (der wie ein Zahnrad aussieht) angepasst werden können.  Auch die Anzeigereihenfolge der Felder kann angepasst werden. Ein Feld kann aus einem bestimmten Anzeigemodus ausgeschlossen werden, indem <em>Ausgeblendet</em> aus dem Dropdown-Menü Format ausgewählt wird, oder indem das Feld mit Hilfe der Maus im Abschnitt <em>Deaktiviert</em> platziert wird."
+
+#: field_ui.module:36
+msgid "Configuring view and form modes"
+msgstr "Konfiguration von Ansichten und Formulardarstellungen"
+
+#: field_ui.module:37
+msgid "You can add, edit, and delete view modes for entities on the <a href=\":view_modes\">View modes page</a>, and you can add, edit, and delete form modes for entities on the <a href=\":form_modes\">Form modes page</a>. Once you have defined a view mode or form mode for an entity type, it will be available on the Manage display or Manage form display page for each sub-type of that entity."
+msgstr "Auf der Seite <a href=\":view_modes\">Anzeigemodi</a> Können Anzeigemodi für Entitäten hinzugefügt bearbeitet und gelöscht werden. Außerdem können auf der Seite <a href=\":form_modes\">Formularmodi</a> Formularmodi für jeden vorhandenen Anzeigemodus hinzugefügt werden. Wurde ein Anzeigemodus oder einen Formularmodus für einen Entitätstyp angelegt, ist dieser auf den Seiten Darstellung verwalten und Formulardarstellung verwalten verfügbar."
+
+#: field_ui.module:38
+msgid "Listing fields"
+msgstr "Felder auflisten"
+
+#: field_ui.module:39
+msgid "There are two reports available that list the fields defined on your site. The <a href=\":entity-list\" title=\"Entities field list report\">Entities</a> report lists all your fields, showing the field machine names, types, and the entity types or sub-types they are used on (each sub-type links to the Manage fields page). If the <a href=\":views\">Views</a> and <a href=\":views-ui\">Views UI</a> modules are enabled, the <a href=\":views-list\" title=\"Used in views field list report\">Used in views</a> report lists each field that is used in a view, with a link to edit that view."
+msgstr "Es stehen zwei Berichte zur Verfügung, die die auf der Website definierten Felder auflisten. Die <a href=\":entity-list\" title=\"Feldliste\">Feldliste</a> listet alle Felder auf der Website auf und zeigt deren Systemnamen, Typen sowie Entitätstypen oder Subtypen, in denen die Felder verwendet werden (Jeder Subtyp verlinkt auf die Seite Felder verwalten). Wenn die Module <a href=\":views\">Views</a> und <a href=\":views-ui\">Views UI</a> aktiviert sind, listet der Reite <a href=\":views-list\" title=\"In Ansichten verwendet\">In Ansichten verwendet</a> alle Felder auf, die innerhalb von Ansichten verwendet werden. Jeder Link in der Liste verlinkt auf die Bearbeiten-Seite, der jeweiligen Ansicht."
+
+#: field_ui.module:44
+msgid "This list shows all fields currently in use for easy reference."
+msgstr "Diese Liste führt alle Felder auf, die zurzeit verwendet werden."
+
+#: field_ui.module:129
+msgid "Save and manage fields"
+msgstr "Speichern und Felder verwalten"
+
+#: field_ui.module:149 src/Plugin/Derivative/FieldUiLocalTask.php:94
+msgid "Manage fields"
+msgstr "Felder verwalten"
+
+#: field_ui.module:158 src/Plugin/Derivative/FieldUiLocalTask.php:102
+msgid "Manage form display"
+msgstr "Formularanzeige verwalten"
+
+#: field_ui.module:167 src/Plugin/Derivative/FieldUiLocalTask.php:110
+msgid "Manage display"
+msgstr "Anzeige verwalten"
+
+#: field_ui.module:245
+msgid "Reference"
+msgstr "Referenz"
+
+#: field_ui.module:249
+msgid "Other…"
+msgstr "Andere..."
+
+#: field_ui.info.yml:0
+msgid "Field UI"
+msgstr "Feld UI"
+
+#: field_ui.info.yml:0
+msgid "User interface for the Field API."
+msgstr "Ermöglicht das Verwalten von Feldern über die Benutzeroberfläche."
+
+#: field_ui.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: field_ui.links.action.yml:0 field_ui.routing.yml:0
+msgid "Add view mode"
+msgstr "Inhaltsdarstellung hinzufügen"
+
+#: field_ui.links.action.yml:0 field_ui.routing.yml:0
+msgid "Add form mode"
+msgstr "Formulardarstellung hinzufügen"
+
+#: field_ui.links.menu.yml:0 field_ui.routing.yml:0
+msgid "Field list"
+msgstr "Feldliste"
+
+#: field_ui.links.menu.yml:0 field_ui.routing.yml:0
+msgid "Display modes"
+msgstr "Anzeigemodi"
+
+#: field_ui.links.menu.yml:0 field_ui.routing.yml:0
+msgid "View modes"
+msgstr "Inhaltsdarstellungen"
+
+#: field_ui.links.menu.yml:0 field_ui.routing.yml:0
+msgid "Form modes"
+msgstr "Formulardarstellungen"
+
+#: field_ui.links.menu.yml:0
+msgid "Overview of fields on all entity types."
+msgstr "Übersicht über alle Felder in allen Objekttypen."
+
+#: field_ui.links.menu.yml:0
+msgid "Configure what displays are available for your content and forms."
+msgstr "Konfiguration der verfügbaren Ansichten für Inhalte und Formulare."
+
+#: field_ui.links.menu.yml:0
+msgid "Manage custom view modes."
+msgstr "Benutzerdefinierte Inhaltsdarstellungen verwalten."
+
+#: field_ui.links.menu.yml:0
+msgid "Manage custom form modes."
+msgstr "Benutzerdefinierte Formulardarstellungen verwalten."
+
+#: field_ui.links.task.yml:0
+msgid "Entities"
+msgstr "Entitäten"
+
+#: field_ui.links.task.yml:0;0 src/FieldConfigListBuilder.php:190 src/Form/EntityDisplayFormBase.php:462 src/Plugin/Derivative/FieldUiLocalTask.php:117
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: field_ui.links.task.yml:0;0
+msgid "List"
+msgstr "Liste"
+
+#: field_ui.permissions.yml:0
+msgid "Add, edit, and delete custom display modes."
+msgstr "Benutzerdefinierte Anzeigemodi hinzufügen, bearbeiten und löschen."
+
+#: field_ui.routing.yml:0
+msgid "Choose view mode entity type"
+msgstr "Entitätstyp für den Anzeigemodus wählen."
+
+#: field_ui.routing.yml:0
+msgid "Edit view mode"
+msgstr "Inhaltsdarstellung bearbeiten"
+
+#: field_ui.routing.yml:0
+msgid "Delete view mode"
+msgstr "Inhaltsdarstellung löschen"
+
+#: field_ui.routing.yml:0
+msgid "Choose form mode entity type"
+msgstr "Entitätstyp für den Formularmodus wählen"
+
+#: field_ui.routing.yml:0
+msgid "Edit form mode"
+msgstr "Formulardarstellung bearbeiten"
+
+#: field_ui.routing.yml:0
+msgid "Delete form mode"
+msgstr "Formulardarstellung löschen"
+
+#: config/schema/field_ui.schema.yml:0
+msgid "Field UI settings"
+msgstr "Field-UI-Einstellungen"
+
+#: config/schema/field_ui.schema.yml:0
+msgid "The prefix for new fields created via Field UI"
+msgstr "Das Prefix für neue Felder, das über die Field-Ui festgelegt wurde."
+
+#: src/EntityDisplayModeListBuilder.php:60 src/Form/EntityDisplayModeFormBase.php:34
+msgid "Name"
+msgstr "Name"
+
+#: src/EntityDisplayModeListBuilder.php:120 src/Form/EntityDisplayModeAddForm.php:31
+msgid "Add new @entity-type %label"
+msgstr "@entity-type %label neu hinzufügen"
+
+#: src/FieldConfigListBuilder.php:110
+msgid "No fields are present yet."
+msgstr "Im Moment sind keine Felder vorhanden."
+
+#: src/FieldConfigListBuilder.php:134 src/Form/EntityViewDisplayEditForm.php:135 src/Form/FieldConfigEditForm.php:82 src/Form/FieldStorageAddForm.php:184;212
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/FieldConfigListBuilder.php:136
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/FieldConfigListBuilder.php:139 src/FieldStorageConfigListBuilder.php:96
+msgid "Field type"
+msgstr "Feldtyp"
+
+#: src/FieldConfigListBuilder.php:164;194
+msgid "Edit field settings."
+msgstr "Feld-Einstellungen bearbeiten."
+
+#: src/FieldConfigListBuilder.php:174
+msgid "Locked"
+msgstr "Gesperrt"
+
+#: src/FieldConfigListBuilder.php:200 src/Form/FieldConfigEditForm.php:163
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/FieldConfigListBuilder.php:204
+msgid "Delete field."
+msgstr "Feld löschen."
+
+#: src/FieldConfigListBuilder.php:210
+msgid "Storage settings"
+msgstr "Speichereinstellungen"
+
+#: src/FieldConfigListBuilder.php:212
+msgid "Edit storage settings."
+msgstr "Einstellungen des Feldeinstellungsspeichers bearbeiten."
+
+#: src/FieldStorageConfigListBuilder.php:93
+msgid "Field name"
+msgstr "Feldname"
+
+#: src/FieldStorageConfigListBuilder.php:94
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: src/FieldStorageConfigListBuilder.php:99
+msgid "Used in"
+msgstr "Verwendet in"
+
+#: src/FieldStorageConfigListBuilder.php:109
+msgid "@field_name (Locked)"
+msgstr "@field_name (Gesperrt)"
+
+#: src/FieldStorageConfigListBuilder.php:120
+msgid "@type (module: @module)"
+msgstr "@type (Modul: @module)"
+
+#: src/FieldUiPermissions.php:54
+msgid "%entity_label: Administer fields"
+msgstr "%entity_label: Felder verwalten"
+
+#: src/FieldUiPermissions.php:58
+msgid "%entity_label: Administer form display"
+msgstr "%entity_label: Formularanzeige verwalten"
+
+#: src/FieldUiPermissions.php:61
+msgid "%entity_label: Administer display"
+msgstr "%entity_label: Anzeige verwalten"
+
+#: src/Form/EntityDisplayFormBase.php:126
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Form/EntityDisplayFormBase.php:128
+msgid "No field is displayed."
+msgstr "Es wird kein Feld angezeigt."
+
+#: src/Form/EntityDisplayFormBase.php:131
+msgctxt "Plural"
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: src/Form/EntityDisplayFormBase.php:132
+msgid "No field is hidden."
+msgstr "Es ist kein Feld ausgeblendet."
+
+#: src/Form/EntityDisplayFormBase.php:181
+msgid "There are no fields yet added. You can add new fields on the <a href=\":link\">Manage fields</a> page."
+msgstr "Bis jetzt wurden noch keine neuen Felder hinzugefügt. Neue Felder können auf der Seite <a href=\":link\">Felder verwalten</a> hinzugefügt werden."
+
+#: src/Form/EntityDisplayFormBase.php:237
+msgid "Custom display settings"
+msgstr "Benutzerdefinierte Anzeigeeinstellungen"
+
+#: src/Form/EntityDisplayFormBase.php:247
+msgid "Use custom display settings for the following @display_context modes"
+msgstr "Benutzerdefinierte Anzeigeeinstellungen für folgende @display_context-Modi"
+
+#: src/Form/EntityDisplayFormBase.php:265
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: src/Form/EntityDisplayFormBase.php:283
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/EntityDisplayFormBase.php:329;502
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/EntityDisplayFormBase.php:338 src/Form/EntityViewDisplayEditForm.php:49
+msgid "Label display for @title"
+msgstr "Beschriftung für @title"
+
+#: src/Form/EntityDisplayFormBase.php:353;526
+msgid "Region for @title"
+msgstr "Region für @title"
+
+#: src/Form/EntityDisplayFormBase.php:364
+msgid "Plugin for @title"
+msgstr "Plugin für @title"
+
+#: src/Form/EntityDisplayFormBase.php:405
+msgid "Plugin settings"
+msgstr "Plugin-Einstellungen"
+
+#: src/Form/EntityDisplayFormBase.php:415
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: src/Form/EntityDisplayFormBase.php:421
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/EntityDisplayFormBase.php:511
+msgid "Parents for @title"
+msgstr "Übergeordnete für @title"
+
+#: src/Form/EntityDisplayFormBase.php:579
+msgid "The %display_mode mode now uses custom display settings. You might want to <a href=\":url\">configure them</a>."
+msgstr "Der Anzeigemodus %display_mode verwendet nun benutzerdefinierte Anzeigeeinstellungen Wenn Sie möchten können die  <a href=\":url\">Benutzerdefinierten Einstellungen hier konfigurieren</a>."
+
+#: src/Form/EntityDisplayFormBase.php:587 src/Form/FieldStorageAddForm.php:439
+msgid "Your settings have been saved."
+msgstr "Die Einstellungen wurden gespeichert."
+
+#: src/Form/EntityDisplayModeDeleteForm.php:19
+msgid "Deleting a @entity-type will cause any output still requesting to use that @entity-type to use the default display settings."
+msgstr "Das Löschen von @entity-type führt dazu, dass jegliche Ausgabe, die noch immer @entity-type anfordert, die Standardanzeigeeinstellungen verwendet."
+
+#: src/Form/EntityDisplayModeFormBase.php:41
+msgid "A unique machine-readable name. Can only contain lowercase letters, numbers, and underscores."
+msgstr "Ein eindeutiger maschinenlesbarer Name kann nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: src/Form/EntityDisplayModeFormBase.php:81
+msgid "Saved the %label @entity-type."
+msgstr "%label @entity-type wurde gespeichert."
+
+#: src/Form/EntityFormDisplayEditForm.php:45 src/Form/EntityViewDisplayEditForm.php:60
+msgid "Formatter for @title"
+msgstr "Anzeigeformat @title"
+
+#: src/Form/EntityFormDisplayEditForm.php:48
+msgid "Widget settings:"
+msgstr "Steuerelementeinstellungen:"
+
+#: src/Form/EntityFormDisplayEditForm.php:88
+msgid "Manage form modes"
+msgstr "Formulardarstellungen verwalten"
+
+#: src/Form/EntityFormDisplayEditForm.php:98 src/Form/EntityViewDisplayEditForm.php:131
+msgid "Field"
+msgstr "Feld"
+
+#: src/Form/EntityFormDisplayEditForm.php:99 src/Form/EntityViewDisplayEditForm.php:132
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Form/EntityFormDisplayEditForm.php:100 src/Form/EntityViewDisplayEditForm.php:133
+msgid "Parent"
+msgstr "Übergeordnet"
+
+#: src/Form/EntityFormDisplayEditForm.php:101 src/Form/EntityViewDisplayEditForm.php:134
+msgid "Region"
+msgstr "Region"
+
+#: src/Form/EntityFormDisplayEditForm.php:102
+msgid "Widget"
+msgstr "Steuerelement"
+
+#: src/Form/EntityViewDisplayEditForm.php:63
+msgid "Format settings:"
+msgstr "Formateinstellungen:"
+
+#: src/Form/EntityViewDisplayEditForm.php:121
+msgid "Manage view modes"
+msgstr "Inhaltsdarstellungen verwalten"
+
+#: src/Form/EntityViewDisplayEditForm.php:136
+msgid "Format"
+msgstr "Format"
+
+#: src/Form/EntityViewDisplayEditForm.php:158
+msgid "Above"
+msgstr "Oberhalb"
+
+#: src/Form/EntityViewDisplayEditForm.php:159
+msgid "Inline"
+msgstr "Inline"
+
+#: src/Form/EntityViewDisplayEditForm.php:160
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: src/Form/EntityViewDisplayEditForm.php:161
+msgid "Visually Hidden"
+msgstr "Visuell ausgeblendet"
+
+#: src/Form/FieldConfigDeleteForm.php:101
+msgid "The field %field has been deleted from the %type content type."
+msgstr "Das Feld „%field“ wurde vom Inhaltstyp „%type“ gelöscht."
+
+#: src/Form/FieldConfigDeleteForm.php:104
+msgid "There was a problem removing the %field from the %type content type."
+msgstr "Beim Entfernen des Felds „%field“ vom Inhaltstyp „%type“ ist ein Problem aufgetreten."
+
+#: src/Form/FieldConfigEditForm.php:66
+msgid "%field settings for %bundle"
+msgstr "%field Einstellungen für %bundle"
+
+#: src/Form/FieldConfigEditForm.php:74
+msgid "The field %field is locked and cannot be edited."
+msgstr "Das Feld %field ist gesperrt und kann nicht bearbeitet werden."
+
+#: src/Form/FieldConfigEditForm.php:90
+msgid "Help text"
+msgstr "Hilfetext"
+
+#: src/Form/FieldConfigEditForm.php:93
+msgid "Instructions to present to the user below this field on the editing form.<br />Allowed HTML tags: @tags"
+msgstr "Eine Hilfestellung, die dem Benutzer unter diesem Feld im Eingabeformular angezeigt wird.<br />Zulässige HTML-Tags: @tags"
+
+#: src/Form/FieldConfigEditForm.php:93
+msgid "This field supports tokens."
+msgstr "Dieses Feld unterstützt Tokens."
+
+#: src/Form/FieldConfigEditForm.php:99
+msgid "Required field"
+msgstr "Pflichtfeld"
+
+#: src/Form/FieldConfigEditForm.php:130
+msgid "Default value"
+msgstr "Standardwert"
+
+#: src/Form/FieldConfigEditForm.php:133
+msgid "The default value for this field, used when creating new content."
+msgstr "Der Vorgabewert für dieses Feld. Er wird verwendet, wenn neue Inhalte erstellt werden."
+
+#: src/Form/FieldConfigEditForm.php:147
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: src/Form/FieldConfigEditForm.php:208
+msgid "Saved %label configuration."
+msgstr "Die Konfiguration %label wurde gespeichert."
+
+#: src/Form/FieldStorageAddForm.php:145
+msgid "Add a new field"
+msgstr "Feld hinzufügen"
+
+#: src/Form/FieldStorageAddForm.php:147
+msgid "- Select a field type -"
+msgstr "- Feldtyp auswählen -"
+
+#: src/Form/FieldStorageAddForm.php:154
+msgid "or"
+msgstr "oder"
+
+#: src/Form/FieldStorageAddForm.php:158
+msgid "Re-use an existing field"
+msgstr "Ein vorhandenes Feld wiederverwenden"
+
+#: src/Form/FieldStorageAddForm.php:160
+msgid "- Select an existing field -"
+msgstr "- Vorhandenes Feld auswählen -"
+
+#: src/Form/FieldStorageAddForm.php:195
+msgid "A unique machine-readable name containing letters, numbers, and underscores."
+msgstr "Ein eindeutiger Systemname kann nur Kleinbuchstaben, Ziffern und Unterstriche enthalten."
+
+#: src/Form/FieldStorageAddForm.php:234
+msgid "Save and continue"
+msgstr "Speichern und fortfahren"
+
+#: src/Form/FieldStorageAddForm.php:249
+msgid "You need to select a field type or an existing field."
+msgstr "Es muss ein Feldtyp oder ein vorhandenes Feld ausgewählt werden."
+
+#: src/Form/FieldStorageAddForm.php:254
+msgid "Adding a new field and re-using an existing field at the same time is not allowed."
+msgstr "Das gleichzeitige Hinzufügen eines neuen Felds und Wiederverwenden eines existierenden Felds ist nicht erlaubt."
+
+#: src/Form/FieldStorageAddForm.php:277
+msgid "Add new field: you need to provide a label."
+msgstr "Neues Feld hinzufügen: Eine Beschriftung muss angegeben werden."
+
+#: src/Form/FieldStorageAddForm.php:282
+msgid "Add new field: you need to provide a machine name for the field."
+msgstr "Neues Feld hinzufügen: es muss ein Systemname für das Feld angeben werden."
+
+#: src/Form/FieldStorageAddForm.php:309
+msgid "Re-use existing field: you need to provide a label."
+msgstr "Existierendes Feld wiederverwenden: Sie müssen eine Bezeichnung angeben."
+
+#: src/Form/FieldStorageAddForm.php:398;429
+msgid "There was a problem creating field %label: @message"
+msgstr "Beim Erstellen des Felds ist ein Problem aufgetreten - %label: @message"
+
+#: src/Form/FieldStorageAddForm.php:516
+msgid "@type: @field"
+msgstr "@type: @field"
+
+#: src/Form/FieldStorageConfigEditForm.php:67
+msgid "These settings apply to the %field field everywhere it is used. These settings impact the way that data is stored in the database and cannot be changed once data has been created."
+msgstr "Diese Einstellungen wirken sich auf alle %field-Felder aus, egal wo sie verwendet werden und legen fest, auf welche Weise Daten in der Datenbank gespeichert werden. Sobald Daten einmal erzeugt wurden, können diese Einstellungen nicht mehr verändert werden."
+
+#: src/Form/FieldStorageConfigEditForm.php:72
+msgid "There is data for this field in the database. The field settings can no longer be changed."
+msgstr "Für dieses Feld sind bereits Daten in der Datenbank. Die Feldeinstellungen können nicht mehr geändert werden."
+
+#: src/Form/FieldStorageConfigEditForm.php:111;135
+msgid "Allowed number of values"
+msgstr "Erlaubte Anzahl von Werten"
+
+#: src/Form/FieldStorageConfigEditForm.php:123
+msgid "This field cardinality is set to unlimited and cannot be configured."
+msgstr "Die Feldkardinalität ist nicht auf unbegrenzt gesetzt und kann nicht konfiguriert werden."
+
+#: src/Form/FieldStorageConfigEditForm.php:126
+msgid "This field cardinality is set to @cardinality and cannot be configured."
+msgstr "Die Gewichtung des Felds ist auf @cardinality eingestellt und kann nicht geändert werden."
+
+#: src/Form/FieldStorageConfigEditForm.php:138
+msgid "Limited"
+msgstr "Begrenzt"
+
+#: src/Form/FieldStorageConfigEditForm.php:139
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: src/Form/FieldStorageConfigEditForm.php:147
+msgid "Limit"
+msgstr "Begrenzung"
+
+#: src/Form/FieldStorageConfigEditForm.php:169
+msgid "Save field settings"
+msgstr "Feldeinstellungen speichern"
+
+#: src/Form/FieldStorageConfigEditForm.php:187
+msgid "Number of values is required."
+msgstr "Anzahl der Werte ist erforderlich."
+
+#: src/Form/FieldStorageConfigEditForm.php:225
+msgid "Updated field %label field settings."
+msgstr "Die Einstellungen für das %label-Feld wurden aktualisiert."
+
+#: src/Form/FieldStorageConfigEditForm.php:236
+msgid "Attempt to update field %label failed: %message."
+msgstr "Die Aktualisierung des %label-Felds ist fehlgeschlagen: %message."
+
+#: src/Form/FieldStorageConfigEditForm.php:201
+msgid "There is @count entity with @delta or more values in this field."
+msgid_plural "There are @count entities with @delta or more values in this field."
+msgstr[0] "Es gibt @count Entität mit @delta oder mehr Werten in diesem Feld."
+msgstr[1] "Es gibt @count Entitäten mit @delta oder mehr Werten in diesem Feld."
+
+#: src/Plugin/Derivative/FieldUiLocalAction.php:59
+msgid "Add field"
+msgstr "Feld hinzufügen"
+
+#: src/Plugin/Derivative/FieldUiLocalTask.php:124
+msgid "Field settings"
+msgstr "Feldeinstellungen"
+

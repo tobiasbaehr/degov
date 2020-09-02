@@ -1,0 +1,69 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  page_cache.module: n/a
+#  page_cache.info.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: page_cache.module:17
+msgid "About"
+msgstr "Über"
+
+#: page_cache.module:18
+msgid "The Internal Page Cache module caches pages for anonymous users in the database. For more information, see the <a href=\":pagecache-documentation\">online documentation for the Internal Page Cache module</a>."
+msgstr "Das Internal-Page-Cache-Modul speichert Seiten für nicht angemeldete Seitenbesucher in der Datenbank ab. Weitere Informationen sind in der <a href=\":pagecache-documentation\">Online-Dokumentation des Internal-Page-Cache-Moduls</a> verfügbar."
+
+#: page_cache.module:19
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: page_cache.module:21
+msgid "Speeding up your site"
+msgstr "Beschleunigt Ihre Seite"
+
+#: page_cache.module:22
+msgid "Pages requested by anonymous users are stored the first time they are requested and then are reused. Depending on your site configuration and the amount of your web traffic tied to anonymous visitors, the caching system may significantly increase the speed of your site."
+msgstr "Seiten, die von anonymen Benutzern angefordert werden, werden bei der ersten Anfrage in aufbereiteter Form im Cache abgespeichert. Diese Kopie wird dann bei allen weiteren Anfragen ausgegeben, Abhängig von der Konfiguration der Website und der Menge des Traffics, den die Seite produziert, kann das Caching-System die Geschwindigkeit der Website maßgeblich erhöhen."
+
+#: page_cache.module:23
+msgid "Pages are usually identical for all anonymous users, while they can be personalized for each authenticated user. This is why entire pages can be cached for anonymous users, whereas they will have to be rebuilt for every authenticated user."
+msgstr "Seiten werden normalerweise allen anonymen Benutzern gleich ausgegeben. Für angemeldete Benutzter können Seiten natürlich angepasst werden. Darum können ganze Webseiten für anonyme Benutzer für schnelleren Zugriff aufbereitet werden, müssen aber für angemeldete Benutzer neu aufgebaut werden."
+
+#: page_cache.module:24
+msgid "To speed up your site for authenticated users, see the <a href=\":dynamic_page_cache-help\">Dynamic Page Cache module</a>."
+msgstr "Informationen zur Erhöhung der Geschwindigkeit der Website für angemeldete Benutzer sind in der <a href=\":dynamic_page_cache-help\"> Hilfe des  Dynamic-Page-Cache-Moduls</a> verfügbar."
+
+#: page_cache.module:25
+msgid "Configuring the internal page cache"
+msgstr "Den internen Seitencache konfigurieren"
+
+#: page_cache.module:26
+msgid "On the <a href=\":cache-settings\">Performance page</a>, you can configure how long browsers and proxies may cache pages based on the Cache-Control header; this setting is ignored by the Internal Page Cache module, which caches pages permanently until invalidation, unless they carry an Expires header. There is no other configuration."
+msgstr "Auf der Seite <a href=\":cache-settings\">Leistung</a>, kann auf Basis der Meta-Angabe Cache-Control eingestellt werden, wie lange Browser und Proxys Websites zwischenspeichern. Diese Einstellung wird vom Internal-Page-Cache-Modul ignoriert, dass Seiten dauerhaft speichern kann, bis diese geändert werden, solange diese Seiten keine Meta-Angaben mit entsprechendem Ablaufdatum enthalten. Weitere Einstellungsmöglichkeiten sind nicht vorhanden."
+
+#: page_cache.info.yml:0
+msgid "Internal Page Cache"
+msgstr "Internal Page Cache"
+
+#: page_cache.info.yml:0
+msgid "Caches pages for anonymous users. Use when an external page cache is not available."
+msgstr "Ermöglicht das Abspeichern optimierter Versionen der Webseite, damit auf die Seite schneller zugegriffen werden kann, wenn kein externer Seiten-Cache zur Verfügung steht."
+
+#: page_cache.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+

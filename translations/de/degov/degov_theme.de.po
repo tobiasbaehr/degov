@@ -1,0 +1,438 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  theme-settings.php: n/a
+#  config/schema/degov_theme.schema.yml: n/a
+#  degov_theme.info.yml: n/a
+#  src/NumberFormatShort.php: n/a
+#  src/Preprocess/ViewsExposedFormSearchPageFulltext.php: n/a
+#  src/Preprocess/ViewsSearchContentAndMediaSorts.php: n/a
+#  templates/block/block--degov-social-media-instagram.html.twig: n/a
+#  templates/block/block--degov-social-media-youtube.html.twig: n/a
+#  templates/block/block--degov-twitter-block.html.twig: n/a
+#  templates/block/block--footer.html.twig: n/a
+#  templates/block/block--local-tasks-block.html.twig: n/a
+#  config/optional/block.block.tabs.yml: n/a
+#  templates/block/degov-tweets.html.twig: n/a
+#  templates/media/media--address--default_map.html.twig: n/a
+#  templates/media/media--audio--search.html.twig: n/a
+#  templates/media/media--gallery--search.html.twig: n/a
+#  templates/media/media--image--email.html.twig: n/a
+#  templates/media/media--image--search.html.twig: n/a
+#  templates/media/media--image--slider_main_16_9.html.twig: n/a
+#  templates/media/media--person--search.html.twig: n/a
+#  templates/media/media--video--search.html.twig: n/a
+#  templates/media/media--video--slider-main-16-9.html.twig: n/a
+#  templates/media/media--video_upload--search.html.twig: n/a
+#  templates/media/media--gallery--default.html.twig: n/a
+#  templates/node/node--blog--teaser.html.twig: n/a
+#  templates/node/node--normal_page--teaser.html.twig: n/a
+#  templates/node/node--teaser.html.twig: n/a
+#  templates/node/node--event--full.html.twig: n/a
+#  templates/paragraph/paragraph--slideshow--default.html.twig: n/a
+#  templates/system/pager.html.twig: n/a
+#  templates/views/degov_search_content_include/views-view-search-media-and-content.html.twig: n/a
+#  config/install/degov_theme.settings.yml: n/a
+#  config/optional/block.block.belowfootermenu.yml: n/a
+#  config/optional/system.menu.below-footer-menu.yml: n/a
+#  config/optional/block.block.benutzermenu.yml: n/a
+#  config/optional/block.block.degov_theme_media_publish_date.yml: n/a
+#  config/optional/block.block.degov_theme_search_media_bundle.yml: n/a
+#  config/optional/block.block.degov_theme_search_media_sortby.yml: n/a
+#  config/optional/block.block.degov_theme_search_media_tags.yml: n/a
+#  config/optional/block.block.search_content_tags.yml: n/a
+#  config/optional/block.block.degov_theme_sidebarparagraphsfromnodeentity.yml: n/a
+#  config/optional/block.block.degovsearchcontentfilter.yml: n/a
+#  config/optional/block.block.degovsearchmediafilters.yml: n/a
+#  config/optional/block.block.footer.yml: n/a
+#  config/optional/block.block.hauptnavigation_2.yml: n/a
+#  config/optional/block.block.mainpagecontent.yml: n/a
+#  config/optional/block.block.search_content_node_bundle.yml: n/a
+#  config/optional/block.block.search_content_node_changed.yml: n/a
+#  config/optional/block.block.search_content_sortby.yml: n/a
+#  config/optional/block.block.search_content_topic.yml: n/a
+#  config/optional/block.block.sitebranding.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:00+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: theme-settings.php:17 config/schema/degov_theme.schema.yml:0
+msgid "Social icons"
+msgstr "Soziale Icons"
+
+#: theme-settings.php:29
+msgid "Social network @counter"
+msgstr "Soziales Netzwerk @counter"
+
+#: theme-settings.php:33 config/schema/degov_theme.schema.yml:0
+msgid "Font awesome classes"
+msgstr "Font Awesome Klassen"
+
+#: theme-settings.php:35
+msgid "Enter the font awesome classes."
+msgstr "Font Awesome Klassen eingeben."
+
+#: theme-settings.php:40 config/schema/degov_theme.schema.yml:0
+msgid "Social network url"
+msgstr "URL des sozialen Netzwerks"
+
+#: theme-settings.php:42
+msgid "Enter the absolute path."
+msgstr "Absoluten Pfad eingeben."
+
+#: degov_theme.info.yml:0
+msgid "deGov Theme"
+msgstr "deGov Theme"
+
+#: degov_theme.info.yml:0
+msgid "The base theme of the deGov Drupal distribution."
+msgstr "Das Basis-Theme der deGov Drupal-Distribution."
+
+#: degov_theme.info.yml:0
+msgid "deGov - Theme"
+msgstr "deGov - Theme"
+
+#: config/schema/degov_theme.schema.yml:0
+msgid "Theme settings"
+msgstr "Theme-Einstellungen"
+
+#: src/NumberFormatShort.php:25
+msgid "K"
+msgstr "K"
+
+#: src/NumberFormatShort.php:31
+msgid "M"
+msgstr "M"
+
+#: src/Preprocess/ViewsExposedFormSearchPageFulltext.php:16
+msgid "Enter a search term..."
+msgstr "Suchbegriff eingeben ..."
+
+#: src/Preprocess/ViewsExposedFormSearchPageFulltext.php:25
+msgid "Search term"
+msgstr "Suchbegriff"
+
+#: src/Preprocess/ViewsSearchContentAndMediaSorts.php:80
+msgid "descending"
+msgstr "absteigend"
+
+#: src/Preprocess/ViewsSearchContentAndMediaSorts.php:80
+msgid "ascending"
+msgstr "aufsteigend"
+
+#: src/Preprocess/ViewsSearchContentAndMediaSorts.php:98
+msgid "Search results"
+msgstr "Suchergebnisse"
+
+#: src/Preprocess/ViewsSearchContentAndMediaSorts.php:101
+msgid "(about :num results)"
+msgstr "(ca. :num Ergebnisse)"
+
+#: templates/block/block--degov-social-media-instagram.html.twig:15 templates/block/block--degov-social-media-youtube.html.twig:21 templates/block/block--degov-twitter-block.html.twig:21
+msgid "Teaser social media"
+msgstr "Teaser Social-Media"
+
+#: templates/block/block--degov-social-media-instagram.html.twig:17
+msgid "Instagram Teaser"
+msgstr "Instagram Teaser"
+
+#: templates/block/block--degov-social-media-youtube.html.twig:23
+msgid "Youtube Teaser"
+msgstr "YouTube Teaser"
+
+#: templates/block/block--degov-twitter-block.html.twig:23
+msgid "Twitter Teaser"
+msgstr "Twitter Teaser"
+
+#: templates/block/block--footer.html.twig:42
+msgid "Content Summary"
+msgstr "Zusammenfassung des Inhalts"
+
+#: templates/block/block--local-tasks-block.html.twig:12 config/optional/block.block.tabs.yml:0
+msgid "Tabs"
+msgstr "Reiter"
+
+#: templates/block/degov-tweets.html.twig:25
+msgid "ago"
+msgstr "her"
+
+#: templates/media/media--address--default_map.html.twig:16
+msgid "Styled Google Map"
+msgstr "Google Map mit Styles"
+
+#: templates/media/media--audio--search.html.twig:24
+msgid "Audio"
+msgstr "Audio"
+
+#: templates/media/media--audio--search.html.twig:30 templates/media/media--gallery--search.html.twig:30 templates/media/media--image--email.html.twig:27 templates/media/media--image--search.html.twig:30 templates/media/media--image--slider_main_16_9.html.twig:29 templates/media/media--person--search.html.twig:30 templates/media/media--video--search.html.twig:30 templates/media/media--video--slider-main-16-9.html.twig:35 templates/media/media--video_upload--search.html.twig:30
+msgid "&copy;"
+msgstr "&copy;"
+
+#: templates/media/media--gallery--default.html.twig:49
+msgid "Close (Esc)"
+msgstr "Schließen (Esc)"
+
+#: templates/media/media--gallery--default.html.twig:51
+msgid "Share"
+msgstr "Teilen"
+
+#: templates/media/media--gallery--default.html.twig:53
+msgid "Toggle fullscreen"
+msgstr "Vollbildmodus umschalten"
+
+#: templates/media/media--gallery--default.html.twig:55
+msgid "Zoom in/out"
+msgstr "Heran-/Herauszoomen"
+
+#: templates/media/media--gallery--default.html.twig:72
+msgid "Previous (arrow left)"
+msgstr "Zurück (linker Pfeil)"
+
+#: templates/media/media--gallery--default.html.twig:75
+msgid "Next (arrow right)"
+msgstr "Weiter (rechter Pfeil)"
+
+#: templates/media/media--gallery--default.html.twig:84;106
+msgid "Galerie"
+msgstr "Galerie"
+
+#: templates/media/media--gallery--default.html.twig:85
+msgid "Navigationshinweise zur Galerie"
+msgstr "Navigationshinweise zur Galerie"
+
+#: templates/media/media--gallery--default.html.twig:86
+msgid "Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Galerie"
+msgstr "Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Galerie"
+
+#: templates/media/media--gallery--default.html.twig:94
+msgid "Pause"
+msgstr "Pause"
+
+#: templates/media/media--gallery--default.html.twig:95
+msgid "Play"
+msgstr "Wiedergabe"
+
+#: templates/media/media--gallery--default.html.twig:96
+msgid "Open image in a lightroom"
+msgstr "Bild im Lightroom öffnen"
+
+#: templates/media/media--gallery--default.html.twig:99
+msgid "of"
+msgstr "von"
+
+#: templates/media/media--gallery--search.html.twig:24
+msgid "Gallery"
+msgstr "Galerie"
+
+#: templates/media/media--image--search.html.twig:24
+msgid "Image"
+msgstr "Bild"
+
+#: templates/media/media--person--search.html.twig:24
+msgid "Person"
+msgstr "Person"
+
+#: templates/media/media--video--search.html.twig:24 templates/media/media--video_upload--search.html.twig:24
+msgid "Video"
+msgstr "Video"
+
+#: templates/node/node--blog--teaser.html.twig:103 templates/node/node--normal_page--teaser.html.twig:103 templates/node/node--teaser.html.twig:103
+msgid "Author"
+msgstr "Autor"
+
+#: templates/node/node--blog--teaser.html.twig:107 templates/node/node--normal_page--teaser.html.twig:107 templates/node/node--teaser.html.twig:107
+msgid "Comments"
+msgstr "Kommentare"
+
+#: templates/node/node--event--full.html.twig:110
+msgid "Wann"
+msgstr "Wann"
+
+#: templates/node/node--event--full.html.twig:112
+msgid "Heute"
+msgstr "Heute"
+
+#: templates/node/node--event--full.html.twig:121
+msgid "Wo"
+msgstr "Wo"
+
+#: templates/node/node--event--full.html.twig:143
+msgid "Uhr"
+msgstr "Uhr"
+
+#: templates/paragraph/paragraph--slideshow--default.html.twig:43
+msgid "Slideshow"
+msgstr "Slideshow"
+
+#: templates/paragraph/paragraph--slideshow--default.html.twig:45
+msgid "Navigationshinweise zur Slideshow"
+msgstr "Navigationshinweise zur Slideshow"
+
+#: templates/paragraph/paragraph--slideshow--default.html.twig:46
+msgid "Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow"
+msgstr "Benutze im nächsten Element die Pfeiltasten links und rechts zum Blättern der Slideshow"
+
+#: templates/paragraph/paragraph--slideshow--default.html.twig:68
+msgid "Previous"
+msgstr "Zurück"
+
+#: templates/paragraph/paragraph--slideshow--default.html.twig:72
+msgid "Next"
+msgstr "Weiter"
+
+#: templates/system/pager.html.twig:36
+msgid "Pagination"
+msgstr "Seitennummerierung"
+
+#: templates/system/pager.html.twig:41
+msgid "Go to first page"
+msgstr "Zur ersten Seite"
+
+#: templates/system/pager.html.twig:42
+msgid "First page"
+msgstr "Erste Seite"
+
+#: templates/system/pager.html.twig:51
+msgid "Go to previous page"
+msgstr "Zur vorherigen Seite"
+
+#: templates/system/pager.html.twig:52
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: templates/system/pager.html.twig:85
+msgid "Go to next page"
+msgstr "Zur nächsten Seite"
+
+#: templates/system/pager.html.twig:86
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: templates/system/pager.html.twig:95
+msgid "Go to last page"
+msgstr "Zur letzten Seite"
+
+#: templates/system/pager.html.twig:96
+msgid "Last page"
+msgstr "Letzte Seite"
+
+#: templates/views/degov_search_content_include/views-view-search-media-and-content.html.twig:61
+msgid "Sort by:"
+msgstr "Sortieren nach:"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "fab fa-facebook"
+msgstr "fab fa-facebook"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "https://facebook.com"
+msgstr "https://facebook.com"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "fab fa-instagram"
+msgstr "fab fa-instagram"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "https://instagram.com"
+msgstr "https://instagram.com"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "fab fa-twitter"
+msgstr "fab fa-twitter"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "https://twitter.com/"
+msgstr "https://twitter.com/"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "fab fa-youtube"
+msgstr "fab fa-youtube"
+
+#: config/install/degov_theme.settings.yml:0
+msgid "https://youtube.com"
+msgstr "https://youtube.com"
+
+#: config/optional/block.block.belowfootermenu.yml:0 config/optional/system.menu.below-footer-menu.yml:0
+msgid "Below Footer Menu"
+msgstr "Unter Fußzeilenmenü"
+
+#: config/optional/block.block.benutzermenu.yml:0
+msgid "Benutzermenü"
+msgstr "Benutzermenü"
+
+#: config/optional/block.block.degov_theme_media_publish_date.yml:0
+msgid "Veröffentlichungsdatum"
+msgstr "Veröffentlichungsdatum"
+
+#: config/optional/block.block.degov_theme_search_media_bundle.yml:0
+msgid "Medientyp"
+msgstr "Medientyp"
+
+#: config/optional/block.block.degov_theme_search_media_sortby.yml:0
+msgid "Sort by (View Mediathek, display Mediathek)"
+msgstr "Sortieren nach (Ansicht Mediathek, Mediathek anzeigen)"
+
+#: config/optional/block.block.degov_theme_search_media_tags.yml:0 config/optional/block.block.search_content_tags.yml:0
+msgid "Schlagworte"
+msgstr "Schlagworte"
+
+#: config/optional/block.block.degov_theme_sidebarparagraphsfromnodeentity.yml:0
+msgid "Sidebar paragraphs from Node entity"
+msgstr "Abschnitte der Seitenleiste aus Beitragsentität"
+
+#: config/optional/block.block.degovsearchcontentfilter.yml:0
+msgid "DeGov search content filter"
+msgstr "deGov Filter für Inhaltssuche"
+
+#: config/optional/block.block.degovsearchmediafilters.yml:0
+msgid "DeGov search media filters"
+msgstr "deGov Filter für Mediensuche"
+
+#: config/optional/block.block.footer.yml:0
+msgid "Sitemap"
+msgstr "Sitemap"
+
+#: config/optional/block.block.hauptnavigation_2.yml:0
+msgid "Hauptnavigation"
+msgstr "Hauptnavigation"
+
+#: config/optional/block.block.mainpagecontent.yml:0
+msgid "Main page content"
+msgstr "Haupt-Seiteninhalt"
+
+#: config/optional/block.block.search_content_node_bundle.yml:0
+msgid "Inhaltstyp"
+msgstr "Inhaltstyp"
+
+#: config/optional/block.block.search_content_node_changed.yml:0
+msgid "Änderungsdatum"
+msgstr "Änderungsdatum"
+
+#: config/optional/block.block.search_content_sortby.yml:0
+msgid "Sortieren nach"
+msgstr "Sortieren nach"
+
+#: config/optional/block.block.search_content_topic.yml:0
+msgid "Thema"
+msgstr "Thema"
+
+#: config/optional/block.block.sitebranding.yml:0
+msgid "Site branding"
+msgstr "Branding der Website"
+
+#: config/optional/system.menu.below-footer-menu.yml:0
+msgid "Links under footer menu"
+msgstr "Links unter Fußzeilenmenü"
+

@@ -7,6 +7,7 @@
 
 use Drupal\degov_common\Common;
 use Symfony\Component\Yaml\Yaml;
+use Drupal\degov\TranslationImporter;
 
 /**
  * Implements hook_install().
@@ -254,9 +255,12 @@ function degov_media_image_update_870600() {
  *  - Import config translations forcore.entity_form_display.media.image.default.
  */
 function degov_media_image_update_880100() {
-  /**
-   * @var \Drupal\degov_common\TranslationImport $translationImport
-   */
-  $translationImport = \Drupal::service('degov_common.translation_import');
-  $translationImport->importConfigTranslation('de', 'core.entity_form_display.media.image.default', drupal_get_path('module', 'degov_media_image') . '/config/install/language/de/core.entity_form_display.media.image.default.yml');
+  TranslationImporter::importConfigTranslationOfModule('core.entity_form_display.media.image.default', 'media.type.image');
+}
+
+/**
+ * deGov 8.5.0 - Import config translations.
+ */
+function degov_media_image_update_880500() {
+  TranslationImporter::importConfigTranslationOfModule('media.type.image', 'degov_media_image');
 }

@@ -1,0 +1,372 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_image_and_crop_styles.breakpoints.yml: n/a
+#  degov_image_and_crop_styles.info.yml: n/a
+#  config/install/core.entity_view_mode.media.header_logo_slogan.yml: n/a
+#  config/install/core.entity_view_mode.media.slider_main_16_9.yml: n/a
+#  config/install/core.entity_view_mode.media.teaser_landscape_2_1.yml: n/a
+#  config/install/core.entity_view_mode.media.teaser_landscape_small_8_3.yml: n/a
+#  config/install/core.entity_view_mode.media.teaser_landscape_squared.yml: n/a
+#  config/install/responsive_image.styles.teaser_landscape_squared.yml: n/a
+#  config/install/core.entity_view_mode.media.teaser_opinion_4_1.yml: n/a
+#  config/install/core.entity_view_mode.media.teaser_squared_1_1.yml: n/a
+#  config/install/crop.type.12_to_5.yml: n/a
+#  config/install/crop.type.16_to_9.yml: n/a
+#  config/install/crop.type.1_to_1.yml: n/a
+#  config/install/crop.type.2_to_1.yml: n/a
+#  config/install/crop.type.4_to_1.yml: n/a
+#  config/install/crop.type.8_to_3.yml: n/a
+#  config/install/crop.type.9_to_3.yml: n/a
+#  config/install/image.style.citation_307x102.yml: n/a
+#  config/install/image.style.citation_630x205.yml: n/a
+#  config/install/image.style.citation_950x307.yml: n/a
+#  config/install/image.style.crop_9_to_3.yml: n/a
+#  config/install/image.style.logo_slogan.yml: n/a
+#  config/install/image.style.slider_full_width_1440.yml: n/a
+#  config/install/image.style.slider_full_width_1920.yml: n/a
+#  config/install/image.style.slider_full_width_480.yml: n/a
+#  config/install/image.style.slider_full_width_960.yml: n/a
+#  config/install/image.style.slider_main_16_9_1280.yml: n/a
+#  config/install/image.style.slider_main_16_9_480.yml: n/a
+#  config/install/image.style.slider_main_16_9_720.yml: n/a
+#  config/install/image.style.slider_main_16_9_960.yml: n/a
+#  config/install/image.style.teaser_landscape_2_1_1280.yml: n/a
+#  config/install/image.style.teaser_landscape_2_1_480.yml: n/a
+#  config/install/image.style.teaser_landscape_2_1_960.yml: n/a
+#  config/install/image.style.teaser_landscape_small_8_3_240.yml: n/a
+#  config/install/image.style.teaser_landscape_small_8_3_480.yml: n/a
+#  config/install/image.style.teaser_landscape_small_8_3_960.yml: n/a
+#  config/install/image.style.teaser_opinion_4_1_1280.yml: n/a
+#  config/install/image.style.teaser_opinion_4_1_480.yml: n/a
+#  config/install/image.style.teaser_opinion_4_1_960.yml: n/a
+#  config/install/image.style.teaser_squared_1_1_120.yml: n/a
+#  config/install/image.style.teaser_squared_1_1_240.yml: n/a
+#  config/install/image.style.teaser_squared_1_1_320.yml: n/a
+#  config/install/image.style.teaser_squared_1_1_480.yml: n/a
+#  config/install/image.style.teaser_squared_1_1_720.yml: n/a
+#  config/install/responsive_image.styles.citation_teaser.yml: n/a
+#  config/install/responsive_image.styles.slider_full_width.yml: n/a
+#  config/install/responsive_image.styles.slider_main.yml: n/a
+#  config/install/responsive_image.styles.teaser_landscape.yml: n/a
+#  config/install/responsive_image.styles.teaser_landscape_small.yml: n/a
+#  config/install/responsive_image.styles.teaser_opinion.yml: n/a
+#  config/install/responsive_image.styles.teaser_squared.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:57+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_image_and_crop_styles.breakpoints.yml:0
+msgid "Extra small"
+msgstr "Extra klein"
+
+#: degov_image_and_crop_styles.breakpoints.yml:0;0;0;0
+msgid "degov_image_and_crop_styles.media"
+msgstr "degov_image_und_crop_styles.media"
+
+#: degov_image_and_crop_styles.breakpoints.yml:0
+msgid "Small"
+msgstr "Klein"
+
+#: degov_image_and_crop_styles.breakpoints.yml:0
+msgid "Medium"
+msgstr "Mittel"
+
+#: degov_image_and_crop_styles.breakpoints.yml:0
+msgid "Large and up"
+msgstr "Groß und größer"
+
+#: degov_image_and_crop_styles.info.yml:0
+msgid "deGov - Image And Crop Styles"
+msgstr "deGov Bilder und Zuschnitte"
+
+#: degov_image_and_crop_styles.info.yml:0
+msgid "Provides a configuration for breakpoints, responsive images, cropping and image styles"
+msgstr "Erzeugt eine Konfiguration für Breakpoints, responsive Bilder, Beschneiden und Bildstile"
+
+#: degov_image_and_crop_styles.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/core.entity_view_mode.media.header_logo_slogan.yml:0
+msgid "Header Logo oder Slogan"
+msgstr "Logo oder Slogan für Kopfzeile"
+
+#: config/install/core.entity_view_mode.media.slider_main_16_9.yml:0
+msgid "Slider main (16:9)"
+msgstr "Main Slider (16:9)"
+
+#: config/install/core.entity_view_mode.media.teaser_landscape_2_1.yml:0
+msgid "Teaser landscape (2:1)"
+msgstr "Teaser Querformat (2:1)"
+
+#: config/install/core.entity_view_mode.media.teaser_landscape_small_8_3.yml:0
+msgid "Teaser landscape small (8:3)"
+msgstr "Teaser Querformat, klein (8:3)"
+
+#: config/install/core.entity_view_mode.media.teaser_landscape_squared.yml:0 config/install/responsive_image.styles.teaser_landscape_squared.yml:0
+msgid "Teaser landscape to squared"
+msgstr "Teaser Querformat bis quadratisch"
+
+#: config/install/core.entity_view_mode.media.teaser_opinion_4_1.yml:0
+msgid "Teaser opinion (4:1)"
+msgstr "Teaser Meinung (4:1)"
+
+#: config/install/core.entity_view_mode.media.teaser_squared_1_1.yml:0
+msgid "Teaser squared (1:1)"
+msgstr "Teaser quadratisch (1:1)"
+
+#: config/install/crop.type.12_to_5.yml:0
+msgid "12 to 5"
+msgstr "12 zu 5"
+
+#: config/install/crop.type.12_to_5.yml:0
+msgid "12:5 cropping, for example for Full Width slider"
+msgstr "12:5 Bildzuschnitt, z. B. für Slider, volle Breite"
+
+#: config/install/crop.type.16_to_9.yml:0
+msgid "16 zu 9"
+msgstr "16 zu 9"
+
+#: config/install/crop.type.16_to_9.yml:0
+msgid "16:9 Bildzuschnitt, z.B. für Main Slider"
+msgstr "16:9 Bildzuschnitt, z. B. für Main Slider"
+
+#: config/install/crop.type.1_to_1.yml:0
+msgid "1 zu 1"
+msgstr "1 zu 1"
+
+#: config/install/crop.type.1_to_1.yml:0
+msgid "1:1 Bildzuschnitt, z.B. für Teaser squared"
+msgstr "1:1 Bildzuschnitt, z. B. für Teaser quadratisch"
+
+#: config/install/crop.type.2_to_1.yml:0
+msgid "2 zu 1"
+msgstr "2 zu 1"
+
+#: config/install/crop.type.2_to_1.yml:0
+msgid "2:1 Bildzuschnitt, z.B. für Teaser Landscape oder Teaser Topic"
+msgstr "2:1 Bildzuschnitt, z. B. für Teaser Landscape oder Teaser Topic"
+
+#: config/install/crop.type.4_to_1.yml:0
+msgid "4 zu 1"
+msgstr "4 zu 1"
+
+#: config/install/crop.type.4_to_1.yml:0
+msgid "4:1 Bildzuschnitt, z.B. für Opinion Teaser"
+msgstr "4:1 Bildzuschnitt, z. B. für Opinion Teaser"
+
+#: config/install/crop.type.8_to_3.yml:0
+msgid "8 zu 3"
+msgstr "8 zu 3"
+
+#: config/install/crop.type.8_to_3.yml:0
+msgid "8:3 Bildzuschnitt, z.B. für Teaser Landscape Small"
+msgstr "8:3 Bildzuschnitt, z. B. für Teaser Landscape Small"
+
+#: config/install/crop.type.9_to_3.yml:0
+msgid "9 zu 3"
+msgstr "9 zu 3"
+
+#: config/install/crop.type.9_to_3.yml:0
+msgid "9:3 Bildzuschnitt, z.B. für Citation image"
+msgstr "9:3 Bildzuschnitt, z. B. für Zitat-Bild"
+
+#: config/install/image.style.citation_307x102.yml:0
+msgid "Citation (307x102)"
+msgstr "Zitat (307x102)"
+
+#: config/install/image.style.citation_630x205.yml:0
+msgid "Citation (630x205)"
+msgstr "Zitat (630x205)"
+
+#: config/install/image.style.citation_950x307.yml:0
+msgid "Citation (950x307)"
+msgstr "Zitat (950x307)"
+
+#: config/install/image.style.crop_9_to_3.yml:0
+msgid "Cropped: 9 zu 3"
+msgstr "Zugeschnitten: 9 zu 3"
+
+#: config/install/image.style.logo_slogan.yml:0
+msgid "Logo oder Slogan (55h)"
+msgstr "Logo oder Slogan (55h)"
+
+#: config/install/image.style.slider_full_width_1440.yml:0
+msgid "Slider full width 1440"
+msgstr "Slider volle Breite 1440"
+
+#: config/install/image.style.slider_full_width_1920.yml:0
+msgid "Slider full width 1920"
+msgstr "Slider volle Breite 1920"
+
+#: config/install/image.style.slider_full_width_480.yml:0
+msgid "Slider full width 480"
+msgstr "Slider volle Breite 480"
+
+#: config/install/image.style.slider_full_width_960.yml:0
+msgid "Slider full width 960"
+msgstr "Slider volle Breite 960"
+
+#: config/install/image.style.slider_main_16_9_1280.yml:0
+msgid "Slider main (16:9) 1280"
+msgstr "Main Slider (16:9) 1280"
+
+#: config/install/image.style.slider_main_16_9_480.yml:0
+msgid "Slider main (16:9) 480"
+msgstr "Main Slider (16:9) 480"
+
+#: config/install/image.style.slider_main_16_9_720.yml:0
+msgid "Slider main (16:9) 720"
+msgstr "Main Slider (16:9) 720"
+
+#: config/install/image.style.slider_main_16_9_960.yml:0
+msgid "Slider main (16:9) 960"
+msgstr "Main Slider (16:9) 960"
+
+#: config/install/image.style.teaser_landscape_2_1_1280.yml:0
+msgid "Teaser landscape (2:1) 1280"
+msgstr "Teaser Querformat (2:1) 1280"
+
+#: config/install/image.style.teaser_landscape_2_1_480.yml:0
+msgid "Teaser landscape (2:1) 480"
+msgstr "Teaser Querformat (2:1) 480"
+
+#: config/install/image.style.teaser_landscape_2_1_960.yml:0
+msgid "Teaser landscape (2:1) 960"
+msgstr "Teaser Querformat (2:1) 960"
+
+#: config/install/image.style.teaser_landscape_small_8_3_240.yml:0
+msgid "Teaser landscape small (8:3) 240"
+msgstr "Teaser Querformat, klein (8:3) 240"
+
+#: config/install/image.style.teaser_landscape_small_8_3_480.yml:0
+msgid "Teaser landscape small (8:3) 480"
+msgstr "Teaser Querformat, klein (8:3) 480"
+
+#: config/install/image.style.teaser_landscape_small_8_3_960.yml:0
+msgid "Teaser landscape small (8:3) 960"
+msgstr "Teaser Querformat, klein (8:3) 960"
+
+#: config/install/image.style.teaser_opinion_4_1_1280.yml:0
+msgid "Teaser opinion (4:1) 1280"
+msgstr "Teaser Meinung (4:1) 1280"
+
+#: config/install/image.style.teaser_opinion_4_1_480.yml:0
+msgid "Teaser opinion (4:1) 480"
+msgstr "Teaser Meinung (4:1) 480"
+
+#: config/install/image.style.teaser_opinion_4_1_960.yml:0
+msgid "Teaser opinion (4:1) 960"
+msgstr "Teaser Meinung (4:1) 960"
+
+#: config/install/image.style.teaser_squared_1_1_120.yml:0
+msgid "Teaser squared (1:1) 120"
+msgstr "Teaser quadratisch (1:1) 120"
+
+#: config/install/image.style.teaser_squared_1_1_240.yml:0
+msgid "Teaser squared (1:1) 240"
+msgstr "Teaser quadratisch (1:1) 240"
+
+#: config/install/image.style.teaser_squared_1_1_320.yml:0
+msgid "Teaser squared (1:1) 320"
+msgstr "Teaser quadratisch (1:1) 320"
+
+#: config/install/image.style.teaser_squared_1_1_480.yml:0
+msgid "Teaser squared (1:1) 480"
+msgstr "Teaser quadratisch (1:1) 480"
+
+#: config/install/image.style.teaser_squared_1_1_720.yml:0
+msgid "Teaser squared (1:1) 720"
+msgstr "Teaser quadratisch (1:1) 720"
+
+#: config/install/responsive_image.styles.citation_teaser.yml:0
+msgid "Citation Teaser"
+msgstr "Teaser Zitat"
+
+#: config/install/responsive_image.styles.slider_full_width.yml:0
+msgid "Slider full width"
+msgstr "Slider volle Breite"
+
+#: config/install/responsive_image.styles.slider_main.yml:0
+msgid "Slider main"
+msgstr "Main Slider"
+
+#: config/install/responsive_image.styles.teaser_landscape.yml:0
+msgid "Teaser landscape"
+msgstr "Teaser Querformat"
+
+#: config/install/responsive_image.styles.teaser_landscape_small.yml:0
+msgid "Teaser landscape small"
+msgstr "Teaser Querformat, klein"
+
+#: config/install/responsive_image.styles.teaser_opinion.yml:0
+msgid "Teaser opinion"
+msgstr "Teaser Meinung"
+
+#: config/install/responsive_image.styles.teaser_squared.yml:0
+msgid "Teaser squared"
+msgstr "Teaser quadratisch"
+
+msgid "Header Logo oder Slogan"
+msgstr "Header Logo oder Slogan"
+
+msgid "12:5 crop, for example for Full Width slider"
+msgstr "12:5 Bildzuschnitt, z. B. für Slider volle Breite"
+
+msgid "16 by 9"
+msgstr "16 zu 9"
+
+msgid "16:9 crop, e.g. for Slider main"
+msgstr "16:9 Bildzuschnitt, z. B. für Main Slider"
+
+msgid "1 by 1"
+msgstr "1 zu 1"
+
+msgid "1:1 crop, e.g. for Teaser squared"
+msgstr "1:1 Bildzuschnitt, z. B. für Teaser quadratisch"
+
+msgid "2 by 1"
+msgstr "2 zu 1"
+
+msgid "2:1 crop, e.g. for Teaser landscape or Teaser topic"
+msgstr ":1 Bildzuschnitt, z. B. für Teaser Landscape oder Teaser Topic"
+
+msgid "4 by 1"
+msgstr "4 zu 1"
+
+msgid "4:1 crop, e.g. for Teaser opinion"
+msgstr "4:1 Bildzuschnitt, z. B. für Teaser Meinung"
+
+msgid "8 by 3"
+msgstr "8 zu 3"
+
+msgid "8:3 crop, e.g. for Teaser landscape small"
+msgstr "8:3 Bildzuschnitt, z. B. für Teaser Querformat Klein"
+
+msgid "9 by 3"
+msgstr "9 zu 3"
+
+msgid "9:3 crop, e.g. for Citation image"
+msgstr "9:3 Bildzuschnitt, z. B. für Zitat-Bild"
+
+msgid "Cropped: 9 by 3"
+msgstr "Zugeschnitten: 9 by 3"
+
+msgid "Logo or slogan (55h)"
+msgstr "Logo oder Slogan (55h)"
+
+msgid "Header logo or slogan"
+msgstr "Header Logo oder Slogan"

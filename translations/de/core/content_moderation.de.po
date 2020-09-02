@@ -1,0 +1,489 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  content_moderation.module: n/a
+#  content_moderation.install: n/a
+#  content_moderation.info.yml: n/a
+#  content_moderation.links.task.yml: n/a
+#  content_moderation.routing.yml: n/a
+#  config/optional/views.view.moderated_content.yml: n/a
+#  content_moderation.permissions.yml: n/a
+#  config/schema/content_moderation.schema.yml: n/a
+#  src/Form/ContentModerationConfigureForm.php: n/a
+#  config/schema/content_moderation.views.schema.yml: n/a
+#  src/Entity/ContentModerationState.php: n/a
+#  src/EntityTypeInfo.php: n/a
+#  src/ModeratedNodeListBuilder.php: n/a
+#  src/ViewsData.php: n/a
+#  src/Form/EntityModerationForm.php: n/a
+#  src/Plugin/Field/FieldWidget/ModerationStateWidget.php: n/a
+#  src/ModerationInformation.php: n/a
+#  src/Permissions.php: n/a
+#  src/Plugin/Field/FieldFormatter/ContentModerationStateFormatter.php: n/a
+#  src/Entity/Handler/BlockContentModerationHandler.php: n/a
+#  src/Entity/Handler/NodeModerationHandler.php: n/a
+#  src/EventSubscriber/ConfigImportSubscriber.php: n/a
+#  src/Form/ContentModerationConfigureEntityTypesForm.php: n/a
+#  src/Form/ContentModerationStateForm.php: n/a
+#  src/Plugin/Action/ModerationOptOutPublish.php: n/a
+#  src/Plugin/Action/ModerationOptOutUnpublish.php: n/a
+#  src/Plugin/Derivative/DynamicLocalTasks.php: n/a
+#  src/Plugin/Validation/Constraint/ModerationStateConstraint.php: n/a
+#  src/Plugin/WorkflowType/ContentModeration.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: content_moderation.module:42
+msgid "About"
+msgstr "Über"
+
+#: content_moderation.module:43
+msgid "The Content Moderation module allows you to expand on Drupal's \"unpublished\" and \"published\" states for content. It allows you to have a published version that is live, but have a separate working copy that is undergoing review before it is published. This is achieved by using <a href=\":workflows\">Workflows</a> to apply different states and transitions to entities as needed. For more information, see the <a href=\":content_moderation\">online documentation for the Content Moderation module</a>."
+msgstr "Das Content-Moderation-Modul ermöglicht es auf Drupals Standardstatus für Inhalte „unveröffentlicht“ bzw. „veröffentlicht“ aufzubauen. Es ermöglicht das Arbeiten mit einer veröffentlichten Liveversion eines Inhalts und bietet zusätzlich die Möglichkeit, mit einer separaten Kopie zu des selben Inhalts zu arbeiten. Diese Kopie kann vor der Veröffentlichung überprüft, bzw, redigiert werden. Zu diesem Zweck werden <a href=\":workflows\">Arbeitsabläufe</a> eingesetzt. Arbeitsabläufe dienen dazu Inhalten mit Hilfe von Änderungsvorgängen je nach abgeschlossenem Arbeitsschritt einen anderen Status zuzuweisen. Weitere Informationen sind in der <a href=\":content_moderation\">Online-Dokumentation des Content-Moderation-Moduls</a> verfügbar."
+
+#: content_moderation.module:44
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: content_moderation.module:46
+msgid "Applying workflows"
+msgstr "Arbeitsabläufe werden angewendet"
+
+#: content_moderation.module:47
+msgid "Content Moderation allows you to apply <a href=\":workflows\">Workflows</a> to content, custom blocks, and other <a href=\":field_help\" title=\"Field module help, with background on content entities\">content entities</a>, to provide more fine-grained publishing options. For example, a Basic page might have states such as Draft and Published, with allowed transitions such as Draft to Published (making the current revision \"live\"), and Published to Draft (making a new draft revision of published content)."
+msgstr "Content Moderation ermöglicht das Erstellen von <a href=\":workflows\">Arbeitsabläufen</a>, die auf Inhalte, benutzerdefinierte Blöcke und andere <a href=\":field_help\" title=\"Feld-Modul-Hilfe mit Hintergrundinformationen zu Inhaltsentitäten\">Inhaltsentitäten</a> angewendet werden können, um genauer festlegen zu können, unter welchen Bedingungen Inhalte veröffentlicht werden sollen. Eine einfache Seite kann beispielsweise den Status „Entwurf“ oder den Status „Veröffentlicht“ haben. Dazwischen können Arbeitsschritte festgelegt (aktuelle Revision „live“ schalten) oder veröffentlichte Inhalte als Entwurf abgelegt werden (einen neuen Entwurf aus einem bereits veröffentlichten Inhalt heraus erstellen)."
+
+#: content_moderation.module:51
+msgid "Moderating content"
+msgstr "Inhalte moderieren"
+
+#: content_moderation.module:52
+msgid "You can view a list of content awaiting moderation on the <a href=\":moderated\">moderated content page</a>. This will show any content in an unpublished state, such as Draft or Archived, to help surface content that requires more work from content editors."
+msgstr "Eine Liste von Inhalten, die überprüft und freigegeben werden müssen, kann auf der Seite <a href=\":moderated\">Moderierte Inhalte</a> eingesehen werden. Auf dieser Seite werden alle Inhalte angezeigt, die den Status „veröffentlicht“ noch nicht erreicht haben. Dazu gehören Entwürfe sowie archiveierte Beiträge. Diese Übersicht hilft dabei Inhalte zu finden, die noch durch die Autoren der Website überprüft und überarbeitet werden müssen."
+
+#: content_moderation.module:55
+msgid "Configure Content Moderation permissions"
+msgstr "Berechtigung für die Moderation von Inhalten konfigurieren"
+
+#: content_moderation.module:56
+msgid "Each transition is exposed as a permission. If a user has the permission for a transition, they can use the transition to change the state of the content item, from Draft to Published."
+msgstr "Jeder Änderungsvorgang wird als Berechtigung hervorgehoben. Wenn ein Benutzer die Berechtigung für einen Änderungsvorgang hat, kann dieser dazu verwendet werden den Status eines Inhaltselements zu ändern, von Entwurf zu veröffentlicht."
+
+#: content_moderation.install:16
+msgid "Content Moderation can not be installed when Workspaces is also installed."
+msgstr "Das Content-Moderation-Modul kann nicht installiert werden, wenn das Workspaces-Modul bereits installiert ist."
+
+#: content_moderation.info.yml:0
+msgid "Content Moderation"
+msgstr "Inhaltsmoderation"
+
+#: content_moderation.info.yml:0
+msgid "Provides moderation states for content."
+msgstr "Ermöglicht das Anwenden eines Moderationsstatus auf Inhalte."
+
+#: content_moderation.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: content_moderation.links.task.yml:0
+msgid "Overview"
+msgstr "Übersicht"
+
+#: content_moderation.links.task.yml:0 content_moderation.routing.yml:0 config/optional/views.view.moderated_content.yml:0;0;0
+msgid "Moderated content"
+msgstr "Moderierter Inhalt"
+
+#: content_moderation.permissions.yml:0
+msgid "View any unpublished content"
+msgstr "Alle unveröffentlichten Inhalte anzeigen"
+
+#: content_moderation.permissions.yml:0
+msgid "View the latest version"
+msgstr "Neueste Version anzeigen"
+
+#: content_moderation.permissions.yml:0
+msgid "Requires the \"View any unpublished content\" or \"View own unpublished content\" permission"
+msgstr "Erfordert die Berechtigung „Alle nicht veröffentlichten Inhalte anzeigen“ oder „Eigene nicht veröffentlichte Inhalte anzeigen“"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Is published"
+msgstr "Ist veröffentlicht"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Is default revision"
+msgstr "Ist Standard-Revision"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Content moderation states"
+msgstr "Status der Inhalts-Moderation"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "States"
+msgstr "Status"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Transitions"
+msgstr "Übergänge"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Entity types"
+msgstr "Entitätstypen"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Bundles"
+msgstr "Subtypen"
+
+#: config/schema/content_moderation.schema.yml:0
+msgid "Bundle ID"
+msgstr "Subtyp-ID"
+
+#: config/schema/content_moderation.schema.yml:0 src/Form/ContentModerationConfigureForm.php:140
+msgid "Default moderation state"
+msgstr "Der standardmäßige Moderationsstatus"
+
+#: config/schema/content_moderation.views.schema.yml:0
+msgid "Latest revision"
+msgstr "Neueste Version"
+
+#: config/schema/content_moderation.views.schema.yml:0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/content_moderation.views.schema.yml:0
+msgid "Moderation state filter"
+msgstr "Moderationsstatusfilter"
+
+#: config/schema/content_moderation.views.schema.yml:0;0 src/Entity/ContentModerationState.php:67
+msgid "Workflow"
+msgstr "Arbeitsablauf"
+
+#: src/EntityTypeInfo.php:198
+msgid "Moderation control"
+msgstr "Moderationssteuerung"
+
+#: src/EntityTypeInfo.php:199
+msgid "Status listing and form for the entity's moderation state."
+msgstr "Statusauflistung und Formular für den Moderationsstatus des Objektes."
+
+#: src/EntityTypeInfo.php:249 src/ModeratedNodeListBuilder.php:104 src/ViewsData.php:67;91 src/Entity/ContentModerationState.php:74 src/Form/EntityModerationForm.php:105 src/Plugin/Field/FieldWidget/ModerationStateWidget.php:17 config/optional/views.view.moderated_content.yml:0;0
+msgid "Moderation state"
+msgstr "Moderationsstatus"
+
+#: src/EntityTypeInfo.php:250
+msgid "The moderation state of this piece of content."
+msgstr "Der Moderationsstatus dieses Inhalts."
+
+#: src/ModeratedNodeListBuilder.php:124
+msgid "There is no moderated @label yet. Only pending versions of @label, such as drafts, are listed here."
+msgstr "Es gibt noch kein moderiertes @label. Nur ausstehende Versionen von @label, z. B. Entwürfe, werden hier angezeigt."
+
+#: src/ModerationInformation.php:238
+msgid "@entity_type_plural_label do not support publishing statuses. For example, even after transitioning from a published workflow state to an unpublished workflow state they will still be visible to site visitors."
+msgstr "@entity_type_plural_label unterstützen den Status veröffentlicht nicht. So bleiben diese für Website-Besucher immer noch sichtbar, auch wenn vom Arbeitsablaufstatus veröffentlicht zum Arbeitsablaufstatus archiviert übergegangen wurde."
+
+#: src/Permissions.php:29
+msgid "%workflow workflow: Use %transition transition."
+msgstr "Der Arbeitsablauf %workflow verwendet folgenden Änderungsvorgang: %transition"
+
+#: src/ViewsData.php:70;94
+msgid "@label moderation state"
+msgstr "@label Moderationsstatus"
+
+#: src/Entity/ContentModerationState.php:62 config/optional/views.view.moderated_content.yml:0
+msgid "User"
+msgstr "Benutzer"
+
+#: src/Entity/ContentModerationState.php:63
+msgid "The username of the entity creator."
+msgstr "Der Benutzername des Autors der Entität."
+
+#: src/Entity/ContentModerationState.php:68
+msgid "The workflow the moderation state is in."
+msgstr "Der Arbeitsablauf, in dem sich der Moderationsstatus befindet."
+
+#: src/Entity/ContentModerationState.php:75
+msgid "The moderation state of the referenced content."
+msgstr "Der Moderationsstatus des referenzierten Inhaltes."
+
+#: src/Entity/ContentModerationState.php:81
+msgid "Content entity type ID"
+msgstr "Inhaltsentitätstyp-ID"
+
+#: src/Entity/ContentModerationState.php:82
+msgid "The ID of the content entity type this moderation state is for."
+msgstr "Die ID des Inhaltsentitätstyps, für den dieser Moderationsstatus steht."
+
+#: src/Entity/ContentModerationState.php:88
+msgid "Content entity ID"
+msgstr "Inhaltsentitäts-ID"
+
+#: src/Entity/ContentModerationState.php:89
+msgid "The ID of the content entity this moderation state is for."
+msgstr "Die ID der Inhaltsentität, für die dieser Moderationsstatus steht."
+
+#: src/Entity/ContentModerationState.php:94
+msgid "Content entity revision ID"
+msgstr "Inhaltsentität-Revisions-ID"
+
+#: src/Entity/ContentModerationState.php:95
+msgid "The revision ID of the content entity this moderation state is for."
+msgstr "Die Revisions-ID der Inhaltsentität, für die dieser Moderationsstatus steht."
+
+#: src/Entity/ContentModerationState.php:12 src/Plugin/Field/FieldFormatter/ContentModerationStateFormatter.php:12
+msgid "Content moderation state"
+msgstr "Inhaltsmoderationsstatus"
+
+#: src/Entity/ContentModerationState.php:12
+msgid "content moderation state"
+msgstr "Inhaltsmoderationsstatus"
+
+#: src/Entity/ContentModerationState.php:12
+msgid "content moderation states"
+msgstr "Inhaltsmoderationsstatus"
+
+#: src/Entity/Handler/BlockContentModerationHandler.php:20;29
+msgid "Revisions must be required when moderation is enabled."
+msgstr "Revisionen müssen erforderlich sein, wenn eine Moderation aktiviert ist."
+
+#: src/Entity/Handler/NodeModerationHandler.php:49
+msgid "Revisions are required."
+msgstr "Revisionen sind erforderlich."
+
+#: src/EventSubscriber/ConfigImportSubscriber.php:64
+msgid "The moderation state @state_label is being used, but is not in the source storage."
+msgstr "Der Moderationsstatus @state_label wird verwendet ist aber nicht Teil der Quelle."
+
+#: src/EventSubscriber/ConfigImportSubscriber.php:70
+msgid "The workflow @workflow_label is being used, and cannot be deleted."
+msgstr "Der Arbeitsablauf @workflow_label wird momentan verwendet und kann nicht gelöscht werden."
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:132
+msgid "All @entity_type types"
+msgstr "Alle @entity_type-Typen"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:134
+msgid "All @entity_type_plural_label"
+msgstr "Alle @entity_type_plural_label"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:162
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:169
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:210 src/Form/ContentModerationConfigureForm.php:102
+msgid "none"
+msgstr "keine"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:224
+msgid "Select the @entity_type types for the @workflow workflow"
+msgstr "@entity_type Typen für den Arbeitsablauf @workflow auswählen"
+
+#: src/Form/ContentModerationConfigureEntityTypesForm.php:226
+msgid "Select the @entity_type_plural_label for the @workflow workflow"
+msgstr "Wählen Sie die @entity_type_plural_label für den @workflow Workflow"
+
+#: src/Form/ContentModerationConfigureForm.php:71
+msgid "Items"
+msgstr "Elemente"
+
+#: src/Form/ContentModerationConfigureForm.php:72 config/optional/views.view.moderated_content.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/ContentModerationConfigureForm.php:76
+msgid "This workflow applies to:"
+msgstr "Dieser Arbeitsablauf bezieht sich auf:"
+
+#: src/Form/ContentModerationConfigureForm.php:82
+msgid "There are no entity types."
+msgstr "Es gibt keine Entitätstypen."
+
+#: src/Form/ContentModerationConfigureForm.php:109
+msgid "@bundle types"
+msgstr "@bundle-Typen"
+
+#: src/Form/ContentModerationConfigureForm.php:118
+msgid "Select"
+msgstr "Auswählen"
+
+#: src/Form/ContentModerationConfigureForm.php:136
+msgid "Workflow Settings"
+msgstr "Arbeitsablaufeinstellungen"
+
+#: src/Form/ContentModerationConfigureForm.php:144
+msgid "Select the state that new content will be assigned. This state will appear as the default in content forms and the available target states will be based on the transitions available from this state."
+msgstr "Hier kann der Status ausgewählt werden, dem neue Inhalte zugewiesen werden sollen. Dieser Status wird als Standard in Inhaltsformularen angezeigt und die verfügbaren Zielstatus basieren auf den Übergängen, die aus diesem Status verfügbar sind."
+
+#: src/Form/ContentModerationStateForm.php:27
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: src/Form/ContentModerationStateForm.php:28
+msgid "When content reaches this state it should be published."
+msgstr "Wenn der Inhalt diesen Status erreicht soll er veröffentlicht werden."
+
+#: src/Form/ContentModerationStateForm.php:35
+msgid "Default revision"
+msgstr "Standard-Revision"
+
+#: src/Form/ContentModerationStateForm.php:36
+msgid "When content reaches this state it should be made the default revision; this is implied for published states."
+msgstr "Wenn Inhalte diesen Status erreichen, sollten sie zur Standard-Revision erklärt werden; wird für den Status „Veröffentlicht“ vorausgesetzt."
+
+#: src/Form/EntityModerationForm.php:115 src/Plugin/Field/FieldWidget/ModerationStateWidget.php:152
+msgid "Change to"
+msgstr "Ändern in"
+
+#: src/Form/EntityModerationForm.php:121
+msgid "Log message"
+msgstr "Protokollnachricht"
+
+#: src/Form/EntityModerationForm.php:127
+msgid "Apply"
+msgstr "Anwenden"
+
+#: src/Form/EntityModerationForm.php:157
+msgid "The moderation state has been updated."
+msgstr "Der Moderationsstatus wurde aktualisiert."
+
+#: src/Plugin/Action/ModerationOptOutPublish.php:89
+msgid "@bundle @label were skipped as they are under moderation and may not be directly published."
+msgstr "@bundle @label wurden übersprungen da diese moderiert werden und unter Umständen nicht direkt veröffentlicht werden können."
+
+#: src/Plugin/Action/ModerationOptOutUnpublish.php:89
+msgid "@bundle @label were skipped as they are under moderation and may not be directly unpublished."
+msgstr "@bundle @label wurde übersprungen, da dieser Eintrag von einem Moderator verwaltet wird und die Veröffentlichung des Eintrags nicht direkt zurückgezogen werden kann."
+
+#: src/Plugin/Derivative/DynamicLocalTasks.php:86
+msgid "Latest version"
+msgstr "Neueste Version"
+
+#: src/Plugin/Field/FieldWidget/ModerationStateWidget.php:143
+msgid "Current state"
+msgstr "Aktueller Status"
+
+#: src/Plugin/Field/FieldWidget/ModerationStateWidget.php:152
+msgid "Save as"
+msgstr "Speichern unter"
+
+#: src/Plugin/Validation/Constraint/ModerationStateConstraint.php:7
+msgctxt "Validation"
+msgid "Valid moderation state"
+msgstr "Gültiger Moderationsstatus"
+
+#: src/Plugin/Validation/Constraint/ModerationStateConstraint.php:17
+msgid "Invalid state transition from %from to %to"
+msgstr "Ungültige Statusänderung von %from zu %to"
+
+#: src/Plugin/Validation/Constraint/ModerationStateConstraint.php:18
+msgid "State %state does not exist on %workflow workflow"
+msgstr "Der Status %state existiert im Arbeitsablauf %workflow nicht."
+
+#: src/Plugin/WorkflowType/ContentModeration.php:18
+msgid "Content moderation"
+msgstr "Content moderation"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Find and moderate content."
+msgstr "Inhalte ausfindig machen und verwalten."
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "« First"
+msgstr "« Anfang"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Last »"
+msgstr "Ende »"
+
+#: config/optional/views.view.moderated_content.yml:0;0
+msgid "Title"
+msgstr "Titel"
+
+#: config/optional/views.view.moderated_content.yml:0;0;0;0;0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.moderated_content.yml:0;0
+msgid "Content type"
+msgstr "Inhaltstyp"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Author"
+msgstr "Autor"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Language"
+msgstr "Sprache"
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "No moderated content available. Only pending versions of content, such as drafts, are listed here."
+msgstr "Es stehen keine moderierten Inhalte zur Verfügung. In diesem Bereich werden ausschließlich ausstehende Inhaltsversion, z. B. Entwürfe, angezeigt."
+
+#: config/optional/views.view.moderated_content.yml:0
+msgid "Get the actual content from a content revision."
+msgstr "Den aktuellen Inhalt einer Version laden."
+

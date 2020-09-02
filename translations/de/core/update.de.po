@@ -1,0 +1,814 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  update.authorize.inc: n/a
+#  src/Form/UpdateManagerInstall.php: n/a
+#  src/Form/UpdateReady.php: n/a
+#  update.compare.inc: n/a
+#  update.module: n/a
+#  update.manager.inc: n/a
+#  update.report.inc: n/a
+#  update.install: n/a
+#  update.info.yml: n/a
+#  update.links.action.yml: n/a
+#  update.routing.yml: n/a
+#  update.links.menu.yml: n/a
+#  update.links.task.yml: n/a
+#  config/schema/update.schema.yml: n/a
+#  src/UpdateSettingsForm.php: n/a
+#  src/UpdateManager.php: n/a
+#  src/Controller/UpdateController.php: n/a
+#  src/Form/UpdateManagerUpdate.php: n/a
+#  templates/update-version.html.twig: n/a
+#  templates/update-last-check.html.twig: n/a
+#  templates/update-project-status.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: update.authorize.inc:53
+msgid "Preparing to update your site"
+msgstr "Aktualisierung der Website wird vorbereitet"
+
+#: update.authorize.inc:63
+msgid "Installing updates"
+msgstr "Aktualisierungen werden installiert"
+
+#: update.authorize.inc:106
+msgid "Preparing to install"
+msgstr "Vorbereitung auf das Installieren"
+
+#: update.authorize.inc:117
+msgid "Installing %project"
+msgstr "%project wird installiert"
+
+#: update.authorize.inc:181
+msgid "Error installing / updating"
+msgstr "Fehler beim Installieren / Aktualisieren"
+
+#: update.authorize.inc:187
+msgid "Installed %project_name successfully"
+msgstr "%project_name erfolgreich installiert"
+
+#: update.authorize.inc:225
+msgid "Update was completed successfully. Your site has been taken out of maintenance mode."
+msgstr "Aktualisierung wurde erfolgreich abgeschlossen. Die Website wurde wieder aus dem Wartungsmodus genommen."
+
+#: update.authorize.inc:231
+msgid "Update was completed successfully."
+msgstr "Aktualisierung wurde erfolgreich abgeschlossen."
+
+#: update.authorize.inc:238
+msgid "Update failed! See the log below for more information."
+msgstr "Aktualisierung fehlgeschlagen! Das unten stehende Protokoll enthält weitere Informationen."
+
+#: update.authorize.inc:244
+msgid "Update failed! See the log below for more information. Your site is still in maintenance mode."
+msgstr "Aktualisierung fehlgeschlagen! Das unten stehende Protokoll enthält weitere Informationen. Die Website ist weiterhin im Wartungsmodus."
+
+#: update.authorize.inc:251
+msgid "Your modules have been downloaded and updated."
+msgstr "Die Module wurden heruntergeladen und aktualisiert."
+
+#: update.authorize.inc:255
+msgid "Run database updates"
+msgstr "Datenbankaktualisierungen durchführen"
+
+#: update.authorize.inc:275;336 src/Form/UpdateManagerInstall.php:251 src/Form/UpdateReady.php:169
+msgid "Update manager"
+msgstr "Update-Manager"
+
+#: update.authorize.inc:304
+msgid "Installation was completed successfully. Your site has been taken out of maintenance mode."
+msgstr "Installation wurde erfolgreich abgeschlossen. Die Website wurde aus dem Wartungsmodus genommen."
+
+#: update.authorize.inc:310
+msgid "Installation was completed successfully."
+msgstr "Installation wurde erfolgreich abgeschlossen."
+
+#: update.authorize.inc:317
+msgid "Installation failed! See the log below for more information."
+msgstr "Installation fehlgeschlagen! Das Protokoll enthält weitere Informationen."
+
+#: update.authorize.inc:323
+msgid "Installation failed! See the log below for more information. Your site is still in maintenance mode."
+msgstr "Installation fehlgeschlagen! Das nachfolgende Protokoll enthält weitere Informationen. Die Website ist weiterhin im Wartungsmodus."
+
+#: update.compare.inc:49 update.module:700
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: update.compare.inc:99;293;437
+msgid "No available releases found"
+msgstr "Keine verfügbaren Veröffentlichungen gefunden"
+
+#: update.compare.inc:190
+msgid "Project not secure"
+msgstr "Das Projekt ist unsicher"
+
+#: update.compare.inc:191
+msgid "This project has been labeled insecure by the Drupal security team, and is no longer available for download. Immediately disabling everything included by this project is strongly recommended!"
+msgstr "Dieses Projekt wurde vom Drupal-Sicherheitsteam als unsicher eingestuft und ist nicht mehr zum Herunterladen verfügbar. Es wird dringend empfohlen, alles zu deaktivieren, was dieses Projekt beinhaltet!"
+
+#: update.compare.inc:201
+msgid "Project revoked"
+msgstr "Das Projekt wurde zurückgezogen"
+
+#: update.compare.inc:202
+msgid "This project has been revoked, and is no longer available for download. Disabling everything included by this project is strongly recommended!"
+msgstr "Dieses Projekt wurde zurückgezogen und kann nicht mehr heruntergeladen werden. Es wird dringend empfohlen alles was dieses Projekt beinhaltet zu deaktivieren!"
+
+#: update.compare.inc:211
+msgid "Project not supported"
+msgstr "Das Projekt wird nicht mehr unterstützt"
+
+#: update.compare.inc:212
+msgid "This project is no longer supported, and is no longer available for download. Disabling everything included by this project is strongly recommended!"
+msgstr "Dieses Projekt wird nicht länger unterstützt und kann nicht mehr heruntergeladen werden. Es wird dringend empfohlen alles was dieses Projekt beinhaltet zu deaktivieren!"
+
+#: update.compare.inc:217
+msgid "Failed to get available update data."
+msgstr "Fehler beim Abrufen der Daten über verfügbare Aktualisierungen."
+
+#: update.compare.inc:285
+msgid "No available update data"
+msgstr "Keine Daten über verfügbare Aktualisierungen."
+
+#: update.compare.inc:310
+msgid "Release revoked"
+msgstr "Die Veröffentlichung wurde zurückgezogen"
+
+#: update.compare.inc:311
+msgid "Your currently installed release has been revoked, and is no longer available for download. Disabling everything included in this release or upgrading is strongly recommended!"
+msgstr "Die aktuell installierte Veröffentlichung wurde zurückgezogen und kann nicht mehr heruntergeladen werden. Alle Bestandteile dieser Veröffentlichung sollten umgehend deaktiviert oder aktualisiert werden!"
+
+#: update.compare.inc:322
+msgid "Release not supported"
+msgstr "Die Veröffentlichung ist nicht unterstützt"
+
+#: update.compare.inc:323
+msgid "Your currently installed release is now unsupported, and is no longer available for download. Disabling everything included in this release or upgrading is strongly recommended!"
+msgstr "Die aktuell installierte Veröffentlichung wird nicht mehr unterstützt und kann nicht mehr heruntergeladen werden. Alle Bestandteile dieser Veröffentlichung sollten umgehend deaktiviert oder aktualisiert werden!"
+
+#: update.compare.inc:469
+msgid "Unknown release date"
+msgstr "Unbekanntes Veröffentlichungsdatum"
+
+#: update.compare.inc:481
+msgid "Invalid info"
+msgstr "Falsche Information"
+
+#: update.manager.inc:55
+msgid "Downloading updates failed:"
+msgstr "Herunterladen von Aktualisierungen fehlgeschlagen:"
+
+#: update.manager.inc:61
+msgid "Updates downloaded successfully."
+msgstr "Aktualisierungen erfolgreich heruntergeladen"
+
+#: update.manager.inc:68
+msgid "Fatal error trying to download."
+msgstr "Schwerer Fehler beim Herunterladen."
+
+#: update.manager.inc:104
+msgid "Your server does not support updating modules and themes from this interface. Instead, update modules and themes by uploading the new versions directly to the server, as documented in <a href=\":doc_url\">Extending Drupal 8</a>."
+msgstr "Das Aktualisieren von Designs und Erweiterungen über diese Benutzeroberfläche wird vom Webserver nicht unterstützt. Stattdessen können Aktualisierungen von Erweiterungen und Designs über den direkten Upload auf den Server durchgeführt werden. Weitere Informationen dazu finden Sie in der Online-Dokumentation im Abschnitt <a href=\":doc_url\">Drupal 8 erweitern</a>."
+
+#: update.manager.inc:107
+msgid "Your server does not support installing modules and themes from this interface. Instead, install modules and themes by uploading them directly to the server, as documented in <a href=\":doc_url\">Extending Drupal 8</a>."
+msgstr "Der Server erlaubt die Installation von Modulen und Themes durch diese Benutzeroberfläche nicht. Module und Themes können durch den direkten upload auf den Server, wie in <a href=\":doc_url\">Drupal 8 erweitern</a> dokumentiert, installiert werden."
+
+#: update.manager.inc:155
+msgid "Cannot extract %file, not a valid archive."
+msgstr "%file kann nicht entpackt werden, kein gültiges Archiv."
+
+#: update.manager.inc:255
+msgid "Downloading %project"
+msgstr "%project wird heruntergeladen"
+
+#: update.manager.inc:262
+msgid "Failed to download %project from %url"
+msgstr "%project konnte nicht von %url heruntergeladen werden"
+
+#: update.manager.inc:117
+msgid "Updating modules and themes requires <strong>@backends access</strong> to your server. See <a href=\":doc_url\">Extending Drupal 8</a> for other update methods."
+msgid_plural "Updating modules and themes requires access to your server via one of the following methods: <strong>@backends</strong>. See <a href=\":doc_url\">Extending Drupal 8</a> for other update methods."
+msgstr[0] "Das Aktualisieren von Modulen und Themes erfordert <strong>@backends Zugriff</strong> auf Ihren Server. Siehe <a href=\":doc_url\">Drupal 8 erweitern</a> zu weiteren Aktualisierungsmethoden."
+msgstr[1] "Das Aktualisieren von Modulen und Themes erfordert Zugriff auf Ihren Server über eine der folgenden Methoden: <strong>@backends</strong>. Siehe <a href=\":doc_url\">Drupal 8 erweitern</a> zu weiteren Aktualisierungsmethoden."
+
+#: update.manager.inc:127
+msgid "Installing modules and themes requires <strong>@backends access</strong> to your server. See <a href=\":doc_url\">Extending Drupal 8</a> for other installation methods."
+msgid_plural "Installing modules and themes requires access to your server via one of the following methods: <strong>@backends</strong>. See <a href=\":doc_url\">Extending Drupal 8</a> for other installation methods."
+msgstr[0] "Das Installieren von Modulen und Themes erfordert <strong>@backends Zugriff</strong> auf Ihren Server. Siehe <a href=\":doc_url\">Drupal 8 erweitern</a> zu weiteren Installationsmethoden."
+msgstr[1] "Das Installieren von Modulen und Themes erfordert Zugriff auf Ihren Server über eine der folgenden Methoden: <strong>@backends</strong>. Siehe <a href=\":doc_url\">Drupal 8 erweitern</a> zu weiteren Aktualisierungsmethoden."
+
+#: update.report.inc:83
+msgid "Drupal core"
+msgstr "Drupal-Kernsystem"
+
+#: update.report.inc:84
+msgid "Modules"
+msgstr "Module"
+
+#: update.report.inc:85
+msgid "Themes"
+msgstr "Themes"
+
+#: update.report.inc:86
+msgid "Uninstalled modules"
+msgstr "Deinstallierte Module"
+
+#: update.report.inc:87
+msgid "Uninstalled themes"
+msgstr "Deinstallierte Themes"
+
+#: update.report.inc:161
+msgid "Recommended version:"
+msgstr "Empfohlene Version:"
+
+#: update.report.inc:173
+msgid "Security update:"
+msgstr "Sicherheitsupdate:"
+
+#: update.report.inc:184
+msgid "Latest version:"
+msgstr "Neuste Version:"
+
+#: update.report.inc:195
+msgid "Development version:"
+msgstr "Entwicklungsversion:"
+
+#: update.report.inc:206
+msgid "Also available:"
+msgstr "Außerdem verfügbar:"
+
+#: update.report.inc:243
+msgid "Security update required!"
+msgstr "Sicherheitsupdate erforderlich!"
+
+#: update.report.inc:246 update.install:129
+msgid "Revoked!"
+msgstr "Zurückgezogen!"
+
+#: update.report.inc:249
+msgid "Not supported!"
+msgstr "Nicht unterstützt!"
+
+#: update.report.inc:252
+msgid "Update available"
+msgstr "Aktualisierung verfügbar"
+
+#: update.report.inc:255 update.install:146
+msgid "Up to date"
+msgstr "Aktuell"
+
+#: update.report.inc:265
+msgid "Ok"
+msgstr "Ok"
+
+#: update.report.inc:271;283
+msgid "Warning"
+msgstr "Warnung"
+
+#: update.report.inc:277
+msgid "Error"
+msgstr "Fehler"
+
+#: update.module:119
+msgid "About"
+msgstr "Über"
+
+#: update.module:120
+msgid "The Update Manager module periodically checks for new versions of your site's software (including contributed modules and themes), and alerts administrators to available updates. The Update Manager system is also used by some other modules to manage updates and downloads; for example, the Interface Translation module uses the Update Manager to download translations from the localization server. Note that whenever the Update Manager system is used, anonymous usage statistics are sent to Drupal.org. If desired, you may disable the Update Manager module from the <a href=\":modules\">Extend page</a>; if you do so, functionality that depends on the Update Manager system will not work. For more information, see the <a href=\":update\">online documentation for the Update Manager module</a>."
+msgstr "Das Update-Manager-Modul überprüft periodisch, ob neue Versionen der Software (inklusive der hinzugefügten Module und Themes) vorhanden sind und benachrichtigt den Administrator über verfügbare Aktualisierungen. Das Update-Manager-System wird auch von einigen Modulen zur Verwaltung von Aktualisierungen und Downloads genutzt, so nutzt z. B. das Interface-Translation-Modul den Update-Manager, um Übersetzungen vom Localization-Server herunterzuladen. Hinweis: immer wenn das Update-Manager-System benutzt wird, wird eine anonyme Nutzungsstatistik an Drupal.org gesendet. Das Update-Manager-Modul kann bei Bedarf auf der Seite <a href=\":modules\">Erweitern</a> deaktiviert werden. Das schränkt natürlich alle Funktionalität ein, die auf dem Update-Manager-System basiert. Weitere Informationen: <a href=\":update\">Online-Dokumentation für das Update-Manager-Modul</a>."
+
+#: update.module:123
+msgid "The Update Manager also allows administrators to update and install modules and themes through the administration interface."
+msgstr "Die Updatr-Manager-Modul stellt Administratoren außerdem die Möglichkeit zur Verfügung Module und Themes im Administrationsbereich zu installieren."
+
+#: update.module:125
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: update.module:127
+msgid "Checking for available updates"
+msgstr "Auf verfügbare Aktualisierungen prüfen"
+
+#: update.module:128
+msgid "The <a href=\":update-report\">Available updates report</a> displays core, contributed modules, and themes for which there are new releases available for download. On the report page, you can also check manually for updates. You can configure the frequency of update checks, which are performed during cron runs, and whether notifications are sent on the <a href=\":update-settings\">Update Manager settings page</a>."
+msgstr "Der <a href=\":update-report\">Aktualisierungsbericht </a> weist auf Module und Themes des Drupal-Kernsystem hin, für die neue Aktualisierungen zur Verfügung stehen. Auf der Seite berichte ist es außerdem möglich eine manuelle Prüfung auf Aktualisierungen vorzunehmen. In den <a href=\":update-settings\">Einstellungen der Aktualisierungsverwaltung</a> kann festgelegt werden in welchen Abständen die Aktualisierungsprüfung ausgeführt wird. Außerdem kann festgelegt werden ob Benachrichtigungen über verfügbare Aktualisierungen versendet werden. Aktualisierungsprüfungen werden nur während einer Cron-Wartungsaufgabe ausgeführt."
+
+#: update.module:131
+msgid "Performing updates through the Update page"
+msgstr "Aktualisierungen auf der Seite „Aktualisierungen“ ausführen."
+
+#: update.module:132
+msgid "The Update Manager module allows administrators to perform updates directly from the <a href=\":update-page\">Update page</a>. It lists all available updates, and you can confirm whether you want to download them. If you don't have sufficient access rights to your web server, you could be prompted for your FTP/SSH password. Afterwards the files are transferred into your site installation, overwriting your old files. Direct links to the Update page are also displayed on the <a href=\":modules_page\">Extend page</a> and the <a href=\":themes_page\">Appearance page</a>."
+msgstr "Das Update-Manager-Modul ermöglicht Administratoren, Aktualisierungen direkt von der Seite <a href=\":update-page\">Aktualisieren</a> durchzuführen. Verfügbare Aktualisierungen werden aufgelistet und es muss bestätigt werden, ob die Aktualisierungen geladen werden sollen. Sind keine ausreichenden Zugangsrechte zum Server eingeräumt, wird unter Umständen das Passwort für FTP/SSH angefordert. Anschließend werden die Dateien in die Installation der Website übertragen, wobei die alten Dateien überschrieben werden. Direkte Links zur Seite Aktualisierungen werden angezeigt auf den Seiten <a href=\":modules_page\">Erweitern</a> und <a href=\":themes_page\">Design</a>."
+
+#: update.module:133
+msgid "Installing new modules and themes through the Install page"
+msgstr "Neue Module und Themes können auf der Seite „Installieren“ hinzugefügt werden."
+
+#: update.module:134
+msgid "You can also install new modules and themes in the same fashion, through the <a href=\":install\">Install page</a>, or by clicking the <em>Install new module/theme</em> links at the top of the <a href=\":modules_page\">Extend page</a> and the <a href=\":themes_page\">Appearance page</a>. In this case, you are prompted to provide either the URL to the download, or to upload a packaged release file from your local computer."
+msgstr "Module und Themes können auf dieselbe Art und Weise installiert werden. Dazu kann die Seite <a href=\":install\">Installieren</a> verwendet werden. Außerdem können die Buttons <em>Neues Modul installieren sowie <em>Neues Theme installieren </em> am oberen Rand der Seiten <a href=\":modules_page\">Erweitern</a> und<a href=\":themes_page\">Design</a> verwendet werden. In diesem Fall muss ein URL zu einem Archiv anzugeben werden, dass ein Modul oder ein Theme enthält oder eine entsprechende Datei von Ihrem Computer hochgeladen werden."
+
+#: update.module:140
+msgid "Here you can find information about available updates for your installed modules and themes. Note that each module or theme is part of a \"project\", which may or may not have the same name, and might include multiple modules or themes within it."
+msgstr "Hier befinden sich Informationen über verfügbare Aktualisierungen der installierten Module und Themes. Zu beachten ist, dass jedes Modul Teil eines „Projektes“ ist, welches den gleichen oder einen anderen Namen wie das Modul hat."
+
+#: update.module:144
+msgid "Regularly review and install <a href=\":updates\">available updates</a> to maintain a secure and current site. Always run the <a href=\":update-php\">update script</a> each time a module is updated."
+msgstr "Um die Sicherheit und Aktualität der Website zu gewährleisten, sollten regelmäßig die <a href=\":updates\">verfügbaren Aktualisierungen</a> überprüft werden. Wird ein Modul aktualisiert, muss im Anschluss immer das <a href=\":update-php\">Aktualisierungs-Skript</a> ausgeführt werden."
+
+#: update.module:147
+msgid "Regularly review <a href=\":updates\">available updates</a> to maintain a secure and current site. Always run the <a href=\":update-php\">update script</a> each time a module is updated."
+msgstr "Es sollte regelmäßig auf <a href=\":updates\">verfügbare Aktualisierungen</a> geprüft werden, um die Website sicher und aktuell zu halten.</a> Das <a href=\":update-php\">Skript zur Datenbankaktualisierung</a> muss immer dann ausgeführt werden, wenn ein Modul aktualisiert wurde."
+
+#: update.module:335
+msgid "No update information available. <a href=\":run_cron\">Run cron</a> or <a href=\":check_manually\">check manually</a>."
+msgstr "Keine Informationen über Aktualisierungen verfügbar. <a href=\":run_cron\">Cron ausführen</a> oder <a href=\":check_manually\">manuell überprüfen</a>."
+
+#: update.module:507
+msgid "An error occurred trying to get available update data."
+msgstr "Ein Fehler ist aufgetreten, während versucht wurde die Aktualisierungsinformationen abzurufen."
+
+#: update.module:533
+msgid "New release(s) available for @site_name"
+msgstr "Neue Veröffentlichung(en) für @site_name verfügbar"
+
+#: update.module:537
+msgid "See the available updates page for more information:"
+msgstr "Weitere Information zu verfügbaren Aktualisierungen:"
+
+#: update.module:539
+msgid "You can automatically install your missing updates using the Update manager:"
+msgstr "Mit dem Update-Manager können die fehlenden Aktualisierungen automatisch installiert werden:"
+
+#: update.module:543
+msgid "Your site is currently configured to send these emails when any updates are available. To get notified only for security updates, @url."
+msgstr "Die Website ist momentan so konfiguriert, dass diese E-Mails immer versendet werden, wenn Aktualisierungen verfügbar sind. Soll nur über sicherheitsrelevante Aktualisierungen informiert werden, kann dies unter folgendem Link eingestellt werden: @url."
+
+#: update.module:546
+msgid "Your site is currently configured to send these emails only when security updates are available. To get notified for any available updates, @url."
+msgstr "Die Website ist momentan so konfiguriert, dass diese E-Mails nur dann versendet werden, wenn Sicherheitsaktualisierungen verfügbar sind. Soll über alle verfügbaren Aktualisierungen informiert werden, kann dies unter folgendem Link eingestellt werden: @url."
+
+#: update.module:573
+msgid "There is a security update available for your version of Drupal. To ensure the security of your server, you should update immediately!"
+msgstr "Für diese Drupal-Version steht ein Sicherheitsupdate zur Verfügung. Um die Sicherheit des Servers sicherzustellen, sollte umgehend aktualisiert werden!"
+
+#: update.module:576
+msgid "There are security updates available for one or more of your modules or themes. To ensure the security of your server, you should update immediately!"
+msgstr "Für mindestens eines der Module oder Themes ist eine Sicherheits-Aktualisierung verfügbar. Um die Sicherheit Ihres Servers zu gewährleisten, aktualisieren Sie die betroffenen Module bzw. Themes sofort."
+
+#: update.module:582
+msgid "Your version of Drupal has been revoked and is no longer available for download. Upgrading is strongly recommended!"
+msgstr "Diese Version von Drupal wurde zurückgezogen und kann nicht mehr heruntergeladen werden. Die Aktualisierung wird dringend empfohlen!"
+
+#: update.module:585
+msgid "The installed version of at least one of your modules or themes has been revoked and is no longer available for download. Upgrading or disabling is strongly recommended!"
+msgstr "Die installierte Version von mindestens einem Modul oder Theme wurde zurückgezogen und kann nicht mehr heruntergeladen werden. Die Aktualisierung oder Deaktivierung wird dringend empfohlen!"
+
+#: update.module:591
+msgid "Your version of Drupal is no longer supported. Upgrading is strongly recommended!"
+msgstr "Diese Version von Drupal wird nicht länger unterstützt. Die Aktualisierung wird dringend empfohlen!"
+
+#: update.module:594
+msgid "The installed version of at least one of your modules or themes is no longer supported. Upgrading or disabling is strongly recommended. See the project homepage for more details."
+msgstr "Die installierte Version von mindestens einem installierten Modul oder Theme wird nicht mehr unterstützt. Aktualisieren oder Deaktivieren wird sehr empfohlen. Die Projekt-Homepage enthält weitere Details."
+
+#: update.module:600
+msgid "There are updates available for your version of Drupal. To ensure the proper functioning of your site, you should update as soon as possible."
+msgstr "Für diese Drupal Version sind Aktualisierungen verfügbar. Um die einwandfreie Funktion der Website zu gewährleisten, sollte umgehend aktualisiert werden."
+
+#: update.module:603
+msgid "There are updates available for one or more of your modules or themes. To ensure the proper functioning of your site, you should update as soon as possible."
+msgstr "Es stehen Aktualisierungen für ein oder mehrere Module oder Themes zu Verfügung. Um die einwandfreie Funktion der Website zu gewährleisten, sollte umgehend aktualisiert werden."
+
+#: update.module:612
+msgid "There was a problem checking <a href=\":update-report\">available updates</a> for Drupal."
+msgstr "Beim Prüfen auf <a href=\":update-report\">verfügbare Aktualisierungen</a> für Drupal ist ein Problem aufgetreten."
+
+#: update.module:615
+msgid "There was a problem checking <a href=\":update-report\">available updates</a> for your modules or themes."
+msgstr "Beim Prüfen auf <a href=\":update-report\">verfügbare Aktualisierungen</a> für Ihre Module oder Themes ist ein Problem aufgetreten."
+
+#: update.module:655
+msgid "Check manually"
+msgstr "Manuell überprüfen"
+
+#: update.module:682
+msgid "Automatic updating of Drupal core is not supported. See the <a href=\":upgrade-guide\">upgrade guide</a> for information on how to update Drupal core manually."
+msgstr "Das automatische Aktualisieren des Drupal-Kernsystem wird nicht unterstützt. Weitere Informationen über das manuelle Aktualisieren von Drupal sind in der Durpal-Dokumentation im Abschnitt <a href=\":upgrade-guide\">Drupal aktualisieren</a> verfügbar."
+
+#: update.module:711
+msgid "%archive_file does not contain any .info.yml files."
+msgstr "%archive_file enthält keine .info.yml Dateien."
+
+#: update.module:499
+msgid "Checked available update data for one project."
+msgid_plural "Checked available update data for @count projects."
+msgstr[0] "Verfügbare Aktualisierungsdaten wurden für ein Projekt überprüft."
+msgstr[1] "Verfügbare Aktualisierungsdaten wurden für @count Projekte überprüft."
+
+#: update.module:502
+msgid "Failed to get available update data for one project."
+msgid_plural "Failed to get available update data for @count projects."
+msgstr[0] "Fehler beim Abrufen der verfügbaren Aktualisierungsdaten für ein Projekt."
+msgstr[1] "Fehler beim Abrufen der verfügbaren Aktualisierungsdaten für @count Projekte."
+
+#: update.module:714
+msgid "%archive_file contains a version of %names that is not compatible with Drupal @version."
+msgid_plural "%archive_file contains versions of modules or themes that are not compatible with Drupal @version: %names"
+msgstr[0] "%archive_file enthält eine Version von %names, die nicht mit Drupal @version kompatibel ist."
+msgstr[1] "%archive_file enthält Versionen von Modulen oder Themes, die nicht mit Drupal @version kompatibel sind: %names"
+
+#: update.install:51;102
+msgid "Drupal core update status"
+msgstr "Aktualisierungsstatus des Drupal-Kernsystems"
+
+#: update.install:52
+msgid "No update data available"
+msgstr "Keine Aktualisierungsdaten verfügbar"
+
+#: update.install:105
+msgid "Module and theme update status"
+msgstr "Aktualisierungsstatus von Modulen und Themes"
+
+#: update.install:117
+msgid "See the <a href=\":available_updates\">available updates</a> page for more information and to install your missing updates."
+msgstr "Auf der Seite <a href=\":available_updates\">verfügbare Aktualisierungen</a>, sind weitere Informationen verfügbar. Von dieser Seite aus können alle verfügbaren Aktualisierungen installiert werden."
+
+#: update.install:120
+msgid "See the <a href=\":available_updates\">available updates</a> page for more information."
+msgstr "Weitere Informationen sind auf der Seite <a href=\":available_updates\">verfügbare Aktualisierungen</a> abrufbar."
+
+#: update.install:126
+msgid "Not secure!"
+msgstr "Unsicher!"
+
+#: update.install:132
+msgid "Unsupported release"
+msgstr "Veröffentlichung ist nicht unterstützt"
+
+#: update.install:135
+msgid "Out of date"
+msgstr "Veraltet"
+
+#: update.install:142
+msgid "Can not determine status"
+msgstr "Der Status konnte nicht ermittelt werden"
+
+#: update.install:149
+msgid "(version @version available)"
+msgstr "(Version @version ist verfügbar)"
+
+#: update.info.yml:0
+msgid "Update Manager"
+msgstr "Update Manager"
+
+#: update.info.yml:0
+msgid "Checks for available updates, and can securely install or update modules and themes via a web interface."
+msgstr "Ermöglicht das Prüfen auf  verfügbare Aktualisierungen und die Installation von Modulen und Tehmes über die Benutzeroberfläche."
+
+#: update.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: update.links.action.yml:0
+msgid "Install new module or theme"
+msgstr "Neues Modul oder Theme installieren"
+
+#: update.links.action.yml:0 update.routing.yml:0
+msgid "Install new module"
+msgstr "Neues Modul installieren"
+
+#: update.links.action.yml:0 update.routing.yml:0
+msgid "Install new theme"
+msgstr "Neues Theme installieren"
+
+#: update.links.menu.yml:0 update.routing.yml:0
+msgid "Available updates"
+msgstr "Verfügbare Aktualisierungen"
+
+#: update.links.menu.yml:0
+msgid "Get a status report about available updates for your installed modules and themes."
+msgstr "Erhalten Sie einen Statusbericht über verfügbare Aktualisierungen Ihrer installierten Module und Themes."
+
+#: update.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: update.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: update.links.task.yml:0;0;0 update.routing.yml:0;0;0
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: update.routing.yml:0
+msgid "Update Manager settings"
+msgstr "Einstellungen der Aktualisierungsverwaltung"
+
+#: update.routing.yml:0
+msgid "Manual update check"
+msgstr "Aktualisierung manuell überprüfen"
+
+#: update.routing.yml:0 src/Form/UpdateManagerInstall.php:117
+msgid "Install"
+msgstr "Installieren"
+
+#: update.routing.yml:0
+msgid "Ready to update"
+msgstr "Bereit zum Aktualisieren"
+
+#: config/schema/update.schema.yml:0
+msgid "Update settings"
+msgstr "Aktualisierungseinstellungen"
+
+#: config/schema/update.schema.yml:0
+msgid "Check settings"
+msgstr "Überprüfungseinstellungen"
+
+#: config/schema/update.schema.yml:0 src/UpdateSettingsForm.php:77
+msgid "Check for updates of uninstalled modules and themes"
+msgstr "Auch für deaktivierte Module und Themes nach Aktualisierungen suchen"
+
+#: config/schema/update.schema.yml:0
+msgid "Days since last check"
+msgstr "Tage seit letzter Überprüfung"
+
+#: config/schema/update.schema.yml:0
+msgid "Fetch settings"
+msgstr "Einstellungen auslesen"
+
+#: config/schema/update.schema.yml:0
+msgid "URL for fetching available update data"
+msgstr "URL zum Herunterladen verfügbarer Aktualisierungsdaten"
+
+#: config/schema/update.schema.yml:0
+msgid "Maximum attempts"
+msgstr "Maximale Anzahl Versuche"
+
+#: config/schema/update.schema.yml:0
+msgid "Timeout in seconds"
+msgstr "Timeout in Sekunden"
+
+#: config/schema/update.schema.yml:0
+msgid "Notification settings"
+msgstr "Benachrichtigungseinstellungen"
+
+#: config/schema/update.schema.yml:0 src/UpdateSettingsForm.php:84
+msgid "Email addresses to notify when updates are available"
+msgstr "Zu benachrichtigende E-Mail-Adressen bei verfügbaren Aktualisierungen"
+
+#: config/schema/update.schema.yml:0
+msgid "Email"
+msgstr "E-Mail"
+
+#: config/schema/update.schema.yml:0 src/UpdateSettingsForm.php:92
+msgid "Email notification threshold"
+msgstr "Schwellenwert für E-Mail-Benachrichtigungen"
+
+#: src/UpdateManager.php:190
+msgid "Checking available update data ..."
+msgstr "Daten über verfügbare Aktualisierungen werden geprüft ..."
+
+#: src/UpdateManager.php:201
+msgid "Checked available update data for %title."
+msgstr "Daten über verfügbare Aktualisierungen geprüft für %title."
+
+#: src/UpdateManager.php:204
+msgid "Failed to check available update data for %title."
+msgstr "Fehler beim Prüfen von Daten über verfügbare Aktualisierungen für %title."
+
+#: src/UpdateSettingsForm.php:66
+msgid "Check for updates"
+msgstr "Auf Aktualisierungen prüfen"
+
+#: src/UpdateSettingsForm.php:69
+msgid "Daily"
+msgstr "Täglich"
+
+#: src/UpdateSettingsForm.php:70
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+#: src/UpdateSettingsForm.php:72
+msgid "Select how frequently you want to automatically check for new releases of your currently installed modules and themes."
+msgstr "Wahl der Zeitspanne, nach deren Ablauf automatisch nach neuen Veröffentlichungen installierter Module und Themes gesucht werden soll."
+
+#: src/UpdateSettingsForm.php:87
+msgid "Whenever your site checks for available updates and finds new releases, it can notify a list of users via email. Put each address on a separate line. If blank, no emails will be sent."
+msgstr "Wann immer bei einer Überprüfung auf verfügbare Aktualisierungen neue Versionen gefunden werden, können alle Benutzer, die sich auf der entsprechenden Liste befinden benachrichtigt werden. Auf der Liste kann eine E-Mail-Adresse pro Zeile angegeben werden. Wird das Feld leer gelassen, werden keine E-Mails versendet."
+
+#: src/UpdateSettingsForm.php:95
+msgid "All newer versions"
+msgstr "Bei allen neueren Versionen"
+
+#: src/UpdateSettingsForm.php:96
+msgid "Only security updates"
+msgstr "Nur bei Sicherheitsaktualisierungen"
+
+#: src/UpdateSettingsForm.php:98
+msgid "You can choose to send email only if a security update is available, or to be notified about all newer versions. If there are updates available of Drupal core or any of your installed modules and themes, your site will always print a message on the <a href=\":status_report\">status report</a> page, and will also display an error message on administration pages if there is a security update."
+msgstr "Man kann entscheiden, ob man eine E-Mail nur bei einer Sicherheitsaktualisierung oder bei jeder neueren Version erhalten möchte. Gibt es Aktualisierungen für das Drupal-Kernsystem oder eines der installierten Module und Themes, zeigt die Website immer eine Nachricht auf der Seite des <a href=\":status_report\">Statusberichts</a>, sowie im Falle einer Sicherheitsaktualisierung eine Fehlermeldung auf den Verwaltungsseiten."
+
+#: src/UpdateSettingsForm.php:127
+msgid "%email is not a valid email address."
+msgstr "%email ist keine gültige E-Mail-Adresse."
+
+#: src/UpdateSettingsForm.php:130
+msgid "%emails are not valid email addresses."
+msgstr "%emails sind keine gültigen E-Mail-Adressen."
+
+#: src/Controller/UpdateController.php:67
+msgid "Checking available update data"
+msgstr "Prüfen von Daten über verfügbare Aktualisierungen"
+
+#: src/Controller/UpdateController.php:68
+msgid "Trying to check available update data ..."
+msgstr "Die Aktualisierungsinformationen werden überprüft …"
+
+#: src/Controller/UpdateController.php:69
+msgid "Error checking available update data."
+msgstr "Fehler beim Prüfen von Daten über verfügbare Aktualisierungen."
+
+#: src/Form/UpdateManagerInstall.php:86
+msgid "You can find <a href=\":module_url\">modules</a> and <a href=\":theme_url\">themes</a> on <a href=\":drupal_org_url\">drupal.org</a>. The following file extensions are supported: %extensions."
+msgstr "<a href=\":module_url\">Module</a> und <a href=\":theme_url\">Themes</a> können auf <a href=\":drupal_org_url\">drupal.org</a> gefunden werden. Die folgenden Dateiendungen werden akzeptiert: %extensions."
+
+#: src/Form/UpdateManagerInstall.php:97
+msgid "Install from a URL"
+msgstr "Von einer URL installieren"
+
+#: src/Form/UpdateManagerInstall.php:98
+msgid "For example: %url"
+msgstr "Zum Beispiel: %url"
+
+#: src/Form/UpdateManagerInstall.php:103
+msgid "Or"
+msgstr "Oder"
+
+#: src/Form/UpdateManagerInstall.php:109
+msgid "Upload a module or theme archive to install"
+msgstr "Ein zu installierendes Modul oder Theme Archiv (tar.gz) hochladen"
+
+#: src/Form/UpdateManagerInstall.php:110
+msgid "For example: %filename from your local computer"
+msgstr "Zum Beispiel: %filename auf dem lokalen Computer"
+
+#: src/Form/UpdateManagerInstall.php:129
+msgid "You must either provide a URL or upload an archive file to install."
+msgstr "Es muss entweder eine URL angegeben oder eine zu installierende Archivdatei hochgeladen werden."
+
+#: src/Form/UpdateManagerInstall.php:142
+msgid "Unable to retrieve Drupal project from %url."
+msgstr "Drupal-Projekt konnte nicht von %url abgerufen werden."
+
+#: src/Form/UpdateManagerInstall.php:167
+msgid "Provided archive contains no files."
+msgstr "Das angegebene Archiv enthält keine Dateien."
+
+#: src/Form/UpdateManagerInstall.php:210
+msgid "Unable to determine %project name."
+msgstr "%project-Name kann nicht ermittelt werden."
+
+#: src/Form/UpdateManagerInstall.php:214
+msgid "%project is already installed."
+msgstr "%project ist bereits installiert."
+
+#: src/Form/UpdateManagerUpdate.php:84
+msgid "There was a problem getting update information. Try again later."
+msgstr "Es gab ein Problem beim Abrufen der Update Informationen. Bitte versuchen Sie es später noch einmal"
+
+#: src/Form/UpdateManagerUpdate.php:124
+msgid "(Theme)"
+msgstr "(Theme)"
+
+#: src/Form/UpdateManagerUpdate.php:145
+msgid "Release notes for @project_title"
+msgstr "Versionshinweise für @project_title"
+
+#: src/Form/UpdateManagerUpdate.php:146
+msgid "Major upgrade warning"
+msgstr "Hinweis auf ein größeres Upgrade"
+
+#: src/Form/UpdateManagerUpdate.php:147
+msgid "This update is a major version update which means that it may not be backwards compatible with your currently running version. It is recommended that you read the release notes and proceed at your own risk."
+msgstr "Bei dieser Aktualisierung handelt es sich um eine Hauptaktualisierung. Das bedeutet, dass diese nicht mit der momentan verwendeten Version kompatibel ist. Es wird empfohlen, die Veröffentlichungsinformationen durchlesen und nur fortzufahren, wenn die Konsequenzen die sich aus der Aktualisierung ergeben klar sind."
+
+#: src/Form/UpdateManagerUpdate.php:148 templates/update-version.html.twig:31
+msgid "Release notes"
+msgstr "Versionshinweise"
+
+#: src/Form/UpdateManagerUpdate.php:162
+msgid "(Security update)"
+msgstr "(Sicherheitsupdate)"
+
+#: src/Form/UpdateManagerUpdate.php:169
+msgid "(Unsupported)"
+msgstr "(Nicht unterstützt)"
+
+#: src/Form/UpdateManagerUpdate.php:238
+msgid "All of your projects are up to date."
+msgstr "Alle Projekte sind auf dem aktuellsten Stand."
+
+#: src/Form/UpdateManagerUpdate.php:245
+msgid "Name"
+msgstr "Name"
+
+#: src/Form/UpdateManagerUpdate.php:248
+msgid "Installed version"
+msgstr "Installierte Version"
+
+#: src/Form/UpdateManagerUpdate.php:249
+msgid "Recommended version"
+msgstr "Empfohlene Version"
+
+#: src/Form/UpdateManagerUpdate.php:259
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/Form/UpdateManagerUpdate.php:269
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: src/Form/UpdateManagerUpdate.php:279
+msgid "Download these updates"
+msgstr "Diese Aktualisierungen herunterladen"
+
+#: src/Form/UpdateManagerUpdate.php:284
+msgid "Manual updates required"
+msgstr "Manuelles Aktualisieren erforderlich"
+
+#: src/Form/UpdateManagerUpdate.php:285
+msgid "Automatic updates of Drupal core are not supported at this time."
+msgstr "Automatische Aktualisierungen des Drupal-Kernsystems werden derzeit nicht unterstützt."
+
+#: src/Form/UpdateManagerUpdate.php:309
+msgid "You must select at least one project to update."
+msgstr "Es muss mindestens ein zu aktualisierendes Projekt ausgewählt werden."
+
+#: src/Form/UpdateManagerUpdate.php:335
+msgid "Downloading updates"
+msgstr "Aktualisierungen werden heruntergeladen"
+
+#: src/Form/UpdateManagerUpdate.php:336
+msgid "Preparing to download selected updates"
+msgstr "Das Herunterladen der ausgewählten Aktualisierungen wird vorbereitet"
+
+#: src/Form/UpdateReady.php:98
+msgid "Back up your database and site before you continue. <a href=\":backup_url\">Learn how</a>."
+msgstr "Es wird empfohlen eine Sicherung der Datenbank und der Website vor dem nächsten Schritt durchzuführen. <a href=\":backup_url\">Weitere Informationen über das Erstellen einer Sicherungskopie sind hier verfügbar</a>."
+
+#: src/Form/UpdateReady.php:103
+msgid "Perform updates with site in maintenance mode (strongly recommended)"
+msgstr "Aktualisierungen der Website im Wartungsmodus durchführen (dringend empfohlen)"
+
+#: src/Form/UpdateReady.php:111
+msgid "Continue"
+msgstr "Weiter"
+
+#: templates/update-last-check.html.twig:18
+msgid "Last checked: @time ago"
+msgstr "Zuletzt überprüft: vor @time"
+
+#: templates/update-last-check.html.twig:20
+msgid "Last checked: never"
+msgstr "Zuletzt überprüft: nie"
+
+#: templates/update-project-status.html.twig:87
+msgid "Includes:"
+msgstr "Enthält:"
+
+#: templates/update-project-status.html.twig:90
+msgid "Enabled: %includes"
+msgstr "Aktiviert: %includes"
+
+#: templates/update-project-status.html.twig:96
+msgid "Disabled: %disabled"
+msgstr "Deaktiviert: %disabled"
+
+#: templates/update-project-status.html.twig:102
+msgid "Includes: %includes"
+msgstr "Enthält: %includes"
+
+#: templates/update-version.html.twig:28
+msgid "Download"
+msgstr "Herunterladen"
+

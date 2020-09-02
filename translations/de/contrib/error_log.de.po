@@ -1,0 +1,95 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  error_log.module: n/a
+#  error_log.info.yml: n/a
+#  src/Form/ErrorLogConfigForm.php: n/a
+#  config/schema/error_log.schema.yml: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-12-31 11:45+0100\n"
+"PO-Revision-Date: 2019-12-31 11:51+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: error_log.module:24
+msgid "Error Log module sends log messages to the PHP error log, which, depending on the environment, could be the web server error log, stderr, syslog, or whatever the error_log PHP configuration directive is configured as. This logger will be disabled in the Drush environment, which has its own console log, unless the error_log configuration directive has been set. Because Drupal core also logs to error_log() in certain circumstances, some fatal errors may be logged twice, once by this logger, and once by Drupal core itself."
+msgstr "Das Error Log Modul sendet Logmeldungen an das PHP Error Log, das, je nach Umgebung das Web Server Error Log, stderr, syslog, oder auf was auch immer die error_log PHP Einstellung konfiguriert ist. Dieser Logger wird in der Drush-Umgebung deaktiviert, welche ihr eigenes Konsolenlog hat, außer wenn die error_log Einstellung gesetzt ist. Da Drupal Core in manchen Fällen auch nach error_log() schreibt, werden manche Fehler eventuell doppelt geloggt, einmal durch dieses Modul, einmal durch Drupal Core."
+
+#: error_log.info.yml:0 src/Form/ErrorLogConfigForm.php:20
+msgid "Error Log"
+msgstr "Error Log"
+
+#: error_log.info.yml:0
+msgid "Sends log messages to the PHP error log."
+msgstr "Sended Logmeldungen in das PHP Error Log."
+
+#: config/schema/error_log.schema.yml:0
+msgid "Error Log settings"
+msgstr "Error Log Einstellungen"
+
+#: config/schema/error_log.schema.yml:0 src/Form/ErrorLogConfigForm.php:35
+msgid "Log levels"
+msgstr "Log-Level"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Emergency"
+msgstr "Notfall"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Alert"
+msgstr "Alarm"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Critical"
+msgstr "Kritisch"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Error"
+msgstr "Fehler"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Warning"
+msgstr "Warnung"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Notice"
+msgstr "Hinweis"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Info"
+msgstr "Info"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Debug"
+msgstr "Debuggen"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Log channels that should be ignored"
+msgstr "Log-Kanäle, die ignoriert werden sollten"
+
+#: config/schema/error_log.schema.yml:0
+msgid "Log channel"
+msgstr "Log-Kanal"
+
+#: src/Form/ErrorLogConfigForm.php:36
+msgid "Check the log levels which should be sent to the PHP error log."
+msgstr "Aktivieren Sie die Log Level, die in das PHP Error Log weitergeleitet werden sollen."
+
+#: src/Form/ErrorLogConfigForm.php:42
+msgid "Ignored channels"
+msgstr "Ignorierte Kanäle"
+
+#: src/Form/ErrorLogConfigForm.php:43
+msgid "A list of log channels for which messages should not be sent to the PHP error log (one channel per line). Commonly-configured log channels include <em>access denied</em> for 403 errors and <em>page not found</em> for 404 errors."
+msgstr "Eine Liste an Log-Kanälen, deren Meldungen nicht ins PHP Error Log weitergeleitet werden sollen (ein Kanal pro Zeile). Gewöhnlich konfigurierte Kanäle beinhalten <em>access denied</em> fürr 403-Fehler und <em>page not found</em> für 404-Fehler."

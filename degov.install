@@ -5,11 +5,11 @@
  * Install, update and uninstall hooks for the deGov profile.
  */
 
+use Drupal\degov\TranslationImporter;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\media\Entity\MediaType;
 use Drupal\user\Entity\Role;
 use Symfony\Component\Yaml\Yaml;
-use Drupal\degov\TranslationImporter;
 use Drupal\Core\File\FileSystemInterface;
 
 /**
@@ -17,6 +17,10 @@ use Drupal\Core\File\FileSystemInterface;
  */
 function degov_install() {
   TranslationImporter::importForProfile('degov');
+  /** @var \Drupal\Core\Extension\ProfileExtensionList $profileExtensionList */
+  $profileExtensionList = \Drupal::service('extension.list.profile');
+  $profileExtensionList->get('degov')->load();
+  degov_import_translation_files();
 }
 
 /**
@@ -70,7 +74,7 @@ function degov_requirements(string $phase) {
       if (\Drupal::moduleHandler()->moduleExists($deprecated_dependency)) {
         $requirements['degov_deprecated_dependency_' . $deprecated_dependency] = [
           'title'       => 'Deprecated dependency',
-          'description' => t('The module <i>:module_name</i> will be removed as a dependency from deGov in the next release. Please add the dependency to your project\'s composer.json or uninstall it.', [':module_name' => $deprecated_dependency]),
+          'description' => t('The module <i>:module_name</i> will be removed as a dependency from deGov in the next release. Please add the dependency to your project  composer.json or uninstall it.', [':module_name' => $deprecated_dependency]),
           'severity'    => REQUIREMENT_WARNING,
           'value'       => t('The dependency to the module <i>:module_name</i> is deprecated', [':module_name' => $deprecated_dependency]),
         ];
@@ -444,6 +448,11 @@ function degov_update_870500() {
 function degov_update_870600() {
   if (!\Drupal::moduleHandler()->moduleExists('entity_reference_timer')) {
     \Drupal::service('module_installer')->install(['entity_reference_timer']);
+    /*
+     * Cache clear needed, otherwise we'll get an exception claiming the new
+     * field can't be found.
+     */
+    drupal_flush_all_caches();
   }
 }
 
@@ -498,4 +507,26 @@ function degov_update_880300() {
  */
 function degov_update_880302() {
   TranslationImporter::importForProfile('degov');
+}
+
+/**
+ * deGov 8.5.0:
+ * - Import config translations.
+ * - Add new field view_reference_links to paragraph_view_reference.
+ */
+function degov_update_880500() {
+
+  degov_import_translation_files();
+  TranslationImporter::importConfigTranslation('de', 'system.menu.workbench', \Drupal::service('extension.list.profile')
+    ->get('degov')
+    ->getPath() . '/config/install/language/de/system.menu.workbench.yml');
+  if (\Drupal::moduleHandler()->moduleExists('degov_paragraph_view_reference')) {
+    /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
+    $moduleUpdater = \Drupal::service('degov_config.module_updater');
+    $moduleUpdater->reImport('field.storage.paragraph.field_view_reference_links', 'degov_paragraph_view_reference', 'install');
+    $moduleUpdater->reImport('field.field.paragraph.view_reference.field_view_reference_links', 'degov_paragraph_view_reference', 'install');
+    $moduleUpdater->reImport('core.entity_form_display.paragraph.view_reference.default', 'degov_paragraph_view_reference', 'install');
+    $moduleUpdater->reImport('core.entity_view_display.paragraph.view_reference.default', 'degov_paragraph_view_reference', 'install');
+    $moduleUpdater->reImport('core.entity_view_display.paragraph.view_reference.preview', 'degov_paragraph_view_reference', 'install');
+  }
 }

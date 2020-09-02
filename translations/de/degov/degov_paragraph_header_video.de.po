@@ -1,0 +1,52 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_paragraph_header_video.info.yml: n/a
+#  config/install/field.field.paragraph.video_header.field_header_media.yml: n/a
+#  config/install/field.field.paragraph.video_header.field_header_text.yml: n/a
+#  config/install/field.field.paragraph.video_header.field_override_caption.yml: n/a
+#  config/install/paragraphs.paragraphs_type.video_header.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:01+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_paragraph_header_video.info.yml:0
+msgid "deGov - Paragraph Header Video"
+msgstr "deGov - Paragraph Kopfzeile Video"
+
+#: degov_paragraph_header_video.info.yml:0
+msgid "Provides a paragraph type for headers."
+msgstr "Stellt einen Paragraphentyp für Kopfzeilen bereit."
+
+#: degov_paragraph_header_video.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/field.field.paragraph.video_header.field_header_media.yml:0
+msgid "Media"
+msgstr "Medien"
+
+#: config/install/field.field.paragraph.video_header.field_header_text.yml:0
+msgid "Text"
+msgstr "Text"
+
+#: config/install/field.field.paragraph.video_header.field_override_caption.yml:0
+msgid "Bildunterschrift"
+msgstr "Bildbeschriftung"
+
+#: config/install/paragraphs.paragraphs_type.video_header.yml:0
+msgid "Video Header"
+msgstr "Video-Kopfzeile"
+

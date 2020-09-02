@@ -5,8 +5,11 @@
  * Install, update and uninstall hooks for the degov_taxonomy_term_synonyms module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\EntityStorageException;
+use Drupal\degov\TranslationImporter;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -65,4 +68,13 @@ function degov_taxonomy_term_synonyms_uninstall() {
   $config
     ->clear('display.default.display_options.filters.field_tags_target_id')
     ->save();
+}
+
+/**
+ * deGov 8.5.0 - Import config translations.
+ */
+function degov_taxonomy_term_synonyms_update_880500() {
+  TranslationImporter::importConfigTranslationsFromDirectory('de', \Drupal::service('extension.list.module')
+    ->get('degov_taxonomy_term_synonyms')
+    ->getPath() . '/config/install/language/de');
 }

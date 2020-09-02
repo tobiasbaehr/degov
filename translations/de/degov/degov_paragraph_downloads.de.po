@@ -1,0 +1,57 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_paragraph_downloads.info.yml: n/a
+#  config/install/field.field.paragraph.downloads.field_downloads_files.yml: n/a
+#  config/install/field.field.paragraph.downloads.field_sub_title.yml: n/a
+#  config/install/field.field.paragraph.downloads.field_title.yml: n/a
+#  config/install/field.field.paragraph.downloads.field_title_link.yml: n/a
+#  config/install/paragraphs.paragraphs_type.downloads.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:01+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_paragraph_downloads.info.yml:0
+msgid "deGov - Paragraph downloads"
+msgstr "deGov - Paragraph Downloads"
+
+#: degov_paragraph_downloads.info.yml:0
+msgid "This paragraph displays a list of downloads."
+msgstr "Dieser Paragraph zeigt eine Liste von Downloads an."
+
+#: degov_paragraph_downloads.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/field.field.paragraph.downloads.field_downloads_files.yml:0
+msgid "Files"
+msgstr "Dateien"
+
+#: config/install/field.field.paragraph.downloads.field_sub_title.yml:0
+msgid "Subtitle"
+msgstr "Untertitel"
+
+#: config/install/field.field.paragraph.downloads.field_title.yml:0
+msgid "Title"
+msgstr "Titel"
+
+#: config/install/field.field.paragraph.downloads.field_title_link.yml:0
+msgid "Title Link"
+msgstr "Titellink"
+
+#: config/install/paragraphs.paragraphs_type.downloads.yml:0
+msgid "Downloads"
+msgstr "Downloads"
+

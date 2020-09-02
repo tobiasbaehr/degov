@@ -1,0 +1,883 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  simple_sitemap.module: n/a
+#  simple_sitemap.info.yml: n/a
+#  simple_sitemap.links.menu.yml: n/a
+#  modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php: n/a
+#  simple_sitemap.install: n/a
+#  modules/simple_sitemap_engines/simple_sitemap_engines.info.yml: n/a
+#  modules/simple_sitemap_views/simple_sitemap_views.info.yml: n/a
+#  simple_sitemap.links.task.yml: n/a
+#  modules/simple_sitemap_engines/simple_sitemap_engines.links.task.yml: n/a
+#  src/Form/SimplesitemapSettingsForm.php: n/a
+#  src/Form/SimplesitemapEntitiesForm.php: n/a
+#  config/schema/simple_sitemap.schema.yml: n/a
+#  modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml: n/a
+#  modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php: n/a
+#  modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php: n/a
+#  src/Form/FormHelper.php: n/a
+#  src/Form/SimplesitemapCustomLinksForm.php: n/a
+#  src/Form/SimplesitemapVariantsForm.php: n/a
+#  simple_sitemap.permissions.yml: n/a
+#  simple_sitemap.routing.yml: n/a
+#  modules/simple_sitemap_engines/simple_sitemap_engines.routing.yml: n/a
+#  modules/simple_sitemap_views/simple_sitemap_views.routing.yml: n/a
+#  modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml: n/a
+#  src/Controller/SimplesitemapController.php: n/a
+#  js/simple_sitemap.fieldsetSummaries.js: n/a
+#  modules/simple_sitemap_engines/src/Entity/SearchEngine.php: n/a
+#  modules/simple_sitemap_engines/src/Plugin/QueueWorker/SitemapSubmitter.php: n/a
+#  modules/simple_sitemap_views/simple_sitemap_views.links.task.yml: n/a
+#  modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php: n/a
+#  modules/simple_sitemap_views/src/Plugin/QueueWorker/GarbageCollector.php: n/a
+#  modules/simple_sitemap_views/src/Plugin/simple_sitemap/UrlGenerator/ViewsUrlGenerator.php: n/a
+#  src/Plugin/simple_sitemap/SitemapGenerator/DefaultSitemapGenerator.php: n/a
+#  src/Plugin/simple_sitemap/SitemapType/DefaultHreflangSitemapType.php: n/a
+#  src/Plugin/simple_sitemap/UrlGenerator/ArbitraryUrlGenerator.php: n/a
+#  src/Plugin/simple_sitemap/UrlGenerator/CustomUrlGenerator.php: n/a
+#  src/Plugin/simple_sitemap/UrlGenerator/EntityMenuLinkContentUrlGenerator.php: n/a
+#  src/Plugin/simple_sitemap/UrlGenerator/EntityUrlGenerator.php: n/a
+#  src/Queue/BatchTrait.php: n/a
+#  modules/simple_sitemap_engines/config/install/simple_sitemap_engines.simple_sitemap_engine.bing.yml: n/a
+#  modules/simple_sitemap_engines/config/install/simple_sitemap_engines.simple_sitemap_engine.google.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: simple_sitemap.module:46 simple_sitemap.info.yml:0 simple_sitemap.links.menu.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:246;14
+msgid "Simple XML Sitemap"
+msgstr "Simple XML Sitemap"
+
+#: simple_sitemap.module:47
+msgid "Settings for this entity can be overridden here."
+msgstr "Einstellungen für diese Entität können hier übersteuert werden."
+
+#: simple_sitemap.install:19
+msgid "Simple XML Sitemap PHP extensions"
+msgstr "Simple XML Sitemap PHP-Erweiterungen"
+
+#: simple_sitemap.install:20
+msgid "Missing PHP xmlwriter extension"
+msgstr "PHP-xmlwriter-Erweiterung fehlt"
+
+#: simple_sitemap.install:21
+msgid "In order to be able to generate sitemaps, the Simple XML Sitemap module requires the <em>xmlwriter</em> PHP extension to be enabled."
+msgstr "Um Sitemaps erzeugen zu können, muss für das Simple-XML-Sitemap-Modul die PHP-Erweiterung <em>xmlwriter</em> aktiviert sein."
+
+#: simple_sitemap.install:418
+msgid "You may now want to configure the new changefreq setting for the XML sitemap entities and custom links."
+msgstr "Sie können nun die neue Einstellung für „changefreq“ für XML-Sitemap-Entitäten und benutzerdefinierte Links konfigurieren."
+
+#: simple_sitemap.install:454
+msgid "You may now want to configure your XML sitemap entities to include images."
+msgstr "Sie können nun Ihre XML-Sitemap-Entitäten so konfigurieren, dass sie Bilder einschließen."
+
+#: simple_sitemap.install:676
+msgid "The XML sitemaps need to be regenerated."
+msgstr "Die XML-Sitemaps müssen neu aufgebaut werden."
+
+#: simple_sitemap.info.yml:0
+msgid "Generates standard conform hreflang XML sitemaps of the site content and provides a framework for developing other sitemap types."
+msgstr "Erzeugt standardkonforme hreflang-XML-Sitemaps des Site-Inhalts und stellt einen Rahmen zur Entwicklung anderer Sitemap-Typen bereit."
+
+#: simple_sitemap.info.yml:0 modules/simple_sitemap_engines/simple_sitemap_engines.info.yml:0 modules/simple_sitemap_views/simple_sitemap_views.info.yml:0
+msgid "SEO"
+msgstr "SEO"
+
+#: simple_sitemap.links.menu.yml:0
+msgid "Configure and generate the XML sitemap, add custom links to it."
+msgstr "XML-Sitemap konfigurieren, generieren und benutzerdefinierte Links hinzufügen."
+
+#: simple_sitemap.links.task.yml:0 modules/simple_sitemap_engines/simple_sitemap_engines.links.task.yml:0 src/Form/SimplesitemapSettingsForm.php:219
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: simple_sitemap.links.task.yml:0 src/Form/SimplesitemapEntitiesForm.php:65
+msgid "Sitemap entities"
+msgstr "Sitemap-Entitäten"
+
+#: simple_sitemap.links.task.yml:0 config/schema/simple_sitemap.schema.yml:0;0 modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0 modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:57 modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:111 src/Form/FormHelper.php:288 src/Form/SimplesitemapCustomLinksForm.php:79 src/Form/SimplesitemapVariantsForm.php:27
+msgid "Sitemap variants"
+msgstr "Sitemap-Varianten"
+
+#: simple_sitemap.links.task.yml:0 config/schema/simple_sitemap.schema.yml:0;0 src/Form/SimplesitemapCustomLinksForm.php:63
+msgid "Custom links"
+msgstr "Benutzerdefinierte Links"
+
+#: simple_sitemap.permissions.yml:0
+msgid "Administer sitemap settings"
+msgstr "Sitemap-Einstellungen verwalten"
+
+#: simple_sitemap.permissions.yml:0
+msgid "Administer Simple XML Sitemap settings, alter inclusion settings of content and generate sitemaps on demand."
+msgstr "Verwalten von Simple-XML-Sitemap-Einstellungen, Ändern der Einstellungen zum Einbeziehen von Inhalten und Erzeugen von Sitemaps auf Abruf."
+
+#: simple_sitemap.routing.yml:0;0;0;0 modules/simple_sitemap_engines/simple_sitemap_engines.routing.yml:0;0 modules/simple_sitemap_views/simple_sitemap_views.routing.yml:0
+msgid "Simple XML Sitemap Settings"
+msgstr "Simple-XML-Sitemap-Einstellungen"
+
+#: simple_sitemap.routing.yml:0
+msgid "Sitemap XSL"
+msgstr "Sitemap XSL"
+
+#: config/schema/simple_sitemap.schema.yml:0 modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0
+msgid "Max links"
+msgstr "Maximale Anzahl von Links"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Cron generation"
+msgstr "Erzeugung per Cron"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Cron generation interval"
+msgstr "Intervall bei der Erzeugung per Cron"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Generation duration"
+msgstr "Dauer der Erzeugung"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Remove duplicates"
+msgstr "Duplikate entfernen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Skip untranslated"
+msgstr "Unübersetzte überspringen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Include a stylesheet in the sitemaps for humans"
+msgstr "Ein Stylesheet in den Sitemaps für Menschen einschließen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Base URL"
+msgstr "Basis-URL"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Default variant"
+msgstr "Standardvariante"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Include images of custom links"
+msgstr "Bilder aus benutzerdefinierten Linkquellen mit einschließen."
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Excluded languages"
+msgstr "Ausgeschlossene Sprachen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Enabled entity types"
+msgstr "Aktivierte Entitätstypen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Entity bundle settings"
+msgstr "Entitätssubtypeinstellungen"
+
+#: config/schema/simple_sitemap.schema.yml:0 modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0
+msgid "Index"
+msgstr "Index"
+
+#: config/schema/simple_sitemap.schema.yml:0;0 modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:146 src/Controller/SimplesitemapController.php:91 src/Form/FormHelper.php:322
+msgid "Priority"
+msgstr "Priorität"
+
+#: config/schema/simple_sitemap.schema.yml:0;0 modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:154 src/Controller/SimplesitemapController.php:90 src/Form/FormHelper.php:340
+msgid "Change frequency"
+msgstr "Änderungsfrequenz"
+
+#: config/schema/simple_sitemap.schema.yml:0 src/Form/FormHelper.php:358 src/Form/SimplesitemapCustomLinksForm.php:93
+msgid "Include images"
+msgstr "Bilder miteinbeziehen"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Path"
+msgstr "Pfad"
+
+#: config/schema/simple_sitemap.schema.yml:0
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: js/simple_sitemap.fieldsetSummaries.js:0
+msgid "Included in sitemap variants: "
+msgstr "In den folgenden Sitemap-Varianten enthalten: "
+
+#: js/simple_sitemap.fieldsetSummaries.js:0
+msgid "Excluded from all sitemap variants"
+msgstr "Aus allen Sitemap-Varianten ausgeschlossen"
+
+#: modules/simple_sitemap_engines/simple_sitemap_engines.info.yml:0
+msgid "Simple XML Sitemap (Search engines)"
+msgstr "Simple XML Sitemap (Suchmaschinen)"
+
+#: modules/simple_sitemap_engines/simple_sitemap_engines.info.yml:0
+msgid "Submits sitemaps to search engines."
+msgstr "Übergibt die Sitemaps an die Suchmaschinen."
+
+#: modules/simple_sitemap_engines/simple_sitemap_engines.links.task.yml:0 modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:99
+msgid "Search engines"
+msgstr "Suchmaschinen"
+
+#: modules/simple_sitemap_engines/simple_sitemap_engines.links.task.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:251 src/Form/SimplesitemapSettingsForm.php:162
+msgid "Status"
+msgstr "Status"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0 modules/simple_sitemap_engines/src/Entity/SearchEngine.php:7
+msgid "Search engine"
+msgstr "Suchmaschine"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0
+msgid "Search engine ID"
+msgstr "Suchmaschinen-ID"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0 modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:56
+msgid "Submission URL"
+msgstr "Übergabe-URL"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0 modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:137
+msgid "Sitemap variant"
+msgstr "Sitemap-Variante"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0 modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:58
+msgid "Last submitted"
+msgstr "Zuletzt übergeben"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0
+msgid "Sitemap search engine submission settings"
+msgstr "Einstellungen zur Übergabe der Sitemap an die Suchmaschine"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0
+msgid "Sitemap submission enabled"
+msgstr "Sitemap-Übergabe aktiviert"
+
+#: modules/simple_sitemap_engines/config/schema/simple_sitemap_engines.schema.yml:0
+msgid "Sitemap submission frequency"
+msgstr "Häufigkeit der Sitemap-Übergabe"
+
+#: modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:55
+msgid "Name"
+msgstr "Name"
+
+#: modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:74
+msgid "Never"
+msgstr "Nie"
+
+#: modules/simple_sitemap_engines/src/Controller/SearchEngineListBuilder.php:82
+msgid "Submission status"
+msgstr "Übergabestatus"
+
+#: modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:100
+msgid "Configure sitemap variants to submit to search engines."
+msgstr "Sitemap-Varianten zur Übergabe an die Suchmaschinen konfigurieren."
+
+#: modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:120
+msgid "Submission settings"
+msgstr "Einstellungen zur Eingabe"
+
+#: modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:124
+msgid "Submit the sitemap to search engines"
+msgstr "Sitemap an Suchmaschinen übergeben"
+
+#: modules/simple_sitemap_engines/src/Form/SimplesitemapEnginesForm.php:129
+msgid "Submission interval"
+msgstr "Eingabeintervall"
+
+#: modules/simple_sitemap_engines/src/Plugin/QueueWorker/SitemapSubmitter.php:123
+msgid "Sitemap %sitemap submitted to @url"
+msgstr "Sitemap %sitemap an @url übergeben"
+
+#: modules/simple_sitemap_engines/src/Plugin/QueueWorker/SitemapSubmitter.php:14
+msgid "Sitemap search engine submission"
+msgstr "Übergabe von Sitemap an Suchmaschine"
+
+#: modules/simple_sitemap_views/simple_sitemap_views.info.yml:0
+msgid "Simple XML Sitemap (Views)"
+msgstr "Simple XML Sitemap (Ansichten)"
+
+#: modules/simple_sitemap_views/simple_sitemap_views.info.yml:0
+msgid "Provides integration of the Simple XML Sitemap module with the Views module."
+msgstr "Ermöglicht die Integration des Simple-XML-Sitemap-Moduls in das Views-Modul."
+
+#: modules/simple_sitemap_views/simple_sitemap_views.links.task.yml:0
+msgid "Sitemap views"
+msgstr "Sitemap-Ansichten"
+
+#: modules/simple_sitemap_views/config/schema/simple_sitemap_views.views.schema.yml:0 modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:170
+msgid "Indexed arguments"
+msgstr "Indizierte Argumente"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:52
+msgid "View"
+msgstr "Ansicht"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:53
+msgid "Display"
+msgstr "Anzeige"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:54
+msgid "Arguments"
+msgstr "Argumente"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:55
+msgid "Operations"
+msgstr "Aktionen"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:57
+msgid "No view displays are set to be indexed yet. <a href=\"@url\">Edit a view.</a>"
+msgstr "Es sind noch keine Ansichtsanzeigen zur Indizierung gesetzt. <a href=\"@url\">Editieren Sie eine Ansicht.</a>"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:64 src/Form/FormHelper.php:363 src/Form/SimplesitemapCustomLinksForm.php:96
+msgid "Yes"
+msgstr "Ja"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:64 src/Form/FormHelper.php:363 src/Form/SimplesitemapCustomLinksForm.php:96
+msgid "No"
+msgstr "Nein"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:76
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: modules/simple_sitemap_views/src/Controller/SimpleSitemapViewsController.php:86
+msgid "Indexed view displays"
+msgstr "Indizierte Ansichtsanzeigen"
+
+#: modules/simple_sitemap_views/src/Plugin/QueueWorker/GarbageCollector.php:12
+msgid "Garbage collection in the simple_sitemap_views table"
+msgstr "Garbage-Collection in der Tabelle simple_sitemap_views"
+
+#: modules/simple_sitemap_views/src/Plugin/simple_sitemap/UrlGenerator/ViewsUrlGenerator.php:18
+msgid "Views URL generator"
+msgstr "Ansichts-URL-Generator"
+
+#: modules/simple_sitemap_views/src/Plugin/simple_sitemap/UrlGenerator/ViewsUrlGenerator.php:18
+msgid "Generates URLs for views."
+msgstr "Erzeugt URLs für Ansichten."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:104
+msgid "Simple XML Sitemap settings for this display"
+msgstr "Simple-XML-Sitemap-Einstellungen für diese Anzeige"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:116;123
+msgid "Index this display"
+msgstr "Diese Anzeige indizieren"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:132
+msgid "Main settings"
+msgstr "Haupteinstellungen"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:138
+msgid "The sitemap variant this display is to be indexed in."
+msgstr "Die Sitemap-Variante, in der diese Anzeige indiziert werden soll."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:147
+msgid "The priority this display will have in the eyes of search engine bots."
+msgstr "Die Priorität, die diese Anzeige für Suchmaschinen-Bots haben wird."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:155
+msgid "The frequency with which this display changes. Search engine bots may take this as an indication of how often to index it."
+msgstr "Die Häufigkeit, mit der sich diese Anzeige ändert. Suchmaschinen-Bots können dies als Hinweis darauf nehmen, wie oft sie indiziert werden sollen."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:163
+msgid "Argument settings"
+msgstr "Argumenteinstellungen"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:178
+msgid "Maximum display variations"
+msgstr "Maximale Anzahl von Anzeige-Varianten"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:179
+msgid "The maximum number of link variations to be indexed for this display. If left blank, each argument will create link variations for this display. Use with caution, as a large number of argument values​can significantly increase the number of sitemap links."
+msgstr "Die maximale Anzahl von Link-Varianten, die für diese Anzeige indiziert werden soll. Falls leer, erzeugt jedes Argument Link-Varianten für diese Anzeige. Vorsichtig verwenden, da eine große Zahl von Argumentenwerten die Anzahl der Sitemap-Links erheblich vergrößern kann."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:185
+msgid "This display has no arguments."
+msgstr "Diese Anzeige hat keine Argumente."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:252
+msgid "Included in sitemap"
+msgstr "In der Sitemap enthalten"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:252
+msgid "Excluded from sitemap"
+msgstr "Von der Sitemap ausgeschlossen"
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:351
+msgid "To enable indexing of an argument, you must enable indexing of all previous arguments."
+msgstr "Um die Indizierung eines Arguments zu aktivieren, müssen Sie die Indizierung aller vorherigen Argumente aktivieren."
+
+#: modules/simple_sitemap_views/src/Plugin/views/display_extender/SimpleSitemapDisplayExtender.php:14
+msgid "Simple XML Sitemap settings for this view."
+msgstr "Simple-XML-Sitemap-Einstellungen für diese Ansicht."
+
+#: src/Controller/SimplesitemapController.php:83
+msgid "Sitemap file"
+msgstr "Sitemap-Datei"
+
+#: src/Controller/SimplesitemapController.php:84
+msgid "Generated by the <a href=\"@link\">@module_name</a> Drupal module."
+msgstr "Vom Drupal-Modul <a href=\"@link\">@module_name</a> erzeugt."
+
+#: src/Controller/SimplesitemapController.php:85
+msgid "Number of sitemaps in this index"
+msgstr "Anzahl der Sitemaps in diesem Index"
+
+#: src/Controller/SimplesitemapController.php:86
+msgid "Sitemap URL"
+msgstr "Sitemap-URL"
+
+#: src/Controller/SimplesitemapController.php:87
+msgid "Number of URLs in this sitemap"
+msgstr "Anzahl der URLs in dieser Sitemap"
+
+#: src/Controller/SimplesitemapController.php:88
+msgid "URL location"
+msgstr "URL-Ort"
+
+#: src/Controller/SimplesitemapController.php:89
+msgid "Last modification date"
+msgstr "Letztes Änderungsdatum"
+
+#: src/Controller/SimplesitemapController.php:92
+msgid "Translation set"
+msgstr "Übersetzungen"
+
+#: src/Controller/SimplesitemapController.php:93
+msgid "Images"
+msgstr "Bilder"
+
+#: src/Controller/SimplesitemapController.php:94
+msgid "Title"
+msgstr "Titel"
+
+#: src/Controller/SimplesitemapController.php:95
+msgid "Caption"
+msgstr "Beschriftung"
+
+#: src/Form/FormHelper.php:240
+msgid "Regenerate all sitemaps after hitting <em>Save</em>"
+msgstr "Alle Sitemaps nach Klick auf <em>Speichern</em> neu aufbauen"
+
+#: src/Form/FormHelper.php:241
+msgid "This setting will regenerate all sitemaps including the above changes."
+msgstr "Diese Einstellung baut alle Sitemaps mit den vorstehenden Änderungen neu auf."
+
+#: src/Form/FormHelper.php:245
+msgid "Otherwise the sitemaps will be regenerated during a future cron run."
+msgstr "Andernfalls werden die Sitemaps während eines künftigen Cron-Laufs neu aufgebaut."
+
+#: src/Form/FormHelper.php:283
+msgid "undefined"
+msgstr "Undefiniert"
+
+#: src/Form/FormHelper.php:287
+msgid "At least one sitemap variants needs to be defined for a bundle to be indexable.<br>Variants can be configured <a href=\"@url\">here</a>."
+msgstr "Es muss mindestens eine Sitemap-Variante definiert sein, damit ein Subtyp indiziert werden kann.<br>Varianten können <a href=\"@url\">hier</a> konfiguriert werden."
+
+#: src/Form/FormHelper.php:306
+msgid "Do not index this <em>@bundle</em> entity in variant <em>@variant_label</em>"
+msgstr "Indizieren Sie diese <em>@bundle</em>-Entität nicht in Variante <em>@variant_label</em>"
+
+#: src/Form/FormHelper.php:307
+msgid "Do not index entities of type <em>@bundle</em> in variant <em>@variant_label</em>"
+msgstr "Indizieren Sie Entitäten des Typs <em>@bundle</em> nicht in Variante <em>@variant_label</em>"
+
+#: src/Form/FormHelper.php:309
+msgid "Index this <em>@bundle entity</em> in variant <em>@variant_label</em>"
+msgstr "Indizieren Sie diese <em>@bundle-Entität</em> in Variante <em>@variant_label</em>"
+
+#: src/Form/FormHelper.php:310
+msgid "Index entities of type <em>@bundle</em> in variant <em>@variant_label</em>"
+msgstr "Indizieren Sie Entitäten des Typs <em>@bundle</em> in Variante <em>@variant_label</em>"
+
+#: src/Form/FormHelper.php:316;334;352;370
+msgid "default"
+msgstr "Standardeinstellung"
+
+#: src/Form/FormHelper.php:324
+msgid "The priority this <em>@bundle</em> entity will have in the eyes of search engine bots."
+msgstr "Die Priorität, die diese <em>@bundle</em>-Entität für Suchmaschinen-Bots haben wird."
+
+#: src/Form/FormHelper.php:325
+msgid "The priority entities of this type will have in the eyes of search engine bots."
+msgstr "Die Priorität, die Entitäten dieser Art für Suchmaschinen-Bots haben."
+
+#: src/Form/FormHelper.php:342
+msgid "The frequency with which this <em>@bundle</em> entity changes. Search engine bots may take this as an indication of how often to index it."
+msgstr "Die Häufigkeit, mit der sich diese <em>@bundle</em>-Entität ändert. Suchmaschinen-Bots können dies als Hinweis darauf nehmen, wie oft sie indiziert werden sollen."
+
+#: src/Form/FormHelper.php:343
+msgid "The frequency with which entities of this type change. Search engine bots may take this as an indication of how often to index them."
+msgstr "Die Häufigkeit, mit der sich Entitäten dieses Typs ändern. Suchmaschinen-Bots können dies als Hinweis darauf nehmen, wie oft sie indexiert werden sollen."
+
+#: src/Form/FormHelper.php:360
+msgid "Determines if images referenced by this <em>@bundle</em> entity should be included in the sitemap."
+msgstr "Legt fest, ob Bilder, auf die diese <em>@bundle</em>-Entität verweist, in die Sitemap aufgenommen werden sollen."
+
+#: src/Form/FormHelper.php:361
+msgid "Determines if images referenced by entities of this type should be included in the sitemap."
+msgstr "Legt fest, ob Bilder, auf die von Entitäten dieses Typs verwiesen wird, in die Sitemap aufgenommen werden sollen."
+
+#: src/Form/FormHelper.php:546
+msgid "- Not specified -"
+msgstr "- Nicht festgelegt -"
+
+#: src/Form/FormHelper.php:596
+msgid "On every cron run"
+msgstr "Bei jedem Cron-Lauf"
+
+#: src/Form/FormHelper.php:603
+msgid "If you would like to say thanks and support the development of this module, a <a target=\"_blank\" href=\"@url\">donation</a> will be much appreciated."
+msgstr "Wenn Sie sich bedanken und die Entwicklung dieses Moduls unterstützen wollen, würde wir uns über eine <a target=\"_blank\" href=\"@url\">Spende</a> sehr freuen."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:65
+msgid "Add custom internal drupal paths to the XML sitemap."
+msgstr "Benutzerdefinierte interne Drupal-Pfade zur XML-Sitemap hinzufügen."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:71
+msgid "Relative Drupal paths"
+msgstr "Relative Drupal-Pfade"
+
+#: src/Form/SimplesitemapCustomLinksForm.php:80
+msgid "The sitemap variants to include the above links in.<br>Variants can be configured <a href=\"@url\">here</a>."
+msgstr "Die Sitemap-Varianten, in denen die obigen Links enthalten sein sollen.<br>Varianten können <a href=\"@url\">hier</a> konfiguriert werden."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:94
+msgid "If a custom link points to an entity, include its referenced images in the sitemap."
+msgstr "Wenn ein benutzerdefinierter Link auf eine Entität zeigt, werden deren referenzierte Bilder in die Sitemap eingefügt."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:113
+msgid "Custom links must be assigned to at least one sitemap variant."
+msgstr "Benutzerdefinierte Links müssen mindestens einer Sitemap-Variante zugewiesen werden."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:129
+msgid "<strong>Line @line</strong>: The path <em>@path</em> does not exist."
+msgstr "<strong>Zeile @line</strong>: Der Pfad <em>@path</em> ist nicht vorhanden."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:134
+msgid "<strong>Line @line</strong>: The path <em>@path</em> needs to start with a '/'."
+msgstr "<strong>Zeile @line</strong>: Der Pfad <em>@path</em> muss mit einem ,/’ beginnen."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:139
+msgid "<strong>Line @line</strong>: The priority setting <em>@priority</em> for path <em>@path</em> is incorrect. Set the priority from 0.0 to 1.0."
+msgstr "<strong>Zeile @line</strong>: Die Prioritätseinstellung <em>@priority</em> für Pfad <em>@path</em> ist falsch. Stellen Sie die Priorität von 0.0 bis 1.0 ein."
+
+#: src/Form/SimplesitemapCustomLinksForm.php:144
+msgid "<strong>Line @line</strong>: The changefreq setting <em>@changefreq</em> for path <em>@path</em> is incorrect. The following are the correct values: <em>@changefreq_options</em>."
+msgstr "<strong>Zeile @line</strong>: Die Einstellung changefreq <em>@changefreq</em> für Pfad <em>@path</em> ist falsch. Nachfolgend sind die korrekten Werte aufgeführt: <em>@changefreq_options</em>."
+
+#: src/Form/SimplesitemapEntitiesForm.php:67
+msgid "Simple XML Sitemap settings will be added only to entity forms of entity types enabled here. For all entity types featuring bundles (e.g. <em>node</em>) sitemap settings have to be set on their bundle pages (e.g. <em>page</em>)."
+msgstr "Simple-XML-Sitemap-Einstellungen werden nur zu Entitätsformularen der hier aktivierten Entitätstypen hinzugefügt. Bei allen Entitätstypen mit Subtypen (z. B. <em>Beitrag</em>) müssen die Sitemap-Einstellungen auf ihre Subtyp-Seiten vorgenommen werden (z. B. <em>Seite</em>)."
+
+#: src/Form/SimplesitemapEntitiesForm.php:106
+msgid "Enable @entity_type_label <em>(@entity_type_id)</em> support"
+msgstr "Unterstützung für @entity_type_label <em>(@entity_type_id)</em> aktivieren"
+
+#: src/Form/SimplesitemapEntitiesForm.php:108
+msgid "Sitemap settings for the entity type <em>@entity_type_label</em> can be set below and overridden on its entity pages."
+msgstr "Sitemap-Einstellungen für den Entitätstyp <em>@entity_type_label</em> können unten festgelegt und auf den Entitätsseiten übersteuert werden."
+
+#: src/Form/SimplesitemapEntitiesForm.php:109
+msgid "Sitemap settings for the entity type <em>@entity_type_label</em> can be set on its bundle pages and overridden on its entity pages."
+msgstr "Sitemap-Einstellungen für den Entitätstyp <em>@entity_type_label</em> können auf seinen Subtyp-Seiten festgelegt und auf seinen Entitätsseiten übersteuert werden."
+
+#: src/Form/SimplesitemapEntitiesForm.php:118
+msgid "sitemap variants"
+msgstr "Sitemap-Varianten"
+
+#: src/Form/SimplesitemapEntitiesForm.php:126
+msgid "<em>@entity_type_label</em> bundles set to be indexed:"
+msgstr "<em>@entity_type_label</em> Subtypen, die indexiert werden sollen:"
+
+#: src/Form/SimplesitemapEntitiesForm.php:127
+msgid "No <em>@entity_type_label</em> bundles are set to be indexed yet."
+msgstr "Bisher sind keine <em>@entity_type_label</em> Subtypen für die Indexierung festgelegt."
+
+#: src/Form/SimplesitemapEntitiesForm.php:134
+msgid "<strong>Warning:</strong> This entity type's sitemap settings including per-entity overrides will be deleted after hitting <em>Save</em>."
+msgstr "<strong>Warnung:</strong> Die Sitemap-Einstellungen dieses Entitätstyps einschließlich der Übersteuerungen für einzelne Entitäten werden nach dem Drücken von <em>Speichern</em> gelöscht."
+
+#: src/Form/SimplesitemapSettingsForm.php:89
+msgid "Sitemap status"
+msgstr "Sitemap-Status"
+
+#: src/Form/SimplesitemapSettingsForm.php:90
+msgid "Sitemaps can be regenerated on demand here."
+msgstr "Sitemaps können hier auf Anforderung neu aufgebaut werden."
+
+#: src/Form/SimplesitemapSettingsForm.php:91
+msgid "Variants can be configured <a href=\"@url\">here</a>."
+msgstr "Varianten können <a href=\"@url\">hier</a> konfiguriert werden."
+
+#: src/Form/SimplesitemapSettingsForm.php:101
+msgid "Rebuild queue"
+msgstr "Warteschlange neu aufbauen"
+
+#: src/Form/SimplesitemapSettingsForm.php:109
+msgid "Resume generation"
+msgstr "Erzeugung wiederaufnehmen"
+
+#: src/Form/SimplesitemapSettingsForm.php:110
+msgid "Rebuild queue & generate"
+msgstr "Warteschlange neu aufbauen und erzeugen"
+
+#: src/Form/SimplesitemapSettingsForm.php:120
+msgid "Progress of sitemap regeneration"
+msgstr "Fortschritt beim Neuaufbau der Sitemap"
+
+#: src/Form/SimplesitemapSettingsForm.php:133
+msgid "@indexed out of @total items have been processed.<br>Each sitemap variant is published after all of its items have been processed."
+msgstr "@indexed von @total Elementen sind verarbeitet worden.<br>Die einzelnen Sitemap-Varianten werden veröffentlicht, nachdem alle ihre Elemente verarbeitet worden sind."
+
+#: src/Form/SimplesitemapSettingsForm.php:138
+msgid "There are no items to be indexed."
+msgstr "Es sind keine Elemente zu indizieren."
+
+#: src/Form/SimplesitemapSettingsForm.php:156
+msgid "sitemaps"
+msgstr "Sitemaps"
+
+#: src/Form/SimplesitemapSettingsForm.php:162
+msgid "Variant"
+msgstr "Variante"
+
+#: src/Form/SimplesitemapSettingsForm.php:169
+msgid "pending"
+msgstr "ausstehend"
+
+#: src/Form/SimplesitemapSettingsForm.php:174
+msgid "generating"
+msgstr "erzeugen"
+
+#: src/Form/SimplesitemapSettingsForm.php:177
+msgid "<a href=\"@url\" target=\"_blank\">published on @time</a>"
+msgstr "<a href=\"@url\" target=\"_blank\">veröffentlicht um @time</a>"
+
+#: src/Form/SimplesitemapSettingsForm.php:182
+msgid "<a href=\"@url\" target=\"_blank\">published on @time</a>, regenerating"
+msgstr "<a href=\"@url\" target=\"_blank\">veröffentlicht um @time</a>, Neuaufbau läuft"
+
+#: src/Form/SimplesitemapSettingsForm.php:194
+msgid "No variants have been defined"
+msgstr "Es sind keine Varianten definiert worden"
+
+#: src/Form/SimplesitemapSettingsForm.php:224
+msgid "Regenerate the sitemaps during cron runs"
+msgstr "Sitemaps während Cron-Läufen neu aufbauen"
+
+#: src/Form/SimplesitemapSettingsForm.php:225
+msgid "Uncheck this if you intend to only regenerate the sitemaps manually or via drush."
+msgstr "Diese Option nur zurücknehmen, wenn Sie Sitemaps nur von Hand oder über Drush neu aufbauen wollen."
+
+#: src/Form/SimplesitemapSettingsForm.php:231
+msgid "Sitemap generation interval"
+msgstr "Generierungsintervall der Sitemap"
+
+#: src/Form/SimplesitemapSettingsForm.php:232
+msgid "The sitemap will be generated according to this interval."
+msgstr "Die Sitemap wird gemäß dieser Intervallangabe generiert."
+
+#: src/Form/SimplesitemapSettingsForm.php:242
+msgid "Add styling and sorting to sitemaps"
+msgstr "Stile und Sortierungen zu Sitemaps hinzufügen"
+
+#: src/Form/SimplesitemapSettingsForm.php:243
+msgid "If checked, sitemaps will be displayed as tables with sortable entries and thus become much friendlier towards human visitors. Search engines will not care."
+msgstr "Falls ausgewählt, werden Sitemaps als Tabellen mit sortierbaren Einträgen angezeigt und sind so für menschliche Besucher übersichtlicher. Suchmaschinen ist das egal."
+
+#: src/Form/SimplesitemapSettingsForm.php:249
+msgid "Language settings"
+msgstr "Spracheinstellungen"
+
+#: src/Form/SimplesitemapSettingsForm.php:255
+msgid "Skip non-existent translations"
+msgstr "Nicht vorhandene Übersetzungen überspringen"
+
+#: src/Form/SimplesitemapSettingsForm.php:256
+msgid "If checked, entity links are generated exclusively for languages the entity has been translated to as long as the language is not excluded below.<br>Otherwise entity links are generated for every language installed on the site apart from languages excluded below.<br>Bear in mind that non-entity paths like homepage will always be generated for every non-excluded language."
+msgstr "Falls ausgewählt, werden Entitäts-Links ausschließlich für Sprachen erzeugt, in die die Entität übersetzt worden ist, solange die Sprache nicht nachstehend ausgeschlossen wird.<br>Andernfalls werden Entitäts-Links für alle auf der Site installierten Sprachen mit Ausnahme der unten ausgeschlossenen Sprachen erzeugt.<br>Beachten Sie, dass Pfade, die nicht zu Entitäten führen, z. B. zur Startseite, immer für alle nicht ausgeschlossenen Sprachen erzeugt werden."
+
+#: src/Form/SimplesitemapSettingsForm.php:267
+msgid "Exclude languages"
+msgstr "Sprachen ausschließen"
+
+#: src/Form/SimplesitemapSettingsForm.php:271
+msgid "There will be no links generated for languages checked here."
+msgstr "Es werden keine Links für hier ausgewählte Sprachen erzeugt."
+
+#: src/Form/SimplesitemapSettingsForm.php:272
+msgid "There are no languages other than the default language <a href=\"@url\">available</a>."
+msgstr "Es steht nur die <a href=\"@url\">Standard-Sprache</a> zur Verfügung."
+
+#: src/Form/SimplesitemapSettingsForm.php:278
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: src/Form/SimplesitemapSettingsForm.php:286
+msgid "Default sitemap variant"
+msgstr "Standard-Sitemap-Variante"
+
+#: src/Form/SimplesitemapSettingsForm.php:287
+msgid "This sitemap variant will be available under <em>/sitemap.xml</em> in addition to its default path <em>/variant-name/sitemap.xml</em>.<br>Variants can be configured <a href=\"@url\">here</a>."
+msgstr "Diese Sitemap-Variante wird unter <em>/sitemap.xml</em> zusätzlich zu ihrem Standardpfad <em>/variant-name/sitemap.xml</em> verfügbar.<br>Varianten können <a href=\"@url\">hier</a> konfiguriert werden."
+
+#: src/Form/SimplesitemapSettingsForm.php:289
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Form/SimplesitemapSettingsForm.php:294
+msgid "Default base URL"
+msgstr "Standardmäßige Basis-URL"
+
+#: src/Form/SimplesitemapSettingsForm.php:297
+msgid "On some hosting providers it is impossible to pass parameters to cron to tell Drupal which URL to bootstrap with. In this case the base URL of sitemap links can be overridden here.<br>Example: <em>@url</em>"
+msgstr "Bei einigen Hosting-Providern ist es nicht möglich, an Cron Parameter zu übergeben, um Drupal anzuweisen, mit welcher URL es starten soll. In diesem Fall kann die Basis-URL der Sitemap-Links hier übersteuert werden.<br>Beispiel: <em>@url</em>"
+
+#: src/Form/SimplesitemapSettingsForm.php:302
+msgid "Exclude duplicate links"
+msgstr "Doppelte Links ausschließen"
+
+#: src/Form/SimplesitemapSettingsForm.php:303
+msgid "Prevent per-sitemap variant duplicate links.<br>Unchecking this may help avoiding PHP memory errors on huge sites."
+msgstr "Verhindert doppelte Links pro Sitemap-Variante.<br>Diese Option zu deaktivieren kann helfen, auf großen Sites PHP-Speicherfehler zu vermeiden."
+
+#: src/Form/SimplesitemapSettingsForm.php:309
+msgid "Maximum links in a sitemap"
+msgstr "Die maximale Anzahl von Links, die eine Sitemap enthalten darf."
+
+#: src/Form/SimplesitemapSettingsForm.php:311
+msgid "The maximum number of links one sitemap can hold. If more links are generated than set here, a sitemap index will be created and the links split into several sub-sitemaps.<br>50 000 links is the maximum Google will parse per sitemap, but choosing a lower value may be needed to avoid PHP memory errors on huge sites.<br>If left blank, all links will be shown on a single sitemap."
+msgstr "Die maximale Anzahl an Links, die eine Sitemap enthalten kann. Wenn mehr Links als hier eingestellt erzeugt werden, wird ein Sitemap-Index erstellt und die Links werden auf mehrere Unter-Sitemaps aufgeteilt.<br>Google wertet pro Sitemap maximal 50.000 Links aus. Es kann jedoch ein niedrigerer Wert erforderlich sein, um bei großen Sites PHP-Speicherfehler zu vermeiden.<br>Falls leer erscheinen alle Links in einer einzigen Sitemap."
+
+#: src/Form/SimplesitemapSettingsForm.php:317
+msgid "Sitemap generation max duration"
+msgstr "Max. Dauer der Sitemap-Erzeugung"
+
+#: src/Form/SimplesitemapSettingsForm.php:319
+msgid "The maximum duration <strong>in seconds</strong> the generation task can run during a single cron run or during one batch process iteration.<br>The higher the number, the quicker the generation process, but higher the risk of PHP timeout errors."
+msgstr "Die maximale Dauer <strong>in Sekunden</strong>, die der Erzeugungs-Tasks während eines einzelnen Cron-Laufs oder einer Iteration des Batch-Prozesses laufen kann.<br>Je höher diese Zahl ist, desto schneller erfolgt die Erzeugung, aber um so höher ist die Gefahr von PHP-Timeout-Fehlern."
+
+#: src/Form/SimplesitemapSettingsForm.php:372
+msgid "The base URL is invalid."
+msgstr "Die Basis-URL ist ungültig."
+
+#: src/Form/SimplesitemapVariantsForm.php:29
+msgid "Define sitemap variants. A sitemap variant is a sitemap instance of a certain type (specific sitemap generator and URL generators) accessible under a certain URL.<br>Each variant can have its own entity bundle settings (to be defined on bundle edit pages)."
+msgstr "Sitemap-Varianten definieren. Eine Sitemap-Variante ist eine Sitemap-Instanz eines bestimmten Typs (spezifischer Sitemap-Generator und URL-Generatoren), der unter einer bestimmten URL erreicht werden kann.<br>Jede Variante kann ihre eignen Einstellungen für Entitäts-Subtypen haben (auf den Seiten zur Bearbeitung der Subtypen definiert)."
+
+#: src/Form/SimplesitemapVariantsForm.php:35
+msgid "Variants"
+msgstr "Varianten"
+
+#: src/Form/SimplesitemapVariantsForm.php:37
+msgid "Please specify sitemap variants, one per line. <strong>Caution: </strong>Removing variants here will delete their bundle settings, custom links and corresponding sitemap instances.<br><br>A variant definition consists of the variant name (used as the variant's path), the sitemap type it belongs to (optional) and the variant label (optional). These three values have to be separated by the | pipe | symbol.<br><br><strong>Examples:</strong><br><em>default | default_hreflang | Default</em> -> variant of the <em>default_hreflang</em> sitemap type and <em>Default</em> as label; accessible under <em>/default/sitemap.xml</em><br><em>test</em> -> variant of the <em>@default_sitemap_type</em> sitemap type and <em>test</em> as label; accessible under <em>/test/sitemap.xml</em><br><br><strong>Available sitemap types:</strong>"
+msgstr "Spezifizieren Sie bitte Sitemap-Varianten, eine pro Zeile. <strong>Vorsicht: </strong>Beim Entfernen von Varianten werden deren Subtypeinstellungen, benutzerdefinierten Links und entsprechende Sitemap-Instanzen gelöscht.<br><br>Eine Variantendefinition besteht aus dem Variantennamen (als Pfad der Variante verwendet), dem zugehörigen Sitemap-Typ (optional) und dem Varianten-Label (optional). Diese drei Werte werden mit dem senkrechten Strich „|“ getrennt.<br><br><strong>Beispiele:</strong><br><em>default | default_hreflang | Default</em> -> Variante des Sitemap-Typs <em>default_hreflang</em> und <em>Default</em> als Label; erreichbar unter <em>/default/sitemap.xml</em><br><em>test</em> -> Variante des Sitemap-Typs <em>@default_sitemap_type</em> und <em>test</em> als Label; erreichbar unter <em>/test/sitemap.xml</em><br><br><strong>Verfügbare Sitemap-Typen:</strong>"
+
+#: src/Form/SimplesitemapVariantsForm.php:67
+msgid "<strong>Line @line</strong>: The variant name cannot be empty."
+msgstr "<strong>Zeile @line</strong>: Der Variantenname darf nicht leer sein."
+
+#: src/Form/SimplesitemapVariantsForm.php:71
+msgid "<strong>Line @line</strong>: The variant name <em>@name</em> can only include alphanumeric characters, dashes and underscores."
+msgstr "<strong>Zeile @line</strong>: Der Variantenname <em>@name</em> darf nur alphanumerische Zeichen, Bindestriche und Unterstriche enthalten."
+
+#: src/Form/SimplesitemapVariantsForm.php:75
+msgid "<strong>Line @line</strong>: The variant name cannot be numeric."
+msgstr "<strong>Zeile @line</strong>: Der Variantenname darf keine Zahl sein."
+
+#: src/Form/SimplesitemapVariantsForm.php:79
+msgid "<strong>Line @line</strong>: The variant <em>@name</em> is of a sitemap type <em>@type</em> that does not exist."
+msgstr "<strong>Zeile @line</strong>: Die Variante <em>@name</em> hat den nicht existierenden Sitemap-Typ <em>@type</em>."
+
+#: src/Plugin/simple_sitemap/SitemapGenerator/DefaultSitemapGenerator.php:11
+msgid "Default sitemap generator"
+msgstr "Standard-Sitemap-Generator"
+
+#: src/Plugin/simple_sitemap/SitemapGenerator/DefaultSitemapGenerator.php:11
+msgid "Generates a standard conform hreflang sitemap of your content."
+msgstr "Erzeugt eine standardkonforme hreflang-Sitemap Ihres Inhalts."
+
+#: src/Plugin/simple_sitemap/SitemapType/DefaultHreflangSitemapType.php:5
+msgid "Default hreflang"
+msgstr "Standard hreflang"
+
+#: src/Plugin/simple_sitemap/SitemapType/DefaultHreflangSitemapType.php:5
+msgid "The default hreflang sitemap type."
+msgstr "Der Standard-Sitemaptyp hreflang."
+
+#: src/Plugin/simple_sitemap/UrlGenerator/ArbitraryUrlGenerator.php:10
+msgid "Arbitrary URL generator"
+msgstr "Zufalls-URL-Generator"
+
+#: src/Plugin/simple_sitemap/UrlGenerator/ArbitraryUrlGenerator.php:10
+msgid "Generates URLs from data sets collected in the hook_arbitrary_links_alter hook."
+msgstr "Generiert URL's, aus Datensammlungen, die im Hook hook_arbitrary_links_alter gesammelt wurden."
+
+#: src/Plugin/simple_sitemap/UrlGenerator/CustomUrlGenerator.php:15
+msgid "Custom URL generator"
+msgstr "Benutzerdefinierte-URL-Generator"
+
+#: src/Plugin/simple_sitemap/UrlGenerator/CustomUrlGenerator.php:15
+msgid "Generates URLs set in admin/config/search/simplesitemap/custom."
+msgstr "Erzeugt URLs, die in admin/config/search/simplesitemap/custom festgelegt wurden."
+
+#: src/Plugin/simple_sitemap/UrlGenerator/EntityMenuLinkContentUrlGenerator.php:15
+msgid "Menu link URL generator"
+msgstr "Menülink-URL-Generator"
+
+#: src/Plugin/simple_sitemap/UrlGenerator/EntityMenuLinkContentUrlGenerator.php:15
+msgid "Generates menu link URLs by overriding the 'entity' URL generator."
+msgstr "Erzeugt URLs für Menülinks durch das Übersteuern des Entitäts-URL-Generators."
+
+#: src/Plugin/simple_sitemap/UrlGenerator/EntityUrlGenerator.php:12
+msgid "Entity URL generator"
+msgstr "Entitäts-URL-Generator"
+
+#: src/Plugin/simple_sitemap/UrlGenerator/EntityUrlGenerator.php:12
+msgid "Generates URLs for entity bundles and bundle overrides."
+msgstr "Erstellt URLs für Entitätssubtypen und Subtypübersteuerungen."
+
+#: src/Queue/BatchTrait.php:25
+msgid "Generating XML sitemaps"
+msgstr "XML-Sitemaps werden erzeugt"
+
+#: src/Queue/BatchTrait.php:26
+msgid "Initializing..."
+msgstr "Initialisierung läuft ..."
+
+#: src/Queue/BatchTrait.php:28
+msgid "Processing items from the queue.<br>Each sitemap variant is published after all of its items have been processed."
+msgstr "Elemente aus der Warteschlange werden verarbeitet.<br>Die einzelnen Sitemap-Varianten werden veröffentlicht, nachdem alle ihre Elemente verarbeitet worden sind."
+
+#: src/Queue/BatchTrait.php:69
+msgid "@indexed out of @total total items have been processed."
+msgstr "@indexed von @total Elementen insgesamt sind verarbeitet worden."
+
+#: modules/simple_sitemap_engines/config/install/simple_sitemap_engines.simple_sitemap_engine.bing.yml:0
+msgid "Bing"
+msgstr "Bing"
+
+#: modules/simple_sitemap_engines/config/install/simple_sitemap_engines.simple_sitemap_engine.google.yml:0
+msgid "Google"
+msgstr "Google"
+
+msgid "Configure, add content to and generate XML sitemaps."
+msgstr "Inhalt zu XML-Sitemaps hinzufügen, sie konfigurieren und generieren."
+
+msgid "published on @time"
+msgstr "veröffentlicht am @time"
+
+msgid "published on @time, regenerating"
+msgstr "veröffentlicht am @time, Neuaufbau läuft"

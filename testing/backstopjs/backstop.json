@@ -98,11 +98,8 @@
       "label": "deGov page-map-paragraph",
       "_comment": "Google and OSM maps (and dismiss google dev banner 2x)",
       "url": "http://host.docker.internal:80/degov-demo-content/page-map-paragraph",
-      "delay": 4000,
-      "clickSelectors": [
-        ".normal-page__content-paragraphs>div:nth-child(2) .styled-google-map .dismissButton",
-        ".normal-page__content-paragraphs>div:nth-child(4) .styled-google-map .dismissButton"
-      ],
+      "onReadyScript": "./puppet/verifyMapsPopups.js",
+      "delay": 1000,
       "postInteractionWait": 500,
       "removeSelectors": [
         ".header-wrapper",

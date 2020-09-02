@@ -1,0 +1,478 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  search_api_attachments.views.inc: n/a
+#  search_api_attachments.info.yml: n/a
+#  search_api_attachments.links.menu.yml: n/a
+#  search_api_attachments.routing.yml: n/a
+#  search_api_attachments.permissions.yml: n/a
+#  config/schema/search_api_attachments.processor.schema.yml: n/a
+#  config/schema/search_api_attachments.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/ExtractedText.php: n/a
+#  src/Plugin/search_api/processor/FilesExtractor.php: n/a
+#  src/Plugin/search_api_attachments/TikaExtractor.php: n/a
+#  src/Plugin/search_api_attachments/SolrExtractor.php: n/a
+#  src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php: n/a
+#  src/Form/TextExtractorFormSettings.php: n/a
+#  src/Plugin/QueueWorker/ExtractorQueue.php: n/a
+#  src/Plugin/search_api_attachments/DocconvExtractor.php: n/a
+#  src/Plugin/search_api_attachments/PdftotextExtractor.php: n/a
+#  src/Plugin/search_api_attachments/TikaServerExtractor.php: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-12-30 11:20+0100\n"
+"PO-Revision-Date: 2019-12-30 11:55+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: search_api_attachments.views.inc:21
+msgid "Search api attachments filter"
+msgstr "Such-API Anhänge Filter"
+
+#: search_api_attachments.views.inc:23
+msgid "Exclude search in attachments"
+msgstr "Suche in Anhängen ausschließen"
+
+#: search_api_attachments.info.yml:0 search_api_attachments.links.menu.yml:0
+#: search_api_attachments.routing.yml:0
+msgid "Search API Attachments"
+msgstr "Search-API Anhänge"
+
+#: search_api_attachments.info.yml:0
+msgid "Extract and index file fields content."
+msgstr "Dateifeld-Inhalte extrahieren und indexieren."
+
+#: search_api_attachments.info.yml:0
+msgid "Search"
+msgstr "Suche"
+
+#: search_api_attachments.links.menu.yml:0
+msgid "Configure search_api_attachments."
+msgstr "Konfiguriere search_api_attachments konfigurieren."
+
+#: search_api_attachments.permissions.yml:0
+msgid "Administer Search API Attachments"
+msgstr "Search-API Anhänge verwalten"
+
+#: search_api_attachments.permissions.yml:0
+msgid "Configure Search API Attachments."
+msgstr "Search-API Anhänge konfigurieren."
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+msgid "File attachments processor configuration"
+msgstr "Dateianhang-Prozessor-Konfiguration"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:264
+#: src/Plugin/search_api/processor/FilesExtractor.php:516
+msgid "Excluded file extensions"
+msgstr "Ausgeschlossene Dateierweiterungen"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+#: src/Plugin/search_api/processor/FilesExtractor.php:524
+msgid "Number of files indexed per file field"
+msgstr "Anzahl pro Dateifeld zu indexierender Dateien"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+msgid "Size limit of the extracted string before indexing"
+msgstr "Größenbeschränkung der extrahierten Zeichenketten vor der Indexierung"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:272
+#: src/Plugin/search_api/processor/FilesExtractor.php:542
+msgid "Maximum upload size"
+msgstr "Maximale Dateigröße zum Hochladen"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:279
+#: src/Plugin/search_api/processor/FilesExtractor.php:549
+msgid "Exclude private files"
+msgstr "Private Dateien ausschließen"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+msgid "Excluded mime types"
+msgstr "Ausgeschlossene MIME-Typen"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+msgid "The processor's weights for the different processing stages"
+msgstr "Die Gewichte des Prozessors für die verschiedenen Verarbeitungsstufen"
+
+#: config/schema/search_api_attachments.processor.schema.yml:0
+msgid "The processor's weight for this stage"
+msgstr "Das Gewicht des Prozessors für diese Stufe"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Search API attachments settings"
+msgstr "Search-API Anhänge Einstellungen"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Extractor Plugin ID"
+msgstr "Extraktor Plugin-ID"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Tika extractor configuration"
+msgstr "Tika Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/search_api_attachments/TikaExtractor.php:70
+msgid "Path to java executable"
+msgstr "Pfad zum java-Programm"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/search_api_attachments/TikaExtractor.php:77
+msgid "Path to Tika .jar file"
+msgstr "Pfad zur Tika .jar Datei"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Tika server extractor configuration"
+msgstr "Tika Server Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "The HTTP protocol to use for sending queries"
+msgstr "Das HTTP-Protokoll zum Versand von Anfragen"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "The host name or IP of the Tika server"
+msgstr "Der Hostname oder die IP Ihres Tika-Servers"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "The port of the Tika server"
+msgstr "Tike-Server-Port"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Timeout for Tika queries"
+msgstr "TImeout für Tika-Anfragen"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Docconv extractor configuration"
+msgstr "Docconv Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Path to the docconv binary"
+msgstr "Pfad zur Docconv Binärdatei"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Solr extractor configuration"
+msgstr "Solr Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/search_api_attachments/SolrExtractor.php:117
+msgid "Solr server"
+msgstr "Solr-Server"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Python Pdf2txt extractor configuration"
+msgstr "Python Pdf2txt Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:64
+msgid "Path to python executable"
+msgstr "Pfad zum Python-Programm"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:71
+msgid "Full path to the python pdf2txt script"
+msgstr "Vollständiger Pfad zum Python pdf2txt Skript"
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "Pdftotext extractor configuration"
+msgstr "Pdftotext Extraktor Konfiguration"
+
+#: config/schema/search_api_attachments.schema.yml:0
+#: src/Form/TextExtractorFormSettings.php:102
+msgid "Preserve cached extractions across cache clears."
+msgstr "Zwischengespeicherte Extraktionen beim Cache-Clear erhalten."
+
+#: config/schema/search_api_attachments.schema.yml:0
+msgid "File extracted text"
+msgstr "Aus Datei extrahierter Text"
+
+#: src/Form/TextExtractorFormSettings.php:80
+msgid "Extraction method"
+msgstr "Extraktionsmethode"
+
+#: src/Form/TextExtractorFormSettings.php:81
+msgid "Select the extraction method you want to use."
+msgstr "Wählen Sie die gewünschte Extraktionsmethode."
+
+#: src/Form/TextExtractorFormSettings.php:104
+msgid "When checked, <a href=\":url\">clearing the sitewide cache</a> will not clear the cache of extracted files."
+msgstr "Wenn aktiviert, wird das <a href=\":url\">Leeren des Zwischenspeichers</a> extrahierte Dateiinhalte nicht entfernen."
+
+#: src/Form/TextExtractorFormSettings.php:106
+msgid "Submit and test extraction"
+msgstr "Absenden und Extraktion testen"
+
+#: src/Form/TextExtractorFormSettings.php:163
+msgid "No error message was catched"
+msgstr "Es wurde keine Fehlermeldung empfangen"
+
+#: src/Form/TextExtractorFormSettings.php:166
+msgid "Unfortunately, the extraction doesn't seem to work with this configuration! (@error)"
+msgstr "Die Extraktion scheint mit dieser Konfiguration leider nicht zu funktionieren! (@error)"
+
+#: src/Form/TextExtractorFormSettings.php:172
+msgid "Extracted data: %extracted_data"
+msgstr "Extrahierte Daten: %extracted_data"
+
+#: src/Form/TextExtractorFormSettings.php:237
+msgid "Please make a choice"
+msgstr "Bitte treffen Sie eine Auswahl"
+
+#: src/Form/TextExtractorFormSettings.php:238
+msgid "Please choose an extraction method in the list above."
+msgstr "Bitte wählen Sie eine Extraktionsmethode aus der obenstehenden Liste."
+
+#: src/Form/TextExtractorFormSettings.php:243
+msgid "@extractor_plugin_label configuration"
+msgstr "@extractor_plugin_label Konfiguration"
+
+#: src/Form/TextExtractorFormSettings.php:266
+msgid "Test extractor %plugin"
+msgstr "Extraktor %plugin testen"
+
+#: src/Form/TextExtractorFormSettings.php:274
+msgid "Extraction doesn't seem to work."
+msgstr "Extraktion funktioniert anscheinend nicht."
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:268
+#: src/Plugin/search_api/processor/FilesExtractor.php:520
+msgid "File extensions that are excluded from indexing. Separate extensions with a space and do not include the leading dot.<br />Example: \"aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv\"<br />Extensions are internally mapped to a MIME type, so it is not necessary to put variations that map to the same type (e.g. tif is sufficient for tif and tiff)"
+msgstr "Dateinamenserweiterungen die von der Indexierung ausgeschlossen sind. Erweiterungen mit einem Leerzeichen trennen und den führenden Punkt weglassen.<br />Beispiel: „aif art avi bmp gif ico mov oga ogv png psd ra ram rgb flv“<br />Erweiterungen werden MIME-Typen zugewiesen, es ist somit nicht notwendig, Varianten für den selben Typen anzugeben (z.B. tif reicht für tif und tiff)"
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:274
+#: src/Plugin/search_api/processor/FilesExtractor.php:544
+msgid "Enter a value like \"10 KB\", \"10 MB\" or \"10 GB\" in order to restrict the max file size of files that should be indexed.<br /> Enter \"0\" for no limit restriction."
+msgstr "Geben Sie einen Wert wie „10 KB“, „10 MB“ oder „10 GB“ ein um die Maximalgröße zu definieren, bis zu der Dateien indexiert werden sollen.<br />Geben Sie „0“ ein für keine Beschränkung."
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:281
+#: src/Plugin/search_api/processor/FilesExtractor.php:551
+msgid "Check this box if you want to exclude private files from being indexed."
+msgstr "Aktivieren um private Dateien nicht zu indexieren."
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:291
+msgid "Excluded file extensions: @extensions"
+msgstr "Ausgeschlossene Datei-Erweiterungen: @extensions"
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:292
+msgid "Maximum upload size: @maxsize"
+msgstr "Maximale Uploadgröße: @maxsize"
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:294
+msgid "Exclude private files: @isexcluded"
+msgstr "Private Dateien ausschließen: @isexcluded"
+
+#: src/Plugin/Field/FieldFormatter/ExtractedText.php:20
+msgid "Text extracted from attachment"
+msgstr "Text aus Anhang extrahiert"
+
+#: src/Plugin/QueueWorker/ExtractorQueue.php:156
+msgid "Text extraction failed after 5 attempts @file_id for @entity_type @entity_id."
+msgstr "Text-Extraktion nach 5 Versuchen fehlgeschlagen @file_id for @entity_type @entity_id."
+
+#: src/Plugin/QueueWorker/ExtractorQueue.php:17
+msgid "Extractor Queue"
+msgstr "Extraktor-Warteschlange"
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:165;166
+msgid "Search api attachments: @label"
+msgstr "Search-API Anhänge: @label"
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:470
+msgid "File entity"
+msgstr "Datei-Entität"
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:529
+msgid "The number of files to index per file field.<br />The order of indexation is the weight in the widget.<br /> 0 for no restriction."
+msgstr "Die Anzahl zu indexierender Dateien pro Dateifeld.<br />Die Reihenfolge der Indexierung richtet sich nach der Gewichtung des Formularelements.<br />0 für keine Einschränkungen."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:533
+msgid "Limit size of the extracted string before indexing."
+msgstr "Länge der extrahierten Zeichenkette vor der Indexierung beschränken."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:538
+msgid "Enter a value like \"1000\", \"10 KB\", \"10 MB\" or \"10 GB\" in order to restrict the size of the content after extraction.<br /> \"0\" to index the full extracted content without bytes limitation."
+msgstr "Geben Sie einen Wert wie „1000“, „10 KB“, „10 MB“ oder „10 GB“ ein um die Maximalgröße des zu extrahierenden Inhalts zu definieren.<br />Geben Sie „0“ ein um den vollständigen extrahierten Inhalt zu indexieren."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:572
+msgid "The size limit option must contain a valid value. You may either enter \"0\" (for no restriction) or a string like \"10 KB\", \"10 MB\" or \"10 GB\"."
+msgstr "Die Größenbeschränkung muss einen gültigen Wert behinhalten. Geben Sie „0“ ein für keine Beschränkung, oder eine Zeichenkette wie „10 KB“, „10 MB“ oder „10 GB“."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:579
+msgid "The max filesize option must contain a valid value. You may either enter \"0\" (for no restriction) or a string like \"10 KB\", \"10 MB\" or \"10 GB\"."
+msgstr "Die Dateigrößenbeschränkung muss einen gültigen Wert behinhalten. Geben Sie „0“ ein für keine Beschränkung, oder eine Zeichenkette wie „10 KB“, „10 MB“ oder „10 GB“."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:309
+msgid "Error extracting text from file @file_id for @entity_type @entity_id. @type: @message in @function (line @line of @file)."
+msgstr "Fehler beim Extrahieren von Text aus Datei @file_id für @entity_type @entity_id. @type: @message in @function (Zeile @line von @file)."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:345
+msgid "File added to the queue for text extraction @file_id for @entity_type @entity_id."
+msgstr "Datei in Warteschlange für Text-Extraktion hinzugefügt @file_id für @entity_type @entity_id."
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:29
+msgid "File attachments"
+msgstr "Dateianhänge"
+
+#: src/Plugin/search_api/processor/FilesExtractor.php:29
+msgid "Adds the file attachments content to the indexed data."
+msgstr "Fügt den Inhalt der Dateianhänge den indexierten Daten hinzu."
+
+#: src/Plugin/search_api_attachments/DocconvExtractor.php:52
+msgid "Full path to the docconv binary"
+msgstr "Vollständiger Pfad zum docconv Programm"
+
+#: src/Plugin/search_api_attachments/DocconvExtractor.php:53
+msgid "Enter the full path to the docconv binary. Example: \"/usr/bin/docd\"."
+msgstr "Geben Sie den vollständigen Pfad zum docconv Programm an. Beispiel: „/usr/bin/docd“."
+
+#: src/Plugin/search_api_attachments/DocconvExtractor.php:67
+#: src/Plugin/search_api_attachments/PdftotextExtractor.php:82
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:89
+msgid "The file %path does not exist."
+msgstr "Die Datei %path existiert nicht."
+
+#: src/Plugin/search_api_attachments/DocconvExtractor.php:9
+msgid "Docconv Extractor"
+msgstr "Docconv Extraktor"
+
+#: src/Plugin/search_api_attachments/DocconvExtractor.php:9
+msgid "Adds Docconv extractor support."
+msgstr "Fügt Unterstützung für Docconv Extraktor hinzu."
+
+#: src/Plugin/search_api_attachments/PdftotextExtractor.php:65
+msgid "Pdftotext binary"
+msgstr "Pdftotext Programm"
+
+#: src/Plugin/search_api_attachments/PdftotextExtractor.php:66
+msgid "Enter the name of pdftotext executable or the full path to the pdftotext binary. Example: \"pdftotext\" or \"/usr/bin/pdftotext\"."
+msgstr "Geben Sie den Namen des pdftotext Programms oder den vollständigen Pfad zur pdftotext Binärdatei an. Beispiel: „pdftotext“ oder „/usr/bin/pdftotext“."
+
+#: src/Plugin/search_api_attachments/PdftotextExtractor.php:9
+msgid "Pdftotext Extractor"
+msgstr "Pdftotext Extraktor"
+
+#: src/Plugin/search_api_attachments/PdftotextExtractor.php:9
+msgid "Adds Pdftotext extractor support."
+msgstr "Fügt Unterstützung für Pdftotext Extraktor hinzu."
+
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:65
+msgid "Enter the path to python executable. Example: \"python\"."
+msgstr "Geben Sie den vollständigen Pfad zur Python-Anwendung an. Beispiel „python“."
+
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:72
+msgid "Enter the full path to the python pdf2txt script. Example: \"/usr/bin/pdf2txt.py\"."
+msgstr "Geben Sie den vollständigen Pfad zum Python Pdf2txt Skript an. Beispiel „/usr/bin/pdf2txt.py“."
+
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:98
+msgid "Python Pdf2txt script file is not executable."
+msgstr "Python Pdf2txt Skript ist nicht ausführbar."
+
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:9
+msgid "Python Pdf2txt Extractor"
+msgstr "Pythin Pdf2txt Extraktor"
+
+#: src/Plugin/search_api_attachments/PythonPdf2txtExtractor.php:9
+msgid "Adds python Pdf2txt extractor support."
+msgstr "Fügt Unterstützung für Python Pdf2txt Extrator hinzu."
+
+#: src/Plugin/search_api_attachments/SolrExtractor.php:118
+msgid "Select the solr server you want to use."
+msgstr "Wählen Sie den Solr-Server aus, den Sie verwenden wollen."
+
+#: src/Plugin/search_api_attachments/SolrExtractor.php:17
+msgid "Solr Extractor"
+msgstr "Solr Extraktor"
+
+#: src/Plugin/search_api_attachments/SolrExtractor.php:17
+msgid "Adds Solr extractor support."
+msgstr "Fügt Unterstützung für Solr Extraktor hinzu."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:71
+msgid "Enter the path to java executable. Example: \"java\"."
+msgstr "Geben Sie den Pfad zur Java-Anwendung an. Beispiel „java“."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:78
+msgid "Enter the full path to tika executable jar file. Example: \"/var/apache-tika/tika-app-1.8.jar\"."
+msgstr "Geben Sie den vollständigen Pfad zur Tika jar-Datei an. Beispiel: „/var/apache-tika/tika-app-1.8.jar“."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:97
+msgid "Invalid path or filename %path for java executable."
+msgstr "Ungültiger Pfad oder Dateiname für java Anwendung."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:103
+msgid "Invalid path or filename %path for tika application jar."
+msgstr "Ungültiger Pfad oder Dateiname %path für die Tika jar-Datei."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:111
+msgid "Tika could not be reached and executed."
+msgstr "Tika kann nicht erreicht und ausgeführt werden."
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:115
+msgid "Tika can be reached and be executed"
+msgstr "Tika kann erreicht und ausgeführt werden"
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:9
+msgid "Tika Extractor"
+msgstr "Tika Extraktor"
+
+#: src/Plugin/search_api_attachments/TikaExtractor.php:9
+msgid "Adds Tika extractor support."
+msgstr "Fügt Unterstützung für den Tika Extraktor hinzu."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:107
+msgid "HTTP protocol"
+msgstr "HTTP-Protokoll"
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:108
+msgid "The HTTP protocol to use for sending queries."
+msgstr "Das HTTP-Protokoll zum Versand von Anfragen."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:118
+msgid "Tika server host"
+msgstr "Tika-Server-Host"
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:119
+msgid "The host name or IP of your Tika server, e.g. <code>localhost</code> or <code>www.example.com</code>."
+msgstr "Der Hostname oder die IP Ihres Tika-Servers, z.B. <code>localhost</code> oder <code>www.example.com</code>."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:126
+msgid "Tika server port"
+msgstr "Tike-Server-Port"
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:127
+msgid "The default port is 9998."
+msgstr "Der Standardport ist 9998."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:136
+msgid "Query timeout"
+msgstr "Anfrage-Timeout"
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:137
+msgid "The timeout in seconds for queries sent to the Tika server."
+msgstr "Der Timeout in Sekunden für Anfragen an den Tika-Server."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:153
+msgid "The port has to be an integer between 0 and 65535."
+msgstr "Der Port muss eine Ganzzahl zwischen 0 und 65535 sein."
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:16
+msgid "Tika JAX-RS Server Extractor"
+msgstr "Tika JAX-RS Server Extraktor"
+
+#: src/Plugin/search_api_attachments/TikaServerExtractor.php:16
+msgid "Adds Tika JAX-RS server extractor support."
+msgstr "Fügt Unterstützung für Tika JAX-RS Server Extraktor hinzu."

@@ -1,0 +1,320 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  lightning_media.module: n/a
+#  lightning_media.info.yml: n/a
+#  lightning_media.routing.yml: n/a
+#  modules/lightning_media_bulk_upload/lightning_media_bulk_upload.info.yml: n/a
+#  modules/lightning_media_document/lightning_media_document.info.yml: n/a
+#  modules/lightning_media_image/lightning_media_image.info.yml: n/a
+#  modules/lightning_media_instagram/lightning_media_instagram.info.yml: n/a
+#  modules/lightning_media_twitter/lightning_media_twitter.info.yml: n/a
+#  modules/lightning_media_video/lightning_media_video.info.yml: n/a
+#  lightning_media.links.menu.yml: n/a
+#  config/optional/pathauto.pattern.media.yml: n/a
+#  config/schema/lightning_media.schema.yml: n/a
+#  src/ImageWidgetHelper.php: n/a
+#  modules/lightning_media_bulk_upload/lightning_media_bulk_upload.links.action.yml: n/a
+#  modules/lightning_media_bulk_upload/lightning_media_bulk_upload.routing.yml: n/a
+#  modules/lightning_media_bulk_upload/src/Form/BulkUploadForm.php: n/a
+#  modules/lightning_media_image/lightning_media_image.module: n/a
+#  src/Plugin/entity_embed/EntityEmbedDisplay/MediaImage.php: n/a
+#  modules/lightning_media_image/src/Plugin/Field/FieldWidget/ImageCropWidget.php: n/a
+#  src/Element/InteractiveUpload.php: n/a
+#  config/install/entity_browser.browser.media_browser.yml: n/a
+#  src/Form/SettingsForm.php: n/a
+#  src/Plugin/EntityBrowser/Widget/EmbedCode.php: n/a
+#  src/Plugin/EntityBrowser/Widget/FileUpload.php: n/a
+#  config/install/core.entity_form_mode.media.media_browser.yml: n/a
+#  config/install/core.entity_view_mode.media.embedded.yml: n/a
+#  config/install/core.entity_view_mode.media.thumbnail.yml: n/a
+#  config/optional/user.role.media_creator.yml: n/a
+#  config/optional/user.role.media_manager.yml: n/a
+#  modules/lightning_media_image/config/install/media.type.image.yml: n/a
+#  modules/lightning_media_image/config/optional/crop.type.freeform.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:05+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lightning_media.module:220
+msgid "Preview"
+msgstr "Vorschau"
+
+#: lightning_media.module:221
+msgid "A live preview of the @media_type."
+msgstr "Eine Live-Vorschau von @media_type."
+
+#: lightning_media.module:416
+msgid "Show in media library"
+msgstr "In der Mediathek zeigen"
+
+#: lightning_media.module:418
+msgid "Shown in media library"
+msgstr "In der Mediathek sichtbar"
+
+#: lightning_media.module:419
+msgid "Hidden in media library"
+msgstr "In der Mediathek nicht sichtbar"
+
+#: lightning_media.info.yml:0 lightning_media.routing.yml:0
+msgid "Lightning Media"
+msgstr "Lightning-Medien"
+
+#: lightning_media.info.yml:0
+msgid "Slick media handling for Lightning. So cool you'll make the A/C jealous."
+msgstr "Intelligente Handhabung von Medien für Lightning. So cool, dass der A/C neidisch wird."
+
+#: lightning_media.info.yml:0 modules/lightning_media_bulk_upload/lightning_media_bulk_upload.info.yml:0 modules/lightning_media_document/lightning_media_document.info.yml:0 modules/lightning_media_image/lightning_media_image.info.yml:0 modules/lightning_media_instagram/lightning_media_instagram.info.yml:0 modules/lightning_media_twitter/lightning_media_twitter.info.yml:0 modules/lightning_media_video/lightning_media_video.info.yml:0
+msgid "Lightning"
+msgstr "Lightning"
+
+#: lightning_media.links.menu.yml:0 config/optional/pathauto.pattern.media.yml:0
+msgid "Media"
+msgstr "Medien"
+
+#: config/schema/lightning_media.schema.yml:0;0
+msgid "Lightning Media settings"
+msgstr "Einstellungen zu Lightning-Medien"
+
+#: config/schema/lightning_media.schema.yml:0
+msgid "Entity Embed settings"
+msgstr "Entität-Embed-Einstellungen"
+
+#: config/schema/lightning_media.schema.yml:0
+msgid "Allow user to choose display plugin for embedded media"
+msgstr "Zulassen, dass Benutzer Anzeige-Plugin für eingebettete Medien wählt"
+
+#: config/schema/lightning_media.schema.yml:0
+msgid "Embed code widget settings"
+msgstr "Einstellungen für Embed-Code-Widget"
+
+#: config/schema/lightning_media.schema.yml:0;0
+msgid "Submit button text"
+msgstr "Text des „Speichern“-Buttons"
+
+#: config/schema/lightning_media.schema.yml:0;0
+msgid "Inline entity form mode"
+msgstr "Inline Entität Formular Modus"
+
+#: config/schema/lightning_media.schema.yml:0
+msgid "Upload widget settings"
+msgstr "Einstellungen für Upload-Widget"
+
+#: config/schema/lightning_media.schema.yml:0
+msgid "Return underlying file entity"
+msgstr "Zugrundeliegende Dateientität zurückgeben"
+
+#: config/schema/lightning_media.schema.yml:0 src/ImageWidgetHelper.php:47
+msgid "Show links to uploaded files"
+msgstr "Links zu hochgeladenen Dateien anzeigen"
+
+#: config/schema/lightning_media.schema.yml:0 src/ImageWidgetHelper.php:52
+msgid "Show Remove button"
+msgstr "Taste „Entfernen“ anzeigen"
+
+#: modules/lightning_media_bulk_upload/lightning_media_bulk_upload.info.yml:0
+msgid "Bulk Media Upload"
+msgstr "Hochladen mehrerer Medien"
+
+#: modules/lightning_media_bulk_upload/lightning_media_bulk_upload.info.yml:0
+msgid "Provides a form to upload many media items at once."
+msgstr "Erzeugt ein Formular zum gleichzeitigen Hochladen mehrerer Medien."
+
+#: modules/lightning_media_bulk_upload/lightning_media_bulk_upload.links.action.yml:0 modules/lightning_media_bulk_upload/lightning_media_bulk_upload.routing.yml:0
+msgid "Bulk upload"
+msgstr "Hochladen mehrerer Dateien"
+
+#: modules/lightning_media_bulk_upload/src/Form/BulkUploadForm.php:75
+msgid "Drag files here to upload them"
+msgstr "Dateien auf diese Fläche ziehen, um sie hochzuladen"
+
+#: modules/lightning_media_bulk_upload/src/Form/BulkUploadForm.php:80
+msgid "Continue"
+msgstr "Weiter"
+
+#: modules/lightning_media_bulk_upload/src/Form/BulkUploadForm.php:87
+msgid "You can upload as many files as you like. Each file can be up to @max_size in size. The following file extensions are accepted: @extensions"
+msgstr "Sie können beliebig viele Dateien hochladen. Jede Datei kann bis zu @max_size groß sein. Die folgenden Dateierweiterungen werden akzeptiert: @extensions"
+
+#: modules/lightning_media_document/lightning_media_document.info.yml:0
+msgid "Media Document"
+msgstr "Medien-Dokument"
+
+#: modules/lightning_media_document/lightning_media_document.info.yml:0
+msgid "Locally hosted document support for Lightning Media."
+msgstr "Unterstützung für lokal gehostete Dokumente für Lightning-Medien."
+
+#: modules/lightning_media_image/lightning_media_image.module:74
+msgid "Cropped: @crop_type"
+msgstr "Beschnitten: @crop_type"
+
+#: modules/lightning_media_image/lightning_media_image.info.yml:0 src/Plugin/entity_embed/EntityEmbedDisplay/MediaImage.php:11
+msgid "Media Image"
+msgstr "Bild Medium"
+
+#: modules/lightning_media_image/lightning_media_image.info.yml:0
+msgid "Image support for Lightning Media."
+msgstr "Bild-Unterstützung für Lightning-Medien."
+
+#: modules/lightning_media_image/src/Plugin/Field/FieldWidget/ImageCropWidget.php:28
+msgid "The <a href=\"@crop_types\">crop types</a> to allow. Only crop types that are associated with at least one <a href=\"@image_styles\">image style</a> are shown here. If none are selected, all will be allowed."
+msgstr "Die zuzulassenden <a href=\"@crop_types\">Crop-Types</a>. Lassen Sie nur Typen zu, die mindestens zu einem hier gezeigten <a href=\"@image_styles\">Bildstil</a> gehören. Falls keiner ausgewählt wird, werden alle zugelassen."
+
+#: modules/lightning_media_instagram/lightning_media_instagram.info.yml:0
+msgid "Media Instagram"
+msgstr "Medien Instagram"
+
+#: modules/lightning_media_instagram/lightning_media_instagram.info.yml:0
+msgid "Instagram support for Lightning Media."
+msgstr "Instagram-Unterstützung für Lightning-Medien."
+
+#: modules/lightning_media_twitter/lightning_media_twitter.info.yml:0
+msgid "Media Twitter"
+msgstr "Medien Twitter"
+
+#: modules/lightning_media_twitter/lightning_media_twitter.info.yml:0
+msgid "Twitter support for Lightning Media."
+msgstr "Twitter-Unterstützung für Lightning-Medien."
+
+#: modules/lightning_media_video/lightning_media_video.info.yml:0
+msgid "Media Video"
+msgstr "Medien Video"
+
+#: modules/lightning_media_video/lightning_media_video.info.yml:0
+msgid "Video support for Lightning Media."
+msgstr "Video-Unterstützung für Lightning-Medien."
+
+#: src/ImageWidgetHelper.php:77
+msgid "Do not link to uploaded files"
+msgstr "Nicht auf hochgeladene Dateien verlinken"
+
+#: src/ImageWidgetHelper.php:80
+msgid "Hide Remove button"
+msgstr "Taste „Entfernen“ ausblenden"
+
+#: src/Element/InteractiveUpload.php:58 config/install/entity_browser.browser.media_browser.yml:0
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/Element/InteractiveUpload.php:61
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Form/SettingsForm.php:33
+msgid "Allow users to choose how to display embedded media"
+msgstr "Benutzer wählen lassen, wie eingebettete Medien angezeigt werden sollen"
+
+#: src/Plugin/EntityBrowser/Widget/EmbedCode.php:26
+msgid "Enter a URL..."
+msgstr "Eine URL eingeben…"
+
+#: src/Plugin/EntityBrowser/Widget/EmbedCode.php:41
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: src/Plugin/EntityBrowser/Widget/EmbedCode.php:75
+msgid "You must enter a URL or embed code."
+msgstr "Es muss eine URL oder Embed-Code eingegeben werden."
+
+#: src/Plugin/EntityBrowser/Widget/EmbedCode.php:7
+msgid "Embed Code"
+msgstr "Embed Code"
+
+#: src/Plugin/EntityBrowser/Widget/EmbedCode.php:7
+msgid "Allows creation of media entities from embed codes."
+msgstr "Erlaubt die Erstellung von Medienentitäten aus Embed-Codes."
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:56
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:96
+msgid "You must upload a file."
+msgstr "Es muss eine Datei hochgeladen werrden."
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:138
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:181
+msgid "Return source file entity"
+msgstr "Quelldateientität zurückgeben"
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:183
+msgid "If checked, the source file(s) of the media entity will be returned from this widget."
+msgstr "Falls ausgewählt, werden von diesem Widget die Quelldatei(en) der Medienentität zurückgegeben."
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:12
+msgid "File Upload"
+msgstr "Dateiupload"
+
+#: src/Plugin/EntityBrowser/Widget/FileUpload.php:12
+msgid "Allows creation of media entities from file uploads."
+msgstr "Erlaubt die Erstellung von Medienentitäten aus Dateiuploads."
+
+#: config/install/core.entity_form_mode.media.media_browser.yml:0 config/install/entity_browser.browser.media_browser.yml:0
+msgid "Media browser"
+msgstr "Medien-Browser"
+
+#: config/install/core.entity_view_mode.media.embedded.yml:0
+msgid "Embedded"
+msgstr "Eingebettet"
+
+#: config/install/core.entity_view_mode.media.thumbnail.yml:0
+msgid "Thumbnail"
+msgstr "Miniaturbild"
+
+#: config/install/entity_browser.browser.media_browser.yml:0
+msgid "Select entities"
+msgstr "Entitäten auswählen"
+
+#: config/install/entity_browser.browser.media_browser.yml:0
+msgid "Create embed"
+msgstr "Embed erzeugen"
+
+#: config/optional/user.role.media_creator.yml:0
+msgid "Media creator"
+msgstr "Medien-Ersteller"
+
+#: config/optional/user.role.media_manager.yml:0
+msgid "Media manager"
+msgstr "Medien-Manager"
+
+#: modules/lightning_media_image/config/install/media.type.image.yml:0
+msgid "Image"
+msgstr "Bild"
+
+#: modules/lightning_media_image/config/install/media.type.image.yml:0
+msgid "Locally hosted images."
+msgstr "Lokal gespeicherte Bilder"
+
+#: modules/lightning_media_image/config/optional/crop.type.freeform.yml:0
+msgid "Freeform"
+msgstr "Freeform"
+
+#: modules/lightning_media_image/config/optional/crop.type.freeform.yml:0
+msgid "Crops without enforcing any aspect ratio."
+msgstr "Ermöglicht das Zuschneiden von Bildern, ohne dass ein Seitenverhältnis benötigt wird."
+
+msgid "Select Image(s)"
+msgstr "Bild(er) auswählen"
+
+msgid "A locally hosted document, such as a PDF."
+msgstr "Ein lokal gehostetes Dokument, z.B. ein PDF."
+
+msgid "Current selection"
+msgid_plural "Current selections"
+msgstr[0] "Aktuelle Auswahl"
+msgstr[1] "Aktuelle Auswahlen"

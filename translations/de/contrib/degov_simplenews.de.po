@@ -1,0 +1,153 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_simplenews.module: n/a
+#  degov_simplenews.install: n/a
+#  degov_simplenews.info.yml: n/a
+#  degov_simplenews.links.menu.yml: n/a
+#  degov_simplenews.routing.yml: n/a
+#  src/Form/SettingsForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_simplenews.module:82;188
+msgid "Forename"
+msgstr "Vorname"
+
+#: degov_simplenews.module:88;195
+msgid "Surname"
+msgstr "Nachname"
+
+#: degov_simplenews.module:92
+msgid "I hereby agree that my personal data transmitted with the contact information may be saved and processed. I confirm to be at least 16 years of age or have made available authorisation from the custodian(s) permitting the use of the contact information and dissemination of the data. I have read the @privacy_policy. The right of withdrawal is known to me."
+msgstr "Ich willige hiermit ein (Art. 6 Abs. 1 lit. a DSGVO), dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen.\nIch versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt.\n\nDie @privacy_policy habe ich gelesen. Das Recht des Widerrufs ist mir bekannt."
+
+#: degov_simplenews.module:93
+msgid "privacy policy"
+msgstr "Datenschutzhinweise"
+
+#: degov_simplenews.module:201
+msgid "Data protection regulations"
+msgstr "Datenschutzbestimmungen"
+
+#: degov_simplenews.module:203
+msgid "The user has not yet accepted the data protection regulations."
+msgstr "Der Benutzer hat den Datenschutzbestimmungen noch nicht zugestimmt."
+
+#: degov_simplenews.module:221
+msgid "Has accepted the data protection regulations at @date @time."
+msgstr "Hat den Datenschutzbestimmungen am @date um @time Uhr zugestimmt."
+
+#: degov_simplenews.module:313
+msgid "About"
+msgstr "Über"
+
+#: degov_simplenews.module:314
+msgid "This module extends Simplenews with some GDPR-related features."
+msgstr "Dieses Modul erweitert Simplenews um einige Features im Zusammenhang mit der DSGVO."
+
+#: degov_simplenews.module:297
+msgid "@count unconfirmed subscriber deleted."
+msgid_plural "@count unconfirmed subscribers deleted."
+msgstr[0] "@count unbestätigter Abonnent gelöscht."
+msgstr[1] "@count unbestätigte Abonnenten gelöscht."
+
+#: degov_simplenews.install:79
+msgid "Correctly configured"
+msgstr "Korrekt konfiguriert"
+
+#: degov_simplenews.install:92
+msgid "Privacy pages missing for these languages: :languages. <a href=\":settings_url\">Update settings</a>"
+msgstr "Seiten zum Datenschutz fehlen für die folgenden Sprachen: :languages. <a href=\":settings_url\">Aktualisieren Sie die Einstellungen</a>"
+
+#: degov_simplenews.install:103
+msgid "deGov - Simplenews"
+msgstr "deGov - Simplenews"
+
+#: degov_simplenews.info.yml:0
+msgid "deGov Simplenews"
+msgstr "deGov Simplenews"
+
+#: degov_simplenews.info.yml:0
+msgid "Extends Simplenews with GDPR-related features."
+msgstr "Erweitert Simplenews um Features im Zusammenhang mit der DSGVO."
+
+#: degov_simplenews.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: degov_simplenews.links.menu.yml:0
+msgid "deGov Simplenews Settings"
+msgstr "deGov Simplenews-Einstellungen"
+
+#: degov_simplenews.links.menu.yml:0
+msgid "Administer deGov Simplenews."
+msgstr "deGov Simplenews verwalten."
+
+#: degov_simplenews.routing.yml:0
+msgid "deGov - Simplenews settings"
+msgstr "deGov - Simplenews-Einstellungen"
+
+#: src/Form/SettingsForm.php:101
+msgid "Privacy policy pages"
+msgstr "Seiten mit Datenschutzhinweisen"
+
+#: src/Form/SettingsForm.php:119
+msgid "Privacy policy page (@langcode)"
+msgstr "Seite mit Datenschutzhinweisen (@langcode)"
+
+#: src/Form/SettingsForm.php:128
+msgid "Consent messages"
+msgstr "Einverständniserklärungen"
+
+#: src/Form/SettingsForm.php:142
+msgid "Consent message (@langcode)"
+msgstr "Einverständniserklärung (@langcode)"
+
+#: src/Form/SettingsForm.php:147
+msgid "The text displayed to new subscribers asking them to consent to your privacy policy."
+msgstr "Der Text, der neuen Abonnenten angezeigt wird, um sie aufzufordern, Ihrer Datenschutzerklärung zuzustimmen."
+
+#: src/Form/SettingsForm.php:147
+msgid "Defaults to:"
+msgstr "Standardtext:"
+
+#: src/Form/SettingsForm.php:147
+msgid "I hereby agree that my personal data transmitted with the contact information may be saved and processed. I confirm to be at least 16 years of age or have made available authorization from the custodian(s) permitting the use of the contact information and dissemination of the data. I have read the privacy policy. The right of withdrawal is known to me."
+msgstr "Ich willige hiermit ein, dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen. Ich versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt. Die Datenschutzerklärung habe ich gelesen. Das Recht auf Widerruf ist mir bekannt."
+
+#: src/Form/SettingsForm.php:152
+msgid "Subscriber handling"
+msgstr "Behandlung der Abonnenten"
+
+#: src/Form/SettingsForm.php:159
+msgid "Time before unconfirmed subscribers are deleted."
+msgstr "Zeit bis zum Löschen unbestätigter Abonnenten."
+
+#: src/Form/SettingsForm.php:161;162;163
+msgid "@count hours"
+msgstr "@count Stunden"
+
+#: src/Form/SettingsForm.php:164;165;166
+msgid "@count days"
+msgstr "@count Tage"
+
+#: src/Form/SettingsForm.php:168
+msgid "Subscribers with <em>only</em> unconfirmed subscriptions will be deleted after the set time has passed. Deletion is executed via cron."
+msgstr "Abonnenten, die <em>nur</em> ein nicht bestätigtes Abonnement haben, werden nach Ablauf der eingestellten Zeit gelöscht. Das Löschen erfolgt über Cron."
+
+msgid "Privacy policy page (@langcode)"
+msgstr "Datenschutzerklärung (@langcode)"

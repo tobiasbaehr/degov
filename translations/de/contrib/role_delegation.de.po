@@ -1,0 +1,79 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  role_delegation.module: n/a
+#  role_delegation.links.task.yml: n/a
+#  role_delegation.routing.yml: n/a
+#  src/Form/RoleDelegationSettingsForm.php: n/a
+#  role_delegation.info.yml: n/a
+#  role_delegation.permissions.yml: n/a
+#  src/PermissionGenerator.php: n/a
+#  src/Plugin/EntityReferenceSelection/RoleChangeSelection.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: role_delegation.module:36
+msgid "This module allows site administrators to grant some roles the authority to assign selected roles to users, without them needing the <em>administer permissions</em> permission."
+msgstr "Dieses Modul erlaubt es Administratoren, die Berechtigung zur Vergabe von Rollen an Benutzer zu deligieren, ohne dass diese Benutzer die Berechtigung als <em>Administrator</em> benötigen, mit der sie die ganze Site zu verwalten könnten."
+
+#: role_delegation.module:37
+msgid "It provides its own tab in the user profile so that roles can be assigned without needing access to the user edit form."
+msgstr "Zuweisen von Rollen über ein Register im Benutzerprofil"
+
+#: role_delegation.module:181;238 role_delegation.links.task.yml:0 role_delegation.routing.yml:0 src/Form/RoleDelegationSettingsForm.php:73
+msgid "Roles"
+msgstr "Rollen"
+
+#: role_delegation.info.yml:0
+msgid "Role Delegation"
+msgstr "Role Delegation"
+
+#: role_delegation.info.yml:0
+msgid "Allows site administrators to grant some roles the authority to assign selected roles to users."
+msgstr "Erlaubt es Administratoren die Berechtigung zur Vergabe von Rollen an Benutzer zu deligieren."
+
+#: role_delegation.info.yml:0
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: role_delegation.permissions.yml:0
+msgid "Assign all roles"
+msgstr "Alle Rollen zuweisen"
+
+#: role_delegation.permissions.yml:0
+msgid "Access permission for assigning all roles."
+msgstr "Zugangsberechtigung zur Zuweisung aller Rollen."
+
+#: src/PermissionGenerator.php:41
+msgid "Assign %role role"
+msgstr "Rolle %role zuweisen"
+
+#: src/Form/RoleDelegationSettingsForm.php:76
+msgid "Change roles assigned to user."
+msgstr "Rollen, die einem Benutzer zugewiesen sind, ändern."
+
+#: src/Form/RoleDelegationSettingsForm.php:82
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/RoleDelegationSettingsForm.php:112
+msgid "The roles have been updated."
+msgstr "Die Rollen wurden aktualisiert."
+
+#: src/Plugin/EntityReferenceSelection/RoleChangeSelection.php:8
+msgid "Role change"
+msgstr "Rollenänderung"
+

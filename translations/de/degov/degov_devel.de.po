@@ -1,0 +1,69 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_devel.install: n/a
+#  degov_devel.info.yml: n/a
+#  degov_devel.links.menu.yml: n/a
+#  degov_devel.routing.yml: n/a
+#  config/schema/degov_devel.schema.yml: n/a
+#  src/Form/ModuleConfigurationForm.php: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-12-31 12:07+0100\n"
+"PO-Revision-Date: 2019-12-31 12:10+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: degov_devel.install:20
+msgid "deGov - Developer"
+msgstr "deGov - Developer"
+
+#: degov_devel.install:21
+msgid "The module <em>deGov - Developer</em> is enabled. Please make sure you <a href=\":href\">disable</a> it before deploying to production."
+msgstr "Das Modul <em>deGov - Developer</em> ist aktiviert. Bitte <a href=\":href\">deaktivieren</a> Sie es, bevor Sie die Seite produktiv schalten."
+
+#: degov_devel.info.yml:0
+msgid "deGov - Devel"
+msgstr "deGov - Devel"
+
+#: degov_devel.info.yml:0
+msgid "Enables development tools for deGov."
+msgstr "Aktiviert Entwicklertools für deGov."
+
+#: degov_devel.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: degov_devel.links.menu.yml:0 degov_devel.routing.yml:0
+msgid "Development settings"
+msgstr "Entwicklungseinstellungen"
+
+#: degov_devel.links.menu.yml:0
+msgid "Administer deGov Devel settings."
+msgstr "deGov Devel Einstellunge verwalten."
+
+#: config/schema/degov_devel.schema.yml:0
+msgid "deGov - Devel Settings"
+msgstr "deGov - Devel Einstellungen"
+
+#: config/schema/degov_devel.schema.yml:0
+msgid "Status of mode"
+msgstr "Status des Modus"
+
+#: src/Form/ModuleConfigurationForm.php:36
+msgid "Development mode"
+msgstr "Entwicklermodus"
+
+#: src/Form/ModuleConfigurationForm.php:37
+msgid "E.g. set fixed content for social media feeds."
+msgstr "Z.B. unveränderlichen Inhalt für Social Media Feeds definieren."

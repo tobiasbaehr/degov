@@ -169,18 +169,7 @@ display:
           plugin_id: datetime
       title: 'Neuste Pressemitteilung'
       header: {  }
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<p> <a href=\"/de/pressetermine\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSETERMINE</a>\n<a href=\"/de/aktuelles-und-presse/pressekontakt\"><i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i>PRESSEKONTAKT</a></p>"
-          plugin_id: text_custom
+      footer: {  }
       empty: {  }
       relationships: {  }
       arguments:
@@ -276,20 +265,6 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'Neuste Pressemitteilung'
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: ''
-          plugin_id: text_custom
-      defaults:
-        footer: false
     cache_metadata:
       max-age: -1
       contexts:

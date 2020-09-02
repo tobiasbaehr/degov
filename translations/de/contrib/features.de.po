@@ -1,0 +1,1109 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  features.module: n/a
+#  features.info.yml: n/a
+#  modules/features_ui/features_ui.links.menu.yml: n/a
+#  modules/features_ui/features_ui.links.task.yml: n/a
+#  modules/features_ui/features_ui.routing.yml: n/a
+#  modules/features_ui/features_ui.info.yml: n/a
+#  config/schema/features.schema.yml: n/a
+#  src/Entity/FeaturesBundle.php: n/a
+#  modules/features_ui/src/Form/AssignmentConfigureForm.php: n/a
+#  modules/features_ui/src/Form/FeaturesEditForm.php: n/a
+#  modules/features_ui/features_ui.admin.inc: n/a
+#  modules/features_ui/src/Form/FeaturesExportForm.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentBaseType.php: n/a
+#  modules/features_ui/src/Form/AssignmentFormBase.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentCoreType.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentExclude.php: n/a
+#  modules/features_ui/src/Form/AssignmentExcludeForm.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentProfile.php: n/a
+#  src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php: n/a
+#  src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php: n/a
+#  modules/features_ui/src/Form/AssignmentProfileForm.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentSiteType.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php: n/a
+#  drush/features.drush8.inc: n/a
+#  src/Commands/FeaturesCommands.php: n/a
+#  modules/features_ui/features_ui.module: n/a
+#  modules/features_ui/features_ui.links.action.yml: n/a
+#  modules/features_ui/js/features_ui.admin.js: n/a
+#  modules/features_ui/src/Form/AssignmentAlterForm.php: n/a
+#  modules/features_ui/src/Form/AssignmentBaseForm.php: n/a
+#  modules/features_ui/src/Form/AssignmentCoreForm.php: n/a
+#  modules/features_ui/src/Form/AssignmentOptionalForm.php: n/a
+#  modules/features_ui/src/Form/AssignmentSiteForm.php: n/a
+#  modules/features_ui/src/Form/FeaturesDiffForm.php: n/a
+#  src/FeaturesAssigner.php: n/a
+#  src/FeaturesManager.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentDependency.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentExisting.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentForwardDependency.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentNamespace.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentOptionalType.php: n/a
+#  src/Plugin/FeaturesAssignment/FeaturesAssignmentPackages.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: features.module:17
+msgid "About"
+msgstr "Über"
+
+#: features.module:18
+msgid "The Features module provides a user interface for exporting bundles of configuration into modules. For more information, see the online documentation for <a href=\":url\">Features module</a>"
+msgstr "Das Feature-Modul bietet eine Benutzeroberfläche um Konfigurationspakete in Module zu exportieren. Weitere Informationen finden Sie in der Online-Dokumentation zum <a href=\":url\">Features-Modul</a>."
+
+#: features.info.yml:0 modules/features_ui/features_ui.links.menu.yml:0 modules/features_ui/features_ui.links.task.yml:0 modules/features_ui/features_ui.routing.yml:0
+msgid "Features"
+msgstr "Features"
+
+#: features.info.yml:0
+msgid "Enables administrators to package configuration into modules."
+msgstr "Ermöglicht Administratoren, die Konfiguration in Module zu verpacken."
+
+#: features.info.yml:0 modules/features_ui/features_ui.info.yml:0
+msgid "Development"
+msgstr "Entwicklung"
+
+#: config/schema/features.schema.yml:0
+msgid "Features settings"
+msgstr "Einstellungen für Features"
+
+#: config/schema/features.schema.yml:0
+msgid "Export settings"
+msgstr "Exporteinstellungen"
+
+#: config/schema/features.schema.yml:0
+msgid "Folder"
+msgstr "Ordner"
+
+#: config/schema/features.schema.yml:0
+msgid "Language Code"
+msgstr "Sprachkürzel"
+
+#: config/schema/features.schema.yml:0 src/Entity/FeaturesBundle.php:9
+msgid "Features bundle"
+msgstr "Features-Subtyp"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentConfigureForm.php:263
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/FeaturesEditForm.php:221
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/features_ui.admin.inc:95 modules/features_ui/src/Form/FeaturesEditForm.php:248 modules/features_ui/src/Form/FeaturesExportForm.php:236
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/features.schema.yml:0
+msgid "Assignment"
+msgstr "Zuordnung"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentConfigureForm.php:303
+msgid "Profile name"
+msgstr "Profilname"
+
+#: config/schema/features.schema.yml:0
+msgid "Is install profile"
+msgstr "Ist Installationsprofil"
+
+#: config/schema/features.schema.yml:0
+msgid "Assignment settings"
+msgstr "Zuordnungs-Einstellungen"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/features_ui.admin.inc:96
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/features_ui.admin.inc:97
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentBaseType.php:8
+msgid "Base type"
+msgstr "Basistyp"
+
+#: config/schema/features.schema.yml:0;0;0;0;0;0
+msgid "Types"
+msgstr "Typen"
+
+#: config/schema/features.schema.yml:0;0;0;0;0;0
+msgid "Configuration Types"
+msgstr "Konfigurations-Typen"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentFormBase.php:131
+msgid "Content entity types"
+msgstr "Inhalts-Entitätstypen"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentCoreType.php:7
+msgid "Core type"
+msgstr "Kernsystem-Typ"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentExclude.php:7
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentExcludeForm.php:36
+msgid "Exclude designated site-specific configuration"
+msgstr "Schließen Sie eine bestimmte, Webseite spezifische Konfiguration aus"
+
+#: config/schema/features.schema.yml:0
+msgid "Module"
+msgstr "Modul"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentExcludeForm.php:49
+msgid "Exclude installed module-provided entity configuration"
+msgstr "Schließen Sie die installierte, vom Modul bereitgestellte Entitäts-Konfiguration aus."
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentExcludeForm.php:66
+msgid "Don't exclude install profile's configuration"
+msgstr "Schließen Sie die Konfiguration des Installationsprofils nicht aus."
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentExcludeForm.php:76
+msgid "Don't exclude non-installed configuration by namespace"
+msgstr "Schließen Sie eine nicht installierte Konfiguration nicht über den Namensraum aus."
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentExcludeForm.php:94
+msgid "Don't exclude ANY configuration by namespace"
+msgstr "Schließen Sie KEINE Konfiguration über den Namensraum aus."
+
+#: config/schema/features.schema.yml:0
+msgid "Optional"
+msgstr "Optional"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentProfile.php:8 src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php:214;241 src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:168;194
+msgid "Profile"
+msgstr "Profil"
+
+#: config/schema/features.schema.yml:0 modules/features_ui/src/Form/AssignmentProfileForm.php:32
+msgid "Add commonly-needed configuration"
+msgstr "Hinzufügen von häufig benötigten Konfigurationen"
+
+#: config/schema/features.schema.yml:0
+msgid "Standard"
+msgstr "Standard"
+
+#: config/schema/features.schema.yml:0
+msgid "Add configuration and files from Standard profile"
+msgstr "Füge die Konfiguration und Dateien aus dem Standardprofil hinzu."
+
+#: config/schema/features.schema.yml:0
+msgid "Add module and theme dependencies from Standard profile"
+msgstr "Füge die Modul- und Themenabhängigkeiten aus dem Standard-Profil hinzu."
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentSiteType.php:30
+msgid "Site"
+msgstr "Website"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php:8
+msgid "Alter"
+msgstr "Ändern"
+
+#: config/schema/features.schema.yml:0 src/Plugin/FeaturesAssignment/FeaturesAssignmentCoreType.php:30
+msgid "Core"
+msgstr "Kernsystem"
+
+#: config/schema/features.schema.yml:0
+msgid "UUID"
+msgstr "UUID"
+
+#: config/schema/features.schema.yml:0
+msgid "User permissions"
+msgstr "Benutzerberechtigungen"
+
+#: drush/features.drush8.inc:541 src/Commands/FeaturesCommands.php:654
+msgid "(missing from active)"
+msgstr "(fehlt im aktiven)"
+
+#: drush/features.drush8.inc:549 src/Commands/FeaturesCommands.php:661
+msgid "(not exported)"
+msgstr "(nicht exportiert)"
+
+#: drush/features.drush8.inc:149
+msgid "Bundle @name not found. Using default."
+msgstr "Subtyp @name nicht gefunden.Verwende Standardtwert."
+
+#: drush/features.drush8.inc:172 src/Commands/FeaturesCommands.php:185
+msgid "Current bundle: none"
+msgstr "Aktueller Subtyp: keiner"
+
+#: drush/features.drush8.inc:175 src/Commands/FeaturesCommands.php:188
+msgid "Current bundle: @name (@machine_name)"
+msgstr "Aktueller Subtyp: @name (@machine_name)"
+
+#: drush/features.drush8.inc:181 src/Commands/FeaturesCommands.php:193
+msgid "Export folder: @folder"
+msgstr "Exportordner: @folder"
+
+#: drush/features.drush8.inc:183 src/Commands/FeaturesCommands.php:197
+msgid "The following assignment methods are enabled:"
+msgstr "Die folgenden Zuordnungsmethoden sind aktiviert:"
+
+#: drush/features.drush8.inc:184 src/Commands/FeaturesCommands.php:198
+msgid "  @methods"
+msgstr "  @methods"
+
+#: drush/features.drush8.inc:262 src/Commands/FeaturesCommands.php:287
+msgid "Package \"@package\" not found."
+msgstr "Paket \"@package\" wurde nicht gefunden."
+
+#: drush/features.drush8.inc:293;646 src/Commands/FeaturesCommands.php:335;784
+msgid "Current state already matches active config, aborting."
+msgstr "Der aktuelle Status stimmt bereits mit der aktiven Konfiguration überein, Abbruch."
+
+#: drush/features.drush8.inc:313 src/Commands/FeaturesCommands.php:373
+msgid "Must specify a profile name with --name"
+msgstr "Muss einen Profilnamen mit --name spezifizieren"
+
+#: drush/features.drush8.inc:321 src/Commands/FeaturesCommands.php:381
+msgid "The package @name does not exist."
+msgstr "Das Paket @name existiert nicht."
+
+#: drush/features.drush8.inc:328 src/Commands/FeaturesCommands.php:390
+msgid "The following extensions will be exported: @modules"
+msgstr "Die folgenden Erweiterungen werden exportiert: @modules"
+
+#: drush/features.drush8.inc:329;415 src/Commands/FeaturesCommands.php:496
+msgid "Do you really want to continue?"
+msgstr "Möchten Sie wirklich fortfahren?"
+
+#: drush/features.drush8.inc:337;398 src/Commands/FeaturesCommands.php:404;475
+msgid "The extension @name already exists at @directory."
+msgstr "Die Erweiterung @name existiert bereits im @directory."
+
+#: drush/features.drush8.inc:341;402 src/Commands/FeaturesCommands.php:409;480
+msgid "Would you like to overwrite it?"
+msgstr "Möchten Sie es überschreiben?"
+
+#: drush/features.drush8.inc:344;405 src/Commands/FeaturesCommands.php:412;483
+msgid "Would you like to overwrite them?"
+msgstr "Möchten Sie diese überschreiben?"
+
+#: drush/features.drush8.inc:414 src/Commands/FeaturesCommands.php:494
+msgid "Will create a new extension @name in @directory"
+msgstr "Erstellt eine neue Erweiterung @name im @directory"
+
+#: drush/features.drush8.inc:500;620 src/Commands/FeaturesCommands.php:608;759
+msgid "No such feature is available: @module"
+msgstr "Eine solches Feature ist nicht verfügbar: @module"
+
+#: drush/features.drush8.inc:525 src/Commands/FeaturesCommands.php:636
+msgid "Active config matches stored config for @module."
+msgstr "Die aktive Konfiguration stimmt mit der gespeicherten Konfiguration für das @module überein."
+
+#: drush/features.drush8.inc:534 src/Commands/FeaturesCommands.php:644
+msgid "Legend: "
+msgstr "Zeichenerklärung: "
+
+#: drush/features.drush8.inc:535
+msgid "Code:    drush features-import will replace the active config with the displayed code."
+msgstr "Code: drush features-import ersetzt die aktive Konfiguration durch den angezeigten Code."
+
+#: drush/features.drush8.inc:536
+msgid "Active:  drush features-export will update the exported feature with the displayed active config"
+msgstr "Aktiv: drush features-export aktualisiert das exportierte Feature mit der angezeigten aktiven Konfiguration."
+
+#: drush/features.drush8.inc:555 src/Commands/FeaturesCommands.php:668
+msgid "Config @name @message"
+msgstr "Konfiguration @name @message"
+
+#: drush/features.drush8.inc:625 src/Commands/FeaturesCommands.php:763
+msgid "No such feature is installed: @module"
+msgstr "Eine solche Feature ist nicht installiert: @module"
+
+#: drush/features.drush8.inc:666 src/Commands/FeaturesCommands.php:805
+msgid "Imported @module : @component."
+msgstr "@module importiert: @component."
+
+#: drush/features.drush8.inc:669 src/Commands/FeaturesCommands.php:808
+msgid "Reverted @module : @component."
+msgstr "@module zurückgesetzt : @component."
+
+#: drush/features.drush8.inc:672 src/Commands/FeaturesCommands.php:811
+msgid "Skipping @module : @component."
+msgstr "Überspringen von @module : @component."
+
+#: drush/features.drush8.inc:675 src/Commands/FeaturesCommands.php:814
+msgid "Error importing @module : @component."
+msgstr "Fehler beim Import von @module : @component."
+
+#: drush/features.drush8.inc:796 src/Commands/FeaturesCommands.php:930
+msgid "Ambiguous source \"@source\", matches @matches"
+msgstr "Zweideutige Quelle \"@source\", stimmt mit @matches überein."
+
+#: drush/features.drush8.inc:806 src/Commands/FeaturesCommands.php:941
+msgid "No @state sources match \"@source\""
+msgstr "Keine @state Quellen stimmen stimmen mit \"@source\" überein."
+
+#: drush/features.drush8.inc:824 src/Commands/FeaturesCommands.php:961
+msgid "Ambiguous component \"@component\", matches @matches"
+msgstr "Zweideutige Komponente \"@component\", stimmt mit @matches überein"
+
+#: drush/features.drush8.inc:839 src/Commands/FeaturesCommands.php:978
+msgid "No @state @source components match \"@component\""
+msgstr "Keine @state @source Komponenten stimmen mit \"@component\" überein."
+
+#: drush/features.drush8.inc:900
+msgid "Available sources"
+msgstr "Verfügbare Quellen"
+
+#: drush/features.drush8.inc:905 src/Commands/FeaturesCommands.php:1044
+msgid "Provided by"
+msgstr "Bereitgestellt von"
+
+#: modules/features_ui/features_ui.admin.inc:51
+msgid "@details"
+msgstr "@details"
+
+#: modules/features_ui/features_ui.admin.inc:78
+msgid "No Features packages available."
+msgstr "Keine Features-Pakete verfügbar."
+
+#: modules/features_ui/features_ui.admin.inc:94
+msgid "Assignment method"
+msgstr "Zuordnungsmethode"
+
+#: modules/features_ui/features_ui.admin.inc:102
+msgid "Operations"
+msgstr "Aktionen"
+
+#: modules/features_ui/features_ui.module:17
+msgid "Bundles are used to collect together groups of features. A bundle provides a shared <a href=\":namespace\">namespace</a> for all features included in it, which prevents conflicts and helps distinguish your features from those produced for other purposes. Common uses of bundles include:"
+msgstr "Subtypen werden verwendet, um Gruppen von Features zusammenzufassen. Ein Subtyp stellt einen gemeinsamen <a href=\":namespace\">Namespace</a> für alle in ihm enthaltenen Features zur Verfügung, der Konflikte verhindert und hilft, eigene Features von denen anderer Hersteller zu unterscheiden. Häufige Anwendungen von Subtypen sind:"
+
+#: modules/features_ui/features_ui.module:19
+msgid "Custom features for use on a particular site."
+msgstr "Benutzerdefinierte Features zur Verwendung in einer bestimmten Website."
+
+#: modules/features_ui/features_ui.module:20
+msgid "The features of a given <a href=\":distributions\">distribution</a>."
+msgstr "Die Features einer bestimmten <a href=\":distributions\">Distribution</a>."
+
+#: modules/features_ui/features_ui.module:22
+msgid "Use the form below to manage bundles. Each bundle comes with a set of assignment methods. By configuring and ordering the assignment methods, you can set the defaults for what does and doesn't get packaged into features for your bundle. Use the <em>Bundle</em> select to choose which bundle to edit, or chose <em>--New--</em> to create a new bundle. The <em>Default</em> bundle does not include a namespace and cannot be deleted."
+msgstr "Verwenden Sie das untenstehende Formular, um Subtypen zu verwalten. Jeder Subtyp wird mit einer Reihe von Zuweisungsmethoden geliefert. Durch die Konfiguration und Anordnung der Zuweisungsmethoden können Sie die Standardeinstellungen für das, was in den Features für Ihren Subtyp verpackt wird festlegen, und was nicht. Verwenden Sie die Option <em>Subtyp</em>, um den zu bearbeitenden Subtyp auszuwählen, oder wählen Sie <em>--Neu--</em>, um einen neuen Subtyp zu erstellen. Der Subtyp <em>Standard</em> enthält keinen Namensraum und kann nicht gelöscht werden."
+
+#: modules/features_ui/features_ui.module:27
+msgid "Export packages of configuration into modules."
+msgstr "Konfigurationspakete in Module exportieren."
+
+#: modules/features_ui/features_ui.info.yml:0
+msgid "Features UI"
+msgstr "Features UI"
+
+#: modules/features_ui/features_ui.info.yml:0
+msgid "Provides the user interface for Features."
+msgstr "Stellt eine Benutzeroberfläche für Features zu Verfügung."
+
+#: modules/features_ui/features_ui.links.action.yml:0
+msgid "Create new feature"
+msgstr "Neues Feature erstellen"
+
+#: modules/features_ui/features_ui.links.menu.yml:0
+msgid "Package your configuration into feature modules."
+msgstr "Packen Sie Ihre Konfiguration in Feature-Module."
+
+#: modules/features_ui/features_ui.links.task.yml:0
+msgid "Configure Bundles"
+msgstr "Subtypen konfigurieren"
+
+#: modules/features_ui/features_ui.links.task.yml:0 modules/features_ui/features_ui.routing.yml:0
+msgid "Differences"
+msgstr "Unterschiede"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Bundle assignment"
+msgstr "Subtypzuordnung"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure package configuration altering"
+msgstr "Konfigurieren der Änderung für die Paketkonfiguration"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure base package assignment"
+msgstr "Basis-Paketzuordnung konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure core package assignment"
+msgstr "Kernsystem-Paketzuordnung konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure package exclusion"
+msgstr "Paket-Ausschluss konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure optional package assignment"
+msgstr "Optionale Paketzuordnung konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure profile package assignment"
+msgstr "Profil-Paketzuordnung konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Configure site package assignment"
+msgstr "Website-Paketzuordnung konfigurieren"
+
+#: modules/features_ui/features_ui.routing.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: modules/features_ui/js/features_ui.admin.js:0
+msgid "Deselect all"
+msgstr "Alles abwählen"
+
+#: modules/features_ui/js/features_ui.admin.js:0 modules/features_ui/src/Form/FeaturesEditForm.php:447
+msgid "Select all"
+msgstr "Alle auswählen"
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:34
+msgid "Strip out <em>_core</em> property."
+msgstr "Entfernt die Eigenschaft <em>_core</em>."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:36
+msgid "Select this option to remove the <em>_core</em> configuration property on export. This property is added by Drupal core when configuration is installed."
+msgstr "Wählen Sie diese Option, um die Konfigurationseigenschaft <em>_core</em> beim Export zu entfernen. Diese Eigenschaft wird vom Drupal-Kernsystem hinzugefügt, wenn die Konfiguration installiert ist."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:41
+msgid "Strip out <em>uuid</em> property."
+msgstr "Entfernt die <em>uuid</em> Eigenschaft."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:43
+msgid "Select this option to remove the <em>uuid</em> configuration property on export. This property is added by Drupal core when configuration is installed."
+msgstr "Wählen Sie diese Option, um die Konfigurations-Eigenschaft <em>uuid</em> beim Export zu entfernen. Diese Eigenschaft wird vom Drupal-Kernsystem hinzugefügt, wenn die Konfiguration installiert ist."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:48
+msgid "Strip out user permissions."
+msgstr "Entfernen Sie Benutzerberechtigungen."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:50
+msgid "Select this option to remove permissions from user roles on export."
+msgstr "Wählen Sie diese Option, um Berechtigungen durch Benutzerrollen beim Exportieren zu entfernen."
+
+#: modules/features_ui/src/Form/AssignmentAlterForm.php:73 modules/features_ui/src/Form/AssignmentBaseForm.php:58 modules/features_ui/src/Form/AssignmentConfigureForm.php:430 modules/features_ui/src/Form/AssignmentCoreForm.php:51 modules/features_ui/src/Form/AssignmentExcludeForm.php:128 modules/features_ui/src/Form/AssignmentOptionalForm.php:51 modules/features_ui/src/Form/AssignmentProfileForm.php:85 modules/features_ui/src/Form/AssignmentSiteForm.php:51
+msgid "Package assignment configuration saved."
+msgstr "Konfiguration der Paketzuweisung gespeichert."
+
+#: modules/features_ui/src/Form/AssignmentBaseForm.php:30;34
+msgid "base"
+msgstr "Basis"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:198;224 modules/features_ui/src/Form/FeaturesEditForm.php:256 modules/features_ui/src/Form/FeaturesExportForm.php:157
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:227
+msgid "--New--"
+msgstr "--Neu--"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:241
+msgid "Remove bundle"
+msgstr "Subtyp entfernen"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:246
+msgid "Bundle name"
+msgstr "Name des Subtyps"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:248
+msgid "A unique human-readable name of this bundle."
+msgstr "Ein eindeutiger, menschenlesbarer Name für diesen Subtyp."
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:267
+msgid "A unique machine-readable name of this bundle.  Used to prefix exported packages. It must only contain lowercase letters, numbers, and underscores."
+msgstr "Ein einmaliger, maschinenlesbarer Name für diesen Subtyp. Es dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten sein."
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:276
+msgid "Distribution description"
+msgstr "Beschreibung der Verteilung"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:279
+msgid "A description of the bundle."
+msgstr "Eine Beschreibung des Subtyps."
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:285
+msgid "Include install profile"
+msgstr "Installationsprofil einschließen"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:287
+msgid "Select this option to have your features packaged into an install profile."
+msgstr "Wählen Sie diese Option, um Ihre Features in einem Installationsprofil zu bündeln."
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:306
+msgid "The machine name (directory name) of your profile."
+msgstr "Der Maschinenname (Verzeichnisname) Ihres Profils."
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:332
+msgid "Weight for @title package assignment method"
+msgstr "Gewichtung für das @title-Paketzuweisungsverfahren"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:343
+msgid "Enable @title package assignment method"
+msgstr "@title Paketzuweisungsverfahren aktivieren"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:353
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:370 modules/features_ui/src/Form/AssignmentFormBase.php:157
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: modules/features_ui/src/Form/AssignmentConfigureForm.php:388
+msgid "To create a profile, please enter a profile name."
+msgstr "Um ein Profil zu erstellen, geben Sie bitte einen Profilnamen ein."
+
+#: modules/features_ui/src/Form/AssignmentCoreForm.php:28
+msgid "core"
+msgstr "Kernsystem"
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:31
+msgid "exclude"
+msgstr "Ausschließen"
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:32
+msgid "Select types of configuration that should be excluded from packaging."
+msgstr "Wählen Sie Konfigurations-Typen aus, die von der Paketierung ausgeschlossen werden sollen."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:38
+msgid "Select this option to exclude a curated list of site-specific configuration from packaging."
+msgstr "Wählen Sie diese Option, um eine ausgewählte Liste von Webseite spezifischen Konfigurationen von der Paketierung auszuschließen."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:44
+msgid "Exclude configuration provided by modules"
+msgstr "Schließen Sie die von den Modulen bereitgestellte Konfiguration aus."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:51
+msgid "Select this option to exclude configuration provided by INSTALLED modules from reassignment."
+msgstr "Wählen Sie diese Option, um die von INSTALLIERTEN Modulen bereitgestellte Konfiguration von der Neuzuweisung auszuschließen."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:68
+msgid "Select this option to allow configuration provided by the site's install profile (%profile) to be reassigned."
+msgstr "Wählen Sie diese Option, um die Konfiguration, die vom Installationsprofil (%profile) der Webseite bereitgestellt wird, neu zuzuordnen."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:73
+msgid "none"
+msgstr "keine"
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:78
+msgid "Select this option to allow configuration provided by uninstalled modules with the bundle namespace (%namespace_*) to be reassigned."
+msgstr "Wählen Sie diese Option, um die Konfiguration von nicht installierten Modulen mit dem Oberbegriff (%namespace_*) erneut zuzuweisen."
+
+#: modules/features_ui/src/Form/AssignmentExcludeForm.php:96
+msgid "Select this option to allow configuration provided by ANY modules with the bundle namespace (%namespace_*) to be reassigned.\n        Warning: Can cause installed configuration to be reassigned to different packages."
+msgstr "Wählen Sie diese Option, um die von ALLEN Modulen bereitgestellte Konfiguration mit dem Oberbegriff (%namespace_*) neu zuzuweisen.\r\n        Warnung: Kann dazu führen, dass die installierte Konfiguration verschiedenen Paketen neu zugewiesen wird."
+
+#: modules/features_ui/src/Form/AssignmentFormBase.php:88
+msgid "Configuration types"
+msgstr "Konfigurationstypen"
+
+#: modules/features_ui/src/Form/AssignmentFormBase.php:89
+msgid "Select types of configuration that should be considered @type types."
+msgstr "Wählen Sie Konfigurationstypen aus, die als @type-Typen behandelt werden sollen."
+
+#: modules/features_ui/src/Form/AssignmentFormBase.php:132
+msgid "Select content entity types that should be considered @type types."
+msgstr "Wählen Sie Inhalts-Entitätstypen aus, die als @type Typen behandelt werden sollen."
+
+#: modules/features_ui/src/Form/AssignmentOptionalForm.php:28
+msgid "optional"
+msgstr "optional"
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:28
+msgid "profile"
+msgstr "Profil"
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:34
+msgid "Select this option to add a curated list of commonly-needed configuration including cron- and theme-related settings to the install profile."
+msgstr "Wählen Sie diese Option, um dem Installationsprofil eine kuratierte Liste der häufig benötigten Konfigurationen mit cron- und themenbezogenen Einstellungen hinzuzufügen."
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:41
+msgid "Crib from the Standard profile"
+msgstr "Ursprünglich aus dem Standardprofil"
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:46
+msgid "Crib code"
+msgstr "Ursprünglicher Code"
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:48
+msgid "Select this option to add configuration and other files to the optional install profile from the Drupal core Standard install profile. Without these additions, a generated install profile will be missing some important initial setup."
+msgstr "Wählen Sie diese Option, um Konfigurations- und andere Dateien zum optionalen Installationsprofil aus dem Drupal Core Standard-Installationsprofil hinzuzufügen. Ohne diese Erweiterungen fehlt einem generierten Installationsprofil eine wichtige Ersteinstellungen."
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:52
+msgid "Crib dependencies"
+msgstr "Ursprünglicher Abhängigketen"
+
+#: modules/features_ui/src/Form/AssignmentProfileForm.php:54
+msgid "Select this option to add module and theme dependencies from the Standard install profile."
+msgstr "Wählen Sie diese Option, um Modul- und Themenabhängigkeiten aus dem Standard-Installationsprofil hinzuzufügen."
+
+#: modules/features_ui/src/Form/AssignmentSiteForm.php:28
+msgid "site"
+msgstr "Website"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:106
+msgid "Feature @name does not exist."
+msgstr "Feature @name existiert nicht."
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:120
+msgid "Differences in @name"
+msgstr "Unterschiede in @name"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:121
+msgid "All differences"
+msgstr "Alle Unterschiede"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:121
+msgid "All differences in bundle: @bundle"
+msgstr "Alle Unterschiede im Subtyp: @bundle"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:155
+msgid "No differences exist in exported features."
+msgstr "Bei den exportierten Features gibt es keine Unterschiede."
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:161
+msgid "Import changes"
+msgstr "Änderungen importieren"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:164
+msgid "Import the selected changes above into the active configuration."
+msgstr "Importieren Sie die oben ausgewählten Änderungen in die aktive Konfiguration."
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:181
+msgid "No configuration was selected for import."
+msgstr "Für den Import wurde keine Konfiguration ausgewählt."
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:195 modules/features_ui/src/Form/FeaturesEditForm.php:972
+msgid "Imported @name"
+msgstr "@name importiert"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:219
+msgid "Active site config"
+msgstr "Aktive Websitekonfiguration"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:221
+msgid "Feature code config"
+msgstr "Feature-Code Konfiguration"
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:229
+msgid "Component in feature missing from active config."
+msgstr "Komponente im Feature fehlt in der aktiven Konfiguration."
+
+#: modules/features_ui/src/Form/FeaturesDiffForm.php:237
+msgid "Dependency detected in active config but not exported to the feature."
+msgstr "Die Abhängigkeit wurde in der aktiven Konfiguration erkannt, aber nicht in das Feature exportiert."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:213
+msgid "General Information"
+msgstr "Allgemeine Informationen"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:222
+msgid "Example: Image gallery"
+msgstr "Beispiel: Bildergalerie"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:222
+msgid "Do not begin name with numbers."
+msgstr "Der Name darf nicht mit einer Zahl beginnen."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:228
+msgid "The namespace \"@name_\" will be prepended to the machine name"
+msgstr "Der Maschinenname bekommt den Oberbegriff \"@name_\" vorangestellt."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:233
+msgid "Machine-readable name"
+msgstr "Systemname"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:234
+msgid "Example: image_gallery"
+msgstr "Beispiel: image_gallery"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:234
+msgid "May only contain lowercase letters, numbers and underscores."
+msgstr "Darf nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:244
+msgid "NOTE: Do NOT include the namespace prefix \"@name_\"; it will be added automatically."
+msgstr "HINWEIS: Das Oberbegriff-Präfix „@name_\" darf NICHT enthalten sein; es wird automatisch hinzugefügt."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:249
+msgid "Provide a short description of what users should expect when they install your feature."
+msgstr "Geben Sie eine kurze Beschreibung an, was die Benutzer bei der Installation Ihres Features zu erwarten haben."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:267 modules/features_ui/src/Form/FeaturesExportForm.php:237
+msgid "Version"
+msgstr "Version"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:268
+msgid "Examples: 8.x-1.0, 8.x-1.0-beta1"
+msgstr "Beispiele: 8.x-1.0, 8.x-1.0-beta1"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:277
+msgid "Path"
+msgstr "Pfad"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:278
+msgid "Path to export package using Write action, relative to root directory."
+msgstr "Pfad zum exportieren des Pakets mit der Aktion Schreiben, relativ zum Hauptverzeichnis."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:288
+msgid "Mark all config as required"
+msgstr "Alle Konfigurationen als erforderlich markieren"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:290
+msgid "Required config will be assigned to this feature regardless of other assignment plugins."
+msgstr "Die erforderliche Konfiguration wird diesem Feature unabhängig von anderen Zuordnungs-Plugins zugewiesen."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:295
+msgid "Allow conflicts"
+msgstr "Konflikte zulassen"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:297
+msgid "Allow configuration to be exported to more than one feature."
+msgstr "Ermöglicht den Export der Konfiguration in mehr als ein Feature."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:318 modules/features_ui/src/Form/FeaturesExportForm.php:195
+msgid "@name"
+msgstr "@name"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:331
+msgid "WARNING: Package contains configuration missing from site."
+msgstr "WARNUNG: Das Paket enthält eine Konfiguration, die auf der Webseite fehlt."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:332
+msgid "This configuration will be removed if you export it."
+msgstr "Diese Konfiguration wird beim Export gelöscht."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:340
+msgid "Package contains configuration missing from site."
+msgstr "Das Paket enthält eine Konfiguration, die auf der Webseite fehlt."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:341
+msgid "Import the feature to create the missing config before you can export it."
+msgstr "Importieren Sie das Feature, um die fehlende Konfiguration zu erstellen, bevor Sie sie exportieren können."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:342
+msgid "Or, enable the Allow Conflicts option above."
+msgstr "Oder aktivieren Sie oben die Option um Konflikte zuzulassen."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:348
+msgid "Import Missing"
+msgstr "Import fehlt"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:350
+msgid "Import only the missing configuration items."
+msgstr "Importieren Sie nur die fehlenden Konfigurationselemente."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:419
+msgid "Components"
+msgstr "Komponenten"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:420
+msgid "Expand each component section and select which items should be included in this feature export."
+msgstr "Erweitern Sie jeden Komponentenabschnitt und wählen Sie aus, welche Elemente in den Export dieses Features aufgenommen werden sollen."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:430
+msgid "Filters"
+msgstr "Filter"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:438
+msgid "Search"
+msgstr "Suche"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:441
+msgid "Clear"
+msgstr "Leeren"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:527
+msgid "Configuration missing from active site:"
+msgstr "Konfiguration von der aktiven Seite fehlt:"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:529
+msgid "Import the feature to create the missing config listed above."
+msgstr "Importieren des Features, um die zuvor fehlende Konfiguration zu erstellen."
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:535
+msgid "Legend"
+msgstr "Legende"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:542
+msgid "Normal"
+msgstr "Normal"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:543
+msgid "Added"
+msgstr "Hinzugefügt"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:544
+msgid "Auto detected"
+msgstr "Automatische Erkennung"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:545
+msgid "Conflict"
+msgstr "Konflikt"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:888
+msgid "in"
+msgstr "in"
+
+#: modules/features_ui/src/Form/FeaturesEditForm.php:974
+msgid "Error importing @name : @message"
+msgstr "Fehler beim Import von @name : @message"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:151
+msgid "You have not yet created any bundles. Before generating features, you may wish to <a href=\":create\">create a bundle</a> to group your features within."
+msgstr "Es wurden noch keine Pakete angelegt. Bevor Sie Features erstellen, können Sie <a href=\":create\">einen Oberbegriff</a> erstellen, um Ihre Features in einer Gruppe zusammenzufassen."
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:187
+msgid "Use an export method button below to generate the selected features."
+msgstr "Nutzen Sie unten den Button für die gewünschte Exportmethode, um die ausgewählten Features zu generieren."
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:234
+msgid "Feature"
+msgstr "Feature"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:238
+msgid "Status"
+msgstr "Status"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:239
+msgid "State"
+msgstr "Status"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:255
+msgid "The following packages are not exported."
+msgstr "Die folgenden Pakete sind nicht exportiert."
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:350;359
+msgid "PACKAGE NOT ASSIGNED"
+msgstr "PAKET NICHT ZUGEWIESEN"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:361
+msgid "Moved to @package"
+msgstr "Verschoben nach @package"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:383
+msgid "Conflicts"
+msgstr "Konflikte"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:399
+msgid "New detected"
+msgstr "Neu erkannt"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:407;433
+msgid "Missing"
+msgstr "Fehlt"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:415
+msgid "Moved"
+msgstr "Verschoben"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:432
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:476
+msgid "Included configuration"
+msgstr "Enthaltene Konfiguration"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:497
+msgid "Unpackaged"
+msgstr "Unkomprimiert"
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:498
+msgid "Configuration that has not been added to any package."
+msgstr "Konfiguration, die zu keinem Paket hinzugefügt wurde."
+
+#: modules/features_ui/src/Form/FeaturesExportForm.php:544
+msgid "Please select one or more packages to export."
+msgstr "Bitte wählen Sie ein oder mehrere Pakete zum Exportieren aus."
+
+#: src/FeaturesAssigner.php:314
+msgid "Auto-generated bundle from package @name"
+msgstr "Automatisch generierter Subtyp aus dem Paket @name"
+
+#: src/FeaturesManager.php:591
+msgid "Failed to package @package_name. Package not found."
+msgstr "Das Paket @package_name konnte nicht erstellt werden. Das Paket wurde nicht gefunden."
+
+#: src/FeaturesManager.php:762
+msgid "The packages have not yet been prefixed with a bundle name."
+msgstr "Den Paketen ist noch kein Subtyp-Name vorangestellt."
+
+#: src/FeaturesManager.php:1049
+msgid "Simple configuration"
+msgstr "Einfache Konfiguration"
+
+#: src/FeaturesManager.php:1306
+msgid "Not exported"
+msgstr "Nicht exportiert"
+
+#: src/FeaturesManager.php:1309
+msgid "Uninstalled"
+msgstr "Deinstalliert"
+
+#: src/FeaturesManager.php:1312
+msgid "Installed"
+msgstr "Installiert"
+
+#: src/FeaturesManager.php:1322
+msgid "Default"
+msgstr "Standard"
+
+#: src/FeaturesManager.php:1325
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Commands/FeaturesCommands.php:646
+msgid "Code:   drush features-import will replace the active config with the displayed code."
+msgstr "Code: drush features-import ersetzt die aktive Konfiguration durch den angezeigten Code."
+
+#: src/Commands/FeaturesCommands.php:648
+msgid "Active: drush features-export will update the exported feature with the displayed active config"
+msgstr "Aktiv: drush features-export aktualisiert das exportierte Feature mit der angezeigten aktiven Konfiguration."
+
+#: src/Commands/FeaturesCommands.php:135
+msgid "Bundle {name} not found. Using default."
+msgstr "Subtyp {name} nicht gefunden. Es wird die Standardoption verwendet."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentAlter.php:8
+msgid "Alter configuration items before they are exported. Altering includes options such as removing permissions from roles."
+msgstr "Konfigurationsobjekte ändern, bevor sie exportiert werden. Das Ändern beinhaltet Optionen wie das Entfernen von Berechtigungen aus Rollen."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentBaseType.php:40
+msgid "Provides @label @type and related configuration."
+msgstr "Stellt die Konfiguration für @label @type zur Verfügung."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentBaseType.php:62
+msgid "Provide @label related configuration."
+msgstr "Stellt die Konfiguration für @label zur Verfügung."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentBaseType.php:8
+msgid "Use designated types of configuration as the base for configuration package modules. For example, if content types are selected as a base type, a package will be generated for each content type and will include all configuration dependent on that content type."
+msgstr "Verwendung bestimmter Konfigurationstypen als Basis für Konfigurationspaketmodule. Wenn beispielsweise Inhaltstypen als Basistyp ausgewählt werden, wird für jeden Inhaltstyp ein Paket generiert, das die gesamte Konfiguration in Abhängigkeit von diesem Inhaltstyp enthält."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentCoreType.php:31
+msgid "Provides core components required by other features."
+msgstr "Enthält Core-Komponenten, die für andere Features erforderlich sind."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentCoreType.php:7
+msgid "Assign designated types of configuration to a core configuration package module. For example, if image styles are selected as a core type, a core package will be generated and image styles will be assigned to it."
+msgstr "Zuweisen von bestimmten Konfigurationstypen zu einem Kernsystem-Konfigurationspaketmodul. Wenn beispielsweise Bildstile als Kernsystem-Typ ausgewählt werden, wird ein Kernsystem-Paket generiert und ihm werden die Bildstile zugewiesen."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentDependency.php:7
+msgid "Dependency"
+msgstr "Abhängigkeit"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentDependency.php:7
+msgid "Add to packages configuration dependent on items already in that package."
+msgstr "Fügt Paketen der Konfiguration in Abhängigkeit von Elementen hinzu, die sich bereits in diesem Paket befinden."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentExclude.php:7
+msgid "Exclude configuration items from packaging by various methods including by configuration type. When configuration is excluded, it won't be automatically reassigned to other packages."
+msgstr "Ausschluss von Konfigurationselementen von der Paketerstellung durch verschiedene Methoden, auch durch Konfigurationstyp. Wenn die Konfiguration ausgeschlossen ist, wird sie nicht automatisch anderen Paketen zugewiesen."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentExisting.php:8
+msgid "Existing"
+msgstr "Vorhanden"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentExisting.php:8
+msgid "Add exported config to existing packages."
+msgstr "Fügt die exportierte Konfiguration zu vorhandenen Paketen hinzu."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentForwardDependency.php:8
+msgid "Forward dependency"
+msgstr "Weiterführende Abhängigkeit"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentForwardDependency.php:8
+msgid "Add to packages configuration on which items in the package depend."
+msgstr "Fügt die Konfiguration eines Pakets hinzu, von dem die Elemente im Paket abhängen."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentNamespace.php:7
+msgid "Namespace"
+msgstr "Namensraum"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentNamespace.php:7
+msgid "Add config to packages that contain that package's machine name."
+msgstr "Fügt die Konfiguration Paketen hinzu, die den Maschinennamen des Pakets enthalten."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentOptionalType.php:8
+msgid "Optional type"
+msgstr "Optionaler Typ"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentOptionalType.php:8
+msgid "Assign designated types of configuration to the 'config/optional' install directory. For example, if views are selected as optional, views assigned to any feature will be exported to the 'config/optional' directory and will not create a dependency on the Views module."
+msgstr "Zuweisen bestimmter Konfigurationstypen zum Installationsverzeichnis \"config/optional\". Wenn beispielsweise Views optional ausgewählt sind, werden Views, die einem Feature zugeordnet sind, in das Verzeichnis \"config/optional\" exportiert und erzeugen keine Abhängigkeit vom Views-Modul."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentPackages.php:7
+msgid "Packages"
+msgstr "Pakete"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentPackages.php:7
+msgid "Detect and add existing package modules."
+msgstr "Erkennt und fügt bestehende Paketmodule hinzu."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentProfile.php:8
+msgid "Add configuration and other files to the optional install profile from the Drupal core Standard install profile. Without these additions, a generated install profile will be missing some important initial setup."
+msgstr "Fügt Konfigurations- und andere Dateien dem optionalen Installationsprofil aus dem Drupal Core Standard Installationsprofil hinzu. Ohne diese Ergänzungen fehlt einem generierten Installationsprofil ein wichtiges Erst-Setup."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentSiteType.php:31
+msgid "Provides site components."
+msgstr "Stellt Standortkomponenten zur Verfügung."
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentSiteType.php:7
+msgid "Site type"
+msgstr "Seiten-Typ"
+
+#: src/Plugin/FeaturesAssignment/FeaturesAssignmentSiteType.php:7
+msgid "Assign designated types of configuration to a site configuration package module. For example, if image styles are selected as a site type, a site package will be generated and image styles will be assigned to it."
+msgstr "Zuweisung von bestimmten Konfigurationstypen für ein Konfigurationspaketmodul. Wenn beispielsweise Bildstile als Seitentyp ausgewählt werden, wird ein Seitenpaket generiert und ihm werden Bildstile zugewiesen."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php:214;241 src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:168;194
+msgid "Package"
+msgstr "Paket"
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php:280
+msgid "Failed to archive file @filename."
+msgstr "Die Datei @filename konnte nicht archiviert werden."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php:13
+msgid "Download Archive"
+msgstr "Archiv herunterladen"
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationArchive.php:13
+msgid "Generate packages and optional profile as a compressed archive for download."
+msgstr "Erzeugt Pakete und ein optionales Profil als komprimiertes Archiv zum Herunterladen."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:140
+msgid "No configuration was selected to be exported."
+msgstr "Es wurde keine Konfiguration für den Export ausgewählt."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:229
+msgid "Failed to create directory @directory."
+msgstr "Das Verzeichnis @directory konnte nicht erstellt werden."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:233
+msgid "Failed to write file @filename."
+msgstr "Die Datei @filename konnte nicht erstellt werden."
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:12
+msgid "Write"
+msgstr "Schreiben"
+
+#: src/Plugin/FeaturesGeneration/FeaturesGenerationWrite.php:12
+msgid "Write packages and optional profile to the file system."
+msgstr "Pakete und optionales Profil ins Dateisystem schreiben."
+

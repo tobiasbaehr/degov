@@ -1,0 +1,1716 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  facets.module: n/a
+#  facets.info.yml: n/a
+#  facets.links.menu.yml: n/a
+#  facets.routing.yml: n/a
+#  modules/facets_range_widget/facets_range_widget.info.yml: n/a
+#  modules/facets_rest/facets_rest.info.yml: n/a
+#  modules/facets_summary/facets_summary.info.yml: n/a
+#  facets.links.action.yml: n/a
+#  src/Form/FacetSettingsForm.php: n/a
+#  facets.links.contextual.yml: n/a
+#  facets.links.task.yml: n/a
+#  modules/facets_summary/facets_summary.links.task.yml: n/a
+#  src/FacetListBuilder.php: n/a
+#  src/Form/FacetForm.php: n/a
+#  facets.permissions.yml: n/a
+#  config/schema/facets.blocks.schema.yml: n/a
+#  config/schema/facets.facet.schema.yml: n/a
+#  modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml: n/a
+#  src/Entity/Facet.php: n/a
+#  src/Plugin/Block/FacetBlockDeriver.php: n/a
+#  config/schema/facets.facetsource.schema.yml: n/a
+#  modules/facets_summary/src/Form/FacetsSummarySettingsForm.php: n/a
+#  src/Form/FacetCloneForm.php: n/a
+#  modules/facets_summary/src/Form/FacetsSummaryForm.php: n/a
+#  config/schema/facets.processor.schema.yml: n/a
+#  src/Form/FacetSourceEditForm.php: n/a
+#  src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php: n/a
+#  src/Plugin/facets/processor/BooleanItemProcessor.php: n/a
+#  src/Plugin/facets/processor/DateItemProcessor.php: n/a
+#  src/Plugin/facets/processor/GranularItemProcessor.php: n/a
+#  modules/facets_range_widget/config/schema/facets_range_widget.schema.yml: n/a
+#  modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php: n/a
+#  config/schema/facets.widgets.schema.yml: n/a
+#  src/Plugin/facets/widget/DropdownWidget.php: n/a
+#  src/Plugin/facets/widget/LinksWidget.php: n/a
+#  js/index-active-formatters.js: n/a
+#  modules/facets_range_widget/facets_range_widget.module: n/a
+#  modules/facets_range_widget/src/Plugin/facets/processor/RangeSliderProcessor.php: n/a
+#  modules/facets_range_widget/src/Plugin/facets/widget/RangeSliderWidget.php: n/a
+#  modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php: n/a
+#  modules/facets_rest/src/Plugin/views/style/FacetsSerializer.php: n/a
+#  modules/facets_summary/facets_summary.links.action.yml: n/a
+#  modules/facets_summary/facets_summary.links.contextual.yml: n/a
+#  modules/facets_summary/config/schema/facets_summary.processor.schema.yml: n/a
+#  modules/facets_summary/src/Entity/FacetsSummary.php: n/a
+#  src/Entity/FacetSource.php: n/a
+#  modules/facets_summary/src/Plugin/Block/FacetsSummaryBlockDeriver.php: n/a
+#  modules/facets_summary/src/Plugin/facets_summary/processor/HideWhenNotRenderedProcessor.php: n/a
+#  modules/facets_summary/src/Plugin/facets_summary/processor/ResetFacetsProcessor.php: n/a
+#  modules/facets_summary/src/Plugin/facets_summary/processor/ShowCountProcessor.php: n/a
+#  modules/facets_summary/src/Plugin/facets_summary/processor/ShowSummaryProcessor.php: n/a
+#  modules/facets_summary/src/Plugin/facets_summary/processor/ShowTextWhenEmptyProcessor.php: n/a
+#  modules/facets_summary/src/Processor/ProcessorPluginManager.php: n/a
+#  src/Processor/ProcessorPluginManager.php: n/a
+#  modules/facets_summary/templates/facets-summary-count.html.twig: n/a
+#  modules/facets_summary/templates/facets-summary.html.twig: n/a
+#  src/Form/FacetDeleteConfirmForm.php: n/a
+#  src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php: n/a
+#  src/Plugin/facets/facet_source/SearchApiDisplay.php: n/a
+#  src/Plugin/facets/hierarchy/Taxonomy.php: n/a
+#  src/Plugin/facets/processor/ActiveWidgetOrderProcessor.php: n/a
+#  src/Plugin/facets/processor/CountLimitProcessor.php: n/a
+#  src/Plugin/facets/processor/CountWidgetOrderProcessor.php: n/a
+#  src/Plugin/facets/processor/DependentFacetProcessor.php: n/a
+#  src/Plugin/facets/processor/DisplayValueWidgetOrderProcessor.php: n/a
+#  src/Plugin/facets/processor/HideActiveItemsProcessor.php: n/a
+#  src/Plugin/facets/processor/HideNonNarrowingResultProcessor.php: n/a
+#  src/Plugin/facets/processor/HideOnlyOneItemProcessor.php: n/a
+#  src/Plugin/facets/processor/ListItemProcessor.php: n/a
+#  src/Plugin/facets/processor/RawValueWidgetOrderProcessor.php: n/a
+#  src/Plugin/facets/processor/ShowOnlyDeepestLevelItemsProcessor.php: n/a
+#  src/Plugin/facets/processor/TermWeightWidgetOrderProcessor.php: n/a
+#  src/Plugin/facets/processor/TranslateEntityProcessor.php: n/a
+#  src/Plugin/facets/processor/UidToUserNameCallbackProcessor.php: n/a
+#  src/Plugin/facets/processor/UrlProcessorHandler.php: n/a
+#  src/Plugin/facets/query_type/SearchApiDate.php: n/a
+#  src/Plugin/facets/query_type/SearchApiGranular.php: n/a
+#  src/Plugin/facets/query_type/SearchApiRange.php: n/a
+#  src/Plugin/facets/query_type/SearchApiString.php: n/a
+#  src/Plugin/facets/url_processor/QueryString.php: n/a
+#  src/Plugin/facets/widget/ArrayWidget.php: n/a
+#  src/Plugin/facets/widget/CheckboxWidget.php: n/a
+#  src/Processor/SortProcessorPluginBase.php: n/a
+#  src/Widget/WidgetPluginBase.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: facets.module:32
+msgid "About"
+msgstr "Über"
+
+#: facets.module:33
+msgid "Facets test"
+msgstr "Facetten-Test"
+
+#: facets.module:38
+msgid "Below is a list of facets grouped by facetsources they are associated with. A facetsource is the instance where the facet does the actual filtering, for example a View on a Search API index."
+msgstr "Nachstehend finden Sie eine Liste von Facetten, gruppiert nach Facetten-Quellen, denen sie zugeordnet sind. Eine Facetten-Quelle ist eine Instanz, bei der die Facette die Filterung vornimmt, z. B. eine Ansicht bei einem Such-API-Index."
+
+#: facets.module:39
+msgid "The facets weight can be changed with drag and drop within the same facet source. Although you can drag and drop a facet under any facet source, this change will not be performed on save."
+msgstr "Die Gewichtung der Facetten kann per Drag-and-Drop innerhalb derselben Facetten-Quelle verändert werden. Sie können zwar eine Facette per Drag-and-Drop unter eine beliebige Facetten-Quelle bewegen, diese Änderung wird jedoch beim Speichern nicht ausgeführt."
+
+#: facets.module:183
+msgid "Facet manager not found on trying to delete a view."
+msgstr "Facetten-Manager beim Versuch, eine Ansicht zu löschen, nicht gefunden."
+
+#: facets.info.yml:0 facets.links.menu.yml:0 facets.routing.yml:0
+msgid "Facets"
+msgstr "Facets"
+
+#: facets.info.yml:0
+msgid "Faceted search interfaces that can be used on Search API searchers."
+msgstr "Suchschnittstellen mit Facetten, die in Suchen mit Such-API verwendet werden können."
+
+#: facets.info.yml:0 modules/facets_range_widget/facets_range_widget.info.yml:0 modules/facets_rest/facets_rest.info.yml:0 modules/facets_summary/facets_summary.info.yml:0
+msgid "Search"
+msgstr "Suche"
+
+#: facets.links.action.yml:0 src/Form/FacetSettingsForm.php:93
+msgid "Add facet"
+msgstr "Facette hinzufügen"
+
+#: facets.links.contextual.yml:0
+msgid "Edit facet"
+msgstr "Facette bearbeiten"
+
+#: facets.links.menu.yml:0
+msgid "Create and configure facets and configure existing facet sources."
+msgstr "Erzeugen und Konfigurieren von Facetten und Konfigurieren vorhandener Facetten-Quellen."
+
+#: facets.links.task.yml:0 modules/facets_summary/facets_summary.links.task.yml:0 src/FacetListBuilder.php:36;65
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: facets.links.task.yml:0 src/FacetListBuilder.php:43 src/Form/FacetForm.php:244
+msgid "Facet settings"
+msgstr "Facetten-Einstellungen"
+
+#: facets.permissions.yml:0
+msgid "Administer Facets"
+msgstr "Facetten verwalten"
+
+#: facets.permissions.yml:0
+msgid "Create and configure Facets for your Search pages."
+msgstr "Erstellen und Konfigurieren von Facetten für Ihre Suchseiten."
+
+#: facets.routing.yml:0
+msgid "Edit facet source configuration"
+msgstr "Facetten-Quellen-Konfiguration bearbeiten"
+
+#: config/schema/facets.blocks.schema.yml:0
+msgid "Facet rendered as block"
+msgstr "Als Block gerenderte Facette"
+
+#: config/schema/facets.blocks.schema.yml:0
+msgid "Block ID"
+msgstr "Block-ID"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0;0 src/Entity/Facet.php:12 src/Plugin/Block/FacetBlockDeriver.php:68
+msgid "Facet"
+msgstr "Facette"
+
+#: config/schema/facets.facet.schema.yml:0 config/schema/facets.facetsource.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0 modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:163 src/Form/FacetCloneForm.php:111 src/Form/FacetSettingsForm.php:166
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/src/Form/FacetsSummaryForm.php:122 src/Form/FacetForm.php:498
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/facets.facet.schema.yml:0 src/Form/FacetForm.php:484
+msgid "Minimum count"
+msgstr "Mindestanzahl"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Name of facet as used in the URL"
+msgstr "Name der Facette, wie in der URL verwendet"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Facet source id"
+msgstr "ID der Facetten-Quelle"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Field identifier"
+msgstr "Feld-ID"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Query Operator"
+msgstr "Abfrageoperator"
+
+#: config/schema/facets.facet.schema.yml:0 src/Form/FacetForm.php:419
+msgid "Hard limit"
+msgstr "Harter Grenzwert"
+
+#: config/schema/facets.facet.schema.yml:0 config/schema/facets.processor.schema.yml:0 src/Form/FacetForm.php:432
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: config/schema/facets.facet.schema.yml:0 src/Form/FacetForm.php:439
+msgid "Use hierarchy"
+msgstr "Hierarchie nutzen"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Expand hierarchy"
+msgstr "Hierarchie erweitern"
+
+#: config/schema/facets.facet.schema.yml:0 src/Form/FacetForm.php:472
+msgid "Enable parent when child gets disabled"
+msgstr "Übergeordneten Eintrag freigeben, wenn untergeordneter Eintrag gesperrt wird"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Facet widget"
+msgstr "Facetten-Steuerelement"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Plugin ID"
+msgstr "Plugin-ID"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Empty behavior"
+msgstr "Verhalten bei leerem Feld"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "The empty behavior identifier"
+msgstr "ID für Verhalten bei leerem Feld"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Text format"
+msgstr "Textformat"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Text"
+msgstr "Text"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Show this facet only when the facet source is visible."
+msgstr "Diese Facette nur anzeigen, wenn Facetten-Quelle sichtbar ist."
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Show only one result"
+msgstr "Nur ein Ergebnis anzeigen"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "Show title"
+msgstr "Titel anzeigen"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0 modules/facets_summary/src/Form/FacetsSummaryForm.php:328 src/Form/FacetForm.php:581
+msgid "Processor settings"
+msgstr "Prozessoreinstellungen"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "A processor"
+msgstr "Ein Prozessor"
+
+#: config/schema/facets.facet.schema.yml:0 modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "The plugin ID of the processor"
+msgstr "Die Plugin-ID des Prozessors"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "The processor's weights for the different processing stages"
+msgstr "Die Gewichte des Prozessors für die verschiedenen Verarbeitungsstufen"
+
+#: config/schema/facets.facet.schema.yml:0
+msgid "The processor's weight for this stage"
+msgstr "Das Gewicht des Prozessors für diese Stufe"
+
+#: config/schema/facets.facetsource.schema.yml:0
+msgid "Facet Source"
+msgstr "Facetten-Quelle"
+
+#: config/schema/facets.facetsource.schema.yml:0
+msgid "Name'"
+msgstr "Name'"
+
+#: config/schema/facets.facetsource.schema.yml:0 src/Form/FacetSourceEditForm.php:114
+msgid "Filter key"
+msgstr "Schlüssel filtern"
+
+#: config/schema/facets.facetsource.schema.yml:0
+msgid "Url processor"
+msgstr "URL-Prozessor"
+
+#: config/schema/facets.facetsource.schema.yml:0 src/Form/FacetSourceEditForm.php:146
+msgid "Append active facets to breadcrumb"
+msgstr "Aktive Facetten an Breadcrumb anhängen"
+
+#: config/schema/facets.facetsource.schema.yml:0 src/Form/FacetSourceEditForm.php:151
+msgid "Show facet label before active facet"
+msgstr "Facetten-Beschriftung vor aktiver Facette anzeigen"
+
+#: config/schema/facets.facetsource.schema.yml:0
+msgid "Group active items under same crumb"
+msgstr "Aktive Einträge unter demselben Crumb gruppieren"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Count widget order"
+msgstr "Reihenfolge beim Zähl-Steuerelement"
+
+#: config/schema/facets.processor.schema.yml:0;0;0;0;0;0
+msgid "sort order"
+msgstr "Sortierreihenfolge"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Display value widget order"
+msgstr "Reihenfolge beim Anzeige-Steuerelement für den Wert"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Translate entity"
+msgstr "Entität übersetzen"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "translate entity"
+msgstr "Entität übersetzen"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Display term widget order"
+msgstr "Reihenfolge beim Anzeige-Steuerelement für den Begriff"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:10
+msgid "Exclude specified items"
+msgstr "Angegebene Einträge ausschließen"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Regex"
+msgstr "Regex"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Raw value widget order"
+msgstr "Reihenfolge beim Steuerelement für den Rohwert"
+
+#: config/schema/facets.processor.schema.yml:0;0
+msgid "Active widget order"
+msgstr "Reihenfolge beim aktiven Steuerelement"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Count limit widget"
+msgstr "Zählgrenzen-Steuerelement"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Mimimum amount of items to show."
+msgstr "Mindestanzahl anzuzeigender Einträge."
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Maximum amount of items to show."
+msgstr "Höchstzahl anzuzeigender Einträge."
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Boolean processor"
+msgstr "Boolescher Prozessor"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/BooleanItemProcessor.php:58
+msgid "On value"
+msgstr "Wert für AN"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/BooleanItemProcessor.php:68
+msgid "Off value"
+msgstr "Wert für AUS"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Dependent facet processor"
+msgstr "Prozessor für abhängige Facetten"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Mapping for a processor"
+msgstr "Zuordnung für einen Prozessor"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Enable for this facet"
+msgstr "Für diese Facette freigeben"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Type of condition"
+msgstr "Bedingungstyp"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "The value of the condition"
+msgstr "Der Wert der Bedingung"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Should the condition be negated"
+msgstr "Soll die Bedingung negiert werden"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/DateItemProcessor.php:11
+msgid "Date item processor"
+msgstr "Prozessor für Datumseintrag"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/DateItemProcessor.php:57
+msgid "Date display"
+msgstr "Datums-Anzeige"
+
+#: config/schema/facets.processor.schema.yml:0;0 src/Plugin/facets/processor/DateItemProcessor.php:67 src/Plugin/facets/processor/GranularItemProcessor.php:62
+msgid "Granularity"
+msgstr "Granularität"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/DateItemProcessor.php:73
+msgid "Date format"
+msgstr "Datumsformat"
+
+#: config/schema/facets.processor.schema.yml:0
+msgid "Granular item processor"
+msgstr "Prozessor für granulären Eintrag"
+
+#: config/schema/facets.processor.schema.yml:0 modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0 modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:119 src/Plugin/facets/processor/GranularItemProcessor.php:69
+msgid "Minimum value"
+msgstr "Minimaler Wert"
+
+#: config/schema/facets.processor.schema.yml:0 modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0 modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:141 src/Plugin/facets/processor/GranularItemProcessor.php:77
+msgid "Maximum value"
+msgstr "Maximaler Wert"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/GranularItemProcessor.php:85
+msgid "Include lower bounds"
+msgstr "Untergrenzen einschließen"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/GranularItemProcessor.php:91
+msgid "Include upper bounds"
+msgstr "Obergrenzen einschließen"
+
+#: config/schema/facets.processor.schema.yml:0 src/Plugin/facets/processor/GranularItemProcessor.php:97
+msgid "Include first lower and last upper bound"
+msgstr "Erste Unter- und letzte Obergrenze einschließen"
+
+#: config/schema/facets.widgets.schema.yml:0
+msgid "Default widget configuration"
+msgstr "Standardkonfiguration des Steuerelements"
+
+#: config/schema/facets.widgets.schema.yml:0 modules/facets_summary/src/Form/FacetsSummaryForm.php:121
+msgid "Show counts"
+msgstr "Zählwerte anzeigen"
+
+#: config/schema/facets.widgets.schema.yml:0
+msgid "Dropdown widget configuration"
+msgstr "Konfiguration des Dropdown-Steuerelements"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/DropdownWidget.php:56
+msgid "Default option label"
+msgstr "Beschriftung der Standardoption"
+
+#: config/schema/facets.widgets.schema.yml:0
+msgid "List of links widget configuration"
+msgstr "Link-Liste Steuerelement-Konfiguration"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:137
+msgid "Soft limit"
+msgstr "Weicher Grenzwert"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:170
+msgid "Show reset link"
+msgstr "Link zum Zurücksetzen anzeigen"
+
+#: config/schema/facets.widgets.schema.yml:0
+msgid "Reset link text"
+msgstr "Text für Link zum Zurücksetzen"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:188
+msgid "Hide reset link when no facet item is selected"
+msgstr "Link zum Zurücksetzen unterdrücken, wenn kein Facetten-Eintrag ausgewählt ist"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:144
+msgid "Soft limit settings"
+msgstr "Einstellungen zum weichen Grenzwert"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:151
+msgid "Show less label"
+msgstr "Beschriftungen für „weniger anzeigen“"
+
+#: config/schema/facets.widgets.schema.yml:0 src/Plugin/facets/widget/LinksWidget.php:160
+msgid "Show more label"
+msgstr "Beschriftungen für „mehr anzeigen“"
+
+#: js/index-active-formatters.js:0
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: js/index-active-formatters.js:0
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: modules/facets_range_widget/facets_range_widget.module:31
+msgid "Facets range slider"
+msgstr "Slider für Facettenbereich"
+
+#: modules/facets_range_widget/facets_range_widget.module:32
+msgid "The jquery ui slider pips library is not installed."
+msgstr "Die jquery-Bibliothek ‚ui slider pips‘ ist installiert."
+
+#: modules/facets_range_widget/facets_range_widget.module:34
+msgid "The range slider library is not installed, check the <a href=\":readme\">README.txt for more information</a> and <a href=\":docs\">the documentation for information on how to install a library</a>."
+msgstr "Die Bibliothek für den Bereichs-Slider ist nicht installiert. <a href=\":readme\">README.txt enthält weitere Informationen</a> und <a href=\":docs\">die Anleitung zum Installieren der Bibliothek</a>."
+
+#: modules/facets_range_widget/facets_range_widget.info.yml:0
+msgid "Facets Range Widget"
+msgstr "Steuerelement für Facettenbereich"
+
+#: modules/facets_range_widget/facets_range_widget.info.yml:0
+msgid "Provides a range widget and solid slider."
+msgstr "Stellt ein Bereichs-Steuerelement und einen Slider bereit."
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "List of range widget configuration"
+msgstr "Liste der Bereichs-Steuerelement-Konfiguration"
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "Prefix"
+msgstr "Präfix"
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "Suffix"
+msgstr "Suffix"
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "Minimum type"
+msgstr "Mindest-Typ"
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "Maximum type"
+msgstr "Maximal-Typ"
+
+#: modules/facets_range_widget/config/schema/facets_range_widget.schema.yml:0;0
+msgid "Step"
+msgstr "Schritt"
+
+#: modules/facets_range_widget/src/Plugin/facets/processor/RangeSliderProcessor.php:9 modules/facets_range_widget/src/Plugin/facets/widget/RangeSliderWidget.php:7
+msgid "Range slider"
+msgstr "Bereichs-Slider"
+
+#: modules/facets_range_widget/src/Plugin/facets/processor/RangeSliderProcessor.php:9
+msgid "Add range results for all the steps between min and max range."
+msgstr "Bereichsergebnisse für alle Schritte zwischen Min.- und Max.-Bereich hinzufügen."
+
+#: modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php:10 modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:9
+msgid "Slider"
+msgstr "Schieberegler"
+
+#: modules/facets_range_widget/src/Plugin/facets/processor/SliderProcessor.php:10
+msgid "Add results for all the steps between min and max range."
+msgstr "Ergebnisse für alle Schritte zwischen Min.- und Max.-Bereich hinzufügen."
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/RangeSliderWidget.php:7
+msgid "A widget that shows a range slider."
+msgstr "Ein Steuerelement, das einen Bereichs-Slider anzeigt."
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:95
+msgid "Value prefix"
+msgstr "Präfix des Werts"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:102
+msgid "Value suffix"
+msgstr "Suffix des Werts"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:110;132
+msgid "Fixed value"
+msgstr "Festgelegter Wert"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:111;133
+msgid "Based on search result"
+msgstr "Auf Suchergebnis aufbauend"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:113
+msgid "Minimum value type"
+msgstr "Mindestwert Typ"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:135
+msgid "Maximum value type"
+msgstr "Maximalwert Typ"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:154
+msgid "slider step"
+msgstr "Slider-Schrittweite"
+
+#: modules/facets_range_widget/src/Plugin/facets/widget/SliderWidget.php:9
+msgid "A widget that shows a slider."
+msgstr "Ein Steuerelement, das einen Slider anzeigt."
+
+#: modules/facets_rest/facets_rest.info.yml:0
+msgid "Rest Facets"
+msgstr "REST-Facetten"
+
+#: modules/facets_rest/facets_rest.info.yml:0
+msgid "Adds facets to rest views based on a Search API index."
+msgstr "Fügt Facetten zu REST-Ansichten basierend auf Such-API-Index hinzu."
+
+#: modules/facets_rest/src/Plugin/views/style/FacetsSerializer.php:73
+msgid "Show facets in the output"
+msgstr "Zeigt Facetten in der Ausgabe"
+
+#: modules/facets_rest/src/Plugin/views/style/FacetsSerializer.php:11
+msgid "Facets serializer"
+msgstr "Facetten-Serialisierer"
+
+#: modules/facets_rest/src/Plugin/views/style/FacetsSerializer.php:11
+msgid "Serializes views row data using the Serializer component."
+msgstr "Zeilendanten der Ansicht unter Verwendung einer Serialisierungskomponente serialisieren."
+
+#: modules/facets_summary/facets_summary.info.yml:0
+msgid "Facets summary (Experimental)"
+msgstr "Facetten-Übersicht (experimentell)"
+
+#: modules/facets_summary/facets_summary.info.yml:0
+msgid "Exposes a Facets block summary showing the current search."
+msgstr "Zeigt eine Facetten-Block-Übersicht mit der aktuellen Suche."
+
+#: modules/facets_summary/facets_summary.links.action.yml:0
+msgid "Add facet summary"
+msgstr "Facetten-Übersicht hinzufügen"
+
+#: modules/facets_summary/facets_summary.links.contextual.yml:0
+msgid "Edit facets summary"
+msgstr "Facetten-Übersicht bearbeiten"
+
+#: modules/facets_summary/facets_summary.links.task.yml:0 src/FacetListBuilder.php:71
+msgid "Facet Summary settings"
+msgstr "Einstellungen zur Facetten-Übersicht"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "The processors weight for this stage"
+msgstr "Die Gewichtung des Prozessors für diese Stufe"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "the weight"
+msgstr "die Gewichtung"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Facets configuration"
+msgstr "Facetten-Konfiguration"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Is this facet enabled"
+msgstr "Ist diese Facette aktiviert"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Results separator"
+msgstr "Trennzeichen für Ergebnisse"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Show count on items"
+msgstr "Anzahl bei Einträgen anzeigen"
+
+#: modules/facets_summary/config/schema/facets_summary.facets_summary.schema.yml:0
+msgid "Facet Weight"
+msgstr "Facetten-Gewichtung"
+
+#: modules/facets_summary/config/schema/facets_summary.processor.schema.yml:0
+msgid "No results behavior"
+msgstr "Verhalten, wenn keine Ergebnisse vorliegen"
+
+#: modules/facets_summary/config/schema/facets_summary.processor.schema.yml:0
+msgid "The text to show when there is no current search"
+msgstr "Anzuzeigender Text, wenn keine aktuelle Suche vorliegt"
+
+#: modules/facets_summary/config/schema/facets_summary.processor.schema.yml:0
+msgid "Reset facets link"
+msgstr "Setze Facetten-Link zurück"
+
+#: modules/facets_summary/config/schema/facets_summary.processor.schema.yml:0
+msgid "The text to show for the reset link."
+msgstr "Text zur Anzeige für den Link zum Zurücksetzen."
+
+#: modules/facets_summary/src/Entity/FacetsSummary.php:197 src/Entity/Facet.php:427
+msgid "Processor @id specifies a non-existing @class."
+msgstr "Prozessor @id spezifiziert eine nicht existierende @class."
+
+#: modules/facets_summary/src/Entity/FacetsSummary.php:8
+msgid "Facet summary"
+msgstr "Facetten-Übersicht"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:113
+msgid "Edit %label facets summary"
+msgstr "Facetten-Übersicht %label bearbeiten"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:118
+msgid "Enabled facets"
+msgstr "Aktivierte Facets"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:119;158
+msgid "Label"
+msgstr "Beschriftung"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:120;164
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:131
+msgid "Select the facets to be shown in the summary block. You can reorder them."
+msgstr "Wählen Sie die Facetten aus, die im Übersichtsblock erscheinen sollen. Sie können die Reihenfolge verändern."
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:174
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:183
+msgid "No facets found."
+msgstr "Keine Facetten gefunden."
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:205
+msgid "Facets Summary settings"
+msgstr "Einstellungen zur Facetten-Übersicht"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:233 src/Form/FacetForm.php:278
+msgid "%processor settings"
+msgstr "%processor Einstellungen"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:254 src/Form/FacetForm.php:507
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:261 src/Form/FacetForm.php:513
+msgid "Processor order"
+msgstr "Prozessorreihenfolge"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:311 src/Form/FacetForm.php:564
+msgid "Weight for processor %title"
+msgstr "Reihenfolge für Prozessor %title"
+
+#: modules/facets_summary/src/Form/FacetsSummaryForm.php:403
+msgid "Facets Summary %name has been updated."
+msgstr "Facetten-Übersicht %name wurde aktualisiert."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:134
+msgid "Add facets summary"
+msgstr "Facetten-Übersicht hinzufügen"
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:137
+msgid "Facets settings for %label"
+msgstr "Facetten-Einstellungen für %label"
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:148 src/Form/FacetSettingsForm.php:124
+msgid "You currently have no facet sources defined. You should start by adding a facet source before creating facets."
+msgstr "Sie haben aktuell keine Facetten-Quellen definiert. Sie sollten zuerst eine Facetten-Quelle hinzufügen und dann Facetten erstellen."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:154 src/Entity/FacetSource.php:8 src/Form/FacetForm.php:146 src/Form/FacetSettingsForm.php:130
+msgid "Facet source"
+msgstr "Facetten-Quelle"
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:155
+msgid "The source where this summary will be built from."
+msgstr "Die Quelle, aus der diese Übersicht erstellt wird."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:164
+msgid "The administrative name used for this summary."
+msgstr "Der administrative Name für diese Übersicht."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:196
+msgid "Facet Summary %name has been created. Go to the <a href=\":block_overview\">Block overview page</a> to place the new block in the desired region."
+msgstr "Facetten-Übersicht %name wurde erzeugt. Gehen Sie zur <a href=\":block_overview\">Block-Übersichtsseite</a>, um den neuen Block in der gewünschten Region zu platzieren."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:225 src/Form/FacetForm.php:720 src/Form/FacetSettingsForm.php:297
+msgid "Facet %name has been updated."
+msgstr "Facette %name wurde aktualisiert."
+
+#: modules/facets_summary/src/Form/FacetsSummarySettingsForm.php:244 src/Form/FacetSettingsForm.php:315
+msgid "Caching of view %view has been disabled."
+msgstr "Das Caching der Ansicht %view ist gesperrt worden."
+
+#: modules/facets_summary/src/Plugin/Block/FacetsSummaryBlockDeriver.php:63
+msgid "Facet Summary: :facet_summary"
+msgstr "Facetten-Übersicht: :facet_summary"
+
+#: modules/facets_summary/src/Plugin/Block/FacetsSummaryBlockDeriver.php:65
+msgid "Facets Summary"
+msgstr "Facetten-Übersicht"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/HideWhenNotRenderedProcessor.php:9
+msgid "Hide Summary when Facet Source is not rendered"
+msgstr "Übersicht ausblenden, wenn Facetten-Quelle nicht gerendert wird"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/HideWhenNotRenderedProcessor.php:9
+msgid "When checked, this facet will only be rendered when the facet source is rendered. If you want to show facets on other pages too, you need to uncheck this setting."
+msgstr "Wenn diese Option aktiviert ist, wird die Facette nur gerendert, wenn die Facetten-Quelle gerendert ist. Wenn sie Facetten auch auf anderen Seiten anzeigen wollen, muss diese Option deaktiviert sein."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ResetFacetsProcessor.php:87
+msgid "Reset facets link text"
+msgstr "Facetten-Linktext zurücksetzen"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ResetFacetsProcessor.php:12
+msgid "Adds reset facets link."
+msgstr "Fügt Link zum Rücksetzen von Facetten hinzu."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ResetFacetsProcessor.php:12
+msgid "When checked, this facet will add a link to reset enabled facets."
+msgstr "Wenn diese Option aktiviert ist, fügt diese Facette einen Link zum Zurücksetzen freigegebener Facetten hinzu."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowCountProcessor.php:9
+msgid "Show a summary of how many results were found"
+msgstr "Zeigt eine Übersicht, wie viele Ergebnisse gefunden wurden"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowCountProcessor.php:9
+msgid "When checked, this will show the amount of results found."
+msgstr "Wenn diese Option aktiviert ist, zeigt sie die Zahl der gefundenen Ergebnisse an."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowSummaryProcessor.php:9
+msgid "Show a summary of all selected facets"
+msgstr "Zeigt eine Übersicht aller ausgewählten Facetten an"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowSummaryProcessor.php:9
+msgid "When checked, this facet will show an imploded list of all selected facets."
+msgstr "Wenn diese Option aktiviert ist, zeigt die Facette eine implodierte Liste aller ausgewählten Facetten an."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowTextWhenEmptyProcessor.php:61 src/Form/FacetForm.php:402
+msgid "Empty text"
+msgstr "Leerer Text"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowTextWhenEmptyProcessor.php:77
+msgid "No results found."
+msgstr "Keine Ergebnisse gefunden."
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowTextWhenEmptyProcessor.php:10
+msgid "Show a text when there are no results"
+msgstr "Zeigt einen Text an, wenn keine Ergebnisse vorliegen"
+
+#: modules/facets_summary/src/Plugin/facets_summary/processor/ShowTextWhenEmptyProcessor.php:10
+msgid "Show a text when there are no results, otherwise it will hide the block."
+msgstr "Zeigt einen Text an, wenn keine Ergebnisse vorliegen, andernfalls wird der Block ausgeblendet."
+
+#: modules/facets_summary/src/Processor/ProcessorPluginManager.php:48 src/Processor/ProcessorPluginManager.php:54
+msgid "Build stage"
+msgstr "Aufbaustufe"
+
+#: modules/facets_summary/templates/facets-summary-count.html.twig:11
+msgid "1 result found"
+msgid_plural "@count results found"
+msgstr[0] "1 Ergebnis gefunden"
+msgstr[1] "@count Ergebnisse gefunden"
+
+#: modules/facets_summary/templates/facets-summary.html.twig:23
+msgid "not filtered"
+msgstr "ungefiltert"
+
+#: src/FacetListBuilder.php:50
+msgid "Clone facet"
+msgstr "Facette klonen"
+
+#: src/FacetListBuilder.php:57;78 src/Form/FacetDeleteConfirmForm.php:32
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/FacetListBuilder.php:93
+msgid "Type"
+msgstr "Typ"
+
+#: src/FacetListBuilder.php:94
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/FacetListBuilder.php:96
+msgid "Title"
+msgstr "Titel"
+
+#: src/FacetListBuilder.php:130;172
+msgid "ID: @name"
+msgstr "ID: @name"
+
+#: src/FacetListBuilder.php:208
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: src/FacetListBuilder.php:229
+msgid "There are no facet sources or facets defined."
+msgstr "Es sind keine Facetten-Quellen oder Facetten definiert."
+
+#: src/FacetListBuilder.php:241
+msgid "You currently have no facet sources defined. You should start by adding a facet source before creating facets.<br />\n           An example of a facet source is a view based on Search API or a Search API page.\n           Other modules can also implement a facet source by providing a plugin that implements the FacetSourcePluginInterface."
+msgstr "Sie haben aktuell keine Facetten-Quellen definiert. Sie sollten zuerst eine Facetten-Quelle hinzufügen und dann Facetten erstellen.<br />\n Ein Beispiel für eine Facetten-Quelle ist eine Ansicht auf der Grundlage einer Such-API oder einer Such-API-Seite.\n Andere Module können ebenfalls eine Facetten-Quelle implementieren, indem sie ein Plugin bereitstellen, das das FacetSourcePluginInterface implementiert."
+
+#: src/FacetListBuilder.php:291
+msgid "Facets not currently associated with any facet source"
+msgstr "Die Facetten sind aktuell keiner Facetten-Quelle zugewiesen."
+
+#: src/FacetListBuilder.php:303
+msgid "Core search facets has been moved to a separate project. You need to download and enable this module from @project_link to continue using your core search facets."
+msgstr "Die Core-Such-Facetten sind ein getrenntes Projekt verschoben worden. Sie müssen dieses Modul von @project_link downloaden und freigeben, um ihre Core-Such-Facetten weiter zu nutzen."
+
+#: src/FacetListBuilder.php:313
+msgid "Save"
+msgstr "Speichern"
+
+#: src/FacetListBuilder.php:331
+msgid "The facets have been updated."
+msgstr "Diese Facetten wurden aktualisiert."
+
+#: src/Entity/Facet.php:807
+msgid "Facet Source @id specifies a non-existing @class."
+msgstr "Facetten-Quelle @id spezifiziert eine nicht existierende @class."
+
+#: src/Form/FacetCloneForm.php:74
+msgid "We can only clone Search API based facets."
+msgstr "Wir können Such-API-basierte Facetten klonen."
+
+#: src/Form/FacetCloneForm.php:104
+msgid "Clone the facet to this facet source:"
+msgstr "Die Facette zu dieser Facetten-Quelle klonen:"
+
+#: src/Form/FacetCloneForm.php:112 src/Form/FacetSettingsForm.php:167
+msgid "The administrative name used for this facet."
+msgstr "Der administrative Name für diese Facette."
+
+#: src/Form/FacetCloneForm.php:113
+msgid "Duplicate of @label"
+msgstr "Duplikat von @label"
+
+#: src/Form/FacetCloneForm.php:137
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: src/Form/FacetCloneForm.php:153
+msgid "Facet cloned to :label"
+msgstr "Facette geklont nach :label"
+
+#: src/Form/FacetDeleteConfirmForm.php:18
+msgid "Are you sure you want to delete the facet %name?"
+msgstr "Sind Sie sicher, dass Sie die Facette %name löschen wollen?"
+
+#: src/Form/FacetDeleteConfirmForm.php:40
+msgid "The facet %name has been deleted."
+msgstr "Die Facette %name wurde gelöscht."
+
+#: src/Form/FacetForm.php:117
+msgid "%widget widget needs no configuration."
+msgstr "Das Steuerelement %widget benötigt keine Konfiguration."
+
+#: src/Form/FacetForm.php:125
+msgid "%widget settings"
+msgstr "%widget Einstellungen"
+
+#: src/Form/FacetForm.php:169
+msgid "Widget"
+msgstr "Steuerelement"
+
+#: src/Form/FacetForm.php:170
+msgid "The widget used for displaying this facet."
+msgstr "Das Steuerelement zur Anzeige dieser Facette."
+
+#: src/Form/FacetForm.php:192
+msgid "Configure widget"
+msgstr "Steuerelement konfigurieren"
+
+#: src/Form/FacetForm.php:238
+msgid "Edit %label facet"
+msgstr "Facette %label bearbeiten"
+
+#: src/Form/FacetForm.php:301
+msgid "Facet sorting"
+msgstr "Facettensortierung"
+
+#: src/Form/FacetForm.php:354
+msgid "Hide facet when facet source is not rendered"
+msgstr "Facette ausblenden, wenn Facetten-Quelle nicht gerendert wird"
+
+#: src/Form/FacetForm.php:355
+msgid "Only display the facet if the facet source is rendered. If you want to display the facets on other pages too, you need to uncheck this setting."
+msgstr "Facette nur anzeigen, wenn die Facetten-Quelle gerendert ist. Wenn Sie Facetten auch auf anderen Seiten anzeigen wollen, muss diese Option deaktiviert sein."
+
+#: src/Form/FacetForm.php:362
+msgid "Ensure that only one result can be displayed"
+msgstr "Sorgen Sie dafür, dass nur ein Ergebnis angezeigt werden kann"
+
+#: src/Form/FacetForm.php:363
+msgid "Check this to ensure that only <em>one</em> result at a time can be selected for this facet."
+msgstr "Prüfen Sie dies nach, um zu gewährleisten, dass immer nur <em>ein</em> Ergebnis für diese Facette ausgewählt werden kann."
+
+#: src/Form/FacetForm.php:370
+msgid "URL alias"
+msgstr "URL-Alias"
+
+#: src/Form/FacetForm.php:371
+msgid "The alias appears in the URL to identify this facet. It cannot be blank. Allowed are only letters, digits and the following characters: dot (\".\"), hyphen (\"-\"), underscore (\"_\"), and tilde (\"~\")."
+msgstr "Das Alias erscheint in der URL zur Identifizierung diese Facette. Es darf nicht leer sein. Zulässig sind nur Buchstaben, Ziffern und die folgenden Zeichen: Punkt („.“), Bindestrich („-“), Unterstrich („_“) und die Tilde („~“)."
+
+#: src/Form/FacetForm.php:378
+msgid "Show title of facet"
+msgstr "Titel der Facette anzeigen"
+
+#: src/Form/FacetForm.php:379
+msgid "Show the title of the facet trough a twig template"
+msgstr "Titel der Facette über eine Twig-Vorlage anzeigen"
+
+#: src/Form/FacetForm.php:386
+msgid "Empty facet behavior"
+msgstr "Verhalten, bei leeren Facetten"
+
+#: src/Form/FacetForm.php:388
+msgid "Do not display facet"
+msgstr "Facette nicht anzeigen"
+
+#: src/Form/FacetForm.php:388
+msgid "Display text"
+msgstr "Text anzeigen"
+
+#: src/Form/FacetForm.php:389
+msgid "Take this action if a facet has no items."
+msgstr "Diese Aktion ausführen, wenn eine Facette keine Einträge hat."
+
+#: src/Form/FacetForm.php:410
+msgid "Operator"
+msgstr "Operator"
+
+#: src/Form/FacetForm.php:411
+msgid "OR"
+msgstr "ODER"
+
+#: src/Form/FacetForm.php:411
+msgid "AND"
+msgstr "UND"
+
+#: src/Form/FacetForm.php:412
+msgid "AND filters are exclusive and narrow the result set. OR filters are inclusive and widen the result set."
+msgstr "UND-Filter sind exklusiv und engen das Ergebnis ein. ODER-Filter sind inklusiv und erweitern das Ergebnis."
+
+#: src/Form/FacetForm.php:421 src/Plugin/facets/widget/LinksWidget.php:139
+msgid "No limit"
+msgstr "Keine Begrenzung"
+
+#: src/Form/FacetForm.php:422
+msgid "Display no more than this number of facet items."
+msgstr "Nicht mehr, als diese Anzahl an Facetten anzeigen."
+
+#: src/Form/FacetForm.php:427;444;493
+msgid "This setting only works with Search API based facets."
+msgstr "Diese Einstellung funktioniert nur mit Such-API-basierten Facetten."
+
+#: src/Form/FacetForm.php:433
+msgid "Exclude the selected facets from the search result instead of restricting it to them."
+msgstr "Die ausgewählten Facetten aus dem Suchergebnis ausschließen, statt es auf sie zu beschränken."
+
+#: src/Form/FacetForm.php:450
+msgid "Renders the items using hierarchy. Make sure to enable the hierarchy processor on the <a href=\":processor-url\">Search api index processor configuration</a> for this to work as expected. If disabled all items will be flatten."
+msgstr "Rendert die Einträge mit einer Hierarchie. Achten Sie darauf, den Hierarchie-Prozessor in der <a href=\":processor-url\">Such-API-Index-Prozessorkonfiguration</a> freizugeben, damit diese Funktion wie vorgesehen arbeitet. Andernfalls werden alle Einträge hintereinander angezeigt."
+
+#: src/Form/FacetForm.php:460
+msgid "Always expand hierarchy"
+msgstr "Hierarchie immer aufklappen"
+
+#: src/Form/FacetForm.php:461
+msgid "Render entire tree, regardless of whether the parents are active or not."
+msgstr "Gesamten Baum rendern, ungeachtet, ob die übergeordneten Objekte aktiv sind oder nicht."
+
+#: src/Form/FacetForm.php:473
+msgid "Uncheck this if you want to allow de-activating an entire hierarchical trail by clicking an active child."
+msgstr "Deaktivieren Sie diesen Punkt, wenn Sie einen gesamten Hierarchie-Pfad deaktivieren wollen, indem Sie auf ein aktives Unterobjekt klicken."
+
+#: src/Form/FacetForm.php:486
+msgid "Only display the results if there is this minimum amount of results."
+msgstr "Die Ergebnisse nur dann anzeigen, wenn diese Mindestanzahl an Ergebnissen vorliegt."
+
+#: src/Form/FacetForm.php:500
+msgid "This weight is used to determine the order of the facets in the URL if pretty paths are used."
+msgstr "Diese Gewichtung wird verwendet, um die Reihenfolge der Facetten in der URL zu bestimmen, wenn Pretty Paths verwendet werden."
+
+#: src/Form/FacetForm.php:625
+msgid "The Facet source is a Rest export. Please select a raw widget."
+msgstr "Die Facetten-Quelle ist ein REST-Export. Wählen Sie bitte ein Roh-Steuerelement."
+
+#: src/Form/FacetForm.php:634
+msgid "This URL alias is not allowed."
+msgstr "Dieses URL-Alias ist nicht zulässig."
+
+#: src/Form/FacetForm.php:637
+msgid "The URL alias contains characters that are not allowed."
+msgstr "Das URL-Alias enthält unzulässige Zeichen."
+
+#: src/Form/FacetForm.php:644
+msgid "This alias is already in use for another facet defined on the same source."
+msgstr "Der Alias wird bereits für eine andere in derselben Quelle definierte Facette verwendet."
+
+#: src/Form/FacetSettingsForm.php:96
+msgid "Facet settings for %label facet"
+msgstr "Facetten-Einstellungen für Facette %label"
+
+#: src/Form/FacetSettingsForm.php:131
+msgid "The source where this facet can find its fields."
+msgstr "Die Quelle, wo diese Facette ihre Felder finden kann."
+
+#: src/Form/FacetSettingsForm.php:153
+msgid "Configure facet source"
+msgstr "Facetten-Quelle konfigurieren"
+
+#: src/Form/FacetSettingsForm.php:218
+msgid "%plugin settings"
+msgstr "%plugin Einstellungen"
+
+#: src/Form/FacetSettingsForm.php:291
+msgid "Facet %name has been created. Go to the <a href=\":block_overview\">Block overview page</a> to place the new block in the desired region."
+msgstr "Facette %name wurde erzeugt. Gehen Sie zur <a href=\":block_overview\">Block-Übersichtsseite</a>, um den neuen Block in der gewünschten Region zu platzieren."
+
+#: src/Form/FacetSourceEditForm.php:118
+msgid "The key used in the url to identify the facet source.\n        When using multiple facet sources you should make sure each facet source has a different filter key."
+msgstr "Der zum Identifizieren der Facetten-Quelle in der URL verwendete Schlüssel.\n Bei mehreren Facetten-Quellen sollten Sie darauf achten, dass jede Facetten-Quelle einen anderen Filterschlüssel hat."
+
+#: src/Form/FacetSourceEditForm.php:132
+msgid "URL Processor"
+msgstr "URL-Prozessor"
+
+#: src/Form/FacetSourceEditForm.php:135
+msgid "The URL Processor defines the url structure used for this facet source."
+msgstr "Der URL-Prozessor definiert die URL-Struktur für diese Facetten-Quelle."
+
+#: src/Form/FacetSourceEditForm.php:142
+msgid "Breadcrumb"
+msgstr "Pfadnavigation"
+
+#: src/Form/FacetSourceEditForm.php:161
+msgid "Group active items under same crumb (not implemented yet - now always grouping)"
+msgstr "Gruppiert aktive Einträge unter demselben Crumb (noch nicht implementiert – jetzt wird immer gruppiert)"
+
+#: src/Form/FacetSourceEditForm.php:180
+msgid "Facet source %name has been saved."
+msgstr "Facetten-Quelle %name wurde gespeichert."
+
+#: src/Plugin/Block/FacetBlockDeriver.php:66
+msgid "Facet: :facet"
+msgstr "Facette: :facet"
+
+#: src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php:80 src/Plugin/facets/facet_source/SearchApiDisplay.php:214
+msgid "Field"
+msgstr "Feld"
+
+#: src/Plugin/facets/facet_source/SearchApiBaseFacetSource.php:81 src/Plugin/facets/facet_source/SearchApiDisplay.php:215
+msgid "The field from the selected facet source which contains the data to build a facet for.<br> The field types supported are <strong>boolean</strong>, <strong>date</strong>, <strong>decimal</strong>, <strong>integer</strong> and <strong>string</strong>."
+msgstr "Das Feld aus der ausgewählten Facetten-Quelle, das die Daten enthält, für die eine Facette erstellt werden soll.<br> Unterstützt werden die Feldtypen <strong>boolescher Wert</strong>, <strong>Datum</strong>, <strong>Dezimalzahl</strong>, <strong>Ganzzahl</strong> und <strong>Zeichenkette</strong>."
+
+#: src/Plugin/facets/hierarchy/Taxonomy.php:9
+msgid "Taxonomy hierarchy"
+msgstr "Taxonomie-Hierarchie"
+
+#: src/Plugin/facets/hierarchy/Taxonomy.php:9
+msgid "Hierarchy structure provided by the taxonomy module."
+msgstr "Vom Taxonomie-Modul bereitgestellte Hierarchiestruktur."
+
+#: src/Plugin/facets/processor/ActiveWidgetOrderProcessor.php:9
+msgid "Sort by active state"
+msgstr "Nach aktivem Status sortieren"
+
+#: src/Plugin/facets/processor/ActiveWidgetOrderProcessor.php:9
+msgid "Sorts the widget results by active state."
+msgstr "Sortiert die Steuerelement-Ergebnisse nach aktivem Status."
+
+#: src/Plugin/facets/processor/BooleanItemProcessor.php:61
+msgid "Use this label instead of <em>0</em> for the <em>On</em> or <em>True</em> value. Leave empty to hide this item."
+msgstr "Verwendet beim Wert <em>On</em> oder <em>True</em> diese Beschriftung statt <em>0</em>. Leer lassen, um diesen Eintrag auszublenden."
+
+#: src/Plugin/facets/processor/BooleanItemProcessor.php:71
+msgid "Use this label instead of <em>1</em> for the <em>Off</em> or <em>False</em> value. Leave empty to hide this item."
+msgstr "Verwendet beim Wert <em>Off</em> oder <em>False</em> diese Beschriftung statt <em>1</em>. Leer lassen, um diesen Eintrag auszublenden."
+
+#: src/Plugin/facets/processor/BooleanItemProcessor.php:11
+msgid "Boolean item label"
+msgstr "Beschriftung für booleschen Wert"
+
+#: src/Plugin/facets/processor/BooleanItemProcessor.php:11
+msgid "Display configurable On/Off labels instead 1/0 values for boolean fields."
+msgstr "Zeigt bei booleschen Feldern konfigurierbare Ein/Aus-Beschriftungen statt der Werte 1/0 an."
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:50
+msgid "Minimum items"
+msgstr "Minimale Anzahl an Elementen"
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:54
+msgid "Hide block if the facet contains less than this number of results."
+msgstr "Block ausblenden, wenn die Facette weniger als diese Anzahl von Ergebnissen enthält."
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:59
+msgid "Maximum items"
+msgstr "Maximale Anzahl an Elementen"
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:63
+msgid "Hide block if the facet contains more than this number of results."
+msgstr "Block ausblenden, wenn die Facette mehr als diese Anzahl von Ergebnissen enthält."
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:75
+msgid "If both minimum and maximum item count are specified, the maximum item count should be higher than the minimum item count."
+msgstr "Wenn sowohl die Mindest- und Höchstzahl der Elemente angegeben sind, sollte die Höchstzahl der Elemente über der Mindestzahl liegen."
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:10
+msgid "Count limit"
+msgstr "Grenzwert der Anzahl"
+
+#: src/Plugin/facets/processor/CountLimitProcessor.php:10
+msgid "Show or hide depending on the number of results."
+msgstr "Je nach Anzahl der Ergebnisse anzeigen oder ausblenden."
+
+#: src/Plugin/facets/processor/CountWidgetOrderProcessor.php:9
+msgid "Sort by count"
+msgstr "Nach Anzahl sortieren"
+
+#: src/Plugin/facets/processor/CountWidgetOrderProcessor.php:9
+msgid "Sorts the widget results by count."
+msgstr "Sortiert die Steuerelement-Ergebnisse nach Anzahl."
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:40
+msgid "Year"
+msgstr "Jahr"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:41
+msgid "Month"
+msgstr "Monat"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:42
+msgid "Day"
+msgstr "Tag"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:43
+msgid "Hour"
+msgstr "Stunde"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:44
+msgid "Minute"
+msgstr "Minute"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:45
+msgctxt "timeperiod"
+msgid "Second"
+msgstr "Sekunde"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:60
+msgid "Actual date with granularity"
+msgstr "Aktuelles Datum mit Granularität"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:61
+msgid "Relative date"
+msgstr "Relatives Datum"
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:75
+msgid "Override default date format used for the displayed filter format. See the <a href=\"http://php.net/manual/function.date.php\">PHP manual</a> for available options."
+msgstr "Übersteuern des Standard-Datumsformats für das angezeigte Filterformat. Die verfügbaren Optionen finden Sie im <a href=\"http://php.net/manual/function.date.php\">PHP-Handbuch</a>."
+
+#: src/Plugin/facets/processor/DateItemProcessor.php:11
+msgid "Display dates with granularity options for date fields."
+msgstr "Zeigt Daten mit Granularitätsoptionen für Datumsfelder an."
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:103
+msgid "Enable condition"
+msgstr "Bedingung freigeben"
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:109
+msgid "Condition mode"
+msgstr "Bedingungs-Modus"
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:112
+msgid "Check whether the facet is present."
+msgstr "Prüfen, ob die Facette vorhanden ist."
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:113
+msgid "Check whether the facet is selected / not empty."
+msgstr "Prüfen, ob die Facette ausgewählt/nicht leer ist."
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:114
+msgid "Check whether the facet is set to specific values."
+msgstr "Prüfen, ob die Facette auf einen bestimmten Wert gesetzt ist."
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:125
+msgid "Values"
+msgstr "Werte"
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:137
+msgid "Negate condition"
+msgstr "Bedingung negieren"
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:14
+msgid "Dependent facet"
+msgstr "Abhängige Facette"
+
+#: src/Plugin/facets/processor/DependentFacetProcessor.php:14
+msgid "Display this facet depending on the state of another facet."
+msgstr "Diese Facette je nach Status einer anderen Facette anzeigen."
+
+#: src/Plugin/facets/processor/DisplayValueWidgetOrderProcessor.php:12
+msgid "Sort by display value"
+msgstr "Nach Anzeigewert sortieren"
+
+#: src/Plugin/facets/processor/DisplayValueWidgetOrderProcessor.php:12
+msgid "Sorts the widget results by display value."
+msgstr "Sortiert die Steuerelement-Ergebnisse nach Anzeigewert."
+
+#: src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:60
+msgid "Exclude items"
+msgstr "Elemente ausschließen"
+
+#: src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:63
+msgid "Comma separated list of titles or values that should be excluded, matching either an item's title or value."
+msgstr "Kommagetrennte Liste von Titeln oder Werten, die ausgeschlossen werden sollten, wenn sie dem Titel oder Wert eines Elements entsprechen."
+
+#: src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:66
+msgid "Regular expressions used"
+msgstr "Verwendete reguläre Ausdrücke"
+
+#: src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:69
+msgid "Interpret each exclude list item as a regular expression pattern.<br /><small>(Slashes are escaped automatically, patterns using a comma can be wrapped in \"double quotes\", and if such a pattern uses double quotes itself, just make them double-double-quotes (\"\"))</small>."
+msgstr "Jedes Element einer Ausschlussliste als regulären Ausdruck interpretieren.<br /><small>(Schrägstriche werden automatisch „escaped“, Ausdrücke mit Komma können in \"Anführungszeichen\" gesetzt werden, und falls ein solcher Ausdruck selbst Anführungszeichen enthält, verwenden Sie doppelte Anführungszeiten (\"\"))</small>."
+
+#: src/Plugin/facets/processor/ExcludeSpecifiedItemsProcessor.php:10
+msgid "Exclude items depending on their raw or display value (such as node IDs or titles)."
+msgstr "Elemente abhängig von ihrem Roh- oder Anzeigewert (z. B. Beitrags-ID oder Titel) ausschließen."
+
+#: src/Plugin/facets/processor/GranularItemProcessor.php:64
+msgid "The numeric size of the steps to group the result facets in."
+msgstr "Die nummerische Größe der Schritte zur Gruppierung der Ergebnis-Facetten."
+
+#: src/Plugin/facets/processor/GranularItemProcessor.php:71
+msgid "If the minimum value is left empty it will be calculated by the search result"
+msgstr "Falls der Mindestwert leergelassen wird, wird er aus dem Suchergebnis berechnet."
+
+#: src/Plugin/facets/processor/GranularItemProcessor.php:79
+msgid "If the maximum value is left empty it will be calculated by the search result"
+msgstr "Falls der Höchstwert leergelassen wird, wird er aus dem Suchergebnis berechnet"
+
+#: src/Plugin/facets/processor/GranularItemProcessor.php:10
+msgid "Granularity item processor"
+msgstr "Prozessor für granuläre Elemente"
+
+#: src/Plugin/facets/processor/GranularItemProcessor.php:10
+msgid "List of numbers grouped in steps."
+msgstr "Liste der in Schritte gruppierten Anzahlen."
+
+#: src/Plugin/facets/processor/HideActiveItemsProcessor.php:9
+msgid "Hide active items"
+msgstr "Aktive Elemente ausblenden"
+
+#: src/Plugin/facets/processor/HideActiveItemsProcessor.php:9
+msgid "Do not display items that are active."
+msgstr "Aktive Elemente nicht anzeigen."
+
+#: src/Plugin/facets/processor/HideNonNarrowingResultProcessor.php:9
+msgid "Hide non-narrowing results"
+msgstr "Nicht einengende Ergebnisse ausblenden"
+
+#: src/Plugin/facets/processor/HideNonNarrowingResultProcessor.php:9
+msgid "Only display items that will narrow the results."
+msgstr "Nur Elemente anzeigen, die die Ergebnisse einengen."
+
+#: src/Plugin/facets/processor/HideOnlyOneItemProcessor.php:9
+msgid "Hide facet with 1 result"
+msgstr "Facette mit einem Ergebnis ausblenden"
+
+#: src/Plugin/facets/processor/HideOnlyOneItemProcessor.php:9
+msgid "When the facet has only one result, it will be hidden"
+msgstr "Wenn die Facette nur ein Ergebnis hat, wird sie ausgeblendet"
+
+#: src/Plugin/facets/processor/ListItemProcessor.php:19
+msgid "List item label"
+msgstr "Beschriftung Listenelement"
+
+#: src/Plugin/facets/processor/ListItemProcessor.php:19
+msgid "Display the label instead of the key of fields that are a list (such as <em>List (integer)</em>) or <em>List (text)</em>) or a bundle field. Keep in mind that transformations on the source of this field (such as transliteration or ignore characters) may break this functionality."
+msgstr "Zeigt die Beschriftung anstelle des Schlüssels von Feldern, bei denen es sich um eine Liste (z. B. <em>Liste (Ganzzahl)</em>) oder <em>Liste (Text)</em>) oder ein Bundle-Feld handelt. Beachten Sie, dass Transformationen an der Quelle dieses Felds (z. B. Transliterationen oder das Ignorieren von Zeichen) diese Funktion stören könnten."
+
+#: src/Plugin/facets/processor/RawValueWidgetOrderProcessor.php:9
+msgid "Sort by raw value"
+msgstr "Nach Rohwert sortieren"
+
+#: src/Plugin/facets/processor/RawValueWidgetOrderProcessor.php:9
+msgid "Sorts the widget results by raw value."
+msgstr "Sortiert die Steuerelement-Ergebnisse nach Rohwert."
+
+#: src/Plugin/facets/processor/ShowOnlyDeepestLevelItemsProcessor.php:9
+msgid "Show only deepest item levels"
+msgstr "Nur niedrigste Elementebenen anzeigen"
+
+#: src/Plugin/facets/processor/ShowOnlyDeepestLevelItemsProcessor.php:9
+msgid "Only show items that have no children."
+msgstr "Nur Elemente Anzeigen, die keine Unterelemente haben."
+
+#: src/Plugin/facets/processor/TermWeightWidgetOrderProcessor.php:14
+msgid "Sort by taxonomy term weight"
+msgstr "Nach Gewichtung des Taxonomiebegriffs sortieren"
+
+#: src/Plugin/facets/processor/TermWeightWidgetOrderProcessor.php:14
+msgid "Sorts the widget results by taxonomy term weight. This sort is only applicable for term-based facets."
+msgstr "Sortiert die Steuerelement-Ergebnisse nach der Gewichtung des Taxonomiebegriffs. Diese Sortierung ist nur bei begriffsbasierten Facetten anwendbar."
+
+#: src/Plugin/facets/processor/TranslateEntityProcessor.php:17
+msgid "Transform entity ID to label"
+msgstr "Entitäts-ID in Beschriftung umwandeln"
+
+#: src/Plugin/facets/processor/TranslateEntityProcessor.php:17
+msgid "Display the entity label instead of its ID (for example the term name instead of the taxonomy term ID). This only works when an actual entity is indexed, not for the entity id or aggregated fields."
+msgstr "Die Entitätsbeschriftung anstelle ihrer ID anzeigen (z. B. den Namen des Begriffs anstelle der ID des Taxonomiebegriffs). Das funktioniert nur dann, wenn eine gegebene Entität indiziert ist, nicht für die Entitäts-ID oder aggregierte Felder."
+
+#: src/Plugin/facets/processor/UidToUserNameCallbackProcessor.php:11
+msgid "Transform UID to user name"
+msgstr "UID in Benutzernamen umwandeln"
+
+#: src/Plugin/facets/processor/UidToUserNameCallbackProcessor.php:11
+msgid "Display the user name if the source field is a user ID."
+msgstr "Benutzernamen anzeigen, wenn das Quellfeld eine Benutzer-ID ist."
+
+#: src/Plugin/facets/processor/UrlProcessorHandler.php:11
+msgid "URL handler"
+msgstr "URL-Behandlungsroutine"
+
+#: src/Plugin/facets/processor/UrlProcessorHandler.php:11
+msgid "Trigger the URL processor, which is set in the facet source configuration."
+msgstr "URL-Prozessor auslösen, der in der Konfiguration der Facetten-Quelle eingestellt ist."
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:286
+msgid "In the next year"
+msgstr "Nächstes Jahr"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:290
+msgid "In the last year"
+msgstr "Letztes Jahr"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:303
+msgid "In the next month"
+msgstr "Nächsten Monat"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:303
+msgid "0 months hence"
+msgstr "0 Monate später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:309
+msgid "In the last month"
+msgstr "Letzten Monat"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:309
+msgid "0 months ago"
+msgstr "0 Monate früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:323
+msgid "In the next day"
+msgstr "Nächsten Tag"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:323
+msgid "0 days hence"
+msgstr "0 Tage später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:329
+msgid "In the last day"
+msgstr "Letzter Tag"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:329
+msgid "0 days ago"
+msgstr "0 Tage früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:344
+msgid "In the next hour"
+msgstr "Nächste Stunde"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:344
+msgid "0 hours hence"
+msgstr "0 Stunden später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:350
+msgid "In the last hour"
+msgstr "Letzte Stunde"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:350
+msgid "0 hours ago"
+msgstr "0 Stunden früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:366
+msgid "In the next minute"
+msgstr "Nächste Minute"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:366
+msgid "0 minutes hence"
+msgstr "0 Minuten später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:372
+msgid "In the last minute"
+msgstr "Letzte Minute"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:372
+msgid "0 minutes ago"
+msgstr "0 Minuten früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:389
+msgid "In the next second"
+msgstr "Nächste Sekunde"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:389
+msgid "0 secondss hence"
+msgstr "0 Sekunden später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:395
+msgid "In the last second"
+msgstr "Letzte Sekunde"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:395
+msgid "0 seconds ago"
+msgstr "0 Sekunden früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:286
+msgid "1 year hence"
+msgid_plural "@count years hence"
+msgstr[0] "1 Jahr später"
+msgstr[1] "@count Jahre später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:290
+msgid "1 year ago"
+msgid_plural "@count years ago"
+msgstr[0] "1 Jahr früher"
+msgstr[1] "@count Jahre früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:299;318;338;359;381
+msgid "1 year"
+msgid_plural "@count years"
+msgstr[0] "1 Jahr"
+msgstr[1] "@count Jahre"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:302
+msgid "1 month hence"
+msgid_plural "@count months hence"
+msgstr[0] "1 Monat später"
+msgstr[1] "@count Monate später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:308
+msgid "1 month ago"
+msgid_plural "@count months ago"
+msgstr[0] "1 Monat früher"
+msgstr[1] "@count Monate früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:319;339;360;382
+msgid "1 month"
+msgid_plural "@count months"
+msgstr[0] "1 Monat"
+msgstr[1] "@count Monate"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:322
+msgid "1 day hence"
+msgid_plural "@count days hence"
+msgstr[0] "1 Tag später"
+msgstr[1] "@count Tage später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:328
+msgid "1 day ago"
+msgid_plural "@count days ago"
+msgstr[0] "1 Tag früher"
+msgstr[1] "@count Tage früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:340;361;383
+msgid "1 day"
+msgid_plural "@count days"
+msgstr[0] "1 Tag"
+msgstr[1] "@count Tage"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:343
+msgid "1 hour hence"
+msgid_plural "@count hours hence"
+msgstr[0] "1 Stunde später"
+msgstr[1] "@count Stunden später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:349
+msgid "1 hour ago"
+msgid_plural "@count hours ago"
+msgstr[0] "1 Stunde früher"
+msgstr[1] "@count Stunden früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:362;384
+msgid "1 hour"
+msgid_plural "@count hours"
+msgstr[0] "1 Stunde"
+msgstr[1] "@count Stunden"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:365
+msgid "1 minute hence"
+msgid_plural "@count minutes hence"
+msgstr[0] "1 Minute später"
+msgstr[1] "@count Minuten später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:371
+msgid "1 minute ago"
+msgid_plural "@count minutes ago"
+msgstr[0] "1 Minute früher"
+msgstr[1] "@count Minuten früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:385
+msgid "1 minute"
+msgid_plural "@count minutes"
+msgstr[0] "1 Minute"
+msgstr[1] ""
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:388
+msgid "1 second hence"
+msgid_plural "@count seconds hence"
+msgstr[0] "1 Sekunde später"
+msgstr[1] "@count Sekunden später"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:394
+msgid "1 second ago"
+msgid_plural "@count seconds ago"
+msgstr[0] "1 Sekunde früher"
+msgstr[1] "@count Sekunden früher"
+
+#: src/Plugin/facets/query_type/SearchApiDate.php:8
+msgid "Date"
+msgstr "Datum"
+
+#: src/Plugin/facets/query_type/SearchApiGranular.php:8
+msgid "Numeric query with set granularity"
+msgstr "Numerische Abfrage mit eingestellter Granularität"
+
+#: src/Plugin/facets/query_type/SearchApiRange.php:9
+msgid "Range"
+msgstr "Bereich"
+
+#: src/Plugin/facets/query_type/SearchApiString.php:9
+msgid "String"
+msgstr "Zeichenkette"
+
+#: src/Plugin/facets/url_processor/QueryString.php:12
+msgid "Query string"
+msgstr "Anfragezeichenkette"
+
+#: src/Plugin/facets/url_processor/QueryString.php:12
+msgid "Query string is the default Facets URL processor, and uses GET parameters, for example ?f[0]=brand:drupal&f[1]=color:blue"
+msgstr "Abfragezeichenkette ist der Standard-Facetten-URL-Prozessor und nutzt GET-Parameter, z. B. ?f[0]=brand:drupal&f[1]=color:blue"
+
+#: src/Plugin/facets/widget/ArrayWidget.php:9
+msgid "Array with raw results"
+msgstr "Array mit Rohergebnissen"
+
+#: src/Plugin/facets/widget/ArrayWidget.php:9
+msgid "A widget that builds an array with results. This widget is not supposed to display any results, but it is needed for rest integration."
+msgstr "Ein Steuerelement, das ein Array mit Ergebnissen aufbaut. Dieses Steuerelement soll keine Ergebnisse darstellen, wird jedoch für die REST-Integration benötigt."
+
+#: src/Plugin/facets/widget/CheckboxWidget.php:5
+msgid "List of checkboxes"
+msgstr "Liste der Kontrollkästchen"
+
+#: src/Plugin/facets/widget/CheckboxWidget.php:5
+msgid "A configurable widget that shows a list of checkboxes"
+msgstr "Ein konfigurierbares Steuerelement, das eine Liste mit Kontrollkästchen anzeigt"
+
+#: src/Plugin/facets/widget/DropdownWidget.php:47
+msgid "To achieve the standard behavior of a dropdown, you need to enable the facet setting below <em>\"Ensure that only one result can be displayed\"</em>."
+msgstr "Um das Standardverhalten einer Auswahlliste zu erreichen, müssen Sie die Facetteneinstellungen unter <em>„Sorgen Sie dafür, dass nur ein Ergebnis angezeigt werden kann“</em> freigeben."
+
+#: src/Plugin/facets/widget/DropdownWidget.php:9
+msgid "Dropdown"
+msgstr "Auswahlliste"
+
+#: src/Plugin/facets/widget/DropdownWidget.php:9
+msgid "A configurable widget that shows a dropdown."
+msgstr "Ein konfigurierbares Steuerelement, das eine Auswahlliste anzeigt."
+
+#: src/Plugin/facets/widget/LinksWidget.php:34
+msgid "Show all"
+msgstr "Alle anzeigen"
+
+#: src/Plugin/facets/widget/LinksWidget.php:140
+msgid "Limit the number of displayed facets via JavaScript."
+msgstr "Anzahl der angezeigten Facetten über JavaScript begrenzen."
+
+#: src/Plugin/facets/widget/LinksWidget.php:152
+msgid "This text will be used for \"Show less\" link."
+msgstr "Dieser Text wird für den Link „weniger anzeigen“ verwendet."
+
+#: src/Plugin/facets/widget/LinksWidget.php:161
+msgid "This text will be used for \"Show more\" link."
+msgstr "Dieser Text wird für den Link „mehr anzeigen“ verwendet."
+
+#: src/Plugin/facets/widget/LinksWidget.php:175
+msgid "Reset text"
+msgstr "Text zurücksetzen"
+
+#: src/Plugin/facets/widget/LinksWidget.php:11
+msgid "List of links"
+msgstr "Liste der Links"
+
+#: src/Plugin/facets/widget/LinksWidget.php:11
+msgid "A simple widget that shows a list of links"
+msgstr "Ein einfaches Steuerelement, das eine Liste von Links anzeigt"
+
+#: src/Processor/ProcessorPluginManager.php:48
+msgid "Pre query stage"
+msgstr "Vorabfragephase"
+
+#: src/Processor/ProcessorPluginManager.php:51
+msgid "Post query stage"
+msgstr "Nachabfragephase"
+
+#: src/Processor/ProcessorPluginManager.php:57
+msgid "Sort stage"
+msgstr "Sortierphase"
+
+#: src/Processor/SortProcessorPluginBase.php:22
+msgid "Sort order"
+msgstr "Sortierreihenfolge"
+
+#: src/Processor/SortProcessorPluginBase.php:24
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: src/Processor/SortProcessorPluginBase.php:25
+msgid "Descending"
+msgstr "Absteigend"
+
+#: src/Widget/WidgetPluginBase.php:146
+msgid "Show the amount of results"
+msgstr "Anzahl der Ergebnisse anzeigen"
+

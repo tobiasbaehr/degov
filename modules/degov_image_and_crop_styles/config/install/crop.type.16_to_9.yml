@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   enforced:
@@ -6,9 +6,9 @@ dependencies:
       - degov_image_and_crop_styles
   module:
     - degov_auto_crop
-label: '16 zu 9'
+label: '16 by 9'
 id: 16_to_9
-description: '16:9 Bildzuschnitt, z.B. für Main Slider'
+description: '16:9 crop, e.g. for Slider main'
 aspect_ratio: '16:9'
 soft_limit_width: 1280
 soft_limit_height: 720

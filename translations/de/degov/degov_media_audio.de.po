@@ -1,0 +1,182 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_media_audio.post_update.php: n/a
+#  degov_media_audio.info.yml: n/a
+#  templates/media--audio--default.html.twig: n/a
+#  templates/media--audio--full.html.twig: n/a
+#  templates/media--audio--reference.html.twig: n/a
+#  templates/media--audio--usage.html.twig: n/a
+#  templates/media--audio--embedded.html.twig: n/a
+#  templates/media--audio--preview.html.twig: n/a
+#  templates/media--audio--preview_wide.html.twig: n/a
+#  templates/media--audio--search.html.twig: n/a
+#  config/install/media.type.audio.yml: n/a
+#  config/install/field.field.media.audio.field_media_transcription.yml: n/a
+#  config/install/field.field.media.audio.field_allow_download.yml: n/a
+#  config/install/field.field.media.audio.field_audio_caption.yml: n/a
+#  config/install/field.field.media.audio.field_audio_mp3.yml: n/a
+#  config/install/field.field.media.audio.field_audio_ogg.yml: n/a
+#  config/install/field.field.media.audio.field_audio_preview.yml: n/a
+#  config/install/field.field.media.audio.field_copyright.yml: n/a
+#  config/install/field.field.media.audio.field_description.yml: n/a
+#  config/install/field.field.media.audio.field_include_search.yml: n/a
+#  config/install/field.field.media.audio.field_media_accessibility.yml: n/a
+#  config/optional/field.field.media.audio.field_media_accessibility.yml: n/a
+#  config/install/field.field.media.audio.field_media_duration.yml: n/a
+#  config/install/field.field.media.audio.field_media_generic_1.yml: n/a
+#  config/install/field.field.media.audio.field_media_in_library.yml: n/a
+#  config/install/field.field.media.audio.field_media_language.yml: n/a
+#  config/optional/field.field.media.audio.field_media_language.yml: n/a
+#  config/install/field.field.media.audio.field_media_publish_date.yml: n/a
+#  config/install/field.field.media.audio.field_subtitle.yml: n/a
+#  config/install/field.field.media.audio.field_tags.yml: n/a
+#  config/install/field.field.media.audio.field_title.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:57+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_media_audio.post_update.php:30;81
+msgid "@current media @bundle processed."
+msgstr "@current Medien @bundle verarbeitet."
+
+#: degov_media_audio.info.yml:0
+msgid "deGov - media audio"
+msgstr "deGov - Medium Audio"
+
+#: degov_media_audio.info.yml:0
+msgid "Contains the media type for audio uploads"
+msgstr "Enthält den Medientyp für Audio Uploads"
+
+#: degov_media_audio.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: templates/media--audio--default.html.twig:41 templates/media--audio--full.html.twig:41 templates/media--audio--reference.html.twig:41 templates/media--audio--usage.html.twig:41
+msgid "I'm sorry; your browser doesn't support HTML5 audio in OGG or MP3 format."
+msgstr "Entschuldigung: Der Browser unterstützt kein HTML5-Audio im OGG- oder MP3-Format."
+
+#: templates/media--audio--default.html.twig:53 templates/media--audio--full.html.twig:58 templates/media--audio--reference.html.twig:53 templates/media--audio--usage.html.twig:53
+msgid "&copy;"
+msgstr "&copy;"
+
+#: templates/media--audio--default.html.twig:60 templates/media--audio--embedded.html.twig:23 templates/media--audio--full.html.twig:47 templates/media--audio--preview.html.twig:23 templates/media--audio--preview_wide.html.twig:24 templates/media--audio--search.html.twig:21 config/install/media.type.audio.yml:0
+msgid "Audio"
+msgstr "Audio"
+
+#: templates/media--audio--default.html.twig:91 templates/media--audio--full.html.twig:97 config/install/field.field.media.audio.field_media_transcription.yml:0
+msgid "Transkription"
+msgstr "Transkription"
+
+#: templates/media--audio--usage.html.twig:64
+msgid "Usage"
+msgstr "Verwendung"
+
+#: config/install/field.field.media.audio.field_allow_download.yml:0
+msgid "Herunterladen zulassen"
+msgstr "Herunterladen zulassen"
+
+#: config/install/field.field.media.audio.field_allow_download.yml:0
+msgid "Erlaubt"
+msgstr "Erlaubt"
+
+#: config/install/field.field.media.audio.field_allow_download.yml:0
+msgid "Verboten"
+msgstr "Verboten"
+
+#: config/install/field.field.media.audio.field_audio_caption.yml:0
+msgid "Audiounterschrift"
+msgstr "Audiounterschrift"
+
+#: config/install/field.field.media.audio.field_audio_mp3.yml:0
+msgid "MP3"
+msgstr "MP3"
+
+#: config/install/field.field.media.audio.field_audio_ogg.yml:0
+msgid "OGG"
+msgstr "OGG"
+
+#: config/install/field.field.media.audio.field_audio_preview.yml:0
+msgid "Vorschau"
+msgstr "Vorschau"
+
+#: config/install/field.field.media.audio.field_copyright.yml:0
+msgid "Copyright"
+msgstr "Urheberrecht"
+
+#: config/install/field.field.media.audio.field_description.yml:0
+msgid "Beschreibung"
+msgstr "Beschreibung"
+
+#: config/install/field.field.media.audio.field_include_search.yml:0
+msgid "Mediathek"
+msgstr "Mediathek"
+
+#: config/install/field.field.media.audio.field_include_search.yml:0
+msgid "An"
+msgstr "An"
+
+#: config/install/field.field.media.audio.field_include_search.yml:0
+msgid "Aus"
+msgstr "Aus"
+
+#: config/install/field.field.media.audio.field_media_accessibility.yml:0 config/optional/field.field.media.audio.field_media_accessibility.yml:0
+msgid "Barrierefreiheit"
+msgstr "Barrierefreiheit"
+
+#: config/install/field.field.media.audio.field_media_duration.yml:0
+msgid "Länge"
+msgstr "Länge"
+
+#: config/install/field.field.media.audio.field_media_generic_1.yml:0
+msgid "Generic media"
+msgstr "Allgemeines Medium"
+
+#: config/install/field.field.media.audio.field_media_in_library.yml:0
+msgid "Save to my media library"
+msgstr "In meiner Mediathek speichern"
+
+#: config/install/field.field.media.audio.field_media_in_library.yml:0
+msgid "Saved to my media library"
+msgstr "In meiner Mediathek gespeichert"
+
+#: config/install/field.field.media.audio.field_media_in_library.yml:0
+msgid "Not in my media library"
+msgstr "Nicht in meiner Mediathek"
+
+#: config/install/field.field.media.audio.field_media_language.yml:0 config/optional/field.field.media.audio.field_media_language.yml:0
+msgid "Sprache"
+msgstr "Sprache"
+
+#: config/install/field.field.media.audio.field_media_publish_date.yml:0
+msgid "Veröffentlichungsdatum"
+msgstr "Veröffentlichungsdatum"
+
+#: config/install/field.field.media.audio.field_subtitle.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.media.audio.field_tags.yml:0
+msgid "Schlagwörter"
+msgstr "Schlagwörter"
+
+#: config/install/field.field.media.audio.field_title.yml:0
+msgid "Öffentlicher Titel"
+msgstr "Öffentlicher Titel"
+
+#: config/install/media.type.audio.yml:0
+msgid "Mit diesem Bundle können Audio-Dateien hochgeladen werden."
+msgstr "Mit diesem Bundle können Audio-Dateien hochgeladen werden."
+

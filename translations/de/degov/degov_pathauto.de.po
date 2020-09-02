@@ -1,0 +1,56 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_pathauto.module: n/a
+#  degov_pathauto.info.yml: n/a
+#  config/install/pathauto.pattern.node.yml: n/a
+#  config/install/pathauto.pattern.taxonomy.yml: n/a
+#  config/install/pathauto.pattern.user.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:03+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_pathauto.module:15
+msgid "Menu link title or node title"
+msgstr "Titel für Menülink oder Beitrag"
+
+#: degov_pathauto.module:16
+msgid "The menu link title or node title for this node."
+msgstr "Der Menülink- oder Beitragstitel für diesen Beitrag."
+
+#: degov_pathauto.info.yml:0
+msgid "deGov - Pathauto"
+msgstr "deGov - Pathauto"
+
+#: degov_pathauto.info.yml:0
+msgid "Einstellungen für Standardpfade"
+msgstr "Einstellungen für Standardpfade"
+
+#: degov_pathauto.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/pathauto.pattern.node.yml:0
+msgid "Inhalte"
+msgstr "Inhalte"
+
+#: config/install/pathauto.pattern.taxonomy.yml:0
+msgid "Taxonomien"
+msgstr "Taxonomien"
+
+#: config/install/pathauto.pattern.user.yml:0
+msgid "Benutzer"
+msgstr "Benutzer"
+

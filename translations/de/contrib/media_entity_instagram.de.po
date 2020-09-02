@@ -1,0 +1,141 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  media_entity_instagram.info.yml: n/a
+#  config/schema/media_entity_instagram.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/InstagramEmbedCodeConstraint.php: n/a
+#  src/Plugin/media/Source/Instagram.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: media_entity_instagram.info.yml:0
+msgid "Media entity Instagram"
+msgstr "Media entity Instagram"
+
+#: media_entity_instagram.info.yml:0
+msgid "Media entity Instagram provider."
+msgstr "Media-entity-Instagram-Dienstanbieter"
+
+#: media_entity_instagram.info.yml:0
+msgid "Media"
+msgstr "Media"
+
+#: config/schema/media_entity_instagram.schema.yml:0
+msgid "Media entity Instagram settings"
+msgstr "Media-entity-Instagram-Einstellungen"
+
+#: config/schema/media_entity_instagram.schema.yml:0
+msgid "Base folder for thumbnails"
+msgstr "Basisordner für Miniaturbilder"
+
+#: config/schema/media_entity_instagram.schema.yml:0
+msgid "\"Instagram\" media source configuration"
+msgstr "„Instagram“-Medienquellenkonfiguration"
+
+#: config/schema/media_entity_instagram.schema.yml:0
+msgid "Instagram field display format settings"
+msgstr "Anzeigeformateinstellungen des instagram-Feldes"
+
+#: config/schema/media_entity_instagram.schema.yml:0
+msgid "Max-Width"
+msgstr "Maximale Breite"
+
+#: config/schema/media_entity_instagram.schema.yml:0 src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:127
+msgid "Caption hidden"
+msgstr "Bildbeschriftung ausgeblendet"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:119
+msgid "Width"
+msgstr "Breite"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:122
+msgid "Max width of instagram."
+msgstr "Maximale Instagram-Breite"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:129
+msgid "Enable to hide caption of Instagram posts."
+msgstr "Das Ausblenden von Bildbeschriftungen für Instagram-Beiträge aktivieren."
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:144
+msgid "Width: @width px"
+msgstr "Breite: @width px"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:149
+msgid "Caption: @hidecaption"
+msgstr "Bildbeschriftung: @hidecaption"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:150
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:150
+msgid "Visible"
+msgstr "Sichtbar"
+
+#: src/Plugin/Field/FieldFormatter/InstagramEmbedFormatter.php:15
+msgid "Instagram embed"
+msgstr "Instagram Einbetten"
+
+#: src/Plugin/Validation/Constraint/InstagramEmbedCodeConstraint.php:7
+msgctxt "Validation"
+msgid "Instagram embed code"
+msgstr "Instagram-Einbettungscode"
+
+#: src/Plugin/Validation/Constraint/InstagramEmbedCodeConstraint.php:23
+msgid "Not valid Instagram URL/Embed code."
+msgstr "Der URL/Einbettungscode ist ungültig."
+
+#: src/Plugin/media/Source/Instagram.php:103
+msgid "Instagram shortcode"
+msgstr "Instagram-Shortcode"
+
+#: src/Plugin/media/Source/Instagram.php:104
+msgid "Media ID"
+msgstr "Medien-ID"
+
+#: src/Plugin/media/Source/Instagram.php:105
+msgid "Media type: image or video"
+msgstr "Medientyp: Bild oder Video"
+
+#: src/Plugin/media/Source/Instagram.php:106
+msgid "Link to the thumbnail"
+msgstr "Link zum Miniaturbild"
+
+#: src/Plugin/media/Source/Instagram.php:107
+msgid "Copies thumbnail locally and return it's URI"
+msgstr "Speichert eine Kopie des Miniaturbildes lokal und gibt die URI zurück"
+
+#: src/Plugin/media/Source/Instagram.php:108
+msgid "Returns local URI of the thumbnail"
+msgstr "Gibt den lokalen URI des Miniaturbildes zurück"
+
+#: src/Plugin/media/Source/Instagram.php:109
+msgid "Author of the post"
+msgstr "Autor des Beitrags"
+
+#: src/Plugin/media/Source/Instagram.php:110
+msgid "Caption"
+msgstr "Beschriftung"
+
+#: src/Plugin/media/Source/Instagram.php:16
+msgid "Instagram"
+msgstr "Instagram"
+
+#: src/Plugin/media/Source/Instagram.php:16
+msgid "Provides business logic and metadata for Instagram."
+msgstr "Stellt die Logik und die Metadaten für Instagram zur Verfügung."
+

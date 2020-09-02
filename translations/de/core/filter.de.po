@@ -1,0 +1,768 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  filter.module: n/a
+#  filter.admin.es6.js: n/a
+#  filter.admin.js: n/a
+#  filter.filter_html.admin.es6.js: n/a
+#  filter.filter_html.admin.js: n/a
+#  filter.info.yml: n/a
+#  filter.links.action.yml: n/a
+#  filter.routing.yml: n/a
+#  filter.links.menu.yml: n/a
+#  config/schema/filter.schema.yml: n/a
+#  src/Entity/FilterFormat.php: n/a
+#  filter.links.task.yml: n/a
+#  src/FilterFormatListBuilder.php: n/a
+#  filter.permissions.yml: n/a
+#  src/FilterFormatFormBase.php: n/a
+#  src/FilterFormatAddForm.php: n/a
+#  src/FilterFormatEditForm.php: n/a
+#  src/FilterPermissions.php: n/a
+#  src/FilterUninstallValidator.php: n/a
+#  src/Element/TextFormat.php: n/a
+#  src/Form/FilterDisableForm.php: n/a
+#  src/Plugin/DataType/FilterFormat.php: n/a
+#  src/Plugin/Filter/FilterAlign.php: n/a
+#  src/Plugin/Filter/FilterAutoP.php: n/a
+#  src/Plugin/Filter/FilterCaption.php: n/a
+#  src/Plugin/Filter/FilterHtml.php: n/a
+#  src/Plugin/Filter/FilterHtmlCorrector.php: n/a
+#  src/Plugin/Filter/FilterHtmlEscape.php: n/a
+#  src/Plugin/Filter/FilterHtmlImageSecure.php: n/a
+#  src/Plugin/Filter/FilterNull.php: n/a
+#  src/Plugin/Filter/FilterUrl.php: n/a
+#  src/Plugin/migrate/process/FilterID.php: n/a
+#  src/Plugin/migrate/source/d6/FilterFormat.php: n/a
+#  src/Plugin/migrate/source/d7/FilterFormat.php: n/a
+#  templates/filter-tips.html.twig: n/a
+#  config/install/filter.format.plain_text.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: filter.module:24
+msgid "About"
+msgstr "Über"
+
+#: filter.module:25
+msgid "The Filter module allows administrators to configure text formats. Text formats change how HTML tags and other text will be <em>processed and displayed</em> in the site. They are used to transform text, and also help to defend your web site against potentially damaging input from malicious users. Visual text editors can be associated with text formats by using the <a href=\":editor_help\">Text Editor module</a>. For more information, see the <a href=\":filter_do\">online documentation for the Filter module</a>."
+msgstr "Das Filter-Modul ermöglicht Administratoren Textformate zu konfigurieren. Die Formate ändern die zu verfügung stehenden HTML-Tags sowie die <em>Anzeige und Verarbeitung</em> von Text uf der Website. Textformate werden verwendet um Text zu verändern und Ihre Website gegen potenzielle Schäden durch eigabe von Schadcode durch diverse Nutzer abzusichern. Grafische Texteditoren können einem Textformat mit Hilfe des <a href=\":editor_help\">Text Editor-Moduls</a> zugeordnet werden. Weitere Informationen sind in der <a href=\":filter_do\">Online-Dokumentation des Filter-Moduls</a> verfügbar."
+
+#: filter.module:26
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: filter.module:28
+msgid "Managing text formats"
+msgstr "Textformate verwalten"
+
+#: filter.module:29
+msgid "You can create and edit text formats on the <a href=\":formats\">Text formats page</a> (if the Text Editor module is enabled, this page is named Text formats and editors). One text format is included by default: Plain text (which removes all HTML tags). Additional text formats may be created during installation. You can create a text format by clicking \"<a href=\":add_format\">Add text format</a>\"."
+msgstr "Auf der Seite <a href=\":formats\">Textformate</a> können Textformate erstellt und bearbeitet werden. Wenn das Texteditor-Modul aktiviert ist, trägt diese Seite den Namen Textformate und Texteditoren). Das Textformat „Klartext“ ist grundsätzlich voreingestellt (dieses Textformat entfernt alle HTML-Tags). Zusätzliche Textformate werden eventuell während der Installation erstellt. Ein Textformat kann über \"<a href=\":add_format\">Textformate hinzufügen</a>\" erstellt werden."
+
+#: filter.module:30
+msgid "Assigning roles to text formats"
+msgstr "Rollen Textformate zuweisen"
+
+#: filter.module:31
+msgid "You can define which users will be able to use each text format by selecting roles. To ensure security, anonymous and untrusted users should only have access to text formats that restrict them to either plain text or a safe set of HTML tags. This is because HTML tags can allow embedding malicious links or scripts in text. More trusted registered users may be granted permission to use less restrictive text formats in order to create rich text. <strong>Improper text format configuration is a security risk.</strong>"
+msgstr "Es kann festgelegt werden welche Benutzer welches Textformat verwenden dürfen, indem einem oder mehreren Benutzern eine entsprechende Rolle zugewiesen wird. Um die Sicherheit der Website zu gewährleisten, sollte Gästen und nicht vertrauenswürdigen Benutzern nur der Zugriff auf Textformate mit begrenztem Funktionsumfang ermöglicht werden, denn einige HTML-Tags erlauben es bösartige Links und Skripte im Text einzubetten. Registrierten und somit eher vertrauenswürdigen Benutzern können Textformate mit weniger Einschränkungen zugewiesen werden, mit denen ansprechende Texte erstellt werden können. <strong>Unüberlegte Textformatkonfigurationen sind ein Sicherheitsrisiko.</strong>"
+
+#: filter.module:32
+msgid "Selecting filters"
+msgstr "Filter auswählen"
+
+#: filter.module:33
+msgid "Each text format uses filters that add, remove, or transform elements within user-entered text. For example, one filter removes unapproved HTML tags, while another transforms URLs into clickable links. Filters are applied in a specific order. They do not change the <em>stored</em> content: they define how it is processed and displayed."
+msgstr "Jedes Textformat verwendet Filter, mit deren Hilfe Elemente in einem vom Benutzer eingegebenen Text hinzugefügt, entfernt oder transformiert werden können. Ein Filter entfernt z. B. ungewünschte HTML-Elemente, während ein anderer URLs in klickbare Links verwandelt. Filter werden in einer bestimmten Reihenfolge angewandt. Sie verändern die <em>gespeicherten</em> Inhalte nicht: Sie definieren wie sie verarbeitet und angezeigt werden."
+
+#: filter.module:34
+msgid "Each filter can have additional configuration options. For example, for the \"Limit allowed HTML tags\" filter you need to define the list of HTML tags that the filter leaves in the text."
+msgstr "Jeder Filter kann mit zusätzlichen Optionen konfiguriert werden. Ein Beispiel: Der Filter „Erlaubte HTML-Tags begrenzen“ benötigt eine Liste von vorgegebenen HTML-Tags, die im Text verwendet werden dürfen."
+
+#: filter.module:35
+msgid "Using text fields with text formats"
+msgstr "Textfelder mit Textformaten verwenden"
+
+#: filter.module:36
+msgid "Text fields that allow text formats are those with \"formatted\" in the description. These are <em>Text (formatted, long, with summary)</em>, <em>Text (formatted)</em>, and <em>Text (formatted, long)</em>. You cannot change the type of field once a field has been created."
+msgstr "Textfelder, die Textformate zulassen tragen die Bezeichnung „formatiert“ in der Beschreibung, Diese Felder sind: <em>Text (formatiert, lang mit Zusammenfassung)</em>, <em>Text (formatiert)</em>, und <em>Text (formatiert, lang)</em>."
+
+#: filter.module:37
+msgid "Choosing a text format"
+msgstr "Auswahl eines Textformats"
+
+#: filter.module:38
+msgid "When creating or editing data in a field that has text formats enabled, users can select the format under the field from the Text format select list."
+msgstr "Wenn Daten in einem Feld mit dem Format Text erstellt oder bearbeitet werden, können Benutzer das Format über eine Auswahlliste unter dem Textfeld auswählen."
+
+#: filter.module:43
+msgid "Text formats define how text is filtered for output and how HTML tags and other text is displayed, replaced, or removed. <strong>Improper text format configuration is a security risk.</strong> Learn more on the <a href=\":filter_help\">Filter module help page</a>."
+msgstr "Textformate definieren wie Texte vor der Ausgabe gefiltert werden; ob HTML-Elemente und anderer Text angezeigt, ersetzt oder entfernt werden. <strong>Die unsachgemäße Konfiguration von Textformaten ist ein Sicherheitsrisiko.</strong> Mehr dazu auf der <a href=\":filter_help\">Hilfeseite des Filter-Moduls</a>."
+
+#: filter.module:44
+msgid "Text formats are presented on content editing pages in the order defined on this page. The first format available to a user will be selected by default."
+msgstr "Textformate werden in der unten festgelegten Reihenfolge auf Seiten zur Bearbeitung von Inhalten angezeigt. Das erste für den Benutzer verfügbare Format wird dabei als Vorauswahl ausgewählt."
+
+#: filter.module:48
+msgid "A text format contains filters that change the display of user input; for example, stripping out malicious HTML or making URLs clickable. Filters are executed from top to bottom and the order is important, since one filter may prevent another filter from doing its job. For example, when URLs are converted into links before disallowed HTML tags are removed, all links may be removed. When this happens, the order of filters may need to be rearranged."
+msgstr "Ein Textformat enthält Filter welche die Anzeige der Benutzereingabe ändern. Wie das entfernen von schadhaften HTML oder das klickbar machen von URLS. Filter werden von oben nach unten ausgeführt, wobei die Reihenfolge wichtig ist, nachdem ein Filter einen anderen vom sauberen Funktionieren abhalten kann. Werden zum Beispiel URLs in Links umgewandelt, bevor unerlaubte HTML-Elemente entfernt werden, werden alle Links entfernt. Wenn dies passiert, muss die Reihenfolge der Filter neu geordnet werden."
+
+#: filter.module:318
+msgid "This field has been disabled because you do not have sufficient permissions to edit it."
+msgstr "Dieses Feld wurde deaktiviert, weil Sie nicht die erforderlichen Berechtigungen haben, um es zu bearbeiten."
+
+#: filter.module:825
+msgid "Image removed."
+msgstr "Bild entfernt."
+
+#: filter.module:826
+msgid "This image has been removed. For security reasons, only images from the local domain are allowed."
+msgstr "Dieses Bild wurde entfernt. Aus Sicherheitsgründen sind nur Bilder aus der lokalen Domäne erlaubt."
+
+#: filter.admin.es6.js:0 filter.admin.js:0
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: filter.admin.es6.js:0 filter.admin.js:0
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: filter.filter_html.admin.es6.js:0 filter.filter_html.admin.js:0
+msgid "Based on the text editor configuration, these tags have automatically been added: <strong>@tag-list</strong>."
+msgstr "Diese Tags wurden basierend auf der Konfiguration des Texteditors hinzugefügt: <strong>@tag-list</strong>."
+
+#: filter.info.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: filter.info.yml:0
+msgid "Filters content in preparation for display."
+msgstr "Ermöglicht die Filterung von Inhalten nach in Textfiltern festgelegten Kriterien, bevor diese angezeigt werden."
+
+#: filter.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: filter.links.action.yml:0 filter.routing.yml:0
+msgid "Add text format"
+msgstr "Textformat hinzufügen"
+
+#: filter.links.menu.yml:0 filter.routing.yml:0;0
+msgid "Compose tips"
+msgstr "Tipps zur Erstellung von Inhalten"
+
+#: filter.links.menu.yml:0 config/schema/filter.schema.yml:0 src/Entity/FilterFormat.php:13
+msgid "Text formats"
+msgstr "Textformate"
+
+#: filter.links.menu.yml:0
+msgid "Configure how content is filtered when displayed, including which HTML tags are rendered, and enable module-provided filters."
+msgstr "Konfigurieren , der Filterung der Anzeige, einschließlich der auszugebenden HTML-Elemente und aktivieren der von verschiedenen Modulen bereitgestellten Textfilteroptionen."
+
+#: filter.links.task.yml:0 src/FilterFormatListBuilder.php:138
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: filter.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: filter.permissions.yml:0
+msgid "Administer text formats and filters"
+msgstr "Textformate und Filter verwalten"
+
+#: filter.permissions.yml:0
+msgid "Define how text is handled by combining filters into text formats."
+msgstr "Festlegen wie Text behandelt wird, indem Filter in Textformaten kombiniert werden."
+
+#: filter.routing.yml:0
+msgid "Text formats and editors"
+msgstr "Textformate und -editoren"
+
+#: filter.routing.yml:0
+msgid "Disable text format"
+msgstr "Textformat deaktivieren"
+
+#: config/schema/filter.schema.yml:0;0 src/FilterFormatFormBase.php:103
+msgid "Filter settings"
+msgstr "Filter-Einstellungen"
+
+#: config/schema/filter.schema.yml:0
+msgid "Fallback text format"
+msgstr "Fallback-Textformat"
+
+#: config/schema/filter.schema.yml:0
+msgid "Always show fallback choice"
+msgstr "Immer die Fallback-Auswahl anzeigen"
+
+#: config/schema/filter.schema.yml:0 src/FilterFormatFormBase.php:26 src/FilterFormatListBuilder.php:92
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/filter.schema.yml:0
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config/schema/filter.schema.yml:0
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/filter.schema.yml:0 src/FilterFormatFormBase.php:47 src/FilterFormatListBuilder.php:93
+msgid "Roles"
+msgstr "Rollen"
+
+#: config/schema/filter.schema.yml:0
+msgid "Role"
+msgstr "Rolle"
+
+#: config/schema/filter.schema.yml:0 src/FilterFormatFormBase.php:75
+msgid "Enabled filters"
+msgstr "Aktivierte Filter"
+
+#: config/schema/filter.schema.yml:0
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+#: config/schema/filter.schema.yml:0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/filter.schema.yml:0
+msgid "Filter HTML"
+msgstr "HTML filtern"
+
+#: config/schema/filter.schema.yml:0
+msgid "Allowed HTML"
+msgstr "Erlaubte HTML-Elemente"
+
+#: config/schema/filter.schema.yml:0
+msgid "HTML help"
+msgstr "HTML-Hilfe"
+
+#: config/schema/filter.schema.yml:0
+msgid "HTML nofollow"
+msgstr "HTML-nofollow"
+
+#: config/schema/filter.schema.yml:0
+msgid "Filter URL"
+msgstr "Filter-URL"
+
+#: config/schema/filter.schema.yml:0
+msgid "URL length"
+msgstr "URL-Länge"
+
+#: src/FilterFormatAddForm.php:26
+msgid "Added text format %format."
+msgstr "Textformat %format hinzugefügt."
+
+#: src/FilterFormatEditForm.php:34
+msgid "The text format %format has been updated."
+msgstr "Das Textformat %format wurde aktualisiert."
+
+#: src/FilterFormatFormBase.php:53
+msgid "All roles for this text format must be enabled and cannot be changed."
+msgstr "Alle Rollen müssen für dieses Textformat aktiviert sein und können nicht geändert werden."
+
+#: src/FilterFormatFormBase.php:67
+msgid "The %filter filter is missing, and will be removed once this format is saved."
+msgstr "Der Filter %filter fehlt und wird beim Speichern dieses Formats entfernt."
+
+#: src/FilterFormatFormBase.php:88
+msgid "Filter processing order"
+msgstr "Reihenfolge der Filterverarbeitung"
+
+#: src/FilterFormatFormBase.php:123
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/FilterFormatFormBase.php:192
+msgid "Text format names must be unique. A format named %name already exists."
+msgstr "Die Namen von Textformaten müssen eindeutig sein. Ein Format namens %name existiert bereits."
+
+#: src/FilterFormatFormBase.php:231
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: src/FilterFormatListBuilder.php:108
+msgid "All roles may use this format"
+msgstr "Alle Rollen dürfen dieses Format verwenden."
+
+#: src/FilterFormatListBuilder.php:111
+msgid "This format is shown when no other formats are available"
+msgstr "Dieses Format wird angezeigt, wenn keine anderen Formate verfügbar sind."
+
+#: src/FilterFormatListBuilder.php:123
+msgid "No roles may use this format"
+msgstr "Keine Rolle darf dieses Eingabeformat benutzen"
+
+#: src/FilterFormatListBuilder.php:154
+msgid "Save"
+msgstr "Speichern"
+
+#: src/FilterFormatListBuilder.php:165
+msgid "The text format ordering has been saved."
+msgstr "Die Textformat-Reihenfolge wurde gespeichert."
+
+#: src/FilterPermissions.php:56
+msgid "Use the <a href=\":url\">@label</a> text format"
+msgstr "Textformat <a href=\":url\">@label</a> verwenden"
+
+#: src/FilterPermissions.php:59
+msgid "Warning: This permission may have security implications depending on how the text format is configured."
+msgstr "Warnung: Diese Berechtigung kann Auswirkungen auf die Sicherheit haben, je nachdem wie das Textformat konfiguriert ist."
+
+#: src/FilterUninstallValidator.php:67
+msgid "Provides a filter plugin that is in use in the following filter formats: %formats"
+msgstr "Stellt ein Filter-Plugin zur Verfügung, das für die folgenden Filterformate verwendet wird: %formats"
+
+#: src/Element/TextFormat.php:181 src/Entity/FilterFormat.php:13
+msgid "Text format"
+msgstr "Textformat"
+
+#: src/Element/TextFormat.php:194
+msgid "About text formats"
+msgstr "Hilfe zum Textformat"
+
+#: src/Entity/FilterFormat.php:13
+msgid "text format"
+msgstr "Textformat"
+
+#: src/Entity/FilterFormat.php:13
+msgid "text formats"
+msgstr "Textformate"
+
+#: src/Form/FilterDisableForm.php:20
+msgid "Are you sure you want to disable the text format %format?"
+msgstr "Möchten Sie das Textformat %format wirklich deaktivieren?"
+
+#: src/Form/FilterDisableForm.php:34
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: src/Form/FilterDisableForm.php:41
+msgid "Disabled text formats are completely removed from the administrative interface, and any content stored with that format will not be displayed. This action cannot be undone."
+msgstr "Ausgeschaltete Eingabeformate werden aus der Administrationsoberfläche entfernt. Jeder gespeicherte Inhalt, der eines dieser Eingabeformate verwendet, wird nicht angezeigt. Der Vorgang kann nicht rückgängig gemacht werden."
+
+#: src/Form/FilterDisableForm.php:49
+msgid "Disabled text format %format."
+msgstr "Textformat %format wurde deaktiviert."
+
+#: src/Plugin/DataType/FilterFormat.php:9
+msgid "Filter format"
+msgstr "Filterformat"
+
+#: src/Plugin/Filter/FilterAlign.php:54
+msgid "\n        <p>You can align images, videos, blockquotes and so on to the left, right or center. Examples:</p>\n        <ul>\n          <li>Align an image to the left: <code>&lt;img src=\"\" data-align=\"left\" /&gt;</code></li>\n          <li>Align an image to the center: <code>&lt;img src=\"\" data-align=\"center\" /&gt;</code></li>\n          <li>Align an image to the right: <code>&lt;img src=\"\" data-align=\"right\" /&gt;</code></li>\n          <li>… and you can apply this to other elements as well: <code>&lt;video src=\"\" data-align=\"center\" /&gt;</code></li>\n        </ul>"
+msgstr "\n        <p>Bilder, Videos, Zitate und so weiter können linksbündig, rechtsbündig oder zentriert ausgerichtet werden. Beispiele:</p> <ul> <li>Ein Bild Linksbündig ausrichten: <code>&lt;img src=\"\" data-align=\"left\" /&gt;</code></li> <li>Ein bild Zentriert ausrichten: <code>&lt;img src=\"\" data-align=\"center\" /&gt;</code></li> <li>Ein Bild rechtsbündig ausrichten: <code>&lt;img src=\"\" data-align=\"right\" /&gt;</code></li> <li>… und diese Technik  kann auch auf andere Elemente angewendet werden: <code>&lt;video src=\"\" data-align=\"center\" /&gt;</code></li> </ul>"
+
+#: src/Plugin/Filter/FilterAlign.php:64
+msgid "You can align images (<code>data-align=\"center\"</code>), but also videos, blockquotes, and so on."
+msgstr "Bilder können ausgerichtet werden: (<code>data-align=\"center\"</code>)  Auf diese Weise können aber auch Videos, Zitate, usw. ausgerichtet werden."
+
+#: src/Plugin/Filter/FilterAlign.php:9
+msgid "Align images"
+msgstr "Bilder ausrichten"
+
+#: src/Plugin/Filter/FilterAlign.php:9
+msgid "Uses a <code>data-align</code> attribute on <code>&lt;img&gt;</code> tags to align images."
+msgstr "Benutzt das <code>data-align</code>-Attribut für das <code>&lt;img&gt;</code>-Element um Bilder auszurichten."
+
+#: src/Plugin/Filter/FilterAutoP.php:31
+msgid "Lines and paragraphs are automatically recognized. The &lt;br /&gt; line break, &lt;p&gt; paragraph and &lt;/p&gt; close paragraph tags are inserted automatically. If paragraphs are not recognized simply add a couple of blank lines."
+msgstr "Zeilen und Absätze werden automatisch erkannt. Die Tags für den Zeilenumbruch &lt;br /&gt;, den Absatz &lt;p&gt; und den schließenden Absatz &lt;/p&gt; werden automatisch eingefügt. Wenn Absätze nicht erkannt werden, fügen Sie einfach einige Leerzeilen ein."
+
+#: src/Plugin/Filter/FilterAutoP.php:34
+msgid "Lines and paragraphs break automatically."
+msgstr "Zeilenumbrüche und Absätze werden automatisch erzeugt."
+
+#: src/Plugin/Filter/FilterAutoP.php:8
+msgid "Convert line breaks into HTML (i.e. <code>&lt;br&gt;</code> and <code>&lt;p&gt;</code>)"
+msgstr "Zeilenumbrüche in HTML umwandeln (z.B. <code>&lt;br&gt;</code> und <code>&lt;p&gt;</code>)"
+
+#: src/Plugin/Filter/FilterCaption.php:99
+msgid "\n        <p>You can caption images, videos, blockquotes, and so on. Examples:</p>\n        <ul>\n            <li><code>&lt;img src=\"\" data-caption=\"This is a caption\" /&gt;</code></li>\n            <li><code>&lt;video src=\"\" data-caption=\"The Drupal Dance\" /&gt;</code></li>\n            <li><code>&lt;blockquote data-caption=\"Dries Buytaert\"&gt;Drupal is awesome!&lt;/blockquote&gt;</code></li>\n            <li><code>&lt;code data-caption=\"Hello world in JavaScript.\"&gt;alert(\"Hello world!\");&lt;/code&gt;</code></li>\n        </ul>"
+msgstr "\n        <p>Sie können Bilder, Videos, Blockzitate usw. beschriften. Beispiele:</p>\n        <ul>\n            <li><code>&lt;img src=\"\" data-caption=\"Dies ist eine Beschriftung\" /&gt;</code></li>\n            <li><code>&lt;video src=\"\" data-caption=\"Der Drupal-Tanz\" /&gt;</code></li>\n            <li><code>&lt;blockquote data-caption=\"Dries Buytaert\"&gt;Drupal ist großartig!&lt;/blockquote&gt;</code></li>\n            <li><code>&lt;code data-caption=\"Hello World in JavaScript.\"&gt;alert(\"Hello World!\");&lt;/code&gt;</code></li>\n        </ul>"
+
+#: src/Plugin/Filter/FilterCaption.php:109
+msgid "You can caption images (<code>data-caption=\"Text\"</code>), but also videos, blockquotes, and so on."
+msgstr "Bildunterschriften können hinzugefügt werden: (<code>data-caption=\"Text\"</code>). Auf diese Weise können aber auch Videos, Zitate, usw. ausgerichtet werden."
+
+#: src/Plugin/Filter/FilterCaption.php:11
+msgid "Caption images"
+msgstr "Bildbeschriftung"
+
+#: src/Plugin/Filter/FilterCaption.php:11
+msgid "Uses a <code>data-caption</code> attribute on <code>&lt;img&gt;</code> tags to caption images."
+msgstr "Benutzt das <code>data-caption</code>-Attribut für das <code>&lt;img&gt;</code>-Element, um Bildbeschriftung zu erhalten."
+
+#: src/Plugin/Filter/FilterHtml.php:45
+msgid "Allowed HTML tags"
+msgstr "Erlaubte HTML-Tags"
+
+#: src/Plugin/Filter/FilterHtml.php:47
+msgid "A list of HTML tags that can be used. By default only the <em>lang</em> and <em>dir</em> attributes are allowed for all HTML tags. Each HTML tag may have attributes which are treated as allowed attribute names for that HTML tag. Each attribute may allow all values, or only allow specific values. Attribute names or values may be written as a prefix and wildcard like <em>jump-*</em>. JavaScript event attributes, JavaScript URLs, and CSS are always stripped."
+msgstr "Eine Liste von erlaubten HTML-Elementen. Standardmäßig sind nur das <em>lang</em>-Attribut und das <em>dir</em>-Attribut in HTML-Elementen erlaubt. Jedes HTML-Element kann Attribute besitzen, die als zulässige Attributnamen für das HTML-Element behandelt werden. Jedes Attribut kann entweder alle Werte zulassen oder aber nur bestimmte. Namen oder Werte der Attribute können als Präfix oder Platzhalter fungieren, z. B. <em>jump-*</em>. JavaScript-Events, JavaScript-URLs und CSS werden immer entfernt."
+
+#: src/Plugin/Filter/FilterHtml.php:56
+msgid "Display basic HTML help in long filter tips"
+msgstr "HTML-Hilfe in den erweiterten Filtertipps anzeigen"
+
+#: src/Plugin/Filter/FilterHtml.php:61
+msgid "Add rel=\"nofollow\" to all links"
+msgstr "Zu allen Links rel=\"nofollow\" hinzufügen"
+
+#: src/Plugin/Filter/FilterHtml.php:344
+msgid "Allowed HTML tags: @tags"
+msgstr "Erlaubte HTML-Tags: @tags"
+
+#: src/Plugin/Filter/FilterHtml.php:354
+msgid "This site allows HTML content. While learning all of HTML may feel intimidating, learning how to use a very small number of the most basic HTML \"tags\" is very easy. This table provides examples for each tag that is enabled on this site."
+msgstr "Diese Website unterstützt in HTML formatierte Inhalte. Während das vollständige Erlernen von HTML abschreckend sein kann, ist der Erlernen einer kleinen Anzahl von HTML Textauszeichnungen (\"tags\") sehr einfach. Diese Tabelle führt Beispiele aller zulässigen Tags an."
+
+#: src/Plugin/Filter/FilterHtml.php:355
+msgid "For more information see W3C's <a href=\":html-specifications\">HTML Specifications</a> or use your favorite search engine to find other sites that explain HTML."
+msgstr "Weitere Informationen sind in den <a href=\":html-specifications\">HTML-Spezifikationen</a> des  W3C verfügbar. Es kann auch eine Suchmaschine verwendet werden um andere Seite ausfindig zu machen, die die Verwendung von HTML erklären."
+
+#: src/Plugin/Filter/FilterHtml.php:357
+msgid "Anchors are used to make links to other pages."
+msgstr "Anker werden benutzt um Links zu anderen Seiten zu erstellen."
+
+#: src/Plugin/Filter/FilterHtml.php:358
+msgid "By default line break tags are automatically added, so use this tag to add additional ones. Use of this tag is different because it is not used with an open/close pair like all the others. Use the extra \" /\" inside the tag to maintain XHTML 1.0 compatibility"
+msgstr "Standardmäßig werden Zeilenumbrüche automatisch eingefügt. Dieses Tag wird also nur benötigt, um zusätzliche Zeilenumbrüche einzufügen. Dieses Tag benötigt, im Gegensatz zu allen anderen, kein öffnendes und schließendes Tag. Um die XHTML-Kompatibilität zu erhalten, muss „/“ innerhalb des Tags verwendet werden."
+
+#: src/Plugin/Filter/FilterHtml.php:358
+msgid "Text with <br />line break"
+msgstr "Text mit <br /> Zeilenumbruch"
+
+#: src/Plugin/Filter/FilterHtml.php:359
+msgid "By default paragraph tags are automatically added, so use this tag to add additional ones."
+msgstr "Standardmäßig werden Absätze automatisch eingefügt. Dieses Tag wird also nur benötigt, um zusätzliche Absätze einzufügen."
+
+#: src/Plugin/Filter/FilterHtml.php:359
+msgid "Paragraph one."
+msgstr "Absatz eins."
+
+#: src/Plugin/Filter/FilterHtml.php:359
+msgid "Paragraph two."
+msgstr "Absatz zwei."
+
+#: src/Plugin/Filter/FilterHtml.php:360;360
+msgctxt "Font weight"
+msgid "Strong"
+msgstr "Stark"
+
+#: src/Plugin/Filter/FilterHtml.php:361;361
+msgid "Emphasized"
+msgstr "Hervorgehoben"
+
+#: src/Plugin/Filter/FilterHtml.php:362;362
+msgid "Cited"
+msgstr "Zitat"
+
+#: src/Plugin/Filter/FilterHtml.php:363
+msgid "Coded text used to show programming source code"
+msgstr "Kodierter Text um Quelltexte anzuzeigen"
+
+#: src/Plugin/Filter/FilterHtml.php:363
+msgid "Coded"
+msgstr "Code"
+
+#: src/Plugin/Filter/FilterHtml.php:364;364
+msgid "Bolded"
+msgstr "Fettgedruckt"
+
+#: src/Plugin/Filter/FilterHtml.php:365;365
+msgid "Underlined"
+msgstr "Unterstrichen"
+
+#: src/Plugin/Filter/FilterHtml.php:366;366
+msgid "Italicized"
+msgstr "Kursiv"
+
+#: src/Plugin/Filter/FilterHtml.php:367
+msgid "Superscripted"
+msgstr "Hochgestellt"
+
+#: src/Plugin/Filter/FilterHtml.php:367
+msgid "<sup>Super</sup>scripted"
+msgstr "<sup>Hoch</sup>gestellt"
+
+#: src/Plugin/Filter/FilterHtml.php:368
+msgid "Subscripted"
+msgstr "Tiefgestellt"
+
+#: src/Plugin/Filter/FilterHtml.php:368
+msgid "<sub>Sub</sub>scripted"
+msgstr "<sub>Tief</sub>gestellt"
+
+#: src/Plugin/Filter/FilterHtml.php:369;369
+msgid "Preformatted"
+msgstr "Vorformatiert"
+
+#: src/Plugin/Filter/FilterHtml.php:370
+msgid "Abbreviation"
+msgstr "Abkürzung"
+
+#: src/Plugin/Filter/FilterHtml.php:370
+msgid "<abbr title=\"Abbreviation\">Abbrev.</abbr>"
+msgstr "<abbr title=\"Abkürzung\">Abk.</abbr>"
+
+#: src/Plugin/Filter/FilterHtml.php:371
+msgid "Acronym"
+msgstr "Akronym"
+
+#: src/Plugin/Filter/FilterHtml.php:371
+msgid "<acronym title=\"Three-Letter Acronym\">TLA</acronym>"
+msgstr "<acronym title=\"Elektronische Datenverarbeitung\">EDV</acronym>"
+
+#: src/Plugin/Filter/FilterHtml.php:372;372
+msgid "Block quoted"
+msgstr "Blockzitat"
+
+#: src/Plugin/Filter/FilterHtml.php:373;373
+msgid "Quoted inline"
+msgstr "Zitat"
+
+#: src/Plugin/Filter/FilterHtml.php:375
+msgid "Table"
+msgstr "Tabelle"
+
+#: src/Plugin/Filter/FilterHtml.php:375
+msgid "Table header"
+msgstr "Tabellenkopf"
+
+#: src/Plugin/Filter/FilterHtml.php:375
+msgid "Table cell"
+msgstr "Tabellenzelle"
+
+#: src/Plugin/Filter/FilterHtml.php:379;379
+msgid "Deleted"
+msgstr "Gelöscht"
+
+#: src/Plugin/Filter/FilterHtml.php:380;380
+msgid "Inserted"
+msgstr "Eingefügt"
+
+#: src/Plugin/Filter/FilterHtml.php:382
+msgid "Ordered list - use the &lt;li&gt; to begin each list item"
+msgstr "Geordnete Liste – Mit &lt;li&gt; wird jedes Listenelement begonnen"
+
+#: src/Plugin/Filter/FilterHtml.php:382;383
+msgid "First item"
+msgstr "Erstes Element"
+
+#: src/Plugin/Filter/FilterHtml.php:382;383
+msgid "Second item"
+msgstr "Zweites Element"
+
+#: src/Plugin/Filter/FilterHtml.php:383
+msgid "Unordered list - use the &lt;li&gt; to begin each list item"
+msgstr "Ungeordnete Liste – Mit &lt;li&gt; wird jedes Listenelement begonnen"
+
+#: src/Plugin/Filter/FilterHtml.php:386
+msgid "Definition lists are similar to other HTML lists. &lt;dl&gt; begins the definition list, &lt;dt&gt; begins the definition term and &lt;dd&gt; begins the definition description."
+msgstr "Definitionslisten sind ähnlich zu anderen HTML-Listen. <code>&lt;dl&gt;</code> leitet die Definitionsliste ein, <code>&lt;dt&gt;</code> enthält den zu definierenden Begriff und <code>&lt;dd&gt;</code> enthält die Definitionsbeschreibung."
+
+#: src/Plugin/Filter/FilterHtml.php:386
+msgid "First term"
+msgstr "Erste Bedingung"
+
+#: src/Plugin/Filter/FilterHtml.php:386
+msgid "First definition"
+msgstr "Erste Definition"
+
+#: src/Plugin/Filter/FilterHtml.php:386
+msgid "Second term"
+msgstr "Zweiter Begriff"
+
+#: src/Plugin/Filter/FilterHtml.php:386
+msgid "Second definition"
+msgstr "Zweite Definition"
+
+#: src/Plugin/Filter/FilterHtml.php:389;390;391;392;393;394
+msgid "Heading"
+msgstr "Überschrift"
+
+#: src/Plugin/Filter/FilterHtml.php:389
+msgid "Title"
+msgstr "Titel"
+
+#: src/Plugin/Filter/FilterHtml.php:390
+msgid "Subtitle"
+msgstr "Untertitel"
+
+#: src/Plugin/Filter/FilterHtml.php:391
+msgid "Subtitle three"
+msgstr "Untertitel drei"
+
+#: src/Plugin/Filter/FilterHtml.php:392
+msgid "Subtitle four"
+msgstr "Untertitel vier"
+
+#: src/Plugin/Filter/FilterHtml.php:393
+msgid "Subtitle five"
+msgstr "Untertitel fünf"
+
+#: src/Plugin/Filter/FilterHtml.php:394
+msgid "Subtitle six"
+msgstr "Untertitel sechs"
+
+#: src/Plugin/Filter/FilterHtml.php:396
+msgid "Tag Description"
+msgstr "Tag-Beschreibung"
+
+#: src/Plugin/Filter/FilterHtml.php:396;439
+msgid "You Type"
+msgstr "Eingegeben"
+
+#: src/Plugin/Filter/FilterHtml.php:396;439
+msgid "You Get"
+msgstr "Ergebnis"
+
+#: src/Plugin/Filter/FilterHtml.php:419
+msgid "No help provided for tag %tag."
+msgstr "Kein Hilfetext für das %tag-Tag verfügbar."
+
+#: src/Plugin/Filter/FilterHtml.php:430
+msgid "Most unusual characters can be directly entered without any problems."
+msgstr "Die meisten ungewöhnlichen Buchstaben können ohne Probleme direkt eingegeben werden."
+
+#: src/Plugin/Filter/FilterHtml.php:431
+msgid "If you do encounter problems, try using HTML character entities. A common example looks like &amp;amp; for an ampersand &amp; character. For a full list of entities see HTML's <a href=\":html-entities\">entities</a> page. Some of the available characters include:"
+msgstr "Wenn Probleme auftreten, versuchen Sie Entitäten für HTML-Zeichen zu verwenden. Ein bekanntes Beispiel sieht wie folgt aus: &amp;amp; ein Et-Zeichen und ein Leerzeichen. Eine Vollständige Liste von HTML-Entitäten finden Sie auf der Seite <a href=\":html-entities\">Entitäten</a> Einige der verfügbaren Zeichen sind:"
+
+#: src/Plugin/Filter/FilterHtml.php:434
+msgid "Ampersand"
+msgstr "kaufm. Und"
+
+#: src/Plugin/Filter/FilterHtml.php:435
+msgid "Greater than"
+msgstr "Größer als"
+
+#: src/Plugin/Filter/FilterHtml.php:436
+msgid "Less than"
+msgstr "Kleiner als"
+
+#: src/Plugin/Filter/FilterHtml.php:437
+msgid "Quotation mark"
+msgstr "Anführungszeichen"
+
+#: src/Plugin/Filter/FilterHtml.php:439
+msgid "Character Description"
+msgstr "Zeichenbeschreibung"
+
+#: src/Plugin/Filter/FilterHtml.php:11
+msgid "Limit allowed HTML tags and correct faulty HTML"
+msgstr "Erlaubte HTML-Tags begrenzen und fehlerhaftes HTML korrigieren"
+
+#: src/Plugin/Filter/FilterHtmlCorrector.php:9
+msgid "Correct faulty and chopped off HTML"
+msgstr "Fehlerhaftes HTML korrigieren"
+
+#: src/Plugin/Filter/FilterHtmlEscape.php:39
+msgid "No HTML tags allowed."
+msgstr "Keine HTML-Tags erlaubt."
+
+#: src/Plugin/Filter/FilterHtmlEscape.php:8
+msgid "Display any HTML as plain text"
+msgstr "HTML immer als reinen Text anzeigen"
+
+#: src/Plugin/Filter/FilterHtmlImageSecure.php:32
+msgid "Only images hosted on this site may be used in &lt;img&gt; tags."
+msgstr "Nur Bilder, die auf dieser Website gehostet werden dürfen in &lt;img&gt;-Tags verwendet werden."
+
+#: src/Plugin/Filter/FilterHtmlImageSecure.php:8
+msgid "Restrict images to this site"
+msgstr "Nur Bilder von dieser Website zulassen"
+
+#: src/Plugin/Filter/FilterHtmlImageSecure.php:8
+msgid "Disallows usage of &lt;img&gt; tag sources that are not hosted on this site by replacing them with a placeholder image."
+msgstr "Untersagt die Nutzung von &lt;img&gt;-Elementen von außerhalb dieser Website. Diese werden durch Platzhalter-Bilder ersetzt."
+
+#: src/Plugin/Filter/FilterNull.php:62
+msgid "Missing filter. All text is removed"
+msgstr "Fehlender Filter. Gesamter Text wird entfernt"
+
+#: src/Plugin/Filter/FilterNull.php:38
+msgid "Missing filter plugin: %filter."
+msgstr "Fehlendes Filter-Plugin: %filter."
+
+#: src/Plugin/Filter/FilterNull.php:8
+msgid "Provides a fallback for missing filters. Do not use."
+msgstr "Stellt einen Rückgriff für fehlende Filter bereit. Nicht verwenden."
+
+#: src/Plugin/Filter/FilterUrl.php:29
+msgid "Maximum link text length"
+msgstr "Maximale Länge des Link-Texts"
+
+#: src/Plugin/Filter/FilterUrl.php:32
+msgid "characters"
+msgstr "Zeichen"
+
+#: src/Plugin/Filter/FilterUrl.php:33
+msgid "URLs longer than this number of characters will be truncated to prevent long strings that break formatting. The link itself will be retained; just the text portion of the link will be truncated."
+msgstr "Zu lange URLs werden bei dieser Anzahl an Zeichen abgeschnitten, um die Formatierung nicht durch zu lange Zeichenketten zu zerstören. Der Link selbst bleibt erhalten; nur der Linktext wird abgeschnitten."
+
+#: src/Plugin/Filter/FilterUrl.php:49
+msgid "Web page addresses and email addresses turn into links automatically."
+msgstr "Website- und E-Mail-Adressen werden automatisch in Links umgewandelt."
+
+#: src/Plugin/Filter/FilterUrl.php:9
+msgid "Convert URLs into links"
+msgstr "URLs in Links umwandeln"
+
+#: src/Plugin/migrate/process/FilterID.php:80
+msgid "Filter @plugin_id could not be mapped to an existing filter plugin; defaulting to @fallback."
+msgstr "Der Filter @plugin_id konnte nicht auf ein existierendes Filter-Plugin übertragen werden; Der Wert wird deshalb auf den Standardwert @fallback gesetzt."
+
+#: src/Plugin/migrate/source/d6/FilterFormat.php:30 src/Plugin/migrate/source/d7/FilterFormat.php:30
+msgid "Format ID."
+msgstr "Format-ID."
+
+#: src/Plugin/migrate/source/d6/FilterFormat.php:31 src/Plugin/migrate/source/d7/FilterFormat.php:31
+msgid "The name of the format."
+msgstr "Der Name des Formats."
+
+#: src/Plugin/migrate/source/d6/FilterFormat.php:32 src/Plugin/migrate/source/d7/FilterFormat.php:32
+msgid "Whether the format is cacheable."
+msgstr "Ob das Format zwischenspeicherbar ist."
+
+#: src/Plugin/migrate/source/d6/FilterFormat.php:33
+msgid "The role IDs which can use the format."
+msgstr "Die Rollen-IDs die dieses Format verwenden können."
+
+#: src/Plugin/migrate/source/d6/FilterFormat.php:34 src/Plugin/migrate/source/d7/FilterFormat.php:35
+msgid "The filters configured for the format."
+msgstr "Die für das Format konfigurierten Filter."
+
+#: src/Plugin/migrate/source/d7/FilterFormat.php:33
+msgid "The status of the format"
+msgstr "Der Status des Formats"
+
+#: src/Plugin/migrate/source/d7/FilterFormat.php:34
+msgid "The weight of the format"
+msgstr "Die Gewichtung des Formats"
+
+#: templates/filter-tips.html.twig:22
+msgid "Text Formats"
+msgstr "Textformate"
+
+#: config/install/filter.format.plain_text.yml:0
+msgid "Plain text"
+msgstr "Klartext"
+

@@ -1,0 +1,123 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  scheduled_publish.module: n/a
+#  scheduled_publish.info.yml: n/a
+#  src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php: n/a
+#  config/schema/scheduled_publish.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php: n/a
+#  src/Commands/ScheduledPublishCommands.php: n/a
+#  src/Plugin/Field/FieldType/ScheduledPublish.php: n/a
+#  config/optional/ultimate_cron.job.scheduled_publish_cron.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: scheduled_publish.module:24
+msgid "About"
+msgstr "Über"
+
+#: scheduled_publish.module:25 scheduled_publish.info.yml:0
+msgid "This module allows the user to create a scheduler for content moderation"
+msgstr "Mit diesem Modul kann der Benutzer einen Scheduler zur Moderation von Inhalten erzeugen"
+
+#: scheduled_publish.module:73
+msgid "Scheduled moderation"
+msgstr "Geplante Moderation"
+
+#: scheduled_publish.module:74
+msgid "Scheduled change of the moderation state e.g (draft => published)"
+msgstr "Geplante Änderung des Moderationsstatus z.B. (Entwurf => veröffentlicht)"
+
+#: scheduled_publish.info.yml:0 src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php:11
+msgid "Scheduled Publish"
+msgstr "Geplante Veröffentlichung"
+
+#: scheduled_publish.info.yml:0
+msgid "Content"
+msgstr "Inhalt"
+
+#: config/schema/scheduled_publish.schema.yml:0
+msgid "Datetime settings"
+msgstr "Datetime Einstellungen"
+
+#: config/schema/scheduled_publish.schema.yml:0
+msgid "Date type"
+msgstr "Datumstyp"
+
+#: config/schema/scheduled_publish.schema.yml:0;0
+msgid "Generic formatter"
+msgstr "Generisches Anzeigeformat"
+
+#: config/schema/scheduled_publish.schema.yml:0 src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php:106
+msgid "Text replace pattern"
+msgstr "Ersetzungsmuster für Text"
+
+#: src/Commands/ScheduledPublishCommands.php:36
+msgid "Scheduled publish updates done."
+msgstr "Geplante Veröffentlichungsaktualisierung ausgeführt."
+
+#: src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php:100
+msgid "Date format"
+msgstr "Datumsformat"
+
+#: src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php:118
+msgid "Displays date in a custom format"
+msgstr "Zeigt Datum in einem benutzerdefinierten Format an"
+
+#: src/Plugin/Field/FieldFormatter/ScheduledPublishGenericFormatter.php:18
+msgid "Scheduled publish generic formatter"
+msgstr "Generisches Anzeigeformat für geplante Veröffentlichung"
+
+#: src/Plugin/Field/FieldType/ScheduledPublish.php:44
+msgid "Date value"
+msgstr "Datumswert"
+
+#: src/Plugin/Field/FieldType/ScheduledPublish.php:48
+msgid "Computed date"
+msgstr "Errechnetes Datum"
+
+#: src/Plugin/Field/FieldType/ScheduledPublish.php:49
+msgid "The computed DateTime object."
+msgstr "Das errechnete Datetime-Objekt."
+
+#: src/Plugin/Field/FieldType/ScheduledPublish.php:55
+msgid "The moderation state."
+msgstr "Der Moderationsstatus."
+
+#: src/Plugin/Field/FieldType/ScheduledPublish.php:11;11
+msgid "Scheduled publish"
+msgstr "Geplante Veröffentlichung"
+
+#: src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php:32
+msgid "Moderation state"
+msgstr "Moderationsstatus"
+
+#: src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php:33
+msgid "Set to published state"
+msgstr "Auf Veröffentlichungsstatus wechseln"
+
+#: src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php:43
+msgid "Scheduled date"
+msgstr "Geplanter Ausführungszeitpunkt"
+
+#: src/Plugin/Field/FieldWidget/ScheduledPublishWidget.php:44
+msgid "The datetime of the scheduled publish"
+msgstr "Der Zeitpunkt der geplanten Veröffentlichung"
+
+#: config/optional/ultimate_cron.job.scheduled_publish_cron.yml:0
+msgid "Default cron handler"
+msgstr "Default cron handler"
+

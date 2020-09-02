@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.view_reference.field_sub_title
     - field.field.paragraph.view_reference.field_title
     - field.field.paragraph.view_reference.field_title_link
+    - field.field.paragraph.view_reference.field_view_reference_links
     - field.field.paragraph.view_reference.field_view_reference_view
     - paragraphs.paragraphs_type.view_reference
   enforced:
@@ -33,5 +34,8 @@ content:
     type: string
     region: content
 hidden:
+  field_media_copyright: true
   field_title_link: true
+  field_view_reference_links: true
   field_view_reference_view: true
+  search_api_excerpt: true

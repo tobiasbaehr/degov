@@ -1,0 +1,1938 @@
+# German translation of Advanced CSS/JS Aggregation (8.x-4.1)
+# Copyright (c) 2020 by the German translation team
+# Generated from files:
+#  advagg/advagg.links.menu.yml: n/a
+#  advagg/advagg.links.task.yml: n/a
+#  advagg/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_css_minify/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_js_minify/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_mod/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_ext_minify/advagg_ext_minify.install: n/a
+#  advagg/advagg_bundler/config/schema/advagg_bundler.schema.yml: n/a
+#  advagg/advagg_cdn/config/schema/advagg_cdn.schema.yml: n/a
+#  advagg/advagg_css_minify/config/schema/advagg_css_minify.schema.yml: n/a
+#  advagg/advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml: n/a
+#  advagg/advagg_js_minify/config/schema/advagg_js_minify.schema.yml: n/a
+#  advagg/advagg_mod/config/schema/advagg_mod.schema.yml: n/a
+#  advagg/advagg_old_ie_compatibility/config/schema/advagg_old_ie_compatibility.schema.yml: n/a
+#  advagg/advagg_validator/config/schema/advagg_validator.schema.yml: n/a
+#  advagg/config/schema/advagg.schema.yml: n/a
+#  advagg/src/Form/InfoForm.php: n/a
+#  advagg/advagg.admin.js: n/a
+#  advagg/advagg_bundler/src/Form/SettingsForm.php: n/a
+#  advagg/src/Form/OperationsForm.php: n/a
+#  advagg/advagg_ext_minify/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_cdn/advagg_cdn.links.menu.yml: n/a
+#  advagg/advagg_cdn/advagg_cdn.links.task.yml: n/a
+#  advagg/advagg_validator/src/Form/BaseValidatorForm.php: n/a
+#  advagg/advagg.permissions.yml: n/a
+#  advagg/advagg.info.yml: n/a
+#  advagg/advagg_bundler/advagg_bundler.info.yml: n/a
+#  advagg/advagg_cdn/advagg_cdn.info.yml: n/a
+#  advagg/advagg_css_minify/advagg_css_minify.info.yml: n/a
+#  advagg/advagg_ext_minify/advagg_ext_minify.info.yml: n/a
+#  advagg/advagg_js_minify/advagg_js_minify.info.yml: n/a
+#  advagg/advagg_mod/advagg_mod.info.yml: n/a
+#  advagg/advagg_old_ie_compatibility/advagg_old_ie_compatibility.info.yml: n/a
+#  advagg/advagg_validator/advagg_validator.info.yml: n/a
+#  advagg/advagg_bundler/advagg_bundler.links.menu.yml: n/a
+#  advagg/advagg_bundler/advagg_bundler.links.task.yml: n/a
+#  advagg/advagg_cdn/src/Form/SettingsForm.php: n/a
+#  advagg/advagg.routing.yml: n/a
+#  advagg/advagg.drush.inc: n/a
+#  advagg/src/Commands/AdvaggCommands.php: n/a
+#  advagg/advagg_bundler/advagg_bundler.routing.yml: n/a
+#  advagg/advagg_mod/advagg_mod.routing.yml: n/a
+#  advagg/advagg_mod/advagg_mod.links.menu.yml: n/a
+#  advagg/advagg_mod/advagg_mod.links.task.yml: n/a
+#  advagg/advagg_validator/src/Form/CssW3Form.php: n/a
+#  advagg/advagg.module: n/a
+#  advagg/advagg_validator/advagg_validator.routing.yml: n/a
+#  advagg/advagg_old_ie_compatibility/src/Form/SettingsForm.php: n/a
+#  advagg/advagg_js_minify/src/Asset/JsMinifier.php: n/a
+#  advagg/advagg_cdn/advagg_cdn.routing.yml: n/a
+#  advagg/advagg_css_minify/advagg_css_minify.install: n/a
+#  advagg/advagg_css_minify/advagg_css_minify.links.menu.yml: n/a
+#  advagg/advagg_css_minify/advagg_css_minify.links.task.yml: n/a
+#  advagg/advagg_css_minify/advagg_css_minify.routing.yml: n/a
+#  advagg/advagg_ext_minify/advagg_ext_minify.links.menu.yml: n/a
+#  advagg/advagg_ext_minify/advagg_ext_minify.links.task.yml: n/a
+#  advagg/advagg_ext_minify/advagg_ext_minify.routing.yml: n/a
+#  advagg/advagg_js_minify/advagg_js_minify.install: n/a
+#  advagg/advagg_js_minify/advagg_js_minify.links.menu.yml: n/a
+#  advagg/advagg_js_minify/advagg_js_minify.links.task.yml: n/a
+#  advagg/advagg_js_minify/advagg_js_minify.routing.yml: n/a
+#  advagg/advagg_validator/advagg_validator.links.menu.yml: n/a
+#  advagg/advagg_validator/advagg_validator.links.task.yml: n/a
+#  advagg/advagg_validator/js/csslint_form.js: n/a
+#  advagg/advagg_old_ie_compatibility/advagg_old_ie_compatibility.links.menu.yml: n/a
+#  advagg/advagg_old_ie_compatibility/advagg_old_ie_compatibility.links.task.yml: n/a
+#  advagg/advagg_old_ie_compatibility/advagg_old_ie_compatibility.routing.yml: n/a
+#  advagg/advagg_mod/src/Asset/TranslateCss.php: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced CSS/JS Aggregation (8.x-4.1)\n"
+"POT-Creation-Date: 2020-08-27 15:01+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: German\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: advagg.links.menu.yml:0; advagg.links.task.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/SettingsForm.php:59
+msgid "Development"
+msgstr "Entwicklung"
+
+#: advagg_css_minify/src/Form/SettingsForm.php:71; advagg_js_minify/src/Form/SettingsForm.php:64; advagg_mod/src/Form/SettingsForm.php:106,195
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: advagg_ext_minify/advagg_ext_minify.install:35
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0; advagg_cdn/config/schema/advagg_cdn.schema.yml:0; advagg_css_minify/config/schema/advagg_css_minify.schema.yml:0; advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml:0; advagg_js_minify/config/schema/advagg_js_minify.schema.yml:0; advagg_mod/config/schema/advagg_mod.schema.yml:0; advagg_old_ie_compatibility/config/schema/advagg_old_ie_compatibility.schema.yml:0; advagg_validator/config/schema/advagg_validator.schema.yml:0; config/schema/advagg.schema.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: advagg_css_minify/src/Form/SettingsForm.php:72
+msgid "Core"
+msgstr "Kernsystem"
+
+#: src/Form/SettingsForm.php:62
+msgid "High"
+msgstr "Hoch"
+
+#: src/Form/SettingsForm.php:60
+msgid "Low"
+msgstr "Niedrig"
+
+#: src/Form/InfoForm.php:145
+msgid "Filename"
+msgstr "Dateiname"
+
+#: src/Form/SettingsForm.php:293
+msgid "never"
+msgstr "nie"
+
+#: src/Form/SettingsForm.php:77
+msgid "1 hour"
+msgstr "1 Stunde"
+
+#: advagg.admin.js:0
+msgid "1 hour"
+msgid_plural "@count hours"
+msgstr[0] "1 Stunde"
+msgstr[1] "@count Stunden"
+
+#: advagg.admin.js:0
+msgid "1 day"
+msgid_plural "@count days"
+msgstr[0] "1 Tag"
+msgstr[1] "@count Tage"
+
+#: advagg_bundler/src/Form/SettingsForm.php:98,130
+msgid "File size"
+msgstr "Dateigröße"
+
+#: src/Form/SettingsForm.php:61
+msgid "Normal"
+msgstr "Normal"
+
+#: src/Form/OperationsForm.php:75; src/Form/SettingsForm.php:83
+msgid "1 day"
+msgstr "1 Tag"
+
+#: src/Form/SettingsForm.php:99
+msgid "5 days"
+msgstr "5 Tage"
+
+#: src/Form/SettingsForm.php:106
+msgid "2 months"
+msgstr "2 Monate"
+
+#: src/Form/OperationsForm.php:79
+msgid "1 year"
+msgstr "1 Jahr"
+
+#: advagg.links.task.yml:0
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:55
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:52; advagg_mod/src/Form/SettingsForm.php:136
+msgid "CSS"
+msgstr "CSS"
+
+#: config/schema/advagg.schema.yml:0
+msgid "CSS settings"
+msgstr "CSS-Einstellungen"
+
+#: src/Form/SettingsForm.php:290
+msgid "@time ago"
+msgstr "vor @time"
+
+#: src/Form/OperationsForm.php:78; src/Form/SettingsForm.php:104
+msgid "1 month"
+msgstr "1 Monat"
+
+#: advagg.links.menu.yml:0; advagg.links.task.yml:0
+msgid "Information"
+msgstr "Information"
+
+#: src/Form/SettingsForm.php:74
+msgid "15 minutes"
+msgstr "15 Minuten"
+
+#: src/Form/SettingsForm.php:75
+msgid "30 minutes"
+msgstr "30 Minuten"
+
+#: src/Form/SettingsForm.php:76
+msgid "45 minutes"
+msgstr "45 Minuten"
+
+#: src/Form/SettingsForm.php:78
+msgid "2 hours"
+msgstr "2 Stunden"
+
+#: src/Form/SettingsForm.php:79
+msgid "4 hours"
+msgstr "4 Stunden"
+
+#: src/Form/OperationsForm.php:73; src/Form/SettingsForm.php:80
+msgid "6 hours"
+msgstr "6 Stunden"
+
+#: src/Form/OperationsForm.php:77; src/Form/SettingsForm.php:101
+msgid "1 week"
+msgstr "1 Woche"
+
+#: src/Form/SettingsForm.php:97
+msgid "3 days"
+msgstr "3 Tage"
+
+#: src/Form/OperationsForm.php:74; src/Form/SettingsForm.php:81
+msgid "12 hours"
+msgstr "12 Stunden"
+
+#: advagg.admin.js:0
+msgid "1 year"
+msgid_plural "@count years"
+msgstr[0] "1 Jahr"
+msgstr[1] "@count Jahre"
+
+#: advagg.admin.js:0
+msgid "1 week"
+msgid_plural "@count weeks"
+msgstr[0] "1 Woche"
+msgstr[1] "@count Wochen"
+
+#: advagg.admin.js:0
+msgid "1 min"
+msgid_plural "@count min"
+msgstr[0] "1 Minute"
+msgstr[1] "@count Minuten"
+
+#: advagg.admin.js:0
+msgid "1 sec"
+msgid_plural "@count sec"
+msgstr[0] "1 Sekunde"
+msgstr[1] "@count Sekunden"
+
+#: src/Form/OperationsForm.php:76; src/Form/SettingsForm.php:84,96
+msgid "2 days"
+msgstr "2 Tage"
+
+#: src/Form/SettingsForm.php:98
+msgid "4 days"
+msgstr "4 Tage"
+
+#: src/Form/SettingsForm.php:100
+msgid "6 days"
+msgstr "6 Tage"
+
+#: advagg.admin.js:0
+msgid "1 month"
+msgid_plural "@count months"
+msgstr[0] "1 Monat"
+msgstr[1] "@count Monate"
+
+#: advagg_cdn/advagg_cdn.links.menu.yml:0; advagg_cdn/advagg_cdn.links.task.yml:0
+msgid "CDN"
+msgstr "CDN"
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:139
+msgid "File:"
+msgstr "Datei:"
+
+#: src/Form/SettingsForm.php:117
+msgid "Global Options"
+msgstr "Allgemeine Einstellungen"
+
+#: advagg.admin.js:0
+msgid "0 sec"
+msgstr "0 Sek."
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:192
+msgid "Options:"
+msgstr "Optionen:"
+
+#: src/Form/SettingsForm.php:102
+msgid "2 week"
+msgstr "2 Wochen"
+
+#: src/Form/SettingsForm.php:284
+msgid "Cron Options"
+msgstr "Programmeinstellungen von cron"
+
+#: advagg_bundler/src/Form/SettingsForm.php:97,129
+msgid "File count"
+msgstr "Dateianzahl"
+
+#: src/Form/InfoForm.php:107
+msgid "Hook Theme Info"
+msgstr ""
+
+#: advagg.permissions.yml:0
+msgid "bypass advanced aggregation"
+msgstr "Erweiterte Aggregation umgehen"
+
+#: advagg.info.yml:0; advagg.links.task.yml:0; advagg_bundler/advagg_bundler.info.yml:0; advagg_cdn/advagg_cdn.info.yml:0; advagg_css_minify/advagg_css_minify.info.yml:0; advagg_ext_minify/advagg_ext_minify.info.yml:0; advagg_js_minify/advagg_js_minify.info.yml:0; advagg_mod/advagg_mod.info.yml:0; advagg_old_ie_compatibility/advagg_old_ie_compatibility.info.yml:0; advagg_validator/advagg_validator.info.yml:0
+msgid "Advanced CSS/JS Aggregation"
+msgstr "Advanced CSS/JS Aggregation"
+
+#: advagg_bundler/src/Form/SettingsForm.php:85,117
+msgid "If 0 is selected then the bundler is disabled"
+msgstr ""
+
+#: advagg_bundler/advagg_bundler.links.menu.yml:0; advagg_bundler/advagg_bundler.links.task.yml:0
+msgid "Bundler"
+msgstr ""
+
+#: advagg_bundler/advagg_bundler.info.yml:0
+msgid "AdvAgg Bundler"
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:53
+msgid "Bundler is Active"
+msgstr ""
+
+#: src/Form/OperationsForm.php:66
+msgid "Aggregation Bypass Cookie"
+msgstr ""
+
+#: src/Form/OperationsForm.php:280
+msgid "AdvAgg Bypass Cookie Removed."
+msgstr ""
+
+#: advagg.admin.js:0
+msgid "AdvAgg Bypass Cookie Removed"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:128
+msgid "jQuery UI theme"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:81
+msgid "jQuery version"
+msgstr "jQuery-Version"
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:185
+msgid "valid"
+msgstr "gültog"
+
+#: advagg.routing.yml:0
+msgid "AdvAgg: Configuration"
+msgstr "Erweiterte Aggregation: Konfiguration"
+
+#: src/Form/SettingsForm.php:121
+msgid "Enable advanced aggregation"
+msgstr "Erweiterte Aggregation aktivieren"
+
+#: src/Form/SettingsForm.php:228
+msgid "CSS Options"
+msgstr "CSS-Optionen"
+
+#: advagg.routing.yml:0
+msgid "AdvAgg: Operations"
+msgstr "Erweiterte Aggregation: Aktionen"
+
+#: src/Form/OperationsForm.php:116
+msgid "Remove All Stale Files"
+msgstr ""
+
+#: src/Form/OperationsForm.php:127
+msgid "Drastic Measures"
+msgstr ""
+
+#: src/Form/OperationsForm.php:128
+msgid "The options below should normally never need to be done."
+msgstr ""
+
+#: src/Form/OperationsForm.php:136
+msgid "Clear All Caches"
+msgstr "Alle Caches leeren"
+
+#: advagg.drush.inc:37
+msgid ""
+"Remove all generated files. Useful if you think some of the generated "
+"files got corrupted and thus need to be deleted."
+msgstr ""
+
+#: src/Form/OperationsForm.php:157
+msgid "Increment Global Counter"
+msgstr ""
+
+#: advagg.routing.yml:0
+msgid "AdvAgg: Information"
+msgstr "Erweiterte Aggregation: Information"
+
+#: advagg.drush.inc:160; src/Commands/AdvaggCommands.php:66; src/Form/OperationsForm.php:211
+msgid ""
+"All stale aggregates have been deleted. %css_count CSS files and "
+"%js_count JS files have been removed."
+msgstr ""
+
+#: advagg.drush.inc:166; src/Commands/AdvaggCommands.php:72; src/Form/OperationsForm.php:217
+msgid "No stale aggregates found. Nothing was deleted."
+msgstr ""
+
+#: src/Form/OperationsForm.php:233
+msgid "Global counter is now set to %new_value"
+msgstr ""
+
+#: advagg.permissions.yml:0
+msgid "User can use URL query strings to bypass AdvAgg."
+msgstr ""
+
+#: advagg.info.yml:0
+msgid ""
+"Aggregates multiple CSS/JS files in a way that prevents 404 from "
+"happening when accessing a CSS or JS file."
+msgstr ""
+
+#: advagg_bundler/advagg_bundler.routing.yml:0
+msgid "AdvAgg: Bundler"
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:82
+msgid "Target Number Of CSS Bundles Per Page"
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:114
+msgid "Target Number Of JS Bundles Per Page"
+msgstr ""
+
+#: advagg_mod/advagg_mod.routing.yml:0
+msgid "AdvAgg: Modifications"
+msgstr "AdvAgg: Modifications"
+
+#: advagg_mod/src/Form/SettingsForm.php:57
+msgid "JS"
+msgstr "JavaScript"
+
+#: advagg_mod/src/Form/SettingsForm.php:62
+msgid "Enable preprocess on all JS"
+msgstr "Vorverarbeitung für alle Javascript-Dateien aktivieren"
+
+#: advagg_mod/src/Form/SettingsForm.php:141
+msgid "Enable preprocess on all CSS"
+msgstr "Vorverarbeitung für alle CSS-Dateien aktivieren"
+
+#: advagg_mod/src/Form/SettingsForm.php:145
+msgid ""
+"You might want to increase the <a href=\"@link\">CSS Bundles Per "
+"Page</a> if this is checked."
+msgstr ""
+
+#: advagg_mod/advagg_mod.links.menu.yml:0; advagg_mod/advagg_mod.links.task.yml:0
+msgid "Modifications"
+msgstr "Änderungen"
+
+#: advagg_mod/advagg_mod.info.yml:0
+msgid "AdvAgg Modifier"
+msgstr ""
+
+#: advagg_mod/advagg_mod.info.yml:0
+msgid "Allows one to alter the CSS and JS array."
+msgstr ""
+
+#: advagg_css_minify/src/Form/SettingsForm.php:73
+msgid "YUI Compressor"
+msgstr "YUI Compressor"
+
+#: src/Form/SettingsForm.php:169
+msgid "AdvAgg Cache Settings"
+msgstr ""
+
+#: src/Form/SettingsForm.php:233
+msgid "Combine CSS files by using media queries"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:74
+msgid "Directory:"
+msgstr ""
+
+#: src/Form/InfoForm.php:149
+msgid "Lookup Details"
+msgstr ""
+
+#: src/Form/SettingsForm.php:239,264
+msgid "Fix improperly set type"
+msgstr ""
+
+#: src/Form/SettingsForm.php:259
+msgid "JS Options"
+msgstr "JavaScript-Einstellungen"
+
+#: advagg_validator/src/Form/CssW3Form.php:230
+msgid "W3C Server did not return a 200 or request data was empty."
+msgstr ""
+
+#: advagg_validator/advagg_validator.info.yml:0
+msgid "AdvAgg CSS/JS Validator"
+msgstr ""
+
+#: advagg.module:191
+msgid ""
+"The AdvAgg bypass cookie is currently enabled. Turn it off by going to "
+"the <a href=\"@advagg_operations\">AdvAgg Operations</a> page and "
+"clicking the <em>Toggle the \"aggregation bypass cookie\" for this "
+"browser</em> button."
+msgstr ""
+
+#: src/Form/SettingsForm.php:235
+msgid ""
+"Will combine more CSS files together because different CSS media types "
+"can be used in the same file by using media queries. Use cores "
+"grouping logic needs to be unchecked in order for this to work. Also "
+"noted is that due to an issue with IE9, compatibility mode is forced "
+"off if this is enabled."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:83
+msgid "Move all external scripts to the top of the execution order"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:89
+msgid "Move all browser conditional JavaScript to the bottom of the group"
+msgstr ""
+"Alle von Browserversionen, sowie Browserherstellern abhängig "
+"geladenen Javascripts ans untere Ende der Gruppe verschieben."
+
+#: advagg_mod/src/Form/SettingsForm.php:155
+msgid "Translate CSS content strings"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:173
+msgid "Move all external CSS to the top of the execution order"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:179
+msgid "Move all browser conditional CSS to the bottom of the group"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:157
+msgid ""
+"Run strings inside of quotes of the content attribute through the <a "
+"href=\"@t\">t() function</a>. An alternative to this can be found in "
+"this <a href=\"@post\">blog post</a>."
+msgstr ""
+
+#: advagg_validator/advagg_validator.routing.yml:0
+msgid "AdvAgg: CSS Validator using w3.org"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:144
+msgid "Files:"
+msgstr ""
+
+#: advagg_old_ie_compatibility/src/Form/SettingsForm.php:73
+msgid "Prevent more than %limit CSS selectors in an aggregated CSS file"
+msgstr ""
+
+#: advagg_old_ie_compatibility/src/Form/SettingsForm.php:79
+msgid "The selector count the IE CSS limiter should use"
+msgstr ""
+
+#: src/Form/OperationsForm.php:56
+msgid ""
+"This is a collection of commands to control the cache and to manage "
+"testing of this module. In general this page is useful when "
+"troubleshooting some aggregation issues. For normal operations, you do "
+"not need to do anything on this page below the Smart Cache Flush. "
+"There are no configuration options here."
+msgstr ""
+
+#: src/Form/OperationsForm.php:84
+msgid "Toggle The \"aggregation bypass cookie\" For This Browser"
+msgstr ""
+
+#: src/Form/OperationsForm.php:100
+msgid "Cron Maintenance Tasks"
+msgstr ""
+
+#: src/Form/InfoForm.php:96
+msgid ""
+"This page provides debugging information. There are no configuration "
+"options here."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:64
+msgid ""
+"Force all JavaScript to have the preprocess attribute be set to TRUE. "
+"All JavaScript files will be aggregated if enabled."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:78
+msgid "Optimize JavaScript Ordering"
+msgstr "Javascript-Ladereihenfolge optimieren"
+
+#: advagg_mod/src/Form/SettingsForm.php:79
+msgid ""
+"The settings in here might change the order in which the JavaScript is "
+"loaded. It will move the scripts around so that more optimal "
+"aggregates are built. In most cases enabling these checkboxes will "
+"cause no negative side effects."
+msgstr ""
+"Die hier aufgelisteten Einstellungen ändern die Ladereihenfolge, der "
+"auf der Webseite verwendeten Javascript-Bibliothken ab. Hierdurch "
+"werden die Skripte so verschoben, dass eine möglichst optimale "
+"Ladereihenfolge entsteht. In den meisten Fällen hat das Aktivieren "
+"dieser Kontrollkästchen keine negativen Nebenwirkungen."
+
+#: advagg_mod/src/Form/SettingsForm.php:85
+msgid ""
+"This will group all external JavaScript files to be above all other "
+"JavaScript."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:91
+msgid ""
+"This will group all browser conditional JavaScript to be in the lowest "
+"group of that conditional rule."
+msgstr ""
+"Sorgt dafür, dass Skripte, die auf bestimmte Browserversionen "
+"abzielen möglichst spät während des Ladevorgangs der Seite geladen "
+"werden."
+
+#: advagg_mod/src/Form/SettingsForm.php:116
+msgid "Experimental Settings"
+msgstr "Experimentelle Einstellungen"
+
+#: advagg_mod/src/Form/SettingsForm.php:103
+msgid "Deferred JavaScript Execution: Add The defer Tag To All Script Tags"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:143
+msgid ""
+"Force all CSS to have the preprocess attribute be set to TRUE. All CSS "
+"files will be aggregated if enabled."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:168
+msgid "Optimize CSS Ordering"
+msgstr "CSS-Ladereihenfolge optimieren"
+
+#: advagg_mod/src/Form/SettingsForm.php:169
+msgid ""
+"The settings in here might change the order in which the CSS is "
+"loaded. It will move the CSS around so that more optimal aggregates "
+"are built. In most cases enabling these checkboxes will cause no "
+"negative side effects."
+msgstr ""
+"Die hier aufgelisteten Einstellungen ändern die Ladereihenfolge, der "
+"auf der Webseite verwendeten CSS-Bibliothken ab.  Hierdurch werden die "
+"CSS-Dateien so verschoben, dass eine möglichst optimale "
+"Ladereihenfolge entsteht. In den meisten Fällen hat das Aktivieren "
+"dieser Kontrollkästchen keine negativen Nebenwirkungen."
+
+#: advagg_validator/src/Form/CssW3Form.php:60
+msgid ""
+"Notice: The form below will submit files to the <a "
+"href=\"http://jigsaw.w3.org/css-validator/\">http://jigsaw.w3.org/css-validator/</a> "
+"service if used."
+msgstr ""
+
+#: src/Form/OperationsForm.php:67
+msgid ""
+"This will set or remove a cookie that disables aggregation for a set "
+"period of time."
+msgstr ""
+
+#: src/Form/OperationsForm.php:286
+msgid "AdvAgg Bypass Cookie Set for %time."
+msgstr ""
+
+#: advagg.admin.js:0
+msgid "AdvAgg Bypass Cookie Set for @time."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:175
+msgid "This will group all external CSS files to be above all other CSS."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:181
+msgid ""
+"This will group all browser conditional CSS to be in the lowest group "
+"of that conditional rule."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:192
+msgid "Deferred CSS Execution: Use JS to load CSS"
+msgstr ""
+
+#: src/Form/SettingsForm.php:285
+msgid ""
+"Unless you have a good reason to adjust these values you should leave "
+"them alone."
+msgstr ""
+
+#: src/Form/SettingsForm.php:300
+msgid ""
+"The default value for this is %value. The last time advagg_cron was "
+"ran is %time."
+msgstr ""
+
+#: src/Form/SettingsForm.php:311
+msgid "The default value for this is %value."
+msgstr ""
+
+#: src/Form/SettingsForm.php:82
+msgid "18 hours"
+msgstr ""
+
+#: src/Form/SettingsForm.php:318
+msgid "Obscure Options"
+msgstr ""
+
+#: src/Form/SettingsForm.php:319
+msgid ""
+"Some of the more obscure AdvAgg settings. Odds are you do not need to "
+"change anything in here."
+msgstr ""
+
+#: src/Form/SettingsForm.php:323
+msgid "Convert absolute paths to be protocol relative paths."
+msgstr ""
+
+#: src/Form/SettingsForm.php:347
+msgid "Convert http:// to https://."
+msgstr ""
+
+#: src/Form/SettingsForm.php:349
+msgid ""
+"If the src to a CSS/JS file starts with http:// convert it https://. "
+"Will also convert url() references inside of css files."
+msgstr ""
+
+#: src/Form/SettingsForm.php:241,266
+msgid ""
+"If type is external but does not start with http, https, or // change "
+"it to be type file. If type is file but it starts with http, https, or "
+"// change type to be external. Note that if this is causing issues, "
+"odds are you have a double slash when there should be a single; see <a "
+"href=\"@link\">this issue</a>"
+msgstr ""
+
+#: advagg_js_minify/src/Form/SettingsForm.php:65
+msgid "JSMin+ ~1300ms"
+msgstr "JSMin+ ~1300ms"
+
+#: advagg_js_minify/src/Form/SettingsForm.php:72
+msgid "JSMin ~2ms"
+msgstr "JSMin ~2ms"
+
+#: advagg_js_minify/src/Form/SettingsForm.php:73
+msgid "JSMin is the very fast C complied version. Recommend using it."
+msgstr ""
+
+#: advagg_js_minify/src/Form/SettingsForm.php:76
+msgid ""
+"You can use the much faster C version of JSMin (~2ms) by installing "
+"the <a href=\"@php_jsmin\">JSMin PHP Extension</a> on this server."
+msgstr ""
+
+#: advagg_js_minify/src/Form/SettingsForm.php:68
+msgid "JShrink ~1000ms"
+msgstr "JShrink ~1000ms"
+
+#: advagg_js_minify/src/Form/SettingsForm.php:69
+msgid "JSqueeze ~600ms"
+msgstr "JSqueeze ~600ms"
+
+#: advagg_css_minify/src/Form/SettingsForm.php:83; advagg_js_minify/src/Form/SettingsForm.php:90
+msgid "Add licensing comments"
+msgstr "Kommentare über Lizenzen hinzufügen"
+
+#: advagg_js_minify/src/Asset/JsMinifier.php:128
+msgid "The jsmin function does not exist. Using JSqueeze."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:98
+msgid "Adjust javascript location and execution"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:99
+msgid ""
+"Most of the time adjusting the settings are safe but in some rare "
+"cases adjusting these can cause serious JavaScript issues with your "
+"site."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:110
+msgid ""
+"This will delay the script execution until the HTML parser has "
+"finished. This will have a similar effect to moving all JavaScript to "
+"the footer. This might break javascript (especially inline); only use "
+"after extensive testing! <a href=\"@link\">More Info</a>"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:123
+msgid ""
+"This will cause the script to be downloaded in the background and "
+"executed out of order. This will break most javascript as most code is "
+"not async safe; only use after extensive testing! <a "
+"href=\"@link\">More Info</a>"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:198
+msgid ""
+"This will try to optimize CSS delivery by using JavaScript to load the "
+"CSS. This might break CSS on different browsers and will cause a flash "
+"of unstyled content (FOUC). Only enable after extensive testing! <a "
+"href=\"@link\">More Info</a>"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:226
+msgid "How to include the JS loading code"
+msgstr "Wie soll der  Code zum Laden des Javaskripts eingebunden"
+
+#: advagg_mod/src/Form/SettingsForm.php:229
+msgid "Inline javascript loader library (If enabled this is recommended)"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:230
+msgid "Local file included in aggregate"
+msgstr "Lokale Datie in die Komprimierung mit einbeziehen"
+
+#: advagg_mod/src/Form/SettingsForm.php:233
+msgid ""
+"The <a href=\"@link\">loadCSS</a> library can be included in various "
+"ways."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:231
+msgid "Externally load the latest from github"
+msgstr "Die aktuellste Version direkt von Github laden"
+
+#: src/Form/SettingsForm.php:127
+msgid "Use DNS Prefetch for external CSS/JS."
+msgstr ""
+
+#: src/Form/SettingsForm.php:129
+msgid ""
+"Start the DNS lookup for external CSS and JavaScript files as soon as "
+"possible."
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:76
+msgid "Command Line"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:81
+msgid ""
+"Example using the <a href=\"@link1\">Microsoft Ajax Minifier</a>. "
+"<p><code>@code1</code></p>"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:88
+msgid ""
+"Example using the <a href=\"@link1\">Google Closure Compiler</a>. "
+"<p><code>@code1</code></p>"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:99
+msgid ""
+"Example using the <a href=\"@link1\">YUI Compressor</a>. "
+"<p><code>@code1</code></p>"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:112
+msgid "Command to run"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:121
+msgid ""
+"Here there be dragons! Asynchronous JavaScript Execution: Add The "
+"async Tag To All Script Tags"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:129
+msgid "Asynchronous JavaScript Execution: Group together in the header"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:131
+msgid ""
+"This will move all async JavaScript code to the header in the same "
+"group."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:108
+msgid "All (might break things)"
+msgstr "Alle (Kann die Software in Funktionalität und Optik beeinträchtigen)"
+
+#: advagg_mod/src/Form/SettingsForm.php:107
+msgid "All but external scripts"
+msgstr "Alle Skripte, bis auf externe Skripte"
+
+#: advagg_validator/advagg_validator.info.yml:0
+msgid "Validate the CSS and JS files used in Aggregation for syntax errors."
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:94,126
+msgid "Grouping logic"
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:100,132
+msgid ""
+"If file count is selected then each bundle will try to have a similar "
+"number of original files aggregated inside of it. If file size is "
+"selected then each bundle will try to have a similar file size."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:204
+msgid "Use JS to load CSS in the admin theme"
+msgstr ""
+
+#: advagg.links.menu.yml:0
+msgid "AdvAgg"
+msgstr "Erweiterte Aggregation"
+
+#: advagg.links.menu.yml:0
+msgid "AdvAgg settings."
+msgstr "Erweiterte-Aggregation-Einstellungen"
+
+#: advagg.links.menu.yml:0
+msgid "Display AdvAgg system information."
+msgstr "AdvAgg-Systeminformation anzeigen."
+
+#: advagg.links.menu.yml:0
+msgid "Perform AdvAgg operations."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "Maximum target css aggregates."
+msgstr ""
+
+#: advagg_cdn/advagg_cdn.info.yml:0
+msgid "AdvAgg CDN"
+msgstr ""
+
+#: advagg_cdn/advagg_cdn.info.yml:0
+msgid ""
+"Use a shared CDN for JavaScript and/or CSS libraries, Google Libraries "
+"API currently."
+msgstr ""
+
+#: advagg_cdn/advagg_cdn.links.menu.yml:0
+msgid "AdvAgg CDN settings."
+msgstr ""
+
+#: advagg_cdn/advagg_cdn.routing.yml:0
+msgid "Advanced CSS/JS Aggregation: CDN Settings"
+msgstr ""
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "Which CDN to use."
+msgstr "Welcher CDN verwendet werden soll."
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "Whether or not to use a CDN version of jQuery"
+msgstr "Ob eine CDN-Version von jQuery verwendet werden soll"
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "jQuery version to use"
+msgstr "Die jQuery-Version, die verwendet werden soll"
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "Whether or not to use a CDN version of jQuery UI CSS files."
+msgstr ""
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "Whether or not to use a CDN version of jQuery UI JavaScript files."
+msgstr ""
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "jQuery UI theme to use."
+msgstr ""
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "jQuery UI version to use."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:56
+msgid "CDN to use"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:62
+msgid "Use Minified Resources"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:64
+msgid ""
+"When available use minified versions of any resources being served by "
+"the CDN."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:67
+msgid ""
+"This setting will not have any effect because AdvAgg is currently in "
+"<a href=\"@devel\">development mode</a>. Once the cache settings have "
+"been set to normal or aggressive, JS minification will take place."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:76
+msgid "Serve jQuery by CDN"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:83
+msgid "Version of jQuery to load."
+msgstr "Die jQuery-Version, die geladen werden soll"
+
+#: advagg_cdn/src/Form/SettingsForm.php:96
+msgid "Serve jQuery UI CSS by CDN"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:98
+msgid ""
+"Warning: this may change your site appearance as Drupal 8 by default "
+"uses the base jQuery theme and the base theme is not available by CDN."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:130
+msgid ""
+"Choose which jQuery theme to use. Smoothness is the most basic and "
+"similar to Drupal standard version."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:135
+msgid "Serve jQuery UI JavaScript by CDN"
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:142
+msgid "Version of jQuery UI to load."
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.install:25
+msgid "AdvAgg CSS Minify"
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.install:27
+msgid "AdvAgg CSS Minification is disabled."
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.info.yml:0
+msgid "AdvAgg Minify CSS"
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.info.yml:0
+msgid "Minify CSS."
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.links.menu.yml:0; advagg_css_minify/advagg_css_minify.links.task.yml:0
+msgid "CSS Minification"
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.links.menu.yml:0
+msgid "AdvAgg CSS minification settings."
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.routing.yml:0
+msgid "AdvAgg: CSS Minification"
+msgstr "AdvAgg: CSS-Minifizierung"
+
+#: advagg_css_minify/config/schema/advagg_css_minify.schema.yml:0
+msgid "Which minifier to use. 0 is Disabled."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.info.yml:0
+msgid "AdvAgg External Minification"
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.info.yml:0
+msgid "Minify Javascript and/or CSS with a command line minifier."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.links.menu.yml:0; advagg_ext_minify/advagg_ext_minify.links.task.yml:0
+msgid "External Minification"
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.links.menu.yml:0
+msgid "AdvAgg external minification settings."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.routing.yml:0
+msgid "AdvAgg: External Minifiers"
+msgstr ""
+
+#: advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml:0
+msgid "Command line for external CSS minification."
+msgstr ""
+
+#: advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml:0
+msgid "Command line for external JavaScript minification."
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:79
+msgid ""
+"{%CWD%} = \\Drupal::root(). <br /> {%IN%} = input file. <br /> "
+"{%IN_URL_ENC%} = url pointing to the input file that has been url "
+"encoded. <br /> {%OUT%} = output file. <br /><br />"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:93
+msgid ""
+"Example using curl to minify via the <a href=\"@link1\">Online Google "
+"Closure Compiler</a>. <p><code>@code1</code></p>"
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:104
+msgid ""
+"Example using curl to minify via an online <a href=\"@link1\">CSS "
+"Minifier</a>. <p><code>@code1</code></p>"
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.install:25
+msgid "AdvAgg JS Minify"
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.install:27
+msgid "AdvAgg JS Minification is disabled."
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.install:28
+msgid ""
+"Go to the <a href=\"@settings\">AdvAgg Minify JavaScript settings "
+"page</a> and select a minifier, or go to the <a "
+"href=\"@modules\">modules page</a> and disable the \"AdvAgg Minify "
+"Javascript\" module."
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.info.yml:0
+msgid "AdvAgg Minify JavaScript"
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.info.yml:0
+msgid ""
+"Minify JavaScript with a 3rd party minifier; JSMin+, JSMin c ext, "
+"JShrink, and JSqueeze currently."
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.links.menu.yml:0; advagg_js_minify/advagg_js_minify.links.task.yml:0
+msgid "JavaScript Minification"
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.links.menu.yml:0
+msgid "AdvAgg JavaScript minification settings."
+msgstr ""
+
+#: advagg_js_minify/advagg_js_minify.routing.yml:0
+msgid "AdvAgg: JS Minification"
+msgstr "AdvAgg: JS-Minifizierung"
+
+#: advagg_css_minify/config/schema/advagg_css_minify.schema.yml:0; advagg_js_minify/config/schema/advagg_js_minify.schema.yml:0
+msgid "Add licensing information to aggregates for individual source files."
+msgstr ""
+
+#: advagg_js_minify/config/schema/advagg_js_minify.schema.yml:0
+msgid "Minifier to use. 0 is disabled."
+msgstr ""
+
+#: advagg_js_minify/config/schema/advagg_js_minify.schema.yml:0
+msgid "Upper bound comparison value for the minification ratio test."
+msgstr ""
+
+#: advagg_js_minify/config/schema/advagg_js_minify.schema.yml:0
+msgid "Lower bound comparison value for the minification ratio test."
+msgstr ""
+
+#: advagg_css_minify/src/Form/SettingsForm.php:77; advagg_js_minify/src/Form/SettingsForm.php:83
+msgid "Minification: Select a minifier"
+msgstr "Minifizierung: Eine Komprimierungsmethode wählen"
+
+#: advagg_css_minify/src/Form/SettingsForm.php:85; advagg_js_minify/src/Form/SettingsForm.php:92
+msgid ""
+"If unchecked, the Advanced Aggregation module's licensing comments\n"
+"      will be omitted from the aggregated files. Omitting the comments "
+"will produce somewhat better scores in\n"
+"      some automated security scans but otherwise should not affect "
+"your site. These are included by default in order to better follow the "
+"spirit of the GPL by providing the source for javascript files."
+msgstr ""
+
+#: advagg_mod/advagg_mod.links.menu.yml:0
+msgid "AdvAgg Modifications."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to adjust the sorting of browser conditional CSS."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to adjust the sorting of external CSS."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to use JavaScript to defer CSS loading."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value of the inclusion method for the loadCSS code."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to turn on preprocessing for all CSS files."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to translate the content attributes of CSS files."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to adjust the sorting of external JavaScript"
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to adjust the sorting of browser conditional JavaScript."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to have async on all JS script tags."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to move async js to the header."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to add the defer tag to all script tags."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to move all JS to the footer."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to turn on preprocessing for all JavaScript files."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Default value to use the prefetch tag for certain domains."
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0; advagg_validator/advagg_validator.links.task.yml:0
+msgid "CSSLint"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0; advagg_validator/advagg_validator.links.task.yml:0
+msgid "W3.org CSS Validator"
+msgstr "W3.org CSS Validator"
+
+#: advagg_validator/advagg_validator.links.menu.yml:0; advagg_validator/advagg_validator.links.task.yml:0
+msgid "JSHint"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0
+msgid "Asset Validation"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0
+msgid "Validate CSS with CSSLint"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0
+msgid "Validate CSS with the W3.org css validator"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0
+msgid "Validate JavaScript with JSHint"
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.task.yml:0
+msgid "Advanced CSS/JS Aggregation Asset Validation"
+msgstr ""
+
+#: advagg_validator/advagg_validator.routing.yml:0
+msgid "AdvAgg: CSS Validator using CSSLint"
+msgstr ""
+
+#: advagg_validator/advagg_validator.routing.yml:0
+msgid "AdvAgg: JavaScript Validator using JSHint"
+msgstr ""
+
+#: advagg_validator/config/schema/advagg_validator.schema.yml:0
+msgid "Default CSS Lint ignore settings."
+msgstr ""
+
+#: advagg_validator/config/schema/advagg_validator.schema.yml:0
+msgid "Default JS Hint ignore settings."
+msgstr ""
+
+#: advagg_validator/js/csslint_form.js:0
+msgid "Browser unable to read file. @error"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:80
+msgid "Check directory and all subdirectories"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:117
+msgid "Check directory"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:202
+msgid "Errors:"
+msgstr ""
+
+#: advagg_validator/src/Form/BaseValidatorForm.php:214
+msgid "Warnings:"
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Prefetch external domains for css/js"
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Convert absolute path css/js src/url() to use https://"
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Skip preprocess check on status page"
+msgstr ""
+
+#: src/Form/OperationsForm.php:137
+msgid ""
+"Remove all entries from the advagg cache and file information stores. "
+"Useful if you suspect a cache is not getting cleared."
+msgstr ""
+
+#: src/Form/OperationsForm.php:141
+msgid "Clear All Caches & File Information"
+msgstr ""
+
+#: src/Form/SettingsForm.php:172
+msgid ""
+"No performance data yet but most use cases will probably want to use "
+"the Normal cache mode."
+msgstr ""
+
+#: src/Form/SettingsForm.php:325
+msgid ""
+"If the src to a CSS/JS file points starts with http:// or https://, "
+"convert it to use a protocol relative path //. Will also convert url() "
+"references inside of css files."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "The logic to use for bundling the CSS Files."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "The logic to use for bundling the JS Files."
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:55
+msgid "If not checked, the bundler will not split up aggregates."
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:78
+msgid "CSS Bundling options."
+msgstr ""
+
+#: advagg_bundler/src/Form/SettingsForm.php:110
+msgid "JavaScript Bundling options."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Whether to defer loading of CSS on the admin theme."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Combine multiple media selectors per aggregate."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Fix type of added asset files."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Path/Url settings"
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "What conversions to apply."
+msgstr ""
+
+#: advagg_js_minify/src/Asset/JsMinifier.php:137
+msgid ""
+"The currently installed jsmin version does not handle multibyte "
+"characters, you may consider to upgrade the jsmin extension. Using "
+"JSqueeze fallback."
+msgstr ""
+
+#: advagg.drush.inc:34
+msgid ""
+"Run the advagg cron hook. This will clear out all stale advagg "
+"aggregated files, remove aggregates that include missing files, and "
+"remove unused aggregates."
+msgstr ""
+
+#: advagg.drush.inc:55
+msgid "Run the advagg cron hook."
+msgstr ""
+
+#: advagg.drush.inc:76
+msgid "Remove all generated files."
+msgstr "Alle generierten Dateien entfernen."
+
+#: advagg.drush.inc:124; src/Commands/AdvaggCommands.php:145
+msgid "Global counter is now set to @new_value"
+msgstr ""
+
+#: advagg_js_minify/src/Asset/JsMinifier.php:173
+msgid "JSMin had an error minifying file: @file, attempting to correct."
+msgstr ""
+
+#: advagg_cdn/src/Form/SettingsForm.php:140
+msgid "jQuery UI version"
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Use one css/js directory for a multi-site."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Level of caching for AdvAgg to use."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "frequency to run the AdvAgg cron maintenance functions."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Enable AdvAgg."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Counter to force new aggregates through caches etc."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Display a message when the bypass cookie is active."
+msgstr ""
+
+#: src/Form/SettingsForm.php:103
+msgid "3 week"
+msgstr ""
+
+#: src/Form/SettingsForm.php:105
+msgid "6 weeks"
+msgstr ""
+
+#: src/Form/SettingsForm.php:199
+msgid "Gzip CSS assets"
+msgstr ""
+
+#: src/Form/SettingsForm.php:201,207
+msgid ""
+"This should be enabled unless you are experiencing corrupted "
+"compressed asset files."
+msgstr ""
+
+#: src/Form/SettingsForm.php:205
+msgid "Gzip JavaScript assets"
+msgstr ""
+
+#: src/Form/SettingsForm.php:370
+msgid "Use \"Options +SymLinksIfOwnerMatch\""
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Do not change external to file if on same host for js."
+msgstr ""
+
+#: src/Form/SettingsForm.php:247,272
+msgid "Do not change external to file if on same host."
+msgstr ""
+
+#: src/Form/SettingsForm.php:274
+msgid ""
+"If a JS file is set as external and is on the same hosts do not "
+"convert to file."
+msgstr ""
+
+#: advagg.drush.inc:42
+msgid ""
+"Force the creation of all new optimized files by incrementing a global "
+"counter. Current value of counter: %value. This is may be useful if a "
+"CDN has cached an something incorrectly as it will force new ones to "
+"be used even if nothing else has changed."
+msgstr ""
+
+#: advagg.drush.inc:83
+msgid "Force the creation of all new files by incrementing a global counter."
+msgstr ""
+
+#: advagg.drush.inc:146; src/Commands/AdvaggCommands.php:124; src/Form/OperationsForm.php:197
+msgid ""
+"All AdvAgg optimized files have been deleted. %css_count CSS files and "
+"%js_count JS files have been removed."
+msgstr ""
+
+#: advagg_cdn/config/schema/advagg_cdn.schema.yml:0
+msgid "Whether or not to use minified cdn resources."
+msgstr ""
+
+#: advagg_css_minify/advagg_css_minify.install:28
+msgid ""
+"Go to the <a href=\"@settings\">AdvAgg Minify CSS settings page</a> "
+"and select a minifier, or go to the <a href=\"@modules\">modules "
+"page</a> and disable the \"AdvAgg Minify CSS\" module."
+msgstr ""
+
+#: advagg_css_minify/src/Form/SettingsForm.php:62
+msgid ""
+"The settings below will not have any effect because AdvAgg is "
+"currently in <a href=\"@devel\">development mode</a>. Once the cache "
+"settings have been set to a non-development level, CSS minification "
+"will take place."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.install:22,33
+msgid "Advagg External Minification: PHP shell_exec"
+msgstr ""
+
+#: advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml:0
+msgid "Whether to use the external CSS minifier if configured."
+msgstr ""
+
+#: advagg_ext_minify/config/schema/advagg_ext_minify.schema.yml:0
+msgid "Whether to use the external JS minifier if configured."
+msgstr ""
+
+#: advagg_ext_minify/src/Form/SettingsForm.php:119
+msgid "Enable external @type minification"
+msgstr ""
+
+#: advagg_js_minify/src/Form/SettingsForm.php:55
+msgid ""
+"The settings below will not have any effect because AdvAgg is "
+"currently in <a href=\"@devel\">development mode</a>. Once the cache "
+"settings have been set to a non-development level, JS minification "
+"will take place."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Remove console.log() calls from JavaScript files."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:69
+msgid "Remove console logging from JS files."
+msgstr ""
+"Debug-Informationen, die auf der Javascript-Konsole ausgegeben werden, "
+"aus Javaskript-Dateien entfernen."
+
+#: advagg_mod/src/Form/SettingsForm.php:71
+msgid ""
+"Harmless under most cases, but may make debugging difficult. WARNING: "
+"experimental."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:187
+msgid "Adjust CSS location and execution (Experimental)"
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:196
+msgid "Enabled (In head)"
+msgstr "Aktiviert (im HTML-Bereich Head)"
+
+#: config/schema/advagg.schema.yml:0
+msgid "Compress css assets with brotli compression."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Add the immutable tag to Apache cache control strings."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "JavaScript specific settings."
+msgstr ""
+
+#: src/Form/InfoForm.php:117
+msgid "Core asset hooks implemented by modules"
+msgstr ""
+
+#: src/Form/InfoForm.php:138
+msgid "Get detailed info about an optimized file"
+msgstr ""
+
+#: src/Form/InfoForm.php:160
+msgid "Input an optimized filename like \"@css_file\"."
+msgstr ""
+
+#: src/Form/InfoForm.php:226
+msgid "Please input a valid optimized filename."
+msgstr ""
+
+#: src/Form/InfoForm.php:247
+msgid ""
+"Optimized file information not found, confirm spelling of the path. "
+"Alternatively, that could be an outdated file."
+msgstr ""
+
+#: src/Form/OperationsForm.php:102
+msgid ""
+"The following operation is ran on cron but you can run it manually "
+"here."
+msgstr ""
+
+#: src/Form/OperationsForm.php:111
+msgid "Clear Stale Files"
+msgstr ""
+
+#: src/Form/OperationsForm.php:112
+msgid ""
+"Scan all files in the css/js optimized directories and remove outdated "
+"ones."
+msgstr ""
+
+#: src/Form/OperationsForm.php:150
+msgid "Force new files"
+msgstr ""
+
+#: src/Form/OperationsForm.php:151
+msgid ""
+"Force the creation of all new optimized files by incrementing a global "
+"counter. Current value of counter: %value. This is useful if a CDN has "
+"cached a file incorrectly as it will force new ones to be used even if "
+"nothing else has changed."
+msgstr ""
+
+#: src/Form/SettingsForm.php:123
+msgid "Uncheck this box to temporarily disable AdvAgg functionality."
+msgstr ""
+
+#: src/Form/SettingsForm.php:189
+msgid "Compression Options"
+msgstr ""
+
+#: src/Form/SettingsForm.php:210
+msgid ""
+"Select to compress this asset type with brotli compression. See <a "
+"href='https://github.com/kjdev/php-ext-brotli'>PHP Brotli</a> page for "
+"more information."
+msgstr ""
+
+#: src/Form/SettingsForm.php:210
+msgid ""
+"Brotli compression is not available on your server. See <a "
+"href='https://github.com/kjdev/php-ext-brotli'>PHP Brotli</a> page for "
+"more information."
+msgstr ""
+
+#: src/Form/SettingsForm.php:213
+msgid "Brotli compress CSS assets"
+msgstr ""
+
+#: src/Form/SettingsForm.php:220
+msgid "Brotli compress JavaScript assets"
+msgstr ""
+
+#: advagg_js_minify/src/Asset/JsMinifier.php:161
+msgid "JSMin had a possible error minifying: @file, correcting."
+msgstr ""
+"JSMin hatte eventuell ein Problem mit der Minifizierung der "
+"Datei:@file, dass korrigiert werden sollte."
+
+#: advagg_old_ie_compatibility/advagg_old_ie_compatibility.info.yml:0
+msgid "AdvAgg Old Internet Explorer Compatibility Enhancer"
+msgstr ""
+
+#: advagg_old_ie_compatibility/advagg_old_ie_compatibility.info.yml:0
+msgid ""
+"Provides some enhanced compatibility with outdated Internet Explorer "
+"versions."
+msgstr ""
+
+#: advagg_old_ie_compatibility/advagg_old_ie_compatibility.links.menu.yml:0; advagg_old_ie_compatibility/advagg_old_ie_compatibility.links.task.yml:0
+msgid "Old IE Compatibility"
+msgstr ""
+
+#: advagg_old_ie_compatibility/advagg_old_ie_compatibility.links.menu.yml:0
+msgid "AdvAgg Old IE Compatibility."
+msgstr ""
+
+#: advagg_old_ie_compatibility/advagg_old_ie_compatibility.routing.yml:0
+msgid "AdvAgg: Old IE Compatibility"
+msgstr ""
+
+#: advagg_old_ie_compatibility/config/schema/advagg_old_ie_compatibility.schema.yml:0
+msgid "Toggle for css limiter."
+msgstr ""
+
+#: advagg_old_ie_compatibility/config/schema/advagg_old_ie_compatibility.schema.yml:0
+msgid "Selector limit to apply to CSS aggregates."
+msgstr ""
+
+#: advagg_old_ie_compatibility/src/Form/SettingsForm.php:75
+msgid ""
+"Internet Explorer before version 10; IE9, IE8, IE7, and IE6 all have "
+"4095 as the limit for the maximum number of css selectors that can be "
+"in a file. Enabling this will prevent CSS aggregates from being "
+"created that exceed this limit. <a href=\"@link\">More info</a>."
+msgstr ""
+
+#: advagg_old_ie_compatibility/src/Form/SettingsForm.php:81
+msgid ""
+"Internet Explorer before version 10; IE9, IE8, IE7, and IE6 all have "
+"4095 as the limit for the maximum number of css selectors that can be "
+"in a file. Use this field to modify the value used."
+msgstr ""
+
+#: advagg_validator/advagg_validator.links.menu.yml:0
+msgid "AdvAgg: Asset Validation"
+msgstr ""
+
+#: advagg.module:121
+msgid ""
+"NOTE: If you wish to bypass AdvAgg optimizations for a set amount of "
+"time, you can go to the <a href=\"@operations\">AdvAgg operations</a> "
+"page and press the <em>\"optimization bypass cookie\"</em> button."
+msgstr ""
+"HINWEIS: Wenn Sie die AdvAgg-Optimierungen für eine bestimmte Zeitspanne "
+"umgehen möchten, können Sie zur Seite <a href=\"@operations\">AdvAgg-Operationen</a> "
+"gehen und die Schaltfläche <em>\"Optimierung Cookie umgehen\"</em> drücken."
+
+#: advagg.module:126
+# Suggestion on the localization server:
+#, fuzzy
+msgid ""
+"You can also selectively bypass AdvAgg optimization by adding "
+"<code>@code</code> to the URL of any page."
+msgstr ""
+"Sie können die AdvAgg-Optimierung auch selektiv umgehen, indem Sie "
+"der URL einer beliebigen Seite <code>@code</code> hinzufügen."
+
+#: advagg.module:131
+msgid ""
+"You do not have the <a href=\"@permission\">bypass advanced "
+"aggregation permission</a> so adding <code>@code</code> to the URL "
+"will not work at this time for you; either grant this permission to "
+"your user role or use the bypass cookie if you wish to selectively "
+"bypass AdvAgg optimizations."
+msgstr ""
+
+#: advagg.module:196
+msgid ""
+"The AdvAgg bypass cookie is currently enabled. Turn it off by <a "
+"href=\"@login\">logging in</a> with a user with the \"administer site "
+"configuration\" permissions and going to the <a "
+"herf=\"@advagg_operations\">AdvAgg Operations page</a> and clicking "
+"the <em>Toggle the \"aggregation bypass cookie\" for this browser</em> "
+"button."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Use Options +FollowSymlinks to support some hosts."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Use options +SymLinksIfOwnerMatch to support some hosts."
+msgstr ""
+
+#: src/Form/SettingsForm.php:133
+msgid "Server Config"
+msgstr ""
+
+#: src/Form/SettingsForm.php:138
+msgid "Cache-Control: Immutable"
+msgstr ""
+
+#: src/Form/SettingsForm.php:143
+msgid ""
+"Your server can send <a href=\"@url1\">Cache-Control: immutable</a> "
+"header for all optimized files. This should improve performance for "
+"some users. Current <a href=\"@url2\">browser support</a>"
+msgstr ""
+
+#: src/Form/SettingsForm.php:150
+msgid "Include Cache-Control: immutable in generated .htaccess files."
+msgstr ""
+
+#: src/Form/SettingsForm.php:152
+msgid ""
+"With the Apache server, AdvAgg can generate config to send the header "
+"for all optimized files."
+msgstr ""
+
+#: src/Form/SettingsForm.php:161
+msgid ""
+"With Nginx, AdvAgg can't set the headers for optimized files in a "
+"performant manner. However, you can easily do so in your server "
+"config. See the <a href='@url'>manual for instructions</a>."
+msgstr ""
+
+#: src/Form/SettingsForm.php:190
+msgid "Compressed files will automatically be served by the Apache server"
+msgstr ""
+
+#: src/Form/SettingsForm.php:193
+msgid ""
+"AdvAgg can't configure your Nginx server to automatically serve "
+"compressed assets. See the <a href='@url'>AdvAgg manual</a> for "
+"instructions on manually doing so."
+msgstr ""
+
+#: src/Form/SettingsForm.php:359
+msgid "Use \"Options +FollowSymLinks\""
+msgstr ""
+
+#: src/Form/SettingsForm.php:361
+msgid ""
+"Some shared hosts require \"<code>Options +FollowSymLinks</code>\" in "
+"the .htaccess for asset directories."
+msgstr ""
+
+#: src/Form/SettingsForm.php:372
+msgid ""
+"Some shared hosts require \"<code>Options "
+"+SymLinksIfOwnerMatch</code>\" in the .htaccess for asset directories."
+msgstr ""
+
+#: advagg.drush.inc:28
+msgid "Keep all Advagg settings but disable all functionality."
+msgstr ""
+
+#: advagg.drush.inc:31
+msgid "Restore all Advagg functionality if disabled."
+msgstr ""
+
+#: advagg.drush.inc:62
+msgid "Disable Advagg."
+msgstr "Erweiterte Aggregation deaktivieren."
+
+#: advagg.drush.inc:69
+msgid "Enable Advagg."
+msgstr "Erweiterte Aggregation aktivieren."
+
+#: advagg.drush.inc:99; src/Commands/AdvaggCommands.php:86
+msgid "All Advagg functionality is disabled."
+msgstr "Die komplette Erweiterte-Aggregations-Funktionalität ist deaktiviert."
+
+#: advagg.drush.inc:109; src/Commands/AdvaggCommands.php:99
+msgid "All Advagg functionality is enabled."
+msgstr "Die komplette Erweiterte-Aggregations-Funktionalität ist aktiviert."
+
+#: config/schema/advagg.schema.yml:0
+msgid "Convert absolute path css/js src/url() to be protocol relative."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Convert relative paths to absolute."
+msgstr ""
+
+#: src/Form/SettingsForm.php:335
+msgid "Convert relative paths to be absolute paths."
+msgstr ""
+
+#: src/Form/SettingsForm.php:337
+msgid ""
+"If the src to a CSS/JS file points starts with a relative path / "
+"convert to absolute."
+msgstr ""
+
+#: advagg_bundler/advagg_bundler.links.menu.yml:0
+msgid "AdvAgg Bundler settings."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "Whether to run the bundler options."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "Settings for CSS bundling."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "Settings for JavaScript bundling."
+msgstr ""
+
+#: advagg_bundler/config/schema/advagg_bundler.schema.yml:0
+msgid "Maximum target JavaScript aggregates."
+msgstr ""
+
+#: advagg_mod/config/schema/advagg_mod.schema.yml:0
+msgid "Whether to also defer loading of external stylesheets."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:206
+msgid ""
+"This will optimize CSS delivery with JavaScript when viewing the admin "
+"theme."
+msgstr ""
+
+#: advagg_mod/src/Form/SettingsForm.php:215
+msgid "Use JS to load external CSS"
+msgstr "Javascript zum Laden von CSS verwenden"
+
+#: advagg_mod/src/Form/SettingsForm.php:217
+msgid ""
+"This will optimize CSS delivery with JavaScript for external "
+"stylesheets."
+msgstr ""
+
+#: advagg_bundler/advagg_bundler.info.yml:0
+msgid "Customize the number of aggregates to be created."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.install:24
+msgid "PHP shell_exec is non-functional."
+msgstr ""
+
+#: advagg_ext_minify/advagg_ext_minify.install:25
+msgid ""
+"Check php.ini for safemode or <a href=\"@link\" "
+"target=\"_blank\">disable_functions</a>."
+msgstr ""
+
+#: config/schema/advagg.schema.yml:0
+msgid "Do not change external to file if on same host for css."
+msgstr ""
+
+#: src/Form/SettingsForm.php:249
+msgid ""
+"If a CSS file is set as external and is on the same hosts do not "
+"convert to file."
+msgstr ""
+
+#: advagg_mod/src/Asset/TranslateCss.php:78
+msgid "@before"
+msgstr ""
+
+#: src/Form/OperationsForm.php:71
+msgid "Bypass length"
+msgstr ""
+
+msgid "Advanced CSS/JS Aggregator should be working correctly."
+msgstr "Advanced CSS/JS Aggregator sollte korrekt funktionieren."

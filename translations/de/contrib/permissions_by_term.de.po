@@ -1,0 +1,313 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  permissions_by_term.module: n/a
+#  permissions_by_term.info.yml: n/a
+#  permissions_by_term.links.menu.yml: n/a
+#  permissions_by_term.permissions.yml: n/a
+#  config/schema/permissions_by_term.schema.yml: n/a
+#  src/Form/SettingsForm.php: n/a
+#  modules/permissions_by_entity/permissions_by_entity.info.yml: n/a
+#  src/Entity/Config/Settings.php: n/a
+#  src/Service/AccessStorage.php: n/a
+#  src/View/node-details.html.twig: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2020-01-09 11:17+0100\n"
+"PO-Revision-Date: 2020-01-09 11:27+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: permissions_by_term.module:29
+msgid "About"
+msgstr "Über"
+
+#: permissions_by_term.module:30
+msgid ""
+"The \"Permissions by Term\" (PbT) module allows taxonomy administrators the\n"
+"        ability to restrict setting individual terms on nodes by user\n"
+"        or role. If a user is unable to set any terms for a required\n"
+"        vocabulary, they are blocked from adding or editing content with\n"
+"        that vocabulary. For more information, see the online documentation for <a href=\":PbT-documentation\" target=\"_blan\" title=\"Online Documentation\">Permissions by Term</a>."
+msgstr ""
+"Das „Permissions by Term“-Modul (PbT) gibt Taxonomie-Administratoren die Fähigkeit, dass Setzen einzelner Begriffe bei Beiträgen nach Benutzer oder Rolle einzuschränken. Wenn ein Benutzer keine Begriffe für ein erforderliches Vokabular setzen kann, wird für ihn das Hinzufügen oder Bearbeiten von Inhalten mit diesem Vokabular gesperrt. Weitere Informationen finden Sie in der Online-Dokumentation für <a href=\":PbT-documentation\" target=\"_blan\" title=\"Online Documentation"
+"\">Permissions by Term</a>."
+
+#: permissions_by_term.module:35
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: permissions_by_term.module:37
+msgid "General"
+msgstr "Allgemein"
+
+#: permissions_by_term.module:38
+msgid "Use Permissions by Term to easily build access-restricted content areas on your websites."
+msgstr "Permissions by Term dient dazu, auf Ihren Websites Bereiche mit Zugangsbeschränkungen für Inhalte zu erstellen."
+
+#: permissions_by_term.module:39
+msgid "Lightweight Access Control"
+msgstr "Einfache Zugangskontrolle"
+
+#: permissions_by_term.module:40
+msgid "Permissions by Term restricts user access to specified Drupal nodes based on taxonomy terms - a core part of Drupal’s functionality. PbT lets you restrict content access while relying on very little contributed code."
+msgstr "Permissions by Term schränkt den Zugang der Benutzer zu spezifizierten Drupal-Beiträgen auf der Grundlage von Taxonomiebegriffen ein. Dies ist ein Kernbestandteil der Funktionalitäten von Drupal. Mit PbT können Sie mit sehr wenig zusätzlichem Code den Zugang zu Inhalten einschränken."
+
+#: permissions_by_term.module:41
+msgid "Example use cases"
+msgstr "Anwendungsbeispiele"
+
+#: permissions_by_term.module:42
+msgid "A club or service site with premium- or member-only content."
+msgstr "Ein Club oder eine Service-Site mit Premium- oder nur Mitgliedern vorbehaltenen Inhalten."
+
+#: permissions_by_term.module:43
+msgid "School websites with content intended for teachers only and content aimed at individual classes within the school."
+msgstr "Schul-Websites mit Inhalten nur für Lehrer und Inhalten nur für bestimmte Klassen der Schule."
+
+#: permissions_by_term.module:44
+msgid "Company intranets with sensitive or proprietary content alongside non-restricted content."
+msgstr "Intranets von Unternehmen mit sensiblen oder proprietären Inhalten neben Inhalten ohne Zugangsbeschränkung."
+
+#: permissions_by_term.module:82
+msgid "You are not allowed to use taxonomy terms like: \"@termNames\". Remove the restricted taxonomy terms from the form field and try again."
+msgstr "Sie dürfen keine Taxonomiebegriffe wie „@termNames“ verwenden. Entfernen Sie die unzulässigen Taxonomiebegriffe aus dem Formularfeld und versuchen Sie es erneut."
+
+#: permissions_by_term.module:135
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: permissions_by_term.module:136
+msgid "To limit access to this term by user(s) or role(s), select users or roles below. If left empty, all users will have access to content, related to this taxonomy term and this taxonomy term itself."
+msgstr "Um den Zugriff auf diesen Begriff auf Benutzer oder Rollen zu beschränken, wählen Sie unten Benutzer oder Rollen aus. Wenn Sie das Feld leer lassen, können alle Benutzer auf diesen Begriff und damit verknüpfte Inhalte zugreifen."
+
+#: permissions_by_term.module:162
+msgid "Allowed users"
+msgstr "Zugelassene Benutzer"
+
+#: permissions_by_term.module:163
+msgid "Enter a comma-separated list of user names who will be able to access content, related to this taxonomy term."
+msgstr "Geben Sie eine durch Kommas getrennte Liste von Benutzernamen ein, die auf Inhalte zugreifen können, die sich auf diesen Taxonomiebegriff beziehen."
+
+#: permissions_by_term.module:198
+msgid "Allowed roles"
+msgstr "Zugelassene Rollen"
+
+#: permissions_by_term.module:199
+msgid "Select user roles who will be able to access content, related to this taxonomy term."
+msgstr "Wählen Sie Rollen aus, die auf mit diesem Begriff verknüpfte Inhalte zugreifen können sollen."
+
+#: permissions_by_term.module:220 permissions_by_term.info.yml:0;0 permissions_by_term.links.menu.yml:0
+msgid "Permissions by Term"
+msgstr "Permissions by Term"
+
+#: permissions_by_term.info.yml:0
+msgid "Restricts access to nodes and taxonomy terms via user to term relations."
+msgstr "Schränkt den Zugang auf Beiträge und Taxonomiebegriffe über Beziehungen zwischen Benutzer und Begriff ein."
+
+#: permissions_by_term.links.menu.yml:0
+msgid "Manage settings for the Permissions by Term module."
+msgstr "Einstellungen für das Permissions-by-Term-Modul verwalten."
+
+#: permissions_by_term.permissions.yml:0
+msgid "Term permission form on term page"
+msgstr "Begriffs-Berechtigungsformular auf der Begriffs-Seite"
+
+#: permissions_by_term.permissions.yml:0
+msgid "Enables the specific role to edit the term permissions on the term edit page."
+msgstr "Gibt der jeweiligen Rolle die Möglichkeit, die Begriffsberechtigungen auf der Seite zur Bearbeitung des Begriffs zu editieren."
+
+#: permissions_by_term.permissions.yml:0
+msgid "Term permission information on node edit page"
+msgstr "Informationen zur Begriffsberechtigung auf der Seite zum Editieren des Beitrags"
+
+#: permissions_by_term.permissions.yml:0
+msgid "Enables the specific role to see the term permissions on the node edit page."
+msgstr "Gibt der jeweiligen Rolle die Möglichkeit, die Begriffsberechtigungen auf der Seite zur Bearbeitung des Beitrags einzusehen."
+
+#: permissions_by_term.permissions.yml:0
+msgid "Settings form"
+msgstr "Einstellungsformular"
+
+#: permissions_by_term.permissions.yml:0
+msgid "Enables the specific role to access the settings."
+msgstr "Gibt der jeweiligen Rolle Zugang zu den Einstellungen."
+
+#: config/schema/permissions_by_term.schema.yml:0
+msgid "Permissions by Term settings"
+msgstr "Einstellungen für Permissions by Term"
+
+msgid "Permissions by Term Settings"
+msgstr "Einstellungen für Permissions by Term"
+
+#: config/schema/permissions_by_term.schema.yml:0 src/Form/SettingsForm.php:44
+msgid "Permission mode"
+msgstr "Berechtigungsmodus"
+
+#: config/schema/permissions_by_term.schema.yml:0 src/Form/SettingsForm.php:35
+msgid "Require all terms granted"
+msgstr "Benötigt Freigabe für alle Begriffe"
+
+#: config/schema/permissions_by_term.schema.yml:0 src/Form/SettingsForm.php:53
+msgid "Disable node access records"
+msgstr "Node-Access-Records deaktivieren"
+
+#: modules/permissions_by_entity/permissions_by_entity.info.yml:0
+msgid "Permissions by Entity"
+msgstr "Permissions by Entity"
+
+#: modules/permissions_by_entity/permissions_by_entity.info.yml:0
+msgid "Extends the functionality of Permissions By Term to be able to limit the selection of specific taxonomy terms by users or roles for an entity."
+msgstr "Erweitert die Funktionalität von Permissions by Term, um die Auswahl spezifischer Taxonomiebegriffe durch Benutzer oder Rollen für eine Entität einzuschränken."
+
+#: modules/permissions_by_entity/permissions_by_entity.info.yml:0
+msgid "Permissions by Term (Experimental)"
+msgstr "Permissions by Term (experimentell)"
+
+#: src/Entity/Config/Settings.php:7
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Form/SettingsForm.php:36
+msgid ""
+"By default users are granted access content, as long they have access to a <strong>single</strong>\n"
+"related taxonomy term. If the <strong>require all terms granted</strong> option is checked, they must\n"
+"have access to <strong>all</strong> related taxonomy terms to access an node."
+msgstr ""
+"Standardmäßig dürfen Benutzer auf Inhalte zugreifen, solange sie Zugriff auf einen <strong>einzelnen</strong>\n"
+"verknüpften Taxonomiebegriff haben. Wenn die Option <strong>Benötigt Freigabe für alle Begriffe</strong> aktiviert ist, müssen sie\n"
+"Zugriff auf <strong>alle</strong> zugehörigen Taxonomiebegriffe haben, um auf einen Inhalt zuzugreifen."
+
+#: src/Form/SettingsForm.php:45
+msgid ""
+"This mode makes nodes accessible (view and edit) only, if editors have been explicitly granted the permission to them. Users won't have access to nodes matching any of the following conditions:\n"
+"<br />- nodes without any terms\n"
+"<br />- nodes without any terms which grant them permission"
+msgstr ""
+"Dieser Modus beschränkt den Zugriff auf Inhalte (Ansicht und Bearbeiten) auf Redakteure, die ausdrücklich die Berechtigung hierzu erhalten haben. Benutzer haben keinen Zugriff auf Inhalte, die eine der folgenden Bedingungen erfüllen:\n"
+"<br />- Inhalte ohne Taxonomiebegriffe\n"
+"<br />- Inhalte ohne Taxonomiebegriffe, die den Zugriff gestatten"
+
+#: src/Form/SettingsForm.php:54
+msgid ""
+"By disabling node access records, PbT won't hide nodes in:\n"
+"<br />- listings made by the Views module (e.g. search result pages)\n"
+"<br />- menus<br />\n"
+"This setting can be useful, if you just want to restrict nodes on node view and \n"
+"node edit. Like hiding unpublished nodes from editors during a content \n"
+"moderation workflow. Disabling node access records will save you some time on \n"
+"node save and taxonomy save, since the node access records must not be rebuild."
+msgstr ""
+"Durch das Deaktivieren der Node Access Records wird PbT Inhalte an folgenden Stellen nicht ausblenden:\n"
+"<br />- durch das Ansichten-Modul erzeugte Listen (z.B. Suchergebnisseiten)\n"
+"<br />- Menüs<br />\n"
+"Diese Einstellung kann hilfreich sein, wenn Sie nur den Zugriff auf die Ansicht und das Bearbeiten von Inhalten beschränken wollen. \n"
+"Etwa um unveröffentlichte Inhalte in einem Redaktionsworkflow vor Redakteuren zu verbergen. Das Deaktivieren der Node Access Records wird\n"
+"etwas Zeit sparen beim Speichern von Inhalten oder Taxonomien, da die Node Access Records nicht neu aufgebaut werden müssen."
+
+#: src/Service/AccessStorage.php:114
+msgid "The user with ID %user_id does not exist."
+msgstr "Der Benutzer mit ID %user_id existiert nicht."
+
+#: src/Service/AccessStorage.php:539
+msgid "Anonymous User"
+msgstr "Gast"
+
+#: src/View/node-details.html.twig:1
+msgid "This widget shows information about taxonomy term related permissions. It's being updated, as soon you make any related changes in the form."
+msgstr "Dieses Steuerelement zeigt Informationen zu Berechtigungen im Zusammenhang mit Taxonomiebegriffen. Sie werden aktualisiert, sobald sie entsprechende Änderungen im Formular vornehmen."
+
+#: src/View/node-details.html.twig:3
+msgid "Allowed users:"
+msgstr "Zugelassene Benutzer:"
+
+#: src/View/node-details.html.twig:9
+msgid "No user restrictions."
+msgstr "Keine Benutzer-Beschränkungen."
+
+#: src/View/node-details.html.twig:12
+msgid "Allowed roles:"
+msgstr "Zugelassene Rollen:"
+
+#: src/View/node-details.html.twig:18
+msgid "No role restrictions."
+msgstr "Keine Rollen-Beschränkungen."
+
+msgid "Extend content access by giving access to the related taxonomy terms."
+msgstr "Erweitern Sie den Zugriff auf Inhalte, indem Sie Zugang zu den entsprechenden Taxonomiebegriffen gewähren."
+
+#: permissions_by_term.module:252
+msgid "Choose a list of taxonomy terms. The access to the content, related to chosen taxonomy terms will be granted to this user."
+msgstr "Wählen Sie eine Liste von Taxonomiebegriffen. Der Zugriff auf den Inhalt, bezogen auf die gewählten Taxonomiebegriffe, wird diesem Benutzer gewährt."
+
+msgid "Whether to limit permissions management and search by selected taxonomy vocabularies. If left empty, all taxonomy vocabularies are allowed."
+msgstr "Ob die Verwaltung von Berechtigungen und die Suche nach ausgewählten Taxonomievokabularen eingeschränkt werden soll. Wenn leer gelassen, sind alle Taxonomie-Vokabulare erlaubt."
+
+#: src/Form/SettingsForm.php:54
+msgid ""
+"By disabling node access records, nodes won't be hidden in:\n"
+"<br />- listings made by the Views module (e.g. search result pages)\n"
+"<br />- menus\n"
+"<br />- other Drupal core systems, which are based on <a href=\"https://www.drupal.org/docs/8/"
+"modules/permissions-by-term#s-node-access-records\" target=\"_blank\" title=\"Node Access records "
+"documentation\">Node Access records</a><br />\n"
+"This setting can be useful, if you just want to restrict nodes on node view and\n"
+"node edit. Like hiding unpublished nodes from editors during a content\n"
+"moderation workflow. Disabling node access records will save you some time on\n"
+"node save and taxonomy save, since the node access records must not be rebuild. Also it will provide "
+"major performance\n"
+"benefit on large, non-cached content listings like the \"/admin/content\" page. If you want to "
+"restrict nodes on your\n"
+"overall website and you are using a warmed page cache, then it is recommended to leave this setting "
+"disabled."
+msgstr ""
+"Durch die Deaktivierung von Node-Access-Records, werden Inhalte nicht versteckt:\n"
+"<br />- Auflistungen, die vom Views-Modul erstellt werden (z.B. Suchergebnisseiten)\n"
+"<br />- Menüs\n"
+"<br />- andere Drupal-Kernsysteme, die auf <a href=\"https://www.drupal.org/docs/8/modules/"
+"permissions-by-term#s-node-access-records\" target=\"_blank\" title=\"Node Access records "
+"documentation\">Node-Access-Records</a><br /> basieren\n"
+"Diese Einstellung kann nützlich sein, wenn Sie nur Nodes in der Inhaltsansicht einschränken möchten "
+"und\n"
+"Inhaltsbearbeitung. Wie das Ausblenden unveröffentlichter Inhalten vor Editoren während eines "
+"Inhalts-Moderations-Ablauf.\n"
+"Die Deaktivierung der Node-Access-Records spart Ihnen einige Zeit beim Speichern\n"
+"von Inhalten und Taxonomien, da die Node-Access-Records nicht neu aufgebaut werden müssen. Außerdem "
+"wird es eine bessere Performance profitiert\n"
+"auf großen, nicht zwischengespeicherten Inhaltsverzeichnissen wie der Seite \"/admin/content\". Wenn "
+"Sie Inhalte auf Ihrer\n"
+"gesamten Website beschränken möchten und Sie verwenden einen aufgewärmten Seitencache, dann wird "
+"empfohlen, diese Einstellung deaktiviert zu lassen."
+
+
+#: permissions_by_term.install:82
+msgid "Permissions by Term: dynamic page cache is not installed."
+msgstr "Permissions by Term: „Internal Dynamic Page Cache“ ist nicht installiert."
+
+#: permissions_by_term.install:83
+msgid ""
+"The \"Internal Dynamic Page Cache\" module must be installed. Otherwise there cannot be run any "
+"permission check for your views pages. Ensure having the dynamic page cache module and page cache "
+"module installed."
+msgstr ""
+"Das „Internal Dynamic Page Cache“-Modul muss installiert sein. Andernfalls kann keine "
+"Berechtigungsprüfung für Ihre Ansichtsseiten durchgeführt werden. Stellen Sie sicher, dass das "
+"„Internal Dynamic Page Cache“-Modul und das „Internal Page Cache“-Modul installiert sind."
+
+#: permissions_by_term.install:84
+msgid "No dynamic page cache"
+msgstr "Kein dynamischer Seitencache"
+
+#: permissions_by_term.install:91
+msgid "Permissions by Term: page cache module is not installed."
+msgstr "Permissions by Term: „Internal Page Cache“ ist nicht installiert."

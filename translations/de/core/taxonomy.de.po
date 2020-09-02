@@ -1,0 +1,1242 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  taxonomy.post_update.php: n/a
+#  taxonomy.tokens.inc: n/a
+#  src/Entity/Term.php: n/a
+#  src/Plugin/views/wizard/TaxonomyTerm.php: n/a
+#  config/schema/taxonomy.views.schema.yml: n/a
+#  src/Plugin/views/argument_default/Tid.php: n/a
+#  src/Plugin/views/field/TaxonomyIndexTid.php: n/a
+#  src/Plugin/views/relationship/NodeTermData.php: n/a
+#  src/TermViewsData.php: n/a
+#  config/schema/taxonomy.schema.yml: n/a
+#  src/VocabularyForm.php: n/a
+#  src/Form/OverviewTerms.php: n/a
+#  src/VocabularyListBuilder.php: n/a
+#  src/Plugin/views/filter/TaxonomyIndexTid.php: n/a
+#  taxonomy.views.inc: n/a
+#  taxonomy.module: n/a
+#  taxonomy.install: n/a
+#  taxonomy.info.yml: n/a
+#  taxonomy.links.menu.yml: n/a
+#  src/Entity/Vocabulary.php: n/a
+#  taxonomy.links.action.yml: n/a
+#  taxonomy.routing.yml: n/a
+#  taxonomy.links.contextual.yml: n/a
+#  taxonomy.links.task.yml: n/a
+#  src/TermForm.php: n/a
+#  taxonomy.permissions.yml: n/a
+#  config/optional/views.view.taxonomy_term.yml: n/a
+#  src/Plugin/migrate/source/Term.php: n/a
+#  src/Plugin/migrate/source/d6/Term.php: n/a
+#  src/Plugin/migrate/source/d7/Term.php: n/a
+#  src/Plugin/views/argument/IndexTidDepth.php: n/a
+#  src/Plugin/views/filter/TaxonomyIndexTidDepth.php: n/a
+#  src/Plugin/views/argument_validator/TermName.php: n/a
+#  src/Plugin/views/field/TermName.php: n/a
+#  src/TaxonomyPermissions.php: n/a
+#  src/TermBreadcrumbBuilder.php: n/a
+#  src/Plugin/migrate/source/d6/TermNode.php: n/a
+#  src/Form/VocabularyResetForm.php: n/a
+#  src/Form/TermDeleteForm.php: n/a
+#  src/Form/VocabularyDeleteForm.php: n/a
+#  src/Plugin/EntityReferenceSelection/TermSelection.php: n/a
+#  src/Plugin/Field/FieldFormatter/EntityReferenceTaxonomyTermRssFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/TaxonomyTermHierarchyConstraint.php: n/a
+#  src/Plugin/migrate/D7TaxonomyTermDeriver.php: n/a
+#  src/Plugin/migrate/source/d7/TermEntityTranslation.php: n/a
+#  src/Plugin/migrate/source/d6/Vocabulary.php: n/a
+#  src/Plugin/migrate/source/d6/TermLocalizedTranslation.php: n/a
+#  src/Plugin/migrate/source/d6/VocabularyTranslation.php: n/a
+#  src/Plugin/migrate/source/d7/Vocabulary.php: n/a
+#  src/Plugin/views/argument/Taxonomy.php: n/a
+#  src/Plugin/views/argument/VocabularyVid.php: n/a
+#  config/install/core.entity_view_mode.taxonomy_term.full.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: taxonomy.post_update.php:233
+msgid "Taxonomy terms have been converted to be revisionable."
+msgstr "Taxonomiebegriffe wurden zu revisionierbar umgestellt."
+
+#: taxonomy.post_update.php:182
+msgid "Revision ID"
+msgstr "Revisions-ID"
+
+#: taxonomy.post_update.php:190
+msgid "Default revision"
+msgstr "Standard-Revision"
+
+#: taxonomy.post_update.php:191
+msgid "A flag indicating whether this was a default revision when it was saved."
+msgstr "Eine Kennzeichnung, die angibt, ob dies die Standardrevision zum Zeitpunkt des Speicherns war oder nicht."
+
+#: taxonomy.post_update.php:201
+msgid "Revision translation affected"
+msgstr "Auswirkung auf die Übersetzung der Revision"
+
+#: taxonomy.post_update.php:202
+msgid "Indicates if the last edit of a translation belongs to current revision."
+msgstr "Zeigt an, ob die letzte Bearbeitung einer Übersetzung der aktuellen Revision entspricht."
+
+#: taxonomy.post_update.php:211
+msgid "Revision create time"
+msgstr "Erstellungsdatum der Revision"
+
+#: taxonomy.post_update.php:212
+msgid "The time that the current revision was created."
+msgstr "Der Zeitpunkt, an dem die aktuelle Revision erstellt wurde."
+
+#: taxonomy.post_update.php:218
+msgid "Revision user"
+msgstr "Revisionsbenutzer"
+
+#: taxonomy.post_update.php:219
+msgid "The user ID of the author of the current revision."
+msgstr "Die Benutzerkennung des Autors der aktuellen Revision."
+
+#: taxonomy.post_update.php:226
+msgid "Revision log message"
+msgstr "Protokollnachricht der Revision"
+
+#: taxonomy.post_update.php:227
+msgid "Briefly describe the changes you have made."
+msgstr "Die vorgenommenen Änderungen kurz beschreiben."
+
+#: taxonomy.tokens.inc:16 src/Entity/Term.php:12 src/Plugin/views/wizard/TaxonomyTerm.php:7
+msgid "Taxonomy terms"
+msgstr "Taxonomiebegriffe"
+
+#: taxonomy.tokens.inc:17
+msgid "Tokens related to taxonomy terms."
+msgstr "Token mit Bezug auf Taxonomiebegriffe."
+
+#: taxonomy.tokens.inc:21 config/schema/taxonomy.views.schema.yml:0;0;0;0 src/Plugin/views/argument_default/Tid.php:142 src/Plugin/views/field/TaxonomyIndexTid.php:106 src/Plugin/views/relationship/NodeTermData.php:91
+msgid "Vocabularies"
+msgstr "Vokabulare"
+
+#: taxonomy.tokens.inc:22
+msgid "Tokens related to taxonomy vocabularies."
+msgstr "Token mit Bezug auf Taxonomie-Vokabulare."
+
+#: taxonomy.tokens.inc:28 src/TermViewsData.php:43 src/Entity/Term.php:133
+msgid "Term ID"
+msgstr "Begriff-ID"
+
+#: taxonomy.tokens.inc:29
+msgid "The unique ID of the taxonomy term."
+msgstr "Die eindeutige ID des Taxonomiebegriffs"
+
+#: taxonomy.tokens.inc:32;54 config/schema/taxonomy.schema.yml:0 src/VocabularyForm.php:59 src/Entity/Term.php:144 src/Form/OverviewTerms.php:328
+msgid "Name"
+msgstr "Name"
+
+#: taxonomy.tokens.inc:33
+msgid "The name of the taxonomy term."
+msgstr "Der Name des Taxonomiebegriffs."
+
+#: taxonomy.tokens.inc:36;58 config/schema/taxonomy.schema.yml:0 src/VocabularyForm.php:75 src/VocabularyListBuilder.php:140 src/Entity/Term.php:161
+msgid "Description"
+msgstr "Description"
+
+#: taxonomy.tokens.inc:37
+msgid "The optional description of the taxonomy term."
+msgstr "Die optionale Beschreibung des Taxonomiebegriffs."
+
+#: taxonomy.tokens.inc:40;62
+msgid "Node count"
+msgstr "Anzahl der Beiträge"
+
+#: taxonomy.tokens.inc:41
+msgid "The number of nodes tagged with the taxonomy term."
+msgstr "Die Anzahl der Beiträge, die mit dem Taxonomiebegriff getaggt wurden."
+
+#: taxonomy.tokens.inc:44
+msgid "URL"
+msgstr "URL"
+
+#: taxonomy.tokens.inc:45
+msgid "The URL of the taxonomy term."
+msgstr "Die URL des Taxonomiebegriffs"
+
+#: taxonomy.tokens.inc:50
+msgid "Vocabulary ID"
+msgstr "Vokabular-ID"
+
+#: taxonomy.tokens.inc:51
+msgid "The unique ID of the taxonomy vocabulary."
+msgstr "Die eindeutige ID des Taxonomie-Vokabulars."
+
+#: taxonomy.tokens.inc:55
+msgid "The name of the taxonomy vocabulary."
+msgstr "Der Name des Taxonomie-Vokabulars"
+
+#: taxonomy.tokens.inc:59
+msgid "The optional description of the taxonomy vocabulary."
+msgstr "Die optionale Beschreibung des Taxonomie-Vokabulars."
+
+#: taxonomy.tokens.inc:63
+msgid "The number of nodes tagged with terms belonging to the taxonomy vocabulary."
+msgstr "Die Anzahl der Beiträge die mit Begriffen aus diesem Vokabular getaggt wurden."
+
+#: taxonomy.tokens.inc:66
+msgid "Term count"
+msgstr "Anzahl der Begriffe"
+
+#: taxonomy.tokens.inc:67
+msgid "The number of terms belonging to the taxonomy vocabulary."
+msgstr "Die Anzahl der Begriffe, die zum Taxonomie-Vokabular gehören"
+
+#: taxonomy.tokens.inc:72 config/schema/taxonomy.schema.yml:0 config/schema/taxonomy.views.schema.yml:0;0;0;0;0;0 src/Entity/Term.php:138;12 src/Plugin/views/filter/TaxonomyIndexTid.php:125
+msgid "Vocabulary"
+msgstr "Vokabular"
+
+#: taxonomy.tokens.inc:73
+msgid "The vocabulary the taxonomy term belongs to."
+msgstr "Das Vokabular, zu dem dieser Taxonomiebegriff gehört."
+
+#: taxonomy.tokens.inc:77
+msgid "Parent term"
+msgstr "Übergeordneter Begriff"
+
+#: taxonomy.tokens.inc:78
+msgid "The parent term of the taxonomy term, if one exists."
+msgstr "Der übergeordnete Begriff des Taxonomiebegriffs, wenn es einen gibt."
+
+#: taxonomy.views.inc:15
+msgid "Taxonomy terms on node"
+msgstr "Taxonomie-Begriffe des Beitrags"
+
+#: taxonomy.views.inc:16
+msgid "Relate nodes to taxonomy terms, specifying which vocabulary or vocabularies to use. This relationship will cause duplicated records if there are multiple terms."
+msgstr "Mit Taxonomiebegriffen verwandte Inhalte legen fest, welches Vokabular bzw. welche Vokabulare verwendet werden. Diese Beziehung erzeugt Duplikate, wenn mehrere Begriffe vorhanden sind."
+
+#: taxonomy.views.inc:19
+msgid "term"
+msgstr "Begriff"
+
+#: taxonomy.views.inc:23
+msgid "All taxonomy terms"
+msgstr "Alle Taxononmiebegriffe"
+
+#: taxonomy.views.inc:24
+msgid "Display all taxonomy terms associated with a node from specified vocabularies."
+msgstr "Alle einem Beitrag zugeordneten Taxonomiebegriffe eines angegebenes Vokabulars anzeigen."
+
+#: taxonomy.views.inc:32
+msgid "Display content if it has the selected taxonomy terms, or children of the selected terms. Due to additional complexity, this has fewer options than the versions without depth."
+msgstr "Inhalt anzeigen, wenn ihm die gewählten Taxonomiebegriffe oder Unterbegriffe von diesen zugeordnet wurden. Wegen der erhöhten Komplexität gibt es hier weniger Einstellmöglichkeiten als bei Versionen ohne ‚Tiefe‛."
+
+#: taxonomy.views.inc:35
+msgid "Has taxonomy term ID (with depth)"
+msgstr "Hat eine Taxonomie-Begriff-ID (mit Hierarchie)"
+
+#: taxonomy.views.inc:40
+msgid "Has taxonomy terms (with depth)"
+msgstr "Hat Taxonomie-Begriffe (mit Hierarchie)"
+
+#: taxonomy.views.inc:46
+msgid "Has taxonomy term ID depth modifier"
+msgstr "Besitzt eine Positionsangabe in der Hierarchie des Taxonomiebegriffs"
+
+#: taxonomy.views.inc:47
+msgid "Allows the \"depth\" for Taxonomy: Term ID (with depth) to be modified via an additional contextual filter value."
+msgstr "Ermöglicht die Änderung von \"depth\" (Tiefe) für die Taxonomiebegriffs-ID (mit Tiefe) über einen zusätzlichen Kontextfilterwert."
+
+#: taxonomy.views.inc:82 config/schema/taxonomy.views.schema.yml:0;0;0
+msgid "Taxonomy term ID"
+msgstr "Taxonomiebegriffs-ID"
+
+#: taxonomy.module:57
+msgid "About"
+msgstr "Über"
+
+#: taxonomy.module:58
+msgid "The Taxonomy module allows users who have permission to create and edit content to categorize (tag) content of that type. Users who have the <em>Administer vocabularies and terms</em> <a href=\":permissions\" title=\"Taxonomy module permissions\">permission</a> can add <em>vocabularies</em> that contain a set of related <em>terms</em>. The terms in a vocabulary can either be pre-set by an administrator or built gradually as content is added and edited. Terms may be organized hierarchically if desired."
+msgstr "Das Taxonomy-Modul erlaubt es Benutzern mit der Berechtigung Inhalte zu erstellen diese mit Hilfe von Schlagwörtern (Tags) zu kategorisieren. Benutzer mit der <a href=\":permissions\" title=\"Berechtigungen des Taxonomy-Moduls\">Berechtigung</a>\r\n <em>Vokabulare und Begriffe verwalten</em> können <em>Vokabulare </em> hinzufügen, die eine Sammlung verwandter <em>Begriffe</em> enthalten. Die Begriffe in einem Vokabular können entweder von einem Administrator vorgegeben werden oder nach und nach beim Erstellen und Bearbeiten von Inhalten hinzugefügt werden. Begriffe können in Hierarchien organisiert werden, wenn dies gewünscht ist."
+
+#: taxonomy.module:59
+msgid "For more information, see the <a href=\":taxonomy\">online documentation for the Taxonomy module</a>."
+msgstr "Weitere Informationen sind in der <a href=\":taxonomy\">Online-Dokumentation des Taxonomie-Moduls</a> verfügbar."
+
+#: taxonomy.module:60
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: taxonomy.module:62
+msgid "Managing vocabularies"
+msgstr "Vokabulare verwalten"
+
+#: taxonomy.module:63
+msgid "Users who have the <em>Administer vocabularies and terms</em> permission can add and edit vocabularies from the <a href=\":taxonomy_admin\">Taxonomy administration page</a>. Vocabularies can be deleted from their <em>Edit vocabulary</em> page. Users with the <em>Taxonomy term: Administer fields</em> permission may add additional fields for terms in that vocabulary using the <a href=\":field_ui\">Field UI module</a>."
+msgstr "Benutzer, die über die Berechtigung <em> Vokabulare und Vokabularbegriffe verwalten </em> verfügen, können über die Seite <a href=\":taxonomy_admin\">Taxonomie</a>. Vokabulare hinzufügen und bearbeiten. Vokabulare können über die Seite <em>Vokabular bearbeiten</em> gelöscht werden. Benutzer mit der Berechtigung <em>Taxonomiebegriff:Felder Verwalten</em> können mit Hilfe des <a href=\":field_ui\">Field-UI-Moduls</a> weitere Felder zu Begriffen in einem Vokabular hinzufügen, für das sie eine Berechtigung besitzen."
+
+#: taxonomy.module:64
+msgid "Managing terms"
+msgstr "Begriffe verwalten"
+
+#: taxonomy.module:65
+msgid "Users who have the <em>Administer vocabularies and terms</em> permission or the <em>Edit terms</em> permission for a particular vocabulary can add, edit, and organize the terms in a vocabulary from a vocabulary's term listing page, which can be accessed by going to the <a href=\":taxonomy_admin\">Taxonomy administration page</a> and clicking <em>List terms</em> in the <em>Operations</em> column. Users must have the <em>Administer vocabularies and terms</em> permission or the <em>Delete terms</em> permission for a particular vocabulary to delete terms."
+msgstr "Benutzer die die Berechtigung <em>Vokabulare und Begriffe verwalten</em> oder die Berechtigung <em>Begriffe Bearbeiten</em> für ein bestimmtes Vokabular besitzen, können Begriffe zu einem Vokabular hinzufügen sowie diese auf der Seite auf der die Begriffe aufgelistet werden bearbeiten und organisieren. Die Begriffsliste kann über die Seite <a href=\":taxonomy_admin\">Taxonomie</a> über einen Klick auf <em>Begriffe auflisten</em> in der Spalte <em>Aktionen</em> aufgelistet werden. Benutzer müssen über die Berechtigung <em> Vokabulare und Begriffe verwalten </em> oder die Berechtig <em>Begriffe löschen</em> für ein bestimmtes Vokabular besitzen um Begriffe löschen zu können."
+
+#: taxonomy.module:66
+msgid "Classifying entity content"
+msgstr "Klassifiziert Entitätsinhalte"
+
+#: taxonomy.module:67
+msgid "A user with the <em>Administer fields</em> permission for a certain entity type may add <em>Taxonomy term</em> reference fields to the entity type, which will allow entities to be classified using taxonomy terms. See the <a href=\":entity_reference\">Entity Reference help</a> for more information about reference fields. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for general information on fields and how to create and manage them."
+msgstr "Ein Benutzer mit der Berechtigung <em>Felder verwalten</em> für einen bestimmten Entitätentyp kann <em>Taxonomiebegriffe</em> bzw. Referenzfelder zu diesem Entitätstyp hinzufügen. Dadurch ist es möglich Entitäten unter der Verwendung von Taxonomiebegriffen zu klassifizieren. Weitere Informationen sind in der <a href=\":entity_reference\">Entitätsreferenzhilfe</a> verfügbar.  Weitere Informationen über Referenzfelder sind in der der   <a href=\":field\">Field-Module-Hilfe</a> verfügbar. In der  <a href=\":field_ui\">Field-UI-Hilfe</a> können generelle Informationen über das Erstellen und Verwalten von Feldern nachgelesen werden."
+
+#: taxonomy.module:68
+msgid "Adding new terms during content creation"
+msgstr "Neue Begriffe hinzufügen während neue Inhalte angelegt werden."
+
+#: taxonomy.module:69
+msgid "Allowing users to add new terms gradually builds a vocabulary as content is added and edited. Users can add new terms if either of the two <em>Autocomplete</em> widgets is chosen for the Taxonomy term reference field in the <em>Manage form display</em> page for the field. You will also need to enable the <em>Create referenced entities if they don't already exist</em> option, and restrict the field to one vocabulary."
+msgstr "Das Hinzufügen von Begriffen durch Benutzer ermöglicht den langfristigen Aufbau eines Vokabulars, das nach und nach anwächst, je mehr Inhalte hinzugefügt und bearbeitet werden. Benutzer können eine der beiden <em>Autoverfolständigungsmethoden</em> verwenden, die auf der Seite <em>Formularanzeige verwalten</em> für das Feld ausgewählt werden können. Außerdem müssen <em>Referenzierte Entitäten erstellt werden, falls noch keine vorhanden sind</em> und ein bestimmtes Vokabular für das Feld ausgewählt werden, dass mit den einzugebenden Werten befüllt werden soll."
+
+#: taxonomy.module:70
+msgid "Configuring displays and form displays"
+msgstr "Anzeigen und Formularanzeigen konfigurieren"
+
+#: taxonomy.module:71
+msgid "See the <a href=\":entity_reference\">Entity Reference help</a> page for the field widgets and formatters that can be configured for any reference field on the <em>Manage display</em> and <em>Manage form display</em> pages. Taxonomy additionally provides an <em>RSS category</em> formatter that displays nothing when the entity item is displayed as HTML, but displays an RSS category instead of a list when the entity item is displayed in an RSS feed."
+msgstr "Weitere Informationen, über alle Feldeinstellungen und Anzeigeformate, die auf den Seiten <em>Anzeige verwalten</em> und <em>Formularanzeige verwalten</em>festgelegt werden können, sind in der <a href=\":entity_reference\">Entitätsreferenzhilfe</a> verfügbar. Die Taxonomie stellt zusätzlich eine <em>RSS-Kategorie</em>-Anzeigeformatsteuerelement zur Verfügung, die nichts anzeigt, wenn ein Eintrag als HTML ausgegeben wird stattdessen aber eine RSS-Kategorie statt einer Liste ausgibt, wenn der Eintrag als Teil eines RSS-Feed dargestellt wird."
+
+#: taxonomy.module:78
+msgid "Taxonomy is for categorizing content. Terms are grouped into vocabularies. For example, a vocabulary called \"Fruit\" would contain the terms \"Apple\" and \"Banana\"."
+msgstr "Taxonomien dienen zur Kategorisierung von Inhalten. Begriffe werden in Vokabularen gruppiert. Zum Beispiel enthält das Vokabular \"Früchte\" die Begriffe \"Apfel\" und \"Banane\"."
+
+#: taxonomy.install:97
+msgid "Taxonomy term hierarchy has been converted to default entity reference storage."
+msgstr "Die Hierarchie der Taxonomiebegriffe wurde in Standardentitäten umgewandelt."
+
+#: taxonomy.install:152
+msgid "The publishing status field has <strong>not</strong> been added to taxonomy terms. See <a href=\":link\">this page</a> for more information on how to install it."
+msgstr "Das Feld Veröffentlichungsstatus wurde <strong>nicht</strong> zu Taxonomiebegriffen hinzugefügt. Weitere Informationen zum Hinzufügen des Feldes Veröffentlichungsstatus sind auf <a href=\":link\">dieser Seite</a> verfügbar."
+
+#: taxonomy.install:167
+msgid "Publishing status"
+msgstr "Veröffentlichungsstatus"
+
+#: taxonomy.install:168
+msgid "A boolean indicating the published state."
+msgstr "Ein boolescher Wert, der angibt, ob ein Inhalt veröffentlicht ist oder nicht."
+
+#: taxonomy.install:188
+msgid "The publishing status field has been added to taxonomy terms."
+msgstr "Das Feld Veröffentlichungsstatus wurde zu Taxonomiebegriffen hinzugefügt."
+
+#: taxonomy.info.yml:0 taxonomy.links.menu.yml:0 config/schema/taxonomy.views.schema.yml:0 src/Entity/Vocabulary.php:9
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: taxonomy.info.yml:0
+msgid "Enables the categorization of content."
+msgstr "Ermöglicht die Kategorisierung von Inhalten."
+
+#: taxonomy.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: taxonomy.links.action.yml:0 src/VocabularyForm.php:51
+msgid "Add vocabulary"
+msgstr "Vokabular hinzufügen"
+
+#: taxonomy.links.action.yml:0 taxonomy.routing.yml:0
+msgid "Add term"
+msgstr "Begriff hinzufügen"
+
+#: taxonomy.links.contextual.yml:0;0 taxonomy.links.task.yml:0;0 src/TermForm.php:158 src/VocabularyForm.php:125
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: taxonomy.links.contextual.yml:0;0
+msgid "Delete"
+msgstr "Löschen"
+
+#: taxonomy.links.menu.yml:0
+msgid "Manage tagging, categorization, and classification of your content."
+msgstr "Ermöglicht das Identifizieren, Kategorisieren und Klassifizieren von Inhalten."
+
+#: taxonomy.links.task.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: taxonomy.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: taxonomy.permissions.yml:0
+msgid "Administer vocabularies and terms"
+msgstr "Vokabulare und Begriffe verwalten"
+
+#: taxonomy.permissions.yml:0
+msgid "Access the taxonomy vocabulary overview page"
+msgstr "Auf die Übersicht der Taxonomie-Vokabulare zugreifen."
+
+#: taxonomy.permissions.yml:0
+msgid "Get an overview of all taxonomy vocabularies."
+msgstr "Einen Überblick über alle Taxonomievokabulare erhalten."
+
+#: taxonomy.routing.yml:0
+msgid "Edit term"
+msgstr "Begriff bearbeiten"
+
+#: taxonomy.routing.yml:0
+msgid "Delete term"
+msgstr "Begriff löschen"
+
+#: taxonomy.routing.yml:0 config/schema/taxonomy.views.schema.yml:0;0;0 src/TermViewsData.php:136 src/Entity/Term.php:12 config/optional/views.view.taxonomy_term.yml:0
+msgid "Taxonomy term"
+msgstr "Taxonomie-Begriff"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Taxonomy settings"
+msgstr "Kategorie-Einstellungen"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Maintain index table"
+msgstr "Inhaltestabelle verwalten"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Override selector"
+msgstr "Selektor übersteuern"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Number of terms per page"
+msgstr "Anzahl der Begriffe pro Seite"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config/schema/taxonomy.schema.yml:0 src/TermForm.php:78 src/VocabularyListBuilder.php:143 src/Entity/Term.php:177 src/Form/OverviewTerms.php:330 src/Plugin/migrate/source/Term.php:74 src/Plugin/migrate/source/d6/Term.php:45 src/Plugin/migrate/source/d7/Term.php:48
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/taxonomy.schema.yml:0
+msgid "Taxonomy format settings"
+msgstr "Taxonomieformateinstellungen"
+
+#: config/schema/taxonomy.views.schema.yml:0;0 src/Plugin/views/argument/IndexTidDepth.php:59 src/Plugin/views/filter/TaxonomyIndexTidDepth.php:40
+msgid "Depth"
+msgstr "Tiefe"
+
+#: config/schema/taxonomy.views.schema.yml:0;0;0 src/Plugin/views/argument/IndexTidDepth.php:66
+msgid "Allow multiple values"
+msgstr "Mehrfacheinträge erlauben"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Use taxonomy term path"
+msgstr "Pfad zum Taxonomiebegriff benutzen"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Taxonomy depth modifier"
+msgstr "Taxonomie-Tiefenfilter"
+
+#: config/schema/taxonomy.views.schema.yml:0;0
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/argument_validator/TermName.php:56
+msgid "Transform dashes in URL to spaces in term name filter values"
+msgstr "Bindestriche in Taxonomie-Begriffen in der URL werden für Filter in Leerzeichen umgewandelt"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/argument_default/Tid.php:17
+msgid "Taxonomy term ID from URL"
+msgstr "Taxonomiebegriffs-ID aus der URL"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/argument_default/Tid.php:114
+msgid "Load default filter from term page"
+msgstr "Standardfilter der Begriffsseite laden"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/argument_default/Tid.php:119
+msgid "Load default filter from node page, that's good for related taxonomy blocks"
+msgstr "Standardfilter der Node-Seite laden (gut für verwandte Vokabular-Blöcke)."
+
+#: config/schema/taxonomy.views.schema.yml:0;0 src/Plugin/views/argument_default/Tid.php:125 src/Plugin/views/field/TaxonomyIndexTid.php:94
+msgid "Limit terms by vocabulary"
+msgstr "Begriffe nach Vokabular begrenzen"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/argument_default/Tid.php:155
+msgid "Multiple-value handling"
+msgstr "Umgang mit mehrfachen Werten"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/field/TermName.php:48
+msgid "Convert spaces in term names to hyphens"
+msgstr "Leerzeichen in Begriffen in Bindestriche umwandeln"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Taxonomy language"
+msgstr "Taxonomiesprache"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Display type"
+msgstr "Anzeigetyp"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/field/TaxonomyIndexTid.php:87
+msgid "Link this field to its term page"
+msgstr "Dieses Feld mit seiner Begriffseite verlinken"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/filter/TaxonomyIndexTid.php:135
+msgid "Selection type"
+msgstr "Auswahltyp"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/filter/TaxonomyIndexTid.php:142
+msgid "Show hierarchy in dropdown"
+msgstr "Hierarchie in Auswahlliste anzeigen"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Limit to vocabulary"
+msgstr "Auf Vokabular beschränken"
+
+#: config/schema/taxonomy.views.schema.yml:0 src/Plugin/views/filter/TaxonomyIndexTid.php:355
+msgid "Display error message"
+msgstr "Fehlermeldung anzeigen"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Values"
+msgstr "Werte"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/taxonomy.views.schema.yml:0
+msgid "Taxonomy term ID with depth"
+msgstr "Taxonomie-Begriffs-ID mit Tiefe"
+
+#: src/TaxonomyPermissions.php:72
+msgid "%vocabulary: Create terms"
+msgstr "%vocabulary: Begriff erstellen"
+
+#: src/TaxonomyPermissions.php:73
+msgid "%vocabulary: Delete terms"
+msgstr "%vocabulary: Begriff löschen"
+
+#: src/TaxonomyPermissions.php:74
+msgid "%vocabulary: Edit terms"
+msgstr "%vocabulary: Begriffe bearbeiten"
+
+#: src/TermBreadcrumbBuilder.php:78
+msgid "Home"
+msgstr "Startseite"
+
+#: src/TermForm.php:32
+msgid "Relations"
+msgstr "Beziehungen"
+
+#: src/TermForm.php:56
+msgid "root"
+msgstr "Hauptebene"
+
+#: src/TermForm.php:69
+msgid "Parent terms"
+msgstr "Übergeordnete Begriffe"
+
+#: src/TermForm.php:81
+msgid "Terms are displayed in ascending order by weight."
+msgstr "Begriffe werden in aufsteigender Reihenfolge angezeigt."
+
+#: src/TermForm.php:106
+msgid "Weight value must be numeric."
+msgstr "Der Wert für die Reihenfolge muss numerisch sein."
+
+#: src/TermForm.php:162;163
+msgid "Created new term %term."
+msgstr "Der neue Begriff %term wurde erstellt."
+
+#: src/TermForm.php:166;167
+msgid "Updated term %term."
+msgstr "Der Begriff %term wurde aktualisiert."
+
+#: src/TermViewsData.php:18
+msgid "Taxonomy terms are attached to nodes."
+msgstr "Taxonomiebegriffe werden Beiträgen zugeordnet."
+
+#: src/TermViewsData.php:30;44
+msgid "The tid of a taxonomy term."
+msgstr "Die TID eines Taxonomie-Begriffes."
+
+#: src/TermViewsData.php:37
+msgid "Term"
+msgstr "Begriff"
+
+#: src/TermViewsData.php:38
+msgid "Taxonomy term chosen from autocomplete or select widget."
+msgstr "Taxonomiebegriff, der über ein Autovervollständigungs- oder Auswahl-Steuerelement ausgewählt wurde."
+
+#: src/TermViewsData.php:54;55
+msgid "Representative node"
+msgstr "Repräsentativer Beitrag"
+
+#: src/TermViewsData.php:56
+msgid "Obtains a single representative node for each term, according to a chosen sort criterion."
+msgstr "Ruft für jeden Begriff einen einzelnen Inhalt auf, der nach einem festgelegten Sortierkriterium ausgewählt wird."
+
+#: src/TermViewsData.php:68
+msgid "Filter the results of \"Taxonomy: Term\" to a particular vocabulary."
+msgstr "Die Ergebnisse von „Taxonomie: Begriff“ nach einem bestimmten Vokabular filtern."
+
+#: src/TermViewsData.php:69
+msgid "The vocabulary name."
+msgstr "Der Name des Vokabulars."
+
+#: src/TermViewsData.php:75;177
+msgid "Uncategorized"
+msgstr "Nicht kategorisiert"
+
+#: src/TermViewsData.php:79;83
+msgid "Updated date"
+msgstr "Aktualisierungszeitpunkt"
+
+#: src/TermViewsData.php:80
+msgid "The date the term was last updated."
+msgstr "Das Datum, an dem der Begriff zuletzt aktualisiert wurde."
+
+#: src/TermViewsData.php:84
+msgid "Date in the form of CCYYMMDD."
+msgstr "Datum im Format JJJJMMTT."
+
+#: src/TermViewsData.php:92
+msgid "Updated year + month"
+msgstr "Das Jahr + Monat wurde aktualisiert"
+
+#: src/TermViewsData.php:93
+msgid "Date in the form of YYYYMM."
+msgstr "Datum im Format JJJJMM."
+
+#: src/TermViewsData.php:101
+msgid "Updated year"
+msgstr "Das Jahr wurde aktualisiert"
+
+#: src/TermViewsData.php:102
+msgid "Date in the form of YYYY."
+msgstr "Datum im Format JJJJ."
+
+#: src/TermViewsData.php:110
+msgid "Updated month"
+msgstr "Der Monat wurde aktualisiert"
+
+#: src/TermViewsData.php:111
+msgid "Date in the form of MM (01 - 12)."
+msgstr "Datum im Format MM (01 - 12)."
+
+#: src/TermViewsData.php:119
+msgid "Updated day"
+msgstr "Der Tag wurde aktualisiert"
+
+#: src/TermViewsData.php:120
+msgid "Date in the form of DD (01 - 31)."
+msgstr "Datum im Format TT (01 - 31)."
+
+#: src/TermViewsData.php:128
+msgid "Updated week"
+msgstr "Die Woche wurde aktualisiert"
+
+#: src/TermViewsData.php:129
+msgid "Date in the form of WW (01 - 53)."
+msgstr "Datum im Format WW (01 - 53)."
+
+#: src/TermViewsData.php:156
+msgid "Content with term"
+msgstr "Inhalt mit Begriff"
+
+#: src/TermViewsData.php:157
+msgid "Relate all content tagged with a term."
+msgstr "Alle Inhalte zuordnen, die einen Taxonomie-Begriff enthalten."
+
+#: src/TermViewsData.php:162
+msgid "node"
+msgstr "Beitrag"
+
+#: src/TermViewsData.php:170
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/TermViewsData.php:171
+msgid "Has taxonomy term ID"
+msgstr "Besitzt eine Taxonomiebegriff-ID."
+
+#: src/TermViewsData.php:172
+msgid "Display content if it has the selected taxonomy terms."
+msgstr "Inhalt anzeigen, wenn ihm die gewählten Taxonomiebegriffe zugeordnet wurden."
+
+#: src/TermViewsData.php:182
+msgid "Has taxonomy term"
+msgstr "Hat einen Taxonomiebegriff"
+
+#: src/TermViewsData.php:192
+msgid "Publish status"
+msgstr "Veröffentlichungsstatus"
+
+#: src/TermViewsData.php:193
+msgid "Whether or not the content related to a term is published."
+msgstr "Ob der Inhalt, der zu diesem Begriff gehört veröffentlicht ist oder nicht."
+
+#: src/TermViewsData.php:196
+msgid "Published status"
+msgstr "Status veröffentlicht"
+
+#: src/TermViewsData.php:202;206
+msgid "Sticky status"
+msgstr "Inhalt, der den Status hervorgehoben besitzt"
+
+#: src/TermViewsData.php:203
+msgid "Whether or not the content related to a term is sticky."
+msgstr "Ob der Inhalt, der zu diesem Begriff gehört hervorgehoben wurde oder nicht."
+
+#: src/TermViewsData.php:211
+msgid "Whether or not the content related to a term is sticky. To list sticky content first, set this to descending."
+msgstr "Legt fest, ob der Inhalt, der mit dem Begriff in Verbindung steht als „Hervorgehoben\" ausgezeichnet wird oder nicht. Um hervorgehobene Inhalte am oberen Rand von Liste darzustellen, wählen Sie hier absteigend."
+
+#: src/TermViewsData.php:216
+msgid "Post date"
+msgstr "Beitragsdatum"
+
+#: src/TermViewsData.php:217
+msgid "The date the content related to a term was posted."
+msgstr "Das Datum, an dem der einem Begriff zugeordnete Inhalt gespeichert wurde."
+
+#: src/TermViewsData.php:232
+msgid "The parent term of the term. This can produce duplicate entries if you are using a vocabulary that allows multiple parents."
+msgstr "Der übergeordnete Begriff des aktuellen Begriffes. Dies kann zu Duplikaten führen, wenn der verwendete Vokabular mehrere übergeordnete Begriffe zulässt."
+
+#: src/TermViewsData.php:233
+msgid "Parent"
+msgstr "Übergeordnet"
+
+#: src/VocabularyForm.php:54 src/VocabularyListBuilder.php:110
+msgid "Edit vocabulary"
+msgstr "Vokabular bearbeiten"
+
+#: src/VocabularyForm.php:85
+msgid "Vocabulary language"
+msgstr "Sprache des Vokabulars"
+
+#: src/VocabularyForm.php:92
+msgid "Term language"
+msgstr "Begriffssprache"
+
+#: src/VocabularyForm.php:128;129
+msgid "Created new vocabulary %name."
+msgstr "Das neue Vokabular %name wurde erstellt."
+
+#: src/VocabularyForm.php:134;135
+msgid "Updated vocabulary %name."
+msgstr "Das Vokabular %name wurde aktualisiert."
+
+#: src/VocabularyListBuilder.php:115
+msgid "List terms"
+msgstr "Begriffe auflisten"
+
+#: src/VocabularyListBuilder.php:124
+msgid "Add terms"
+msgstr "Begriffe hinzufügen"
+
+#: src/VocabularyListBuilder.php:139
+msgid "Vocabulary name"
+msgstr "Vokabularname"
+
+#: src/VocabularyListBuilder.php:179
+msgid "No vocabularies available. <a href=\":link\">Add vocabulary</a>."
+msgstr "Keine Vokabulare vorhanden. <a href=\":link\">Vokabular hinzufügen</a>."
+
+#: src/VocabularyListBuilder.php:184
+msgid "No vocabularies available."
+msgstr "Keine Vokabulare vorhanden."
+
+#: src/VocabularyListBuilder.php:197 src/Form/OverviewTerms.php:479
+msgid "Save"
+msgstr "Speichern"
+
+#: src/VocabularyListBuilder.php:208 src/Form/OverviewTerms.php:589
+msgid "The configuration options have been saved."
+msgstr "Die Konfigurationsoptionen wurden gespeichert."
+
+#: src/Entity/Term.php:134 src/Plugin/migrate/source/Term.php:70 src/Plugin/migrate/source/d6/Term.php:41 src/Plugin/migrate/source/d6/TermNode.php:44 src/Plugin/migrate/source/d7/Term.php:43
+msgid "The term ID."
+msgstr "Die Begriffs-ID."
+
+#: src/Entity/Term.php:136
+msgid "The term UUID."
+msgstr "Die Begriffs-UUID."
+
+#: src/Entity/Term.php:139
+msgid "The vocabulary to which the term is assigned."
+msgstr "Dem Begriff zugeordnetes Vokabular."
+
+#: src/Entity/Term.php:141
+msgid "The term language code."
+msgstr "Das Sprachkürzel des Begriffs."
+
+#: src/Entity/Term.php:178
+msgid "The weight of this term in relation to other terms."
+msgstr "Die Reihenfolge dieses Begriffs in Relation zu anderen Begriffen."
+
+#: src/Entity/Term.php:182
+msgid "Term Parents"
+msgstr "Übergeordnete Begriffe"
+
+#: src/Entity/Term.php:183
+msgid "The parents of this term."
+msgstr "Die übergeordneten Bergriffe dieses Begriffs."
+
+#: src/Entity/Term.php:188
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/Term.php:189
+msgid "The time that the term was last edited."
+msgstr "Der Zeitpunkt an dem der Begriff zuletzt bearbeitet wurde."
+
+#: src/Entity/Term.php:12
+msgid "taxonomy term"
+msgstr "Taxonomie-Begriff"
+
+#: src/Entity/Term.php:12
+msgid "taxonomy terms"
+msgstr "Taxonomie-Begriffe"
+
+#: src/Entity/Vocabulary.php:9
+msgid "Taxonomy vocabulary"
+msgstr "Taxonomie-Vokabular"
+
+#: src/Entity/Vocabulary.php:9
+msgid "vocabulary"
+msgstr "Vokabular"
+
+#: src/Entity/Vocabulary.php:9
+msgid "vocabularies"
+msgstr "Vokabulare"
+
+#: src/Form/OverviewTerms.php:262
+msgid "You can reorganize the terms in %capital_name using their drag-and-drop handles, and group terms under a parent term by sliding them under and to the right of the parent."
+msgstr "Die Begriffe in %capital_name können mit Hilfe der Drag-and-Drop-Anfasser sortiert werden. Begriffe können auch übergeordneten Punkte zugeordnet werden, indem sie unter diese und dann nach rechts gezogen werden."
+
+#: src/Form/OverviewTerms.php:265
+msgid "%capital_name contains terms grouped under parent terms. You can reorganize the terms in %capital_name using their drag-and-drop handles."
+msgstr "%capital_name enthält Begriffe, die übergeordneten Begriffen zugeordnet sind. Die Begriffe in %capital_name können mit Hilfe der Drag-and-Drop-Anfasser sortiert werden."
+
+#: src/Form/OverviewTerms.php:268
+msgid "%capital_name contains terms with multiple parents. Drag and drop of terms with multiple parents is not supported, but you can re-enable drag-and-drop support by editing each term to include only a single parent."
+msgstr "%capital_name enthält Begriffe mit mehreren übergeordneten Begriffen (Eltern). Drag &amp; Drop von mit mehreren Eltern wird nicht unterstützt, aber Sie können Drag-and-Drop-Unterstützung aktivieren, indem Sie dafür sorgen, dass jeder Begriff nur noch ein einzelnes übergeordnetes Element hat."
+
+#: src/Form/OverviewTerms.php:275
+msgid "%capital_name contains the following terms."
+msgstr "%capital_name enthält die folgenden Begriffe."
+
+#: src/Form/OverviewTerms.php:278
+msgid "%capital_name contains terms grouped under parent terms"
+msgstr "%capital_name enthält Begriffe, die unter übergeordneten Begriffen gruppiert sind"
+
+#: src/Form/OverviewTerms.php:281
+msgid "%capital_name contains terms with multiple parents."
+msgstr "%capital_name enthält Begriffe mit mehreren übergeordneten Begriffen."
+
+#: src/Form/OverviewTerms.php:319
+msgid "No terms available. <a href=\":link\">Add term</a>."
+msgstr "Keine Begriffe vorhanden. <a href=\":link\">Begriff hinzufügen</a>."
+
+#: src/Form/OverviewTerms.php:322
+msgid "No terms available."
+msgstr "Keine Begriffe vorhanden."
+
+#: src/Form/OverviewTerms.php:329
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/OverviewTerms.php:404
+msgid "Weight for added term"
+msgstr "Gewichtung für hinzugefügten Begriff"
+
+#: src/Form/OverviewTerms.php:485 src/Form/VocabularyResetForm.php:75
+msgid "Reset to alphabetical"
+msgstr "Auf alphabetisch zurücksetzen"
+
+#: src/Form/OverviewTerms.php:578
+msgid "The terms with updated parents have been modified by another user, the changes could not be saved."
+msgstr "Die Begriffe mit aktualisierten übergeordneten Elementen wurden von einem anderen Benutzer geändert, die Änderungen konnten nicht gespeichert werden."
+
+#: src/Form/OverviewTerms.php:293
+msgid "%capital_name contains 1 term with pending revisions. Drag and drop of terms with pending revisions is not supported, but you can re-enable drag-and-drop support by getting each term to a published state."
+msgid_plural "%capital_name contains @count terms with pending revisions. Drag and drop of terms with pending revisions is not supported, but you can re-enable drag-and-drop support by getting each term to a published state."
+msgstr[0] "%capital_name enthält 1 Begriff mit ausstehenden Revisionen. Drag-and-Drop von Begriffen mit ausstehenden Revisionen wird nicht unterstützt, aber die Drag-and-Drop-Unterstützung kann wieder aktiviert werden, nachdem jeder Begriff in einen veröffentlichten Zustand gebracht wurde."
+msgstr[1] "%capital_name enthält @count Begriffe mit ausstehenden Revisionen. Drag-and-Drop von Begriffen mit ausstehenden Revisionen wird nicht unterstützt, aber die Drag-and-Drop-Unterstützung kann wieder aktiviert werden, nachdem jeder Begriff in einen veröffentlichten Zustand gebracht wurde."
+
+#: src/Form/TermDeleteForm.php:35
+msgid "Deleting a term will delete all its children if there are any. This action cannot be undone."
+msgstr "Beim Löschen eines Begriffs werden auch alle untergeordneten Begriffe gelöscht (falls vorhanden). Dieser Vorgang kann nicht rückgängig gemacht werden."
+
+#: src/Form/TermDeleteForm.php:42
+msgid "Deleted term %name."
+msgstr "Der Begriff %name wurde gelöscht."
+
+#: src/Form/VocabularyDeleteForm.php:25
+msgid "Are you sure you want to delete the vocabulary %title?"
+msgstr "Möchten Sie das Vokabular %title wirklich löschen?"
+
+#: src/Form/VocabularyDeleteForm.php:32
+msgid "Deleting a vocabulary will delete all the terms in it. This action cannot be undone."
+msgstr "Beim Löschen eines Vokabulars werden alle zugehörigen Begriffe gelöscht. Dieser Vorgang kann nicht rückgängig gemacht werden."
+
+#: src/Form/VocabularyDeleteForm.php:39
+msgid "Deleted vocabulary %name."
+msgstr "Das Vokabular %name wurde gelöscht."
+
+#: src/Form/VocabularyResetForm.php:54
+msgid "Are you sure you want to reset the vocabulary %title to alphabetical order?"
+msgstr "Möchten Sie das Vokabular %title wirklich auf die alphabetische Reihenfolge zurücksetzen?"
+
+#: src/Form/VocabularyResetForm.php:68
+msgid "Resetting a vocabulary will discard all custom ordering and sort items alphabetically."
+msgstr "Das Zurücksetzen eines Vokabular verwirft die momentane Reihenfolge und sortiert die Begriffe wieder nach alphabetischer Reihenfolge."
+
+#: src/Form/VocabularyResetForm.php:85;86
+msgid "Reset vocabulary %name to alphabetical order."
+msgstr "Das Vokabular %name wurde auf alphabetische Reihenfolge zurückgesetzt."
+
+#: src/Plugin/EntityReferenceSelection/TermSelection.php:10
+msgid "Taxonomy Term selection"
+msgstr "Taxonomiebegriffsauswahl"
+
+#: src/Plugin/Field/FieldFormatter/EntityReferenceTaxonomyTermRssFormatter.php:10
+msgid "RSS category"
+msgstr "RSS-Kategorie"
+
+#: src/Plugin/Field/FieldFormatter/EntityReferenceTaxonomyTermRssFormatter.php:10
+msgid "Display reference to taxonomy term in RSS."
+msgstr "Einen Link zum Taxonomiebegriff im RSS-Feed anzeigen."
+
+#: src/Plugin/Validation/Constraint/TaxonomyTermHierarchyConstraint.php:7
+msgctxt "Validation"
+msgid "Taxonomy term hierarchy."
+msgstr "Begriffshierarchie der Taxonomie."
+
+#: src/Plugin/Validation/Constraint/TaxonomyTermHierarchyConstraint.php:22
+msgid "You can only change the hierarchy for the <em>published</em> version of this term."
+msgstr "Nur die Hierarchie für die <em>veröffentlichte</em> Version dieses Begriffs kann geändert werden."
+
+#: src/Plugin/migrate/D7TaxonomyTermDeriver.php:77
+msgid "@label (@type)"
+msgstr "@label (@type)"
+
+#: src/Plugin/migrate/source/Term.php:71 src/Plugin/migrate/source/d6/Term.php:42 src/Plugin/migrate/source/d7/Term.php:44
+msgid "Existing term VID"
+msgstr "Vorhandene VID des Begriffs"
+
+#: src/Plugin/migrate/source/Term.php:72 src/Plugin/migrate/source/d6/Term.php:43 src/Plugin/migrate/source/d7/Term.php:46 src/Plugin/migrate/source/d7/TermEntityTranslation.php:99
+msgid "The name of the term."
+msgstr "Der Name des Begriffs."
+
+#: src/Plugin/migrate/source/Term.php:73 src/Plugin/migrate/source/d6/Term.php:44 src/Plugin/migrate/source/d7/Term.php:47 src/Plugin/migrate/source/d7/TermEntityTranslation.php:100
+msgid "The term description."
+msgstr "Die Begriffs-Beschreibung."
+
+#: src/Plugin/migrate/source/Term.php:75 src/Plugin/migrate/source/d6/Term.php:46 src/Plugin/migrate/source/d6/Vocabulary.php:55 src/Plugin/migrate/source/d7/Term.php:49
+msgid "The Drupal term IDs of the term's parents."
+msgstr "Die IDs der Oberbegriffe des Begriffs"
+
+#: src/Plugin/migrate/source/Term.php:78 src/Plugin/migrate/source/d7/Term.php:50 src/Plugin/migrate/source/d7/TermEntityTranslation.php:101
+msgid "Format of the term description."
+msgstr "Format der Begriffsbeschreibung"
+
+#: src/Plugin/migrate/source/d6/Term.php:49
+msgid "The term language."
+msgstr "Die Begriffssprache."
+
+#: src/Plugin/migrate/source/d6/Term.php:50
+msgid "Translation ID."
+msgstr "Übersetzungs-ID."
+
+#: src/Plugin/migrate/source/d6/TermLocalizedTranslation.php:84
+msgid "Language for this term."
+msgstr "Sprache für diesen Begriff."
+
+#: src/Plugin/migrate/source/d6/TermLocalizedTranslation.php:85
+msgid "Term name translation."
+msgstr "Übersetzung des Begriffsnamens."
+
+#: src/Plugin/migrate/source/d6/TermLocalizedTranslation.php:86
+msgid "Term description translation."
+msgstr "Übersetzung der Begriffsbeschreibung."
+
+#: src/Plugin/migrate/source/d6/TermNode.php:42;43
+msgid "The node revision ID."
+msgstr "Revisions-ID des Beitrags"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:45 src/Plugin/migrate/source/d6/VocabularyTranslation.php:45 src/Plugin/migrate/source/d7/Vocabulary.php:40
+msgid "The vocabulary ID."
+msgstr "Die Vokabular-ID."
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:46 src/Plugin/migrate/source/d7/Vocabulary.php:41
+msgid "The name of the vocabulary."
+msgstr "Der Name des Vokabulars."
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:47 src/Plugin/migrate/source/d7/Vocabulary.php:42
+msgid "The description of the vocabulary."
+msgstr "Die Beschreibung des Vokabulars."
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:48
+msgid "Help text to display for the vocabulary."
+msgstr "Hilfetext für das Vokabular."
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:49
+msgid "Whether or not related terms are enabled within the vocabulary. (0 = disabled, 1 = enabled)"
+msgstr "Legt fest, ob nicht verwandte Begriffe innerhalb des Vokabulars aktiviert sind. (0 = deaktiviert, 1 = aktiviert)"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:50 src/Plugin/migrate/source/d7/Vocabulary.php:43
+msgid "The type of hierarchy allowed within the vocabulary. (0 = disabled, 1 = single, 2 = multiple)"
+msgstr "Die Art von Hierarchie, die das Vokabular anbietet. (0 = Deaktiviert, 1 = Einfach, 2 = Mehrfach)"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:51
+msgid "Whether or not multiple terms from this vocabulary may be assigned to a node. (0 = disabled, 1 = enabled)"
+msgstr "Legt fest, ob mehrere Begriffe aus diesem Vokabular einem Beitrag zugewiesen werden können. (0 = deaktiviert, 1 = aktiviert)"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:52
+msgid "Whether or not terms are required for nodes using this vocabulary. (0 = disabled, 1 = enabled)"
+msgstr "Legt fest, ob Begriffe für Beträge mit diesem Vokabular sind erforderlich. (0 = deaktiviert, 1 = aktiviert)"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:53
+msgid "Whether or not free tagging is enabled for the vocabulary. (0 = disabled, 1 = enabled)"
+msgstr "Legt fest, ob das freie Taggen im Vokabular aktiviert ist. (0 = deaktiviert, 1 = aktiviert)"
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:54 src/Plugin/migrate/source/d7/Vocabulary.php:45
+msgid "The weight of the vocabulary in relation to other vocabularies."
+msgstr "Die Reihenfolge dieses Vokabulars bezogen auf andere Vokabulare."
+
+#: src/Plugin/migrate/source/d6/Vocabulary.php:56
+msgid "The names of the node types the vocabulary may be used with."
+msgstr "Die Namen der Inhaltstypen, bei denen dieses Vokabular verwendet werden darf."
+
+#: src/Plugin/migrate/source/d6/VocabularyTranslation.php:46
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/VocabularyTranslation.php:47
+msgid "Name of property being translated."
+msgstr "Name der übersetzten Eigenschaft."
+
+#: src/Plugin/migrate/source/d6/VocabularyTranslation.php:48
+msgid "Translation of either the title or explanation."
+msgstr "Übersetzung des Titels oder der Beschreibung."
+
+#: src/Plugin/migrate/source/d7/Term.php:45 src/Plugin/migrate/source/d7/TermEntityTranslation.php:102
+msgid "Vocabulary machine name"
+msgstr "Systemname des Vokabulars"
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:89
+msgid "The entity type this translation relates to"
+msgstr "Der Entitätstyp, auf den sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:90
+msgid "The entity ID this translation relates to"
+msgstr "Die Entitäts-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:91
+msgid "The entity revision ID this translation relates to"
+msgstr "Die Entitätsrevisions-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:92
+msgid "The target language for this translation."
+msgstr "Die Zielsprache für diese Übersetzung."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:93
+msgid "The source language from which this translation was created."
+msgstr "Die Ausgangssprache, auf deren Basis diese Übersetzung erstellt wurde."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:94
+msgid "The author of this translation."
+msgstr "Der Autor dieser Übersetzung."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:95
+msgid "Boolean indicating whether the translation is published (visible to non-administrators)."
+msgstr "Boolescher Wert, der angibt, ob die Übersetzung veröffentlicht ist (sichtbar für Nicht-Administratoren)."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:96
+msgid "A boolean indicating whether this translation needs to be updated."
+msgstr "Ein Boolescher Wert, der angibt, ob die Übersetzung aktualisiert werden muss oder nicht."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:97
+msgid "The Unix timestamp when the translation was created."
+msgstr "Der Zeitpunkt zu dem die Übersetzung erstellt wurde (Unix Zeitstempel)."
+
+#: src/Plugin/migrate/source/d7/TermEntityTranslation.php:98
+msgid "The Unix timestamp when the translation was most recently saved."
+msgstr "Das Datum der letzten Speicherung der Übersetzung (Unix Zeitstempel)."
+
+#: src/Plugin/migrate/source/d7/Vocabulary.php:44
+msgid "Module responsible for the vocabulary."
+msgstr "Da Modul das für das Vokabular zuständig ist."
+
+#: src/Plugin/migrate/source/d7/Vocabulary.php:46
+msgid "Unique machine name of the vocabulary."
+msgstr "Eindeutiger Systemname des Vokabulars."
+
+#: src/Plugin/views/argument/IndexTidDepth.php:61 src/Plugin/views/filter/TaxonomyIndexTidDepth.php:42
+msgid "The depth will match nodes tagged with terms in the hierarchy. For example, if you have the term \"fruit\" and a child term \"apple\", with a depth of 1 (or higher) then filtering for the term \"fruit\" will get nodes that are tagged with \"apple\" as well as \"fruit\". If negative, the reverse is true; searching for \"apple\" will also pick up nodes tagged with \"fruit\" if depth is -1 (or lower)."
+msgstr "Die Tiefe wird Beiträge vergleichen, die mit Begriffe in der Hierarchie vergeben wurden. Zum Beispiel, wenn Sie ein Begriff „Frucht\" und ein untergeordneten Begriff \"Apfel\" haben, mit einer Tiefe von 1 (oder höher). Dann nach dem Begriff „Frucht\" filtern, erhalten Sie Beiträge, die mit den Begriff „Apfel\" sowie „Frucht\" enthalten. Wenn negativ ist das Gegenteil wahr; die Suche nach \"Apfel\" wird auch Beiträge mit \"Frucht\" hervorrufen, wenn die Tiefe -1 (oder niedriger) ist."
+
+#: src/Plugin/views/argument/IndexTidDepth.php:67
+msgid "If selected, users can enter multiple values in the form of 1+2+3. Due to the number of JOINs it would require, AND will be treated as OR with this filter."
+msgstr "Falls ausgewählt, können Benutzer mehrere Werte im Format '1+2+3' eingeben. Aufgrund der Anzahl von JOIN-Operationen, die erforderlich sind, wird AND bei diesem Filter als OR behandelt."
+
+#: src/Plugin/views/argument/IndexTidDepth.php:142 src/Plugin/views/argument/Taxonomy.php:57
+msgid "No name"
+msgstr "Kein Name"
+
+#: src/Plugin/views/argument/VocabularyVid.php:63
+msgid "No vocabulary"
+msgstr "Kein Vokabular"
+
+#: src/Plugin/views/argument_default/Tid.php:158
+msgid "Filter to items that share all terms"
+msgstr "Auf Elemente filtern, die alle Begriffe teilen"
+
+#: src/Plugin/views/argument_default/Tid.php:159
+msgid "Filter to items that share any term"
+msgstr "Auf Elemente filtern, die einen beliebigen Begriff teilen"
+
+#: src/Plugin/views/argument_validator/TermName.php:10
+msgid "Taxonomy term name"
+msgstr "Taxonomiebegriff-Name"
+
+#: src/Plugin/views/field/TaxonomyIndexTid.php:165
+msgid "The taxonomy term ID for the term."
+msgstr "﻿Die Taxonomie-Begriffs-ID für den Begriff."
+
+#: src/Plugin/views/field/TaxonomyIndexTid.php:166
+msgid "The taxonomy term name for the term."
+msgstr "Der Name des Taxonomie-Begriffs für den Begriff."
+
+#: src/Plugin/views/field/TaxonomyIndexTid.php:167
+msgid "The machine name for the vocabulary the term belongs to."
+msgstr "Die eindeutige Bezeichnung des Taxonomie-Vokabulars, zu welchem der Begriff gehört."
+
+#: src/Plugin/views/field/TaxonomyIndexTid.php:168
+msgid "The name for the vocabulary the term belongs to."
+msgstr "Der Name des Vokabulars, zu dem der Begriff gehört."
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:127
+msgid "Select which vocabulary to show terms for in the regular options."
+msgstr "Wählen Sie, welches Vokabular, Begriffe in den regulären Optionen anzeigen soll."
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:136
+msgid "Dropdown"
+msgstr "Auswahlliste"
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:136
+msgid "Autocomplete"
+msgstr "Autovervollständigung"
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:156
+msgid "An invalid vocabulary is selected. Please change it in the options."
+msgstr "Ein ungültiges Vokabular wurde ausgewählt. Bitte in den Optionen ändern."
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:164;241
+msgid "Select terms from vocabulary @voc"
+msgstr "Begriffe aus dem Vokabular @voc wählen"
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:164;241
+msgid "Select terms"
+msgstr "Begriffe auswählen"
+
+#: src/Plugin/views/filter/TaxonomyIndexTid.php:260
+msgid "Leave blank for all. Otherwise, the first selected term will be the default instead of \"Any\"."
+msgstr "Leer lassen für alles. Andernfalls wird der erste ausgewählte Eintrag als Standard verwendet statt 'irgendeines'."
+
+#: src/Plugin/views/filter/TaxonomyIndexTidDepth.php:23
+msgid "Is one of"
+msgstr "Ist eines von"
+
+#: src/Plugin/views/relationship/NodeTermData.php:94
+msgid "Choose which vocabularies you wish to relate. Remember that every term found will create a new record, so this relationship is best used on just one vocabulary that has only one term per node."
+msgstr "Wählen Sie die Vokabulare aus, aus denen Begriffe entnommen werden sollen. Denken Sie daran, dass jeder gefundene Begriff einen neuen Datensatz erstellt, so dass diese Beziehung am besten für nur ein Vokabular verwendet wird, das nur einen Begriff pro Beitrag besitzt."
+
+#: config/install/core.entity_view_mode.taxonomy_term.full.yml:0
+msgid "Taxonomy term page"
+msgstr "Seite der Taxonomiebegriffe"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Content belonging to a certain taxonomy term."
+msgstr "Inhalt, der zu einem bestimmten Taxonomie-Begriff gehört."
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "››"
+msgstr "››"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "All"
+msgstr "Alle"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "{{ arguments.tid }}"
+msgstr "{{ arguments.tid }}"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Feed"
+msgstr "Newsfeed"
+
+#: config/optional/views.view.taxonomy_term.yml:0
+msgid "Page"
+msgstr "Seite"
+

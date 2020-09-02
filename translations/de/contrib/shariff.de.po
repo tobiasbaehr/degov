@@ -1,0 +1,540 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  shariff.module: n/a
+#  shariff.links.menu.yml: n/a
+#  shariff.routing.yml: n/a
+#  shariff.install: n/a
+#  shariff.info.yml: n/a
+#  config/schema/shariff.schema.yml: n/a
+#  src/Form/ShariffSettingsForm.php: n/a
+#  src/Plugin/Block/ShariffBlock.php: n/a
+#  drush/shariff.drush.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: shariff.module:24
+msgid "About Shariff"
+msgstr "Über Shariff"
+
+#: shariff.module:25
+msgid "The Shariff social media buttons library by heise online enables website users to share their favorite content without compromising their privacy. For more information see <a href=\"@url\">@url</a>."
+msgstr "Die Shariff-Social-Media-Buttons-Bibliothek von Heise online ermöglicht es Besuchern der Website beliebte Inhalte zu teilen, ohne ihre Privatsphäre zu beeinträchtigen. Weitere Informationen sind unter <a href=\"@url\">@url</a> verfügbar."
+
+#: shariff.module:229 shariff.links.menu.yml:0 shariff.routing.yml:0
+msgid "Shariff sharing buttons"
+msgstr "Shariff-Teilen-Buttons"
+
+#: shariff.module:230
+msgid "Display of Shariff sharing buttons using default settings."
+msgstr "Anzeige der Shariff-Teilen-Buttons mit den Standardeinstellungen."
+
+#: shariff.install:27;36;44
+msgid "Shariff Library"
+msgstr "Shariff-Bibliothek"
+
+#: shariff.install:28
+msgid "Please download at least v1.4.6 of the <a href=\":url\">shariff library</a> and place it in the Drupal root libraries folder. So that the js file is available under DRUPAL_ROOT/libraries/shariff/shariff.min.js."
+msgstr "Bitte mindestens v1.4.6 der <a href=\":url\">Shariff-Bibliothek</a> herunterladen und im „libraries“-Ordner der Drupal-Hauptebene platzieren. Die js-Datei muss also unter dem Pfad „DRUPAL_HAUPTEBENE/libraries/shariff/shariff.min.js“ verfügbar sein."
+
+#: shariff.install:30;39
+msgid "Library missing"
+msgstr "Fehlende Bibliothek"
+
+#: shariff.install:37
+msgid "Please download at least v1.4.6 of the <a href=\":url\">shariff library</a> and place it in one of your libraries folders. So that for example the js file is available under DRUPAL_ROOT/libraries/shariff/shariff.min.js."
+msgstr "Bitte mindestens v1.4.6 der <a href=\":url\">Shariff-Bibliothek</a> herunterladen und im passenden „libraries“-Ordner platzieren. Die js-Datei muss also unter dem Pfad „DRUPAL_HAUPTEBENE/libraries/shariff/shariff.min.js“ verfügbar sein."
+
+#: shariff.install:46
+msgid "Available"
+msgstr "Verfügbar"
+
+#: shariff.info.yml:0
+msgid "Shariff Sharing Buttons"
+msgstr "Shariff-Teilen-Buttons"
+
+#: shariff.info.yml:0
+msgid "Shariff enables website users to share their favorite content without compromising their privacy. This module integrates this plugin in Drupal."
+msgstr "Shariff ermöglicht es Besuchern der Website beliebte Inhalte zu teilen, ohne ihre Privatsphäre zu beeinträchtigen. Dieses Modul integriert das Shariff-Plugin in Drupal."
+
+#: shariff.links.menu.yml:0
+msgid "Configure Shariff sharing button default settings."
+msgstr "Standardeinstellungen der Shariff-Teilen-Buttons konfigurieren."
+
+#: config/schema/shariff.schema.yml:0
+msgid "Shariff settings"
+msgstr "Shariff-Einstellungen"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Services"
+msgstr "Dienste"
+
+#: config/schema/shariff.schema.yml:0
+msgid "twitter"
+msgstr "twitter"
+
+#: config/schema/shariff.schema.yml:0
+msgid "diaspora"
+msgstr "diaspora"
+
+#: config/schema/shariff.schema.yml:0
+msgid "flipboard"
+msgstr "Flipboard"
+
+#: config/schema/shariff.schema.yml:0
+msgid "pocket"
+msgstr "Pocket"
+
+#: config/schema/shariff.schema.yml:0
+msgid "print"
+msgstr "Drucken"
+
+#: config/schema/shariff.schema.yml:0
+msgid "qzone"
+msgstr "Qzone"
+
+#: config/schema/shariff.schema.yml:0
+msgid "weibo"
+msgstr "Weibo"
+
+#: config/schema/shariff.schema.yml:0
+msgid "tencent weibo"
+msgstr "Tencent Weibo"
+
+#: config/schema/shariff.schema.yml:0
+msgid "facebook"
+msgstr "Facebook"
+
+#: config/schema/shariff.schema.yml:0
+msgid "linkedin"
+msgstr "linkedin"
+
+#: config/schema/shariff.schema.yml:0
+msgid "pinterest"
+msgstr "pinterest"
+
+#: config/schema/shariff.schema.yml:0
+msgid "vk"
+msgstr "VK"
+
+#: config/schema/shariff.schema.yml:0
+msgid "xing"
+msgstr "xing"
+
+#: config/schema/shariff.schema.yml:0
+msgid "whatsapp"
+msgstr "whatsapp"
+
+#: config/schema/shariff.schema.yml:0
+msgid "addthis"
+msgstr "addthis"
+
+#: config/schema/shariff.schema.yml:0
+msgid "telegram"
+msgstr "Telegram"
+
+#: config/schema/shariff.schema.yml:0
+msgid "tumblr"
+msgstr "tumblr"
+
+#: config/schema/shariff.schema.yml:0
+msgid "flattr"
+msgstr "flattr"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:92 src/Plugin/Block/ShariffBlock.php:83
+msgid "reddit"
+msgstr "reddit"
+
+#: config/schema/shariff.schema.yml:0
+msgid "stumbleupon"
+msgstr "stumbleupon"
+
+#: config/schema/shariff.schema.yml:0
+msgid "threema"
+msgstr "threema"
+
+#: config/schema/shariff.schema.yml:0
+msgid "mail"
+msgstr "E-Mail"
+
+#: config/schema/shariff.schema.yml:0
+msgid "info"
+msgstr "Info"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Shariff layout"
+msgstr "Shariff-Layout"
+
+#: config/schema/shariff.schema.yml:0
+msgid "CSS variant"
+msgstr "CSS-Variante"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Orientation of the buttons"
+msgstr "Ausrichtung der Buttons"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:157 src/Plugin/Block/ShariffBlock.php:177
+msgid "Twitter Via User"
+msgstr "Über folgenden Benutzer twittern"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:164 src/Plugin/Block/ShariffBlock.php:191
+msgid "Mail link"
+msgstr "E-Mail-Link"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:172 src/Plugin/Block/ShariffBlock.php:206
+msgid "Mail subject"
+msgstr "E-Mail-Betreff"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:180 src/Plugin/Block/ShariffBlock.php:221
+msgid "Mail body"
+msgstr "E-Mail-Textkörper"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:188 src/Plugin/Block/ShariffBlock.php:236
+msgid "Referrer track code"
+msgstr "Referrer-Tracking-Code"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:195 src/Plugin/Block/ShariffBlock.php:250
+msgid "Backend URL"
+msgstr "Backend-URL"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:202 src/Plugin/Block/ShariffBlock.php:264
+msgid "Flattr category"
+msgstr "Flattr-Kategorie"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:209 src/Plugin/Block/ShariffBlock.php:278
+msgid "Flattr user"
+msgstr "Flattr-Benutzer"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:216 src/Plugin/Block/ShariffBlock.php:292
+msgid "Media url"
+msgstr "Medien-URL"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Button layout"
+msgstr "Button-Layout"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Info Link"
+msgstr "Informationslink"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Information display link"
+msgstr "Link zur Informationsanzeige"
+
+#: config/schema/shariff.schema.yml:0 src/Form/ShariffSettingsForm.php:250 src/Plugin/Block/ShariffBlock.php:357
+msgid "Canonical URL"
+msgstr "Kanonische URL"
+
+#: config/schema/shariff.schema.yml:0
+msgid "Twitter/WhatsApp Title"
+msgstr "Twitter/WhatsApp Titel"
+
+#: drush/shariff.drush.inc:22
+msgid "Download/install the shariff library from heiseonline/shariff GitHub repository."
+msgstr "Die Shariff-Bibliothek muss von dem heiseonline/shariff Github-Repository heruntergeladen und installiert werden."
+
+#: drush/shariff.drush.inc:25
+msgid "Optional. A path where to install the shariff library. If omitted Drush will use the default location."
+msgstr "Optional. Ein Verzeichnis, in dem die Shariff-Bibliothek installiert werden soll. Falls kein Wert angegeben ist, wird Drush das Standardverzeichnis verwenden."
+
+#: drush/shariff.drush.inc:42
+msgid "Download/install the shariff library from heiseonline/shariff GitHub repository, default location is the libraries directory."
+msgstr "Die Shariff-Bibliothek muss von dem heiseonline/shariff Github-Repository heruntergeladen und installiert werden. Der Standardort ist der „libraries“-Ordner."
+
+#: drush/shariff.drush.inc:62
+msgid "Directory @path was created"
+msgstr "Das Verzeichnis @path wurde erstellt"
+
+#: drush/shariff.drush.inc:79
+msgid "A existing shariff library was deleted from @path"
+msgstr "Eine vorhandene Shariff-Bibliothek wurde von @path gelöscht."
+
+#: drush/shariff.drush.inc:93
+msgid "The shariff library has been successfully downloaded to @path"
+msgstr "Die Shariff-Bibliothek wurde erfolgreich nach @path heruntergeladen."
+
+#: drush/shariff.drush.inc:96
+msgid "Drush was unable to download the shariff library to @path"
+msgstr "Drush konnte die Shariff-Bibliothek nicht unter @path speichern."
+
+#: src/Form/ShariffSettingsForm.php:58 src/Plugin/Block/ShariffBlock.php:401
+msgid "Please enter a valid URL."
+msgstr "Bitte eine gültige URL eingeben"
+
+#: src/Form/ShariffSettingsForm.php:76 src/Plugin/Block/ShariffBlock.php:64
+msgid "Activated services"
+msgstr "Aktivierte Dienste"
+
+#: src/Form/ShariffSettingsForm.php:77 src/Plugin/Block/ShariffBlock.php:65
+msgid "Please define for which services a sharing button should be included."
+msgstr "Es muss definiert werden, für welche Dienste ein Teilen-Button angezeigt werden soll."
+
+#: src/Form/ShariffSettingsForm.php:80 src/Plugin/Block/ShariffBlock.php:68
+msgid "Twitter"
+msgstr "Twitter"
+
+#: src/Form/ShariffSettingsForm.php:81 src/Plugin/Block/ShariffBlock.php:69
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/Form/ShariffSettingsForm.php:82 src/Plugin/Block/ShariffBlock.php:70
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: src/Form/ShariffSettingsForm.php:83 src/Plugin/Block/ShariffBlock.php:71
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: src/Form/ShariffSettingsForm.php:84 src/Plugin/Block/ShariffBlock.php:72
+msgid "VK"
+msgstr "VK"
+
+#: src/Form/ShariffSettingsForm.php:85 src/Plugin/Block/ShariffBlock.php:73
+msgid "Xing"
+msgstr "Xing"
+
+#: src/Form/ShariffSettingsForm.php:86 src/Plugin/Block/ShariffBlock.php:74
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: src/Form/ShariffSettingsForm.php:87 src/Plugin/Block/ShariffBlock.php:75
+msgid "AddThis"
+msgstr "AddThis"
+
+#: src/Form/ShariffSettingsForm.php:88 src/Plugin/Block/ShariffBlock.php:76
+msgid "Telegram"
+msgstr "Telegram"
+
+#: src/Form/ShariffSettingsForm.php:89 src/Plugin/Block/ShariffBlock.php:77
+msgid "Tumblr"
+msgstr "Tumblr"
+
+#: src/Form/ShariffSettingsForm.php:90 src/Plugin/Block/ShariffBlock.php:78
+msgid "Flattr"
+msgstr "Flattr"
+
+#: src/Form/ShariffSettingsForm.php:91 src/Plugin/Block/ShariffBlock.php:79
+msgid "Diaspora"
+msgstr "Diaspora"
+
+#: src/Form/ShariffSettingsForm.php:93 src/Plugin/Block/ShariffBlock.php:84
+msgid "StumbleUpon"
+msgstr "StumbleUpon"
+
+#: src/Form/ShariffSettingsForm.php:94
+msgid "Weibo"
+msgstr "Weibo"
+
+#: src/Form/ShariffSettingsForm.php:95 src/Plugin/Block/ShariffBlock.php:80
+msgid "Flipboard"
+msgstr "Flipboard"
+
+#: src/Form/ShariffSettingsForm.php:96 src/Plugin/Block/ShariffBlock.php:81
+msgid "Pocket"
+msgstr "Pocket"
+
+#: src/Form/ShariffSettingsForm.php:97 src/Plugin/Block/ShariffBlock.php:82
+msgid "Print"
+msgstr "Drucken"
+
+#: src/Form/ShariffSettingsForm.php:98
+msgid "Tencent-Weibo"
+msgstr "Tencent-Weibo"
+
+#: src/Form/ShariffSettingsForm.php:99
+msgid "Qzone"
+msgstr "Qzone"
+
+#: src/Form/ShariffSettingsForm.php:100 src/Plugin/Block/ShariffBlock.php:85
+msgid "Threema"
+msgstr "Threema"
+
+#: src/Form/ShariffSettingsForm.php:101 src/Plugin/Block/ShariffBlock.php:86
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: src/Form/ShariffSettingsForm.php:102 src/Plugin/Block/ShariffBlock.php:87
+msgid "Info Button"
+msgstr "Info-Button"
+
+#: src/Form/ShariffSettingsForm.php:108 src/Plugin/Block/ShariffBlock.php:100
+msgid "Theme"
+msgstr "Theme"
+
+#: src/Form/ShariffSettingsForm.php:109 src/Plugin/Block/ShariffBlock.php:101
+msgid "Please choose a layout option."
+msgstr "Bitte eine Layout-Option auswählen."
+
+#: src/Form/ShariffSettingsForm.php:112 src/Plugin/Block/ShariffBlock.php:104
+msgid "Colored"
+msgstr "Farbig"
+
+#: src/Form/ShariffSettingsForm.php:113 src/Plugin/Block/ShariffBlock.php:105
+msgid "Grey"
+msgstr "Grau"
+
+#: src/Form/ShariffSettingsForm.php:114 src/Plugin/Block/ShariffBlock.php:106
+msgid "White"
+msgstr "Weiß"
+
+#: src/Form/ShariffSettingsForm.php:120 src/Plugin/Block/ShariffBlock.php:119
+msgid "CSS"
+msgstr "CSS"
+
+#: src/Form/ShariffSettingsForm.php:121 src/Plugin/Block/ShariffBlock.php:120
+msgid "Please choose a CSS variant. Font Awesome is used to display the services icons."
+msgstr "Bitte eine CSS-Variante wählen. Für die Anzeige der Dienste-Symbole wird Font Awesome verwendet."
+
+#: src/Form/ShariffSettingsForm.php:124 src/Plugin/Block/ShariffBlock.php:123
+msgid "Complete (Contains also Font Awesome)"
+msgstr "Komplett (enthält Font Awesome)"
+
+#: src/Form/ShariffSettingsForm.php:125 src/Plugin/Block/ShariffBlock.php:124
+msgid "Minimal (If Font Awesome is already included in your site)"
+msgstr "Minimal (Falls Font Awesome bereits auf der Website aktiv ist)"
+
+#: src/Form/ShariffSettingsForm.php:126 src/Plugin/Block/ShariffBlock.php:125
+msgid "None (Without any CSS)"
+msgstr "Deaktiviert (es wird kein CSS verwendet)"
+
+#: src/Form/ShariffSettingsForm.php:132 src/Plugin/Block/ShariffBlock.php:138
+msgid "Button Style"
+msgstr "Button-Stil"
+
+#: src/Form/ShariffSettingsForm.php:133 src/Plugin/Block/ShariffBlock.php:139
+msgid "Please choose a button style.\n      With \"icon only\" the icon is shown, with \"icon-count\" icon and counter and with \"standard icon\", text and counter are shown, depending on the display size.\n      Please note: For showing counters you have to provide a working Shariff backend URL."
+msgstr "Einen Button-Stil auswählen.\r\n      „Nur Symbol“ zeigt nur das Symbol an,  „Symbol/Zähler“ zeigt das Symbol und den Zähler an und „Standardsymbol“ zeigt den Text und den Zähler an, abhängig von der Größe des Anzeigebereichs.\r\n      HINWEIS: Um Zähler anzuzeigen, muss die URL zu einem funktionierenden Shariff-Backend angegeben werden."
+
+#: src/Form/ShariffSettingsForm.php:138 src/Plugin/Block/ShariffBlock.php:144
+msgid "Standard"
+msgstr "Standard"
+
+#: src/Form/ShariffSettingsForm.php:139 src/Plugin/Block/ShariffBlock.php:145
+msgid "Icon"
+msgstr "Symbol"
+
+#: src/Form/ShariffSettingsForm.php:140 src/Plugin/Block/ShariffBlock.php:146
+msgid "Icon Count"
+msgstr "Anzahl der Symbole"
+
+#: src/Form/ShariffSettingsForm.php:146 src/Plugin/Block/ShariffBlock.php:159
+msgid "Orientation"
+msgstr "Ausrichtung"
+
+#: src/Form/ShariffSettingsForm.php:147 src/Plugin/Block/ShariffBlock.php:160
+msgid "Vertical will stack the buttons vertically. Default is horizontally."
+msgstr "Die Option „Vertikal“ stapelt die Buttons vertikal. Voreingestellt ist die Option „Horizontal“."
+
+#: src/Form/ShariffSettingsForm.php:150 src/Plugin/Block/ShariffBlock.php:163
+msgid "Vertical"
+msgstr "Vertical"
+
+#: src/Form/ShariffSettingsForm.php:151 src/Plugin/Block/ShariffBlock.php:164
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: src/Form/ShariffSettingsForm.php:158 src/Plugin/Block/ShariffBlock.php:178
+msgid "Screen name of the Twitter user to attribute the Tweets to."
+msgstr "Anzeigename des Twitter-Benutzer, dem die Tweets zugeordnet werden sollen."
+
+#: src/Form/ShariffSettingsForm.php:165 src/Plugin/Block/ShariffBlock.php:192
+msgid "The url target used for the mail service button. Leave it as \"mailto:\" to let the user\n choose an email address."
+msgstr "Die Ziel-URL die für den E-Mail-Dienst-Button verwendet werden soll. Bei „mailto:“ belassen, um dem Benutzer die Möglichkeit zu geben eine E-Mail-Adresse auszuwählen."
+
+#: src/Form/ShariffSettingsForm.php:173 src/Plugin/Block/ShariffBlock.php:207
+msgid "If a mailto: link is provided in Mail link above, then this value is used as the mail subject.\n Left empty the page's current (canonical) URL or og:url is used."
+msgstr "Wenn ein „mailto:“-Link im E-Mail-Link vorhanden ist, wird dieser Wert als E-Mail-Betreff verwendet.\r\nBei einem leeren Wert wird die aktuelle (Canonical-)URL der Seite oder og:url verwendet."
+
+#: src/Form/ShariffSettingsForm.php:181 src/Plugin/Block/ShariffBlock.php:222
+msgid "If a mailto: link is provided in Mail link above, then this value is used as the mail body.\n Left empty the page title is used."
+msgstr "Wenn ein „mailto:“-Link im E-Mail-Link vorhanden ist, wird dieser Wert als E-Mail-Textkörper verwendet.\r\nBei einem leeren Wert wird der Seitentitel verwendet."
+
+#: src/Form/ShariffSettingsForm.php:189 src/Plugin/Block/ShariffBlock.php:237
+msgid "A string that will be appended to the share url. Disabled when empty."
+msgstr "Eine Zeichenkette, die zur Teilen-URL hinzugefügt wird. Wird bei einem leeren Wert deaktiviert."
+
+#: src/Form/ShariffSettingsForm.php:196 src/Plugin/Block/ShariffBlock.php:251
+msgid "The path to your Shariff backend. Leaving the value blank disables the backend feature and no counts will occur."
+msgstr "Der Pfad zum Shariff-Backend. Wenn dieser Wert leer ist, wird das Shariff-Backend deaktiviert und keine Zählungen erfolgen."
+
+#: src/Form/ShariffSettingsForm.php:203 src/Plugin/Block/ShariffBlock.php:265
+msgid "Category to be used for Flattr."
+msgstr "Kategorie, die für Flattr verwendet werden soll"
+
+#: src/Form/ShariffSettingsForm.php:210 src/Plugin/Block/ShariffBlock.php:279
+msgid "User that receives Flattr donation."
+msgstr "Benutzer, der die Flattr-Spende erhält."
+
+#: src/Form/ShariffSettingsForm.php:217 src/Plugin/Block/ShariffBlock.php:293
+msgid "Media url to be shared (Pinterest)."
+msgstr "Medien-URL, die geteilt werden soll (Pinterest)."
+
+#: src/Form/ShariffSettingsForm.php:223 src/Plugin/Block/ShariffBlock.php:306
+msgid "Shariff Information URL"
+msgstr "URL für Informationen über Shariff"
+
+#: src/Form/ShariffSettingsForm.php:224 src/Plugin/Block/ShariffBlock.php:307
+msgid "The url for information about Shariff. Used by the Info Button."
+msgstr "Die URL für Informationen über Shariff. Wird von dem Info-Button verwendet."
+
+#: src/Form/ShariffSettingsForm.php:230 src/Plugin/Block/ShariffBlock.php:321
+msgid "Shariff Information Page Display"
+msgstr "Anzeige der Seite mit Informationen über Shariff"
+
+#: src/Form/ShariffSettingsForm.php:231 src/Plugin/Block/ShariffBlock.php:322
+msgid "How the above URL should be opened. Please choose a display option."
+msgstr "Wie die obige URL geöffnet werden soll. Bitte wählen Sie eine Anzeigeoption."
+
+#: src/Form/ShariffSettingsForm.php:234 src/Plugin/Block/ShariffBlock.php:325
+msgid "Blank"
+msgstr "Leer"
+
+#: src/Form/ShariffSettingsForm.php:235 src/Plugin/Block/ShariffBlock.php:326
+msgid "Popup"
+msgstr "Popup"
+
+#: src/Form/ShariffSettingsForm.php:236 src/Plugin/Block/ShariffBlock.php:327
+msgid "Self"
+msgstr "Selbst"
+
+#: src/Form/ShariffSettingsForm.php:242 src/Plugin/Block/ShariffBlock.php:341
+msgid "WhatsApp/Twitter Share Title"
+msgstr "Titel bei Teilen über WhatsApp/Twitter"
+
+#: src/Form/ShariffSettingsForm.php:243 src/Plugin/Block/ShariffBlock.php:342
+msgid "Fixed title to be used as share text in Twitter/Whatsapp.\n      Normally you want to leave it as it is, then page's DC.title/DC.creator or page title is used."
+msgstr "Fest voreingestellter Titel, der als Überschrift beim Teilen zu Twitter/Whatsapp verwendet werden soll.\r\n      Normalerweise sollte die Standardeinstellunge beibehalten werden, d. h. DC.title/DC.creator der Seite oder der Seitentitel werden verwendet."
+
+#: src/Form/ShariffSettingsForm.php:251 src/Plugin/Block/ShariffBlock.php:358
+msgid "You can fix the canonical URL of the page to check here.\n         Normally you want to leave it as it is, then the page's canonical URL or og:url or current URL is used."
+msgstr "Die kanonische URL der Seite kann korrigiert und hier überprüft werdenn.\r\n         Normalerweise wird die URL so belassen, wie sie ist. In diesem Fall wird die kanonische URL der Seite oder og:url oder die aktuelle URL verwendet."
+
+#: src/Plugin/Block/ShariffBlock.php:57
+msgid "Use Shariff default settings"
+msgstr "Standard-Einstellungen von Shariff verwenden"
+
+#: src/Plugin/Block/ShariffBlock.php:58
+msgid "When set default Shariff settings are used. Uncheck to overwrite settings here."
+msgstr "Wenn die Option aktiviert ist, werden die Standardeinstellungen von Shariff verwendet. Bei Deaktivieren der Option können die Einstellungen überschrieben werden."
+
+#: src/Plugin/Block/ShariffBlock.php:10
+msgid "Shariff share buttons"
+msgstr "Shariff-Teilen-Buttons"
+
+#: src/Plugin/Block/ShariffBlock.php:10
+msgid "Blocks"
+msgstr "Blöcke"
+

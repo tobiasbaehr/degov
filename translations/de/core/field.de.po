@@ -1,0 +1,584 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  field.post_update.php: n/a
+#  field.purge.inc: n/a
+#  field.module: n/a
+#  field.info.yml: n/a
+#  config/schema/field.schema.yml: n/a
+#  src/Entity/FieldConfig.php: n/a
+#  src/Plugin/migrate/source/d6/Field.php: n/a
+#  src/Plugin/migrate/source/d7/Field.php: n/a
+#  config/schema/field.views.schema.yml: n/a
+#  src/FieldUninstallValidator.php: n/a
+#  src/Entity/FieldStorageConfig.php: n/a
+#  src/Plugin/migrate/source/d6/FieldInstance.php: n/a
+#  src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php: n/a
+#  src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php: n/a
+#  src/Plugin/migrate/source/d6/FieldInstanceOptionTranslation.php: n/a
+#  src/Plugin/migrate/source/d6/FieldLabelDescriptionTranslation.php: n/a
+#  src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php: n/a
+#  src/Plugin/migrate/source/d6/FieldOptionTranslation.php: n/a
+#  src/Plugin/migrate/source/d7/FieldInstance.php: n/a
+#  src/Plugin/migrate/source/d7/FieldInstancePerViewMode.php: n/a
+#  src/Plugin/migrate/source/d7/ViewMode.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:29+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: field.post_update.php:21
+msgid "All field storage configuration objects re-saved."
+msgstr "Alle Konfigurationsobjekte in den Feldeinstellungen wurden erneut gespeichert."
+
+#: field.post_update.php:38
+msgid "Selection handler for entity reference fields have been adjusted."
+msgstr "Der Auswahlhandler für Entitätsreferenzfelder wurde angepasst."
+
+#: field.post_update.php:60
+msgid "The new size setting for email widgets has been added."
+msgstr "Die neue Zeichenkettenlängeneinstellung für E-Mail-Steuerelemente  wurde hinzugefügt."
+
+#: field.purge.inc:160
+msgid "Attempt to purge a field storage @field_name that still has fields."
+msgstr "Versuche den Feldspeicher @field_name zu löschen, der immer noch Felder enthält"
+
+#: field.purge.inc:88
+msgid "Cannot remove field @field_name because the entity type is unknown: %entity_type"
+msgstr "Das Feld @field_name kann nicht entfernt werden, weil der Entitätstyp %entity_type nicht bekannt ist."
+
+#: field.module:72
+msgid "About"
+msgstr "Über"
+
+#: field.module:73
+msgid "The Field module allows custom data fields to be defined for <em>entity</em> types (see below). The Field module takes care of storing, loading, editing, and rendering field data. Most users will not interact with the Field module directly, but will instead use the <a href=\":field-ui-help\">Field UI module</a> user interface. Module developers can use the Field API to make new entity types \"fieldable\" and thus allow fields to be attached to them. For more information, see the <a href=\":field\">online documentation for the Field module</a>."
+msgstr "Das Modul 'Feld' ermöglicht das Definieren von angepassten Datenfeldern für <em>Entitätstypen</em> (siehe weiter unten). Das Modul 'Feld' kann zum Speichern, Laden, Bearbeiten und Wiedergeben von Felddaten verwendet werden. Die meisten Benutzer interagieren nicht direkt mit dem Modul 'Feld', sondern verwenden stattdessen die Benutzerschnittstelle des <a href=\":field-ui-help\">Moduls 'Feldbenutzerschnittstelle'</a>. Modulentwickler können die Feld-API verwenden, um neue Entitätstypen \"für Felder verwendbar\" zu machen und so zu ermöglichen, dass Felder an sie angehängt werden. Weitere Informationen finden Sie in der <a href=\":field\">Onlinedokumentation zum Modul 'Feld'</a>."
+
+#: field.module:74
+msgid "Terminology"
+msgstr "Terminologie"
+
+#: field.module:76
+msgid "Entities and entity types"
+msgstr "Entitäten und Entitätstypen"
+
+#: field.module:77
+msgid "The website's content and configuration is managed using <em>entities</em>, which are grouped into <em>entity types</em>. <em>Content entity types</em> are the entity types for site content (such as the main site content, comments, custom blocks, taxonomy terms, and user accounts). <em>Configuration entity types</em> are used to store configuration information for your site, such as individual views in the Views module, and settings for your main site content types."
+msgstr "Der Inhalt und die Konfiguration der Website wird mithilfe von <em>Entitäten</em> verwaltet, die in <em>Entitätstypen</em> gruppiert sind. <em>Inhaltsentitätstypen</em> sind die Entitätstypen die die Inhalte der Website widerspiegeln (wie z. B. Die Inhalte, auf der Website, die mit Hilfe von Inhaltstypen erzeugt werden, Kommentare, benutzerdefinierte Blöcke, Taxonomiebegriffe und Benutzerkonten). <em>Konfigurationsentitätstypen</em> werden zum Speichern der Konfigurationsinformationen der Website verwendet, wie z. B. einzelne Ansichten die durch das Modul Views ausgegeben werden und Einstellungen für die Inhaltstypen, mit denen die Inhalte der Website erzeugt werden."
+
+#: field.module:78
+msgid "Entity sub-types"
+msgstr "Entitätsuntertypen"
+
+#: field.module:79
+msgid "Some content entity types are further grouped into sub-types (for example, you could have article and page content types within the main site content entity type, and tag and category vocabularies within the taxonomy term entity type); other entity types, such as user accounts, do not have sub-types. Programmers use the term <em>bundle</em> for entity sub-types."
+msgstr "Einige Entitätstypen für Inhalte werden darüber hinaus in Subtypen gruppiert. Man kann zum Beispiel Inhaltstypen für Artikel und Seiten im Inhaltstyp der Hauptseite haben und zudem Tag- und Kategorie-Vokabulare innerhalb des Entitätstypen des Taxonomiebegriffs. Andere Entitätstypen, wie Benutzerkontos, haben keine Subtypen. Programmierer benutzen den Begriff <em>Subtyp</em> für Subtypen von Entitäten."
+
+#: field.module:80
+msgid "Fields and field types"
+msgstr "Felder und Feldtypen"
+
+#: field.module:81
+msgid "Content entity types and sub-types store most of their text, file, and other information in <em>fields</em>. Fields are grouped by <em>field type</em>; field types define what type of data can be stored in that field, such as text, images, or taxonomy term references."
+msgstr "Inhalts-Entitätstypen und Subtypen speichern den Großteil ihrer Texte, Dateien und anderer Informationen in <em>Feldern</em>. Felder sind in <em>Feldtypen</em> gruppiert; Feldtypen definieren, welcher Datentyp in diesem Feld gespeichert werden kann, z. B. Text, Bilder oder Taxonomie-Begriff-Referenzen."
+
+#: field.module:82
+msgid "Formatters and view modes"
+msgstr "Anzeigeformate und Ansichtsmodi"
+
+#: field.module:83
+msgid "Content entity types and sub-types can have one or more <em>view modes</em>, used for displaying the entity items. For instance, a content item could be viewed in full content mode on its own page, teaser mode in a list, or RSS mode in a feed. In each view mode, each field can be hidden or displayed, and if it is displayed, you can choose and configure the <em>formatter</em> that is used to display the field. For instance, a long text field can be displayed trimmed or full-length, and taxonomy term reference fields can be displayed in plain text or linked to the taxonomy term page."
+msgstr "Inhalts-Entitätstypen und deren Subtypen können einen oder mehrere <em>Anzeigemodi</em> besitzen, die zur Anzeige der Entitätselemente verwendet werden. So kann ein Inhaltselement als „Vollständiger Inhalt“ auf einer eigenen Seite angezeigt werden, als „Anrisstext“ in einer Liste oder als \"RSS\" in einem Feed. Für jeden Anzeigemodus kann ausgewählt werden, ob das Feld angezeigt oder ausgeblendet werden soll. Wenn das Feld angezeigt wird, kann ein passendes <em>Anzeigeformat</em> ausgewählt werden. So kann ein langes Textfeld gekürzt oder in voller Länge angezeigt werden und Taxonomiebegriff-Referenzfelder können im Klartext angezeigt oder zur Taxonomiebegriff-Seite verlinkt werden."
+
+#: field.module:84
+msgid "Widgets and form modes"
+msgstr "Steuerelemente und Formulardarstellungen"
+
+#: field.module:85
+msgid "Content entity types and sub-types can have one or more <em>form modes</em>, used for editing. For instance, a content item could be edited in a compact format with only some fields editable, or a full format that allows all fields to be edited. In each form mode, each field can be hidden or displayed, and if it is displayed, you can choose and configure the <em>widget</em> that is used to edit the field. For instance, a taxonomy term reference field can be edited using a select list, radio buttons, or an autocomplete widget."
+msgstr "Inhaltsentitätstypen und Subtypen können einen oder mehrere <em>Formularmodi</em> besitzen, die zur Bearbeitung verwendet werden können.  Damit können Bearbeitungsformulare für einen bestimmten Bearbeitungszweck erstellt werden, die nur bestimmte Felder enthalten, die von Benutzern bearbeitet werden sollen. Es kann auch ein vollständiges Bearbeitungsformular angelegt werden, das alle Felder beinhaltet, die einem Inhaltstyp zur Verfügung stehen.  In jedem Formularmodus kann jedes vorhandene Feld entweder angezeigt oder ausgeblendet werden. Wird ein Feld angezeigt, kann das <em>Steuerelement</em> für das jeweilige Feld gewählt und konfiguriert werden. Ein Feld, das einen Taxonomiebegriff enthält, kann zum Beispiel mit Hilfe einer Auswahlliste, einem Autovervollständigungsfeld oder mit Hilfe von Radio-Buttons, über die der entsprechende Begriff ausgewählt wird, bearbeitet werden."
+
+#: field.module:87
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: field.module:89
+msgid "Enabling field types, widgets, and formatters"
+msgstr "Feldtypen, Steuerelemente und Anzeigeformate aktivieren"
+
+#: field.module:90
+msgid "The Field module provides the infrastructure for fields; the field types, formatters, and widgets are provided by Drupal core or additional modules. Some of the modules are required; the optional modules can be enabled from the <a href=\":modules\">Extend administration page</a>. Additional fields, formatters, and widgets may be provided by contributed modules, which you can find in the <a href=\":contrib\">contributed module section of Drupal.org</a>."
+msgstr "Das Field-Modul stellt die Infrastruktur für Felder bereit. Die Feldtypen, Anzeigeformate und Steuerelemente werden vom Drupal-Kernsystem oder zusätzlichen Modulen bereitgestellt. Einige der Module sind erforderlich. Die optionalen Module können auf der <a href=\":modules\">Verwaltungsseite 'Erweitern'</a> aktiviert werden. Zusätzliche Felder, Anzeigeformatsteuerelemente und Steuerelemente, werden von Zusatzmodulen bereitgestellt werden. Diese sind  im Bereich <a href=\":contrib\">Von der Community bereitgestellte Zusatzmodule auf Drupal.org</a>."
+
+#: field.module:92
+msgid "Field, widget, and formatter information"
+msgstr "Feld-, Steuerelement- und Anzeigeformatinformationen Informationen"
+
+#: field.module:122
+msgid "Provided by modules"
+msgstr "Von Modulen bereitgestellt"
+
+#: field.module:123
+msgid "Here is a list of the currently enabled field, formatter, and widget modules:"
+msgstr "Dies ist eine Liste der aktuell aktivierten Anzeigeformate und Steuerelmentmodule:"
+
+#: field.module:132
+msgid "Provided by Drupal core"
+msgstr "Bereitgestellt vom Drupal-Kernsystem"
+
+#: field.module:133
+msgid "As mentioned previously, some field types, widgets, and formatters are provided by Drupal core. Here are some notes on how to use some of these:"
+msgstr "Wie bereits erwähnt, werden einige Feldtypen, Steuerelemente oder Anzeigeformate vom Drupal-Kernsystem zur Verfügung gestellt. Hier sind einige Verwendungshinweise:"
+
+#: field.module:135
+msgid "<strong>Entity Reference</strong> fields allow you to create fields that contain links to other entities (such as content items, taxonomy terms, etc.) within the site. This allows you, for example, to include a link to a user within a content item. For more information, see <a href=\":er_do\">the online documentation for the Entity Reference module</a>."
+msgstr "Mit Hilfe von <strong>Entitätsreferenz</strong>-Feldern können Felder erzeugt werden, die Links zu anderen Entitäten innerhalb der Website (wie Inhaltselemente, Taxonomie-Begriffe, etc.) enthalten. Damit kann z. B. in einem Inhaltselement ein Link zu einem Benutzer hinzugefügt werden. Weitere Informationen finden sich in der <a href=\":er_do\">Dokumentation des Entity Reference Moduls</a>."
+
+#: field.module:137
+msgid "Managing and displaying entity reference fields"
+msgstr "Entitätsreferenzfelder verwalten und anzeigen"
+
+#: field.module:138
+msgid "The <em>settings</em> and the <em>display</em> of the entity reference field can be configured separately. See the <a href=\":field_ui\">Field UI help</a> for more information on how to manage fields and their display."
+msgstr "Die <em>Einstellungen</em> und die <em>Anzeige</em> des Entitätsreferenzfeldes können getrennt voneinander konfiguriet werden. Weitere Informationen sind in der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar."
+
+#: field.module:139
+msgid "Selecting reference type"
+msgstr "Referenztyp auswählen"
+
+#: field.module:140
+msgid "In the field settings you can select which entity type you want to create a reference to."
+msgstr "In den Feldeinstellungen kann ausgewählt werden, zu welchen Entitätstypen eine Referenz erstellt werden soll."
+
+#: field.module:141
+msgid "Filtering and sorting reference fields"
+msgstr "Referenzfelder filtern und sortieren"
+
+#: field.module:142
+msgid "Depending on the chosen entity type, additional filtering and sorting options are available for the list of entities that can be referred to, in the field settings. For example, the list of users can be filtered by role and sorted by name or ID."
+msgstr "Je nach gewähltem Entitätstyp sind zusätzliche Filter- und Sortieroptionen für die Liste der Entitäten verfügbar, auf die in den Feldeinstellungen verwiesen werden kann. Die Liste der Benutzer kann z. B. nach Rolle gefiltert und nach Name oder ID sortiert werden."
+
+#: field.module:143
+msgid "Displaying a reference"
+msgstr "Eine Referenz anzeigen"
+
+#: field.module:144
+msgid "An entity reference can be displayed as a simple label with or without a link to the entity. Alternatively, the referenced entity can be displayed as a teaser (or any other available view mode) inside the referencing entity."
+msgstr "Eine Entitätsreferenz kann als einfache Beschriftung angezeigt werden. Dabei kann entschieden werden, ob diese Beschriftung einen Link zu einer Entität enthält oder nicht. Alternativ kann die referenzierte Entität als Anrisstext (oder in jedem anderen verfügbaren Anzeigemodus) innerhalb der referenzierenden Entität angezeigt werden."
+
+#: field.module:145
+msgid "Configuring form displays"
+msgstr "Formularanzeigen konfigurieren"
+
+#: field.module:146
+msgid "Reference fields have several widgets available on the <em>Manage form display</em> page:"
+msgstr "Für Referenzfelder werden auf der Seite <em>Formularanzeige verwalten</em> mehrere Steuerelemente zur Verfügung gestellt:"
+
+#: field.module:148
+msgid "The <em>Check boxes/radio buttons</em> widget displays the existing entities for the entity type as check boxes or radio buttons based on the <em>Allowed number of values</em> set for the field."
+msgstr "Das Steuerelement für <em>Kontrollkästchen und Radio-Buttons</em> zeigt die vorhandenen Entitäten für die Entitätstypen, abhängig von der Anzahl der im Feld zulässigen Werte, als Kontrollkästchen oder Radio-Button an."
+
+#: field.module:149
+msgid "The <em>Select list</em> widget displays the existing entities in a drop-down list or scrolling list box based on the <em>Allowed number of values</em> setting for the field."
+msgstr "Das Auswahlliste-Steuerelement zeigt die bereits existierenden Entitäten in einer Auswahlliste oder in einer Scroll-Liste an je nach dem wie viele Werte für das jeweilige Feld erlaubt sind."
+
+#: field.module:150
+msgid "The <em>Autocomplete</em> widget displays text fields in which users can type entity labels based on the <em>Allowed number of values</em>. The widget can be configured to display all entities that contain the typed characters or restricted to those starting with those characters."
+msgstr "Das Steuerelement <em>Autovervollständigung</em> zeigt Textfelder an, die Benutzer, abhängig von der <em>Erlaubten Anzahl von Werten</em> dafür verwendenden können Entitätsbezeichnungen einzugeben. Das Steuerelement kann so Konfiguriert werden, dass alle Entitäten angezeigt werden, die die eingegebenen Buchstaben enthalten oder nur solche, die mit den eingegebenen Buchstaben beginnen."
+
+#: field.module:151
+msgid "The <em>Autocomplete (Tags style)</em> widget displays a multi-text field in which users can type in a comma-separated list of entity labels."
+msgstr "Das Steuerelement <em>Autoverfollständigung (Tag-Stil)</em> zeit ein Multitextfeld an, in dem Benutzer eine durch Kommata getrennte Liste von Entitätsbezeichnungen eingeben können."
+
+#: field.module:154
+msgid "<strong>Number fields</strong>: When you add a number field you can choose from three types: <em>decimal</em>, <em>float</em>, and <em>integer</em>. The <em>decimal</em> number field type allows users to enter exact decimal values, with fixed numbers of decimal places. The <em>float</em> number field type allows users to enter approximate decimal values. The <em>integer</em> number field type allows users to enter whole numbers, such as years (for example, 2012) or values (for example, 1, 2, 5, 305). It does not allow decimals."
+msgstr "<strong>Nummernfelder</strong>: Wenn ein Feld hinzugefügt wird, dass eine Zahl enthält, kann aus drei Typen gewählt werden: <em>Dezimalzahl</em> <em>Fließkommazahl</em> und <em>Ganzzahl</em>.Das Feld <em>Dezimalzahl</em> erlaubt die Eingabe von exakten Dezimalwerten mit einer festen Anzahl von Dezimalstellen. Der Typ <em>Fließkommazahl</em> erlaubt die Eingabe von ungefähren Dezimalwerten. Der Typ <em>Ganzzahl</em> erlaubt die Eingabe von ganzen Zahlen wie beispielsweise Jahreszahlen (Zum Beispiel 2012) oder Werten (wie zum Beispiel 1,2,5 oder 305). Kommastellen sind in diesem Feld nicht erlaubt."
+
+#: field.module:404
+msgid "The %field_name entity reference field (entity_type: %entity_type, bundle: %bundle) no longer has any valid bundle it can reference. The field is not working correctly anymore and has to be adjusted."
+msgstr "Das Entitätsreferenzierungsfeld %field_name (entity_type: %entity_type, Subtyp: %bundle) besitzt keinen gültigen Subtyp mehr, der referenziert werden kann. Das Feld funktioniert deshalb nicht länger korrekt. Die Einstellungen für das Feld müssen angepasst werden."
+
+#: field.module:327
+msgid "This synchronization will delete data from the field %fields."
+msgid_plural "This synchronization will delete data from the fields: %fields."
+msgstr[0] "Diese Synchronisierung löscht Daten aus dem Feld %fields."
+msgstr[1] "Diese Synchronisierung löscht Daten aus den Feldern: %fields."
+
+#: field.info.yml:0 config/schema/field.schema.yml:0;0 src/Entity/FieldConfig.php:12
+msgid "Field"
+msgstr "Feld"
+
+#: field.info.yml:0
+msgid "Field API to add fields to entities like nodes and users."
+msgstr "Ermöglicht das Hinzufügen von Feldern zu Entitäten, Beiträgen oder Benutzern."
+
+#: field.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: config/schema/field.schema.yml:0
+msgid "Field settings"
+msgstr "Feldeinstellungen"
+
+#: config/schema/field.schema.yml:0
+msgid "Maximum number of field data records to purge"
+msgstr "Die maximale Anzahl zu löschender Felddatensätze."
+
+#: config/schema/field.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/field.schema.yml:0 src/Plugin/migrate/source/d6/Field.php:47
+msgid "Field name"
+msgstr "Feldname"
+
+#: config/schema/field.schema.yml:0
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: config/schema/field.schema.yml:0
+msgid "Type"
+msgstr "Typ"
+
+#: config/schema/field.schema.yml:0 src/Plugin/migrate/source/d6/Field.php:54
+msgid "Module"
+msgstr "Modul"
+
+#: config/schema/field.schema.yml:0 src/Plugin/migrate/source/d6/Field.php:57 src/Plugin/migrate/source/d7/Field.php:61
+msgid "Locked"
+msgstr "Gesperrt"
+
+#: config/schema/field.schema.yml:0
+msgid "Maximum number of values users can enter"
+msgstr "Maximale Anzahl Werte, die ein Benutzer eingeben kann"
+
+#: config/schema/field.schema.yml:0 src/Plugin/migrate/source/d7/Field.php:64
+msgid "Translatable"
+msgstr "Übersetzbar"
+
+#: config/schema/field.schema.yml:0;0
+msgid "Indexes"
+msgstr "Indexe"
+
+#: config/schema/field.schema.yml:0
+msgid "Index"
+msgstr "Index"
+
+#: config/schema/field.schema.yml:0
+msgid "Persist field storage with no fields"
+msgstr "Noch vorhandene Feldeinstellungen ohne Felder"
+
+#: config/schema/field.schema.yml:0
+msgid "Enable custom storage"
+msgstr "Benutzerdefinierten Speicher aktivieren"
+
+#: config/schema/field.views.schema.yml:0
+msgid "Reverse entity reference"
+msgstr "Entitätsreferenzierung umkehren"
+
+#: src/FieldUninstallValidator.php:69
+msgid "Fields pending deletion"
+msgstr "Felder stehen zum Löschen noch aus."
+
+#: src/FieldUninstallValidator.php:65
+msgid "The %field_type_label field type is used in the following field: @fields"
+msgid_plural "The %field_type_label field type is used in the following fields: @fields"
+msgstr[0] "Der Feldtyp %field_type_label wird im folgenden Feld verwendet: @fields"
+msgstr[1] "Der Feldtyp %field_type_label wird in den folgenden Feldern verwendet: @fields"
+
+#: src/Entity/FieldConfig.php:12
+msgid "Fields"
+msgstr "Felder"
+
+#: src/Entity/FieldConfig.php:12
+msgid "field"
+msgstr "Feld"
+
+#: src/Entity/FieldConfig.php:12
+msgid "fields"
+msgstr "Felder"
+
+#: src/Entity/FieldStorageConfig.php:14
+msgid "Field storage"
+msgstr "Feldspeicher"
+
+#: src/Entity/FieldStorageConfig.php:14
+msgid "Field storages"
+msgstr "Feldeinstellungen"
+
+#: src/Entity/FieldStorageConfig.php:14
+msgid "field storage"
+msgstr "Feldeinstellung"
+
+#: src/Entity/FieldStorageConfig.php:14
+msgid "field storages"
+msgstr "Feldeinstellungen"
+
+#: src/Plugin/migrate/source/d6/Field.php:48
+msgid "Type (text, integer, ....)"
+msgstr "Typ (Text, Ganzzahl, ...)"
+
+#: src/Plugin/migrate/source/d6/Field.php:49
+msgid "An instance-specific widget type"
+msgstr "Ein instanzspezifischer Steuerelementtyp"
+
+#: src/Plugin/migrate/source/d6/Field.php:50
+msgid "Global settings. Shared with every field instance."
+msgstr "Globale Einstellungen, die für jede Feldinstanz gültig sind."
+
+#: src/Plugin/migrate/source/d6/Field.php:51
+msgid "Required"
+msgstr "Erforderlich"
+
+#: src/Plugin/migrate/source/d6/Field.php:52
+msgid "Multiple"
+msgstr "Mehrfach"
+
+#: src/Plugin/migrate/source/d6/Field.php:53
+msgid "DB storage"
+msgstr "DB-Speicher"
+
+#: src/Plugin/migrate/source/d6/Field.php:55
+msgid "DB Columns"
+msgstr "DB-Spalten"
+
+#: src/Plugin/migrate/source/d6/Field.php:56
+msgid "Active"
+msgstr "Aktiv"
+
+#: src/Plugin/migrate/source/d6/Field.php:80
+msgid "Widget types @types are used in Drupal 6 field instances: widget type @selected_type applied to the Drupal 8 base field"
+msgstr "Steuerelementtypen @types die in Feldinstanzen von Drupal 6 verwendet werden: @selected_type werden auf Basisfeld in Drupal 8 angewendet."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:39 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:74 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:81
+msgid "The machine name of field."
+msgstr "Der Systemname des Feldes."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:40
+msgid "Content type where this field is in use."
+msgstr "Der Inhaltstyp, in dem dieses Feld verwendet wird."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:41 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:76 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:83
+msgid "Weight."
+msgstr "Gewichtung."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:42 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:77 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:84
+msgid "A name to show."
+msgstr "Anzuzeigender Name."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:43 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:78 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:85
+msgid "Widget type."
+msgstr "Steuerelementtyp"
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:44 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:79 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:86
+msgid "Serialize data with widget settings."
+msgstr "Daten per Steuerelementeinstellungen serialisieren."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:45 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:80 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:87
+msgid "Serialize data with display settings."
+msgstr "Daten mit Anzeigeeinstellungen serialisieren."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:46 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:81 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:88
+msgid "A description of field."
+msgstr "Eine Beschreibung des Felds."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:47 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:82 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:89
+msgid "Module that implements widget."
+msgstr "Modul zu dem das Steuerelement gehört."
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:48 src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:83 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:90
+msgid "Status of widget"
+msgstr "Status des Steuerelements"
+
+#: src/Plugin/migrate/source/d6/FieldInstance.php:49
+msgid "The module that provides the field."
+msgstr "Das Modul, das dieses Feld bereitstellt."
+
+#: src/Plugin/migrate/source/d6/FieldInstanceOptionTranslation.php:30
+msgid "Type (article, page, ....)"
+msgstr "Typ (Artikel, Seite, ...)"
+
+#: src/Plugin/migrate/source/d6/FieldInstancePerFormDisplay.php:75 src/Plugin/migrate/source/d6/FieldInstancePerViewMode.php:82
+msgid "Content type where this field is used."
+msgstr "Inhaltstyp, der dieses Feld verwendet."
+
+#: src/Plugin/migrate/source/d6/FieldLabelDescriptionTranslation.php:42
+msgid "Profile field ID."
+msgstr "Profile field ID."
+
+#: src/Plugin/migrate/source/d6/FieldLabelDescriptionTranslation.php:43 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:59
+msgid "Locales target language ID."
+msgstr "ID der gewünschten Zielsprache."
+
+#: src/Plugin/migrate/source/d6/FieldLabelDescriptionTranslation.php:44
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/FieldLabelDescriptionTranslation.php:45
+msgid "Translation of either the title or explanation."
+msgstr "Übersetzung des Titels oder der Beschreibung."
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:58
+msgid "Option ID."
+msgstr "Options-ID."
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:59 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:62
+msgid "Object ID"
+msgstr "Objektkennung"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:60 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:65
+msgid "Integer value of Object ID"
+msgstr "Ganzzahlwert von Objekt-ID"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:61
+msgid "The input format used by this string"
+msgstr "Das Eingabeformat, das von dieser Zeichenkette verwendet wird"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:62
+msgid "Source string ID"
+msgstr "Quell-Zeichenketten-ID"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:63 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:68
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:64
+msgid "Translation of the option"
+msgstr "Übersetzung der Option"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:65 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:69
+msgid "Parent lid"
+msgstr "Übergeordnete LID"
+
+#: src/Plugin/migrate/source/d6/FieldOptionTranslation.php:66
+msgid "Plural index number in case of plural strings"
+msgstr "Plurale Indexnummer bei mehreren Zeichenketten"
+
+#: src/Plugin/migrate/source/d7/Field.php:53 src/Plugin/migrate/source/d7/FieldInstance.php:84 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:73
+msgid "The field ID."
+msgstr "Feld-ID"
+
+#: src/Plugin/migrate/source/d7/Field.php:54 src/Plugin/migrate/source/d7/FieldInstance.php:85 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:74
+msgid "The field name."
+msgstr "Der Feldname."
+
+#: src/Plugin/migrate/source/d7/Field.php:55
+msgid "The field type."
+msgstr "Der Feldtyp."
+
+#: src/Plugin/migrate/source/d7/Field.php:56
+msgid "The module that implements the field type."
+msgstr "Das Modul, das den Feldtyp implementiert."
+
+#: src/Plugin/migrate/source/d7/Field.php:57
+msgid "The field status."
+msgstr "Der Feldstatus."
+
+#: src/Plugin/migrate/source/d7/Field.php:58
+msgid "The field storage type."
+msgstr "Der Feldeinstellungstyp"
+
+#: src/Plugin/migrate/source/d7/Field.php:59
+msgid "The module that implements the field storage type."
+msgstr "Das Modul, das die Feldeinstellungen bereitstellt."
+
+#: src/Plugin/migrate/source/d7/Field.php:60
+msgid "The field storage status."
+msgstr "Der Status der Feldeinstellungen."
+
+#: src/Plugin/migrate/source/d7/Field.php:62
+msgid "The field data."
+msgstr "Die Felddaten."
+
+#: src/Plugin/migrate/source/d7/Field.php:63
+msgid "Cardinality"
+msgstr "Kardinalität"
+
+#: src/Plugin/migrate/source/d7/Field.php:65 src/Plugin/migrate/source/d7/FieldInstance.php:89 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:78
+msgid "Deleted"
+msgstr "Gelöscht"
+
+#: src/Plugin/migrate/source/d7/Field.php:66 src/Plugin/migrate/source/d7/FieldInstance.php:91
+msgid "The field instances."
+msgstr "Die Feldinstanzen."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:83 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:72
+msgid "The field instance ID."
+msgstr "Die ID der Feldinstanz."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:86 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:75
+msgid "The entity type."
+msgstr "Der Entitäts-Typ."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:87 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:76
+msgid "The entity bundle."
+msgstr "Der Subtyp der Entität."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:88 src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:77
+msgid "The field instance data."
+msgstr "Die Daten der Feldinstanz."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:90
+msgid "The field type"
+msgstr "Der Feldtyp."
+
+#: src/Plugin/migrate/source/d7/FieldInstance.php:92
+msgid "The field definition."
+msgstr "Die Felddefinition."
+
+#: src/Plugin/migrate/source/d7/FieldInstancePerViewMode.php:39
+msgid "The original machine name of the view mode."
+msgstr "Der ursprüngliche Systemname der Inhaltsdarstellung."
+
+#: src/Plugin/migrate/source/d7/FieldInstancePerViewMode.php:40
+msgid "The formatter settings."
+msgstr "Die Anzeigeformateinstellungen."
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:60
+msgid "A module defined group of translations"
+msgstr "Eine vom Modul definierte Gruppe von Übersetzungen"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:61
+msgid "Full string ID for quick search: type:objectid:property."
+msgstr "Vollständige Zeichenketten-ID für die Schnellsuche: type:objectid:property."
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:63
+msgid "Object type for this string"
+msgstr "Objekttyp für diese Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:64
+msgid "Object property for this string"
+msgstr "Objekteigenschaft für diese Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:66
+msgid "The {filter_format}.format of the string"
+msgstr "Das {filter_format}.format der Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:67
+msgid "Translation"
+msgstr "Übersetzung"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:70
+msgid "Plural index number"
+msgstr "Plural-Indexnummer"
+
+#: src/Plugin/migrate/source/d7/FieldLabelDescriptionTranslation.php:71
+msgid "Translation needs update"
+msgstr "Übersetzung muss aktualisiert werden"
+
+#: src/Plugin/migrate/source/d7/ViewMode.php:40
+msgid "The view mode ID."
+msgstr "Die ID der Inhaltsdarstellung."
+

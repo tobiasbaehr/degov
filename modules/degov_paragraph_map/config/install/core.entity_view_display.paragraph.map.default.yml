@@ -23,15 +23,12 @@ content:
     weight: 3
     label: hidden
     settings:
-      width: 450px
       height: 400px
       gestureHandling: cooperative
       style:
         maptype: ROADMAP
         style: '[]'
         pin: ''
-      map_center:
-        center_coordinates: null
       popup:
         choice: null
         text: null

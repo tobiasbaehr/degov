@@ -1,0 +1,324 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  menu_ui.module: n/a
+#  config/schema/menu_ui.schema.yml: n/a
+#  src/MenuListBuilder.php: n/a
+#  src/MenuForm.php: n/a
+#  menu_ui.es6.js: n/a
+#  menu_ui.js: n/a
+#  menu_ui.info.yml: n/a
+#  menu_ui.links.action.yml: n/a
+#  menu_ui.routing.yml: n/a
+#  menu_ui.links.contextual.yml: n/a
+#  menu_ui.links.task.yml: n/a
+#  menu_ui.links.menu.yml: n/a
+#  src/Form/MenuLinkResetForm.php: n/a
+#  src/Form/MenuDeleteForm.php: n/a
+#  src/Form/MenuLinkEditForm.php: n/a
+#  src/Plugin/Validation/Constraint/MenuSettingsConstraint.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: menu_ui.module:42
+msgid "About"
+msgstr "Über"
+
+#: menu_ui.module:43
+msgid "The Menu UI module provides an interface for managing menus. A menu is a hierarchical collection of links, which can be within or external to the site, generally used for navigation. For more information, see the <a href=\":menu\">online documentation for the Menu UI module</a>."
+msgstr "Das Menu UI-Modul stellt eine Benutzeroberfläche zum verwalten von Menüs zur Verfügung. Ein Menü ist eine gegeliederte Linksammlung die aus Links bestetht, die entweder auf Inhalte der Website oder auf externe Websites verlinken. Menüs werden zur Navigation verwendet. Weitere Informationen finden Sie in der  <a href=\":menu\">Online-Dokumentation der Menu UI module</a>."
+
+#: menu_ui.module:44
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: menu_ui.module:46
+msgid "Managing menus"
+msgstr "Menüs verwalten"
+
+#: menu_ui.module:47
+msgid "Users with the <em>Administer menus and menu items</em> permission can add, edit, and delete custom menus on the <a href=\":menu\">Menus page</a>. Custom menus can be special site menus, menus of external links, or any combination of internal and external links. You may create an unlimited number of additional menus, each of which will automatically have an associated block (if you have the <a href=\":block_help\">Block module</a> installed). By selecting <em>Edit menu</em>, you can add, edit, or delete links for a given menu. The links listing page provides a drag-and-drop interface for controlling the order of links, and creating a hierarchy within the menu."
+msgstr "Benutzer mit der Berechtigung <em>Menüs und Menüeinträge verwalten</em> Können benutzerdefinierte Menüs auf der Seite  <a href=\":menu\">Menüs</a> hinzufügen, bearbeiten und löschen. Benutzerdefinierte Menüs können spezielle Menüs auf der Seite sein oder Menüs mit externen Links bzw. externen und internen Links sein. Es können unendlich viele Menüs erstellt werden. Jedes Menü wird mit einem zugehörigen Block ausgestattet (wenn das <a href=\":block_help\">Block-Modul</a> installiert wurde). Wird der Punkt <em>Menü bearbeiten</em> ausgewählt, können Links im jeweiligen Menü hinzufügt, bearbeitet oder gelöscht werden. Die Seite auf  der die Links im Menü aufgelistet werden stellt eine Benutzeroberfläche zur Verfügung, mit deren Hilfe die Position jedes Links im Menü bestimmt werden kann. Außerdem kann  für jedes Menü eine Gliederung festlegt werden."
+
+#: menu_ui.module:48
+msgid "Displaying menus"
+msgstr "Menüs anzeigen"
+
+#: menu_ui.module:49
+msgid "If you have the Block module enabled, then each menu that you create is rendered in a block that you enable and position on the <a href=\":blocks\">Block layout page</a>. In some <a href=\":themes\">themes</a>, the main menu and possibly the secondary menu will be output automatically; you may be able to disable this behavior on the <a href=\":themes\">theme's settings page</a>."
+msgstr "Wenn das Block-Moul aktiviert ist, wird jedes Menü, dass erstellt wird als Block ausgegeben. Ein solcher Block kann aktiviert und die Position des Blocks auf der Seite <a href=\":blocks\">Blocklayout</a> festlegt werden. Einige <a href=\":themes\">Themes</a> positionieren das Hauptmenü und das sekundeäre Menü automatisch. Dieses Verhalten kann eventuell auf der Seite <a href=\":themes\">Theme-Einstellungen</a> deaktiviert werden."
+
+#: menu_ui.module:54
+msgid "You can enable the newly-created block for this menu on the <a href=\":blocks\">Block layout page</a>."
+msgstr "Der Block, der soeben für das Menü erstellt wurde kann auf der Seite <a href=\":blocks\">Blocklayout</a> aktiviert werden."
+
+#: menu_ui.module:57
+msgid "Each menu has a corresponding block that is managed on the <a href=\":blocks\">Block layout page</a>."
+msgstr "Jedes Menü hat einen entsprechenden Block, welcher über die <a href=\":blocks\">Blocklayout-Seite</a> verwaltet wird."
+
+#: menu_ui.module:250;367 config/schema/menu_ui.schema.yml:0
+msgid "Menu settings"
+msgstr "Menüeinstellungen"
+
+#: menu_ui.module:263
+msgid "Provide a menu link"
+msgstr "Menüpunkt erstellen"
+
+#: menu_ui.module:283
+msgid "Menu link title"
+msgstr "Linktitel des Menüpunkts"
+
+#: menu_ui.module:290 src/MenuListBuilder.php:22
+msgid "Description"
+msgstr "Description"
+
+#: menu_ui.module:292
+msgid "Shown when hovering over the menu link."
+msgstr "Wird beim Schweben über dem Menülink angezeigt."
+
+#: menu_ui.module:297
+msgid "Parent item"
+msgstr "Übergeordneter Menüpunkt"
+
+#: menu_ui.module:302 src/MenuForm.php:256
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: menu_ui.module:304
+msgid "Menu links with lower weights are displayed before links with higher weights."
+msgstr "Menülinks mit geringerer Gewichtung werden weiter oben angezeigt als solche mit höherer Gewichtung."
+
+#: menu_ui.module:375 config/schema/menu_ui.schema.yml:0
+msgid "Available menus"
+msgstr "Verfügbare Menüs"
+
+#: menu_ui.module:378
+msgid "The menus available to place links in for this content type."
+msgstr "Die verfügbaren Menüs für diesen Inhaltstyp, indem die Inhalte eingeordnet werden dürfen."
+
+#: menu_ui.module:389
+msgid "Default parent item"
+msgstr "Standard-Übergeordneter-Menüpunkt"
+
+#: menu_ui.module:392
+msgid "Choose the menu item to be the default parent for a new link in the content authoring form."
+msgstr "Den Menüpunkt wählen, der im Eingabeformular für diesen Inhaltstyp als Übergeordneter-Menüpunkt voreingestellt sein soll."
+
+#: menu_ui.module:413
+msgid "The selected menu item is not under one of the selected menus."
+msgstr "Das ausgewählte Menüelement ist nicht in einem der ausgewählten Menüs."
+
+#: menu_ui.es6.js:0 menu_ui.js:0
+msgid "Not in menu"
+msgstr "Nicht im Menü"
+
+#: menu_ui.info.yml:0
+msgid "Menu UI"
+msgstr "Menu UI"
+
+#: menu_ui.info.yml:0
+msgid "Allows administrators to customize the site navigation menu."
+msgstr "Ermöglicht Administratoren das Navigationsmenü der Website zu bearbeiten."
+
+#: menu_ui.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: menu_ui.links.action.yml:0 src/MenuListBuilder.php:49
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: menu_ui.links.action.yml:0 menu_ui.routing.yml:0
+msgid "Add menu"
+msgstr "Menü hinzufügen"
+
+#: menu_ui.links.contextual.yml:0 menu_ui.links.task.yml:0 src/MenuListBuilder.php:47
+msgid "Edit menu"
+msgstr "Menü bearbeiten"
+
+#: menu_ui.links.menu.yml:0 menu_ui.routing.yml:0
+msgid "Menus"
+msgstr "Menüs"
+
+#: menu_ui.links.menu.yml:0
+msgid "Manage menus and menu links."
+msgstr "Menüs und Menülinks verwalten"
+
+#: menu_ui.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: menu_ui.routing.yml:0
+msgid "Edit menu link"
+msgstr "Menüpunkt bearbeiten"
+
+#: menu_ui.routing.yml:0
+msgid "Reset menu link"
+msgstr "Setze Menüpunkt zurück"
+
+#: menu_ui.routing.yml:0 src/MenuListBuilder.php:55
+msgid "Delete menu"
+msgstr "Menü löschen"
+
+#: config/schema/menu_ui.schema.yml:0
+msgid "Override parent selector"
+msgstr "Den übergeordneten Selektor übersteuern"
+
+#: config/schema/menu_ui.schema.yml:0
+msgid "Per-content type menu settings"
+msgstr "Menüeinstellungen nach Inhaltstyp"
+
+#: config/schema/menu_ui.schema.yml:0
+msgid "Menu machine name"
+msgstr "Systemname des Menüs"
+
+#: config/schema/menu_ui.schema.yml:0
+msgid "Parent"
+msgstr "Übergeordnet"
+
+#: src/MenuForm.php:102
+msgid "Edit menu %label"
+msgstr "Menü %label bearbeiten"
+
+#: src/MenuForm.php:107 src/MenuListBuilder.php:20
+msgid "Title"
+msgstr "Titel"
+
+#: src/MenuForm.php:113
+msgid "Menu name"
+msgstr "Menüname"
+
+#: src/MenuForm.php:116
+msgid "A unique name to construct the URL for the menu. It must only contain lowercase letters, numbers and hyphens."
+msgstr "Ein einzigartiger Name, um die URL für das Menü zu konstruieren. Er darf nur Kleinbuchstaben, Zahlen und Bindestriche enthalten."
+
+#: src/MenuForm.php:128
+msgid "Administrative summary"
+msgstr "Administrative Zusammenfassung"
+
+#: src/MenuForm.php:135
+msgid "Menu language"
+msgstr "Menüsprache"
+
+#: src/MenuForm.php:180;438
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/MenuForm.php:182;183
+msgid "Menu %label has been updated."
+msgstr "Menü %label wurde aktualisiert."
+
+#: src/MenuForm.php:186;187
+msgid "Menu %label has been added."
+msgstr "Menü %label wurde hinzugefügt."
+
+#: src/MenuForm.php:251
+msgid "Menu link"
+msgstr "Menü-Link"
+
+#: src/MenuForm.php:253
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/MenuForm.php:258
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/MenuForm.php:283
+msgid "There are no menu links yet. <a href=\":url\">Add link</a>."
+msgstr "Es gibt noch keine Menüeinträge. <a href=\":url\">Link hinzufügen</a>."
+
+#: src/MenuForm.php:403
+msgid "disabled"
+msgstr "Deaktiviert"
+
+#: src/MenuForm.php:407
+msgid "<q>Log in</q> for anonymous users"
+msgstr "<q>Anmeldung</q> für Gäste"
+
+#: src/MenuForm.php:411
+msgid "logged in users only"
+msgstr "nur angemeldete Benutzer"
+
+#: src/MenuForm.php:416
+msgid "Enable @title menu link"
+msgstr "@title Menüpunkt aktivieren"
+
+#: src/MenuForm.php:424
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/MenuForm.php:456 src/Form/MenuLinkResetForm.php:87
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/MenuForm.php:463
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/MenuForm.php:467
+msgid "Translate"
+msgstr "Übersetzen"
+
+#: src/MenuForm.php:300
+msgid "%capital_name contains 1 menu link with pending revisions. Manipulation of a menu tree having links with pending revisions is not supported, but you can re-enable manipulation by getting each menu link to a published state."
+msgid_plural "%capital_name contains @count menu links with pending revisions. Manipulation of a menu tree having links with pending revisions is not supported, but you can re-enable manipulation by getting each menu link to a published state."
+msgstr[0] "%capital_name enthält 1 Menülink mit ausstehenden Revisionen. Die Manipulation eines Menübaums, der Links mit ausstehenden Revisionen enthält, wird nicht unterstützt, aber die Manipulation kann wieder aktiviert werden, indem jeder Menülink in einen veröffentlichten Zustand gebracht wird."
+msgstr[1] "%capital_name enthält @count Menülinks mit ausstehenden Revisionen. Die Manipulation eines Menübaums, der Links mit ausstehenden Revisionen enthält, wird nicht unterstützt, aber die Manipulation kann wieder aktiviert werden, indem jeder Menülink in einen veröffentlichten Zustand gebracht wird."
+
+#: src/Form/MenuDeleteForm.php:64
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/MenuDeleteForm.php:72
+msgid "Deleted custom menu %title and all its menu links."
+msgstr "Der Menüpunkt %title und all seine Menülinks wurde gelöscht."
+
+#: src/Form/MenuDeleteForm.php:62
+msgid "<strong>Warning:</strong> There is currently 1 menu link in %title. It will be deleted (system-defined items will be reset)."
+msgid_plural "<strong>Warning:</strong> There are currently @count menu links in %title. They will be deleted (system-defined links will be reset)."
+msgstr[0] "<strong>Warnung:</strong> Es befindet sich derzeit 1 Menülink in %title. Dieser wird gelöscht (systemdefinierte Einträge werden zurückgesetzt)."
+msgstr[1] "<strong>Warnung:</strong> Es befindet sich derzeit @count Menülinks in %title. Diese werden gelöscht (systemdefinierte Einträge werden zurückgesetzt)."
+
+#: src/Form/MenuLinkEditForm.php:75
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/MenuLinkEditForm.php:94
+msgid "The menu link has been saved."
+msgstr "Der Menülink wurde gespeichert."
+
+#: src/Form/MenuLinkResetForm.php:64
+msgid "Are you sure you want to reset the link %item to its default values?"
+msgstr "Möchten Sie den Link %item wirklich auf dessen Standardwerte zurücksetzen?"
+
+#: src/Form/MenuLinkResetForm.php:80
+msgid "Any customizations will be lost. This action cannot be undone."
+msgstr "Eventuelle Anpassungen werden verloren gehen. Dieser Vorgang kann nicht rückgängig gemacht werden."
+
+#: src/Form/MenuLinkResetForm.php:105
+msgid "The menu link was reset to its default settings."
+msgstr "Der Menüpunkt wurde auf seinen Standardwert zurückgesetzt."
+
+#: src/Plugin/Validation/Constraint/MenuSettingsConstraint.php:7
+msgctxt "Validation"
+msgid "Menu settings."
+msgstr "Menüeinstellungen."
+
+#: src/Plugin/Validation/Constraint/MenuSettingsConstraint.php:17
+msgid "You can only change the menu settings for the <em>published</em> version of this content."
+msgstr "Es können nur die Menüeinstellungen für die <em>veröffentlichte Version</em> dieses Inhalts geändert werden."
+

@@ -1,0 +1,300 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  entity_embed.info.yml: n/a
+#  entity_embed.routing.yml: n/a
+#  config/schema/entity_embed.schema.yml: n/a
+#  src/Plugin/EmbedType/Entity.php: n/a
+#  js/plugins/drupalentity/plugin.js: n/a
+#  src/Form/EntityEmbedDialog.php: n/a
+#  src/Plugin/CKEditorPlugin/DrupalEntity.php: n/a
+#  src/Plugin/Filter/EntityEmbedFilter.php: n/a
+#  src/Plugin/entity_embed/EntityEmbedDisplay/EntityReferenceFieldFormatter.php: n/a
+#  src/Plugin/entity_embed/EntityEmbedDisplay/FileFieldFormatter.php: n/a
+#  src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php: n/a
+#  src/Plugin/entity_embed/EntityEmbedDisplay/ViewModeFieldFormatter.php: n/a
+#  config/optional/embed.button.node.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: entity_embed.info.yml:0
+msgid "Entity Embed"
+msgstr "Entity Embed"
+
+#: entity_embed.info.yml:0
+msgid "Allows entities to be embedded using a text editor."
+msgstr "Ermöglicht das Einbinden von Entitäten über einen Texteditor"
+
+#: entity_embed.info.yml:0
+msgid "Filters"
+msgstr "Filter"
+
+#: entity_embed.routing.yml:0
+msgid "Embed entity"
+msgstr "Entität einbetten"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Schema for the entity embed type additions to an embed button entity"
+msgstr "Schema für das Hinzufügen eines des Typs eines Entitätstyps für den Butten zum Einfügen der Entität."
+
+#: config/schema/entity_embed.schema.yml:0 src/Plugin/EmbedType/Entity.php:118
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: config/schema/entity_embed.schema.yml:0 src/Plugin/EmbedType/Entity.php:134
+msgid "Bundles"
+msgstr "Subtypen"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: config/schema/entity_embed.schema.yml:0 src/Plugin/EmbedType/Entity.php:144
+msgid "Allowed Entity Embed Display plugins"
+msgstr "Zugelassene Anzeige-Plugins für das Entity-Embed-Modul"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Entity Embed Display plugin"
+msgstr "Entity-Embed-Display-Plugin"
+
+#: config/schema/entity_embed.schema.yml:0 src/Plugin/EmbedType/Entity.php:164
+msgid "Entity browser"
+msgstr "Entity-Browser"
+
+#: config/schema/entity_embed.schema.yml:0 src/Plugin/EmbedType/Entity.php:171
+msgid "Entity browser settings"
+msgstr "Entity-Browser-Einstellungen"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Display review step"
+msgstr "Überprüfungsschritt anzeigen"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Entity embed settings"
+msgstr "Entity-Embed-Einstellungen"
+
+#: config/schema/entity_embed.schema.yml:0
+msgid "Rendered entity mode"
+msgstr "Anzeigemodus (gerendert)"
+
+#: js/plugins/drupalentity/plugin.js:0
+msgid "Edit Entity"
+msgstr "Entität bearbeiten"
+
+#: src/Form/EntityEmbedDialog.php:223
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/EntityEmbedDialog.php:234
+msgid "Select @type to embed"
+msgstr "@type zum Einbetten auswählen"
+
+#: src/Form/EntityEmbedDialog.php:254
+msgid "Type label and pick the right one from suggestions. Note that the unique ID will be saved."
+msgstr "Eine Beschriftung eingeben und den richtigen Eintrag aus den Vorschlägen wählen. Hinweis: Die eindeutige UUID wird gespeichert."
+
+#: src/Form/EntityEmbedDialog.php:271;327
+msgid "Next"
+msgstr "Weiter"
+
+#: src/Form/EntityEmbedDialog.php:304
+msgid "Review selected @type"
+msgstr "Ausgewählte/s/n @type überprüfen"
+
+#: src/Form/EntityEmbedDialog.php:316
+msgid "Replace selection"
+msgstr "Auswahl ersetzen"
+
+#: src/Form/EntityEmbedDialog.php:367
+msgid "Embed @type"
+msgstr "@type einbetten"
+
+#: src/Form/EntityEmbedDialog.php:381
+msgid "Selected entity"
+msgstr "Ausgewählte Entität"
+
+#: src/Form/EntityEmbedDialog.php:411
+msgid "Display as"
+msgstr "Darstellen als"
+
+#: src/Form/EntityEmbedDialog.php:447
+msgid "Align"
+msgstr "Ausrichten"
+
+#: src/Form/EntityEmbedDialog.php:450
+msgid "None"
+msgstr "Keine"
+
+#: src/Form/EntityEmbedDialog.php:451
+msgid "Left"
+msgstr "Links"
+
+#: src/Form/EntityEmbedDialog.php:452
+msgid "Center"
+msgstr "Zentriert"
+
+#: src/Form/EntityEmbedDialog.php:453
+msgid "Right"
+msgstr "Rechts"
+
+#: src/Form/EntityEmbedDialog.php:465
+msgid "Caption"
+msgstr "Beschriftung"
+
+#: src/Form/EntityEmbedDialog.php:477
+msgid "Back"
+msgstr "Zurück"
+
+#: src/Form/EntityEmbedDialog.php:487
+msgid "Embed"
+msgstr "Einbetten"
+
+#: src/Form/EntityEmbedDialog.php:536
+msgid "Unable to access @type entity @id."
+msgstr "Auf die Entität des Typs @type mit der ID @id konnte nicht zugegriffen werden."
+
+#: src/Form/EntityEmbedDialog.php:543
+msgid "Cannot embed @type entity @id because it does not have a UUID."
+msgstr "Die Entität des Typs @type mit der ID @id kann nicht eingebunden werden, da sie keine UUID besitzt."
+
+#: src/Form/EntityEmbedDialog.php:553
+msgid "No display options available for the selected entity. Please select another entity."
+msgstr "Es sind keine Anzeigeoptionen für die ausgewählte Entität verfügbar. Bitte wählen Sie eine andere Entität aus."
+
+#: src/Form/EntityEmbedDialog.php:559
+msgid "Unable to load @type entity @id."
+msgstr "Die Entität des Typs @type mit der ID @id konnte nicht geladen werden."
+
+#: src/Form/EntityEmbedDialog.php:554
+msgid "No display options available for \"@type:\" entity \"@id\" while embedding using button \"@button\". Please ensure that at least one Entity Embed Display plugin is allowed for this embed button which is available for this entity."
+msgstr "Es sind keine Anzeigeoptionen für die Entität des Typs @type mit der ID @id  wenn die Entität über den Button @button eingebettet wird. Es muss sichergestellt werden, dass mindestens ein Anzeige-Plugin für den Button erlaubt wurde, das für diese Entität zur Verfügung steht."
+
+#: src/Plugin/CKEditorPlugin/DrupalEntity.php:41
+msgid "Insert entity"
+msgstr "Entität einfügen"
+
+#: src/Plugin/CKEditorPlugin/DrupalEntity.php:42
+msgid "Edit entity"
+msgstr "Entität bearbeiten"
+
+#: src/Plugin/CKEditorPlugin/DrupalEntity.php:9 src/Plugin/EmbedType/Entity.php:16
+msgid "Entity"
+msgstr "Entität"
+
+#: src/Plugin/EmbedType/Entity.php:121
+msgid "Entity type for which this button is to enabled."
+msgstr "Der Entitätstyp, für den dieser Button aktiviert ist."
+
+#: src/Plugin/EmbedType/Entity.php:137
+msgid "If none are selected, all are allowed."
+msgstr "Wenn nichts ausgewählt ist, ist alles erlaubt."
+
+#: src/Plugin/EmbedType/Entity.php:147
+msgid "If none are selected, all are allowed. Note that these are the plugins which are allowed for this entity type, all of these might not be available for the selected entity."
+msgstr "Wird nichts ausgewählt, sind alle erlaubt. Dies bezieht sich auf die Plugins, die für diesen Entitätstyp erlaubt sind. Es kann sein, dass nicht alle Plugins für den ausgewählten Entitätstyp zur Verfügung stehen."
+
+#: src/Plugin/EmbedType/Entity.php:161
+msgid "None (autocomplete)"
+msgstr "Keine (Autovervollständigung)"
+
+#: src/Plugin/EmbedType/Entity.php:165
+msgid "Entity browser to be used to select entities to be embedded."
+msgstr "Der Entitätsbrowser, der verwendet wird, um die Entitäten auszuwählen, die eingebettet werden sollen."
+
+#: src/Plugin/Filter/EntityEmbedFilter.php:182
+msgid "\n        <p>You can embed entities. Additional properties can be added to the embed tag like data-caption and data-align if supported. Example:</p>\n        <code>&lt;drupal-entity data-entity-type=\"node\" data-entity-uuid=\"07bf3a2e-1941-4a44-9b02-2d1d7a41ec0e\" data-view-mode=\"teaser\" /&gt;</code>"
+msgstr "\n        <p>Entitäten können eingebunden werden. An den Embed-Tag können zusätzliche Eigenschaften, wie data-caption und data-align angehängt werden, wenn diese Eigenschaften unterstützt werden. Ein Beispiel:</p>\r\n        <code>&lt;drupal-entity data-entity-type=\"node\" data-entity-uuid=\"07bf3a2e-1941-4a44-9b02-2d1d7a41ec0e\" data-view-mode=\"teaser\" /&gt;</code>"
+
+#: src/Plugin/Filter/EntityEmbedFilter.php:187
+msgid "You can embed entities."
+msgstr "Entitäten können eingebettet werden"
+
+#: src/Plugin/Filter/EntityEmbedFilter.php:19
+msgid "Display embedded entities"
+msgstr "Eingebettete Entitäten anzeigen"
+
+#: src/Plugin/Filter/EntityEmbedFilter.php:19
+msgid "Embeds entities using data attributes: data-entity-type, data-entity-uuid, and data-view-mode."
+msgstr "Eingebundene Entitäten verwenden Daenatribute: data-entity data-entity-type, data-entity-uuid, und data-view-mode."
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/EntityReferenceFieldFormatter.php:7
+msgid "Entity Reference"
+msgstr "Entity Reference"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/FileFieldFormatter.php:52
+msgid "Description"
+msgstr "Description"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/FileFieldFormatter.php:54
+msgid "The description may be used as the label of the link to the file."
+msgstr "Die Beschreibung kann als Linktext für die Datei verwendet werden."
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/FileFieldFormatter.php:7
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:163
+msgid "Alternate text"
+msgstr "Alternativtext"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:165
+msgid "This text will be used by screen readers, search engines, or when the image cannot be loaded."
+msgstr "Dieser Text wird von Screenreadern und Suchmaschinen oder dann verwendet, wenn das Bild nicht geladen werden kann."
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:168
+msgid "Alternative text is required.<br />(Only in rare cases should this be left empty. To create empty alternative text, enter <code>\"\"</code> — two double quotes without any content)."
+msgstr "Der Alternativ-Text ist erforderlich. <br /> (Nur in seltenen Fällen sollte er leer gelassen werden. Um einen leeren Alternativ-Text zu erzeugen, <code>\"\"</code> — zwei Anführungszeichen ohne jeglichen Inhalt  — eingeben."
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:173
+msgid "Title"
+msgstr "Titel"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:175
+msgid "The title is used as a tool tip when the user hovers the mouse over the image."
+msgstr "Der Titel erscheint als Tooltip, wenn der Benutzer den Mauszeiger über dem Bild stehenlässt."
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ImageFieldFormatter.php:15
+msgid "Image"
+msgstr "Bild"
+
+#: src/Plugin/entity_embed/EntityEmbedDisplay/ViewModeFieldFormatter.php:7
+msgid "View Mode"
+msgstr "Anzeigemodus"
+
+#: config/optional/embed.button.node.yml:0
+msgid "Node"
+msgstr "Beitrag"
+
+msgid "Embeds entities using data attributes: data-entity-type, data-entity-uuid, and data-view-mode. Should usually run as the last filter, since it does not contain user input."
+msgstr "Bettet Entitäten mittels data-Attributen ein: data-entity-type, data-entity-uuid und data-view-mode. Sollte üblicherweise als letzter Filter laufen, da es keine Benutzereingaben beinhaltet."
+
+msgid "The entity type this button will embed."
+msgstr "Der Entitätentyp, den dieser Button einbettet."
+
+msgid "Entity browser to be used to select entities to be embedded. Only compatible browsers will be available to be chosen."
+msgstr "Entity-Browser der zur Auswahl der einzubettenden Entitäten verwendet werden soll. Nur kompatible Browser sind auswählbar."
+
+msgid "Fake entity type"
+msgstr "Fake Entity Type"
+
+msgid "Embedded entity"
+msgstr "Eingebettete Entität"
+
+msgid "Embedded @buttonLabel"
+msgstr "@buttonLabel eingebettet"
+
+msgid "Edit @buttonLabel"
+msgstr "@buttonLabel bearbeiten"

@@ -34,20 +34,20 @@ Feature: deGov - deGov Theme
     And I click by CSS class "js-social-media-settings-save"
 
     Then I should see 1 "main .block--degov-social-media-instagram" element
-    And I should see text matching "Teaser social media" in "css" selector ".block--degov-social-media-instagram .paragraph__header h2"
+    And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-instagram .paragraph__header h2"
     And I should see text matching "Instagram Teaser" in "css" selector ".block--degov-social-media-instagram .paragraph__header h3.sub-title"
     And I should see 4 ".block--degov-social-media-instagram .paragraph__content article" elements
     And I should see the "img" in ".block--degov-social-media-instagram .paragraph__content article a.img-top"
 
     Then I should see 1 "main .block--degov-social-media-twitter" element
-    And I should see text matching "Teaser social media" in "css" selector ".block--degov-social-media-twitter .paragraph__header h2"
+    And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-twitter .paragraph__header h2"
     And I should see text matching "Twitter Teaser" in "css" selector ".block--degov-social-media-twitter .paragraph__header h3.sub-title"
     And I should see 4 ".block--degov-social-media-twitter .paragraph__content div.tweet" elements
     And I should see the "img" in ".block--degov-social-media-twitter .paragraph__content .tweet .tweet__avatar a"
 
     Then I should see 1 "main .block--degov-social-media-youtube" element
-    And I should see text matching "Teaser social media" in "css" selector ".block--degov-social-media-youtube .paragraph__header h2"
-    And I should see text matching "Youtube Teaser" in "css" selector ".block--degov-social-media-youtube .paragraph__header h3.sub-title"
+    And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-youtube .paragraph__header h2"
+    And I should see text matching "YouTube Teaser" in "css" selector ".block--degov-social-media-youtube .paragraph__header h3.sub-title"
     And I should see 4 ".block--degov-social-media-youtube .paragraph__content div.teaser-social-media-youtube" elements
     And I should see the "div.play-icon" in ".block--degov-social-media-youtube .paragraph__content .teaser-social-media-youtube .teaser-image a"
     Then I uninstall the "degov_devel" module

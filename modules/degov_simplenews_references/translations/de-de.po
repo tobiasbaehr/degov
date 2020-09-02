@@ -18,7 +18,7 @@ msgid "Simplenews settings"
 msgstr ""
 
 msgid "Privacy policy page (@langcode)"
-msgstr ""
+msgstr "Datenschutzerklärung (@langcode)"
 
 msgid "I hereby agree that my personal data transmitted with the contact information may be saved and processed. I confirm to be at least 16 years of age or have made available authorisation from the custodian(s) permitting the use of the contact information and dissemination of the data. I have read the @privacy_policy. The right of withdrawal is known to me."
 msgstr "Ich willige hiermit ein (Art. 6 Abs. 1 lit. a DSGVO), dass meine mit dem Kontakt übermittelten persönlichen Daten gespeichert und verarbeitet werden dürfen.\nIch versichere, dass ich über 16 Jahre alt bin bzw. die Zustimmung der / des Sorgeberechtigten zur Nutzung des Kontaktes und Weitergabe der Daten vorliegt.\n\nDie @privacy_policy habe ich gelesen. Das Recht des Widerrufs ist mir bekannt."

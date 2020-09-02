@@ -1,0 +1,433 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  styled_google_map.install: n/a
+#  styled_google_map.info.yml: n/a
+#  src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php: n/a
+#  styled_google_map.links.menu.yml: n/a
+#  styled_google_map.routing.yml: n/a
+#  src/Form/styledGoogleMapSettingsForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: styled_google_map.install:29 styled_google_map.info.yml:0 src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:11
+msgid "Styled Google Map"
+msgstr "Google Map mit Styles"
+
+#: styled_google_map.install:31
+msgid "Google Maps API key or Client ID was not found. As of 2016/06/22, keyless access is no longer supported and it may impact rendering of maps. For more information visit: <a href=\"@link\">@link</a>"
+msgstr "Der Google Maps API-Schlüssel oder die Client-ID wurde nicht gefunden. Seite dem 22.06.2016 wird ein Zugang ohne Schlüssel nicht mehr unterstützt und kann das Rendern der Karten beeinträchtigen. Weitere Informationen unter <a href=\"@link\">@link</a>"
+
+#: styled_google_map.info.yml:0
+msgid "Will provide a Geofield field formatter for adding a Styled Google Map"
+msgstr "Stellt ein Geofield-Feldanzeigeformat bereit, um eine Google Map mit Styles hinzuzufügen"
+
+#: styled_google_map.info.yml:0
+msgid "Field formatters"
+msgstr "Feldanzeigeformat"
+
+#: styled_google_map.links.menu.yml:0
+msgid "Styled Google Map settings page"
+msgstr "Einstellungsseite für Google Map mit Styles"
+
+#: styled_google_map.links.menu.yml:0
+msgid "Admin settings page"
+msgstr "Seite Admin-Einstellungen"
+
+#: styled_google_map.routing.yml:0
+msgid "Styled Google Map settings"
+msgstr "Google Map mit Styles Einstellungen"
+
+#: src/Form/styledGoogleMapSettingsForm.php:36
+msgid "Google API Authentication Method"
+msgstr "Google-API-Authentifizierungsmethode"
+
+#: src/Form/styledGoogleMapSettingsForm.php:38
+msgid "API Key"
+msgstr "API-Schlüssel"
+
+#: src/Form/styledGoogleMapSettingsForm.php:39
+msgid "Google Maps API for Work"
+msgstr "Google Maps API for Work"
+
+#: src/Form/styledGoogleMapSettingsForm.php:46
+msgid "Google Maps API Key"
+msgstr "Google Maps API Key"
+
+#: src/Form/styledGoogleMapSettingsForm.php:47
+msgid "Obtain a Google Maps Javascript API key at <a href=\"@link\">@link</a>"
+msgstr "Fordern Sie einen Google-Maps-JavaScript-API-Schlüssel unter <a href=\"@link\">@link</a> an"
+
+#: src/Form/styledGoogleMapSettingsForm.php:60
+msgid "Google Maps API for Work: Client ID"
+msgstr "Google Maps API for Work: Client-ID"
+
+#: src/Form/styledGoogleMapSettingsForm.php:61
+msgid "For more information, visit: <a href=\"@link\">@link</a>"
+msgstr "Weitere Informationen unter: <a href=\"@link\">@link</a>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:93
+msgid "Width size"
+msgstr "Breite"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:95
+msgid "Map width written in pixels or percentage"
+msgstr "Kartenbreite in Pixel oder Prozent"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:100
+msgid "Height size"
+msgstr "Höhe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:102
+msgid "Map height written in pixels or percentage"
+msgstr "Kartenhöhe in Pixel oder Prozent"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:107
+msgid "Gesture handling"
+msgstr "Umgang mit Gesten"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:108
+msgid "This setting controls how the API handles gestures on the map. See more <a href=\"@href\">here</a>"
+msgstr "Diese Einstellung bestimmt den Umgang der API mit Gesten auf der Karte. Mehr dazu <a href=\"@href\">hier</a>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:114
+msgid "Scroll events with a ctrl key or ⌘ key pressed zoom the map."
+msgstr "Scroll-Events mit gedrückter Strg- oder ⌘-Taste zoomt die Karte."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:115
+msgid "All touch gestures and scroll events pan or zoom the map."
+msgstr "Alle Berührungsgesten und Scroll-Events verschieben oder zoomen die Karte."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:116
+msgid "The map cannot be panned or zoomed by user gestures."
+msgstr "Die Karte kann vom Benutzer nicht mit Gesten verschoben oder gezoomt werden."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:117
+msgid "(default) Gesture handling is either cooperative or greedy"
+msgstr "(Standard) Umgang mit Gesten ist entweder „kooperativ“ oder „nicht kooperativ“ (greedy)"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:123
+msgid "Map style"
+msgstr "Art der Karte"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:129
+msgid "ROADMAP"
+msgstr "STRASSENKARTE"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:130
+msgid "SATELLITE"
+msgstr "SATELLIT"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:131
+msgid "HYBRID"
+msgstr "HYBRID"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:132
+msgid "TERRAIN"
+msgstr "GELÄNDE"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:134
+msgid "Map type"
+msgstr "Kartentyp"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:140
+msgid "JSON Style"
+msgstr "JSON Style"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:142
+msgid "Check out !url for custom styles. Also check out this !project to style and edit Google Map JSON styles."
+msgstr "Auf !url nach benutzerdefinierten Stilen suchen. Auch dieses !project nach Stilen überprüfen und Google Map JSON Styles editieren."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:143
+msgid "Snazzy maps"
+msgstr "Snazzy Maps"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:144
+msgid "Github page"
+msgstr "GitHub-Seite"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:150
+msgid "URL to the marker"
+msgstr "URL zum Marker"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:152
+msgid "URL to the marker image. You can use a !wrapper for the url. Ex. !example (not working until !fixed)"
+msgstr "URL zum Markerbild. Sie können für die URL einen !wrapper verwenden, z. B. !example (funktioniert nicht bis !fixed)"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:154
+msgid "Stream wrapper"
+msgstr "Stream-Wrapper"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:164
+msgid "Centering map"
+msgstr "Karte zentrieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:169
+msgid "Center automatically"
+msgstr "Automatisch zentrieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:188
+msgid "To have map centered on other point than location you need to have another GeoField in your content type structure"
+msgstr "Um die Karte an einem anderen Punkt als Ihren Standort zu zentrieren, benötigen Sie Inhaltstypenstruktur ein weiteres GeoField"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:192
+msgid "Marker popup"
+msgstr "Marker-Popup"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:198
+msgid "None"
+msgstr "Keine"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:199
+msgid "Field"
+msgstr "Feld"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:200
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:230
+msgid "Show field label"
+msgstr "Feldbeschriftung anzeigen"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:240
+msgid "Shadow style"
+msgstr "Stil mit Schatten"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:242
+msgid "1: shadow behind, 2: shadow below, 0: no shadow"
+msgstr "1: Schatten hinter, 2: Schatten unter, 0: kein Schatten"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:247
+msgid "Padding"
+msgstr "Innenabstand"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:253
+msgid "Border radius"
+msgstr "Randradius"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:259
+msgid "Border width"
+msgstr "Rahmenbreite"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:265
+msgid "Border color"
+msgstr "Rahmenfarbe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:271
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:277
+msgid "Min width"
+msgstr "Minimale Breite"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:283
+msgid "Max width"
+msgstr "Maximale Breite"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:289
+msgid "Min height"
+msgstr "Mindesthöhe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:295
+msgid "Max height"
+msgstr "Maximale Höhe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:301
+msgid "Arrow style"
+msgstr "Pfeilform"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:303
+msgid "1: left side visible, 2: right side visible, 0: both sides visible"
+msgstr "1: linke Seite sichtbar, 2: rechte Seite sichtbar, 0: beide Seiten sichtbar"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:308
+msgid "Arrow size"
+msgstr "Pfeilgröße"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:314
+msgid "Arrow position"
+msgstr "Pfeilposition"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:320
+msgid "Auto pan"
+msgstr "Autom. verschieben"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:322;332;342
+msgid "Yes"
+msgstr "Ja"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:323;333;343
+msgid "No"
+msgstr "Nein"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:325
+msgid "Automatically center the pin on click"
+msgstr "Bei Klick Markierung automatisch zentrieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:330
+msgid "Hide close button"
+msgstr "Taste „Schließen“ ausblenden"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:335
+msgid "Hide the popup close button"
+msgstr "Taste „Schließen“ des Popups ausblenden"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:340
+msgid "Disable animation"
+msgstr "Animation deaktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:345
+msgid "Disables the popup animation"
+msgstr "Popup-Animation deaktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:351
+msgid "Wrapper class"
+msgstr "Wrapper-Klasse"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:356
+msgid "Background class"
+msgstr "Klasse für Hintergrund"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:361
+msgid "Arrow class"
+msgstr "Klasse für Pfeil"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:366
+msgid "Arrow outer class"
+msgstr "Pfeil äußere Klasse"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:371
+msgid "Arrow inner class"
+msgstr "Pfeil innere Klasse"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:376
+msgid "Zoom"
+msgstr "Zoom"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:382
+msgid "Default zoom level"
+msgstr "Standard-Zoomstufe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:384
+msgid "Should be between the Min and Max zoom level."
+msgstr "Sollte zwischen kleinster und höchster Zoomstufe liegen."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:390
+msgid "Max zoom level"
+msgstr "Max. Zoomstufe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:392
+msgid "Should be greater then the Min zoom level."
+msgstr "Sollte größer als min. Zoomstufe sein."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:398
+msgid "Min zoom level"
+msgstr "Min. Zoomstufe"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:400
+msgid "Should be smaller then the Max zoom level."
+msgstr "Sollte kleiner als max. Zoomstufe sein."
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:405
+msgid "Enable Map Type control"
+msgstr "Steuerung des Kartentyps aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:410
+msgid "Enable scale control"
+msgstr "Steuerung der Skalierung aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:415
+msgid "Enable rotate control"
+msgstr "Steuerung der Drehung aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:420
+msgid "Enable dragging"
+msgstr "Verschieben aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:425
+msgid "Enable mobile dragging"
+msgstr "Verschieben auf Mobilgeräten aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:426
+msgid "Sometimes when the map covers big part of touch device screen draggable feature can cause inability to scroll the page"
+msgstr "Bisweilen kann die Verschiebefunktion dazu führen, dass die Seite nicht verschoben werden kann, wenn die Karte einen großen Teil des Touchscreens einnimmt"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:431
+msgid "Enable street view control"
+msgstr "Steuerung von Street View aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:436
+msgid "Enable zoom control"
+msgstr "Steuerung des Zooms aktivieren"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:448
+msgid "Width: <b>%width</b><br />Height: <b>%height</b>"
+msgstr "Breite: <b>%width</b><br />Höhe: <b>%height</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:452
+msgid "<br />Map style: <b>Custom</b>"
+msgstr "<br />Art der Karte: <b>benutzerdefiniert</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:455
+msgid "<br />Pin style: <b>%pin</b>"
+msgstr "<br />Stil der Markierung: <b>%pin</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:457
+msgid "<br />Map type: <b>%maptype</b>"
+msgstr "<br />Kartentyp: <b>%maptype</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:459
+msgid "<br />Pin location: <b>%pin</b>"
+msgstr "<br />Ort der Markierung: <b>%pin</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:463
+msgid "<br />Popup shows field <b>%field</b>"
+msgstr "<br />Popup zeigt Feld <b>%field</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:464
+msgid "without"
+msgstr "ohne"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:464
+msgid "with"
+msgstr "mit"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:465
+msgid "<b>%label</b> label"
+msgstr "Beschriftung <b>%label</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:468
+msgid "<br />Popup shows view mode <b>%viewmode</b>"
+msgstr "<br />Popup zeigt Ansichtsmodus <b>%viewmode</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:471
+msgid "<br />Default zoom: <b>%zoom</b>"
+msgstr "<br />Standard-Zoomstufe: <b>%zoom</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:472
+msgid "<br />Maximum zoom: <b>%maxzoom</b>"
+msgstr "<br />Max. Zoomstufe: <b>%maxzoom</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:473
+msgid "<br />Minimum zoom: <b>%minzoom</b>"
+msgstr "<br />Min. Zoomstufe: <b>%minzoom</b>"
+
+#: src/Plugin/Field/FieldFormatter/StyledGoogleMapDefaultFormatter.php:475
+msgid "<br />Gesture handling:<b>%mode</b>"
+msgstr "<br />Umgang mit Gesten:<b>%mode</b>"
+

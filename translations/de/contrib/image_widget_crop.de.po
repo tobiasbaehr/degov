@@ -1,0 +1,521 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  image_widget_crop.module: n/a
+#  js/ImageWidgetCrop.js: n/a
+#  src/Element/ImageCrop.php: n/a
+#  image_widget_crop.install: n/a
+#  image_widget_crop.info.yml: n/a
+#  modules/image_widget_crop_examples/image_widget_crop_examples.info.yml: n/a
+#  image_widget_crop.links.menu.yml: n/a
+#  image_widget_crop.routing.yml: n/a
+#  config/schema/image_widget_crop.schema.yml: n/a
+#  src/Plugin/Field/FieldWidget/ImageCropWidget.php: n/a
+#  src/Form/CropWidgetForm.php: n/a
+#  js/ImageWidgetCropType.js: n/a
+#  modules/image_widget_crop_examples/image_widget_crop_examples.routing.yml: n/a
+#  modules/image_widget_crop_examples/src/Controller/FrontPage.php: n/a
+#  modules/image_widget_crop_examples/src/Form/ImageWidgetCropExamplesForm.php: n/a
+#  modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_responsive_example.title.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_simple_example.title.yml: n/a
+#  src/ImageWidgetCropManager.php: n/a
+#  config/optional/image.style.crop_thumbnail.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_media_example.promote.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/crop.type.crop_16_9.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/crop.type.crop_4_3.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/crop.type.crop_free_ratio.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.media.image.field_image_crop.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/media.type.image_with_crop.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_simple_example.field_image_crop_simple.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.media.image.field_media_image.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.media.image_with_crop.field_media_image.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_media_example.body.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_responsive_example.body.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_simple_example.body.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_media_example.field_image_crop_media.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/field.field.node.crop_responsive_example.field_image_crop_simple.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/image.style.medium_4_3.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/image.style.medium_crop_simple.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/image.style.small_16_9.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/node.type.crop_media_example.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/node.type.crop_responsive_example.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/node.type.crop_simple_example.yml: n/a
+#  modules/image_widget_crop_examples/config/optional/responsive_image.styles.crop_example_responsive.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: image_widget_crop.module:22
+msgid "About"
+msgstr "Über"
+
+#: image_widget_crop.module:23
+msgid "Implement CROP API into the fields image"
+msgstr "Integration derCROP-API in Felder vom Typ Bild"
+
+#: image_widget_crop.module:24
+msgid "Try module"
+msgstr "Modul ausprobieren"
+
+#: image_widget_crop.module:25
+msgid "You can Test ImageWidgetCrop in action directly with the sub-module, \"ImageWidgetCrop example\" to test differents usecase of this module"
+msgstr "ImageWidgetCrop kann direkt getestet werden, indem das Beispielmodul „ImageWidgetCropExample“ aktiviert wird. Damit Können verschiedene Anwendungsfälle für das Modul direkt durchgespielt werden."
+
+#: image_widget_crop.module:169 js/ImageWidgetCrop.js:0;0 src/Element/ImageCrop.php:102
+msgid "Crop image"
+msgstr "Bild zuschneiden"
+
+#: image_widget_crop.install:26
+msgid "<strong>:type</strong> file : Libraries module is active but an error detected with your cropper libraries configuration. To use cropper library with <i>'libraries'</i> module you must have the following structure <i>`:libraries_cropper`</i>"
+msgstr "<strong>:type</strong> Datei : Das Moudl Libraries ist aktiv. Es ist jedoch ein Fehler in der Konfiguration der Cropper-Bibliothek erkannt. Um die Cropper-Bibliothek mit dem Modul <i>'libraries'</i> zu verwenden, muss der entsprechende Bibliotheksordner die folgende Struktur haben <i>`:libraries_cropper`</i>."
+
+#: image_widget_crop.install:35
+msgid "ImageWidgetCrop library"
+msgstr "ImageWidgetCrop-Bibliothek"
+
+#: image_widget_crop.install:36
+msgid "Correctly configured"
+msgstr "Korrekt konfiguriert"
+
+#: image_widget_crop.install:36
+msgid "Files not found"
+msgstr "Dateien nicht gefunden"
+
+#: image_widget_crop.install:48
+msgid "ImageWidgetCrop libraries files are correctly configured to use <strong>:library</strong> files"
+msgstr "ImageWidgetCrop Bibliotheksdateien sind korrekt konfiguriert, um <strong>:library</strong> Dateien zu verwenden"
+
+#: image_widget_crop.info.yml:0
+msgid "ImageWidgetCrop"
+msgstr "ImageWidgetCrop"
+
+#: image_widget_crop.info.yml:0
+msgid "Provides an interface for using the features of the Crop API."
+msgstr "Bietet eine Schnittstelle zur Nutzung der Funktionen der Crop-API."
+
+#: image_widget_crop.info.yml:0 modules/image_widget_crop_examples/image_widget_crop_examples.info.yml:0
+msgid "Media"
+msgstr "Media"
+
+#: image_widget_crop.links.menu.yml:0
+msgid "ImageWidgetCrop settings"
+msgstr "ImageWidgetCrop-Einstellungen"
+
+#: image_widget_crop.links.menu.yml:0
+msgid "Configure common settings for ImageWidgetCrop."
+msgstr "Konfigurieren Sie allgemeine Einstellungen für ImageWidgetCrop."
+
+#: image_widget_crop.routing.yml:0
+msgid "Image Crop Widget settings"
+msgstr "Bildzuschnittseinstellungen"
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "Image field display format settings"
+msgstr "Anzeigeformateinstellungen von Bildern"
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "Progress indicator"
+msgstr "Fortschrittsanzeige"
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "Preview image style"
+msgstr "Bildstil-Vorschau"
+
+#: config/schema/image_widget_crop.schema.yml:0;0
+msgid "Preview crop image style"
+msgstr "Vorschau des Bildstils anzeigen, der auf den Ausschnitt angewendet wird."
+
+#: config/schema/image_widget_crop.schema.yml:0;0
+msgid "The preview image will be cropped"
+msgstr "Das Vorschaubild wird zugeschnitten werden"
+
+#: config/schema/image_widget_crop.schema.yml:0;0 src/Plugin/Field/FieldWidget/ImageCropWidget.php:215
+msgid "Required crop types"
+msgstr "Erforderliche Zuschnitttypen"
+
+#: config/schema/image_widget_crop.schema.yml:0;0 src/Form/CropWidgetForm.php:173
+msgid "Warn user when a file have multiple usages"
+msgstr "Benutzer warnen, wenn eine Datei mehrfach verwendet wird"
+
+#: config/schema/image_widget_crop.schema.yml:0;0 src/Form/CropWidgetForm.php:167 src/Plugin/Field/FieldWidget/ImageCropWidget.php:225
+msgid "Always expand crop area"
+msgstr "Den Auswahlbereich für den Bildausschnitt immer auf das vollständige Bild legen."
+
+#: config/schema/image_widget_crop.schema.yml:0;0 src/Form/CropWidgetForm.php:179 src/Plugin/Field/FieldWidget/ImageCropWidget.php:231
+msgid "Show default crop area"
+msgstr "Standardauswahl für den Bildausschnitt anzeigen."
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "Image widget crop settings"
+msgstr "Einstellungen für das Steuerelement zum Zuschneiden von Bildern."
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "Library URL"
+msgstr "Bibliotheks-URL"
+
+#: config/schema/image_widget_crop.schema.yml:0
+msgid "CSS URL"
+msgstr "CSS-URL"
+
+#: js/ImageWidgetCrop.js:0
+msgid "Crop image (cropping applied)"
+msgstr "Bild zuschneiden (Zuschneiden angewendet)"
+
+#: js/ImageWidgetCropType.js:0
+msgid "Cropping applied."
+msgstr "Bildausschnitt übernommen."
+
+#: js/ImageWidgetCropType.js:0
+msgid "Soft limit reached."
+msgstr "Softlimit erreicht."
+
+#: modules/image_widget_crop_examples/image_widget_crop_examples.info.yml:0
+msgid "ImageWidgetCrop examples"
+msgstr "Image-Widget-Crpp-Beispiele"
+
+#: modules/image_widget_crop_examples/image_widget_crop_examples.info.yml:0
+msgid "Provides an out of box example implementation of ImageWidgetCrop."
+msgstr "Bietet eine Out-of-the-Box-Beispiel-Implementierung von ImageWidgetCrop."
+
+#: modules/image_widget_crop_examples/image_widget_crop_examples.routing.yml:0
+msgid "Image Widget Crop examples"
+msgstr "Beispiele für das Zuschneiden von Bilden mit dem Image-Widget-Crop-Modul"
+
+#: modules/image_widget_crop_examples/image_widget_crop_examples.routing.yml:0
+msgid "Image Crop Widget Example Form"
+msgstr "Beispiel Formular des Steuerelemebts für Bildzuschnitte"
+
+#: modules/image_widget_crop_examples/src/Controller/FrontPage.php:59;100
+msgid "<a href=\"@url\">@label"
+msgstr "<a href=\"@url\">@label"
+
+#: modules/image_widget_crop_examples/src/Controller/FrontPage.php:71
+msgid "Welcome to Image Widget Crop example."
+msgstr "Willkommen zum Beispiel des für das Steuerelement zum Zuschneiden von Bildern."
+
+#: modules/image_widget_crop_examples/src/Controller/FrontPage.php:74
+msgid "Image Widget Crop provides an interface for using the features of the Crop API."
+msgstr "Image Widget Crop ermöglicht die Verwendung der Funktionen des Moduls Crop API, unter Verwendung einer Benutzeroberfläche."
+
+#: modules/image_widget_crop_examples/src/Controller/FrontPage.php:75
+msgid "You can test the functionality with custom content types created for the demonstration of features from Image Widget Crop:"
+msgstr "Sie können die Funktionalität^des Moduls mit benutzerdefinierten Inhaltstypen testen, die für die  Funktionsdemo von Image Widget Crop erstellt wurden:"
+
+#: modules/image_widget_crop_examples/src/Controller/FrontPage.php:103
+msgid "ImageWidgetCrop Form API examples"
+msgstr "ImageWidgetCrop-Form-API-Beispiele"
+
+#: modules/image_widget_crop_examples/src/Form/ImageWidgetCropExamplesForm.php:97 modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_responsive_example.title.yml:0 modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_simple_example.title.yml:0
+msgid "Title"
+msgstr "Titel"
+
+#: modules/image_widget_crop_examples/src/Form/ImageWidgetCropExamplesForm.php:102
+msgid "Background Pictures"
+msgstr "Hintergrundbilder"
+
+#: modules/image_widget_crop_examples/src/Form/ImageWidgetCropExamplesForm.php:104
+msgid "The uploaded image will be displayed on this page using the image style choosen below."
+msgstr "Das hochgeladene Bild wird auf dieser Seite im unten gewählten Bildstil angezeigt."
+
+#: src/ImageWidgetCropManager.php:107
+msgid "The crop \"@cropType\" were successfully updated for image \"@filename\"."
+msgstr "Der Zuschnitt \"@cropType\" wurde für das Bild \"@filename\" erfolgreich aktualisiert."
+
+#: src/ImageWidgetCropManager.php:132
+msgid "The crop \"@cropType\" was successfully added for image \"@filename\"."
+msgstr "Der Zuschnitt \"@cropType\" wurde für das Bild \"@filename\" erfolgreich hinzugefügt."
+
+#: src/ImageWidgetCropManager.php:147
+msgid "The crop \"@cropType\" was successfully deleted for image \"@filename\"."
+msgstr "Der Zuschnittstyp „@cropType\" wurde für das Bild „@filename\" erfolgreich gelöscht."
+
+#: src/ImageWidgetCropManager.php:172
+msgid "The file \"@file\" is not valid, your crop is not applied."
+msgstr "Die Datei \"@file\" ist nicht gültig, Ihr Schnitt wird nicht angewendet."
+
+#: src/ImageWidgetCropManager.php:339;386
+msgid "The CropType ('@cropType') is not active or not defined. Please verify configuration of image style or ImageWidgetCrop formatter configuration"
+msgstr "Der Zuschnittstyp ('@cropType') ist nicht aktiv oder nicht definiert. Bitte überprüfen Sie die Konfiguration des Bildstils oder der ImageWidgetCrop-Anzeigeformatkonfiguration."
+
+#: src/ImageWidgetCropManager.php:418
+msgid "No File element found."
+msgstr "Kein Dateielement gefunden."
+
+#: src/Element/ImageCrop.php:80
+msgid "The file \"@file\" is not valid on element @name."
+msgstr "Die Datei „@file\" ist für folgendes Element ungültig: @name."
+
+#: src/Element/ImageCrop.php:117
+msgid "This crop definition affects more usages of this image"
+msgstr "Diese Crop-Definition betrifft mehrere Verwendungen dieses Bildes"
+
+#: src/Element/ImageCrop.php:180
+msgid "Reset crop"
+msgstr "Zuschnittbereich zurücksetzen"
+
+#: src/Element/ImageCrop.php:414
+msgid "Crop @property is smaller than the allowed @hard_limitpx for @crop_name"
+msgstr "Zuschnitt @property ist kleiner, als der zugelassene Mindestwert @hard_limitpx für @crop_name"
+
+#: src/Element/ImageCrop.php:516
+msgid "X coordinate"
+msgstr "X-Koordinate"
+
+#: src/Element/ImageCrop.php:517
+msgid "Y coordinate"
+msgstr "Y-Koordinate"
+
+#: src/Element/ImageCrop.php:518
+msgid "Width"
+msgstr "Breite"
+
+#: src/Element/ImageCrop.php:519
+msgid "Height"
+msgstr "Höhe"
+
+#: src/Element/ImageCrop.php:472
+msgid "@crop_required is required."
+msgid_plural "@crops_required are required."
+msgstr[0] "@crop_required ist erforderlich."
+msgstr[1] "@crops_required sind erforderlich."
+
+#: src/Form/CropWidgetForm.php:106
+msgid "Cropper library settings"
+msgstr "Einstellungen für die Zuschnittmethode"
+
+#: src/Form/CropWidgetForm.php:107
+msgid "Changes here require a cache rebuild to take full effect."
+msgstr "Änderungen hier erfordern einen Cache-Neuaufbau, um die volle Wirkung zu entfalten."
+
+#: src/Form/CropWidgetForm.php:112
+msgid "Custom Cropper library"
+msgstr "Benutzerdefinierte Bibliothek mit Methode zum Zuschneiden von Bildern."
+
+#: src/Form/CropWidgetForm.php:113
+msgid "Set the URL or local path for the file, or leave empty to use the installed library (if present) or a <a href=\"@file\">CDN</a> fallback. You can retrieve the library file from <a href=\"@url\">Cropper CDN</a>."
+msgstr "Den Lokalen Pfad zur atei angeben oder leer lassen, um die installierte Bibliothek zu verwenden (falls vorhanden) oder a <a href=\"@file\">CDN</a> als Ausfallschutz. Die Bibliothek kann von <a href=\"@url\">Cropper CDN</a> angefordert wrden."
+
+#: src/Form/CropWidgetForm.php:122
+msgid "Custom Cropper CSS file"
+msgstr "Benutzerdefinierte CSS-Datei für das Zuschneiden von Bildern."
+
+#: src/Form/CropWidgetForm.php:123
+msgid "Set the URL or local path for the file, or leave empty to use installed library (if installed) or a <a href=\"@file\">CDN</a> fallback. You can retrieve the CSS file from <a href=\"@url\">Cropper CDN</a>."
+msgstr "Die URL oder den lokalen Pfad zu Datei angeben oder leer lassen, um die installierte Bibliothek  zu verwenden (falls vorhanden) oder <a href=\"@file\">CDN</a> als Ausfallschutz verwenden. Die CSS-Datei kann von<a href=\"@url\">Cropper CDN</a> angefordert werden."
+
+#: src/Form/CropWidgetForm.php:143
+msgid "General configuration"
+msgstr "Allgemeine Konfiguration"
+
+#: src/Form/CropWidgetForm.php:147 src/Plugin/Field/FieldWidget/ImageCropWidget.php:191
+msgid "Crop preview image style"
+msgstr "Bildstil für die Vorschau von zugeschnittenen Bildern."
+
+#: src/Form/CropWidgetForm.php:151 src/Plugin/Field/FieldWidget/ImageCropWidget.php:195
+msgid "The preview image will be shown while editing the content."
+msgstr "Das Vorschaubild wird beim Bearbeiten des Inhalts angezeigt."
+
+#: src/Form/CropWidgetForm.php:156 src/Plugin/Field/FieldWidget/ImageCropWidget.php:200
+msgid "Crop Type"
+msgstr "Zuschnittstyp"
+
+#: src/Form/CropWidgetForm.php:159
+msgid "<@no-preview>"
+msgstr "<@no-preview>"
+
+#: src/Form/CropWidgetForm.php:159
+msgid "no preview"
+msgstr "keine Vorschau"
+
+#: src/Form/CropWidgetForm.php:162 src/Plugin/Field/FieldWidget/ImageCropWidget.php:206
+msgid "The type of crop to apply to your image. If your Crop Type not appear here, set an image style use your Crop Type"
+msgstr "Die Art des Zuschnitts, der auf Ihr Bild angewendet werden soll. Wenn Ihr Zuschnitt-Typ hier nicht angezeigt wird, legen Sie einen Bildstil fest, der Ihren Zuschnitt-Typ verwendet"
+
+#: src/Form/CropWidgetForm.php:185
+msgid "Set Crop Type as required"
+msgstr "Zuschnitttyp als erforderlich festlegen"
+
+#: src/Form/CropWidgetForm.php:188
+msgid "- Any crop selected -"
+msgstr "- Jeder ausgewählte Zuschnitt -"
+
+#: src/Form/CropWidgetForm.php:191
+msgid "Set active crop as required."
+msgstr "Aktiv ausgewählen Zuschnitt als erforderlich festlegen."
+
+#: src/Form/CropWidgetForm.php:215
+msgid "Please provide both a library and a CSS file when using custom URLs."
+msgstr "Bitte geben Sie sowohl eine Bibliothek und eine CSS-Datei an, wenn benutzerdefinierte URLs verwendet werden."
+
+#: src/Form/CropWidgetForm.php:222
+msgid "The provided local file does not exist."
+msgstr "Die angegebene lokale Datei existiert nicht."
+
+#: src/Form/CropWidgetForm.php:232
+msgid "The remote URL for the library does not appear to be valid: @message."
+msgstr "Die Remote-URL für die Bibliothek scheint nicht gültig zu sein: @message."
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:178
+msgid "No image style using the \"manual crop\" effect found. Please first go @link and attach the \"manual crop\" effect and then return to configure the field widget settings."
+msgstr "Es wurde kein Bildstil gefunden, der den Bildeffekt „manuell zuschneiden\" verwendet. Zunächst muss auf der Seite @link der Bildeffekt „Manuell zuschneiden\" zu einem Bildstil hinzugefügt werden. Danach können die Einstellungen für das Anzeigeformat des Felders Festgelegt werden."
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:220
+msgid "Crop types that should be required."
+msgstr "Zuschnitt-Typen, die erforderlich sein sollten."
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:237
+msgid "Warn the user if the crop is used more than once."
+msgstr "Benutzer warnen, wenn der Ausschnitt mehrfach verwendet wird"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:365
+msgid "No crop types selected."
+msgstr "Keine Zuschnittypen ausgewählt."
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:375
+msgid "Always expand crop area: @bool"
+msgstr "Auswahlbereich immer auf das gesamte Bild ausdehnen; @bool"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:376
+msgid "Show default crop area: @bool"
+msgstr "Standardauswahlbereich anzeigen: @bool"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:377
+msgid "Warn the user if the crop is used more than once: @bool"
+msgstr "Warnen Sie den Benutzer, wenn der Zuschnitt mehrfach verwendet wird: @bool"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:380
+msgid "Preview image style: @style"
+msgstr "Bildstil des Vorschaubildes: @style"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:383
+msgid "No preview image style"
+msgstr "Kein Vorschaubildstil"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:387
+msgid "Preview crop zone image style: @style"
+msgstr "Bildstil für die Vorschau Ausschnittsbereichs: @style"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:391
+msgid "Crop Type used: @list"
+msgstr "Verwendete Bildausschnittstypen: @list"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:395
+msgid "Required crop types : @list"
+msgstr "Erforderliche Zuschnitt-Arten: @list"
+
+#: src/Plugin/Field/FieldWidget/ImageCropWidget.php:21
+msgid "ImageWidget crop"
+msgstr "Steuerelement für das Zuschneiden von Bildern"
+
+#: config/optional/image.style.crop_thumbnail.yml:0
+msgid "Crop thumbnail"
+msgstr "Ausschnittsvorschau"
+
+#: modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_media_example.promote.yml:0
+msgid "Promu en page d'accueil"
+msgstr "Auf der Startseite anzeigen"
+
+#: modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_media_example.promote.yml:0
+msgid "ActivÃ©"
+msgstr "ActivÃ©"
+
+#: modules/image_widget_crop_examples/config/optional/core.base_field_override.node.crop_media_example.promote.yml:0
+msgid "DÃ©sactivÃ©"
+msgstr "DÃ©sactivÃ©"
+
+#: modules/image_widget_crop_examples/config/optional/crop.type.crop_16_9.yml:0
+msgid "Crop 16:9"
+msgstr "Im Verhältnis 16:9 zuschneiden."
+
+#: modules/image_widget_crop_examples/config/optional/crop.type.crop_4_3.yml:0
+msgid "Crop 4:3"
+msgstr "Im Verhältnis 4:3 zuschneiden."
+
+#: modules/image_widget_crop_examples/config/optional/crop.type.crop_free_ratio.yml:0
+msgid "Free crop"
+msgstr "Freihändig zuscheidenden."
+
+#: modules/image_widget_crop_examples/config/optional/field.field.media.image.field_image_crop.yml:0 modules/image_widget_crop_examples/config/optional/media.type.image_with_crop.yml:0
+msgid "Image with crop"
+msgstr "Bild mit Bildausschnitt"
+
+#: modules/image_widget_crop_examples/config/optional/field.field.media.image.field_image_crop.yml:0 modules/image_widget_crop_examples/config/optional/field.field.node.crop_simple_example.field_image_crop_simple.yml:0
+msgid "This Field is configured to display an 16:9 small image on fullContent."
+msgstr "Dieses Feld ist so konfiguriert, dass ein kleines Bild im Format 16:9 im Anzeigemodus vollständiger Inhalt angezeigt wird."
+
+#: modules/image_widget_crop_examples/config/optional/field.field.media.image.field_media_image.yml:0 modules/image_widget_crop_examples/config/optional/field.field.media.image_with_crop.field_media_image.yml:0
+msgid "Image"
+msgstr "Bild"
+
+#: modules/image_widget_crop_examples/config/optional/field.field.node.crop_media_example.body.yml:0 modules/image_widget_crop_examples/config/optional/field.field.node.crop_responsive_example.body.yml:0 modules/image_widget_crop_examples/config/optional/field.field.node.crop_simple_example.body.yml:0
+msgid "Body"
+msgstr "Textkörper"
+
+#: modules/image_widget_crop_examples/config/optional/field.field.node.crop_media_example.field_image_crop_media.yml:0
+msgid "Image crop media"
+msgstr "Bildausschnitt-Medium"
+
+#: modules/image_widget_crop_examples/config/optional/field.field.node.crop_responsive_example.field_image_crop_simple.yml:0
+msgid "Image Crop Responsive"
+msgstr "Bildausschnitt-Responsive"
+
+#: modules/image_widget_crop_examples/config/optional/field.field.node.crop_simple_example.field_image_crop_simple.yml:0
+msgid "Image Crop Simple"
+msgstr "Bildausschnitt-Einfach"
+
+#: modules/image_widget_crop_examples/config/optional/image.style.medium_4_3.yml:0
+msgid "Medium - (300 x 330) with crop 4:3"
+msgstr "Mittel - (300 x 300 ) mit einem Seitenverhältnis von 4:3"
+
+#: modules/image_widget_crop_examples/config/optional/image.style.medium_crop_simple.yml:0
+msgid "Medium with crop simple"
+msgstr "Mittel mit einfachem Bildauschnitt"
+
+#: modules/image_widget_crop_examples/config/optional/image.style.small_16_9.yml:0
+msgid "Small - (320 x 180) with crop 16:9"
+msgstr "Klein - ( 320 X 180) mit einem Seitenverhältnis von 16:9"
+
+#: modules/image_widget_crop_examples/config/optional/media.type.image_with_crop.yml:0
+msgid "Use local images with crop for reusable media."
+msgstr "Lokale bilde mit Freistellenfunktion als \r\nwiederverwendbare Meiden verwenden."
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_media_example.yml:0
+msgid "Crop Media Example"
+msgstr "Beispiel für das Zuschneiden von Medien"
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_media_example.yml:0
+msgid "Implementation of ImageWidgetCrop with media integration."
+msgstr "Implementierung von ImageWidgetCrop inklusive Medienintegration."
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_responsive_example.yml:0
+msgid "Crop Responsive Example"
+msgstr "Responsives Beispiel für das Zuschneiden von Bildern"
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_responsive_example.yml:0
+msgid "Implementation of ImageWidgetCrop with Node integration using Responsive image style to render a specific crop type by breakpoint defined on Theme basis."
+msgstr "Implementierung von ImageWidgetCrop mit Integration in Benutzerkontenbilder unter Verwendung des responsiven Bildstils, um einen bestimmten Zuschnitttyp anhand eines Breakpoints darzustellen, der auf Basis der Angaben eines Themes festgelegt wurde."
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_simple_example.yml:0
+msgid "Crop Simple Example"
+msgstr "Einfaches Beispiel für das Zuschneiden von Bildern"
+
+#: modules/image_widget_crop_examples/config/optional/node.type.crop_simple_example.yml:0
+msgid "Implementation of ImageWidgetCrop with basic (core) File field."
+msgstr "Implementation von ImageWidgetCrop mit einem einfachen Dateifeld, das im Kernsystem zur Verfügung steht."
+
+#: modules/image_widget_crop_examples/config/optional/responsive_image.styles.crop_example_responsive.yml:0
+msgid "Crop example responsive"
+msgstr "Responsives Beispiel für das Zuschneiden von Bildern."
+

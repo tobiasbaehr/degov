@@ -1,0 +1,108 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  nrw_menu.module: n/a
+#  nrw_menu.install: n/a
+#  nrw_menu.info.yml: n/a
+#  src/Plugin/Block/Sitemap.php: n/a
+#  templates/nrw-menu-header.html.twig: n/a
+#  templates/nrw-menu-sitemap-block.html.twig: n/a
+#  config/install/block.block.menu_footer.yml: n/a
+#  config/install/system.menu.header-top.yml: n/a
+#  config/install/system.menu.language-assistance.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:59+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: nrw_menu.module:123
+msgid "Extra Content"
+msgstr "Zusätzliche Inhalte"
+
+#: nrw_menu.module:124
+msgid "The content of the extra block"
+msgstr "Der Inhalt des zusätzlichen Blocks"
+
+#: nrw_menu.install:41
+msgid "Simple language"
+msgstr "Leichte Sprache"
+
+#: nrw_menu.install:52
+msgid "Sign language"
+msgstr "Gebärdensprache"
+
+#: nrw_menu.info.yml:0
+msgid "NRW menu"
+msgstr "NRW Menü"
+
+#: nrw_menu.info.yml:0
+msgid "The module provides the templates and preprocess functions to show the menu in the page"
+msgstr "Das Modul enthält die Vorlagen und die Aufbereitungsfunktionen zur Anzeige des Menüs auf der Seite"
+
+#: nrw_menu.info.yml:0
+msgid "NRW"
+msgstr "NRW"
+
+#: src/Plugin/Block/Sitemap.php:10
+msgid "Overview: Content"
+msgstr "Überblick: Inhalte"
+
+#: templates/nrw-menu-header.html.twig:41
+msgid "Suche öffnen"
+msgstr "Suche öffnen"
+
+#: templates/nrw-menu-header.html.twig:41
+msgid "Suche"
+msgstr "Suche"
+
+#: templates/nrw-menu-header.html.twig:88
+msgid "Menu"
+msgstr "Menü"
+
+#: templates/nrw-menu-header.html.twig:94;209
+msgid "Close"
+msgstr "Schließen"
+
+#: templates/nrw-menu-header.html.twig:145;212
+msgid "Suchbegriff eingeben"
+msgstr "Suchbegriff eingeben"
+
+#: templates/nrw-menu-header.html.twig:145;212
+msgid "Bitte geben Sie einen Suchbegriff ein"
+msgstr "Bitte geben Sie einen Suchbegriff ein"
+
+#: templates/nrw-menu-header.html.twig:148
+msgid "Search"
+msgstr "Suche"
+
+#: templates/nrw-menu-sitemap-block.html.twig:4
+msgid "Overview <span>Content</span>"
+msgstr "Im Überblick <span>Inhalt</span>"
+
+#: config/install/block.block.menu_footer.yml:0
+msgid "Fußzeile"
+msgstr "Fußzeile"
+
+#: config/install/system.menu.header-top.yml:0
+msgid "Header Top Menu"
+msgstr "Kopfzeile oberes Menü"
+
+#: config/install/system.menu.language-assistance.yml:0
+msgid "Barrierearme Sprachen"
+msgstr "Barrierearme Sprachen"
+
+#: config/install/system.menu.language-assistance.yml:0
+msgid "Links zu barrierearmen Sprachversionen"
+msgstr "Links zu barrierearmen Sprachversionen"
+

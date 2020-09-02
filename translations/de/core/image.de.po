@@ -1,0 +1,950 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  image.admin.inc: n/a
+#  image.views.inc: n/a
+#  image.module: n/a
+#  image.install: n/a
+#  image.info.yml: n/a
+#  src/Plugin/Field/FieldFormatter/ImageFormatter.php: n/a
+#  src/Plugin/Field/FieldType/ImageItem.php: n/a
+#  src/Plugin/Field/FieldWidget/ImageWidget.php: n/a
+#  image.links.action.yml: n/a
+#  image.routing.yml: n/a
+#  image.links.menu.yml: n/a
+#  src/Entity/ImageStyle.php: n/a
+#  image.links.task.yml: n/a
+#  src/Form/ImageStyleEditForm.php: n/a
+#  image.permissions.yml: n/a
+#  src/Form/ImageEffectDeleteForm.php: n/a
+#  src/ImageStyleListBuilder.php: n/a
+#  src/Form/ImageStyleFlushForm.php: n/a
+#  config/schema/image.data_types.schema.yml: n/a
+#  src/Plugin/ImageEffect/ResizeImageEffect.php: n/a
+#  js/theme.es6.js: n/a
+#  js/theme.js: n/a
+#  config/schema/image.schema.yml: n/a
+#  src/Plugin/ImageEffect/CropImageEffect.php: n/a
+#  src/Plugin/ImageEffect/ConvertImageEffect.php: n/a
+#  src/Plugin/ImageEffect/RotateImageEffect.php: n/a
+#  js/editors/image.es6.js: n/a
+#  js/editors/image.js: n/a
+#  src/Controller/ImageStyleDownloadController.php: n/a
+#  src/Controller/QuickEditImageController.php: n/a
+#  src/Form/ImageEffectAddForm.php: n/a
+#  src/Form/ImageEffectEditForm.php: n/a
+#  src/Form/ImageEffectFormBase.php: n/a
+#  src/Form/ImageStyleAddForm.php: n/a
+#  src/Form/ImageStyleDeleteForm.php: n/a
+#  src/Form/ImageStyleFormBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/ImageUrlFormatter.php: n/a
+#  src/Plugin/ImageEffect/DesaturateImageEffect.php: n/a
+#  src/Plugin/ImageEffect/ScaleAndCropImageEffect.php: n/a
+#  src/Plugin/ImageEffect/ScaleImageEffect.php: n/a
+#  src/Plugin/migrate/source/d6/ImageCachePreset.php: n/a
+#  src/Plugin/migrate/source/d7/ImageStyles.php: n/a
+#  templates/image-crop-summary.html.twig: n/a
+#  templates/image-resize-summary.html.twig: n/a
+#  templates/image-scale-and-crop-summary.html.twig: n/a
+#  templates/image-scale-summary.html.twig: n/a
+#  templates/image-rotate-summary.html.twig: n/a
+#  templates/image-style-preview.html.twig: n/a
+#  config/install/image.style.large.yml: n/a
+#  config/install/image.style.medium.yml: n/a
+#  config/install/image.style.thumbnail.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: image.admin.inc:75
+msgid "Sample original image"
+msgstr "Original Beispielbild"
+
+#: image.admin.inc:89
+msgid "Sample modified image"
+msgstr "Verändertes Beispielbild"
+
+#: image.views.inc:27
+msgid "image from @field_name"
+msgstr "Bild aus @field_name"
+
+#: image.views.inc:51
+msgid "@entity using @field"
+msgstr "Entität @entity, die das Feld @field verwendet"
+
+#: image.views.inc:52
+msgid "@field_name"
+msgstr "@field_name"
+
+#: image.views.inc:53
+msgid "Relate each @entity with a @field set to the image."
+msgstr "Verknüpfe jede Entität @entity mit einem Feld @field, welches auf das Bild gesetzt ist."
+
+#: image.module:76
+msgid "About"
+msgstr "Über"
+
+#: image.module:77
+msgid "The Image module allows you to create fields that contain image files and to configure <a href=\":image_styles\">Image styles</a> that can be used to manipulate the display of images. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for terminology and general information on entities, fields, and how to create and manage fields. For more information, see the <a href=\":image_documentation\">online documentation for the Image module</a>."
+msgstr "Das Image-Module erlaubt das Erstellen von Feldern, die Bilddateien enthalten sowie das Konfigurieren von <a href=\":image_styles\">Bildstilen</a>, die dazu verwendet werden können Bilder zu bearbeiten, bevor diese auf der Website angezeigt werden. Weitere Informationen über Entitäten und die dazugehörige Terminologie sowie allgemeine Informationen über das Erstellen und Verwalten von Felder sind in der  <a href=\":field\">Hilfe des Field-Moduls</a> und der<a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar. Zusätzliche Informationen können in der  <a href=\":image_documentation\">Online-Dokumentation des Image-Moduls</a> eingesehen werden."
+
+#: image.module:78
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: image.module:79
+msgid "Defining image styles"
+msgstr "Bildstile definieren"
+
+#: image.module:80
+msgid "The concept of image styles is that you can upload a single image but display it in several ways; each display variation, or <em>image style</em>, is the result of applying one or more <em>effects</em> to the original image. As an example, you might upload a high-resolution image with a 4:3 aspect ratio, and display it scaled down, square cropped, or black-and-white (or any combination of these effects). The Image module provides a way to do this efficiently: you configure an image style with the desired effects on the <a href=\":image\">Image styles page</a>, and the first time a particular image is requested in that style, the effects are applied. The resulting image is saved, and the next time that same style is requested, the saved image is retrieved without the need to recalculate the effects. Drupal core provides several effects that you can use to define styles; others may be provided by contributed modules."
+msgstr "Hinter dem Konzept der Bildstile steht der Gedanke, aus einer einzelnen Bilddatei, die von einem Benutzer hochgeladen wurde verschiedene Darstellungsarten für verschiedene Anwendungszwecke zu erzeugen. Jede Variation oder besser <em>jeder Bildstil</em> ist das Ergebnis der Anwendung mehrerer <em>Effekte</em> auf das zuvor hochgeladene Originalbild. Ein Beispiel: Es wird ein hochauflösendes Bild mit einem Seitenverhältnis von 4:3 hochgeladen, das anschließend sowohl in einer kleineren Auflösung als Quadrat angezeigt wird, in dem nur ein bestimmter Ausschnitt des Bildes zu sehen ist. Abschließend wird die Farbe aus dem Bild entfernt, sodass eine Schwarz-Weiß-Variante des Bildes entsteht (Natürlich könnte man auch jeden dieser Effekte einzeln auf das Bild anwenden und jeweils einen separaten Bildstil erzeugen). Das Image-Modul bietet einen Weg solche Aufgabe effizient zu erledigen. Dazu wird ein Bildstil mit den gewünschten Effekten auf der Seite <a href=\":image\">Bildstile</a> erstellt. Wenn das Bild zum ersten Mal mit den vom Boildstil vorgegebenen Änderungen abgefragt wird, beispielsweise, weil ein Benutzer einen Inhalt aufruft, in dem das Bild angezeigt wird, wird der Bildstil angewendet und eine entsprechende Kopie des Bildes erzeugt, die anschließend abgespeichert wird. Wenn der Bildstil das nächste Mal angefragt wird, wird die erzeugt Kopie des Bildes angezeigt, ohne, dass die vorgegebenen Änderungen erneut auf die Originaldatei angewendet werden müssen. Das Drupal-Kernsystem bietet verschiedene Effekte, die zum Definieren von Bildstilen verwendet werden können. Weitere Effekte werden von Zusatzmodulen angeboten."
+
+#: image.module:81
+msgid "Naming image styles"
+msgstr "Bildstile benennen"
+
+#: image.module:82
+msgid "When you define an image style, you will need to choose a displayed name and a machine name. The displayed name is shown in administrative pages, and the machine name is used to generate the URL for accessing an image processed in that style. There are two common approaches to naming image styles: either based on the effects being applied (for example, <em>Square 85x85</em>), or based on where you plan to use it (for example, <em>Profile picture</em>)."
+msgstr "Beim Erstellen eines Bildstils muss ein Anzeigename und ein Systemname gewählt werden. Der Anzeigename wird im Administrationsbereich angezeigt, während der Systemname verwendet wird, um die URL zu erzeugen, mit der auf ein Bild, das für den jeweiligen Bildstil erstellt wurde, zugegriffen werden kann. Es gibt zwei allgemeingültige Methoden mit denen man Namen für Bildstile erstellen kann. Entweder man erstellt den Namen des Bildstils indem man die Effekte beschreibt, die unter Verwendung des jeweiligen Bildstils auf das Bild angewendet werden (z. B. Quadrat 85x85) oder man benennt den Bildstil nach seinem Verwendungszweck (z. B. <em>Profilbild</em>)."
+
+#: image.module:83
+msgid "Configuring image fields"
+msgstr "Bildfelder konfigurieren"
+
+#: image.module:84
+msgid "A few of the settings for image fields are defined once when you create the field and cannot be changed later; these include the choice of public or private file storage and the number of images that can be stored in the field. The rest of the settings can be edited later; these settings include the field label, help text, allowed file extensions, image resolution restrictions, and the subdirectory in the public or private file storage where the images will be stored. The editable settings can also have different values for different entity sub-types; for instance, if your image field is used on both Page and Article content types, you can store the files in a different subdirectory for the two content types."
+msgstr "Ein paar der Einstellungen für Bildfelder können nur einmal festgelegt werden, und zwar dann, wenn ein neues Bildfeld erstellt wird. Diese Einstellungen können im Nachhinein nicht mehr geändert werden. Darunter fällt die Entscheidung, ob die Dateien, die über das jeweilige Bildfeld hochgeladen werden im öffentlichen Dateiverzeichnis oder im privaten Dateiverzeichnis gespeichert werden sollen sowie die Anzahl der Dateien, die im Feld gespeichert werden können. Alle anderen Einstellungen können später noch geändert werden. Darunter fallen: die Bezeichnung des Feldes, der Hilfstext für das Feld, die zulässigen Dateierweiterungen, die Erlaubten Werte für die Auflösung der hochgeladenen Bilder und das Unterverzeichnis, im Öffentlichen oder Privaten Verzeichnis, in dem die hochbeladenen Dateien abgelegt werden. Die bearbeitbaren Eigenschaften des Feldes können sich ebenso von Feldinstanz zu Feldinstanz unterscheiden.  Wenn ein Bildfeld sowohl Im Inhaltstyp Einfache Seite als auch in einem Artikel verwendet wird, können die Bilddateien des jeweiligen Inhaltstyps in unterschiedlichen Unterverzeichnissen gespeichert werden."
+
+#: image.module:85
+msgid "For accessibility and search engine optimization, all images that convey meaning on web sites should have alternate text. Drupal also allows entry of title text for images, but it can lead to confusion for screen reader users and its use is not recommended. Image fields can be configured so that alternate and title text fields are enabled or disabled; if enabled, the fields can be set to be required. The recommended setting is to enable and require alternate text and disable title text."
+msgstr "Aus Gründen der Zugänglichkeiten sowie der Suchmaschinenoptimierung sollten alle Bilder, die auf Webseiten verwendet werden mit Alternativen Bildbeschreibungen ausgestattet sein. Drupal ermöglicht außerdem das Erfassen von Titeln für Bilddateien. Diese werden angezeigt, wenn ein Benutzer den Mauszeiger über einem Bild stehen lässt. Dies kann allerdings zu Schwierigkeiten für Benutzer von Screen-Readern führen. Darum wird die Verwendung von Titeln nicht empfohlen. Felder des Typs Bild können so konfiguriert werden, dass sowohl die Eingabefelder für alternative Texte zur Beschreibung g des Bildinhalts als auch Felder zur Eingabe von Titeln wahlweise aktiviert oder deaktiviert werden können. Es wird empfohlen das Feld für alternative Beschreibungen des Bildinhalts zu aktivieren und das Feld für die Eingabe eines Titels zu deaktivieren."
+
+#: image.module:86
+msgid "When you create an image field, you will need to choose whether the uploaded images will be stored in the public or private file directory defined in your settings.php file and shown on the <a href=\":file-system\">File system page</a>. This choice cannot be changed later. You can also configure your field to store files in a subdirectory of the public or private directory; this setting can be changed later and can be different for each entity sub-type using the field. For more information on file storage, see the <a href=\":system-help\">System module help page</a>."
+msgstr "Wird ein neues Bildfeld angelegt, muss man sich zunächst entscheiden, ob die Dateien, die über dieses Feld auf den Webserver hochgeladen werden im öffentlichen Dateiverzeichnis oder im privaten Dateiverzeichnis gespeichert werden sollen. Die beiden Verzeichnisse werden in der Datei Settings.php definiert und auf der Seite <a href=\":file-system\">Dateisystem</a> angezeigt. Diese Auswahl kann später nicht rückgängig gemacht werden. Zusätzlich kann festgelegt werden, dass die Dateien, die über das Feld hochgeladen werden in einem Unterverzeichnis gespeichert werden sollen. Diese Einstellung kann auch später noch geändert werden und kann sich von Entitätssubtyp zu Entitätssubtyp unterscheiden. Weitere Informationen über das Abspeichern von Dateien sind auf der <a href=\":system-help\">Hilfe-Seite des System-Moduls</a> verfügbar."
+
+#: image.module:87
+msgid "The maximum file size that can be uploaded is limited by PHP settings of the server, but you can restrict it further by configuring a <em>Maximum upload size</em> in the field settings (this setting can be changed later). The maximum file size, either from PHP server settings or field configuration, is automatically displayed to users in the help text of the image field."
+msgstr "Die maximale Dateigröße einer hochgeladenen Datei wird durch die PHP-Einstellungen des Servers vorgegeben. Über die Feld-Einstellungen lässt sich die <em>Maximale Upload-Dateigröße</em> jedoch weiter einschränken (kann nachträglich noch angepasst werden). Dem Benutzer wird im Hinweistext des Bild-Feldes die maximale Dateigröße automatisch angezeigt - anhand der PHP- bzw. gesetzten Feld-Einstellungen."
+
+#: image.module:88
+msgid "You can also configure a minimum and/or maximum resolution for uploaded images. Images that are too small will be rejected. Images that are to large will be resized. During the resizing the <a href=\"http://wikipedia.org/wiki/Exchangeable_image_file_format\">EXIF data</a> in the image will be lost."
+msgstr "Sie können außerdem eine minimale oder maximale Auflösung für hochgeladene Bilder festlegen. Bilder, die zu klein sind, werden abgelehnt. Zu große Bilder werden verkleinert. Bei der Skalierung gehen die <a href=\"https://de.wikipedia.org/wiki/Exchangeable_Image_File_Format\">EXIF Daten</a> (Metadaten) verloren."
+
+#: image.module:89
+msgid "You can also configure a default image that will be used if no image is uploaded in an image field. This default can be defined for all instances of the field in the field storage settings when you create a field, and the setting can be overridden for each entity sub-type that uses the field."
+msgstr "Für ein Bildfeld kann ein Standardbild konfiguriert werden, das immer dann verwendet wird, wenn kein Bild hochgeladen wird. Dieses Standardbild kann für alle Instanzen des Feldes definiert werden. Das Standardbild kann während des Erstellens eines Bildfeldes in den Feldeinstellungen festgelegt werden. Diese Einstellung kann für jeden Entitätsstyp überschrieben werden, der ein bestehendes Bildfeld verwendet."
+
+#: image.module:90
+msgid "Configuring displays and form displays"
+msgstr "Anzeigen und Formularanzeigen konfigurieren"
+
+#: image.module:91
+msgid "On the <em>Manage display</em> page, you can choose the image formatter, which determines the image style used to display the image in each display mode and whether or not to display the image as a link. On the <em>Manage form display</em> page, you can configure the image upload widget, including setting the preview image style shown on the entity edit form."
+msgstr "Auf der Seite <em>Anzeige verwalten</em> kann das Anzeigeformat ausgewählt werden, das darüber entscheidet, welcher Bildstil in welchem Anzeigemodus zur Darstellung von Bildern wird und ob das Steuerelement zum Hochladen von Bildern konfiguriert werden kann. Dies beinhaltet auch die Konfiguration des Bildstils für das Vorschaubild auf dem Bearbeitungsformular."
+
+#: image.module:96
+msgid "Image styles commonly provide thumbnail sizes by scaling and cropping images, but can also add various effects before an image is displayed. When an image is displayed with a style, a new file is created and the original image is left unchanged."
+msgstr "Bildstile bieten allgemein verkleinerte Bilder durch Skalieren und Beschneiden, es kann jedoch auch verschiedene andere Effekte angewendet werden, bevor das Bild angezeigt wird. Wenn ein Bild mit einem Bildstil angezeigt wird, dann wird ein neues Bild erstellt und das Original Bild bleibt unverändert."
+
+#: image.module:256
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: image.module:263
+msgid "No defined styles"
+msgstr "Keine definierten Stile"
+
+#: image.module:326
+msgid "Could not apply @style image style to @uri because the style does not support it."
+msgstr "Der Bildstil @style konnte nicht auf das Bild @uri angewandt werden, weil der Bildstil dies nicht unterstützt."
+
+#: image.install:50;64
+msgid "Image toolkit"
+msgstr "Bild-Toolkit"
+
+#: image.install:65
+msgid "None"
+msgstr "Keine"
+
+#: image.install:66
+msgid "No image toolkit is configured on the site. Check PHP installed extensions or add a contributed toolkit that doesn't require a PHP extension. Make sure that at least one valid image toolkit is enabled."
+msgstr "Es wurde kein Bild-Toolkit auf die Website konfiguriert. Eine Überprüfung der installierten PHP-Erweiterungen bzw. das Hinzufügen eines Zusatzmoduls, das ein Toolkit zur Verfügung stellt, das ohne PHP-Erweiterung auskommt wird das Problem beheben. Es muss sichergestellt werden, dass zumindest ein Bild-Toolkit aktiviert ist."
+
+#: image.info.yml:0 src/Plugin/Field/FieldFormatter/ImageFormatter.php:17 src/Plugin/Field/FieldType/ImageItem.php:432;17 src/Plugin/Field/FieldWidget/ImageWidget.php:14
+msgid "Image"
+msgstr "Bild"
+
+#: image.info.yml:0
+msgid "Defines an image field type and provides image manipulation tools."
+msgstr "Definiert einen Feldtyp für Bilder und stellt Manipulaionswerkzeuge zur Verfügung."
+
+#: image.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: image.links.action.yml:0 image.routing.yml:0
+msgid "Add image style"
+msgstr "Bildstil hinzufügen"
+
+#: image.links.menu.yml:0 image.routing.yml:0 src/Entity/ImageStyle.php:24
+msgid "Image styles"
+msgstr "Bildstile"
+
+#: image.links.menu.yml:0
+msgid "Configure styles that can be used for resizing or adjusting images on display."
+msgstr "Stile konfigurieren, die für Größenänderung oder das Anpassen von Bildern für die Anzeige verwendet werden können."
+
+#: image.links.task.yml:0 src/Form/ImageStyleEditForm.php:125
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: image.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: image.permissions.yml:0
+msgid "Administer image styles"
+msgstr "Bildstile verwalten"
+
+#: image.routing.yml:0
+msgid "Edit style"
+msgstr "Stil bearbeiten"
+
+#: image.routing.yml:0 src/Form/ImageEffectDeleteForm.php:41 src/Form/ImageStyleEditForm.php:133
+msgid "Delete"
+msgstr "Löschen"
+
+#: image.routing.yml:0 src/ImageStyleListBuilder.php:37 src/Form/ImageStyleFlushForm.php:33
+msgid "Flush"
+msgstr "Leeren"
+
+#: image.routing.yml:0
+msgid "Delete image effect"
+msgstr "Bildeffekt löschen"
+
+#: image.routing.yml:0
+msgid "Add image effect"
+msgstr "Bildeffekt hinzufügen"
+
+#: image.routing.yml:0
+msgid "Edit image effect"
+msgstr "Bildeffekt bearbeiten"
+
+#: config/schema/image.data_types.schema.yml:0;0 src/Plugin/Field/FieldType/ImageItem.php:159 src/Plugin/ImageEffect/ResizeImageEffect.php:69
+msgid "Width"
+msgstr "Breite"
+
+#: config/schema/image.data_types.schema.yml:0;0 src/Plugin/Field/FieldType/ImageItem.php:163 src/Plugin/ImageEffect/ResizeImageEffect.php:77
+msgid "Height"
+msgstr "Höhe"
+
+#: config/schema/image.data_types.schema.yml:0 js/theme.es6.js:0 js/theme.js:0 src/Plugin/Field/FieldType/ImageItem.php:151;444 src/Plugin/Field/FieldWidget/ImageWidget.php:262
+msgid "Alternative text"
+msgstr "Alternativer Text"
+
+#: config/schema/image.data_types.schema.yml:0 js/theme.es6.js:0 js/theme.js:0 src/Plugin/Field/FieldType/ImageItem.php:155;451;17 src/Plugin/Field/FieldWidget/ImageWidget.php:275
+msgid "Title"
+msgstr "Titel"
+
+#: config/schema/image.schema.yml:0;0;0 src/Entity/ImageStyle.php:24 src/Plugin/Field/FieldFormatter/ImageFormatter.php:112
+msgid "Image style"
+msgstr "Bildstil"
+
+#: config/schema/image.schema.yml:0
+msgid "Effect settings"
+msgstr "Effekteinstellungen"
+
+#: config/schema/image.schema.yml:0
+msgid "Image crop"
+msgstr "Bild zuschneiden"
+
+#: config/schema/image.schema.yml:0;0 src/Plugin/ImageEffect/CropImageEffect.php:62
+msgid "Anchor"
+msgstr "Anker"
+
+#: config/schema/image.schema.yml:0 src/Plugin/ImageEffect/ConvertImageEffect.php:9
+msgid "Convert"
+msgstr "Konvertieren"
+
+#: config/schema/image.schema.yml:0 src/Plugin/ImageEffect/ConvertImageEffect.php:70
+msgid "Extension"
+msgstr "Erweiterung"
+
+#: config/schema/image.schema.yml:0
+msgid "Image resize"
+msgstr "Bildgröße ändern"
+
+#: config/schema/image.schema.yml:0
+msgid "Image rotate"
+msgstr "Bild drehen"
+
+#: config/schema/image.schema.yml:0 src/Plugin/ImageEffect/RotateImageEffect.php:86
+msgid "Rotation angle"
+msgstr "Rotationswinkel"
+
+#: config/schema/image.schema.yml:0 src/Plugin/ImageEffect/RotateImageEffect.php:94
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: config/schema/image.schema.yml:0 src/Plugin/ImageEffect/RotateImageEffect.php:102
+msgid "Randomize"
+msgstr "Zufällig"
+
+#: config/schema/image.schema.yml:0
+msgid "Image scale"
+msgstr "Abbildungsmaßstab"
+
+#: config/schema/image.schema.yml:0
+msgid "Upscale"
+msgstr "Vergrößern"
+
+#: config/schema/image.schema.yml:0
+msgid "Image scale and crop"
+msgstr "Bild skalieren und zuschneiden"
+
+#: config/schema/image.schema.yml:0
+msgid "Preview image"
+msgstr "Vorschaubild"
+
+#: config/schema/image.schema.yml:0
+msgid "Allow insecure image derivatives"
+msgstr "Das Vergrößern von Bildderivaten erlauben."
+
+#: config/schema/image.schema.yml:0
+msgid "Suppress the itok query string for image derivatives"
+msgstr "Die itok-im Abfrageurl für Bildvariationen verstecken"
+
+#: config/schema/image.schema.yml:0;0
+msgid "Image settings"
+msgstr "Bildeinstellungen"
+
+#: config/schema/image.schema.yml:0;0;0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/image.schema.yml:0 src/Plugin/Field/FieldType/ImageItem.php:209
+msgid "Maximum image resolution"
+msgstr "Maximale Bildauflösung"
+
+#: config/schema/image.schema.yml:0 src/Plugin/Field/FieldType/ImageItem.php:236
+msgid "Minimum image resolution"
+msgstr "Minimale Bildauflösung"
+
+#: config/schema/image.schema.yml:0
+msgid "Enable Alt field"
+msgstr "Alt-Feld aktivieren"
+
+#: config/schema/image.schema.yml:0
+msgid "Alt field required"
+msgstr "Alt-Feld erforderlich"
+
+#: config/schema/image.schema.yml:0
+msgid "Enable Title field"
+msgstr "Titel-Feld aktivieren"
+
+#: config/schema/image.schema.yml:0
+msgid "Title field required"
+msgstr "Titel-Feld erforderlich"
+
+#: config/schema/image.schema.yml:0;0
+msgid "Image field display format settings"
+msgstr "Anzeigeformateinstellungen von Bildern"
+
+#: config/schema/image.schema.yml:0 src/Plugin/Field/FieldFormatter/ImageFormatter.php:126
+msgid "Link image to"
+msgstr "Bild verlinken mit"
+
+#: config/schema/image.schema.yml:0
+msgid "Image URL formatter settings"
+msgstr "Bild-URL-Anzeigeformateinstellungen"
+
+#: config/schema/image.schema.yml:0
+msgid "Progress indicator"
+msgstr "Fortschrittsanzeige"
+
+#: config/schema/image.schema.yml:0 src/Plugin/Field/FieldWidget/ImageWidget.php:74
+msgid "Preview image style"
+msgstr "Bildstil-Vorschau"
+
+#: js/editors/image.es6.js:0 js/editors/image.js:0
+msgid "Drop file here or click to upload"
+msgstr "Eine Datei mit der Maus auf diese Fläche ziehen und klicken um den Datei-Uplad zu starten."
+
+#: js/editors/image.es6.js:0 js/editors/image.js:0
+msgid "Uploading <i>@file</i>…"
+msgstr "<i>@file</i> wird auf den Server geladen…"
+
+#: js/editors/image.es6.js:0 js/editors/image.js:0
+msgid "A server error has occurred."
+msgstr "Ein Serverfehler ist aufgetreten."
+
+#: src/ImageStyleListBuilder.php:20
+msgid "Style name"
+msgstr "Stilname"
+
+#: src/ImageStyleListBuilder.php:60
+msgid "There are currently no styles. <a href=\":url\">Add a new one</a>."
+msgstr "Es gibt momentan keine Stile. <a href=\":url\">Einen neuen Stil hinzufügen</a>."
+
+#: src/Controller/ImageStyleDownloadController.php:139
+msgid "Error generating image, missing source file."
+msgstr "Bei der Bilderzeugung trat ein Fehler auf. Die Quelldatei fehlt."
+
+#: src/Controller/ImageStyleDownloadController.php:155
+msgid "Image generation in progress. Try again shortly."
+msgstr "Bildgenerierung läuft gerade. Bitte in Kürze wieder versuchen."
+
+#: src/Controller/ImageStyleDownloadController.php:182
+msgid "Error generating image."
+msgstr "Fehler beim Erzeugen des Bilds."
+
+#: src/Controller/ImageStyleDownloadController.php:138
+msgid "Source image at %source_image_path not found while trying to generate derivative image at %derivative_path."
+msgstr "Das Originalbild unter %source_image_path wurde, während des Versuches eine Abwandlung des Bildes unter %derivative_path anzufertigen, nicht gefunden."
+
+#: src/Controller/ImageStyleDownloadController.php:181
+msgid "Unable to generate the derived image located at %path."
+msgstr "Das abgeleitete Bild unter %path konnte nicht generiert werden."
+
+#: src/Controller/QuickEditImageController.php:131
+msgid "The destination directory could not be created."
+msgstr "Das Zielverzeichnis konnte nicht erstellt werden."
+
+#: src/Controller/QuickEditImageController.php:176
+msgid "The image failed validation."
+msgstr "Die Validierung des Bildes ist fehlgeschlagen."
+
+#: src/Entity/ImageStyle.php:314
+msgid "Failed to create style directory: %directory"
+msgstr "Stil-Verzeichnis konnte nicht erstellt werden: %directory"
+
+#: src/Entity/ImageStyle.php:324
+msgid "Cached image file %destination already exists. There may be an issue with your rewrite configuration."
+msgstr "Die zwischengespeicherte Bilddatei %destination existiert bereits. Möglicherweise gibt es ein Problem mit Ihrer Rewrite Konfiguration."
+
+#: src/Entity/ImageStyle.php:24
+msgid "image style"
+msgstr "Bildstil"
+
+#: src/Entity/ImageStyle.php:24
+msgid "image styles"
+msgstr "Bildstile"
+
+#: src/Form/ImageEffectAddForm.php:49
+msgid "Add %label effect"
+msgstr "Effekt %label hinzufügen"
+
+#: src/Form/ImageEffectAddForm.php:50
+msgid "Add effect"
+msgstr "Effekt hinzufügen"
+
+#: src/Form/ImageEffectDeleteForm.php:34
+msgid "Are you sure you want to delete the @effect effect from the %style style?"
+msgstr "Möchten Sie den Effekt @effect wirklich aus dem Stil %style löschen?"
+
+#: src/Form/ImageEffectDeleteForm.php:73
+msgid "The image effect %name has been deleted."
+msgstr "Der Bildeffekt %name wurde gelöscht."
+
+#: src/Form/ImageEffectEditForm.php:21
+msgid "Edit %label effect"
+msgstr "Effekt %label bearbeiten"
+
+#: src/Form/ImageEffectEditForm.php:22
+msgid "Update effect"
+msgstr "Effekt aktualisieren"
+
+#: src/Form/ImageEffectFormBase.php:94
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/ImageEffectFormBase.php:126 src/Form/ImageStyleEditForm.php:234
+msgid "The image effect was successfully applied."
+msgstr "Der Bildeffekt wurde erfolgreich angewendet."
+
+#: src/Form/ImageStyleAddForm.php:19
+msgid "Style %name was created."
+msgstr "Stil %name wurde erstellt."
+
+#: src/Form/ImageStyleAddForm.php:27
+msgid "Create new style"
+msgstr "Neuen Stil erstellen"
+
+#: src/Form/ImageStyleDeleteForm.php:26
+msgid "Optionally select a style before deleting %style"
+msgstr "Optional wählen Sie einen neuen Stil, bevor %style gelöscht wird"
+
+#: src/Form/ImageStyleDeleteForm.php:34
+msgid "If this style is in use on the site, you may select another style to replace it. All images that have been generated for this style will be permanently deleted. If no replacement style is selected, the dependent configurations might need manual reconfiguration."
+msgstr "Wenn der Bildstil auf dieser Seite aktuell verwendet wird, kann ein anderer Bildstil gewählt werden um den aktuellen Bildstil zu ersetzen. Alle Bilder die für den Bildstil generiert wurden werden dauerhaft gelöscht. Wenn kein Ersatzbildstil gewählt wird muss die dazugehörige Konfiguration später eventuell manuell durchgeführt werden."
+
+#: src/Form/ImageStyleDeleteForm.php:36
+msgid "All images that have been generated for this style will be permanently deleted. The dependent configurations might need manual reconfiguration."
+msgstr "Alle Bilder, die für diesen Bildstil generieret wurden werden dauerhaft gelöscht. Die dazugehörige Konfiguration muss unter Umständen noch einmal manuell konfiguriert werden."
+
+#: src/Form/ImageStyleDeleteForm.php:49
+msgid "Replacement style"
+msgstr "Ersetzungsstil"
+
+#: src/Form/ImageStyleDeleteForm.php:51
+msgid "- No replacement -"
+msgstr "- Nicht ersetzen -"
+
+#: src/Form/ImageStyleEditForm.php:55
+msgid "Edit style %name"
+msgstr "Stil %name bearbeiten"
+
+#: src/Form/ImageStyleEditForm.php:63
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/Form/ImageStyleEditForm.php:73;163
+msgid "Effect"
+msgstr "Effekt"
+
+#: src/Form/ImageStyleEditForm.php:74
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Form/ImageStyleEditForm.php:75
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/ImageStyleEditForm.php:87
+msgid "There are currently no effects in this style. Add one by selecting an option below."
+msgstr "Aktuell sind für diesen Stil keine Effekte festgelegt. Fügen Sie durch Auswahl einer Funktion oben neue hinzu."
+
+#: src/Form/ImageStyleEditForm.php:113
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/ImageStyleEditForm.php:166
+msgid "Select a new effect"
+msgstr "Einen neuen Effekt auswählen"
+
+#: src/Form/ImageStyleEditForm.php:171
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/Form/ImageStyleEditForm.php:183
+msgid "Weight for new effect"
+msgstr "Reihenfolge für den neuen Effekt"
+
+#: src/Form/ImageStyleEditForm.php:200
+msgid "Select an effect to add."
+msgstr "Hinzuzufügenden Stil auswählen."
+
+#: src/Form/ImageStyleEditForm.php:257
+msgid "Changes to the style have been saved."
+msgstr "Die Änderungen am Stil wurden gespeichert."
+
+#: src/Form/ImageStyleFlushForm.php:19
+msgid "Are you sure you want to apply the updated %name image effect to all images?"
+msgstr "Soll der aktualisierte Bildeffekt %name wirklich auf alle Bilder angewendet werden?"
+
+#: src/Form/ImageStyleFlushForm.php:26
+msgid "This operation does not change the original images but the copies created for this style will be recreated."
+msgstr "Diese Aktion nimmt keine Änderung an den Originalbildern vor, die Kopien, die für diesen Stil erzeugt wurden, werden allerdings neu erstellt."
+
+#: src/Form/ImageStyleFlushForm.php:48
+msgid "The image style %name has been flushed."
+msgstr "Der Bildstil %name wurde neu aufgebaut."
+
+#: src/Form/ImageStyleFormBase.php:55
+msgid "Image style name"
+msgstr "Bildstilname"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:108
+msgid "Configure Image Styles"
+msgstr "Bildstile konfigurieren"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:115
+msgid "None (original image)"
+msgstr "Keine (Originalbild)"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:122
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:123 src/Plugin/Field/FieldType/ImageItem.php:17
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:129
+msgid "Nothing"
+msgstr "Nichts"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:149
+msgid "Image style: @style"
+msgstr "Bildstil: @style"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:152
+msgid "Original image"
+msgstr "Originalbild"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:156
+msgid "Linked to content"
+msgstr "Verlinkt mit Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/ImageFormatter.php:157
+msgid "Linked to file"
+msgstr "Verlinkt mit Datei"
+
+#: src/Plugin/Field/FieldFormatter/ImageUrlFormatter.php:9
+msgid "URL to image"
+msgstr "Pfadangabe zum Bild"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:152
+msgid "Alternative image text, for the image's 'alt' attribute."
+msgstr "Ein beschreibender Text des Bildinhalts, der für das 'alt'-Attribut verwendet wird."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:156
+msgid "Image title text, for the image's 'title' attribute."
+msgstr "Der Titeltext des Bildes. Dieser wird für das 'title'-Atribut des Bildes verwendet."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:160
+msgid "The width of the image in pixels."
+msgstr "Die Breite des Bilds in Pixeln."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:164
+msgid "The height of the image in pixels."
+msgstr "Die Höhe des Bilds in Pixeln."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:183
+msgid "Upload destination"
+msgstr "Upload-Ziel"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:186
+msgid "Select where the final files should be stored. Private file storage has significantly more overhead than public files, but allows restricted access to files within this field."
+msgstr "Wählen Sie aus, wo die Dateien abgelegt werden sollen. Der Private Dateispeicher erfordert bedeutend mehr Performance als der Öffentliche Dateispeicher, bietet jedoch einen geschützten Zugang zu Dateien in diesem Feld."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:191
+msgid "If no image is uploaded, this image will be shown on display."
+msgstr "Wenn kein Bild hochgeladen wurde, wird dieses Bild angezeigt."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:214
+msgid "The maximum allowed image size expressed as WIDTH×HEIGHT (e.g. 640×480). Leave blank for no restriction. If a larger image is uploaded, it will be resized to reflect the given width and height. Resizing images on upload will cause the loss of <a href=\"http://wikipedia.org/wiki/Exchangeable_image_file_format\">EXIF data</a> in the image."
+msgstr "Die Maximalgröße des Bildes in Breite X Höhe angegeben. (z. B. 640x480). Leer lassen für keine Einschränkungen. Wird ein größeres Bild hochgeladen wird die Bildgröße so angepasst, dass Sie den angegebenen Werten entspricht. Wird die Bildgröße während des Hochladens angepasst, gehen die <a href=\"http://wikipedia.org/wiki/Exchangeable_image_file_format\">EXIF-Daten</a> im Bild verloren."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:218
+msgid "Maximum width"
+msgstr "Maximale Breite"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:226
+msgid "Maximum height"
+msgstr "Maximale Höhe"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:230;257 src/Plugin/ImageEffect/ResizeImageEffect.php:71;79
+msgid "pixels"
+msgstr "Pixel"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:241
+msgid "The minimum allowed image size expressed as WIDTH×HEIGHT (e.g. 640×480). Leave blank for no restriction. If a smaller image is uploaded, it will be rejected."
+msgstr "Die mindestens nötige Bildgröße in Form von BREITExHÖHE (z. B. 640x480). Leer lassen wenn es keine Beschränkung geben soll. Wenn ein kleineres Bild hochgeladen wird, wird es zurückgewiesen."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:245
+msgid "Minimum width"
+msgstr "Minimale Breite"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:253
+msgid "Minimum height"
+msgstr "Minimale Höhe"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:266
+msgid "Enable <em>Alt</em> field"
+msgstr "<em>Alt</em>-Feld verwenden"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:268
+msgid "Short description of the image used by screen readers and displayed when the image is not loaded. Enabling this field is recommended."
+msgstr "Eine kurze Beschreibung des Bildes, die von Screenreadern verwendet wird und angezeigt wird, wenn das Bild nicht geladen werden kann. Es wird empfohlen, dieses Feld zu aktivieren."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:273
+msgid "<em>Alt</em> field required"
+msgstr "<em>Alt</em>-Feld ist erforderlich"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:275
+msgid "Making this field required is recommended."
+msgstr "Es wird empfohlen, dieses Feld als Pflichtfeld zu setzen."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:285
+msgid "Enable <em>Title</em> field"
+msgstr "<em>Titel</em>-Feld einschalten"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:287
+msgid "The title attribute is used as a tooltip when the mouse hovers over the image. Enabling this field is not recommended as it can cause problems with screen readers."
+msgstr "Das Titel-Attribut wird als Tooltip angezeigt, wenn sich der Mauszeiger über dem Bild befindet. Das Aktivieren dieses Felds ist nicht empfohlen, da es Probleme mit Screenreadern verursachen kann."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:292
+msgid "<em>Title</em> field required"
+msgstr "<em>Title</em>-Feld erforderlich"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:304
+msgid "If no image is uploaded, this image will be shown on display and will override the field's default image."
+msgstr "Wenn kein Bild hochgeladen wurde, wird dieses Bild angezeigt und übersteuert das Standardbild des Feldes."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:399
+msgid "Both a height and width value must be specified in the @name field."
+msgstr "Sowohl eine Höhe als auch eine Breite muss im Feld @name eingetragen werden."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:421
+msgid "Default image"
+msgstr "Standardbild"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:433
+msgid "Image to be shown if no image is uploaded."
+msgstr "Bild, das angezeigt wird, wenn kein Bild hochgeladen wurde."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:445 src/Plugin/Field/FieldWidget/ImageWidget.php:265
+msgid "Short description of the image used by screen readers and displayed when the image is not loaded. This is important for accessibility."
+msgstr "Eine kurze Beschreibung des Bildes, die von Screenreadern verwendet wird und angezeigt wird, wenn das Bild nicht geladen werden kann. Dies ist wichtig für die Barrierefreiheit."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:452
+msgid "The title attribute is used as a tooltip when the mouse hovers over the image."
+msgstr "Das Titel-Attribut wird als Tooltip angezeigt, wenn sich der Mauszeiger über dem Bild befindet."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:17
+msgid "This field stores the ID of an image file as an integer value."
+msgstr "Dieses Feld speichert die ID einer Bilddatei als Integer-Wert."
+
+#: src/Plugin/Field/FieldType/ImageItem.php:17
+msgid "Reference"
+msgstr "Referenz"
+
+#: src/Plugin/Field/FieldType/ImageItem.php:17
+msgid "Alt"
+msgstr "Alt"
+
+#: src/Plugin/Field/FieldWidget/ImageWidget.php:77
+msgid "no preview"
+msgstr "keine Vorschau"
+
+#: src/Plugin/Field/FieldWidget/ImageWidget.php:79
+msgid "The preview image will be shown while editing the content."
+msgstr "Das Vorschaubild wird beim Bearbeiten des Inhalts angezeigt."
+
+#: src/Plugin/Field/FieldWidget/ImageWidget.php:99
+msgid "Preview image style: @style"
+msgstr "Bildstil des Vorschaubildes: @style"
+
+#: src/Plugin/Field/FieldWidget/ImageWidget.php:102
+msgid "No preview"
+msgstr "Keine Vorschau"
+
+#: src/Plugin/Field/FieldWidget/ImageWidget.php:277
+msgid "The title is used as a tool tip when the user hovers the mouse over the image."
+msgstr "Der Titel erscheint als Tooltip, wenn der Benutzer den Mauszeiger über dem Bild stehenlässt."
+
+#: src/Plugin/ImageEffect/ConvertImageEffect.php:25
+msgid "Image convert failed using the %toolkit toolkit on %path (%mimetype)"
+msgstr "Die Bearbeitung des Bildes unter Verwendung des Toolkits %toolkit im Pfad %path (%mimetype) war nicht erfolgreich."
+
+#: src/Plugin/ImageEffect/ConvertImageEffect.php:9
+msgid "Converts an image between extensions (e.g. from PNG to JPEG)."
+msgstr "Konvertiert ein Bild in andere Bildformate (z. B. von PNG nach JPEG)."
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:64
+msgid "Top left"
+msgstr "Oben links"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:65
+msgid "Top center"
+msgstr "Oben zentriert"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:66
+msgid "Top right"
+msgstr "Oben rechts"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:67
+msgid "Center left"
+msgstr "Mittig links"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:68
+msgid "Center"
+msgstr "Zentriert"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:69
+msgid "Center right"
+msgstr "Mittig rechts"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:70
+msgid "Bottom left"
+msgstr "Unten links"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:71
+msgid "Bottom center"
+msgstr "Unten zentriert"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:72
+msgid "Bottom right"
+msgstr "Unten rechts"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:76
+msgid "The part of the image that will be retained during the crop."
+msgstr "Der Teil des Bildes, das während des Zuschneiden unangetastet bleibt."
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:27
+msgid "Image crop failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Die Bildbeschneidung mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:8
+msgid "Crop"
+msgstr "Zuschneiden"
+
+#: src/Plugin/ImageEffect/CropImageEffect.php:8 src/Plugin/ImageEffect/ResizeImageEffect.php:9
+msgid "Resizing will make images an exact set of dimensions. This may cause images to be stretched or shrunk disproportionately."
+msgstr "Die Anpassung der Größe führt zur genauen Umsetzung der Maßvorgaben. Dies führt möglicherweise dazu, dass Bilder gestreckt oder mit falschen Proportionen gequetscht erscheinen."
+
+#: src/Plugin/ImageEffect/DesaturateImageEffect.php:24
+msgid "Image desaturate failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Die Bildensättigung mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/DesaturateImageEffect.php:8
+msgid "Desaturate"
+msgstr "Entsättigen"
+
+#: src/Plugin/ImageEffect/DesaturateImageEffect.php:8
+msgid "Desaturate converts an image to grayscale."
+msgstr "Sättigung verringern konvertiert ein Bild in Graustufen."
+
+#: src/Plugin/ImageEffect/ResizeImageEffect.php:25
+msgid "Image resize failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Das Ändern der Bildgröße mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/ResizeImageEffect.php:9
+msgid "Resize"
+msgstr "Größe ändern"
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:87
+msgid "The number of degrees the image should be rotated. Positive numbers are clockwise, negative are counter-clockwise."
+msgstr "Winkel in Grad, um den das Bild gedreht wird. Positive Zahlen sind im Uhrzeigersein, negative entgegen dem Uhrzeigersinn."
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:95
+msgid "The background color to use for exposed areas of the image. Use web-style hex colors (#FFFFFF for white, #000000 for black). Leave blank for transparency on image types that support it."
+msgstr "Die Hintergrundfarbe für exponierte Bereiche des Bildes. Verwenden Sie für die Angabe der Farben die Hexadezimal-Schreibweise (#FFFFFF für weiß, #000000 für schwarz). Freilassen, wenn Sie Bilder verwenden wollen, die Transparenz unterstützen."
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:103
+msgid "Randomize the rotation angle for each image. The angle specified above is used as a maximum."
+msgstr "Den Rotationswinkel für jedes Bild zufällig auswählen. Der oben angegebene Winkel wird als Maximum verwendet."
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:113
+msgid "Background color must be a hexadecimal color value."
+msgstr "Die Hintergrundfarbe entspricht keinem hexadezimalen Farbwert."
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:32
+msgid "Image rotate failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Die Bildrotierung mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:11
+msgid "Rotate"
+msgstr "Drehen"
+
+#: src/Plugin/ImageEffect/RotateImageEffect.php:11
+msgid "Rotating an image may cause the dimensions of an image to increase to fit the diagonal."
+msgstr "Das Drehen eines Bildes kann dazu führen, dass die angezeigte Bildgröße verringert wird, damit es in das Layout passt."
+
+#: src/Plugin/ImageEffect/ScaleAndCropImageEffect.php:31
+msgid "Image scale and crop failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Die Bildbeschneidung und Bildskalierung mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/ScaleAndCropImageEffect.php:7
+msgid "Scale and crop"
+msgstr "Skalieren und zuschneiden"
+
+#: src/Plugin/ImageEffect/ScaleAndCropImageEffect.php:7
+msgid "Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image."
+msgstr "Skalieren und zuschneiden wird das Seitenverhältnis des ursprünglichen Bildes erhalten, und dann die überstehenden Ränder entfernen. Dies ist besonders nützlich für die Erstellung von perfekt quadratischen Vorschaubildern ohne Verzerrung des Bildes."
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:72
+msgid "Allow Upscaling"
+msgstr "Vergrößern erlauben"
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:73
+msgid "Let scale make images larger than their original size."
+msgstr "Erlaubt dem Skalierung-Effekt Bilder über ihre Ausgangsgröße hinaus zu vergrößern."
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:84
+msgid "Width and height can not both be blank."
+msgstr "Breite und Höhe dürfen nicht leer sein."
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:25
+msgid "Image scale failed using the %toolkit toolkit on %path (%mimetype, %dimensions)"
+msgstr "Die Bildskalierung mit dem %toolkit Werkzeug in %path (%mimetype, %dimensions) ist gescheitert."
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:9
+msgid "Scale"
+msgstr "Skalierung"
+
+#: src/Plugin/ImageEffect/ScaleImageEffect.php:9
+msgid "Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated."
+msgstr "Eine Skalierung behält das Seitenverhältnis des Originalbildes bei. Sofern nur eine Seitenlänge angegeben ist, wird die andere berechnet."
+
+#: src/Plugin/migrate/source/d6/ImageCachePreset.php:32
+msgid "Preset ID"
+msgstr "Voreingestellte ID"
+
+#: src/Plugin/migrate/source/d6/ImageCachePreset.php:33
+msgid "Preset Name"
+msgstr "Name der Voreinstellung"
+
+#: src/Plugin/migrate/source/d7/ImageStyles.php:31
+msgid "The primary identifier for an image style."
+msgstr "Der primäre Identifier für einen Bildstil."
+
+#: src/Plugin/migrate/source/d7/ImageStyles.php:32
+msgid "The style machine name."
+msgstr "Der Systemname des Stils."
+
+#: src/Plugin/migrate/source/d7/ImageStyles.php:33
+msgid "The style administrative name."
+msgstr "Der administrative Titel des Stiels."
+
+#: templates/image-crop-summary.html.twig:24 templates/image-resize-summary.html.twig:22 templates/image-scale-and-crop-summary.html.twig:24 templates/image-scale-summary.html.twig:23
+msgid "width @data.width"
+msgstr "Breite @data.width"
+
+#: templates/image-crop-summary.html.twig:28 templates/image-resize-summary.html.twig:26 templates/image-scale-and-crop-summary.html.twig:28 templates/image-scale-summary.html.twig:27
+msgid "height @data.height"
+msgstr "Höhe @data.height"
+
+#: templates/image-rotate-summary.html.twig:23
+msgid "random between -@degrees° and @degrees°"
+msgstr "zwischen @degrees° und @degrees° wechslen."
+
+#: templates/image-scale-summary.html.twig:34
+msgid "(upscaling allowed)"
+msgstr "(hochskalieren erlaubt)"
+
+#: templates/image-style-preview.html.twig:36
+msgid "original"
+msgstr "Original"
+
+#: templates/image-style-preview.html.twig:36;48
+msgid "view actual size"
+msgstr "tatsächliche Größe anzeigen"
+
+#: config/install/image.style.large.yml:0
+msgid "Large (480×480)"
+msgstr "Groß (480x480)"
+
+#: config/install/image.style.medium.yml:0
+msgid "Medium (220×220)"
+msgstr "Mittel (220x220)"
+
+#: config/install/image.style.thumbnail.yml:0
+msgid "Thumbnail (100×100)"
+msgstr "Miniaturansicht (100x100)"
+

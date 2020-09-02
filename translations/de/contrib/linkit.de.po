@@ -1,0 +1,623 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  linkit.module: n/a
+#  linkit.info.yml: n/a
+#  linkit.links.menu.yml: n/a
+#  src/Plugin/CKEditorPlugin/Linkit.php: n/a
+#  linkit.links.action.yml: n/a
+#  linkit.routing.yml: n/a
+#  linkit.links.task.yml: n/a
+#  src/Form/Attribute/OverviewForm.php: n/a
+#  src/Form/Matcher/OverviewForm.php: n/a
+#  src/Form/Profile/FormBase.php: n/a
+#  src/ProfileListBuilder.php: n/a
+#  linkit.permissions.yml: n/a
+#  config/schema/linkit.schema.yml: n/a
+#  js/linkit.imce.js: n/a
+#  js/plugins/linkit/plugin.js: n/a
+#  src/Form/LinkitEditorDialog.php: n/a
+#  src/MatcherTokensTrait.php: n/a
+#  src/Form/Attribute/AddForm.php: n/a
+#  src/ResultManager.php: n/a
+#  src/Controller/LinkitController.php: n/a
+#  src/Entity/Profile.php: n/a
+#  src/Form/Matcher/AddForm.php: n/a
+#  src/Form/Attribute/DeleteForm.php: n/a
+#  src/Form/Attribute/EditForm.php: n/a
+#  src/Form/Matcher/EditForm.php: n/a
+#  src/Form/Matcher/DeleteForm.php: n/a
+#  src/Form/Profile/AddForm.php: n/a
+#  src/Form/Profile/EditForm.php: n/a
+#  src/Plugin/Linkit/Attribute/Accesskey.php: n/a
+#  src/Plugin/Linkit/Attribute/Clazz.php: n/a
+#  src/Plugin/Linkit/Attribute/Id.php: n/a
+#  src/Plugin/Linkit/Attribute/Relationship.php: n/a
+#  src/Plugin/Linkit/Attribute/Target.php: n/a
+#  src/Plugin/Linkit/Attribute/Title.php: n/a
+#  src/Plugin/Linkit/Matcher/EntityMatcher.php: n/a
+#  src/Plugin/Linkit/Matcher/FileMatcher.php: n/a
+#  src/Plugin/Linkit/Matcher/NodeMatcher.php: n/a
+#  src/Plugin/Linkit/Matcher/UserMatcher.php: n/a
+#  src/Plugin/Linkit/Matcher/TermMatcher.php: n/a
+#  config/optional/image.style.linkit_result_thumbnail.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: linkit.module:20
+msgid "Attributes are HTML attributes that will be attached to the insert plugin."
+msgstr "Attribute sind HTML-Attribute, die an das Plugin zum Einfügen angehängt werden."
+
+#: linkit.module:40
+msgid "IMCE integration"
+msgstr "IMCE-Integration"
+
+#: linkit.module:46
+msgid "Enable IMCE File Browser in the editor dialog."
+msgstr "IMCE-Dateibrowser im Dialogfeld aktivieren"
+
+#: linkit.module:53
+msgid "Scheme"
+msgstr "Schema"
+
+#: linkit.module:89
+msgid "Open IMCE file browser"
+msgstr "IMCE-Dateibrowser öffnen"
+
+#: linkit.info.yml:0;0 linkit.links.menu.yml:0 src/Plugin/CKEditorPlugin/Linkit.php:79;18
+msgid "Linkit"
+msgstr "Linkit"
+
+#: linkit.info.yml:0
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: linkit.links.action.yml:0 linkit.routing.yml:0
+msgid "Add profile"
+msgstr "Profil hinzufügen"
+
+#: linkit.links.action.yml:0 linkit.routing.yml:0
+msgid "Add matcher"
+msgstr "Verfügbaren Inhalt hinzufügen"
+
+#: linkit.links.action.yml:0 linkit.routing.yml:0
+msgid "Add attribute"
+msgstr "Attribut hinzufügen"
+
+#: linkit.links.menu.yml:0
+msgid "Manage Linkit profiles."
+msgstr "Linkit-Profile verwalten."
+
+#: linkit.links.task.yml:0 src/Form/Attribute/OverviewForm.php:117 src/Form/Matcher/OverviewForm.php:126 src/Form/Profile/FormBase.php:72
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: linkit.links.task.yml:0 linkit.routing.yml:0 src/ProfileListBuilder.php:55
+msgid "Manage matchers"
+msgstr "Verfügbare Inhalte verwatlen"
+
+#: linkit.links.task.yml:0 linkit.routing.yml:0 src/ProfileListBuilder.php:63
+msgid "Manage attributes"
+msgstr "Attribute verwalten"
+
+#: linkit.permissions.yml:0
+msgid "Administer linkit profiles"
+msgstr "Linkit-Profile verwalten"
+
+#: linkit.routing.yml:0
+msgid "Linkit profiles"
+msgstr "Linkit-Profile"
+
+#: linkit.routing.yml:0 src/Plugin/CKEditorPlugin/Linkit.php:68
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: config/schema/linkit.schema.yml:0
+msgid "Attribute settings"
+msgstr "Eigenschafts Einstellungen"
+
+#: config/schema/linkit.schema.yml:0
+msgid "Matcher settings"
+msgstr "Eintellungen für verfügbare Inhalte"
+
+#: config/schema/linkit.schema.yml:0
+msgid "Profile dropdown"
+msgstr "Profil-Dropdown"
+
+#: config/schema/linkit.schema.yml:0
+msgid "List of profiles"
+msgstr "Profilliste"
+
+#: js/linkit.imce.js:0
+msgid "You can only select one file."
+msgstr "Es kann nur eine Datei ausgewählt werden."
+
+#: js/plugins/linkit/plugin.js:0 src/Form/LinkitEditorDialog.php:102
+msgid "Link"
+msgstr "Link"
+
+#: js/plugins/linkit/plugin.js:0
+msgid "Edit Link"
+msgstr "Link bearbeiten"
+
+#: src/MatcherTokensTrait.php:45
+msgid "Available tokens"
+msgstr "Verfügbare Tokens"
+
+#: src/ProfileListBuilder.php:25
+msgid "Profile"
+msgstr "Profil"
+
+#: src/ProfileListBuilder.php:27 src/Form/Attribute/AddForm.php:71 src/Form/Attribute/OverviewForm.php:73 src/Form/Profile/FormBase.php:49
+msgid "Description"
+msgstr "Description"
+
+#: src/ProfileListBuilder.php:51
+msgid "Edit profile"
+msgstr "Profil bearbeiten"
+
+#: src/ResultManager.php:35;67
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+#: src/ResultManager.php:42
+msgid "Front page"
+msgstr "Startseite"
+
+#: src/ResultManager.php:45
+msgid "System"
+msgstr "System"
+
+#: src/ResultManager.php:57
+msgid "E-mail @email"
+msgstr "E-Mail @email"
+
+#: src/ResultManager.php:58
+msgid "Opens your mail client ready to e-mail @email"
+msgstr "Öffnet Ihr E-Mail-Programm, mit dem Sie E-Mails an @email senden können."
+
+#: src/ResultManager.php:60
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: src/Controller/LinkitController.php:28
+msgid "Edit %label profile"
+msgstr "Profil %label bearbeiten"
+
+#: src/Controller/LinkitController.php:45
+msgid "Edit %label matcher"
+msgstr "Verfügbaren Inhalt %label bearbeiten"
+
+#: src/Controller/LinkitController.php:62
+msgid "Edit %label attribute"
+msgstr "Attribut %label bearbeiten"
+
+#: src/Entity/Profile.php:17
+msgid "Linkit profile"
+msgstr "Linkit-Profil"
+
+#: src/Form/LinkitEditorDialog.php:105
+msgid "Start typing to find content or paste a URL."
+msgstr "Tippen Sie, um Inhalte zu finden, oder fügen Sie eine URL ein."
+
+#: src/Form/LinkitEditorDialog.php:121 src/Form/Attribute/OverviewForm.php:137 src/Form/Matcher/OverviewForm.php:146
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/LinkitEditorDialog.php:178 src/Form/Attribute/AddForm.php:70
+msgid "Attributes"
+msgstr "Attribute"
+
+#: src/Form/Attribute/AddForm.php:78
+msgid "No attributes available."
+msgstr "Keine Attribute verfügbar."
+
+#: src/Form/Attribute/AddForm.php:85 src/Form/Matcher/AddForm.php:85
+msgid "Save and continue"
+msgstr "Speichern und fortfahren"
+
+#: src/Form/Attribute/AddForm.php:99
+msgid "No attribute selected."
+msgstr "Kein Attribut ausgewählt."
+
+#: src/Form/Attribute/AddForm.php:127
+msgid "Added %label attribute."
+msgstr "Attribut %label hinzugefügt."
+
+#: src/Form/Attribute/AddForm.php:114
+msgid "Added %label attribute to the @profile profile."
+msgstr "Attribut %label zum Profil @profile hinzugefügt."
+
+#: src/Form/Attribute/DeleteForm.php:39
+msgid "Are you sure you want to delete the @plugin attribute from the %profile profile?"
+msgstr "Möchten Sie das Attribut @plugin des Profils %profile wirklich löschen?"
+
+#: src/Form/Attribute/DeleteForm.php:80
+msgid "The attribute %label has been deleted."
+msgstr "Das Attribut %label wurde gelöscht."
+
+#: src/Form/Attribute/DeleteForm.php:81
+msgid "The attribute %label has been deleted in the @profile profile."
+msgstr "Das Attribut %label wurde im Profil @profile gelöscht."
+
+#: src/Form/Attribute/EditForm.php:57 src/Form/Matcher/EditForm.php:54
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: src/Form/Attribute/EditForm.php:63 src/Form/Attribute/OverviewForm.php:126 src/Form/Matcher/EditForm.php:60 src/Form/Matcher/OverviewForm.php:135
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/Attribute/EditForm.php:85 src/Form/Matcher/EditForm.php:82
+msgid "Saved %label configuration."
+msgstr "Die Konfiguration %label wurde gespeichert."
+
+#: src/Form/Attribute/EditForm.php:86
+msgid "The attribute %label has been updated in the @profile profile."
+msgstr "Das Attribut %label wurde im Profil @profile aktualisiert."
+
+#: src/Form/Attribute/OverviewForm.php:72
+msgid "Attribute"
+msgstr "Attribut"
+
+#: src/Form/Attribute/OverviewForm.php:74 src/Form/Matcher/OverviewForm.php:76
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Form/Attribute/OverviewForm.php:75 src/Form/Matcher/OverviewForm.php:77
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/Attribute/OverviewForm.php:77
+msgid "No attributes added."
+msgstr "Keine Attribute hinzugefügt."
+
+#: src/Form/Attribute/OverviewForm.php:103 src/Form/Matcher/OverviewForm.php:112
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/Matcher/AddForm.php:71
+msgid "Matchers"
+msgstr "Verfügbare Inhalte"
+
+#: src/Form/Matcher/AddForm.php:78
+msgid "No matchers available."
+msgstr "Keine Inhalte verfügbar"
+
+#: src/Form/Matcher/AddForm.php:104
+msgid "No matcher selected."
+msgstr "Keine Inhalte ausgewählt"
+
+#: src/Form/Matcher/AddForm.php:133
+msgid "Added %label matcher."
+msgstr "Inhalt %label hinzugefügt"
+
+#: src/Form/Matcher/AddForm.php:120
+msgid "Added %label matcher to the @profile profile."
+msgstr "Der verfügbare Inhalt %label wurde zum Profil @profile hinzugefügt."
+
+#: src/Form/Matcher/DeleteForm.php:39
+msgid "Are you sure you want to delete the @plugin matcher from the %profile profile?"
+msgstr "Möchten Sie das Plugin zur Suche nach verfügbaren Inhalten @plugin aus dem Profil %profile wirklich löschen?"
+
+#: src/Form/Matcher/DeleteForm.php:78
+msgid "The matcher %label has been deleted."
+msgstr "Der verfügbare Inhalt %label wurde gelöscht."
+
+#: src/Form/Matcher/DeleteForm.php:79
+msgid "The matcher %label has been deleted in the @profile profile."
+msgstr "Der verfügbare Inhalt %label wurde aus dem Profil @profile gelöscht."
+
+#: src/Form/Matcher/EditForm.php:83
+msgid "The matcher %label has been updated in the @profile profile."
+msgstr "Der verfügbare Inhalt %label wurde im Profil @profile aktualisiert."
+
+#: src/Form/Matcher/OverviewForm.php:73
+msgid "Matcher"
+msgstr "Verfügbarerer Inhalt"
+
+#: src/Form/Matcher/OverviewForm.php:79
+msgid "No matchers added."
+msgstr "Es wurde kein Inhalt hinzugefügt."
+
+#: src/Form/Profile/AddForm.php:24
+msgid "Save and manage matchers"
+msgstr "Verfügbare Inhalte speichern und verwalten"
+
+#: src/Form/Profile/EditForm.php:24
+msgid "Update profile"
+msgstr "Profil aktualisieren"
+
+#: src/Form/Profile/EditForm.php:25
+msgid "Delete profile"
+msgstr "Profil löschen"
+
+#: src/Form/Profile/FormBase.php:31
+msgid "Profile Name"
+msgstr "Profilname"
+
+#: src/Form/Profile/FormBase.php:33
+msgid "The human-readable name of this  profile. This name must be unique."
+msgstr "Der menschenlesbare Name dieses Profils. Dieser Name muss eindeutig sein."
+
+#: src/Form/Profile/FormBase.php:51
+msgid "The text will be displayed on the <em>profile collection</em> page."
+msgstr "Der Text wird der Seite <em>Profilsammlung</em> angezeigt."
+
+#: src/Form/Profile/FormBase.php:75;76
+msgid "Created new profile %label."
+msgstr "Neues Profil %label wurde erstellt."
+
+#: src/Form/Profile/FormBase.php:83;84
+msgid "Updated profile %label."
+msgstr "Das Profil %label wurde aktualisiert."
+
+#: src/Plugin/CKEditorPlugin/Linkit.php:69
+msgid "Edit link"
+msgstr "‚Bearbeiten‘-Link"
+
+#: src/Plugin/CKEditorPlugin/Linkit.php:100
+msgid "Select a linkit profile"
+msgstr "Linkit-Profil auswählen"
+
+#: src/Plugin/CKEditorPlugin/Linkit.php:103
+msgid "- Select profile -"
+msgstr "- Profil auswählen -"
+
+#: src/Plugin/CKEditorPlugin/Linkit.php:104
+msgid "Select the linkit profile you wish to use with this text format."
+msgstr "Das Linkit-Profil auswählen, das mit diesem Textformat verwendet werden soll."
+
+#: src/Plugin/CKEditorPlugin/Linkit.php:119
+msgid "Please select the linkit profile you wish to use."
+msgstr "Bitte das Linkit-Profil auswählen, das verwendet werden soll."
+
+#: src/Plugin/Linkit/Attribute/Accesskey.php:30;12
+msgid "Accesskey"
+msgstr "Schlüssel"
+
+#: src/Plugin/Linkit/Attribute/Accesskey.php:34
+msgid "The \"accesskey\" attribute value"
+msgstr "Der Wert des „accesskey“-Attributs"
+
+#: src/Plugin/Linkit/Attribute/Accesskey.php:12
+msgid "Basic input field for the accesskey attribute."
+msgstr "Basis-Eingabefeld für das Zugriffsschlüsselattribut."
+
+#: src/Plugin/Linkit/Attribute/Clazz.php:12
+msgid "Class"
+msgstr "Klasse"
+
+#: src/Plugin/Linkit/Attribute/Clazz.php:12
+msgid "Basic input field for the class attribute."
+msgstr "Basis-Eingabefeld für das Klassenattribut."
+
+#: src/Plugin/Linkit/Attribute/Id.php:30;12
+msgid "Id"
+msgstr "ID"
+
+#: src/Plugin/Linkit/Attribute/Id.php:34
+msgid "The \"id\" attribute value"
+msgstr "Der Wert des „id“-Attributs"
+
+#: src/Plugin/Linkit/Attribute/Id.php:12
+msgid "Basic input field for the id attribute."
+msgstr "Basis-Eingabefeld für das ID-Attribut."
+
+#: src/Plugin/Linkit/Attribute/Relationship.php:30;12
+msgid "Relationship"
+msgstr "Beziehung"
+
+#: src/Plugin/Linkit/Attribute/Relationship.php:34
+msgid "The \"rel\" attribute value"
+msgstr "Der Wert des „rel“-Attributs"
+
+#: src/Plugin/Linkit/Attribute/Relationship.php:12
+msgid "Basic input field for the relationship attribute."
+msgstr "Basis-Eingabefeld für das Beziehungsattribut."
+
+#: src/Plugin/Linkit/Attribute/Target.php:35;13
+msgid "Target"
+msgstr "Ziel"
+
+#: src/Plugin/Linkit/Attribute/Target.php:38
+msgid "New window (_blank)"
+msgstr "Neues Fenster (_blank)"
+
+#: src/Plugin/Linkit/Attribute/Target.php:39
+msgid "Top window (_top)"
+msgstr "Ganzes Fenster (_top)"
+
+#: src/Plugin/Linkit/Attribute/Target.php:40
+msgid "Same window (_self)"
+msgstr "Gleiches Fenster (_self)"
+
+#: src/Plugin/Linkit/Attribute/Target.php:41
+msgid "Parent window (_parent)"
+msgstr "Übergeordnetes Fenster (_parent)"
+
+#: src/Plugin/Linkit/Attribute/Target.php:48
+msgid "Open in new window"
+msgstr "In neuem Fenster öffnen"
+
+#: src/Plugin/Linkit/Attribute/Target.php:72
+msgid "Widget type"
+msgstr "Steuerelementtyp"
+
+#: src/Plugin/Linkit/Attribute/Target.php:75
+msgid "Selectlist with predefined targets."
+msgstr "Auswahlliste mit vordefinierten Zielen."
+
+#: src/Plugin/Linkit/Attribute/Target.php:76
+msgid "Simple checkbox to allow links to be opened in a new browser window or tab."
+msgstr "Einfaches Kontrollkästchen, mit dem Links in einem neuen Browserfenster oder einer neuen Registerkarte geöffnet werden können."
+
+#: src/Plugin/Linkit/Attribute/Title.php:31;13
+msgid "Title"
+msgstr "Titel"
+
+#: src/Plugin/Linkit/Attribute/Title.php:35
+msgid "The \"title\" attribute value"
+msgstr "Der Wert des „title“-Attributs"
+
+#: src/Plugin/Linkit/Attribute/Title.php:40
+msgid "The \"title\" attribute value (auto populated)"
+msgstr "Der Wert des „title“-Attributs (automatisch ausgefüllt)"
+
+#: src/Plugin/Linkit/Attribute/Title.php:61
+msgid "Automatically populate title"
+msgstr "Titel automatisch ausfüllen"
+
+#: src/Plugin/Linkit/Attribute/Title.php:63
+msgid "Automatically populate the title attribute with the title from the match selection."
+msgstr "Das Titelattribut wird automatisch mit dem Titel aus der Übereinstimmungsauswahl gefüllt."
+
+#: src/Plugin/Linkit/Attribute/Title.php:13
+msgid "Basic input field for the title attribute."
+msgstr "Basis-Eingabefeld für das Titelattribut."
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:107
+msgid "Result description: @result_description"
+msgstr "Ergebnisbeschreibung: @result_description"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:123
+msgid "Bundle filter: @bundle_filter"
+msgstr "Subtyp-Filter: @bundle_filter"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:124
+msgid "None"
+msgstr "Keine"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:127
+msgid "Group by bundle: @bundle_grouping"
+msgstr "Nach Bundle gruppieren: @bundle_grouping"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:128 src/Plugin/Linkit/Matcher/FileMatcher.php:31;35 src/Plugin/Linkit/Matcher/NodeMatcher.php:29 src/Plugin/Linkit/Matcher/UserMatcher.php:34
+msgid "Yes"
+msgstr "Ja"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:128 src/Plugin/Linkit/Matcher/FileMatcher.php:31;35 src/Plugin/Linkit/Matcher/NodeMatcher.php:29 src/Plugin/Linkit/Matcher/UserMatcher.php:34
+msgid "No"
+msgstr "Nein"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:152
+msgid "Result description"
+msgstr "Ergebnisbeschreibung"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:171
+msgid "Restrict to the selected bundles"
+msgstr "Auf die ausgewälhlten Subtypen begrenzen"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:174
+msgid "If none of the checkboxes is checked, allow all bundles."
+msgstr "Wenn keines der Kontrollkästchen aktiviert ist, sind alle Subtypen erlaubt."
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:182
+msgid "Group by bundle"
+msgstr "Nach Bundle gruppieren"
+
+#: src/Plugin/Linkit/Matcher/EntityMatcher.php:21
+msgid "Entity"
+msgstr "Entität"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:30
+msgid "Show image dimensions: @show_image_dimensions"
+msgstr "Bildabmessungen anzeigen: @show_image_dimensions"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:34
+msgid "Show image thumbnail: @show_image_thumbnail"
+msgstr "Miniaturbild anzeigen: @show_image_thumbnail"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:41
+msgid "Thumbnail style: @thumbnail_style"
+msgstr "Miniaturbildstil: @thumbnail_style"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:87
+msgid "Image file settings"
+msgstr "Einstellungen für Bilddateien"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:88
+msgid "Extra settings for image files in the result."
+msgstr "Zusätzliche Einstellungen für Bilddateien im Ergebnis."
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:93
+msgid "Show pixel dimensions"
+msgstr "Pixelabmessungen anzeigen"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:100
+msgid "Show thumbnail"
+msgstr "Miniaturbild anzeigen"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:106
+msgid "Thumbnail image style"
+msgstr "Bildstil des Miniaturbilds"
+
+#: src/Plugin/Linkit/Matcher/FileMatcher.php:14
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/Linkit/Matcher/NodeMatcher.php:28
+msgid "Include unpublished: @include_unpublished"
+msgstr "Unveröffentlichte mit einschließen: @include_unpublished"
+
+#: src/Plugin/Linkit/Matcher/NodeMatcher.php:60
+msgid "Include unpublished nodes"
+msgstr "Unveröffentlichte Beiträge einschließen"
+
+#: src/Plugin/Linkit/Matcher/NodeMatcher.php:63
+msgid "In order to see unpublished nodes, the requesting user must also have permissions to do so."
+msgstr "Um unveröffentlichte Beiträge sehen zu können, muss der anfragende Benutzer auch über Berechtigungen verfügen."
+
+#: src/Plugin/Linkit/Matcher/NodeMatcher.php:12
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Linkit/Matcher/TermMatcher.php:13
+msgid "Taxonomy term"
+msgstr "Taxonomie-Begriff"
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:29
+msgid "Role filter: @role_filter"
+msgstr "Rollenfilter: @role_filter"
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:33
+msgid "Include blocked users: @include_blocked"
+msgstr "Gesperrte Benutzer mit einschließen: @include_blocked"
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:68
+msgid "Restrict to the selected roles"
+msgstr "Auf die ausgewählten Rollen begrenzen"
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:71
+msgid "If none of the checkboxes is checked, allow all roles."
+msgstr "Wenn keines der Kontrollkästchen aktiviert ist, sind alle Rollen erlaubt."
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:76
+msgid "Include blocked user"
+msgstr "Gesperrte Benutzer mit einschließen"
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:79
+msgid "In order to see blocked users, the requesting user must also have permissions to do so."
+msgstr "Um gesperrte Benutzer sehen zu können, muss der anfragende Benutzer auch über Berechtigungen verfügen."
+
+#: src/Plugin/Linkit/Matcher/UserMatcher.php:12
+msgid "User"
+msgstr "Benutzer"
+
+#: config/optional/image.style.linkit_result_thumbnail.yml:0
+msgid "Linkit result thumbnail"
+msgstr "Linkit-Ergebnisminiaturbild"
+

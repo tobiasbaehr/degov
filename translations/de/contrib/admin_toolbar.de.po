@@ -1,0 +1,426 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  admin_toolbar.module: n/a
+#  admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.module: n/a
+#  admin_toolbar_tools/admin_toolbar_tools.module: n/a
+#  admin_toolbar.info.yml: n/a
+#  admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.info.yml: n/a
+#  admin_toolbar_tools/admin_toolbar_tools.info.yml: n/a
+#  admin_toolbar_tools/admin_toolbar_tools.links.menu.yml: n/a
+#  admin_toolbar_tools/admin_toolbar_tools.routing.yml: n/a
+#  admin_toolbar_tools/src/SearchLinks.php: n/a
+#  admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php: n/a
+#  admin_toolbar_tools/src/Controller/ToolbarController.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:37+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin_toolbar.module:72 admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.module:21
+msgid "About"
+msgstr "Über"
+
+#: admin_toolbar.module:73
+msgid "The Admin Toolbar module enhances the <a href=\":toolbar\">Toolbar</a> module by providing fast access to all the administrative links at the top of your site. Admin Toolbar remains a very \"lightweight\" module by closely integrating with all Toolbar functionality. It can be used in conjunction with all the sub modules included on Admin Toolbar, for quick access to system commands such as Flush all caches, <a href=\":automated_cron\">Run cron</a>, Run Updates, etc."
+msgstr "Das Admin-Toolbar-Modul erweitert das <a href=\":toolbar\">Toolbar-Modul</a>, indem es schnellen Zugriff auf alle administrativen Links am oberen Rand der Website bietet. Admin Toolbar ist ein sehr „schlankes“ Modul, weil es eng mit der gesamten Toolbar-Funktionalität verzahnt ist. Es kann in Verbindung mit allen Untermodulen, die mit Admin Toolbar enthalten sind, verwendet werden, um schnellen Zugriff auf Systembefehle zu erhalten, z. B. Alle Caches leeren, <a href=\":automated_cron\">Cron ausführen</a>, Aktualisierungen durchführen sowie weitere Befehle."
+
+#: admin_toolbar.module:74 admin_toolbar_tools/admin_toolbar_tools.module:41
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: admin_toolbar.module:75
+msgid "The Admin Toolbar greatly improves the user experience for those who regularly interact with the site Toolbar by providing fast, full access to all links in the site Toolbar without having to click to get there."
+msgstr "Die Admin Toolbar bietet einen schnellen und vollständigen Zugriff auf alle Links der Werkzeugleiste, ohne jeden einzeln anklicken zu müssen, und sorgt so für ein deutlich verbessertes Nutzererlebnis."
+
+#: admin_toolbar.module:26
+msgid "Search"
+msgstr "Suche"
+
+#: admin_toolbar.info.yml:0
+msgid "Admin Toolbar"
+msgstr "Admin Toolbar"
+
+#: admin_toolbar.info.yml:0
+msgid "Provides an improved drop-down menu interface to the site Toolbar."
+msgstr "Ermöglicht die Anzeige des Verwaltungsmenüs mittels eines verbesserten Drop-Down- Menüs gegenüber der Darstellung im Kernsystem."
+
+#: admin_toolbar.info.yml:0 admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.info.yml:0 admin_toolbar_tools/admin_toolbar_tools.info.yml:0
+msgid "Administration"
+msgstr "Verwaltung"
+
+#: admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.module:22
+msgid "The Admin Toolbar Links Access Filter module provides a workaround for the common problem that users with <em>Use the administration pages and help</em> permission see menu links they done not have access permission for."
+msgstr "Das Admin-Toolbar-Links-Access-Filter-Modul bietet eine Zwischenlösung für das häufige Problem, dass Benutzer mit der Berechtigung <em>Administrationsseiten und die Hilfe verwenden</em> Menü-Links sehen können, für die sie keine Zugriffsberechtigung besitzen."
+
+#: admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.info.yml:0
+msgid "Admin Toolbar Links Access Filter"
+msgstr "Admin Toolbar Links Access Filter"
+
+#: admin_toolbar_links_access_filter/admin_toolbar_links_access_filter.info.yml:0
+msgid "Provides a workaround for the common problem that users with 'Use the administration pages and help' permission see menu links they don't have access permission for. Once the issue <a href='https://www.drupal.org/node/296693'>https://www.drupal.org/node/296693</a> be solved, this module will be deprecated."
+msgstr "Bietet eine Zwischenlösung für das häufige Problem, dass Benutzer mit der Berechtigung „Administrationsseiten und die Hilfe verwenden“ Menü-Links sehen können, für die sie keine Zugriffsberechtigung besitzen. Sobald das Problem <a href='https://www.drupal.org/node/296693'>https://www.drupal.org/node/296693</a> behoben ist, wird das Modul überholt sein."
+
+#: admin_toolbar_tools/admin_toolbar_tools.module:39
+msgid "The Admin Toolbar Extra Tools module comes packaged with the <a href=\":admin-toolbar\">Admin Toolbar</a> module and adds functionality to it. The additional functionality is accessed through extra links on the main administration Toolbar. Some links to Admin Toolbar Extra Tools administration pages are located at the bottom of this page.</a>"
+msgstr "Das Admin Toolbar Extra Tools-Modul ist mit dem <a href=\":admin-toolbar\">Admin Toolbar</a>-Modul gebündelt und erweitert dessen Funktion. Der Zugriff auf diese weiteren Funktionen erfolgt über zusätzliche Links in der Hauptverwaltungs-Werkzeugleiste. Einige Links zu Admin Toolbar Extra Tools Verwaltungsseiten befinden sich unten auf dieser Seite.</a>"
+
+#: admin_toolbar_tools/admin_toolbar_tools.module:42
+msgid "To use Admin Toolbar Extra Tools just install it like any other module. There is no other configuration required."
+msgstr "Admin Toolbar Extra Tools kann wie jedes andere Modul installiert werden und benötigt keine zusätzliche Konfiguration."
+
+#: admin_toolbar_tools/admin_toolbar_tools.info.yml:0
+msgid "Admin Toolbar Extra Tools"
+msgstr "Admin Toolbar Extra Tools"
+
+#: admin_toolbar_tools/admin_toolbar_tools.info.yml:0
+msgid "Adds menu links to the Admin Toolbar."
+msgstr "Ermöglicht das Hinzufügen von Menülinks zur Administrations-Werkzeugleiste."
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Index"
+msgstr "Index"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0 admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Run cron"
+msgstr "Cron ausführen"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Run updates"
+msgstr "Aktualisierungen durchführen"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Uninstall module"
+msgstr "Modul deinstallieren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0 admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Flush all caches"
+msgstr "Alle Zwischenspeicher leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush CSS and Javascript"
+msgstr "CSS- und JavaScript-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush plugins cache"
+msgstr "Plugin-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush static cache"
+msgstr "Statischen Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush routing and links cache"
+msgstr "Routing- und Links-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush twig cache"
+msgstr "Twig-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.links.menu.yml:0
+msgid "Flush render cache"
+msgstr "Render-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Flush Css and Javascript"
+msgstr "CSS- und JavaScript-Cache leeren"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Plugin"
+msgstr "Plugin"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Static caches"
+msgstr "Statische Caches"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Menu"
+msgstr "Menü"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Render cache"
+msgstr "Darstellungszwischenspeicher"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Views"
+msgstr "Ansichten"
+
+#: admin_toolbar_tools/admin_toolbar_tools.routing.yml:0
+msgid "Twig"
+msgstr "Twig"
+
+#: admin_toolbar_tools/src/SearchLinks.php:112
+msgid "@entity_type > @bundle"
+msgstr "@entity_type > @bundle"
+
+#: admin_toolbar_tools/src/SearchLinks.php:128 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:134
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin_toolbar_tools/src/SearchLinks.php:137 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:140;218
+msgid "Manage fields"
+msgstr "Felder verwalten"
+
+#: admin_toolbar_tools/src/SearchLinks.php:146 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:149;224
+msgid "Manage form display"
+msgstr "Formularanzeige verwalten"
+
+#: admin_toolbar_tools/src/SearchLinks.php:155 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:158;230
+msgid "Manage display"
+msgstr "Anzeige verwalten"
+
+#: admin_toolbar_tools/src/SearchLinks.php:163;229 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:168;260;360
+msgid "Devel"
+msgstr "Devel-Modul"
+
+#: admin_toolbar_tools/src/SearchLinks.php:171;218 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:177;252;352
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin_toolbar_tools/src/SearchLinks.php:195;205;218;229
+msgid "Menus"
+msgstr "Menüs"
+
+#: admin_toolbar_tools/src/SearchLinks.php:205 admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:343
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:203
+msgid "All caches cleared."
+msgstr "Alle Caches geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:214
+msgid "CSS and JavaScript cache cleared."
+msgstr "CSS- und JavaScript-Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:223
+msgid "Plugins cache cleared."
+msgstr "Plugin-Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:232
+msgid "Static cache cleared."
+msgstr "Statischer Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:245
+msgid "Routing and links cache cleared."
+msgstr "Routing- und Links-Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:254
+msgid "Views cache cleared."
+msgstr "Ansichten-Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:263
+msgid "Twig cache cleared."
+msgstr "Twig-Cache geleert."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:272
+msgid "Cron ran successfully."
+msgstr "Cron-Lauf erfolgreich."
+
+#: admin_toolbar_tools/src/Controller/ToolbarController.php:281
+msgid "Render cache cleared."
+msgstr "Render-Cache geleert."
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:101
+msgid "All types"
+msgstr "Alle Typen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:189
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:194
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:199
+msgid "Roles"
+msgstr "Rollen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:204
+msgid "Logout"
+msgstr "Abmelden"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:210
+msgid "Add role"
+msgstr "Rolle hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:239
+msgid "@label"
+msgstr "@label"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:245
+msgid "Edit permissions"
+msgstr "Berechtigungen bearbeiten"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:270
+msgid "Add content type"
+msgstr "Inhaltstyp hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:276
+msgid "Add content"
+msgstr "Inhalt hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:293
+msgid "Add form mode"
+msgstr "Formulardarstellung hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:298
+msgid "Add view mode"
+msgstr "Inhaltsdarstellung hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:306
+msgid "Add vocabulary"
+msgstr "Vokabular hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:315
+msgid "Add menu"
+msgstr "Menü hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:327
+msgid "All menus"
+msgstr "Alle Menüs"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:373
+msgid "Add custom block"
+msgstr "Benutzerdefinierten Block hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:378
+msgid "Custom block library"
+msgstr "Bibliothek benutzerdefinierter Blöcke"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:383
+msgid "Block types"
+msgstr "Block-Typen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:392
+msgid "Add contact form"
+msgstr "Kontaktformular hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:402
+msgid "Install new module"
+msgstr "Neues Modul installieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:407;417
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:412
+msgid "Install new theme"
+msgstr "Neues Theme installieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:426
+msgid "Development"
+msgstr "Entwicklung"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:432
+msgid "Devel settings"
+msgstr "Einstellungen für das Devel-Modul"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:437
+msgid "Config editor"
+msgstr "Konfigurations-Editor"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:442
+msgid "Reinstall modules"
+msgstr "Module neu installieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:447
+msgid "Rebuild menu"
+msgstr "Menü neu aufbauen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:452
+msgid "State editor"
+msgstr "Status-Editor"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:457
+msgid "Theme registry"
+msgstr "Theme-Registry"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:462
+msgid "Entity info"
+msgstr "Informationen zur Entität"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:467
+msgid "Session viewer"
+msgstr "Sitzungsansicht"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:472
+msgid "Element Info"
+msgstr "Elementinformationen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:478
+msgid "Devel Toolbar Settings"
+msgstr "Einstellungen für Devel Toolbar"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:484
+msgid "Webprofiler settings"
+msgstr "Webprofiler-Einstellungen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:492
+msgid "Execute PHP Code"
+msgstr "PHP-Code ausführen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:502
+msgid "Add view"
+msgstr "Ansicht hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:508
+msgid "Used in views"
+msgstr "In Ansichten verwendete Felder"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:516
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:533
+msgid "Detection and selection"
+msgstr "Erkennung und Auswahl"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:538
+msgid "Add language"
+msgstr "Sprache hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:547
+msgid "Add media type"
+msgstr "Medientyp hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:554
+msgid "Media"
+msgstr "Media"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:559
+msgid "Add media"
+msgstr "Medien hinzufügen"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:577
+msgid "Import"
+msgstr "Importieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:583
+msgid "Export"
+msgstr "Exportieren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:593
+msgid "Flush views cache"
+msgstr "Ansichten-Cache leeren"
+
+#: admin_toolbar_tools/src/Plugin/Derivative/ExtraLinks.php:600
+msgid "Files"
+msgstr "Dateien"
+

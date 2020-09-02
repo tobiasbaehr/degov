@@ -44,6 +44,7 @@
     'view-reference',
     paragraph.bundle|clean_class,
     view_mode ? view_mode|clean_class,
+    'paragraph-view-reference-display-' ~ content.field_view_reference_view.0.contents['#display_id']|clean_class,
     'clearfix',
   ]
 %}
@@ -70,4 +71,11 @@
   <div class="paragraph__content"{{ content.field_view_reference_view|quickedit_attr }}>
     {{ content.field_view_reference_view|field_value }}
   </div>
+
+  {% if content.field_view_reference_links %}
+  <div class="paragraph__footer"{{ content.field_view_reference_links|quickedit_attr }}>
+    {{ content.field_view_reference_links }}
+  </div>
+  {% endif %}
+
 </div>

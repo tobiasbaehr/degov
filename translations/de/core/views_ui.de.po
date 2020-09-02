@@ -1,0 +1,1070 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  admin.inc: n/a
+#  js/views-admin.es6.js: n/a
+#  js/views-admin.js: n/a
+#  views_ui.theme.inc: n/a
+#  src/ViewEditForm.php: n/a
+#  src/Form/Ajax/Rearrange.php: n/a
+#  src/Form/Ajax/ReorderDisplays.php: n/a
+#  src/Form/Ajax/RearrangeFilter.php: n/a
+#  src/ViewListBuilder.php: n/a
+#  src/Form/BasicSettingsForm.php: n/a
+#  src/Form/Ajax/ConfigHandler.php: n/a
+#  templates/views-ui-view-info.html.twig: n/a
+#  src/ViewUI.php: n/a
+#  src/Form/Ajax/AddHandler.php: n/a
+#  views_ui.module: n/a
+#  views_ui.info.yml: n/a
+#  views_ui.links.action.yml: n/a
+#  views_ui.routing.yml: n/a
+#  views_ui.links.contextual.yml: n/a
+#  views_ui.links.menu.yml: n/a
+#  views_ui.links.task.yml: n/a
+#  views_ui.permissions.yml: n/a
+#  src/Form/BreakLockForm.php: n/a
+#  src/ViewAddForm.php: n/a
+#  src/ViewDuplicateForm.php: n/a
+#  src/Form/Ajax/ConfigHandlerExtra.php: n/a
+#  src/Form/Ajax/ConfigHandlerGroup.php: n/a
+#  src/Form/Ajax/Display.php: n/a
+#  src/ViewFormBase.php: n/a
+#  src/Controller/ViewsUIController.php: n/a
+#  src/ViewPreviewForm.php: n/a
+#  config/optional/tour.tour.views-ui.yml: n/a
+#  src/Form/AdvancedSettingsForm.php: n/a
+#  src/Form/Ajax/Analyze.php: n/a
+#  src/Form/Ajax/EditDetails.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.inc:95
+msgid "Update \"@title\" choice"
+msgstr "Aktualisiere „@title“ Auswahl"
+
+#: admin.inc:101
+msgid "Update \"@title\" choice (@number)"
+msgstr "Aktualisiere „@title“ Auswahl (@number)"
+
+#: admin.inc:225
+msgid "@current of @total"
+msgstr "@current von @total"
+
+#: admin.inc:249
+msgid "All displays (except overridden)"
+msgstr "Alle Anzeigen (außer überschriebenen)"
+
+#: admin.inc:249
+msgid "All displays"
+msgstr "Alle Anzeigen"
+
+#: admin.inc:250
+msgid "This @display_type (override)"
+msgstr "Den Ansichtstyp @display_type (übersteuern)"
+
+#: admin.inc:253 js/views-admin.es6.js:0 js/views-admin.js:0
+msgid "Revert to default"
+msgstr "Auf Standardwert zurücksetzen"
+
+#: admin.inc:259
+msgid "For"
+msgstr "Für"
+
+#: views_ui.theme.inc:37;85 src/ViewEditForm.php:739
+msgid "Overridden"
+msgstr "Übersteuert"
+
+#: views_ui.theme.inc:42
+msgid ":"
+msgstr ":"
+
+#: views_ui.theme.inc:109 src/ViewEditForm.php:738
+msgid "Default"
+msgstr "Standard"
+
+#: views_ui.theme.inc:110;333 src/Form/Ajax/Rearrange.php:81 src/Form/Ajax/ReorderDisplays.php:64
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: views_ui.theme.inc:111
+msgid "Label"
+msgstr "Beschriftung"
+
+#: views_ui.theme.inc:112;327 src/Form/Ajax/RearrangeFilter.php:112
+msgid "Operator"
+msgstr "Operator"
+
+#: views_ui.theme.inc:113
+msgid "Value"
+msgstr "Wert"
+
+#: views_ui.theme.inc:114 src/ViewListBuilder.php:150
+msgid "Operations"
+msgstr "Aktionen"
+
+#: views_ui.theme.inc:127
+msgid "&lt;Any&gt;"
+msgstr "&lt;Alle&gt;"
+
+#: views_ui.theme.inc:127 src/Form/BasicSettingsForm.php:103
+msgid "- Any -"
+msgstr "- Alle -"
+
+#: views_ui.theme.inc:157;158;300;301 src/Form/Ajax/Rearrange.php:134;135
+msgid "Remove this item"
+msgstr "Dieses Element entfernen"
+
+#: views_ui.theme.inc:161;289;339 src/Form/Ajax/ConfigHandler.php:177 src/Form/Ajax/Rearrange.php:81;129 src/Form/Ajax/ReorderDisplays.php:64;120
+msgid "Remove"
+msgstr "Entfernen"
+
+#: views_ui.theme.inc:251
+msgid "No filters have been added."
+msgstr "Keine Filter wurden hinzugefügt."
+
+#: views_ui.theme.inc:251
+msgid "Drag to add filters."
+msgstr "Ziehen, um Filter hinzuzufügen."
+
+#: views_ui.theme.inc:332
+msgid "Ungroupable filters"
+msgstr "Nicht gruppierbare Filter"
+
+#: views_ui.theme.inc:335
+msgid "Group"
+msgstr "Gruppe"
+
+#: views_ui.theme.inc:362 src/Form/Ajax/Rearrange.php:82
+msgid "No fields available."
+msgstr "Keine Felder verfügbar."
+
+#: views_ui.theme.inc:401
+msgid "Field"
+msgstr "Feld"
+
+#: views_ui.theme.inc:402
+msgid "Column"
+msgstr "Spalte"
+
+#: views_ui.theme.inc:403
+msgid "Align"
+msgstr "Ausrichten"
+
+#: views_ui.theme.inc:404
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: views_ui.theme.inc:406
+msgid "Sortable"
+msgstr "Sortierbar"
+
+#: views_ui.theme.inc:410
+msgid "Default order"
+msgstr "Standard-Reihenfolge"
+
+#: views_ui.theme.inc:414
+msgid "Default sort"
+msgstr "Standardsortierung"
+
+#: views_ui.theme.inc:418
+msgid "Hide empty column"
+msgstr "Leere Spalten ausblenden"
+
+#: views_ui.theme.inc:422
+msgid "Responsive"
+msgstr "Responsiv"
+
+#: views_ui.theme.inc:465 templates/views-ui-view-info.html.twig:22
+msgid "None"
+msgstr "Keine"
+
+#: views_ui.theme.inc:495 src/ViewUI.php:1 src/Form/Ajax/AddHandler.php:109
+msgid "Title"
+msgstr "Titel"
+
+#: views_ui.theme.inc:499
+msgid "Header"
+msgstr "Kopfzeile"
+
+#: views_ui.theme.inc:503
+msgid "No results behavior"
+msgstr "Verhalten, wenn keine Ergebnisse vorliegen"
+
+#: views_ui.theme.inc:508
+msgid "Exposed Filters"
+msgstr "Hervorgehobene Filter"
+
+#: views_ui.theme.inc:513
+msgid "Content"
+msgstr "Inhalt"
+
+#: views_ui.theme.inc:517
+msgid "Pager"
+msgstr "Seitennavigation"
+
+#: views_ui.theme.inc:521
+msgid "More"
+msgstr "Zusätzlich"
+
+#: views_ui.theme.inc:525
+msgid "Footer"
+msgstr "Fußzeile"
+
+#: views_ui.theme.inc:530
+msgid "Attachment before"
+msgstr "Anhang vor"
+
+#: views_ui.theme.inc:534
+msgid "Attachment after"
+msgstr "Anhang nach"
+
+#: views_ui.module:20
+msgid "About"
+msgstr "Über"
+
+#: views_ui.module:21
+msgid "The Views UI module provides an interface for managing views for the <a href=\":views\">Views module</a>. For more information, see the <a href=\":handbook\">online documentation for the Views UI module</a>."
+msgstr "Das Views UI Modul stellt eine Benutzeroberfläche zum Managen des <a href=\":views\">Views Modules</a> zur Verfügung. Weitere Informationen finden Sie in der <a href=\":handbook\">Online-Dokumentation des Views UI Modules</a>."
+
+#: views_ui.module:22
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: views_ui.module:24
+msgid "Creating and managing views"
+msgstr "Ansichten erstellen und verwalten"
+
+#: views_ui.module:25
+msgid "Views can be created from the <a href=\":list\">Views list page</a> by using the \"Add view\" action. Existing views can be managed from the <a href=\":list\">Views list page</a> by locating the view in the \"Enabled\" or \"Disabled\" list and selecting the desired operation action, for example \"Edit\"."
+msgstr "Auf der <a href=\":list\">Views Übersichtsseite</a> können neue Ansichten über die Funktion „Ansicht hinzufügen“ erstellt werden. Bestehende Ansichten sind dort aufgelistet und können über die Funktion „bearbeiten“ bearbeitet werden."
+
+#: views_ui.module:26
+msgid "Enabling and disabling views"
+msgstr "Ansichten aktivieren und deaktivieren"
+
+#: views_ui.module:27
+msgid "Views can be enabled or disabled from the <a href=\":list\">Views list page</a>. To enable a view, find the view within the \"Disabled\" list and select the \"Enable\" operation. To disable a view find the view within the \"Enabled\" list and select the \"Disable\" operation."
+msgstr "Ansichten können auf der Seite <a href=\":list\">Überblick über die verfügbaren Ansichten</a> aktiviert oder deaktiviert werden. Eine Ansicht durch einen Klick auf den entsprechenden Button im Abschnitt „Deaktiviert\" aktiviert werden. Im Abschnitt „Aktiviert“ kann eine Ansicht auf die Selbe Weise deaktiviert werden"
+
+#: views_ui.module:28
+msgid "Exporting and importing views"
+msgstr "Ansichten exportieren und importieren"
+
+#: views_ui.module:29
+msgid "Views can be exported and imported as configuration files by using the <a href=\":config\">Configuration Manager module</a>."
+msgstr "Ansichten können als Konfigurationsdateien mit dem <a href=\":config\">Modul 'Konfigurationsmanager'</a> importiert und exportiert werden."
+
+#: views_ui.module:190;211
+msgid "Edit @section"
+msgstr "@section bearbeiten"
+
+#: views_ui.module:196
+msgid "Add new"
+msgstr "Neu hinzufügen"
+
+#: views_ui.module:317
+msgid "This view has only a default display and therefore will not be placed anywhere on your site; perhaps you want to add a page or a block display."
+msgstr "Die Ansicht hat nur eine Standardanzeige und deswegen wird sie auch nirgends auf der Website angezeigt werden; daher sollte die Anzeige als Seite oder Block hinzufügt werden."
+
+#: views_ui.module:329
+msgid "You have configured display %display with a path which is an path alias as well. This might lead to unwanted effects so better use an internal path."
+msgstr "Die Anzeige %display wurde mit einem Pfad konfiguriert, der auch als Pfad-Alias verwendet wird. Es sollte ein interner Pfad verwendet werden, da es ansonsten zu unerwünschten Effekten kommen kann."
+
+#: views_ui.info.yml:0
+msgid "Views UI"
+msgstr "Views-UI"
+
+#: views_ui.info.yml:0
+msgid "Administrative interface for Views."
+msgstr "Ermöglicht das verwalten von Ansichten über die Benutzeroberfläche."
+
+#: views_ui.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: views_ui.links.action.yml:0 views_ui.routing.yml:0
+msgid "Add view"
+msgstr "Ansicht hinzufügen"
+
+#: views_ui.links.contextual.yml:0
+msgid "Edit view"
+msgstr "Ansicht bearbeiten"
+
+#: views_ui.links.contextual.yml:0
+msgid "Preview view"
+msgstr "Vorschau"
+
+#: views_ui.links.menu.yml:0 views_ui.routing.yml:0
+msgid "Views"
+msgstr "Ansichten"
+
+#: views_ui.links.menu.yml:0 views_ui.routing.yml:0
+msgid "Views plugins"
+msgstr "Erweiterungen für Ansichten"
+
+#: views_ui.links.menu.yml:0
+msgid "Manage customized lists of content."
+msgstr "Benutzerdefinierte Listen von Inhalten verwalten."
+
+#: views_ui.links.menu.yml:0
+msgid "Overview of plugins used in all views."
+msgstr "Übersicht der Funktionserweiterungen, die in allen Ansichten verwendet werden."
+
+#: views_ui.links.task.yml:0 src/ViewEditForm.php:1108;1114
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: views_ui.links.task.yml:0
+msgid "Basic"
+msgstr "Basis"
+
+#: views_ui.links.task.yml:0 src/ViewEditForm.php:532
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: views_ui.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: views_ui.links.task.yml:0 views_ui.routing.yml:0
+msgid "Used in views"
+msgstr "In Ansichten verwendete Felder"
+
+#: views_ui.links.task.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: views_ui.permissions.yml:0
+msgid "Administer views"
+msgstr "Ansichten verwalten"
+
+#: views_ui.routing.yml:0
+msgid "Views settings"
+msgstr "Views-Einstellungen"
+
+#: views_ui.routing.yml:0
+msgid "Advanced Views settings"
+msgstr "Erweiterte Ansichten Einstellungen"
+
+#: views_ui.routing.yml:0 src/ViewEditForm.php:717
+msgid "Duplicate view"
+msgstr "Ansicht duplizieren"
+
+#: views_ui.routing.yml:0 src/ViewEditForm.php:730;748
+msgid "Delete view"
+msgstr "Ansicht löschen"
+
+#: views_ui.routing.yml:0 src/Form/BreakLockForm.php:102
+msgid "Break lock"
+msgstr "Sperre aufheben"
+
+#: js/views-admin.es6.js:0 js/views-admin.js:0
+msgid "Apply (all displays)"
+msgstr "Anwenden (alle Anzeigen)"
+
+#: js/views-admin.es6.js:0 js/views-admin.js:0
+msgid "Apply (this display)"
+msgstr "Anwenden (diese Anzeige)"
+
+#: js/views-admin.js:0
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: js/views-admin.js:0
+msgid "Remove group"
+msgstr "Gruppe entfernen"
+
+#: src/ViewAddForm.php:60
+msgid "View basic information"
+msgstr "Grundlegende Informationen anzeigen"
+
+#: src/ViewAddForm.php:66 src/ViewDuplicateForm.php:31 src/ViewListBuilder.php:126
+msgid "View name"
+msgstr "Ansichtsname"
+
+#: src/ViewAddForm.php:79 src/ViewDuplicateForm.php:45
+msgid "A unique machine-readable name for this View. It must only contain lowercase letters, numbers, and underscores."
+msgstr "Ein eindeutiger Systemname für diese Ansicht. Er darf nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: src/ViewAddForm.php:84 src/ViewListBuilder.php:138 src/Form/Ajax/AddHandler.php:111
+msgid "Description"
+msgstr "Description"
+
+#: src/ViewAddForm.php:88
+msgid "Provide description"
+msgstr "Beschreibung zur Verfügung stellen"
+
+#: src/ViewAddForm.php:110
+msgid "View settings"
+msgstr "Einstellungen der Ansicht"
+
+#: src/ViewAddForm.php:124
+msgid "Show"
+msgstr "Anzeigen"
+
+#: src/ViewAddForm.php:147
+msgid "Save and edit"
+msgstr "Speichern und Bearbeiten"
+
+#: src/ViewAddForm.php:152 src/ViewEditForm.php:220 src/ViewUI.php:330
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/ViewAddForm.php:192 src/ViewEditForm.php:325
+msgid "The view %name has been saved."
+msgstr "Die Ansicht %name wurde gespeichert."
+
+#: src/ViewDuplicateForm.php:27;35
+msgid "Duplicate of @label"
+msgstr "Duplikat von @label"
+
+#: src/ViewDuplicateForm.php:57 src/ViewListBuilder.php:166
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: src/ViewEditForm.php:105 src/ViewUI.php:559 src/Form/Ajax/AddHandler.php:63 src/Form/Ajax/ConfigHandler.php:69 src/Form/Ajax/ConfigHandlerExtra.php:65 src/Form/Ajax/ConfigHandlerGroup.php:66 src/Form/Ajax/Display.php:65 src/Form/Ajax/Rearrange.php:58 src/Form/Ajax/RearrangeFilter.php:48
+msgid "Invalid display id @display"
+msgstr "Ungültige Anzeige-ID @display"
+
+#: src/ViewEditForm.php:147
+msgid "You have unsaved changes."
+msgstr "Es sind nicht gespeicherte Änderungen vorhanden."
+
+#: src/ViewEditForm.php:156 src/ViewListBuilder.php:144
+msgid "Displays"
+msgstr "Anzeigen"
+
+#: src/ViewEditForm.php:183
+msgid "This display is disabled."
+msgstr "Die Anzeige ist deaktiviert."
+
+#: src/ViewEditForm.php:239 src/ViewUI.php:865
+msgid "Changes cannot be made to a locked view."
+msgstr "An einer gesperrten Ansicht können keine Änderungen vorgenommen werden."
+
+#: src/ViewEditForm.php:357
+msgid "Error: Display @display refers to a plugin named '@plugin', but that plugin is not available."
+msgstr "Fehler: Die Ansicht @display verweist auf das Plugin @plugin, aber dieses Plugin ist nicht verfügbar."
+
+#: src/ViewEditForm.php:408
+msgid "Enable @display_title"
+msgstr "@display_title aktivieren"
+
+#: src/ViewEditForm.php:440
+msgid "View @display_title"
+msgstr "@display_title anzeigen"
+
+#: src/ViewEditForm.php:441
+msgid "Go to the real page for this display"
+msgstr "Auf die reale Seite dieser Anzeige wechseln"
+
+#: src/ViewEditForm.php:451
+msgid "Duplicate @display_title"
+msgstr "@display_title duplizieren"
+
+#: src/ViewEditForm.php:461
+msgid "Delete @display_title"
+msgstr "@display_title löschen"
+
+#: src/ViewEditForm.php:475
+msgid "Duplicate as @type"
+msgstr "Duplizieren als @type"
+
+#: src/ViewEditForm.php:486
+msgid "Undo delete of @display_title"
+msgstr "Löschen von @display_title rückgängig machen"
+
+#: src/ViewEditForm.php:496
+msgid "Disable @display_title"
+msgstr "@display_title deaktivieren"
+
+#: src/ViewEditForm.php:508
+msgid "Display name"
+msgstr "Anzeigename"
+
+#: src/ViewEditForm.php:707
+msgid "Edit view name/description"
+msgstr "Name/Beschreibung der Ansicht bearbeiten"
+
+#: src/ViewEditForm.php:712
+msgid "Analyze view"
+msgstr "Ansicht analysieren"
+
+#: src/ViewEditForm.php:721 src/Form/Ajax/ReorderDisplays.php:38
+msgid "Reorder displays"
+msgstr "Anzeigen umsortieren"
+
+#: src/ViewEditForm.php:741
+msgid "Revert view"
+msgstr "Ansicht zurücksetzen"
+
+#: src/ViewEditForm.php:759
+msgid "Secondary tabs"
+msgstr "Sekundäre Reiter"
+
+#: src/ViewEditForm.php:768;775
+msgid "Add @display"
+msgstr "@display hinzufügen"
+
+#: src/ViewEditForm.php:969
+msgid "The selected style or row format does not use fields."
+msgstr "Der ausgewählte Stil bzw. das ausgewählte Zeilenformat verwenden keine Felder."
+
+#: src/ViewEditForm.php:981
+msgid "The selected display type does not use @type plugins"
+msgstr "Die ausgewählte Darstellungsart unterstützt keine @type Plugins"
+
+#: src/ViewEditForm.php:995
+msgid "Add <span class=\"visually-hidden\">@type</span>"
+msgstr "<span class=\"visually-hidden\">@type</span> hinzufügen"
+
+#: src/ViewEditForm.php:1004
+msgid "And/Or Rearrange <span class=\"visually-hidden\">filter criteria</span>"
+msgstr "Und/Oder <span class=\"visually-hidden\">Filterkriterien</span> umsortieren"
+
+#: src/ViewEditForm.php:1004
+msgid "Rearrange <span class=\"visually-hidden\">@type</span>"
+msgstr "<span class=\"visually-hidden\">@type</span> umsortieren"
+
+#: src/ViewEditForm.php:1086
+msgid "hidden"
+msgstr "ausgeblendet"
+
+#: src/ViewEditForm.php:1098;1104
+msgid "Aggregation settings"
+msgstr "Einstellungen der Zusammenfassung"
+
+#: src/ViewEditForm.php:1138;1146
+msgid "OR"
+msgstr "ODER"
+
+#: src/ViewEditForm.php:1138;1146
+msgid "AND"
+msgstr "UND"
+
+#: src/ViewFormBase.php:132
+msgid "This display has one or more validation errors."
+msgstr "Diese Anzeige hat einen oder mehrere Validierungsfehler."
+
+#: src/ViewFormBase.php:159
+msgid "Master"
+msgstr "Master"
+
+#: src/ViewListBuilder.php:132
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/ViewListBuilder.php:212
+msgid "Filter"
+msgstr "Filter"
+
+#: src/ViewListBuilder.php:215
+msgid "Filter by view name, machine name, description, or display path"
+msgstr "Nach dem Namen der Ansicht, dem Systemnamen, der Beschreibung oder dem Pfad der Anzeige filtern."
+
+#: src/ViewListBuilder.php:220
+msgid "Enter a part of the view name, machine name, description, or display path to filter by."
+msgstr "Hier kann einen Teil des Namens der Ansicht, des Systemnamens, der Beschreibung oder des Anzeigenpfades angegeben werden, nach dem gefiltert werden soll."
+
+#: src/ViewListBuilder.php:224
+msgctxt "Plural"
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/ViewListBuilder.php:225
+msgctxt "Plural"
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: src/ViewListBuilder.php:238 src/Controller/ViewsUIController.php:139
+msgid "There are no enabled views."
+msgstr "Es gibt keine aktivierten Ansichten."
+
+#: src/ViewListBuilder.php:239
+msgid "There are no disabled views."
+msgstr "Es gibt keine deaktivierten Ansichten."
+
+#: src/ViewPreviewForm.php:31 config/optional/tour.tour.views-ui.yml:0
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/ViewPreviewForm.php:39
+msgid "Auto preview"
+msgstr "Automatische Vorschau"
+
+#: src/ViewPreviewForm.php:46
+msgid "Preview with contextual filters:"
+msgstr "Vorschau mit Kontextfiltern:"
+
+#: src/ViewPreviewForm.php:47
+msgid "Separate contextual filter values with a \"/\". For example, %example."
+msgstr "Trenne Kontextfilter-Werte mit „/“. Beispiel: %example."
+
+#: src/ViewPreviewForm.php:84
+msgid "Update preview"
+msgstr "Vorschau aktualisieren"
+
+#: src/ViewUI.php:287;291
+msgid "Apply"
+msgstr "Anwenden"
+
+#: src/ViewUI.php:289;291
+msgid "Apply and continue"
+msgstr "Anwenden und Fortfahren"
+
+#: src/ViewUI.php:330
+msgid "Ok"
+msgstr "Ok"
+
+#: src/ViewUI.php:657
+msgid "These queries were run during view rendering:"
+msgstr "Diese Abfragen werden während dem Rendering der Ansicht ausgeführt:"
+
+#: src/ViewUI.php:664
+msgid "[@time ms] @query"
+msgstr "[@time ms] @query"
+
+#: src/ViewUI.php:705
+msgid "This display has no path."
+msgstr "Diese Anzeige hat keinen Pfad."
+
+#: src/ViewUI.php:711
+msgid "Path"
+msgstr "Pfad"
+
+#: src/ViewUI.php:730;740;750
+msgid "@time ms"
+msgstr "@time ms"
+
+#: src/ViewUI.php:763;779;1
+msgid "Query"
+msgstr "Abfrage"
+
+#: src/ViewUI.php:769;785
+msgid "No query was run"
+msgstr "Es wurde keine Abfrage ausgeführt"
+
+#: src/ViewUI.php:799
+msgid "Unable to preview due to validation errors."
+msgstr "Die Vorschau kann wegen Validierungsfehlern nicht angezeigt werden."
+
+#: src/ViewUI.php:1
+msgid "Other queries"
+msgstr "Andere Abfragen"
+
+#: src/ViewUI.php:1
+msgid "Query build time"
+msgstr "Aufbauzeit der Abfrage"
+
+#: src/ViewUI.php:1
+msgid "Query execute time"
+msgstr "Ausführungszeit der Abfrage"
+
+#: src/ViewUI.php:1
+msgid "View render time"
+msgstr "Renderingzeit der Ansicht"
+
+#: src/Controller/ViewsUIController.php:84
+msgid "Field name"
+msgstr "Feldname"
+
+#: src/Controller/ViewsUIController.php:84;137
+msgid "Used in"
+msgstr "Verwendet in"
+
+#: src/Controller/ViewsUIController.php:105
+msgid "No fields have been used in views yet."
+msgstr "Es wurden bisher noch keine Felder in Ansichten verwendet."
+
+#: src/Controller/ViewsUIController.php:137
+msgid "Type"
+msgstr "Typ"
+
+#: src/Controller/ViewsUIController.php:137
+msgid "Name"
+msgstr "Name"
+
+#: src/Controller/ViewsUIController.php:137
+msgid "Provided by"
+msgstr "Bereitgestellt von"
+
+#: src/Form/AdvancedSettingsForm.php:39
+msgid "Caching"
+msgstr "Cache"
+
+#: src/Form/AdvancedSettingsForm.php:45
+msgid "Disable views data caching"
+msgstr "Datencaching von Views deaktivieren"
+
+#: src/Form/AdvancedSettingsForm.php:46
+msgid "Views caches data about tables, modules and views available, to increase performance. By checking this box, Views will skip this cache and always rebuild this data when needed. This can have a serious performance impact on your site."
+msgstr "Ausschalten des Zwischenspeichers des Modul Views: Dieses speichert Daten zu Tabellen, Module und verfügbaren Ansichten, um die Leistung zu steigern. Ausschalten bedeutet diesen Zwischenspeicher nicht zu nutzen und stattdessen die Daten jeweils neu  zu ermitteln, dies kann die Leistung der Website deutlich verschlechtern."
+
+#: src/Form/AdvancedSettingsForm.php:52
+msgid "Clear Views' cache"
+msgstr "Ansichten-Cache leeren"
+
+#: src/Form/AdvancedSettingsForm.php:58
+msgid "Debugging"
+msgstr "Fehlersuche"
+
+#: src/Form/AdvancedSettingsForm.php:64
+msgid "Add Views signature to all SQL queries"
+msgstr "Eine View-Signatur zu allen SQL-Abfragen hinzufügen"
+
+#: src/Form/AdvancedSettingsForm.php:65
+msgid "All Views-generated queries will include the name of the views and display 'view-name:display-name' as a string at the end of the SELECT clause. This makes identifying Views queries in database server logs simpler, but should only be used when troubleshooting."
+msgstr "Alle durch Ansichten generierten Datenbankabfragen enthalten den Namen der Ansicht und 'view-name:display-name' als Zeichenfolge am Ende der SELECT-Klausel. Dies vereinfacht das Auffinden von Datenbankabfragen in Log-Dateien des Datenbankservers, sollte aber nur zur Fehlerbehebung verwendet werden."
+
+#: src/Form/AdvancedSettingsForm.php:77
+msgid "Display extenders"
+msgstr "Anzeigenerweiterungen"
+
+#: src/Form/AdvancedSettingsForm.php:81
+msgid "Select extensions of the views interface."
+msgstr "Erweiterungen der Schnittstellen des Views-Moduls auswählen."
+
+#: src/Form/AdvancedSettingsForm.php:106
+msgid "The cache has been cleared."
+msgstr "Der Cache wurde geleert."
+
+#: src/Form/BasicSettingsForm.php:83
+msgid "Always show the master (default) display"
+msgstr "Immer die Hauptansicht (Standard) anzeigen"
+
+#: src/Form/BasicSettingsForm.php:89
+msgid "Always show advanced display settings"
+msgstr "Die erweiterten Anzeigeeinstellungen immer anzeigen"
+
+#: src/Form/BasicSettingsForm.php:95
+msgid "Allow embedded displays"
+msgstr "Eingebettete Anzeigen erlauben"
+
+#: src/Form/BasicSettingsForm.php:96
+msgid "Embedded displays can be used in code via views_embed_view()."
+msgstr "Eingebettete Anzeigen können über views_embed_view() im Code verwendet werden."
+
+#: src/Form/BasicSettingsForm.php:102
+msgid "Label for \"Any\" value on non-required single-select exposed filters"
+msgstr "Beschriftung für den Wert \"Alle\" in optionalen hervorgehobenen Filtern"
+
+#: src/Form/BasicSettingsForm.php:109
+msgid "Live preview settings"
+msgstr "Einstellungen der Live-Vorschau"
+
+#: src/Form/BasicSettingsForm.php:115
+msgid "Automatically update preview on changes"
+msgstr "Vorschau bei Änderungen automatisch aktualisieren"
+
+#: src/Form/BasicSettingsForm.php:121
+msgid "Show information and statistics about the view during live preview"
+msgstr "Informationen und Statistiken über die Ansicht während der Live-Vorschau anzeigen"
+
+#: src/Form/BasicSettingsForm.php:136
+msgid "Show the SQL query"
+msgstr "SQL-Abfrage anzeigen"
+
+#: src/Form/BasicSettingsForm.php:147
+msgid "Show SQL query"
+msgstr "SQL-Abfrage anzeigen"
+
+#: src/Form/BasicSettingsForm.php:149
+msgid "Above the preview"
+msgstr "Oberhalb der Vorschau"
+
+#: src/Form/BasicSettingsForm.php:150
+msgid "Below the preview"
+msgstr "Unterhalb der Vorschau"
+
+#: src/Form/BasicSettingsForm.php:157
+msgid "Show performance statistics"
+msgstr "Leistungsstatistiken anzeigen"
+
+#: src/Form/BasicSettingsForm.php:163
+msgid "Show other queries run during render during live preview"
+msgstr "Andere ausgeführte SQL-Abfragen während des Rendern bei der Live-Vorschau anzeigen"
+
+#: src/Form/BasicSettingsForm.php:164
+msgid "Drupal has the potential to run many queries while a view is being rendered. Checking this box will display every query run during view render as part of the live preview."
+msgstr "Drupal hat das Potenzial viele SQL-Abfragen auszuführen, während eine Ansicht dargestellt werden wird. Mit dem Aktivieren dieser Box werden alle ausgeführten SQL-Abfragen während des Rendern der Ansicht als Teil der Live-Vorschau angezeigt."
+
+#: src/Form/BreakLockForm.php:75
+msgid "Do you want to break the lock on view %name?"
+msgstr "Soll die Sperre der Ansicht %name wirklich aufgehoben werden?"
+
+#: src/Form/BreakLockForm.php:88
+msgid "By breaking this lock, any unsaved changes made by @user will be lost."
+msgstr "Durch das Aufheben dieser Sperre gehen ungespeicherte Änderungen von @user verloren."
+
+#: src/Form/BreakLockForm.php:110
+msgid "There is no lock on view %name to break."
+msgstr "Es gibt keine Sperre der Ansicht %name, die aufgehoben werden kann."
+
+#: src/Form/BreakLockForm.php:122
+msgid "The lock has been broken and you may now edit this view."
+msgstr "Die Sperre wurde aufgehoben und die Ansicht kann jetzt bearbeitet werden."
+
+#: src/Form/Ajax/AddHandler.php:76
+msgid "Add @type"
+msgstr "@type hinzufügen"
+
+#: src/Form/Ajax/AddHandler.php:94
+msgid "Search"
+msgstr "Suche"
+
+#: src/Form/Ajax/AddHandler.php:97
+msgid "- All -"
+msgstr "- Alle -"
+
+#: src/Form/Ajax/AddHandler.php:100;110
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/Form/Ajax/AddHandler.php:165
+msgid "There are no @types available to add."
+msgstr "Es stehen keine @types zum Hinzufügen zur Verfügung."
+
+#: src/Form/Ajax/AddHandler.php:171
+msgid "Selected:"
+msgstr "Ausgewählt:"
+
+#: src/Form/Ajax/AddHandler.php:178
+msgid "Add and configure @types"
+msgstr "@types hinzufügen und konfigurieren"
+
+#: src/Form/Ajax/Analyze.php:35
+msgid "View analysis"
+msgstr "Analyse anzeigen"
+
+#: src/Form/Ajax/ConfigHandler.php:77 src/Form/Ajax/ConfigHandlerExtra.php:73 src/Form/Ajax/ConfigHandlerGroup.php:77
+msgid "Error: handler for @table > @field doesn't exist!"
+msgstr "Fehler: Die Behandlungsroutine für @table > @field ist nicht vorhanden!"
+
+#: src/Form/Ajax/ConfigHandler.php:123
+msgid "Do not use a relationship"
+msgstr "Keine Beziehung verwenden"
+
+#: src/Form/Ajax/ConfigHandler.php:140
+msgid "Relationship"
+msgstr "Beziehung"
+
+#: src/Form/Ajax/ConfigHandler.php:153
+msgid "Configure @type: @item"
+msgstr "@type: @item konfigurieren"
+
+#: src/Form/Ajax/ConfigHandlerExtra.php:79
+msgid "Configure extra settings for @type %item"
+msgstr "Besondere Einstellungen für @type %item konfigurieren"
+
+#: src/Form/Ajax/ConfigHandlerGroup.php:83
+msgid "Configure aggregation settings for @type %item"
+msgstr "Zusammenfassungseinstellungen für @type %item konfigurieren"
+
+#: src/Form/Ajax/EditDetails.php:35
+msgid "Name and description"
+msgstr "Name und Beschreibung"
+
+#: src/Form/Ajax/EditDetails.php:44
+msgid "Administrative name"
+msgstr "Administrativer Name"
+
+#: src/Form/Ajax/EditDetails.php:49
+msgid "View language"
+msgstr "Sprache der Ansicht"
+
+#: src/Form/Ajax/EditDetails.php:50
+msgid "Language of labels and other textual elements in this view."
+msgstr "Sprache der Beschriftungen und anderer Textelemente in dieser Ansicht."
+
+#: src/Form/Ajax/EditDetails.php:55
+msgid "Administrative description"
+msgstr "Administrative Beschreibung"
+
+#: src/Form/Ajax/EditDetails.php:60
+msgid "Administrative tags"
+msgstr "Administrative Schlagwörter"
+
+#: src/Form/Ajax/EditDetails.php:61
+msgid "Enter a comma-separated list of words to describe your view."
+msgstr "Begriffe (durch Komma getrennt) zur Beschreibung der Ansicht."
+
+#: src/Form/Ajax/Rearrange.php:62 src/Form/Ajax/RearrangeFilter.php:53
+msgid "Rearrange @type"
+msgstr "@type neu anordnen"
+
+#: src/Form/Ajax/Rearrange.php:110 src/Form/Ajax/RearrangeFilter.php:198
+msgid "Broken field @id"
+msgstr "Beschädigtes Feld @id"
+
+#: src/Form/Ajax/Rearrange.php:118
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/Ajax/Rearrange.php:124
+msgid "Remove @title"
+msgstr "@title entfernen"
+
+#: src/Form/Ajax/RearrangeFilter.php:96;115
+msgid "And"
+msgstr "Und"
+
+#: src/Form/Ajax/RearrangeFilter.php:97;116
+msgid "Or"
+msgstr "Oder"
+
+#: src/Form/Ajax/RearrangeFilter.php:103
+msgid "Operator to use on all groups"
+msgstr "Operator auf alle Gruppen anwenden"
+
+#: src/Form/Ajax/RearrangeFilter.php:104
+msgid "Either \"group 0 AND group 1 AND group 2\" or \"group 0 OR group 1 OR group 2\", etc"
+msgstr "Entweder „group 0 AND group 1 AND group 2“ oder „group 0 OR group 1 OR group 2“, etc."
+
+#: src/Form/Ajax/RearrangeFilter.php:129
+msgid "Remove group @group"
+msgstr "Gruppe @group entfernen"
+
+#: src/Form/Ajax/RearrangeFilter.php:138
+msgid "Default group"
+msgstr "Standardgruppe"
+
+#: src/Form/Ajax/RearrangeFilter.php:138
+msgid "Group @group"
+msgstr "Gruppe @group"
+
+#: src/Form/Ajax/RearrangeFilter.php:169
+msgid "Weight for @id"
+msgstr "Gewichtung für @id"
+
+#: src/Form/Ajax/RearrangeFilter.php:176
+msgid "Group for @id"
+msgstr "Gruppe für @id"
+
+#: src/Form/Ajax/RearrangeFilter.php:201 src/Form/Ajax/ReorderDisplays.php:109
+msgid "Remove @id"
+msgstr "@id entfernen"
+
+#: src/Form/Ajax/RearrangeFilter.php:213
+msgid "Create new filter group"
+msgstr "Neue Filtergruppe erstellen"
+
+#: src/Form/Ajax/ReorderDisplays.php:64
+msgid "Display"
+msgstr "Anzeige"
+
+#: src/Form/Ajax/ReorderDisplays.php:65
+msgid "No displays available."
+msgstr "Keine Anzeigen verfügbar."
+
+#: src/Form/Ajax/ReorderDisplays.php:100
+msgid "Weight for @display"
+msgstr "Gewichtung für @display"
+
+#: src/Form/Ajax/ReorderDisplays.php:125;126
+msgid "Remove this display"
+msgstr "Anzeige entfernen"
+
+#: templates/views-ui-view-info.html.twig:15
+msgid "Display"
+msgid_plural "Displays"
+msgstr[0] "Anzeige"
+msgstr[1] "Anzeigen"
+
+#: templates/views-ui-view-info.html.twig:26
+msgid "Machine name:"
+msgstr "Systemname:"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "View edit page"
+msgstr "Bearbeiten-Seite anzeigen"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Manage view settings"
+msgstr "Ansichtseinstellungen verwalten"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "View or edit the configuration."
+msgstr "Konfiguration anzeigen oder bearbeiten."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Displays in this view"
+msgstr "Anzeigen in dieser Ansicht"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "A display is a way of outputting the results, e.g., as a page or a block. A view can contain multiple displays, which are listed here. The active display is highlighted."
+msgstr "Eine Anzeige ist eine Möglichkeit, die Ergebnisse auszugeben, z. B. als Seite oder Block. Eine Ansicht kann mehrere Anzeigen enthalten, die hier aufgelistet sind. Die aktive Anzeige wird hervorgehoben."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "View administration"
+msgstr "Ansichtverwaltung"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Perform administrative tasks, including adding a description and creating a clone. Click the drop-down button to view the available options."
+msgstr "Führen Sie Verwaltungsaufgaben aus, einschließlich dem Hinzufügen einer Beschreibung und dem Duplizieren einer Ansicht. Klicken Sie auf den Dropdown-Button, um die verfügbaren Optionen anzuzeigen."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Output format"
+msgstr "Ausgabeformat"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Choose how to output results. E.g., choose <em>Content</em> to output each item completely, using your configured display settings. Or choose <em>Fields</em>, which allows you to output only specific fields for each result. Additional formats can be added by installing modules to <em>extend</em> Drupal's base functionality."
+msgstr "Wählen Sie, wie die Ergebnisse ausgegeben werden sollen. Wählen Sie z. B. <em>Inhalt</em>, um jedes Element vollständig auszugeben, wobei Sie Ihre konfigurierten Anzeigeeinstellungen verwenden. Oder wählen Sie <em>Felder</em>, um nur bestimmte Felder für jedes Ergebnis auszugeben. Zusätzliche Formate können durch die Installation von Modulen, die Drupal's Basisfunktionalität <em>erweitern</em>, hinzugefügt werden."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Fields"
+msgstr "Felder"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "If this view uses fields, they are listed here. You can click on a field to configure it."
+msgstr "Wenn diese Ansicht Felder verwendet, werden diese hier aufgelistet. Sie können auf ein Feld klicken, um es zu konfigurieren."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Filter your view"
+msgstr "Ansicht filtern"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Add filters to limit the results in the output. E.g., to only show content that is <em>published</em>, you would add a filter for <em>Published</em> and select <em>Yes</em>."
+msgstr "Fügen Sie Filter hinzu, um die Ergebnisse in der Ausgabe einzuschränken. Um z. B. nur Inhalte anzuzeigen, die <em>veröffentlicht</em> sind, würden Sie einen Filter für <em>Veröffentlicht</em> hinzufügen und <em>Ja</em> auswählen."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Filter actions"
+msgstr "Filteraktionen"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Add, rearrange or remove filters."
+msgstr "Filter hinzufügen, umsortieren oder entfernen."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Sort Criteria"
+msgstr "Sortierkriterium"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Control the order in which the results are output. Click on an active sort rule to configure it."
+msgstr "Die Reihenfolge steuern, in der die Ergebnisse ausgegeben werden. Auf eine aktive Sortierregel klicken, um diese zu konfigurieren."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Sort actions"
+msgstr "Sortieraktionen"
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Add, rearrange or remove sorting rules."
+msgstr "Sortierregeln hinzufügen, umsortieren oder entfernen."
+
+#: config/optional/tour.tour.views-ui.yml:0
+msgid "Show a preview of the view output."
+msgstr "Eine Vorschau der Ansicht anzeigen."
+

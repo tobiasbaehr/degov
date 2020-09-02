@@ -297,6 +297,12 @@ views_reference_latest_press_slider:
     display_id: 'press_slider'
     data:
       view_mode: 'latest'
+    view_mode: 'latest'
+  field_view_reference_links:
+    - uri: 'internal:/de/pressetermine'
+      title: Pressetermine
+    - uri: 'internal:/de/aktuelles-und-presse/pressekontakt'
+      title: Pressekontakt
 views_reference_latest_press_1:
   type: 'view_reference'
   field_title: 'Teaser - Small Image'

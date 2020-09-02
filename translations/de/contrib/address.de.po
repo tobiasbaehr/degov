@@ -1,0 +1,674 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  address.post_update.php: n/a
+#  address.tokens.inc: n/a
+#  address.install: n/a
+#  address.info.yml: n/a
+#  config/schema/address.schema.yml: n/a
+#  src/Plugin/Field/FieldType/AddressItem.php: n/a
+#  src/Plugin/Field/FieldType/CountryItem.php: n/a
+#  src/Plugin/Field/FieldType/ZoneItem.php: n/a
+#  src/Plugin/Field/FieldWidget/AddressDefaultWidget.php: n/a
+#  src/Plugin/views/sort/Country.php: n/a
+#  src/LabelHelper.php: n/a
+#  src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php: n/a
+#  src/Element/Address.php: n/a
+#  src/Element/ZoneTerritory.php: n/a
+#  src/Plugin/Field/FieldFormatter/ZoneDefaultFormatter.php: n/a
+#  src/Plugin/Field/FieldWidget/CountryDefaultWidget.php: n/a
+#  src/Plugin/Validation/Constraint/CountryConstraint.php: n/a
+#  src/Plugin/Field/FieldType/AvailableCountriesTrait.php: n/a
+#  src/Plugin/views/field/Country.php: n/a
+#  src/Plugin/views/field/Subdivision.php: n/a
+#  src/Plugin/views/filter/AdministrativeArea.php: n/a
+#  src/Element/Zone.php: n/a
+#  src/Plugin/Field/FieldFormatter/AddressDefaultFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/CountryDefaultFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/AddressPlainFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/AddressFormatConstraint.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:37+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: address.post_update.php:39
+msgid "Updated the names and subdivisions of each address."
+msgstr "Die Namen und Unterteilungen jeder Adresse wurden aktualisiert."
+
+#: address.tokens.inc:38
+msgid "The country name"
+msgstr "Name des Landes"
+
+#: address.install:17
+msgid "Address requires the commerceguys/addressing library."
+msgstr "Das Address-Modul benötigt die Programmbibliothek: commerceguys/addressing."
+
+#: address.info.yml:0 config/schema/address.schema.yml:0 src/Plugin/Field/FieldType/AddressItem.php:16;16 src/Plugin/Field/FieldType/CountryItem.php:10 src/Plugin/Field/FieldType/ZoneItem.php:11 src/Plugin/Field/FieldWidget/AddressDefaultWidget.php:18
+msgid "Address"
+msgstr "Adresse"
+
+#: address.info.yml:0
+msgid "Provides functionality for handling postal addresses."
+msgstr "Stellt Funktionalität zur Behandlung von Postanschriften bereit."
+
+#: address.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: config/schema/address.schema.yml:0
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: config/schema/address.schema.yml:0;0;0;0 src/Plugin/views/sort/Country.php:127
+msgid "Country code"
+msgstr "Länderkennung"
+
+#: config/schema/address.schema.yml:0;0;0
+msgid "Administrative area"
+msgstr "Verwaltungsbereich"
+
+#: config/schema/address.schema.yml:0;0
+msgid "Locality"
+msgstr "Ort"
+
+#: config/schema/address.schema.yml:0;0
+msgid "Dependent locality"
+msgstr "Ortsteil"
+
+#: config/schema/address.schema.yml:0
+msgid "Postal code"
+msgstr "Postleitzahl"
+
+#: src/LabelHelper.php:33;217
+msgctxt "Address label"
+msgid "Postal code"
+msgstr "Postleitzahl"
+
+#: config/schema/address.schema.yml:0
+msgid "Sorting code"
+msgstr "Sortiercode"
+
+#: src/LabelHelper.php:34
+msgctxt "Address label"
+msgid "Sorting code"
+msgstr "Sortiercode"
+
+#: config/schema/address.schema.yml:0
+msgid "First line of the address block"
+msgstr "Erste Zeile des Adressblocks"
+
+#: config/schema/address.schema.yml:0
+msgid "Second line of the address block"
+msgstr "Zweite Zeile des Adressblocks"
+
+#: config/schema/address.schema.yml:0
+msgid "Organization"
+msgstr "Organisation"
+
+#: config/schema/address.schema.yml:0
+msgid "Given name"
+msgstr "Vorname"
+
+#: config/schema/address.schema.yml:0
+msgid "Additional name"
+msgstr "Namenszusatz"
+
+#: config/schema/address.schema.yml:0
+msgid "Family name"
+msgstr "Nachname"
+
+#: config/schema/address.schema.yml:0 src/Plugin/Field/FieldType/ZoneItem.php:11 src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php:12
+msgid "Zone"
+msgstr "Zone"
+
+#: config/schema/address.schema.yml:0
+msgid "Territories"
+msgstr "Gebiete"
+
+#: config/schema/address.schema.yml:0
+msgid "Zone territory"
+msgstr "Zonengebiet"
+
+#: config/schema/address.schema.yml:0;0;0;0 src/Element/Address.php:190 src/Element/ZoneTerritory.php:140 src/Plugin/Field/FieldFormatter/ZoneDefaultFormatter.php:165 src/Plugin/Field/FieldType/CountryItem.php:49;10 src/Plugin/Field/FieldWidget/CountryDefaultWidget.php:14
+msgid "Country"
+msgstr "Land"
+
+#: src/Plugin/Validation/Constraint/CountryConstraint.php:7
+msgctxt "Validation"
+msgid "Country"
+msgstr "Land"
+
+#: config/schema/address.schema.yml:0 src/Element/ZoneTerritory.php:251 src/Plugin/Field/FieldFormatter/ZoneDefaultFormatter.php:222
+msgid "Included postal codes"
+msgstr "Eingeschlossene Postleitzahlen"
+
+#: config/schema/address.schema.yml:0 src/Element/ZoneTerritory.php:263 src/Plugin/Field/FieldFormatter/ZoneDefaultFormatter.php:232
+msgid "Excluded postal codes"
+msgstr "Ausgeschlossene Postleitzahlen"
+
+#: config/schema/address.schema.yml:0;0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/address.schema.yml:0
+msgid "Address field settings"
+msgstr "Adressfeld-Einstellungen"
+
+#: config/schema/address.schema.yml:0;0;0 src/Plugin/Field/FieldType/AvailableCountriesTrait.php:48
+msgid "Available countries"
+msgstr "Verfügbare Länder"
+
+#: config/schema/address.schema.yml:0 src/Plugin/Field/FieldType/AddressItem.php:165
+msgid "Language override"
+msgstr "Sprache übersteuern"
+
+#: config/schema/address.schema.yml:0 src/Plugin/Field/FieldType/AddressItem.php:175
+msgid "Field overrides"
+msgstr "Feldübersteuerungen"
+
+#: config/schema/address.schema.yml:0 src/Plugin/Field/FieldType/AddressItem.php:182
+msgid "Override"
+msgstr "Übersteuern"
+
+#: config/schema/address.schema.yml:0
+msgid "Used fields"
+msgstr "Verwendete Felder"
+
+#: config/schema/address.schema.yml:0
+msgid "Country field settings"
+msgstr "Landfeldeinstellungen"
+
+#: config/schema/address.schema.yml:0
+msgid "Zone field settings"
+msgstr "Zonenfeldeinstellungen"
+
+#: config/schema/address.schema.yml:0
+msgid "Default address widget settings"
+msgstr "Standardeinstellungen des Adresssteuerelements"
+
+#: config/schema/address.schema.yml:0
+msgid "Default zone widget settings"
+msgstr "Standardeinstellungen des Zonensteuerelements"
+
+#: config/schema/address.schema.yml:0 src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php:41
+msgid "Show the zone label field"
+msgstr "Zonenbeschriftungsfeld anzeigen"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/field/Country.php:73
+msgid "Display the country name instead of the country code"
+msgstr "Den Namen des Landes anstelle des Länderkürzels anzeigen"
+
+#: config/schema/address.schema.yml:0
+msgid "Subdivision"
+msgstr "Unterabteilung"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/field/Subdivision.php:74
+msgid "Display the subdivision name instead of the subdivision code"
+msgstr "Name der Unterabteilung anstelle des Kürzels der Unterabteilung abzeigen"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/filter/AdministrativeArea.php:141
+msgid "Country source"
+msgstr "Länderquelle"
+
+#: config/schema/address.schema.yml:0
+msgid "Country contextual filter ID"
+msgstr "Kontextabhängige Länder-Filter-ID"
+
+#: config/schema/address.schema.yml:0
+msgid "Exposed country filter ID"
+msgstr "Dem Benutzer zur Auswahl angebotene Länderfilter-ID"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/filter/AdministrativeArea.php:220
+msgid "Predefined country for administrative areas"
+msgstr "Vordefiniertes Land für Verwaltungsgebiete"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/filter/AdministrativeArea.php:238
+msgid "Label type"
+msgstr "Beschriftungstyp"
+
+#: config/schema/address.schema.yml:0 src/Plugin/views/sort/Country.php:124
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: src/LabelHelper.php:27;61
+msgctxt "Address label"
+msgid "First name"
+msgstr "Vorname"
+
+#: src/LabelHelper.php:28;62
+msgctxt "Address label"
+msgid "Middle name"
+msgstr "Zweiter Vorname"
+
+#: src/LabelHelper.php:29;63
+msgctxt "Address label"
+msgid "Last name"
+msgstr "Nachname"
+
+#: src/LabelHelper.php:30;64
+msgctxt "Address label"
+msgid "Company"
+msgstr "Firma"
+
+#: src/LabelHelper.php:31
+msgctxt "Address label"
+msgid "Address line 1"
+msgstr "Adresszeile 1"
+
+#: src/LabelHelper.php:32
+msgctxt "Address label"
+msgid "Address line 2"
+msgstr "Adresszeile 2"
+
+#: src/LabelHelper.php:35
+msgctxt "Address label"
+msgid "Dependent locality (e.g. Neighbourhood)"
+msgstr "Ortsteilinformation (z. B. Nachbarschaft)"
+
+#: src/LabelHelper.php:36
+msgctxt "Address label"
+msgid "Locality (e.g. City)"
+msgstr "Ort (z. B. Stadt)"
+
+#: src/LabelHelper.php:37
+msgctxt "Address label"
+msgid "Administrative area (e.g. State or Province)"
+msgstr "Verwaltungsgebiet (z. B. Bundesland oder Provinz)"
+
+#: src/LabelHelper.php:65
+msgctxt "Address label"
+msgid "Street address"
+msgstr "Straße und Hausnummer"
+
+#: src/LabelHelper.php:67
+msgctxt "Address label"
+msgid "Street address line 2"
+msgstr "Straße (2. Zeile)"
+
+#: src/LabelHelper.php:70
+msgctxt "Address label"
+msgid "Cedex"
+msgstr "Cedex"
+
+#: src/LabelHelper.php:104
+msgctxt "Address label"
+msgid "Area"
+msgstr "Fläche"
+
+#: src/LabelHelper.php:105
+msgctxt "Address label"
+msgid "County"
+msgstr "Landkreis"
+
+#: src/LabelHelper.php:106
+msgctxt "Address label"
+msgid "Department"
+msgstr "Abteilung"
+
+#: src/LabelHelper.php:107;147;180
+msgctxt "Address label"
+msgid "District"
+msgstr "Landkreis"
+
+#: src/LabelHelper.php:108
+msgctxt "Address label"
+msgid "Do si"
+msgstr "Do si"
+
+#: src/LabelHelper.php:109
+msgctxt "Address label"
+msgid "Emirate"
+msgstr "Emirat"
+
+#: src/LabelHelper.php:110
+msgctxt "Address label"
+msgid "Island"
+msgstr "Island"
+
+#: src/LabelHelper.php:111
+msgctxt "Address label"
+msgid "Oblast"
+msgstr "Bereich"
+
+#: src/LabelHelper.php:112
+msgctxt "Address label"
+msgid "Parish"
+msgstr "Gemeinde"
+
+#: src/LabelHelper.php:113
+msgctxt "Address label"
+msgid "Prefecture"
+msgstr "Präfektur"
+
+#: src/LabelHelper.php:114
+msgctxt "Address label"
+msgid "Province"
+msgstr "Provinz"
+
+#: src/LabelHelper.php:115
+msgctxt "Address label"
+msgid "State"
+msgstr "Status"
+
+#: src/LabelHelper.php:146
+msgctxt "Address label"
+msgid "City"
+msgstr "Stadt"
+
+#: src/LabelHelper.php:148
+msgctxt "Address label"
+msgid "Post town"
+msgstr "Postalische Stadt"
+
+#: src/LabelHelper.php:149;183
+msgctxt "Address label"
+msgid "Suburb"
+msgstr "Vorort"
+
+#: src/LabelHelper.php:181
+msgctxt "Address label"
+msgid "Neighborhood"
+msgstr "Nachbarschaft"
+
+#: src/LabelHelper.php:182
+msgctxt "Address label"
+msgid "Village township"
+msgstr "Dorfgemeinde"
+
+#: src/LabelHelper.php:184
+msgctxt "Address label"
+msgid "Townland"
+msgstr "Townland"
+
+#: src/LabelHelper.php:215
+msgctxt "Address label"
+msgid "Eircode"
+msgstr "Eircode"
+
+#: src/LabelHelper.php:216
+msgctxt "Address label"
+msgid "Pin code"
+msgstr "Pin-Code"
+
+#: src/LabelHelper.php:218
+msgctxt "Address label"
+msgid "Zip code"
+msgstr "Postleitzahl"
+
+#: src/Element/Zone.php:135
+msgid "Zone label"
+msgstr "Zonenbeschriftung"
+
+#: src/Element/Zone.php:142
+msgid "Territory"
+msgstr "Gebiet"
+
+#: src/Element/Zone.php:143
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Element/Zone.php:160
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Element/Zone.php:174
+msgid "Add territory"
+msgstr "Gebiet hinzufügen"
+
+#: src/Element/Zone.php:210
+msgid "Please add at least one territory."
+msgstr "Mindestens ein Gebiet muss definiert werden."
+
+#: src/Element/ZoneTerritory.php:206
+msgid "- All -"
+msgstr "- Alle -"
+
+#: src/Element/ZoneTerritory.php:242
+msgid "Limit by postal code"
+msgstr "Anhand der Postleitzahl begrenzen"
+
+#: src/Element/ZoneTerritory.php:252;264
+msgid "A regular expression (\"/(35|38)[0-9]{3}/\") or comma-separated list, including ranges (\"98, 100:200\")"
+msgstr "Ein regulärer Ausdruck (\"/(35|38)[0-9]{3}/\") oder eine durch Kommas getrennte Liste mit Bereichen(\"98, 100:200\")"
+
+#: src/Plugin/Field/FieldFormatter/AddressDefaultFormatter.php:22 src/Plugin/Field/FieldFormatter/CountryDefaultFormatter.php:13 src/Plugin/Field/FieldFormatter/ZoneDefaultFormatter.php:18
+msgid "Default"
+msgstr "Standard"
+
+#: src/Plugin/Field/FieldFormatter/AddressPlainFormatter.php:19
+msgid "Plain"
+msgstr "Einfach"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:108
+msgid "The language code."
+msgstr "Das Sprachkürzel."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:110
+msgid "The two-letter country code."
+msgstr "Das zweistellige Länderkürzel."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:112
+msgid "The top-level administrative subdivision of the country."
+msgstr "Die oberste administrative Unterabteilung des Landes."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:114
+msgid "The locality (i.e. city)."
+msgstr "Der Ort (d. h. die Stadt)."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:116
+msgid "The dependent locality (i.e. neighbourhood)."
+msgstr "Der Ortsteil (d. h. Nachbarschaft)"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:118
+msgid "The postal code."
+msgstr "Die Postleitzahl."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:120
+msgid "The sorting code."
+msgstr "Der Sortiercode."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:122
+msgid "The first line of the address block."
+msgstr "Die erste Zeile des Adressblocks."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:124
+msgid "The second line of the address block."
+msgstr "Die zweite Zeile des Adressblocks."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:126
+msgid "The organization"
+msgstr "Die Organisation"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:128
+msgid "The given name."
+msgstr "Der Vorname."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:130
+msgid "The additional name."
+msgstr "Der weitere Name."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:132
+msgid "The family name."
+msgstr "Der Nachname."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:166
+msgid "Ensures entered addresses are always formatted in the same language."
+msgstr "Stellt sicher, dass eingegebene Adressen immer in der gleichen Sprache formatiert werden."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:169;203
+msgid "- No override -"
+msgstr "- Keine Übersteuerung -"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:176
+msgid "Use field overrides to override the country-specific address format, forcing specific properties to always be hidden, optional, or required."
+msgstr "Verwenden Sie Feldübersteuerungen, um das länderspezifische Adressformat zu übersteuern, sodass bestimmte Eigenschaften immer ausgeblendet, optional oder erforderlich sind."
+
+#: src/Plugin/Field/FieldType/AddressItem.php:181
+msgid "Property"
+msgstr "Eigenschaft"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:198 src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php:54
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:199
+msgid "Optional"
+msgstr "Optional"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:200
+msgid "Required"
+msgstr "Erforderlich"
+
+#: src/Plugin/Field/FieldType/AddressItem.php:16
+msgid "An entity field containing a postal address"
+msgstr "Ein Entitätsfeld, das eine Postanschrift enthält"
+
+#: src/Plugin/Field/FieldType/AvailableCountriesTrait.php:49
+msgid "If no countries are selected, all countries will be available."
+msgstr "Wenn keine Länder ausgewählt sind, stehen alle Länder zur Verfügung."
+
+#: src/Plugin/Field/FieldType/CountryItem.php:10
+msgid "An entity field containing a country"
+msgstr "Ein Entitätsfeld, das ein Land enthält"
+
+#: src/Plugin/Field/FieldType/ZoneItem.php:51
+msgid "Value"
+msgstr "Wert"
+
+#: src/Plugin/Field/FieldType/ZoneItem.php:11
+msgid "An entity field containing a zone"
+msgstr "Ein Entitätsfeld, das eine Zone enthält"
+
+#: src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php:53
+msgid "Zone label field: @status"
+msgstr "Zonenbeschriftungsfeld: @status"
+
+#: src/Plugin/Field/FieldWidget/ZoneDefaultWidget.php:54
+msgid "Shown"
+msgstr "Angezeigt"
+
+#: src/Plugin/Validation/Constraint/AddressFormatConstraint.php:7
+msgctxt "Validation"
+msgid "Address Format"
+msgstr "Adressformat"
+
+#: src/Plugin/Validation/Constraint/AddressFormatConstraint.php:18
+msgid "@name field must be blank."
+msgstr "Das Feld @name muss leer sein."
+
+#: src/Plugin/Validation/Constraint/AddressFormatConstraint.php:19
+msgid "@name field is required."
+msgstr "Das Feld @name ist erforderlich."
+
+#: src/Plugin/Validation/Constraint/AddressFormatConstraint.php:20
+msgid "@name field is not in the right format."
+msgstr "Das Feld @name hat nicht das richtige Format."
+
+#: src/Plugin/Validation/Constraint/CountryConstraint.php:18
+msgid "The country %value is not valid."
+msgstr "Das Land %value ist nicht gültig."
+
+#: src/Plugin/Validation/Constraint/CountryConstraint.php:19
+msgid "The country %value is not available."
+msgstr "Das Land %value ist nicht verfügbar."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:143
+msgid "A predefined country code"
+msgstr "Ein vordefinierter Länderschlüssel"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:144
+msgid "The value of a contextual filter"
+msgstr "Der Wert eines Kontextfilters"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:145
+msgid "The value of an exposed filter"
+msgstr "Der Wert eines zur Auswahl angebotenen Filters"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:163
+msgid "Country contextual filter"
+msgstr "Kontextfilter für das Land"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:175
+msgid "You must add a contextual filter for the country code to use this filter for administrative areas."
+msgstr "Ein Kontextfilter für das Länderkürzel muss hinzugefügt werden, um diesen Filter für Verwaltungsbereiche verwenden zu können."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:195
+msgid "Exposed country filter to determine values"
+msgstr "Zur Auswahl angebotener Filter nach Land, zur Bestimmung der Werte"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:207
+msgid "You must add a filter for the country code to use this filter for administrative areas."
+msgstr "Ein Filter für das Länderkürzel muss hinzufügt sein, um diesen Filter für Verwaltungsbereiche verwenden zu können."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:240
+msgid "Static"
+msgstr "Statisch"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:241
+msgid "Dynamic (an appropriate label will be set based on the active country)"
+msgstr "Dynamisch (eine geeignete Beschriftung wird basierend auf dem aktiven Land festgelegt)"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:268
+msgid "The country contextual filter must be defined for this filter to work using 'contextual filter' for the 'Country source'."
+msgstr "Der länderspezifische Kontextfilter muss definiert sein, damit dieser Filter unter Verwendung des 'Kontextfilters' für die 'Länderquelle' funktioniert."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:272
+msgid "This filter must be exposed to use a contextual filter to specify the country."
+msgstr "Dieser Filter muss dem Benutzer zur Auswahl angeboten werden, damit per Kontextfilter ein Land ausgewählt werden kann."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:280
+msgid "The country filter must be defined for this filter to work using 'exposed filter' for the 'Country source'."
+msgstr "Der Filter nach Land muss definiert sein, damit dieser Filter bei Auswahl von ,dem Benutzer angebotener Filter’ für ,Länderquelle’ funktioniert."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:284
+msgid "This filter must be exposed to use a filter to specify the country."
+msgstr "Dieser Filter muss dem dem Benutzer zur Auswahl angeboten werden, um ein Land festzulegen."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:292
+msgid "The predefined country must be set for this filter to work."
+msgstr "Das vordefinierte Land muss eingestellt sein, damit dieser Filter funktioniert."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:298
+msgid "The  source for the country must be defined for this filter to work."
+msgstr "Die Quelle für das Land muss definiert sein, damit dieser Filter funktioniert."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:380
+msgid "You can only select options here if you use a predefined country for the 'Country source'."
+msgstr "Diese Option kann nur ausgewählt werden, wenn Sie ein vordefiniertes Land für die 'Länderquelle' verwenden."
+
+#: src/Plugin/views/filter/AdministrativeArea.php:560
+msgid "exposed: country set via contextual filter"
+msgstr "Dem Benutzer zur Auswahl anbieten: Land, das durch Kontextfilter festgelegt wurde"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:563
+msgid "exposed: country set via exposed filter"
+msgstr "Dem Benutzer zur Auswahl anbieten: Land, das durch dem Benutzer angebotene Filter festgelegt wurde"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:567
+msgid "exposed: fixed country: @country"
+msgstr "Dem Benutzer zur Auswahl anbieten: festgelegtes Land: @country"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:569
+msgid "fixed country: @country"
+msgstr "festgelegtes Land: @country"
+
+#: src/Plugin/views/filter/AdministrativeArea.php:571
+msgid "broken configuration"
+msgstr "Die Konfiguration ist beschädigt"
+
+#: src/Plugin/views/sort/Country.php:126
+msgid "Country name"
+msgstr "Landesname"
+

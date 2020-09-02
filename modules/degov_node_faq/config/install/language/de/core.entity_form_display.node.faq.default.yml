@@ -1,0 +1,10 @@
+third_party_settings:
+  field_group:
+    group_vertical:
+      label: Vertikal
+    group_description:
+      label: Beschreibung
+    group_content:
+      label: Inhalt
+    group_common:
+      label: Allgemein

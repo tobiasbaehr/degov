@@ -1,0 +1,102 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_tweets.info.yml: n/a
+#  src/Plugin/Block/TwitterBlock.php: n/a
+#  templates/degov-tweets.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:04+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_tweets.info.yml:0
+msgid "deGov - Tweets"
+msgstr "deGov - Tweets"
+
+#: degov_tweets.info.yml:0
+msgid "Erlaubt die Anzeige von Twitternachrichten als feed."
+msgstr "Erlaubt die Anzeige von Twitternachrichten als feed."
+
+#: degov_tweets.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: src/Plugin/Block/TwitterBlock.php:68
+msgid "<a href=\"@url\">Create a twitter app on the twitter developer site</a>"
+msgstr "<a href=\"@url\">Erstellen einer Twitter-App auf der Twitter-Entwickler-Site</a>"
+
+#: src/Plugin/Block/TwitterBlock.php:72
+msgid "Twitter username"
+msgstr "Twitter Benutzername"
+
+#: src/Plugin/Block/TwitterBlock.php:77
+msgid "Limit"
+msgstr "Begrenzung"
+
+#: src/Plugin/Block/TwitterBlock.php:82
+msgid "Update every"
+msgstr "Aktualisieren alle"
+
+#: src/Plugin/Block/TwitterBlock.php:83
+msgid "Set the number in seconds. E.g. 3600 = 1 hour"
+msgstr "Wert in Sekunden einstellen, z.B. 3600 = 1 Stunde"
+
+#: src/Plugin/Block/TwitterBlock.php:88
+msgid "Access token"
+msgstr "Zugriffs-Token"
+
+#: src/Plugin/Block/TwitterBlock.php:93
+msgid "Token secret"
+msgstr "Token-Geheimnis"
+
+#: src/Plugin/Block/TwitterBlock.php:98
+msgid "Consumer key"
+msgstr "Anwender-Schlüssel"
+
+#: src/Plugin/Block/TwitterBlock.php:103
+msgid "Consumer secret"
+msgstr "Anwender-Geheimnis"
+
+#: src/Plugin/Block/TwitterBlock.php:12
+msgid "Twitter block"
+msgstr "Twitter-Block"
+
+#: templates/degov-tweets.html.twig:11
+msgid "Follow"
+msgstr "Folgen"
+
+#: templates/degov-tweets.html.twig:23
+msgid "ago"
+msgstr "her"
+
+#: templates/degov-tweets.html.twig:38
+msgid "Reply"
+msgstr "Antworten"
+
+#: templates/degov-tweets.html.twig:39
+msgid "Retweet"
+msgstr "Retweeten"
+
+#: templates/degov-tweets.html.twig:40
+msgid "Favorite"
+msgstr "Gefällt mir"
+
+#: templates/degov-tweets.html.twig:46
+msgid "Pause"
+msgstr "Pause"
+
+#: templates/degov-tweets.html.twig:47
+msgid "Play"
+msgstr "Wiedergabe"
+

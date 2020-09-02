@@ -1,0 +1,314 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  text.module: n/a
+#  text.es6.js: n/a
+#  text.js: n/a
+#  text.info.yml: n/a
+#  src/Plugin/Field/FieldType/TextItem.php: n/a
+#  src/Plugin/Field/FieldType/TextItemBase.php: n/a
+#  src/Plugin/Field/FieldType/TextLongItem.php: n/a
+#  src/Plugin/Field/FieldType/TextWithSummaryItem.php: n/a
+#  config/schema/text.schema.yml: n/a
+#  src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php: n/a
+#  src/Plugin/Field/FieldFormatter/TextDefaultFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/TextSummaryOrTrimmedFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php: n/a
+#  src/Plugin/Field/FieldWidget/TextareaWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/TextfieldWidget.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: text.module:21
+msgid "About"
+msgstr "Über"
+
+#: text.module:22
+msgid "The Text module allows you to create short and long text fields with optional summaries. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href=\":text_documentation\">online documentation for the Text module</a>."
+msgstr "Das Text-Modul erlaubt das Erstellen von Feldern für kurze und lange Texte mit optionalen Zusammenfassungen. Allgemeine Informationen über Felder und wie diese erstellt oder verwaltet werden, sind in der <a href=\":field\">Field-Modul-Hilfe</a>  und <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar. Noch mehr Informationen sind in der <a href=\":text_documentation\">Online-Dokumentation des Text-Moduls/a> verfügbar."
+
+#: text.module:23
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: text.module:25
+msgid "Managing and displaying text fields"
+msgstr "Textfelder verwalten und anzeigen"
+
+#: text.module:26
+msgid "The <em>settings</em> and <em>display</em> of the text field can be configured separately. See the <a href=\":field_ui\">Field UI help</a> for more information on how to manage fields and their display."
+msgstr "Die <em>Einstellungen</em> und die <em>Darstellungen</em> des Textfeldes können getrennt voneinander konfiguriert werden. Weitere Informationen über das Verwalten der Feldeinstellungen und die Darstellung von Feldern sind in der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar."
+
+#: text.module:27
+msgid "Creating short text fields"
+msgstr "Kurze Textfelder erstellen"
+
+#: text.module:28
+msgid "If you choose <em>Text (plain)</em> or <em>Text (formatted)</em> as the field type on the <em>Manage fields</em> page, then a field with a single row is displayed. You can change the maximum text length in the <em>Field settings</em> when you set up the field."
+msgstr "Wenn auf der Seite <em>Felder Verwalten</em> <em>Klartext</em> oder </em>Text (formatiert) </em> als Feldtyp gewählt wird, stellt Drupal ein einzeiliges Textfeld dar. Die maximale Zeichenanzahl kann während des Anlegens des Feldes in den Feldeinstellungen festgelegt werden."
+
+#: text.module:29
+msgid "Creating long text fields"
+msgstr "Lange Textfelder erstellen"
+
+#: text.module:30
+msgid "If you choose <em>Text (plain, long)</em>, <em>Text (formatted, long)</em>, or <em>Text (formatted, long, with summary)</em> on the <em>Manage fields</em> page, then users can insert text of unlimited length. On the <em>Manage form display</em> page, you can set the number of rows that are displayed to users."
+msgstr "Wird eines der Textformate <em>Text (Klartext, lang)</em>, <em>Text (formatiert, lang)</em>, oder <em>Text (formatiert, lang mit Zusammenfassung)</em> auf der Seite Felder verwalten gewählt, haben Benutzer die Möglichkeit Texte zu verfasen, die in der Länge nicht begrenzt sind. Auf der Seite <em>Bearbeitungsformulardarstellung verwalten</em> kann die Anzahl der Zeilen festgelegt werden, die Benutzern bei der Eingabe von Texten angezeigt werden."
+
+#: text.module:31
+msgid "Trimming the text length"
+msgstr "Die Textlänge kürzen"
+
+#: text.module:32
+msgid "On the <em>Manage display</em> page you can choose to display a trimmed version of the text, and if so, where to cut off the text."
+msgstr "Auf der Seite <em>Anzeige Verwalten</em> kann ausgewählt werden, dass eine gekürzte Version des Textes angezeigt werden soll. Wird diese Auswahl getroffen, wird der Text gekürzt."
+
+#: text.module:33
+msgid "Displaying summaries instead of trimmed text"
+msgstr "Zusammenfassungen statt gekürztem Text anzeigen"
+
+#: text.module:34
+msgid "As an alternative to using a trimmed version of the text, you can enter a separate summary by choosing the <em>Text (formatted, long, with summary)</em> field type on the <em>Manage fields</em> page. Even when <em>Summary input</em> is enabled, and summaries are provided, you can display <em>trimmed</em> text nonetheless by choosing the appropriate format on the <em>Manage display</em> page."
+msgstr "Als Alternative zur gekürzten Version des Textes Kann eine Zusammenfassung eingeben werden. Dazu muss ein Feld mit dem Feldtyp <em>Text (formatiert, lag, mit Zusammenfassung) </em> auf der Site <em>Felder Verwalten</em> hinzugefügt werden. Wenn eine <em>Zusammenfassung</em> eingegeben wurde die <em>gekürzte</em> Version des Textes trotzdem angezeigt werden, indem auf der Seite <em>Anzeige verwalten</em> das entsprechende Format ausgewählt wird."
+
+#: text.module:35
+msgid "Using text formats and editors"
+msgstr "Textformate und Texteditoren verwenden"
+
+#: text.module:36
+msgid "If you choose <em>Text (plain)</em> or <em>Text (plain, long)</em> you restrict the input to <em>Plain text</em> only. If you choose <em>Text (formatted)</em>, <em>Text (formatted, long)</em>, or <em>Text (formatted, long with summary)</em> you allow users to write formatted text. Which options are available to individual users depends on the settings on the <a href=\":formats\">Text formats and editors page</a>."
+msgstr "Wird das Format <em>Klartext</em> oder <em>Klartext (lang)</em> gewählt, begrenzt dies die Eingabemöglichkeiten ausschließlich auf die Eingabe <em>reinen Textes</em>. Nur wenn <em>Text (formatiert)</em>, <em>Text (formatiert, lang)</em> oder <em>Text (formatiert, lang, mit Zusammenfassung)</em> gewählt wird, ist Benutzern die Eingabe von Texten, die formatiert werden können, erlaubt. Welche Optionen den einzelnen Benutzern zu Verfügung stehen, hängt von den Einstellungen auf der Seite <a href=\":formats\">Textformate und Editoren</a> ab."
+
+#: text.es6.js:0 text.js:0
+msgid "Edit summary"
+msgstr "Zusammenfassung bearbeiten"
+
+#: text.es6.js:0 text.js:0;0
+msgid "Hide summary"
+msgstr "Zusammenfassung ausblenden"
+
+#: text.info.yml:0 src/Plugin/Field/FieldType/TextItem.php:8 src/Plugin/Field/FieldType/TextItemBase.php:21 src/Plugin/Field/FieldType/TextLongItem.php:7 src/Plugin/Field/FieldType/TextWithSummaryItem.php:9
+msgid "Text"
+msgstr "Text"
+
+#: text.info.yml:0
+msgid "Defines simple text field types."
+msgstr "Definiert einfache Typen von Textfeldern."
+
+#: text.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: config/schema/text.schema.yml:0
+msgid "Text settings"
+msgstr "Texteinstellungen"
+
+#: config/schema/text.schema.yml:0
+msgid "Default summary length"
+msgstr "Standardlänge der Zusammenfassung"
+
+#: config/schema/text.schema.yml:0;0
+msgid "Text (formatted) settings"
+msgstr "Text (formatiert) Einstellungen"
+
+#: config/schema/text.schema.yml:0 src/Plugin/Field/FieldType/TextItem.php:81
+msgid "Maximum length"
+msgstr "Maximallänge"
+
+#: config/schema/text.schema.yml:0;0;0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/text.schema.yml:0;0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/text.schema.yml:0;0;0 src/Plugin/Field/FieldType/TextItemBase.php:25
+msgid "Text format"
+msgstr "Textformat"
+
+#: config/schema/text.schema.yml:0;0
+msgid "Text (formatted, long) settings"
+msgstr "Text (formatiert, lang) Einstellungen"
+
+#: config/schema/text.schema.yml:0;0
+msgid "Text (formatted, long, with summary) settings"
+msgstr "Text (formatiert, lang mit Zusammenfassung) Einstellungen"
+
+#: config/schema/text.schema.yml:0 src/Plugin/Field/FieldType/TextWithSummaryItem.php:93
+msgid "Summary input"
+msgstr "Eingabe der Zusammenfassung"
+
+#: config/schema/text.schema.yml:0
+msgid "Body"
+msgstr "Textkörper"
+
+#: config/schema/text.schema.yml:0 src/Plugin/Field/FieldType/TextWithSummaryItem.php:39 src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php:70
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: config/schema/text.schema.yml:0
+msgid "Formatted text default display format settings"
+msgstr "Formatierter Text Standarddarstellungeseinstellungen"
+
+#: config/schema/text.schema.yml:0
+msgid "Summary or trimmed formatted text display format settings"
+msgstr "Anzeigeeinstellungen für das Anzeigeformat Zusammenfassung oder gekürzt."
+
+#: config/schema/text.schema.yml:0;0
+msgid "Trim length"
+msgstr "Länge kürzen"
+
+#: config/schema/text.schema.yml:0
+msgid "Trimmed text display format settings"
+msgstr "Anrisstextformateinstellungen"
+
+#: config/schema/text.schema.yml:0
+msgid "Text area (multiple rows) display format settings"
+msgstr "Texteingabefeld (mehrere Zeilen) Anzeigeformateinstellungen"
+
+#: config/schema/text.schema.yml:0;0
+msgid "Rows"
+msgstr "Zeilen"
+
+#: config/schema/text.schema.yml:0;0;0
+msgid "Placeholder"
+msgstr "Platzhalter"
+
+#: config/schema/text.schema.yml:0
+msgid "Text area with a summary display format settings"
+msgstr "Textfeld mit der Anzeigeformateinstellung Zusammenfassung"
+
+#: config/schema/text.schema.yml:0
+msgid "Number of summary rows"
+msgstr "Anzahl der Zeilen für die Zusammenfassung"
+
+#: config/schema/text.schema.yml:0
+msgid "Text field display format settings"
+msgstr "Anzeigeformateinstellungen des Textfeldes"
+
+#: config/schema/text.schema.yml:0
+msgid "Size of textfield"
+msgstr "Größe des Textfeldes"
+
+#: src/Plugin/Field/FieldFormatter/TextDefaultFormatter.php:8
+msgid "Default"
+msgstr "Standard"
+
+#: src/Plugin/Field/FieldFormatter/TextSummaryOrTrimmedFormatter.php:5
+msgid "Summary or trimmed"
+msgstr "Zusammenfassung oder gekürzt"
+
+#: src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php:46
+msgid "Trimmed limit"
+msgstr "Maximale Anzahl von Zeichen im Anrisstext"
+
+#: src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php:48
+msgid "characters"
+msgstr "Zeichen"
+
+#: src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php:50
+msgid "If the summary is not set, the trimmed %label field will end at the last full sentence before this character limit."
+msgstr "Wenn die Zusammenfassung nicht verwendet wird, wird das gekürzte %label Feld entsprechend des Zeichenlimits am Ende des letzten Satzes gekürzt. Es können also wenige Zeichen angezeigt werden, als tatsächlich als Limit angegeben sind!"
+
+#: src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php:62
+msgid "Trimmed limit: @trim_length characters"
+msgstr "Anzahl der Zeichen im Anrisstext: @trim_length Zeichen"
+
+#: src/Plugin/Field/FieldFormatter/TextTrimmedFormatter.php:9
+msgid "Trimmed"
+msgstr "Gekürzt"
+
+#: src/Plugin/Field/FieldType/TextItem.php:64
+msgid "%name: the text may not be longer than @max characters."
+msgstr "%name: der Text darf nicht länger als @max Zeichen sein."
+
+#: src/Plugin/Field/FieldType/TextItem.php:84
+msgid "The maximum length of the field in characters."
+msgstr "Die Maximallänge des Feldes in Zeichen"
+
+#: src/Plugin/Field/FieldType/TextItem.php:8
+msgid "Text (formatted)"
+msgstr "Text (formatiert)"
+
+#: src/Plugin/Field/FieldType/TextItem.php:8
+msgid "This field stores a text with a text format."
+msgstr "Dieses Feld speichert einen Text mit einem Textformt."
+
+#: src/Plugin/Field/FieldType/TextItemBase.php:28
+msgid "Processed text"
+msgstr "Verarbeiteter Text"
+
+#: src/Plugin/Field/FieldType/TextItemBase.php:29
+msgid "The text with the text format applied."
+msgstr "Der Text mit dem zugewiesenen Textformat."
+
+#: src/Plugin/Field/FieldType/TextLongItem.php:7
+msgid "Text (formatted, long)"
+msgstr "Text (formatiert, lang)"
+
+#: src/Plugin/Field/FieldType/TextLongItem.php:7
+msgid "This field stores a long text with a text format."
+msgstr "Dieses Feld speichert einen langen Text mit einem Textformat."
+
+#: src/Plugin/Field/FieldType/TextWithSummaryItem.php:42
+msgid "Processed summary"
+msgstr "Verarbeitete Zusammenfassung"
+
+#: src/Plugin/Field/FieldType/TextWithSummaryItem.php:43
+msgid "The summary text with the text format applied."
+msgstr "Die Zusammenfassung mit dem verwendeten Textformat."
+
+#: src/Plugin/Field/FieldType/TextWithSummaryItem.php:95
+msgid "This allows authors to input an explicit summary, to be displayed instead of the automatically trimmed text when using the \"Summary or trimmed\" display type."
+msgstr "Dies erlaubt Autoren, eine explizite Zusammenfassung einzugeben, anstatt des automatisch gekürzten Textes, wenn der Anrisstext angezeigt wird."
+
+#: src/Plugin/Field/FieldType/TextWithSummaryItem.php:9
+msgid "Text (formatted, long, with summary)"
+msgstr "Text (formatiert, lang, mit Zusammenfassung)"
+
+#: src/Plugin/Field/FieldType/TextWithSummaryItem.php:9
+msgid "This field stores long text with a format and an optional summary."
+msgstr "Dieses Feld speichert langen Text mit einem Format und einer optionalen Zusammenfassung."
+
+#: src/Plugin/Field/FieldWidget/TextareaWidget.php:28
+msgid "Text editors (like CKEditor) may override this setting."
+msgstr "Texteditoren (wie der CKEditor) übersteuern diese Einstellung eventuell."
+
+#: src/Plugin/Field/FieldWidget/TextareaWidget.php:10
+msgid "Text area (multiple rows)"
+msgstr "Textfeld (mehrere Zeilen)"
+
+#: src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php:40
+msgid "Summary rows"
+msgstr "Zeilen für den Anrisstext"
+
+#: src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php:55
+msgid "Number of summary rows: @rows"
+msgstr "Anzahl der Zeilen für die Zusammenfassung: @rows"
+
+#: src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php:72
+msgid "Leave blank to use trimmed value of full text as the summary."
+msgstr "Leer lassen, um die gekürzte Version des ganzen Textes als Zusammenfassung zu verwenden."
+
+#: src/Plugin/Field/FieldWidget/TextareaWithSummaryWidget.php:9
+msgid "Text area with a summary"
+msgstr "Textbereich mit einer Zusammenfassung"
+
+#: src/Plugin/Field/FieldWidget/TextfieldWidget.php:10
+msgid "Text field"
+msgstr "Textfeld"
+

@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   enforced:
@@ -6,9 +6,9 @@ dependencies:
       - degov_image_and_crop_styles
   module:
     - degov_auto_crop
-label: '8 zu 3'
+label: '8 by 3'
 id: 8_to_3
-description: '8:3 Bildzuschnitt, z.B. für Teaser Landscape Small'
+description: '8:3 crop, e.g. for Teaser landscape small'
 aspect_ratio: '8:3'
 soft_limit_width: 480
 soft_limit_height: 180

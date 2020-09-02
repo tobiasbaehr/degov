@@ -1,0 +1,380 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  menu_link_content.post_update.php: n/a
+#  menu_link_content.module: n/a
+#  menu_link_content.install: n/a
+#  menu_link_content.info.yml: n/a
+#  menu_link_content.links.task.yml: n/a
+#  menu_link_content.routing.yml: n/a
+#  src/Entity/MenuLinkContent.php: n/a
+#  src/Plugin/migrate/source/MenuLink.php: n/a
+#  src/Form/MenuLinkContentDeleteForm.php: n/a
+#  src/Form/MenuLinkContentForm.php: n/a
+#  src/Plugin/Validation/Constraint/MenuTreeHierarchyConstraint.php: n/a
+#  src/Plugin/migrate/source/d6/MenuLinkTranslation.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: menu_link_content.post_update.php:102
+msgid "Custom menu links have been converted to be revisionable."
+msgstr "Benutzerdefinierte Menülinks wurden zu revisionierbar umgestellt."
+
+#: menu_link_content.post_update.php:51
+msgid "Revision ID"
+msgstr "Revisions-ID"
+
+#: menu_link_content.post_update.php:59
+msgid "Default revision"
+msgstr "Standard-Revision"
+
+#: menu_link_content.post_update.php:60
+msgid "A flag indicating whether this was a default revision when it was saved."
+msgstr "Eine Kennzeichnung, die angibt, ob dies die Standardrevision zum Zeitpunkt des Speicherns war oder nicht."
+
+#: menu_link_content.post_update.php:70
+msgid "Revision translation affected"
+msgstr "Auswirkung auf die Übersetzung der Revision"
+
+#: menu_link_content.post_update.php:71
+msgid "Indicates if the last edit of a translation belongs to current revision."
+msgstr "Zeigt an, ob die letzte Bearbeitung einer Übersetzung der aktuellen Revision entspricht."
+
+#: menu_link_content.post_update.php:80
+msgid "Revision create time"
+msgstr "Erstellungsdatum der Revision"
+
+#: menu_link_content.post_update.php:81
+msgid "The time that the current revision was created."
+msgstr "Der Zeitpunkt, an dem die aktuelle Revision erstellt wurde."
+
+#: menu_link_content.post_update.php:87
+msgid "Revision user"
+msgstr "Revisionsbenutzer"
+
+#: menu_link_content.post_update.php:88
+msgid "The user ID of the author of the current revision."
+msgstr "Die Benutzerkennung des Autors der aktuellen Revision."
+
+#: menu_link_content.post_update.php:95
+msgid "Revision log message"
+msgstr "Protokollnachricht der Revision"
+
+#: menu_link_content.post_update.php:96
+msgid "Briefly describe the changes you have made."
+msgstr "Die vorgenommenen Änderungen kurz beschreiben."
+
+#: menu_link_content.module:20
+msgid "About"
+msgstr "Über"
+
+#: menu_link_content.module:21
+msgid "The Custom Menu Links module allows users to create menu links. These links can be translated if multiple languages are used for the site."
+msgstr "Das Custom-Menu-Links-Modul ermöglicht Benutzern das Erstellen von Menü-Links. Diese Links können übersetzt werden wenn mehrere Sprachen auf der Seite verwendet werden."
+
+#: menu_link_content.module:23
+msgid "It is required by the Menu UI module, which provides an interface for managing menus and menu links. For more information, see the <a href=\":menu-help\">Menu UI module help page</a> and the <a href=\":drupal-org-help\">online documentation for the Custom Menu Links module</a>."
+msgstr "Die ist eine Anforderung des Menu-UI-Moduls. Das Menu-UI-Modul stellt eine Benutzeroberfläche zum übertragen von Menü-Links und Menüs zur Verfügung. Weitere Informationen sind in der <a href=\":menu-help\">Menu-UI-Hilfe</a> und der <a href=\":drupal-org-help\">Online-Dokumentation des Custom-Menu-Links-Moduls</a> verfügbar."
+
+#: menu_link_content.module:26
+msgid "For more information, see the <a href=\":drupal-org-help\">online documentation for the Custom Menu Links module</a>. If you enable the Menu UI module, it provides an interface for managing menus and menu links."
+msgstr "Weitere Informationen sind in der <a href=\":drupal-org-help\">Online-Dokumentation des Custom- Menu-Links-Moduls</a> verfügbar. Wird das Menu-UI-Modul aktiviert bietet dieses eine Benutzeroberfläche, zum Verwalten von Menüs und Menülinks."
+
+#: menu_link_content.install:43
+msgid "The publishing status entity key has been added to custom menu links."
+msgstr "Der Schlüsselwert für den Veröffentlichungsstatus der Entität wurde zu den benutzerdefinierten Menülinks hinzugefügt."
+
+#: menu_link_content.info.yml:0
+msgid "Custom Menu Links"
+msgstr "Benutzerdefinierte Menülinks"
+
+#: menu_link_content.info.yml:0
+msgid "Allows administrators to create custom menu links."
+msgstr "Erlaubt Administratoren das Erstellen benutzerdefinierter Menülinks."
+
+#: menu_link_content.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: menu_link_content.links.task.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: menu_link_content.routing.yml:0
+msgid "Add menu link"
+msgstr "Menülink hinzufügen"
+
+#: menu_link_content.routing.yml:0;0
+msgid "Edit menu link"
+msgstr "Menüpunkt bearbeiten"
+
+#: menu_link_content.routing.yml:0
+msgid "Delete menu link"
+msgstr "Menüpunkt entfernen"
+
+#: src/Entity/MenuLinkContent.php:274
+msgid "Entity ID"
+msgstr "Entitäts-ID"
+
+#: src/Entity/MenuLinkContent.php:275
+msgid "The entity ID for this menu link content entity."
+msgstr "Die Entitäts-ID dieses Menüllinks"
+
+#: src/Entity/MenuLinkContent.php:277
+msgid "The content menu link UUID."
+msgstr "Die UUID des Inhaltsmenülinks"
+
+#: src/Entity/MenuLinkContent.php:279
+msgid "The menu link language code."
+msgstr "Das Sprachkürzel des Menü-Links."
+
+#: src/Entity/MenuLinkContent.php:282
+msgid "The content menu link bundle."
+msgstr "Der Subtyp des Links im Inhaltsmenü."
+
+#: src/Entity/MenuLinkContent.php:287
+msgid "Menu link title"
+msgstr "Linktitel des Menüpunkts"
+
+#: src/Entity/MenuLinkContent.php:288
+msgid "The text to be used for this link in the menu."
+msgstr "Der Link-Anzeigetext für die Verwendung im Menü."
+
+#: src/Entity/MenuLinkContent.php:305
+msgid "Description"
+msgstr "Description"
+
+#: src/Entity/MenuLinkContent.php:306
+msgid "Shown when hovering over the menu link."
+msgstr "Wird beim Schweben über dem Menülink angezeigt."
+
+#: src/Entity/MenuLinkContent.php:321
+msgid "Menu name"
+msgstr "Menüname"
+
+#: src/Entity/MenuLinkContent.php:322
+msgid "The menu name. All links with the same menu name (such as \"tools\") are part of the same menu."
+msgstr "Der Menüname. Alle Links mit dem selben Menünamen, wie beispielsweise „Werkzeuge“, sind Teil des selben Menüs."
+
+#: src/Entity/MenuLinkContent.php:327
+msgid "Link"
+msgstr "Link"
+
+#: src/Entity/MenuLinkContent.php:328
+msgid "The location this menu link points to."
+msgstr "Das Ziel, auf das dieser Menü-Link verweist."
+
+#: src/Entity/MenuLinkContent.php:341
+msgid "External"
+msgstr "Extern"
+
+#: src/Entity/MenuLinkContent.php:342 src/Plugin/migrate/source/MenuLink.php:53
+msgid "A flag to indicate if the link points to a full URL starting with a protocol, like http:// (1 = external, 0 = internal)."
+msgstr "Ein Wert, der angibt, ob der Link auf eine vollständige URL verweist, der mit einem Protokoll, wie http://, beginnt. (1=extern 0=intern)."
+
+#: src/Entity/MenuLinkContent.php:347
+msgid "Indicates whether the menu link should be rediscovered"
+msgstr "Legt fest, ob der Menülink neu verarbeitet werden soll."
+
+#: src/Entity/MenuLinkContent.php:351
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Entity/MenuLinkContent.php:352
+msgid "Link weight among links in the same menu at the same depth. In the menu, the links with high weight will sink and links with a low weight will be positioned nearer the top."
+msgstr "Gewichtung der Links auf einer Menüebene. Ein Link mit höherer Gewichtung wird weiter unten angezeigt, einer mit geringerer Gewichtung weiter oben."
+
+#: src/Entity/MenuLinkContent.php:365
+msgid "Show as expanded"
+msgstr "Als ausgeklappt anzeigen"
+
+#: src/Entity/MenuLinkContent.php:366
+msgid "If selected and this menu link has children, the menu will always appear expanded. This option may be overridden for the entire menu tree when placing a menu block."
+msgstr "Wenn diese Option ausgewählt ist und dieser Menülink untergeordnete Elemente besitzt, wird das Menü immer ausgeklappt angezeigt. Diese Option kann beim Platzieren eines Menüblocks für den gesamten Menübaum übersteuert werden."
+
+#: src/Entity/MenuLinkContent.php:380
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/Entity/MenuLinkContent.php:381
+msgid "A flag for whether the link should be enabled in menus or hidden."
+msgstr "Eine Kennzeichnung, die angibt, ob der Link in Menüs angezeigt oder ausgeblendet werden soll."
+
+#: src/Entity/MenuLinkContent.php:394
+msgid "Parent plugin ID"
+msgstr "ID des übergeordneten Plugins"
+
+#: src/Entity/MenuLinkContent.php:395
+msgid "The ID of the parent menu link plugin, or empty string when at the top level of the hierarchy."
+msgstr "Die ID des übergeordneten Menülinks oder eine leere Zeichenfolge, wenn es sich um den obersten Eintrag in der Hierarchie handelt."
+
+#: src/Entity/MenuLinkContent.php:398
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/MenuLinkContent.php:399
+msgid "The time that the menu link was last edited."
+msgstr "Der Zeitpunkt an dem der Menülink zuletzt bearbeitete wurde."
+
+#: src/Entity/MenuLinkContent.php:12
+msgid "Custom menu link"
+msgstr "Benutzerdefinierter Menülink"
+
+#: src/Entity/MenuLinkContent.php:12
+msgid "Custom menu links"
+msgstr "Benutzerdefinierte Menülinks"
+
+#: src/Entity/MenuLinkContent.php:12
+msgid "custom menu link"
+msgstr "Benutzerdefinierter Menülink"
+
+#: src/Entity/MenuLinkContent.php:12
+msgid "custom menu links"
+msgstr "Benutzerdefinierte Menülinks"
+
+#: src/Form/MenuLinkContentDeleteForm.php:36
+msgid "The menu link %title has been deleted."
+msgstr "Der Menüeintrag %title wurde gelöscht."
+
+#: src/Form/MenuLinkContentForm.php:89
+msgid "Parent link"
+msgstr "Übergeordneter Link"
+
+#: src/Form/MenuLinkContentForm.php:90
+msgid "The maximum depth for a link and all its children is fixed. Some menu links may not be available as parents if selecting them would exceed this limit."
+msgstr "Die maximale Verschachtelungstiefe ist begrenzt. Manche Menülinks sind möglicherweise nicht als übergeordnete Links verfügbar, wenn deren Auswahl diese Grenze überschreiten würde."
+
+#: src/Form/MenuLinkContentForm.php:132
+msgid "The menu link has been saved."
+msgstr "Der Menülink wurde gespeichert."
+
+#: src/Plugin/Validation/Constraint/MenuTreeHierarchyConstraint.php:7
+msgctxt "Validation"
+msgid "Menu tree hierarchy."
+msgstr "Menübaumhierarchie"
+
+#: src/Plugin/Validation/Constraint/MenuTreeHierarchyConstraint.php:22
+msgid "You can only change the hierarchy for the <em>published</em> version of this menu link."
+msgstr "Nur die Hierarchie für die <em>veröffentlichte</em> Version dieses Menü-Links kann geändert werden."
+
+#: src/Plugin/migrate/source/MenuLink.php:44
+msgid "The menu name. All links with the same menu name (such as 'navigation') are part of the same menu."
+msgstr "Der Menüname. Alle Links mit dem selben Menünamen (wie z. B. ‚Navigation‘) sind Teil des selben Menüs."
+
+#: src/Plugin/migrate/source/MenuLink.php:45
+msgid "The menu link ID (mlid) is the integer primary key."
+msgstr "Die Menülink-ID (mlid) ist eine Ganzzahl und der Primärschlüssel."
+
+#: src/Plugin/migrate/source/MenuLink.php:46
+msgid "The parent link ID (plid) is the mlid of the link above in the hierarchy, or zero if the link is at the top level in its menu."
+msgstr "Die ID des übergeordneten Links (plid) ist die mlid des Links, der sich eine Ebene höher in der Hierarchie befindet, oder null, wenn sich der Link auf der höchsten Ebene im betreffenden Menü befindet."
+
+#: src/Plugin/migrate/source/MenuLink.php:47
+msgid "The Drupal path or external path this link points to."
+msgstr "Der Drupal-Pfad oder der externe Pfad, auf den dieser Link verweist."
+
+#: src/Plugin/migrate/source/MenuLink.php:48
+msgid "For links corresponding to a Drupal path (external = 0), this connects the link to a {menu_router}.path for joins."
+msgstr "Für Links, die einem Drupal-Pfad entsprechen (extern = 0), verbindet dies den Link mit einem {menu_router}.path für Joins."
+
+#: src/Plugin/migrate/source/MenuLink.php:49
+msgid "The text displayed for the link, which may be modified by a title callback stored in {menu_router}."
+msgstr "Der für den Link angezeigte Text, der durch einen Titel-Callback, der im {menu_router} gespeichert ist, geändert werden kann."
+
+#: src/Plugin/migrate/source/MenuLink.php:50
+msgid "A serialized array of options to set on the URL, such as a query string or HTML attributes."
+msgstr "Ein serialisierter Array mit Optionswerten, wie Parametern oder Eigenschaftswerten, die auf die URL angewendet werden sollen."
+
+#: src/Plugin/migrate/source/MenuLink.php:51
+msgid "The name of the module that generated this link."
+msgstr "Der Name des Moduls, das diesen Link erzeugt hat."
+
+#: src/Plugin/migrate/source/MenuLink.php:52
+msgid "A flag for whether the link should be rendered in menus. (1 = a disabled menu item that may be shown on admin screens, -1 = a menu callback, 0 = a normal, visible link)"
+msgstr "Ein Wert, der angibt, ob der Link in Menüs angezeigt werden soll. (1=Ein deaktivierter Menüeintrag, der im Administrationsbereich angezeigt werden kann, -1=Ein Menü-Callback, 0=Ein normaler Link)"
+
+#: src/Plugin/migrate/source/MenuLink.php:54
+msgid "Flag indicating whether any links have this link as a parent (1 = children exist, 0 = no children)."
+msgstr "Ein Wert, der angibt, ob dieser Link einem anderen Link übergeordnet ist oder nicht. (1 = Untergeordnete Links existieren, 0 = Diesem Link sind keine Links untergeordnet)."
+
+#: src/Plugin/migrate/source/MenuLink.php:55
+msgid "Flag for whether this link should be rendered as expanded in menus - expanded links always have their child links displayed, instead of only when the link is in the active trail (1 = expanded, 0 = not expanded)"
+msgstr "Ein Wert der angibt, ob ein Link im Menü als ausgeklappt angezeigt werden soll. Ausgeklappte Links zeigen immer alle Links an, die einem ausgeklappten Menülink untergeordnet sind. Das Bedeutet, dass das Untermenü unter dem jeweiligen Link nicht nur dann angezeigt wird, wenn der Link angeklickt wurde, sondern, dass die Links dauerhaft eingeblendet werden (1=ausgeklappt, 0=nicht ausgeklappt)."
+
+#: src/Plugin/migrate/source/MenuLink.php:56
+msgid "Link weight among links in the same menu at the same depth."
+msgstr "Linkgewichtung im Vergleich zu anderen Links im selben Menü in derselben Verschachtelungstiefe."
+
+#: src/Plugin/migrate/source/MenuLink.php:57
+msgid "The depth relative to the top level. A link with plid == 0 will have depth == 1."
+msgstr "Die Tiefe relativ zur höchsten Ebene. Ein Link mit plid == 0 hat die Tiefe == 1."
+
+#: src/Plugin/migrate/source/MenuLink.php:58
+msgid "A flag to indicate that the user has manually created or edited the link (1 = customized, 0 = not customized)."
+msgstr "Ein Wert, der angibt, dass der Benutzer den Link manuell erstellt oder bearbeitet hat (1 = benutzerdefiniert 0 = nicht benutzerdefiniert)."
+
+#: src/Plugin/migrate/source/MenuLink.php:59
+msgid "The first mlid in the materialized path. If N = depth, then pN must equal the mlid. If depth > 1 then p(N-1) must equal the plid. All pX where X > depth must equal zero. The columns p1 .. p9 are also called the parents."
+msgstr "Die erste mlid im einbezogenen Pfad. Wenn N = Tiefe, muss pN gleich die mlid sein. Wenn die Tiefe > 1 ist, muss p(N-1) gleich der plid sein. Alle pX, bei denen X > Tiefe ist, müssen gleich null sein. Die Spalten p1 .. p9 werden auch als übergeordnete Elemente bezeichnet."
+
+#: src/Plugin/migrate/source/MenuLink.php:60
+msgid "The second mlid in the materialized path. See p1."
+msgstr "Die zweite mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:61
+msgid "The third mlid in the materialized path. See p1."
+msgstr "Die dritte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:62
+msgid "The fourth mlid in the materialized path. See p1."
+msgstr "Die vierte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:63
+msgid "The fifth mlid in the materialized path. See p1."
+msgstr "Die fünfte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:64
+msgid "The sixth mlid in the materialized path. See p1."
+msgstr "Die sechste mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:65
+msgid "The seventh mlid in the materialized path. See p1."
+msgstr "Die siebte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:66
+msgid "The eighth mlid in the materialized path. See p1."
+msgstr "Die achte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:67
+msgid "The ninth mlid in the materialized path. See p1."
+msgstr "Die neunte mlid im materialisierten Pfad. Siehe p1."
+
+#: src/Plugin/migrate/source/MenuLink.php:68
+msgid "Flag that indicates that this link was generated during the update from Drupal 5."
+msgstr "Ein Wert, der angibt, dass dieser Link während der Aktualisierung von Drupal 5 auf Drupal 8 erzeugt wurde."
+
+#: src/Plugin/migrate/source/d6/MenuLinkTranslation.php:77
+msgid "Language for this menu."
+msgstr "Sprache für dieses Menü."
+
+#: src/Plugin/migrate/source/d6/MenuLinkTranslation.php:78
+msgid "Menu link title translation."
+msgstr "Übersetzung des Linktitels."
+
+#: src/Plugin/migrate/source/d6/MenuLinkTranslation.php:79
+msgid "Menu link description translation."
+msgstr "Übersetzung der Beschreibung des Menülinks."
+

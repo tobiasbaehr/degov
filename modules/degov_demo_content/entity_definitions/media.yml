@@ -102,23 +102,14 @@ address_1:
   name: 'Publicplan Address'
   field_address_address:
     country_code: 'DE'
-    organization: 'publicplan GmbH'
     address_line1: 'Kennedydamm 24'
-    address_line2: 'Test second address line'
     postal_code: 40476
     locality: 'Düsseldorf'
   field_address_location:
     lon: '6.7712'
     lat: '51.2469'
-  field_address_title: 'Vivamus sagittis dolor auctor.'
-  field_address_phone: '0123456789'
-  field_address_fax: '0123456789'
-  field_address_email: 'admin@example.com'
   status: 1
   field_include_search: 1
-  field_address_link:
-    uri: https://example.com
-    title: Example.com
 address_2:
   bundle: 'address'
   name: 'GzevD Address'

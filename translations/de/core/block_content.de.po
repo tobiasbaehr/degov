@@ -1,0 +1,514 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  block_content.module: n/a
+#  block_content.install: n/a
+#  src/Entity/BlockContent.php: n/a
+#  block_content.info.yml: n/a
+#  src/Plugin/views/wizard/BlockContent.php: n/a
+#  block_content.links.action.yml: n/a
+#  src/BlockContentTypeForm.php: n/a
+#  block_content.routing.yml: n/a
+#  block_content.links.contextual.yml: n/a
+#  block_content.links.task.yml: n/a
+#  src/Entity/BlockContentType.php: n/a
+#  config/optional/views.view.block_content.yml: n/a
+#  config/schema/block_content.schema.yml: n/a
+#  src/BlockContentTypeListBuilder.php: n/a
+#  src/BlockContentForm.php: n/a
+#  src/BlockContentListBuilder.php: n/a
+#  src/BlockContentTranslationHandler.php: n/a
+#  src/BlockContentViewsData.php: n/a
+#  src/Controller/BlockContentController.php: n/a
+#  src/Plugin/Block/BlockContentBlock.php: n/a
+#  src/Form/BlockContentDeleteForm.php: n/a
+#  src/Form/BlockContentTypeDeleteForm.php: n/a
+#  src/Plugin/migrate/source/d6/Box.php: n/a
+#  src/Plugin/migrate/source/d7/BlockCustom.php: n/a
+#  src/Plugin/migrate/source/d7/BlockCustomTranslation.php: n/a
+#  src/Plugin/views/area/ListingEmpty.php: n/a
+#  config/install/core.entity_view_mode.block_content.full.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: block_content.module:24
+msgid "About"
+msgstr "Über"
+
+#: block_content.module:25
+msgid "The Custom Block module allows you to create and manage custom <em>block types</em> and <em>content-containing blocks</em> from the <a href=\":block-library\">Custom block library</a> page. Custom block types have fields; see the <a href=\":field-help\">Field module help</a> for more information. Once created, custom blocks can be placed in regions just like blocks provided by other modules; see the <a href=\":blocks\">Block module help</a> page for details. For more information, see the <a href=\":online-help\">online documentation for the Custom Block module</a>."
+msgstr "Das Custom-Block-Modul das Erstellen und Verwalten von benutzerdefinierten<em>Blocktypen</em> sowie von<em>Mit Inhalt gefüllten Blöcken</em> direkt aus der <a href=\":block-library\">Bibliothek benutzerdefinierter Blöcke</a> heraus. Benutzerdefinierte Blocktypen bestehen aus Feldern. In der <a href=\":field-help\">Hilfe des Feld-Moduls</a> sind weitere Informationen verfügbar. Einmal erstellte benutzerdefinierte Blöcke können genauso in den verschiedenen Regionen eines Themes platziert werden, wie Blöcke, die von anderen Modulen bereitgestellt werden. Weitere Informationen zum Thema Blöcke sind in der <a href=\":blocks\">Hilfe des Block-Moduls</a> verfügbar. Ausführlichere Informationen  sind in der <a href=\":online-help\">Online-Dokumentation des Block-Moduls</a> vorhanden."
+
+#: block_content.module:26
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: block_content.module:28
+msgid "Creating and managing custom block types"
+msgstr "Benutzerdefinierte Blocktypen erstellen und verwalten"
+
+#: block_content.module:29
+msgid "Users with the <em>Administer blocks</em> permission can create and edit custom block types with fields and display settings, from the <a href=\":types\">Block types</a> page in the Custom block library. For more information about managing fields and display settings, see the <a href=\":field-ui\">Field UI module help</a>."
+msgstr "Benutzer mit der Berechtigung <em>Blöcke verwalten</em> können auf der Seite <a href=\":types\">Block-Typen</a> innerhalb der Bibliothek für benutzerdefinierte Blöcke neue Block-Typen inklusive Feld- und Anzeigeeinstellungen erstellen und bearbeiten. Weitere Informationen über das Verwalten von Feld- und Anzeigeeinstellungen sind in der <a href=\":field-ui\">Hilfe des Field UI-Moduls</a> verfügbar."
+
+#: block_content.module:30
+msgid "Creating custom blocks"
+msgstr "Benutzerdefinierte Blöcke anlegen"
+
+#: block_content.module:31
+msgid "Users with the <em>Administer blocks</em> permission can create, edit, and delete custom blocks of each defined custom block type, from the <a href=\":block-library\">Blocks</a> page in the Custom block library. After creating a block, place it in a region from the <a href=\":blocks\">Block layout</a> page; see the <a href=\":block_help\">Block module help</a> for more information about placing blocks."
+msgstr "Benutzer, die über die Berechtigung <em>Blöcke verwalten</em> verfügen, können benutzerdefinierte Blöcke jedes benutzerdefinierten Block-Typs in der Blockbibliothek über die Seite <a href=\":block-library\">Blöcke</a> erstellen, bearbeiten und löschen. Nachdem Sie einen Block erstellt haben, kann er in einer Region des <a href=\":blocks\">Block-layouts</a> Seite platziert werden. Lesen Sie die <a href=\":block_help\">Hilfe des Block-Moduls</a>, um weitere Informationen zum Platzieren von Blöcken zu erhalten."
+
+#: block_content.module:36
+msgid "Blocks in the block library belong to <a href=\":types\">Custom block types</a>, each with its own fields and display settings. After creating a block, place it in a region from the <a href=\":blocks\">Block layout</a> page."
+msgstr "Innerhalb der Bibliothek gehören Blöcke zu den <a href=\":types\">benutzerdefinierten Block-Typen</a>; jeder mit eigenen Feldern sowie Anzeigeeinstellungen. Nach dem Erstellen eines Blocks, kann dieser auf der Seite <a href=\":blocks\">Block-Layout</a> in der gewünschten Region platziert werden."
+
+#: block_content.module:40
+msgid "Each block type has its own fields and display settings. Create blocks of each type on the <a href=\":block-library\">Blocks</a> page in the custom block library."
+msgstr "Jeder Blocktyp hat seine eigenen Felder  und  seine eigenen Anzeigeeinstellunen. Blöcke eines beliebigen Typs können auf der <a href=\":block-library\">Block</a>-Seite in der Bibliothek für benutzerdefinierter Blöcke erstellt werden."
+
+#: block_content.install:23
+msgid "Revision translation affected"
+msgstr "Auswirkung auf die Übersetzung der Revision"
+
+#: block_content.install:24
+msgid "Indicates if the last edit of a translation belongs to current revision."
+msgstr "Zeigt an, ob die letzte Bearbeitung einer Übersetzung der aktuellen Revision entspricht."
+
+#: block_content.install:49
+msgid "Revision create time"
+msgstr "Erstellungsdatum der Revision"
+
+#: block_content.install:50
+msgid "The time that the current revision was created."
+msgstr "Der Zeitpunkt, an dem die aktuelle Revision erstellt wurde."
+
+#: block_content.install:57
+msgid "Revision user"
+msgstr "Revisionsbenutzer"
+
+#: block_content.install:58
+msgid "The user ID of the author of the current revision."
+msgstr "Die Benutzerkennung des Autors der aktuellen Revision."
+
+#: block_content.install:131 src/Entity/BlockContent.php:216
+msgid "Reusable"
+msgstr "Wiederverwendbar"
+
+#: block_content.install:132 src/Entity/BlockContent.php:217
+msgid "A boolean indicating whether this block is reusable."
+msgstr "Ein Boolescher Wert, der angibt, ob dieser Block wiederverwendbar ist oder nicht."
+
+#: block_content.install:91
+msgid "Publishing status"
+msgstr "Veröffentlichungsstatus"
+
+#: block_content.install:92
+msgid "A boolean indicating the published state."
+msgstr "Ein boolescher Wert, der angibt, ob ein Inhalt veröffentlicht ist oder nicht."
+
+#: block_content.info.yml:0 src/Plugin/views/wizard/BlockContent.php:7
+msgid "Custom Block"
+msgstr "Benutzerdefinierter Block"
+
+#: block_content.info.yml:0
+msgid "Allows the creation of custom blocks through the user interface."
+msgstr "Ermöglicht das Erstellen von benutzerdefinierten Blöcken mit Hilfe der Benutzeroberfläche."
+
+#: block_content.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: block_content.links.action.yml:0 src/BlockContentTypeForm.php:27
+msgid "Add custom block type"
+msgstr "Benutzerdefinierten Block-Typ hinzufügen"
+
+#: block_content.links.action.yml:0 block_content.routing.yml:0
+msgid "Add custom block"
+msgstr "Benutzerdefinierten Block hinzufügen"
+
+#: block_content.links.contextual.yml:0;0 block_content.links.task.yml:0;0 src/BlockContentTypeForm.php:100
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: block_content.links.task.yml:0 block_content.routing.yml:0 src/Entity/BlockContentType.php:8 config/optional/views.view.block_content.yml:0;0;0
+msgid "Custom block library"
+msgstr "Bibliothek benutzerdefinierter Blöcke"
+
+#: block_content.links.task.yml:0
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: block_content.links.task.yml:0
+msgid "Block types"
+msgstr "Block-Typen"
+
+#: block_content.links.task.yml:0 block_content.routing.yml:0
+msgid "Delete"
+msgstr "Löschen"
+
+#: block_content.routing.yml:0
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: config/schema/block_content.schema.yml:0
+msgid "Custom block type settings"
+msgstr "Einstellungen für benutzerdefinierte Blöcke"
+
+#: config/schema/block_content.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/block_content.schema.yml:0 src/BlockContentTypeForm.php:59
+msgid "Create new revision"
+msgstr "Neue Revision erstellen"
+
+#: config/schema/block_content.schema.yml:0 src/BlockContentTypeForm.php:54 src/BlockContentTypeListBuilder.php:33
+msgid "Description"
+msgstr "Description"
+
+#: src/BlockContentForm.php:32
+msgid "Edit custom block %label"
+msgstr "Den benutzerdefinierten Block %label bearbeiten"
+
+#: src/BlockContentForm.php:57
+msgid "@type %info has been created."
+msgstr "@type %info wurde erstellt."
+
+#: src/BlockContentForm.php:61
+msgid "@type %info has been updated."
+msgstr "@type %info wurde aktualisiert."
+
+#: src/BlockContentForm.php:86
+msgid "The block could not be saved."
+msgstr "Der Block konnte nicht gespeichert werden."
+
+#: src/BlockContentForm.php:56
+msgid "@type: added %info."
+msgstr "@type: %info wurde hinzugefügt."
+
+#: src/BlockContentForm.php:60
+msgid "@type: updated %info."
+msgstr "@type: %info wurde aktualisiert."
+
+#: src/BlockContentListBuilder.php:19 src/Entity/BlockContent.php:197 config/optional/views.view.block_content.yml:0;0
+msgid "Block description"
+msgstr "Blockbeschreibung"
+
+#: src/BlockContentTranslationHandler.php:19
+msgid "<em>Edit @type</em> @title"
+msgstr "<em>@type bearbeiten</em> @title"
+
+#: src/BlockContentTypeForm.php:30
+msgid "Edit %label custom block type"
+msgstr "Benutzerdefinierten Block-Typ %label bearbeiten"
+
+#: src/BlockContentTypeForm.php:35
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/BlockContentTypeForm.php:38
+msgid "Provide a label for this block type to help identify it in the administration pages."
+msgstr "Eine Beschriftung für diesen Block angeben, damit er im Verwaltungsbereich identifiziert werden kann."
+
+#: src/BlockContentTypeForm.php:53
+msgid "Enter a description for this block type."
+msgstr "Eine Beschreibung für diesen Blocktyp eingeben."
+
+#: src/BlockContentTypeForm.php:61
+msgid "Create a new revision by default for this block type."
+msgstr "Standardmäßig für diesen Blocktyp eine neue Revision erstellen"
+
+#: src/BlockContentTypeForm.php:67
+msgid "Language settings"
+msgstr "Spracheinstellungen"
+
+#: src/BlockContentTypeForm.php:87
+msgid "Save"
+msgstr "Speichern"
+
+#: src/BlockContentTypeForm.php:103;104
+msgid "Custom block type %label has been updated."
+msgstr "Ein benutzerdefinierter Block vom Typ %label wurde aktualisiert."
+
+#: src/BlockContentTypeForm.php:108;109
+msgid "Custom block type %label has been added."
+msgstr "Benutzerdefinierter Block-Typ %label wurde hinzugefügt."
+
+#: src/BlockContentTypeListBuilder.php:32 src/Entity/BlockContent.php:191 config/optional/views.view.block_content.yml:0;0
+msgid "Block type"
+msgstr "Blocktyp"
+
+#: src/BlockContentTypeListBuilder.php:50 src/Entity/BlockContentType.php:8
+msgid "Custom block types"
+msgstr "Benutzerdefinierte Block-Typen"
+
+#: src/BlockContentViewsData.php:29
+msgid "Empty block library behavior"
+msgstr "Verhalten bei leerer Block-Bibliothek"
+
+#: src/BlockContentViewsData.php:30
+msgid "Provides a link to add a new block."
+msgstr "Stellt einen Link zur Erstellung eines neuen Blocks bereit."
+
+#: src/BlockContentViewsData.php:36
+msgid "Block Content revision is a history of changes to block content."
+msgstr "Eine Revision des Block-Inhalts ist eine Liste von Änderungen am Inhalt des Blocks"
+
+#: src/BlockContentViewsData.php:44;50
+msgid "Block Content"
+msgstr "Blockinhalt"
+
+#: src/BlockContentViewsData.php:45;51
+msgid "Get the actual block content from a block content revision."
+msgstr "Den tatsächlichen Inhalt des Blocks von einer Blockrevision beziehen."
+
+#: src/Controller/BlockContentController.php:83
+msgid "You have not created any block types yet. Go to the <a href=\":url\">block type creation page</a> to add a new block type."
+msgstr "Bislang sind keine benutzerdefinierten Blöcke erstellt worden. <a href=\":url\">Benutzerdefinierten Block hinzufügen</a>."
+
+#: src/Controller/BlockContentController.php:127
+msgid "Add %type custom block"
+msgstr "%type Custom block hinzufügen"
+
+#: src/Entity/BlockContent.php:182
+msgid "Custom block ID"
+msgstr "ID des benutzerdefinierten Blocks"
+
+#: src/Entity/BlockContent.php:183
+msgid "The custom block ID."
+msgstr "Die ID des benutzerdefinierten Blocks."
+
+#: src/Entity/BlockContent.php:185
+msgid "The custom block UUID."
+msgstr "Die UUID des benutzerdefinierten Blocks."
+
+#: src/Entity/BlockContent.php:187
+msgid "The revision ID."
+msgstr "Versions-ID."
+
+#: src/Entity/BlockContent.php:189
+msgid "The custom block language code."
+msgstr "Das Sprachkürzel des benutzerdefinierten Blocks."
+
+#: src/Entity/BlockContent.php:192
+msgid "The block type."
+msgstr "Der Typ des Blocks."
+
+#: src/Entity/BlockContent.php:194
+msgid "The log entry explaining the changes in this revision."
+msgstr "Protokolleintrag, der die Änderungen dieser Revision erklärt"
+
+#: src/Entity/BlockContent.php:198
+msgid "A brief description of your block."
+msgstr "Eine kurze Beschreibung des Blocks."
+
+#: src/Entity/BlockContent.php:210
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/BlockContent.php:211
+msgid "The time that the custom block was last edited."
+msgstr "Der Zeitpunkt zu dem der benutzerdefinierte Block zuletzt bearbeitet wurde."
+
+#: src/Entity/BlockContent.php:13 src/Plugin/Block/BlockContentBlock.php:17
+msgid "Custom block"
+msgstr "Benutzerdefinierter Block"
+
+#: src/Entity/BlockContent.php:13
+msgid "Custom blocks"
+msgstr "Benutzerdefinierte Blöcke"
+
+#: src/Entity/BlockContent.php:13
+msgid "custom block"
+msgstr "Benutzerdefinierter Block"
+
+#: src/Entity/BlockContent.php:13
+msgid "custom blocks"
+msgstr "Benutzerdefinierte Blöcke"
+
+#: src/Entity/BlockContent.php:13 src/Entity/BlockContentType.php:8
+msgid "Custom block type"
+msgstr "Benutzerdefinierter Blocktyp"
+
+#: src/Entity/BlockContentType.php:8
+msgid "custom block type"
+msgstr "Benutzerdefinierter Blocktyp"
+
+#: src/Entity/BlockContentType.php:8
+msgid "custom block types"
+msgstr "Benutzerdefinierte Blocktypen"
+
+#: src/Form/BlockContentDeleteForm.php:20
+msgid "This will also remove 1 placed block instance. This action cannot be undone."
+msgid_plural "This will also remove @count placed block instances. This action cannot be undone."
+msgstr[0] "Hierdurch wird auch 1 platzierte Block-Instanz entfernt. Diese Aktion kann nicht rückgängig gemacht werden."
+msgstr[1] "Hierdurch werden auch @count platzierte Block-Instanzen entfernt. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/BlockContentTypeDeleteForm.php:23
+msgid "%label is used by 1 custom block on your site. You can not remove this block type until you have removed all of the %label blocks."
+msgid_plural "%label is used by @count custom blocks on your site. You may not remove %label until you have removed all of the %label custom blocks."
+msgstr[0] "%label wird von einem benutzerdefinierten Block auf Ihrer Website verwendet. Sie können diesen Blocktyp nicht entfernen, bevor Sie alle %label Blöcke entfernt haben."
+msgstr[1] "%label wird von @count benutzerdefinierten Blöcken auf Ihrer Website verwendet. Sie können %label nicht entfernen, bevor Sie alle %label benutzerdefinierten Blöcke entfernt haben."
+
+#: src/Plugin/Block/BlockContentBlock.php:154
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: src/Plugin/Block/BlockContentBlock.php:155
+msgid "Output the block in this view mode."
+msgstr "Den Blocks in diesem Ansichtsmodus ausgeben."
+
+#: src/Plugin/Block/BlockContentBlock.php:159
+msgid "The title of the block as shown to the user."
+msgstr "Der Titel des Blocks, wie er dem Benutzer angezeigt wird."
+
+#: src/Plugin/Block/BlockContentBlock.php:191
+msgid "Block with uuid %uuid does not exist. <a href=\":url\">Add custom block</a>."
+msgstr "Ein Block mit der UUID %uuid ist nicht vorhanden. <a href=\":url\">Benutzerdefinierten Block hinzufügen</a>."
+
+#: src/Plugin/Block/BlockContentBlock.php:17
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: src/Plugin/migrate/source/d6/Box.php:33 src/Plugin/migrate/source/d7/BlockCustom.php:29
+msgid "The numeric identifier of the block/box"
+msgstr "Die numerische ID des Blocks/der Box"
+
+#: src/Plugin/migrate/source/d6/Box.php:34 src/Plugin/migrate/source/d7/BlockCustom.php:30
+msgid "The block/box content"
+msgstr "Inhalt des Block/der Box"
+
+#: src/Plugin/migrate/source/d6/Box.php:35 src/Plugin/migrate/source/d7/BlockCustom.php:31
+msgid "Admin title of the block/box."
+msgstr "Administrationstitel des Blocks/der Box."
+
+#: src/Plugin/migrate/source/d6/Box.php:36 src/Plugin/migrate/source/d7/BlockCustom.php:32 src/Plugin/migrate/source/d7/BlockCustomTranslation.php:77
+msgid "Input format of the custom block/box content."
+msgstr "Das Eingabeformat des benutzerdefinierten Inhaltes eines Blockes."
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:76
+msgid "The block numeric identifier."
+msgstr "Die numerische Block-ID."
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:78
+msgid "i18n_string table id"
+msgstr "i18n_string table id"
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:79
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:80
+msgid "Block property"
+msgstr "Blockeigenschaft"
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:81
+msgid "The translation of the value of \"property\"."
+msgstr "Die Übersetzung des Werts der „Eigenschaft“."
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:82
+msgid "Block title."
+msgstr "Blocktitel."
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:83
+msgid "Block title translation."
+msgstr "Blocktitel-Übersetzung"
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:84
+msgid "Block body."
+msgstr "Block-Textkörper"
+
+#: src/Plugin/migrate/source/d7/BlockCustomTranslation.php:85
+msgid "Block body translation."
+msgstr "Übersetzung des Textkörpers des Blocks"
+
+#: src/Plugin/views/area/ListingEmpty.php:76
+msgid "Add a <a href=\":url\">custom block</a>."
+msgstr "Einen <a href=\":url\">benutzerdefinierten Block</a> hinzufügen."
+
+#: config/install/core.entity_view_mode.block_content.full.yml:0
+msgid "Full"
+msgstr "Vollständig"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Find and manage custom blocks."
+msgstr "Benutzerdefinierte Blöcke finden und verwalten."
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.block_content.yml:0;0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: config/optional/views.view.block_content.yml:0
+msgid "There are no custom blocks available."
+msgstr "Es sind keine benutzerdefinierten Blöcke verfügbar."
+
+#: config/optional/views.view.block_content.yml:0
+msgid "Page"
+msgstr "Seite"
+

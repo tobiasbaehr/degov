@@ -7,7 +7,7 @@ dependencies:
   module:
     - crop
 name: crop_9_to_3
-label: 'Cropped: 9 zu 3'
+label: 'Cropped: 9 by 3'
 effects:
   21eb5793-6524-44e3-92d5-f70e2a8075d3:
     uuid: 21eb5793-6524-44e3-92d5-f70e2a8075d3
