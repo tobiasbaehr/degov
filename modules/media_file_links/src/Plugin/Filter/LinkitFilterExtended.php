@@ -6,7 +6,6 @@ namespace Drupal\media_file_links\Plugin\Filter;
 use Drupal\Component\Utility\Html;
 use Drupal\filter\FilterProcessResult;
 use Drupal\linkit\Plugin\Filter\LinkitFilter;
-use Drupal\linkit\SubstitutionManagerInterface;
 use Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler;
 use Drupal\media_file_links\Service\MediaFileLinkResolver;
 use Symfony\Component\DependencyInjection\ContainerInterface;

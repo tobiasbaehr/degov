@@ -15,7 +15,7 @@ class JavaScriptContext extends RawMinkContext {
    *
    * @var int
    */
-  private const MAX_DURATION_SECONDS = 1200;
+  private const MAX_DURATION_SECONDS = 120;
 
   use DebugOutputTrait;
 

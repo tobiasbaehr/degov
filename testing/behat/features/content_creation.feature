@@ -256,7 +256,7 @@ Feature: deGov - Content creation
     And I click by selector "#edit-submit" via JavaScript
     Then I should see text matching "Inhaltsseite linkit wurde erstellt." after a while
     And I should be on "/linkit"
-    And I should see 1 'a[href$="/degov-demo-content/blog-post"]' elements via jQuery after a while
+    And I should see 1 '.normal-page__teaser-text a[href$="/degov-demo-content/blog-post"]' elements via jQuery after a while
     And I should see 1 'a[title="A blog post"]' elements via jQuery after a while
     When I open node delete form by node title "linkit"
     And I press button with label "Delete" via translated text
