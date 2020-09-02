@@ -86,29 +86,29 @@ class TranslationImporter {
    * @throws \Exception
    */
   public static function importFromPoFiles(array $filepaths, string $langcode, bool $preventOverwrite = TRUE): void {
+    $files = [];
+    /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
+    $moduleHandler = \Drupal::moduleHandler();
+    $moduleHandler->loadInclude('locale', 'bulk.inc');
+    $moduleHandler->loadInclude('locale', 'translation.inc');
+    $options = array_merge(_locale_translation_default_update_options(), [
+      'overwrite_options' => [
+        'not_customized' => TRUE,
+        'customized'     => TRUE,
+      ],
+      'customized'        => $preventOverwrite ? LOCALE_CUSTOMIZED : LOCALE_NOT_CUSTOMIZED,
+    ]);
     foreach ($filepaths as $filepath) {
       if (!file_exists($filepath)) {
         continue;
       }
-
-      /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
-      $moduleHandler = \Drupal::moduleHandler();
-      $moduleHandler->loadInclude('locale', 'bulk.inc');
-      $moduleHandler->loadInclude('locale', 'translation.inc');
       $file = locale_translate_file_create($filepath);
-      $file->langcode = $langcode;
-      $options = array_merge(_locale_translation_default_update_options(), [
-        'overwrite_options' => [
-          'not_customized' => TRUE,
-          'customized'     => TRUE,
-        ],
-        'customized'        => $preventOverwrite ? LOCALE_CUSTOMIZED : LOCALE_NOT_CUSTOMIZED,
-      ]);
       $file = locale_translate_file_attach_properties($file, $options);
       $file->langcode = $langcode;
-      $batch = locale_translate_batch_build([$file->uri => $file], $options);
-      batch_set($batch);
+      $files[$file->uri] = $file;
     }
+    $batch = locale_translate_batch_build($files, $options);
+    batch_set($batch);
   }
 
   /**
