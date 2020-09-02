@@ -2,7 +2,6 @@
 
 namespace Drupal\media_file_links\Plugin\Filter;
 
-use Drupal\Component\Utility\Html;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;

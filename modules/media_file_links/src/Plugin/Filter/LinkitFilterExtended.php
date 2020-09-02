@@ -1,7 +1,8 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Drupal\media_file_links\Plugin\Filter;
-
 
 use Drupal\Component\Utility\Html;
 use Drupal\filter\FilterProcessResult;
@@ -59,7 +60,6 @@ final class LinkitFilterExtended extends LinkitFilter {
     return $instance;
   }
 
-
   /**
    * {@inheritDoc}
    */
@@ -93,6 +93,5 @@ final class LinkitFilterExtended extends LinkitFilter {
 
     return parent::process($text, $langcode);
   }
-
 
 }
