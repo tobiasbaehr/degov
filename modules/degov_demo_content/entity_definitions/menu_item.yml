@@ -88,8 +88,6 @@ menu_item_1:
       menu_weight: 20
       children:
         - menu_name: main
-          node_title: 'Page with press slideshow'
-        - menu_name: main
           node_title: 'An event in the future'
         - menu_name: main
           node_title: 'A blog post'
