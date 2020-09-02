@@ -1,0 +1,2206 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  simplenews.drush.inc: n/a
+#  simplenews.tokens.inc: n/a
+#  src/Entity/Subscriber.php: n/a
+#  simplenews_rules/simplenews_rules.rules.inc: n/a
+#  src/Entity/Newsletter.php: n/a
+#  src/Plugin/migrate/source/d7/Subscriber.php: n/a
+#  simplenews.views.inc: n/a
+#  simplenews.links.task.yml: n/a
+#  simplenews.routing.yml: n/a
+#  config/schema/simplenews.schema.yml: n/a
+#  src/Form/SubscriberExportForm.php: n/a
+#  config/optional/field.field.node.simplenews_issue.simplenews_issue.yml: n/a
+#  config/optional/views.view.simplenews_newsletters.yml: n/a
+#  src/Plugin/migrate/source/d7/Newsletter.php: n/a
+#  src/Plugin/Field/FieldType/SubscriptionItem.php: n/a
+#  simplenews.module: n/a
+#  src/EventSubscriber/MigrationSubscriber.php: n/a
+#  src/Form/SubscriptionSettingsForm.php: n/a
+#  src/Mail/Mailer.php: n/a
+#  simplenews.info.yml: n/a
+#  simplenews.links.menu.yml: n/a
+#  src/Plugin/Block/SimplenewsSubscriptionBlock.php: n/a
+#  modules/simplenews_demo/simplenews_demo.info.yml: n/a
+#  simplenews.links.action.yml: n/a
+#  config/install/views.view.simplenews_subscribers.yml: n/a
+#  src/Form/PrepareUninstallForm.php: n/a
+#  simplenews.permissions.yml: n/a
+#  src/Form/NewsletterDeleteForm.php: n/a
+#  src/Form/NewsletterForm.php: n/a
+#  src/Form/SubscriberDeleteForm.php: n/a
+#  src/Plugin/Field/FieldType/IssueItem.php: n/a
+#  config/schema/simplenews.views.schema.yml: n/a
+#  src/Plugin/views/field/Link.php: n/a
+#  simplenews_rules/simplenews_rules.module: n/a
+#  src/NewsletterListBuilder.php: n/a
+#  src/SubscriberViewsData.php: n/a
+#  src/Controller/ConfirmationController.php: n/a
+#  src/Form/ConfirmMultiForm.php: n/a
+#  src/Form/ConfirmRemovalForm.php: n/a
+#  src/Form/ConfirmAddForm.php: n/a
+#  src/Form/SubscriberForm.php: n/a
+#  src/Form/SubscriberMassSubscribeForm.php: n/a
+#  src/Form/SubscriptionsFormBase.php: n/a
+#  src/Form/SubscriberMassUnsubscribeForm.php: n/a
+#  src/Form/MailSettingsForm.php: n/a
+#  src/Form/NewsletterSettingsForm.php: n/a
+#  src/Form/NodeTabForm.php: n/a
+#  src/Plugin/Action/StopIssue.php: n/a
+#  src/Form/RequestHashForm.php: n/a
+#  src/Form/SubscriberSettingsForm.php: n/a
+#  src/Form/SubscriptionsAccountForm.php: n/a
+#  src/Form/SubscriptionsBlockForm.php: n/a
+#  src/Form/SubscriptionsPageForm.php: n/a
+#  src/Plugin/Action/SendIssue.php: n/a
+#  modules/simplenews_demo/config/install/block.block.simplenewssubscription.yml: n/a
+#  src/Plugin/Derivative/AddSimplenewsIssueActionLinks.php: n/a
+#  src/Plugin/Field/FieldFormatter/SimplenewsSubscriptionStatusFormatter.php: n/a
+#  src/Plugin/Field/FieldWidget/SubscriptionWidget.php: n/a
+#  src/Plugin/Mail/HTMLTestingMailSystem.php: n/a
+#  src/Plugin/monitoring/SensorPlugin/PendingSensorPlugin.php: n/a
+#  src/Plugin/simplenews/RecipientHandler/RecipientHandlerBase.php: n/a
+#  src/Plugin/views/field/SendStatus.php: n/a
+#  src/Subscription/SubscriptionManager.php: n/a
+#  config/install/core.entity_form_mode.simplenews_subscriber.account.yml: n/a
+#  config/install/core.entity_form_mode.simplenews_subscriber.block.yml: n/a
+#  config/install/core.entity_form_mode.simplenews_subscriber.page.yml: n/a
+#  config/install/core.entity_view_mode.node.email_html.yml: n/a
+#  config/install/core.entity_view_mode.node.email_plain.yml: n/a
+#  config/install/core.entity_view_mode.node.email_textalt.yml: n/a
+#  config/install/field.field.simplenews_subscriber.simplenews_subscriber.subscriptions.yml: n/a
+#  config/install/simplenews.newsletter.default.yml: n/a
+#  modules/simplenews_demo/config/install/simplenews.newsletter.press_releases.yml: n/a
+#  modules/simplenews_demo/config/install/simplenews.newsletter.special_offers.yml: n/a
+#  modules/simplenews_demo/config/install/simplenews.newsletter.weekly_content_update.yml: n/a
+#  config/install/simplenews.settings.yml: n/a
+#  config/optional/field.field.node.simplenews_issue.body.yml: n/a
+#  config/optional/node.type.simplenews_issue.yml: n/a
+#  config/optional/ultimate_cron.job.simplenews_cron.yml: n/a
+#  modules/simplenews_demo/config/install/block.block.simplenewssubscription_all.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: simplenews.drush.inc:21
+msgid "Just print the count value to allow parsing"
+msgstr "Nur den Wert des Zählers ausgeben, um die Verarbeitung des Wertes zu erlauben."
+
+#: simplenews.drush.inc:28
+msgid "Send the default amount of mails, as defined by the simplenews_throttle variable."
+msgstr "Die in der Variable simplenews_throttle definierte Standardmenge an E-Mails versenden."
+
+#: simplenews.drush.inc:29
+msgid "Send all mails."
+msgstr "Alle E-Mails versenden."
+
+#: simplenews.drush.inc:30
+msgid "Send 100 mails"
+msgstr "100 E-Mails versenden"
+
+#: simplenews.drush.inc:33
+msgid "Just print the sent and remaining count on separate lines to allow parsing"
+msgstr "Die Anzahl der noch zu versendenden und bereits versendeten E-Mails zeilenweise ausgeben, um die Verarbeitung der Werte zu erlauben."
+
+#: simplenews.drush.inc:54
+msgid "Current simplenews mail spool count: @count"
+msgstr "Anzahl der E-Mails, die aktuell in der Warteschlange auf den Versand warten: @count."
+
+#: simplenews.drush.inc:90
+msgid "Sent @count mails from the queue in @sec seconds."
+msgstr "@count E-Mails aus der Warteschlange in @sec Sekunden versendet."
+
+#: simplenews.drush.inc:91
+msgid "Remaining simplenews mail spool count: @count"
+msgstr "In der Warteschlange für den Versand verbleibende E-Mails: @count"
+
+#: simplenews.tokens.inc:18 src/Entity/Subscriber.php:15
+msgid "Simplenews subscriber"
+msgstr "Simplenews Abonnent"
+
+#: simplenews.tokens.inc:19
+msgid "Tokens related to the newsletter recipient"
+msgstr "Token mit Bezug auf den Newsletter Empfänger"
+
+#: simplenews.tokens.inc:23 simplenews_rules/simplenews_rules.rules.inc:39;85;125;161;177 src/Entity/Newsletter.php:10
+msgid "Simplenews newsletter"
+msgstr "Simplenews-Newsletter"
+
+#: simplenews.tokens.inc:24
+msgid "Tokens related to the newsletter"
+msgstr "Token mit Bezug zu Newslettern"
+
+#: simplenews.tokens.inc:30
+msgid "Subscription URL"
+msgstr "Abonnement URL"
+
+#: simplenews.tokens.inc:31
+msgid "The URL of the page where the subscription is confirmed."
+msgstr "Die URL der Seite auf der das Abonnement bestätigt wird."
+
+#: simplenews.tokens.inc:34
+msgid "Unsubscribe URL"
+msgstr "URL zum Abbestellen"
+
+#: simplenews.tokens.inc:35
+msgid "The URL of the page where the cancellation of the subscription is confirmed."
+msgstr "Die URL der Seite auf die Kündigung des Abonnements bestätigt wird."
+
+#: simplenews.tokens.inc:38
+msgid "Manage URL"
+msgstr "URL verwalten"
+
+#: simplenews.tokens.inc:39
+msgid "The URL of the page where the subscribers can manage their newsletter subscriptions."
+msgstr "Die URL der Seite, auf der Abonnenten ihre Abonnements verwalten können."
+
+#: simplenews.tokens.inc:42
+msgid "Combined confirmation URL"
+msgstr "Kombinierte Bestätigungs-URL"
+
+#: simplenews.tokens.inc:43
+msgid "The URL of the page where subscribers can confirm their subscription changes."
+msgstr "Die URL der Seite auf der Abonnenten ihre Abonnements-Änderungen bestätigen können."
+
+#: simplenews.tokens.inc:46
+msgid "Subscriber email"
+msgstr "Abonnent E-Mail"
+
+#: simplenews.tokens.inc:47
+msgid "The email address of the newsletter receiver."
+msgstr "Email-Adresse des Newsletter-Empfängers."
+
+#: simplenews.tokens.inc:51 src/Plugin/migrate/source/d7/Subscriber.php:26
+msgid "Corresponding user"
+msgstr "Zugehöriger Benutzer"
+
+#: simplenews.tokens.inc:52
+msgid "The user object that corresponds to this subscriber. This is not set for anonymous subscribers."
+msgstr "Das Objekt Benutzer, dass zu diesem Abonennten gehört. Dieses Objekt gilt nicht für Gäste."
+
+#: simplenews.tokens.inc:58 simplenews.views.inc:139 simplenews.links.task.yml:0;0 simplenews.routing.yml:0;0 config/schema/simplenews.schema.yml:0 src/Form/SubscriberExportForm.php:99 config/optional/field.field.node.simplenews_issue.simplenews_issue.yml:0 config/optional/views.view.simplenews_newsletters.yml:0;0
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: simplenews.tokens.inc:59
+msgid "The name of the newsletter."
+msgstr "Der Name des Newsletters."
+
+#: simplenews.tokens.inc:62
+msgid "Newsletter URL"
+msgstr "Newsletter-URL"
+
+#: simplenews.tokens.inc:63
+msgid "The URL of the page listing the issues of this newsletter."
+msgstr "Der URL der Seite, der die Ausgaben des Newsletters auflistet."
+
+#: simplenews.tokens.inc:118
+msgid "No unsubscribe link for test subscribers."
+msgstr "Es gibt keinen Link zum Abmelden vom Newsletter für Testabonnenten."
+
+#: simplenews.tokens.inc:169
+msgid "Unassigned newsletter"
+msgstr "Nicht zugeordneter Newsletter"
+
+#: simplenews.views.inc:35 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Send status"
+msgstr "Versandstatus"
+
+#: simplenews.views.inc:36
+msgid "Send status of the newsletter."
+msgstr "Versandstatus des Newsletters."
+
+#: simplenews.views.inc:39
+msgid "Content"
+msgstr "Inhalt"
+
+#: simplenews.views.inc:47
+msgid "Simplenews mailspool"
+msgstr "Simplenews Warteschlange für E-Mailversand"
+
+#: simplenews.views.inc:48
+msgid "Spool for temporary storage of newsletter emails."
+msgstr "Zwischenspeicher für Newsletter-E-Mails."
+
+#: simplenews.views.inc:52
+msgid "Simplenews spool"
+msgstr "Simplenews Warteschlange"
+
+#: simplenews.views.inc:56
+msgid "Ms ID"
+msgstr "Ms ID"
+
+#: simplenews.views.inc:57
+msgid "The primary identifier for a mail spool record."
+msgstr "Der primäre Kennung für eine Mail im Zwischenspeicher."
+
+#: simplenews.views.inc:75;164 simplenews.routing.yml:0
+msgid "Subscriber"
+msgstr "Abonnent"
+
+#: simplenews.views.inc:76
+msgid "The formatted email address of mail message receipient."
+msgstr "Die formatierte E-Mail-Adresse des Empfängers der E-Mail-Nachricht."
+
+#: simplenews.views.inc:94
+msgid "Node ID"
+msgstr "Beitrags-ID"
+
+#: simplenews.views.inc:95
+msgid "The {node}.nid of this newsletter."
+msgstr "{node}.nid eines Newsletters."
+
+#: simplenews.views.inc:114
+msgid "Node"
+msgstr "Beitrag"
+
+#: simplenews.views.inc:119 config/schema/simplenews.schema.yml:0 src/Plugin/migrate/source/d7/Newsletter.php:22
+msgid "Newsletter ID"
+msgstr "Newsletter-ID"
+
+#: simplenews.views.inc:120
+msgid "The newsletter_id this newsletter issue belongs to."
+msgstr "Die zu dieser Ausgabe des Newsletters gehörige ID."
+
+#: simplenews.views.inc:144 src/Entity/Subscriber.php:339 src/Plugin/migrate/source/d7/Subscriber.php:23
+msgid "Subscriber ID"
+msgstr "Abonnent ID"
+
+#: simplenews.views.inc:145
+msgid "The {simplenews_subscriber}.snid foreign key for this spool"
+msgstr "Die {simplenews_subscriber}.snid Fremdschlüssel für diesen Durchlauf"
+
+#: simplenews.views.inc:169 config/schema/simplenews.schema.yml:0
+msgid "Sent status"
+msgstr "Sendestatus"
+
+#: simplenews.views.inc:170
+msgid "The sent status of the email (0 = hold, 1 = pending, 2 = done)."
+msgstr "Versand-Status einer E-Mail (0 = halten, 1 = bereit, 2 = versand)."
+
+#: simplenews.views.inc:188
+msgid "Error"
+msgstr "Fehler"
+
+#: simplenews.views.inc:189
+msgid "A boolean indicating whether an error occured while sending the email."
+msgstr "Eine Bedingung, die anzeigt, ob ein Fehler beim Versenden der E-Mail aufgetreten."
+
+#: simplenews.views.inc:207 src/Plugin/Field/FieldType/SubscriptionItem.php:45
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#: simplenews.views.inc:208
+msgid "The time status was set or changed."
+msgstr "Der Zeit-Status wurde festgelegt oder geändert."
+
+#: simplenews.views.inc:226
+msgid "Data"
+msgstr "Daten"
+
+#: simplenews.views.inc:227
+msgid "A serialized array of name value pairs that are related to the email address."
+msgstr "Einen serialisiertes Array mit Name/Wert-Paaren, die mit der E-Mail-Adresse verknüpft sind."
+
+#: simplenews.module:138
+msgid "@count pending emails for %title were found and deleted."
+msgstr "@count noch nicht versendete E-Mails für %title wurden gefunden un d gelöscht."
+
+#: simplenews.module:210
+msgid "Use as simplenews newsletter"
+msgstr "Als Simplenews Newsletter verwenden"
+
+#: simplenews.module:212
+msgid "This will add the simplenews issue field to this content type, allowing content of this type to be sent out as a newsletter issue."
+msgstr "Fügt das Simplenews-Feld Ausgabe zu diesem Inhaltstyp hinzu. Hierdurch wird es Möglich Inhalte, die diesem Typ entsprechen als Newsletter zu versenden."
+
+#: simplenews.module:237 src/EventSubscriber/MigrationSubscriber.php:59 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Issue"
+msgstr "Problem"
+
+#: simplenews.module:265
+msgid "This newsletter issue is currently being sent. Any changes will be reflected in the e-mails which have not been sent yet."
+msgstr "Dieser Newsletter wird gerade gesendet. Alle Änderungen werden sich (nur) auf die E-Mails auswirken, die noch nicht gesendet wurden."
+
+#: simplenews.module:271 src/Form/SubscriptionSettingsForm.php:53
+msgid "Replacement patterns"
+msgstr "Ersetzungsmuster"
+
+#: simplenews.module:275
+msgid "These tokens can be used in all text fields except subject and will be replaced on-screen and in the email."
+msgstr "Diese Token können in allen Textfeldern mit Ausnahme des Felds Betreff verwendet werden und werden auf dem Bildschirm und in der E-Mail ersetzt."
+
+#: simplenews.module:348
+msgid "Select the newsletter(s) to which you wish to subscribe."
+msgstr "Wählen Sie die Newsletter, die Sie abonnieren wollen."
+
+#: simplenews.module:384
+msgid "You have been subscribed to %newsletter."
+msgstr "Sie haben %newsletter abonniert."
+
+#: simplenews.module:387
+msgid "You cannot subscribe to %newsletter. Your user has no email address."
+msgstr "Sie können %newsletter nicht abonnieren. Ihr Benutzer hat keine E-Mail-Adresse."
+
+#: simplenews.module:525
+msgid "Subscribed to"
+msgstr "Abonniert:"
+
+#: simplenews.module:555
+msgid "None"
+msgstr "Keine"
+
+#: simplenews.module:563
+msgid "Manage subscriptions"
+msgstr "Abonnements verwalten"
+
+#: simplenews.module:835
+msgid "Simplenews publishes and sends newsletters to lists of subscribers. Both anonymous and authenticated users can opt-in to different mailing lists."
+msgstr "Simplenews veröffentlicht und sendet Newsletter an eine Liste von Abonnenten. Sowohl Gäste als auch angemeldete Benutzer können sich in verschiedene E-Mail-Listen eintragen."
+
+#: simplenews.module:836
+msgid "Simplenews uses nodes for <strong>newsletter issues</strong>. Newsletter issues are grouped in a <strong>newsletter</strong>. Enabled Node types are selectable. A newsletter is send to all email addresses which are subscribed to the newsletter. Newsletter issues can be sent only once. Large mailings should be sent by cron to balance the mailserver load."
+msgstr "Simplenews verwendet Beiträge um <strong>Newsletter-Ausgaben</strong> zu versenden. Newsletter-Ausgaben sind in einem <strong>Newsletter</strong> gruppiert. Ausgewählte Inhaltstypen sind dabei auswählbar. Ein Newsletter wird immer an Alle E-Mail-Adressen versendet, die als Abonnenten für einen Newsletter hinterlegt sind. Newsletter-Ausgaben können nur einmal versendet werden. Große Mails sollten über Cron-Läufe versendet werden, um die Auslastung des Mail-Servers möglichst gering zu halten."
+
+#: simplenews.module:837
+msgid "Simplenews adds elements to the newsletter node add/edit form to manage newsletter format and sending of the newsletter issue. A newsletter issue can be sent for test before sending officially."
+msgstr "Simplenews fügt Elemente zu den Beitragsformularen (Erstellen/Editieren) hinzu, um das Format und den Versand des Newsletters zu verwalten. Ein Newsletter kann vor dem offiziellen Versand zu Testzwecke an Test-E-Mails gesendet werden."
+
+#: simplenews.module:838
+msgid "Both anonymous and authenticated users can <strong>opt-in and opt-out</strong> to a newsletter. A confirmation message is sent to anonymous users when they (un)subscribe. Users can (un)subscribe using a form and a block. A <strong>subscription block</strong> is available for each newsletter offering a subscription form, a link to recent newsletters and RSS feed. Email addresses can also be imported and exported via the subscription administration pages."
+msgstr "Sowohl Gäste als auch angemeldete Benutzer können sich in/aus verschiedene(n) E-Mail-Listen ein-/austragen. Dabei wird eine Bestätigungs-E-Mail an Gäste versendet. Das (Ab-)Bestellen des Newsletters kann durch ein Formular oder einen Block erfolgen. Dabei gibt es für jeden Newsletter eine solches Formular bzw. einen solchen Block, einen Link zu den letzten Newsletter-Beiträgen und einen RSS-Feed. E-Mail-Adressen können durch Verwaltungsseiten sowohl importiert als auch exportiert werden."
+
+#: simplenews.module:839
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: simplenews.module:842
+msgid "Configure permissions"
+msgstr "Berechtigungen konfigurieren"
+
+#: simplenews.module:846
+msgid "Configure Simplenews"
+msgstr "Simplenews konfigurieren"
+
+#: simplenews.module:850
+msgid "Enable a newsletter <a href=\":admin_blocks\">subscription block</a>."
+msgstr "Einen <a href=\":admin_blocks\">Block für die Anmeldung zum Erhalt des Newsletters</a> aktivieren."
+
+#: simplenews.module:853
+msgid "Manage your <a href=\":newsletters\">newsletters</a>, <a href=\":sent\">sent newsletters</a> and <a href=\":subscriptions\">subscriptions</a>."
+msgstr "<a href=\":newsletters\">Newsletter</a>, <a href=\":sent\">versendete Newsletter</a> und <a href=\":subscriptions\">Newsletter-Abonnements</a> verwalten."
+
+#: simplenews.module:857
+msgid "For more information, see the online handbook entry for <a href=\":handbook\">Simplenews</a>."
+msgstr "Weitere Informationen sind in der Online-Dokumentation von<a href=\":handbook\">Simplenews</a> verfügbar."
+
+#: simplenews.module:863
+msgid "Add this newsletter issue to a newsletter by selecting a newsletter from the select list. To send this newsletter issue, first save the node, then use the \"Newsletter\" tab."
+msgstr "Wählen Sie den Newsletter für den dieser Beitrag als eine Ausgabe verwendet wird. Damit diese Ausgabe versendet werden kann, speichern Sie den Beitrag und wählen dann den Reiter „Newsletter“."
+
+#: simplenews.module:865
+msgid "Set default send options at <a href=\":configuration\">Administration > Configuration > Web services > Newsletters</a>."
+msgstr "Standardoptionen für den Versand unter <a href=\":configuration\">Verwaltung > Konfiguration > Web services > Newsletter</a> festlegen."
+
+#: simplenews.module:868
+msgid "Set newsletter specific options at <a href=\":configuration\">Administration > Content > Newsletters</a>."
+msgstr "Einstellungen für einzelnen Newsletter können unter <a href=\":configuration\">Verwaltung > Inhalt > Newsletter</a> festgelegt werden."
+
+#: simplenews.module:874
+msgid "These settings are default to all newsletters. Newsletter specific settings can be found at the <a href=\":page\">newsletter's settings page</a>."
+msgstr "Diese Einstellungen gelten als Standardwerte für alle Newsletter. Einstellungen für die einzelnen Newsletter können in den <a href=\":page\">Einstellungen des jeweiligen Newsletters</a> festgelegt werden."
+
+#: simplenews.module:875
+msgid "Install <a href=\":swift_mail_url\">Swift Mailer</a> to send HTML emails or emails with attachments (both plain text and HTML)."
+msgstr "<a href=\":swift_mail_url\">Swift Mailer</a> installieren, um HTML-E-Mails oder E-Mails mit Anhängen (im Klartext oder in HTML) zu versenden."
+
+#: simplenews.module:879
+msgid "Newsletter allow you to send periodic e-mails to subscribers. See <a href=\":manage_subscribers\">Newsletter subscriptions</a> for a listing of the subscribers"
+msgstr "Mit Newslettern können regelmäßige E-Mails an Abonnenten versandt werden. Eine Liste der Abonnenten ist unter <a href=\":manage_subscribers\">Newsletter-Abonnements</a> verfügbar."
+
+#: simplenews.module:882
+msgid "You can create different newsletters (or subjects) to categorize your news (e.g. Cats news, Dogs news, ...)."
+msgstr "Sie können verschiedene Newsletter (oder Betreffe) erstellen, um Ihre Neuigkeiten zu Kategorisieren."
+
+#: simplenews.module:886
+msgid "'Plain' display settings apply to the content of emails send in plain text format. 'HTML' display settings apply to both HTML and plain text alternative content of emails send in HTML format."
+msgstr "Die Anzeigeienstellung ‚Nur-Text‘ gilt für E-Mails im Format Klartext. Die Anzeigeeinstellung ‚HTML‘ gilt sowohl für E-Mails im Format HTML für deren Alternativen, die Format Klartext versendet werden."
+
+#: simplenews.module:904
+msgid "Plain"
+msgstr "Einfach"
+
+#: simplenews.module:905
+msgid "HTML"
+msgstr "HTML"
+
+#: simplenews.module:914;928
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: simplenews.module:915
+msgid "Highest"
+msgstr "Am höchsten"
+
+#: simplenews.module:916
+msgid "High"
+msgstr "Hoch"
+
+#: simplenews.module:917
+msgid "Normal"
+msgstr "Normal"
+
+#: simplenews.module:918
+msgid "Low"
+msgstr "Niedrig"
+
+#: simplenews.module:919
+msgid "Lowest"
+msgstr "Niedrigstes"
+
+#: simplenews.module:929
+msgid "Default on"
+msgstr "Standardmäßig: an"
+
+#: simplenews.module:930
+msgid "Default off"
+msgstr "Standardmäßig: aus"
+
+#: simplenews.module:931
+msgid "Silent"
+msgstr "Stumm"
+
+#: simplenews.module:940
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: simplenews.module:941
+msgid "Single"
+msgstr "Einfach"
+
+#: simplenews.module:942
+msgid "Double"
+msgstr "Doppelt"
+
+#: simplenews.module:951 src/Form/SubscriberExportForm.php:85
+msgid "Subscribed"
+msgstr "Abonniert"
+
+#: simplenews.module:952
+msgid "Unsubscribed"
+msgstr "Ausgetragen"
+
+#: simplenews.module:953
+msgid "Unconfirmed"
+msgstr "Unbestätigt"
+
+#: simplenews.module:1009
+msgid "Unsubscribe from this newsletter"
+msgstr "Von diesem Newsletter abmelden."
+
+#: simplenews.module:1010
+msgid "This is a test version of the newsletter."
+msgstr "Das ist eine Test-Version des Newsletters."
+
+#: simplenews.module:1079;1087
+msgid "Newsletter subscriptions of the user"
+msgstr "Newsletter-Abonnements des Benutzers"
+
+#: simplenews.module:722 src/Mail/Mailer.php:282
+msgid "Outgoing email. Message type: %type<br />Subject: %subject<br />Recipient: %to"
+msgstr "Ausgehende E-Mail. Nachrichten-Typ: %type<br />Betreff: %subject<br />Empfänger: %to"
+
+#: simplenews.module:296
+msgid "Stop sending newsletter to avoid broken links / SPAM. Site URI not specified."
+msgstr "Den Versand von Newslettern abbrechen, um kaputte Links / SPAM zu vermeiden. Keine bestimmte Web-Adresse angegeben."
+
+#: simplenews.module:142
+msgid "Newsletter %title deleted with @count pending emails.."
+msgstr "Der Newsletter %title wurde gelöscht und hatte @count Emails in der Warteschlange."
+
+#: simplenews.info.yml:0 simplenews.links.menu.yml:0 simplenews.routing.yml:0 simplenews_rules/simplenews_rules.rules.inc:18;29;75;115;132;152;168 src/Plugin/Block/SimplenewsSubscriptionBlock.php:15
+msgid "Simplenews"
+msgstr "Simplenews"
+
+#: simplenews.info.yml:0
+msgid "Send newsletters to subscribed email addresses. For uninstall go to Configuration > Web services > Simplenews > Settings and hit \"Prepare uninstall\"."
+msgstr "Newsletter an die E-Mail-Adressen von Abonnenten versenden. Die Deinstallation kann unter Konfiguration > Webservices > Simplenews > Einstellungen mit dem Button „Deinstallation vorbereiten“ durchgeführt werden."
+
+#: simplenews.info.yml:0 modules/simplenews_demo/simplenews_demo.info.yml:0
+msgid "Mail"
+msgstr "E-Mail"
+
+#: simplenews.links.action.yml:0 simplenews.routing.yml:0
+msgid "Add newsletter"
+msgstr "Newsletter hinzufügen"
+
+#: simplenews.links.action.yml:0 simplenews.routing.yml:0
+msgid "Mass subscribe"
+msgstr "Massen-Abonnement"
+
+#: simplenews.links.action.yml:0 simplenews.routing.yml:0
+msgid "Mass unsubscribe"
+msgstr "Massen-Abbestellung"
+
+#: simplenews.links.action.yml:0 simplenews.routing.yml:0 src/Form/SubscriberExportForm.php:121
+msgid "Export"
+msgstr "Exportieren"
+
+#: simplenews.links.menu.yml:0
+msgid "Subscriber settings"
+msgstr "Abonnenteneinstellungen"
+
+#: simplenews.links.menu.yml:0
+msgid "Configure your sites newsletters."
+msgstr "Eigene Newsletter konfigurieren."
+
+#: simplenews.links.menu.yml:0
+msgid "Administer your subscriber settings."
+msgstr "Abonennteneinstellungen verwalten"
+
+#: simplenews.links.task.yml:0;0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: simplenews.links.task.yml:0;0 simplenews.routing.yml:0 config/schema/simplenews.schema.yml:0 src/Plugin/Block/SimplenewsSubscriptionBlock.php:106 config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0;0
+msgid "Newsletters"
+msgstr "Newsletter"
+
+#: simplenews.links.task.yml:0 simplenews.routing.yml:0
+msgid "Subscription"
+msgstr "Abonnement"
+
+#: simplenews.links.task.yml:0 simplenews.routing.yml:0
+msgid "Send mail"
+msgstr "E-Mail-Versand"
+
+#: simplenews.links.task.yml:0 simplenews.routing.yml:0 src/Form/PrepareUninstallForm.php:26
+msgid "Prepare uninstall"
+msgstr "Deinstallation vorbereiten"
+
+#: simplenews.permissions.yml:0
+msgid "Administer newsletters"
+msgstr "Newsletter verwalten"
+
+#: simplenews.permissions.yml:0
+msgid "Administer simplenews subscriptions"
+msgstr "Simplenews-Abonnements verwalten"
+
+#: simplenews.permissions.yml:0
+msgid "View simplenews subscriptions"
+msgstr "Simplenews-Abonnements anzeigen"
+
+#: simplenews.permissions.yml:0
+msgid "Administer simplenews settings"
+msgstr "Simplenews-Einstellungen verwalten"
+
+#: simplenews.permissions.yml:0 simplenews_rules/simplenews_rules.rules.inc:17
+msgid "Send newsletter"
+msgstr "Newsletter versenden"
+
+#: simplenews.permissions.yml:0
+msgid "Subscribe to newsletters"
+msgstr "Newsletter abonnieren"
+
+#: simplenews.routing.yml:0
+msgid "Edit newsletter"
+msgstr "Newsletter bearbeiten"
+
+#: simplenews.routing.yml:0;0 src/Form/NewsletterDeleteForm.php:32 src/Form/NewsletterForm.php:188 src/Form/SubscriberDeleteForm.php:32
+msgid "Delete"
+msgstr "Löschen"
+
+#: simplenews.routing.yml:0
+msgid "Edit subscriber"
+msgstr "Abonennt bearbeiten"
+
+#: simplenews.routing.yml:0;0
+msgid "Your newsletter subscriptions"
+msgstr "Newsletter-Abonnements"
+
+#: simplenews.routing.yml:0;0;0;0
+msgid "Confirm newsletter subscriptions"
+msgstr "Anmeldung zum Newsletter-Abonnement bestätigen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Simplenews settings"
+msgstr "Simplenews-Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Hash expiration"
+msgstr "Ablaufdatum des Hash"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Newsletter settings"
+msgstr "Newsletter-Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Default format for new newsletters"
+msgstr "Standardformat für neue Newsletter"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Default priority for new newsletters"
+msgstr "Standardpriorität für neue Newsletter"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Default require receipt setting for newsletters"
+msgstr "Standardeinstellung für die Option „Empfänger erforderlich“ für neue Newsletter"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Default from email address"
+msgstr "Standard-Absender-E-Mail-Adresse"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Default from name"
+msgstr "Standard-Absendername"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Sync between account and subscriber fields"
+msgstr "Benutzerkontenfelder und Abonenntenfelder synchronisieren"
+
+#: config/schema/simplenews.schema.yml:0;0;0 src/Form/NewsletterForm.php:54
+msgid "Subscription settings"
+msgstr "Abonnement-Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined setting"
+msgstr "Kombinierte Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Subscribe confirmation subject"
+msgstr "Betreff der Bestätigung des Abonnements"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Subscribe confirmation message"
+msgstr "Bestätigungsnachricht des Abennements"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Already subscribed message"
+msgstr "Nachricht für bereits eingetragene Aboennten"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Unsubscribe message"
+msgstr "Nachricht der Abmeldebestätigung"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Already Unsubscribe message"
+msgstr "Nachricht für bereits ausgetragene Aboennten"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined subscribe subject"
+msgstr "Zusammengefasster Abonnentenbetreff"
+
+#: config/schema/simplenews.schema.yml:0;0
+msgid "Combined subscribe message"
+msgstr "Zusammengefasste Abonnentennachricht"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined subscribe unchanged message"
+msgstr "Zusammengefasste Nachricht für nicht geänderte Abonnenten"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined already subscribed message"
+msgstr "Zusammengefasste Nachricht für bereits vorhandene Abonnenten"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined unsubscribe message"
+msgstr "Kombinierte Abonnement-Kündigungsnachricht"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Combined already unsubscribed message"
+msgstr "Kobinierte Nachricht für bereits ausgetragene Aboennten"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Confirmation subscribe redirect page"
+msgstr "Seite, die nach der Anmeldeung angezeigt wird."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Confirmation unsubscribe redirect page"
+msgstr "Seite, die nach der Kündigung des Aboenements angezeigt wird,"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Mail settings"
+msgstr "E-Mail-Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Use cron"
+msgstr "Cron verwenden"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Mails to send per cron run"
+msgstr "Anzahl der per Cron-Lauf zu verschickenden E-Mails"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Spool in progress expiration"
+msgstr "Ablaufzeit für aktive Warteschlagen."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Expiration of sent mails in spool"
+msgstr "Ablaufzeit für bereits versendete E-Mails in der Warteschlange"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Debug"
+msgstr "Debuggen"
+
+#: config/schema/simplenews.schema.yml:0 src/Form/NewsletterForm.php:24 src/Plugin/migrate/source/d7/Newsletter.php:23
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Machine-readable name"
+msgstr "Systemname"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Description of the newsletter"
+msgstr "Beschreibung des Newsletters"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "HTML or plaintext newsletter indicator"
+msgstr "Gibt an, ob es sich um einen Newsletter im Klartext- oder im HTML-Format handelt."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Priority indicator"
+msgstr "Prioritätsanzeige"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "TRUE if a read receipt should be requested."
+msgstr "Wahr, fllas eine Lesebestätigung vom Empfänger angefordert werden soll."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Name of the email author."
+msgstr "Name des Verfassers der E-Mail"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Subject of newsletter email. May contain tokens."
+msgstr "Der Betreff der Newsletter-E-Mail. Es können Tokens verwendet werden."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Email author address"
+msgstr "Adresse des E-Mail-Verfassers"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Indicates if hyperlinks should be kept inline or extracted."
+msgstr "Gibt an, ob Hyperlinks inline behandelt werden oder extrahiert werden sollen."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Indicates how to integrate with the register form."
+msgstr "Gibt an, wie Simplenews in das Anmeldeformular der Website integriert wird."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Defines the Opt-In/out options."
+msgstr "Legt die Opt-in-/Opt-out-Optionen fest."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Weight of this newsletter (used for sorting)."
+msgstr "Gewichtung des Newsletters (wird zum Sortieren verwendet)."
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Type of item to reference"
+msgstr "Zu referenzierender Elementtyp"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Reference method"
+msgstr "Referenzmethode"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Reference method settings"
+msgstr "Referenzmethodeneinstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Simplenews pending sensor settings"
+msgstr "Simplenews-Warteschlangensensoreinstellungen"
+
+#: config/schema/simplenews.schema.yml:0;0
+msgid "Simplenews issue settings"
+msgstr "Simplenews-Ausgabeneinstelleungen"
+
+#: config/schema/simplenews.schema.yml:0;0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/simplenews.schema.yml:0 src/Plugin/Field/FieldType/IssueItem.php:44
+msgid "Handler"
+msgstr "Handler"
+
+#: config/schema/simplenews.schema.yml:0 src/Plugin/Field/FieldType/IssueItem.php:47
+msgid "Handler settings"
+msgstr "Behandlungsroutinen-Einstellungen"
+
+#: config/schema/simplenews.schema.yml:0 src/Plugin/Field/FieldType/IssueItem.php:54
+msgid "Sent count"
+msgstr "Anzahl gesendet"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Subscriber count"
+msgstr "Zähler für die Abonnements"
+
+#: config/schema/simplenews.schema.yml:0;0
+msgid "Simplenews subscription settings"
+msgstr "Simplenews-Anmeldeeinstellungen"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Message"
+msgstr "Nachricht"
+
+#: config/schema/simplenews.schema.yml:0 src/Plugin/Block/SimplenewsSubscriptionBlock.php:120
+msgid "Unique ID"
+msgstr "Eindeutige ID"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Send selected newsletter issue"
+msgstr "Ausgewählte Newsletter-Ausgabe versenden"
+
+#: config/schema/simplenews.schema.yml:0
+msgid "Stop selected newsletter issue"
+msgstr "Versand der ausgewählten Newsleter-Ausgabe abbrechen"
+
+#: config/schema/simplenews.views.schema.yml:0
+msgid "Subscriber delete link"
+msgstr "Link zum Löschen des Abonnements"
+
+#: config/schema/simplenews.views.schema.yml:0;0;0 src/Plugin/views/field/Link.php:40
+msgid "Text to display"
+msgstr "Anzuzeigender Text"
+
+#: config/schema/simplenews.views.schema.yml:0
+msgid "Subscriber edit link"
+msgstr "Link zum Bearbeiten des Abonnenten"
+
+#: config/schema/simplenews.views.schema.yml:0
+msgid "Username field"
+msgstr "Benutzernamenfeld"
+
+#: modules/simplenews_demo/simplenews_demo.info.yml:0
+msgid "Simplenews Demo"
+msgstr "Simplenews Demo"
+
+#: modules/simplenews_demo/simplenews_demo.info.yml:0
+msgid "Demo module for Simplenews."
+msgstr "Demo-Modul für Simplenews."
+
+#: simplenews_rules/simplenews_rules.rules.inc:22
+msgid "The newsletter node to be sent."
+msgstr "Diesen Newsletter versenden."
+
+#: simplenews_rules/simplenews_rules.rules.inc:23
+msgid "The newsletter node that should be sent."
+msgstr "Die Newsletter-Ausgabe, die verschickt werden soll."
+
+#: simplenews_rules/simplenews_rules.rules.inc:28
+msgid "Subscribe an e-mail adress to a newsletter"
+msgstr "Eine E-Mail-Adresse zu einem Newsletter als Abonnent hinzufügen"
+
+#: simplenews_rules/simplenews_rules.rules.inc:34;80;120;137;172
+msgid "E-mail"
+msgstr "E-Mail"
+
+#: simplenews_rules/simplenews_rules.rules.inc:35
+msgid "The e-mail address that should be subscribed."
+msgstr "Die E-Mail-Adresse, die zu den Abonnenten hinzugefügt werden soll."
+
+#: simplenews_rules/simplenews_rules.rules.inc:40;86;126;162;178
+msgid "For which newsletter the subscription should happen."
+msgstr "Für welchen Newsletter die Anmeldung durchgeführt werden soll."
+
+#: simplenews_rules/simplenews_rules.rules.inc:45;91
+msgid "Confirmation required"
+msgstr "Bestätigung erforderlich"
+
+#: simplenews_rules/simplenews_rules.rules.inc:46;92
+msgid "Select if a confirmation is required. Default uses the default setting from the chosen newsletter."
+msgstr "Wählen, ob eine Bestätigung erforderlich ist. Standard verwendet die Standardeinstellung des ausgewählten Newsletters."
+
+#: simplenews_rules/simplenews_rules.rules.inc:52;58;98 src/Plugin/Field/FieldType/SubscriptionItem.php:48
+msgid "Source"
+msgstr "Quelle"
+
+#: simplenews_rules/simplenews_rules.rules.inc:53;59;99
+msgid "A string to identify the source of this subscription"
+msgstr "Eine Zeichenfolge zur Identifizierung der Quelle dieses Abonnements"
+
+#: simplenews_rules/simplenews_rules.rules.inc:65;105 src/Entity/Subscriber.php:373 src/Plugin/migrate/source/d7/Subscriber.php:27
+msgid "Language"
+msgstr "Sprache"
+
+#: simplenews_rules/simplenews_rules.rules.inc:66;106
+msgid "If specified, the language to use for the subscription. Defaults to the default language."
+msgstr "Die Sprache für das Abonnement. Der Standardwert (falls leer) ist die Standardsprache."
+
+#: simplenews_rules/simplenews_rules.rules.inc:74
+msgid "Unsubscribe an e-mail adress from a newsletter"
+msgstr "Eine E-Mail-Adresse von einem Newsletter abmelden"
+
+#: simplenews_rules/simplenews_rules.rules.inc:81
+msgid "The e-mail address that should be unsubscribed."
+msgstr "Die E-Mail-Adresse, die nicht weiter abonniert."
+
+#: simplenews_rules/simplenews_rules.rules.inc:114
+msgid "Delete an e-mail address from a newsletter"
+msgstr "E-Mail-Adresse aus einem Newsletter entfernen"
+
+#: simplenews_rules/simplenews_rules.rules.inc:121
+msgid "The e-mail address that should be permanently deleted from the newsletter. Note, use the unsubscribe action to temporarily unsubscribe an email address."
+msgstr "Die E-Mail-Adresse die dauerhaft aus allen Newslettern entfernt werden soll. Es gilt zu beachten, dass die Abonnement kündigen-Funktion genutzt werden sollte, um eine E-Mail-Adresse vorübergehend zu entfernen."
+
+#: simplenews_rules/simplenews_rules.rules.inc:131
+msgid "Delete an e-mail address from all newsletters"
+msgstr "E-Mail-Adresse aus allen Newslettern entfernen"
+
+#: simplenews_rules/simplenews_rules.rules.inc:138
+msgid "The e-mail address that should be permanently deleted from all newsletters. Note, use the unsubscribe action to temporarily unsubscribe an email address."
+msgstr "Die E-Mail-Adresse die dauerhaft aus allen Newslettern entfernt werden soll. Es gilt zu beachten, dass die Abonnement kündigen-Funktion genutzt werden sollte, um eine E-Mail Adresse vorübergehend zu entfernen."
+
+#: simplenews_rules/simplenews_rules.rules.inc:151
+msgid "A user has been subscribed"
+msgstr "Ein Benutzer hat abonniert"
+
+#: simplenews_rules/simplenews_rules.rules.inc:156
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: simplenews_rules/simplenews_rules.rules.inc:157;173
+msgid "The e-mail address that has been subscribed."
+msgstr "Die E-Mail-Adresse, die abonniert hat."
+
+#: simplenews_rules/simplenews_rules.rules.inc:167
+msgid "A user has been unsubscribed"
+msgstr "Ein Benutzer hat abbestellt"
+
+#: simplenews_rules/simplenews_rules.module:18
+msgid "Default"
+msgstr "Standard"
+
+#: simplenews_rules/simplenews_rules.module:19
+msgid "Yes"
+msgstr "Ja"
+
+#: simplenews_rules/simplenews_rules.module:20
+msgid "No"
+msgstr "Nein"
+
+#: src/NewsletterListBuilder.php:18
+msgid "Newsletter name"
+msgstr "Newsletter-Name"
+
+#: src/SubscriberViewsData.php:20
+msgid "Link to edit"
+msgstr "Link zum Bearbeiten"
+
+#: src/SubscriberViewsData.php:21
+msgid "Provide a simple link to edit the subscriber."
+msgstr "Stellt einen einfachen Link zur Verfügung, um den Abonennten zu bearbeitn."
+
+#: src/SubscriberViewsData.php:28
+msgid "Link to delete"
+msgstr "Link zum Löschen"
+
+#: src/SubscriberViewsData.php:29
+msgid "Provide a simple link to delete the subscriber."
+msgstr "Stellt einen einfachen Link zur Verfügung, um den Abonennten zu löschn."
+
+#: src/SubscriberViewsData.php:37 config/install/views.view.simplenews_subscribers.yml:0
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/SubscriberViewsData.php:38
+msgid "Provide a simple link to the subscriber's user account ."
+msgstr "Stellt einen Einfachen Link zum Benutzerkonto des Abonnenten zur Verfügung."
+
+#: src/Controller/ConfirmationController.php:49
+msgid "All changes to your subscriptions where already applied. No changes made."
+msgstr "Alle Änderungen Ihrer Abonnements wurden bereits angewendet. Keine weiteren Änderungen."
+
+#: src/Controller/ConfirmationController.php:90 src/Form/ConfirmMultiForm.php:99
+msgid "Subscription changes confirmed for %user."
+msgstr "Abonnement-Änderungen für  %user bestätigt."
+
+#: src/Controller/ConfirmationController.php:191 src/Form/ConfirmRemovalForm.php:87
+msgid "%user was unsubscribed from the %newsletter mailing list."
+msgstr "%user wurde von der Empfängerliste für %newsletter entfernt."
+
+#: src/Controller/ConfirmationController.php:199 src/Form/ConfirmAddForm.php:87
+msgid "%user was added to the %newsletter mailing list."
+msgstr "%user wurde zu der Abonnentenliste von %newsletter hinzugefügt."
+
+#: src/Entity/Newsletter.php:171
+msgid "All subscriptions to newsletter %newsletter have been deleted."
+msgstr "Alle Anmeldung zum Newsletter %newsletter wurden entfernt."
+
+#: src/Entity/Subscriber.php:340
+msgid "Primary key: Unique subscriber ID."
+msgstr "Primärer Schlüssel: Eindeutige Abonnenten-ID"
+
+#: src/Entity/Subscriber.php:345
+msgid "UUID"
+msgstr "UUID"
+
+#: src/Entity/Subscriber.php:346
+msgid "The subscriber UUID."
+msgstr "Die Abonnenten-UUID"
+
+#: src/Entity/Subscriber.php:350 src/Form/SubscriberExportForm.php:73 src/Form/SubscriberForm.php:31 src/Plugin/Field/FieldType/IssueItem.php:50 src/Plugin/Field/FieldType/SubscriptionItem.php:41 config/install/views.view.simplenews_subscribers.yml:0
+msgid "Status"
+msgstr "Status"
+
+#: src/Entity/Subscriber.php:351
+msgid "Boolean indicating the status of the subscriber."
+msgstr "Ein boolischer Wert, der den Status des Abonnenten angibt."
+
+#: src/Entity/Subscriber.php:355 config/install/views.view.simplenews_subscribers.yml:0;0
+msgid "Email"
+msgstr "E-Mail"
+
+#: src/Entity/Subscriber.php:356
+msgid "The subscriber's email address."
+msgstr "Die E-Mail Adresse, die den Newsletter erhalten soll."
+
+#: src/Entity/Subscriber.php:367
+msgid "User"
+msgstr "Benutzer"
+
+#: src/Entity/Subscriber.php:368
+msgid "The corresponding user."
+msgstr "Der zugehörige Benutzer."
+
+#: src/Entity/Subscriber.php:374
+msgid "The subscriber's preferred language."
+msgstr "Die bevorzugte Sprache de Abonnenten"
+
+#: src/Entity/Subscriber.php:377
+msgid "Changes"
+msgstr "Änderungen"
+
+#: src/Entity/Subscriber.php:378
+msgid "Contains the requested subscription changes."
+msgstr "Enthält die angeforderten Abonnementänderungen."
+
+#: src/Entity/Subscriber.php:381 config/install/views.view.simplenews_subscribers.yml:0
+msgid "Created"
+msgstr "Erstellt"
+
+#: src/Entity/Subscriber.php:382
+msgid "The time that the subscriber was created."
+msgstr "Der Zeipunkt, zudem der Abonnent hinzugefügt wurde."
+
+#: src/Form/ConfirmAddForm.php:19 src/Form/ConfirmMultiForm.php:19
+msgid "Confirm subscription"
+msgstr "Abonnement bestätigen"
+
+#: src/Form/ConfirmAddForm.php:26 src/Form/SubscriberMassSubscribeForm.php:76 src/Form/SubscriptionsFormBase.php:186
+msgid "Subscribe"
+msgstr "Abonnieren"
+
+#: src/Form/ConfirmAddForm.php:33
+msgid "You can always unsubscribe later."
+msgstr "Sie können sich jederzeit abmelden."
+
+#: src/Form/ConfirmAddForm.php:56
+msgid "Are you sure you want to add %user to the %newsletter mailing list?"
+msgstr "Möchten Sie %user wirklich zur %newsletter-Empfängerliste hinzufügen?"
+
+#: src/Form/ConfirmMultiForm.php:26
+msgid "You can always change your subscriptions later."
+msgstr "Sie können Ihre Abonnements jederzeit ändern."
+
+#: src/Form/ConfirmMultiForm.php:49
+msgid "Are you sure you want to confirm the following subscription changes for %user?"
+msgstr "Möchten Sie die folgenden Änderungen an den Abonnements für %user wirklich bestätigen?"
+
+#: src/Form/ConfirmRemovalForm.php:19
+msgid "Confirm remove subscription"
+msgstr "Bestätigung der Abbestellung des Newsletters"
+
+#: src/Form/ConfirmRemovalForm.php:26 src/Form/SubscriberMassUnsubscribeForm.php:46 src/Form/SubscriptionsFormBase.php:193
+msgid "Unsubscribe"
+msgstr "Abbestellen"
+
+#: src/Form/ConfirmRemovalForm.php:33
+msgid "This action will unsubscribe you from the newsletter mailing list."
+msgstr "Mit dieser Aktion melden Sie sich vom Newsletter ab."
+
+#: src/Form/ConfirmRemovalForm.php:56
+msgid "Are you sure you want to remove %user from the %newsletter mailing list?"
+msgstr "Möchten Sie %user wirklich von der Empfängerliste der %newsletter-Mailingliste entfernen?"
+
+#: src/Form/MailSettingsForm.php:35
+msgid "Use cron to send newsletters"
+msgstr "Benutze Cron-Job, um Newsletter zu versenden"
+
+#: src/Form/MailSettingsForm.php:37
+msgid "When checked cron will be used to send newsletters (recommended). Test newsletters and confirmation emails will be sent immediately. Leave unchecked for testing purposes."
+msgstr "Falls ausgewählt, werden die Newsletter über Cron versendet (empfohlen). Test-Newsletters und Bestätigungs-E-Mails werden sofort versendet. Zu Testzwecken nicht auswählen."
+
+#: src/Form/MailSettingsForm.php:42
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: src/Form/MailSettingsForm.php:44
+msgid "Cron execution must not exceed the PHP maximum execution time of %max seconds. You find the time spend to send emails in the <a href=\"/admin/reports/dblog\">Recent log entries</a>."
+msgstr "Die Ausführung des Cron-Jobs darf PHP's maximale Ausführungszeit von %max Sekunden nicht überschreiten. Sie finden die Zeit die zum versenden der Mails notwendig ist unter <a href=\"/admin/reports/dblog\">Neue Log-Einträge</a>."
+
+#: src/Form/MailSettingsForm.php:47
+msgid "Cron execution must not exceed the PHP maximum execution time of %max seconds."
+msgstr "Die Ausführung des Cron-Jobs darf PHPs maximale Ausführungszeit von %max Sekunden nicht überschreiten."
+
+#: src/Form/MailSettingsForm.php:51
+msgid "Cron throttle"
+msgstr "Cron-Last Reduzierung"
+
+#: src/Form/MailSettingsForm.php:54
+msgid "Sets the numbers of newsletters sent per cron run. Failure to send will also be counted."
+msgstr "Anzahl der Newsletter die in einem Cron-Lauf versendet werden sollen. Fehlgeschlagene Sendeversuche werden auch mitgezählt."
+
+#: src/Form/MailSettingsForm.php:58
+msgid "Mail spool expiration"
+msgstr "Verweildauer in der Mail-Warteschlange"
+
+#: src/Form/MailSettingsForm.php:60
+msgid "Immediate"
+msgstr "Sofort"
+
+#: src/Form/MailSettingsForm.php:66
+msgid "Newsletter mails are spooled. How long must messages be retained in the spool after successful sending. Keeping the message in the spool allows mail statistics (which is not yet implemented). If cron is not used, immediate expiration is advised."
+msgstr "Newsletter-Mails werden mittels einer Warteschlange verarbeitet. Legen Sie fest, wie lange Mails nach erfolgreichem Versand in der Warteschlange verbleiben. Belassen der Mails in der Warteschlange erlaubt E-Mail-Statistiken (noch nicht implementiert). Wenn der Cron-Job nicht genutzt wird, wird der sofortige Verfall empfohlen."
+
+#: src/Form/MailSettingsForm.php:70
+msgid "Log emails"
+msgstr "E-Mails protokollieren"
+
+#: src/Form/MailSettingsForm.php:72
+msgid "When checked all outgoing simplenews emails are logged in the system log. A logged email does not guarantee that it is send or will be delivered. It only indicates that a message is sent to the PHP mail() function. No status information is available of delivery by the PHP mail() function."
+msgstr "Diese Option ermöglicht Simplenews E-Mails im Systemprotokoll zu erfassen. Eine im Log erfasste E-Mail garantiert nicht, dass sie gesendet wurde oder wird. Es zeigt nur, dass eine Nachricht an die PHP mail()-Funktion übergeben wurde. Es ist keine Statusinformation über den Versand durch die mail()-Funktion verfügbar."
+
+#: src/Form/MailSettingsForm.php:61
+msgid "1 day"
+msgid_plural "@count days"
+msgstr[0] "1 Tag"
+msgstr[1] "@count Tage"
+
+#: src/Form/MailSettingsForm.php:62;63
+msgid "1 week"
+msgid_plural "@count weeks"
+msgstr[0] "1 Woche"
+msgstr[1] "@count Wochen"
+
+#: src/Form/NewsletterDeleteForm.php:18 src/Form/SubscriberDeleteForm.php:18
+msgid "Are you sure you want to delete %name?"
+msgstr "Möchten Sie %name wirklich löschen?"
+
+#: src/Form/NewsletterDeleteForm.php:40;41
+msgid "Newsletter %label has been deleted."
+msgstr "Der Newsletter %label wurde gelöscht."
+
+#: src/Form/NewsletterForm.php:27
+msgid "The newsletter name."
+msgstr "Der Name des Newsletters."
+
+#: src/Form/NewsletterForm.php:42 src/Plugin/migrate/source/d7/Newsletter.php:24
+msgid "Description"
+msgstr "Description"
+
+#: src/Form/NewsletterForm.php:44
+msgid "A description of the newsletter."
+msgstr "Eine Beschreibung des Newsletters"
+
+#: src/Form/NewsletterForm.php:47
+msgid "Newsletter format. Install <a href=\":mime_mail_url\">Mime Mail</a> module or <a href=\":html_url\">HTML Mail</a> module to send newsletters in HTML format."
+msgstr "Newsletter-Format. Bitte das <a href=\":mime_mail_url\">Mime-Mail-Modul</a> oder das <a href=\":html_url\">HTML-Mail-Modul</a> installieren, um Newsletter im HTML-Format zu versenden."
+
+#: src/Form/NewsletterForm.php:61
+msgid "Subscribe new account"
+msgstr "Neues Abonnement"
+
+#: src/Form/NewsletterForm.php:64
+msgid "None: This newsletter is not listed on the user registration page.<br />Default on: This newsletter is listed on the user registion page and is selected by default.<br />Default off: This newsletter is listed on the user registion page and is not selected by default.<br />Silent: A new user is automatically subscribed to this newsletter. The newsletter is not listed on the user registration page."
+msgstr "Dieser Newsletter wird nicht auf die Benutzer-Registrierungsseite aufgeführt.<br>Standard aktiviert: dieser Newsletter wird auf der Registrierungsseite für Benutzer gelistet und ist standardmäßig aktiviert.<br>Standard deaktiviert: dieser Newsletter wird nicht auf der Registrierungsseite für Benutzer gelistet und ist nicht standardmäßig aktiviert.<br>Still: Ein neuer Benutzer wird automatisch diesen Newsletter erhalten, dies mit deutschem Recht nicht vereinbar. Der Newsletter wird nicht auf der Registrierungsseite für Benutzer aufgeführt."
+
+#: src/Form/NewsletterForm.php:71
+msgid "Opt-in/out method"
+msgstr "Opt-in/Out-Methode"
+
+#: src/Form/NewsletterForm.php:74
+msgid "Hidden: This newsletter does not appear on subscription forms. No unsubscription footer in newsletter.<br /> Single: Users are (un)subscribed immediately, no confirmation email is sent.<br />Double: When (un)subscribing at a subscription form, anonymous users receive an (un)subscription confirmation email. Authenticated users are (un)subscribed immediately."
+msgstr "Ausgeblendet: Diesen Newsletter nicht in Formularen für Abonnements auflisten. Kein Link in der Fußzeile des Newsletters zum Abmelden. <br> Sofort: Benutzer sind sofort Abonnementen bzw. werden sofort abgemeldet, d. h. sie bekommen keine Besätigungsmail. <br> Doppelt: Auch als Double-opt-in/-out bezeichnet. Wenn sich jemand an- oder abmeldet, dann erhalten diese Personen eine Bestätigungs-E-Mail. Für Benutzer, die sich bereits bei der Website authentifiziert haben, wird die Änderung sofort wirksam und diese Benutzer erhalten keine Bestätigungs-E-Mail."
+
+#: src/Form/NewsletterForm.php:79
+msgid "Email settings"
+msgstr "E-Mail-Einstellungen"
+
+#: src/Form/NewsletterForm.php:88
+msgid "Email format"
+msgstr "E-Mail-Format"
+
+#: src/Form/NewsletterForm.php:99
+msgid "Newsletter emails will be sent in %format format."
+msgstr "Die E-Mails mit den Newslettern werden im Format %format gesendet."
+
+#: src/Form/NewsletterForm.php:105
+msgid "Hyperlink conversion"
+msgstr "Link-Umwandlung"
+
+#: src/Form/NewsletterForm.php:106
+msgid "Determine how the conversion to text is performed."
+msgstr "Legt fest, wie die Umwandlung in Text durchgeführt wird."
+
+#: src/Form/NewsletterForm.php:107
+msgid "Append hyperlinks as a numbered reference list"
+msgstr "Links als Fußnoten anhängen"
+
+#: src/Form/NewsletterForm.php:107
+msgid "Display hyperlinks inline with the text"
+msgstr "Links gemeinsam mit Text anzeigen"
+
+#: src/Form/NewsletterForm.php:120
+msgid "Email priority"
+msgstr "E-Mail-Priorität"
+
+#: src/Form/NewsletterForm.php:126 src/Form/NewsletterSettingsForm.php:57
+msgid "Request receipt"
+msgstr "Empfangsbestätigung anfordern"
+
+#: src/Form/NewsletterForm.php:134 src/Form/NewsletterSettingsForm.php:63
+msgid "Sender information"
+msgstr "Absender-Information"
+
+#: src/Form/NewsletterForm.php:139 src/Form/NewsletterSettingsForm.php:69
+msgid "From name"
+msgstr "Absendername"
+
+#: src/Form/NewsletterForm.php:148 src/Plugin/migrate/source/d7/Newsletter.php:29
+msgid "Newsletter subject"
+msgstr "Newsletter Betreff"
+
+#: src/Form/NewsletterForm.php:154
+msgid "Email subject"
+msgstr "E-Mail-Betreff"
+
+#: src/Form/NewsletterForm.php:171 src/Form/NewsletterSettingsForm.php:76
+msgid "From email address"
+msgstr "Absender E-Mail-Adresse"
+
+#: src/Form/NewsletterForm.php:181
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/NewsletterForm.php:202
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Form/NewsletterForm.php:205;206
+msgid "Newsletter %label has been updated."
+msgstr "Der Newsletter %label wurde aktualisiert."
+
+#: src/Form/NewsletterForm.php:209;210
+msgid "Newsletter %label has been added."
+msgstr "Der Newsletter %label wurde hinzugefügt."
+
+#: src/Form/NewsletterSettingsForm.php:34
+msgid "Default newsletter options"
+msgstr "Standard Newsletter-Einstellungen"
+
+#: src/Form/NewsletterSettingsForm.php:36
+msgid "These options will be the defaults for new newsletters, but can be overridden in the newsletter editing form."
+msgstr "Diese Werte sind die Standard-Einstellungen für neue Newsletter, können aber im Formular „Newsletter bearbeiten“ geändert werden."
+
+#: src/Form/NewsletterSettingsForm.php:39
+msgid "Default newsletter format. Install <a href=\":mime_mail_url\">Mime Mail</a> module or <a href=\":html_url\">HTML Mail</a> module to send newsletters in HTML format."
+msgstr "Standard-Newsletter-Format. Bitte das <a href=\":mime_mail_url\">Mime-Mail-Modul</a> oder das <a href=\":html_url\">HTML-Mail-Modul</a> installieren, um Newsletter im HTML-Format zu versenden."
+
+#: src/Form/NewsletterSettingsForm.php:42
+msgid "Format"
+msgstr "Format"
+
+#: src/Form/NewsletterSettingsForm.php:50 src/Plugin/migrate/source/d7/Newsletter.php:26
+msgid "Priority"
+msgstr "Priorität"
+
+#: src/Form/NewsletterSettingsForm.php:52
+msgid "Note that email priority is ignored by a lot of email programs."
+msgstr "Die Priorität von E-Mails wird übrigens von vielen E-Mail-Programmen ignoriert. Normale Priorität sollte ausreichen."
+
+#: src/Form/NewsletterSettingsForm.php:59
+msgid "Request a Read Receipt from your newsletters. A lot of email programs ignore these so it is not a definitive indication of how many people have read your newsletter."
+msgstr "Empfangsbestätigung von den Newsletter-Empfängern anfordern. Viele E-Mail-Programme und Empfänger ignorieren dies jedoch, so dass dies kein sicheres Anzeichen dafür ist, wie viele Empfänger diesen Newsletter gelesen haben."
+
+#: src/Form/NewsletterSettingsForm.php:65
+msgid "Default sender address that will only be used for confirmation emails. You can specify sender information for each newsletter separately on the newsletter's settings page."
+msgstr "Die standardmäßige Absender-Adresse wird nur für Bestätigungs-E-Mails verwendet. Absender-Adressen können in den Newsletter-Einstellungen für jeden Newsletter separat angegeben werden."
+
+#: src/Form/NodeTabForm.php:31
+msgid "<em>Newsletter issue</em> @title"
+msgstr "<em>Newsletter-Ausgabe</em> @title"
+
+#: src/Form/NodeTabForm.php:43
+msgid "Test"
+msgstr "Test"
+
+#: src/Form/NodeTabForm.php:47
+msgid "Test email addresses"
+msgstr "Test-E-Mail-Adressen"
+
+#: src/Form/NodeTabForm.php:48
+msgid "A comma-separated list of email addresses to be used as test addresses."
+msgstr "Eine durch Kommas getrennte Liste von E-Mail-Adressen, die als Testadressen verwendet werden."
+
+#: src/Form/NodeTabForm.php:56
+msgid "Send test newsletter issue"
+msgstr "Testausgabe des Newsletters versenden"
+
+#: src/Form/NodeTabForm.php:64
+msgid "Send"
+msgstr "Senden"
+
+#: src/Form/NodeTabForm.php:72
+msgid "Recipients"
+msgstr "Empfänger"
+
+#: src/Form/NodeTabForm.php:73
+msgid "Please select to configure who to send the email to."
+msgstr "Bitte auswählen, um festzulegen, an wen die E-Mail gesendet werden soll."
+
+#: src/Form/NodeTabForm.php:108
+msgid "Send newsletter issue to @count subscribers."
+msgstr "Ausgabe des Newsletters an @count Abonnenten versenden."
+
+#: src/Form/NodeTabForm.php:111
+msgid "Mails will be sent immediately."
+msgstr "Mails werden sofort versendet."
+
+#: src/Form/NodeTabForm.php:114
+msgid "Mails will be sent when cron runs."
+msgstr "Mails werden versendet, wenn Cron ausgeführt wird."
+
+#: src/Form/NodeTabForm.php:125
+msgid "Send now"
+msgstr "Jetzt senden"
+
+#: src/Form/NodeTabForm.php:133
+msgid "Send on publish"
+msgstr "Senden bei Veröffentlichung"
+
+#: src/Form/NodeTabForm.php:143
+msgid "This newsletter issue has been sent to @count subscribers"
+msgstr "Diese Ausgabe des Newsletters wurde an @count Abonnenten versendet"
+
+#: src/Form/NodeTabForm.php:147
+msgid "The newsletter issue will be sent when the content is published."
+msgstr "Die Ausgabe des Newsletters wird versendet, wenn der Inhalt veröffentlicht wird."
+
+#: src/Form/NodeTabForm.php:150
+msgid "This newsletter issue is pending, @count of @total mails already sent."
+msgstr "Die Newsletter-Ausgabe wur verarbeitet. @count von @total E-Mails wurden bereits versendet"
+
+#: src/Form/NodeTabForm.php:158 src/Plugin/Action/StopIssue.php:9
+msgid "Stop sending"
+msgstr "Versand abbrechen"
+
+#: src/Form/NodeTabForm.php:201
+msgid "Invalid email address \"%mail\"."
+msgstr "Ungültige E-Mail-Adresse „%mail“."
+
+#: src/Form/NodeTabForm.php:207
+msgid "Missing test email address."
+msgstr "Test-E-Mail-Adresse fehlt."
+
+#: src/Form/NodeTabForm.php:256
+msgid "Newsletter %title sent."
+msgstr "Der Newsletter %title wurde gesendet."
+
+#: src/Form/NodeTabForm.php:259
+msgid "Newsletter issue %title pending."
+msgstr "Newsletter-Ausgabe %title wartet."
+
+#: src/Form/NodeTabForm.php:274
+msgid "Newsletter issue %title will be sent when published."
+msgstr "Die Newsletter-Ausgabe %title wird versendet, wenn sie veröffentlicht wurde."
+
+#: src/Form/NodeTabForm.php:292 src/Plugin/Action/StopIssue.php:31
+msgid "Sending of %title was stopped. @count pending email(s) were deleted."
+msgstr "Der Versand von %title wurde abgebrochen. @count wartende E-Mails wurden gelöscht."
+
+#: src/Form/PrepareUninstallForm.php:27
+msgid "When clicked all Simplenews data (content, fields) will be removed."
+msgstr "Wird diese Option angeklickt, werden alle Simplenews-Daten (Inhalte, Felder) gelöscht."
+
+#: src/Form/PrepareUninstallForm.php:32
+msgid "Delete Simplenews data"
+msgstr "Simplenews-Daten löschen"
+
+#: src/Form/PrepareUninstallForm.php:43
+msgid "Deleting subscribers"
+msgstr "Lösche Abonennten"
+
+#: src/Form/PrepareUninstallForm.php:55
+msgid "Deleting Simplenews data... Completed @percentage% (@current of @total)."
+msgstr "Lösche Simplenews-Daten...  @percentage % abgeschlossen:(@current von @total)."
+
+#: src/Form/PrepareUninstallForm.php:59
+msgid "Simplenews data has been deleted."
+msgstr "Simplenews-Daten wurden gelöscht."
+
+#: src/Form/RequestHashForm.php:18
+msgid "This link has expired."
+msgstr "Der Link ist abgelafufen."
+
+#: src/Form/RequestHashForm.php:32
+msgid "Request new confirmation mail"
+msgstr "Neue Bestätigungs-Email anfordern"
+
+#: src/Form/RequestHashForm.php:81
+msgid "The confirmation mail has been sent."
+msgstr "Die Bestätigungs-E-Mail wurde versendet."
+
+#: src/Form/SubscriberDeleteForm.php:40;41
+msgid "Subscriber %label has been deleted."
+msgstr "Abonnent %label wurde entfernt."
+
+#: src/Form/SubscriberExportForm.php:59
+msgid "No addresses were found."
+msgstr "Es wurden keine Adressen gefunden."
+
+#: src/Form/SubscriberExportForm.php:75
+msgid "Active users"
+msgstr "Aktive Benutzer"
+
+#: src/Form/SubscriberExportForm.php:76
+msgid "Inactive users"
+msgstr "Inaktive Benutzer"
+
+#: src/Form/SubscriberExportForm.php:79
+msgid "Subscriptions matching the selected states will be exported."
+msgstr "Abonnements mit dem gewählten Status werden exportiert."
+
+#: src/Form/SubscriberExportForm.php:87
+msgid "Subscribed to the newsletter"
+msgstr "Der Newsletter wurde abonniert"
+
+#: src/Form/SubscriberExportForm.php:88
+msgid "Unconfirmed to the newsletter"
+msgstr "Unbestätigt für den Newsletter"
+
+#: src/Form/SubscriberExportForm.php:89
+msgid "Unsubscribed from the newsletter"
+msgstr "Newsletter abbestellt"
+
+#: src/Form/SubscriberExportForm.php:92
+msgid "Subscriptions matching the selected subscription states will be exported."
+msgstr "Abonnements mit dem ausgewählten Status werden exportiert."
+
+#: src/Form/SubscriberExportForm.php:102
+msgid "Subscriptions matching the selected newsletters will be exported."
+msgstr "Abonnements der gewählten Newsletter werden exportiert."
+
+#: src/Form/SubscriberExportForm.php:112
+msgid "Export results"
+msgstr "Ergebnisse des Exports"
+
+#: src/Form/SubscriberForm.php:28
+msgid "Edit subscriber @mail"
+msgstr "Mail des Abonennten @mail bearbeiten"
+
+#: src/Form/SubscriberForm.php:33
+msgid "Whether the subscription is active or blocked."
+msgstr "Ob das Abonnement aktiv oder gesperrt ist."
+
+#: src/Form/SubscriberForm.php:38 config/install/views.view.simplenews_subscribers.yml:0;0
+msgid "Active"
+msgstr "Aktiv"
+
+#: src/Form/SubscriberForm.php:51
+msgid "Preferred language"
+msgstr "Bevorzugte Sprache"
+
+#: src/Form/SubscriberForm.php:52
+msgid "The e-mails will be localized in language chosen. Real users have their preference in account settings."
+msgstr "Emails werden in die entsprechende Sprache (Lokalisierung) übersetzt. Hierbei werden die Benutzer-Einstellungen angewandt."
+
+#: src/Form/SubscriberForm.php:59
+msgid "User language"
+msgstr "Sprache des Benutzers"
+
+#: src/Form/SubscriberForm.php:80
+msgid "Subscriber %label has been updated."
+msgstr "Abonnent %label wurde aktualisiert."
+
+#: src/Form/SubscriberMassSubscribeForm.php:27 src/Form/SubscriberMassUnsubscribeForm.php:27
+msgid "Email addresses"
+msgstr "E-Mail-Adressen"
+
+#: src/Form/SubscriberMassSubscribeForm.php:30 src/Form/SubscriberMassUnsubscribeForm.php:30
+msgid "Email addresses must be separated by comma, space or newline."
+msgstr "Mehrere E-Mail-Adressen müssen durch Komma, Leerzeichen oder Zeilenumbruch getrennt werden."
+
+#: src/Form/SubscriberMassSubscribeForm.php:35
+msgid "Subscribe to"
+msgstr "Abonniere"
+
+#: src/Form/SubscriberMassSubscribeForm.php:46
+msgid "Force resubscription"
+msgstr "Erneutes Abonnieren erzwingen"
+
+#: src/Form/SubscriberMassSubscribeForm.php:47
+msgid "If checked, previously unsubscribed e-mail addresses will be resubscribed. Consider that this might be against the will of your users."
+msgstr "Wenn aktiviert, werden zuvor ausgetragene E-Mail-Adressen wieder eingetragen. Es sollte beachtet werden, dass dies gegen den Wunsch der Benutzer sein könnte."
+
+#: src/Form/SubscriberMassSubscribeForm.php:54
+msgid "Site default language"
+msgstr "Standardsprache der Website"
+
+#: src/Form/SubscriberMassSubscribeForm.php:61
+msgid "Anonymous user preferred language"
+msgstr "Von Gästen bevorzugte Sprache"
+
+#: src/Form/SubscriberMassSubscribeForm.php:64
+msgid "New subscriptions will be subscribed with the selected preferred language. The language of existing subscribers is unchanged."
+msgstr "Neue Abonnements werden mit der ausgewählten Sprache abonniert werden. Die Sprache der bestehenden Abonnenten bleibt unverändert."
+
+#: src/Form/SubscriberMassSubscribeForm.php:131
+msgid "The following addresses were added or updated: %added."
+msgstr "Die folgenden Adressen wurden hinzugefügt oder geändert: %added."
+
+#: src/Form/SubscriberMassSubscribeForm.php:137
+msgid "The addresses were subscribed to the following newsletters: %newsletters."
+msgstr "Die Adressen wurden zu den folgenden Newslettern hinzugefügt: %newsletters."
+
+#: src/Form/SubscriberMassSubscribeForm.php:140
+msgid "No addresses were added."
+msgstr "Es wurden keine Adressen hinzugefügt."
+
+#: src/Form/SubscriberMassSubscribeForm.php:144 src/Form/SubscriberMassUnsubscribeForm.php:97
+msgid "The following addresses were invalid: %invalid."
+msgstr "Die folgenden Adressen sind ungültig: %invalid."
+
+#: src/Form/SubscriberMassSubscribeForm.php:149
+msgid "The following addresses were skipped because they have previously unsubscribed from %name: %unsubscribed."
+msgstr "Die folgenden Adressen wurden übersprungen, da sie zuvor das Abonnement abbestellt hatten %name: %unsubscribed."
+
+#: src/Form/SubscriberMassSubscribeForm.php:153
+msgid "If you would like to resubscribe them, use the 'Force resubscription' option."
+msgstr "Wenn diese erneut Abonniert werden sollen, ist die \"Abonnement erzwingen\"-Option zu verwenden."
+
+#: src/Form/SubscriberMassUnsubscribeForm.php:35
+msgid "Unsubscribe from"
+msgstr "Abbestellen von"
+
+#: src/Form/SubscriberMassUnsubscribeForm.php:83
+msgid "The following addresses were unsubscribed: %removed."
+msgstr "Folgende Adressen ausgetragen: %removed"
+
+#: src/Form/SubscriberMassUnsubscribeForm.php:90
+msgid "The addresses were unsubscribed from the following newsletters: %newsletters."
+msgstr "Die Adressen wurden von den folgenden Newslettern entfernt: %newsletters."
+
+#: src/Form/SubscriberMassUnsubscribeForm.php:93
+msgid "No addresses were removed."
+msgstr "Es wurden keine Adressen entfernt."
+
+#: src/Form/SubscriberSettingsForm.php:34
+msgid "User account"
+msgstr "Benutzerkonto"
+
+#: src/Form/SubscriberSettingsForm.php:39
+msgid "Synchronize between account and subscriber fields"
+msgstr "Benutzerkontenfelder und Aboenntenfelder synchonisieren"
+
+#: src/Form/SubscriberSettingsForm.php:41
+msgid "<p>When checked fields that exist with identical name and type on subscriber and accounts will be synchronized.</p>"
+msgstr "<p>Wird diese Option ausgewählt, werden die Inhalte von Feldern mit dem selben Feldnamen in  Anmeldeformularen und auf Benutzerprofilen synchronisiert.</p>"
+
+#: src/Form/SubscriptionSettingsForm.php:35
+msgid "Confirmation emails"
+msgstr "Bestätigungs-E-Mails"
+
+#: src/Form/SubscriptionSettingsForm.php:41
+msgid "Use combined confirmation mails"
+msgstr "Kombinierte Bestätigungs-E-Mails verwenden"
+
+#: src/Form/SubscriptionSettingsForm.php:43
+msgid "For multiple changes"
+msgstr "Für mehrere Änderungen"
+
+#: src/Form/SubscriptionSettingsForm.php:44
+msgid "Always"
+msgstr "Immer"
+
+#: src/Form/SubscriptionSettingsForm.php:45
+msgid "Never"
+msgstr "Nie"
+
+#: src/Form/SubscriptionSettingsForm.php:47
+msgid "Combined confirmation mails allow subscribers to confirm multiple newsletter changes with single mail."
+msgstr "Kombinierte Bestätigungs-E-Mails ermöglichen Abonnenten, mehrere Newsletter-Änderungen mit einer einzelnen Mail zu bestätigen."
+
+#: src/Form/SubscriptionSettingsForm.php:67
+msgid "Single confirmation mails"
+msgstr "Einzelne Bestätigungs-E-Mails"
+
+#: src/Form/SubscriptionSettingsForm.php:81
+msgid "Subject"
+msgstr "Betreff"
+
+#: src/Form/SubscriptionSettingsForm.php:87
+msgid "Body text of subscribe email"
+msgstr "Textkörper der E-Mail zum Abonnieren"
+
+#: src/Form/SubscriptionSettingsForm.php:93
+msgid "Body text for already subscribed visitor"
+msgstr "Textkörper der E-Mail an Besucher die diesen Newsletter bereits abonniert haben"
+
+#: src/Form/SubscriptionSettingsForm.php:99
+msgid "Body text of unsubscribe email"
+msgstr "Textkörper der E-Mail zum Abbestellen"
+
+#: src/Form/SubscriptionSettingsForm.php:105
+msgid "Body text for not yet subscribed visitor"
+msgstr "Textkörper der E-Mail zum Abbestellen an Besucher die Newsletter gar nicht bestellt hatten"
+
+#: src/Form/SubscriptionSettingsForm.php:112
+msgid "Combined confirmation mails"
+msgstr "Kombinierte Bestätigungs-E-Mails"
+
+#: src/Form/SubscriptionSettingsForm.php:126
+msgid "Subject text for combined confirmation mail"
+msgstr "Betreff für die kombinierte Bestätigungs-E-Mail"
+
+#: src/Form/SubscriptionSettingsForm.php:132
+msgid "Body text for combined confirmation mail"
+msgstr "Textkörper für kombinierte Bestätigungs-E-Mail"
+
+#: src/Form/SubscriptionSettingsForm.php:139
+msgid "Body text for unchanged combined confirmation mail"
+msgstr "Textkörper für unveränderte kombinierte Bestätigungs-E-Mail"
+
+#: src/Form/SubscriptionSettingsForm.php:142
+msgid "This body is used when there are no change requests which have no effect, e.g trying to subscribe when already being subscribed to a newsletter."
+msgstr "Dieser Text wird verwendet, wenn eine Änderungsanfrage für ein Abonnement gespeichert wird, die keine Auswirkungen hat. Z. B. wenn jemand versucht sich für einen  Newsletter anzumelden, der bereits für diesen Newsletter angemeldet ist."
+
+#: src/Form/SubscriptionSettingsForm.php:147
+msgid "Change text for a new subscription"
+msgstr "Ändern Sie Text für ein neues Abonnement"
+
+#: src/Form/SubscriptionSettingsForm.php:153
+msgid "Change text when already subscribed"
+msgstr "Text ändern, wenn bereits abonniert wird"
+
+#: src/Form/SubscriptionSettingsForm.php:159
+msgid "Change text for an unsubscription"
+msgstr "Ändern Sie Text für eine Abmeldung"
+
+#: src/Form/SubscriptionSettingsForm.php:165
+msgid "Change text when already unsubscribed"
+msgstr "Text ändern, wenn kein Abonnement besteht"
+
+#: src/Form/SubscriptionSettingsForm.php:171
+msgid "Confirmation pages"
+msgstr "Bestätigungsformular"
+
+#: src/Form/SubscriptionSettingsForm.php:176
+msgid "Subscribe confirmation"
+msgstr "Abonnieren Bestätigung"
+
+#: src/Form/SubscriptionSettingsForm.php:177
+msgid "Drupal path or URL of the destination page where after the subscription is confirmed (e.g. /node/123). Leave empty to go to the front page."
+msgstr "Drupal-Pfad oder URL der Zielseite, auf der das Abonnement bestätigt wird (z.B. /node/123). Lassen Sie das Feld leer, um zur Titelseite zu gelangen."
+
+#: src/Form/SubscriptionSettingsForm.php:182
+msgid "Unsubscribe confirmation"
+msgstr "Abmelden Bestätigung"
+
+#: src/Form/SubscriptionSettingsForm.php:183
+msgid "Drupal path or URL of the destination page when the subscription removal is confirmed (e.g. /node/123). Leave empty to go to the front page."
+msgstr "Drupal-Pfad oder URL der Zielseite, wenn die Entfernung des Abonnements bestätigt wird (z.B. /node/123). Lassen Sie das Feld leer, um zur Titelseite zu gelangen."
+
+#: src/Form/SubscriptionsAccountForm.php:40
+msgid "Your newsletter subscriptions have been updated."
+msgstr "Ihre Newsletter-Abonnements wurden aktualisiert."
+
+#: src/Form/SubscriptionsAccountForm.php:42
+msgid "The newsletter subscriptions for user %account have been updated."
+msgstr "Die Newsletter-Abonnements für Benutzer %account wurden aktualisiert."
+
+#: src/Form/SubscriptionsBlockForm.php:62 src/Form/SubscriptionsPageForm.php:45
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: src/Form/SubscriptionsBlockForm.php:72 src/Form/SubscriptionsPageForm.php:62
+msgid "The newsletter subscriptions for %mail have been updated."
+msgstr "Die Newsletter-Abonnements von %mail wurden aktualisiert."
+
+#: src/Form/SubscriptionsBlockForm.php:76 src/Form/SubscriptionsPageForm.php:56
+msgid "You will receive a confirmation e-mail shortly containing further instructions on how to complete your subscription."
+msgstr "Sie erhalten in Kürze eine Bestätigungsmail mit weiteren Instruktionen zur Komplettierung Ihrer Newsletter-Anmeldung."
+
+#: src/Form/SubscriptionsBlockForm.php:78
+msgid "You have been subscribed."
+msgstr "Sie wurden zum Newsletter angemeldet."
+
+#: src/Form/SubscriptionsBlockForm.php:82 src/Form/SubscriptionsPageForm.php:59
+msgid "You will receive a confirmation e-mail shortly containing further instructions on how to cancel your subscription."
+msgstr "Sie werden in Kürze eine Bestätigungs-E-Mail mit weiteren Anweisungen zum Abbestellen des Newsletter erhalten."
+
+#: src/Form/SubscriptionsBlockForm.php:84
+msgid "You have been unsubscribed."
+msgstr "Sie wurden vom Newsletter abgemeldet."
+
+#: src/Form/SubscriptionsFormBase.php:142
+msgid "Subscriptions for %mail"
+msgstr "Abonnements von %mail"
+
+#: src/Form/SubscriptionsFormBase.php:143
+msgid "Check the newsletters you want to subscribe to. Uncheck the ones you want to unsubscribe from."
+msgstr "Wählen Sie die Newsletter aus, die Sie abonnieren möchten. Deaktivieren Sie diejenigen, die Sie abbestellen möchten."
+
+#: src/Form/SubscriptionsFormBase.php:146
+msgid "Manage your newsletter subscriptions"
+msgstr "Newsletter-Abonnements verwalten"
+
+#: src/Form/SubscriptionsFormBase.php:147
+msgid "Select the newsletter(s) to which you want to subscribe or unsubscribe."
+msgstr "Wählen Sie die Newsletter, die Sie abonnieren oder abbestellen wollen."
+
+#: src/Form/SubscriptionsFormBase.php:214
+msgid "The email address %mail belongs to a blocked user."
+msgstr "die E-Mail-Adresse %mail gehört zu einem gesperrten Benutzer."
+
+#: src/Form/SubscriptionsFormBase.php:215
+msgid "There is an account registered for the e-mail address %mail. Please log in to manage your newsletter subscriptions."
+msgstr "Es existiert bereits ein Benutzerkonto mit der E-Mail-Adresse %mail. Bitte melden Sie sich an, um Ihre abonnierten Newsletter zu verwalten."
+
+#: src/Form/SubscriptionsFormBase.php:223
+msgid "You must select at least one newsletter."
+msgstr "Es muss mindestens ein Newsletter ausgewählt werden."
+
+#: src/Mail/Mailer.php:137
+msgid "Sending mails"
+msgstr "Die E-Mails werden verschickt"
+
+#: src/Mail/Mailer.php:205
+msgid "Cron throttle setting"
+msgstr "Einstellung zur Cron-Last-Reduzierung"
+
+#: src/Mail/Mailer.php:359
+msgid "Test newsletter sent to user %recipient."
+msgstr "Test-Newsletter wurde an Benutzer %recipient gesendet."
+
+#: src/Mail/Mailer.php:363
+msgid "Test newsletter sent to anonymous %recipient."
+msgstr "Test-Newsletter wurde an %recipient gesendet."
+
+#: src/Mail/Mailer.php:255
+msgid "%success emails sent in %sec seconds, %skipped skipped, %fail failed sending."
+msgstr "%success E-Mails versendet in %sec Sekunden, %skipped übersprungen. Versand von %fail E-Mails fehlgeschlagen."
+
+#: src/Mail/Mailer.php:258
+msgid "%success emails sent, %skipped skipped, %fail failed."
+msgstr "%success E-Mails versendet, %skipped übersprungen, %fail fehlgeschlagen."
+
+#: src/Mail/Mailer.php:204
+msgid "Sending interrupted: PHP maximum execution time almost exceeded. Remaining newsletters will be sent during the next cron run. If this warning occurs regularly you should reduce the !cron_throttle_setting."
+msgstr "Sendevorgang wurde unterbrochen: Maximale Ausführungszeit von PHP wurde beinahe erreicht. Verbleibende Newsletter werden während des nächsten Cron-Laufes gesendet. Wenn diese Warnung regelmäßig auftritt, sollten Sie die !cron_throttle_setting ändern."
+
+#: src/Mail/Mailer.php:285
+msgid "Outgoing email failed. Message type: %type<br />Subject: %subject<br />Recipient: %to"
+msgstr "Ausgehende E-Mail fehlgeschlagen. Nachrichten-Typ: %type<br />Betreff: %subject<br />Empfänger: %to"
+
+#: src/Plugin/Action/SendIssue.php:32
+msgid "Newsletter issue %title is unpublished and will be sent on publish."
+msgstr "Die Newsletter-Ausgabe %title wurde noch nicht veröffentlicht und wird bei der Veröffentlichung versendet."
+
+#: src/Plugin/Action/SendIssue.php:44
+msgid "Sent the following newsletter(s): %titles."
+msgstr "Forlgende Newsletter wurden versendet: %titles"
+
+#: src/Plugin/Action/SendIssue.php:48
+msgid "The following newsletter(s) are now pending: %titles."
+msgstr "Folgende Newsletter warten nun auf den Versand: %titles."
+
+#: src/Plugin/Action/SendIssue.php:9
+msgid "Send newsletter issue"
+msgstr "Newsletter-Ausgabe versenden"
+
+#: src/Plugin/Block/SimplenewsSubscriptionBlock.php:82 modules/simplenews_demo/config/install/block.block.simplenewssubscription.yml:0
+msgid "Stay informed - subscribe to our newsletter."
+msgstr "Bleiben Sie auf dem Laufenden - abonnieren Sie unseren Newsletter."
+
+#: src/Plugin/Block/SimplenewsSubscriptionBlock.php:113
+msgid "Block message"
+msgstr "Blocknachricht"
+
+#: src/Plugin/Block/SimplenewsSubscriptionBlock.php:123
+msgid "Each subscription block must have a unique form ID. If no value is provided, a random ID will be generated. Use this to have a predictable, short ID, e.g. to configure this form use a CAPTCHA."
+msgstr "Jeder Newsletter-Abonnement-Block hat eine eindeutige Formular-ID. Wird kein Wert angegeben, wird ein Zufallswert generiert. Diese Option kann verwendet werden, um den Block über eine kurze, eindeutige ID anzusprechen, um beispielsweise ein CAPTCHA für den Block zur Verfügung zu stellen.."
+
+#: src/Plugin/Block/SimplenewsSubscriptionBlock.php:15 src/Plugin/Field/FieldType/SubscriptionItem.php:9 modules/simplenews_demo/config/install/block.block.simplenewssubscription.yml:0
+msgid "Simplenews subscription"
+msgstr "Simplenews Abonnement"
+
+#: src/Plugin/Derivative/AddSimplenewsIssueActionLinks.php:23
+msgid "Add @label"
+msgstr "@label hinzufügen"
+
+#: src/Plugin/Derivative/AddSimplenewsIssueActionLinks.php:30
+msgid "Add content"
+msgstr "Inhalt hinzufügen"
+
+#: src/Plugin/Field/FieldFormatter/SimplenewsSubscriptionStatusFormatter.php:35
+msgid "@label (Unconfirmed)"
+msgstr "@label (unbestätigt)"
+
+#: src/Plugin/Field/FieldFormatter/SimplenewsSubscriptionStatusFormatter.php:40
+msgid "@label (Unsubscribed)"
+msgstr "@label (abgemeldet)"
+
+#: src/Plugin/Field/FieldFormatter/SimplenewsSubscriptionStatusFormatter.php:8
+msgid "Subscriptions Status"
+msgstr "Abonnementstatus"
+
+#: src/Plugin/Field/FieldType/IssueItem.php:58 config/install/views.view.simplenews_subscribers.yml:0;0;0
+msgid "Subscribers"
+msgstr "Abonnenten"
+
+#: src/Plugin/Field/FieldType/IssueItem.php:10
+msgid "Simplenews issue"
+msgstr "Simplenews Ausgabe"
+
+#: src/Plugin/Field/FieldType/IssueItem.php:10 src/Plugin/Field/FieldType/SubscriptionItem.php:9
+msgid "An entity field containing an extended entityreference."
+msgstr "Ein Entitätsfeld, das eine erweiterte Entitätsreferenz enthält."
+
+#: src/Plugin/Field/FieldWidget/SubscriptionWidget.php:12
+msgid "Select list"
+msgstr "Auswahlliste"
+
+#: src/Plugin/Mail/HTMLTestingMailSystem.php:8
+msgid "HTML test mailer"
+msgstr "HTML-Test-Mailroutine"
+
+#: src/Plugin/Mail/HTMLTestingMailSystem.php:8
+msgid "Sends the message as plain text, using PHP's native mail() function."
+msgstr "Sendet die Nachricht als unformatierten Text, unter Verwendung der PHP-Funktion mail()."
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:25
+msgid "HTML or plaintext"
+msgstr "HTML oder klartext"
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:27
+msgid "Request read receipt"
+msgstr "Lesebestätigung anfordern"
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:28
+msgid "Name of the e-mail author"
+msgstr "Name des Verfassers der E-Mail"
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:30
+msgid "E-mail author address"
+msgstr "Adresse des E-Mai-Verfassers"
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:31
+msgid "Indicates if hyperlinks should be kept inline or extracted"
+msgstr "Gibt an, ob Hyperlinks inline gehalten oder extrahiert werden sollen."
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:32
+msgid "Indicates how to integrate with the register form"
+msgstr "Gibt an, wie die Verbindung mit dem Anmeldeformular aussieht."
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:33
+msgid "Defines the Opt-In/out options"
+msgstr "Optionen für Opt-in-/Opt-Out-Verfahren festlegen"
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:34
+msgid "TRUE if a block should be provided for this newsletter"
+msgstr "Wahr, wenn ein Block für diesen Newsletter bereitgestellt werden soll."
+
+#: src/Plugin/migrate/source/d7/Newsletter.php:35
+msgid "Weight of the newsletter when displayed in listings"
+msgstr "Gewichtung des Newsletters, wenn er in Listen angezeigt wird."
+
+#: src/Plugin/migrate/source/d7/Subscriber.php:24
+msgid "Activated"
+msgstr "Aktiviert"
+
+#: src/Plugin/migrate/source/d7/Subscriber.php:25
+msgid "Subscriber's e-mail address"
+msgstr "E-Mail-Adresse des Abonnementen"
+
+#: src/Plugin/migrate/source/d7/Subscriber.php:28
+msgid "Pending unconfirmed subscription changes"
+msgstr "Auf Freigabe wartende Abonnementänderungen"
+
+#: src/Plugin/migrate/source/d7/Subscriber.php:29
+msgid "Time of creation"
+msgstr "Erstellungszeitpunkt"
+
+#: src/Plugin/monitoring/SensorPlugin/PendingSensorPlugin.php:9
+msgid "Simplenews Pending"
+msgstr "Wartende Simplenews"
+
+#: src/Plugin/monitoring/SensorPlugin/PendingSensorPlugin.php:9
+msgid "Monitors pending items in the simplenews mail spool."
+msgstr "Überwacht wartende Einträge in der Simplenews-Warteschlange."
+
+#: src/Plugin/simplenews/RecipientHandler/RecipientHandlerBase.php:9
+msgid "All newsletter subscribers"
+msgstr "Alle Newsletterempfänger"
+
+#: src/Plugin/views/field/SendStatus.php:65
+msgid "Newsletter issue sent to @sent_count subscribers."
+msgstr "Ausgabe des Newsletters an @sent_count Abonnenten versendet."
+
+#: src/Plugin/views/field/SendStatus.php:69
+msgid "Newsletter issue is pending, @sent_count mails sent out of @count."
+msgstr "Newsletter-Ausgabe wird verarbeitet. @sent_count Mails von @count versendet."
+
+#: src/Plugin/views/field/SendStatus.php:76
+msgid "Newsletter issue will be sent to @count subscribers."
+msgstr "Die Ausgabe des Newsletters wird an @count Abonnenten versendet."
+
+#: src/Plugin/views/field/SendStatus.php:79
+msgid "Newsletter issue will be sent to @count subscribers on publish."
+msgstr "Die Ausgabe des Newsletters wird an @count Abonennten versendet, sobald sie veröffentlicht wurde."
+
+#: src/Subscription/SubscriptionManager.php:173
+msgid "Attempt to unsubscribe from non existing mailing list ID %id"
+msgstr "Versuch das Abonnement einer nicht existierenden Mailingliste mit der ID: %id zu kündigen"
+
+#: config/install/core.entity_form_mode.simplenews_subscriber.account.yml:0
+msgid "Account"
+msgstr "Benutzerkonto"
+
+#: config/install/core.entity_form_mode.simplenews_subscriber.block.yml:0
+msgid "Block"
+msgstr "Block"
+
+#: config/install/core.entity_form_mode.simplenews_subscriber.page.yml:0 config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Page"
+msgstr "Seite"
+
+#: config/install/core.entity_view_mode.node.email_html.yml:0
+msgid "Email: HTML"
+msgstr "E-Mail: HTML"
+
+#: config/install/core.entity_view_mode.node.email_plain.yml:0
+msgid "Email: Plain"
+msgstr "E-Mail: Nur-Text"
+
+#: config/install/core.entity_view_mode.node.email_textalt.yml:0
+msgid "Email: HTML text alternative"
+msgstr "E-Mail: HTML Text Alternative"
+
+#: config/install/field.field.simplenews_subscriber.simplenews_subscriber.subscriptions.yml:0 config/install/views.view.simplenews_subscribers.yml:0
+msgid "Subscriptions"
+msgstr "Abonnements"
+
+#: config/install/simplenews.newsletter.default.yml:0
+msgid "Default newsletter"
+msgstr "Standard Newsletter"
+
+#: config/install/simplenews.newsletter.default.yml:0
+msgid "This is an example newsletter. Change it."
+msgstr "Dies ist ein Beispiel für einen Newsletter. Das Beispiel sollte angepast werden."
+
+#: config/install/simplenews.newsletter.default.yml:0 modules/simplenews_demo/config/install/simplenews.newsletter.press_releases.yml:0 modules/simplenews_demo/config/install/simplenews.newsletter.special_offers.yml:0 modules/simplenews_demo/config/install/simplenews.newsletter.weekly_content_update.yml:0
+msgid "[[simplenews-newsletter:name]] [node:title]"
+msgstr "[[simplenews-newsletter:name]] [node:title]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "Confirmation for [simplenews-newsletter:name] from [site:name]"
+msgstr "Bestätigung für [simplenews-newsletter:name] von [site:name]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request to subscribe [simplenews-subscriber:mail] to the [simplenews-newsletter:name] newsletter on [site:name] website at [site:url]. To confirm please use the link below. \n\n [simplenews-subscriber:subscribe-url]"
+msgstr "Wir haben für die E-Mail Adresse [simplenews-subscriber:mail] eine Anfrage für ein Abonnement des Newsletters [simplenews-newsletter:name] auf unserer Seite [site:name] [site:url] erhalten. Bitte bestätigen Sie dieses Abonnement durch Klick auf den unten stehenden Link oder ignorieren Sie diese Nachricht.\r\n\r\n[simplenews-subscriber:subscribe-url]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request to subscribe [simplenews-subscriber:mail] to the [simplenews-newsletter:name]  newsletter on [site:name] website at [site:url]. However, this email is already subscribed to this newsletter. If you intended to unsubscribe please visit our site: [site:url]"
+msgstr "Für die E-Mail Adresse [simplenews-subscriber:mail] wurde der Newsletter [simplenews-newsletter:name] der [site:name] Seite auf [site:url] bestellt. Diese Adresse bekommt den Newsletter aber schon. Zum Abbestellen klicken Sie den entsprechenden Link am Fuß jedes Newsletters."
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request to remove the [simplenews-subscriber:mail] from the [simplenews-newsletter:name] mailing list on [site:name] website at [site:url]. To confirm please use the link below.\r\n\r\n[simplenews-subscriber:unsubscribe-url]"
+msgstr "Wir haben eine Anfrage erhalten, die E-Mail Adresse [simplenews-subscriber:mail] vom Newsletter [simplenews-newsletter:name] auf der Website [site:name] [site:url] abzumelden. Bitte bestätigen Sie das Abbestellen des Newsletters über den folgenden Link oder ignorieren Sie diese Nachricht.\r\n\r\n[simplenews-subscriber:unsubscribe-url]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request to remove the [simplenews-subscriber:mail] from the [simplenews-newsletter:name] mailing list on [site:name] website at [site:url]. However, this email is not subscribed to this mailing list. If you intended to subscribe please visit our site at [site:url]"
+msgstr "Wir haben eine Anfrage erhalten, den Newsletter [simplenews-newsletter:name] der Website [site:name] [site:url] für die E-Mail Adresse [simplenews-subscriber:mail] abzubestellen. Allerdings bezieht diese E-Mail-Adresse den Newsletter nicht. Falls Sie sich stattdessen anmelden wollten, besuchen Sie dazu bitte unsere Website: [site:url]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "Confirmation for [site:name]"
+msgstr "Bestätigung für [site:name]"
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request for the following subscription changes for [simplenews-subscriber:mail] at [site:url]:\r\n\r\n[changes-list]\r\n\r\nTo confirm please use the link below.\r\n\r\n[simplenews-subscriber:combined-url]"
+msgstr "Wir haben eine Anfrage für folgende Abonnement-Änderung erhalten: [simplenews-subscriber:mail] auf [site:url]:\r\n\r\n[changes-list]\r\n\r\nUm die Änderungen zu bestätigen, klicken Sie bitte auf den untenstehenden Link.\r\n\r\n[simplenews-subscriber:combined-url]."
+
+#: config/install/simplenews.settings.yml:0
+msgid "We have received a request for the following subscription changes for [simplenews-subscriber:mail] at [site:url]:\r\n\r\n[changes-list]\r\n\r\nNo confirmation necessary because all requested changes equal the current state."
+msgstr "Wir haben eine Änderungsanfrage für folgendes Abonnement erhalten: [simplenews-subscriber:mail] auf [site:url]:\r\n\r\n[changes-list]\r\n\r\nEs ist keine bestätigung erforderlich, da die Änderungen, den aktuellen Einstellungen entsprechen."
+
+#: config/install/simplenews.settings.yml:0
+msgid "Subscribe to [simplenews-newsletter:name]"
+msgstr "[simplenews-newsletter:name] abonnieren"
+
+#: config/install/simplenews.settings.yml:0
+msgid "Already subscribed to [simplenews-newsletter:name]"
+msgstr "Bereits für [simplenews-newsletter:name] angemeldet"
+
+#: config/install/simplenews.settings.yml:0
+msgid "Unsubscribe from [simplenews-newsletter:name]"
+msgstr "Von [simplenews-newsletter:name] abmelden"
+
+#: config/install/simplenews.settings.yml:0
+msgid "Already unsubscribed from [simplenews-newsletter:name]"
+msgstr "Bereits abgemeldet von [simplenews-newsletter:name]"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "‹ previous"
+msgstr "‹ vorherige Seite"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "next ›"
+msgstr "nächste Seite ›"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "« first"
+msgstr "« erste Seite"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0
+msgid "last »"
+msgstr "letzte Seite »"
+
+#: config/install/views.view.simplenews_subscribers.yml:0 config/optional/views.view.simplenews_newsletters.yml:0;0
+msgid ", "
+msgstr ", "
+
+#: config/install/views.view.simplenews_subscribers.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: config/install/views.view.simplenews_subscribers.yml:0
+msgid "No subscribers found."
+msgstr "Keine Abonnenten gefunden."
+
+#: config/optional/field.field.node.simplenews_issue.body.yml:0
+msgid "Body"
+msgstr "Textkörper"
+
+#: config/optional/node.type.simplenews_issue.yml:0
+msgid "Newsletter Issue"
+msgstr "Newsletter-Ausgabe"
+
+#: config/optional/node.type.simplenews_issue.yml:0
+msgid "Use <em>Newsletter Issue</em> for newsletters."
+msgstr "<em>Newsletter-Ausgabe</em> für Newsletter verwenden."
+
+#: config/optional/ultimate_cron.job.simplenews_cron.yml:0
+msgid "Sends newsletters"
+msgstr "Versendet Newsletter"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Node operations bulk form"
+msgstr "Node Massenbearbeitung Formular"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "With selection"
+msgstr "Mit Auswahl"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Operations links"
+msgstr "Aktionslinks"
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "No newsletter issues found."
+msgstr "Keine Newsletter-Ausgaben gefunden."
+
+#: config/optional/views.view.simplenews_newsletters.yml:0
+msgid "Newsletter issues"
+msgstr "Newsletter-Ausgaben"
+
+#: modules/simplenews_demo/config/install/block.block.simplenewssubscription_all.yml:0
+msgid "Simplenews multiple subscriptions"
+msgstr "Mehrfachanmeldungen für Simplenews"
+
+#: modules/simplenews_demo/config/install/block.block.simplenewssubscription_all.yml:0
+msgid "Stay informed - subscribe to our newsletters."
+msgstr "Bleiben Sie auf dem Laufenden - Melden Sie sich für unseren Newsletter an."
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.press_releases.yml:0
+msgid "Press releases"
+msgstr "Pressemeldungen"
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.press_releases.yml:0
+msgid "This is the press release."
+msgstr "Dies ist die Pressemeldung"
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.special_offers.yml:0
+msgid "Special offers"
+msgstr "Sonderangebote"
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.special_offers.yml:0
+msgid "Special offers newsletter."
+msgstr "Sonderangebote"
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.weekly_content_update.yml:0
+msgid "Weekly content update"
+msgstr "Wöchentlicher Newsletter"
+
+#: modules/simplenews_demo/config/install/simplenews.newsletter.weekly_content_update.yml:0
+msgid "Weekly content update newsletter."
+msgstr "Neuigkeiten in dieser Woche"
+

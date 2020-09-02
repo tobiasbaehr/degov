@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   enforced:
@@ -6,9 +6,9 @@ dependencies:
       - degov_image_and_crop_styles
   module:
     - degov_auto_crop
-label: '2 zu 1'
+label: '2 by 1'
 id: 2_to_1
-description: '2:1 Bildzuschnitt, z.B. für Teaser Landscape oder Teaser Topic'
+description: '2:1 crop, e.g. for Teaser landscape or Teaser topic'
 aspect_ratio: '2:1'
 soft_limit_width: 960
 soft_limit_height: 480

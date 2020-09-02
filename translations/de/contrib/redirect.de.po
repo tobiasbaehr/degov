@@ -1,0 +1,833 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  redirect.drush.inc: n/a
+#  redirect.generate.inc: n/a
+#  redirect.module: n/a
+#  modules/redirect_domain/redirect_domain.module: n/a
+#  modules/redirect_404/redirect_404.views.inc: n/a
+#  modules/redirect_404/redirect_404.links.menu.yml: n/a
+#  modules/redirect_404/redirect_404.links.task.yml: n/a
+#  modules/redirect_404/redirect_404.routing.yml: n/a
+#  modules/redirect_404/config/install/views.view.redirect_404.yml: n/a
+#  config/install/views.view.redirect.yml: n/a
+#  modules/redirect_404/src/Form/RedirectFix404Form.php: n/a
+#  src/Entity/Redirect.php: n/a
+#  src/Plugin/migrate/source/PathRedirect.php: n/a
+#  src/Plugin/migrate/source/d7/PathRedirect.php: n/a
+#  src/Form/RedirectDeleteForm.php: n/a
+#  src/Form/RedirectDeleteMultipleForm.php: n/a
+#  redirect.links.menu.yml: n/a
+#  redirect.routing.yml: n/a
+#  redirect.info.yml: n/a
+#  redirect.links.action.yml: n/a
+#  modules/redirect_404/src/Plugin/views/field/Redirect404Operations.php: n/a
+#  redirect.links.task.yml: n/a
+#  redirect.permissions.yml: n/a
+#  config/schema/redirect.schema.yml: n/a
+#  src/Form/RedirectSettingsForm.php: n/a
+#  config/schema/redirect.views.schema.yml: n/a
+#  modules/redirect_404/redirect_404.info.yml: n/a
+#  src/Plugin/Field/FieldType/RedirectSourceItem.php: n/a
+#  src/Plugin/Field/FieldWidget/RedirectSourceWidget.php: n/a
+#  modules/redirect_404/redirect_404.module: n/a
+#  modules/redirect_404/redirect_404.links.action.yml: n/a
+#  modules/redirect_404/config/schema/redirect_404.schema.yml: n/a
+#  modules/redirect_404/config/schema/redirect_404.views.schema.yml: n/a
+#  modules/redirect_404/src/Controller/Fix404IgnoreController.php: n/a
+#  modules/redirect_domain/redirect_domain.info.yml: n/a
+#  modules/redirect_domain/redirect_domain.links.task.yml: n/a
+#  modules/redirect_domain/redirect_domain.routing.yml: n/a
+#  modules/redirect_domain/config/schema/redirect_domain.schema.yml: n/a
+#  modules/redirect_domain/src/Form/RedirectDomainForm.php: n/a
+#  src/Form/RedirectForm.php: n/a
+#  src/Plugin/Action/DeleteRedirect.php: n/a
+#  src/Plugin/Field/FieldFormatter/RedirectSourceFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/SourceLinkTypeConstraint.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: redirect.drush.inc:31
+msgid "Invalid number of redirects."
+msgstr "Die Anzahl der Weiterleitungen ist ungültig."
+
+#: redirect.generate.inc:20
+msgid "How many URL redirects would you like to generate?"
+msgstr "Wie viele URL-Weiterleitungen sollen generiert werden?"
+
+#: redirect.generate.inc:26
+msgid "Delete all URL redirects before generating new URL redirects."
+msgstr "Alle URL-Umleitungen löschen, bevor neue URL-Weiterleitungen erzeugt werden."
+
+#: redirect.generate.inc:31
+msgid "Generate"
+msgstr "Erzeugen"
+
+#: redirect.generate.inc:74
+msgid "Deleted URL redirect @rid."
+msgstr "Die URL-Weiterleitung @rid wurde gelöscht."
+
+#: redirect.generate.inc:174
+msgid "An error occurred while processing @operation with arguments : @args"
+msgstr "﻿Während der Verarbeitung von @operation ist ein Fehler aufgetreten mit den Argumenten: @args"
+
+#: redirect.generate.inc:168
+msgid "One URL redirect created."
+msgid_plural "@count URL redirects created."
+msgstr[0] "Eine URL-Weiterleitung erzeugt."
+msgstr[1] "@count URL-Weiterleitungen erzeugt."
+
+#: redirect.module:54 modules/redirect_domain/redirect_domain.module:13
+msgid "About"
+msgstr "Über"
+
+#: redirect.module:55
+msgid "The Redirect module allows users to redirect from old URLs to new URLs.   For more information, see the <a href=\":online\">online documentation for Redirect</a>."
+msgstr "Das Redirect-Modul erlaubt es Benutzern von alten URLs zu neuen URLs umzuleiten. Weitere Informationen sind in der <a href=\":online\">Online-Dokumentation des Redirect-Moduls</a> verfügbar."
+
+#: redirect.module:57 modules/redirect_domain/redirect_domain.module:15
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: redirect.module:58
+msgid "Redirect is accessed from three tabs that help you manage <a href=\":list\">URL Redirects</a>."
+msgstr "Der Zugriff auf Umleitungen erfolgt über drei Reiter, die dabei helfen, <a href=\":list\">URL-Umleitungen</a> zu verwalten."
+
+#: redirect.module:59
+msgid "Manage URL Redirects"
+msgstr "URL-Umleitungen verwalten"
+
+#: redirect.module:60
+msgid "The <a href=\":redirect\">\"URL Redirects\"</a> page is used to setup and manage URL Redirects.  New redirects are created here using the <a href=\":add_form\">Add redirect</a> button which presents a form to simplify the creation of redirects . The URL redirects page provides a list of all redirects on the site and allows you to edit them."
+msgstr "Die Seite <a href=\":redirect\">URL-Umleitungen</a> dient zur Einrichtung und Verwaltung von URL-Umleitungen.  Neue Umleitungen werden hier über den Button <a href=\":add_form\">Umleitung hinzufügen</a> erstellt, der ein Formular zur Vereinfachung der Erstellung von Umleitungen darstellt. Die Seite mit den URL-Umleitungen enthält eine Liste aller Umleitungen auf der Website und ermöglicht es Ihnen, diese zu bearbeiten."
+
+#: redirect.module:62;66 modules/redirect_404/redirect_404.views.inc:25 modules/redirect_404/redirect_404.links.menu.yml:0 modules/redirect_404/redirect_404.links.task.yml:0 modules/redirect_404/redirect_404.routing.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Fix 404 pages"
+msgstr "404-Seiten reparieren"
+
+#: redirect.module:63
+msgid "<a href=\":fix_404\">\"Fix 404 pages\"</a> lists all paths that have resulted in 404 errors and do not yet have any redirects assigned to them. This 404 (or Not Found) error message is an HTTP standard response code indicating that the client was able to communicate with a given server, but the server could not find what was requested."
+msgstr "<a href=\":fix_404\">404-Seiten reparieren</a> listet alle Pfade auf, die zu 404-Fehlern geführt haben und denen noch keine Umleitungen zugeordnet sind. Diese 404 (oder „Seite nicht gefunden“) Fehlermeldung ist ein HTTP-Standardantwortcode, der angibt, dass der Client mit einem bestimmten Server kommunizieren konnte, aber der Server nicht finden konnte, was angefordert wurde."
+
+#: redirect.module:67
+msgid "404 (or Not Found) error message is an HTTP standard response code indicating that the client was able to communicate with a given server, but the server could not find what was requested. Please install the <a href=\":extend\">Redirect 404</a> submodule to be able to log all paths that have resulted in 404 errors."
+msgstr "Die Fehlermeldung 404 (oder „Nicht gefunden“) ist ein HTTP-Standardantwortcode, der angibt, dass der Client mit einem bestimmten Server kommunizieren konnte, aber der Server nicht finden konnte, was angefordert wurde. Bitte installieren Sie das Submodul <a href=\":extend\">Redirect 404</a>, um alle Pfade protokollieren zu können, die zu 404-Fehlern geführt haben."
+
+#: redirect.module:69
+msgid "Configure Global Redirects"
+msgstr "Globale Umleitungen konfigurieren"
+
+#: redirect.module:70
+msgid "The <a href=\":settings\">\"Settings\"</a> page presents you with a number of means to adjust redirect settings."
+msgstr "Die Seite <a href=\":settings\">Einstellungen</a> bietet eine Reihe von Möglichkeiten, die Einstellungen für die Umleitung anzupassen."
+
+#: redirect.module:178
+msgid "Add URL redirect from this page to another location"
+msgstr "Füge eine Redirect Url von dieser Seite zu einer anderen Ort hinzu."
+
+#: redirect.module:316 config/install/views.view.redirect.yml:0
+msgid "300 Multiple Choices"
+msgstr "300 Multiple Choices"
+
+#: redirect.module:317 config/install/views.view.redirect.yml:0
+msgid "301 Moved Permanently"
+msgstr "301 Moved Permanently"
+
+#: redirect.module:318 config/install/views.view.redirect.yml:0
+msgid "302 Found"
+msgstr "302 Found"
+
+#: redirect.module:319 config/install/views.view.redirect.yml:0
+msgid "303 See Other"
+msgstr "303 See Other"
+
+#: redirect.module:320 config/install/views.view.redirect.yml:0
+msgid "304 Not Modified"
+msgstr "304 Not Modified"
+
+#: redirect.module:321 config/install/views.view.redirect.yml:0
+msgid "305 Use Proxy"
+msgstr "305 Use Proxy"
+
+#: redirect.module:322 config/install/views.view.redirect.yml:0
+msgid "307 Temporary Redirect"
+msgstr "307 Temporary Redirect"
+
+#: redirect.module:369 modules/redirect_404/redirect_404.views.inc:41 modules/redirect_404/src/Form/RedirectFix404Form.php:131 src/Entity/Redirect.php:317 src/Plugin/migrate/source/PathRedirect.php:47 src/Plugin/migrate/source/d7/PathRedirect.php:65 modules/redirect_404/config/install/views.view.redirect_404.yml:0;0
+msgid "Language"
+msgstr "Sprache"
+
+#: redirect.module:370
+msgid "All languages"
+msgstr "Alle Sprachen"
+
+#: redirect.module:372
+msgid "A redirect set for a specific language will always be used when requesting this page in that language, and takes precedence over redirects set for <em>All languages</em>."
+msgstr "Eine Umleitung, die für eine bestimmte Sprache festgelegt ist, wird immer verwendet, wenn die Seite in dieser Sprache aufgerufen wird, und hat Vorrang vor Umleitungen, die für <em>Alle Sprachen</em> festgelegt sind."
+
+#: redirect.module:398 src/Form/RedirectDeleteForm.php:29 src/Form/RedirectDeleteMultipleForm.php:104
+msgid "Delete"
+msgstr "Löschen"
+
+#: redirect.module:399
+msgid "Deleted"
+msgstr "Gelöscht"
+
+#: redirect.module:426;479 redirect.links.menu.yml:0 redirect.routing.yml:0
+msgid "URL redirects"
+msgstr "URL-Umleitungen"
+
+#: redirect.module:427
+msgid "Redirect module form elements"
+msgstr "Umleitungsmodul-Formularelemente"
+
+#: redirect.module:474 src/Entity/Redirect.php:292 config/install/views.view.redirect.yml:0;0
+msgid "From"
+msgstr "Von"
+
+#: redirect.module:475 modules/redirect_404/redirect_404.views.inc:89 modules/redirect_404/src/Form/RedirectFix404Form.php:133 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: redirect.module:486
+msgid "No URL redirects available."
+msgstr "Keine URL-Weiterleitungen vorhanden."
+
+#: redirect.module:498
+msgid "Note: links open in the current window."
+msgstr "Hinweis: Links werden im aktuellen Fenster geöffnet."
+
+#: redirect.module:510 redirect.routing.yml:0
+msgid "Add URL redirect"
+msgstr "URL-Umleitung hinzufügen"
+
+#: redirect.info.yml:0 src/Entity/Redirect.php:13 src/Plugin/migrate/source/PathRedirect.php:44 src/Plugin/migrate/source/d7/PathRedirect.php:63 config/install/views.view.redirect.yml:0;0
+msgid "Redirect"
+msgstr "Umleiten"
+
+#: redirect.info.yml:0
+msgid "Allows users to redirect from old URLs to new URLs."
+msgstr "Erlaubt Benutzern, von alten auf neue URLs umzuleiten."
+
+#: redirect.links.action.yml:0 redirect.links.menu.yml:0 modules/redirect_404/src/Form/RedirectFix404Form.php:156 modules/redirect_404/src/Plugin/views/field/Redirect404Operations.php:94
+msgid "Add redirect"
+msgstr "Umleitung hinzufügen"
+
+#: redirect.links.menu.yml:0 redirect.links.task.yml:0 redirect.routing.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: redirect.links.menu.yml:0
+msgid "Redirect users from one URL to another."
+msgstr "Leitet Benutzer von einer URL zu einer anderen um."
+
+#: redirect.links.menu.yml:0
+msgid "Configure behavior for URL redirects."
+msgstr "Das Verhalten von URL-Weiterleitungen konfigurieren."
+
+#: redirect.links.task.yml:0
+msgid "URL Redirects"
+msgstr "URL-Umleitungen"
+
+#: redirect.permissions.yml:0
+msgid "Administer individual URL redirections"
+msgstr "Individuelle URL-Umleitungen verwalten"
+
+#: redirect.permissions.yml:0
+msgid "Administer global URL redirection settings"
+msgstr "Globale URL-Umleitungseinstellungen verwalten"
+
+#: redirect.routing.yml:0;0
+msgid "Edit URL redirect"
+msgstr "URL-Umleitung bearbeiten"
+
+#: redirect.routing.yml:0
+msgid "Delete URL redirect"
+msgstr "URL-Umleitung löschen"
+
+#: config/schema/redirect.schema.yml:0
+msgid "Redirect settings"
+msgstr "Umleitungs-Einstellungen"
+
+#: config/schema/redirect.schema.yml:0 src/Form/RedirectSettingsForm.php:30
+msgid "Automatically create redirects when URL aliases are changed."
+msgstr "Weiterleitungen automatisch erstellen, wenn URL-Aliase geändert werden."
+
+#: config/schema/redirect.schema.yml:0 src/Form/RedirectSettingsForm.php:48
+msgid "Default redirect status"
+msgstr "Der standardmäßige Weiterleitungsstatus"
+
+#: config/schema/redirect.schema.yml:0 src/Form/RedirectSettingsForm.php:36
+msgid "Retain query string through redirect."
+msgstr "Die Abfragezeichenfolge bei Weiterletungen beibehalten."
+
+#: config/schema/redirect.schema.yml:0 src/Form/RedirectSettingsForm.php:42
+msgid "Display a warning message to users when they are redirected."
+msgstr "Benutzern eine Warnung anzeigen, wenn diese weitergeleitet werden."
+
+#: config/schema/redirect.schema.yml:0
+msgid "Allow redirections on admin paths."
+msgstr "Die Weiterleitung von Admin-Pfaden erlauben."
+
+#: config/schema/redirect.schema.yml:0
+msgid "Menu Access Checking"
+msgstr "Zugriffsprüfung über Menu"
+
+#: config/schema/redirect.schema.yml:0 src/Form/RedirectSettingsForm.php:60
+msgid "Enforce clean and canonical URLs."
+msgstr "Lesbare URLs und Canonical-URLs erzwingen."
+
+#: config/schema/redirect.schema.yml:0
+msgid "Delete redirect configuration"
+msgstr "Umleitungs-Konfiguration löschen"
+
+#: config/schema/redirect.views.schema.yml:0 src/Entity/Redirect.php:13
+msgid "Redirect type"
+msgstr "Weiterleitungstyp"
+
+#: config/schema/redirect.views.schema.yml:0
+msgid "Output machine name"
+msgstr "Systemname ausgeben"
+
+#: config/schema/redirect.views.schema.yml:0
+msgid "Redirect Source formatter"
+msgstr "Umleitungsquellen-Anzeigeformat"
+
+#: config/schema/redirect.views.schema.yml:0
+msgid "Redirect bulk form"
+msgstr "Massenumleitungsformular"
+
+#: modules/redirect_404/redirect_404.views.inc:21 modules/redirect_404/redirect_404.info.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Redirect 404"
+msgstr "Redirect 404"
+
+#: modules/redirect_404/redirect_404.views.inc:26
+msgid "Overview for 404 error paths with no redirect assigned yet."
+msgstr "Übersicht über 404-Fehlerpfade, denen noch keine Umleitung zugeordnet ist."
+
+#: modules/redirect_404/redirect_404.views.inc:30 modules/redirect_404/src/Form/RedirectFix404Form.php:126 src/Plugin/Field/FieldType/RedirectSourceItem.php:32 src/Plugin/Field/FieldWidget/RedirectSourceWidget.php:42 modules/redirect_404/config/install/views.view.redirect_404.yml:0;0
+msgid "Path"
+msgstr "Pfad"
+
+#: modules/redirect_404/redirect_404.views.inc:31
+msgid "The path of the request."
+msgstr "Der Pfad der Anfrage."
+
+#: modules/redirect_404/redirect_404.views.inc:42
+msgid "The language of this request."
+msgstr "Die Sprache dieser Anfrage."
+
+#: modules/redirect_404/redirect_404.views.inc:52 modules/redirect_404/src/Form/RedirectFix404Form.php:127 src/Plugin/migrate/source/d7/PathRedirect.php:67 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Count"
+msgstr "Anzahl"
+
+#: modules/redirect_404/redirect_404.views.inc:53
+msgid "The number of requests with that path and language."
+msgstr "Die Anzahl der Anfragen mit diesem Pfad und dieser Sprache."
+
+#: modules/redirect_404/redirect_404.views.inc:64
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#: modules/redirect_404/redirect_404.views.inc:65
+msgid "The timestamp of the last request with that path and language."
+msgstr "Der Zeitstempel der letzten Anfrage mit diesem Pfad und dieser Sprache."
+
+#: modules/redirect_404/redirect_404.views.inc:76;83 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Resolved"
+msgstr "Konflikt aufgelöst"
+
+#: modules/redirect_404/redirect_404.views.inc:77
+msgid "Whether or not this path has a redirect assigned."
+msgstr "Ob diesem Pfad eine Umleitung zugeordnet ist oder nicht."
+
+#: modules/redirect_404/redirect_404.views.inc:90
+msgid "Provide operation buttons to handle the 404 path."
+msgstr "Aktions-Buttons bereitstellen, um den 404-Pfad zu verwalten"
+
+#: modules/redirect_404/redirect_404.module:32
+msgid "404 error database logs to keep"
+msgstr "404-Fehler-Datenbankprotokolle, die aufbewahrt werden sollen"
+
+#: modules/redirect_404/redirect_404.module:34
+msgid "All"
+msgstr "Alle"
+
+#: modules/redirect_404/redirect_404.module:35
+msgid "The maximum number of 404 error logs to keep in the database log. Requires a <a href=\":cron\">cron maintenance task</a>."
+msgstr "Die maximale Anzahl von 404-Fehlerprotokollen, die im Datenbankprotokoll aufbewahrt werden sollen. Erfordert eine <a href=\":cron\">Cron-Wartungsaufgabe</a>."
+
+#: modules/redirect_404/redirect_404.module:46
+msgid "Pages to ignore"
+msgstr "Zu ignorierende Seiten"
+
+#: modules/redirect_404/redirect_404.module:48
+msgid "Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. An example path is %user-wildcard for every user page. %front is the front page."
+msgstr "Bestimmte Seiten können angegeben werden indem deren Pfadangaben eintragen werden. Dabei wird eine Pfadangabe pro Zeile gemacht. Das Zeichen „*“ kann als Platzhalter verwendet werden. Ein Beispiel für eine Pfadangabe ist: %user-wildcard für jede Seite innerhalb der Nutzerkonten. %front ist die Startseite."
+
+#: modules/redirect_404/redirect_404.module:56
+msgid "Suppress 'page not found' log messages"
+msgstr "„Seite nicht gefunden“-Protokollmeldungen unterdrücken"
+
+#: modules/redirect_404/redirect_404.module:58
+msgid "Prevents logging 'page not found' events. Can be safely enabled when redirect_404 module is used, which stores them separately, nothing else relies on those messages."
+msgstr "Verhindert die Protokollierung des Ereignisses „Seite nicht gefunden“. Kann ohne Probleme aktiviert werden, wenn das Modul Redirect_404 installiert ist, das die Protokollnachrichten separat speichert. Andere Funktionen hängen nicht von diesen Nachrichten ab."
+
+#: modules/redirect_404/redirect_404.info.yml:0
+msgid "Logs 404 errors and allows users to create redirects for often requested but missing pages."
+msgstr "Protokolliert 404-Fehler und ermöglicht es Benutzern, Umleitungen für häufig angeforderte, aber nicht vorhandene Seiten zu erstellen."
+
+#: modules/redirect_404/redirect_404.links.action.yml:0
+msgid "Fix 404 pages with URL redirects"
+msgstr "404-Seiten mit URL-Weiterleitungen reparieren"
+
+#: modules/redirect_404/redirect_404.links.menu.yml:0
+msgid "Add redirects for 404 pages."
+msgstr "Umleitungen für 404-Seiten hinzufügen"
+
+#: modules/redirect_404/config/schema/redirect_404.schema.yml:0
+msgid "404 error database logging settings."
+msgstr "404-Fehler-Datenbank-Protokollierungseinstellungen."
+
+#: modules/redirect_404/config/schema/redirect_404.schema.yml:0
+msgid "404 error database logs to keep."
+msgstr "404-Fehler-Datenbankprotokolle, die aufbewahrt werden sollen"
+
+#: modules/redirect_404/config/schema/redirect_404.schema.yml:0
+msgid "Whether to log 'page not found' messages to the standard log or not."
+msgstr "Ob „Seite nicht gefunden“-Meldungen im Standardprotokoll aufgezeichnet werden sollen."
+
+#: modules/redirect_404/config/schema/redirect_404.views.schema.yml:0;0
+msgid "Redirect 404 operations"
+msgstr "Redirect-404-Operationen"
+
+#: modules/redirect_404/src/Controller/Fix404IgnoreController.php:70
+msgid "Resolved the path %path in the database. Please check the ignored list and save the settings."
+msgstr "Der Pfad %path in der Datenbank wurde aufgelöst. Bitte die ignorierte Liste überprüfen und die Einstellungen speichern."
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:99
+msgid "Filter 404s"
+msgstr "Filtern von 404ern"
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:111 config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:117 config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:128 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Last accessed"
+msgstr "Letzter Zugriff"
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:149
+msgid "Undefined @langcode"
+msgstr "Nicht definiert @langcode"
+
+#: modules/redirect_404/src/Form/RedirectFix404Form.php:174 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "There are no 404 errors to fix."
+msgstr "Es sind keine 404-Fehler zu beheben."
+
+#: modules/redirect_404/src/Plugin/views/field/Redirect404Operations.php:100
+msgid "Ignore"
+msgstr "Ignorieren"
+
+#: modules/redirect_domain/redirect_domain.module:14
+msgid "The Redirect domain module allows users to redirect between domains."
+msgstr "Das Redirect-domain-Modul ermöglicht es, Benutzern zwischen Domains umzuleitne."
+
+#: modules/redirect_domain/redirect_domain.module:16
+msgid "Manage domain redirects"
+msgstr "Domain-Umleitungen verwalten"
+
+#: modules/redirect_domain/redirect_domain.module:17
+msgid "The domain redirect is accessed through <a href=\":domainlist\">Domain Redirects</a>. The user can add the domain redirects through the domain redirect table which consists of the domain from which it needs to be redirected, the sub path and the complete url destination to which it needs to be redirected. The module also supports the usage of a wildcard redirecting, thus many requests can be handled with one instance of domain redirect."
+msgstr "Der Zugriff auf den Domain-Umleitung erfolgt über <a href=\":domainlist\">Domain-Umleitungen</a>. Der Benutzer kann die Domain-Umleitungen über die Domain-Umleitungstabelle hinzufügen, die aus der Domain, die umgeleitet werden soll, dem Unterpfad und dem vollständigen URL-Ziel besteht, zu dem sie umgeleitet werden soll, besteht. Das Modul unterstützt auch die Verwendung eines Platzhalter-Umleitens, so dass viele Anfragen mit einer Instanz von Domain-Umleitung bearbeitet werden können."
+
+#: modules/redirect_domain/redirect_domain.module:20
+msgid "The domain redirect table consists of the domain from which it needs to be redirected, the sub path and the complete url destination to which it needs to be redirected."
+msgstr "Die Tabelle der Domain-Umleitungen besteht aus der Domain, von der aus umgeleitet werden soll, dem Unterpfad und dem vollständigen URL-Ziel, an das die Domain umgeleitet werden soll."
+
+#: modules/redirect_domain/redirect_domain.module:21
+msgid "Example Configuration"
+msgstr "Beispiel-Konfiguration"
+
+#: modules/redirect_domain/redirect_domain.module:26
+msgid "Example Redirects"
+msgstr "Beispiel-Umleitungen"
+
+#: modules/redirect_domain/redirect_domain.module:28
+msgid "Request: example.com/redirect => Response: redirected.com/example-path"
+msgstr "Anfrage: example.com/weiterleitung => Antwort: Weiterleitungsdomain.com/beispielpfad"
+
+#: modules/redirect_domain/redirect_domain.module:29
+msgid "Request: foo.com/any-path => Response: bar.com"
+msgstr "Anfrage: foo.com/irgend-ein-pfad => Antwort: bar.com"
+
+#: modules/redirect_domain/redirect_domain.info.yml:0
+msgid "Redirect Domain"
+msgstr "Domain umleiten"
+
+#: modules/redirect_domain/redirect_domain.info.yml:0
+msgid "Allows users to redirect between domains."
+msgstr "Ermöglicht es Benutzern, zwischen Domains umzuleiten."
+
+#: modules/redirect_domain/redirect_domain.links.task.yml:0 modules/redirect_domain/redirect_domain.routing.yml:0 modules/redirect_domain/config/schema/redirect_domain.schema.yml:0
+msgid "Domain redirects"
+msgstr "Domain-Umleitungen"
+
+#: modules/redirect_domain/config/schema/redirect_domain.schema.yml:0
+msgid "Redirect domains"
+msgstr "Domains umleiten"
+
+#: modules/redirect_domain/config/schema/redirect_domain.schema.yml:0 modules/redirect_domain/src/Form/RedirectDomainForm.php:42
+msgid "Sub path"
+msgstr "Unterpfad"
+
+#: modules/redirect_domain/config/schema/redirect_domain.schema.yml:0 modules/redirect_domain/src/Form/RedirectDomainForm.php:43
+msgid "Destination"
+msgstr "Ziel"
+
+#: modules/redirect_domain/src/Form/RedirectDomainForm.php:41
+msgid "From domain"
+msgstr "Ausgangsdomain"
+
+#: modules/redirect_domain/src/Form/RedirectDomainForm.php:90
+msgid "Add another"
+msgstr "Weiteren Beitrag erstellen"
+
+#: modules/redirect_domain/src/Form/RedirectDomainForm.php:100
+msgid "Save"
+msgstr "Speichern"
+
+#: modules/redirect_domain/src/Form/RedirectDomainForm.php:136
+msgid "No protocol should be included in the redirect domain."
+msgstr "Es sollte kein Protokoll in die Umleitungs- Domain aufgenommen werden."
+
+#: modules/redirect_domain/src/Form/RedirectDomainForm.php:163
+msgid "The domain redirects have been saved."
+msgstr "Die Domain-Umleitungen wurden gespeichert."
+
+#: src/Entity/Redirect.php:265 src/Plugin/migrate/source/PathRedirect.php:42 src/Plugin/migrate/source/d7/PathRedirect.php:57
+msgid "Redirect ID"
+msgstr "Weiterleitungs-ID"
+
+#: src/Entity/Redirect.php:266
+msgid "The redirect ID."
+msgstr "Die Umleitungs-ID."
+
+#: src/Entity/Redirect.php:270
+msgid "UUID"
+msgstr "UUID"
+
+#: src/Entity/Redirect.php:271
+msgid "The record UUID."
+msgstr "Die Datensatz-UUID."
+
+#: src/Entity/Redirect.php:275 src/Plugin/migrate/source/d7/PathRedirect.php:58
+msgid "Hash"
+msgstr "Hash"
+
+#: src/Entity/Redirect.php:277
+msgid "The redirect hash."
+msgstr "Der Umleitungs-Hash."
+
+#: src/Entity/Redirect.php:280 src/Plugin/migrate/source/PathRedirect.php:48 src/Plugin/migrate/source/d7/PathRedirect.php:59
+msgid "Type"
+msgstr "Typ"
+
+#: src/Entity/Redirect.php:281
+msgid "The redirect type."
+msgstr "Der Umleitungstyp."
+
+#: src/Entity/Redirect.php:284
+msgid "User ID"
+msgstr "Benutzer-ID"
+
+#: src/Entity/Redirect.php:285
+msgid "The user ID of the node author."
+msgstr "Die Benutzer-ID vom Autor des Inhalts."
+
+#: src/Entity/Redirect.php:293
+msgid "Enter an internal Drupal path or path alias to redirect (e.g. %example1 or %example2). Fragment anchors (e.g. %anchor) are <strong>not</strong> allowed."
+msgstr "Einen internen Drupal-Pfad oder Pfad-Alias eintragen, der umgeleitet werden soll (z. B. %example1 oder %example2). Anker-Fragmente (z. B. %anchor) sind <strong>nicht</strong> erlaubt."
+
+#: src/Entity/Redirect.php:303 config/install/views.view.redirect.yml:0
+msgid "To"
+msgstr "An"
+
+#: src/Entity/Redirect.php:318
+msgid "The redirect language."
+msgstr "Die Umleitungssprache."
+
+#: src/Entity/Redirect.php:325 config/install/views.view.redirect.yml:0;0
+msgid "Status code"
+msgstr "Statuscode"
+
+#: src/Entity/Redirect.php:326
+msgid "The redirect status code."
+msgstr "Der Umleitungs-Statuscode"
+
+#: src/Entity/Redirect.php:330 config/install/views.view.redirect.yml:0
+msgid "Created"
+msgstr "Erstellt"
+
+#: src/Entity/Redirect.php:331
+msgid "The date when the redirect was created."
+msgstr "Das Datum, an dem die Umleitung erstellt wurde."
+
+#: src/Form/RedirectDeleteForm.php:15
+msgid "Are you sure you want to delete the URL redirect from %source to %redirect?"
+msgstr "Möchten Sie die URL-Umleitung von %source nach %redirect wirklich löschen?"
+
+#: src/Form/RedirectDeleteForm.php:37
+msgid "The redirect %redirect has been deleted."
+msgstr "Die Umleitung %redirect wurde gelöscht."
+
+#: src/Form/RedirectDeleteMultipleForm.php:134
+msgid "Deleted @count redirects."
+msgstr "@count Umleitungen gelöscht."
+
+#: src/Form/RedirectDeleteMultipleForm.php:90
+msgid "Are you sure you want to delete this redirect?"
+msgid_plural "Are you sure you want to delete these redirects?"
+msgstr[0] "Möchten Sie diese Weiterleitung wirklich löschen?"
+msgstr[1] "Möchten Sie diese Weiterleitungen wirklich löschen?"
+
+#: src/Form/RedirectDeleteMultipleForm.php:135
+msgid "Deleted 1 redirect."
+msgid_plural "Deleted @count redirects."
+msgstr[0] "Eine Weiterleitung wurde gelöscht."
+msgstr[1] "@count Weiterleitungen wurden gelöscht."
+
+#: src/Form/RedirectForm.php:53
+msgid "Invalid redirect URL %url provided."
+msgstr "Es wurde eine ungültige Umleitungs-URL %url angegeben."
+
+#: src/Form/RedirectForm.php:74
+msgid "- All languages -"
+msgstr "- Alle Sprachen -"
+
+#: src/Form/RedirectForm.php:81
+msgid "Redirect status"
+msgstr "Weiterleitungsstatus"
+
+#: src/Form/RedirectForm.php:82 src/Form/RedirectSettingsForm.php:49
+msgid "You can find more information about HTTP redirect status codes at <a href=\"@status-codes\">@status-codes</a>."
+msgstr "Weitere Informationen zu HTTP-Umleitungs-Statuscodes sind unter <a href=\"@status-codes\">@status-codes</a> verfügbar."
+
+#: src/Form/RedirectForm.php:99
+msgid "It is not allowed to create a redirect from the front page."
+msgstr "Für die Startseite darf keine Umleitung erstellt werden."
+
+#: src/Form/RedirectForm.php:102
+msgid "The anchor fragments are not allowed."
+msgstr "Die Ankerfragmente sind nicht erlaubt."
+
+#: src/Form/RedirectForm.php:105
+msgid "The url to redirect from should not start with a forward slash (/)."
+msgstr "Die URL, von der umgeleitet werden soll, sollte nicht mit einem Schrägstrich (/) beginnen."
+
+#: src/Form/RedirectForm.php:116
+msgid "You are attempting to redirect the page to itself. This will result in an infinite loop."
+msgstr "Sie versuchen, denn Pfad auf sich selber umzuleiten. Das würde zu einer Endlos-Schleife führen."
+
+#: src/Form/RedirectForm.php:136
+msgid "The source path %source is already being redirected. Do you want to <a href=\"@edit-page\">edit the existing redirect</a>?"
+msgstr "Der Quellpfad %source wird schon weitergeleitet. Soll die <a href=\"@edit-page\">vorhandene Weiterleitung bearbeitet</a> werden?"
+
+#: src/Form/RedirectForm.php:149
+msgid "The redirect has been saved."
+msgstr "Die Weiterleitung wurde gespeichert."
+
+#: src/Form/RedirectSettingsForm.php:38
+msgid "For example, given a redirect from %source to %redirect, if a user visits %sourcequery they would be redirected to %redirectquery. The query strings in the redirection will always take precedence over the current query string."
+msgstr "Zum Beispiel, wenn eine Umleitung von %source nach %redirect erfolgt, wird ein Benutzer, der %sourcequery besucht, zu %redirectquery umgeleitet. Die Abfragezeichenketten in der Umleitung haben immer Vorrang vor der aktuellen Abfragezeichenkette."
+
+#: src/Form/RedirectSettingsForm.php:55
+msgid "Global redirects"
+msgstr "Globale Umleitungen"
+
+#: src/Form/RedirectSettingsForm.php:56
+msgid "(formerly Global Redirect features)"
+msgstr "(ehemals Funktionen des Global-Redirect-Moduls)"
+
+#: src/Form/RedirectSettingsForm.php:61
+msgid "Enabling this will automatically redirect to the canonical URL of any page. That includes redirecting to an alias if existing, removing trailing slashes, ensure the language prefix is set and similar clean-up."
+msgstr "Wenn diese Option aktiviert wird, wird automatisch auf die kanonische URL einer beliebigen Seite umgeleitet. Dazu gehören die Umleitung auf ein Alias, falls vorhanden, das Entfernen von Schrägstrichen, die Sicherstellung der Einstellung des Sprachpräfixes und ähnliche Bereinigungen."
+
+#: src/Form/RedirectSettingsForm.php:66
+msgid "Ignore redirections on admin paths."
+msgstr "Umleitungen für Verwaltungspfade ignorieren."
+
+#: src/Form/RedirectSettingsForm.php:71
+msgid "Check access to the redirected page"
+msgstr "Zugriff auf die umgeleitete Seite prüfen"
+
+#: src/Form/RedirectSettingsForm.php:72
+msgid "This helps to stop redirection on protected pages and avoids giving away <em>secret</em> URL's. <strong>By default this feature is disabled to avoid any unexpected behavior</strong>"
+msgstr "Dies hilft, die Umleitung auf geschützten Seiten zu stoppen und vermeidet das Herausgeben von <em>geheimen</em> URLs. <strong>Standardmäßig ist diese Funktion deaktiviert, um unerwartetes Verhalten zu vermeiden</strong>."
+
+#: src/Plugin/Action/DeleteRedirect.php:11
+msgid "Delete redirect"
+msgstr "Weiterleitung löschen"
+
+#: src/Plugin/Field/FieldFormatter/RedirectSourceFormatter.php:8
+msgid "Redirect Source"
+msgstr "Umleitungsquelle"
+
+#: src/Plugin/Field/FieldType/RedirectSourceItem.php:35 src/Plugin/migrate/source/PathRedirect.php:45
+msgid "Query"
+msgstr "Abfrage"
+
+#: src/Plugin/Field/FieldType/RedirectSourceItem.php:13 src/Plugin/Field/FieldWidget/RedirectSourceWidget.php:12
+msgid "Redirect source"
+msgstr "Umleitungsquelle"
+
+#: src/Plugin/Field/FieldType/RedirectSourceItem.php:13
+msgid "Stores a redirect source"
+msgstr "Speichert eine Umleitungsquelle"
+
+#: src/Plugin/Field/FieldWidget/RedirectSourceWidget.php:67
+msgid "The source path %path is likely a valid path. It is preferred to <a href=\"@url-alias\">create URL aliases</a> for existing paths rather than redirects."
+msgstr "Der Quellpfad %path ist wahrscheinlich ein gültiger Pfad. Es wird empfohlen, für bestehende Pfade <a href=\"@url-alias\">URL-Aliasse zu erstellen</a> anstatt Umleitungen einzurichten."
+
+#: src/Plugin/Field/FieldWidget/RedirectSourceWidget.php:83
+msgid "The base source path %source is already being redirected. Do you want to <a href=\"@edit-page\">edit the existing redirect</a>?"
+msgstr "Der Basisquellenpfad %source wird bereits umgeleitet. Möchten Sie <a href=\"@edit-page\">die bestehende Umleitung bearbeiten</a>?"
+
+#: src/Plugin/Validation/Constraint/SourceLinkTypeConstraint.php:15
+msgctxt "Validation"
+msgid "Link data valid for redirect source link type."
+msgstr "Linkdaten, die für den Umleitungs-Quelllink-Typ gültig sind."
+
+#: src/Plugin/Validation/Constraint/SourceLinkTypeConstraint.php:25
+msgid "The URL %url is not valid."
+msgstr "Die URL %url ist nicht gültig."
+
+#: src/Plugin/migrate/source/PathRedirect.php:43 src/Plugin/migrate/source/d7/PathRedirect.php:61
+msgid "Source"
+msgstr "Quelle"
+
+#: src/Plugin/migrate/source/PathRedirect.php:46
+msgid "Fragment"
+msgstr "Fragment"
+
+#: src/Plugin/migrate/source/PathRedirect.php:49
+msgid "Last Used"
+msgstr "Zuletzt verwendet"
+
+#: src/Plugin/migrate/source/d7/PathRedirect.php:60
+msgid "UID"
+msgstr "UID"
+
+#: src/Plugin/migrate/source/d7/PathRedirect.php:62
+msgid "Source Options"
+msgstr "Quellen-Optionen"
+
+#: src/Plugin/migrate/source/d7/PathRedirect.php:64
+msgid "Redirect Options"
+msgstr "Umleitungsoptionen"
+
+#: src/Plugin/migrate/source/d7/PathRedirect.php:66
+msgid "Status Code"
+msgstr "Statuscode"
+
+#: src/Plugin/migrate/source/d7/PathRedirect.php:68
+msgid "Access"
+msgstr "Zugriff"
+
+#: config/install/views.view.redirect.yml:0
+msgid "List of redirects"
+msgstr "Liste der Umleitungen"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/install/views.view.redirect.yml:0
+msgid "‹ previous"
+msgstr "‹ vorherige Seite"
+
+#: config/install/views.view.redirect.yml:0
+msgid "next ›"
+msgstr "nächste Seite ›"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/install/views.view.redirect.yml:0
+msgid "« first"
+msgstr "« erste Seite"
+
+#: config/install/views.view.redirect.yml:0
+msgid "last »"
+msgstr "letzte Seite »"
+
+#: config/install/views.view.redirect.yml:0
+msgid "With selection"
+msgstr "Mit Auswahl"
+
+#: config/install/views.view.redirect.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/install/views.view.redirect.yml:0
+msgid "Original language"
+msgstr "Originalsprache"
+
+#: config/install/views.view.redirect.yml:0
+msgid "There is no redirect yet."
+msgstr "Es wurde noch keine Umleitung eingerichtet."
+
+#: config/install/views.view.redirect.yml:0 modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Page"
+msgstr "Seite"
+
+#: modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "››"
+msgstr "››"
+
+#: modules/redirect_404/config/install/views.view.redirect_404.yml:0
+msgid "Lists 404 error paths with no redirect assigned yet."
+msgstr "Pfade mit 404-Fehlern auflisten, für die noch keine Umleitung besteht."
+

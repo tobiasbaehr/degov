@@ -1,0 +1,829 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  eu_cookie_compliance.module: n/a
+#  eu_cookie_compliance.install: n/a
+#  eu_cookie_compliance.info.yml: n/a
+#  eu_cookie_compliance.links.menu.yml: n/a
+#  eu_cookie_compliance.routing.yml: n/a
+#  src/Form/EuCookieComplianceConfigForm.php: n/a
+#  eu_cookie_compliance.links.task.yml: n/a
+#  eu_cookie_compliance.permissions.yml: n/a
+#  config/schema/eu_cookie_compliance.schema.yml: n/a
+#  config/install/eu_cookie_compliance.settings.yml: n/a
+#  src/Plugin/ConsentStorage/BasicConsentStorage.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:42+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: eu_cookie_compliance.module:30
+msgid "About"
+msgstr "Über"
+
+#: eu_cookie_compliance.module:31
+msgid "This module intends to deal with the EU Directive on Privacy and Electronic Communications that comes into effect on 26th May 2012. From that date, if you are not compliant or visibly working towards compliance, you run the risk of enforcement action, which can include a fine of up to half a million pounds for a serious breach."
+msgstr "Dieses Modul soll zur Einhaltung der EU-Datenschutzrichtlinie für elektronische Kommunikation dienen, die am 26. Mai 2012 in Kraft tritt. Falls Sie die Richtlinie ab diesem Datum nicht einhalten oder nicht erkennbar an der Einhaltung arbeiten, drohen Ihnen Durchsetzungsmaßnahmen, die bei schweren Verstößen Bußgelder bis 500.000 GBP beinhalten können."
+
+#: eu_cookie_compliance.module:32
+msgid "How it works"
+msgstr "Wie es funktioniert"
+
+#: eu_cookie_compliance.module:33
+msgid "The module displays a banner at the bottom or the top of website to make users aware of the fact that cookies are being set. The user may then give his/her consent or move to a page that provides more details. Consent is given by user pressing the agree buttons or by continuing browsing the website. Once consent is given another banner appears with a \"Thank you\" message."
+msgstr "Das Modul zeigt unten oder oben auf der Website ein Banner an, um den Benutzer auf die Tatsache hinzuweisen, dass Cookies gesetzt werden. Der Benutzer kann daraufhin seine Zustimmung geben oder eine Seite mit weiteren Informationen aufrufen. Der Benutzer gibt seine Zustimmung, indem er eine Taste zur Zustimmung anklickt oder den Besuch der Website fortsetzt. Nachdem die Zustimmung erteilt ist, erscheint ein weiteres Banner mit der Meldung „Vielen Dank“."
+
+#: eu_cookie_compliance.module:34
+msgid "The module provides a settings page where the banner can be customized. There are also template files for the banners that can be overridden by your theme."
+msgstr "Das Modul stellt eine Seite mit Einstellungen bereit, in denen das Banner angepasst werden kann. Es gibt auch Template-Dateien für die Banner, die Sie mit Ihrem eigenen Theme übersteuern können."
+
+#: eu_cookie_compliance.module:35
+msgid "Installation"
+msgstr "Installation"
+
+#: eu_cookie_compliance.module:36
+msgid "Unzip the files to the \"sites/all/modules\" OR \"modules\" directory and enable the module."
+msgstr "Bitte die Dateien nach „sites/all/modules“ oder in das „modules“-Verzeichnis entpacken und das Modul anschließend aktivieren."
+
+#: eu_cookie_compliance.module:37
+msgid "If desired, give the administer EU Cookie Compliance banner permissions that allow users of certain roles access the administration page. You can do so on the admin/user/permissions page."
+msgstr "Falls gewünscht, können Berechtigungen zum EU-Cookie-Compliance-Banner vergeben werden, die es Benutzern mit bestimmten Rollen erlauben, die Verwaltungsseite aufzurufen. Dies können Sie auf der Seite Admin/Benutzer/Berechtigungen tun."
+
+#: eu_cookie_compliance.module:39
+msgid "there is also a 'display eu cookie compliance banner' permission that helps you show the banner to the roles you desire."
+msgstr "Es gibt auch die Berechtigung \"display eu cookie compliance banner\", die Ihnen hilft, das Banner in den von Ihnen gewünschten Rollen anzuzeigen."
+
+#: eu_cookie_compliance.module:40
+msgid "You may want to create a page that would explain how your site uses cookies. Alternatively, if you have a privacy policy, you can link the banner to that page (see next step)."
+msgstr "Sie können auch eine Seite erstellen, die erklärt, wie Ihre Website Cookies nutzt. Alternativ können Sie, falls Sie über eine Datenschutzerklärung verfügen, das Banner mit dieser Seite verlinken (siehe nächster Schritt)."
+
+#: eu_cookie_compliance.module:41
+msgid "Go to the admin/config/system/eu-cookie-compliance page to configure and enable the banner."
+msgstr "Das Banner kann auf der Seite admin/config/system/eu-cookie-compliance konfiguriert und aktiviert werden."
+
+#: eu_cookie_compliance.module:42
+msgid "If you want to customize the banner background and text color, either type in the hex values or simply install http://drupal.org/project/jquery_colorpicker."
+msgstr "Um den Hintergrund und die Textfarbe des Banners anzupassen, geben Sie entweder die Hex-Werte ein oder installieren Sie einfach http://drupal.org/project/jquery_colorpicker."
+
+#: eu_cookie_compliance.module:43
+msgid "If you want to theme your banner override the themes in the template file."
+msgstr "Wenn das Theme des Banners übersteuert werden soll, kann dies durch die Anpassung der entsprechenden Template-Datei im gewünschten Theme erfolgen."
+
+#: eu_cookie_compliance.module:44
+msgid "If you want to show the message in EU countries only, install the Smart IP module: http://drupal.org/project/smart_ip and enable the option on the admin page."
+msgstr "Um die Nachricht nur in den EU-Ländern anzuzeigen, muss das Smart IP-Modul: http://drupal.org/project/smart_ip installiert und die Option auf der Verwaltungseite aktiviert werden."
+
+#: eu_cookie_compliance.module:45
+msgid "NOTICE: The module does not audit your cookies nor does it prevent cookies from being set."
+msgstr "Hinweis: das Modul führt weder ein Audit von Cookies durch, noch verhindert es das Setzen von Cookies."
+
+#: eu_cookie_compliance.module:46
+msgid "For developers"
+msgstr "Für Entwickler"
+
+#: eu_cookie_compliance.module:47
+msgid "If you want to conditionally set cookies in your module, there is a javascript function provided that returns TRUE if the current user has given his consent:"
+msgstr "Wenn Sie in Ihrem Modul Cookies unter bestimmten Bedingungen setzen wollen, gibt es hierfür eine JavaScript-Funktion, die TRUE zurückgibt, wenn der Benutzer seine Zustimmung erteilt hat:"
+
+#: eu_cookie_compliance.module:557
+msgid "%name must be a HEX value (without leading #) or empty."
+msgstr "%name muss einem HEX-Wert (ohne vorangestelltes #) entsprechen oder leer sein."
+
+#: eu_cookie_compliance.install:109 eu_cookie_compliance.info.yml:0 eu_cookie_compliance.links.menu.yml:0 eu_cookie_compliance.routing.yml:0
+msgid "EU Cookie Compliance"
+msgstr "EU Cookie Compliance"
+
+#: eu_cookie_compliance.install:111 src/Form/EuCookieComplianceConfigForm.php:926
+msgid "Your privacy policy link is pointing at the front page. This is the default value after installation, and unless your privacy policy is actually posted at the front page, you will need to create a separate page for the privacy policy and link to that page."
+msgstr "Ihr Link zur Datenschutzerklärung führt zur Startseite. Dies ist die Standardeinstellung nach der Installation, und wenn Ihre Datenschutzerklärung nicht auf der Startseite veröffentlicht ist, müssen Sie für die Datenschutzerklärung eine eigene Seite erstellen und diese Seite verlinken."
+
+#: eu_cookie_compliance.install:111 src/Form/EuCookieComplianceConfigForm.php:268
+msgid "Select the popup info template for 'default by consent' option"
+msgstr "Wählen Sie das Info-Banner-Template für die Standard-Zustimmungsoption"
+
+#: eu_cookie_compliance.install:112
+msgid "Privacy policy link not provided"
+msgstr "Kein Link zur Datenschutzrichtlinie bereitgestellt"
+
+#: eu_cookie_compliance.info.yml:0
+msgid "This module aims at making the website compliant with the new EU cookie regulation"
+msgstr "Dieses Modul zielt darauf ab, die Website mit der neuen EU-Cookie-Verordnung in Einklang zu bringen"
+
+#: eu_cookie_compliance.info.yml:0
+msgid "User interface"
+msgstr "Benutzeroberfläche"
+
+#: eu_cookie_compliance.links.menu.yml:0
+msgid "Make your website compliant with the EU Directive on Privacy and Electronic Communications."
+msgstr "Gestalte deine Website konform der EU-Richtlinie zum Schutz der Privatsphäre und der elektronischen Kommunikation."
+
+#: eu_cookie_compliance.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: eu_cookie_compliance.permissions.yml:0
+msgid "Administer EU Cookie Compliance banner"
+msgstr "EU-Cookie-Compliance-Banner verwalten"
+
+#: eu_cookie_compliance.permissions.yml:0
+msgid "Display EU Cookie Compliance banner"
+msgstr "EU-Cookie-Compliance-Banner anzeigen"
+
+#: eu_cookie_compliance.routing.yml:0
+msgid "EU Cookie Compliance store consent"
+msgstr "EU-Cookie-Compliance Einwilligung speichern"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "EU Cookie Compliance Settings"
+msgstr "EU-Cookie-Compliance-Einstellungen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "UUID"
+msgstr "UUID"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:139
+msgid "Enable banner"
+msgstr "Banner aktivieren"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:357
+msgid "Consent by clicking"
+msgstr "Einwilligung durch Klicken"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:781
+msgid "Consent by scrolling"
+msgstr "Zustimmung durch Scrollen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:726
+msgid "Only display banner in EU countries."
+msgstr "Das Banner nur in EU-Ländern anzeigen."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Only display banner in EU countries (Javascript based)."
+msgstr "Das Banner nur in EU-Ländern anzeigen. (JavaScript-basierend)"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Place the banner at the top of the website"
+msgstr "Das Banner am Anfang der Website platzieren"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:751
+msgid "If the banner is at the top, don't scroll the banner with the page."
+msgstr "Wenn sich das Banner oben befindet, nicht das Banner mit der Seite scrollen."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:377
+msgid "Cookie information banner message"
+msgstr "Nachricht des Cookie-Informations-Banners"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie information banner message - Value"
+msgstr "Nachricht des Cookie-Informations-Banners - Wert"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie information banner message - Format"
+msgstr "Format der Nachricht des Cookie-Informations-Banners"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:404
+msgid "Cookie information banner message - mobile"
+msgstr "Nachricht des Cookie-Informations-Banners auf Mobilgeräten"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie information banner message - mobile - Value"
+msgstr "Nachricht des Cookie-Informations-Banners auf Mobilgeräten - Wert"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie information banner message - mobile - Format"
+msgstr "Mobiles Format der Nachricht des Cookie-Informations-Banners."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Template to use for \"consent by default\" method"
+msgstr "Vorlage für die Methode „Zustimmung als Standard“"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Agree button message"
+msgstr "Nachricht des Zustimmen-Button"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie Policy button message"
+msgstr "Nachricht des Cookie-Bedingungen-Buttons"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:412
+msgid "Mobile breakpoint"
+msgstr "Mobiler Breakpoint"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Enable \"Thank you\" banner."
+msgstr "„Vielen Dank“-Banner aktivieren."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:560
+msgid "Clicking hides \"Thank you\" banner."
+msgstr "Klicken blendet den \"Vielen Dank\"-Banner aus."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:470
+msgid "Disagree button label"
+msgstr "Beschriftung des „Nicht zustimmen“-Buttons"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Thank you banner message"
+msgstr "Nachricht des „Vielen Dank“-Banners"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Thank you banner message - Value"
+msgstr "Nachricht des \"Vielen Dank\"-Banners - Wert"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Thank you banner message - Format"
+msgstr "Format des Nachricht des \"Vielen Dank\"-Banners"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:583
+msgid "More info button label"
+msgstr "Beschriftung des „Mehr Informationen“-Buttons"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:600
+msgid "Hide button label"
+msgstr "Beschriftung des „Ausblenden“-Buttons"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:614
+msgid "Privacy policy link"
+msgstr "Datenschutzrichtlinien-Link"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:624
+msgid "Open privacy policy link in a new window."
+msgstr "Link zur Datenschutzrichtlinie in einem neuen Fenster öffnen."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Banner height in pixels"
+msgstr "Höhe des Banners in Pixeln"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:705
+msgid "Banner width in pixels or a percentage value"
+msgstr "Breite des Banners in Pixeln oder Prozent"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Banner sliding animation time in milliseconds"
+msgstr "Zeitangabe für die Slide-Animation des Banners in Millisekunden"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:441
+msgid "Show \"Cookie Policy\" and \"More info\" buttons"
+msgstr "Zeige die Buttons \"Cookie Bedingungen\" und \"Weitere Infos\""
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:676
+msgid "Background color"
+msgstr "Hintergrundfarbe"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:663
+msgid "Text color"
+msgstr "Schriftfarbe"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:858
+msgid "Domain"
+msgstr "Domäne"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Add/Remove banner on specified domains"
+msgstr "Banner auf bestimmten Domains anzeigen/nicht anzeigen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:814
+msgid "Domains list"
+msgstr "Liste der Domänen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:821
+msgid "Exclude paths"
+msgstr "Pfade ausschließen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:832
+msgid "Exclude admin pages."
+msgstr "Verwaltungsseiten ausschließen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Cookie session"
+msgstr "Cookie-Session"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:872
+msgid "Cookie lifetime"
+msgstr "Lebensdauer des Cookies"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Use a different message for mobile phones"
+msgstr "Eine andere Nachricht für Mobilgeräte verwenden"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Include minimal CSS, I want to style the overlay in the theme CSS"
+msgstr "Minimales CSS einbinden. Die Einblendung soll über das CSS des Themes gestaltet werden"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:768
+msgid "Do not show cookie policy when the user clicks the \"Cookie Policy\" button."
+msgstr "Zeige die Cookie-Bedingungen nicht an, wenn der Benutzer den \"Cookie-Bedinungen\"-Button anklickt."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:775
+msgid "Reload page after user clicks the \"Agree\" button."
+msgstr "Seite neu laden, nachdem der Besucher den „Zustimmen“-Button angeklickt hat."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:793
+msgid "Cookie name"
+msgstr "Cookie-Name"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:838
+msgid "Don't show the banner for UID 1."
+msgstr "Das Banner nicht für den Administrator anzeigen."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Let screen readers see the banner before other links on the page"
+msgstr "Screen Readern das Banner vor anderen Links auf der Seite anzeigen."
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:192
+msgid "Consent method"
+msgstr "Methode der Zustimmung"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:301
+msgid "Disable JavaScripts"
+msgstr "JavaScripts deaktivieren"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:320
+msgid "Whitelisted cookies"
+msgstr "Erlaubte Cookies"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:344
+msgid "Consent storage method"
+msgstr "Verfahren zur Speicherung von Einwilligungen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:521
+msgid "Withdraw consent banner message"
+msgstr "Nachricht im Banner zum Widerruf der Einwilligung"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Withdraw consent banner message - Value"
+msgstr "Nachricht im Banner zum Widerruf der Einwilligung - Wert"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Withdraw consent banner message - Format"
+msgstr "Nachricht im Banner zum Widerruf der Einwilligung - Format"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:534
+msgid "Privacy settings tab label"
+msgstr "Beschriftung des Reiters Datenschutzeinstellungen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Withdraw consent action button label"
+msgstr "Beschriftung des Buttons für das Zurückziehen der Einwilligung"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0 src/Form/EuCookieComplianceConfigForm.php:501
+msgid "Enable floating privacy settings tab and withdraw consent banner"
+msgstr "Schwebende Reiter für Datenschutzeinstellungen und Banner zum Widerruf der Einwilligung"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Put the withdraw consent action button on the cookie information banner"
+msgstr "Taste zum Widerruf der Einwilligung auf dem Banner mit dem Cookie Informations-Banner platzieren"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "List of cookie categories with separate consent"
+msgstr "Liste der Cookie-Kategorien mit gesonderter Zustimmung"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Save preferences action button label"
+msgstr "Beschriftung des Buttons „Einstellungen speichern“"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Accept all categories action button label"
+msgstr "Beschriftung des Buttons „Alle Cookie-Kategorien akzeptieren“"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Replace the Agree button by a Save preferences and an Accept all categories button"
+msgstr "Taste „Zustimmen“ durch eine Taste „Einstellungen speichern“ und „Alle Kategorien akzeptieren“ ersetzen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Check all checkboxes by default"
+msgstr "Alle Kontrollkästchen grundsätzlich automatisch abhaken"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Check the first checkbox and mark it read only"
+msgstr "Das erste Kontrollkästchen abhaken und auf „nur lesen“ setzen"
+
+#: config/schema/eu_cookie_compliance.schema.yml:0
+msgid "Allow the cookie to be set for all sites on the same domain"
+msgstr "Das Setzen des Cookies für alle Seiten zulassen, die unter der selben Domain erreichbar sind."
+
+#: src/Form/EuCookieComplianceConfigForm.php:130
+msgid "Do not store"
+msgstr "Nicht speichern"
+
+#: src/Form/EuCookieComplianceConfigForm.php:168
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: src/Form/EuCookieComplianceConfigForm.php:174
+msgid "Display the banner for"
+msgstr "Das Banner anzeigen für"
+
+#: src/Form/EuCookieComplianceConfigForm.php:181
+msgid "Consent for processing of personal information"
+msgstr "Zustimmung zur Verarbeitung personenbezogener Daten"
+
+#: src/Form/EuCookieComplianceConfigForm.php:187
+msgid "The EU General Data Protection Regulation (GDPR) (see <a href=\"https://www.eugdpr.org/\" target=\"_blank\">https://www.eugdpr.org/</a>) comes into enforcement from 25 May 2018 and introduces new requirements for web sites which handle information that can be used to identify individuals. The regulation underlines that consent must be <strong>unambiguous</strong> and involve a <strong>clear affirmative action</strong>. When evaluating how to best handle the requirements in the GDPR, remember that if you have a basic web site where the visitors don't log in, you always have the option to <strong>not process data that identifies individuals</strong>, in which case you may not need this module. Also note that GDPR applies to any electronic processing or storage of personal data that your organization may do, and simply installing a module may not be enough to become fully GDPR compliant."
+msgstr "Die EU-Datenschutz-Grundverordnung (DSGVO) (siehe <a href=\"https://www.eugdpr.org/\" target=\"_blank\">https://www.eugdpr.org/</a>) tritt am 25. Mai 2018 in Kraft und bringt neue Anforderungen für Websites mit sich, die Informationen verarbeiten, anhand derer Einzelpersonen identifiziert werden können. Die Verordnung betont, dass die Einwilligung <strong>eindeutig</strong> sein muss und eine <strong>eindeutige bestätigende Handlung</strong> beinhalten muss. Bedenken Sie bei Ihren Überlegungen, wie Sie die Anforderungen der DSGVO am besten erfüllen können, dass Sie, falls Sie nur eine einfache Website betreiben, bei der sich die Besucher nicht anmelden, immer die Möglichkeit haben, <strong>keine Daten zu verarbeiten, anhand derer Einzelpersonen identifiziert werden können</strong>. In diesem Fall benötigen Sie dieses Modul nicht. Beachten Sie auch, dass die DSGVO für jede Verarbeitung oder Speicherung personenbezogener Daten gilt, die Ihre Organisation durchführen kann, und die einfache Installation eines Moduls nicht unbedingt ausreichen könnte, um die DSGVO umfassend einzuhalten."
+
+#: src/Form/EuCookieComplianceConfigForm.php:194
+msgid "Consent by default. Don't provide any option to opt out."
+msgstr "Zustimmung als Standard. Stelle keine Option zur Verfügung sich davon abzumelden (Opt-out)."
+
+#: src/Form/EuCookieComplianceConfigForm.php:195
+msgid "Opt-in. Don't track visitors unless they specifically give consent. (GDPR compliant)"
+msgstr "Opt-in. Erfasse Besucher erst, wenn sie explizit ihre Zustimmung dazu gegeben haben. (DSGVO konform)"
+
+#: src/Form/EuCookieComplianceConfigForm.php:196
+msgid "Opt-in with categories. Let visitors choose which cookie categories they want to opt-in for (GDPR compliant)."
+msgstr "Opt-in mit Kategorien. Lassen Sie den Besucher wählen, welche Cookie-Kategorien er zulassen will (DSGVO konform)."
+
+#: src/Form/EuCookieComplianceConfigForm.php:197
+msgid "Opt-out. Track visitors by default, unless they choose to opt out."
+msgstr "Opt-out. Erfasse Besucher standardmäßig, solange bis sie dies ablehnen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:198
+msgid "Automatic. Respect the DNT (Do not track) setting in the browser, if present. Uses opt-in when DNT is 1 or not set, and consent by default when DNT is 0."
+msgstr "Automatisch. Beachten Sie ggf. die DNT-Einstellung (Do not track) im Browser. Verwenden Sie Opt-in, wenn DNT 1 oder nicht gesetzt ist, und Zustimmung als Standard, wenn DNT 0 ist."
+
+#: src/Form/EuCookieComplianceConfigForm.php:204
+msgid "Cookie categories"
+msgstr "Cookie-Kategorien"
+
+#: src/Form/EuCookieComplianceConfigForm.php:214
+msgid "Cookie categories with separate consent"
+msgstr "Cookie-Kategorien mit gesonderter Zustimmungsvereinbarung"
+
+#: src/Form/EuCookieComplianceConfigForm.php:215
+msgid "List of cookie categories that require separate consent. E.g. Functional cookies, Advertisement cookies, …"
+msgstr "Liste der Cookie-Kategorien, bei denen eine gesonderte Zustimmung erforderlich ist, z. B. Funktions-Cookies, Werbe-Cookies usw."
+
+#: src/Form/EuCookieComplianceConfigForm.php:216
+msgid "Enter one value per line, in the following format: \"key|label\" or \"key|label|description\". Description is optional."
+msgstr "Geben Sie einen Wert pro Zeile im folgenden Format ein: „Schlüssel|Beschriftung“ oder „Schlüssel|Beschriftung|Beschreibung“. Die Beschreibung ist optional."
+
+#: src/Form/EuCookieComplianceConfigForm.php:222
+msgid "Replace the Agree button with \"Save preferences\" and \"Accept all categories\" buttons."
+msgstr "Taste „Zustimmen“ durch Tasten „Einstellungen speichern“ und „Alle Kategorien akzeptieren“ ersetzen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:228
+msgid "\"Save preferences\" button label"
+msgstr "Beschriftung des Buttons „Einstellungen Speichen“"
+
+#: src/Form/EuCookieComplianceConfigForm.php:242
+msgid "\"Accept all categories\" button label"
+msgstr "Beschriftung des Buttons „Zustimmung zu allen Kategorien geben“"
+
+#: src/Form/EuCookieComplianceConfigForm.php:256
+msgid "Tick the first checkbox and mark it read only."
+msgstr "Das erste Kontrollkästchen automatisch auswählen und auf nur lesen setzen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:262
+msgid "Tick all category checkboxes by default."
+msgstr "Die Kontrollkästchen für alle Kategorien grundsätzlich automatisch abhaken."
+
+#: src/Form/EuCookieComplianceConfigForm.php:279
+msgid "Info banner template"
+msgstr "Info-Banner-Template"
+
+#: src/Form/EuCookieComplianceConfigForm.php:281
+msgid "Cookie policy button in popup-buttons section and styled similarly to the Agree button, \n        as in earlier versions of this module"
+msgstr "Taste Cookie-Politik im Abschnitt Popup-Tasten und Stil ähnlich der Taste „Zustimmen“ wie in früheren Versionen dieses Moduls\n"
+
+#: src/Form/EuCookieComplianceConfigForm.php:283
+msgid "Cookie policy button in popup-text section, styled differently than Agree button."
+msgstr "Taste Cookie-Politik im Abschnitt Popup-Text, anderer Stil als bei der Taste „Zustimmen“."
+
+#: src/Form/EuCookieComplianceConfigForm.php:290
+msgid "Disable the following JavaScripts when consent isn't given"
+msgstr "Deaktiviere die folgenden JavaScripts wenn die Zustimmung nicht gegeben wurde."
+
+#: src/Form/EuCookieComplianceConfigForm.php:303
+msgid "<span class='eu-cookie-compliance-word-break'>Include the full path of JavaScripts, each on a separate line. When using the opt-in or opt-out consent options, you can block certain JavaScript files from being loaded when consent isn't given. The on-site JavaScripts should be written as root relative paths <strong>without the leading slash</strong>, you can use public://path/to/file.js and private://path/to/file.js, and off-site JavaScripts should be written as complete URLs <strong>with the leading http(s)://</strong>. Note that after the user gives consent, the scripts will be executed in the order you enter here.<br /><br />Libraries and scripts that attach to Drupal.behaviors are supported. To indicate a behavior that needs to be loaded on consent, append the behavior name after the script with a | (vertical bar). If you also want to conditionally load a library, place that as the third parameter, following another | (vertical bar). <strong>Example: modules/custom/custom_module/js/custom.js|customModule|custom_module/custom_module</strong>.<br />If your script file does not attach to Drupal.attributes, you may skip the second parameter. <strong>Example: modules/custom/custom_module/js/custom.js||custom_module/custom_module</strong><br /><strong>Note that Drupal behavior name and library parameters are both optional</strong>, but may be required to achieve your objective.</span>"
+msgstr "<span class='eu-cookie-compliance-word-break'>Verwenden Sie den vollständigen Pfad für JavaScript-Dateien, jeweils in einer separaten Zeile. Wenn Sie die Zustimmungsoptionen Opt-in oder Opt-out verwenden, können Sie das Laden bestimmter JavaScript-Dateien blockieren, wenn keine Zustimmung erteilt wird. Die lokal geladenen Javascript-Dateien sollten als relative Root-Pfade <strong>ohne den führenden Schrägstrich</strong> geschrieben werden, Sie können public://path/to/file.js und private://path/to/file.js verwenden, und externe JavaScript-Dateien sollten als vollständige URLs <strong>mit den führenden http(s)://</strong> geschrieben werden. Beachten Sie, dass nach der Zustimmung des Benutzers die Skripte in der hier angegebenen Reihenfolge ausgeführt werden. <br><br><br><br>Bibliotheken und Skripte, die an Drupal.behaviors anhängen, werden unterstützt. Um ein Verhalten anzuzeigen, das bei Zustimmung geladen werden muss, fügen Sie den Verhaltensnamen hinter dem Skript mit einem | (Pipe-Symbol) an. Wenn Sie auch eine Bibliothek bedingt laden möchten, platzieren Sie diesen als dritten Parameter hinter einem anderen | (Pipe-Symbol). <strong>Beispiel: modules/custom/custom_module/js/custom.js|customModule|custom_module/custom_module</strong>.<br>Wenn Ihre Skriptdatei nicht an Drupal.attributes angehängt ist, können Sie den zweiten Parameter überspringen. <strong>Beispiel: Module/custom/custom_module/js/custom.js|||custom_module/custom_module</strong><br><br><strong>Bitte beachten, dass Drupal-Verhaltensname und Bibliotheksparameter beide optional sind</strong>, aber möglicherweise erforderlich sind, um Ihr Ziel zu erreichen.</span>."
+
+#: src/Form/EuCookieComplianceConfigForm.php:304
+msgid "When using the consent method \"Opt-in with categories\", you can link the script to a specific category by using the format: \"category:path/to/the/script.js\"."
+msgstr "Bei Nutzung der Zustimmungsmethode „Opt-in mit Kategorien“ können Sie das Skript mit einer bestimmten Kategorie verlinken. Format: „category:path/to/the/script.js“."
+
+#: src/Form/EuCookieComplianceConfigForm.php:309
+msgid "Cookie handling"
+msgstr "Cookie Umgang"
+
+#: src/Form/EuCookieComplianceConfigForm.php:322
+msgid "Include the name of cookies, each on a separate line. When using the opt-in or opt-out consent options, this module will <strong>delete cookies from your domain that are not on the whitelist</strong> every few seconds when consent isn't given. PHP session cookies and the cookie for this module are always whitelisted."
+msgstr "Geben Sie den Namen der Cookies an, die jeweils in einer separaten Zeile stehen. Wenn Sie die Optionen Opt-in oder Opt-out Zustimmung verwenden, löscht dieses Modul alle paar Sekunden Cookies aus Ihrer Domain, die nicht auf der Whitelist</strong> stehen, wenn keine Zustimmung erteilt wird. PHP-Session-Cookies und das Cookie für dieses Modul werden immer auf der Whitelist geführt."
+
+#: src/Form/EuCookieComplianceConfigForm.php:323
+msgid "When using the consent method \"Opt-in with categories\", you can link the cookie to a specific consent category by using the format: \"category:cookie_name\".  Only when consent is given for the given category, will the cookie be whitelisted."
+msgstr "Bei Nutzung der Zustimmungsmethode „Opt-in mit Kategorien“ können Sie das Skript mit einer bestimmten Kategorie verlinken. Format: „category:cockie_name“. Das Cookie wird nur dann freigegeben, wenn die Zustimmung für diese Kategorie vorliegt."
+
+#: src/Form/EuCookieComplianceConfigForm.php:328
+msgid "Store record of consent"
+msgstr "Aufzeichnungen über die Einwilligung speichern"
+
+#: src/Form/EuCookieComplianceConfigForm.php:339
+msgid "Depending on your implementation of GDPR, you may have to store a record when the user consents. This module comes with a basic consent storage plugin that writes a record to the database. Note that if your site has significant traffic, the basic consent storage may become a bottleneck, as every consent action will require a write to the database. You can easily create your own module with a ConsentStorage Plugin that extends ConsentStorageBase, using BasicConsentStorage from this module as a template. If you create a highly performant consent storage plugin, please consider contributing it back to the Drupal community as a contrib module."
+msgstr "Je nach Ihrer Implementierung der DSGVO kann es sein, dass Sie einen Eintrag speichern müssen, wenn der Benutzer zustimmt. Dieses Modul enthält ein einfaches Plugin zur Speicherung der Zustimmung, das einen Eintrag in der Datenbank vornimmt. Beachten Sie, dass bei starkem Traffic auf Ihrer Site die einfache Speicherung der Zustimmung zu einem Engpass werden kann, da jede Zustimmung in die Datenbank geschrieben werden muss. Sie können einfach Ihr eigenes Modul mit einem ConsentStorage-Plugin erzeugen, das ConsentStorageBase erweitert, indem Sie BasicConsentStorage aus diesem Modul als Vorlage verwenden. Wenn Sie ein sehr leistungsfähiges Plugin zur Speicherung der Zustimmung entwickelt haben, sollten Sie erwägen, es als Ihren Beitrag zur Drupal-Community zur Verfügung zu stellen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:351
+msgid "Cookie information banner"
+msgstr "Cookie Informations-Banner"
+
+#: src/Form/EuCookieComplianceConfigForm.php:359
+msgid "By default by clicking any link or button on the website the visitor accepts the cookie policy. Uncheck this box if you don’t require this functionality. You may want to edit the banner message below accordingly."
+msgstr "Standardmäßig akzeptiert der Besucher durch Anklicken einer Link oder einer Taste auf der Website die Cookie-Politik. Heben Sie diese Markierung auf, wenn Sie diese Funktion nicht wünschen. Sie sollten eventuell die nachstehende Nachricht im Banner entsprechend anpassen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:385
+msgid "Use a different message for mobile phones."
+msgstr "Eine andere Nachricht für Mobilgeräte verwenden."
+
+#: src/Form/EuCookieComplianceConfigForm.php:414;691
+msgid "px"
+msgstr "px"
+
+#: src/Form/EuCookieComplianceConfigForm.php:418
+msgid "The mobile message will be used when the window width is below or equal to the given value."
+msgstr "Die Mobile-Nachricht wird genutzt, wenn die Breite des Fensters kleiner oder gleich des angegebenen Werts ist."
+
+#: src/Form/EuCookieComplianceConfigForm.php:428
+msgid "Agree button label"
+msgstr "Beschriftung des „Zustimmen“-Buttons"
+
+#: src/Form/EuCookieComplianceConfigForm.php:442
+msgid "If this option is checked, the cookie policy button will be shown on the site. Disabling this option will hide both the \"Cookie Policy\" button on the information banner and the \"More info\" button on the \"Thank you\" banner."
+msgstr "Wenn diese Option gewählt ist, erscheint auf der Site die Taste zur Cookie-Politik. Ohne diese Option werden sowohl die Taste „Cookie-Politik“ als auch das Informationsbanner und die Taste „Weitere Informationen“ im „Vielen Dank“-Banner unterdrückt."
+
+#: src/Form/EuCookieComplianceConfigForm.php:453
+msgid "Cookie policy button label"
+msgstr "Beschriftung des Buttons für die Cookie-Richtlinie"
+
+#: src/Form/EuCookieComplianceConfigForm.php:485 config/install/eu_cookie_compliance.settings.yml:0
+msgid "Withdraw consent"
+msgstr "Zustimmung zurückziehen"
+
+#: src/Form/EuCookieComplianceConfigForm.php:496
+msgid "GDPR requires that withdrawing consent for handling personal information should be as easy as giving consent. This module offers a tab button that when clicked brings up a message and a button that can be used to withdraw consent."
+msgstr "Die DSGVO verlangt, dass der Widerruf der Einwilligung zur Handhabung personenbezogener Daten so einfach wie die Einwilligung selbst sein muss. Dieses Modul zeigt eine Taste an, die beim Anklicken eine Nachricht und eine weitere Taste zum Widerruf der Einwilligung einblendet."
+
+#: src/Form/EuCookieComplianceConfigForm.php:507
+msgid "Put the \"Withdraw consent\" button on the cookie information banner."
+msgstr "Platzieren Sie die Taste „Einwilligung widerrufen“ auf dem Cookie Informations-Banner."
+
+#: src/Form/EuCookieComplianceConfigForm.php:523
+msgid "Text that will be displayed in the banner that appears when the privacy settings tab is clicked."
+msgstr "Text, der im Banner erscheint, das angezeigt wird, wenn der Reiter Datenschutzeinstellungen angeklickt wird."
+
+#: src/Form/EuCookieComplianceConfigForm.php:536
+msgid "Tab button that reveals/hides the withdraw message and action button when clicked."
+msgstr "Reiter-Taste zum Ein-/Ausblenden der Widerrufsnachricht und der Aktionstaste nach dem Anklicken."
+
+#: src/Form/EuCookieComplianceConfigForm.php:541
+msgid "Withdraw consent button label"
+msgstr "Beschriftung der Taste zum Widerruf der Einwilligung"
+
+#: src/Form/EuCookieComplianceConfigForm.php:543
+msgid "This button will withdraw consent when clicked."
+msgstr "Dieser Button widerruft die Einwilligung, wenn er angeklickt wird."
+
+#: src/Form/EuCookieComplianceConfigForm.php:549
+msgid "Thank you banner"
+msgstr "„Vielen Dank“-Banner"
+
+#: src/Form/EuCookieComplianceConfigForm.php:554
+msgid "Enable \"Thank you\" banner"
+msgstr "„Vielen Dank“-Banner aktivieren"
+
+#: src/Form/EuCookieComplianceConfigForm.php:562
+msgid "Clicking a link or button hides the \"Thank you\" message automatically."
+msgstr "Der Klick auf einen Link oder Button blendet die Dankesnachricht automatisch aus."
+
+#: src/Form/EuCookieComplianceConfigForm.php:575
+msgid "\"Thank you\" banner message"
+msgstr "Nachricht des „Vielen Dank“-Banners"
+
+#: src/Form/EuCookieComplianceConfigForm.php:609
+msgid "Privacy policy"
+msgstr "Datenschutzrichtlinie"
+
+#: src/Form/EuCookieComplianceConfigForm.php:618
+msgid "Enter link to your privacy policy or other page that will explain cookies to your users, external links should start with http:// or https://."
+msgstr "Geben Sie einen Link zu Ihrer Datenschutzerklärung oder einer anderen Seite ein, die Ihren Benutzern Cookies erklärt, externe Links sollten mit http:// oder https://. beginnen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:631
+msgid "Appearance"
+msgstr "Design"
+
+#: src/Form/EuCookieComplianceConfigForm.php:649
+msgid "Position"
+msgstr "Position"
+
+#: src/Form/EuCookieComplianceConfigForm.php:656
+msgid "Include minimal CSS, I want to style the banner in the theme CSS."
+msgstr "Minimales CSS einbinden. Ich möchte den Banner über das Theme-CSS gestalten."
+
+#: src/Form/EuCookieComplianceConfigForm.php:658
+msgid "This may be useful if you want the banner to share the button style of your theme. Note that you will have to configure values like the banner width, text color and background color in your CSS file."
+msgstr "Dies kann praktisch sein, wenn das Banner den Tasten-Stil Ihres Themes haben soll. Sie müssen jedoch Werte wie die Breite des Banners, die Text- und die Hintergrundfarbe in Ihrer CSS-Datei konfigurieren."
+
+#: src/Form/EuCookieComplianceConfigForm.php:665
+msgid "Change the text color of the banner. Provide HEX value without the #."
+msgstr "Schriftfarbe des Banners ändern. HEX-Werte ohne vorangestelltes # angeben."
+
+#: src/Form/EuCookieComplianceConfigForm.php:678
+msgid "Change the background color of the banner. Provide HEX value without the #."
+msgstr "Hintergrundfarbe des Banners ändern. HEX-Werte ohne vorangestelltes # angeben."
+
+#: src/Form/EuCookieComplianceConfigForm.php:689
+msgid "Banner height"
+msgstr "Banner-Höhe"
+
+#: src/Form/EuCookieComplianceConfigForm.php:695
+msgid "Enter an integer value for a desired height in pixels or leave empty for automatically adjusted height."
+msgstr "Einen ganzzahligen Wert für eine gewünschte Höhe in Pixeln eingeben oder leer lassen für die automatisch eingestellte Höhe."
+
+#: src/Form/EuCookieComplianceConfigForm.php:707
+msgid "px or %"
+msgstr "px oder %"
+
+#: src/Form/EuCookieComplianceConfigForm.php:710
+msgid "Set the width of the banner. This can be either an integer value or percentage of the screen width. For example: 200 or 50%."
+msgstr "Die Breite des Banners festlegen. Es kann ein Ganzzahlwert oder ein Prozentsatz der Bildschirmbreite angegeben werden. Zum Beispiel: 200 oder 50%."
+
+#: src/Form/EuCookieComplianceConfigForm.php:720
+msgid "EU countries"
+msgstr "EU-Länder"
+
+#: src/Form/EuCookieComplianceConfigForm.php:728
+msgid "You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$config['eu_cookie_compliance.settings']['eu_countries']</code> in your <code>settings.php</code> file. Using the <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a> module or the <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a> PHP function."
+msgstr "Sie können mit dieser Option die Anzahl der Länder beschränken, für die das Banner angezeigt wird. Wenn Sie eine andere Liste als die der aktuellen EU-Staaten vorgeben wollen, können Sie ein Array in <code>$config['eu_cookie_compliance.settings']['eu_countries']</code> in Ihrer Datei <code>settings.php</code> hinterlegen. Mit dem <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a>-Modul oder der PHP-Funktion <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a>."
+
+#: src/Form/EuCookieComplianceConfigForm.php:732
+msgid "JavaScript-based (for Varnish): Only display banner in EU countries."
+msgstr "JavaScript-basierend (für Varnish): Banner nur in EU-Ländern anzeigen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:734
+msgid "This option also works for visitors that bypass Varnish. You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$config['eu_cookie_compliance.settings']['eu_countries']</code> in your <code>settings.php</code> file. Using the <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a> module or the <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a> PHP function."
+msgstr "Diese Option funktioniert auch bei Besuchern, die Varnish umgehen. Sie können mit dieser Option die Anzahl der Länder beschränken, für die das Banner angezeigt wird. Wenn Sie eine andere Liste als die der aktuellen EU-Staaten vorgeben wollen, können Sie ein Array in <code>$config['eu_cookie_compliance.settings']['eu_countries']</code> in Ihrer Datei <code>settings.php</code> hinterlegen. Mit dem <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a>-Modul oder der PHP-Funktion <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a>."
+
+#: src/Form/EuCookieComplianceConfigForm.php:739
+msgid "You can choose to show the banner only to visitors from EU countries. In order to achieve this, you need to install the <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a> module or enable the <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a> PHP function."
+msgstr "Sie können auswählen, dieses Banner nur Besuchern aus EU-Staaten anzuzeigen. Hierzu müssen Sie das <a href=\"http://drupal.org/project/smart_ip\">smart_ip</a>-Modul installieren oder die PHP-Funktion <a href=\"http://www.php.net/manual/en/function.geoip-country-code-by-name.php\">geoip_country_code_by_name()</a> freigeben."
+
+#: src/Form/EuCookieComplianceConfigForm.php:746
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: src/Form/EuCookieComplianceConfigForm.php:753
+msgid "Use position:fixed for the banner when displayed at the top."
+msgstr "Benutze position:fixed für das Banner, wenn es oben auf der Website erscheint."
+
+#: src/Form/EuCookieComplianceConfigForm.php:758
+msgid "Banner sliding animation time"
+msgstr "Zeitangabe für die Slide-Animation des Banners"
+
+#: src/Form/EuCookieComplianceConfigForm.php:760
+msgid "ms"
+msgstr "ms"
+
+#: src/Form/EuCookieComplianceConfigForm.php:770
+msgid "Enabling this will make it possible to record the fact that the user disagrees without the user having to see the privacy policy."
+msgstr "Durch die Aktivierung dieser Option kann aufgezeichnet werden, dass der Benutzer nicht einverstanden ist, ohne dass der Benutzer die Datenschutzerklärung einsehen muss."
+
+#: src/Form/EuCookieComplianceConfigForm.php:783
+msgid "Scrolling makes the visitors to accept the cookie policy. In some countries, like Italy, it is permitted."
+msgstr "Durch das Scrollen akzeptieren die Besucher die Cookie-Richtlinie. In einigen Ländern, wie Italien, ist es erlaubt."
+
+#: src/Form/EuCookieComplianceConfigForm.php:795
+msgid "Sets the cookie name that is used to check whether the user has agreed or not. This option is useful when policies change and the user needs to agree again."
+msgstr "Setzt den Cookie-Namen, der verwendet wird, um zu überprüfen, ob der Benutzer zugestimmt hat oder nicht. Diese Option ist nützlich, wenn sich Richtlinien ändern und der Benutzer erneut zustimmen muss."
+
+#: src/Form/EuCookieComplianceConfigForm.php:800
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/Form/EuCookieComplianceConfigForm.php:801
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Form/EuCookieComplianceConfigForm.php:806
+msgid "Add/remove banner on specified domains"
+msgstr "Hinzufügen/Entfernen des Banners auf angegebenen Domains"
+
+#: src/Form/EuCookieComplianceConfigForm.php:809
+msgid "Specify if you want to add or remove banner on the listed below domains."
+msgstr "Gib an ob du das Banner auf den folgenden Domains hinzufügen oder entfernen möchtest."
+
+#: src/Form/EuCookieComplianceConfigForm.php:816
+msgid "Specify domains with protocol (e.g., http or https). Enter one domain per line."
+msgstr "Gibt die Domains mit Protokoll an (z.B. https). Gib eine Domain pro Zeile an."
+
+#: src/Form/EuCookieComplianceConfigForm.php:823
+msgid "Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page."
+msgstr "Geben Sie Seiten an, indem Sie deren Pfade angeben, ein Pfad pro Zeile. Das Zeichen ‚*’ ist ein Platzhalter. Beispiele für Pfade sind %blog für die Blog-Seite und %blog-wildcard für jeden persönlichen Blog. %front ist die Startseite."
+
+#: src/Form/EuCookieComplianceConfigForm.php:844
+msgid "Let screen readers see the banner before other links on the page."
+msgstr "Screen Readern das Banner vor anderen Links auf der Seite anzeigen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:846
+msgid "Enable this if you want to place the banner as the first HTML element on the page. This will make it possible for screen readers to close the banner without tabbing through all links on the page."
+msgstr "Diese Option aktivieren, wenn das Banner als erstes HTML-Element auf der Seite platziert werden soll. Dies ermöglicht es Screenreadern, das Banner zu schließen, ohne durch alle Links auf der Seite zu springen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:851
+msgid "Prompt for consent (from the same user) at every new browser session."
+msgstr "Aufforderung zur Einwilligung (vom gleichen Benutzer) bei jeder neuen Browsersitzung."
+
+#: src/Form/EuCookieComplianceConfigForm.php:852
+msgid "This sets cookie lifetime to 0, invalidating the cookie at the end of the browser session. To set a cookie lifetime greater than 0, uncheck this option. Note that some users will find this behavior highly annoying, and it's recommended to double-check with the legal advisor whether you really need this option enabled."
+msgstr "Dies setzt die Lebensdauer des Cookies auf 0 und devalidiert das Cookie am Ende der Browser-Sitzung. Deaktivieren Sie diese Option für eine Cookie-Lebensdauer größer 0. Beachten Sie, dass einige Benutzer dieses Verhalten äußerst ärgerlich finden, und es wird empfohlen, mit einem Rechtsberater zu klären, ob Sie diese Option wirklich aktivieren müssen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:860
+msgid "Sets the domain of the cookie to a specific url. Used when you need consistency across domains. This is language independent. Note: Make sure you actually enter a domain that the browser can make use of. For example if your site is accessible at both www.domain.com and domain.com, you will not be able to hide the banner at domain.com if your value for this field is www.domain.com."
+msgstr "Setzt die Domain des Cookies auf eine bestimmte URL. Wird eingesetzt, wenn Konsistenz über die Domains hinweg erforderlich ist. Dies ist sprachenunabhängig. Hinweis: Achten Sie darauf, eine Domain einzugeben, die der Browser auch nutzen kann. Wenn z. B. Ihre Website sowohl unter www.domain.com als auch unter domain.com erreichbar ist, können Sie das Banner unter domain.com nicht unterdrücken, wenn Ihr Wert in diesem Feld www.domain.com ist."
+
+#: src/Form/EuCookieComplianceConfigForm.php:865
+msgid "Allow the cookie to be set for all sites on the same domain."
+msgstr "Zulassen, dass das Cookie für alle Websites auf derselben Domäne gesetzt wird."
+
+#: src/Form/EuCookieComplianceConfigForm.php:867
+msgid "Sets the path of the cookie to '/' so that the cookie works across all sites on the domain."
+msgstr "Setzt den Pfad des Cookies auf'/', so dass das Cookie auf allen Seiten der Domäne funktioniert."
+
+#: src/Form/EuCookieComplianceConfigForm.php:873
+msgid "How many days the system remember the user's choice."
+msgstr "Wie viele Tage das System sich an die Wahl des Benutzers erinnert."
+
+#: src/Form/EuCookieComplianceConfigForm.php:875
+msgid "days"
+msgstr "Tage"
+
+#: src/Form/EuCookieComplianceConfigForm.php:903
+msgid "Invalid cookie name, please remove any special characters and try again."
+msgstr "Ungültiger Cookie-Name, bitte alle Sonderzeichen entfernen und es anschließend erneut versuchen."
+
+#: src/Form/EuCookieComplianceConfigForm.php:1052
+msgid "Invalid protocol specified for the %name (valid protocols: %protocols)."
+msgstr "Ungültiges Protokoll für %name (gültige Protokolle: %protocols)."
+
+#: src/Form/EuCookieComplianceConfigForm.php:1062
+msgid "Invalid %name (:message)."
+msgstr "Ungültiger %name (:message)."
+
+#: src/Form/EuCookieComplianceConfigForm.php:1075
+msgid "Invalid URL in %name field (:message)."
+msgstr "Ungültige URL im %name Feld (:message)."
+
+#: src/Plugin/ConsentStorage/BasicConsentStorage.php:7;7
+msgid "Basic storage"
+msgstr "Basisspeicher"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>"
+msgstr "<h2>Vielen Dank für das Akzeptieren der Cookies</h2><p>Sie können diese Meldung jetzt ausblenden oder mehr über Cookies erfahren.</p>"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "Accept"
+msgstr "Akzeptieren"
+
+#: config/install/eu_cookie_compliance.settings.yml:0;0
+msgid "More info"
+msgstr "Weitere Informationen"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "Hide"
+msgstr "Ausblenden"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking the Accept button, you agree to us doing so.</p>"
+msgstr "<h2>Auf dieser Seite werden Cookies verwendet.</h2><p>Mit dem Anklicken der Schaltfläche <em>Akzeptieren</em> erklären Sie sich damit einverstanden, dass wir das tun.</p>"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "<h2>We use cookies on this site to enhance your user experience</h2><p>By tapping the Accept button, you agree to us doing so.</p>"
+msgstr "<h2>Auf dieser Seite werden Cookies verwendet.</h2><p>Mit dem Antippen der Schaltfläche <em>Akzeptieren</em> erklären Sie sich damit einverstanden, dass wir das tun.</p>"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "No, thanks"
+msgstr "Nein, danke"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "<h2>We use cookies on this site to enhance your user experience</h2><p>You have given your consent for us to set cookies.</p>"
+msgstr "<h2>Auf dieser Seite werden Cookies verwendet.</h2><p>Sie haben uns Ihre Zustimmung gegeben, Cookies zu setzen.</p>"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "Privacy settings"
+msgstr "Datenschutzeinstellungen"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "Save preferences"
+msgstr "Einstellungen speichen"
+
+#: config/install/eu_cookie_compliance.settings.yml:0
+msgid "Accept all cookies"
+msgstr "Alle Cookies akzeptieren"

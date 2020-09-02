@@ -172,12 +172,12 @@ Feature: deGov - Content creation
     And I click by selector ".field--type-viewsreference summary" via JavaScript
     And I should see 1 ".viewsreference_view_mode:visible" elements via jQuery
     Then I assert dropdown named "field_content_paragraphs[0][subform][field_view_reference_view][0][options][view_mode]" contains the following text-value pairs:
-      | text                   | value       |
-      | As defined in the view |             |
-      | Teaser kleines Bild    | small_image |
-      | Teaser langer Text     | long_text   |
-      | Teaser schmal          | slim        |
-      | Teaser Preview         | preview     |
+      | text                          | value       |
+      | Wie in der Ansicht definiert  |             |
+      | Teaser kleines Bild           | small_image |
+      | Teaser langer Text            | long_text   |
+      | Teaser schmal                 | slim        |
+      | Teaser Preview                | preview     |
 
   Scenario: I verify that script tags are removed from output
     Given I have dismissed the cookie banner if necessary

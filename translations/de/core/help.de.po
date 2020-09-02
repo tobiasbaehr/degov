@@ -1,0 +1,122 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  help.module: n/a
+#  help.info.yml: n/a
+#  help.links.menu.yml: n/a
+#  help.routing.yml: n/a
+#  src/Plugin/Block/HelpBlock.php: n/a
+#  src/Controller/HelpController.php: n/a
+#  src/Plugin/HelpSection/HookHelpSection.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: help.module:18
+msgid "Getting Started"
+msgstr "Erste Schritte"
+
+#: help.module:19
+msgid "Follow these steps to set up and start using your website:"
+msgstr "Folgen Sie diesen Schritten, um Ihre Website einzurichten und zu verwenden:"
+
+#: help.module:21
+msgid "<strong>Configure your website</strong> Once logged in, visit the <a href=\":admin\">Administration page</a>, where you may <a href=\":config\">customize and configure</a> all aspects of your website."
+msgstr "<strong>Konfigurieren Sie Ihre Website</strong>: Nachdem Sie sich angemeldet haben, rufen Sie die <a href=\":admin\">Verwaltungsseite</a> auf, wo Sie alle Aspekte Ihrer Website <a href=\":config\">anpassen und konfigurieren</a> können."
+
+#: help.module:22
+msgid "<strong>Enable additional functionality</strong> Next, visit the <a href=\":modules\">Extend page</a> and enable modules that suit your specific needs. You can find additional modules at the <a href=\":download_modules\">Drupal.org modules page</a>."
+msgstr "<strong>Zusätzliche Erweiterungen aktiveren</strong> Als nächstes die Seite <a href=\":modules\">Erweitern</a> aufrufen und die Module aktivieren, die benötigt werden. Darüber hinaus findet man noch mehr Erweiterungen auf der Seite für Module bei <a href=\":download_modules\">Drupal.org</a>."
+
+#: help.module:23
+msgid "<strong>Customize your website design</strong> To change the \"look and feel\" of your website, visit the <a href=\":themes\">Appearance page</a>. You may choose from one of the included themes or download additional themes from the <a href=\":download_themes\">Drupal.org themes page</a>."
+msgstr "<strong>Das Design der Website anpassen</strong> Das „Look-and-Feel“ der Website kann auf der Seite <a href=\":themes\">Design</a> angepasst werden. Dort kann entweder eines der mitgelieferten Themes ausgewählt oder ein Theme von <a href=\":download_themes\"> Seite Themes auf Drupal.org</a> heruntergeladen werden."
+
+#: help.module:26
+msgid "<strong>Start posting content</strong> Finally, you may <a href=\":content\">add new content</a> to your website."
+msgstr "<strong>Inhalte erstellen</strong> Mithilfe von <a href=\":content\">neuen Inhalt hinzufügen</a> lassen sich Beiträge für die Website erstellen."
+
+#: help.module:29
+msgid "For more information, refer to the help listed on this page or to the <a href=\":docs\">online documentation</a> and <a href=\":support\">support</a> pages at <a href=\":drupal\">drupal.org</a>."
+msgstr "Für weitere Informationen, die Inhalte dieser Seite oder die <a href=\":docs\">Online-Dokumentation</a> sowie die <a href=\":support\">Support-Seiten</a> auf <a href=\":drupal\">drupal.org</a> nutzen."
+
+#: help.module:34
+msgid "About"
+msgstr "Über"
+
+#: help.module:35
+msgid "The Help module generates <a href=\":help-page\">Help reference pages</a> to guide you through the use and configuration of modules, and provides a Help block with page-level help. The reference pages are a starting point for <a href=\":handbook\">Drupal.org online documentation</a> pages that contain more extensive and up-to-date information, are annotated with user-contributed comments, and serve as the definitive reference point for all Drupal documentation. For more information, see the <a href=\":help\">online documentation for the Help module</a>."
+msgstr "Das Help-Modul generiert <a href=\":help-page\">ein Nachschlagewerk zur Funktionalität von Drupal und Drupal Zusatzmodulen</a> und bietet einen Hilfeblock auf Basis der aktuell angezeigten Seite. Die Seiten der Hilfe sind ein Einstiegspunkt in die <a href=\":handbook\">Online Dokumentation auf Drupal.org</a> Dort sind regelmäßig aktualisierte Informationen zu Drupal und den von der Community bereitgestellten Zusatzmodulen verfügbar- Die  Informationen sind mit hilfreichen Kommentaren von Benutzern der Community angereichert. Drupal.org ist die offizielle Anlaufstelle, um Hilfe zu Drupal zu erhalten. Weitere Informationen sind in der <a href=\":help\">Online-Dokumentation des Help-Moduls</a> verfügbar."
+
+#: help.module:36
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: help.module:38
+msgid "Providing a help reference"
+msgstr "Bietet eine Hilfereferenz an"
+
+#: help.module:39
+msgid "The Help module displays explanations for using each module listed on the main <a href=\":help\">Help reference page</a>."
+msgstr "Das Help-Modul zeigt Erklärungen zur Verwendung jedes Moduls an, das auf der Hauptseite der <a href=\":help\">Hilfereferenz</a> aufgelistet wird."
+
+#: help.module:40
+msgid "Providing page-specific help"
+msgstr "Seitenspezifische Hilfe zur Verfügung stellen"
+
+#: help.module:41
+msgid "Page-specific help text provided by modules is displayed in the Help block. This block can be placed and configured on the <a href=\":blocks\">Block layout page</a>."
+msgstr "Im Hilfe-Block wird seitenspezifischer Hilfetext aus den Modulen bereitgestellt. Dieser Block kann werden auf der Seite <a href=\":blocks\">Blocklayout</a> platziert und konfiguriert werden."
+
+#: help.info.yml:0 help.links.menu.yml:0 help.routing.yml:0;0 src/Plugin/Block/HelpBlock.php:13
+msgid "Help"
+msgstr "Hilfe"
+
+#: help.info.yml:0
+msgid "Manages the display of online help."
+msgstr "Ermöglicht das Anzeigen der Online-Hilfe."
+
+#: help.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: help.links.menu.yml:0
+msgid "Reference for usage, configuration, and modules."
+msgstr "Die Referenz für die Nutzung, Konfiguration und Module."
+
+#: src/Controller/HelpController.php:86
+msgid "There is currently nothing in this section."
+msgstr "Dieser Bereich ist im Moment ohne Inhalt."
+
+#: src/Controller/HelpController.php:123
+msgid "This module is experimental. <a href=\":url\">Experimental modules</a> are provided for testing purposes only. Use at your own risk."
+msgstr "Dieses Modul ist experimentell. <a href=\":url\">Experimentelle Module</a> werden nur zu Testzwecken angeboten. Die Verwendung geschieht auf \"eigene Gefahr\"!"
+
+#: src/Controller/HelpController.php:128
+msgid "No help is available for module %module."
+msgstr "Leider ist für das Modul %module keine Hilfe verfügbar."
+
+#: src/Controller/HelpController.php:151
+msgid "@module administration pages"
+msgstr "@module -Verwaltungsseiten"
+
+#: src/Plugin/HelpSection/HookHelpSection.php:10
+msgid "Module overviews"
+msgstr "Modul-Übersicht"
+
+#: src/Plugin/HelpSection/HookHelpSection.php:10
+msgid "Module overviews are provided by modules. Overviews available for your installed modules:"
+msgstr "Die Einführungen zu Modulen wird von diesen selbst bereitgestellt. Für folgende installierte Module sind Einführungen verfügbar:"
+

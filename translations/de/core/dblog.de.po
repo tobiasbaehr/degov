@@ -1,0 +1,388 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  dblog.post_update.php: n/a
+#  dblog.admin.inc: n/a
+#  dblog.views.inc: n/a
+#  src/Controller/DbLogController.php: n/a
+#  config/optional/views.view.watchdog.yml: n/a
+#  src/Plugin/views/wizard/Watchdog.php: n/a
+#  dblog.module: n/a
+#  config/schema/dblog.schema.yml: n/a
+#  dblog.routing.yml: n/a
+#  dblog.info.yml: n/a
+#  dblog.links.menu.yml: n/a
+#  dblog.links.task.yml: n/a
+#  config/schema/dblog.views.schema.yml: n/a
+#  src/Plugin/views/field/DblogMessage.php: n/a
+#  src/Form/DblogClearLogConfirmForm.php: n/a
+#  src/Form/DblogFilterForm.php: n/a
+#  src/Plugin/rest/resource/DBLogResource.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dblog.post_update.php:30
+msgid "The watchdog view has been created."
+msgstr "Die Systemprotokollansicht wurde erstellt."
+
+#: dblog.post_update.php:33
+msgid "The watchdog view already exists and was not replaced. To replace the 'Recent log messages' with a view, rename the watchdog view and uninstall and install the 'Database Log' module"
+msgstr "Die Systemprotokollansicht ist bereits vorhanden und wurde nicht ersetzt. Um „Aktuelle Protokollnachrichten“ mit einer Ansicht zu ersetzen, muss die Systemprotokollansicht umbenannt, deinstalliert und das Database-Log-Modul installiert werden."
+
+#: dblog.admin.inc:30 dblog.views.inc:62 src/Controller/DbLogController.php:139;256 config/optional/views.view.watchdog.yml:0;0
+msgid "Type"
+msgstr "Typ"
+
+#: dblog.admin.inc:37 src/Controller/DbLogController.php:280 config/optional/views.view.watchdog.yml:0;0
+msgid "Severity"
+msgstr "Schweregrad"
+
+#: dblog.views.inc:14 config/optional/views.view.watchdog.yml:0
+msgid "Watchdog"
+msgstr "Systemprotokoll"
+
+#: dblog.views.inc:19 src/Plugin/views/wizard/Watchdog.php:7
+msgid "Log entries"
+msgstr "Protokolleinträge"
+
+#: dblog.views.inc:20
+msgid "Contains a list of log entries."
+msgstr "Enthält eine Liste mit Protokolleinträgen."
+
+#: dblog.views.inc:24 config/optional/views.view.watchdog.yml:0
+msgid "WID"
+msgstr "WID"
+
+#: dblog.views.inc:25
+msgid "Unique watchdog event ID."
+msgstr "Eindeutige Watchdog-Event ID."
+
+#: dblog.views.inc:41
+msgid "UID"
+msgstr "UID"
+
+#: dblog.views.inc:42
+msgid "The user ID of the user on which the log entry was written."
+msgstr "Die ID des Benutzers, für den der Protokolleintrag erzeugt wurde."
+
+#: dblog.views.inc:53 src/Controller/DbLogController.php:151;264 config/optional/views.view.watchdog.yml:0;0
+msgid "User"
+msgstr "Benutzer"
+
+#: dblog.views.inc:54
+msgid "The user on which the log entry as written."
+msgstr "Der Benutzer, für den der Protokolleintrag erzeugt wurde."
+
+#: dblog.views.inc:63
+msgid "The type of the log entry, for example \"user\" or \"page not found\"."
+msgstr "Der Typ des Protokolleintrags. Zum Beispiel „Benutzer“ oder „Seite nicht gefunden“."
+
+#: dblog.views.inc:79 src/Controller/DbLogController.php:149;276;407 config/optional/views.view.watchdog.yml:0
+msgid "Message"
+msgstr "Nachricht"
+
+#: dblog.views.inc:80
+msgid "The actual message of the log entry."
+msgstr "Die tatsächliche Nachricht des Protokolleintrags."
+
+#: dblog.views.inc:96
+msgid "Variables"
+msgstr "Variablen"
+
+#: dblog.views.inc:97
+msgid "The variables of the log entry in a serialized format."
+msgstr "Die Variablen des Protokolleintrags in einem serialisierten Format."
+
+#: dblog.views.inc:114
+msgid "Severity level"
+msgstr "Dringlichkeitsgrad"
+
+#: dblog.views.inc:115
+msgid "The severity level of the event; ranges from 0 (Emergency) to 7 (Debug)."
+msgstr "Der Dringlichkeitsgrad eines Ereignisses; er reicht von 0 (Notfall) bis 7 (Fehlersuche)."
+
+#: dblog.views.inc:130 src/Controller/DbLogController.php:156;288 config/optional/views.view.watchdog.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: dblog.views.inc:131
+msgid "Operation links for the event."
+msgstr "Aktionslinks für dieses Ereignis."
+
+#: dblog.views.inc:147 src/Controller/DbLogController.php:268
+msgid "Location"
+msgstr "Standort"
+
+#: dblog.views.inc:148
+msgid "URL of the origin of the event."
+msgstr "URL der Quelle des Ereignisses."
+
+#: dblog.views.inc:164
+msgid "Referer"
+msgstr "Referrer"
+
+#: dblog.views.inc:165
+msgid "URL of the previous page."
+msgstr "URL der vorherigen Seite"
+
+#: dblog.views.inc:181 src/Controller/DbLogController.php:284
+msgid "Hostname"
+msgstr "Hostname"
+
+#: dblog.views.inc:182
+msgid "Hostname of the user who triggered the event."
+msgstr "Hostname des Benutzers, der das Ereignis ausgelöst hat."
+
+#: dblog.views.inc:198
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#: dblog.views.inc:199
+msgid "Date when the event occurred."
+msgstr "Der Zeitpunkt des Ereignisses."
+
+#: dblog.module:26
+msgid "About"
+msgstr "Über"
+
+#: dblog.module:27
+msgid "The Database Logging module logs system events in the Drupal database. For more information, see the <a href=\":dblog\">online documentation for the Database Logging module</a>."
+msgstr "Das Database Logging-Modul protokolliert Systemereignisse in der Datenbank von Drupal. Weitere Informationen in der <a href=\":dblog\">Online-Dokumentation für das Database Logging-Modul</a>."
+
+#: dblog.module:28
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: dblog.module:30
+msgid "Monitoring your site"
+msgstr "Die Website überwachen"
+
+#: dblog.module:31
+msgid "The Database Logging module allows you to view an event log on the <a href=\":dblog\">Recent log messages</a> page. The log is a chronological list of recorded events containing usage data, performance data, errors, warnings and operational information. Administrators should check the log on a regular basis to ensure their site is working properly."
+msgstr "Das Database-Logging-Modul erlaubt es auf der Seite <a href=\":dblog\">Aktuelle Wartungsprotokolleinträge</a> ein Ereignisprotokoll einzusehen. Das Protokoll ist eine chronologisch sortiertes Liste von Ereignissen, in der Nutzungsdaten, Leistungsdaten, Fehler, Warnungen und administrative Informationen gespeichert werden. Administratoren sollten dieses Protokoll regelmäßig prüfen, um sicherzustellen, dass die Website ordnungsgemäß funktioniert."
+
+#: dblog.module:32
+msgid "Debugging site problems"
+msgstr "Website-Probleme debuggen"
+
+#: dblog.module:33
+msgid "In case of errors or problems with the site, the <a href=\":dblog\">Recent log messages</a> page can be useful for debugging, since it shows the sequence of events. The log messages include usage information, warnings, and errors."
+msgstr "Bei Fehlern oder Problemen mit der Website ist die Seite <a href=\":dblog\">Aktuelle Protokollnachrichten</a> nützlich für das Debugging, da sie die Reihenfolge der Ereignisse anzeigt. Die Protokollnachrichten enthalten Nutzungsinformationen, Warnungen und Fehler."
+
+#: dblog.module:38
+msgid "The Database Logging module logs system events in the Drupal database. Monitor your site or debug site problems on this page."
+msgstr "Das Database-Logging-Modul protokolliert Systemereignisse in der Datenbank von Drupal. Auf dieser Seite kann die Website überwacht sowie Fehlerursachen aufgedeckt werden."
+
+#: dblog.module:105 config/schema/dblog.schema.yml:0
+msgid "Database log messages to keep"
+msgstr "Datenbank-Protokolleinträge behalten"
+
+#: dblog.module:107
+msgid "All"
+msgstr "Alle"
+
+#: dblog.module:108
+msgid "The maximum number of messages to keep in the database log. Requires a <a href=\":cron\">cron maintenance task</a>."
+msgstr "Die maximale Anzahl von Einträgen in den Datenbank-Logs. Benötigt eine <a href=\":cron\">Cron-Wartungs-Aufgabe</a>."
+
+#: dblog.module:48 dblog.routing.yml:0
+msgid "Top search phrases"
+msgstr "Häufigste Suchbegriffe"
+
+#: dblog.module:50
+msgid "View most popular search phrases."
+msgstr "Eine Auflistung der häufigsten Suchwörter anzeigen."
+
+#: dblog.info.yml:0
+msgid "Database Logging"
+msgstr "Datenbankprotokollierung"
+
+#: dblog.info.yml:0
+msgid "Logs and records system events to the database."
+msgstr "Ermöglicht das Aufzeichnen und Protokollieren von Systemereignissen in der Datenbank."
+
+#: dblog.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: dblog.links.menu.yml:0 dblog.routing.yml:0 config/optional/views.view.watchdog.yml:0;0
+msgid "Recent log messages"
+msgstr "Aktuelle Protokollnachrichten"
+
+#: dblog.links.menu.yml:0 dblog.routing.yml:0
+msgid "Top 'page not found' errors"
+msgstr "Häufigste ‚Nicht gefunden‘-Fehler"
+
+#: dblog.links.menu.yml:0 dblog.routing.yml:0
+msgid "Top 'access denied' errors"
+msgstr "Häufigste ‚Zugriff verboten‘-Fehler"
+
+#: dblog.links.menu.yml:0
+msgid "View events that have recently been logged."
+msgstr "Zeigt die Ereignisse an, die zuletzt protokolliert wurden."
+
+#: dblog.links.menu.yml:0
+msgid "View 'page not found' errors (404s)."
+msgstr "Eine Auflistung der Seiten, die am häufigsten ‚Nicht gefunden‘ wurden (404-Fehler)."
+
+#: dblog.links.menu.yml:0
+msgid "View 'access denied' errors (403s)."
+msgstr "Eine Auflistung der Seiten, auf die der Zugriff am häufigsten verboten wurde (403-Fehler)."
+
+#: dblog.links.task.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: dblog.links.task.yml:0
+msgid "Delete"
+msgstr "Löschen"
+
+#: dblog.routing.yml:0
+msgid "Confirm delete recent log messages"
+msgstr "Löschen aktueller Protokollnachrichten bestätigen"
+
+#: dblog.routing.yml:0
+msgid "Details"
+msgstr "Details"
+
+#: config/schema/dblog.schema.yml:0
+msgid "Database logging settings"
+msgstr "Datenbankprotokollierungseinstellungen"
+
+#: config/schema/dblog.views.schema.yml:0
+msgid "Log event message"
+msgstr "Protokollnachricht zum Ereignis"
+
+#: config/schema/dblog.views.schema.yml:0 src/Plugin/views/field/DblogMessage.php:49
+msgid "Replace variables"
+msgstr "Variablen ersetzen"
+
+#: config/schema/dblog.views.schema.yml:0
+msgid "Operation link markup"
+msgstr "Markup des Aktionslinks"
+
+#: config/schema/dblog.views.schema.yml:0
+msgid "Types"
+msgstr "Typen"
+
+#: src/Controller/DbLogController.php:144;260 config/optional/views.view.watchdog.yml:0
+msgid "Date"
+msgstr "Datum"
+
+#: src/Controller/DbLogController.php:224;439 config/optional/views.view.watchdog.yml:0;0
+msgid "No log messages available."
+msgstr "Keine Protokollnachrichten verfügbar."
+
+#: src/Controller/DbLogController.php:272
+msgid "Referrer"
+msgstr "Referrer"
+
+#: src/Controller/DbLogController.php:361
+msgid "Log data is corrupted and cannot be unserialized: @message"
+msgstr "Die Protokolldaten sind beschädigt und können nicht deserialisiert werden: @message"
+
+#: src/Controller/DbLogController.php:406
+msgid "Count"
+msgstr "Anzahl"
+
+#: src/Form/DblogClearLogConfirmForm.php:55
+msgid "Are you sure you want to delete the recent logs?"
+msgstr "Möchten Sie die aktuellen Protokolle wirklich löschen?"
+
+#: src/Form/DblogClearLogConfirmForm.php:71
+msgid "Database log cleared."
+msgstr "Datenbankprotokoll gelöscht."
+
+#: src/Form/DblogFilterForm.php:30
+msgid "Filter log messages"
+msgstr "Protokollnachrichten filtern"
+
+#: src/Form/DblogFilterForm.php:52 config/optional/views.view.watchdog.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Form/DblogFilterForm.php:57 config/optional/views.view.watchdog.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/Form/DblogFilterForm.php:70
+msgid "You must select something to filter by."
+msgstr "Es muss ein Filterkriterium ausgewählt werden."
+
+#: src/Plugin/rest/resource/DBLogResource.php:47
+msgid "Log entry with ID @id was not found"
+msgstr "Der Protokolleintrag mit der ID @id wurde nicht gefunden"
+
+#: src/Plugin/rest/resource/DBLogResource.php:50
+msgid "No log entry ID was provided"
+msgstr "Es wurde keine Protokolleintrags-ID angegeben"
+
+#: src/Plugin/rest/resource/DBLogResource.php:10
+msgid "Watchdog database log"
+msgstr "Watchdog-Datenbankprotokoll"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "››"
+msgstr "››"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Icon"
+msgstr "Symbol"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "{{ message }}"
+msgstr "{{ message }}"
+
+#: config/optional/views.view.watchdog.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.watchdog.yml:0
+msgid "Page"
+msgstr "Seite"
+

@@ -1,0 +1,351 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  config_update.module: n/a
+#  config_update_ui/config_update_ui.module: n/a
+#  config_update.info.yml: n/a
+#  config_update_ui/config_update_ui.drush.inc: n/a
+#  config_update_ui/config_update_ui.links.task.yml: n/a
+#  config_update_ui/config_update_ui.routing.yml: n/a
+#  config_update_ui/src/Controller/ConfigUpdateController.php: n/a
+#  config_update_ui/config_update_ui.info.yml: n/a
+#  config_update_ui/config_update_ui.permissions.yml: n/a
+#  config_update_ui/src/Form/ConfigImportConfirmForm.php: n/a
+#  config_update_ui/src/Form/ConfigRevertConfirmForm.php: n/a
+#  config_update_ui/src/Form/ConfigDeleteConfirmForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config_update.module:17 config_update_ui/config_update_ui.module:18
+msgid "About"
+msgstr "Über"
+
+#: config_update.module:18
+msgid "The Configuration Update Base module provides functionality that other modules can use, related to updating and computing differences between configuration versions. This module does not provide any end-user functionality itself."
+msgstr "Das Configuration-Update-Basismodul bietet Funktionen, die andere Module nutzen können, um Unterschiede zwischen den Konfigurationsversionen zu aktualisieren und zu berechnen. Dieses Modul stellt selbst keine Endbenutzerfunktionalität zur Verfügung."
+
+#: config_update.info.yml:0
+msgid "Configuration Update Base"
+msgstr "Configuration-Update-Basismodul"
+
+#: config_update.info.yml:0
+msgid "Provides basic revert and update functionality for other modules"
+msgstr "Bietet grundlegende Funktionen zum Zurücksetzen und Aktualisieren für andere Module."
+
+#: config_update_ui/config_update_ui.drush.inc:171
+msgid "No added config"
+msgstr "Keine hinzugefügte Konfiguration"
+
+#: config_update_ui/config_update_ui.drush.inc:191
+msgid "No missing config"
+msgstr "Keine fehlende Konfiguration"
+
+#: config_update_ui/config_update_ui.drush.inc:211
+msgid "No inactive config"
+msgstr "Keine inaktive Konfiguration"
+
+#: config_update_ui/config_update_ui.drush.inc:244
+msgid "No different config"
+msgstr "Keine abweichende Konfiguration"
+
+#: config_update_ui/config_update_ui.drush.inc:270
+msgid "Config is missing, cannot diff"
+msgstr "Konfiguration fehlt. Vergleich kann nicht durchgeführt werden."
+
+#: config_update_ui/config_update_ui.drush.inc:303
+msgid "The configuration item @name was reverted to its source."
+msgstr "Das Konfigurationselement @name wurde auf die Ausgangswerte zurückgesetzt."
+
+#: config_update_ui/config_update_ui.drush.inc:306
+msgid "There was an error and the configuration item @name was not reverted."
+msgstr "Ein Fehler ist aufgetreten. Das Konfigurationselement @name wurde nicht zurückgesetzt."
+
+#: config_update_ui/config_update_ui.drush.inc:333
+msgid "The configuration item @name was imported from its source."
+msgstr "Das Konfigurationselement @name wurde von der Quelle importiert."
+
+#: config_update_ui/config_update_ui.drush.inc:336
+msgid "There was an error and the configuration item @name was not imported."
+msgstr "Ein Fehler ist aufgetreten. Das Konfigurationselement @name wurde nicht importiert."
+
+#: config_update_ui/config_update_ui.drush.inc:337
+msgid "The configuration was imported from its source."
+msgstr "Die Konfiguration wurde aus der Quelle importiert"
+
+#: config_update_ui/config_update_ui.module:19
+msgid "The Configuration Update Reports module provides a report that allows you to see the differences between the default configuration provided by the current versions of your installed modules, themes, and install profile, and the active configuration of your site. From this report, you can also import new configuration provided by updates, and revert your active configuration to the provided default values."
+msgstr "Das Configuration-Update-Berichtmodul bietet einen Bericht, der es Ihnen ermöglicht, die Unterschiede zwischen der Standardkonfiguration, die von den aktuellen Versionen Ihrer installierten Module, Themes und Installationsprofile bereitgestellt wird, und der aktiven Konfiguration Ihrer Website anzuzeigen. Von diesem Bericht aus können Sie auch neue, durch Updates bereitgestellte Konfigurationen importieren und Ihre aktive Konfiguration auf die bereitgestellten Standardwerte zurücksetzen."
+
+#: config_update_ui/config_update_ui.module:20
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: config_update_ui/config_update_ui.module:22
+msgid "Checking for configuration differences"
+msgstr "Überprüfung auf Konfigurationsunterschiede"
+
+#: config_update_ui/config_update_ui.module:23
+msgid "The <a href=\":report\">Updates report</a> shows you configuration that differs between your site's active configuration and the installed modules, themes, and install profile. Choose a particular configuration type (or All), or run the report for a particular module, theme, or your install profile."
+msgstr "Der <a href=\":report\">Aktualisierungsbericht</a> zeigt Ihnen eine Konfiguration, die sich zwischen der aktiven Konfiguration Ihrer Website und den installierten Modulen, Themes und dem Installationsprofil unterscheidet. Wählen Sie einen bestimmten Konfigurationstyp (oder Alle) oder führen Sie den Bericht für ein bestimmtes Modul, Theme oder Ihr Installationsprofil aus."
+
+#: config_update_ui/config_update_ui.module:29
+msgid "This report shows which default configuration items provided by the current versions of your installed modules, themes, and install profile differ from the active configuration of your site. You can generate the report for all configuration of a certain type; for a particular installed module, theme, or your install profile (only modules, themes, and install profiles that actually provide configuration are listed); or for all configuration."
+msgstr "Dieser Bericht zeigt, welche Standardkonfigurationselemente, die von den aktuellen Versionen Ihrer installierten Module, Themes und Installationsprofile bereitgestellt werden, sich von der aktiven Konfiguration Ihrer Website unterscheiden. Sie können den Bericht für die gesamte Konfiguration eines bestimmten Typs, für ein bestimmtes installiertes Modul, Theme oder Ihr Installationsprofil (nur Module, Themes und Installationsprofile, die tatsächlich eine Konfiguration bereitstellen, werden aufgelistet) oder für die gesamte Konfiguration erstellen."
+
+#: config_update_ui/config_update_ui.module:30
+msgid "Some configuration provided by modules has dependencies, and is only added to your system when all the dependencies are satisfied. This is known as <em>optional</em> configuration."
+msgstr "Einige von Modulen bereitgestellte Konfigurationen haben Abhängigkeiten und werden erst dann zu Ihrem System hinzugefügt, wenn alle Abhängigkeiten erfüllt sind. Dies wird als <em>optionale</em> Konfiguration bezeichnet."
+
+#: config_update_ui/config_update_ui.module:31
+msgid "Differences, including missing and added configuration, can be due to either an updated module or theme providing different configuration from when you installed it, or to changes made by site administrators. This report does not differentiate between these two sources for differences, and note that an install profile can also silently override module/theme configuration. Overrides (such as those in your settings.php file) and translations are not considered when looking at differences."
+msgstr "Unterschiede, einschließlich fehlender und hinzugefügter Konfigurationen, können entweder darauf zurückzuführen sein, dass ein aktualisiertes Modul oder Theme eine andere Konfiguration bietet als bei der Installation, oder auf Änderungen, die von Seitenadministratoren vorgenommen wurden. Dieser Bericht unterscheidet nicht zwischen diesen beiden Quellen für Unterschiede und weist darauf hin, dass ein Installationsprofil auch die Modul-/Themekonfiguration im Hintergrund überschreiben kann. Übersteuerungen (z. B. in der Datei settings.php) und Übersetzungen werden bei der Betrachtung von Unterschieden nicht berücksichtigt."
+
+#: config_update_ui/config_update_ui.module:35
+msgid "Most configuration is organized into a hierarchy of settings; at a minimum, it is a one-level hierarchy where each setting has a name and a value, and the hierarchy comes in when some of the settings have multiple components."
+msgstr "Die meisten Konfigurationen sind in einer Hierarchie von Einstellungen organisiert; mindestens ist es eine einstufige Hierarchie, bei der jede Einstellung einen Namen und einen Wert hat, und die Hierarchie kommt zum Tragen, wenn einige der Einstellungen mehrere Komponenten haben."
+
+#: config_update_ui/config_update_ui.module:35
+msgid "Configuration items are normalized and formatted before computing differences. The normalization step alphabetizes the components at each level of the hierarchy, and removes a few components whose differences should be ignored, such as the UUID. The formatting step shows the full hierarchy of each configuration value with :: separators for the hierarchy levels, and a : separator between the lowest-level setting name and the value, so that in a line-by-line diff you can always see which values are actually different. Green lines with + signs have been added, and yellow lines with - signs have been removed."
+msgstr "Konfigurationselemente werden normalisiert und formatiert, bevor Unterschiede berechnet werden. Der Normalisierungsschritt alphabetisiert die Komponenten auf jeder Hierarchieebene und entfernt einige Komponenten, deren Unterschiede ignoriert werden sollten, wie beispielsweise die UUID. Der Formatierungsschritt zeigt die vollständige Hierarchie jedes Konfigurationswertes mit :: Trennzeichen für die Hierarchieebenen und einem : Trennzeichen zwischen dem niedrigsten Einstellungsnamen und dem Wert, so dass Sie in einem zeilenweisen Unterschied immer sehen können, welche Werte tatsächlich unterschiedlich sind. Grüne Linien mit + Zeichen wurden hinzugefügt, und gelbe Linien mit - Zeichen wurden entfernt."
+
+#: config_update_ui/config_update_ui.module:35
+msgid "Note that differences are considering the base configuration, without overrides from your settings.php file, or translations."
+msgstr "Beachten Sie, dass Unterschiede die Grundkonfiguration berücksichtigen, ohne die Datei settings.php oder Übersetzungen."
+
+#: config_update_ui/config_update_ui.module:47 config_update_ui/config_update_ui.links.task.yml:0 config_update_ui/config_update_ui.routing.yml:0 config_update_ui/src/Controller/ConfigUpdateController.php:415
+msgid "Updates report"
+msgstr "Aktualisierungsbericht"
+
+#: config_update_ui/config_update_ui.info.yml:0
+msgid "Configuration Update Reports"
+msgstr "Configuration-Update-Berichtmodul"
+
+#: config_update_ui/config_update_ui.info.yml:0
+msgid "Adds an updates report and revert functionality to configuration management"
+msgstr "Fügt einen Aktualisierungsbericht und Funktionalität zum Zurücksetzen zur Konfigurationsverwaltung hinzu."
+
+#: config_update_ui/config_update_ui.permissions.yml:0
+msgid "View configuration updates report"
+msgstr "Konfigurations-Aktualisierungsbericht anzeigen."
+
+#: config_update_ui/config_update_ui.permissions.yml:0
+msgid "Revert any configuration"
+msgstr "Zurücksetzen jeder Konfiguration"
+
+#: config_update_ui/config_update_ui.permissions.yml:0
+msgid "Delete any configuration"
+msgstr "Jegliche Konfiguration löschen."
+
+#: config_update_ui/config_update_ui.routing.yml:0 config_update_ui/src/Form/ConfigImportConfirmForm.php:122
+msgid "Import"
+msgstr "Importieren"
+
+#: config_update_ui/config_update_ui.routing.yml:0
+msgid "Differences"
+msgstr "Unterschiede"
+
+#: config_update_ui/config_update_ui.routing.yml:0 config_update_ui/src/Form/ConfigRevertConfirmForm.php:122
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: config_update_ui/config_update_ui.routing.yml:0 config_update_ui/src/Controller/ConfigUpdateController.php:599 config_update_ui/src/Form/ConfigDeleteConfirmForm.php:120
+msgid "Delete"
+msgstr "Löschen"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:134;262;368;528 config_update_ui/src/Form/ConfigDeleteConfirmForm.php:81 config_update_ui/src/Form/ConfigImportConfirmForm.php:81 config_update_ui/src/Form/ConfigRevertConfirmForm.php:81
+msgid "Simple configuration"
+msgstr "Einfache Konfiguration"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:135
+msgid "Config difference for @type @name"
+msgstr "Konfigurationsunterschied für @type @name"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:141
+msgid "Source config"
+msgstr "Ausgangskonfiguration"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:142
+msgid "Site config"
+msgstr "Websitekonfiguration"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:157
+msgid "Back to 'Updates report' page."
+msgstr "Zurück zur Seite Aktualisierungsbericht"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:198
+msgid "Generate new report"
+msgstr "Neuen Bericht erstellen"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:227
+msgid "Report type"
+msgstr "Berichtstyp"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:228
+msgid "Report on"
+msgstr "Bericht über"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:235
+msgid "Everything"
+msgstr "Alles"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:239
+msgid "Full report"
+msgstr "Vollständiger Bericht"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:268
+msgid "Single configuration type"
+msgstr "Einzelner Konfigurationstyp"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:292
+msgid "Single module"
+msgstr "Einzelnes Modul"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:315
+msgid "Single theme"
+msgstr "Einzelnes Theme"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:333
+msgid "Installation profile"
+msgstr "Installationsprofil"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:365
+msgid "All configuration"
+msgstr "Jegliche Konfiguration"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:376
+msgid "@name configuration"
+msgstr "Konfiguration @name"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:387;566
+msgid "@name module"
+msgstr "Modul @name"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:396;576
+msgid "@name theme"
+msgstr "Theme @name"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:401;556
+msgid "@name profile"
+msgstr "Profil @name"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:414
+msgid "Configuration updates report for @label"
+msgstr "Konfigurations-Aktualisierungsbericht für @label"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:420
+msgid "Missing configuration items"
+msgstr "Fehlende Konfigurationselemente"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:421
+msgid "None: all provided configuration items are in your active configuration."
+msgstr "Keine: Alle bereitgestellten Konfigurationselemente befinden sich in Ihrer aktiven Konfiguration."
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:427
+msgid "Inactive optional items"
+msgstr "Inaktive optionale Elemente"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:428
+msgid "None: all optional configuration items are in your active configuration."
+msgstr "Keine: Alle optionalen Konfigurationselemente befinden sich in Ihrer aktiven Konfiguration."
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:436
+msgid "Added configuration items"
+msgstr "Hinzugefügte Konfigurationselemente"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:437
+msgid "None: all active configuration items of this type were provided by modules, themes, or install profile."
+msgstr "Keine: Alle aktiven Konfigurationselemente dieses Typs wurden von Modulen, Themes oder Installationsprofilen bereitgestellt."
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:454
+msgid "Changed configuration items"
+msgstr "Geänderte Konfigurationselemente"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:455
+msgid "None: no active configuration items differ from their current provided versions."
+msgstr "Keine: Keine aktiven Konfigurationselemente unterscheiden sich von den aktuell bereitgestellten Versionen."
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:491
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:494
+msgid "Label (if any)"
+msgstr "Beschriftung (falls vorhanden)"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:498
+msgid "Type"
+msgstr "Typ"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:502
+msgid "Provider"
+msgstr "Anbieter"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:506
+msgid "Operations"
+msgstr "Aktionen"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:595
+msgid "Export"
+msgstr "Exportieren"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:596
+msgid "Import from source"
+msgstr "Aus der Quelle importieren"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:597
+msgid "Show differences"
+msgstr "Unterschiede anzeigen"
+
+#: config_update_ui/src/Controller/ConfigUpdateController.php:598
+msgid "Revert to source"
+msgstr "Auf die Quelle zurücksetzen"
+
+#: config_update_ui/src/Form/ConfigDeleteConfirmForm.php:99
+msgid "Are you sure you want to delete the %type config %item?"
+msgstr "Möchten Sie den Konfigurationseintrag %item des Typs %type wirklich löschen?"
+
+#: config_update_ui/src/Form/ConfigDeleteConfirmForm.php:113
+msgid "This action cannot be undone. Manually deleting configuration from this page can cause problems on your site due to missing dependencies, and should only be done if there is no other way to delete a problematic piece of configuration."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden. Das manuelle Löschen der Konfiguration von dieser Seite aus kann aufgrund fehlender Abhängigkeiten Probleme auf Ihrer Website verursachen und sollte nur dann durchgeführt werden, wenn es keine andere Möglichkeit gibt, eine problematische Konfiguration zu löschen."
+
+#: config_update_ui/src/Form/ConfigDeleteConfirmForm.php:140
+msgid "The configuration %item has been deleted."
+msgstr "Die Konfiguration %item wurde gelöscht."
+
+#: config_update_ui/src/Form/ConfigImportConfirmForm.php:101
+msgid "Are you sure you want to import the %type config %item from its source configuration?"
+msgstr "Möchten Sie die %type Konfiguration %item wirklich aus der Ausgangskonfiguration importieren?"
+
+#: config_update_ui/src/Form/ConfigImportConfirmForm.php:115
+msgid "Configuration will be added to your site. This action cannot be undone."
+msgstr "Die Konfiguration wird zur Website hinzugefügt. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: config_update_ui/src/Form/ConfigImportConfirmForm.php:142
+msgid "The configuration %item has been imported from its source."
+msgstr "Die Konfiguration %item wurde aus ihrer Quelle importiert."
+
+#: config_update_ui/src/Form/ConfigRevertConfirmForm.php:101
+msgid "Are you sure you want to revert the %type config %item to its source configuration?"
+msgstr "Möchten Sie die %type Konfiguration %item wirklich auf die Ausgangskonfiguration zurücksetzen?"
+
+#: config_update_ui/src/Form/ConfigRevertConfirmForm.php:115
+msgid "Customizations will be lost. This action cannot be undone."
+msgstr "Anpassungen gehen verloren. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: config_update_ui/src/Form/ConfigRevertConfirmForm.php:142
+msgid "The configuration %item has been reverted to its source."
+msgstr "Die Konfiguration %item wurde auf ihre Quelle zurückgesetzt."
+

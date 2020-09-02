@@ -1,0 +1,476 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  block.post_update.php: n/a
+#  src/BlockForm.php: n/a
+#  block.module: n/a
+#  block.install: n/a
+#  block.info.yml: n/a
+#  config/schema/block.schema.yml: n/a
+#  src/BlockListBuilder.php: n/a
+#  src/Controller/BlockLibraryController.php: n/a
+#  src/Entity/Block.php: n/a
+#  block.links.contextual.yml: n/a
+#  block.links.task.yml: n/a
+#  block.routing.yml: n/a
+#  block.links.menu.yml: n/a
+#  block.permissions.yml: n/a
+#  js/block.admin.js: n/a
+#  js/block.es6.js: n/a
+#  js/block.js: n/a
+#  src/Plugin/migrate/source/d7/BlockTranslation.php: n/a
+#  src/Form/BlockDeleteForm.php: n/a
+#  src/Controller/BlockController.php: n/a
+#  src/Plugin/DisplayVariant/BlockPageVariant.php: n/a
+#  src/Plugin/migrate/source/Block.php: n/a
+#  src/Plugin/migrate/source/d6/BlockTranslation.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:27+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: block.post_update.php:53 src/BlockForm.php:256;257
+msgid "Content types"
+msgstr "Inhaltstypen"
+
+#: block.post_update.php:54 src/BlockForm.php:269
+msgid "Pages"
+msgstr "Seiten"
+
+#: block.post_update.php:55 src/BlockForm.php:263
+msgid "Roles"
+msgstr "Rollen"
+
+#: block.post_update.php:58
+msgid "Encountered an unknown context mapping key coming probably from a contributed or custom module: One or more mappings could not be updated. Please manually review your visibility settings for the following blocks, which are disabled now:"
+msgstr "Ein unbekannter Kontextzuordnungsschlüssel, der wahrscheinlich von einem ergänzenden oder angepassten Modul stammt, wurde erkannt: Mindestens eine Zuordnung konnte nicht aktualisiert werden. Überprüfen Sie manuell Ihre Sichtbarkeitseinstellungen für die folgenden Blöcke, die nun inaktiviert sind:"
+
+#: block.post_update.php:61
+msgid "@label (Visibility: @plugin_ids)"
+msgstr "@label (Sichtbarkeit: @plugin_ids)"
+
+#: block.module:23
+msgid "About"
+msgstr "Über"
+
+#: block.module:24
+msgid "The Block module allows you to place blocks in regions of your installed themes, and configure block settings. For more information, see the <a href=\":blocks-documentation\">online documentation for the Block module</a>."
+msgstr "Das Block Modul ermöglicht das Platzieren von Blöcken in bestimmten Bereichen, der auf der Website verfügbaren Themes. Informationen über die Konfiguration von Blöcken sind in der Online-Dokumentation des <a href=\":blocks-documentation\">Block-Moduls</a> verfügbar."
+
+#: block.module:25
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: block.module:27
+msgid "Placing and moving blocks"
+msgstr "Blöcke platzieren und verschieben"
+
+#: block.module:28
+msgid "You can place a new block in a region by selecting <em>Place block</em> on the <a href=\":blocks\">Block layout page</a>. Once a block is placed, it can be moved to a different region by drag-and-drop or by using the <em>Region</em> drop-down list, and then clicking <em>Save blocks</em>."
+msgstr "Ein neuer Block wird in einer Region platziert über die Schaltfläche <em>Block platzieren</em> auf der Seite <a href=\":blocks\">Blocklayout</a>. Sobald ein Block platziert ist, kann er per Drag-and-Drop bewegt werden, alternativ durch Verwendung der Drop-Down-Liste <em>Region</em>. Dann die Schaltfläche <em>Block speichern</em> klicken."
+
+#: block.module:29
+msgid "Toggling between different themes"
+msgstr "Umschalten zwischen verschiedenen Themes"
+
+#: block.module:30
+msgid "Blocks are placed and configured specifically for each theme. The Block layout page opens with the default theme, but you can toggle to other installed themes."
+msgstr "Blöcke sind für jedes Theme individuell platziert und konfiguriert. Die Blocklayout-Seite zeigt die Blöcke des Standard-Themes an, aber man kann auch zu anderen aktivierten Themes wechseln."
+
+#: block.module:31
+msgid "Demonstrating block regions for a theme"
+msgstr "Block-Regionen für Theme veranschaulichen"
+
+#: block.module:32
+msgid "You can see where the regions are for the current theme by clicking the <em>Demonstrate block regions</em> link on the <a href=\":blocks\">Block layout page</a>. Regions are specific to each theme."
+msgstr "Die Regionen sind für jedes Theme individuell festgelegt. Mit Hilfe des Links<em>Block-Regionen veranschaulichen</em> auf der <a href=\":blocks\">Blocklayout Seite</a> können diese visualisiert werden."
+
+#: block.module:33
+msgid "Configuring block settings"
+msgstr "Block-Einstellungen konfigurieren"
+
+#: block.module:34
+msgid "To change the settings of an individual block click on the <em>Configure</em> link on the <a href=\":blocks\">Block layout page</a>. The available options vary depending on the module that provides the block. For all blocks you can change the block title and toggle whether to display it."
+msgstr "Einstellungen von benutzerdefinierte Blöcken werden über die Schaltfläche <em>Konfigurieren</em> auf der Seite <a href=\":blocks\">Blocklayout</a> geändert. Die verfügbaren Optionen variieren je nach Modul, das den Block bereitstellt. Der Blocktitel und dessen Anzeigeeinstellungen kann bei jedem Block individuell eingestellt werden."
+
+#: block.module:35
+msgid "Controlling visibility"
+msgstr "Sichtbarkeit festlegen"
+
+#: block.module:36
+msgid "You can control the visibility of a block by restricting it to specific pages, content types, and/or roles by setting the appropriate options under <em>Visibility settings</em> of the block configuration."
+msgstr "Die Sichtbarkeit eines Blocks kann auf einzelne Seiten, Inhaltstypen und/oder Rollen eingeschränkt werden. Die entsprechenden Optionen sind in den <em>Sichtbarkeitseinstellungen</em> der Blockkonfiguration enthalten."
+
+#: block.module:37
+msgid "Adding custom blocks"
+msgstr "Benutzerdefinierte Blöcke hinzufügen"
+
+#: block.module:38
+msgid "You can add custom blocks, if the <em>Custom Block</em> module is installed. For more information, see the <a href=\":blockcontent-help\">Custom Block help page</a>."
+msgstr "Benutzerdefinierte Blöcke können hinzugefügt werden, wenn das Modul <em>Custom Block</em> installiert ist. Weitere Informationen: <a href=\":blockcontent-help\">Hilfeseite zu benutzerdefinierten Blöcken</a>."
+
+#: block.module:45
+msgid "Block placement is specific to each theme on your site. Changes will not be saved until you click <em>Save blocks</em> at the bottom of the page."
+msgstr "Die Platzierung von Blöcken kann für jedes Theme individuell vorgenommen werden. Änderungen werden erst mit dem Klick auf <em>Blöcke speichern</em> am unteren Ende der Seite gespeichert."
+
+#: block.module:46
+msgid "Demonstrate block regions (@theme)"
+msgstr "Block-Regionen (@theme) veranschaulichen"
+
+#: block.module:70
+msgid "Exit block region demonstration"
+msgstr "Vorschau der Block-Regionen beenden"
+
+#: block.module:149
+msgid "The block %info was assigned to the invalid region %region and has been disabled."
+msgstr "Der Block %info wurde der ungültigen Region %region zugewiesen und deshalb deaktiviert."
+
+#: block.install:90
+msgid "Block context IDs updated."
+msgstr "Die Block-Kontext-IDs wurden aktualisiert."
+
+#: block.install:118
+msgid "Block settings updated."
+msgstr "Block-Einstellungen aktualisiert."
+
+#: block.info.yml:0 config/schema/block.schema.yml:0 src/BlockListBuilder.php:176 src/Controller/BlockLibraryController.php:99 src/Entity/Block.php:14
+msgid "Block"
+msgstr "Block"
+
+#: block.info.yml:0
+msgid "Controls the visual building blocks a page is constructed with. Blocks are boxes of content rendered into an area, or region, of a web page."
+msgstr "Steuert die visuellen Bausteine, mit denen eine Seite erstellt wird. Blöcke sind Kästen mit Inhalten, die in einem Bereich oder einer Region einer Webseite dargestellt werden."
+
+#: block.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: block.links.contextual.yml:0 block.links.task.yml:0 block.routing.yml:0;0
+msgid "Configure block"
+msgstr "Block konfigurieren"
+
+#: block.links.menu.yml:0 block.links.task.yml:0;0 block.routing.yml:0;0
+msgid "Block layout"
+msgstr "Blocklayout"
+
+#: block.links.menu.yml:0
+msgid "Configure what block content appears in your site's sidebars and other regions."
+msgstr "Blockinhalte konfigurieren, die in den Seitenleisten der Website und anderen Bereichen angezeigt werden."
+
+#: block.permissions.yml:0
+msgid "Administer blocks"
+msgstr "Blöcke verwalten"
+
+#: block.routing.yml:0
+msgid "Delete block"
+msgstr "Block löschen"
+
+#: block.routing.yml:0 src/Controller/BlockLibraryController.php:131
+msgid "Place block"
+msgstr "Block platzieren"
+
+#: config/schema/block.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/block.schema.yml:0 src/BlockForm.php:169
+msgid "Theme"
+msgstr "Theme"
+
+#: config/schema/block.schema.yml:0 src/BlockForm.php:190 src/BlockListBuilder.php:178
+msgid "Region"
+msgstr "Region"
+
+#: config/schema/block.schema.yml:0 src/BlockListBuilder.php:179
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/block.schema.yml:0
+msgid "Provider"
+msgstr "Anbieter"
+
+#: config/schema/block.schema.yml:0
+msgid "Plugin"
+msgstr "Plugin"
+
+#: config/schema/block.schema.yml:0
+msgid "Visibility Conditions"
+msgstr "Sichtbarkeitsbedingungen"
+
+#: config/schema/block.schema.yml:0
+msgid "Visibility Condition"
+msgstr "Sichtbarkeitsbedingung"
+
+#: js/block.admin.js:0
+msgid "1 block is available in the modified list."
+msgid_plural "@count blocks are available in the modified list."
+msgstr[0] "1 Block ist in der überarbeiteten Liste verfügbar."
+msgstr[1] "@count Blöcke sind in der überarbeiteten Liste verfügbar."
+
+#: js/block.es6.js:0;0 js/block.js:0;0
+msgid "Not restricted"
+msgstr "Uneingeschränkt"
+
+#: js/block.es6.js:0 js/block.js:0
+msgid "Restricted to certain pages"
+msgstr "Auf bestimmte Seiten eingeschränkt"
+
+#: js/block.es6.js:0 js/block.js:0
+msgid "The block cannot be placed in this region."
+msgstr "Der Block kann nicht in dieser Region abgelegt werden."
+
+#: src/BlockForm.php:141
+msgid "A unique name for this block instance. Must be alpha-numeric and underscore separated."
+msgstr "Ein eindeutiger Name für diese Block-Instanz. Eingaben alphanumerisch und mit Unterstrichen separiert."
+
+#: src/BlockForm.php:191
+msgid "Select the region where this block should be displayed."
+msgstr "Bereich auswählen, in welchem der Block angezeigt werden soll."
+
+#: src/BlockForm.php:224 src/Plugin/migrate/source/d7/BlockTranslation.php:78
+msgid "Visibility"
+msgstr "Sichtbarkeit"
+
+#: src/BlockForm.php:274
+msgid "Show for the listed pages"
+msgstr "Auf den angegebenen Seiten anzeigen"
+
+#: src/BlockForm.php:275
+msgid "Hide for the listed pages"
+msgstr "Auf den angegebenen Seiten ausblenden"
+
+#: src/BlockForm.php:290
+msgid "Save block"
+msgstr "Block speichern"
+
+#: src/BlockForm.php:291
+msgid "Remove block"
+msgstr "Block entfernen"
+
+#: src/BlockForm.php:356
+msgid "The block configuration has been saved."
+msgstr "Die Einstellungen des Blocks wurden gespeichert."
+
+#: src/BlockListBuilder.php:144
+msgid "Save blocks"
+msgstr "Blöcke speichern"
+
+#: src/BlockListBuilder.php:177 src/Controller/BlockLibraryController.php:100
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/BlockListBuilder.php:180 src/Controller/BlockLibraryController.php:101
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/BlockListBuilder.php:232
+msgid "Place block <span class=\"visually-hidden\">in the %region region</span>"
+msgstr "Block <span class=\"visually-hidden\">in der Region %region</span> platzieren"
+
+#: src/BlockListBuilder.php:256
+msgid "No blocks in this region"
+msgstr "Keine Blöcke in dieser Region"
+
+#: src/BlockListBuilder.php:277
+msgid "@label (disabled)"
+msgstr "@label (deaktiviert)"
+
+#: src/BlockListBuilder.php:289
+msgid "Region for @block block"
+msgstr "Region für @block-Block"
+
+#: src/BlockListBuilder.php:306
+msgid "Weight for @block block"
+msgstr "Gewichtung für Block @block"
+
+#: src/BlockListBuilder.php:355
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: src/BlockListBuilder.php:359 src/Form/BlockDeleteForm.php:26
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/BlockListBuilder.php:383 src/Controller/BlockController.php:56
+msgid "The block settings have been updated."
+msgstr "Die Blockeinstellungen wurden gespeichert."
+
+#: src/Controller/BlockLibraryController.php:158
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Controller/BlockLibraryController.php:161
+msgid "Filter by block name"
+msgstr "Nach Blockname filtern"
+
+#: src/Controller/BlockLibraryController.php:165
+msgid "Enter a part of the block name to filter by."
+msgstr "Geben Sie einen Teil des Blocknamens ein, um danach zu filtern."
+
+#: src/Controller/BlockLibraryController.php:173
+msgid "No blocks available."
+msgstr "Keine Blöcke verfügbar."
+
+#: src/Entity/Block.php:14
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: src/Entity/Block.php:14
+msgid "block"
+msgstr "Block"
+
+#: src/Entity/Block.php:14
+msgid "blocks"
+msgstr "Blöcke"
+
+#: src/Form/BlockDeleteForm.php:33
+msgid "Are you sure you want to remove the @entity-type %label?"
+msgstr "Möchten Sie den  @entity-type %label wirklich löschen?"
+
+#: src/Form/BlockDeleteForm.php:44
+msgid "The @entity-type %label has been removed."
+msgstr "@entity-type %label wurde gelöscht."
+
+#: src/Plugin/DisplayVariant/BlockPageVariant.php:16
+msgid "Page with blocks"
+msgstr "Seite mit Blöcken"
+
+#: src/Plugin/migrate/source/Block.php:85 src/Plugin/migrate/source/d6/BlockTranslation.php:39 src/Plugin/migrate/source/d7/BlockTranslation.php:71
+msgid "The block numeric identifier."
+msgstr "Die numerische Block-ID."
+
+#: src/Plugin/migrate/source/Block.php:86 src/Plugin/migrate/source/d6/BlockTranslation.php:41 src/Plugin/migrate/source/d7/BlockTranslation.php:72
+msgid "The module providing the block."
+msgstr "Das Modul, das den Block bereitstellt."
+
+#: src/Plugin/migrate/source/Block.php:87 src/Plugin/migrate/source/d6/BlockTranslation.php:42 src/Plugin/migrate/source/d7/BlockTranslation.php:73
+msgid "The block's delta."
+msgstr "Das Delta des Blocks."
+
+#: src/Plugin/migrate/source/Block.php:88 src/Plugin/migrate/source/d6/BlockTranslation.php:45 src/Plugin/migrate/source/d7/BlockTranslation.php:74
+msgid "Which theme the block is placed in."
+msgstr "Das Theme, in dem der Block platziert wird."
+
+#: src/Plugin/migrate/source/Block.php:89
+msgid "Whether or not the block is enabled."
+msgstr "Ob der Block aktiviert ist oder nicht."
+
+#: src/Plugin/migrate/source/Block.php:90
+msgid "Weight of the block for ordering within regions."
+msgstr "Gewichtung des Blocks zur Sortierung innerhalb von Bereichen."
+
+#: src/Plugin/migrate/source/Block.php:91
+msgid "Region the block is placed in."
+msgstr "Bereich in dem der Block platziert ist."
+
+#: src/Plugin/migrate/source/Block.php:92
+msgid "Visibility expression."
+msgstr "Sichbarkeitsausdruck"
+
+#: src/Plugin/migrate/source/Block.php:93 src/Plugin/migrate/source/d7/BlockTranslation.php:79
+msgid "Pages list."
+msgstr "Seitenliste."
+
+#: src/Plugin/migrate/source/Block.php:94 src/Plugin/migrate/source/d6/BlockTranslation.php:47 src/Plugin/migrate/source/d7/BlockTranslation.php:80
+msgid "Block title."
+msgstr "Blocktitel."
+
+#: src/Plugin/migrate/source/Block.php:95 src/Plugin/migrate/source/d7/BlockTranslation.php:81
+msgid "Cache rule."
+msgstr "Cache-Regel"
+
+#: src/Plugin/migrate/source/d6/BlockTranslation.php:40
+msgid "The i18n_blocks block numeric identifier."
+msgstr "Die numerische Bezeichnung des i18n-Blocks."
+
+#: src/Plugin/migrate/source/d6/BlockTranslation.php:43
+msgid "Block type"
+msgstr "Blocktyp"
+
+#: src/Plugin/migrate/source/d6/BlockTranslation.php:44
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/BlockTranslation.php:46
+msgid "The default theme."
+msgstr "Das Standard-Theme"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:75
+msgid "Block enabled status"
+msgstr "Blockstatus: Aktiviert"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:76
+msgid "Block weight within region"
+msgstr "Blockgewichtung innnerhalb der Region"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:77
+msgid "Theme region within which the block is set"
+msgstr "Theme-Region, innerhalb derer der Block gesetzt wird"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:82
+msgid "Multilingual mode"
+msgstr "Mehrsprachiger Modus"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:83
+msgid "Language string ID"
+msgstr "Zeichenketten-ID"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:84
+msgid "A module defined group of translations"
+msgstr "Eine vom Modul definierte Gruppe von Übersetzungen"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:85
+msgid "Full string ID for quick search: type:objectid:property."
+msgstr "Vollständige Zeichenketten-ID für die Schnellsuche: type:objectid:property."
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:86
+msgid "Object ID"
+msgstr "Objektkennung"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:87
+msgid "Object type for this string"
+msgstr "Objekttyp für diese Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:88
+msgid "Object property for this string"
+msgstr "Objekteigenschaft für diese Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:89
+msgid "Integer value of Object ID"
+msgstr "Ganzzahlwert von Objekt-ID"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:90
+msgid "The {filter_format}.format of the string"
+msgstr "Das {filter_format}.format der Zeichenkette"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:91
+msgid "Translation"
+msgstr "Übersetzung"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:92
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:93
+msgid "Parent lid"
+msgstr "Übergeordnete LID"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:94
+msgid "Plural index number"
+msgstr "Plural-Indexnummer"
+
+#: src/Plugin/migrate/source/d7/BlockTranslation.php:95
+msgid "Translation needs update"
+msgstr "Übersetzung muss aktualisiert werden"
+

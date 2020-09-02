@@ -1,0 +1,288 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  config_translation.module: n/a
+#  src/Controller/ConfigTranslationController.php: n/a
+#  src/ConfigNamesMapper.php: n/a
+#  config_translation.info.yml: n/a
+#  config_translation.links.menu.yml: n/a
+#  config_translation.routing.yml: n/a
+#  config_translation.permissions.yml: n/a
+#  src/ConfigEntityMapper.php: n/a
+#  src/ConfigFieldMapper.php: n/a
+#  src/Controller/ConfigTranslationBlockListBuilder.php: n/a
+#  src/Controller/ConfigTranslationMapperList.php: n/a
+#  src/Form/ConfigTranslationDeleteForm.php: n/a
+#  src/Controller/ConfigTranslationEntityListBuilder.php: n/a
+#  src/Controller/ConfigTranslationFieldListBuilder.php: n/a
+#  src/Form/ConfigTranslationAddForm.php: n/a
+#  src/Form/ConfigTranslationEditForm.php: n/a
+#  src/Form/ConfigTranslationFormBase.php: n/a
+#  src/FormElement/DateFormat.php: n/a
+#  src/FormElement/FormElementBase.php: n/a
+#  src/FormElement/PluralVariants.php: n/a
+#  src/Plugin/Menu/ContextualLink/ConfigTranslationContextualLink.php: n/a
+#  src/Plugin/Menu/LocalTask/ConfigTranslationLocalTask.php: n/a
+#  src/Plugin/migrate/source/d6/ProfileFieldTranslation.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config_translation.module:21
+msgid "About"
+msgstr "Über"
+
+#: config_translation.module:22
+msgid "The Configuration Translation module allows you to translate configuration text; for example, the site name, vocabularies, menus, or date formats. Together with the modules <a href=\":language\">Language</a>, <a href=\":content-translation\">Content Translation</a>, and <a href=\":locale\">Interface Translation</a>, it allows you to build multilingual websites. For more information, see the <a href=\":doc_url\">online documentation for the Configuration Translation module</a>."
+msgstr "Das Configuration-Translation-Modul ermöglicht es, Konfigurationstext wie z. B. den Namen der Website, Vokabulare, Menüs oder Datumsformate zu übersetzen. Zusammen mit den Modulen <a href=\":language\">Language</a>, <a href=\":content-translation\">Content Translation</a> und <a href=\":locale\">Interface Translation</a>lassen sich so mehrsprachige Websites umsetzen. Weitere Informationen gibt es in der <a href=\":doc_url\">Online-Dokumentation für das Configuration-Translation-Modul</a>."
+
+#: config_translation.module:23
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: config_translation.module:25
+msgid "Enabling translation"
+msgstr "Übersetzung aktivieren"
+
+#: config_translation.module:26 src/Controller/ConfigTranslationController.php:142
+msgid "In order to translate configuration, the website must have at least two <a href=\":url\">languages</a>."
+msgstr "Um die Konfiguration übersetzen zu können, müssen mindestens zwei <a href=\":url\">Sprachen</a> vorhanden sein."
+
+#: config_translation.module:27
+msgid "Translating configuration text"
+msgstr "Der Konfigurationstext wird übersetzt"
+
+#: config_translation.module:28
+msgid "Users with the <em>Translate user edited configuration</em> permission can access the configuration translation overview, and manage translations for specific languages. The <a href=\":translation-page\">Configuration translation</a> page shows a list of all configuration text that can be translated, either as individual items or as lists. After you click on <em>Translate</em>, you are provided with a list of all languages. You can <em>add</em> or <em>edit</em> a translation for a specific language. Users with specific configuration permissions can also <em>edit</em> the text for the site's default language. For some configuration text items (for example for the site information), the specific translation pages can also be accessed directly from their configuration pages."
+msgstr "Benutzer mit der Berechtigung zur Übersetzung von <em>editierbaren Konfigurationen</em> haben Zugriff auf die Übersicht der Konfigurationsübersetzung und können hier die Übersetzungen für verschiedene Sprachen verwalten. Auf der Seite zur <a href=\":translation-page\">Übersetzung der Konfiguration</a> wird eine Liste der übersetzbaren Textbausteine angezeigt, entweder als einzelne Werte oder als separate Auflistungen. Nach dem Auswählen von <em>Übersetzen</em> erscheint eine Liste der verfügbaren Sprachen. Hier können Übersetzungen für die jeweilige Sprache <em>hinzugefügt</em> oder <em>bearbeitet</em> werden. Benutzer mit der entsprechenden Berechtigung können hier auch Textbausteine der Standardsprache der Website <em>bearbeiten</em>. Für einige Textbausteine der Konfiguration (z. B. für die Website-Informationen) können spezifische Überetzungsseiten direkt über die jeweiligen Konfigurationsseiten erreicht werden."
+
+#: config_translation.module:29
+msgid "Translating date formats"
+msgstr "Datumsformate übersetzen"
+
+#: config_translation.module:30
+msgid "You can choose to translate date formats on the <a href=\":translation-page\">Configuration translation</a> page. This allows you not only to translate the label text, but also to set a language-specific <em>PHP date format</em>."
+msgstr "Die Datumsformate können in der <a href=\":translation-page\">Übersetzungen der Konfiguration</a> übersetzt werden. Das ermöglicht nicht nur die Übersetzung des Titels, sondern auch die Verwendung von sprachspezifischen <em>PHP-Datumsformaten</em>."
+
+#: config_translation.module:35
+msgid "This page lists all configuration items on your site that have translatable text, like your site name, role names, etc."
+msgstr "Diese Seite listet alle Konfigurationseinstellungen der aktuellen Website auf, die übersetzbaren Text beinhalten, z. B. den Namen der Website, Namen von Benutzerrollen etc."
+
+#: config_translation.module:169 src/ConfigNamesMapper.php:489
+msgid "Translate"
+msgstr "Übersetzen"
+
+#: config_translation.info.yml:0
+msgid "Configuration Translation"
+msgstr "Konfigurations-Übersetzung"
+
+#: config_translation.info.yml:0
+msgid "Provides a translation interface for configuration."
+msgstr "Ermöglicht das Übersetzen der Konfiguration mit Hilfe einer bereitgestellten Benutzeroberfläche."
+
+#: config_translation.info.yml:0
+msgid "Multilingual"
+msgstr "Mehrsprachenunterstützung"
+
+#: config_translation.links.menu.yml:0 config_translation.routing.yml:0
+msgid "Configuration translation"
+msgstr "Konfigurations-Übersetzung"
+
+#: config_translation.links.menu.yml:0
+msgid "Translate the configuration."
+msgstr "Konfiguration übersetzen."
+
+#: config_translation.permissions.yml:0
+msgid "Translate configuration"
+msgstr "Konfiguration übersetzen"
+
+#: config_translation.permissions.yml:0
+msgid "Translate any configuration including those shipped with modules and themes."
+msgstr "Übersetze alle Konfigurationseinstellungen inklusive derjenigen von Modulen und Themes."
+
+#: src/ConfigEntityMapper.php:239
+msgid "List"
+msgstr "Liste"
+
+#: src/ConfigFieldMapper.php:47
+msgid "@label fields"
+msgstr "@label Felder"
+
+#: src/ConfigNamesMapper.php:480
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:48
+msgid "Enter block, theme or category"
+msgstr "Block, Theme oder Kategorie einfügen"
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:49
+msgid "Enter a part of the block, theme or category to filter by."
+msgstr "Enter a part of the block, theme or category to filter by."
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:85
+msgid "Block"
+msgstr "Block"
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:86
+msgid "Theme"
+msgstr "Theme"
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:87
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/Controller/ConfigTranslationBlockListBuilder.php:88 src/Controller/ConfigTranslationController.php:186 src/Controller/ConfigTranslationMapperList.php:104
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Controller/ConfigTranslationController.php:138
+msgid "Translations for %label"
+msgstr "Übersetzungen für %label"
+
+#: src/Controller/ConfigTranslationController.php:153
+msgid "@name: @langcode"
+msgstr "@name: @langcode"
+
+#: src/Controller/ConfigTranslationController.php:159
+msgid "The configuration objects have different language codes so they cannot be translated:"
+msgstr "Die Konfigurations-Objekte haben unterschiedliche Sprachkürzel und können deshalb nicht übersetzt werden:"
+
+#: src/Controller/ConfigTranslationController.php:186
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Controller/ConfigTranslationController.php:201
+msgid "@language (original)"
+msgstr "@language (Original)"
+
+#: src/Controller/ConfigTranslationController.php:211;230
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Controller/ConfigTranslationController.php:223
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/Controller/ConfigTranslationController.php:235 src/Form/ConfigTranslationDeleteForm.php:96
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Controller/ConfigTranslationEntityListBuilder.php:20
+msgid "Enter label"
+msgstr "Beschriftung eingeben"
+
+#: src/Controller/ConfigTranslationEntityListBuilder.php:21
+msgid "Enter a part of the label or description to filter by."
+msgstr "Einen Teil der Beschriftung oder der Beschreibung eingeben, um danach zu filtern."
+
+#: src/Controller/ConfigTranslationEntityListBuilder.php:44
+msgid "Search"
+msgstr "Suche"
+
+#: src/Controller/ConfigTranslationEntityListBuilder.php:75 src/Controller/ConfigTranslationMapperList.php:103
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Controller/ConfigTranslationFieldListBuilder.php:120;155
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: src/Controller/ConfigTranslationFieldListBuilder.php:123
+msgid "Enter field or @bundle"
+msgstr "Feld oder @bundle eingeben"
+
+#: src/Controller/ConfigTranslationFieldListBuilder.php:124
+msgid "Enter a part of the field or @bundle to filter by."
+msgstr "Einen Feldnamen oder einen @bundle eingeben, nach dem gefiltert werden soll."
+
+#: src/Controller/ConfigTranslationFieldListBuilder.php:153
+msgid "Field"
+msgstr "Feld"
+
+#: src/Form/ConfigTranslationAddForm.php:27
+msgid "Add @language translation for %label"
+msgstr "Eine Übersetzung in @language für %label hinzufügen."
+
+#: src/Form/ConfigTranslationAddForm.php:39
+msgid "Successfully saved @language translation."
+msgstr "Übersetzung für @language erfolgreich gespeichert."
+
+#: src/Form/ConfigTranslationDeleteForm.php:89
+msgid "Are you sure you want to delete the @language translation of %label?"
+msgstr "Möchten Sie die Übersetzung von %label für @language wirklich löschen?"
+
+#: src/Form/ConfigTranslationDeleteForm.php:145
+msgid "@language translation of %label was deleted"
+msgstr "Übersetzung von %label für %language wurde gelöscht."
+
+#: src/Form/ConfigTranslationEditForm.php:27
+msgid "Edit @language translation for %label"
+msgstr "Eine Übersetzung in @language für %label editieren"
+
+#: src/Form/ConfigTranslationEditForm.php:39
+msgid "Successfully updated @language translation."
+msgstr "Übersetzung für @language erfolgreich aktualisiert."
+
+#: src/Form/ConfigTranslationFormBase.php:184
+msgid "Save translation"
+msgstr "Übersetzung speichern"
+
+#: src/Form/ConfigTranslationFormBase.php:242
+msgid "n/a"
+msgstr "nicht vorhanden"
+
+#: src/FormElement/DateFormat.php:18
+msgid "A user-defined date format. See the <a href=\"http://php.net/manual/function.date.php\">PHP manual</a> for available options."
+msgstr "Ein benutzerdefiniertes Datumsformat. Weitere Informationen finden Sie im <a href=\"http://php.net/manual/function.date.php\">PHP-Handbuch</a>."
+
+#: src/FormElement/DateFormat.php:19
+msgid "Displayed as %date_format"
+msgstr "Dargestellt als %date_format"
+
+#: src/FormElement/FormElementBase.php:93 src/FormElement/PluralVariants.php:38
+msgid "(Empty)"
+msgstr "(Leer)"
+
+#: src/FormElement/FormElementBase.php:98;161
+msgid "@label <span class=\"visually-hidden\">(@source_language)</span>"
+msgstr "@label <span class=\"visually-hidden\">(@source_language)</span>"
+
+#: src/FormElement/PluralVariants.php:35;64
+msgid "Singular form"
+msgstr "Singularform"
+
+#: src/FormElement/PluralVariants.php:35;64
+msgid "First plural form"
+msgid_plural "@count. plural form"
+msgstr[0] "Erste Pluralform"
+msgstr[1] "@count. Pluralform"
+
+#: src/Plugin/Menu/ContextualLink/ConfigTranslationContextualLink.php:31 src/Plugin/Menu/LocalTask/ConfigTranslationLocalTask.php:31
+msgid "Translate @type_name"
+msgstr "@type_name übersetzen"
+
+#: src/Plugin/migrate/source/d6/ProfileFieldTranslation.php:35
+msgid "Locales target language ID."
+msgstr "ID der gewünschten Zielsprache."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldTranslation.php:36
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldTranslation.php:37
+msgid "Translation of either the title or explanation."
+msgstr "Übersetzung des Titels oder der Beschreibung."
+

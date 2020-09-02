@@ -1,0 +1,3669 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  search_api.drush.inc: n/a
+#  search_api.theme.inc: n/a
+#  config/schema/search_api.index.schema.yml: n/a
+#  src/Form/IndexForm.php: n/a
+#  config/optional/tour.tour.search-api-index.yml: n/a
+#  config/schema/search_api.server.schema.yml: n/a
+#  src/IndexListBuilder.php: n/a
+#  config/optional/tour.tour.search-api-index-form.yml: n/a
+#  src/Form/IndexFieldsForm.php: n/a
+#  config/optional/tour.tour.search-api-index-fields.yml: n/a
+#  config/optional/tour.tour.search-api-server.yml: n/a
+#  src/Form/ServerForm.php: n/a
+#  src/Entity/Index.php: n/a
+#  src/Utility/CommandHelper.php: n/a
+#  search_api.views.inc: n/a
+#  search_api.info.yml: n/a
+#  modules/search_api_db/search_api_db.info.yml: n/a
+#  modules/search_api_db/search_api_db_defaults/search_api_db_defaults.info.yml: n/a
+#  modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml: n/a
+#  src/Plugin/search_api/processor/RenderedItem.php: n/a
+#  search_api.module: n/a
+#  search_api.install: n/a
+#  search_api.links.menu.yml: n/a
+#  search_api.routing.yml: n/a
+#  config/schema/search_api.views.schema.yml: n/a
+#  search_api.links.action.yml: n/a
+#  search_api.links.task.yml: n/a
+#  search_api.permissions.yml: n/a
+#  src/Form/IndexBreakLockForm.php: n/a
+#  config/schema/search_api.datasource.schema.yml: n/a
+#  src/Plugin/search_api/datasource/ContentEntity.php: n/a
+#  src/Form/IndexProcessorsForm.php: n/a
+#  config/optional/tour.tour.search-api-index-processors.yml: n/a
+#  src/Entity/Task.php: n/a
+#  config/schema/search_api.processor.schema.yml: n/a
+#  src/Plugin/search_api/processor/Highlight.php: n/a
+#  src/Plugin/search_api/processor/HtmlFilter.php: n/a
+#  src/Plugin/search_api/tracker/Basic.php: n/a
+#  config/schema/search_api.schema.yml: n/a
+#  src/Entity/Server.php: n/a
+#  config/schema/search_api.tracker.schema.yml: n/a
+#  src/Plugin/views/query/SearchApiQuery.php: n/a
+#  src/Plugin/views/argument/SearchApiFulltext.php: n/a
+#  src/Plugin/views/filter/SearchApiFulltext.php: n/a
+#  src/Plugin/views/field/SearchApiFieldTrait.php: n/a
+#  src/Plugin/views/field/SearchApiEntity.php: n/a
+#  src/Plugin/views/field/SearchApiEntityField.php: n/a
+#  js/search_api.processors.js: n/a
+#  modules/search_api_db/search_api_db.install: n/a
+#  modules/search_api_db/config/schema/search_api_db.backend.schema.yml: n/a
+#  modules/search_api_db/config/schema/search_api_db.schema.yml: n/a
+#  modules/search_api_db/src/Plugin/search_api/backend/Database.php: n/a
+#  src/IndexBatchHelper.php: n/a
+#  src/Backend/BackendPluginBase.php: n/a
+#  src/Controller/IndexController.php: n/a
+#  src/Controller/ServerController.php: n/a
+#  src/DataType/DataTypePluginBase.php: n/a
+#  src/Datasource/DatasourcePluginBase.php: n/a
+#  src/Display/DisplayPluginBase.php: n/a
+#  src/Form/FieldConfigurationForm.php: n/a
+#  src/Form/IndexAddFieldsForm.php: n/a
+#  src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php: n/a
+#  src/Form/IndexClearConfirmForm.php: n/a
+#  src/Form/IndexDeleteConfirmForm.php: n/a
+#  src/Form/ServerDeleteConfirmForm.php: n/a
+#  src/Form/IndexDisableConfirmForm.php: n/a
+#  src/Form/ServerDisableConfirmForm.php: n/a
+#  src/Form/IndexRebuildTrackerConfirmForm.php: n/a
+#  src/Form/IndexReindexConfirmForm.php: n/a
+#  src/Form/IndexStatusForm.php: n/a
+#  src/Form/ServerClearConfirmForm.php: n/a
+#  config/optional/tour.tour.search-api-server-form.yml: n/a
+#  src/Form/ServerStatusForm.php: n/a
+#  src/Form/UnsavedConfigurationFormTrait.php: n/a
+#  src/ParseMode/ParseModePluginBase.php: n/a
+#  src/Plugin/DataType/Html.php: n/a
+#  src/Plugin/DataType/Text.php: n/a
+#  src/Plugin/search_api/data_type/BooleanDataType.php: n/a
+#  src/Plugin/search_api/data_type/DateDataType.php: n/a
+#  src/Plugin/search_api/data_type/DecimalDataType.php: n/a
+#  src/Plugin/search_api/data_type/IntegerDataType.php: n/a
+#  src/Plugin/search_api/data_type/StringDataType.php: n/a
+#  src/Plugin/search_api/data_type/TextDataType.php: n/a
+#  src/Plugin/search_api/datasource/ContentEntityDeriver.php: n/a
+#  src/Plugin/search_api/display/ViewsDisplayDeriver.php: n/a
+#  src/Plugin/search_api/parse_mode/Direct.php: n/a
+#  src/Plugin/search_api/parse_mode/Phrase.php: n/a
+#  src/Plugin/search_api/parse_mode/Terms.php: n/a
+#  src/Plugin/search_api/processor/AddHierarchy.php: n/a
+#  src/Plugin/search_api/processor/AddURL.php: n/a
+#  src/Plugin/search_api/processor/AggregatedFields.php: n/a
+#  src/Plugin/search_api/processor/ContentAccess.php: n/a
+#  src/Plugin/search_api/processor/EntityStatus.php: n/a
+#  src/Plugin/search_api/processor/IgnoreCase.php: n/a
+#  src/Plugin/search_api/processor/IgnoreCharacters.php: n/a
+#  src/Plugin/search_api/processor/LanguageWithFallback.php: n/a
+#  src/Plugin/search_api/processor/ReverseEntityReferences.php: n/a
+#  src/Plugin/search_api/processor/RoleFilter.php: n/a
+#  src/Plugin/search_api/processor/Stemmer.php: n/a
+#  src/Plugin/search_api/processor/Stopwords.php: n/a
+#  src/Plugin/search_api/processor/Tokenizer.php: n/a
+#  src/Plugin/search_api/processor/Transliteration.php: n/a
+#  src/Plugin/search_api/processor/TypeBoost.php: n/a
+#  src/Plugin/search_api/processor/Property/RenderedItemProperty.php: n/a
+#  src/Plugin/views/argument/SearchApiAllTerms.php: n/a
+#  src/Plugin/views/argument/SearchApiMoreLikeThis.php: n/a
+#  src/Plugin/views/argument/SearchApiStandard.php: n/a
+#  src/Plugin/views/cache/SearchApiTagCache.php: n/a
+#  src/Plugin/views/cache/SearchApiTimeCache.php: n/a
+#  src/Plugin/views/field/SearchApiRenderedItem.php: n/a
+#  src/Plugin/views/row/SearchApiRow.php: n/a
+#  src/Plugin/views/filter/SearchApiUser.php: n/a
+#  src/Plugin/views/filter/SearchApiText.php: n/a
+#  src/Plugin/views/relationship/SearchApiRelationship.php: n/a
+#  src/Processor/FieldsProcessorPluginBase.php: n/a
+#  src/Processor/ProcessorPluginBase.php: n/a
+#  src/Processor/ProcessorPluginManager.php: n/a
+#  src/Task/TaskManager.php: n/a
+#  src/Tracker/TrackerPluginBase.php: n/a
+#  modules/search_api_db/search_api_db_defaults/config/optional/search_api.index.default_index.yml: n/a
+#  modules/search_api_db/search_api_db_defaults/config/optional/search_api.server.default_server.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: search_api.drush.inc:17
+msgid "The machine name of an index"
+msgstr "Der Systemname eines Indexes"
+
+#: search_api.drush.inc:18
+msgid "The machine name of a server"
+msgstr "Der Systemname eines Servers"
+
+#: search_api.drush.inc:23
+msgid "List all search indexes."
+msgstr "Alle Suchindexe auflisten"
+
+#: search_api.drush.inc:24
+msgid "Alias to list all search indexes."
+msgstr "Alias, zum Auflisten aller Suchindizes."
+
+#: search_api.drush.inc:32
+msgid "Enable the search index with the ID @name."
+msgstr "Den Suchindex mit der ID @name aktivieren."
+
+#: search_api.drush.inc:33
+msgid "Alias to enable the search index with the ID @name."
+msgstr "Alias, zum Aktivieren des Suchindex mit der ID: @name"
+
+#: search_api.drush.inc:42
+msgid "Enable all disabled indexes."
+msgstr "Alle deaktivierten Indexe aktivieren."
+
+#: search_api.drush.inc:43
+msgid "Alias to enable all disabled indexes."
+msgstr "Alias, zum Aktivieren aller deaktivierten Indizes."
+
+#: search_api.drush.inc:52
+msgid "Disable the search index with the ID @name."
+msgstr "Den Suchindex mit der ID @name deaktivieren."
+
+#: search_api.drush.inc:53
+msgid "Alias to disable the search index with the ID @name."
+msgstr "Alias, zum  Deaktivieren des Suchindex mit der ID: @name."
+
+#: search_api.drush.inc:62
+msgid "Disable all enabled indexes."
+msgstr "Alle aktivierten Indexe deaktivieren."
+
+#: search_api.drush.inc:63
+msgid "Alias to disable all enabled indexes."
+msgstr "Alias, zum Deaktivieren aller aktivierten Indizes."
+
+#: search_api.drush.inc:72
+msgid "Show the status of all search indexes."
+msgstr "Den Status aller Suchindizes anzeigen."
+
+#: search_api.drush.inc:73
+msgid "Alias to show the status of all search indexes."
+msgstr "Alias, zum Anzeigen des Status aller Suchindizes."
+
+#: search_api.drush.inc:74
+msgid "Show the status of the search index with the ID @name."
+msgstr "Den Status des Suchindex mit der ID @name anzeigen."
+
+#: search_api.drush.inc:83
+msgid "Index all items for all enabled indexes."
+msgstr "Die Elemente aller aktivierten Indizes indexieren."
+
+#: search_api.drush.inc:84
+msgid "Alias to index all items for all enabled indexes."
+msgstr "Alias, zum Indizieren der Elemente aller aktivierten Indizes."
+
+#: search_api.drush.inc:85
+msgid "Index all items for the index with the ID @name."
+msgstr "Alle Elemente des Index @name indizieren."
+
+#: search_api.drush.inc:86
+msgid "Index a maximum number of @limit items for the index with the ID @name."
+msgstr "Indexieren einer maximalen Anzahl von @limit-Elementen für den Index mit der ID @name."
+
+#: search_api.drush.inc:87
+msgid "Index a maximum number of @limit items (@batch_size items per batch run) for the index with the ID @name."
+msgstr "Indizieren einer maximalen Anzahl von @limit Elementen (@batch_size Elemente pro Stapel-Lauf) für den Index mit der ID @name."
+
+#: search_api.drush.inc:90
+msgid "The number of items to index. Set to 0 to index all items. Defaults to 0 (index all)."
+msgstr "Die Anzahl der zu indizierenden Elemente. Wird der Wert auf 0 gesetzt, werden alle Elemente indiziert. Standardwert ist 0 (Index alle)."
+
+#: search_api.drush.inc:91
+msgid "The number of items to index per batch run. Set to 0 to index all items at once. Defaults to the \"!batch_size_label\" setting of the index."
+msgstr "Die Anzahl der zu indizierenden Elemente pro Batch-Lauf. Auf 0 setzen, um alle Elemente auf einmal zu indizieren. Standardwert ist die Einstellung von „!batch_size_label“ des Index."
+
+#: search_api.drush.inc:91 search_api.theme.inc:473 config/schema/search_api.index.schema.yml:0 src/Form/IndexForm.php:327 config/optional/tour.tour.search-api-index.yml:0
+msgid "Cron batch size"
+msgstr "Anzahl der Elemente, die bei jedem Cron-Lauf indiziert werden sollen."
+
+#: search_api.drush.inc:100
+msgid "Schedule all search indexes for reindexing."
+msgstr "Einplanen aller Suchindizes für die Neuindizierung."
+
+#: search_api.drush.inc:101
+msgid "Alias to schedule all search indexes for reindexing ."
+msgstr "Alias, zum Einplanen  aller Suchindizes zur Neuindizierung."
+
+#: search_api.drush.inc:102
+msgid "Schedule the search index with the ID @name for reindexing."
+msgstr "Den Suchindex @name für die Neuindizierung einplanen."
+
+#: search_api.drush.inc:106
+msgid "List of entity type ids to reset tracker for."
+msgstr "Liste der Entitätstypen-IDs, deren Tracker zurückgesetzt werden sollen."
+
+#: search_api.drush.inc:121
+msgid "Clear all search indexes."
+msgstr "Alle Suchindizes löschen."
+
+#: search_api.drush.inc:122
+msgid "Alias to clear all search indexes."
+msgstr "Alias zum Löschen aller Suchindizes."
+
+#: search_api.drush.inc:123
+msgid "Clear the search index with the ID @name."
+msgstr "Den Suchindex mit der ID @name löschen."
+
+#: search_api.drush.inc:132
+msgid "Search for \"title\" inside the \"node_index\" index."
+msgstr "Suche nach \"Titel\" im Index \"node_index\"."
+
+#: search_api.drush.inc:133
+msgid "Alias to search for \"title\" inside the \"node_index\" index."
+msgstr "Alias zur Suche nach \"Titel \" im Index \"node_index\"."
+
+#: search_api.drush.inc:136
+msgid "The keyword to look for."
+msgstr "Das Schlüsselwort, das gesucht werden soll."
+
+#: search_api.drush.inc:144
+msgid "List all search servers."
+msgstr "Alle Suchserver auflisten"
+
+#: search_api.drush.inc:145
+msgid "Alias to list all search servers."
+msgstr "Alias zum Auflisten aller Suchserver."
+
+#: search_api.drush.inc:153
+msgid "Enable the @server search server."
+msgstr "Suchserver @server aktivieren."
+
+#: search_api.drush.inc:154
+msgid "Alias to enable the @server search server."
+msgstr "Alias, zum Aktivieren des @server-Suchservers."
+
+#: search_api.drush.inc:163
+msgid "Disable the @server search server."
+msgstr "Suchserver @server deaktivieren."
+
+#: search_api.drush.inc:164
+msgid "Alias to disable the @server search server."
+msgstr "Alias, zum Deaktivieren des @server-Suchservers."
+
+#: search_api.drush.inc:173
+msgid "Clear all search indexes on the search server @server."
+msgstr "Alle Suchindizes auf dem Suchserver @server löschen."
+
+#: search_api.drush.inc:174
+msgid "Alias to clear all search indexes on the search server @server."
+msgstr "Alias zum Löschen aller Suchindizes auf dem Suchserver @server."
+
+#: search_api.drush.inc:183
+msgid "Set the @index index to used the @server server."
+msgstr "Den @index-Index zur Verwendung des @server-Servers festlegen."
+
+#: search_api.drush.inc:184
+msgid "Alias to set the @index index to used the @server server."
+msgstr "Alias, zum Einstellen des @index-Index, der den @server-Server verwendet."
+
+#: search_api.drush.inc:199;284;358 config/schema/search_api.index.schema.yml:0 config/schema/search_api.server.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: search_api.drush.inc:200;285;359 config/schema/search_api.server.schema.yml:0 src/IndexListBuilder.php:159
+msgid "Name"
+msgstr "Name"
+
+#: search_api.drush.inc:201 search_api.theme.inc:428;434 src/IndexListBuilder.php:196 src/Form/IndexForm.php:272 config/optional/tour.tour.search-api-index-form.yml:0 config/optional/tour.tour.search-api-index.yml:0
+msgid "Server"
+msgstr "Server"
+
+#: search_api.drush.inc:202 src/IndexListBuilder.php:158 src/Form/IndexFieldsForm.php:288 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Type"
+msgstr "Typ"
+
+#: search_api.drush.inc:203;360 search_api.theme.inc:225;378 config/schema/search_api.index.schema.yml:0 config/schema/search_api.server.schema.yml:0 src/IndexListBuilder.php:161 config/optional/tour.tour.search-api-index.yml:0 config/optional/tour.tour.search-api-server.yml:0
+msgid "Status"
+msgstr "Status"
+
+#: search_api.drush.inc:204
+msgid "Limit"
+msgstr "Begrenzung"
+
+#: search_api.drush.inc:286
+msgid "% Complete"
+msgstr "% fertig"
+
+#: search_api.drush.inc:287
+msgid "Indexed"
+msgstr "Indiziert"
+
+#: search_api.drush.inc:288
+msgid "Total"
+msgstr "Gesamt"
+
+#: search_api.theme.inc:63
+msgid "No fields have been added for this datasource."
+msgstr "Zu dieser Datenquelle sind keine Felder hinzugefügt worden."
+
+#: search_api.theme.inc:94
+msgid "Data Type"
+msgstr "Datentyp"
+
+#: search_api.theme.inc:95 config/schema/search_api.index.schema.yml:0 config/schema/search_api.server.schema.yml:0 src/Form/IndexForm.php:297 src/Form/ServerForm.php:134
+msgid "Description"
+msgstr "Description"
+
+#: search_api.theme.inc:96
+msgid "Supported"
+msgstr "Unterstützt"
+
+#: search_api.theme.inc:101
+msgid "Fallback data type"
+msgstr "Ausfall-Datentyp"
+
+#: search_api.theme.inc:105
+msgid "Yes"
+msgstr "Ja"
+
+#: search_api.theme.inc:107
+msgid "No"
+msgstr "Nein"
+
+#: search_api.theme.inc:218;366
+msgid "enabled (<a href=\":url\">disable</a>)"
+msgstr "aktiviert (<a href=\":url\">deaktiviert</a>)"
+
+#: search_api.theme.inc:222;371
+msgid "disabled (<a href=\":url\">enable</a>)"
+msgstr "deaktiviert (<a href=\":url\">aktiviert</a>)"
+
+#: search_api.theme.inc:237
+msgid "Invalid or missing backend plugin: %backend_id"
+msgstr "Ungültiges oder fehlendes Backend-Plugin: %backend_id"
+
+#: search_api.theme.inc:241 config/optional/tour.tour.search-api-server.yml:0
+msgid "Backend class"
+msgstr "Backend-Klasse"
+
+#: search_api.theme.inc:261 src/Entity/Index.php:28 config/optional/tour.tour.search-api-server.yml:0
+msgid "Search indexes"
+msgstr "Suchindexe"
+
+#: search_api.theme.inc:375 src/Utility/CommandHelper.php:126;503;668
+msgid "disabled"
+msgstr "Deaktiviert"
+
+#: search_api.theme.inc:392;486
+msgid "@indexed/@total indexed"
+msgstr "@indexed/@total indiziert"
+
+#: search_api.theme.inc:402
+msgid "Invalid or missing datasource plugin: %datasource_id"
+msgstr "Ungültiges oder fehlendes Datenquellen-Plugin: %datasource_id"
+
+#: search_api.theme.inc:405 search_api.views.inc:462
+msgid "Datasource"
+msgstr "Datenquelle"
+
+#: search_api.theme.inc:417
+msgid "Invalid or missing tracker plugin: %tracker_id"
+msgstr "Ungültiges oder fehlendes Tracker-Plugin: %tracker_id"
+
+#: search_api.theme.inc:420 src/Form/IndexForm.php:222 config/optional/tour.tour.search-api-index-form.yml:0 config/optional/tour.tour.search-api-index.yml:0
+msgid "Tracker"
+msgstr "Tracker"
+
+#: search_api.theme.inc:435
+msgid "Unknown server set for index: %server_id"
+msgstr "Unbekannter Server für den Index: %server_id"
+
+#: search_api.theme.inc:442 config/optional/tour.tour.search-api-index.yml:0
+msgid "Server index status"
+msgstr "Server-Indexstatus"
+
+#: search_api.theme.inc:450
+msgid "Error while checking server index status: @message"
+msgstr "Fehler bei der Überprüfung des Server-Indexstatus: @message"
+
+#: search_api.theme.inc:465
+msgid "All items will be indexed at once during cron runs."
+msgstr "Alle Elemente werden während eines Cron-Laufs auf einmal indiziert."
+
+#: search_api.theme.inc:470
+msgid "No items will be indexed during cron runs."
+msgstr "Keine Elemente werden während des Cron-Laufs indiziert."
+
+#: search_api.theme.inc:488 config/optional/tour.tour.search-api-index.yml:0
+msgid "Index status"
+msgstr "Index Status"
+
+#: search_api.theme.inc:446
+msgid "There is 1 item indexed on the server for this index. (<a href=\":url\">More information</a>)"
+msgid_plural "There are @count items indexed on the server for this index. (<a href=\":url\">More information</a>)"
+msgstr[0] "Auf dem Server ist für diesen Index ein Element indiziert (<a href=\":url\">Weitere Informationen</a>)"
+msgstr[1] "Auf dem Server sind für diesen Index @count Elemente indiziert (<a href=\":url\">Weitere Informationen</a>)"
+
+#: search_api.theme.inc:462
+msgid "During cron runs, 1 item will be indexed per batch."
+msgid_plural "During cron runs, @count items will be indexed per batch."
+msgstr[0] "Bei Cron-Läufen wird ein Element pro Batch indiziert."
+msgstr[1] "Bei Cron-Läufen werden @count Elemente pro Batch indiziert."
+
+#: search_api.views.inc:48;52
+msgid "Index @name"
+msgstr "Index @name"
+
+#: search_api.views.inc:53
+msgid "Use the @name search index for filtering and retrieving data."
+msgstr "Den @name Suchindex verwenden, um Daten zu filtern und abzurufen."
+
+#: search_api.views.inc:76;779;792
+msgid "(No description available)"
+msgstr "(Keine Beschreibung verfügbar)"
+
+#: search_api.views.inc:79;641
+msgid "@datasource datasource"
+msgstr "@datasource Datenbank"
+
+#: search_api.views.inc:85
+msgid "@field (indexed field)"
+msgstr "@field (indiziertes Feld)"
+
+#: search_api.views.inc:453
+msgid "Item ID"
+msgstr "Item ID"
+
+#: search_api.views.inc:454
+msgid "The item's internal (Search API-specific) ID"
+msgstr "Die interne (Such-API-spezifische) ID des Eintrags"
+
+#: search_api.views.inc:463
+msgid "The datasource ID"
+msgstr "Die ID der Datenquelle"
+
+#: search_api.views.inc:474
+msgid "Item language"
+msgstr "Sprache des Eintrags"
+
+#: search_api.views.inc:475
+msgid "The item's language"
+msgstr "Die Sprache des Eintrags"
+
+#: search_api.views.inc:485;497;507;517;526;614 search_api.info.yml:0 modules/search_api_db/search_api_db.info.yml:0 modules/search_api_db/search_api_db_defaults/search_api_db_defaults.info.yml:0 modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0;0
+msgid "Search"
+msgstr "Suche"
+
+#: search_api.views.inc:486
+msgid "Relevance"
+msgstr "Relevanz"
+
+#: search_api.views.inc:487
+msgid "The relevance of this search result with respect to the query"
+msgstr "Die Relevanz dieses Suchergebnisses in Bezug auf die Suchanfrage"
+
+#: search_api.views.inc:498
+msgid "Excerpt"
+msgstr "Auszug"
+
+#: search_api.views.inc:499
+msgid "The search result excerpted to show found search terms"
+msgstr "Auszug aus dem Suchergebnis zur Anzeige gefundener Suchbegriffe"
+
+#: search_api.views.inc:508
+msgid "Fulltext search"
+msgstr "Volltextsuche"
+
+#: search_api.views.inc:509
+msgid "Search several or all fulltext fields at once."
+msgstr "Durchsuchen von mehreren oder allen Volltextfeldern auf einmal."
+
+#: search_api.views.inc:518
+msgid "More like this"
+msgstr "Ähnliche Einträge"
+
+#: search_api.views.inc:519
+msgid "Find similar content."
+msgstr "Ähnliche Inhalte finden."
+
+#: search_api.views.inc:527 src/Plugin/search_api/processor/RenderedItem.php:19
+msgid "Rendered item"
+msgstr "Dargestelltes Element"
+
+#: search_api.views.inc:528
+msgid "Renders item in a view mode."
+msgstr "Stellt ein Element in einem Ansichtsmodus dar."
+
+#: search_api.views.inc:542
+msgid "Operations links"
+msgstr "Aktionslinks"
+
+#: search_api.views.inc:543
+msgid "Provides links to perform entity operations."
+msgstr "Stellt Links zum Ausführen von Entitätsoperationen bereit."
+
+#: search_api.views.inc:615
+msgid "All taxonomy term fields"
+msgstr "Alle Felder für Taxonomiebegriffe"
+
+#: search_api.views.inc:616
+msgid "Search all indexed taxonomy term fields"
+msgstr "Alle indizierten Felder für Taxonomiebegriffe durchsuchen"
+
+#: search_api.views.inc:695
+msgid "@entity_type relationship"
+msgstr "@entity_type Beziehung"
+
+#: search_api.views.inc:777
+msgid "@label referenced from @field_name"
+msgstr "@label wird von @field_name referenziert"
+
+#: search_api.views.inc:778
+msgid "@field_name: @label"
+msgstr "@field_name: @label"
+
+#: search_api.module:37
+msgid "Below is a list of indexes grouped by the server they are associated with. A server is the definition of the actual indexing, querying and storage engine (for example, an Apache Solr server, the database, …). An index defines the indexed content (for example, all content and all comments on \"Article\" posts)."
+msgstr "Unten befindet sich eine Liste von Indizes gruppiert nach dem Server, dem sie zugeordnet sind. Ein Server ist die Definition der eigentlichen Engine für Indizierung, Abfrage und Speicherung (z. B. Apache Solr Server, die Datenbank usw.). Ein Index definiert den indizierten Inhalt (z. B. alle Inhalte und Kommentare zu „Artikel“-Posts)."
+
+#: search_api.module:585
+msgid "The selected caching mechanism does not work with views on Search API indexes. Please either use one of the Search API-specific caching options or \"None\". Caching was turned off for this view."
+msgstr "Der ausgewählte Caching-Mechanismus funktioniert nicht mit Ansichten, die auf den Index von Search-API zugreifen. Bitte verwenden Sie entweder eine der Search-API-spezifischen Caching-Mechanismen oder \"Keiner\" Der Cache wurde für diese Ansicht abgeschaltet."
+
+#: search_api.module:679
+msgid "The default Drupal core Search module is still enabled. If you are using Search API, you probably want to <a href=\":url\">uninstall</a> the Search module for performance reasons. For more information see <a href=\":documentation\">the Search API handbook</a>."
+msgstr "Das Standard-Drupal-Core-Suchmodul ist noch aktiviert. Wenn Sie Search-API nutzen, werden Sie das Suchmodul aus Leistungsgründen wahrscheinlich <a href=\":url\">deinstallieren</a> wollen. Weitere Informationen finden Sie im <a href=\":documentation\">Handbuch zur Search-API</a>."
+
+#: search_api.module:751
+msgid "Search result excerpt"
+msgstr "Auszug aus dem Suchergebnis"
+
+#: search_api.module:752
+msgid "An excerpt provided by Search API when rendered in a search."
+msgstr "Ein von der Search-API gelieferter Auszug beim Rendern in einer Suche."
+
+#: search_api.module:121
+msgid "Indexed @num items for index %name."
+msgstr "@num-Elemente für Index %name indiziert."
+
+#: search_api.install:80;98;124 search_api.info.yml:0 search_api.links.menu.yml:0 search_api.routing.yml:0 config/schema/search_api.views.schema.yml:0;0
+msgid "Search API"
+msgstr "Search-API"
+
+#: search_api.install:117
+msgid "Execute now"
+msgstr "Jetzt ausführen"
+
+#: search_api.install:176
+msgid "Index config schema updated."
+msgstr "Index-Konfigurationsschema wurde aktualisiert."
+
+#: search_api.install:246
+msgid "Switched from old \"Node status\" to new \"Entity status\" processor."
+msgstr "Umgeschaltet vom alten „Beitragsstatus“- zum neuen „Entitätsstatus“-Prozessor."
+
+#: search_api.install:311
+msgid "Updated the configuration schema of the \"Ignore characters\" processor."
+msgstr "Konfigurationsschema des Prozessors „Zeichen ignorieren“ wurde aktualisiert."
+
+#: search_api.install:99
+msgid "The search server \"@servers\" is currently not available"
+msgid_plural "The following search servers are not available: @servers"
+msgstr[0] "Der Such-Server „@servers“ ist aktuell nicht verfügbar"
+msgstr[1] "Die folgenden Such-Server sind nicht verfügbar: @servers"
+
+#: search_api.install:125
+msgid "There is @count pending Search API task. @link"
+msgid_plural "There are @count pending Search API tasks. @link"
+msgstr[0] "Es steht @count Such-API-Task aus. @link"
+msgstr[1] "Es stehen @count Such-API-Tasks aus. @link"
+
+#: search_api.info.yml:0
+msgid "Provides a generic framework for modules offering search capabilities."
+msgstr "Bietet ein allgemeines Framework für Module mit Suchfunktionen zur Verfügung."
+
+#: search_api.links.action.yml:0
+msgid "Add server"
+msgstr "Server hinzufügen"
+
+#: search_api.links.action.yml:0
+msgid "Add index"
+msgstr "Index hinzufügen"
+
+#: search_api.links.action.yml:0 search_api.routing.yml:0
+msgid "Execute pending tasks"
+msgstr "Ausstehende Tasks ausführen"
+
+#: search_api.links.menu.yml:0
+msgid "Create and configure search indexes and servers."
+msgstr "Suchserver und Suchindexe erstellen und konfigurieren."
+
+#: search_api.links.task.yml:0;0 search_api.routing.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: search_api.links.task.yml:0;0 src/Form/IndexFieldsForm.php:356
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: search_api.links.task.yml:0 config/schema/search_api.views.schema.yml:0;0 src/IndexListBuilder.php:139
+msgid "Fields"
+msgstr "Felder"
+
+#: search_api.links.task.yml:0 src/IndexListBuilder.php:144
+msgid "Processors"
+msgstr "Verarbeitung"
+
+#: search_api.permissions.yml:0
+msgid "Administer Search API"
+msgstr "Search-API verwalten"
+
+#: search_api.permissions.yml:0
+msgid "Create and configure Search API servers and indexes."
+msgstr "Search-API-Suchserver und -Suchindexe erstellen und konfigurieren."
+
+#: search_api.routing.yml:0 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Edit field"
+msgstr "Feld bearbeiten"
+
+#: search_api.routing.yml:0 src/Form/IndexBreakLockForm.php:115
+msgid "Break lock"
+msgstr "Sperre aufheben"
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "Entity datasource configuration"
+msgstr "Konfiguration der Datenquelle für die Entität"
+
+#: config/schema/search_api.datasource.schema.yml:0 src/Plugin/search_api/datasource/ContentEntity.php:524;538
+msgid "Bundles"
+msgstr "Subtypen"
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "Whether to exclude (TRUE) or include (FALSE) the selected bundles."
+msgstr "Ob die gewählten Subtypen ausgeschlossen (TRUE) oder eingeschlossen (FALSE) werden sollen."
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "The selected bundles"
+msgstr "Die ausgewählten Subtypen"
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "A bundle machine name"
+msgstr "Ein Subtyp-Systemname"
+
+#: config/schema/search_api.datasource.schema.yml:0 src/Plugin/search_api/datasource/ContentEntity.php:549;563
+msgid "Languages"
+msgstr "Sprachen"
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "Whether to exclude (TRUE) or include (FALSE) the selected languages."
+msgstr "Ob die gewählten Sprachen ausgeschlossen (TRUE) oder eingeschlossen (FALSE) werden sollen."
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "The selected languages"
+msgstr "Die ausgewählten Sprachen"
+
+#: config/schema/search_api.datasource.schema.yml:0
+msgid "A language code"
+msgstr "Ein Sprachkürzel"
+
+#: config/schema/search_api.index.schema.yml:0 src/Entity/Index.php:28
+msgid "Search index"
+msgstr "Suchindex"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Name'"
+msgstr "Name'"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Read-only"
+msgstr "Schreibgeschützt"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Indexed fields"
+msgstr "Indizierte Felder"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "field"
+msgstr "Feld"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The datasource ID of the field"
+msgstr "Die ID der Datenquelle für das Feld"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The property path of the field"
+msgstr "Der Eigenschaftspfad des Feldes"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The data type of the field"
+msgstr "Der Datentyp des Feldes"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The boost of the field"
+msgstr "Die Verstärkung des Feldes"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Whether the field is locked or can be removed"
+msgstr "Ob das Feld gesperrt ist oder entfernt werden kann"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Whether the field's data type is locked or can be changed"
+msgstr "Ob der Datentyp des Feldes gesperrt ist oder geändert werden kann"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Whether the field should appear in the UI"
+msgstr "Ob das Feld in der Benutzeroberfläche erscheinen soll."
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The field's dependencies"
+msgstr "Die Abhängigkeiten des Feldes"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Datasource settings"
+msgstr "Datenquelle Einstellungen"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The configuration for a single datasource"
+msgstr "Die Konfiguration für eine einzelne Datenquelle"
+
+#: config/schema/search_api.index.schema.yml:0 src/Form/IndexProcessorsForm.php:243 config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "Processor settings"
+msgstr "Prozessoreinstellungen"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The configuration for a single processor"
+msgstr "Die Konfiguration für einen einzelnen Prozessor"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Tracker settings"
+msgstr "Nachverfolgungseinstellungen"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "The configuration for the tracker"
+msgstr "Die Konfiguration des Trackers"
+
+#: config/schema/search_api.index.schema.yml:0
+msgid "Options"
+msgstr "Optionen"
+
+#: config/schema/search_api.index.schema.yml:0 src/Form/IndexForm.php:321
+msgid "Index items immediately"
+msgstr "Elemente umgehend indizieren"
+
+#: config/schema/search_api.index.schema.yml:0 src/Entity/Task.php:168
+msgid "Server ID"
+msgstr "Server ID"
+
+#: config/schema/search_api.index.schema.yml:0 config/schema/search_api.server.schema.yml:0
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: config/schema/search_api.index.schema.yml:0 config/schema/search_api.server.schema.yml:0
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Default processor configuration"
+msgstr "Standard-Prozessor-Konfiguration"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The processor's weights for the different processing stages"
+msgstr "Die Gewichte des Prozessors für die verschiedenen Verarbeitungsstufen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The processor's weight for this stage"
+msgstr "Das Gewicht des Prozessors für diese Stufe"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Fields processor configuration"
+msgstr "Feld-Prozessor-Konfiguration"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Enabled for all supported fields"
+msgstr "Aktiviert für alle unterstützten Felder"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The selected fields"
+msgstr "Die ausgewählten Felder"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Selected field"
+msgstr "Ausgewähltes Feld"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Hierarchy processor configuration"
+msgstr "Konfiguration des Prozessors für Hierarchien"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Fields for which to add the hierarchy, mapped to their hierarchical nested property"
+msgstr "Felder, deren verschachtelte Eigenschaft der Hierarchie zugeordnet werden soll."
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Field ID"
+msgstr "Feld-ID"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Highlight processor configuration"
+msgstr "Konfiguration des Prozessors für Hervorhebungen"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/processor/Highlight.php:210
+msgid "Text/HTML that will be prepended to all occurrences of search keywords in highlighted text"
+msgstr "Text/HTML, in dem jedes Vorkommen der Suchbegriffe im Text hervorgehoben wird"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/processor/Highlight.php:216
+msgid "Text/HTML that will be appended to all occurrences of search keywords in highlighted text"
+msgstr "Text/HTML, in dem jedes Vorkommen der Suchbegriffe im Text hervorgehoben wird"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/processor/Highlight.php:169
+msgid "When enabled, an excerpt will be created for searches with keywords, containing all occurrences of keywords in a fulltext field."
+msgstr "Wenn diese Option aktiviert ist, wird ein Auszug für die Suche nach Schlüsselworten erstellt, der alle Vorkommen der Schlüsselworte in einem Volltextfeld enthält."
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/processor/Highlight.php:175
+msgid "The requested length of the excerpt, in characters"
+msgstr "Die gewünschte Länge des Ausschnitts in Zeichen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Fields excluded from excerpt"
+msgstr "Aus dem Auszug ausgeschlossene Felder"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "An excluded field's ID"
+msgstr "ID eines ausgeschlossenen Felds"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Defines whether returned fields should be highlighted (always/if returned/never)."
+msgstr "Legt fest, ob zurückgegebene Felder hervorgehoben werden sollen (immer/wenn zurückgegeben/nie)."
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Whether matches in parts of words should be highlighted"
+msgstr "Ob Übereinstimmungen in Wortteilen hervorgehoben werden sollen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "HTML filter processor configuration"
+msgstr "Konfiguration des Prozessors für HTML-Filter"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Title"
+msgstr "Titel"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Alt"
+msgstr "Alt"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/processor/HtmlFilter.php:115
+msgid "Tag boosts"
+msgstr "Tag-Verstärkung"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Form/IndexFieldsForm.php:289 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Boost"
+msgstr "Boost"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Ignore case processor configuration"
+msgstr "Konfiguration des Prozessors um Groß- und Kleinschreibung zu ignorieren"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Ignore Character processor configuration"
+msgstr "Konfiguration des Zeichenprozessors ignorieren"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Regular expression for characters to ignore"
+msgstr "Regulärer Ausdruck für zu ignorierende Zeichen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Character categories to ignore"
+msgstr "Zu ignorierende Zeichenkategorien"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Character set"
+msgstr "Zeichensatz"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Stemmer processor configuration"
+msgstr "Konfiguration des Eindämmungsprozessors"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Stemming exceptions"
+msgstr "Eindämmungsausnahmen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Exception"
+msgstr "Exception"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Role filter processor configuration"
+msgstr "Konfiguration des Prozessors für den Rollenfilter"
+
+#: config/schema/search_api.processor.schema.yml:0 src/Plugin/search_api/tracker/Basic.php:15
+msgid "Default"
+msgstr "Standard"
+
+#: config/schema/search_api.processor.schema.yml:0;0
+msgid "The selected roles"
+msgstr "Die ausgewählten Rollen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The role name"
+msgstr "Der Rollenname"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Stopwords processor configuration"
+msgstr "Konfiguration des Prozessors für Stoppworte"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Entered stopwords"
+msgstr "Eingegebene Stoppworte"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Stopword"
+msgstr "Stoppwort"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Tokenizer processor configuration"
+msgstr "Konfiguration des Prozessors für Tokenizer"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Regular expression for spaces"
+msgstr "Regulärer Ausdruck für Leerzeichen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Regular expression for ignorable characters"
+msgstr "Regulärer Ausdruck für ignorierbare Zeichen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Defines if simple CJK handling should be enabled."
+msgstr "Legt fest, ob einfaches CJK-Handling aktiviert werden soll."
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Defines the minimum word size"
+msgstr "Definiert die minimale Wortgröße"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Transliteration processor configuration"
+msgstr "Konfiguration des Prozessors für Transliterationen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Type-specific boosting processor configuration"
+msgstr "Typspezifische Boosting-Prozessor-Konfiguration"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Boost settings"
+msgstr "Boost-Einstellungen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Datasource boost settings"
+msgstr "Datenquellen Boost-Einstellungen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Base boost for the datasource"
+msgstr "Basis-Boost für die Datenquelle"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Bundle-specific boosts"
+msgstr "Subtypenspezifische Boosts"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The boost value for this bundle"
+msgstr "Der Verstärkungswert für diesen Subtyp"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Default field configuration"
+msgstr "Standard-Feldkonfiguration"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Aggregated field configuration"
+msgstr "Konfiguration für aggregiertes Feld"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The type of the aggregation"
+msgstr "Die Typ der Aggregation"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The properties to be aggregated"
+msgstr "Die zu aggregierenden Eigenschaften"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "A property that should be part of the aggregation"
+msgstr "Eine Eigenschaft, die Teil der Aggregation sein sollte"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "Rendered item processor configuration"
+msgstr "Konfiguration des Prozessors für gerenderte Elemente"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The user roles which will be active when the entity is rendered"
+msgstr "Die Benutzerrollen, die aktiv sind, wenn die Entität gerendert wird"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The selected view modes for each datasource, by bundle"
+msgstr "Die ausgewählten Ansichtsmodi für jede Datenquelle, nach Subtypen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The selected view modes for the datasource, by bundle"
+msgstr "Die ausgewählten Ansichtsmodi für die Datenquelle, nach Subtypen"
+
+#: config/schema/search_api.processor.schema.yml:0
+msgid "The view mode used to render the entity for the specified bundle"
+msgstr "Der Ansichtsmodus, mit dem die Entität für den angegebenen Subtyp dargestellt wird"
+
+#: config/schema/search_api.schema.yml:0
+msgid "Search API settings"
+msgstr "Search-API-Einstellungen"
+
+#: config/schema/search_api.schema.yml:0
+msgid "Default cron batch size"
+msgstr "Standard- Cronstaplegröße"
+
+#: config/schema/search_api.schema.yml:0
+msgid "Maximum runtime for the cron worker"
+msgstr "Maximale Laufzeit für den Cron-Job"
+
+#: config/schema/search_api.schema.yml:0
+msgid "The default tracker plugin"
+msgstr "Das Standard Tracker-Plugin"
+
+#: config/schema/search_api.schema.yml:0
+msgid "The number of entities loaded at once when adding items to the tracker for a newly created index"
+msgstr "Die Anzahl der gleichzeitig geladenen Entitäten, wenn Elemente zum Tracker für einen neu erstellten Index hinzugefügt werden."
+
+#: config/schema/search_api.server.schema.yml:0 src/Entity/Server.php:17
+msgid "Search server"
+msgstr "Such-Server"
+
+#: config/schema/search_api.server.schema.yml:0
+msgid "Backend Plugin ID"
+msgstr "Backend Plugin ID"
+
+#: config/schema/search_api.tracker.schema.yml:0
+msgid "Entity tracker configuration"
+msgstr "Konfiguration des Entitätentrackers"
+
+#: config/schema/search_api.tracker.schema.yml:0 src/Plugin/search_api/tracker/Basic.php:125
+msgid "Indexing order"
+msgstr "Indizierungsreihenfolge"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API query"
+msgstr "Search-API Abfrage"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "If the underlying search index has access checks enabled, this option allows you to disable them for this view."
+msgstr "Wenn für den zugrunde liegenden Suchindex die Zugriffsprüfungen aktiviert sind, können Sie diese mit dieser Option für diese Ansicht deaktivieren."
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Do not execute additional access checks for all items in the search results."
+msgstr "Keine zusätzlichen Zugriffskontrollen für alle Elemente in den Suchergebnissen durchführen."
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/query/SearchApiQuery.php:395
+msgid "By default, changing an exposed filter would reset all selected facets. This option allows you to prevent this behavior."
+msgstr "Standardmäßig würde die Änderung eines hervorgehobenen Filters alle ausgewählten Facetten zurücksetzen. Sie können dies mit dieser Option umgehen."
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "Search API rendered item"
+msgstr "Such-API gerendertes Element"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "View modes for each datasource"
+msgstr "Ansichtsmodi für jede Datenquelle"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "A list of all the bundles and their configured view mode"
+msgstr "Eine Liste aller Subtypen und ihr konfigurierter Ansichtsmodus"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "View mode for the specific bundle"
+msgstr "Ansichtsmodus für das spezifische Subtypen"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Time-based caching (Search API)"
+msgstr "Zeitbasiertes Caching (Search API)"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "Cache options"
+msgstr "Cache-Optionen"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "The length of time raw query results should be cached."
+msgstr "Die Zeitdauer für die (rohe) Abfrageergebnisse zwischengespeichert werden."
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Length of time in seconds raw query results should be cached."
+msgstr "Zeit (in Sekunden) für die unbearbeitete Abfrageergebnisse im Cache abgelegt werden sollen."
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "The length of time rendered HTML output should be cached."
+msgstr "Die Zeitspanne, für die die dargestellte HTML-Ausgabe zwischengespeichert werden sollte."
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Length of time in seconds rendered HTML output should be cached."
+msgstr "Zeit (in Sekunden), für die der ausgegebene HTML-Code im Cache abgelegt werden soll."
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Tag-based caching (Search API)"
+msgstr "Tag-basiertes Caching (Search API)"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "Search API more like this"
+msgstr "Suche API mehr wie diese"
+
+#: config/schema/search_api.views.schema.yml:0;0 src/Plugin/views/argument/SearchApiFulltext.php:82 src/Plugin/views/filter/SearchApiFulltext.php:141
+msgid "Parse mode"
+msgstr "Analysemodus"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Conjunction"
+msgstr "Konjunktion"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "Field"
+msgstr "Feld"
+
+#: config/schema/search_api.views.schema.yml:0;0
+msgid "Search API taxonomy term"
+msgstr "Suche API Taxonomie Begriff"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API standard"
+msgstr "Such-API Standard"
+
+#: config/schema/search_api.views.schema.yml:0;0;0;0
+msgid "Link to item"
+msgstr "Link zum Element"
+
+#: config/schema/search_api.views.schema.yml:0;0;0;0 src/Plugin/views/field/SearchApiFieldTrait.php:260
+msgid "Use highlighted field data"
+msgstr "Hervorgehobene Felddaten verwenden"
+
+#: config/schema/search_api.views.schema.yml:0;0;0;0
+msgid "Handling of multiple values"
+msgstr "Verarbeitung mehrerer Werte"
+
+#: config/schema/search_api.views.schema.yml:0;0;0;0
+msgid "Separator for multiple values"
+msgstr "Trennzeichen für mehrere Werte"
+
+#: config/schema/search_api.views.schema.yml:0;0;0
+msgid "Search API boolean"
+msgstr "Such-API boolescher Wert"
+
+#: config/schema/search_api.views.schema.yml:0;0;0
+msgid "Search API date"
+msgstr "Such-API Datum"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API entity reference"
+msgstr "Such-API Entitätsreferenz"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Display settings"
+msgstr "Anzeigeeinstellungen"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Display settings for bundle"
+msgstr "Anzeigeeinstellungen für den Subtyp"
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/field/SearchApiEntity.php:144
+msgid "Display method"
+msgstr "Anzeigetyp"
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/field/SearchApiEntity.php:146
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API entity field"
+msgstr "Suche-API Entitätsfeld"
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/field/SearchApiEntityField.php:168
+msgid "Use entity field rendering"
+msgstr "Verwenden Sie die Darstellung von Entitätsfeldern"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Fallback handler"
+msgstr "Fallback-Handler"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Options for fallback handler"
+msgstr "Optionen für den Fallback-Handler"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Pluralized strings"
+msgstr "Pluralisierte Zeichenketten"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Singular/Plural string"
+msgstr "Singular/Plural Zeichenkette"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API datasource"
+msgstr "Such-API Datenbank"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API fulltext search"
+msgstr "Such-API Volltextsuche"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Minimum search string length"
+msgstr "Minimale Länge des Suchbegriffs"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Fields to search on"
+msgstr "Felder, nach denen gesucht werden soll"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Field name"
+msgstr "Feldname"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Exposed"
+msgstr "Hervorgehoben"
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/filter/SearchApiFulltext.php:202
+msgid "Placeholder"
+msgstr "Platzhalter"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API language"
+msgstr "Such-API Sprache"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API numeric"
+msgstr "Such-API numerisch"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API options"
+msgstr "Such-API Optionen"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API string"
+msgstr "Such-API String"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API text"
+msgstr "Such-API Text"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Search API user"
+msgstr "Such-API-Benutzer"
+
+#: config/schema/search_api.views.schema.yml:0 src/Plugin/views/filter/SearchApiFulltext.php:216
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/search_api.views.schema.yml:0
+msgid "Do not execute access checks for entities referenced via this relationship."
+msgstr "Führen Sie keine Zugriffsprüfungen für Entitäten durch, die über diese Beziehung referenziert werden."
+
+#: js/search_api.processors.js:0 src/IndexListBuilder.php:176 src/Form/IndexForm.php:280 src/Form/IndexProcessorsForm.php:144 src/Form/ServerForm.php:128
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: js/search_api.processors.js:0 src/IndexListBuilder.php:176
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: modules/search_api_db/search_api_db.install:44
+msgid "Fulltext field database columns updated."
+msgstr "Datenbankspalten mit Volltext-Feldern wurden aktualisiert."
+
+#: modules/search_api_db/search_api_db.install:77
+msgid "Primary keys added to all denormalized index tables."
+msgstr "Primäre Schlüssel wurden zu allen denormalisierten Indextabellen hinzugefügt."
+
+#: modules/search_api_db/search_api_db.install:106
+msgid "Updated 1 server."
+msgid_plural "Updated @count servers."
+msgstr[0] "Ein Server aktualisiert."
+msgstr[1] "@count Server aktualisiert."
+
+#: modules/search_api_db/search_api_db.info.yml:0
+msgid "Database Search"
+msgstr "Datenbanksuche"
+
+#: modules/search_api_db/search_api_db.info.yml:0
+msgid "Offers an implementation of the Search API that uses database tables for indexing content."
+msgstr "Bietet eine Implementierung der Such-API, die Datenbanktabellen zur Indexierung von Inhalten verwendet."
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0 modules/search_api_db/config/schema/search_api_db.schema.yml:0
+msgid "Search API DB settings"
+msgstr "Such-API Datenbank-Eintellung"
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "Name of the database we are connecting to"
+msgstr "Name der Datenbank, zu der eine Verbindung hergestellt wird"
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "Minimum length of indexed words"
+msgstr "Minimale Länge der indizierten Worte"
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "The matching mode – \"words\", \"prefix\" or \"partial\""
+msgstr "Der Abgleichsmodus - \"Wörter\", \"Prefix\" oder \"Wortteil\""
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "Autcomplete configuration"
+msgstr "Konfiguration Autovervollständigung"
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "Suggest suffix"
+msgstr "Suffix vorschlagen"
+
+#: modules/search_api_db/config/schema/search_api_db.backend.schema.yml:0
+msgid "Suggest words"
+msgstr "Wörter vorschlagen"
+
+#: modules/search_api_db/config/schema/search_api_db.schema.yml:0
+msgid "Maximum occurrences of a term until autocomplete suggestions ignores it"
+msgstr "Maximale Häufigkeit eines Begriffs bis er von Autovervollständigungsvorschlägen ignoriert wird"
+
+#: modules/search_api_db/search_api_db_defaults/search_api_db_defaults.info.yml:0
+msgid "Database Search Defaults"
+msgstr "Standardwerte für die Datenbanksuche"
+
+#: modules/search_api_db/search_api_db_defaults/search_api_db_defaults.info.yml:0
+msgid "Enable this module for a best-practice default setup of Search API with the Database backend. After installation it is recommended to uninstall this module again for performance reasons. The provided configuration will not be removed."
+msgstr "Aktivieren Sie dieses Modul für eine praxisgerechte Standardeinrichtung der Such-API mit dem Datenbank-Backend. Nach der Installation wird aus Performancegründen empfohlen, dieses Modul wieder zu deinstallieren. Die erstellte Konfiguration wird dabei nicht entfernt."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:435;453;458;517;37
+msgid "Database"
+msgstr "Datenbank"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:436
+msgid "Select the database key and target to use for storing indexing information in. Cannot be changed after creation."
+msgstr "Wählen Sie den Datenbankschlüssel und das Ziel aus, das für die Speicherung von Indizierungsinformationen verwendet werden soll. Kann nach dem Anlegen nicht mehr geändert werden."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:467;522
+msgid "Minimum word length"
+msgstr "Mindest-Wortlänge"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:468
+msgid "The minimum number of characters a word must consist of to be indexed"
+msgstr "Die Mindestanzahl der Zeichen, aus denen ein Wort bestehen muss, um indiziert zu werden"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:478;533
+msgid "Partial matching"
+msgstr "Teilweise Übereinstimmung"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:481;528
+msgid "Match whole words only"
+msgstr "Nur mit ganzen Wörtern abgleichen"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:482;529
+msgid "Match on parts of a word"
+msgstr "Stimmt mit Teilen eines Worts überein"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:483;530
+msgid "Match words starting with given keywords"
+msgstr "Wörter abgleichen, die mit dem angegeben Keyword beginnen."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:490
+msgid "Autocomplete settings"
+msgstr "Autovervollständigungseinstellungen"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:491
+msgid "These settings allow you to configure how suggestions are computed when autocompletion is used. If you are seeing many inappropriate suggestions you might want to deactivate the corresponding suggestion type. You can also deactivate one method to speed up the generation of suggestions."
+msgstr "Mit diesen Einstellungen können Sie konfigurieren, wie Vorschläge errechnet werden, wenn die automatische Vervollständigung verwendet wird. Wenn Sie viele unangemessene Vorschläge sehen, sollten Sie vielleicht den entsprechenden Vorschlagstyp deaktivieren. Sie können auch eine Methode deaktivieren, um die Generierung von Vorschlägen zu beschleunigen."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:495;544
+msgid "Suggest word endings"
+msgstr "Wortendungen vorschlagen"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:496
+msgid "Suggest endings for the currently entered word."
+msgstr "Endungen für das aktuell eingegebene Wort vorschlagen."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:501;547
+msgid "Suggest additional words"
+msgstr "Zusätzliche Wörter vorschlagen"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:502
+msgid "Suggest additional words the user might want to search for."
+msgstr "Schlagen Sie zusätzliche Wörter vor, nach denen der Benutzer suchen möchte."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:549 src/Utility/CommandHelper.php:124
+msgid "none"
+msgstr "keine"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:551
+msgid "Autocomplete suggestions"
+msgstr "Vorschläge zur Auto-Vervollständigung"
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:1715
+msgid "No valid search keys were present in the query."
+msgstr "In der Abfrage waren keine gültigen Suchbegriffe vorhanden."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:2325
+msgid "Unknown sort order @order. Assuming \"@default\"."
+msgstr "Unbekannte Sortierreihenfolge @order. Es wird \" @default \" verwendet."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:2384
+msgid "Unknown facet field @field."
+msgstr "Unbekanntes Facettenfeld @field."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:1229
+msgid "Unknown field @field: please check (and re-save) the index's fields settings."
+msgstr "Unbekanntes Feld @field: Bitte überprüfen (und speichern) Sie die Feldeinstellungen des Index."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:1447;1464
+msgid "An overlong word (more than 50 characters) was encountered while indexing: %word.<br />Since database search servers currently cannot index words of more than 50 characters, the word was truncated for indexing. If this should not be a single word, please make sure the \"Tokenizer\" processor is enabled and configured correctly for index %index."
+msgstr "Bei der Indizierung wurde ein überlanges Wort (über 50 Zeichen) gefunden: %word.<br />Da die Datenbank-Suchserver aktuell keine Wörter mit mehr als 50 Zeichen indizieren können, wurde das Wort zur Indizierung abgeschnitten. Wenn dies kein Einzelwort sein sollte, sorgen Sie bitte dafür, dass der Prozessor „Tokenizer“ aktiviert und für Index %index korrekt konfiguriert ist."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:1486
+msgid "An overlong value (more than 255 characters) was encountered while indexing: %value.<br />Database search servers currently cannot index such values correctly – the value was therefore trimmed to the allowed length."
+msgstr "Bei der Indexierung wurde ein überlanger Wert (mehr als 255 Zeichen) festgestellt: %value.<br />Datenbank-Suchserver können solche Werte derzeit nicht korrekt indizieren - der Wert wurde daher auf die zulässige Länge reduziert."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:2528
+msgid "Error while adding facets: only \"item_id\" field should be used, used are: @fields."
+msgstr "Fehler beim Hinzufügen von Facetten: Es sollte nur das Feld \"item_id\" verwendet werden, verwendet wurden: @fields."
+
+#: modules/search_api_db/src/Plugin/search_api/backend/Database.php:37
+msgid "Indexes items in the database. Supports several advanced features, but should not be used for large sites."
+msgstr "Indiziert Elemente in der Datenbank. Unterstützt mehrere erweiterte Funktionen, sollte aber nicht für große Websites verwendet werden."
+
+#: src/IndexBatchHelper.php:89
+msgid "Completed about @percentage% of the indexing operation (@current of @total)."
+msgstr "Etwa @percentage% der Indexierungsoperation (@current von @total) vollständig."
+
+#: src/IndexBatchHelper.php:173
+msgid "An error occurred during indexing: @message"
+msgstr "Beim Indexieren ist ein Fehler aufgetreten: @message"
+
+#: src/IndexBatchHelper.php:201
+msgid "Couldn't index items. Check the logs for details."
+msgstr "Es konnten keine Elemente indiziert werden. Weitere Details in den Protokollen."
+
+#: src/IndexBatchHelper.php:206
+msgid "An error occurred while trying to index items. Check the logs for details."
+msgstr "Beim Versuch, Elemente zu indizieren, ist ein Fehler aufgetreten. Weitere Details in den Protokollen."
+
+#: src/IndexBatchHelper.php:159;188
+msgid "Successfully indexed 1 item."
+msgid_plural "Successfully indexed @count items."
+msgstr[0] "Ein Element erfolgreich indiziert."
+msgstr[1] "@count Elemente erfolgreich indiziert."
+
+#: src/IndexBatchHelper.php:194
+msgid "1 item could not be indexed. Check the logs for details."
+msgid_plural "@count items could not be indexed. Check the logs for details."
+msgstr[0] "Ein Element konnte nicht indiziert werden. Mehr dazu in den Protokollen."
+msgstr[1] "@count Elemente konnten nicht indiziert werden. Mehr dazu in den Protokollen."
+
+#: src/IndexListBuilder.php:68
+msgid "The required Node module is not installed on your site. Database Search Defaults module could not be installed."
+msgstr "Das benötigte Beitrags-Modul ist auf Ihrer Site nicht installiert. Das Modul Standard Datenbank-Suche konnte nicht installiert werden."
+
+#: src/IndexListBuilder.php:83
+msgid "Content type @content_type not found. Database Search Defaults module could not be installed."
+msgstr "Inhaltstyp @content_type nicht gefunden. Das Modul DStandard Datenbank-Suche konnte nicht installiert werden."
+
+#: src/IndexListBuilder.php:90
+msgid "Field @field in content type @node_type not found. Database Search Defaults module could not be installed"
+msgstr "Feld @field konnte im Inhaltstyp @node_type nicht gefunden. Das Modul Standard Datenbank-Suche konnte nicht installiert werden."
+
+#: src/IndexListBuilder.php:116
+msgid "It looks like the default setup provided by this module already exists on your site. Cannot re-install module."
+msgstr "Das von diesem Modul bereitgestellte Standard-Setup ist bereits auf der Website vorhanden. Das Modul kann nicht erneut installiert werden."
+
+#: src/IndexListBuilder.php:181
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
+#: src/IndexListBuilder.php:196
+msgid "Index"
+msgstr "Index"
+
+#: src/IndexListBuilder.php:213
+msgid "ID: @name"
+msgstr "ID: @name"
+
+#: src/IndexListBuilder.php:255
+msgid "Indexes not currently associated with any server"
+msgstr "Indizes, die derzeit keinem Server zugeordnet sind."
+
+#: src/IndexListBuilder.php:268
+msgid "There are no servers or indexes defined. For a quick start, we suggest you install the Database Search Defaults module."
+msgstr "Es sind keine Server oder Indizes definiert. Für einen schnellen Start empfehlen wir, das Modul Standard Datenbank-Suche zu installieren."
+
+#: src/IndexListBuilder.php:271
+msgid "There are no servers or indexes defined."
+msgstr "Es sind keine Server oder Indizes definiert."
+
+#: src/Backend/BackendPluginBase.php:220
+msgid "Deleting some of the items on the server failed. Check the logs for details. The server was still removed."
+msgstr "Das Löschen einiger Elemente auf dem Server ist fehlgeschlagen. Weitere Details in den Protokollen. Der Server wurde trotzdem entfernt."
+
+#: src/Backend/BackendPluginBase.php:17
+msgid "My backend"
+msgstr "Mein Backend"
+
+#: src/Backend/BackendPluginBase.php:17
+msgid "Searches with SuperSearch™."
+msgstr "Suche mit SuperSearch™."
+
+#: src/Controller/IndexController.php:160
+msgid "The search index %name has been enabled."
+msgstr "Der Suchindex %name wurde aktiviert."
+
+#: src/Controller/IndexController.php:164
+msgid "The search index %name could not be enabled. Check if its server is set and enabled."
+msgstr "Der Suchindex %name konnte nicht aktiviert werden. Überprüfen Sie, ob der Server konfiguriert und aktiviert ist."
+
+#: src/Controller/IndexController.php:197
+msgid "The field %field is locked and cannot be removed."
+msgstr "Das Feld %field ist gesperrt und kann nicht gelöscht werden."
+
+#: src/Controller/ServerController.php:112
+msgid "The search server %name has been enabled."
+msgstr "Der Such-Server %name wurde aktiviert."
+
+#: src/DataType/DataTypePluginBase.php:8
+msgid "My data type"
+msgstr "Mein Datentyp"
+
+#: src/DataType/DataTypePluginBase.php:8
+msgid "Some information about my data type"
+msgstr "Einige Informationen über meinen Datentyp"
+
+#: src/Datasource/DatasourcePluginBase.php:12
+msgid "My datasource"
+msgstr "Meine Datenquelle"
+
+#: src/Datasource/DatasourcePluginBase.php:12
+msgid "Exposes my custom items as a datasource."
+msgstr "Stellt meine benutzerdefinierten Elemente als Datenquelle zur Verfügung."
+
+#: src/Display/DisplayPluginBase.php:11
+msgid "My display"
+msgstr "Meine Anzeige"
+
+#: src/Display/DisplayPluginBase.php:11
+msgid "A few words about this search display"
+msgstr "Ein paar Worte über diese Suchanzeige"
+
+#: src/Entity/Index.php:903
+msgid "Could not load the following items on index %index: @items."
+msgstr "Konnte die folgenden Elemente beim Index %index nicht laden: @items."
+
+#: src/Entity/Index.php:28
+msgid "search index"
+msgstr "Suchindex"
+
+#: src/Entity/Index.php:28
+msgid "search indexes"
+msgstr "Suchindizes"
+
+#: src/Entity/Server.php:359;392
+msgid "Trying to delete items from index %index which is marked as read-only."
+msgstr "Es wurde versucht, Elemente aus dem Index %index zu löschen, der als schreibgeschützt markiert ist."
+
+#: src/Entity/Server.php:17
+msgid "Search servers"
+msgstr "Such-Server"
+
+#: src/Entity/Server.php:17
+msgid "search server"
+msgstr "Such-Server"
+
+#: src/Entity/Server.php:17
+msgid "search servers"
+msgstr "Such-Server"
+
+#: src/Entity/Task.php:162
+msgid "Task type"
+msgstr "Aufgabentyp"
+
+#: src/Entity/Task.php:173
+msgid "Index ID"
+msgstr "Index-ID"
+
+#: src/Entity/Task.php:178
+msgid "Task data"
+msgstr "Aufgaben-Daten"
+
+#: src/Entity/Task.php:12
+msgid "Search task"
+msgstr "Suchaufgabe"
+
+#: src/Entity/Task.php:12
+msgid "Search tasks"
+msgstr "Suchaufgaben"
+
+#: src/Entity/Task.php:12
+msgid "search task"
+msgstr "Suchaufgabe"
+
+#: src/Entity/Task.php:12
+msgid "search tasks"
+msgstr "Suchaufgaben"
+
+#: src/Form/FieldConfigurationForm.php:112
+msgid "Unknown field with ID \"@id\"."
+msgstr "Unbekannt Feld mit ID „@id“."
+
+#: src/Form/FieldConfigurationForm.php:118
+msgid "Edit field %field"
+msgstr "Feld %field bearbeiten"
+
+#: src/Form/FieldConfigurationForm.php:136
+msgid "Field %field is not configurable."
+msgstr "Feld %field ist nicht konfigurierbar."
+
+#: src/Form/FieldConfigurationForm.php:174 src/Form/IndexFieldsForm.php:405
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/FieldConfigurationForm.php:201
+msgid "The field configuration was successfully saved."
+msgstr "Der Feldkonfiguration wurde erfolgreich gespeichert."
+
+#: src/Form/IndexAddFieldsForm.php:171
+msgid "Add fields to index %index"
+msgstr "Felder zum Index %index hinzufügen"
+
+#: src/Form/IndexAddFieldsForm.php:206
+msgid "Skipped fields"
+msgstr "Übersprungene Felder"
+
+#: src/Form/IndexAddFieldsForm.php:210
+msgid "The following fields cannot be indexed since there is no type mapping for them:"
+msgstr "Die folgenden Felder können nicht indiziert werden, da für sie keine Typenzuordnung existiert:"
+
+#: src/Form/IndexAddFieldsForm.php:211
+msgid "If you think one of these fields should be available for indexing, please report this in the module's <a href=':url'>issue queue</a>. (Make sure to first search for an existing issue for this field.) Please note that entity-valued fields generally can be indexed by either indexing their parent reference field, or their child entity ID field."
+msgstr "Wenn Sie denken, dass eines dieser Felder zur Indizierung verfügbar sein sollte, melden Sie dies bitte in der <a href=':url'>Issue-Queue</a> des Moduls. (Suchen Sie zuerst nach einem bestehenden Problem für dieses Feld.) Beachten Sie bitte, dass Felder mit Entitätswerten entweder durch Indizieren ihres übergeordneten Referenzfelds oder ihres untergeordneten Entitäts-ID-Felds indiziert werden können."
+
+#: src/Form/IndexAddFieldsForm.php:244 src/Form/IndexFieldsForm.php:174 src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:199
+msgid "General"
+msgstr "Allgemein"
+
+#: src/Form/IndexAddFieldsForm.php:394
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/Form/IndexAddFieldsForm.php:450
+msgid "Done"
+msgstr "Fertig"
+
+#: src/Form/IndexAddFieldsForm.php:498
+msgid "Field %label was added to the index."
+msgstr "Das Feld %label wurde dem Index hinzugefügt."
+
+#: src/Form/IndexBreakLockForm.php:88
+msgid "Do you want to break the lock on search index %name?"
+msgstr "Soll die Sperre für den Suchindex %name aufgehoben werden?"
+
+#: src/Form/IndexBreakLockForm.php:101
+msgid "By breaking this lock, any unsaved changes made by @user will be lost."
+msgstr "Durch das Aufheben dieser Sperre gehen ungespeicherte Änderungen von @user verloren."
+
+#: src/Form/IndexBreakLockForm.php:123
+msgid "There is no lock on search index %name to break."
+msgstr "Es gibt keine Sperre für den Suchindex %name, die aufgehoben werden kann."
+
+#: src/Form/IndexBreakLockForm.php:135
+msgid "The lock has been broken. You may now edit this search index."
+msgstr "Die Sperre wurde aufgehoben. Sie können diesen Suchindex jetzt bearbeiten."
+
+#: src/Form/IndexClearConfirmForm.php:32
+msgid "Are you sure you want to clear the indexed data for the search index %name?"
+msgstr "Möchten Sie die indizierten Daten für den Index %name  wirklich löschen?"
+
+#: src/Form/IndexClearConfirmForm.php:39
+msgid "All indexed data for this index will be deleted from the search server. Searches on this index will not return any results until items are reindexed. This action cannot be undone."
+msgstr "Alle indizierten Daten für diesen Index werden vom Such-Server gelöscht. Bei Suchen mit diesem Index werden keine Ergebnisse zurückgeben, bis Elemente neu indiziert worden sind. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/IndexClearConfirmForm.php:59
+msgid "All items were successfully deleted from search index %name."
+msgstr "Alle Elemente wurden erfolgreich aus Suchindex %name gelöscht."
+
+#: src/Form/IndexClearConfirmForm.php:62
+msgid "Failed to clear the search index %name."
+msgstr "Der Suchindex %name konnte nicht gelöscht werden."
+
+#: src/Form/IndexDeleteConfirmForm.php:46
+msgid "Are you sure you want to delete the search index %name?"
+msgstr "Möchten Sie den Suchindex %name wirklich löschen?"
+
+#: src/Form/IndexDeleteConfirmForm.php:60 src/Form/ServerDeleteConfirmForm.php:67
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/IndexDeleteConfirmForm.php:68
+msgid "The search index %name has been removed."
+msgstr "Der Suchindex %name wurde entfernt."
+
+#: src/Form/IndexDisableConfirmForm.php:46
+msgid "Are you sure you want to disable the search index %name?"
+msgstr "Möchten Sie den, Suchindex %name wirklich deaktivieren?"
+
+#: src/Form/IndexDisableConfirmForm.php:53
+msgid "Searches on this index will stop working. Indexed data will be deleted from the server and will need to be reindexed when the index is enabled again."
+msgstr "Die Suche in diesem Index wird nicht mehr funktionieren. Indizierte Daten werden vom Server gelöscht und müssen bei erneuter Aktivierung des Index neu indiziert werden."
+
+#: src/Form/IndexDisableConfirmForm.php:67 src/Form/ServerDisableConfirmForm.php:67
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: src/Form/IndexDisableConfirmForm.php:78
+msgid "The search index %name has been disabled."
+msgstr "Der Suchindex %name wurde deaktiviert."
+
+#: src/Form/IndexFieldsForm.php:148
+msgid "Manage fields for search index %label"
+msgstr "Felder für den Suchindex %label verwalten"
+
+#: src/Form/IndexFieldsForm.php:153 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Add fields"
+msgstr "Felder hinzufügen"
+
+#: src/Form/IndexFieldsForm.php:170
+msgid "<p>The data type of a field determines how it can be used for searching and filtering. The boost is used to give additional weight to certain fields, for example titles or tags.</p> <p>For information about the data types available for indexing, see the <a href=\":url\">data types table</a> at the bottom of the page.</p>"
+msgstr "<p>Der Datentyp eines Feldes bestimmt, wie dieses Feld für die Suche und die Filterung verwendet werden kann. Die Beschleunigung wird verwendet, um bestimmte Felder bei der Indexierung zu priorisieren. Diese Funktion kann beispielsweise für Titel und Tags verwendet werden.</p> <p>Weitere Informationen über die für die Indexierung zur Verfügung stehenden Datentypen sind in der <a href=\":url\">Datentyptabelle</a> am Ende der Seite verfügbar.</p>"
+
+#: src/Form/IndexFieldsForm.php:203
+msgid "Data types"
+msgstr "Datentypen"
+
+#: src/Form/IndexFieldsForm.php:204
+msgid "The data types which can be used for indexing fields in this index. Whether a type is supported depends on the backend of the index's server. If a type is not supported, the fallback type that will be used instead is shown, too."
+msgstr "Die Datentypen, die für die Indexierung von Feldern in diesem Index verwendet werden können. Ob ein Typ unterstützt wird, hängt vom Backend des Index-Servers ab. Wenn ein Typ nicht unterstützt wird, wird auch der Fallback-Typ angezeigt, der stattdessen verwendet wird."
+
+#: src/Form/IndexFieldsForm.php:234
+msgid "Some of the used data types aren't supported by the server's backend. See the <a href=\":url\">data types table</a> to find out which types are supported."
+msgstr "Einige der verwendeten Datentypen werden vom Backend des Servers nicht unterstützt. In der <a href=\":url\">Tabelle der Datentypen</a> erfahren Sie, welche Typen unterstützt werden."
+
+#: src/Form/IndexFieldsForm.php:282 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/IndexFieldsForm.php:283 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/Form/IndexFieldsForm.php:285 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Property path"
+msgstr "Eigenschaftspfad"
+
+#: src/Form/IndexFieldsForm.php:291
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/IndexFieldsForm.php:378
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Form/IndexFieldsForm.php:397 config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: src/Form/IndexFieldsForm.php:429
+msgid "%field_id is a reserved value and cannot be used as the machine name of a normal field."
+msgstr "%field_id ist ein reservierter Wert und kann nicht als Systemname eines normalen Felds verwendet werden."
+
+#: src/Form/IndexFieldsForm.php:433
+msgid "Field IDs have to contain non-underscore characters."
+msgstr "Feld-IDs müssen Nicht-Unterstrich-Zeichen enthalten."
+
+#: src/Form/IndexFieldsForm.php:437
+msgid "Field IDs must contain only lowercase letters, numbers and underscores."
+msgstr "Feld-IDs dürfen nur Kleinbuchstaben, Zahlen und Unterstriche enthalten."
+
+#: src/Form/IndexFieldsForm.php:448
+msgid "Field ID %field_id is used multiple times. Field IDs must be unique."
+msgstr "Die Feld-ID %field_id wird mehrfach verwendet. Feld-IDs müssen eindeutig sein."
+
+#: src/Form/IndexFieldsForm.php:468
+msgid "The field with ID %field_id does not exist anymore."
+msgstr "Das Feld mit der ID %field_id existiert nicht mehr."
+
+#: src/Form/IndexFieldsForm.php:495
+msgid "The changes were successfully saved."
+msgstr "Die Änderungen wurden erfolgreich gespeichert."
+
+#: src/Form/IndexFieldsForm.php:498 src/Form/IndexProcessorsForm.php:336
+msgid "All content was scheduled for <a href=\":url\">reindexing</a> so the new settings can take effect."
+msgstr "Alle Inhalte wurden für die <a href=\":url\">Neuindexierung</a> eingereiht, damit die Einstellungen in Kraft treten können."
+
+#: src/Form/IndexForm.php:125
+msgid "Add search index"
+msgstr "Suchindex hinzufügen"
+
+#: src/Form/IndexForm.php:129
+msgid "Edit search index %label"
+msgstr "Suchindex bearbeiten %label"
+
+#: src/Form/IndexForm.php:151 config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Index name"
+msgstr "Index-Name"
+
+#: src/Form/IndexForm.php:152
+msgid "Enter the displayed name for the index."
+msgstr "Den angezeigten Namen für den Index eingeben."
+
+#: src/Form/IndexForm.php:172 config/optional/tour.tour.search-api-index-form.yml:0 config/optional/tour.tour.search-api-index.yml:0
+msgid "Datasources"
+msgstr "Datenquellen"
+
+#: src/Form/IndexForm.php:173
+msgid "Select one or more datasources of items that will be stored in this index."
+msgstr "Wählen Sie eine oder mehrere Datenquellen von Elementen zum Speichern in diesem Index aus."
+
+#: src/Form/IndexForm.php:208;257
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: src/Form/IndexForm.php:223
+msgid "Select the type of tracker which should be used for keeping track of item changes."
+msgstr "Wählen Sie den Typ des Trackers aus, der für die Verfolgung von Änderungen verwendet werden soll."
+
+#: src/Form/IndexForm.php:273
+msgid "Select the server this index should use. Indexes cannot be enabled without a connection to a valid, enabled server."
+msgstr "Den Server auswählen, den dieser Index verwenden soll. Indizes können nicht ohne Anbindung an einen gültigen, aktivierten Server aktiviert werden."
+
+#: src/Form/IndexForm.php:274
+msgid "- No server -"
+msgstr "- Kein Server -"
+
+#: src/Form/IndexForm.php:281
+msgid "Only enabled indexes can be used for indexing and searching. This setting will only take effect if the selected server is also enabled."
+msgstr "Nur aktivierte Indizes können für die Indizierung und Suche verwendet werden. Diese Einstellung ist nur wirksam, wenn der ausgewählte Server auch aktiv ist."
+
+#: src/Form/IndexForm.php:298
+msgid "Enter a description for the index."
+msgstr "Eine Beschreibung für den Index eingeben."
+
+#: src/Form/IndexForm.php:305
+msgid "Index options"
+msgstr "Index-Optionen"
+
+#: src/Form/IndexForm.php:314
+msgid "Read only"
+msgstr "Nur Lesen"
+
+#: src/Form/IndexForm.php:315
+msgid "Do not write to this index or track the status of items in this index."
+msgstr "Der Status von Elementen in diesem Index soll nicht verfolgt werden und der Index soll nicht verändert oder beschrieben werden."
+
+#: src/Form/IndexForm.php:322
+msgid "Immediately index new or updated items instead of waiting for the next cron run. This might have serious performance drawbacks and is generally not advised for larger sites."
+msgstr "Sofort neue oder aktualisierte Elemente indizieren, anstatt auf den nächsten Cron-Lauf zu warten. Dies kann zu erheblichen Leistungseinbußen führen und wird in der Regel für größere Websites nicht empfohlen."
+
+#: src/Form/IndexForm.php:328
+msgid "Set how many items will be indexed at once when indexing items during a cron run. \"0\" means that no items will be indexed by cron for this index, \"-1\" means that cron should index all items at once."
+msgstr "Legt fest, wie viele Elemente auf einmal indiziert werden sollen, wenn während eines Cron-Laufs Elemente indiziert werden. \"0\" bedeutet, dass für diesen Index keine Elemente während eines Cron-Laufs indiziert werden, \"-1\" bedeutet, dass während eines Cron-Laufs alle Elemente auf einmal indizieren werden."
+
+#: src/Form/IndexForm.php:372
+msgid "Configure the %datasource datasource"
+msgstr "Die Datenquelle %datasource konfigurieren"
+
+#: src/Form/IndexForm.php:380
+msgid "Please configure the used datasources."
+msgstr "Bitte die verwendeten Datenquellen konfigurieren."
+
+#: src/Form/IndexForm.php:404
+msgid "The tracker plugin is missing or invalid."
+msgstr "Das Tracker-Plugin fehlt oder ist ungültig."
+
+#: src/Form/IndexForm.php:427
+msgid "Configure the %plugin tracker"
+msgstr "Konfigurieren Sie den %plugin Tracker"
+
+#: src/Form/IndexForm.php:434
+msgid "Please configure the used tracker."
+msgstr "Bitte konfigurieren Sie den verwendeten Tracker."
+
+#: src/Form/IndexForm.php:562
+msgid "Save and add fields"
+msgstr "Speichern und Felder hinzufügen"
+
+#: src/Form/IndexForm.php:620
+msgid "The index was successfully saved."
+msgstr "Der Index wurde erfolgreich gespeichert."
+
+#: src/Form/IndexForm.php:636
+msgid "The index could not be saved."
+msgstr "Der Index konnte nicht gespeichert werden."
+
+#: src/Form/IndexProcessorsForm.php:133
+msgid "It is recommended not to use this processor with the selected server."
+msgstr "Es wird empfohlen, diesen Prozessor nicht mit dem ausgewählten Server zu nutzen."
+
+#: src/Form/IndexProcessorsForm.php:138
+msgid "Manage processors for search index %label"
+msgstr "Prozessoren für den Suchindex %label verwalten"
+
+#: src/Form/IndexProcessorsForm.php:139
+msgid "Configure processors which will pre- and post-process data at index and search time."
+msgstr "Konfigurieren von Prozessoren, die Daten zur Index- und Suchzeit vor- und nachverarbeiten."
+
+#: src/Form/IndexProcessorsForm.php:177 config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "Processor order"
+msgstr "Prozessorreihenfolge"
+
+#: src/Form/IndexProcessorsForm.php:225
+msgid "Weight for processor %title"
+msgstr "Reihenfolge für Prozessor %title"
+
+#: src/Form/IndexProcessorsForm.php:333
+msgid "The indexing workflow was successfully edited."
+msgstr "Der Indizierungs-Arbeitsablauf wurde erfolgreich bearbeitet."
+
+#: src/Form/IndexProcessorsForm.php:340
+msgid "No values were changed."
+msgstr "Es wurden keine Werte geändert."
+
+#: src/Form/IndexProcessorsForm.php:378
+msgid "Processor %id specifies a non-existing class %class."
+msgstr "Prozessor %id spezifiziert eine nicht existierende Klasse %class."
+
+#: src/Form/IndexRebuildTrackerConfirmForm.php:30
+msgid "Are you sure you want to rebuild the tracking data for the search index %name?"
+msgstr "Möchten Sie die Tracking-Daten für den Suchindex %name  wirklich neu aufbauen?"
+
+#: src/Form/IndexRebuildTrackerConfirmForm.php:37
+msgid "<p>The complete information about existing and indexed items for this index will be deleted and will have to be rebuilt.</p><p>This should usually not be necessary, but can help if some existing items aren't contained in the index's tracking data for whatever reason (in other words, when the total number of items to be indexed is less than it should be).</p><p>This action cannot be undone.</p>"
+msgstr "<p>Alle Informationen über existierende und indizierte Elemente für diesen Index werden gelöscht und müssen neu aufgebaut werden.</p><p>Dies sollte normalerweise nicht erforderlich sein, kann aber hilfreich sein, wenn einige existierende Elemente aus irgendeinem Grund nicht in den Tracking-Daten des Index enthalten sind (mit anderen Worten, wenn die Gesamtzahl der zu indizierenden Elemente kleiner ist, als sie sein sollte).</p><p>Diese Aktion kann nicht rückgängig gemacht werden.</p>"
+
+#: src/Form/IndexRebuildTrackerConfirmForm.php:55
+msgid "The tracking information for search index %name will be rebuilt."
+msgstr "Die Tracking-Informationen für Suchindex %name werden neu aufgebaut."
+
+#: src/Form/IndexReindexConfirmForm.php:48
+msgid "Are you sure you want to reindex the search index %name?"
+msgstr "Sind Sie sicher, dass der Suchindex %name neu indiziert werden soll?"
+
+#: src/Form/IndexReindexConfirmForm.php:55
+msgid "Indexed data will remain on the search server until all items have been reindexed. Searches on this index will continue to yield results. This action cannot be undone."
+msgstr "Indizierte Daten bleiben auf dem Suchserver, bis alle Elemente neu indiziert wurden. Die Suche in diesem Index führt weiterhin zu Ergebnissen. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/IndexReindexConfirmForm.php:74
+msgid "The search index %name was successfully queued for reindexing."
+msgstr "Der Suchindex %name wurde zur Neuindizierung erfolgreich in die Warteschlange gestellt."
+
+#: src/Form/IndexReindexConfirmForm.php:77
+msgid "Failed to queue items for reindexing on search index %name."
+msgstr "Elemente zur Neuindizierung beim Suchindex %name konnten nicht in die Warteschlange gestellt werden."
+
+#: src/Form/IndexStatusForm.php:98 config/optional/tour.tour.search-api-index.yml:0
+msgid "Track items for index"
+msgstr "Elemente für den Index erfassen"
+
+#: src/Form/IndexStatusForm.php:99
+msgid "Not all items have been tracked for this index. This means the displayed index status is incomplete and not all items will currently be indexed."
+msgstr "Nicht alle Elemente wurden für diesen Index erfasst. Dies bedeutet, dass der angezeigte Indexstatus unvollständig ist und nicht alle Elemente aktuell indiziert werden."
+
+#: src/Form/IndexStatusForm.php:107
+msgid "Track now"
+msgstr "Jetzt suchen"
+
+#: src/Form/IndexStatusForm.php:115 config/optional/tour.tour.search-api-index.yml:0
+msgid "Start indexing now"
+msgstr "Indizierung jetzt starten"
+
+#: src/Form/IndexStatusForm.php:122
+msgctxt "items to index"
+msgid "all"
+msgstr "Alle"
+
+#: src/Utility/CommandHelper.php:295
+msgid "all"
+msgstr "Alle"
+
+#: src/Form/IndexStatusForm.php:149
+msgid "Index @limit items in batches of @batch_size items"
+msgstr "Indizieren von @limit Elementen in Stapeln von @batch_size Elementen"
+
+#: src/Form/IndexStatusForm.php:162
+msgid "Number of items to index"
+msgstr "Anzahl zu indizierender Elemente"
+
+#: src/Form/IndexStatusForm.php:164
+msgid "Number of items per batch run"
+msgstr "Anzahl an Elementen pro Stapellauf"
+
+#: src/Form/IndexStatusForm.php:174
+msgid "Index now"
+msgstr "Indexierung starten"
+
+#: src/Form/IndexStatusForm.php:183 config/optional/tour.tour.search-api-index.yml:0
+msgid "Queue all items for reindexing"
+msgstr "Alle Elemente zur Neuindizierung in die Warteschlange stellen"
+
+#: src/Form/IndexStatusForm.php:189 config/optional/tour.tour.search-api-index.yml:0
+msgid "Clear all indexed data"
+msgstr "Alle indizierten Daten löschen"
+
+#: src/Form/IndexStatusForm.php:195
+msgid "Rebuild tracking information"
+msgstr "Messinformationen neu aufbauen"
+
+#: src/Form/IndexStatusForm.php:225
+msgid "Enter a non-zero integer. Use \"-1\" or \"@all\" for \"all items\"."
+msgstr "Geben Sie eine Ganzzahl ungleich Null ein. Verwenden Sie \"-1\" oder \"@all\" für \"alle Elemente\"."
+
+#: src/Form/IndexStatusForm.php:251
+msgid "Failed to create a batch, please check the batch size and limit."
+msgstr "Es konnte keine Batch erstellt werden, bitte überprüfen Sie die Batch-Größe und das Limit."
+
+#: src/Form/ServerClearConfirmForm.php:48
+msgid "Are you sure you want to clear all indexed data from the search server %name?"
+msgstr "Sind Sie sicher, dass alle indizierten Daten vom Such-Server %name gelöscht werden sollen?"
+
+#: src/Form/ServerClearConfirmForm.php:55
+msgid "This will permanently remove all data currently indexed on this server for indexes that aren't read-only. Items are queued for reindexing. Until reindexing occurs, searches for the affected indexes will not return any results. This action cannot be undone."
+msgstr "Hiermit werden alle Daten auf diesem Server für Indizes, die nicht schreibgeschützt sind, auf Dauer entfernt. Die Elemente werden zur Neuindizierung in die Warteschlange gestellt. Bis zur Neuindizierung geben Suchen für die betroffenen Indizes keine Ergebnisse zurück. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/ServerClearConfirmForm.php:74
+msgid "All indexed data was successfully deleted from the server."
+msgstr "Alle indexierten Daten wurden erfolgreich vom Server gelöscht."
+
+#: src/Form/ServerClearConfirmForm.php:77
+msgid "Indexed data could not be cleared for some indexes. Check the logs for details."
+msgstr "Indizierte Daten konnten für einige Indizes nicht gelöscht werden. Überprüfen Sie das Protokoll für Details."
+
+#: src/Form/ServerClearConfirmForm.php:105
+msgid "Failed to mark the following indexes for reindexing: @indexes. Check the logs for details."
+msgstr "Folgende Indizes konnten nicht für die Neuindizierung markiert werden: @indexes. Überprüfen Sie das Protokoll für Details."
+
+#: src/Form/ServerDeleteConfirmForm.php:46
+msgid "Are you sure you want to delete the search server %name?"
+msgstr "Sind Sie sicher, dass Sie den Such-Server %name löschen möchten?"
+
+#: src/Form/ServerDeleteConfirmForm.php:53
+msgid "Deleting a server will disable all its indexes and their searches."
+msgstr "Das Löschen eines Servers deaktiviert alle seine Indizes und Suchvorgänge."
+
+#: src/Form/ServerDeleteConfirmForm.php:75
+msgid "The search server %name has been deleted."
+msgstr "Der Suchserver %name wurde gelöscht."
+
+#: src/Form/ServerDisableConfirmForm.php:46
+msgid "Are you sure you want to disable the search server %name?"
+msgstr "Sind Sie sicher, dass Sie den Such-Server %name deaktivieren möchten?"
+
+#: src/Form/ServerDisableConfirmForm.php:53
+msgid "Disabling a server will also disable all attached indexes, clearing their tracking tables and indexed data. When re-enabling the server and its indexes, all data will have to be re-indexed. This action cannot be undone."
+msgstr "Das Deaktivieren eines Servers deaktiviert auch alle angehängten Indizes, löscht deren Tracking-Tabellen und indizierten Daten. Bei der Reaktivierung des Servers und seiner Indizes müssen alle Daten neu indiziert werden. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/ServerDisableConfirmForm.php:78
+msgid "The search server %name has been disabled."
+msgstr "Der Suchserver %name wurde deaktiviert."
+
+#: src/Form/ServerForm.php:79
+msgid "Add search server"
+msgstr "Suchserver hinzufügen"
+
+#: src/Form/ServerForm.php:82
+msgid "Edit search server %label"
+msgstr "Den Such-Server %label bearbeiten"
+
+#: src/Form/ServerForm.php:110 config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Server name"
+msgstr "Servername"
+
+#: src/Form/ServerForm.php:111
+msgid "Enter the displayed name for the server."
+msgstr "Den angezeigten Namen für den Server eingeben."
+
+#: src/Form/ServerForm.php:129
+msgid "Only enabled servers can index items or execute searches."
+msgstr "Nur aktivierte Server können Elemente indizieren oder Suchvorgänge ausführen."
+
+#: src/Form/ServerForm.php:135
+msgid "Enter a description for the server."
+msgstr "Eine Beschreibung für den Server eingeben."
+
+#: src/Form/ServerForm.php:166
+msgid "Backend"
+msgstr "Backend"
+
+#: src/Form/ServerForm.php:167
+msgid "Choose a backend to use for this server."
+msgstr "Ein Backend für diesen Server auswählen."
+
+#: src/Form/ServerForm.php:184
+msgid "There are no backend plugins available for the Search API. Please install a <a href=\":url\">module that provides a backend plugin</a> to proceed."
+msgstr "Für die Such-API sind keine Backend-Plugins verfügbar. Bitte installieren Sie ein <a href=\"@url\">Modul, das ein Backend-Plugin bereitstellt</a>, um fortzufahren."
+
+#: src/Form/ServerForm.php:218
+msgid "Please configure the selected backend."
+msgstr "Bitte ausgewähltes Backend konfigurieren."
+
+#: src/Form/ServerForm.php:226
+msgid "Configure %plugin backend"
+msgstr "%plugin Backend konfigurieren"
+
+#: src/Form/ServerForm.php:233
+msgid "The backend plugin is missing or invalid."
+msgstr "Das Backend-Plugin fehlt oder ist ungültig."
+
+#: src/Form/ServerForm.php:324
+msgid "The server was successfully saved."
+msgstr "Der Server wurde erfolgreich gespeichert."
+
+#: src/Form/ServerForm.php:334
+msgid "The server could not be saved."
+msgstr "Der Server konnte nicht gespeichert werden."
+
+#: src/Form/ServerStatusForm.php:80
+msgid "Pending server tasks"
+msgstr "Ausstehende Server-Tasks"
+
+#: src/Form/ServerStatusForm.php:85
+msgid "Pending tasks are created when operations on the server, such as deleting one or more items, cannot be executed because the server is currently unavailable (which will usually also create an entry in the Drupal logs). They are automatically tried again before any other operation is executed and the operation is aborted if the tasks could still not be executed, or if there are too many pending tasks to be executed in a single page request. In the latter case, you can use this form to manually execute all tasks and thus unblock the server again."
+msgstr "Ausstehende Tasks werden erzeugt, wenn Operationen auf dem Server, z. B. Löschen von Elementen, nicht ausgeführt werden können, weil der Server gerade nicht verfügbar ist (wobei gewöhnlich auch ein Eintrag in den Drupal-Protokollen entsteht). Sie werden automatisch erneut versucht, bevor eine andere Operation ausgeführt wird, und die Operation wird abgebrochen, wenn die Tasks immer noch nicht ausgeführt werden konnten oder wenn zu viele Tasks in einer Anforderung auf einer einzigen Seite auszuführen sind. Im letzteren Fall können Sie über dieses Formular alle Tasks von Hand ausführen und so die Blockierung des Servers aufheben."
+
+#: src/Form/ServerStatusForm.php:89
+msgid "Execute tasks now"
+msgstr "Tasks jetzt ausführen"
+
+#: src/Form/ServerStatusForm.php:98
+msgid "Delete all indexed data on this server"
+msgstr "Alle indizierten Daten auf diesem Server löschen"
+
+#: src/Form/ServerStatusForm.php:73
+msgid "There is currently @count task pending for this server."
+msgid_plural "There are currently @count tasks pending for this server."
+msgstr[0] "Für diesen Server steht aktuell @count Task aus."
+msgstr[1] "Für diesen Server stehen aktuell @count Tasks aus."
+
+#: src/Form/UnsavedConfigurationFormTrait.php:85
+msgid "This index is being edited by user @user, and is therefore locked from editing by others. This lock is @age old. Click here to <a href=\":url\">break this lock</a>."
+msgstr "Der Index wird vom Benutzer @user bearbeitet und ist daher für die Bearbeitung durch Dritte gesperrt. Diese Sperre ist @age alt. Hier klicken, um <a href=\":url\">diese Sperre zu lösen</a>."
+
+#: src/Form/UnsavedConfigurationFormTrait.php:99
+msgid "You have unsaved changes."
+msgstr "Es sind nicht gespeicherte Änderungen vorhanden."
+
+#: src/ParseMode/ParseModePluginBase.php:8
+msgid "My parse mode"
+msgstr "Mein Parse-Modus"
+
+#: src/ParseMode/ParseModePluginBase.php:8
+msgid "Some information about my parse mode"
+msgstr "Ein paar Informationen zu Mein Parse-Modus"
+
+#: src/Plugin/DataType/Html.php:5
+msgid "HTML text (Search API)"
+msgstr "HTML-Text (Search API)"
+
+#: src/Plugin/DataType/Text.php:7
+msgid "Text (Search API)"
+msgstr "Text (Search API)"
+
+#: src/Plugin/search_api/data_type/BooleanDataType.php:7
+msgid "Boolean"
+msgstr "Boolesch"
+
+#: src/Plugin/search_api/data_type/BooleanDataType.php:7
+msgid "Boolean fields can only have one of two values: true or false."
+msgstr "Boolesche Felder können nur einen von zwei Werten haben: wahr oder falsch."
+
+#: src/Plugin/search_api/data_type/DateDataType.php:9
+msgid "Date"
+msgstr "Datum"
+
+#: src/Plugin/search_api/data_type/DateDataType.php:9
+msgid "Represents points in time."
+msgstr "Stellt Zeitpunkte dar."
+
+#: src/Plugin/search_api/data_type/DecimalDataType.php:7
+msgid "Decimal"
+msgstr "Dezimalzahl"
+
+#: src/Plugin/search_api/data_type/DecimalDataType.php:7
+msgid "Contains numeric, typically non-integer values."
+msgstr "Enthält numerische, typischerweise nicht ganzzahlige Werte."
+
+#: src/Plugin/search_api/data_type/IntegerDataType.php:7
+msgid "Integer"
+msgstr "Ganzzahl"
+
+#: src/Plugin/search_api/data_type/IntegerDataType.php:7
+msgid "Contains integer values."
+msgstr "Enthält ganzzahlige Werte."
+
+#: src/Plugin/search_api/data_type/StringDataType.php:7
+msgid "String"
+msgstr "Zeichenkette"
+
+#: src/Plugin/search_api/data_type/StringDataType.php:7
+msgid "String fields are used for short, keyword-like character strings where you only want to find complete field values, not individual words."
+msgstr "Zeichenkettenfelder werden für kurze, schlüsselwortähnliche Zeichenketten verwendet, bei denen Sie nur ganze Feldwerte und keine einzelnen Wörter finden wollen."
+
+#: src/Plugin/search_api/data_type/TextDataType.php:8
+msgid "Fulltext"
+msgstr "Volltext"
+
+#: src/Plugin/search_api/data_type/TextDataType.php:8
+msgid "Fulltext fields are analyzed fields which are made available for fulltext search. This data type should be used for any fields (usually with free text input by users) which you want to search for individual words."
+msgstr "Volltextfelder sind analysierte Felder, die für die Volltextsuche zur Verfügung gestellt werden. Dieser Datentyp sollte für alle Felder (in der Regel mit Freitext-Eingabe durch Benutzer) verwendet werden, in denen Sie nach einzelnen Wörtern suchen möchten."
+
+#: src/Plugin/search_api/datasource/ContentEntity.php:529
+msgid "Which bundles should be indexed?"
+msgstr "Welche Subtypen sollten indiziert werden?"
+
+#: src/Plugin/search_api/datasource/ContentEntity.php:531;556
+msgid "Only those selected"
+msgstr "Nur die ausgewählten"
+
+#: src/Plugin/search_api/datasource/ContentEntity.php:532;557
+msgid "All except those selected"
+msgstr "Alle außer den gewählten"
+
+#: src/Plugin/search_api/datasource/ContentEntity.php:554
+msgid "Which languages should be indexed?"
+msgstr "Welche Sprachen sollten indiziert werden?"
+
+#: src/Plugin/search_api/datasource/ContentEntityDeriver.php:86
+msgid "Provides %entity_type entities for indexing and searching."
+msgstr "Stellt %entity_type-Entitäten für die Indizierung und Suche zur Verfügung."
+
+#: src/Plugin/search_api/display/ViewsDisplayDeriver.php:86
+msgid "View %view_name, display %display_title"
+msgstr "%view_name anzeigen, %display_title darstellen"
+
+#: src/Plugin/search_api/display/ViewsDisplayDeriver.php:99
+msgid "%view_description – Represents the display %display_title of view %view_name."
+msgstr "%view_description – Stellt die Anzeige %display_title der Ansicht %view_name dar."
+
+#: src/Plugin/search_api/display/ViewsDisplayDeriver.php:102
+msgid "Represents the display %display_title of view %view_name."
+msgstr "Stellt die Anzeige %display_title der Ansicht %view_name dar."
+
+#: src/Plugin/search_api/parse_mode/Direct.php:7
+msgid "Direct query"
+msgstr "Direkte Abfrage"
+
+#: src/Plugin/search_api/parse_mode/Direct.php:7
+msgid "Don't parse the query, just hand it to the search server unaltered. Might fail if the query contains syntax errors in regard to the specific server's query syntax."
+msgstr "Die Suchanfrage nicht analysieren, sondern unverändert an den Suchserver übergeben. Kann fehlschlagen, wenn die Abfrage Syntaxfehler in Bezug auf die Such-Syntax des jeweiligen Servers enthält."
+
+#: src/Plugin/search_api/parse_mode/Phrase.php:7
+msgid "Single phrase"
+msgstr "Einzelner Satz"
+
+#: src/Plugin/search_api/parse_mode/Phrase.php:7
+msgid "The query is interpreted as a single phrase, possibly containing spaces or special characters, that should appear exactly like this in the results."
+msgstr "Die Suchanfrage wird als einzelner Satz interpretiert. Sie enthält möglicherweise Leer- oder Sonderzeichen, die genau so in den Ergebnissen erscheinen sollten."
+
+#: src/Plugin/search_api/parse_mode/Terms.php:7 src/Plugin/views/filter/SearchApiFulltext.php:71
+msgid "Multiple words"
+msgstr "Mehrere Wörter"
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:202
+msgid "Select the fields to which hierarchical data should be added."
+msgstr "Wählen Sie die Felder aus, zu den hierarchische Daten hinzugefügt werden sollen."
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:214
+msgid "Hierarchy property to use"
+msgstr "Zu verwendende Hierarchieeigenschaft"
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:215
+msgid "This field has several nested properties which look like they might contain hierarchy data for the field. Please pick the one that should be used."
+msgstr "Dieses Feld hat mehrere verschachtelte Eigenschaften, die so aussehen, als würden sie Hierarchiedaten für das Feld enthalten. Bitte eine zur Verwendung auswählen."
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:242
+msgid "You need to select a nested property to use for the hierarchy data."
+msgstr "Sie müssen eine verschachtelte Eigenschaft zur Verwendung der Hierarchiedaten auswählen."
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:251
+msgid "You need to select at least one field for which to add hierarchy data."
+msgstr "Sie müssen mindestens ein Feld auswählen, zu dem Hierarchiedaten hinzugefügt werden sollen."
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:19
+msgid "Index hierarchy"
+msgstr "Hierarchie indizieren"
+
+#: src/Plugin/search_api/processor/AddHierarchy.php:19
+msgid "Allows the indexing of values along with all their ancestors for hierarchical fields (like taxonomy term references)"
+msgstr "Erlaubt das Indizieren von Werten zusammen mit allen Vorfahren für hierarchische Felder (wie Taxonomiebegriffsreferenzen)"
+
+#: src/Plugin/search_api/processor/AddURL.php:34
+msgid "URI"
+msgstr "URI"
+
+#: src/Plugin/search_api/processor/AddURL.php:35
+msgid "A URI where the item can be accessed"
+msgstr "Die lokale Speicheradresse, um auf das Element zuzugreifen"
+
+#: src/Plugin/search_api/processor/AddURL.php:10
+msgid "URL field"
+msgstr "URL-Feld"
+
+#: src/Plugin/search_api/processor/AddURL.php:10
+msgid "Adds the item's URL to the indexed data."
+msgstr "Fügt die URL des Elements zu den indizierten Daten hinzu."
+
+#: src/Plugin/search_api/processor/AggregatedFields.php:37
+msgid "Aggregated field"
+msgstr "Aggregiertes Feld"
+
+#: src/Plugin/search_api/processor/AggregatedFields.php:38
+msgid "An aggregation of multiple other fields."
+msgstr "Eine Zusammenfassung mehrerer anderer Felder."
+
+#: src/Plugin/search_api/processor/AggregatedFields.php:11
+msgid "Aggregated fields"
+msgstr "Aggregierte Felder"
+
+#: src/Plugin/search_api/processor/AggregatedFields.php:11
+msgid "Add customized aggregations of existing fields to the index."
+msgstr "Fügt dem Index benutzerdefinierte Zusammenfassungen vorhandener Felder hinzu."
+
+#: src/Plugin/search_api/processor/ContentAccess.php:135
+msgid "Node access information"
+msgstr "Zugriffsinformationen für Inhalte"
+
+#: src/Plugin/search_api/processor/ContentAccess.php:136
+msgid "Data needed to apply node access."
+msgstr "Benötigte Daten für den Zugriff auf den Beitrag."
+
+#: src/Plugin/search_api/processor/ContentAccess.php:332
+msgid "You have no access to any results in this search."
+msgstr "Sie haben keinen Zugriff auf Ergebnisse in dieser Suche."
+
+#: src/Plugin/search_api/processor/ContentAccess.php:259
+msgid "An illegal user UID was given for node access: @uid."
+msgstr "Es wurde eine illegale Benutzer-UID für den Zugriff auf den Beitrag vergeben: @uid."
+
+#: src/Plugin/search_api/processor/ContentAccess.php:23
+msgid "Content access"
+msgstr "Inhaltszugriff"
+
+#: src/Plugin/search_api/processor/ContentAccess.php:23
+msgid "Adds content access checks for nodes and comments."
+msgstr "Fügt Zugriffskontrollen für Beiträge und Kommentare hinzu."
+
+#: src/Plugin/search_api/processor/EntityStatus.php:10
+msgid "Entity status"
+msgstr "Entitätsstatus"
+
+#: src/Plugin/search_api/processor/Highlight.php:151
+msgid "Highlight returned field data"
+msgstr "Hervorheben der zurückgegebenen Feld-Daten"
+
+#: src/Plugin/search_api/processor/Highlight.php:152
+msgid "Select whether returned fields should be highlighted."
+msgstr "Auswählen, ob zurückgegebene Felder hervorgehoben werden sollen."
+
+#: src/Plugin/search_api/processor/Highlight.php:154
+msgid "Always"
+msgstr "Immer"
+
+#: src/Plugin/search_api/processor/Highlight.php:155
+msgid "If the server returns fields"
+msgstr "Wenn der Server Felder zurückgibt"
+
+#: src/Plugin/search_api/processor/Highlight.php:156
+msgid "Never"
+msgstr "Nie"
+
+#: src/Plugin/search_api/processor/Highlight.php:162
+msgid "Highlight partial matches"
+msgstr "Teilweise Übereinstimmungen hervorheben"
+
+#: src/Plugin/search_api/processor/Highlight.php:163
+msgid "When enabled, matches in parts of words will be highlighted as well."
+msgstr "Falls aktiviert, werden auch Übereinstimmungen in Wortteilen hervorgehoben."
+
+#: src/Plugin/search_api/processor/Highlight.php:168
+msgid "Create excerpt"
+msgstr "Auszug erstellen"
+
+#: src/Plugin/search_api/processor/Highlight.php:174
+msgid "Excerpt length"
+msgstr "Länge des Auszugs"
+
+#: src/Plugin/search_api/processor/Highlight.php:194
+msgid "Exclude fields from excerpt"
+msgstr "Felder aus dem Auszug ausschließen"
+
+#: src/Plugin/search_api/processor/Highlight.php:195
+msgid "Exclude certain fulltext fields from being included in the excerpt."
+msgstr "Bestimmte Volltextfelder aus dem Auszug ausschließen."
+
+#: src/Plugin/search_api/processor/Highlight.php:209
+msgid "Highlighting prefix"
+msgstr "Hervorheben des Präfixes."
+
+#: src/Plugin/search_api/processor/Highlight.php:215
+msgid "Highlighting suffix"
+msgstr "Hervorhebung des Suffixes"
+
+#: src/Plugin/search_api/processor/Highlight.php:656
+msgid "… @excerpt … @excerpt …"
+msgstr "… @excerpt … @excerpt …"
+
+#: src/Plugin/search_api/processor/Highlight.php:16
+msgid "Highlight"
+msgstr "Hervorheben"
+
+#: src/Plugin/search_api/processor/Highlight.php:16
+msgid "Adds a highlighted excerpt to results and highlights returned fields."
+msgstr "Fügt den Ergebnissen einen Auszug mit Hervorhebung hinzu und hebt die zurückgegebenen Felder hervor."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:95
+msgid "Index title attribute"
+msgstr "Titel-Attribut indexieren"
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:96
+msgid "If set, the contents of title attributes will be indexed."
+msgstr "Wenn aktiviert, wird der Inhalt der Titel-Attribute indiziert."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:102
+msgid "Index alt attribute"
+msgstr "Alt-Attribut indexieren"
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:103
+msgid "If set, the alternative text of images will be indexed."
+msgstr "Wenn aktiviert, wird der alternative Text von Bildern indiziert."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:116
+msgid "Specify special boost values for certain HTML elements, in <a href=\":url\">YAML file format</a>. The boost values of nested elements are multiplied, elements not mentioned will have the default boost value of 1. Assign a boost of 0 to ignore the text content of that HTML element."
+msgstr "Geben Sie spezielle Verstärkungswerte für bestimmte HTML-Elemente im <a href=\":url\">YAML-Dateiformat</a> an. Die Verstärkungswerte der verschachtelten Elemente werden multipliziert, nicht vorkommende Elemente haben den Standard-Verstärkungswert 1. Weisen Sie einen Verstärkungswert von 0 zu, um den Textinhalt dieses HTML-Elements zu ignorieren."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:139;144
+msgid "Tags is not a valid YAML map. See @link for information on how to write correctly formed YAML."
+msgstr "Tags ist keine gültige YAML-Syntax. Siehe @link für Informationen, wie man korrekt formatiertes YAML schreibt."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:150
+msgid "Boost value for tag @tag can't be an array."
+msgstr "Der Verstärkungswert für das Tag @tag kann kein Array sein."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:153
+msgid "Boost value for tag @tag must be numeric."
+msgstr "Der Verstärkungswert für das Tag @tag muss numnerisch sein."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:156
+msgid "Boost value for tag @tag must be non-negative."
+msgstr "Der Verstärkungswert für das Tag @tag darf nicht negativ sein."
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:18
+msgid "HTML filter"
+msgstr "HTML-Filter"
+
+#: src/Plugin/search_api/processor/HtmlFilter.php:18
+msgid "Strips HTML tags from fulltext fields and decodes HTML entities. Use this processor when indexing HTML data – for example, node bodies for certain text formats. The processor also allows to boost (or ignore) the contents of specific elements."
+msgstr "Entfernt HTML-Tags aus Volltextfeldern und dekodiert HTML-Entitäten. Verwenden Sie diesen Prozessor zum Indizieren von HTML-Daten – z. B. Beitrags-Textkörper bestimmter Textformate. Mit dem Prozessor können Sie die Inhalte spezifischer Elemente verstärken (oder ignorieren)."
+
+#: src/Plugin/search_api/processor/IgnoreCase.php:9
+msgid "Ignore case"
+msgstr "Groß- und Kleinschreibung ignorieren"
+
+#: src/Plugin/search_api/processor/IgnoreCase.php:9
+msgid "Makes searches case-insensitive on selected fields."
+msgstr "Macht die Suche in ausgewählten Feldern unabhängig von Groß- und Kleinschreibung."
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:62
+msgid "Strip by regular expression"
+msgstr "Durch reguläre Ausdrücke entfernen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:63
+msgid "Specify characters which should be removed from fulltext fields and search strings, as a <a href=\":url\">PCRE regular expression</a>."
+msgstr "Geben Sie die Zeichen an, die aus Volltextfeldern und Suchbegriffen entfernt werden sollen, als <a href=\":url\">PCRE Regulärer Ausdruck</a>."
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:71
+msgid "Strip by character property"
+msgstr "Durch Charakter-Eigenschaft entfernen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:72
+msgid "Specify <a href=\":url\">Unicode character properties</a> of characters to be ignored."
+msgstr "Geben Sie <a href=\"@url\">Unicode-Zeicheneigenschaften</a> von Zeichen an, die ignoriert werden sollen."
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:80
+msgid "Ignored character properties"
+msgstr "Ignorierte Charakter-Eigenschaften"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:98
+msgid "The entered text is no valid regular expression."
+msgstr "Der eingegebene Text ist kein gültiger regulärer Ausdruck."
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:142
+msgid "Punctuation, Connector Characters"
+msgstr "Satzzeichen, Verbindungszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:143
+msgid "Punctuation, Dash Characters"
+msgstr "Satzzeichen, Bindestriche"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:144
+msgid "Punctuation, Close Characters"
+msgstr "Interpunktion, Schlusszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:145
+msgid "Punctuation, Final quote Characters"
+msgstr "Satzzeichen, schleißende Anführungszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:146
+msgid "Punctuation, Initial quote Characters"
+msgstr "Satzzeichen, einleitende Anführungszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:147
+msgid "Punctuation, Other Characters"
+msgstr "Satzzeichen, andere Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:148
+msgid "Punctuation, Open Characters"
+msgstr "Satzzeichen, Offene Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:150
+msgid "Other, Control Characters"
+msgstr "Sonstige, Steuerzeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:151
+msgid "Other, Format Characters"
+msgstr "Sonstige, Formatierungszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:152
+msgid "Other, Private Use Characters"
+msgstr "Andere, für den Privatgebrauch bestimmte Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:154
+msgid "Mark, Spacing Combining Characters"
+msgstr "Markieren, Leerzeichen, Kombinationen von Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:155
+msgid "Mark, Enclosing Characters"
+msgstr "Markieren, eingefügte Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:156
+msgid "Mark, Nonspacing Characters"
+msgstr "Markieren, keine Leerzeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:158
+msgid "Symbol, Currency Characters"
+msgstr "Symbol, Währungszeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:159
+msgid "Symbol, Modifier Characters"
+msgstr "Symbol, Modifikatorzeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:160
+msgid "Symbol, Math Characters"
+msgstr "Symbol, mathematische Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:161
+msgid "Symbol, Other Characters"
+msgstr "Symbol, andere Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:163
+msgid "Separator, Line Characters"
+msgstr "Trennzeichen, Zeilenzeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:164
+msgid "Separator, Paragraph Characters"
+msgstr "Trennzeichen, Absatz-Zeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:165
+msgid "Separator, Space Characters"
+msgstr "Separator, Leerzeichen"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:9
+msgid "Ignore characters"
+msgstr "Zeichen ignorieren"
+
+#: src/Plugin/search_api/processor/IgnoreCharacters.php:9
+msgid "Configure types of characters which should be ignored for searches."
+msgstr "Konfigurieren Sie Zeichentypen, die bei der Suche ignoriert werden sollen."
+
+#: src/Plugin/search_api/processor/LanguageWithFallback.php:112;15
+msgid "Language (with fallback)"
+msgstr "Sprache (mit Ersatzsprache)"
+
+#: src/Plugin/search_api/processor/LanguageWithFallback.php:113
+msgid "The item language, or a language the item is a fallback for."
+msgstr "Die Elementsprache oder eine Sprache, für die das Element eine Ersatzsprache hat."
+
+#: src/Plugin/search_api/processor/LanguageWithFallback.php:15
+msgid "Adds the item's language to the indexed data, and considers language fallbacks."
+msgstr "Fügt die Sprache des Elements zu den indizierten Daten hinzu und berücksichtigt Ersatzsprachen."
+
+#: src/Plugin/search_api/processor/RenderedItem.php:217
+msgid "Rendered HTML output"
+msgstr "Gerenderte HTML-Ausgabe"
+
+#: src/Plugin/search_api/processor/RenderedItem.php:218
+msgid "The complete HTML which would be displayed when viewing the item"
+msgstr "Das vollständige HTML, das beim Anzeigen des Elements angezeigt wird"
+
+#: src/Plugin/search_api/processor/RenderedItem.php:306
+msgid "Warning: While indexing items on search index %index, @count item(s) did not have a view mode configured for one or more \"Rendered item\" fields."
+msgstr "Warnung: Beim Indizieren von Elementen zum Suchindex %index war bei @count Elementen für ein oder mehrere Felder „gerenderte Elemente“ kein Ansichtsmodus konfiguriert."
+
+#: src/Plugin/search_api/processor/RenderedItem.php:19
+msgid "Adds an additional field containing the rendered item as it would look when viewed."
+msgstr "Fügt ein zusätzliches Feld hinzu, das das gerenderte Element so enthält, wie es bei der Ansicht aussehen würde."
+
+#: src/Plugin/search_api/processor/ReverseEntityReferences.php:252
+msgid "Reverse reference: %entity_type using %property"
+msgstr "Umgekehrte Referenz: %entity_type verwendet %property"
+
+#: src/Plugin/search_api/processor/ReverseEntityReferences.php:253
+msgid "All %entity_type entities that reference this item via the %property field."
+msgstr "Alle Entitäten vom Typ %entity_type die diesen Eintrag über das Feld %property referenzieren."
+
+#: src/Plugin/search_api/processor/ReverseEntityReferences.php:24
+msgid "Reverse entity references"
+msgstr "Umgekehrte Entitätsreferenzen"
+
+#: src/Plugin/search_api/processor/ReverseEntityReferences.php:24
+msgid "Allows indexing of entities that link to the indexed entity."
+msgstr "Erlaubt das Indizieren von Entitäten, die auf die indizierte Entität verlinken."
+
+#: src/Plugin/search_api/processor/RoleFilter.php:64
+msgid "Which users should be indexed?"
+msgstr "Welche Benutzer sollen indexiert werden?"
+
+#: src/Plugin/search_api/processor/RoleFilter.php:66
+msgid "All but those from one of the selected roles"
+msgstr "Alle außer denen aus einer der ausgewählten Rollen"
+
+#: src/Plugin/search_api/processor/RoleFilter.php:67
+msgid "Only those from the selected roles"
+msgstr "Nur die aus den ausgewählten Rollen"
+
+#: src/Plugin/search_api/processor/RoleFilter.php:73
+msgid "Roles"
+msgstr "Rollen"
+
+#: src/Plugin/search_api/processor/RoleFilter.php:14
+msgid "Role filter"
+msgstr "Rollenfilter"
+
+#: src/Plugin/search_api/processor/RoleFilter.php:14
+msgid "Filters out users based on their role."
+msgstr "Filtert Benutzer anhand ihrer Rolle aus."
+
+#: src/Plugin/search_api/processor/Stemmer.php:55
+msgid "If the <a href=\"http://snowball.tartarus.org/algorithms/english/stemmer.html\">algorithm</a> does not stem words in your dataset in the desired way, you can enter specific exceptions in the form of WORD=STEM, where \"WORD\" is the original word in the text and \"STEM\" is the resulting stem. List each exception on a separate line."
+msgstr "Wenn der <a href=\"http://snowball.tartarus.org/algorithms/english/stemmer.html\">Algorithmus</a> die Wörter im Datensatz nicht in der gewünschten Weise ableitet, können Sie spezifische Ausnahmen in Form von WORD=STEM eingeben, wobei \"WORD\" das Originalwort im Text und \"STEM\" der resultierende Wortstamm ist. Listen Sie jede Ausnahme in einer separaten Zeile auf."
+
+#: src/Plugin/search_api/processor/Stemmer.php:62
+msgid "Exceptions"
+msgstr "Ausnahmen"
+
+#: src/Plugin/search_api/processor/Stemmer.php:79
+msgid "The entered text is not in valid WORD=STEM format."
+msgstr "Der eingegebene Text ist nicht im gültigen WORD=STEM-Format."
+
+#: src/Plugin/search_api/processor/Stemmer.php:10
+msgid "Stemmer"
+msgstr "Stemmer"
+
+#: src/Plugin/search_api/processor/Stopwords.php:78
+msgid "Enter a list of stopwords, each on a separate line, that will be removed from content before it is indexed and from search terms before searching. <a href=\":url\">More info about stopwords.</a>."
+msgstr "Geben Sie eine Liste von Stoppwörtern ein, die jeweils in einer separaten Zeile stehen und vor der Indizierung aus dem Inhalt und vor der Suche aus den Suchbegriffen entfernt werden. <a href=\":url\">Mehr Informationen über Stoppwörter.</a>."
+
+#: src/Plugin/search_api/processor/Stopwords.php:82;9
+msgid "Stopwords"
+msgstr "Stoppwörter"
+
+#: src/Plugin/search_api/processor/Stopwords.php:9
+msgid "Allows you to define stopwords which will be ignored in searches. <strong>Caution:</strong> Only use after both 'Ignore case' and 'Tokenizer' have run."
+msgstr "Ermöglicht, Stoppwörter zu definieren, die bei der Suche ignoriert werden. <strong>Vorsicht:</strong> Erst nach dem Ausführen von 'Groß-/Kleinschreibung ignorieren' und 'Tokenizer' verwenden."
+
+#: src/Plugin/search_api/processor/Tokenizer.php:71
+msgid "Whitespace characters"
+msgstr "Leerzeichen"
+
+#: src/Plugin/search_api/processor/Tokenizer.php:72
+msgid "Specify the characters that should be regarded as whitespace and therefore used as word-delimiters. Specify the characters as the inside of a <a href=\":pcre-url\">PCRE character class</a>. Leave empty to use a <a href=\":doc-url\">default</a> which should be suitable for most languages with a Latin alphabet."
+msgstr "Geben Sie die Zeichen an, die als Leerzeichen betrachtet und daher als Wort Begrenzer verwendet werden sollen. Geben Sie die Zeichen als das Innere einer <a href=\"@pcre-url\">PCRE-Zeichenklasse</a> an. Lassen Sie das Feld leer, um einen <a href=\":doc-url\">Standard</a> zu verwenden, der für die meisten Sprachen mit lateinischem Alphabet geeignet sein sollte."
+
+#: src/Plugin/search_api/processor/Tokenizer.php:78
+msgid "Simple CJK handling"
+msgstr "Vereinfachte Behandlung des Chinesischen, Japanischen und Koreanischen"
+
+#: src/Plugin/search_api/processor/Tokenizer.php:80
+msgid "Whether to apply a simple Chinese/Japanese/Korean tokenizer based on overlapping sequences. Does not affect other languages."
+msgstr "Ob ein einfacher chinesischer, japanischer oder koreanischer Tokenizer basierend auf überlappenden Sequenzen angewendet werden soll. Beeinflusst nicht andere Sprachen."
+
+#: src/Plugin/search_api/processor/Tokenizer.php:85
+msgid "Minimum word length to index"
+msgstr "Minimale Wortlänge, die indiziert werden soll"
+
+#: src/Plugin/search_api/processor/Tokenizer.php:89
+msgid "The number of characters a word has to be to be indexed. A lower setting means better search result ranking, but also a larger database. Each search query must contain at least one keyword that is this size (or longer)."
+msgstr "Die minimale Anzahl der Zeichen die ein Wort lang sein muss, um indexiert zu werden. Ein niedrigerer Wert bedeutet ein besseres Ranking der Suchergebnisse, aber auch eine größere Datenbank. Jede Suchanfrage muss mindestens ein Stichwort enthalten, das genauso lang ist wie es dieser Wert vorgibt (oder länger)."
+
+#: src/Plugin/search_api/processor/Tokenizer.php:103
+msgid "The entered text is no valid PCRE character class."
+msgstr "Der eingegebene Text ist keine gültige PCRE-Zeichenklasse."
+
+#: src/Plugin/search_api/processor/Tokenizer.php:13
+msgid "Tokenizer"
+msgstr "Tokenizer"
+
+#: src/Plugin/search_api/processor/Tokenizer.php:13
+msgid "Splits text into individual words for searching."
+msgstr "Teilt Text in einzelne Wörter für die Suche."
+
+#: src/Plugin/search_api/processor/Transliteration.php:10
+msgid "Transliteration"
+msgstr "Transliteration"
+
+#: src/Plugin/search_api/processor/Transliteration.php:10
+msgid "Makes searches insensitive to accents and other non-ASCII characters."
+msgstr "Macht die Suche unabhängig von Akzenten und anderen Nicht-ASCII-Zeichen."
+
+#: src/Plugin/search_api/processor/TypeBoost.php:61
+msgid "Use datasource default"
+msgstr "Standarddatenquelle verwenden"
+
+#: src/Plugin/search_api/processor/TypeBoost.php:78
+msgid "Boost settings for %datasource"
+msgstr "Boost-Einstellungen für %datasource"
+
+#: src/Plugin/search_api/processor/TypeBoost.php:82
+msgid "Default boost for items from this datasource"
+msgstr "Standard-Boost für Elemente aus dieser Datenquelle"
+
+#: src/Plugin/search_api/processor/TypeBoost.php:84
+msgid "A boost of 1 is the default. Assign a boost of 0 to not score the item at all."
+msgstr "Standard ist ein Boost von 1. Weisen Sie einen Boost von 0 zu, um dieses Element überhaupt nicht zu bewerten."
+
+#: src/Plugin/search_api/processor/TypeBoost.php:103
+msgid "Boost for the %bundle bundle"
+msgstr "Boost für den Subtyp %bundle"
+
+#: src/Plugin/search_api/processor/TypeBoost.php:10
+msgid "Type-specific boosting"
+msgstr "Typenspezifische Verstärkung"
+
+#: src/Plugin/search_api/processor/TypeBoost.php:10
+msgid "Adds a boost to indexed items based on their datasource and/or bundle."
+msgstr "Fügt zu indizierten Elementen einen Boost auf der Grundlage ihrer Datenquelle bzw. ihres Subtyps hinzu."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:44
+msgid "Aggregation type"
+msgstr "Zusammenfassungstyp"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:56
+msgid "Contained fields"
+msgstr "Enthaltene Felder"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:80
+msgid "Machine name: @name"
+msgstr "Systemname: @name"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:143
+msgid "A @type aggregation of the following fields: @fields."
+msgstr "Eine @type -Aggregation der folgenden Felder: @fields."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:161
+msgid "Union"
+msgstr "Vereinigung"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:162
+msgid "Concatenation"
+msgstr "Verkettung"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:163
+msgid "Sum"
+msgstr "Summe"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:164
+msgid "Count"
+msgstr "Anzahl"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:165
+msgid "Maximum"
+msgstr "Maximum"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:166
+msgid "Minimum"
+msgstr "Minimum"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:167
+msgid "First"
+msgstr "Ersten"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:168
+msgid "Last"
+msgstr "Letztes"
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:173
+msgid "The Union aggregation does an union operation of all the values of the field. 2 fields with 2 values each become 1 field with 4 values."
+msgstr "Die Union-Aggregation führt eine Union-Operation aller Werte des Feldes durch. Aus 2 Feldern mit je 2 Werten wird 1 Feld mit 4 Werten."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:174
+msgid "The Concatenation aggregation concatenates the text data of all contained fields."
+msgstr "Die Aggregation der Verknüpfung verknüpft die Texte aller enthaltenen Felder."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:175
+msgid "The Sum aggregation adds the values of all contained fields numerically."
+msgstr "Die Summen-Aggregation addiert die Werte aller enthaltenen Felder numerisch."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:176
+msgid "The Count aggregation takes the total number of contained field values as the aggregated field value."
+msgstr "Die Zähl-Aggregation nimmt die Gesamtzahl der enthaltenen Feldwerte als aggregierten Feldwert."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:177
+msgid "The Maximum aggregation computes the numerically largest contained field value."
+msgstr "Die maximale Aggregation berechnet den numerisch größten, enthaltenen Feldwert."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:178
+msgid "The Minimum aggregation computes the numerically smallest contained field value."
+msgstr "Die minimale Aggregation berechnet den numerisch kleinsten, enthaltenen Feldwert."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:179
+msgid "The First aggregation will simply keep the first encountered field value."
+msgstr "Die erste Aggregation behält einfach den ersten gefundenen Feldwert bei."
+
+#: src/Plugin/search_api/processor/Property/AggregatedFieldProperty.php:180
+msgid "The Last aggregation will keep the last encountered field value."
+msgstr "Die letzte Aggregation behält den letzten gefundenen Feldwert."
+
+#: src/Plugin/search_api/processor/Property/RenderedItemProperty.php:41
+msgid "User roles"
+msgstr "Benutzerrollen"
+
+#: src/Plugin/search_api/processor/Property/RenderedItemProperty.php:42
+msgid "Your item will be rendered as seen by a user with the selected roles. We recommend to just use \"@anonymous\" here to prevent data leaking out to unauthorized roles."
+msgstr "Das Element wird so dargestellt, wie es von einem Benutzer mit den ausgewählten Rollen gesehen wird. Wir empfehlen, hier nur \"@anonymous\" zu verwenden, um zu verhindern, dass Daten an nicht autorisierte Rollen weitergegeben werden."
+
+#: src/Plugin/search_api/processor/Property/RenderedItemProperty.php:51
+msgid "You can choose the view modes to use for rendering the items of different datasources and bundles. We recommend using a dedicated view mode (for example, the \"Search index\" view mode available by default for content) to make sure that only relevant data (especially no field labels) will be included in the index."
+msgstr "Sie können die Ansichtsmodi zum Rendern der Elemente verschiedener Datenquellen und Subtypen wählen. Wir empfehlen einen dedizierten Ansichtsmodus (z. B. den standardmäßig für Inhalte verfügbaren Ansichtsmodus „Suchindex“), um sicher zu stellen, dass im Index nur relevante Daten (insbesondere keine Feldbeschriftungen) einbezogen werden."
+
+#: src/Plugin/search_api/processor/Property/RenderedItemProperty.php:59
+msgid "Don't include the rendered item."
+msgstr "Fügen Sie das gerenderte Element nicht hinzu."
+
+#: src/Plugin/search_api/processor/Property/RenderedItemProperty.php:63
+msgid "View mode for %datasource » %bundle"
+msgstr "Ansichtsmodus für %datasource >> %bundle"
+
+#: src/Plugin/search_api/tracker/Basic.php:126
+msgid "The order in which items will be indexed."
+msgstr "Die Reihenfolge, in der Elemente indiziert werden."
+
+#: src/Plugin/search_api/tracker/Basic.php:128
+msgid "Index items in the same order in which they were saved"
+msgstr "Elemente in der Reihenfolge indizieren, in der sie gespeichert wurden"
+
+#: src/Plugin/search_api/tracker/Basic.php:129
+msgid "Index the most recent items first"
+msgstr "Neuste Elemente zuerst indizieren"
+
+#: src/Plugin/search_api/tracker/Basic.php:15
+msgid "Default index tracker which uses a simple database table for tracking items."
+msgstr "Standard-Indextracker, der zum Tracken der Elemente eine einfache Datenbanktabelle verwendet."
+
+#: src/Plugin/views/argument/SearchApiAllTerms.php:49
+msgid "No valid taxonomy term IDs given for \"All taxonomy term fields\" contextual filter."
+msgstr "Keine gültigen Taxonomiebegriffs-IDs für das Kontextfilter „Alle Taxonomiebegriffsfelder“ angegeben."
+
+#: src/Plugin/views/argument/SearchApiAllTerms.php:87
+msgid "\"All taxonomy term fields\" contextual filter could not be applied as taxonomy term %label (ID: @id) belongs to vocabulary %vocabulary, not contained in any indexed fields."
+msgstr "Das Kontextfilter „Alle Taxonomiebegriffsfelder“ konnte nicht angewandt werden, da Taxonomiebegriff %label (ID: @id) zum Vokabular %vocabulary gehört, das in keinem indizierten Feld enthalten ist."
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:83 src/Plugin/views/filter/SearchApiFulltext.php:142
+msgid "Choose how the search keys will be parsed."
+msgstr "Wählen Sie, wie die Suchbegriffe ausgewertet werden sollen."
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:107 src/Plugin/views/filter/SearchApiFulltext.php:166
+msgid "Searched fields"
+msgstr "Durchsuchte Felder"
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:108 src/Plugin/views/filter/SearchApiFulltext.php:167
+msgid "Select the fields that will be searched. If no fields are selected, all available fulltext fields will be searched."
+msgstr "Wählen Sie die Felder aus, die durchsucht werden sollen. Wenn keine Felder ausgewählt sind, werden alle verfügbaren Volltextfelder durchsucht."
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:115
+msgid "Operator"
+msgstr "Operator"
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:116
+msgid "Determines how multiple keywords entered for the search will be combined."
+msgstr "Legt fest, wie mehrere für die Suche eingegebene Schlüsselworte kombiniert werden."
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:119 src/Plugin/views/filter/SearchApiFulltext.php:101
+msgid "Contains all of these words"
+msgstr "Enthält jedes dieser Wörter"
+
+#: src/Plugin/views/argument/SearchApiFulltext.php:120 src/Plugin/views/filter/SearchApiFulltext.php:106
+msgid "Contains any of these words"
+msgstr "Enthält eines dieser Worte"
+
+#: src/Plugin/views/argument/SearchApiMoreLikeThis.php:49
+msgid "Fields for similarity"
+msgstr "Felder für Ähnlichkeiten"
+
+#: src/Plugin/views/argument/SearchApiMoreLikeThis.php:50
+msgid "Select the fields that will be used for finding similar content. If no fields are selected, all available fields will be used."
+msgstr "Wählen Sie die Felder aus, die für die Suche nach ähnlichen Inhalten verwendet werden sollen. Wenn keine Felder ausgewählt sind, werden alle verfügbaren Felder verwendet."
+
+#: src/Plugin/views/argument/SearchApiMoreLikeThis.php:73
+msgid "The search backend \"@backend_id\" does not offer \"More like this\" functionality."
+msgstr "Das Such-Backend \"@backend_id\" bietet keine \"Mehr wie diese\" Funktionalität."
+
+#: src/Plugin/views/argument/SearchApiStandard.php:74
+msgid "Allow multiple values"
+msgstr "Mehrfacheinträge erlauben"
+
+#: src/Plugin/views/argument/SearchApiStandard.php:75
+msgid "If selected, users can enter multiple values in the form of 1+2+3 (for OR) or 1,2,3 (for AND)."
+msgstr "Benutzer können mehrfache Werte der Form 1+2+3 (für ODER) oder 1,2,3 (für UND) eingeben."
+
+#: src/Plugin/views/argument/SearchApiStandard.php:83
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: src/Plugin/views/argument/SearchApiStandard.php:84
+msgid "If selected, the values entered for the filter will be excluded rather than limiting the view to those values."
+msgstr "Wenn ausgewählt, werden die für den Filter eingegebenen Werte ausgeschlossen, anstatt die Ansicht auf diese Werte zu beschränken."
+
+#: src/Plugin/views/cache/SearchApiTagCache.php:12
+msgid "Search API (tag-based)"
+msgstr "Such-API (Tag-basiert)"
+
+#: src/Plugin/views/cache/SearchApiTagCache.php:12
+msgid "Cache results until the associated cache tags are invalidated. Useful for small sites that use the database search backend. <strong>Caution:</strong> Can lead to stale results and might harm performance for complex search pages."
+msgstr "Cache-Ergebnisse, bis die zugehörigen Cache-Tags invalidiert sind. Nützlich für kleine Websites, die das Datenbank-Such-Backend verwenden. <strong>Achtung:</strong> Kann zu veralteten Ergebnissen führen und die Performance bei komplexen Suchseiten beeinträchtigen."
+
+#: src/Plugin/views/cache/SearchApiTimeCache.php:7
+msgid "Search API (time-based)"
+msgstr "Such-API (zeitbasiert)"
+
+#: src/Plugin/views/cache/SearchApiTimeCache.php:7
+msgid "Cache results for a predefined time period. Useful for sites that use external search engines such as Solr, or index multiple datasources. <strong>Caution:</strong> Will lead to stale results and might harm performance for complex search pages."
+msgstr "Cache-Ergebnisse für einen vorgegebenen Zeitraum. Nützlich für Websites, die externe Suchmaschinen wie Solr nutzen oder mehrere Datenquellen indizieren. <strong>Vorsicht:</strong> Liefert veraltete Ergebnisse und kann bei komplexen Suchseiten die Leistung beeinträchtigen."
+
+#: src/Plugin/views/field/SearchApiEntity.php:104
+msgid "Display for \"@bundle\" bundle"
+msgstr "Anzeige für \"@bundle\"-Subtyp"
+
+#: src/Plugin/views/field/SearchApiEntity.php:106
+msgid "Hide"
+msgstr "Ausblenden"
+
+#: src/Plugin/views/field/SearchApiEntity.php:107
+msgid "Raw ID"
+msgstr "Ungefilterte ID"
+
+#: src/Plugin/views/field/SearchApiEntity.php:108
+msgid "Only label"
+msgstr "Nur Beschriftung"
+
+#: src/Plugin/views/field/SearchApiEntity.php:117
+msgid "Entity view"
+msgstr "Entitätsansicht"
+
+#: src/Plugin/views/field/SearchApiEntity.php:121
+msgid "View mode for \"@bundle\" bundle"
+msgstr "Ansichtsmodus für \"@bundle\"-Subtyp"
+
+#: src/Plugin/views/field/SearchApiEntity.php:151
+msgid "This will only take effect for entities for which only the entity label is displayed."
+msgstr "Dies wird nur für Entitäten wirksam, für die nur das Label der Entität angezeigt wird."
+
+#: src/Plugin/views/field/SearchApiEntityField.php:169
+msgid "If checked, Drupal's built-in field rendering mechanism will be used for rendering this field's values, which requires the entity to be loaded. If unchecked, a type-specific, entity-independent rendering mechanism will be used."
+msgstr "Wenn diese Option aktiviert ist, wird Drupals integrierter Felddarstellungsmechanismus für das Darstellen der Werte dieses Feldes verwendet, was das Laden der Entität erfordert. Wenn dieses Kontrollkästchen deaktiviert ist, wird ein typspezifischer, entitätsunabhängiger Darstellungs-Mechanismus verwendet."
+
+#: src/Plugin/views/field/SearchApiEntityField.php:177;221
+msgid "Render settings"
+msgstr "Darstellungseinstellungen"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:253
+msgid "Link this field to its item"
+msgstr "Verknüpfen Sie dieses Feld mit seinem Element"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:254
+msgid "Display this field as a link to its original entity or item."
+msgstr "Zeigen Sie dieses Feld als Link zu seiner ursprünglichen Entität oder seinem ursprünglichen Element an."
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:261
+msgid "Display field with matches of the search keywords highlighted, if available."
+msgstr "Feld mit Übereinstimmungen der hervorgehobenen Suchbegriffe anzeigen, falls verfügbar."
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:268
+msgid "Multiple values handling"
+msgstr "Verarbeitung mehrerer Werte"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:269
+msgid "If this field contains multiple values for an item, these settings will determine how they are handled."
+msgstr "Wenn dieses Feld mehrere Werte für ein Element enthält, bestimmen diese Einstellungen, wie diese behandelt werden."
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:275
+msgid "Display type"
+msgstr "Anzeigetyp"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:277
+msgid "Unordered list"
+msgstr "Aufzählung mit Aufzählungszeichen"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:278
+msgid "Ordered list"
+msgstr "Nummerierte Aufzählung"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:279
+msgid "Simple separator"
+msgstr "Einfaches Trennzeichen"
+
+#: src/Plugin/views/field/SearchApiFieldTrait.php:287
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:82 src/Plugin/views/row/SearchApiRow.php:118
+msgid "View mode for datasource %name"
+msgstr "Ansichtsmodus für Datenquelle %name"
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:83
+msgid "This datasource doesn't have any view modes available. It is therefore not possible to display results of this datasource in this field."
+msgstr "Diese Datenquelle verfügt über keine Ansichtsmodi. Es ist daher nicht möglich, Ergebnisse dieser Datenquelle in diesem Feld anzuzeigen."
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:89 src/Plugin/views/row/SearchApiRow.php:125
+msgid "View mode for datasource %datasource, bundle %bundle"
+msgstr "Ansichtsmodus für die Datenquelle %datasource, Subtyp %bundle"
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:95 src/Plugin/views/row/SearchApiRow.php:131
+msgid "This bundle doesn't have any view modes available. It is therefore not possible to display results of this bundle using this row plugin."
+msgstr "In diesem Subtyp sind keine Ansichtsmodi verfügbar. Es ist daher nicht möglich, die Ergebnisse dieses Subtyps mit diesem Zeilen-Plugin anzuzeigen."
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:128 src/Plugin/views/row/SearchApiRow.php:180
+msgid "Failed to load item %item_id in view %view."
+msgstr "Element %item_id konnte nicht in der Ansicht %view geladen werden."
+
+#: src/Plugin/views/field/SearchApiRenderedItem.php:138 src/Plugin/views/row/SearchApiRow.php:189
+msgid "Item of unknown datasource %datasource returned in view %view."
+msgstr "Element der unbekannten Datenquelle %datasource wurde von der Ansicht %view zurückgegeben."
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:71
+msgid "Depending on the parse mode set, some of these options might not work as expected. Please either use \"@multiple_words\" as the parse mode or make sure that the filter behaves as expected for multiple words."
+msgstr "Je nach eingestelltem Parse-Modus können einige dieser Optionen nicht wie erwartet funktionieren. Bitte entweder „@multiple_words“ als Parse-Modus verwenden oder überprüfen, dass sich das Filter bei mehreren Wörtern wie erwartet verhält."
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:102 src/Plugin/views/filter/SearchApiUser.php:35
+msgid "and"
+msgstr "und"
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:107 src/Plugin/views/filter/SearchApiUser.php:27
+msgid "or"
+msgstr "oder"
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:111
+msgid "Contains none of these words"
+msgstr "Enthält keines dieser Worte"
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:112 src/Plugin/views/filter/SearchApiUser.php:43
+msgid "not"
+msgstr "nicht"
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:185
+msgid "Minimum keyword length"
+msgstr "Minimale Schlüsselwortlänge"
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:186
+msgid "Minimum length of each word in the search keys. Leave empty to allow all words."
+msgstr "Minimale Länge jedes Wortes in den Suchbegriffen. Lassen Sie das Feld leer, um alle Wörter zu erlauben."
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:204
+msgid "Hint text that appears inside the field when empty."
+msgstr "Hinweistext, der im Feld angezeigt wird, wenn das Feld leer ist."
+
+#: src/Plugin/views/filter/SearchApiFulltext.php:283
+msgid "You must include at least one positive keyword with @count characters or more."
+msgstr "Es muss mindestens ein gültiges Stichwort in der Suchanfrage verwendet werden, das mindestens @count oder mehr Zeichen enthält."
+
+#: src/Plugin/views/filter/SearchApiText.php:20
+msgid "contains"
+msgstr "enthält"
+
+#: src/Plugin/views/filter/SearchApiText.php:21
+msgid "doesn't contain"
+msgstr "enthält nicht"
+
+#: src/Plugin/views/filter/SearchApiUser.php:26
+msgid "Is one of"
+msgstr "Ist eines von"
+
+#: src/Plugin/views/filter/SearchApiUser.php:28;36
+msgid "="
+msgstr "="
+
+#: src/Plugin/views/filter/SearchApiUser.php:34
+msgid "Is all of"
+msgstr "Ist alles von"
+
+#: src/Plugin/views/filter/SearchApiUser.php:42
+msgid "Is none of"
+msgstr "Ist keines von"
+
+#: src/Plugin/views/filter/SearchApiUser.php:44
+msgid "<>"
+msgstr "<>"
+
+#: src/Plugin/views/filter/SearchApiUser.php:50
+msgid "Is empty (NULL)"
+msgstr "Ist leer (NULL)"
+
+#: src/Plugin/views/filter/SearchApiUser.php:52
+msgid "empty"
+msgstr "Leer"
+
+#: src/Plugin/views/filter/SearchApiUser.php:56
+msgid "Is not empty (NOT NULL)"
+msgstr "Ist nicht leer (NOT NULL)"
+
+#: src/Plugin/views/filter/SearchApiUser.php:58
+msgid "not empty"
+msgstr "nicht leer"
+
+#: src/Plugin/views/query/SearchApiQuery.php:377
+msgid "Skip item access checks"
+msgstr "Zugriffskontrolle für Element überspringen"
+
+#: src/Plugin/views/query/SearchApiQuery.php:378
+msgid "By default, an additional access check will be executed for each item returned by the search query. However, since removing results this way will break paging and result counts, it is preferable to configure the view in a way that it will only return accessible results. If you are sure that only accessible results will be returned in the search, or if you want to show results to which the user normally wouldn't have access, you can enable this option to skip those additional access checks. This should be used with care."
+msgstr "Standardmäßig erfolgt für jedes von der Suchanfrage zurückgegebene Element eine zusätzliche Zugriffskontrolle. Da jedoch das Entfernen von Ergebnissen in dieser Weise die Paginierung und die Ergebniszählung verfälscht, sollte die Ansicht vorzugsweise so konfiguriert werden, dass sie nur zugängliche Ergebnisse zurückgibt. Wenn Sie sicher sind, dass die Suche nur zugängliche Ergebnisse zurückgibt, oder Ergebnisse zeigen wollen, auf die der Benutzer normalerweise keinen Zugriff haben sollte, können Sie diese Option aktivieren, um diese zusätzlichen Zugriffskontrollen zu überspringen. Diese Option sollte mit Vorsicht eingesetzt werden."
+
+#: src/Plugin/views/query/SearchApiQuery.php:385
+msgid "Bypass access checks"
+msgstr "Zugriffskontrolle umgehen"
+
+#: src/Plugin/views/query/SearchApiQuery.php:386
+msgid "If the underlying search index has access checks enabled (for example, through the \"Content access\" processor), this option allows you to disable them for this view. This will never disable any filters placed on this view."
+msgstr "Falls beim zugrunde liegenden Suchindex die Zugriffskontrollen aktiviert sind (z. B. über den Prozessor „Inhaltszugriff“), können Sie sie für diese Ansicht mit dieser Option deaktivieren. Dabei werden niemals Filter für diese Ansicht deaktiviert."
+
+#: src/Plugin/views/query/SearchApiQuery.php:394
+msgid "Preserve facets while using filters"
+msgstr "Facetten beim Einsatz von Filtern erhalten"
+
+#: src/Plugin/views/query/SearchApiQuery.php:1239
+msgid "Tried to sort results randomly on server %server which does not support random sorting."
+msgstr "Es wurde versucht, die Ergebnisse zufällig auf dem Server %server zu sortieren, der keine zufällige Sortierung unterstützt."
+
+#: src/Plugin/views/query/SearchApiQuery.php:31
+msgid "Search API Query"
+msgstr "Search-API-Abfrage"
+
+#: src/Plugin/views/query/SearchApiQuery.php:31
+msgid "The query will be generated and run using the Search API."
+msgstr "Die Abfrage, die von der Such-API generiert und ausgeführt wird."
+
+#: src/Plugin/views/relationship/SearchApiRelationship.php:67
+msgid "Skip access checks"
+msgstr "Zugriffsprüfungen überspringen"
+
+#: src/Plugin/views/relationship/SearchApiRelationship.php:68
+msgid "Do not verify that the user has access to the entities referenced through this relationship. This will allow you to display data to the user to which they normally would not have access. This should therefore be used with care."
+msgstr "Überprüfen Sie nicht, ob der Benutzer Zugriff auf die Entitäten hat, auf die in dieser Beziehung verwiesen wird. Auf diese Weise können Sie dem Benutzer Daten anzeigen, auf die er normalerweise keinen Zugriff hätte. Diese sollte daher mit Vorsicht verwendet werden."
+
+#: src/Plugin/views/row/SearchApiRow.php:119
+msgid "This datasource doesn't have any view modes available. It is therefore not possible to display results of this datasource using this row plugin."
+msgstr "Diese Datenquelle verfügt über keine Ansichtsmodi. Es ist daher nicht möglich, Ergebnisse dieser Datenquelle mit diesem Zeilen-Plugin anzuzeigen."
+
+#: src/Plugin/views/row/SearchApiRow.php:16
+msgid "Rendered entity"
+msgstr "Dargestellte Entität"
+
+#: src/Plugin/views/row/SearchApiRow.php:16
+msgid "Displays entity of the matching search API item"
+msgstr "Zeigt die Entität des passenden Such-API-Eintrags an"
+
+#: src/Processor/FieldsProcessorPluginBase.php:209
+msgid "Enable on all supported fields"
+msgstr "Bei allen unterstützten Feldern aktivieren"
+
+#: src/Processor/FieldsProcessorPluginBase.php:210
+msgid "Enable this processor for all supported fields. This will also automatically update the setting when new supported fields are added to the index."
+msgstr "Diesen Prozessor für alle unterstützten Felder aktivieren. Dies führt auch automatisch zu einer Aktualisierung der Einstellung, wenn dem Index neue unterstützte Felder hinzugefügt werden."
+
+#: src/Processor/FieldsProcessorPluginBase.php:222
+msgid "Enable this processor on the following fields"
+msgstr "Den Prozessor für die folgenden Felder aktivieren"
+
+#: src/Processor/FieldsProcessorPluginBase.php:223
+msgid "Note: The Search API currently doesn't support per-field keywords processing, so this setting will be ignored when preprocessing search keywords. It is therefore usually recommended that you enable the processor for all fields that you intend to use as fulltext search fields, to avoid undesired consequences."
+msgstr "Hinweis: Die Such-API unterstützt aktuell keine Schlüsselwortverarbeitung pro Feld. Daher wird diese Einstellung bei der Vorverarbeitung von Suchbegriffen ignoriert. Es wird deshalb gewöhnlich empfohlen, diesen Prozessor für alle Felder zu aktivieren, die Sie als Volltextsuchfelder verwenden wollen, um unerwünschte Folgen zu vermeiden."
+
+#: src/Processor/ProcessorPluginBase.php:16
+msgid "My Processor"
+msgstr "Mein Prozessor"
+
+#: src/Processor/ProcessorPluginBase.php:16
+msgid "Does … something."
+msgstr "Macht.... etwas."
+
+#: src/Processor/ProcessorPluginManager.php:64
+msgid "Preprocess index"
+msgstr "Den Index vorverarbeiten"
+
+#: src/Processor/ProcessorPluginManager.php:67
+msgid "Preprocess query"
+msgstr "Die Warteschlange vorverarbeiten"
+
+#: src/Processor/ProcessorPluginManager.php:70
+msgid "Postprocess query"
+msgstr "Nachbearbeitungswarteschlange"
+
+#: src/Task/TaskManager.php:382
+msgid "An error occurred while trying to execute tasks. Check the logs for details."
+msgstr "Beim Ausführen von Aufgaben ist ein Fehler aufgetreten. Überprüfen Sie die Protokolle für Details."
+
+#: src/Task/TaskManager.php:355;373
+msgid "Successfully executed @count pending task."
+msgid_plural "Successfully executed @count pending tasks."
+msgstr[0] "@count ausstehender Task wurde erfolgreich ausgeführt."
+msgstr[1] "@count ausstehende Tasks wurden erfolgreich ausgeführt."
+
+#: src/Tracker/TrackerPluginBase.php:7
+msgid "My tracker"
+msgstr "Mein Tracker"
+
+#: src/Tracker/TrackerPluginBase.php:7
+msgid "Simple tracking system."
+msgstr "Einfaches Tracking-System."
+
+#: src/Utility/CommandHelper.php:125;503;668
+msgid "enabled"
+msgstr "aktiviert"
+
+#: src/Utility/CommandHelper.php:209
+msgid "There are no indexes defined. Please create an index before trying to enable it."
+msgstr "Es sind keine Indizes definiert. Erzeugen Sie bitte einen Index, bevor Sie versuchen, ihn zu aktivieren."
+
+#: src/Utility/CommandHelper.php:215
+msgid "You must specify at least one index to enable."
+msgstr "Es muss mindestens ein Index angegeben werden, der aktiviert werden soll."
+
+#: src/Utility/CommandHelper.php:237
+msgid "There are no indexes defined. Please create an index before trying to disable it."
+msgstr "Es sind keine Indizes definiert. Erzeugen Sie bitte einen Index, bevor Sie versuchen, ihn zu deaktivieren."
+
+#: src/Utility/CommandHelper.php:243
+msgid "You must specify at least one index to disable."
+msgstr "Es muss mindestens ein Index angegeben werden, der deaktiviert werden soll."
+
+#: src/Utility/CommandHelper.php:289
+msgid "The index @index is up to date."
+msgstr "Der Index @index ist auf dem neuesten Stand."
+
+#: src/Utility/CommandHelper.php:298
+msgid "Found @remaining items to index for @index. Indexing @limit items."
+msgstr "Es wurden @remaining Elemente gefunden, die für den @index indiziert werden müssen. Indizierung von @limit Elementen."
+
+#: src/Utility/CommandHelper.php:323
+msgid "Indexing a maximum number of @limit items (@batch_size items per batch run) for the index '@index'."
+msgstr "Indexierung einer maximalen Anzahl von @limit Elementen (@batch_size Elemente pro Batchlauf) für den Index '@index'."
+
+#: src/Utility/CommandHelper.php:331
+msgid "Couldn't create a batch, please check the batch size and limit parameters."
+msgstr "Ein Stapel konnte nicht erstellt werden, bitte überprüfen Sie die Stapelgröße und die Grenzwerte."
+
+#: src/Utility/CommandHelper.php:382
+msgid "The following datasources of !index were successfully scheduled for reindexing: !datasources."
+msgstr "Die folgenden Datenquellen von !index wurden erfolgreich für die Neuindizierung eingeplant: !datasources."
+
+#: src/Utility/CommandHelper.php:386
+msgid "!index was successfully scheduled for reindexing."
+msgstr "!index wurde erfolgreich für die Neuindizierung eingeplant."
+
+#: src/Utility/CommandHelper.php:415
+msgid "@index was successfully cleared."
+msgstr "@index wurde erfolgreich gelöscht."
+
+#: src/Utility/CommandHelper.php:445
+msgid "@index was not found"
+msgstr "@index wurde nicht gefunden"
+
+#: src/Utility/CommandHelper.php:495
+msgid "There are no servers present."
+msgstr "Es sind keine Server vorhanden."
+
+#: src/Utility/CommandHelper.php:524;545;567
+msgid "The server could not be loaded."
+msgstr "Der Server konnte nicht geladen werden."
+
+#: src/Utility/CommandHelper.php:597
+msgid "Invalid index ID \"@index_id\"."
+msgstr "Ungültige Index-ID \"@index_id\"."
+
+#: src/Utility/CommandHelper.php:600
+msgid "Invalid server ID \"@server_id\"."
+msgstr "Ungültige Server-ID \"@server_id\"."
+
+#: src/Utility/CommandHelper.php:609
+msgid "Index @index has been set to use server @server and items have been queued for indexing."
+msgstr "Der Index @index wurde so eingestellt, dass hierfür der Server @server verwendet wird. die enthaltenen Elemente wurden zur Verarbeitung vorgemerkt."
+
+#: src/Utility/CommandHelper.php:613
+msgid "There was an error setting index @index to use server @server, or this index is already configured to use this server."
+msgstr "Beim Konfigurieren des Index @index  zur Verwendung des Serves @server trat ein Fehler auf oder der index ist bereits so konfiguert, dass er diesen Server verwendet."
+
+#: src/Utility/CommandHelper.php:672
+msgid "The index @index is already @desired_state."
+msgstr "Der Index @index ist bereits @desired_state."
+
+#: src/Utility/CommandHelper.php:676
+msgid "Index @index could not be @desired_state because it is not bound to any server."
+msgstr "Index @index konnte nicht @desired_state sein, da er nicht an einen Server gebunden ist."
+
+#: src/Utility/CommandHelper.php:682
+msgid "The index @index was successfully @desired_state."
+msgstr "Der Index @index wurde erfolgreich @desired_state."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0;0
+msgid "Fields indexed in this index"
+msgstr "In diesem Index indizierte Felder"
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "This page lists which fields are indexed in this index, grouped by datasource. (Datasource-independent fields are listed under \"General\".) Indexed fields can be used to add filters or sorting to views or other search displays based on the index. Fields with type \"Fulltext\" can also be used for fulltext searching."
+msgstr "Diese Seite listet auf, welche Felder in diesem Index indiziert sind, gruppiert nach Datenquellen. (Datasource-unabhängige Felder werden unter \"Allgemein\" aufgelistet.) Indizierte Felder können verwendet werden, um Filter hinzuzufügen oder Ansichten oder anderen Suchanzeigen, die auf dem Index basieren, zu sortieren. Felder vom Typ „Volltext\" können auch für die Volltextsuche verwendet werden."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "With the \"Add fields\" button you can add additional fields to this index."
+msgstr "Mit der Taste „Felder hinzufügen“ können Sie weitere Felder zu diesem Index hinzufügen."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "A label for the field that will be used to refer to the field in most places in the user interface."
+msgstr "Eine Beschriftung für das Feld, die verwendet wird, um an den meisten Stellen in der Benutzeroberfläche auf dieses Feld zu verweisen."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "The internal ID to use for this field. Can safely be ignored by inexperienced users in most cases. Changing a field's machine name requires reindexing of the index."
+msgstr "Die interne ID, die für dieses Feld verwendet werden soll. Kann von unerfahrenen Benutzern in den meisten Fällen sicher ignoriert werden. Das Ändern des Rechnernamens eines Feldes erfordert eine Neuindizierung des Index."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "The internal relationship linking the indexed item to the field, with links being separated by colons (:). This can be useful information for advanced users, but can otherwise be ignored."
+msgstr "Die interne Beziehung, die das indizierte Element mit dem Feld verknüpft, wobei die Links durch Doppelpunkte (:) getrennt sind. Dies kann für fortgeschrittene Benutzer nützliche Informationen sein, kann aber ansonsten ignoriert werden."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "The data type to use when indexing the field. Determines how a field can be used in searches. For information on the available types, see the <a href=\"#search-api-data-types-table\">\"Data types\" box</a> at the bottom of the page."
+msgstr "Der beim Indizieren des Felds zu verwendende Datentyp bestimmt, wie ein Feld in Suchen verwendet werden kann. Informationen zu den verfügbaren Typen finden Sie im <a href=\"#search-api-data-types-table\">Kasten „Datentypen“</a> unten auf der Seite."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Only applicable for fulltext fields. Determines how \"important\" the field is compared to other fulltext fields, to influence scoring of fulltext searches."
+msgstr "Nur für Volltextfelder anwendbar. Bestimmt, wie „wichtig“ das Feld im Vergleich zu anderen Volltextfeldern ist, um die Bewertung bei Volltextsuchen zu beeinflussen."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Some fields have additional configuration available, in which case an \"Edit\" link is displayed in the \"Operations\" column."
+msgstr "Einige Felder besitzen zusätzliche Konfigurationen. Für solche Felder wird ein Link mit der Aufschrift Bearbeiten in der Spalte Aktionen angezeigt."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Remove field"
+msgstr "Feld löschen"
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Removes a field from the index again. (Note: Sometimes, a field is required (for example, by a processor) and cannot be removed.)"
+msgstr "Löscht ein Feld wieder aus dem Index. (Hinweis: Bisweilen ist ein Feld erforderlich (z. B. für einen Prozessor) und kann nicht gelöscht werden.)"
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "This saves all changes made to the fields for this index. Until this button is pressed, all added, changed or removed fields will only be stored temporarily and not effect the actual index used in the rest of the site."
+msgstr "Dies speichert alle an den Feldern für diesen Index vorgenommenen Änderungen. Bis zum Drücken dieser Taste werden alle hinzugefügten, geänderten oder gelöschten Felder nur vorübergehend gespeichert und haben keine Auswirkungen auf den im Rest der Site tatsächlich verwendeten Index."
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "Cancel changes"
+msgstr "Verwerfe Änderungen"
+
+#: config/optional/tour.tour.search-api-index-fields.yml:0
+msgid "If you have made changes to the index's fields but not yet saved them, the \"Cancel\" link lets you discard those changes."
+msgstr "Falls Sie Änderungen an den Feldern des Index vorgenommen aber noch nicht gespeichert haben, können Sie sie mit dem Link „Abbrechen“ verwerfen."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Add or edit a Search API index"
+msgstr "Einen Such-API-Index hinzufügen oder bearbeiten"
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Adding or editing an index"
+msgstr "Hinzufügen oder Bearbeiten eines Index"
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "This form can be used to edit an existing index or add a new index to your site. Indexes define a set of data that will be indexed and can then be searched."
+msgstr "Dieses Formular kann verwendet werden, um einen existierenden Index zu bearbeiten oder einen neuen Index zu Ihrer Site hinzuzufügen. Indizes definieren einen Satz von Daten, der indiziert wird und dann durchsucht werden kann."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Enter a name to identify this index. For example, \"Content index\". This will only be displayed in the admin user interface."
+msgstr "Geben Sie einen Namen für diesen Index ein, z. B. „Inhaltsindex“. Er wird nur in der Admin-Benutzeroberfläche angezeigt."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Datasources define the types of items that will be indexed in this index. By default, all content entities (like content, comments and taxonomy terms) will be available here, but modules can also add their own."
+msgstr "Datenquellen definieren die Elementtypen, die in diesem Index indiziert werden. Standardmäßig sind hier alle Inhaltsentitäten (z. B. Inhalt, Kommentare und Taxonomiebegriffe) verfügbar, aber Module können auch ihre eigenen hinzufügen."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "An index's tracker is the system that keeps track of which items there are available for the index, and which of them still need to be indexed. Changing the tracker of an existing index will lead to reindexing of all items."
+msgstr "Der Tracker eines Index ist das System, das verfolgt, welche Elemente für den Index verfügbar sind und welche noch indiziert werden müssen. Wenn der Tracker eines existierenden Index geändert wird, werden alle Elemente neu indiziert."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "The search server that the index should use for indexing and searching. If no server is selected here, the index cannot be enabled. An index can only have one server, but a server can have any number of indexes."
+msgstr "Der Such-Server, den der Index zum Indizieren und Suchen verwenden sollte. Wenn hier kein Server ausgewählt ist, kann der Index nicht aktiviert werden. Ein Index kann nur einen Server haben, ein Server jedoch beliebig viele Indizes."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Index description"
+msgstr "Index-Beschreibung"
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Optionally, enter a description to explain the function of the index in more detail. This will only be displayed in the admin user interface."
+msgstr "Geben Sie optional eine Beschreibung zur detaillierteren Erklärung des Index ein. Sie wird nur in der Admin-Benutzeroberfläche angezeigt."
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "Advanced options"
+msgstr "Erweiterte Optionen"
+
+#: config/optional/tour.tour.search-api-index-form.yml:0
+msgid "These options allow more detailed configuration of index behavior, but can usually safely be ignored by inexperienced users."
+msgstr "Diese Optionen ermöglichen eine detailliertere Konfiguration des Indexverhaltens, können jedoch von unerfahrenen Benutzern normalerweise problemlos ignoriert werden."
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0;0
+msgid "Processors used for this index"
+msgstr "Für diesen Index verwendete Prozessoren"
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "Processors customize different aspects of an index's functionality. They can keep items from being indexed, change how certain fields are indexed and influence searches."
+msgstr "Prozessoren passen bestimmte Aspekte der Funktionalität eines Index an. Sie können verhindern, dass Elemente indiziert werden, ändern, wie bestimmte Felder indiziert werden und Suchen beeinflussen."
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "Enable processors"
+msgstr "Prozessoren aktivieren"
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "This lists all processors available for this index and lets you choose the ones that should be active. (Note: Some processors cannot be disabled.)"
+msgstr "Listet alle für diesen Index verfügbaren Prozessoren auf und lässt Sie diejenigen auswählen, die aktiv sein sollten. (Hinweis: Einige Prozessoren können nicht deaktiviert werden.)"
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "This shows you which enabled processors will be active in the different parts of the indexing/searching workflow, and lets you re-arrange them. This should usually not be necessary, and only be used by advanced users as some processors will lead to unexpected results when used in the wrong order."
+msgstr "Zeigt Ihnen, welche aktivierten Prozessoren in den verschiedenen Teilen des Workflows zum Indizieren und Suchen verwendet werden und lässt Sie sie neu ordnen. Das sollte gewöhnlich nicht erforderlich sein und nur von erfahrenen Benutzern vorgenommen werden, da einige Prozessoren in der falschen Reihenfolge zu unerwarteten Ergebnissen führen können."
+
+#: config/optional/tour.tour.search-api-index-processors.yml:0
+msgid "Some processors have additional configuration available, which you are able to change here."
+msgstr "Einige Prozessoren sind hier zusätzlich konfigurierbar."
+
+#: config/optional/tour.tour.search-api-index.yml:0;0
+msgid "Information about an index"
+msgstr "Informationen über einen Index"
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "This page shows a summary of a search index and its status."
+msgstr "Auf dieser Seite wird eine Zusammenfassung eines Suchindex und seines Status angezeigt."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "This gives a summary about how many items are known for this index, and how many have been indexed in their latest version. Items that are not indexed yet cannot be found by searches."
+msgstr "Liefert eine Übersicht dazu, wie viele Elemente für diesen Index bekannt sind und wie viele in ihrer letzten Version indiziert worden sind. Noch nicht indizierte Elemente können in den Suchen nicht gefunden werden."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "Shows whether the index is currently enabled or disabled."
+msgstr "Zeigt an, ob der Index aktuell aktiviert oder deaktiviert ist."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "Lists all datasources that are enabled for this index."
+msgstr "Listet alle für diesen Index aktivierten Datenquellen auf."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "The tracker used by the index. Only one (\"Default\") is available by default."
+msgstr "Der vom Index verwendete Tracker. Standardmäßig ist nur einer („Standard“) verfügbar."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "If the index is attached to a server, this server is listed here."
+msgstr "Falls der Index einem Server zugeordnet ist, wird der Server hier aufgeführt."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "For enabled indexes, the number of items that can actually be retrieved from the server is listed here. For reasons why this number might differ from the number under \"Index status\", <a href=\"https://www.drupal.org/docs/8/modules/search-api/getting-started/frequently-asked-questions#server-index-status\">see the module's documentation</a>."
+msgstr "Bei aktivierten Indizes, wird die Anzahl der Elemente, die aus dem Server abgerufen werden können, hier aufgelistet. Eine Erklärung dafür, warum diese Anzahl von der Anzahl unter „Index Status“ abweichen kann, <a href=\"https://www.drupal.org/docs/8/modules/search-api/getting-started/frequently-asked-questions#server-index-status\">finden Sie in der Dokumentation zum Modul</a>."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "The number of items that will be indexed at once during cron runs."
+msgstr "Die Anzahl der Elemente, die während eines Cron-Laufes auf einmal indiziert werden."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "The \"Start indexing now\" form allows indexing items manually right away, with a batch process. Otherwise, items are only indexed during cron runs. The form might be disabled if indexing is currently not possible for some reason, or not necessary."
+msgstr "Das Formular „Indizierung jetzt starten“ erlaubt ein sofortiges manuelles Indizieren mit einem Batch-Prozess. Andernfalls werden Elemente nur bei Cron-Läufen indiziert. Das Formular kann deaktiviert werden, wenn die Indizierung aus irgendeinem Grund aktuell nicht möglich oder nicht erforderlich ist."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "In certain situations, the index's tracker doesn't have the latest state of the items available for indexing. This will be automatically rectified during cron runs, but can also be manually triggered here, with the \"Track now\" button."
+msgstr "In bestimmten Fällen verfügt der Tracker des Index nicht über den letzten Status der zur Indizierung verfügbaren Elemente. Dies wird bei Cron-Läufen automatisch korrigiert, kann hier aber auch manuell ausgelöst werden. Dazu dient die Taste „Jetzt suchen“."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "This will queue all items on this index for reindexing. Previously indexed data will remain on the search server, so searches on this index will continue to yield results."
+msgstr "Dabei werden alle Elemente zu diesem Index für die Neuindizierung in die Warteschlange gestellt. Früher indizierte Daten bleiben auf dem Such-Server, sodass Suchen bei diesem Index weiterhin Ergebnisse liefern."
+
+#: config/optional/tour.tour.search-api-index.yml:0
+msgid "This will remove all indexed content for this index from the search server and queue it for reindexing. Searches on this index will not return any results until items are reindexed."
+msgstr "Alle indizierten Inhalte für diesen Index werden vom Such-Server gelöscht und zur Neuindizierung in die Warteschlange gestellt. Suchen mit diesem Index werden keine Ergebnisse zurückgeben, bis Elemente neu indiziert worden sind."
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Add or edit a Search API server"
+msgstr "Such-API-Server hinzufügen oder bearbeiten"
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Adding or editing a Server"
+msgstr "Hinzufügen oder Bearbeiten eines Servers"
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "This form can be used to edit an existing server or add a new server to your site. Servers will hold your indexed data."
+msgstr "Dieses Formular kann verwendet werden, um einen existierenden Server zu bearbeiten oder einen neuen Server zu Ihrer Site hinzuzufügen. Server enthalten Ihre indizierten Daten."
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Enter a name to identify this server. For example, \"Solr server\". This will only be displayed in the admin user interface."
+msgstr "Geben Sie einen Namen für diesen Server ein. Beispiel: „Solr Server“. Er wird nur in der Admin-Benutzeroberfläche angezeigt."
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Server description"
+msgstr "Beschreibung des Servers"
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Optionally, enter a description to explain the function of the server in more detail. This will only be displayed in the admin user interface."
+msgstr "Geben Sie optional eine Beschreibung zur detaillierteren Erklärung der Funktion des Servers ein. Sie wird nur in der Admin-Benutzeroberfläche angezeigt."
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Server backend"
+msgstr "Server-Backend"
+
+#: config/optional/tour.tour.search-api-server-form.yml:0
+msgid "Servers can be based on different technologies. These are called \"backends\". A server uses exactly one backend and cannot change it later. You can make the \"Database\" backend available by enabling the \"Database Search\" module. Another very common backend is <a href=\"https://www.drupal.org/project/search_api_solr\">\"Solr\"</a>, which requires to be set up separately."
+msgstr "Server können auf verschiedenen Technologien, den sog. „Backends“, aufbauen. Ein Server verwendet genau ein Backend, das später nicht mehr geändert werden kann. Sie können das Backend „Datenbank“ verfügbar machen, indem Sie das Modul „Database Search“ aktivieren. Ein anderes, sehr häufiges Backend ist <a href=\"https://www.drupal.org/project/search_api_solr\">„Solr“</a>, das getrennt eingerichtet werden muss."
+
+#: config/optional/tour.tour.search-api-server.yml:0;0
+msgid "Information about a server"
+msgstr "Informationen über einen Server"
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "This page shows a summary of a search server."
+msgstr "Auf dieser Seite wird eine Übersicht eines Such-Servers angezeigt."
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "Shows whether the server is currently enabled or disabled."
+msgstr "Zeigt an, ob der Server aktuell aktiviert oder deaktiviert ist."
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "The backend plugin used for this server. The backend plugin determines how items are indexed and searched – for example, using the database or an Apache Solr server."
+msgstr "Das für diesen Server verwendete Backend-Plugin. Es bestimmt, wie Elemente indiziert und gesucht werden – z. B. mit der Datenbank oder einem Apache-Solr-Server."
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "Lists all search indexes that are attached to this server."
+msgstr "Listet jeden Index auf, der sich auf dem Server befindet."
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "Delete all indexed data"
+msgstr "Alle indizierten Daten löschen"
+
+#: config/optional/tour.tour.search-api-server.yml:0
+msgid "This will permanently remove all data currently indexed on this server for indexes that aren't read-only. Items are queued for reindexing. Until reindexing occurs, searches for the affected indexes will not return any results."
+msgstr "Hiermit werden alle Daten auf diesem Server für Indizes, die nicht schreibgeschützt sind, auf Dauer entfernt. Die Elemente werden zur Neuindizierung in die Warteschlange gestellt. Bis zur Neuindizierung geben Suchen für die betroffenen Indizes keine Ergebnisse zurück."
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/search_api.index.default_index.yml:0
+msgid "Default content index"
+msgstr "Standardinhaltsverzeichnis"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/search_api.index.default_index.yml:0
+msgid "Default content index created by the Database Search Defaults module"
+msgstr "Standard Inhaltsindex, der vom Modul Standard Datenbanksuche erstellt wurde"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/search_api.server.default_server.yml:0
+msgid "Database Server"
+msgstr "Datenbankserver"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/search_api.server.default_server.yml:0
+msgid "Default database server created by the Database Search Defaults module"
+msgstr "Standard-Datenbankserver, der vom Modul Standard Datenbanksuche erstellt wurde"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Search content"
+msgstr "Inhalt durchsuchen"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "A search page preconfigured to search through the content of your site"
+msgstr "Eine vorkonfigurierte Suchseite, mit der die Inhalte der Website durchsucht werden können."
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Please enter some keywords to search."
+msgstr "Bitte geben Sie zur Suche einige Schlüsselwörter ein."
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "‹ previous"
+msgstr "‹ vorherige Seite"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "next ›"
+msgstr "nächste Seite ›"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Search Content"
+msgstr "Inhalt suchen"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Displaying results @start - @end of @total"
+msgstr "Ergebnisse @start - @end von @total werden angezeigt"
+
+#: modules/search_api_db/search_api_db_defaults/config/optional/views.view.search_content.yml:0
+msgid "Page"
+msgstr "Seite"
+
+msgid "%type while trying to render item %item_id with view mode %view_mode for search index %index: @message in %function (line %line of %file)."
+msgstr "%type beim Render-Versuch von Eintrag %item_id im Ansichtsmodus %view_mode für Suchindex %index: @message in %function (Zeile %line in %file)."

@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Video duration (seconds)"
+msgstr "Länge des Videos (Sekunden)"
+
+msgid "The length of the video in seconds"
+msgstr "Die Länge des Videos in Sekunden"
+
+msgid "The <a href='https://ogp.me/'>Open Graph meta tags</a> are used to control how Facebook, Pinterest, LinkedIn and other social networking sites interpret the site's content."
+msgstr "Die <a href='https://ogp.me/'>Open Graph Metatags</a> steuern wie Facebook, Pinterest, LinkedIn und andere soziale Netzwerke den Inhalt der Seite interpretieren."
+
+msgid "Provides the fifteen <a href=':docs'>Dublin Core Metadata Element Set 1.1</a> meta tags from the <a href=':link'>Dublin Core Metadata Institute</a>"
+msgstr "Stellt die fünfzehn <a href=':docs'>Dublin Core Metadata Element Set 1.1</a> Metatags des <a href=':link'>Dublin Core Metadata Institute</a> bereit"

@@ -1,0 +1,283 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  editor.admin.inc: n/a
+#  config/schema/editor.schema.yml: n/a
+#  editor.module: n/a
+#  src/Form/EditorImageDialog.php: n/a
+#  editor.info.yml: n/a
+#  src/Entity/Editor.php: n/a
+#  editor.routing.yml: n/a
+#  js/editor.es6.js: n/a
+#  js/editor.js: n/a
+#  src/Annotation/Editor.php: n/a
+#  src/Form/EditorLinkDialog.php: n/a
+#  src/Plugin/Filter/EditorFileReference.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:29+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: editor.admin.inc:41
+msgid "Enable image uploads"
+msgstr "Hochladen von Bildern aktivieren"
+
+#: editor.admin.inc:59 config/schema/editor.schema.yml:0
+msgid "File storage"
+msgstr "Dateispeicherplatz"
+
+#: editor.admin.inc:70
+msgid "Storage: @name"
+msgstr "Speicher: @name"
+
+#: editor.admin.inc:76 config/schema/editor.schema.yml:0
+msgid "Upload directory"
+msgstr "Upload-Verzeichnis"
+
+#: editor.admin.inc:77
+msgid "A directory relative to Drupal's files directory where uploaded images will be stored."
+msgstr "Ein Verzeichnis relativ zum Dateiverzeichnis von Drupal, in dem hochgeladene Bilder gespeichert werden."
+
+#: editor.admin.inc:85 config/schema/editor.schema.yml:0
+msgid "Maximum file size"
+msgstr "Maximale Dateigröße"
+
+#: editor.admin.inc:86
+msgid "If this is left empty, then the file size will be limited by the PHP maximum upload size of @size."
+msgstr "Wenn dieses Feld leer bleibt, wird die Dateigröße durch das PHP-Maximum von @size für Uploads begrenzt."
+
+#: editor.admin.inc:95 config/schema/editor.schema.yml:0
+msgid "Maximum dimensions"
+msgstr "Maximale Abmessungen"
+
+#: editor.admin.inc:98
+msgid "Images larger than these dimensions will be scaled down."
+msgstr "Bilder mit größeren Abmessungen werden verkleinert."
+
+#: editor.admin.inc:102
+msgid "Width"
+msgstr "Breite"
+
+#: editor.admin.inc:110
+msgid "width"
+msgstr "Breite"
+
+#: editor.admin.inc:115
+msgid "Height"
+msgstr "Höhe"
+
+#: editor.admin.inc:123
+msgid "height"
+msgstr "Höhe"
+
+#: editor.admin.inc:124
+msgid "pixels"
+msgstr "Pixel"
+
+#: editor.module:28
+msgid "About"
+msgstr "Über"
+
+#: editor.module:29
+msgid "The Text Editor module provides a framework that other modules (such as <a href=\":ckeditor\">CKEditor module</a>) can use to provide toolbars and other functionality that allow users to format text more easily than typing HTML tags directly. For more information, see the <a href=\":documentation\">online documentation for the Text Editor module</a>."
+msgstr "Das Texteditor-Modul stellt ein Framework zur Verfügung, dass von anderen Modulen (wie dem <a href=\":ckeditor\">CKEditor-Modul</a>) genutzt werden kann, um Werkzeugleisten, und weitere Funktionen zur Verfügung zu stellen, die das Formatieren von Text wesentlich einfacher, als die direkte Eingabe von HTML-Tags gestalten. Weitere Informationen sind in der <a href=\":documentation\">Online-Dokumentation des Texteditor-Moduls</a> verfügbar."
+
+#: editor.module:30
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: editor.module:32
+msgid "Installing text editors"
+msgstr "Texteditoren werden installiert"
+
+#: editor.module:33
+msgid "The Text Editor module provides a framework for managing editors. To use it, you also need to enable a text editor. This can either be the core <a href=\":ckeditor\">CKEditor module</a>, which can be enabled on the <a href=\":extend\">Extend page</a>, or a contributed module for any other text editor. When installing a contributed text editor module, be sure to check the installation instructions, because you will most likely need to download and install an external library as well as the Drupal module."
+msgstr "Das Texteditor-Modul stellt ein Framework zur Verfügung, mit dem Texteditoren verwaltet werden. Dabei kann es sich entweder um das Modul <a href=\":ckeditor\">CKEditor</a>handeln, das auf der Seite <a href=\":extend\">Erweitern</a> aktiviert werden kann. Es kann auch einen anderen Texeditor verwendet werden. Wenn ein Zusatzmodul installiert wird, dass einen Texteditor zur Verfügung stellt sollten immer die Installationsanweisungen gelsen werden, da in der Regel eine externe Codebibliothek heruntergeladen werden muss, um sowohl  den zusätzlichen Texteditor als auch das entsprechende Zusatzmodul installieren zu können."
+
+#: editor.module:34
+msgid "Enabling a text editor for a text format"
+msgstr "Einen Texteditor für ein Textformat aktivieren"
+
+#: editor.module:35
+msgid "On the <a href=\":formats\">Text formats and editors page</a> you can see which text editor is associated with each text format. You can change this by clicking on the <em>Configure</em> link, and then choosing a text editor or <em>none</em> from the <em>Text editor</em> drop-down list. The text editor will then be displayed with any text field for which this text format is chosen."
+msgstr "Auf der Seite <a href=\":formats\">Textformate und -editoren </a> wird angezeigt welche Texteditoren den einzelnen Textformaten zugeordnet sind. Durch einen Klick auf den Link <em>Konfigurieren</em> kann einem Textformat, über die Auswahlliste <em>Texteditoren</em>, ein anderer Texteditor zugeordnet werden. Es ist auch möglich, einem Texteditor <em>keinen</em> Texteditor zuzuordnen Der Texteditor wird dann immer angezeigt, wenn das entsprechende Texformat einem Eingabefeld zugeordnet worden ist."
+
+#: editor.module:36
+msgid "Configuring a text editor"
+msgstr "Einen Texteditor konfigurieren"
+
+#: editor.module:37
+msgid "Once a text editor is associated with a text format, you can configure it by clicking on the <em>Configure</em> link for this format. Depending on the specific text editor, you can configure it for example by adding buttons to its toolbar. Typically these buttons provide formatting or editing tools, and they often insert HTML tags into the field source. For details, see the help page of the specific text editor."
+msgstr "Wenn ein Texteditor einem Textformat zugeordnet wurde, können die Einstellungen für den Texteditor durch einen Klick auf den Link <em>Konfigurieren</em> festgelegt werden. Abhängig davon welcher Texteditor verwendet wird, kann beispielsweise ein Button zur Toolbar des Texteditors hinzufügt werdem. Normalerweise bieten diese Buttons Formatierungs- oder Bearbeitungswerkzeuge. Oft fügen die Buttons auch HTML-Tags in den Quelltext des Feldes ein. Weitere Informationen stehen auf den Hilfeseiten des entsprechenden Texteditors zur Verfügung."
+
+#: editor.module:38
+msgid "Using different text editors and formats"
+msgstr "Verschiedene Texteditoren und -formate verwenden"
+
+#: editor.module:39
+msgid "If you change the text format on a text field, the text editor will change as well because the text editor configuration is associated with the individual text format. This allows the use of the same text editor with different options for different text formats. It also allows users to choose between text formats with different text editors if they are installed."
+msgstr "Wird das Textformat für ein Textfeld geändert verändert sich damit auch der verwendete Texteditor weil die Konfiguration des Texteditors über das individuelle Textformat festgelegt wird, dass ausgewählt wird. hierdurch ist es möglich den selben Texteditor mit unterschiedlichen Optionen für unterschiedliche Textformate zu verwenden. Außerdem ist es  möglich verschiedenen Nutzern verschiedene Texteditoren zur Verfügung zu stellen, wenn diese Installiert sind."
+
+#: editor.module:90;127 config/schema/editor.schema.yml:0;0
+msgid "Text editor"
+msgstr "Texteditor"
+
+#: editor.module:129 src/Form/EditorImageDialog.php:159
+msgid "None"
+msgstr "Keine"
+
+#: editor.module:141
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: editor.module:155
+msgid "This option is disabled because no modules that provide a text editor are currently enabled."
+msgstr "Diese Option ist deaktiviert weil keine Module aktiviert sind, die einen Texteditor bereitstellen."
+
+#: editor.module:228
+msgid "You must configure the selected text editor."
+msgstr "Sie müssen den ausgewählten Texteditor konfigurieren."
+
+#: editor.module:52
+msgid "Text formats and editors"
+msgstr "Textformate und -editoren"
+
+#: editor.module:53
+msgid "Select and configure text editors, and how content is filtered when displayed."
+msgstr "Auswahl und Konfiguration von Texteditoren, einschließlich der Filterung eingegebener Inhalte."
+
+#: editor.info.yml:0 src/Entity/Editor.php:8
+msgid "Text Editor"
+msgstr "Texteditor"
+
+#: editor.info.yml:0
+msgid "Provides a means to associate text formats with text editor libraries such as WYSIWYGs or toolbars."
+msgstr "Ermöglicht die Zuordnung von Textformaten zu verwendeten Texteditorn mit Hilfe von WYSIWYG-Editoren und Werkzeugleisten."
+
+#: editor.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: editor.routing.yml:0
+msgid "Upload image"
+msgstr "Bild hochladen"
+
+#: editor.routing.yml:0
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: config/schema/editor.schema.yml:0
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/editor.schema.yml:0
+msgid "Image upload settings"
+msgstr "Einstellungen für das Hochladen von Bildern"
+
+#: config/schema/editor.schema.yml:0
+msgid "Status"
+msgstr "Status"
+
+#: config/schema/editor.schema.yml:0
+msgid "Maximum width"
+msgstr "Maximale Breite"
+
+#: config/schema/editor.schema.yml:0
+msgid "Maximum height"
+msgstr "Maximale Höhe"
+
+#: js/editor.es6.js:0 js/editor.js:0
+msgid "Changing the text format to %text_format will permanently remove content that is not allowed in that text format.<br><br>Save your changes before switching the text format to avoid losing data."
+msgstr "Das Ändern des Textformats in %text_format entfernt dauerhaft Inhalt, der in diesem Textformat nicht erlaubt ist.<br><br>Speichern Sie Ihre Änderungen bevor Sie das Textformat umstellen, um Datenverlust zu vermeiden."
+
+#: js/editor.js:0
+msgid "Change text format?"
+msgstr "Textformat ändern?"
+
+#: js/editor.js:0
+msgid "Continue"
+msgstr "Weiter"
+
+#: js/editor.js:0
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Annotation/Editor.php:7
+msgid "My Editor"
+msgstr "Mein Editor"
+
+#: src/Entity/Editor.php:8
+msgid "Text Editors"
+msgstr "Texteditoren"
+
+#: src/Entity/Editor.php:8
+msgid "text editor"
+msgstr "Texteditor"
+
+#: src/Entity/Editor.php:8
+msgid "text editors"
+msgstr "Texteditoren"
+
+#: src/Form/EditorImageDialog.php:100
+msgid "Image"
+msgstr "Bild"
+
+#: src/Form/EditorImageDialog.php:113 src/Form/EditorLinkDialog.php:47
+msgid "URL"
+msgstr "URL"
+
+#: src/Form/EditorImageDialog.php:143
+msgid "Alternative text"
+msgstr "Alternativer Text"
+
+#: src/Form/EditorImageDialog.php:144
+msgid "Short description of the image used by screen readers and displayed when the image is not loaded. This is important for accessibility."
+msgstr "Eine kurze Beschreibung des Bildes, die von Screenreadern verwendet wird und angezeigt wird, wenn das Bild nicht geladen werden kann. Dies ist wichtig für die Barrierefreiheit."
+
+#: src/Form/EditorImageDialog.php:147
+msgid "Alternative text is required.<br />(Only in rare cases should this be left empty. To create empty alternative text, enter <code>\"\"</code> — two double quotes without any content)."
+msgstr "Der Alternativ-Text ist erforderlich. <br /> (Nur in seltenen Fällen sollte er leer gelassen werden. Um einen leeren Alternativ-Text zu erzeugen, <code>\"\"</code> — zwei Anführungszeichen ohne jeglichen Inhalt  — eingeben."
+
+#: src/Form/EditorImageDialog.php:156
+msgid "Align"
+msgstr "Ausrichten"
+
+#: src/Form/EditorImageDialog.php:160
+msgid "Left"
+msgstr "Links"
+
+#: src/Form/EditorImageDialog.php:161
+msgid "Center"
+msgstr "Zentriert"
+
+#: src/Form/EditorImageDialog.php:162
+msgid "Right"
+msgstr "Rechts"
+
+#: src/Form/EditorImageDialog.php:175
+msgid "Caption"
+msgstr "Beschriftung"
+
+#: src/Form/EditorImageDialog.php:187 src/Form/EditorLinkDialog.php:58
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Plugin/Filter/EditorFileReference.php:14
+msgid "Track images uploaded via a Text Editor"
+msgstr "Verfolgen von Bildern, die mit dem Texteditor hochgeladen wurden"
+
+#: src/Plugin/Filter/EditorFileReference.php:14
+msgid "Ensures that the latest versions of images uploaded via a Text Editor are displayed."
+msgstr "Stellt sicher, dass die neuesten Versionen jener Bilder angezeigt werden, die mit dem Texteditor hochgeladen wurden."
+

@@ -1,0 +1,65 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_file_management.views.inc: n/a
+#  src/Form/FileDeleteForm.php: n/a
+#  src/Plugin/views/field/FileDeleteLink.php: n/a
+#  degov_file_management.info.yml: n/a
+#  degov_file_management.permissions.yml: n/a
+#  degov_file_management.routing.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:57+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_file_management.views.inc:13;15 src/Form/FileDeleteForm.php:89 src/Plugin/views/field/FileDeleteLink.php:37
+msgid "Delete"
+msgstr "Löschen"
+
+#: degov_file_management.views.inc:16
+msgid "Link to delete the file"
+msgstr "Link zum Löschen der Datei"
+
+#: degov_file_management.info.yml:0
+msgid "deGov - File Management"
+msgstr "deGov - Dateiverwaltung"
+
+#: degov_file_management.info.yml:0
+msgid "Extends Drupal's file management, for example with delete links."
+msgstr "Erweitert die Drupal-Dateiverwaltung, z. B. mit Links zum Löschen."
+
+#: degov_file_management.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: degov_file_management.permissions.yml:0
+msgid "Delete any file"
+msgstr "Beliebige Datei löschen"
+
+#: degov_file_management.routing.yml:0
+msgid "Delete file"
+msgstr "Datei löschen"
+
+#: src/Form/FileDeleteForm.php:75
+msgid "Are you sure you want to delete the file %filename? Existing references to this file may break."
+msgstr "Sind Sie sicher, dass Sie die Datei %filename löschen wollen? Bestehende Referenzen zu dieser Datei könnten dadurch fehlerhaft werden."
+
+#: src/Form/FileDeleteForm.php:110
+msgid "File %filename has been deleted."
+msgstr "Datei %filename ist gelöscht worden."
+
+#: src/Form/FileDeleteForm.php:108
+msgid "%username deleted file %filename."
+msgstr "%username hat Datei %filename gelöscht."
+

@@ -1,0 +1,206 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_node_blog.info.yml: n/a
+#  templates/node--blog--slideshow.html.twig: n/a
+#  config/install/core.base_field_override.node.blog.promote.yml: n/a
+#  config/install/field.field.node.blog.field_social_media.yml: n/a
+#  config/install/core.base_field_override.node.blog.title.yml: n/a
+#  config/install/core.entity_form_display.node.blog.default.yml: n/a
+#  config/install/field.field.node.blog.field_blog_author.yml: n/a
+#  config/install/field.field.node.blog.field_blog_date.yml: n/a
+#  config/install/field.field.node.blog.field_blog_sub_title.yml: n/a
+#  config/install/field.field.node.blog.field_content_paragraphs.yml: n/a
+#  config/install/field.field.node.blog.field_header_paragraphs.yml: n/a
+#  config/install/field.field.node.blog.field_internal_title.yml: n/a
+#  config/install/field.field.node.blog.field_metatags.yml: n/a
+#  config/install/field.field.node.blog.field_section.yml: n/a
+#  config/install/field.field.node.blog.field_sidebar_right_paragraphs.yml: n/a
+#  config/install/field.field.node.blog.field_tags.yml: n/a
+#  config/install/field.field.node.blog.field_teaser_image.yml: n/a
+#  config/install/field.field.node.blog.field_teaser_sub_title.yml: n/a
+#  config/install/field.field.node.blog.field_teaser_text.yml: n/a
+#  config/install/field.field.node.blog.field_teaser_title.yml: n/a
+#  config/install/node.type.blog.yml: n/a
+#  config/install/views.view.blog_author.yml: n/a
+#  config/install/views.view.blog_latest_content.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:00+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_node_blog.info.yml:0
+msgid "deGov - Node blog"
+msgstr "deGov - Beitrag Blog"
+
+#: degov_node_blog.info.yml:0
+msgid "This content type is used for blog entries."
+msgstr "Dieser Inhaltstyp wird für Blogeinträge verwendet."
+
+#: degov_node_blog.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: templates/node--blog--slideshow.html.twig:99
+msgid "Blog"
+msgstr "Blog"
+
+#: config/install/core.base_field_override.node.blog.promote.yml:0
+msgid "Auf der Startseite anzeigen"
+msgstr "Auf der Startseite anzeigen"
+
+#: config/install/core.base_field_override.node.blog.promote.yml:0 config/install/field.field.node.blog.field_social_media.yml:0
+msgid "An"
+msgstr "An"
+
+#: config/install/core.base_field_override.node.blog.promote.yml:0 config/install/field.field.node.blog.field_social_media.yml:0
+msgid "Aus"
+msgstr "Aus"
+
+#: config/install/core.base_field_override.node.blog.title.yml:0
+msgid "Titel"
+msgstr "Titel"
+
+#: config/install/core.entity_form_display.node.blog.default.yml:0;0;0
+msgid "Paragraph"
+msgstr "Paragraph"
+
+#: config/install/core.entity_form_display.node.blog.default.yml:0;0;0
+msgid "Paragraphs"
+msgstr "Seitenabschnitte"
+
+#: config/install/field.field.node.blog.field_blog_author.yml:0
+msgid "Blogautor"
+msgstr "Blogautor"
+
+#: config/install/field.field.node.blog.field_blog_date.yml:0
+msgid "Datum"
+msgstr "Datum"
+
+#: config/install/field.field.node.blog.field_blog_sub_title.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.node.blog.field_content_paragraphs.yml:0
+msgid "Inhaltsbereich"
+msgstr "Inhaltsbereich"
+
+#: config/install/field.field.node.blog.field_header_paragraphs.yml:0
+msgid "Kopfbereich"
+msgstr "Kopfbereich"
+
+#: config/install/field.field.node.blog.field_internal_title.yml:0
+msgid "Interner Titel"
+msgstr "Interner Titel"
+
+#: config/install/field.field.node.blog.field_metatags.yml:0
+msgid "Meta Tags"
+msgstr "Meta-Tags"
+
+#: config/install/field.field.node.blog.field_section.yml:0
+msgid "Bereich"
+msgstr "Bereich"
+
+#: config/install/field.field.node.blog.field_sidebar_right_paragraphs.yml:0
+msgid "Seitenleiste rechts"
+msgstr "Seitenleiste rechts"
+
+#: config/install/field.field.node.blog.field_social_media.yml:0
+msgid "Social Media Buttons anzeigen"
+msgstr "Social-Media-Buttons anzeigen"
+
+#: config/install/field.field.node.blog.field_tags.yml:0
+msgid "Schlagworte"
+msgstr "Schlagworte"
+
+#: config/install/field.field.node.blog.field_teaser_image.yml:0
+msgid "Vorschau Bild"
+msgstr "Vorschau Bild"
+
+#: config/install/field.field.node.blog.field_teaser_sub_title.yml:0
+msgid "Vorschau Untertitel"
+msgstr "Vorschau Untertitel"
+
+#: config/install/field.field.node.blog.field_teaser_text.yml:0
+msgid "Vorschau Text"
+msgstr "Vorschau Text"
+
+#: config/install/field.field.node.blog.field_teaser_title.yml:0
+msgid "Vorschau Titel"
+msgstr "Vorschau Titel"
+
+#: config/install/node.type.blog.yml:0
+msgid "Blog-Artikel"
+msgstr "Blog-Artikel"
+
+#: config/install/node.type.blog.yml:0
+msgid "Erstellen von Blogartikeln."
+msgstr "Erstellen von Blogartikeln."
+
+#: config/install/views.view.blog_author.yml:0
+msgid "Blog author"
+msgstr "Blog-Autor"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Zurücksetzen"
+msgstr "Zurücksetzen"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Sortieren nach"
+msgstr "Sortieren nach"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Aufsteigend"
+msgstr "Aufsteigend"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Absteigend"
+msgstr "Absteigend"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/install/views.view.blog_author.yml:0
+msgid "Autor"
+msgstr "Autor"
+
+#: config/install/views.view.blog_author.yml:0
+msgid "field_blog_author"
+msgstr "field_blog_author"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0;0
+msgid "All"
+msgstr "Alle"
+
+#: config/install/views.view.blog_author.yml:0 config/install/views.view.blog_latest_content.yml:0
+msgid "Block"
+msgstr "Block"
+
+#: config/install/views.view.blog_author.yml:0
+msgid "The Author of a blog entry (Media Person type reference)"
+msgstr "Der Autor eines Blogartikels (Typenreferenz Medien Person)"
+
+#: config/install/views.view.blog_latest_content.yml:0;0;0
+msgid "Neuste Blogartikel"
+msgstr "Neuste Blogartikel"
+

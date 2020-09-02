@@ -1,0 +1,53 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_paragraph_text.info.yml: n/a
+#  config/install/field.field.paragraph.text.field_sub_title.yml: n/a
+#  config/install/field.field.paragraph.text.field_text_text.yml: n/a
+#  config/install/paragraphs.paragraphs_type.text.yml: n/a
+#  config/install/field.field.paragraph.text.field_title.yml: n/a
+#  config/install/field.field.paragraph.text.field_title_link.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:02+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_paragraph_text.info.yml:0
+msgid "deGov - Paragraph text"
+msgstr "deGov - Paragraph Text"
+
+#: degov_paragraph_text.info.yml:0
+msgid "A paragraph for formatted texts without character limit"
+msgstr "Ein Paragraph für formatierte Texte ohne Zeichenbegrenzung"
+
+#: degov_paragraph_text.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/field.field.paragraph.text.field_sub_title.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.paragraph.text.field_text_text.yml:0 config/install/paragraphs.paragraphs_type.text.yml:0
+msgid "Text"
+msgstr "Text"
+
+#: config/install/field.field.paragraph.text.field_title.yml:0
+msgid "Titel"
+msgstr "Titel"
+
+#: config/install/field.field.paragraph.text.field_title_link.yml:0
+msgid "Titellink"
+msgstr "Titellink"
+

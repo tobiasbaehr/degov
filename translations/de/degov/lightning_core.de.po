@@ -1,0 +1,136 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  lightning_core.drush.inc: n/a
+#  lightning_core.info.yml: n/a
+#  lightning_core.links.menu.yml: n/a
+#  lightning_core.routing.yml: n/a
+#  config/schema/lightning_core.schema.yml: n/a
+#  modules/lightning_roles/lightning_roles.info.yml: n/a
+#  modules/lightning_test/lightning_test.info.yml: n/a
+#  src/EntityDescriptionFormTrait.php: n/a
+#  modules/lightning_roles/lightning_roles.routing.yml: n/a
+#  modules/lightning_roles/lightning_roles.links.menu.yml: n/a
+#  modules/lightning_roles/config/schema/lightning_roles.schema.yml: n/a
+#  modules/lightning_roles/src/Form/SettingsForm.php: n/a
+#  src/YieldToArgumentTrait.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:05+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lightning_core.drush.inc:14
+msgid "Updating code with Drush can potentially break your Lightning site. (See @path for safe update instructions.) Are you SURE you want to continue?"
+msgstr "Die Aktualisierung von Quellcode mit Drush kann die Lightning-Seite eventuell beschädigen. (Sichere Aktualisierungsanweisungen sind unter @path verfügbar.) Are Möchten Sie wirklich fortfahren?"
+
+#: lightning_core.info.yml:0
+msgid "Lightning Core"
+msgstr "Lightning Core"
+
+#: lightning_core.info.yml:0 lightning_core.links.menu.yml:0 lightning_core.routing.yml:0 config/schema/lightning_core.schema.yml:0;0 modules/lightning_roles/lightning_roles.info.yml:0 modules/lightning_test/lightning_test.info.yml:0
+msgid "Lightning"
+msgstr "Lightning"
+
+#: lightning_core.info.yml:0
+msgid "Shared functionality for the Lightning distribution."
+msgstr "Gemeinsame Funktionen für die Lightning-Distribution."
+
+#: lightning_core.links.menu.yml:0
+msgid "Various settings for altering the behavior of Lightning modules."
+msgstr "Verschiedene Einstellungen zum Ändern des Verhaltens der Lightning-Module."
+
+#: config/schema/lightning_core.schema.yml:0;0 src/EntityDescriptionFormTrait.php:23
+msgid "Description"
+msgstr "Beschreibung"
+
+#: config/schema/lightning_core.schema.yml:0
+msgid "Internal"
+msgstr "Intern"
+
+#: config/schema/lightning_core.schema.yml:0
+msgid "Extension versions"
+msgstr "Erweiterungsversionen"
+
+#: config/schema/lightning_core.schema.yml:0
+msgid "Semantic version number"
+msgstr "Semantische Versionsnummer"
+
+#: modules/lightning_roles/lightning_roles.info.yml:0 modules/lightning_roles/lightning_roles.routing.yml:0
+msgid "Lightning Roles"
+msgstr "Lightning Rollen"
+
+#: modules/lightning_roles/lightning_roles.info.yml:0
+msgid "Automatically manages user roles and permissions."
+msgstr "Verwaltet automatisch Benutzerrollen und Zugriffsrechte."
+
+#: modules/lightning_roles/lightning_roles.links.menu.yml:0
+msgid "Roles"
+msgstr "Rollen"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0;0
+msgid "Content role"
+msgstr "Inhalt Rolle"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0
+msgid "Permission"
+msgstr "Berechtigung"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0
+msgid "Lightning Roles settings"
+msgstr "Einstellungen zu Lightning-Rollen"
+
+#: modules/lightning_roles/config/schema/lightning_roles.schema.yml:0
+msgid "Content roles"
+msgstr "Inhalt Rollen"
+
+#: modules/lightning_roles/src/Form/SettingsForm.php:68
+msgid "Provide @label role for new content types"
+msgstr "@label Rolle für neue Inhaltstypen angeben"
+
+#: modules/lightning_roles/src/Form/SettingsForm.php:72
+msgid "Gives permission to @permissions"
+msgstr "Gibt Freigabe für @permissions"
+
+#: modules/lightning_test/lightning_test.info.yml:0
+msgid "Lightning Test"
+msgstr "Lightning-Test"
+
+#: modules/lightning_test/lightning_test.info.yml:0
+msgid "Contains configuration and support code for running Lightning functional tests."
+msgstr "Enthält Konfigurations- und Support-Code zur Ausführung von Lightning-Funktionstests."
+
+#: src/EntityDescriptionFormTrait.php:24
+msgid "Additional relevant information about this @entity_type, such as where it is used and what it is for."
+msgstr "Zusätzliche relevante Informationen zu diesem @entity_type, z. B. wo er benutzt wird und wozu er dient."
+
+#: src/YieldToArgumentTrait.php:42
+msgid "Yield to argument"
+msgstr "Argument nachgeben"
+
+#: src/YieldToArgumentTrait.php:44
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/YieldToArgumentTrait.php:46
+msgid "If this argument has a non-null value (given or default), this filter will not be exposed to the user."
+msgstr "Wenn dieses Argument einen Wert hat, der nicht Null ist (zugewiesen oder Standard), wird dieser Filter dem Benutzer nicht angezeigt."
+

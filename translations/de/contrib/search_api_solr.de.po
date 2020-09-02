@@ -1,0 +1,3419 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  search_api_solr.module: n/a
+#  config/schema/search_api_solr.schema.yml: n/a
+#  src/Plugin/search_api/backend/SearchApiSolrBackend.php: n/a
+#  search_api_solr.links.action.yml: n/a
+#  search_api_solr.install: n/a
+#  src/Controller/SolrFieldTypeListBuilder.php: n/a
+#  src/Entity/SolrFieldType.php: n/a
+#  search_api_solr.info.yml: n/a
+#  modules/search_api_solr_admin/search_api_solr_admin.info.yml: n/a
+#  modules/search_api_solr_defaults/search_api_solr_defaults.info.yml: n/a
+#  modules/search_api_solr_devel/search_api_solr_devel.info.yml: n/a
+#  modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml: n/a
+#  search_api_solr.links.task.yml: n/a
+#  search_api_solr.routing.yml: n/a
+#  config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml: n/a
+#  src/Plugin/search_api/datasource/SolrDocument.php: n/a
+#  config/schema/plugin.plugin_configuration.search_api_datasource.solr_multisite_document.yml: n/a
+#  src/Plugin/search_api/datasource/SolrMultisiteDocument.php: n/a
+#  config/schema/search_api_solr.backend.schema.yml: n/a
+#  config/schema/search_api_solr.connector.basic_auth.schema.yml: n/a
+#  config/schema/search_api_solr.connector.solr_cloud.schema.yml: n/a
+#  config/schema/search_api_solr.connector.solr_cloud_basic_auth.schema.yml: n/a
+#  src/Plugin/SolrConnector/StandardSolrCloudConnector.php: n/a
+#  config/schema/search_api_solr.connector.standard.schema.yml: n/a
+#  src/SolrConnector/SolrConnectorPluginBase.php: n/a
+#  config/schema/search_api_solr.processor.schema.yml: n/a
+#  src/Plugin/search_api/processor/DoubleQuoteWorkaround.php: n/a
+#  config/schema/solr_field_type.schema.yml: n/a
+#  modules/search_api_solr_admin/search_api_solr_admin.links.action.yml: n/a
+#  modules/search_api_solr_admin/search_api_solr_admin.routing.yml: n/a
+#  modules/search_api_solr_admin/search_api_solr_admin.links.task.yml: n/a
+#  modules/search_api_solr_admin/search_api_solr_admin.permissions.yml: n/a
+#  modules/search_api_solr_admin/src/Form/SolrReloadCoreForm.php: n/a
+#  modules/search_api_solr_defaults/search_api_solr_defaults.install: n/a
+#  modules/search_api_solr_devel/src/Controller/DevelController.php: n/a
+#  modules/search_api_solr_devel/src/Logging/SolariumRequestLogger.php: n/a
+#  modules/search_api_solr_devel/src/Plugin/Derivative/DevelLocalTask.php: n/a
+#  src/SolrFieldManager.php: n/a
+#  src/Controller/SolrFieldTypeController.php: n/a
+#  src/Plugin/search_api_autocomplete/suggester/Suggester.php: n/a
+#  src/EventSubscriber/ConfigSubscriber.php: n/a
+#  src/Form/IndexSolrMultisiteCloneForm.php: n/a
+#  src/Form/IndexSolrMultisiteUpdateForm.php: n/a
+#  src/Form/SolrConfigForm.php: n/a
+#  src/Form/SolrFieldTypeDeleteForm.php: n/a
+#  src/Form/SolrFieldTypeForm.php: n/a
+#  src/Plugin/DataType/SolrDocument.php: n/a
+#  src/Plugin/DataType/SolrField.php: n/a
+#  src/Plugin/DataType/SolrMultisiteDocument.php: n/a
+#  src/Plugin/DataType/SolrMultisiteField.php: n/a
+#  src/Plugin/Derivative/CustomTextDataType.php: n/a
+#  src/Plugin/Derivative/OmitNormsCustomTextDataType.php: n/a
+#  src/Plugin/SolrConnector/BasicAuthSolrCloudConnector.php: n/a
+#  src/Plugin/SolrConnector/BasicAuthSolrConnector.php: n/a
+#  src/Plugin/SolrConnector/StandardSolrConnector.php: n/a
+#  src/Plugin/search_api/data_type/CustomTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/DateRangeDataType.php: n/a
+#  src/Plugin/search_api/data_type/OmitNormsCustomTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/OmitNormsTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/SpellcheckTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/StorageStringDataType.php: n/a
+#  src/Plugin/search_api/data_type/SuggesterTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/UnstemmedTextDataType.php: n/a
+#  src/Plugin/search_api/data_type/WhiteSpaceTokensTextDataType.php: n/a
+#  src/Plugin/search_api/parse_mode/Edismax.php: n/a
+#  src/Plugin/search_api/processor/DateRange.php: n/a
+#  src/Plugin/search_api/processor/DummyFields.php: n/a
+#  src/Plugin/search_api/processor/Property/DummyFieldProperty.php: n/a
+#  src/Plugin/search_api_autocomplete/suggester/Spellcheck.php: n/a
+#  src/Plugin/search_api_autocomplete/suggester/Terms.php: n/a
+#  src/SolrConnector/BasicAuthTrait.php: n/a
+#  config/install/search_api_solr.solr_field_type.text_edge_und_6_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_edge_und_7_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_edgestring_und_6_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_ngram_und_6_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_ngram_und_7_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_ngramstring_und_6_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_phonetic_und_7_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_und_6_0_0.yml: n/a
+#  config/install/search_api_solr.solr_field_type.text_und_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ar_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ar_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_bg_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ca_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_cs_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_cs_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_da_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_de_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_de_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_de_scientific_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_de_scientific_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_el_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_el_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_en_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_en_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_es_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_es_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_et_8_2_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_fa_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_fi_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_fi_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_fr_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_fr_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_hi_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_hr_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_id_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_it_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_it_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ja_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_lv_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_nb_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_nl_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_nl_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_nn_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_no_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_de_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_el_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_en_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_es_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_fr_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_it_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_pl_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_ru_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_phonetic_uk_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_pl_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_pt_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ro_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ru_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_ru_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_sk_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_sk_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_sr_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_sv_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_th_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_tr_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_uk_6_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_uk_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_uk_8_2_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_zh-hans_7_0_0.yml: n/a
+#  config/optional/search_api_solr.solr_field_type.text_zh-hant_7_0_0.yml: n/a
+#  modules/search_api_solr_defaults/config/optional/search_api.index.default_solr_index.yml: n/a
+#  modules/search_api_solr_defaults/config/optional/search_api.server.default_solr_server.yml: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-12-30 11:20+0100\n"
+"PO-Revision-Date: 2019-12-30 16:24+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: search_api_solr.module:185
+msgid "Solr specific index options"
+msgstr "Solr-spezifische Indexierungsoptionen"
+
+#: search_api_solr.module:191 config/schema/search_api_solr.schema.yml:0
+msgid "Finalize index before first search"
+msgstr "Index vor der ersten Suche vervollständigen"
+
+#: search_api_solr.module:192
+msgid ""
+"If enabled, other modules could hook in to apply \"finalizations\" to the index after "
+"updates or deletions happend to index items."
+msgstr ""
+"Wenn aktiviert, können andere Module „Vervollständigungen“ am Index vornehmen, nachdem "
+"Index-Einträge aktualisiert oder gelöscht werden."
+
+#: search_api_solr.module:198 config/schema/search_api_solr.schema.yml:0
+msgid "Wait for commit before first finalization"
+msgstr "Vor erster Finalisierung auf Commit warten"
+
+#: search_api_solr.module:199
+msgid ""
+"If enabled, Solr will be be forced to flush all commits before any \"finalizations\" will "
+"be applied."
+msgstr ""
+"Wenn aktiviert, wird Solr alle Commits bereinigen bevor Finalisierungen angewendet werden."
+
+#: search_api_solr.module:212 config/schema/search_api_solr.schema.yml:0
+msgid "Wait for commit after last finalization"
+msgstr "Nach letzter Finalisierung auf Commit warten"
+
+#: search_api_solr.module:213
+msgid ""
+"If enabled, Solr will be be forced to flush all commits after the last \"finalizations\" "
+"have been applied."
+msgstr ""
+"Wenn aktiviert, wird Solr alle Commits bereinigen nachdem die letzten Finalisierungen "
+"angewendet wurden."
+
+#: search_api_solr.module:226
+msgid "Multilingual"
+msgstr "Mehrsprachenunterstützung"
+
+#: search_api_solr.module:232
+msgid "Limit to current content language."
+msgstr "Auf aktuelle Inhaltssprache beschränken."
+
+#: search_api_solr.module:233
+msgid ""
+"Limit all search results for custom queries or search pages not managed by Views to "
+"current content language if no language is specified in the query."
+msgstr ""
+"Alle Suchergebnisse für angepasste Anfragen oder nicht über Ansichten verwaltete "
+"Suchseiten auf die aktuelle Inhaltssprache beschränken, wenn in der Anfrage keine Sprache "
+"angegeben wurde."
+
+#: search_api_solr.module:239
+msgid "Include language independent content in search results."
+msgstr "Sprachunabhängige Inhalte in Suchergebnisse einbeziehen."
+
+#: search_api_solr.module:240
+msgid ""
+"This option will include content without a language assigned in the results of custom "
+"queries or search pages not managed by Views. For example, if you search for English "
+"content, but have an article with languague of \"undefined\", you will see those results "
+"as well. If you disable this option, you will only see content that matches the language."
+msgstr ""
+"Diese Option bezieht Inhalte ohne Sprachzuweisung in angepassten Suchanfragen auf nicht "
+"über Ansichten gesteuerten Ergebnisseiten ein. Wenn sie zum Beispiel englische Inhalte "
+"suchen, aber einen Artikel ohne definierte Sprache haben, sehen Sie dieses Ergebnis "
+"ebenfalls. Wenn Sie die Option deaktivieren, sehen Sie nur Inhalte mit der passenden "
+"Sprache."
+
+#: search_api_solr.module:247
+msgid "Highlighter"
+msgstr "Hervorhebung"
+
+#: search_api_solr.module:249
+msgid ""
+"If \"Retrieve result data from Solr\" and \"Highlight retrieved data\" are selected for "
+"the Solr backend on the server edit page, these highlighting settings will be used."
+msgstr ""
+"Wenn \"Ergebnisdaten aus Solr abrufen\" und \"Abgerufene Daten hervorheben\" für das Solr-"
+"Backend auf der Server-Bearbeitungsseite ausgewählt sind, werden diese "
+"Hervorhebungseinstellungen verwendet."
+
+#: search_api_solr.module:255
+msgid "maxAnalyzedChars"
+msgstr "maxAnalyzedChars"
+
+#: search_api_solr.module:256 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the number of characters into a document that Solr should look for suitable "
+"snippets."
+msgstr ""
+"Gibt die Anzahl der Zeichen in einem Dokument an, die Solr nach geeigneten Snippets "
+"suchen soll."
+
+#: search_api_solr.module:263
+msgid "fragmenter"
+msgstr "fragmenter"
+
+#: search_api_solr.module:264
+msgid ""
+"Specifies a text snippet generator for highlighted text. The standard fragmenter is gap, "
+"which creates fixed-sized fragments with gaps for multi-valued fields. Another option is "
+"regex, which tries to create fragments that resemble a specified regular expression. This "
+"parameter accepts per-field overrdes."
+msgstr ""
+"Gibt einen Textausschnittgenerator für hervorgehobenen Text an. Der Standardfragmenter "
+"ist die Lücke, die Fragmente mit fester Größe mit Lücken für mehrwertige Felder erstellt. "
+"Eine weitere Option ist regex, das versucht, Fragmente zu erstellen, die einem "
+"angegebenen regulären Ausdruck ähneln. Dieser Parameter akzeptiert Überschreitungen pro "
+"Feld."
+
+#: search_api_solr.module:271
+msgid "regex"
+msgstr "Regulärer Ausdruck (RegEx)"
+
+#: search_api_solr.module:286
+msgid "regex.slop"
+msgstr "regex.slop"
+
+#: search_api_solr.module:287
+msgid ""
+"When using the regex fragmenter, this parameter defines the factor by which the "
+"fragmenter can stray from the ideal fragment size (given by fragsize) to accommodate a "
+"regular expression. For instance, a slop of 0.2 with fragsize=100 should yield fragments "
+"between 80 and 120 characters in length. It is usually good to provide a slightly smaller "
+"fragsize value when using the regex fragmenter."
+msgstr ""
+"Bei Verwendung des Regex-Fragmenters definiert dieser Parameter den Faktor, durch den der "
+"Fragmenter von der idealen Fragmentgröße (durch Fragsize) abweichen kann, um einen "
+"regulären Ausdruck aufzunehmen. Beispielsweise sollte ein Slop von 0,2 mit fragsize=100 "
+"Fragmente zwischen 80 und 120 Zeichen länge liefern. Es ist in der Regel gut, einen etwas "
+"kleineren Fragsize-Wert bei verwendung des Regex-Fragmenters bereitzustellen."
+
+#: search_api_solr.module:293
+msgid "regex.pattern"
+msgstr "regex.pattern"
+
+#: search_api_solr.module:294 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the regular expression for fragmenting. This could be used to extract sentences."
+msgstr ""
+"Gibt den regulären Ausdruck für die Fragmentierung an. Dies könnte verwendet werden, um "
+"Sätze zu extrahieren."
+
+#: search_api_solr.module:301
+msgid "regex.maxAnalyzedChars"
+msgstr "regex.maxAnalyzedChars"
+
+#: search_api_solr.module:302
+msgid ""
+"Instructs Solr to analyze only this many characters from a field when using the regex "
+"fragmenter (after which, the fragmenter produces fixed-sized fragments). Applying a "
+"complicated regex to a huge field is computationally expensive."
+msgstr ""
+"Weist Solr an, nur so viele Zeichen aus einem Feld zu analysieren, wenn der Regex-"
+"Fragmenter verwendet wird (danach erzeugt der Fragmenter Fragmente fester Größe). Die "
+"Anwendung eines komplizierten Regex auf ein riesiges Feld ist rechnerisch teuer."
+
+#: search_api_solr.module:308
+msgid "usePhraseHighlighter"
+msgstr "usePhraseHighlighter"
+
+#: search_api_solr.module:309
+msgid ""
+"If set, Solr will highlight phrase queries (and other advanced position-sensitive "
+"queries) accurately. If false, the parts of the phrase will be highlighted everywhere "
+"instead of only when it forms the given phrase."
+msgstr ""
+"Wenn diese Einstellung festgelegt ist, hebt Solr Phrasenabfragen (und andere erweiterte "
+"positionssensitive Abfragen) genau hervor. Wenn falsch, werden die Teile des Ausdrucks "
+"überall hervorgehoben und nicht nur, wenn er den angegebenen Ausdruck bildet."
+
+#: search_api_solr.module:315
+msgid "highlightMultiTerm"
+msgstr "highlightMultiTerm"
+
+#: search_api_solr.module:316
+msgid ""
+"If set, Solr will highlight wildcard queries (and other MultiTermQuery subclasses). If "
+"false, they won't be highlighted at all."
+msgstr ""
+"Wenn diese Option festgelegt ist, hebt Solr Platzhalterabfragen (und andere "
+"MultiTermQuery-Unterklassen) hervor. Wenn falsch, werden sie überhaupt nicht "
+"hervorgehoben."
+
+#: search_api_solr.module:322
+msgid "preserveMulti"
+msgstr "preserveMulti"
+
+#: search_api_solr.module:323
+msgid ""
+"If set, multi-valued fields will return all values in the order they were saved in the "
+"index. If false, only values that match the highlight request will be returned."
+msgstr ""
+"Wenn festgelegt, geben mehrwertige Felder alle Werte in der Reihenfolge zurück, in der "
+"sie im Index gespeichert wurden. Wenn false, werden nur Werte zurückgegeben, die der "
+"Hervorhebungsanforderung entsprechen."
+
+#: search_api_solr.module:329
+msgid "mergeContiguous"
+msgstr "mergeContiguous"
+
+#: search_api_solr.module:330
+msgid ""
+"Instructs Solr to collapse contiguous fragments into a single fragment. A value of true "
+"indicates contiguous fragments will be collapsed into single fragment. This parameter "
+"accepts per-field overrides. The default value, false, is also the backward-compatible "
+"setting."
+msgstr ""
+"Weist Solr an, zusammenhängende Fragmente in ein einzelnes Fragment zu reduzieren. Ein "
+"Wert von true gibt an, dass zusammenhängende Fragmente in einzelne Fragmente reduziert "
+"werden. Dieser Parameter akzeptiert Überschreibungen pro Feld. Der Standardwert false ist "
+"auch die abwärtskompatible Einstellung."
+
+#: search_api_solr.module:336
+msgid "requireFieldMatch"
+msgstr "requireFieldMatch"
+
+#: search_api_solr.module:337
+msgid ""
+"If set, highlights terms only if they appear in the specified field. If not set, terms "
+"are highlighted in all requested fields regardless of which field matched the query."
+msgstr ""
+"Wenn diese Einstellung festgelegt ist, werden Begriffe nur hervorgehoben, wenn sie im "
+"angegebenen Feld angezeigt werden. Wenn nicht festgelegt, werden Begriffe in allen "
+"angeforderten Feldern hervorgehoben, unabhängig davon, welches Feld mit der Abfrage "
+"übereinstimmt."
+
+#: search_api_solr.module:344
+msgid "snippets"
+msgstr "snippets"
+
+#: search_api_solr.module:345
+msgid ""
+"Specifies maximum number of highlighted snippets to generate per field. It is possible "
+"for any number of snippets from zero to this value to be generated. This parameter "
+"accepts per-field overrides."
+msgstr ""
+"Gibt die maximale Anzahl der hervorgehobenen Ausschnitte an, die pro Feld generiert "
+"werden sollen. Es ist möglich, eine beliebige Anzahl von Ausschnitten von Null bis zu "
+"diesem Wert zu generieren. Dieser Parameter akzeptiert Überschreibungen pro Feld."
+
+#: search_api_solr.module:352
+msgid "fragsize"
+msgstr "fragsize"
+
+#: search_api_solr.module:353
+msgid ""
+"Specifies the size, in characters, of fragments to consider for highlighting. 0 indicates "
+"that no fragmenting should be considered and the whole field value should be used. This "
+"parameter accepts per-field overrides."
+msgstr ""
+"Gibt die Größe von Fragmenten in Zeichen an, die für die Hervorhebung in Betracht gezogen "
+"werden sollen. 0 gibt an, dass keine Fragmentierung in Betracht gezogen und der gesamte "
+"Feldwert verwendet werden sollte. Dieser Parameter akzeptiert Überschreibungen pro Feld."
+
+#: search_api_solr.module:360
+msgid "MLT (MoreLikeThis)"
+msgstr "MLT (MoreLikeThis)"
+
+#: search_api_solr.module:362
+msgid ""
+"If a Search API MoreLikeThis block is configured for this index, these settings will be "
+"used."
+msgstr ""
+"Falls ein Search API MoreLikeThis Block für diesen Index konfiguriert ist, werden diese "
+"Einstellungen verwendet."
+
+#: search_api_solr.module:368
+msgid "mintf"
+msgstr "mintf"
+
+#: search_api_solr.module:369 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the Minimum Term Frequency, the frequency below which terms will be ignored in "
+"the source document."
+msgstr ""
+"Spezifiziert die Minimum Term Frequency, die Häufigkeit unterhalb derer Begriffe für das "
+"Quelldokument ignoriert werden."
+
+#: search_api_solr.module:376
+msgid "mindf"
+msgstr "mindf"
+
+#: search_api_solr.module:377 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the Minimum Document Frequency, the frequency at which words will be ignored "
+"which do not occur in at least this many documents."
+msgstr ""
+"Spezifiziert die Minimum Document Frequency, die Häufigkeit unterhalb derer Begriffe "
+"ignoriert werden, die nicht mindestens in so vielen Dokumenten vorkommen."
+
+#: search_api_solr.module:384
+msgid "maxdf"
+msgstr "maxdf"
+
+#: search_api_solr.module:385 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the Maximum Document Frequency, the frequency at which words will be ignored "
+"which occur in more than this many documents."
+msgstr ""
+"Spezifiziert die Maximum Document Frequency, die Häufigkeit ab der Begriffe ignoriert "
+"werden, die in mehr als so vielen Dokumenten vorkommen."
+
+#: search_api_solr.module:393
+msgid "maxdfpct"
+msgstr "maxdfpct"
+
+#: search_api_solr.module:394 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Specifies the Maximum Document Frequency using a relative ratio to the number of "
+"documents in the index. The argument must be an integer between 0 and 100. For example 75 "
+"means the word will be ignored if it occurs in more than 75 percent of the documents in "
+"the index."
+msgstr ""
+"Spezifiziert die Maximum Document Frequency mit einem relativen Verhältnis basierend auf "
+"der Anzahl an Dokumenten im Index. Das Argument muss eine Ganzzahl zwischen 0 und 100 "
+"sein. Zum Beispiel bedeutet 75, dass das Wort ignoriert wird, wenn es in mehr als 75 "
+"Prozent der Dokumente im Index vorkommt."
+
+#: search_api_solr.module:401
+msgid "minwl"
+msgstr "minwl"
+
+#: search_api_solr.module:402 config/schema/search_api_solr.schema.yml:0
+msgid "Sets the minimum word length below which words will be ignored."
+msgstr "Die minimale Wortlänge unterhalb derer Wörter ignoriert werden."
+
+#: search_api_solr.module:409
+msgid "maxwl"
+msgstr "maxwl"
+
+#: search_api_solr.module:410 config/schema/search_api_solr.schema.yml:0
+msgid "Sets the maximum word length above which words will be ignored."
+msgstr "Die maximale Wortlänge oberhalb derer Wörter ignoriert werden."
+
+#: search_api_solr.module:417
+msgid "maxqt"
+msgstr "maxqt"
+
+#: search_api_solr.module:418 config/schema/search_api_solr.schema.yml:0
+msgid "Sets the maximum number of query terms that will be included in any generated query."
+msgstr ""
+"Die maximale Anzahl an Suchbegriffen die in einer generierten Anfrage enthalten sind."
+
+#: search_api_solr.module:425
+msgid "maxntp"
+msgstr "maxntp"
+
+#: search_api_solr.module:426 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Sets the maximum number of tokens to parse in each example document field that is not "
+"stored with TermVector support."
+msgstr ""
+"Die maximale Anzahl an Platzhaltern die in jedem Beispiel-Dokumentenfeld ohne TermVector-"
+"Unterstüzung geparst werden sollen."
+
+#: search_api_solr.module:432
+msgid "boost"
+msgstr "Boost"
+
+#: search_api_solr.module:433 config/schema/search_api_solr.schema.yml:0
+msgid "Specifies if the query will be boosted by the interesting term relevance."
+msgstr "Gibt an ob die Anfrage durch die Relevanz interessanter Begriffe geboostet wird."
+
+#: search_api_solr.module:440
+msgid "interestingTerms"
+msgstr "interestingTerms"
+
+#: search_api_solr.module:441 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Controls how the MoreLikeThis component presents the \"interesting\" terms (the top TF/"
+"IDF terms) for the query. Supports three settings. The setting \"list\" lists the terms. "
+"The setting \"none\" lists no terms. The setting \"details\" lists the terms along with "
+"the boost value used for each term. Unless mlt.boost=true, all terms will have boost=1.0."
+msgstr ""
+"Steuert wir die MoreLikeThis-Komponente die „interessanten“ Begriffe präsentiert. "
+"Unterstützt drei Einstellungen. Die Einstellung „list“ listet die Begriffe auf. Die "
+"Einstellung „none“ listet keine Begriffe auf. Die Einstellung „details“ listet die "
+"Begriffe mit dem Boost-Wer für jeden Begriff auf. Sofern nicht mlt.boost=true gesetzt "
+"ist, haben alle Begriffe boost=1.0."
+
+#: search_api_solr.module:449 src/Plugin/search_api/backend/SearchApiSolrBackend.php:245
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: search_api_solr.module:454
+msgid "Index prefix"
+msgstr "Index-Präfix"
+
+#: search_api_solr.module:455 src/Plugin/search_api/backend/SearchApiSolrBackend.php:283
+msgid ""
+"By default, the index ID in the Solr server is the same as the index's machine name in "
+"Drupal. This setting will let you specify an additional prefix. Only use alphanumeric "
+"characters and underscores. Since changing the prefix makes the currently indexed data "
+"inaccessible, you should not change this variable when no data is indexed."
+msgstr ""
+"Standardmäßig ist die Index-ID im Solr-Server identisch mit dem Maschinennamen des Index "
+"in Drupal. Diese Einstellung erlaubt Ihnen das Setzen eines zusätzlichen Präfix. Nutzen "
+"Sie nur alphanumerische Zeichen und Unterstriche. Das Ändern dieses Präfix macht zuvor "
+"indexierte Daten unzugänglich."
+
+#: search_api_solr.module:461
+msgid "Collection"
+msgstr "Kollektion"
+
+#: search_api_solr.module:462 config/schema/search_api_solr.schema.yml:0
+msgid ""
+"If the server uses a Solr Cloud connector, this setting overwrites the configured default "
+"collection if set."
+msgstr ""
+"Falls der Server einen Solr Cloud Connector nutzt, überschriebt diese Einstellung die "
+"gegebenenfalls eingestellte Standard-Collection."
+
+#: search_api_solr.module:469
+msgid "Time zone"
+msgstr "Zeitzone"
+
+#: search_api_solr.module:470
+msgid ""
+"For correct date calculations the time zone to use is sent to the Solr server. By default "
+"the individual time zone of the current user will be used. If not available the site's "
+"default time zone will be used as fallback. But by setting a time zone here you can force "
+"a time zone for every query targeting this index."
+msgstr ""
+"Für korrekte Datumsberechnungen wird die zu verwendende Zeitzone an den Solr-Server "
+"geschickt. Standardmäßig wird die Zeitzone des aktiven Benutzers verwendet. Falls nicht "
+"vorhanden wird auf die Zeitzone der Seite zurückgegriffen. Durch das Setzen einer "
+"Zeitzone an dieser Stelle können Sie die Verwendung dieser Zeitzone bei jeder Anfrage an "
+"diesen Index erzwingen."
+
+#: search_api_solr.module:498
+msgid ""
+"You're storing multiple indexes on the same Solr index (aka core). Take care if you use "
+"advanced Solr features like spell checking, suggesters, terms, autocomplete and others "
+"directly, because they aren't aware of these multiple indexes by default. Use Search API "
+"family modules like Autocomplete module instead which will help you to avoid issues."
+msgstr ""
+"Sie speichern mehrere Indizes auf dem selben Solr Index (oder auch Core). Beachten Sie, "
+"dass wenn Sie fortgeschrittene Solr-Features wie Rechtschreibprüfung, Suggester, Terms, "
+"Autovervollständigung o.ä. direkt verwenden, diese nicht über die mehreren Indizes "
+"Bescheid wissen. Nutzen Sie Search API Module wie das Autocomplete-Modul, um hier "
+"Probleme zu vermeiden."
+
+#: search_api_solr.module:603 search_api_solr.links.action.yml:0
+msgid "Get config.zip"
+msgstr "Lade config.zip"
+
+#: search_api_solr.module:615
+msgid "Clone for Multisite"
+msgstr "Duplizieren für Multisite"
+
+#: search_api_solr.module:622
+msgid "Update for Multisite"
+msgstr "Aktualisieren für Multisite"
+
+#: search_api_solr.module:71
+msgid "Cron finalized Solr server @server."
+msgstr "Cron hat Solr-Server @server finalisiert."
+
+#: search_api_solr.module:77
+msgid "Optimized Solr server @server."
+msgstr "Solr-Server @server optimiert."
+
+#: search_api_solr.install:26
+msgid "Solr search requires the solarium/solarium library."
+msgstr "Solr-Suche benötigt solarium/solarium Bibliothek."
+
+#: search_api_solr.install:103
+msgid "Solr Server %server_id"
+msgstr "Solr-Server %server_id"
+
+#: search_api_solr.install:104
+msgid "Schema complete"
+msgstr "Schema vollständig"
+
+#: search_api_solr.install:106
+msgid ""
+"Schema on server <a href=\":url\">@server</a> contains all required language-specific "
+"fields."
+msgstr ""
+"Schema auf Server <a href=\":url\">@server</a> enthält alle benötigten sprachspezifischen "
+"Felder."
+
+#: search_api_solr.install:117
+msgid "Schema incomplete"
+msgstr "Schema unvollständig"
+
+#: search_api_solr.install:119
+msgid ""
+"There are some language-specific field types missing in schema of Solr server <a href=\":"
+"url\">@server</a>: @languages."
+msgstr ""
+"Einige sprachspezifische Feldtypen fehlen im Schema auf dem Solr-Server <a href=\":"
+"url\">@server</a>: @languages."
+
+#: search_api_solr.install:128
+msgid "Not reachable"
+msgstr "Nicht erreichbar"
+
+#: search_api_solr.install:130
+msgid "Solr server <a href=\":url\">@server</a> is not reachable."
+msgstr "Solr-Server <a href=\":url\">@server</a> ist nicht erreichbar."
+
+#: search_api_solr.install:140;148
+msgid "solarium library"
+msgstr "solarium Bibliothek"
+
+#: search_api_solr.install:141
+msgid "Up to date"
+msgstr "Aktuell"
+
+#: search_api_solr.install:142
+msgid "Solarium @version is installed."
+msgstr "Solarium @version ist installiert."
+
+#: search_api_solr.install:149
+msgid "Outdated"
+msgstr "Veraltet"
+
+#: search_api_solr.install:150
+msgid ""
+"Solarium @version is too old and has known issues. In order to get composer to upgrade "
+"solarium to a recent version a core patch or a workaround is required. Have a look at "
+"this <a href=\":core\">Core issue</a> and this <a href=\":search_api_solr\">Search API "
+"Solr issue</a>."
+msgstr ""
+"Solarium @version ist zu alt und hat bekannte Probleme. Um solarium per composer auf eine "
+"neuere Version zu aktualisieren sind ein Core-Patch oder ein Workaround notwendig. Siehe "
+"diese <a href=\":core\">Core-Issue</a> und diese <a href=\":search_api_solr\">Search API Solr "
+"Issue</a>."
+
+#: search_api_solr.install:470 src/Controller/SolrFieldTypeListBuilder.php:51
+#: src/Entity/SolrFieldType.php:12
+msgid "Solr Field Type"
+msgstr "Solr Field Type"
+
+#: search_api_solr.install:62;90
+msgid "1 server"
+msgid_plural "@count servers"
+msgstr[0] "1 Server"
+msgstr[1] "@count Server"
+
+#: search_api_solr.install:82 src/Plugin/search_api/backend/SearchApiSolrBackend.php:625
+msgid "The Solr server could be reached."
+msgid_plural "All @count Solr servers could be reached."
+msgstr[0] "Der Solr-Server ist erreichbar."
+msgstr[1] "@count Solr-Server sind erreichbar."
+
+msgid "The Solr server of <a href=\":url\">%name</a> could not be reached."
+msgstr "Der Solr-Server von <a href=\":url\">%name</a> ist nicht erreichbar."
+
+msgid "Solr servers with multiple indexes"
+msgstr "Solr-Server mit mehreren Indizes"
+
+#: search_api_solr.info.yml:0
+msgid "Search API Solr"
+msgstr "Search API Solr"
+
+#: search_api_solr.info.yml:0
+msgid ""
+"Offers an implementation of the Search API that uses an Apache Solr server for indexing "
+"content."
+msgstr ""
+"Stellt eine Implementierung der Search API bereit, die einen Apache Solr Server für die "
+"Indexierung des Inhalts nutzt."
+
+#: search_api_solr.info.yml:0 modules/search_api_solr_admin/search_api_solr_admin.info.yml:0
+#: modules/search_api_solr_defaults/search_api_solr_defaults.info.yml:0
+#: modules/search_api_solr_devel/search_api_solr_devel.info.yml:0
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0;0
+msgid "Search"
+msgstr "Suche"
+
+#: search_api_solr.links.action.yml:0
+msgid "Get schema_extra_types.xml"
+msgstr "Lade schema_extra_types.xml"
+
+#: search_api_solr.links.action.yml:0
+msgid "Get schema_extra_fields.xml"
+msgstr "Lade schema_extra_fields.xml"
+
+#: search_api_solr.links.task.yml:0
+msgid "Files"
+msgstr "Dateien"
+
+#: search_api_solr.links.task.yml:0
+msgid "Custom Field Types"
+msgstr "Angepasste Feldtypen"
+
+#: search_api_solr.routing.yml:0
+msgid "SolrFieldType Configuration"
+msgstr "SolrFieldType Konfiguration"
+
+#: search_api_solr.routing.yml:0
+msgid "Add SolrFieldType"
+msgstr "SolrFieldType hinzufügen"
+
+#: search_api_solr.routing.yml:0
+msgid "Edit SolrFieldType"
+msgstr "SolrFieldType bearbeiten"
+
+#: search_api_solr.routing.yml:0
+msgid "Delete SolrFieldType"
+msgstr "SolrFieldType löschen"
+
+#: search_api_solr.routing.yml:0
+msgid "Disable SolrFieldType for server"
+msgstr "SolrFieldType auf dem Server deaktivieren"
+
+#: search_api_solr.routing.yml:0
+msgid "Enable SolrFieldType for server"
+msgstr "SolrFieldType auf dem Server aktivieren"
+
+#: search_api_solr.routing.yml:0
+msgid "schema_extra_types.xml"
+msgstr "schema_extra_types.xml"
+
+#: search_api_solr.routing.yml:0
+msgid "schema_extra_fields.xml"
+msgstr "schema_extra_fields.xml"
+
+#: search_api_solr.routing.yml:0
+msgid "config.zip"
+msgstr "config.zip"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+msgid "Solr document datasource configuration"
+msgstr "Solr-Dokument Datenquelle Konfiguration"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:221
+msgid "ID field"
+msgstr "ID Feld"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:239
+msgid "Request handler"
+msgstr "Request-Handler"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:245
+msgid "Default query"
+msgstr "Standard-Anfrage"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:251
+msgid "Label field"
+msgstr "Bezeichner-Feld"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:257
+msgid "Language field"
+msgstr "Sprachfeld"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_document.yml:0
+#: src/Plugin/search_api/datasource/SolrDocument.php:263
+msgid "URL field"
+msgstr "URL-Feld"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_multisite_document.yml:0
+msgid "Solr multisite document datasource configuration"
+msgstr "Solr Multisite Dokument Datenquelle Konfiguration"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_multisite_document.yml:0;0
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:44
+msgid "Targeted index"
+msgstr "Angesprochener Index"
+
+#: config/schema/plugin.plugin_configuration.search_api_datasource.solr_multisite_document.yml:0
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:60
+msgid "Targeted site hash"
+msgstr "Hash der angesprochenen Seite"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "Search API Solr settings"
+msgstr "Search API Solr Einstellungen"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:261
+msgid "Retrieve result data from Solr"
+msgstr "Ergebnisse von Solr beziehen"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "Highlight retrieved data"
+msgstr "Bezogene Daten hervorheben"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:275
+msgid "Skip schema verification"
+msgstr "Schemaüberprüfung überspringen"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "Restrict searches to current site"
+msgstr "Suche auf die aktuelle Seite beschränken"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "The default prefix for Solr indexes on this backend"
+msgstr "Der Standard-Präfix für Solr-Indizes in diesem Backend"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "The targeted content domain"
+msgstr "Die angesprochene Inhaltsdomäne"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "The connector plugin ID"
+msgstr "Die Connector-Plugin-ID"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "Optimize this backend"
+msgstr "Dieses Backend optimieren"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:829
+msgid "Disabled Solr Field Types"
+msgstr "Deaktivierte Solr Field Types"
+
+#: config/schema/search_api_solr.backend.schema.yml:0
+msgid "The default result rows limit if no limit is set as query option"
+msgstr "Das Standard-Limit für Ergebnisse wenn die Anfrage kein Limit enthält"
+
+#: config/schema/search_api_solr.connector.basic_auth.schema.yml:0
+msgid "Search API Solr basic authentication connector settings"
+msgstr "Search API Solr Basic Authentifizierung Connector Einstellungen"
+
+#: config/schema/search_api_solr.connector.basic_auth.schema.yml:0
+msgid "Username for HTTP basic authentication"
+msgstr "Benutzername für HTTP Basic Authentifizierung"
+
+#: config/schema/search_api_solr.connector.basic_auth.schema.yml:0
+msgid "Password for HTTP basic authentication"
+msgstr "Passwort für HTTP Basic Authentifizierung"
+
+#: config/schema/search_api_solr.connector.solr_cloud.schema.yml:0
+msgid "Search API Solr standard connector settings for Solr cloud"
+msgstr "Search API Solr Standard Connector Einstellungen für Solr Cloud"
+
+#: config/schema/search_api_solr.connector.solr_cloud.schema.yml:0
+#: config/schema/search_api_solr.connector.solr_cloud_basic_auth.schema.yml:0
+msgid "The collection where topic checkpoints are stored"
+msgstr "Die Collection in der Topic Checkpoints gespeichert werden"
+
+#: config/schema/search_api_solr.connector.solr_cloud.schema.yml:0
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:67
+msgid "StatsCache"
+msgstr "StatsCache"
+
+#: config/schema/search_api_solr.connector.solr_cloud_basic_auth.schema.yml:0
+msgid "Search API Solr basic authentication connector settings for Solr cloud"
+msgstr "Search API Solr Basic Authentifizierung Connector Einstellungen für Solr Cloud"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Search API Solr standard connector settings"
+msgstr "Search API Solr Standard Connector Einstellungen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The HTTP protocol to use for sending queries"
+msgstr "Das HTTP-Protokoll zum Versand von Anfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The host name or IP of the Solr server"
+msgstr "Der Hostname oder die IP des Solr-Servers"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The port of the Solr server"
+msgstr "Der Port des Solr-Servers"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The path of the Solr server"
+msgstr "Der Pfad des Solr-Servers"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The name that identifies the Solr core to use on the server"
+msgstr "Der eindeutige Name des zu verwendenden Solr-Cores auf dem Server"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Timeout for search queries"
+msgstr "Timeout für Suchanfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Timeout for indexing requests"
+msgstr "Timeout für Indexierungsanfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Timeout for optimize requests"
+msgstr "Timeout für Optimierungsanfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Timeout for finalize requests"
+msgstr "Timeout für Finalisierungsanfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Do not validate if the schema is correct"
+msgstr "Nicht validieren, ob das Schema korrekt ist"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+#: src/SolrConnector/SolrConnectorPluginBase.php:221
+msgid "Solr version override"
+msgstr "Solr-Version Überschreibung"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "The HTTP method to use for sending queries"
+msgstr "Die HTTP-Methode zum Senden von Anfragen"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "Time until a soft commit has to happen"
+msgstr "Zeit bis eine weiche Bestätigung erfolgen muss"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+#: src/SolrConnector/SolrConnectorPluginBase.php:251
+msgid "Enable JMX"
+msgstr "JMX aktivieren"
+
+#: config/schema/search_api_solr.connector.standard.schema.yml:0
+msgid "solr.install.dir property"
+msgstr "solr.install.dir Eigenschaft"
+
+#: config/schema/search_api_solr.processor.schema.yml:0
+msgid "Double quote workaround processor configuration"
+msgstr "Anführungszeichen Workaround Prozessor Konfiguration"
+
+#: config/schema/search_api_solr.processor.schema.yml:0
+#: src/Plugin/search_api/processor/DoubleQuoteWorkaround.php:54
+msgid "Replacement"
+msgstr "Replacement (Ersatztext)"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Search API Solr index settings"
+msgstr "Search API Solr Index-Einstellungen"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "highlighter settings"
+msgstr "Highlighter-Einstellungen"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Specifies a text snippet generator for highlighted text."
+msgstr "Spezifiziert einen Text-Snippet-Generator für hervorgehobenen Text."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid ""
+"If set to true, Solr will highlight phrase queries (and other advanced position-sensitive "
+"queries) accurately."
+msgstr "Falls wahr, wird Solr Suchen nach Phrasen genau hervorheben."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid ""
+"If set to true, Solr will highlight wildcard queries (and other MultiTermQuery "
+"subclasses)."
+msgstr ""
+"Falls wahr wird Solr Anfragen mit Wildcards hervorheben (und andere MultiTermQuery "
+"Subklassen)."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid ""
+"If true, multi-valued fields will return all values in the order they were saved in the "
+"index."
+msgstr ""
+"Falls wahr, geben Felder mit mehreren Werten ihre Werte in der Reihenfolge ihrer "
+"Speicherung zurück."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid ""
+"When using the regex fragmenter (hl.fragmenter=regex), this parameter defines the factor "
+"by which the fragmenter can stray from the ideal fragment size (given by hl.fragsize) to "
+"accommodate a regular expression."
+msgstr ""
+"Wenn der Regex Fragmenter (hl.fragmenter=regex) eingesetzt wird, definiert dieser "
+"Parameter den Faktor um den der Fragmenter von der idealen Fragmentgröße (angegeben durch "
+"hl.fragsize) abweichen kann um einem regulären Ausdruck gerecht zu werden."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid ""
+"Instructs Solr to analyze only this many characters from a field when using the regex "
+"fragmenter (after which, the fragmenter produces fixed-sized fragments)."
+msgstr ""
+"Weist Solr an, nur so viele Zeichen aus einem Feld auszuwerten wenn der Regex Fragmenter "
+"genutzt wird (anschließend erzeugt der Fragmenter Fragmente von fester Größe)."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Instructs Solr to collapse contiguous fragments into a single fragment."
+msgstr "Weist Solr an, aufeinanderfolgende Fragmente zu einem Fragment zusammenzufassen."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "If set to true, highlights terms only if they appear in the specified field."
+msgstr "Falls wahr, werden Begriffe nur hervorgehoben wenn sie im angebenen Feld vorkommen."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Specifies maximum number of highlighted snippets to generate per field."
+msgstr "Gibt die Zahl pro Feld zu generierender hervorgehobener Snippets an."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Specifies the size, in characters, of fragments to consider for highlighting."
+msgstr "Gibt die Zeichenlänge der für die Hervorhebung infragekommenden Snippets an."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "mlt settings"
+msgstr "mlt Einstellungen"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "The prefix for the Solr index"
+msgstr "Der Präfix für den Solr-Index"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Forces a time zone to be set for every query targeting this index."
+msgstr "Erzwingt eine Zeitzoneneinstellung für jede Anfrage an diesen Index."
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "multilingual settings"
+msgstr "Mehrsprachige Einstellungen"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Limit to current content language"
+msgstr "Auf aktuelle Inhaltssprache beschränken"
+
+#: config/schema/search_api_solr.schema.yml:0
+msgid "Include languages independent content in search results"
+msgstr "Sprachunabhängigen Inhalt in Suchergebnissen einbeziehen"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Solr Field Type Config"
+msgstr "Solr Field Type Konfiguration"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The minimum version the Solr server"
+msgstr "Minimalversion des Solr-Servers"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Custom Code targeted by this Solr Field Type"
+msgstr "Angepasster Code der von diesem Solr Field Type angefragt wird"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The language targeted by this Solr Field Type"
+msgstr "Sprache die von diesem Solr Field Type angefragt wird"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "The Solr field name"
+msgstr "Der Solr-Feldname"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "The Solr field type"
+msgstr "Der Solr-Feldtyp"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "Solr field attribute positionIncrementGap"
+msgstr "Solr Feld Attribut positionIncrementGap"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "The char filter class"
+msgstr "Die Zeichen-Filter-Klasse"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "The char filter mapping file name"
+msgstr "Der Name der Zeichen-Felder-Mappingdatei"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "The tokenizer class"
+msgstr "Die Tokenizer-Klasse"
+
+#: config/schema/solr_field_type.schema.yml:0;0
+msgid "SimplePatternSplitTokenizer::"
+msgstr "SimplePatternSplitTokenizer::"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The Solr collate field name"
+msgstr "Der Solr Collate Feldname"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The Solr collate field type"
+msgstr "Der Solr Collate Feldtyp"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The Solr collate language"
+msgstr "Die Solr Collate Sprache"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The Solr collate strength"
+msgstr "Die Solr Collate Stärke"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The Solr collate caseLevel"
+msgstr "Das Solr Collate caseLevel"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The search component name"
+msgstr "Name der Suchkomponente"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The search component class"
+msgstr "Klasse der Suchkomponente"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "name"
+msgstr "Name"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Stop words"
+msgstr "Stopwörter"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Protected words"
+msgstr "Geschützte Wörter"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Accent char mapping"
+msgstr "Akzent-Zeichen-Mapping"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Synonym words"
+msgstr "Synonyme Begriffe"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "Nouns"
+msgstr "Nomen"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The analyzer type"
+msgstr "Analyzer-Typ"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The similarity class"
+msgstr "Similarity-Klasse"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "The filter class"
+msgstr "Die Filter-Klasse"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateNumbers"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateNumbers"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::generateNumberParts"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::generateNumberParts"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"ProtectedTermFilter:: WordDelimiterGraphFilter:: WordDelimiterFilter:: "
+"SnowballPorterFilter::protected"
+msgstr ""
+"ProtectedTermFilter:: WordDelimiterGraphFilter:: WordDelimiterFilter:: "
+"SnowballPorterFilter::protected"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::splitOnCaseChange"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::splitOnCaseChange"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::splitOnNumerics"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::splitOnNumerics"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::generateWordParts"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::generateWordParts"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"WordDelimiterGraphFilter:: ASCIIFoldingFilter:: WordDelimiterFilter::preserveOriginal"
+msgstr ""
+"WordDelimiterGraphFilter:: ASCIIFoldingFilter:: WordDelimiterFilter::preserveOriginal"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateAll"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateAll"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateWords"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::catenateWords"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: WordDelimiterFilter::stemEnglishPossessive"
+msgstr "WordDelimiterGraphFilter:: WordDelimiterFilter::stemEnglishPossessive"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "LengthFilter::min"
+msgstr "LengthFilter::min"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "LengthFilter::max"
+msgstr "LengthFilter::max"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"OpenNLPLemmatizerFilter:: HunspellStemFilter:: MorfologikFilterFactory:: "
+"DictionaryCompoundWordTokenFilter::dictionary"
+msgstr ""
+"OpenNLPLemmatizerFilter:: HunspellStemFilter:: MorfologikFilterFactory:: "
+"DictionaryCompoundWordTokenFilter::dictionary"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "OpenNLPLemmatizerFilter::lemmatizerModel"
+msgstr "OpenNLPLemmatizerFilter::lemmatizerModel"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "HunspellStemFilter::affix"
+msgstr "HunspellStemFilter::affix"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "HunspellStemFilter::strictAffixParsing"
+msgstr "HunspellStemFilter::strictAffixParsing"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "DictionaryCompoundWordTokenFilter::minWordSize"
+msgstr "DictionaryCompoundWordTokenFilter::minWordSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "DictionaryCompoundWordTokenFilter::minSubwordSize"
+msgstr "DictionaryCompoundWordTokenFilter::minSubwordSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "DictionaryCompoundWordTokenFilter::maxSubwordSize"
+msgstr "DictionaryCompoundWordTokenFilter::maxSubwordSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "DictionaryCompoundWordTokenFilter::onlyLongestMatch"
+msgstr "DictionaryCompoundWordTokenFilter::onlyLongestMatch"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"ElisionFilter:: SynonymGraphFilter:: SuggestStopFilter:: StopFilter:: "
+"ProtectedTermFilter:: HunspellStemFilter:: KeepWordFilter:: StopFilter:: "
+"CommonGramsFilter:: SynonymFilter::ignoreCase"
+msgstr ""
+"ElisionFilter:: SynonymGraphFilter:: SuggestStopFilter:: StopFilter:: "
+"ProtectedTermFilter:: HunspellStemFilter:: KeepWordFilter:: StopFilter:: "
+"CommonGramsFilter:: SynonymFilter::ignoreCase"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ProtectedTermFilter::wrappedFilters"
+msgstr "ProtectedTermFilter::wrappedFilters"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "WordDelimiterGraphFilter:: TypeTokenFilter::types"
+msgstr "WordDelimiterGraphFilter:: TypeTokenFilter::types"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "TypeTokenFilter::useWhitelist"
+msgstr "TypeTokenFilter::useWhitelist"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"JapanesePartOfSpeechStopFilter:: TypeTokenFilter:: StopFilter:: LengthFilter:: "
+"KeepWordFilter::enablePositionIncrements"
+msgstr ""
+"JapanesePartOfSpeechStopFilter:: TypeTokenFilter:: StopFilter:: LengthFilter:: "
+"KeepWordFilter::enablePositionIncrements"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SuggestStopFilter:: KeepWordFilter:: CommonGramsFilter:: StopFilter::words"
+msgstr "SuggestStopFilter:: KeepWordFilter:: CommonGramsFilter:: StopFilter::words"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SynonymGraphFilter:: SuggestStopFilter:: StopFilter:: CommonGramsFilter::format"
+msgstr "SynonymGraphFilter:: SuggestStopFilter:: StopFilter:: CommonGramsFilter::format"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SuggestStopFilter::wordset"
+msgstr "SuggestStopFilter::wordset"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SuggestStopFilter::snowball"
+msgstr "SuggestStopFilter::snowball"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SnowballPorterFilter::language"
+msgstr "SnowballPorterFilter::language"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SynonymGraphFilter:: SynonymFilter::synonyms"
+msgstr "SynonymGraphFilter:: SynonymFilter::synonyms"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SynonymGraphFilter:: SynonymFilter:: ManagedSynonymFilter::expand"
+msgstr "SynonymGraphFilter:: SynonymFilter:: ManagedSynonymFilter::expand"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SynonymGraphFilter::tokenizerFactory"
+msgstr "SynonymGraphFilter::tokenizerFactory"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SynonymGraphFilter::analyzer"
+msgstr "SynonymGraphFilter::analyzer"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ManagedSynonymGraphFilter:: ManagedStopFilter::managed"
+msgstr "ManagedSynonymGraphFilter:: ManagedStopFilter::managed"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ElisionFilter::articles"
+msgstr "ElisionFilter::articles"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "NGramFilter:: EdgeNGramFilter::minGramSize"
+msgstr "NGramFilter:: EdgeNGramFilter::minGramSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "NGramFilter:: EdgeNGramFilter::maxGramSize"
+msgstr "NGramFilter:: EdgeNGramFilter::maxGramSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "BeiderMorseFilter::languageSet"
+msgstr "BeiderMorseFilter::languageSet"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "BeiderMorseFilter::nameType"
+msgstr "BeiderMorseFilter::nameType"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "BeiderMorseFilter::ruleType"
+msgstr "BeiderMorseFilter::ruleType"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "BeiderMorseFilter::concat"
+msgstr "BeiderMorseFilter::concat"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "CJKBigramFilterFactory::han"
+msgstr "CJKBigramFilterFactory::han"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "CJKBigramFilterFactory::hiragana"
+msgstr "CJKBigramFilterFactory::hiragana"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "CJKBigramFilterFactory::katakana"
+msgstr "CJKBigramFilterFactory::katakana"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "CJKBigramFilterFactory::hangul"
+msgstr "CJKBigramFilterFactory::hangul"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ShingleFilter:: CJKBigramFilterFactory::outputUnigrams"
+msgstr "ShingleFilter:: CJKBigramFilterFactory::outputUnigrams"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ShingleFilter::outputUnigramsIfNoShingles"
+msgstr "ShingleFilter::outputUnigramsIfNoShingles"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PhoneticFilter:: DoubleMetaphoneFilter:: DaitchMokotoffSoundexFilter::inject"
+msgstr "PhoneticFilter:: DoubleMetaphoneFilter:: DaitchMokotoffSoundexFilter::inject"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PhoneticFilter:: DoubleMetaphoneFilter::maxCodeLength"
+msgstr "PhoneticFilter:: DoubleMetaphoneFilter::maxCodeLength"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PhoneticFilter::encoder"
+msgstr "PhoneticFilter::encoder"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "FingerprintFilter::separator"
+msgstr "FingerprintFilter::separator"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "FingerprintFilter::maxOutputTokenSize"
+msgstr "FingerprintFilter::maxOutputTokenSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ICUNormalizer2Filter:: ICUFoldingFilter::filter"
+msgstr "ICUNormalizer2Filter:: ICUFoldingFilter::filter"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ICUNormalizer2Filter::name"
+msgstr "ICUNormalizer2Filter::name"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ICUNormalizer2Filter::mode"
+msgstr "ICUNormalizer2Filter::mode"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ICUTransformFilter::id"
+msgstr "ICUTransformFilter::id"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "LimitTokenCountFilter::maxTokenCount"
+msgstr "LimitTokenCountFilter::maxTokenCount"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid ""
+"LimitTokenPositionFilter:: LimitTokenOffsetFilter:: LimitTokenCountFilter::"
+"consumeAllTokens"
+msgstr ""
+"LimitTokenPositionFilter:: LimitTokenOffsetFilter:: LimitTokenCountFilter::"
+"consumeAllTokens"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "LimitTokenOffsetFilter::maxStartOffset"
+msgstr "LimitTokenOffsetFilter::maxStartOffset"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "LimitTokenPositionFilter::maxTokenPosition"
+msgstr "LimitTokenPositionFilter::maxTokenPosition"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "NumericPayloadTokenFilter::payload"
+msgstr "NumericPayloadTokenFilter::payload"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "NumericPayloadTokenFilter::typeMatch"
+msgstr "NumericPayloadTokenFilter::typeMatch"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PatternReplaceFilter::pattern"
+msgstr "PatternReplaceFilter::pattern"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PatternReplaceFilter::replacement"
+msgstr "PatternReplaceFilter::replacement"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "PatternReplaceFilter::replace"
+msgstr "PatternReplaceFilter::replace"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ReversedWildcardFilter::withOriginal"
+msgstr "ReversedWildcardFilter::withOriginal"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ReversedWildcardFilter::maxPosAsterisk"
+msgstr "ReversedWildcardFilter::maxPosAsterisk"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ReversedWildcardFilter::maxPosQuestion"
+msgstr "ReversedWildcardFilter::maxPosQuestion"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ReversedWildcardFilter::maxFractionAsterisk"
+msgstr "ReversedWildcardFilter::maxFractionAsterisk"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ReversedWildcardFilter::minTrailing"
+msgstr "ReversedWildcardFilter::minTrailing"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ShingleFilter::minShingleSize"
+msgstr "ShingleFilter::minShingleSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ShingleFilter::maxShingleSize"
+msgstr "ShingleFilter::maxShingleSize"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "ShingleFilter::tokenSeparator"
+msgstr "ShingleFilter::tokenSeparator"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "TrimFilter::updateOffsets"
+msgstr "TrimFilter::updateOffsets"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "TypeAsSynonymFilter::prefix"
+msgstr "TypeAsSynonymFilter::prefix"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "OpenNLPPOSFilter::posTaggerModel"
+msgstr "OpenNLPPOSFilter::posTaggerModel"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "JapaneseIterationMarkCharFilter::normalizeKanji"
+msgstr "JapaneseIterationMarkCharFilter::normalizeKanji"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "JapaneseIterationMarkCharFilter::normalizeKana"
+msgstr "JapaneseIterationMarkCharFilter::normalizeKana"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "JapanesePartOfSpeechStopFilter::tags"
+msgstr "JapanesePartOfSpeechStopFilter::tags"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "JapaneseKatakanaStemFilter::minimumLength"
+msgstr "JapaneseKatakanaStemFilter::minimumLength"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "NorwegianLightStemFilter:: NorwegianMinimalStemFilter::variant"
+msgstr "NorwegianLightStemFilter:: NorwegianMinimalStemFilter::variant"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "SerbianNormalizationFilter::haircut"
+msgstr "SerbianNormalizationFilter::haircut"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "property name"
+msgstr "Name der Eigenschaft"
+
+#: config/schema/solr_field_type.schema.yml:0
+msgid "property value"
+msgstr "Wert der Eigenschaft"
+
+#: modules/search_api_solr_admin/search_api_solr_admin.info.yml:0
+msgid "Search API Solr Admin"
+msgstr "Search API Solr Admin"
+
+#: modules/search_api_solr_admin/search_api_solr_admin.info.yml:0
+msgid "Provides various Solr administration tasks."
+msgstr "Stellt zahlreiche Solr Administrationsfunktionen bereit."
+
+#: modules/search_api_solr_admin/search_api_solr_admin.links.action.yml:0
+#: modules/search_api_solr_admin/search_api_solr_admin.routing.yml:0
+msgid "Reload Core"
+msgstr "Core neu laden"
+
+#: modules/search_api_solr_admin/search_api_solr_admin.links.task.yml:0
+#: modules/search_api_solr_admin/search_api_solr_admin.routing.yml:0
+msgid "Solr Admin"
+msgstr "Solr Admin"
+
+#: modules/search_api_solr_admin/search_api_solr_admin.permissions.yml:0
+msgid "Execute Solr admin task"
+msgstr "Solr Admin-Aktion ausführen"
+
+#: modules/search_api_solr_admin/search_api_solr_admin.permissions.yml:0
+msgid "Access to execute Solr administrative tasks."
+msgstr "Berechtigung administrative Aktionen für Solr durchzuführen."
+
+#: modules/search_api_solr_admin/src/Form/SolrReloadCoreForm.php:49
+msgid "Reload core %core"
+msgstr "Core %core neu laden"
+
+#: modules/search_api_solr_admin/src/Form/SolrReloadCoreForm.php:54
+msgid "Reload"
+msgstr "Neu laden"
+
+#: modules/search_api_solr_admin/src/Form/SolrReloadCoreForm.php:72
+msgid "Solr: %core reloaded."
+msgstr "Solr: %core neu geladen."
+
+#: modules/search_api_solr_defaults/search_api_solr_defaults.install:30
+msgid ""
+"Content type @content_type not found. Solr Search Defaults module could not be installed."
+msgstr ""
+"Inhaltstyp @node_type nicht gefunden. Modul Solr Search Defaults konnte nicht installiert "
+"werden."
+
+#: modules/search_api_solr_defaults/search_api_solr_defaults.install:40
+msgid ""
+"Field @field in content type @node_type not found. Solr Search Defaults module could not "
+"be installed"
+msgstr ""
+"Feld @field in Inhaltstyp @node_type nicht gefunden. Modul Solr Search Defaults konnte "
+"nicht installiert werden"
+
+#: modules/search_api_solr_defaults/search_api_solr_defaults.install:66
+msgid ""
+"It looks like the default setup provided by this module already exists on your site. "
+"Cannot re-install module."
+msgstr ""
+"Das von diesem Modul bereitgestellte Standard-Setup ist bereits auf der Website "
+"vorhanden. Das Modul kann nicht erneut installiert werden."
+
+#: modules/search_api_solr_defaults/search_api_solr_defaults.info.yml:0
+msgid "Search API Solr Search Defaults"
+msgstr "Search API Solr Such-Standards"
+
+#: modules/search_api_solr_defaults/search_api_solr_defaults.info.yml:0
+msgid ""
+"Enable this module for a best-practice default setup of Search API with the Solr backend. "
+"After installation it is recommended to uninstall this module again for performance "
+"reasons. The provided configuration will not be removed."
+msgstr ""
+"Aktivieren Sie dieses Modul für ein Best-Practice Standard-Setup von Search API mit einem "
+"Solr-Backend. Nach der Installation empfiehlt es sich aus Performancegründen, das Modul "
+"wieder zu deinstallieren. Die enthaltene Konfiguration wird nicht entfernt."
+
+#: modules/search_api_solr_devel/search_api_solr_devel.info.yml:0
+msgid "Search API Solr Devel"
+msgstr "Search API Sole Devel"
+
+#: modules/search_api_solr_devel/search_api_solr_devel.info.yml:0
+msgid "Debugging your Solr integration."
+msgstr "Debugging Ihrer Solr-Integration."
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:194
+msgid "Row #@num: local and Solr indexing data"
+msgstr "Zeile #@num: lokale und Solr-Indexierungsdaten"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:198
+msgid "Locally-generated data that would be sent to Solr during indexing:"
+msgstr "Lokal generierte Daten die bei der Indexierung an Solr gesendet würden:"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:203
+msgid "Locally-generated data"
+msgstr "Lokal generierte Daten"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:212
+msgid "Current data in Solr for this item:"
+msgstr "Aktuell für diesen Eintrag in Solr vorliegende Daten:"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:222;393;395
+msgid "yes"
+msgstr "Ja"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:228
+msgid "Error querying the Solr server!"
+msgstr "Fehler beim Abfragen des Solr-Servers!"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:230
+msgid "error"
+msgstr "Fehler"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:235;395;398
+msgid "no"
+msgstr "Nein"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:237
+msgid "No Solr document found with the ID %id"
+msgstr "Kein Solr-Dokument gefunden mit der ID %id"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:255
+msgid "Solr data"
+msgstr "Solr-Daten"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:274
+msgid "No enabled indexes with a Solr backend that contain this item were found."
+msgstr "Keine aktiven Indizes mit Solr-Backend gefunden, die diesen Eintrag beinhalten."
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:278
+msgid "Search API Solr devel status"
+msgstr "Search API Solr Devel Status"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:280
+msgid "This page shows Search API and Solr indexing data for the current entity."
+msgstr "Diese Seite zeigt Search API und Solr Indexierungsdaten für die aktuelle Entität."
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:284
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:284
+msgid ""
+"Each row in the table represents an item generated from this entity according to the "
+"Search API index configuration (data sources, fields, processors, hook implementations, "
+"etc.). The first columns correspond to the Search API tracking information (kept in the "
+"site's database), and the rest of the columns show information about the corresponding "
+"Solr document for each item. See the <a href=\"https://www.drupal.org/docs/8/modules/"
+"search-api/developer-documentation\">developer documentation</a>."
+msgstr ""
+"Jede Zeile in der Tabelle repräsentiert einen aus dieser Entität generierten Eintrag der "
+"Search API Index Konfiguration entsprechend (Datenquellen, Felder, Prozessoren, Hook-"
+"Implementierungen etc.). Die ersten Spalten entsprechend der Search API Tracking "
+"Information (aus der Datenbank der Seite), der Rest der Spalten zeigt Informationen über "
+"das entsprechende Solr-Dokument für den Eintrag. Sie die <a href=\"https://www.drupal.org/"
+"docs/8/modules/search-api/developer-documentation\">Entwicklerdokumentation</a>."
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:302
+msgid "%time (%time_ago ago)"
+msgstr "%time (vor %time_ago)"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:317
+msgid "Search API server"
+msgstr "Search-API-Server"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:318
+msgid "Search API index"
+msgstr "Search-API-Index"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:319
+msgid "Item Datasource & ID"
+msgstr "Eintrag Datenquelle & ID"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:320
+msgid "Item langcode"
+msgstr "Eintrag Sprachkürzel"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:321
+msgid "Is item tracked in SAPI Index?"
+msgstr "Ist der Eintrag im SAPI-Index aufgeführt?"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:322
+msgid "Last time item was marked to be indexed"
+msgstr "Eintrag wurde zuletzt für die Indexierung gekennzeichnet"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:323
+msgid "Has item been sent to Solr?"
+msgstr "Wurde der Eintrag zu Solr geschickt?"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:324
+msgid "Local: item size"
+msgstr "Lokal: Eintragsgröße"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:325
+msgid "Solr: document ID"
+msgstr "Solr: Dokument-ID"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:326
+msgid "Solr: document exists?"
+msgstr "Solr: Dokument existiert?"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:327
+msgid "Solr: time indexed"
+msgstr "Solr: Indexierungszeitpunkt"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:328
+msgid "Solr: document size"
+msgstr "Solr: Dokumentgröße"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:355
+msgid "<a href=\":url\">@id</a>"
+msgstr "<a href=\":url\">@id</a>"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:362
+msgid "<a href=\":index_url\">@index_id</a><br />(%read_write_mode mode)"
+msgstr "<a href=\":index_url\">@index_id</a><br />(%read_write_mode Modus)"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:368
+msgid "read-only"
+msgstr "Schreibgeschützt"
+
+#: modules/search_api_solr_devel/src/Controller/DevelController.php:368
+msgid "read-write"
+msgstr "Lesen-Schreiben"
+
+#: modules/search_api_solr_devel/src/Logging/SolariumRequestLogger.php:61
+msgid "Try to send Solr request"
+msgstr "Versuche die Solr-Anfrage zu senden"
+
+#: modules/search_api_solr_devel/src/Logging/SolariumRequestLogger.php:82
+msgid "Received Solr response"
+msgstr "Solr-Antwort erhalten"
+
+#: modules/search_api_solr_devel/src/Logging/SolariumRequestLogger.php:99
+msgid "Check the logs for detailed Solr response bodies"
+msgstr "Im Protokoll nachsehen für detaillierte Solr-Antwort-Inhalte"
+
+#: modules/search_api_solr_devel/src/Plugin/Derivative/DevelLocalTask.php:61
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:72
+msgid "Solr"
+msgstr "Solr"
+
+#: src/SolrFieldManager.php:223
+msgid "Could not connect to server %server, %message"
+msgstr "Keine Verbindung zum Server %server möglich, %message"
+
+#: src/Controller/SolrFieldTypeController.php:132
+msgid ""
+"An error occured during the creation of the config.zip. Look at the logs for details."
+msgstr ""
+"Beim Erzeugen der config.zip ist ein Fehler aufgetreten. Für Einzelheiten siehe Protokoll."
+
+#: src/Controller/SolrFieldTypeListBuilder.php:52
+msgid "Minimum Solr Version"
+msgstr "Mindeste Solr-Version"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:53
+msgid "Managed Schema Required"
+msgstr "Managed Schema benötigt"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:54
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:92
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:55
+msgid "Domains"
+msgstr "Domains"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:56
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:57;72
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:72
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:208
+msgid ""
+"Unable to reach the Solr server (yet). Therefore the lowest supported Solr version "
+"%version is assumed. Once the connection works and the real Solr version could be "
+"detected it might be necessary to deploy an adjusted config to the server to get the best "
+"search results. If the server does not start using the downloadable config, you should "
+"edit the server and manually set the Solr version override temporarily that fits your "
+"server best and download the config again. But it is recommended to remove this override "
+"once the server is running."
+msgstr ""
+"Kann den Solr-Server (noch) nicht erreichen. Daher wird von der niedrigsten unterstützten "
+"Solr-Version %version ausgegangen. Sobald die Verbindung funktioniert und die "
+"tatsächliche Solr-Version festgestellt werden konnte sollte für beste Suchergebnisse eine "
+"aktualisierte Konfiguration auf den Server gespielt werden. Falls der Server mit der "
+"geladenen Konfiguration nicht startet, sollten Sie den Server manuell editieren, die für "
+"Ihren Server passende Solr Version vorübergehend überschreiben und die Konfiguration neu "
+"laden. Es wird empfohlen die Überschreibung zu entfernen, sobald der Server läuft."
+
+#: src/Controller/SolrFieldTypeListBuilder.php:274
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: src/Controller/SolrFieldTypeListBuilder.php:282
+msgid "Enable"
+msgstr "Aktivieren"
+
+#: src/EventSubscriber/ConfigSubscriber.php:78
+msgid ""
+"A new Solr field type has been installed due to configuration changes. It is advisable to "
+"download and deploy an updated config.zip to your Solr server."
+msgstr ""
+"Aufgrund von Konfigurationsänderungen wurde ein neuer Solr Feldtyp installiert. Es ist "
+"ratsam eine aktualisierte config.zip herunterzuladen und auf dem Solr-Server einzuspielen."
+
+#: src/Form/IndexSolrMultisiteCloneForm.php:70
+msgid "Clone search index %label"
+msgstr "Suchindex %label klonen"
+
+#: src/Form/IndexSolrMultisiteUpdateForm.php:64
+msgid "Update multisite search index %label"
+msgstr "Multisite-Suchindex %label aktualisieren"
+
+#: src/Form/SolrConfigForm.php:58
+msgid "List of configuration files found"
+msgstr "Liste der gefundenen Konfigurationsdateien"
+
+#: src/Form/SolrConfigForm.php:65
+msgid "No files found."
+msgstr "Keine Dateien gefunden."
+
+#: src/Form/SolrConfigForm.php:85
+msgid "Last modified: @time."
+msgstr "Zuletzt geändert: @time."
+
+#: src/Form/SolrConfigForm.php:95
+msgid "The file is empty."
+msgstr "Die Datei ist leer."
+
+#: src/Form/SolrConfigForm.php:103
+msgid "An error occured while trying to load the list of files."
+msgstr "Beim Laden der Dateiliste ist ein Fehler aufgetreten."
+
+#: src/Form/SolrFieldTypeDeleteForm.php:17
+msgid "Are you sure you want to delete %name?"
+msgstr "Möchten Sie %name wirklich löschen?"
+
+#: src/Form/SolrFieldTypeDeleteForm.php:33
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/SolrFieldTypeDeleteForm.php:46
+msgid "content @type: deleted @label."
+msgstr "Inhalt @type: @label wurde gelöscht."
+
+#: src/Form/SolrFieldTypeForm.php:48
+msgid ""
+"Using this form you have limited options to edit the SolrFieldType, for example the text "
+"files like the stop word list. For editing all features you should use Drupal's "
+"configuration management and edit the YAML file of a SolrFieldType unless a full-featured "
+"UI exists."
+msgstr ""
+"Über dieses Formular haben Sie eingeschränkte Möglichkeiten, den SolrFieldType zu "
+"bearbeiten, z.B. Textdateien wie die Stopword-Liste. Um alle Features zu bearbeiten "
+"sollten Sie Drupals Konfigurationsmanagement nutzen und die YAML-Datei eines "
+"SolrFieldType editieren, sofern keine vollständige Benutzeroberfläche existiert."
+
+#: src/Form/SolrFieldTypeForm.php:55
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/SolrFieldTypeForm.php:58
+msgid "Label for the SolrFieldType."
+msgstr "Bezeichner des SolrFieldType."
+
+#: src/Form/SolrFieldTypeForm.php:73;86
+msgid "FieldType"
+msgstr "FieldType"
+
+#: src/Form/SolrFieldTypeForm.php:74
+msgid ""
+"Using this form you have limited options to edit at least the SolrFieldType's analyzers "
+"by manipulating the JSON representation. But it is highly recommended to use Drupal's "
+"configuration management and edit the YAML file of a SolrFieldType instead. Anyway, if "
+"you confirm that you're knowing what you do, you're allowed to do so."
+msgstr ""
+"Über dieses Formular haben Sie eingeschränkte Möglichkeiten, mindestens die Analyzer des "
+"SolrFieldType anzupassen indem Sie die JSON-Repräsentation ändern. Es wird dringend "
+"empfohlen, stattdessen Drupals Konfigurationsmanagement zu nutzen und die YAML-Datei des "
+"SolrFieldType zu bearbeiten. Aber wenn Sie wissen, was Sie tun, haben Sie hier die "
+"Möglichkeit."
+
+#: src/Form/SolrFieldTypeForm.php:80
+msgid "I know what I'm doing!"
+msgstr "Ich weiß, was ich tue!"
+
+#: src/Form/SolrFieldTypeForm.php:87
+msgid ""
+"The JSON representation is also usable to export a field type from a Solr server and to "
+"paste it here (at least partly)."
+msgstr ""
+"Die JSON-Repräsentation kann (zumindest teilweise) genutzt werden um einen Feldtyp von "
+"einem Solr-Server zu exportieren und hier einzufügen."
+
+#: src/Form/SolrFieldTypeForm.php:96
+msgid "Text Files"
+msgstr "Textdateien"
+
+#: src/Form/SolrFieldTypeForm.php:128
+msgid "Saved the %label Solr Field Type."
+msgstr "Solr Field Type %label gespeichert."
+
+#: src/Form/SolrFieldTypeForm.php:133
+msgid "The %label Solr Field Type was not saved."
+msgstr "Der Solr Field Type %label wurde nicht gespeichert."
+
+#: src/Plugin/DataType/SolrDocument.php:12
+msgid "Solr document"
+msgstr "Solr-Dokument"
+
+#: src/Plugin/DataType/SolrDocument.php:12
+msgid "Records from a Solr index."
+msgstr "Aufzeichnungen aus einem Solr-Index."
+
+#: src/Plugin/DataType/SolrField.php:9
+msgid "Solr field"
+msgstr "Solr-Feld"
+
+#: src/Plugin/DataType/SolrField.php:9
+msgid "Fields from a Solr document."
+msgstr "Felder aus einem Solr-Dokument."
+
+#: src/Plugin/DataType/SolrMultisiteDocument.php:5
+msgid "Solr multisite document"
+msgstr "Solr-Multisite-Dokument"
+
+#: src/Plugin/DataType/SolrMultisiteDocument.php:5
+msgid "Records from a Solr multisite index."
+msgstr "Aufzeichnungen aus einem Solr-Multisite-Index."
+
+#: src/Plugin/DataType/SolrMultisiteField.php:5
+msgid "Solr multisite field"
+msgstr "Solr-Multisite-Feld"
+
+#: src/Plugin/DataType/SolrMultisiteField.php:5
+msgid "Fields from a multisite Solr document."
+msgstr "Felder aus einem Solr-Multisite-Dokument."
+
+#: src/Plugin/Derivative/CustomTextDataType.php:34
+msgid "Fulltext \":custom_code\""
+msgstr "Volltext „:custom_code“"
+
+#: src/Plugin/Derivative/OmitNormsCustomTextDataType.php:34
+msgid "Fulltext \":custom_code\" Omit norms"
+msgstr "Volltext „:custom_code“ Normen auslassen"
+
+#: src/Plugin/SolrConnector/BasicAuthSolrCloudConnector.php:7
+msgid "Solr Cloud with Basic Auth"
+msgstr "Solr Cloud mit Basic Authentifizierung"
+
+#: src/Plugin/SolrConnector/BasicAuthSolrCloudConnector.php:7
+msgid "A connector usable for Solr Cloud installations protected by basic authentication."
+msgstr ""
+"Ein Connector für Solr Cloud Installationen mit einem Schutz via Basic Authentifizierung."
+
+#: src/Plugin/SolrConnector/BasicAuthSolrConnector.php:7
+msgid "Basic Auth"
+msgstr "Basic Authentifizierung"
+
+#: src/Plugin/SolrConnector/BasicAuthSolrConnector.php:7
+msgid "A connector usable for Solr installations protected by basic authentication."
+msgstr "Ein Connector für per Basic Authentifierung geschützte Solr-Installationen."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:43
+msgid "Solr node"
+msgstr "Solr-Knoten"
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:44
+msgid ""
+"The host name or IP of a Solr node, e.g. <code>localhost</code> or <code>www.example.com</"
+"code>."
+msgstr ""
+"Der Hostname oder die IP eines Solr-Knotens, z.B. <code>localhost</code> oder <code>www."
+"example.com</code>."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:46
+msgid "The path that identifies the Solr instance to use on the node."
+msgstr "Der Pfad der die auf dem Knoten zu nutzende Solr-Instanz identifiziert."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:48
+msgid "Default Solr collection"
+msgstr "Standard Solr-Collection"
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:49
+msgid ""
+"The name that identifies the Solr default collection to use. The concrete collection to "
+"use could be overwritten per index."
+msgstr ""
+"Der eindeutige Name der zu verwendenden Standard Solr Collection. Die konkret zu "
+"verwendende Collection kann pro Index überschrieben werden."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:52
+msgid "The timeout in seconds for search queries sent to the Solr collection."
+msgstr "Der Timeout in Sekunden für Suchanfragen an die Solr-Collection."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:54
+msgid "The timeout in seconds for indexing requests to the Solr collection."
+msgstr "Der Timeout in Sekunden für Indexierungsanfragen an die Solr-Collection."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:56
+msgid ""
+"The timeout in seconds for background index optimization queries on the Solr collection."
+msgstr ""
+"Der Timeout in Sekunden für Indexoptimierungsanfragen im Hintergrund an die Solr-"
+"Collection."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:60
+msgid "checkpoints_collection"
+msgstr "checkpoints_collection"
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:61
+msgid ""
+"The collection where topic checkpoints are stored. Not required if you don't work with "
+"topic() streaming expressions."
+msgstr ""
+"Die Collection in der Topic Checkpoints gespeichert sind. Nicht nötig wenn Sie nicht mit "
+"topic() Streaming Expressions arbeiten."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:74
+msgid ""
+"Document and term statistics are needed in order to calculate relevancy. Solr provides "
+"four implementations out of the box when it comes to document stats calculation. "
+"LocalStatsCache: This only uses local term and document statistics to compute relevance. "
+"In cases with uniform term distribution across shards, this works reasonably well. "
+"ExactStatsCache: This implementation uses global values (across the collection) for "
+"document frequency. ExactSharedStatsCache: This is exactly like the exact stats cache in "
+"its functionality but the global stats are reused for subsequent requests with the same "
+"terms. LRUStatsCache: This implementation uses an LRU cache to hold global stats, which "
+"are shared between requests. Formerly a limitation was that TF/IDF relevancy computations "
+"only used shard-local statistics. This is still the case by default or if LocalStatsCache "
+"is used. If your data isn’t randomly distributed, or if you want more exact statistics, "
+"then remember to configure the ExactStatsCache (or \"better\")."
+msgstr ""
+"Dokumenten- und Begriffsstatistiken sind nötig zur Berechnung der Relevanz. Solr stellt "
+"vier Implementierungen zur Berechnung von Dokumentenstatistiken bereit. LocalStatsCache: "
+"Nutzt nur lokale Begriffs- und Dokumentstatistiken zur Berechnung der Relevanz. Bei "
+"gleichmäßiger Verteilung von Begriffe über mehrere Shards funktioniert dies ganz gut. "
+"ExactStatsCache: Nutzt globale Werte (auf der gesamten Collection) für die "
+"Dokumentenhäufigkeit. ExactSharedStatsCache: Funktioniert genaz wie der ExactStatsCache, "
+"aber die globalen Statistiken werden für Anfragen mit den gleichen Begriffen "
+"wiederverwendet. LRUStatsCache: Nutzt einen LRU Cache für globale Statistiken, die "
+"zwischen Anfragen geteilt werden. Eine frühere Einschränkung war, dass TF/IDF Relevanz-"
+"Berechnungen nur lokale Statistiken verwendeten. Dem ist standardmäßig immer noch so, "
+"oder wenn LocalStatsCache verwendet wird. Wenn ihre Daten nicht zufällig verteilt sind "
+"oder Sie genauere Statistiken wollen, konfigurieren Sie den ExactStatsCache (oder einen "
+"„besseren“)."
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:16
+msgid "Solr Cloud"
+msgstr "Solr Cloud"
+
+#: src/Plugin/SolrConnector/StandardSolrCloudConnector.php:16
+msgid "A standard connector for a Solr Cloud."
+msgstr "Standardconnector für eine Solr Cloud."
+
+#: src/Plugin/SolrConnector/StandardSolrConnector.php:9
+msgid "Standard"
+msgstr "Standard"
+
+#: src/Plugin/SolrConnector/StandardSolrConnector.php:9
+msgid ""
+"A standard connector usable for local installations of the standard Solr distribution."
+msgstr "Ein Standardconnector für lokale Installationen der Solr Standarddistribution."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:228
+msgid "Solr Connector"
+msgstr "Solr Connector"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:229
+msgid "Choose a connector to use for this Solr server."
+msgstr "Wählen Sie den Connector aus, der auf diesem Solr-Server verwendet werden soll."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:253
+msgid "Default result rows"
+msgstr "Standard Ergebnisreihen"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:254
+msgid ""
+"Solr always requires to limit the search results. This default value will be set if the "
+"Search API query itself is not limited. 2147483630 is the theoretical maximum since the "
+"result pointer is an integer. But be careful! Especially in Solr Cloud setups too high "
+"values might cause an OutOfMemoryException because Solr reserves this rows limit per "
+"shard for sorting the combined result. This sum must not exceed the maximum integer "
+"value! And even if there is no exception any too high memory consumption per query on "
+"your server is a bad thing in general."
+msgstr ""
+"Solr erfordert immer, die Anzahl der Suchergebnisse zu beschränken. Dieser Standardwert "
+"wird gesetzt wenn die Search API Anfrage kein Limit hat. 2147483630 ist das theoretische "
+"Maximum, da der Ergebnis-Pointer ein Integer ist. Aber Vorsicht! Besonders in Solr Cloud "
+"Umgebungen können zu hohe Werte eine OutOfMemoryException auslösen, da Solr das Limit zum "
+"Sortieren des Gesamtergebnisses reserviert. Die Summe darf den maximalen Integer-Wert "
+"nicht überschreiten! Und auch ohne Exception ist eine zu hohe Speicherauslastung auf "
+"Ihrem Server keine gute Idee."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:262
+msgid ""
+"When checked, result data will be retrieved directly from the Solr server. This might "
+"make item loads unnecessary. Only indexed fields can be retrieved. Note also that the "
+"returned field data might not always be correct, due to preprocessing and caching issues."
+msgstr ""
+"Wenn aktiviert werden Ergebnisdaten direkt vom Solr-Server abgerufen. Dies kann das Laden "
+"von Einträgen überflüssig machen. Nur indexierte Felder können geladen werden. Bedenken "
+"Sie, dass die zurückgelieferten Felddaten aufgrund von Preprocessing und Caching nicht "
+"zwangsläufig korrekt sein müssen."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:268
+msgid "Retrieve highlighted snippets"
+msgstr "Hervorgehobene Snippets beziehen"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:269
+msgid ""
+"Return a highlighted version of the indexed fulltext fields. These will be used by the "
+"\"Highlighting Processor\" directly instead of applying its own PHP algorithm."
+msgstr ""
+"Liefere eine hervorgehobene Version der indexierten Volltextfelder zurück. Diese werden "
+"direkt vom „Highlighting Processor“ verwendet, anstatt dass er seinen eigenen PHP-"
+"Algorithmus anwendet."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:276
+msgid ""
+"Skip the automatic check for schema-compatibillity. Use this override if you are seeing "
+"an error-message about an incompatible schema.xml configuration file, and you are sure "
+"the configuration is compatible."
+msgstr ""
+"Überspringe die automatische Prüfung auf Schema-Kompatibilität. Benutzen Sie diese "
+"Einstellung wenn Sie eine Fehlermeldung über inkompatible schema.xml "
+"Konfigurationsdateien sehen und Sie sich sicher sind, dass die Konfiguration kompatibel "
+"ist."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:282
+msgid "All index prefix"
+msgstr "Präfix für alle Indizes"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:291;820
+msgid "Targeted content domain"
+msgstr "Angefragte Inhaltsdomäne"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:292
+msgid ""
+"For example \"UltraBot3000\" would be indexed as \"Ultra\" \"Bot\" \"3000\" in a generic "
+"domain, \"CYP2D6\" has to stay like it is in a scientific domain."
+msgstr ""
+"Zum Beispiel würde „UltraBot3000“ als „Ultra“ „Bot“ „3000“ in einer generischen Domäne "
+"indexiert, „CYP2D6“ in einer wissenschaftlichen Domäne bleibt wie es ist."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:298
+msgid "Optimize the Solr index"
+msgstr "Solr-Index optimieren"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:299
+msgid ""
+"Optimize the Solr index once a day. Even if this option \"sounds good\", think twice "
+"before activating it! For most Solr setups it's recommended to NOT enable this feature!"
+msgstr ""
+"Optimiere den Solr-Index einmal am Tag. Auch wenn diese Option „gut klingt“, überlegen "
+"Sie sich gut, ob Sie sie aktivieren wollen. Für die meisten Solr-Setups ist sie NICHT "
+"empfehlenswert!"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:305
+msgid "Yes, I know what I'm doing and want to enable a daily optimization!"
+msgstr "Ja, ich weiß was ich tue und will eine tägliche Optimierung aktivieren!"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:314
+msgid "Multi-site compatibility"
+msgstr "Multisite-Kompatibilität"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:315
+msgid ""
+"By default a single Solr backend based Search API server is able to index the data of "
+"multiple Drupal sites. But this is an expert-only and dangerous feature that mainly "
+"exists for backward compatibility. If you really index multiple sites in one index and "
+"don't activate 'Retrieve results for this site only' below you have to ensure that you "
+"enable 'Retrieve result data from Solr'! Otherwise it could lead to any kind of errors!"
+msgstr ""
+"Standardmäßig ist ein einzelner Solr-basierter Search API Server in der Lage, mehrere "
+"Drupal-Seiten zu indexieren. Aber dieses Feature ist Experten vorbehalten und dient der "
+"Abwärtskompatibilität. Wenn Sie wirklich mehrere Seiten indexieren und „Nur Ergebnisse "
+"für diese Seite abrufen“ nicht aktivieren, stellen Sie sicher, dass „Ergebnisdaten von "
+"Solr abrufen“ aktiviert ist! Andernfalls kann dies zu einer Vielzahl an Fehlern führen!"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:317
+msgid ""
+"Automatically filter all searches to only retrieve results from this Drupal site. The "
+"default and intended behavior is to display results from all sites. WARNING: Enabling "
+"this filter might break features like autocomplete, spell checking or suggesters!"
+msgstr ""
+"Filtere automatisch alle Suchen um nur Ergebnisse von dieser Drupal-Seite abzurufen. Das "
+"standardmäßige und vorgesehene Verhalten ist Ergebnisse von allen Seiten auszugeben. "
+"WARNUNG: Dieser Filter kann Features wie die Autovervollständigung, Rechtschreibprüfung "
+"und Suggester stören!"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:320
+msgid "Retrieve results for this site only"
+msgstr "Nur Ergebnisse von dieser Seite beziehen"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:367
+msgid "Please configure the selected Solr connector."
+msgstr "Bitte konfigurieren Sie den ausgewählten Solr-Connector."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:375
+msgid "Configure %plugin Solr connector"
+msgstr "%plugin Solr Connector konfigurieren"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:413;425
+msgid "The connector could not be activated."
+msgstr "Der Connector konnte nicht aktiviert werden."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:591
+msgid "Solr connector plugin"
+msgstr "Solr Connector Plugin"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:596
+msgid "Solr server URI"
+msgstr "Solr-Server-URI"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:602
+msgid "Solr collection URI"
+msgstr "Solr Collection URI"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:608
+msgid "Solr core URI"
+msgstr "Solr-Core URI"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:628
+msgid "The Solr server could not be reached or is protected by your service provider."
+msgstr "Der Solr-Server ist nicht erreichbar oder durch den Provider geschützt."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:631
+msgid "Server Connection"
+msgstr "Server-Verbindung"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:643
+msgid "The Solr @core could be accessed (latency: @millisecs ms)."
+msgstr "Auf Solr @core konnte zugegriffen werden (Latenz: @millisecs ms)."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:646
+msgid "The Solr @core could not be accessed. Further data is therefore unavailable."
+msgstr ""
+"Der Solr @core ist nicht erreichbar. Daher sind keine weiteren Informationen verfügbar."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:649
+msgid "Collection Connection"
+msgstr "Collection-Verbindung"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:649
+msgid "Core Connection"
+msgstr "Core-Verbindung"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:656
+msgid "Configured Solr Version"
+msgstr "Konfigurierte Solr-Version"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:663
+msgid "Detected Solr Version"
+msgstr "Entdeckte Solr-Version"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:684
+msgid "Default Collection"
+msgstr "Standard-Collection"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:685
+msgid ""
+"Default collection isn't set. Ensure that the collections are properly set on the indexes "
+"in their advanced section od the Solr specific index options."
+msgstr ""
+"Die Standard-Collection ist nicht eingestellt. Stellen Sie sicher, dass die Collections "
+"richtig auf den Indizes eingestellt sind in den fortgeschrittenen Einstellungen der Solr "
+"Index Optionen."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:690;811
+msgid "Additional information"
+msgstr "Zusätzliche Informationen"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:691
+msgid "Collection or core configuration for index %index is wrong or missing: %msg"
+msgstr ""
+"Collection- oder Core-Konfiguration für Index %index ist fehlerhaft oder fehlt: %msg"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:711
+msgid "(@pending_docs sent but not yet processed)"
+msgstr "(@pending_docs gesendet aber noch nicht verarbeitet)"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:712
+msgid "(@index_size on disk)"
+msgstr "(@index_size auf Festplatte)"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:713
+msgid "@num items @pending @index_msg"
+msgstr "@num Einträge @pending @index_msg"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:719
+msgid "%key: Indexed"
+msgstr "%key: Indexiert"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:725
+msgid "%key: Pending Deletions"
+msgstr "%key: Ausstehende Löschungen"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:731
+msgid "%key: Delay"
+msgstr "%key: Verzögerung"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:732
+msgid "@autocommit_time before updates are processed."
+msgstr "@autocommit_time bis Updates verarbeitet sind."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:743
+msgid ""
+"You are using outdated Solr configuration set. Please follow the instructions described "
+"in the <a href=\":url\">INSTALL.md</a> file for setting up Solr."
+msgstr ""
+"Sie nutzen veraltete Solr Konfigurationen. Bitte folgen Sie den Anweisungen in der Datei "
+"<a href=\":url\">INSTALL.md</a> um Solr einzurichten."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:748
+msgid ""
+"You are using an incompatible Solr schema. Please follow the instructions described in "
+"the <a href=\":url\">INSTALL.md</a> file for setting up Solr."
+msgstr ""
+"Sie verwenden ein inkompatibles Solr-Schema. Bitte folgen Sie den Anweisungen in der "
+"Datei <a href=\":url\">INSTALL.md</a> um Solr einzurichten."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:753
+msgid "%key: Schema"
+msgstr "%key: Schema"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:760
+msgid "%key: Solr Collection Name"
+msgstr "%key: Solr Collection Name"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:766
+msgid "%key: Solr Core Name"
+msgstr "%key: Solr Core Name"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:778;800
+msgid "Max document _version_ for this server"
+msgstr "Maximale Dokument _Version_ für diesen Server"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:786
+msgid "Max _version_ for datasource %datasource in index %index on site %site"
+msgstr "Maximale _Version_ für Datenquelle %datasource in Index %index auf Seite %site"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:801
+msgid ""
+"Collection or core configuration for at least one index on this server is wrong or "
+"missing: %msg"
+msgstr ""
+"Collection- oder Core-Konfiguration für mindestens einen Index auf diesem Server ist "
+"fehlerhaft oder fehlt: %msg"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:812
+msgid ""
+"An error occurred while trying to retrieve additional information from the Solr server: "
+"%msg"
+msgstr ""
+"Beim Abrufen zusätzlicher Informationen zum Solr-Server ist ein Fehler aufgetreten: %msg"
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:826
+msgid "You disabled some Solr Field Types for this server."
+msgstr "Sie haben Solr Field Types für diesen Server deaktiviert."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:1170
+msgid "PID %pid, Index %index_id: Finalization lock acquired."
+msgstr "PID %pid, Index %index_id: Finalisierungssperre gesetzt."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:1190
+msgid "PID %pid, Index %index_id: Finalization lock released."
+msgstr "PID %pid, Index %index_id: Finalisierungssperre gelöst."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:1211
+msgid "PID %pid, Index %index_id: Waited unsuccessfully for finalization lock."
+msgstr "PID %pid, Index %index_id: Hat erfolglos auf eine Finalisierungssperre gewartet."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:993
+msgid "Error while indexing: Unknown field %field on the item with ID @id."
+msgstr "Fehler bei der Indexierung: Unbekanntes Feld %field im Eintrag mit ID @id."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:3242
+msgid ""
+"Solr 6.5.x contains a bug that breaks the autocomplete feature. Downgrade to 6.4.x or "
+"upgrade to 6.6.x at least."
+msgstr ""
+"Solr 6.5.x enthält einen Bug, der die Autovervollständigung stört. Wechseln Sie zurück "
+"auf 6.4.x oder aktualisieren Sie auf mindestens 6.6.x."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:3993
+msgid ""
+"Grouping is not supported for field @field. Only single-valued fields not indexed as "
+"\"Fulltext\" are supported."
+msgstr ""
+"Gruppieren für Feld @field wird nicht unterstützt. Nur werden Felder mit einzelnen "
+"Werten, die nicht als „Volltext“ indexiert sind, werden unterstützt."
+
+#: src/Plugin/search_api/backend/SearchApiSolrBackend.php:72
+msgid "Index items using an Apache Solr search server."
+msgstr "Indiziere Suchbegriffe mit dem Apache Solr Such-Server."
+
+#: src/Plugin/search_api/data_type/CustomTextDataType.php:7
+msgid "Fulltext Custom"
+msgstr "Volltext angepasst"
+
+#: src/Plugin/search_api/data_type/CustomTextDataType.php:7
+msgid "Custom full text field."
+msgstr "Angepasstes Volltextfeld."
+
+#: src/Plugin/search_api/data_type/DateRangeDataType.php:7
+msgid "Date range"
+msgstr "Zeitspanne"
+
+#: src/Plugin/search_api/data_type/DateRangeDataType.php:7
+msgid "Date field that contains date ranges."
+msgstr "Datumsfeld mit Zeiträumen."
+
+#: src/Plugin/search_api/data_type/OmitNormsCustomTextDataType.php:7
+msgid "Fulltext Custom Omit norms"
+msgstr "Angepasster Volltext Normen auslassen"
+
+#: src/Plugin/search_api/data_type/OmitNormsCustomTextDataType.php:7
+msgid "Custom full text field which omits norms."
+msgstr "Angepasstes Volltextfeld, das Normen auslässt."
+
+#: src/Plugin/search_api/data_type/OmitNormsTextDataType.php:7
+msgid "Fulltext Omit norms"
+msgstr "Volltext Normen auslassen"
+
+#: src/Plugin/search_api/data_type/OmitNormsTextDataType.php:7
+msgid "Full text field which omits norms."
+msgstr "Volltextfeld, das Normen auslässt."
+
+#: src/Plugin/search_api/data_type/SpellcheckTextDataType.php:5
+msgid "Spellcheck"
+msgstr "Rechtschreibprüfung"
+
+#: src/Plugin/search_api/data_type/SpellcheckTextDataType.php:5
+msgid "Full text field to feed the spellcheck component."
+msgstr "Volltextfeld um die Rechtschreibprüfung zu befüllen."
+
+#: src/Plugin/search_api/data_type/StorageStringDataType.php:7
+msgid "Storage-only"
+msgstr "Nur Speicher"
+
+#: src/Plugin/search_api/data_type/StorageStringDataType.php:7
+msgid ""
+"A storage-only field. You can store any string and retrieve it from the index but you "
+"can't search through it."
+msgstr ""
+"Ein Feld nur für die Speicherung. Sie können eine beliebige Zeichenkette speichern und "
+"abrufen, aber nicht durchsuchen."
+
+#: src/Plugin/search_api/data_type/SuggesterTextDataType.php:5
+msgid "Suggester"
+msgstr "Suggester"
+
+#: src/Plugin/search_api/data_type/SuggesterTextDataType.php:5
+msgid "Full text field to feed the suggester component."
+msgstr "Volltextfeld um die Suggester-Komponente zu befüllen."
+
+#: src/Plugin/search_api/data_type/UnstemmedTextDataType.php:7
+msgid "Fulltext Unstemmed"
+msgstr "Volltext ohne Wortstämme"
+
+#: src/Plugin/search_api/data_type/UnstemmedTextDataType.php:7
+msgid "Full text field without stemming."
+msgstr "Volltextfeld ohne Wortstämme."
+
+#: src/Plugin/search_api/data_type/WhiteSpaceTokensTextDataType.php:7
+msgid "Fulltext Tokens"
+msgstr "Volltext Platzhalter"
+
+#: src/Plugin/search_api/data_type/WhiteSpaceTokensTextDataType.php:7
+msgid ""
+"Full text field without any processing like stemming or stop word filters, just "
+"unmodified tokens from the text separated by white spaces."
+msgstr ""
+"Volltextfeld ohne Verarbeitung wie Stemming oder Stop Word Filter, nur unveränderte "
+"Platzhalter, getrennt durch Leerzeichen."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:223
+msgid "Enter the name of the field from your Solr schema that contains unique ID values."
+msgstr ""
+"Geben Sie den Namen des Feldes in Ihrem Solr-Schema ein, das eindeutige ID-Werte enthält."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:231
+msgid "Select the Solr index field that contains unique ID values."
+msgstr "Wählen Sie das Solr Indexfeld, das eindeutige ID-Werte enthält."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:235
+msgid "Advanced configuration"
+msgstr "Erweiterte Konfiguration"
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:240
+msgid ""
+"Enter the name of a requestHandler from the core's solrconfig.xml file.  This should only "
+"be necessary if you need to specify a handler to use other than the default."
+msgstr ""
+"Geben Sie den Namen eines requestHandler aus der solrconfig.xml des Cores ein. Dies "
+"sollte nur notwendig sein, wenn sie einen anderen Handler als den Standard benötigen."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:246
+msgid ""
+"Enter a default query parameter. This is only necessary if a default query cannot be "
+"specified in the solrconfig.xml file."
+msgstr ""
+"Geben Sie einen Standard-Anfrageparameter an. Dies ist nur notwendig, wenn die Standard-"
+"Anfrage nicht in der solrconfig.xml definiert werden kann."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:252
+msgid ""
+"Enter the name of the field from your Solr schema that should be considered the label (if "
+"any)."
+msgstr ""
+"Geben Sie den Namen des Feldes in Ihrem Solr-Schema ein, das gegebenenfalls als "
+"Bezeichner berücksichtigt werden soll."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:258
+msgid ""
+"Enter the name of the field from your Solr schema that should be considered the language "
+"(if any)."
+msgstr ""
+"Geben Sie den Namen des Feldes in Ihrem Solr-Schema ein, das gegebenenfalls als Sprache "
+"berücksichtigt werden soll."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:264
+msgid ""
+"Enter the name of the field from your Solr schema that should be considered the URL (if "
+"any)."
+msgstr ""
+"Geben Sie den Namen des Feldes in Ihrem Solr-Schema ein, das gegebenenfalls als URL "
+"berücksichtigt werden soll."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:271
+msgid "None"
+msgstr "Keine"
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:275
+msgid "Select the Solr index field that should be considered the label (if any)."
+msgstr ""
+"Wählen Sie das Solr-Index-Feld, das gegebenenfalls als Bezeichner in Betracht kommt."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:278
+msgid "Select the Solr index field that contains the document's language code (if any)."
+msgstr ""
+"Wählen Sie das Solr-Index-Feld, das gegebenenfalls als Sprachkürzel des Dokuments in "
+"Betracht kommt."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:281
+msgid "Select the Solr index field that contains the document's URL (if any)."
+msgstr ""
+"Wählen Sie das Solr-Index-Feld, das gegebenenfalls als URL des Dokuments in Betracht "
+"kommt."
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:16
+msgid "Solr Document"
+msgstr "Solr-Dokument"
+
+#: src/Plugin/search_api/datasource/SolrDocument.php:16
+msgid ""
+"Search through external Solr content. (Only works if this index is attached to a Solr-"
+"based server.)"
+msgstr ""
+"Externen Solr-Inhalt durchsuchen. (Funktioniert nur wenn der Index mit einem Solr-"
+"basierten Server verbunden ist.)"
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:46
+msgid "Enter the prefixed name of the targeted index."
+msgstr "Geben Sie den Namen mit Präfix des angefragten Index ein."
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:52
+msgid "Targeted index machine name"
+msgstr "Maschinenname des angefragten Index"
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:54
+msgid "Enter the machine name of the targeted index."
+msgstr "Geben Sie den Maschinennamen des angefragten Index ein."
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:62
+msgid "Enter the hash of the targeted site."
+msgstr "Geben Sie den Hash der angefragten Seite ein."
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:7
+msgid "Solr Multisite Document"
+msgstr "Solr Multisite Dokument"
+
+#: src/Plugin/search_api/datasource/SolrMultisiteDocument.php:7
+msgid ""
+"Search through a different site's content. (Only works if this index is attached to a "
+"Solr-based server.)"
+msgstr ""
+"Den Inhalt einer anderen Seite durchsuchen. (Funktioniert nur wenn der Index mit einem "
+"Solr-basierten Server verbunden ist.)"
+
+#: src/Plugin/search_api/parse_mode/Edismax.php:7
+msgid "Multiple words with EDisMax"
+msgstr "Mehrere Wörter mit EDisMax"
+
+#: src/Plugin/search_api/processor/DateRange.php:8
+msgid "Date ranges"
+msgstr "Datumsbereiche"
+
+#: src/Plugin/search_api/processor/DateRange.php:8
+msgid "Date ranges."
+msgstr "Datumsbereiche."
+
+#: src/Plugin/search_api/processor/DoubleQuoteWorkaround.php:55
+msgid "The replacement for a double quote in the input string."
+msgstr "Der Ersatz für Anführungszeichen in der eingegebenen Zeichenkette."
+
+#: src/Plugin/search_api/processor/DoubleQuoteWorkaround.php:70
+msgid "The replacement should at least consist of three cahracters."
+msgstr "Der Ersatz sollte mindestens drei Zeichen lang sein."
+
+#: src/Plugin/search_api/processor/DoubleQuoteWorkaround.php:11
+msgid "Double Quote Workaround"
+msgstr "Anführungszeichen-Workaround"
+
+#: src/Plugin/search_api/processor/DoubleQuoteWorkaround.php:11
+msgid ""
+"Replaces double quotes in field values and query to work around a bug in Solr streaming "
+"expressions."
+msgstr ""
+"Ersetzt Anführungszeichen in Feldwerten und Anfragen um einen Bug in Solr Streaming "
+"Expressions zu umgehen."
+
+#: src/Plugin/search_api/processor/DummyFields.php:34
+msgid "Dummy field"
+msgstr "Dummy-Feld"
+
+#: src/Plugin/search_api/processor/DummyFields.php:35
+msgid ""
+"Adds dummy field that gets its values via API, for example "
+"hook_search_api_solr_documents_alter()."
+msgstr ""
+"Fügt ein Dummy-Feld hinzu, dass seine Werte aus einer API bezieht, z.B. "
+"hook_search_api_solr_documents_alter()."
+
+#: src/Plugin/search_api/processor/DummyFields.php:10
+msgid "Solr dummy fields"
+msgstr "Solr-Dummy-Felder"
+
+#: src/Plugin/search_api/processor/DummyFields.php:10
+msgid ""
+"Adds dummy fields to all datasources to register a pseudo field names that get their "
+"values via API, for example hook_search_api_solr_documents_alter()."
+msgstr ""
+"Fügt allen Datenquellen Dummy-Felder hinzu, um Pseudofeldnamen zu registrieren, die ihre "
+"Werte über API abrufen, z. B. hook_search_api_solr_documents_alter()."
+
+#: src/Plugin/search_api/processor/Property/DummyFieldProperty.php:36
+msgid "Dummy value"
+msgstr "Dummy-Wert"
+
+#: src/Plugin/search_api/processor/Property/DummyFieldProperty.php:37
+msgid "The value to be set initially on the dummy field."
+msgstr "Der Initialwert für das Dummyfeld."
+
+#: src/Plugin/search_api_autocomplete/suggester/Spellcheck.php:14
+msgid "Solr Spellcheck"
+msgstr "Solr-Rechtschreibprüfung"
+
+#: src/Plugin/search_api_autocomplete/suggester/Spellcheck.php:14
+msgid ""
+"Suggest corrections for the entered words based on Solr's spellcheck component. Note: Be "
+"careful when activating this feature if you run multiple indexes in one Solr core! The "
+"spellcheck component is not able to distinguish between the different indexes and returns "
+"suggestions for the complete core. If you run multiple indexes in one core you might get "
+"suggestions that lead to zero results on a specific index!"
+msgstr ""
+"Schlagen Sie Korrekturen für die eingegebenen Wörter basierend auf der "
+"Rechtschreibprüfungskomponente von Solr vor. Hinweis: Seien Sie vorsichtig, wenn Sie "
+"diese Funktion aktivieren, wenn Sie mehrere Indizes in einem Solr-Kern ausführen! Die "
+"Rechtschreibprüfungskomponente kann nicht zwischen den verschiedenen Indizes "
+"unterscheiden und gibt Vorschläge für den vollständigen Kern zurück. Wenn Sie mehrere "
+"Indizes in einem Kern ausführen, erhalten Sie möglicherweise Vorschläge, die zu "
+"Nullergebnissen für einen bestimmten Index führen!"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:65
+msgid "From this site only"
+msgstr "Nur von dieser Seite"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:66
+msgid ""
+"Limit the suggestion dictionary to entries created by this site in case of a multisite "
+"setup."
+msgstr ""
+"Beschränken Sie das Vorschlagswörterbuch auf Einträge, die von dieser Website im Falle "
+"einer Einrichtung mit mehreren Stellen erstellt wurden."
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:70
+msgid "Any index"
+msgstr "Beliebiger Index"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:72
+msgid "Index @index"
+msgstr "Index @index"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:77
+msgid "Index"
+msgstr "Index"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:78
+msgid "Limit the suggestion dictionary to entries to those created by a specific index."
+msgstr ""
+"Beschränken Sie das Vorschlagswörterbuch auf Einträge, die durch einen bestimmten Index "
+"erstellt wurden."
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:83
+msgid "Any language"
+msgstr "Beliebige Sprache"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:84
+msgid "Let the Solr server handle it dynamically."
+msgstr "Der Solr-Server kümmert sich dynamisch darum."
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:88
+msgid "Undefined"
+msgstr "Nicht definiert"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:93
+msgid "Limit the suggestion dictionary to entries that belong to a specific language."
+msgstr ""
+"Beschränken Sie das Vorschlagswörterbuch auf Einträge, die zu einer bestimmten Sprache "
+"gehören."
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:16
+msgid "Solr Suggester"
+msgstr "Solr-Suggester"
+
+#: src/Plugin/search_api_autocomplete/suggester/Suggester.php:16
+msgid "Suggest complete phrases for the entered string based on Solr's suggest component."
+msgstr ""
+"Schlagen Sie vollständige Ausdrücke für die eingegebene Zeichenfolge basierend auf der "
+"Vorschlagskomponente von Solr vor."
+
+#: src/Plugin/search_api_autocomplete/suggester/Terms.php:10
+msgid "Solr Terms"
+msgstr "Solr-Begriffe"
+
+#: src/Plugin/search_api_autocomplete/suggester/Terms.php:10
+msgid ""
+"Autocomplete the entered string based on Solr's Terms component. Note: Be careful when "
+"activating this feature if you run multiple indexes in one Solr core! The Terms component "
+"is not able to distinguish between the different indexes and returns matching terms for "
+"the complete core. If you run multiple indexes in one core the term counts are not "
+"correct and you might get suggestions that lead to zero results on a specific index! You "
+"can mitigate that effect if you ensure that the fulltext field names are completely "
+"different in the indexes."
+msgstr ""
+"Automatischevervollständigung der eingegebenen Zeichenfolge basierend auf der Solr-"
+"Nutzungsbedingungen-Komponente. Hinweis: Seien Sie vorsichtig, wenn Sie diese Funktion "
+"aktivieren, wenn Sie mehrere Indizes in einem Solr-Kern ausführen! Die Terms-Komponente "
+"ist nicht in der Lage, zwischen den verschiedenen Indizes und zurückgegebenen "
+"übereinstimmenden Begriffen für den gesamten Kern zu unterscheiden. Wenn Sie mehrere "
+"Indizes in einem Kern ausführen, sind die Anzahlder Terme nicht korrekt, und Sie erhalten "
+"möglicherweise Vorschläge, die zu Nullergebnissen für einen bestimmten Index führen! Sie "
+"können diesen Effekt verringern, wenn Sie sicherstellen, dass die Volltextfeldnamen in "
+"den Indizes völlig unterschiedlich sind."
+
+#: src/SolrConnector/BasicAuthTrait.php:33
+msgid "HTTP Basic Authentication"
+msgstr "HTTP-Basic-Authentication"
+
+#: src/SolrConnector/BasicAuthTrait.php:34
+msgid ""
+"If your Solr server is protected by basic HTTP authentication, enter the login data here."
+msgstr ""
+"Wenn Ihr Solr-Server durch eine grundlegende HTTP-Authentifizierung geschützt ist, geben "
+"Sie hier die Anmeldedaten ein."
+
+#: src/SolrConnector/BasicAuthTrait.php:41
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/SolrConnector/BasicAuthTrait.php:48
+msgid "Password"
+msgstr "Passwort"
+
+#: src/SolrConnector/BasicAuthTrait.php:49
+msgid ""
+"If this field is left blank and the HTTP username is filled out, the current password "
+"will not be changed."
+msgstr ""
+"Wenn dieses Feld leer bleibt und der HTTP-Benutzername ausgefüllt wird, wird das aktuelle "
+"Kennwort nicht geändert."
+
+#: src/SolrConnector/BasicAuthTrait.php:130
+msgid "Basic HTTP authentication"
+msgstr "HTTP Basic Authentifizierung"
+
+#: src/SolrConnector/BasicAuthTrait.php:131
+msgid "Username: %user | Password: %pass"
+msgstr "Benutzername: %user | Passwort: %pass"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:125
+msgid "HTTP protocol"
+msgstr "HTTP-Protokoll"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:126
+msgid "The HTTP protocol to use for sending queries."
+msgstr "Das HTTP-Protokoll zum Versand von Anfragen."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:136
+msgid "Solr host"
+msgstr "Solr-Host"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:137
+msgid ""
+"The host name or IP of your Solr server, e.g. <code>localhost</code> or <code>www.example."
+"com</code>."
+msgstr ""
+"Der Hostname oder die IP Ihres Solr-Servers, z.B. <code>localhost</code> oder <code>www."
+"example.com</code>."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:144
+msgid "Solr port"
+msgstr "Solr-Port"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:145
+msgid "The Jetty example server is at port 8983, while Tomcat uses 8080 by default."
+msgstr ""
+"Der Jetty-Beispielserver befindet sich an Port 8983, während Tomcat standardmäßig 8080 "
+"verwendet."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:152
+msgid "Solr path"
+msgstr "Solr-Pfad"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:153
+msgid "The path that identifies the Solr instance to use on the server."
+msgstr ""
+"Der Pfad, der die Solr-Instanz identifiziert, die auf dem Server verwendet werden soll."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:159
+msgid "Solr core"
+msgstr "Solr-Core"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:160
+msgid "The name that identifies the Solr core to use on the server."
+msgstr "Der eindeutige Name des zu verwendenden Solr-Cores auf dem Server."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:169
+msgid "Query timeout"
+msgstr "Anfragetimeout"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:170
+msgid "The timeout in seconds for search queries sent to the Solr server."
+msgstr "Der Timeout in Sekunden für Suchanfragen an den Solr-Server."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:179
+msgid "Index timeout"
+msgstr "Indexierungstimeout"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:180
+msgid "The timeout in seconds for indexing requests to the Solr server."
+msgstr "Der Timeout in Sekunden für Indexierungsanfragen an den Solr-Server."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:189
+msgid "Optimize timeout"
+msgstr "Optimierungstimeout"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:190
+msgid "The timeout in seconds for background index optimization queries on a Solr server."
+msgstr ""
+"Der Timeout in Sekunden für Indexoptimierungsanfragen im Hintergrund an den Solr-Server."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:199
+msgid "Finalize timeout"
+msgstr "Finalisierungstimeout"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:200
+msgid "The timeout in seconds for index finalization queries on a Solr server."
+msgstr "Der Timeout in Sekunden für Finalisierungsanfragen an den Solr-Server."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:208
+msgid "Commit within"
+msgstr "Bestätigen binnen"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:209
+msgid ""
+"The limit in milliseconds within a (soft) commit on Solr is forced after any updating the "
+"index in any way. Setting the value to \"0\" turns off this dynamic enforcement and lets "
+"Solr behave like configured solrconf.xml."
+msgstr ""
+"Das Limit in Millisekunden innerhalb eines (weichen) Commits für Solr wird nach jeder "
+"Aktualisierung des Indexes in irgendeiner Weise erzwungen. Wenn Sie den Wert auf \"0\" "
+"setzen, wird diese dynamische Erzwingung deaktiviert und Solr lässt sich wie "
+"konfigurierte solrconf.xml verhalten."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:216
+msgid "Connector Workarounds"
+msgstr "Connector Workarounds"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:222
+msgid ""
+"Specify the Solr version manually in case it cannot be retrived automatically. The "
+"version can be found in the Solr admin interface under \"Solr Specification Version\" or "
+"\"solr-spec\""
+msgstr ""
+"Geben Sie die Solr-Version manuell an, falls sie nicht automatisch retrived werden kann. "
+"Die Version finden Sie in der Solr Admin-Schnittstelle unter \"Solr Specification Version"
+"\" oder \"solr-spec\""
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:224
+msgid "Determine automatically"
+msgstr "Automatisch feststellen"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:234
+msgid "HTTP method"
+msgstr "HTTP Methode"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:235
+msgid ""
+"The HTTP method to use for sending queries. GET will often fail with larger queries, "
+"while POST should not be cached. AUTO will use GET when possible, and POST for queries "
+"that are too large."
+msgstr ""
+"Die HTTP-Methode, die zum Senden von Abfragen verwendet werden soll. GET schlägt häufig "
+"mit größeren Abfragen fehl, während POST nicht zwischengespeichert werden sollte. AUTO "
+"verwendet GET, wenn möglich, und POST für Abfragen, die zu groß sind."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:238
+msgid "AUTO"
+msgstr "AUTO"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:246
+msgid "Advanced server configuration"
+msgstr "Erweiterte Serverkonfiguration"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:252
+msgid "Enable JMX based monitoring."
+msgstr "Aktiviere JMX-basiertes Monitoring."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:258
+msgid "solr.install.dir"
+msgstr "solr.install.dir"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:259
+msgid ""
+"The path where Solr is installed on the server, relative to the configuration or "
+"absolute. Some examples are \"../../..\" for Solr downloaded from apache.org, \"/opt/solr-"
+"EXACT_VERSION_STRING\" for the official Solr docker container, \"/usr/local/opt/solr/"
+"libexec\" for installations via homebrew on macOS or \"/opt/solr\" for some linux "
+"distributions. If you use different systems for development, testing and production you "
+"can use drupal config overwrites to adjust the value per environment or adjust the "
+"generated solrcore.properties per environment or use java virtual machine options to set "
+"the property."
+msgstr ""
+"Der Pfad, in dem Solr auf dem Server installiert ist, relativ zur Konfiguration oder "
+"absolut. Einige Beispiele sind \".. /.. /..\" für Solr heruntergeladen von apache.org, \"/"
+"opt/solr-EXACT_VERSION_STRING\" für den offiziellen Solr Docker Container, \"/usr/local/"
+"opt/solr/libexec\" für Installationen über homebrew auf macOS oder \"/opt/solr\" für "
+"einige Linux-Distributionen. Wenn Sie verschiedene Systeme für Entwicklung, Test und "
+"Produktion verwenden, können Sie drupal config overwrites verwenden, um den Wert pro "
+"Umgebung anzupassen oder die generierten solrcore.properties pro Umgebung anzupassen oder "
+"Java-Optionen für virtuelle Maschinen zu verwenden, um die Eigenschaft festzulegen."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:272
+msgid "The port has to be an integer between 0 and 65535."
+msgstr "Der Port muss eine Ganzzahl zwischen 0 und 65535 sein."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:275
+msgid "If provided the path has to start with \"/\"."
+msgstr "Falls vorhanden muss der Pfad mit „/“ beginnen."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:278
+msgid "Core or collection must not start with \"/\"."
+msgstr "Core oder Collection darf nicht mit „/“ beginnen."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:290
+msgid "The server link generated from the form values is illegal."
+msgstr "Der aus den Formulareingaben erzeugte Server-Links ist unzulässig."
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:24
+msgid "My connector"
+msgstr "Mein Connector"
+
+#: src/SolrConnector/SolrConnectorPluginBase.php:24
+msgid "Authenticates with SuperAuth™."
+msgstr "Authentifiziert mit SuperAuth™."
+
+#: config/install/search_api_solr.solr_field_type.text_edge_und_6_0_0.yml:0
+#: config/install/search_api_solr.solr_field_type.text_edge_und_7_0_0.yml:0
+msgid "Edge NGram Text Field"
+msgstr "Edge NGram Textfeld"
+
+#: config/install/search_api_solr.solr_field_type.text_edgestring_und_6_0_0.yml:0
+msgid "Edge NGram String Field"
+msgstr "Edge NGram Zeichenkettenfeld"
+
+#: config/install/search_api_solr.solr_field_type.text_ngram_und_6_0_0.yml:0
+#: config/install/search_api_solr.solr_field_type.text_ngram_und_7_0_0.yml:0
+msgid "NGram Text Field"
+msgstr "NGram Textfeld"
+
+#: config/install/search_api_solr.solr_field_type.text_ngramstring_und_6_0_0.yml:0
+msgid "NGram String Field"
+msgstr "NGram Zeichenkettenfeld"
+
+#: config/install/search_api_solr.solr_field_type.text_phonetic_und_7_0_0.yml:0
+msgid "Fulltext Phonetic"
+msgstr "Volltext phonetisch"
+
+#: config/install/search_api_solr.solr_field_type.text_und_6_0_0.yml:0
+#: config/install/search_api_solr.solr_field_type.text_und_7_0_0.yml:0
+msgid "Language Undefined Text Field"
+msgstr "Textfeld Undefinierte Sprache"
+
+#: config/optional/search_api_solr.solr_field_type.text_ar_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_ar_7_0_0.yml:0
+msgid "Arabic Text Field"
+msgstr "Textfeld Arabisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_bg_7_0_0.yml:0
+msgid "Bulgarian Text Field"
+msgstr "Textfeld Bulgarisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_ca_7_0_0.yml:0
+msgid "Catalan Text Field"
+msgstr "Textfeld Katalanisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_cs_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_cs_7_0_0.yml:0
+msgid "Czech Text Field"
+msgstr "Textfeld Tschechisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_da_7_0_0.yml:0
+msgid "Danish Text Field"
+msgstr "Textfeld Dänisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_de_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_de_7_0_0.yml:0
+msgid "German Text Field"
+msgstr "Textfeld Deutsch"
+
+#: config/optional/search_api_solr.solr_field_type.text_de_scientific_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_de_scientific_7_0_0.yml:0
+msgid "German Scientific Text Field"
+msgstr "Textfeld Deutsch wissenschaftlich"
+
+#: config/optional/search_api_solr.solr_field_type.text_el_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_el_7_0_0.yml:0
+msgid "Greek Text Field"
+msgstr "Textfeld Griechisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_en_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_en_7_0_0.yml:0
+msgid "English Text Field"
+msgstr "Textfeld Englisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_es_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_es_7_0_0.yml:0
+msgid "Spanish Text Field"
+msgstr "Textfeld Spanisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_et_8_2_0.yml:0
+msgid "Estonian Text Field"
+msgstr "Textfeld Estnisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_fa_7_0_0.yml:0
+msgid "Persian Text Field"
+msgstr "Textfeld Persisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_fi_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_fi_7_0_0.yml:0
+msgid "Finnish Text Field"
+msgstr "Textfeld Finnisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_fr_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_fr_7_0_0.yml:0
+msgid "French Text Field"
+msgstr "Textfeld Französisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_hi_7_0_0.yml:0
+msgid "Hindi Text Field"
+msgstr "Textfeld Hindi"
+
+#: config/optional/search_api_solr.solr_field_type.text_hr_7_0_0.yml:0
+msgid "Croatian Text Field"
+msgstr "Textfeld Kroatisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_id_7_0_0.yml:0
+msgid "Indonesian Text Field"
+msgstr "Textfeld Indonesisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_it_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_it_7_0_0.yml:0
+msgid "Italian Text Field"
+msgstr "Textfeld Italienisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_ja_6_0_0.yml:0
+msgid "Japanese Text Field"
+msgstr "Japanisches Textfeld"
+
+#: config/optional/search_api_solr.solr_field_type.text_lv_7_0_0.yml:0
+msgid "Latvian Text Field"
+msgstr "Textfeld Lettisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_nb_7_0_0.yml:0
+msgid "Norwegian Bokmal Text Field"
+msgstr "Textfeld Norwegisch Bokmal"
+
+#: config/optional/search_api_solr.solr_field_type.text_nl_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_nl_7_0_0.yml:0
+msgid "Dutch Text Field"
+msgstr "Textfeld Niederländisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_nn_7_0_0.yml:0
+msgid "Norwegian Nynorsk Text Field"
+msgstr "Textfeld Norwegisch Nynorsk"
+
+#: config/optional/search_api_solr.solr_field_type.text_no_7_0_0.yml:0
+msgid "Norwegian Text Field"
+msgstr "Textfeld Norwegisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_de_7_0_0.yml:0
+msgid "Fulltext Phonetic German"
+msgstr "Volltext phonetisch Deutsch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_el_7_0_0.yml:0
+msgid "Fulltext Phonetic Greek"
+msgstr "Volltext phonetisch Griechisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_en_7_0_0.yml:0
+msgid "Fulltext Phonetic English"
+msgstr "Volltext phonetisch Englisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_es_7_0_0.yml:0
+msgid "Fulltext Phonetic Spanish"
+msgstr "Volltext phonetisch Spanisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_fr_7_0_0.yml:0
+msgid "Fulltext Phonetic French"
+msgstr "Volltext phonetisch Französisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_it_7_0_0.yml:0
+msgid "Fulltext Phonetic Italian"
+msgstr "Volltext phonetisch Italienisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_pl_7_0_0.yml:0
+msgid "Fulltext Phonetic Polish"
+msgstr "Volltext phonetisch Polnisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_ru_7_0_0.yml:0
+msgid "Fulltext Phonetic Russian"
+msgstr "Volltext phonetisch Russisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_phonetic_uk_7_0_0.yml:0
+msgid "Fulltext Phonetic Ukrainian"
+msgstr "Volltext phonetisch Ukrainisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_pl_7_0_0.yml:0
+msgid "Polish Text Field"
+msgstr "Textfeld Polnisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_pt_7_0_0.yml:0
+msgid "Portuguese Text Field"
+msgstr "Textfeld Portugiesisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_ro_7_0_0.yml:0
+msgid "Romanian Text Field"
+msgstr "Textfeld Rumänisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_ru_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_ru_7_0_0.yml:0
+msgid "Russian Text Field"
+msgstr "Textfeld Russisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_sk_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_sk_7_0_0.yml:0
+msgid "Slovak Text Field"
+msgstr "Textfeld Slovakisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_sr_7_0_0.yml:0
+msgid "Serbian Text Field"
+msgstr "Textfeld Serbisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_sv_7_0_0.yml:0
+msgid "Swedish Text Field"
+msgstr "Textfeld Schwedisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_th_7_0_0.yml:0
+msgid "Thai Text Field"
+msgstr "Textfeld Thailändisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_tr_7_0_0.yml:0
+msgid "Turkish Text Field"
+msgstr "Textfeld Türkisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_uk_6_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_uk_7_0_0.yml:0
+#: config/optional/search_api_solr.solr_field_type.text_uk_8_2_0.yml:0
+msgid "Ukrainian Text Field"
+msgstr "Textfeld Ukrainisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_zh-hans_7_0_0.yml:0
+msgid "Simplified Chinese Text Field"
+msgstr "Textfeld Vereinfachtes Chinesisch"
+
+#: config/optional/search_api_solr.solr_field_type.text_zh-hant_7_0_0.yml:0
+msgid "Traditional Chinese Text Field"
+msgstr "Textfeld Traditionelles Chinesisch"
+
+#: modules/search_api_solr_defaults/config/optional/search_api.index.default_solr_index.yml:0
+msgid "Default Solr content index"
+msgstr "Solr-Standard-Index"
+
+#: modules/search_api_solr_defaults/config/optional/search_api.index.default_solr_index.yml:0
+msgid "Default content index created by the Solr Search Defaults module"
+msgstr "Standard-Inhaltsindex erstellt vom Solr Search Defaults Modul"
+
+#: modules/search_api_solr_defaults/config/optional/search_api.server.default_solr_server.yml:0
+msgid "Solr Server"
+msgstr "Solr-Server"
+
+#: modules/search_api_solr_defaults/config/optional/search_api.server.default_solr_server.yml:0
+msgid "Default Solr server created by the Solr Search Defaults module"
+msgstr "Standard Solr-Server erzeugt durch das Solr Search Defaults Modul"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Solr search content"
+msgstr "Solr Suchinhalte"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "A search page preconfigured to search through the content of your site"
+msgstr ""
+"Eine vorkonfigurierte Suchseite, mit der die Inhalte der Website durchsucht werden können"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Please enter some keywords to search."
+msgstr "Bitte geben Sie zur Suche einige Schlüsselwörter ein."
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "‹ previous"
+msgstr "‹ vorherige Seite"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "next ›"
+msgstr "nächste Seite ›"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Search Content"
+msgstr "Inhalt suchen"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Displaying results @start - @end of @total"
+msgstr "Ergebnisse @start - @end von @total werden angezeigt"
+
+#: modules/search_api_solr_defaults/config/optional/views.view.solr_search_content.yml:0
+msgid "Page"
+msgstr "Seite"
+
+msgid "%type while maintaining Solr server @server: @message in %function (line %line of %file)."
+msgstr "%type beim Pflegen von Solr server @server: @message in %function (Zeile %line in %file)."
+
+msgid "%type while indexing: @message in %function (line %line of %file)."
+msgstr "%type bei der Indexierung: @message in %function (Zeile %line in %file)."
+
+msgid "%type while trying to index items on index %index: @message in %function (line %line of %file)"
+msgstr "%type beim Indexierungsversuch auf Index %index: @message in %function (Zeile %line in %file)"
+
+msgid "Solr servers"
+msgstr "Solr-Server"
+
+msgid "Solr Cache"
+msgstr "SolrCache"
+
+msgid "Solr Request Dispatcher"
+msgstr "Solr Request Dispatcher"
+
+msgid "Solr Request Handler"
+msgstr "Solr Request Handler"
+
+msgid "Document Cache"
+msgstr "Document Cache"
+
+msgid "Field Value Cache"
+msgstr "Field Value Cache"
+
+msgid "Filter Cache"
+msgstr "Filter Cache"
+
+msgid "Per Segment Filter Cache"
+msgstr "Per Segment Filter Cache"
+
+msgid "Query Result Cache"
+msgstr "Query Result Cache"
+
+msgid "HTTP Cache"
+msgstr "HTTP Cache"
+
+msgid "HTTP Cache Never"
+msgstr "HTTP Cache Never"
+
+msgid "More Like This"
+msgstr "More Like This"
+
+msgid "Replication Master"
+msgstr "Replication Master"
+
+msgid "Replication Slave"
+msgstr "Replication Slave"
+
+msgid "Term Vector"
+msgstr "Term Vector"
+
+msgid "Your config-set contains manually added customizations. Be aware that these will be lost when the config-set needs to be regenerated."
+msgstr "Ihr Konfigurationssatz enthält manuell hinzugefügte Anpassungen. Beachten Sie, dass diese verloren gehen, wenn das Konfigurationsset neu generiert werden muss."
+
+msgid "Schema modified"
+msgstr "Schema modifiziert"
+
+msgid "Schema covers all languages"
+msgstr "Schema deckt alle Sprachen ab"
+
+msgid "There have been some configuration changes. It is advisable to download and deploy an updated config.zip to your Solr server."
+msgstr "Es hat einige Konfigurationsänderungen gegeben. Es ist ratsam, eine aktualisierte config.zip herunterzuladen und auf Ihrem Solr-Server bereitzustellen."

@@ -1,0 +1,582 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  ckeditor.module: n/a
+#  ckeditor.info.yml: n/a
+#  src/Plugin/Editor/CKEditor.php: n/a
+#  config/schema/ckeditor.schema.yml: n/a
+#  templates/ckeditor-settings-toolbar.html.twig: n/a
+#  js/ckeditor.admin.es6.js: n/a
+#  js/ckeditor.admin.js: n/a
+#  src/Plugin/CKEditorPlugin/Language.php: n/a
+#  src/Plugin/CKEditorPlugin/StylesCombo.php: n/a
+#  js/ckeditor.drupalimage.admin.es6.js: n/a
+#  js/ckeditor.drupalimage.admin.js: n/a
+#  js/ckeditor.es6.js: n/a
+#  js/ckeditor.js: n/a
+#  js/ckeditor.stylescombo.admin.es6.js: n/a
+#  js/ckeditor.stylescombo.admin.js: n/a
+#  js/plugins/drupalimage/plugin.es6.js: n/a
+#  js/plugins/drupalimage/plugin.js: n/a
+#  src/Plugin/CKEditorPlugin/DrupalImage.php: n/a
+#  js/plugins/drupallink/plugin.es6.js: n/a
+#  js/plugins/drupallink/plugin.js: n/a
+#  src/Plugin/CKEditorPlugin/DrupalLink.php: n/a
+#  js/views/AuralView.es6.js: n/a
+#  js/views/AuralView.js: n/a
+#  js/views/VisualView.es6.js: n/a
+#  js/views/VisualView.js: n/a
+#  src/Plugin/CKEditorPlugin/DrupalImageCaption.php: n/a
+#  src/Plugin/CKEditorPlugin/Internal.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ckeditor.module:20
+msgid "About"
+msgstr "Über"
+
+#: ckeditor.module:21
+msgid "The CKEditor module provides a highly-accessible, highly-usable visual text editor and adds a toolbar to text fields. Users can use buttons to format content and to create semantically correct and valid HTML. The CKEditor module uses the framework provided by the <a href=\":text_editor\">Text Editor module</a>. It requires JavaScript to be enabled in the browser. For more information, see the <a href=\":doc_url\">online documentation for the CKEditor module</a> and the <a href=\":cke_url\">CKEditor website</a>."
+msgstr "Das CKEditor-Modul stellt einen einfach zu bedienenden visuellen Texteditor zur Verfügung und fügt eine Werkzeugleiste zu Textfeldern hinzu. Benutzer können Inhalte mittels Buttons formatieren, daraus wird semantisch korrektes und valides HTML generiert. Das Modul verwendet das Framework des <a href=\":text_editor\">Text-Editor-Moduls</a>. Javascript muss im Browser aktiviert sein. Für mehr Informationen lesen Sie die <a href=\":doc_url\">Online-Dokumentation für das CKEditor-Modul</a> oder besuchen Sie die <a href=\":cke_url\">CKEditor Website</a>."
+
+#: ckeditor.module:22
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: ckeditor.module:24
+msgid "Enabling CKEditor for individual text formats"
+msgstr "CKEditor für individuelle Textformate aktivieren"
+
+#: ckeditor.module:25
+msgid "CKEditor has to be enabled and configured separately for individual text formats from the <a href=\":formats\">Text formats and editors page</a> because the filter settings for each text format can be different. For more information, see the <a href=\":text_editor\">Text Editor help page</a> and <a href=\":filter\">Filter help page</a>."
+msgstr "Der CKEditor muss für jedes Textformat einzeln unter <a href=\":formats\">Textformate und Texteditoren</a> aktiviert und konfiguriert werden, da die Filtereinstellungen für jedes Textformat unterschiedlich sein können. Weitere Informationen auf der <a href=\":text_editor\">Texteditor-Hilfeseite</a> sowie der <a href=\":filter\">Filter-Hilfeseite</a>."
+
+#: ckeditor.module:26
+msgid "Configuring the toolbar"
+msgstr "Werkzeugleiste konfigurieren"
+
+#: ckeditor.module:27
+msgid "When CKEditor is chosen from the <em>Text editor</em> drop-down menu, its toolbar configuration is displayed. You can add and remove buttons from the <em>Active toolbar</em> by dragging and dropping them, and additional rows can be added to organize the buttons."
+msgstr "Wenn der CKEditor im <em>Texteditoren</em>-Menü ausgewählt wurde, erscheint die Werkzeugleisten-Konfiguration. Buttons können mittels Drag & Drop zur <em>aktiven Werkzeugleiste</em> hinzugefügt oder entfernt werden. Zusätzliche Zeilen klönnen hinzugefügt werden, um die Buttons zu organisieren."
+
+#: ckeditor.module:28
+msgid "Formatting content"
+msgstr "Inhalt formatieren"
+
+#: ckeditor.module:29
+msgid "CKEditor only allow users to format content in accordance with the filter configuration of the specific text format. If a text format excludes certain HTML tags, the corresponding toolbar buttons are not displayed to users when they edit a text field in this format. For more information see the <a href=\":filter\">Filter help page</a>."
+msgstr "CKEditor ermöglicht Benutzern nur die Formatierung von Inhalten in Übereinstimmung mit der Filterkonfiguration des spezifischen Textformats. Wenn ein Textformat bestimmte HTML-Tags ausschließt, werden die entsprechenden Symbolleistenschaltflächen für die Benutzer nicht angezeigt, wenn sie ein Textfeld in diesem Format bearbeiten. Weitere Informationen finden Sie auf der <a href=\":filter\">Hilfetextseite zu Filtern</a>."
+
+#: ckeditor.module:30
+msgid "Toggling between formatted text and HTML source"
+msgstr "Zwischen formatiertem Text und HTML-Quelltext umschalten."
+
+#: ckeditor.module:31
+msgid "If the <em>Source</em> button is available in the toolbar, users can click this button to disable the visual editor and edit the HTML source directly. After toggling back, the visual editor uses the allowed HTML tags to format the text — independent of whether buttons for these tags are available in the toolbar. If the text format is set to <em>limit the use of HTML tags</em>, then all excluded tags will be stripped out of the HTML source when the user toggles back to the text editor."
+msgstr "Wenn der <em>Quelltext</em>-Button in der Werkzeugleiste verfügbar ist, kann der Benutzer damit den HTML-Quelltext direkt bearbeiten. Beim Zurückwechseln auf den visuellen Editor werden die erlaubten HTML-Tags angewendet – unabhängig davon, ob Buttons dafür verfügbar sind oder nicht. Wenn im Textformat die Nutzung auf bestimmte HTML-Tags beschränkt ist, werden nicht erlaubte Tags beim Zurückwechseln auf den Quelltext-Editor gelöscht."
+
+#: ckeditor.module:32
+msgid "Check my spelling as I type"
+msgstr "Rechtschreibprüfung während des Tippens"
+
+#: ckeditor.module:33
+msgid "By default, CKEditor is configured to leverage your browser's spell check capability. Make sure your browser's spell checker is enabled in your browser's settings. To access suggested corrections for misspelled words, it may be necessary to hold the <em>Control</em> or <em>command</em> (Mac) key while right-clicking the misspelling."
+msgstr "CKEditor nutzt die Rechtschreibprüfung des Browsers, diese muss aktiviert sein. Um vorgeschlagene Korrekturen anzuzeigen, kann es notwendig sein die <em>Steuerungs-</em> oder die <em>Command-</em>Taste (Mac) gedrückt zu halten, während man auf den Begriff klickt."
+
+#: ckeditor.module:34
+msgid "Accessibility features"
+msgstr "Barrierefreiheits-Funktionen"
+
+#: ckeditor.module:35
+msgid "The built in WYSIWYG editor (CKEditor) comes with a number of <a href=\":features\">accessibility features</a>. CKEditor comes with built in <a href=\":shortcuts\">keyboard shortcuts</a>, which can be beneficial for both power users and keyboard only users."
+msgstr "Der integrierte WYSIWYG-Editor (CKEditor) unterstützt <a href=\":features\">Barrierefreiheit</a>, wie zum Bespiel <a href=\":shortcuts\">Tastenkombinationen</a> für die Nutzung ausschließlich über Tastatureingaben."
+
+#: ckeditor.module:36
+msgid "Generating accessible content"
+msgstr "Erstellung von barrierefreiem Inhalt"
+
+#: ckeditor.module:37
+msgid "HTML tables can be created with both table headers as well as caption/summary elements. Alt text is required by default on images added through CKEditor (note that this can be overridden). Semantic HTML5 figure/figcaption are available to add captions to images."
+msgstr "HTML-Tabellen können sowohl mit Tabellenkopfzeilen als auch mit Beschriftungs-/Zusammenfassungselementen erstellt werden. Alternativer Text ist standardmäßig für Bilder erforderlich, die über CKEditor hinzugefügt werden (beachten Sie, dass dies außer Kraft gesetzt werden kann). Semantische HTML5-figure-/figcaption-Elemente sind verfügbar, um Beschriftungen zu Bildern hinzuzufügen."
+
+#: ckeditor.info.yml:0 src/Plugin/Editor/CKEditor.php:16
+msgid "CKEditor"
+msgstr "CKeditor"
+
+#: ckeditor.info.yml:0
+msgid "WYSIWYG editing for rich text fields using CKEditor."
+msgstr "Ermöglicht die WYSIWYG-Bearbeitung von Rich-Text-Felder mit dem CKEditor."
+
+#: ckeditor.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "CKEditor settings"
+msgstr "CKEditor-Einstellungen"
+
+#: config/schema/ckeditor.schema.yml:0 templates/ckeditor-settings-toolbar.html.twig:18
+msgid "Toolbar configuration"
+msgstr "Konfiguration der Werkzeugleiste"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Rows"
+msgstr "Zeilen"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Button groups"
+msgstr "Button-Gruppen"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Button group"
+msgstr "Button-Gruppe"
+
+#: config/schema/ckeditor.schema.yml:0 js/ckeditor.admin.es6.js:0 js/ckeditor.admin.js:0
+msgid "Button group name"
+msgstr "Button-Gruppen-Name"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Buttons"
+msgstr "Buttons"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Button"
+msgstr "Button"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Plugins"
+msgstr "Plugins"
+
+#: config/schema/ckeditor.schema.yml:0 src/Plugin/CKEditorPlugin/Language.php:86;89;89;89;13
+msgid "Language"
+msgstr "Sprache"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "Language list ID"
+msgstr "Sprachlisten-ID"
+
+#: config/schema/ckeditor.schema.yml:0 src/Plugin/CKEditorPlugin/StylesCombo.php:10
+msgid "Styles dropdown"
+msgstr "Stil-Auswahl"
+
+#: config/schema/ckeditor.schema.yml:0
+msgid "List of styles"
+msgstr "Liste der Stile"
+
+#: js/ckeditor.admin.es6.js:0 js/ckeditor.admin.js:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: js/ckeditor.admin.es6.js:0 js/ckeditor.admin.js:0
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: js/ckeditor.admin.es6.js:0 js/ckeditor.admin.js:0
+msgid "Editing the name of the \"@groupName\" button group in a dialog."
+msgstr "Namen der Button-Gruppe \"@groupName\" in einem Dialogfenster bearbeiten."
+
+#: js/ckeditor.admin.es6.js:0 js/ckeditor.admin.js:0
+msgid "Add group"
+msgstr "Gruppe hinzufügen"
+
+#: js/ckeditor.admin.js:0
+msgid "Please provide a name for the button group."
+msgstr "Bitte einen Namen für die Button-Gruppe eingeben."
+
+#: js/ckeditor.admin.js:0
+msgid "Editing the name of the new button group in a dialog."
+msgstr "Namen der Button-Gruppe in einem Dialogfenster bearbeiten."
+
+#: js/ckeditor.admin.js:0
+msgid "Place a button to create a new button group."
+msgstr "Einen Button hinzufügen, um eine neue Button-Gruppe zu erstellen."
+
+#: js/ckeditor.admin.js:0
+msgid "New group"
+msgstr "Neue Gruppe"
+
+#: js/ckeditor.admin.js:0
+msgid "Add a CKEditor button group to the end of this row."
+msgstr "Eine CKEditor-Button-Gruppe am Ende dieser Zeile hinzufügen."
+
+#: js/ckeditor.drupalimage.admin.es6.js:0 js/ckeditor.drupalimage.admin.js:0
+msgid "Uploads disabled"
+msgstr "Uploads deaktiviert"
+
+#: js/ckeditor.drupalimage.admin.es6.js:0 js/ckeditor.drupalimage.admin.js:0
+msgid "Uploads enabled, max size: @size @dimensions"
+msgstr "Hochladen erlaubt, maximale Größe: @size @dimensions"
+
+#: js/ckeditor.es6.js:0 js/ckeditor.js:0
+msgid "Rich Text Editor, !label field"
+msgstr "Rich-Text-Editor, !label Feld"
+
+#: js/ckeditor.js:0
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+#: js/ckeditor.stylescombo.admin.es6.js:0 js/ckeditor.stylescombo.admin.js:0
+msgid "No styles configured"
+msgstr "Keine Stile konfiguriert"
+
+#: js/ckeditor.stylescombo.admin.es6.js:0 js/ckeditor.stylescombo.admin.js:0
+msgid "@count styles configured"
+msgstr "@count Stile konfiguriert"
+
+#: js/plugins/drupalimage/plugin.es6.js:0 js/plugins/drupalimage/plugin.js:0 src/Plugin/CKEditorPlugin/DrupalImage.php:53;10
+msgid "Image"
+msgstr "Bild"
+
+#: js/plugins/drupallink/plugin.es6.js:0 js/plugins/drupallink/plugin.js:0 src/Plugin/CKEditorPlugin/DrupalLink.php:52
+msgid "Link"
+msgstr "Link"
+
+#: js/plugins/drupallink/plugin.es6.js:0;0 js/plugins/drupallink/plugin.js:0;0 src/Plugin/CKEditorPlugin/DrupalLink.php:56
+msgid "Unlink"
+msgstr "Link entfernen"
+
+#: js/plugins/drupallink/plugin.es6.js:0 js/plugins/drupallink/plugin.js:0 src/Plugin/CKEditorPlugin/DrupalLink.php:41
+msgid "Edit Link"
+msgstr "Link bearbeiten"
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "@groupName button group in position @position of @positionCount in row @row of @rowCount."
+msgstr "@groupName Button-Gruppe in Position @position von @positionCount in Zeile @row von @rowCount."
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "Press the down arrow key to activate."
+msgstr "Zum Aktivieren Pfeil-nach-Unten-Taste benutzen."
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "@name @type in position @position of @positionCount in @groupName button group in row @row of @rowCount."
+msgstr "@name @type in position @position of @positionCount in @groupName button group in row @row of @rowCount."
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "The \"@name\" button is currently disabled."
+msgstr "Der Button „@name“ ist derzeit deaktiviert."
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "This @name is currently enabled."
+msgstr "Dieser @name ist momentan aktiv."
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "This @name is currently disabled."
+msgstr "Dieser @name ist momentan inaktiv."
+
+#: js/views/AuralView.js:0
+msgid "Press the down arrow key to create a new row."
+msgstr "Pfeil-nach-unten-Taste benutzen um eine neue Zeile zu erzeugen."
+
+#: js/views/AuralView.js:0
+msgid "button"
+msgstr "Button"
+
+#: js/views/AuralView.js:0
+msgid "@name @type."
+msgstr "@name @type."
+
+#: js/views/AuralView.js:0
+msgid "Press the down arrow key to create a new button group in a new row."
+msgstr "Pfeil-nach-unten-Taste benutzen, um eine neue Schaltflächengruppe in einer neuen Zeile zu erzeugen."
+
+#: js/views/AuralView.js:0
+msgid "This is the last group. Move the button forward to create a new group."
+msgstr "Dies ist die letzte Gruppe. Pfeil-nach-Rechts-Taste benutzen um eine neue Gruppe zu erzeugen."
+
+#: js/views/AuralView.js:0
+msgid "The \"@name\" button is currently enabled."
+msgstr "Der Button „@name“ ist derzeit aktiviert."
+
+#: js/views/AuralView.js:0
+msgid "Use the keyboard arrow keys to change the position of this button."
+msgstr "Verwenden Sie die Pfeiltasten der Tastatur, um die Position dieses Buttons zu ändern."
+
+#: js/views/AuralView.js:0
+msgid "Press the up arrow key on the top row to disable the button."
+msgstr "In der obersten Zeile kann mit einem Druck auf den Pfeil nach oben die Schaltfläche deaktiviert werden."
+
+#: js/views/AuralView.js:0
+msgid "Use the down arrow key to move this button into the active toolbar."
+msgstr "Benutzen Sie die „Pfeil nach unten“ -Taste um die Schaltfläche in die aktive Werkzeugleiste zu verschieben."
+
+#: js/views/AuralView.js:0
+msgid "Use the keyboard arrow keys to change the position of this separator."
+msgstr "Pfeil-Tasten benutzen um die Position dieses Seperators zu ändern."
+
+#: js/views/AuralView.js:0
+msgid "Separators are used to visually split individual buttons."
+msgstr "Trennzeichen werden verwendet, um Buttons grafisch voneinander abzusetzen."
+
+#: js/views/AuralView.js:0
+msgid "Use the down arrow key to move this separator into the active toolbar."
+msgstr "Benutzen Sie die „Pfeil nach unten“ -Taste um den Separator in die aktive Werkzeugleiste zu verschieben."
+
+#: js/views/AuralView.js:0
+msgid "You may add multiple separators to each button group."
+msgstr "Sie können mehrere Separatoren zu jeder Schaltflächengruppe hinzufügen."
+
+#: js/views/VisualView.es6.js:0 js/views/VisualView.js:0
+msgid "Hide group names"
+msgstr "Gruppennamen ausblenden"
+
+#: js/views/VisualView.es6.js:0 js/views/VisualView.js:0
+msgid "Show group names"
+msgstr "Gruppennamen anzeigen"
+
+#: src/Plugin/CKEditorPlugin/DrupalImage.php:42
+msgid "Insert Image"
+msgstr "Bild einfügen"
+
+#: src/Plugin/CKEditorPlugin/DrupalImage.php:43
+msgid "Edit Image"
+msgstr "Bild bearbeiten"
+
+#: src/Plugin/CKEditorPlugin/DrupalImageCaption.php:60
+msgid "Enter caption here"
+msgstr "Beschreibung hinzufügen"
+
+#: src/Plugin/CKEditorPlugin/DrupalImageCaption.php:11
+msgid "Drupal image caption widget"
+msgstr "Drupal Bildunterschriften-Widget"
+
+#: src/Plugin/CKEditorPlugin/DrupalLink.php:40
+msgid "Add Link"
+msgstr "Link hinzufügen"
+
+#: src/Plugin/CKEditorPlugin/DrupalLink.php:8
+msgid "Drupal link"
+msgstr "Drupal-Link"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:151
+msgid "Bold"
+msgstr "Fett"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:156
+msgid "Italic"
+msgstr "Kursiv"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:161
+msgid "Underline"
+msgstr "Unterstrichen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:166
+msgid "Strike-through"
+msgstr "Durchgestrichen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:171
+msgid "Superscript"
+msgstr "Hochgestellt"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:176
+msgid "Subscript"
+msgstr "Tiefgestellt"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:182
+msgid "Remove format"
+msgstr "Format entfernen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:188
+msgid "Align left"
+msgstr "Linksbündig"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:193
+msgid "Align center"
+msgstr "Zentriert"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:198
+msgid "Align right"
+msgstr "Rechtsbündig"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:203
+msgid "Justify"
+msgstr "Blocksatz"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:209
+msgid "Bullet list"
+msgstr "Aufzählungszeichen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:214
+msgid "Numbered list"
+msgstr "Nummerierte Liste"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:220
+msgid "Outdent"
+msgstr "Einzug verkleinern"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:225
+msgid "Indent"
+msgstr "Einzug vergrößern"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:231
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:236
+msgid "Redo"
+msgstr "Wiederholen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:242
+msgid "Blockquote"
+msgstr "Blockzitat"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:248
+msgid "Horizontal rule"
+msgstr "Horizontale Linie"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:254
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:259
+msgid "Copy"
+msgstr "Kopieren"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:264
+msgid "Paste"
+msgstr "Einfügen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:270
+msgid "Paste Text"
+msgstr "Text einfügen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:276
+msgid "Paste from Word"
+msgstr "Aus Word einfügen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:282
+msgid "Character map"
+msgstr "Sonderzeichen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:287
+msgid "HTML block format"
+msgstr "HTML-Blockformat"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:292
+msgid "Format"
+msgstr "Format"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:298
+msgid "Table"
+msgstr "Tabelle"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:304
+msgid "Show blocks"
+msgstr "Blöcke anzeigen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:310
+msgid "Source code"
+msgstr "Quelltext"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:316
+msgid "Maximize"
+msgstr "Maximieren"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:322
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:327
+msgid "Button separator"
+msgstr "Schaltflächen-Trenner"
+
+#: src/Plugin/CKEditorPlugin/Internal.php:16
+msgid "CKEditor core"
+msgstr "CKEditor-Kernsystem"
+
+#: src/Plugin/CKEditorPlugin/Language.php:108
+msgid "Language list"
+msgstr "Sprachenliste"
+
+#: src/Plugin/CKEditorPlugin/Language.php:112
+msgid "United Nations' official languages"
+msgstr "Offizielle Sprachen der Vereinten Nationen"
+
+#: src/Plugin/CKEditorPlugin/Language.php:113
+msgid "All @count languages"
+msgstr "Alle @count Sprachen"
+
+#: src/Plugin/CKEditorPlugin/Language.php:116
+msgid "The list of languages to show in the language dropdown. The basic list will only show the <a href=\":url\">six official languages of the UN</a>. The extended list will show all @count languages that are available in Drupal."
+msgstr "Die Liste, der Sprachen, die im Sprachauswahlmenü angezeigt werden. Die Basisliste zeigt nur die  <a href=\":url\">Sechs offiziellen Sprachen der UN</a>an. Die Erweiterte Liste ziegt alle @count Sprachen, die in Drupal zur Verfügung stehen."
+
+#: src/Plugin/CKEditorPlugin/StylesCombo.php:55
+msgid "Font style"
+msgstr "Formatvorlage"
+
+#: src/Plugin/CKEditorPlugin/StylesCombo.php:60;79
+msgid "Styles"
+msgstr "Stile"
+
+#: src/Plugin/CKEditorPlugin/StylesCombo.php:83
+msgid "A list of classes that will be provided in the \"Styles\" dropdown. Enter one or more classes on each line in the format: element.classA.classB|Label. Example: h1.title|Title. Advanced example: h1.fancy.title|Fancy title.<br />These styles should be available in your theme's CSS file."
+msgstr "Eine Liste von CSS-Klassen die im Drop-Down-Menü “Stile” angeboten werden. Es kann ein Klassenname pro Zeile eingegeben werden. Das Format für die Eingabe ist: element.classA.classB|Label. Beispiel: h1.title|Title. Beispiel für Fortgeschrittene: h1.fancy.title|Fancy title.<br /> Die angegebenen CSS-Stile müssen in den CSS-Dateien des verwendeten Themes verfügbar sien."
+
+#: src/Plugin/CKEditorPlugin/StylesCombo.php:101
+msgid "The provided list of styles is syntactically incorrect."
+msgstr "Die angegebene Liste von Stilen ist syntaktisch inkorrekt."
+
+#: src/Plugin/CKEditorPlugin/StylesCombo.php:108
+msgid "Each style must have a unique label."
+msgstr "Jeder Stil muss eine eindeutige Beschriftung haben."
+
+#: src/Plugin/Editor/CKEditor.php:111
+msgid "Formatting"
+msgstr "Formatierung"
+
+#: src/Plugin/Editor/CKEditor.php:115
+msgid "Links"
+msgstr "Links"
+
+#: src/Plugin/Editor/CKEditor.php:119
+msgid "Lists"
+msgstr "Listen"
+
+#: src/Plugin/Editor/CKEditor.php:123
+msgid "Media"
+msgstr "Media"
+
+#: src/Plugin/Editor/CKEditor.php:127
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: src/Plugin/Editor/CKEditor.php:163
+msgid "Toolbar buttons"
+msgstr "Werkzeugleisten-Buttons"
+
+#: src/Plugin/Editor/CKEditor.php:171
+msgid "CKEditor plugin settings"
+msgstr "CKEditor-Plugin-Einstellungen"
+
+#: templates/ckeditor-settings-toolbar.html.twig:21
+msgid "Move a button into the <em>Active toolbar</em> to enable it, or into the list of <em>Available buttons</em> to disable it. Buttons may be moved with the mouse or keyboard arrow keys. Toolbar group names are provided to support screen reader users. Empty toolbar groups will be removed upon save."
+msgstr "Verschieben Sie eine Schaltfläche in die <em>aktive Werkzeugleiste</em>, um sie zu aktivieren, oder in die Liste der <em>verfügbaren Schaltflächen</em>, um sie zu deaktivieren. Schaltflächen können mit der Maus oder mit den Pfeiltasten verschoben werden. Die Namen von Werkzeugleistengruppen dienen der Unterstützung von Screenreader-Benutzern. Leere Wergzeugleistengruppen werden beim Speichen gelöscht."
+
+#: templates/ckeditor-settings-toolbar.html.twig:28
+msgid "Available buttons"
+msgstr "Verfügbare Buttons"
+
+#: templates/ckeditor-settings-toolbar.html.twig:37
+msgid "Button divider"
+msgstr "Trennelement"
+
+#: templates/ckeditor-settings-toolbar.html.twig:47
+msgid "Active toolbar"
+msgstr "Aktive Werkzeugleiste"
+
+#: templates/ckeditor-settings-toolbar.html.twig:50
+msgid "CKEditor toolbar and button configuration."
+msgstr "CKEditor Werkzeugleisten- und Button-Konfiguration."
+

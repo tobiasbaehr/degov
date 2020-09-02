@@ -1,0 +1,93 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  views_infinite_scroll.info.yml: n/a
+#  config/schema/views_infinite_scroll.schema.yml: n/a
+#  src/Plugin/views/pager/InfiniteScroll.php: n/a
+#  templates/views-infinite-scroll-pager.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: views_infinite_scroll.info.yml:0
+msgid "Views Infinite Scroll"
+msgstr "Views Infinite Scroll"
+
+#: views_infinite_scroll.info.yml:0
+msgid "A pager which allows an infinite scroll effect for views."
+msgstr "Eine Seitennavigation, die den Endlos-Scrollen-Effekt für Ansichten bereitstellt."
+
+#: views_infinite_scroll.info.yml:0
+msgid "Views"
+msgstr "Ansichten"
+
+#: config/schema/views_infinite_scroll.schema.yml:0
+msgid "Infinite Scroll Pager"
+msgstr "Endlos-Scrollen-Seitennavigation"
+
+#: config/schema/views_infinite_scroll.schema.yml:0 src/Plugin/views/pager/InfiniteScroll.php:91
+msgid "Button Text"
+msgstr "Button-Text"
+
+#: config/schema/views_infinite_scroll.schema.yml:0 src/Plugin/views/pager/InfiniteScroll.php:104
+msgid "Automatically Load Content"
+msgstr "Inhalt automatisch nachladen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:55
+msgid "Load More"
+msgstr "Weitere Seiten nachladen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:69
+msgid "Automatic infinite scroll"
+msgstr "Automatisches Endlos-Scrollen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:69
+msgid "Click to load"
+msgstr "Klicken zum Nachladen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:82
+msgid "Infinite Scroll Options"
+msgstr "Optionen für Endlos-Scrollen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:83
+msgid "Note: The infinite scroll option overrides and requires the <em>Use AJAX</em> setting for this views display."
+msgstr "Hinweis: Die Option zum Endlos-Scrollen übersteuert und erfordert die Einstellung <em>Ajax verwenden</em> für diese Ansichtenanzeige."
+
+#: src/Plugin/views/pager/InfiniteScroll.php:99
+msgid "The following tokens are supported:"
+msgstr "Folgende Token werden unterstützt:"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:105
+msgid "Automatically load subsequent pages as the user scrolls."
+msgstr "Automatisches Nachladen von nachfolgenden Seiten, wenn der Benutzer scrollt."
+
+#: src/Plugin/views/pager/InfiniteScroll.php:70
+msgid "@action, @count item"
+msgid_plural "@action, @count items"
+msgstr[0] "@action, @count Element"
+msgstr[1] "@action, @count Elemente"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:9;9
+msgid "Infinite Scroll"
+msgstr "Endlos-Scrollen"
+
+#: src/Plugin/views/pager/InfiniteScroll.php:9
+msgid "A views plugin which provides infinte scroll."
+msgstr "Ein Plugin für Ansichten, das unendliches Scrollen bereitstellt."
+
+#: templates/views-infinite-scroll-pager.html.twig:11
+msgid "Go to next page"
+msgstr "Zur nächsten Seite"
+

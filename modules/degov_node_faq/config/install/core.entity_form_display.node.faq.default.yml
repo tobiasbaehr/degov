@@ -78,7 +78,7 @@ third_party_settings:
         formatter: closed
         description: ''
         required_fields: true
-      label: Allgemein
+      label: Common
       region: content
 id: node.faq.default
 targetEntityType: node
@@ -107,6 +107,7 @@ content:
         collapse_edit_all: collapse_edit_all
         add_above: add_above
     region: content
+    weight: 8
   field_faq_description:
     weight: 5
     settings:

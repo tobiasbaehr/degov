@@ -1,0 +1,553 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  calendar.theme.inc: n/a
+#  calendar.views.inc: n/a
+#  calendar.module: n/a
+#  calendar.info.yml: n/a
+#  calendar.links.menu.yml: n/a
+#  calendar.routing.yml: n/a
+#  src/Plugin/views/pager/CalendarPager.php: n/a
+#  src/Plugin/views/style/Calendar.php: n/a
+#  calendar_datetime/calendar_datetime.info.yml: n/a
+#  calendar.permissions.yml: n/a
+#  calendar_datetime/src/Plugin/views/argument_default/Date.php: n/a
+#  config/schema/calendar.schema.yml: n/a
+#  src/CalendarHelper.php: n/a
+#  src/Form/CalendarSettingsForm.php: n/a
+#  src/Plugin/Block/CalendarLegend.php: n/a
+#  src/Plugin/ViewsTemplateBuilder/ViewsFieldTemplate.php: n/a
+#  src/Plugin/views/area/CalendarHeader.php: n/a
+#  src/Plugin/views/argument_validator/CalendarValidator.php: n/a
+#  src/Plugin/views/row/Calendar.php: n/a
+#  templates/calendar-day.html.twig: n/a
+#  templates/calendar-week.html.twig: n/a
+#  templates/calendar-empty-day.html.twig: n/a
+#  templates/calendar-pager.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:37+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: calendar.theme.inc:696
+msgid "All times"
+msgstr "Immer"
+
+#: calendar.theme.inc:700
+msgid "Before @time"
+msgstr "Vor @time"
+
+#: calendar.theme.inc:759
+msgid "Item"
+msgstr "Element"
+
+#: calendar.theme.inc:760
+msgid "Key"
+msgstr "Schlüssel"
+
+#: calendar.views.inc:22
+msgid "Calendar Header"
+msgstr "Kalender-Kopfzeile"
+
+#: calendar.views.inc:23
+msgid "Calendar heading or pager."
+msgstr "Kalender-Kopfzeile oder Paginierung."
+
+#: calendar.views.inc:43
+msgid "Date in the form of YYYYW"
+msgstr "Datum im Format JJJJW"
+
+#: calendar.views.inc:48
+msgid "Calendar @name @granularity"
+msgstr "Kalender @name @granularity"
+
+#: calendar.views.inc:49
+msgid "A calendar contextual filter that handles @label."
+msgstr "Ein Kalender-Kontextfilter zur Handhabung von @label."
+
+#: calendar.views.inc:75
+msgid "Calendar Date in the form of CCYYW."
+msgstr "Kalenderdatum im Format CCJJW."
+
+#: calendar.module:96
+msgid "View complete documentation at <a href=\":link\">Date and Calendar Documentation</a>."
+msgstr "Vollständige Dokumentation unter <a href=\":link\">Dokumentation zu Datum und Kalender</a> anzeigen."
+
+#: calendar.info.yml:0 calendar.links.menu.yml:0 calendar.routing.yml:0 src/Plugin/views/pager/CalendarPager.php:13 src/Plugin/views/style/Calendar.php:18
+msgid "Calendar"
+msgstr "Kalender"
+
+#: calendar.info.yml:0
+msgid "Provides a Views plugin to display views containing dates as Calendars."
+msgstr "Stellt ein Ansichts-Plugin bereit, das Ansichten mit Daten als Kalender darstellt."
+
+#: calendar.info.yml:0 calendar_datetime/calendar_datetime.info.yml:0
+msgid "Date/Time"
+msgstr "Datum/Uhrzeit"
+
+#: calendar.links.menu.yml:0 calendar.routing.yml:0
+msgid "Calendar administration"
+msgstr "Kalenderverwaltung"
+
+#: calendar.permissions.yml:0
+msgid "Administer calendar settings"
+msgstr "Kalendereinstellungen verwalten"
+
+#: calendar_datetime/calendar_datetime.info.yml:0
+msgid "Calendar Datetime"
+msgstr "Kalender Datum+Uhrzeit"
+
+#: calendar_datetime/calendar_datetime.info.yml:0
+msgid "Provides a calendar specific date time."
+msgstr "Liefert ein kalenderspezifisches Datum mit Uhrzeit."
+
+#: calendar_datetime/src/Plugin/views/argument_default/Date.php:11
+msgid "Calendar Current date"
+msgstr "Aktuelles Kalenderdatum"
+
+#: config/schema/calendar.schema.yml:0
+msgid "Calendar settings"
+msgstr "Kalender-Einstellungen"
+
+#: src/CalendarHelper.php:322
+msgid "Year"
+msgstr "Jahr"
+
+#: src/CalendarHelper.php:322
+msgid "Month"
+msgstr "Monat"
+
+#: src/CalendarHelper.php:322
+msgid "Day"
+msgstr "Tag"
+
+#: src/CalendarHelper.php:322
+msgid "Week"
+msgstr "Woche"
+
+#: src/CalendarHelper.php:632
+msgid "Error: missing @component"
+msgstr "Fehler: @component fehlt"
+
+#: src/Form/CalendarSettingsForm.php:39
+msgid "Calendar Administration"
+msgstr "Kalenderverwaltung"
+
+#: src/Form/CalendarSettingsForm.php:45
+msgid "Track current date in session"
+msgstr "Aktuelles Datum in Sitzung verfolgen"
+
+#: src/Form/CalendarSettingsForm.php:48
+msgid "Never"
+msgstr "Nie"
+
+#: src/Form/CalendarSettingsForm.php:49
+msgid "For authenticated users"
+msgstr "Für angemeldete Benutzer"
+
+#: src/Form/CalendarSettingsForm.php:50
+msgid "For all users"
+msgstr "Für alle Benutzer"
+
+#: src/Form/CalendarSettingsForm.php:52
+msgid "Store session information about the user's current date as they move back and forth through the calendar. Without this setting users will revert to the current day each time they choose a new calendar period (year, month, week, or day). With this option set they will move to a day that conforms to the time period they were viewing before they switched. Requires session tracking which is not ordinarily enabled for anonymous users."
+msgstr "Sitzungsinformationen über momentanes Datum des Benutzers speichern, wenn er sich im Kalender vorwärts und rückwärts bewegt. Ohne diese Einstellung gelangen die Benutzer immer dann, wenn sie einen neuen Kalenderzeitraum (Jahr, Monat, Woche oder Tag) wählen, zum momentanen Datum zurück. Ist diese Option gesetzt, gelangen sie zu einem Tag, der dem Zeitraum entspricht, den sie vor dem Umschalten angezeigt hatten. Erfordert Sitzungsverfolgung, die bei nicht angemeldeten Benutzern gewöhnlich nicht freigegeben ist."
+
+#: src/Form/CalendarSettingsForm.php:57
+msgid "Add Colorbox settings to Node calendar templates"
+msgstr "Colorbox-Einstellungen zu Kalender-Templates für Beitrag hinzufügen"
+
+#: src/Form/CalendarSettingsForm.php:60 src/Plugin/views/style/Calendar.php:206;258
+msgid "No"
+msgstr "Nein"
+
+#: src/Form/CalendarSettingsForm.php:61 src/Plugin/views/style/Calendar.php:207;259
+msgid "Yes"
+msgstr "Ja"
+
+#: src/Form/CalendarSettingsForm.php:63
+msgid "To try the Colorbox settings, choose the option to add Colorbox settings to the calendar templates. Install and enable the Colorbox module, following the instructions on the Colorbox project page, then create a new calendar from a template using any date field in the Node base table. The calendar will be set up to display the calendar items in a Colorbox."
+msgstr "Um die Colorbox-Einstellungen auszuprobieren, wählen Sie die Option zum Hinzufügen der Colorbox-Einstellungen zu den Kalender-Templates. Installieren und aktivieren Sie das Colorbox-Modul nach den Anweisungen auf der Colorbox-Projektseite und erzeugen Sie dann aus einem Template einen neuen Kalender über ein beliebiges Datumsfeld in der Basistabelle des Beitrags. Der Kalender wird so erstellt, dass die Kalendereinträge in einer Colorbox angezeigt werden."
+
+#: src/Plugin/Block/CalendarLegend.php:28
+msgid "Legend View"
+msgstr "Legendenansicht"
+
+#: src/Plugin/Block/CalendarLegend.php:29
+msgid "Choose the view display that contains the settings for the stripes that should be displayed in a legend in this block. Note that if you change the stripe values in that view you will need to clear the cache to pick up the new values in this block."
+msgstr "Wählen Sie die Ansicht, die die Einstellungen für die Stripes enthält, die in diesem Block in einer Legende angezeigt werden sollten. Beachten Sie, dass Sie nach einer Änderung der Stripe-Werte in dieser Ansicht den Cache leeren müssen, um die neuen Werte in diesem Block zu übernehmen."
+
+#: src/Plugin/Block/CalendarLegend.php:42
+msgid "The view for the calendar legend has been set."
+msgstr "Die Ansicht für die Kalenderlegende ist eingestellt worden."
+
+#: src/Plugin/Block/CalendarLegend.php:57
+msgid "Calendar Legend"
+msgstr "Kalenderlegende"
+
+#: src/Plugin/Block/CalendarLegend.php:10
+msgid "Calendar legend"
+msgstr "Kalenderlegende"
+
+#: src/Plugin/ViewsTemplateBuilder/ViewsFieldTemplate.php:81
+msgid "Base View Path"
+msgstr "Pfad der Basisansicht"
+
+#: src/Plugin/ViewsTemplateBuilder/ViewsFieldTemplate.php:82
+msgid "This view will be displayed by visiting this path on your site."
+msgstr "Diese Ansicht erscheint, wenn dieser Pfad Ihrer Website aufgerufen wird."
+
+#: src/Plugin/views/area/CalendarHeader.php:39
+msgid "Heading"
+msgstr "Überschrift"
+
+#: src/Plugin/views/area/CalendarHeader.php:44
+msgid "Use Pager"
+msgstr "Pager verwenden"
+
+#: src/Plugin/views/argument_validator/CalendarValidator.php:124
+msgid "Replacement date pattern"
+msgstr "Ersetzungsmuster für Datum"
+
+#: src/Plugin/views/argument_validator/CalendarValidator.php:127
+msgid "Provide a date pattern to be used when replace this arguments as a title."
+msgstr "Gegen Sie ein Datumsmuster vor, das verwendet wird, wenn dieses Argument als Titel benutzt wird."
+
+#: src/Plugin/views/argument_validator/CalendarValidator.php:14
+msgid "Calendar Date Format"
+msgstr "Kalender-Datumsformat"
+
+#: src/Plugin/views/pager/CalendarPager.php:117
+msgid "Exclude from Display"
+msgstr "Von der Anzeige ausschließen"
+
+#: src/Plugin/views/pager/CalendarPager.php:119
+msgid "Use this option if you only want to display the pager in Calendar Header area."
+msgstr "Setzen Sie diese Option, wenn Sie im Bereich der Kalender-Kopfzeile nur den Pager anzeigen wollen."
+
+#: src/Plugin/views/pager/CalendarPager.php:13;13
+msgid "Calendar Pager"
+msgstr "Kalender-Pager"
+
+#: src/Plugin/views/row/Calendar.php:140
+msgid "The calendar row plugin will format view results as calendar items. Make sure this display has a 'Calendar' format and uses a 'Date' contextual filter, or this plugin will not work correctly."
+msgstr "Das Plugin für die Kalenderzeile formatiert die Ergebnisse in der Ansicht als Kalendereinträge. Achten Sie darauf, dass diese Darstellung ein ‚Kalender‘-Format hat und einen ‚Datum‘-Kontextfilter verwendet, da dieses Plugin ansonsten nicht korrekt arbeitet."
+
+#: src/Plugin/views/row/Calendar.php:146
+msgid "Legend Colors"
+msgstr "Legendenfarben"
+
+#: src/Plugin/views/row/Calendar.php:147
+msgid "Set a hex color value (like #ffffff) to use in the calendar legend for each content type. Items with empty values will have no stripe in the calendar and will not be added to the legend."
+msgstr "Wählen Sie einen Hex-Farbwert (z. B. #ffffff), der in der Kalenderlegende für jeden Inhaltstyp verwendet werden soll. Einträge ohne Wert erhalten im Kalender keinen Stripe und werden nicht zur Legende hinzugefügt."
+
+#: src/Plugin/views/row/Calendar.php:154
+msgid "Based on Content Type"
+msgstr "Nach Inhaltstyp"
+
+#: src/Plugin/views/row/Calendar.php:157
+msgid "Based on Taxonomy"
+msgstr "Nach Taxonomie"
+
+#: src/Plugin/views/row/Calendar.php:166
+msgid "Stripes"
+msgstr "Stripes"
+
+#: src/Plugin/views/row/Calendar.php:167
+msgid "Add stripes to calendar items."
+msgstr "Stripes zu Kalendereinträgen hinzufügen."
+
+#: src/Plugin/views/row/Calendar.php:170;218 src/Plugin/views/style/Calendar.php:307
+msgid "None"
+msgstr "Keine"
+
+#: src/Plugin/views/row/Calendar.php:215
+msgid "Term field"
+msgstr "Term-Feld"
+
+#: src/Plugin/views/row/Calendar.php:219
+msgid "Select the taxonomy term field to use when setting stripe colors. This works best for vocabularies with only a limited number of possible terms."
+msgstr "Wählt das Taxonomie-Begriffs-Feld, das beim Einstellen der Stripe-Farben verwendet werden soll. Dies funktioniert am besten bei Vokabularen mit nur einer eingeschränkten Anzahl möglicher Begriffe."
+
+#: src/Plugin/views/row/Calendar.php:227
+msgid "You must add a term field to this view to use taxonomy stripe values. This works best for vocabularies with only a limited number of possible terms."
+msgstr "Sie müssen zu dieser Ansicht ein Term-Feld hinzufügen, um Werte für Taxonomie-Stripes zu verwenden. Dies funktioniert am besten bei Vokabularen mit nur einer eingeschränkten Anzahl möglicher Begriffe."
+
+#: src/Plugin/views/row/Calendar.php:257
+msgid "Vocabulary Legend Types"
+msgstr "Legendentypen bei Vokabularen"
+
+#: src/Plugin/views/row/Calendar.php:308
+msgid "'@color' is not a valid hex color"
+msgstr "'@color' ist kein gültiger Hex-Farbwert"
+
+#: src/Plugin/views/row/Calendar.php:21
+msgid "Calendar entities"
+msgstr "Kalender-Entitäten"
+
+#: src/Plugin/views/row/Calendar.php:21
+msgid "Display the content as calendar entities."
+msgstr "Anzeige des Inhalts als Kalender-Entitäten."
+
+#: src/Plugin/views/style/Calendar.php:195
+msgid "Calendar type"
+msgstr "Kalendertyp"
+
+#: src/Plugin/views/style/Calendar.php:197
+msgid "Select the calendar time period for this display."
+msgstr "Wählen Sie den Kalenderzeitraum für diese Darstellung."
+
+#: src/Plugin/views/style/Calendar.php:202
+msgid "Display as mini calendar"
+msgstr "Anzeige als Mini-Kalender"
+
+#: src/Plugin/views/style/Calendar.php:209
+msgid "Display the mini style calendar, with no item details. Suitable for a calendar displayed in a block."
+msgstr "Anzeige des Mini-Kalenders ohne Einzelheiten zu den Einträgen. Geeignet zur Anzeige eines Kalenders in einem Blog."
+
+#: src/Plugin/views/style/Calendar.php:218
+msgid "Calendar month names"
+msgstr "Name der Kalendermonate"
+
+#: src/Plugin/views/style/Calendar.php:222;239
+msgid "Abbreviated name"
+msgstr "Abgekürzter Name"
+
+#: src/Plugin/views/style/Calendar.php:223;240
+msgid "Full name"
+msgstr "Voller Name"
+
+#: src/Plugin/views/style/Calendar.php:225
+msgid "The way month names should be displayed in a year calendar."
+msgstr "Die Art, in der Monatsnamen in einem Jahreskalender angezeigt werden sollen."
+
+#: src/Plugin/views/style/Calendar.php:233
+msgid "Calendar day of week names"
+msgstr "Name der Wochentage im Kalender"
+
+#: src/Plugin/views/style/Calendar.php:237
+msgid "First letter of name"
+msgstr "Erster Buchstabe des Namens"
+
+#: src/Plugin/views/style/Calendar.php:238
+msgid "First two letters of name"
+msgstr "Erste zwei Buchstaben des Namens"
+
+#: src/Plugin/views/style/Calendar.php:242
+msgid "The way day of week names should be displayed in a calendar."
+msgstr "Die Art, in der die Namen der Wochentage in einem Kalender angezeigt werden sollen."
+
+#: src/Plugin/views/style/Calendar.php:254
+msgid "Show week numbers"
+msgstr "Wochennummern anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:261
+msgid "Whether or not to show week numbers in the left column of calendar weeks and months."
+msgstr "Legt fest, ob in der linken Spalte der Kalenderwochen und -monate die Wochennummern angezeigt werden sollen."
+
+#: src/Plugin/views/style/Calendar.php:269
+msgid "Maximum items"
+msgstr "Maximale Anzahl an Elementen"
+
+#: src/Plugin/views/style/Calendar.php:272
+msgid "Unlimited"
+msgstr "Unbegrenzt"
+
+#: src/Plugin/views/style/Calendar.php:279
+msgid "Maximum number of items to show in calendar cells, used to keep the calendar from expanding to a huge size when there are lots of items in one day."
+msgstr "Maximale Anzahl der Elemente, die in Kalenderzellen angezeigt werden. Verhindert, dass der Kalender zu groß wird, wenn ein Tag viele Einträge hat."
+
+#: src/Plugin/views/style/Calendar.php:287
+msgid "Too many items"
+msgstr "Zu viele Einträge"
+
+#: src/Plugin/views/style/Calendar.php:290
+msgid "Show maximum, add 'more' link"
+msgstr "Maximale Anzahl anzeigen, Link ‚Mehr‘ hinzufügen"
+
+#: src/Plugin/views/style/Calendar.php:291
+msgid "Hide all, add link to day"
+msgstr "Alle ausblenden, Link zum Tag hinzufügen"
+
+#: src/Plugin/views/style/Calendar.php:294
+msgid "Behavior when there are more than the above number of items in a single day. When there more items than this limit, a link to the day view will be displayed."
+msgstr "Das Verhalten, wenn bei einem einzelnen Tag mehr als die oben angegebene Anzahl der Einträge vorliegen. Wenn die Anzahl der Einträge diese Grenze überschreitet, wird ein Link zur Tagesansicht angezeigt."
+
+#: src/Plugin/views/style/Calendar.php:302
+msgid "Time grouping"
+msgstr "Zeitgruppen"
+
+#: src/Plugin/views/style/Calendar.php:305
+msgid "Group items together into time periods based on their start time."
+msgstr "Gruppiert Einträge entsprechend ihrer Anfangszeit in Zeiträumen."
+
+#: src/Plugin/views/style/Calendar.php:308
+msgid "Hour"
+msgstr "Stunde"
+
+#: src/Plugin/views/style/Calendar.php:309
+msgid "Half hour"
+msgstr "Halbe Stunde"
+
+#: src/Plugin/views/style/Calendar.php:310
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: src/Plugin/views/style/Calendar.php:322
+msgid "Custom time grouping"
+msgstr "Benutzerdefinierte Zeitgruppen"
+
+#: src/Plugin/views/style/Calendar.php:325
+msgid "When choosing the 'custom' Time grouping option above, create custom time period groupings as a comma-separated list of 24-hour times in the format HH:MM:SS, like '00:00:00,08:00:00,18:00:00'. Be sure to start with '00:00:00'. All items after the last time will go in the final group."
+msgstr "Wenn die Einstellung ‚Benutzerdefiniert‘ gewählt wird, erzeugt die vorstehende Option ‚Zeitgruppen‘ benutzerdefinierte Zeiträume als mit Komma getrennte Listen von Uhrzeiten im 24-Stunden-Format HH:MM:SS, z. B. ‚00:00:00,08:00:00,18:00:00‘. Achten Sie darauf, dass die Liste mit ‚00:00:00‘ beginnt. Alle Einträge nach der letzten Zeit werden der letzten Gruppe zugeordnet."
+
+#: src/Plugin/views/style/Calendar.php:333
+msgid "Overlapping time style"
+msgstr "Überlappende Zeitdarstellung"
+
+#: src/Plugin/views/style/Calendar.php:337
+msgid "Do not display overlapping items"
+msgstr "Einträge nicht überlappend anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:338
+msgid "Display overlapping items, with scrolling"
+msgstr "Einträge überlappend anzeigen, mit Scrollen"
+
+#: src/Plugin/views/style/Calendar.php:339
+msgid "Display overlapping items, no scrolling"
+msgstr "Einträge überlappend anzeigen, ohne Scrollen"
+
+#: src/Plugin/views/style/Calendar.php:341
+msgid "Select whether calendar items are displayed as overlapping items. Use scrolling to shrink the window and focus on the selected items, or omit scrolling to display the whole day. This only works if hour or half hour time grouping is chosen!"
+msgstr "Wählen Sie, ob Kalendereinträge als überlappende Einträge angezeigt werden. Scrollen Sie, um das Fenster zu verkleinern, und konzentrieren Sie sich auf die ausgewählten Einträge, oder zeigen Sie ohne Scrollen den gesamten Tag an. Dies funktioniert nur, wenn die Zeitgruppierung mit Stunden oder halben Stunden ausgewählt ist."
+
+#: src/Plugin/views/style/Calendar.php:359
+msgid "Field grouping"
+msgstr "Feldgruppen"
+
+#: src/Plugin/views/style/Calendar.php:362
+msgid "Optionally group items into columns by a field value, for instance select the content type to show items for each content type in their own column, or use a location field to organize items into columns by location. NOTE! This is incompatible with the overlapping style option."
+msgstr "Optionales Gruppieren von Einträgen in Spalten nach dem Feldwert. Wählen Sie z. B. den Inhaltstyp, um Einträge für jeden Inhaltstyp in der eigenen Spalte anzuzeigen, oder verwenden Sie ein Orts-Feld, um Einträge nach dem Ort in Spalten zusammenzufassen. HINWEIS! Dies ist mit der überlappenden Darstellungsoption nicht kompatibel."
+
+#: src/Plugin/views/style/Calendar.php:371
+msgid "Multi-day style"
+msgstr "Mehrtägige Darstellung"
+
+#: src/Plugin/views/style/Calendar.php:375
+msgid "Display multi-day item as a single column"
+msgstr "Mehrtägige Einträge in einer einzigen Spalte anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:376
+msgid "Display multi-day item as a multiple column row"
+msgstr "Mehrtägige Einträge in einer Zeile mit mehreren Spalten anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:378
+msgid "If selected, items which span multiple days will displayed as a multi-column row.  If not selected, items will be displayed as an individual column."
+msgstr "Falls ausgewählt, werden Einträge, die sich über mehrere Tage erstrecken, als Zeile mit mehreren Spalten angezeigt. Andernfalls werden die Einträge in einer einzelnen Spalte angezeigt."
+
+#: src/Plugin/views/style/Calendar.php:389
+msgid "Fields to hide in Multi-day rows"
+msgstr "In Zeilen für die mehrtägige Darstellung auszublendende Felder"
+
+#: src/Plugin/views/style/Calendar.php:393
+msgid "Choose fields to hide when displayed in multi-day rows. Usually you only want to see the title or Colorbox selector in multi-day rows and would hide all other fields."
+msgstr "Wählen Sie die Felder aus, die in mehrtägigen Zeilen ausgeblendet werden sollen. Gewöhnlich wird in mehrtägigen Zeilen nur der Titel oder die Colorbox-Auswahl angezeigt, und alle übrigen Felder werden ausgeblendet."
+
+#: src/Plugin/views/style/Calendar.php:408
+msgid "Day link displays"
+msgstr "Tages-Link-Anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:411
+msgid "Optionally select a View display to use for Day links."
+msgstr "Optionale Auswahl für eine Ansicht mit Tages-Links."
+
+#: src/Plugin/views/style/Calendar.php:412;419
+msgid "Default display"
+msgstr "Standarddarstellung"
+
+#: src/Plugin/views/style/Calendar.php:415
+msgid "Week link displays"
+msgstr "Wochen-Link anzeigen"
+
+#: src/Plugin/views/style/Calendar.php:418
+msgid "Optionally select a View display to use for Week links."
+msgstr "Optionale Auswahl für eine Ansicht mit Wochen-Links."
+
+#: src/Plugin/views/style/Calendar.php:429
+msgid "Custom groupby times cannot be empty."
+msgstr "Eine benutzerdefinierte Gruppe nach Zeiten darf nicht leer sein."
+
+#: src/Plugin/views/style/Calendar.php:432
+msgid "Overlapping items only work with hour or half hour groupby times."
+msgstr "Überlappende Einträge sind nur mit einer Zeitgruppierung nach Stunden oder halben Stunden möglich."
+
+#: src/Plugin/views/style/Calendar.php:435
+msgid "ou cannot use overlapping items and also try to group by a field value."
+msgstr "Sie können keine überlappenden Einträge verwenden und gleichzeitig nach einem Feldwert gruppieren."
+
+#: src/Plugin/views/style/Calendar.php:480
+msgid "The value <strong>@value</strong> is not a valid date argument for @granularity"
+msgstr "Der Wert <strong>@value</strong> ist kein gültiges Datumsargument für @granularity"
+
+#: src/Plugin/views/style/Calendar.php:1317;471
+msgid "\\Drupal\\calendar\\Plugin\\views\\style\\CalendarStyle: A calendar date argument is required when using the calendar style, to add a date argument in a view, please go to Advanced > Contextual Filters on the views configuration panel."
+msgstr "\\Drupal\\calendar\\Plugin\\views\\style\\CalendarStyle: Wenn der Kalender-Stil verwendet wird, ist ein Kalenderdatumsargument erforderlich. Um in einer Ansicht ein Datumsargument hinzuzufügen, gehen Sie im Konfigurationspanel der Ansichten auf Erweitert > Kontextfilter."
+
+#: src/Plugin/views/style/Calendar.php:467
+msgid "\\Drupal\\calendar\\Plugin\\views\\style\\CalendarStyle: The calendar row plugin is required when using the calendar style, but it is missing."
+msgstr "\\Drupal\\calendar\\Plugin\\views\\style\\CalendarStyle: Das Kalenderzeilen-Plugin ist erforderlich, wenn der Kalender-Stil verwendet wird, jedoch nicht vorhanden ist."
+
+#: src/Plugin/views/style/Calendar.php:273;274;275;276
+msgid "1 item"
+msgid_plural "@count items"
+msgstr[0] "1 Eintrag"
+msgstr[1] "@count Einträge"
+
+#: src/Plugin/views/style/Calendar.php:18
+msgid "Present view results as a Calendar."
+msgstr "Ergebnisse der Darstellung als Kalender anzeigen."
+
+#: templates/calendar-day.html.twig:41 templates/calendar-week.html.twig:30
+msgid "Time"
+msgstr "Zeit"
+
+#: templates/calendar-empty-day.html.twig:16
+msgid "Empty day"
+msgstr "Leerer Tag"
+
+#: templates/calendar-pager.html.twig:14
+msgid "Pagination"
+msgstr "Seitennummerierung"
+
+#: templates/calendar-pager.html.twig:18
+msgid "Go to previous page"
+msgstr "Zur vorherigen Seite"
+
+#: templates/calendar-pager.html.twig:20
+msgid "Previous"
+msgstr "Zurück"
+
+#: templates/calendar-pager.html.twig:29
+msgid "Go to next page"
+msgstr "Zur nächsten Seite"
+
+#: templates/calendar-pager.html.twig:30
+msgid "Next"
+msgstr "Weiter"
+
+#: templates/calendar-week.html.twig:48
+msgctxt "datetime"
+msgid "All day"
+msgstr "Ganztägig"
+

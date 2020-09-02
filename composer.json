@@ -123,6 +123,12 @@
                 "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-07-01/drupal-3101714-18.patch",
                 "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-06-18/3072231-26-core-8-9-x-.patch"
             },
+            "drupal/eu_cookie_compliance": {
+                "3099022 - Add missing translations in config form": "https://www.drupal.org/files/issues/2019-12-27/eu_cookie_compliance-3099022-3.patch"
+            },
+            "drupal/metatag": {
+                "3104170 - Do not send empty Metatag descriptions through translation": "https://www.drupal.org/files/issues/2020-01-03/metatag-do-not-translate-empty-descriptions.patch"
+            },
             "drupal/ultimate_cron": {
                 "2890428 - Using 'continue' outside of a loop or switch structure": "https://www.drupal.org/files/issues/continue_in_loop-2890428-2.patch"
             },

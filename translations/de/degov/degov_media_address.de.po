@@ -1,0 +1,143 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_media_address.info.yml: n/a
+#  templates/media--address--default.html.twig: n/a
+#  templates/media--address--embedded.html.twig: n/a
+#  templates/media--address--preview.html.twig: n/a
+#  templates/media--address--search.html.twig: n/a
+#  templates/media--address--usage.html.twig: n/a
+#  config/install/core.entity_view_mode.media.default_map.yml: n/a
+#  config/install/core.entity_view_mode.media.osm_map.yml: n/a
+#  config/install/field.field.media.address.field_address_address.yml: n/a
+#  config/install/media.type.address.yml: n/a
+#  config/install/field.field.media.address.field_address_email.yml: n/a
+#  config/install/field.field.media.address.field_address_fax.yml: n/a
+#  config/install/field.field.media.address.field_address_location.yml: n/a
+#  config/install/field.field.media.address.field_address_phone.yml: n/a
+#  config/install/field.field.media.address.field_address_title.yml: n/a
+#  config/install/field.field.media.address.field_include_search.yml: n/a
+#  config/install/field.field.media.address.field_media_generic.yml: n/a
+#  config/install/field.field.media.address.field_media_in_library.yml: n/a
+#  config/install/field.field.media.address.field_tags.yml: n/a
+#  config/install/field.field.media.address.field_title.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:57+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_media_address.info.yml:0
+msgid "deGov - media address"
+msgstr "deGov - Medium Adresse"
+
+#: degov_media_address.info.yml:0
+msgid "Contains the media address media type."
+msgstr "Enthält den Medientyp Adresse."
+
+#: degov_media_address.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: templates/media--address--default.html.twig:25 templates/media--address--embedded.html.twig:25 templates/media--address--preview.html.twig:26 templates/media--address--search.html.twig:25 templates/media--address--usage.html.twig:25
+msgid "Postanschrift:"
+msgstr "Postanschrift:"
+
+#: templates/media--address--default.html.twig:29 templates/media--address--embedded.html.twig:29 templates/media--address--preview.html.twig:30 templates/media--address--search.html.twig:29 templates/media--address--usage.html.twig:29
+msgid "E-Mail:"
+msgstr "E-Mail:"
+
+#: templates/media--address--default.html.twig:32 templates/media--address--embedded.html.twig:32 templates/media--address--preview.html.twig:33 templates/media--address--search.html.twig:32 templates/media--address--usage.html.twig:32
+msgid "Fax:"
+msgstr "Fax:"
+
+#: templates/media--address--default.html.twig:35 templates/media--address--embedded.html.twig:35 templates/media--address--preview.html.twig:36 templates/media--address--search.html.twig:35 templates/media--address--usage.html.twig:35
+msgid "Tel:"
+msgstr "Tel.:"
+
+#: templates/media--address--usage.html.twig:42
+msgid "Usage"
+msgstr "Verwendung"
+
+#: config/install/core.entity_view_mode.media.default_map.yml:0
+msgid "Default Map"
+msgstr "Standardkarte"
+
+#: config/install/core.entity_view_mode.media.osm_map.yml:0
+msgid "OSM Map"
+msgstr "OSM Map"
+
+#: config/install/field.field.media.address.field_address_address.yml:0 config/install/media.type.address.yml:0
+msgid "Adresse"
+msgstr "Anschrift"
+
+#: config/install/field.field.media.address.field_address_email.yml:0
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: config/install/field.field.media.address.field_address_fax.yml:0
+msgid "Fax"
+msgstr "Fax"
+
+#: config/install/field.field.media.address.field_address_location.yml:0
+msgid "Location"
+msgstr "Standort"
+
+#: config/install/field.field.media.address.field_address_phone.yml:0
+msgid "Telefon"
+msgstr "Telefon"
+
+#: config/install/field.field.media.address.field_address_title.yml:0
+msgid "Titel"
+msgstr "Titel"
+
+#: config/install/field.field.media.address.field_include_search.yml:0
+msgid "Mediathek"
+msgstr "Mediathek"
+
+#: config/install/field.field.media.address.field_include_search.yml:0
+msgid "An"
+msgstr "An"
+
+#: config/install/field.field.media.address.field_include_search.yml:0
+msgid "Aus"
+msgstr "Aus"
+
+#: config/install/field.field.media.address.field_media_generic.yml:0
+msgid "Generic media"
+msgstr "Allgemeines Medium"
+
+#: config/install/field.field.media.address.field_media_in_library.yml:0
+msgid "Save to my media library"
+msgstr "In meiner Mediathek speichern"
+
+#: config/install/field.field.media.address.field_media_in_library.yml:0
+msgid "Saved to my media library"
+msgstr "In meiner Mediathek gespeichert"
+
+#: config/install/field.field.media.address.field_media_in_library.yml:0
+msgid "Not in my media library"
+msgstr "Nicht in meiner Mediathek"
+
+#: config/install/field.field.media.address.field_tags.yml:0
+msgid "Schlagwörter"
+msgstr "Schlagwörter"
+
+#: config/install/field.field.media.address.field_title.yml:0
+msgid "Öffentlicher Titel"
+msgstr "Öffentlicher Titel"
+
+#: config/install/media.type.address.yml:0
+msgid "Ein Media-Bundle für Adressen."
+msgstr "Ein Media-Bundle für Adressen."
+

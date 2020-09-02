@@ -1,0 +1,64 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  system_stream_wrapper.info.yml: n/a
+#  src/StreamWrapper/LibraryStream.php: n/a
+#  src/StreamWrapper/ModuleStream.php: n/a
+#  src/StreamWrapper/ProfileStream.php: n/a
+#  src/StreamWrapper/ThemeStream.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: system_stream_wrapper.info.yml:0
+msgid "System stream wrapper"
+msgstr "System stream wrapper"
+
+#: system_stream_wrapper.info.yml:0
+msgid "Provides stream wrappers to access files in module, theme, profile, and library files and directories."
+msgstr "Stellt Stream-Wrapper für den Zugriff auf Dateien in Modul-, Theme-, Profil- und Bibliotheksdateien bzw. -verzeichnissen zur Verfügung."
+
+#: src/StreamWrapper/LibraryStream.php:48
+msgid "Library files"
+msgstr "Bibliothekdateien"
+
+#: src/StreamWrapper/LibraryStream.php:55
+msgid "Local files stored under the libraries directory."
+msgstr "Lokale, im Verzeichnis Libraries, gespeicherte Dateien"
+
+#: src/StreamWrapper/ModuleStream.php:40
+msgid "Module files"
+msgstr "Moduldateien"
+
+#: src/StreamWrapper/ModuleStream.php:47
+msgid "Local files stored under module directory."
+msgstr "Lokale, im Modul-Verzeichnis gespeichert Dateien."
+
+#: src/StreamWrapper/ProfileStream.php:23
+msgid "Installed profile files"
+msgstr "Installationsprofildateien"
+
+#: src/StreamWrapper/ProfileStream.php:30
+msgid "Local files stored under installed profile directory."
+msgstr "Lokale, im Installationsprofil, gespeicherte Dateien."
+
+#: src/StreamWrapper/ThemeStream.php:40
+msgid "Theme files"
+msgstr "Theme-Dateien"
+
+#: src/StreamWrapper/ThemeStream.php:47
+msgid "Local files stored under theme directory."
+msgstr "Lokale, im Verzeichnis des Themes, gespeicherte Dateien."
+

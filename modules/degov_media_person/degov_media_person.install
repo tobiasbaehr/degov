@@ -5,6 +5,7 @@
  * Install, update and uninstall hooks for the degov_media_person module.
  */
 
+use Drupal\degov\TranslationImporter;
 use Drupal\degov_common\Common;
 
 /**
@@ -39,9 +40,5 @@ function degov_media_person_update_8011() {
  *  - Import config translations for core.entity_form_display.media.person.default.
  */
 function degov_media_person_update_880100() {
-  /**
-   * @var \Drupal\degov_common\TranslationImport $translationImport
-   */
-  $translationImport = \Drupal::service('degov_common.translation_import');
-  $translationImport->importConfigTranslation('de', 'core.entity_form_display.media.person.default', drupal_get_path('module', 'degov_media_person') . '/config/install/language/de/core.entity_form_display.media.person.default.yml');
+  TranslationImporter::importConfigTranslationOfModule('core.entity_form_display.media.person.default', 'degov_media_person');
 }

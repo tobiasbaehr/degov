@@ -1,0 +1,2005 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  node.admin.inc: n/a
+#  node.tokens.inc: n/a
+#  config/schema/node.schema.yml: n/a
+#  src/NodeListBuilder.php: n/a
+#  src/Entity/Node.php: n/a
+#  src/Entity/NodeType.php: n/a
+#  config/optional/views.view.content.yml: n/a
+#  src/Plugin/migrate/source/d6/Node.php: n/a
+#  src/Plugin/migrate/source/d7/Node.php: n/a
+#  src/Plugin/views/wizard/Node.php: n/a
+#  config/optional/views.view.glossary.yml: n/a
+#  src/NodeForm.php: n/a
+#  node.views_execution.inc: n/a
+#  node.module: n/a
+#  node.install: n/a
+#  src/NodeTypeForm.php: n/a
+#  content_types.es6.js: n/a
+#  content_types.js: n/a
+#  node.es6.js: n/a
+#  node.js: n/a
+#  node.preview.es6.js: n/a
+#  node.preview.js: n/a
+#  node.info.yml: n/a
+#  config/schema/node.views.schema.yml: n/a
+#  src/Plugin/Condition/NodeType.php: n/a
+#  node.links.action.yml: n/a
+#  node.routing.yml: n/a
+#  node.links.menu.yml: n/a
+#  src/Plugin/views/area/ListingEmpty.php: n/a
+#  node.links.contextual.yml: n/a
+#  node.links.task.yml: n/a
+#  src/Controller/NodeController.php: n/a
+#  src/Form/NodeRevisionDeleteForm.php: n/a
+#  src/Plugin/views/field/RevisionLinkDelete.php: n/a
+#  src/Plugin/views/field/RevisionLink.php: n/a
+#  node.permissions.yml: n/a
+#  src/NodePermissions.php: n/a
+#  src/NodeTypeListBuilder.php: n/a
+#  src/Plugin/Search/NodeSearch.php: n/a
+#  src/Plugin/Action/AssignOwnerNode.php: n/a
+#  src/Plugin/Action/UnpublishByKeywordNode.php: n/a
+#  src/Plugin/migrate/source/d7/NodeEntityTranslation.php: n/a
+#  src/Plugin/views/field/Node.php: n/a
+#  src/Plugin/views/field/Path.php: n/a
+#  src/NodeViewsData.php: n/a
+#  src/NodeTranslationHandler.php: n/a
+#  src/NodeViewBuilder.php: n/a
+#  config/optional/views.view.content_recent.yml: n/a
+#  src/Plugin/views/row/Rss.php: n/a
+#  config/optional/search.page.node_search.yml: n/a
+#  src/Cache/NodeAccessGrantsCacheContext.php: n/a
+#  src/ContextProvider/NodeRouteContext.php: n/a
+#  src/Form/NodeRevisionRevertForm.php: n/a
+#  src/Plugin/views/field/RevisionLinkRevert.php: n/a
+#  src/Form/DeleteMultiple.php: n/a
+#  src/Form/NodeDeleteForm.php: n/a
+#  src/Form/NodePreviewForm.php: n/a
+#  src/Form/NodeRevisionRevertTranslationForm.php: n/a
+#  src/Form/NodeTypeDeleteConfirm.php: n/a
+#  src/Form/RebuildPermissionsForm.php: n/a
+#  src/Plugin/Action/DeleteNode.php: n/a
+#  src/Plugin/Action/DemoteNode.php: n/a
+#  src/Plugin/Action/PromoteNode.php: n/a
+#  src/Plugin/Action/PublishNode.php: n/a
+#  src/Plugin/Action/SaveNode.php: n/a
+#  src/Plugin/Action/StickyNode.php: n/a
+#  src/Plugin/Action/UnpublishNode.php: n/a
+#  src/Plugin/Action/UnstickyNode.php: n/a
+#  src/Plugin/Block/SyndicateBlock.php: n/a
+#  src/Plugin/EntityReferenceSelection/NodeSelection.php: n/a
+#  src/Plugin/migrate/D6NodeDeriver.php: n/a
+#  src/Plugin/migrate/D7NodeDeriver.php: n/a
+#  config/install/core.entity_view_mode.node.teaser.yml: n/a
+#  src/Plugin/migrate/source/d6/NodeRevision.php: n/a
+#  src/Plugin/migrate/source/d7/NodeRevision.php: n/a
+#  src/Plugin/migrate/source/d6/NodeType.php: n/a
+#  src/Plugin/migrate/source/d7/NodeType.php: n/a
+#  src/Plugin/migrate/source/d6/ViewMode.php: n/a
+#  src/Plugin/views/argument/Type.php: n/a
+#  src/Plugin/views/argument_default/Node.php: n/a
+#  src/Plugin/views/field/NodeBulkForm.php: n/a
+#  src/Plugin/views/wizard/NodeRevision.php: n/a
+#  templates/node-add-list.html.twig: n/a
+#  templates/node.html.twig: n/a
+#  config/install/core.entity_view_mode.node.full.yml: n/a
+#  config/install/core.entity_view_mode.node.rss.yml: n/a
+#  config/install/core.entity_view_mode.node.search_index.yml: n/a
+#  config/install/core.entity_view_mode.node.search_result.yml: n/a
+#  config/optional/views.view.archive.yml: n/a
+#  config/optional/views.view.frontpage.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: node.admin.inc:41
+msgid "Processing"
+msgstr "Verarbeitung läuft …"
+
+#: node.admin.inc:45
+msgid "The update has encountered an error."
+msgstr "Die Aktualisierung hat einen Fehler festgestellt."
+
+#: node.admin.inc:63;167
+msgid "The update has been performed."
+msgstr "Die Aktualisierung wurde durchgeführt."
+
+#: node.admin.inc:170
+msgid "An error occurred and processing did not complete."
+msgstr "Es trat ein Fehler auf und die Verarbeitung wurde nicht abgeschlossen."
+
+#: node.admin.inc:171
+msgid "1 item successfully processed:"
+msgid_plural "@count items successfully processed:"
+msgstr[0] "1 Element wurde erfolgreich verarbeitet:"
+msgstr[1] "@count Elemente wurden erfolgreich verarbeitet:"
+
+#: node.tokens.inc:18
+msgid "Nodes"
+msgstr "Beiträge"
+
+#: node.tokens.inc:19
+msgid "Tokens related to individual content items, or \"nodes\"."
+msgstr "Token mit Bezug auf einzelne Inhaltselemente oder „Beiträge“."
+
+#: node.tokens.inc:25
+msgid "Content ID"
+msgstr "Inhalts-ID"
+
+#: node.tokens.inc:26
+msgid "The unique ID of the content item, or \"node\"."
+msgstr "Die eindeutige ID des Inhaltselements oder „Beitrags“."
+
+#: node.tokens.inc:29
+msgid "Revision ID"
+msgstr "Revisions-ID"
+
+#: node.tokens.inc:30
+msgid "The unique ID of the node's latest revision."
+msgstr "Die eindeutige ID der neuesten Revision des Beitrags."
+
+#: node.tokens.inc:33 config/schema/node.schema.yml:0 src/NodeListBuilder.php:67 src/Entity/Node.php:13 src/Entity/NodeType.php:9 config/optional/views.view.content.yml:0;0
+msgid "Content type"
+msgstr "Inhaltstyp"
+
+#: node.tokens.inc:36
+msgid "Content type name"
+msgstr "Inhaltstyp-Name"
+
+#: node.tokens.inc:37
+msgid "The human-readable name of the node type."
+msgstr "Der menschenlesbare Name des Inhaltstyps."
+
+#: node.tokens.inc:40 src/NodeListBuilder.php:65 src/Entity/Node.php:279 src/Plugin/migrate/source/d6/Node.php:137 src/Plugin/migrate/source/d7/Node.php:151 src/Plugin/views/wizard/Node.php:40 config/optional/views.view.content.yml:0;0 config/optional/views.view.glossary.yml:0
+msgid "Title"
+msgstr "Titel"
+
+#: node.tokens.inc:43 src/Plugin/migrate/source/d6/Node.php:138
+msgid "Body"
+msgstr "Textkörper"
+
+#: node.tokens.inc:44
+msgid "The main body text of the node."
+msgstr "Der Haupttextkörper dieses Beitrags."
+
+#: node.tokens.inc:47
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: node.tokens.inc:48
+msgid "The summary of the node's main body text."
+msgstr "Die Zusammenfassung des Haupttextkörpers dieses Beitrags."
+
+#: node.tokens.inc:51
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: node.tokens.inc:52
+msgid "The language code of the language the node is written in."
+msgstr "Das Sprachkürzel der Beitrags-Sprache."
+
+#: node.tokens.inc:55
+msgid "URL"
+msgstr "URL"
+
+#: node.tokens.inc:56
+msgid "The URL of the node."
+msgstr "Die URL des Beitrags."
+
+#: node.tokens.inc:59
+msgid "Edit URL"
+msgstr "URL bearbeiten"
+
+#: node.tokens.inc:60
+msgid "The URL of the node's edit page."
+msgstr "Die URL der Seite zum Bearbeiten des Inhalts."
+
+#: node.tokens.inc:65
+msgid "Date created"
+msgstr "Erstellungsdatum"
+
+#: node.tokens.inc:69
+msgid "Date changed"
+msgstr "Änderungsdatum"
+
+#: node.tokens.inc:70
+msgid "The date the node was most recently updated."
+msgstr "Das Datum, an dem dieser Beitrag zuletzt aktualisiert wurde."
+
+#: node.tokens.inc:74 src/NodeForm.php:154 src/NodeListBuilder.php:71 config/optional/views.view.content.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Author"
+msgstr "Autor"
+
+#: node.views_execution.inc:41
+msgid "Some roles lack permission to access content, but display %display has no access control."
+msgstr "Einigen Rollen fehlt die Berechtigung zum Zugriff auf Inhalte, aber Ansicht @display hat keine Zugriffssteuerung."
+
+#: node.views_execution.inc:49
+msgid "Display %display has no access control but does not contain a filter for published nodes."
+msgstr "Die Anzeige %display hat keine Zugriffskontrolle aber enthält keinen Filter für veröffentlichte Beiträge."
+
+#: node.views_execution.inc:57
+msgid "Display %display has set node/% as path. This will not produce what you want. If you want to have multiple versions of the node view, use panels."
+msgstr "Anzeige %display hat node/% als Pfad. Wenn Sie mehrere Versionen einer Ansicht haben möchten, so verwenden Sie das Modul Panels."
+
+#: node.module:104
+msgid "The content access permissions need to be rebuilt."
+msgstr "Die Zugriffsberechtigungen für den Inhalt müssen neu aufgebaut werden."
+
+#: node.module:107
+msgid "The content access permissions need to be rebuilt. <a href=\":node_access_rebuild\">Rebuild permissions</a>."
+msgstr "Die Zugriffsberechtigung für die Inhalte der Website müssen neu aufgebaut werden.  <a href=\":node_access_rebuild\">Zugriffsrechte neu aufbauen</a>."
+
+#: node.module:115
+msgid "About"
+msgstr "Über"
+
+#: node.module:116
+msgid "The Node module manages the creation, editing, deletion, settings, and display of the main site content. Content items managed by the Node module are typically displayed as pages on your site, and include a title, some meta-data (author, creation time, content type, etc.), and optional fields containing text or other data (fields are managed by the <a href=\":field\">Field module</a>). For more information, see the <a href=\":node\">online documentation for the Node module</a>."
+msgstr "Das Node-Modul stellt die Verwaltungsmöglichkeiten für Inhalte zur Verfügung. Mit dem Node Moduls können Inhalte erstellt, bearbeitet und gelöscht werden, sowie die Einstellungen für Inhlatstypen und die Darstellung der Hauptinhalte der Website zur Verfügung. Inhalte, die vom Node-Modul verwaltet werden werden normalerweise als Inhlatsseiten auf der Website angezeigt und beinhalten einen Titel, einige Meta-Daten (den Namen des Autors, das Erstellungsdatum, den Inhaltstyp usw.) und optionale Felder, die Text oder andere Daten enthalten. Felder werden vom <a href=\":field\">Field-Modul</a> verwaltet. Weitere Informationen sind in der <a href=\":node\">Online-Dokumentation des Node-Moduls</a> verfügbar."
+
+#: node.module:117
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: node.module:119
+msgid "Creating content"
+msgstr "Inhalt erstellen"
+
+#: node.module:120
+msgid "When new content is created, the Node module records basic information about the content, including the author, date of creation, and the <a href=\":content-type\">Content type</a>. It also manages the <em>publishing options</em>, which define whether or not the content is published, promoted to the front page of the site, and/or sticky at the top of content lists. Default settings can be configured for each <a href=\":content-type\">type of content</a> on your site."
+msgstr "Wenn neue Inhalte erstellt werden, zeichnet das Node-Modul grundlegende Informationen über die Inhalt, wie den Namen des Autors, das Erstellungsdatum und den <a href=\":content-type\">Inhaltstyp</a>auf. Außerdem verwaltet es die <em>Veröffentlichungsoptionen</em>, die festlegen, ob der Inhalt auf der Startseite veröffentlicht wird oder nicht oder ob ein Inhalt sogar als wichtige Meldung gekennzeichnet wird. Wichtige Meldungen, werden immer als erster Eintrag auf der Startseite angezeigt und sind meist besonders gekennzeichnet. Die Standardeinstellungen, für die Veröffentlichungsoptionen können für jeden <a href=\":content-type\">Inhaltstyp</a> auf Ihrer Seite gesondert festgelegt werden."
+
+#: node.module:121
+msgid "Creating custom content types"
+msgstr "Benutzerdefinierte Inhaltstypen erstellen"
+
+#: node.module:122
+msgid "The Node module gives users with the <em>Administer content types</em> permission the ability to <a href=\":content-new\">create new content types</a> in addition to the default ones already configured. Creating custom content types gives you the flexibility to add <a href=\":field\">fields</a> and configure default settings that suit the differing needs of various site content."
+msgstr "Das Node-Modul stellt Benutzern die Berechtigung <em>Inhaltstypen verwalten</em> zur Verfügung. Außerdem können damit <a href=\":content-new\">neue Inhaltstypen</a> hinzugefügt werden. Das Erstellen von Benutzerdefinierten Inhaltstypen gibt Site Buildern die Flexibilität <a href=\":field\">Felder</a> zu Inhaltstypen zusammenzustellen, sodass diese den Anforderungen des Webprojekts gerecht werden."
+
+#: node.module:123
+msgid "Administering content"
+msgstr "Inhalt verwalten"
+
+#: node.module:124
+msgid "The <a href=\":content\">Content</a> page lists your content, allowing you add new content, filter, edit or delete existing content, or perform bulk operations on existing content."
+msgstr "Die Seite <a href=\":content\">Inhalt</a> listet sämtlichen Inhalt auf. Hier kann außerdem Inhalt hinzugefügt, gefiltert, bearbeitet oder gelöscht werden (auch als Stapelverarbeitung)."
+
+#: node.module:125
+msgid "Creating revisions"
+msgstr "Revisionen erstellen"
+
+#: node.module:126
+msgid "The Node module also enables you to create multiple versions of any content, and revert to older versions using the <em>Revision information</em> settings."
+msgstr "Das Node-Modul ermöglicht es, mehrere Versionen von beliebigen Inhalten zu erstellen und mit den Einstellungen <em>Revisionsinformationen</em> zu älteren Versionen zurückzukehren."
+
+#: node.module:127
+msgid "User permissions"
+msgstr "Benutzerberechtigungen"
+
+#: node.module:128
+msgid "The Node module makes a number of permissions available for each content type, which can be set by role on the <a href=\":permissions\">permissions page</a>."
+msgstr "Das Node-Modul stellt mehrere Berechtigungen zur Verfügung, die auf der Seite <a href=\":permissions\">Berechtigungen </a> vergeben werden können."
+
+#: node.module:133
+msgid "Individual content types can have different fields, behaviors, and permissions assigned to them."
+msgstr "Individuellen Inhaltstypen können unterschiedliche Felder, Verhaltensweisen und Zugriffsrechte zugewiesen werden."
+
+#: node.module:138
+msgid "Content items can be edited using different form modes. Here, you can define which fields are shown and hidden when %type content is edited in each form mode, and define how the field form widgets are displayed in each form mode."
+msgstr "Inhalte können unter Verwendung verschiedener Formularmodi bearbeitet werden. Hier kann festgelegt werden, welche Felder angezeigt oder ausgeblendet werden, wenn Inhalte vom Typ %type bearbeitet wird. Die anzuzeigenden bzw. auszublendenden Felder können für jeden Formularmodus festgelgt werden. Außerdem kann für jeden Formularmodus festgelegt werden, welche Formatierungssteuerelemente verwendet werden, um die Inhalte der Felder auszugeben."
+
+#: node.module:143
+msgid "Content items can be displayed using different view modes: Teaser, Full content, Print, RSS, etc. <em>Teaser</em> is a short format that is typically used in lists of multiple content items. <em>Full content</em> is typically used when the content is displayed on its own page."
+msgstr "Inhaltselemente können in verschiedenen Anzeigemodi dargestellt werden: Anrisstext, Vollständiger-Inhalt, Druck, RSS etc. <em>Anrisstext</em> ist ein Anzeigemodus, welcher typischerweise in Auflistungen mehrerer Inhaltselemente verwendet wird. <em>Vollständiger Inhalt</em> wird meist verwendet, wenn der Inhalt auf einer eigenen Seite angezeigt wird."
+
+#: node.module:144
+msgid "Here, you can define which fields are shown and hidden when %type content is displayed in each view mode, and define how the fields are displayed in each view mode."
+msgstr "Hier kann festgelegt werden, welche Felder angezeigt und ausgeblendet werden sollen, wenn %type-Inhalte angezeigt werden und wie diese Felder in dem jeweiligen Ansichtsmodus angezeigt werden."
+
+#: node.module:147
+msgid "Revisions allow you to track differences between multiple versions of your content, and revert to older versions."
+msgstr "Revisionen erlauben es, Unterschiede zwischen mehreren Versionen an Inhalten zu verfolgen und zu älteren Versionen zurückzukehren."
+
+#: node.module:406
+msgid "Node module element"
+msgstr "Element des Node-Moduls"
+
+#: node.module:409
+msgid "Links"
+msgstr "Links"
+
+#: node.module:722
+msgid "Keyword relevance"
+msgstr "Wichtigkeit von Schlagwörtern"
+
+#: node.module:727
+msgid "Content is sticky at top of lists"
+msgstr "Inhalt, der am Anfang von Listen gesetzt ist"
+
+#: node.module:732
+msgid "Content is promoted to the front page"
+msgstr "Inhalt, der auf der Startseite veröffentlicht ist"
+
+#: node.module:741
+msgid "Recently created"
+msgstr "Kürzlich erstellt"
+
+#: node.module:906
+msgid "Use the administration theme when editing or creating content"
+msgstr "Benutze das Verwaltungs-Theme auch während dem Bearbeiten und Erstellen von Inhalten."
+
+#: node.module:907
+msgid "Control which roles can \"View the administration theme\" on the <a href=\":permissions\">Permissions page</a>."
+msgstr "Auf der Seite <a href=\":permissions\">Berechtigungen</a> kann eingestellt werden, welche Rollen das Theme des Verwaltungsbereichs anzeigen können."
+
+#: node.module:1142
+msgid "Query tagged for node access but there is no node table, specify the base_table using meta data."
+msgstr "Die Anfrage beinhaltet den Zugriff auf Inhalte, es gibt aber keine Node-Table in der Datenbank. Die Basistabelle muss unter der Verwendung von Metadaten angegeben werden."
+
+#: node.module:1223
+msgid "Rebuilding content access permissions"
+msgstr "Zugriffsberechtigungen für Inhalte werden neu aufgebaut."
+
+#: node.module:1263
+msgid "Content permissions have been rebuilt."
+msgstr "Inhaltsberechtigungen wurden neu aufgebaut."
+
+#: node.module:1336
+msgid "The content access permissions have been rebuilt."
+msgstr "Die Zugriffsberechtigungen für den Inhalt wurden neu aufgebaut."
+
+#: node.module:1340
+msgid "The content access permissions have not been properly rebuilt."
+msgstr "Die Zugriffsberechtigungen für den Inhalt sind nicht ordnungsgemäß neu aufgebaut  worden."
+
+#: node.module:228
+msgid "1 comment"
+msgid_plural "@count comments"
+msgstr[0] "1 Kommentar"
+msgstr[1] "@count Kommentare"
+
+#: node.install:27 src/NodeTypeForm.php:131
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: node.install:31
+msgid "Node Access Permissions"
+msgstr "Zugriffsberechtigungen für Nodes"
+
+#: node.install:33
+msgid "If the site is experiencing problems with permissions to content, you may have to rebuild the permissions cache. Rebuilding will remove all privileges to content and replace them with permissions based on the current modules and settings. Rebuilding may take some time if there is a lot of content or complex permission settings. After rebuilding has completed, content will automatically use the new permissions. <a href=\":rebuild\">Rebuild permissions</a>"
+msgstr "Sollte es auf der Website zu Problemen mit den Berechtigungen von Inhalten kommen, dann sollte der Cache der Berechtigungen neu aufgebaut werden. Hierbei werden alle Rechte zu den Inhalten entfernt und mit Berechtigungen basierend auf den aktuellen Einstellungen und Modulen ersetzt. Der Neuaufbau kann einige Zeit in Anspruch nehmen, falls viele Inhalte oder komplexe Berechtigungen vorhanden sind. Nachdem der Neuaufbau abgeschlossen ist, werden die Inhalte automatisch die neuen Berechtigungen verwenden. <a href=\":rebuild\">Berechtigungen neu setzen</a>"
+
+#: node.install:170
+msgid "Revision translation affected"
+msgstr "Auswirkung auf die Übersetzung der Revision"
+
+#: node.install:171
+msgid "Indicates if the last edit of a translation belongs to current revision."
+msgstr "Zeigt an, ob die letzte Bearbeitung einer Übersetzung der aktuellen Revision entspricht."
+
+#: node.install:24
+msgid "One permission in use"
+msgid_plural "@count permissions in use"
+msgstr[0] "Eine Berechtigung in Verwendung"
+msgstr[1] "@count Berechtigungen in Verwendung"
+
+#: content_types.es6.js:0 content_types.js:0
+msgid "Requires a title"
+msgstr "Benötigt einen Titel"
+
+#: content_types.es6.js:0 content_types.js:0 src/NodeForm.php:142
+msgid "Not published"
+msgstr "Nicht veröffentlicht"
+
+#: content_types.es6.js:0 content_types.js:0
+msgid "Don't display post information"
+msgstr "Beitragsinformationen nicht anzeigen"
+
+#: node.es6.js:0 node.js:0
+msgid "By @name on @date"
+msgstr "Von @name am @date"
+
+#: node.es6.js:0 node.js:0
+msgid "By @name"
+msgstr "Von @name"
+
+#: node.es6.js:0 node.js:0
+msgid "Authored on @date"
+msgstr "Bearbeitet am @date"
+
+#: node.es6.js:0 node.js:0
+msgid "Not promoted"
+msgstr "nicht auf der Startseite"
+
+#: node.preview.es6.js:0 node.preview.js:0
+msgid "Leave preview?"
+msgstr "Vorschau verlassen?"
+
+#: node.preview.es6.js:0 node.preview.js:0
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: node.preview.es6.js:0 node.preview.js:0
+msgid "Leave preview"
+msgstr "Vorschau verlassen"
+
+#: node.preview.js:0
+msgid "Leaving the preview will cause unsaved changes to be lost. Are you sure you want to leave the preview?"
+msgstr "Wenn Sie die Vorschau verlassen, gehen nicht gespeicherte Änderungen verloren. Möchten Sie die Vorschau wirklich verlassen?"
+
+#: node.preview.js:0
+msgid "CTRL+Left click will prevent this dialog from showing and proceed to the clicked link."
+msgstr "Strg-Linkklick verhindert dass dieser Dialog angezeigt wird und geht auf den angeklickten Link."
+
+#: node.info.yml:0 config/schema/node.views.schema.yml:0 src/Plugin/Condition/NodeType.php:11
+msgid "Node"
+msgstr "Beitrag"
+
+#: node.info.yml:0
+msgid "Allows content to be submitted to the site and displayed on pages."
+msgstr "Ermöglicht die Erstellung von Inhalt, der dann auf Seiten angezeigt wird."
+
+#: node.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: node.links.action.yml:0 node.routing.yml:0 src/NodeTypeForm.php:62
+msgid "Add content type"
+msgstr "Inhaltstyp hinzufügen"
+
+#: node.links.action.yml:0 node.links.menu.yml:0 node.routing.yml:0 src/NodeTypeForm.php:96 src/Plugin/views/area/ListingEmpty.php:67
+msgid "Add content"
+msgstr "Inhalt hinzufügen"
+
+#: node.links.contextual.yml:0;0 node.links.task.yml:0;0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: node.links.contextual.yml:0 node.links.task.yml:0 node.routing.yml:0 src/Controller/NodeController.php:264 src/Form/NodeRevisionDeleteForm.php:114 src/Plugin/views/field/RevisionLinkDelete.php:30
+msgid "Delete"
+msgstr "Löschen"
+
+#: node.links.menu.yml:0 node.routing.yml:0 src/Entity/NodeType.php:9
+msgid "Content types"
+msgstr "Inhaltstypen"
+
+#: node.links.menu.yml:0
+msgid "Create and manage fields, forms, and display settings for your content."
+msgstr "Erstellen und Verwalten von Feldern, Formularen und Anzeigeeinstellungen für den Inhalt."
+
+#: node.links.task.yml:0 src/NodeForm.php:295 src/NodeTypeForm.php:241 src/Plugin/views/field/RevisionLink.php:48
+msgid "View"
+msgstr "Ansicht"
+
+#: node.links.task.yml:0 node.routing.yml:0
+msgid "Revisions"
+msgstr "Revisionen"
+
+#: node.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: node.permissions.yml:0
+msgid "Bypass content access control"
+msgstr "Zugriffskontrolle für Inhalte übergehen"
+
+#: node.permissions.yml:0
+msgid "View, edit and delete all content regardless of permission restrictions."
+msgstr "Anzeigen, bearbeiten und löschen aller Inhalte unabhängig von dessen Zugriffseinschränkungen."
+
+#: node.permissions.yml:0
+msgid "Administer content types"
+msgstr "Inhaltstypen verwalten"
+
+#: node.permissions.yml:0
+msgid "Maintain the types of content available and the fields that are associated with those types."
+msgstr "Die Inhaltstypen und die dazugehörigen Felder verfügbar halten."
+
+#: node.permissions.yml:0
+msgid "Administer content"
+msgstr "Inhalte verwalten"
+
+#: node.permissions.yml:0
+msgid "Promote, change ownership, edit revisions, and perform other tasks across all content types."
+msgstr "Durchführen von Änderungen der Zuordnung des Autors, bearbeiten von Revisionen und durchführen von weiteren Aufgaben über alle Inhaltstypen hinweg."
+
+#: node.permissions.yml:0
+msgid "Access the Content overview page"
+msgstr "Zugriff auf die Inhaltsübersicht"
+
+#: node.permissions.yml:0
+msgid "View own unpublished content"
+msgstr "Eigene unveröffentlichte Inhalte anzeigen"
+
+#: node.permissions.yml:0
+msgid "View all revisions"
+msgstr "Alle Revisionen anzeigen"
+
+#: node.permissions.yml:0 src/NodePermissions.php:63
+msgid "To view a revision, you also need permission to view the content item."
+msgstr "Um eine Revision zu betrachten, wird zusätzlich die Berechtigung zum Betrachten des jeweiligen Inhalts benötigt."
+
+#: node.permissions.yml:0
+msgid "Revert all revisions"
+msgstr "Alle Revisionen zurücksetzen"
+
+#: node.permissions.yml:0 src/NodePermissions.php:67
+msgid "To revert a revision, you also need permission to edit the content item."
+msgstr "Um eine Revision zurückzusetzen, wird zusätzlich die Berechtigung zum Bearbeiten des jeweiligen Inhalts benötigt."
+
+#: node.permissions.yml:0
+msgid "Delete all revisions"
+msgstr "Alle Revisionen löschen"
+
+#: node.permissions.yml:0 src/NodePermissions.php:71
+msgid "To delete a revision, you also need permission to delete the content item."
+msgstr "Um eine Revision löschen zu können wird die Berechtigung zum Löschen des jeweiligen Inhalts benötigt"
+
+#: node.routing.yml:0
+msgid "Revert to earlier revision"
+msgstr "Auf eine frühere Revision zurücksetzen"
+
+#: node.routing.yml:0
+msgid "Revert to earlier revision of a translation"
+msgstr "Auf eine frühere Revision einer Übersetzung zurücksetzen"
+
+#: node.routing.yml:0
+msgid "Delete earlier revision"
+msgstr "Frühere Revision löschen"
+
+#: config/schema/node.schema.yml:0
+msgid "Node settings"
+msgstr "Beitragseinstellungen"
+
+#: config/schema/node.schema.yml:0
+msgid "Use administration theme when editing or creating content"
+msgstr "Das Verwaltungs-Theme verwenden, wenn Inhalte erstellt oder bearbeitet werden."
+
+#: config/schema/node.schema.yml:0 src/NodeTypeForm.php:78 src/NodeTypeListBuilder.php:20
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/node.schema.yml:0
+msgid "Machine-readable name"
+msgstr "Systemname"
+
+#: config/schema/node.schema.yml:0 src/NodeTypeForm.php:101 src/NodeTypeListBuilder.php:22
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/node.schema.yml:0 src/NodeTypeForm.php:138
+msgid "Explanation or submission guidelines"
+msgstr "Erklärung oder Richtlinien zum Erstellen von Inhalt"
+
+#: config/schema/node.schema.yml:0
+msgid "Whether a new revision should be created by default"
+msgstr "Ob eine neue Revision standardmäßig erstellt werden soll"
+
+#: config/schema/node.schema.yml:0 src/NodeTypeForm.php:128
+msgid "Preview before submitting"
+msgstr "Vorschau vor dem Speichern"
+
+#: config/schema/node.schema.yml:0
+msgid "Display setting for author and date Submitted by post information"
+msgstr "Anzeigeeinstellungen für die Angabe „Erstellt von am\""
+
+#: config/schema/node.schema.yml:0
+msgid "Content search"
+msgstr "Suche nach Inhalten"
+
+#: config/schema/node.schema.yml:0 src/Plugin/Search/NodeSearch.php:803
+msgid "Content ranking"
+msgstr "Inhaltsreihenfolge"
+
+#: config/schema/node.schema.yml:0 src/Plugin/Search/NodeSearch.php:810
+msgid "Influence"
+msgstr "Einfluss"
+
+#: config/schema/node.schema.yml:0
+msgid "Change the author of content configuration"
+msgstr "Den Autor der Inhaltskonfiguration ändern"
+
+#: config/schema/node.schema.yml:0 src/Plugin/Action/AssignOwnerNode.php:91;100
+msgid "Username"
+msgstr "Benutzername"
+
+#: config/schema/node.schema.yml:0
+msgid "Demote selected content from front page configuration"
+msgstr "„Inhalte nicht mehr auf der Startseite anzeigen“-Konfiguration"
+
+#: config/schema/node.schema.yml:0
+msgid "Promote selected content from front page configuration"
+msgstr "„Inhalt auf der Startseite veröffentlichen“-Konfiguration"
+
+#: config/schema/node.schema.yml:0
+msgid "Publish selected content configuration"
+msgstr "Ausgewählte Inhaltskonfiguration veröffentlichen"
+
+#: config/schema/node.schema.yml:0
+msgid "Unpublish selected content configuration"
+msgstr "Veröffentlichung der ausgewählten Inhaltskonfiguration aufheben"
+
+#: config/schema/node.schema.yml:0
+msgid "Save content configuration"
+msgstr "Inhaltskonfiguration speichern"
+
+#: config/schema/node.schema.yml:0
+msgid "Delete content configuration"
+msgstr "Inhaltskonfiguration löschen"
+
+#: config/schema/node.schema.yml:0
+msgid "Make selected content sticky configuration"
+msgstr "Konfiguration „Oben in Listen“ anwenden."
+
+#: config/schema/node.schema.yml:0
+msgid "Make selected content unsticky configuration"
+msgstr "Konfiguration „Nicht mehr oben in Listen“ anwenden."
+
+#: config/schema/node.schema.yml:0
+msgid "Unpublish content containing keyword(s) configuration"
+msgstr "Konfiguration „Veröffentlichung von Inhalten mit den folgenden Schlüsselwörtern zurücknehmen\""
+
+#: config/schema/node.schema.yml:0 src/Plugin/Action/UnpublishByKeywordNode.php:49 src/Plugin/Search/NodeSearch.php:571
+msgid "Keywords"
+msgstr "Schlüsselwörter"
+
+#: config/schema/node.schema.yml:0
+msgid "Keyword"
+msgstr "Schlüsselwort"
+
+#: config/schema/node.schema.yml:0
+msgid "Syndicate block"
+msgstr "Block syndizieren"
+
+#: config/schema/node.schema.yml:0
+msgid "Block count"
+msgstr "Anzahl Blöcke"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node link"
+msgstr "Link zum Beitrag"
+
+#: config/schema/node.views.schema.yml:0 src/Plugin/migrate/source/d6/Node.php:135 src/Plugin/migrate/source/d7/Node.php:149
+msgid "Node ID"
+msgstr "Beitrags-ID"
+
+#: config/schema/node.views.schema.yml:0;0;0;0
+msgid "Allow multiple values"
+msgstr "Mehrfacheinträge erlauben"
+
+#: config/schema/node.views.schema.yml:0;0;0
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: config/schema/node.views.schema.yml:0 src/Plugin/migrate/source/d7/NodeEntityTranslation.php:93
+msgid "Node type"
+msgstr "Inhaltstyp"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Glossary mode"
+msgstr "Glossar-Modus"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Character limit"
+msgstr "Zeichenbegrenzung"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Case"
+msgstr "Groß-/Kleinschreibung"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Case in path"
+msgstr "Groß-/Kleinschreibung im Pfad"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Transform spaces to dashes in URL"
+msgstr "Leerzeichen in der URL in Striche umwandeln"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Allow multiple filter values to work together"
+msgstr "Mehrfache Filterwerte arbeiten zusammen"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Do not display items with no value in summary"
+msgstr "Einträge ohne Wert in der Zusammenfassung nicht anzeigen"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node user ID"
+msgstr "Benutzer-ID für diesen Inhalt"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node revision ID"
+msgstr "Die ID der Beitragsrevision"
+
+#: config/schema/node.views.schema.yml:0 src/Plugin/views/field/Node.php:49
+msgid "Link this field to the original piece of content"
+msgstr "Dieses Feld mit dem ursprünglichen Inhalt verlinken"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node bulk form"
+msgstr "Massenformular für Inhalte"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node path"
+msgstr "Beitragspfad"
+
+#: config/schema/node.views.schema.yml:0 src/Plugin/views/field/Path.php:52
+msgid "Use absolute link (begins with \"http://\")"
+msgstr "Einen absoluten Link verwenden (beginnt mit „http://“)"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Link to a node revision"
+msgstr "Link zu einer Beitragsrevision"
+
+#: config/schema/node.views.schema.yml:0;0;0
+msgid "Text to display"
+msgstr "Anzuzeigender Text"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Link to delete a node revision"
+msgstr "Link zum Löschen einer Beitragsrevision"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Link to revert a node to a revision"
+msgstr "Link zum Zurücksetzen eines Beitrags auf eine andere  Revision"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node access"
+msgstr "Zustand der Inhaltsberechtigungen"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node status"
+msgstr "Beitragsstatus"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Node revisions of an user"
+msgstr "Beitragsrevisionen eines Benutzers"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Operator"
+msgstr "Operator"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Values"
+msgstr "Werte"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Value"
+msgstr "Wert"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Expose"
+msgstr "Hervorheben"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Reduce"
+msgstr "Reduzieren"
+
+#: config/schema/node.views.schema.yml:0 src/NodeViewsData.php:300
+msgid "Access"
+msgstr "Zugriff"
+
+#: config/schema/node.views.schema.yml:0 src/NodeForm.php:135 src/NodeListBuilder.php:74 config/optional/views.view.content.yml:0;0
+msgid "Status"
+msgstr "Status"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Content options"
+msgstr "Inhaltsoptionen"
+
+#: config/schema/node.views.schema.yml:0
+msgid "Display type"
+msgstr "Anzeigetyp"
+
+#: src/NodeForm.php:115 src/NodeTranslationHandler.php:54
+msgid "<em>Edit @type</em> @title"
+msgstr "<em>@type bearbeiten</em> @title"
+
+#: src/NodeForm.php:142 src/NodeTypeForm.php:161 src/NodeViewsData.php:251 src/Plugin/migrate/source/d6/Node.php:145 src/Plugin/migrate/source/d7/Node.php:156 config/optional/views.view.content.yml:0;0
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: src/NodeForm.php:148
+msgid "Last saved"
+msgstr "Zuletzt gespeichert"
+
+#: src/NodeForm.php:149
+msgid "Not saved yet"
+msgstr "Noch nicht gespeichert"
+
+#: src/NodeForm.php:164
+msgid "Authoring information"
+msgstr "Informationen zum Autor"
+
+#: src/NodeForm.php:187
+msgid "Promotion options"
+msgstr "Hervorhebungsoptionen"
+
+#: src/NodeForm.php:249
+msgid "Preview"
+msgstr "Vorschau"
+
+#: src/NodeForm.php:301
+msgid "@type %title has been created."
+msgstr "@type %title wurde erstellt."
+
+#: src/NodeForm.php:305
+msgid "@type %title has been updated."
+msgstr "@type %title wurde aktualisiert."
+
+#: src/NodeForm.php:328
+msgid "The post could not be saved."
+msgstr "Der Beitrag konnte nicht gespeichert werden."
+
+#: src/NodeForm.php:300
+msgid "@type: added %title."
+msgstr "@type: %title wurde hinzugefügt."
+
+#: src/NodeForm.php:304
+msgid "@type: updated %title."
+msgstr "@type: %title wurde aktualisiert."
+
+#: src/NodeListBuilder.php:76 config/optional/views.view.content.yml:0
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: src/NodeListBuilder.php:82 src/NodeViewBuilder.php:46 config/optional/views.view.content.yml:0
+msgid "Language"
+msgstr "Sprache"
+
+#: src/NodeListBuilder.php:114
+msgid "published"
+msgstr "Veröffentlicht"
+
+#: src/NodeListBuilder.php:114
+msgid "not published"
+msgstr "Nicht veröffentlicht"
+
+#: src/NodePermissions.php:47
+msgid "%type_name: Create new content"
+msgstr "%type_name: Neue Inhalte erstellen"
+
+#: src/NodePermissions.php:50
+msgid "%type_name: Edit own content"
+msgstr "%type_name: Eigene Inhalte bearbeiten"
+
+#: src/NodePermissions.php:53
+msgid "%type_name: Edit any content"
+msgstr "%type_name: Beliebigen Inhalt bearbeiten"
+
+#: src/NodePermissions.php:56
+msgid "%type_name: Delete own content"
+msgstr "%type_name: Eigene Inhalte löschen"
+
+#: src/NodePermissions.php:59
+msgid "%type_name: Delete any content"
+msgstr "%type_name: Beliebigen Inhalt löschen"
+
+#: src/NodePermissions.php:62
+msgid "%type_name: View revisions"
+msgstr "%type_name: Revisionen anzeigen"
+
+#: src/NodePermissions.php:66
+msgid "%type_name: Revert revisions"
+msgstr "%type_name: Revisionen zurücksetzen"
+
+#: src/NodePermissions.php:70
+msgid "%type_name: Delete revisions"
+msgstr "%type_name: Revisionen löschen"
+
+#: src/NodeTranslationHandler.php:43
+msgid "(this translation)"
+msgstr "(diese Übersetzung)"
+
+#: src/NodeTranslationHandler.php:43
+msgid "(all translations)"
+msgstr "(alle Übersetzungen)"
+
+#: src/NodeTypeForm.php:71
+msgid "Edit %label content type"
+msgstr "Inhaltstyp %label bearbeiten"
+
+#: src/NodeTypeForm.php:81
+msgid "The human-readable name of this content type. This text will be displayed as part of the list on the <em>Add content</em> page. This name must be unique."
+msgstr "Der menschenlesbare Name dieses Inhaltstyps. Dieser Text wird als Teil der Liste auf der Seite <em>Inhalt hinzufügen</em> angezeigt. Dieser Name muss eindeutig sein."
+
+#: src/NodeTypeForm.php:95
+msgid "A unique machine-readable name for this content type. It must only contain lowercase letters, numbers, and underscores. This name will be used for constructing the URL of the %node-add page, in which underscores will be converted into hyphens."
+msgstr "Ein eindeutiger Systemname für diesen Inhaltstyp. Er darf nur Kleinbuchstaben, Zahlen und Unterstriche enthalten. Dieser Name wird zum Erstellen der URL auf der Seite %node-add verwendet. Dabei werden Unterstriche in Bindestriche umgewandelt."
+
+#: src/NodeTypeForm.php:104
+msgid "This text will be displayed on the <em>Add new content</em> page."
+msgstr "Dieser Text wird auf der Seite <em>neuen Inhalt hinzufügen</em> angezeigt."
+
+#: src/NodeTypeForm.php:116
+msgid "Submission form settings"
+msgstr "Einstellungen für das Eingabeformular"
+
+#: src/NodeTypeForm.php:121
+msgid "Title field label"
+msgstr "Beschriftung des Titelfeldes"
+
+#: src/NodeTypeForm.php:132
+msgid "Optional"
+msgstr "Optional"
+
+#: src/NodeTypeForm.php:133
+msgid "Required"
+msgstr "Erforderlich"
+
+#: src/NodeTypeForm.php:140
+msgid "This text will be displayed at the top of the page when creating or editing content of this type."
+msgstr "Der Text wird im oberem Bereich des Eingabeformulars bei diesen Inhaltstyp angezeigt."
+
+#: src/NodeTypeForm.php:144
+msgid "Publishing options"
+msgstr "Veröffentlichungseinstellungen"
+
+#: src/NodeTypeForm.php:158
+msgid "Default options"
+msgstr "Standardeinstellungen"
+
+#: src/NodeTypeForm.php:162 src/Entity/Node.php:348 src/Plugin/migrate/source/d6/Node.php:146 src/Plugin/migrate/source/d7/Node.php:157 src/Plugin/migrate/source/d7/NodeEntityTranslation.php:94
+msgid "Promoted to front page"
+msgstr "Auf der Startseite anzeigen"
+
+#: src/NodeTypeForm.php:163 src/Entity/Node.php:362 src/Plugin/migrate/source/d6/Node.php:147 src/Plugin/migrate/source/d7/Node.php:158 src/Plugin/migrate/source/d7/NodeEntityTranslation.php:95
+msgid "Sticky at top of lists"
+msgstr "Oben in Listen"
+
+#: src/NodeTypeForm.php:164 src/Plugin/migrate/source/d6/Node.php:148 src/Plugin/migrate/source/d7/Node.php:159
+msgid "Create new revision"
+msgstr "Neue Revision erstellen"
+
+#: src/NodeTypeForm.php:166
+msgid "Users with the <em>Administer content</em> permission will be able to override these options."
+msgstr "Benutzer mit der Berechtigung <em>Inhalt verwalten</em> können sich über diese Optionen hinwegsetzen."
+
+#: src/NodeTypeForm.php:171
+msgid "Language settings"
+msgstr "Spracheinstellungen"
+
+#: src/NodeTypeForm.php:187
+msgid "Display settings"
+msgstr "Anzeigeeinstellungen"
+
+#: src/NodeTypeForm.php:192
+msgid "Display author and date information"
+msgstr "Datums- und Autoreninformationen anzeigen"
+
+#: src/NodeTypeForm.php:194
+msgid "Author username and publish date will be displayed."
+msgstr "Der Benutzername des Autors und das Veröffentlichungsdatum werden angezeigt."
+
+#: src/NodeTypeForm.php:205
+msgid "Save content type"
+msgstr "Inhaltstyp speichern"
+
+#: src/NodeTypeForm.php:218
+msgid "Invalid machine-readable name. Enter a name other than %invalid."
+msgstr "Ungültiger Systemname. Bitte einen anderen Namen als %invalid eingeben."
+
+#: src/NodeTypeForm.php:236
+msgid "The content type %name has been updated."
+msgstr "Der Inhaltstyp %name wurde aktualisiert."
+
+#: src/NodeTypeForm.php:240
+msgid "The content type %name has been added."
+msgstr "Der Inhaltstyp %name wurde hinzugefügt."
+
+#: src/NodeTypeForm.php:242
+msgid "Added content type %name."
+msgstr "Inhaltstyp %name erstellt."
+
+#: src/NodeTypeListBuilder.php:58
+msgid "No content types available. <a href=\":link\">Add content type</a>."
+msgstr "Kein Inhaltstyp verfügbar. <a href=\":link\">Inhaltstyp hinzufügen</a>."
+
+#: src/NodeViewBuilder.php:130
+msgid "Read more<span class=\"visually-hidden\"> about @title</span>"
+msgstr "Weiterlesen<span class=\"visually-hidden\"> über @title</span>"
+
+#: src/NodeViewsData.php:35;259
+msgid "The language of the content or translation."
+msgstr "Die Sprache des Inhalts oder der Übersetzung."
+
+#: src/NodeViewsData.php:37 config/optional/views.view.content.yml:0
+msgid "Published status"
+msgstr "Status veröffentlicht"
+
+#: src/NodeViewsData.php:43;48
+msgid "Published status or admin user"
+msgstr "Status „veröffentlicht“ – oder Admin-Zugriff"
+
+#: src/NodeViewsData.php:44
+msgid "Filters out unpublished content if the current user cannot view it."
+msgstr "Unveröffentlichten Inhalt filtern, wenn der aktuelle Benutzer diesen nicht sehen darf."
+
+#: src/NodeViewsData.php:52;255
+msgid "A boolean indicating whether the node is visible on the front page."
+msgstr "Ein boolescher Wert, der angibt, ob der Inhalt auf der Startseite sichtbar ist."
+
+#: src/NodeViewsData.php:53
+msgid "Promoted to front page status"
+msgstr "Status: auf der Startseite veröffentlicht"
+
+#: src/NodeViewsData.php:56;257
+msgid "A boolean indicating whether the node should sort to the top of content lists."
+msgstr "Ein boolescher Wert, der angibt ob der Inhalt  am Anfang einer Liste von Inhalten angezeigt werden soll."
+
+#: src/NodeViewsData.php:57
+msgid "Sticky status"
+msgstr "Inhalt, der den Status hervorgehoben besitzt"
+
+#: src/NodeViewsData.php:59
+msgid "Whether or not the content is sticky. To list sticky content first, set this to descending."
+msgstr "Inhalte, die mit „am Anfang von Listen markiert sind, werden zuerst aufgelistet, wenn „absteigend sortiert“ wird."
+
+#: src/NodeViewsData.php:62
+msgid "Node operations bulk form"
+msgstr "Node Massenbearbeitung Formular"
+
+#: src/NodeViewsData.php:63
+msgid "Add a form element that lets you run operations on multiple nodes."
+msgstr "Fügt ein Formularelement hinzu mit dem Aktionen auf mehre Inhalte gleichzeitig anwendet werden können."
+
+#: src/NodeViewsData.php:74
+msgid "Created date"
+msgstr "Erstellungsdatum"
+
+#: src/NodeViewsData.php:75;129
+msgid "Date in the form of CCYYMMDD."
+msgstr "Datum im Format JJJJMMTT."
+
+#: src/NodeViewsData.php:83
+msgid "Created year + month"
+msgstr "Jahr + Monat wurde erstellt"
+
+#: src/NodeViewsData.php:84;138
+msgid "Date in the form of YYYYMM."
+msgstr "Datum im Format JJJJMM."
+
+#: src/NodeViewsData.php:92
+msgid "Created year"
+msgstr "Erstellungsjahr"
+
+#: src/NodeViewsData.php:93;147
+msgid "Date in the form of YYYY."
+msgstr "Datum im Format JJJJ."
+
+#: src/NodeViewsData.php:101
+msgid "Created month"
+msgstr "Erstellungsmonat"
+
+#: src/NodeViewsData.php:102;156
+msgid "Date in the form of MM (01 - 12)."
+msgstr "Datum im Format MM (01 - 12)."
+
+#: src/NodeViewsData.php:110
+msgid "Created day"
+msgstr "Erstellungstag"
+
+#: src/NodeViewsData.php:111;165
+msgid "Date in the form of DD (01 - 31)."
+msgstr "Datum im Format TT (01 - 31)."
+
+#: src/NodeViewsData.php:119
+msgid "Created week"
+msgstr "Erstellungswoche"
+
+#: src/NodeViewsData.php:120;174
+msgid "Date in the form of WW (01 - 53)."
+msgstr "Datum im Format WW (01 - 53)."
+
+#: src/NodeViewsData.php:128
+msgid "Updated date"
+msgstr "Aktualisierungszeitpunkt"
+
+#: src/NodeViewsData.php:137
+msgid "Updated year + month"
+msgstr "Das Jahr + Monat wurde aktualisiert"
+
+#: src/NodeViewsData.php:146
+msgid "Updated year"
+msgstr "Das Jahr wurde aktualisiert"
+
+#: src/NodeViewsData.php:155
+msgid "Updated month"
+msgstr "Der Monat wurde aktualisiert"
+
+#: src/NodeViewsData.php:164
+msgid "Updated day"
+msgstr "Der Tag wurde aktualisiert"
+
+#: src/NodeViewsData.php:173
+msgid "Updated week"
+msgstr "Die Woche wurde aktualisiert"
+
+#: src/NodeViewsData.php:181
+msgid "The user authoring the content. If you need more fields than the uid add the content: author relationship"
+msgstr "Der Benutzer, der den Inhalt bearbeitet. Werden mehr Felder als die UID benötigt, muss die Beziehung: Autor hinzugefügt werden."
+
+#: src/NodeViewsData.php:183
+msgid "Content author"
+msgstr "Autor des Inhalts"
+
+#: src/NodeViewsData.php:184
+msgid "Relate content to the user who created it."
+msgstr "Verknüpfe den Inhalt mit dem Benutzer, der ihn erzeugt hat."
+
+#: src/NodeViewsData.php:185 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.glossary.yml:0
+msgid "author"
+msgstr "Autor"
+
+#: src/NodeViewsData.php:188
+msgid "Empty Node Frontpage behavior"
+msgstr "Verhalten bei einer leeren Startseite"
+
+#: src/NodeViewsData.php:189
+msgid "Provides a link to the node add overview page."
+msgstr "Stellt einen Link zur Seite Inhalt zur Verfügung."
+
+#: src/NodeViewsData.php:195
+msgid "User has a revision"
+msgstr "Der Benutzer hat eine neue Version."
+
+#: src/NodeViewsData.php:196
+msgid "All nodes where a certain user has a revision"
+msgstr "Alle Beiträge, für die ein bestimmter Benutzer zumindest eine Revision verfasst hat."
+
+#: src/NodeViewsData.php:204
+msgid "Content revision is a history of changes to content."
+msgstr "Die Inhaltsrevision ist eine Historie von Änderungen an Inhalten."
+
+#: src/NodeViewsData.php:217;233 src/Entity/Node.php:13;13 src/Plugin/Search/NodeSearch.php:28 src/Plugin/views/row/Rss.php:9 src/Plugin/views/wizard/Node.php:12 config/optional/search.page.node_search.yml:0 config/optional/views.view.content.yml:0;0;0;0
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/NodeViewsData.php:218;234
+msgid "Get the actual content from a content revision."
+msgstr "Den aktuellen Inhalt einer Version laden."
+
+#: src/NodeViewsData.php:244
+msgid "The language the original content is in."
+msgstr "Die Originalsprache des Inhalts."
+
+#: src/NodeViewsData.php:246
+msgid "Relate a content revision to the user who created the revision."
+msgstr "Eine Inhaltsrevision dem Benutzer zuordnen, der die Revision erstellt hat."
+
+#: src/NodeViewsData.php:247
+msgid "revision user"
+msgstr "Revisionsbenutzer"
+
+#: src/NodeViewsData.php:263
+msgid "Link to revision"
+msgstr "Link zur Version"
+
+#: src/NodeViewsData.php:264
+msgid "Provide a simple link to the revision."
+msgstr "Bietet einen einfachen Link zu der Version an."
+
+#: src/NodeViewsData.php:272
+msgid "Link to revert revision"
+msgstr "Link zum Zurücksetzen der Version"
+
+#: src/NodeViewsData.php:273
+msgid "Provide a simple link to revert to the revision."
+msgstr "Stellt einen einfachen Link bereit, um zu der Version zurückzukehren."
+
+#: src/NodeViewsData.php:281
+msgid "Link to delete revision"
+msgstr "Link zum Löschen der Version"
+
+#: src/NodeViewsData.php:282
+msgid "Provide a simple link to delete the content revision."
+msgstr "Einen einfachen Link zum Löschen der Inhaltsrevision bereitstellen."
+
+#: src/NodeViewsData.php:290
+msgid "Content access"
+msgstr "Inhaltszugriff"
+
+#: src/NodeViewsData.php:301
+msgid "Filter by access."
+msgstr "Nach Zugriff filtern"
+
+#: src/NodeViewsData.php:304
+msgid "Filter for content by view access. <strong>Not necessary if you are using node as your base table.</strong>"
+msgstr "Inhalt durch Zugriff auf Ansichten filtern. <strong>Nicht notwendig, wenn Sie \"node\" als Basis-Tabelle verwenden.</strong>"
+
+#: src/NodeViewsData.php:321
+msgid "Search"
+msgstr "Suche"
+
+#: src/NodeViewsData.php:354
+msgid "Score"
+msgstr "Punktzahl"
+
+#: src/NodeViewsData.php:355
+msgid "The score of the search item. This will not be used if the search filter is not also present."
+msgstr "Die Treffer des Suchbegriffs. Dies wird nicht verwendet, wenn der Suchfilter nicht auch angezeigt wird."
+
+#: src/NodeViewsData.php:368
+msgid "Search Keywords"
+msgstr "Schlüsselwörter suchen"
+
+#: src/NodeViewsData.php:369
+msgid "The keywords to search for."
+msgstr "Die Schlüsselwörter nach denen gesucht werden soll."
+
+#: src/Cache/NodeAccessGrantsCacheContext.php:27
+msgid "Content access view grants"
+msgstr "Zugriffsberechtigung für Inhalte"
+
+#: src/ContextProvider/NodeRouteContext.php:69
+msgid "Node from URL"
+msgstr "Url des Formulars zum Bearbeiten des Inhalts"
+
+#: src/Controller/NodeController.php:163
+msgid "Revision of %title from %date"
+msgstr "Revision von %title vom %date"
+
+#: src/Controller/NodeController.php:184
+msgid "@langname revisions for %title"
+msgstr "@langname Revisionen für %title"
+
+#: src/Controller/NodeController.php:184
+msgid "Revisions for %title"
+msgstr "Revisionen für %title"
+
+#: src/Controller/NodeController.php:185
+msgid "Revision"
+msgstr "Revision"
+
+#: src/Controller/NodeController.php:185 config/optional/views.view.content.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Controller/NodeController.php:241
+msgid "Current revision"
+msgstr "Aktuelle Revision"
+
+#: src/Controller/NodeController.php:255 src/Form/NodeRevisionRevertForm.php:101 src/Plugin/views/field/RevisionLinkRevert.php:30
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: src/Controller/NodeController.php:255
+msgid "Set as current revision"
+msgstr "Als aktuelle Revision festlegen"
+
+#: src/Controller/NodeController.php:306
+msgid "Create @name"
+msgstr "@name erstellen"
+
+#: src/Controller/NodeController.php:1
+msgid "@date by @username"
+msgstr "@date von @username"
+
+#: src/Entity/Node.php:296
+msgid "Authored by"
+msgstr "Geschrieben von"
+
+#: src/Entity/Node.php:297
+msgid "The username of the content author."
+msgstr "Der Benutzername des Autors."
+
+#: src/Entity/Node.php:326
+msgid "Authored on"
+msgstr "Geschrieben am"
+
+#: src/Entity/Node.php:327
+msgid "The time that the node was created."
+msgstr "Der Zeitpunkt an dem Beitrag geschrieben wurde."
+
+#: src/Entity/Node.php:342
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/Node.php:343
+msgid "The time that the node was last edited."
+msgstr "Zeitpunkt, zu dem der Beitrag zuletzt bearbeitet wurde."
+
+#: src/Entity/Node.php:13
+msgid "content item"
+msgstr "Inhaltsbestandteil"
+
+#: src/Entity/Node.php:13
+msgid "content items"
+msgstr "Inhaltsbestandteile"
+
+#: src/Entity/NodeType.php:189
+msgid "Changed the content type of 1 post from %old-type to %type."
+msgid_plural "Changed the content type of @count posts from %old-type to %type."
+msgstr[0] "Der Inhaltstyp von 1 Beitrag wurde von %old-type auf %type geändert."
+msgstr[1] "Der Inhaltstyp von @count Beiträgen wurde von %old-type auf %type geändert."
+
+#: src/Entity/NodeType.php:9
+msgid "content type"
+msgstr "Inhaltstyp"
+
+#: src/Entity/NodeType.php:9
+msgid "content types"
+msgstr "Inhaltstypen"
+
+#: src/Form/DeleteMultiple.php:26
+msgid "Deleted @count content item."
+msgid_plural "Deleted @count content items."
+msgstr[0] "Es wurde @count Inhaltselement gelöscht."
+msgstr[1] "Es wurden @count Inhaltselemente gelöscht."
+
+#: src/Form/DeleteMultiple.php:33
+msgid "@count content item has not been deleted because you do not have the necessary permissions."
+msgid_plural "@count content items have not been deleted because you do not have the necessary permissions."
+msgstr[0] "@count Inhaltselement wurde nicht gelöscht, weil Sie nicht die benötigten Berechtigungen haben."
+msgstr[1] "@count Inhaltselemente wurden nicht gelöscht, weil Sie nicht die benötigten Berechtigungen haben."
+
+#: src/Form/NodeDeleteForm.php:25
+msgid "@language translation of the @type %label has been deleted."
+msgstr "@language Übersetzung von @type %label wurde gelöscht."
+
+#: src/Form/NodeDeleteForm.php:32
+msgid "The @type %title has been deleted."
+msgstr "Der @type %title wurde gelöscht."
+
+#: src/Form/NodeDeleteForm.php:44
+msgid "@type: deleted %title."
+msgstr "@type: %title wurde gelöscht."
+
+#: src/Form/NodePreviewForm.php:97
+msgid "Back to content editing"
+msgstr "Zurück zum Bearbeiten des Inhalts"
+
+#: src/Form/NodePreviewForm.php:103
+msgid "Full"
+msgstr "Vollständig"
+
+#: src/Form/NodePreviewForm.php:117
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: src/Form/NodePreviewForm.php:127
+msgid "Switch"
+msgstr "Umschalten"
+
+#: src/Form/NodeRevisionDeleteForm.php:98
+msgid "Are you sure you want to delete the revision from %revision-date?"
+msgstr "Möchten Sie die Revision vom %revision-date wirklich löschen?"
+
+#: src/Form/NodeRevisionDeleteForm.php:136
+msgid "Revision from %revision-date of @type %title has been deleted."
+msgstr "Die Version vom %revision-date von @type %title wurde gelöscht."
+
+#: src/Form/NodeRevisionDeleteForm.php:133
+msgid "@type: deleted %title revision %revision."
+msgstr "@type: Die Revision %revision von %title wurde gelöscht."
+
+#: src/Form/NodeRevisionRevertForm.php:87
+msgid "Are you sure you want to revert to the revision from %revision-date?"
+msgstr "Möchten Sie wirklich zu der Revision vom %revision-date zurückkehren?"
+
+#: src/Form/NodeRevisionRevertForm.php:130
+msgid "Copy of the revision from %date."
+msgstr "Kopie der Revision vom %date."
+
+#: src/Form/NodeRevisionRevertForm.php:138
+msgid "@type %title has been reverted to the revision from %revision-date."
+msgstr "@type %title wurde auf die Revision vom %revision-date zurückgesetzt."
+
+#: src/Form/NodeRevisionRevertForm.php:136
+msgid "@type: reverted %title revision %revision."
+msgstr "@type: %title wurde auf die Revision %revision zurückgesetzt."
+
+#: src/Form/NodeRevisionRevertTranslationForm.php:74
+msgid "Are you sure you want to revert @language translation to the revision from %revision-date?"
+msgstr "Möchten Sie die Übersetzung in @language wirklich auf die Revision vom %revision-date zurücksetzen?"
+
+#: src/Form/NodeRevisionRevertTranslationForm.php:97
+msgid "Revert content shared among translations"
+msgstr "Zwischen Übersetzungen geteilten Inhalt zurücksetzen"
+
+#: src/Form/NodeTypeDeleteConfirm.php:24
+msgid "%type is used by 1 piece of content on your site. You can not remove this content type until you have removed all of the %type content."
+msgid_plural "%type is used by @count pieces of content on your site. You may not remove %type until you have removed all of the %type content."
+msgstr[0] "%type wird von 1 Inhalt auf Ihrer Website verwendet. Sie können diesen Inhaltstyp nicht entfernen, solange Sie nicht alle %type Inhalte entfernt haben."
+msgstr[1] "%type wird von @count Inhalten auf der Website verwendet. Sie können %type nicht entfernen, solange Sie nicht alle %type Inhalte entfernt haben."
+
+#: src/Form/RebuildPermissionsForm.php:27
+msgid "Are you sure you want to rebuild the permissions on site content?"
+msgstr "Möchten Sie die Berechtigungen für die Inhalte dieser Website wirklich neu aufbauen?"
+
+#: src/Form/RebuildPermissionsForm.php:41
+msgid "Rebuild permissions"
+msgstr "Berechtigungen neu aufbauen"
+
+#: src/Form/RebuildPermissionsForm.php:48
+msgid "This action rebuilds all permissions on site content, and may be a lengthy process. This action cannot be undone."
+msgstr "Diese Aktion baut alle Berechtigungen für Inhalte der Website neu auf und kann möglicherweise längere Zeit in Anspruch nehmen. Dieser Vorgang kann nicht rückgängig gemacht werden."
+
+#: src/Plugin/Action/AssignOwnerNode.php:79
+msgid "The username of the user to which you would like to assign ownership."
+msgstr "Der Benutzername des Benutzers, dem die Eigentümerschaft übertragen werden soll."
+
+#: src/Plugin/Action/AssignOwnerNode.php:122
+msgid "Enter a valid username."
+msgstr "Geben Sie einen gültigen Benutzernamen ein."
+
+#: src/Plugin/Action/AssignOwnerNode.php:13
+msgid "Change the author of content"
+msgstr "Den Autor des Inhalts ändern"
+
+#: src/Plugin/Action/DeleteNode.php:10
+msgid "Delete content"
+msgstr "Inhalt löschen"
+
+#: src/Plugin/Action/DemoteNode.php:8
+msgid "Demote selected content from front page"
+msgstr "Ausgewählten Inhalt nicht mehr auf der Startseite anzeigen"
+
+#: src/Plugin/Action/PromoteNode.php:8
+msgid "Promote selected content to front page"
+msgstr "Ausgewählten Inhalt auf der Startseite anzeigen"
+
+#: src/Plugin/Action/PublishNode.php:8
+msgid "Publish selected content"
+msgstr "Ausgewählten Inhalt veröffentlichen"
+
+#: src/Plugin/Action/SaveNode.php:9
+msgid "Save content"
+msgstr "Inhalt speichern"
+
+#: src/Plugin/Action/StickyNode.php:8
+msgid "Make selected content sticky"
+msgstr "Ausgewählten Inhalt am Anfang von Listen anzeigen"
+
+#: src/Plugin/Action/UnpublishByKeywordNode.php:51
+msgid "The content will be unpublished if it contains any of the phrases above. Use a case-sensitive, comma-separated list of phrases. Example: funny, bungee jumping, \"Company, Inc.\""
+msgstr "Die Veröffentlichung des Inhalts wird zurückgenommen, wenn er die obigen Ausdrücke enthält. Es muss eine durch Kommata getrennte Liste von Ausdrücken unter Berücksichtigung der Groß- und Kleinschreibung verwendet werden. Beispiel: lustig, Bungeespringen, „GmbH&Co. KG“"
+
+#: src/Plugin/Action/UnpublishByKeywordNode.php:10
+msgid "Unpublish content containing keyword(s)"
+msgstr "Die Veröffentlichung von Inhalt mit den Schlüsselwörtern zurücknehmen"
+
+#: src/Plugin/Action/UnpublishNode.php:8
+msgid "Unpublish selected content"
+msgstr "Veröffentlichung des ausgewählten Inhalts zurücknehmen"
+
+#: src/Plugin/Action/UnstickyNode.php:8
+msgid "Make selected content not sticky"
+msgstr "Ausgewählten Inhalt nicht mehr am Anfang von Listen anzeigen"
+
+#: src/Plugin/Block/SyndicateBlock.php:9
+msgid "Syndicate"
+msgstr "Newsfeeds"
+
+#: src/Plugin/Block/SyndicateBlock.php:9
+msgid "System"
+msgstr "System"
+
+#: src/Plugin/Condition/NodeType.php:73
+msgid "Node types"
+msgstr "Inhaltstypen"
+
+#: src/Plugin/Condition/NodeType.php:97
+msgid "The node bundle is @bundles or @last"
+msgstr "Der Inhaltstyp ist @bundles oder @last"
+
+#: src/Plugin/Condition/NodeType.php:100
+msgid "The node bundle is @bundle"
+msgstr "Der Inhaltstyp ist @bundle."
+
+#: src/Plugin/Condition/NodeType.php:11
+msgid "Node Bundle"
+msgstr "Beitrags-Subtyp"
+
+#: src/Plugin/EntityReferenceSelection/NodeSelection.php:8
+msgid "Node selection"
+msgstr "Beitragsauswahl"
+
+#: src/Plugin/Search/NodeSearch.php:316
+msgid "Your search used too many AND/OR expressions. Only the first @count terms were included in this search."
+msgstr "Ihre Suche hat zuviele AND/OR Ausdrücke verwendet. Nur die ersten @count Begriffe wurden in die Suche einbezogen."
+
+#: src/Plugin/Search/NodeSearch.php:320
+msgid "Search for either of the two terms with uppercase <strong>OR</strong>. For example, <strong>cats OR dogs</strong>."
+msgstr "Mit großgeschriebenem <strong>OR</strong> nach einem von beiden Begriffen suchen. Beispielsweise <strong>Katzen OR Hunde</strong>."
+
+#: src/Plugin/Search/NodeSearch.php:564;620
+msgid "Advanced search"
+msgstr "Erweiterte Suche"
+
+#: src/Plugin/Search/NodeSearch.php:581
+msgid "Containing any of the words"
+msgstr "Beinhaltet eines der Wörter"
+
+#: src/Plugin/Search/NodeSearch.php:589
+msgid "Containing the phrase"
+msgstr "Beinhaltet den Satz"
+
+#: src/Plugin/Search/NodeSearch.php:597
+msgid "Containing none of the words"
+msgstr "Beinhaltet keines der Wörter"
+
+#: src/Plugin/Search/NodeSearch.php:607
+msgid "Types"
+msgstr "Typen"
+
+#: src/Plugin/Search/NodeSearch.php:611
+msgid "Only of the type(s)"
+msgstr "Nur vom Typ/von den Typen"
+
+#: src/Plugin/Search/NodeSearch.php:631
+msgid "- @name -"
+msgstr "- @name -"
+
+#: src/Plugin/Search/NodeSearch.php:636;640
+msgid "Languages"
+msgstr "Sprachen"
+
+#: src/Plugin/Search/NodeSearch.php:807
+msgid "Influence is a numeric multiplier used in ordering search results. A higher number means the corresponding factor has more influence on search results; zero means the factor is ignored. Changing these numbers does not require the search index to be rebuilt. Changes take effect immediately."
+msgstr "'Einfluss' ist ein numerischer Multiplikator, der zum Sortieren von Suchergebnissen verwendet wird. Eine größere Zahl bedeutet, dass der entsprechende Faktor mehr Einfluss auf Suchergebnisse hat. null bedeutet, dass der Faktor ignoriert wird. Wenn diese Zahlen geändert werden, muss der Suchindex nicht erneut erstellt werden. Änderungen werden sofort wirksam."
+
+#: src/Plugin/Search/NodeSearch.php:810
+msgid "Factor"
+msgstr "Faktor"
+
+#: src/Plugin/Search/NodeSearch.php:826
+msgid "Influence of '@title'"
+msgstr "Einfluss von ‚@title‘"
+
+#: src/Plugin/Search/NodeSearch.php:324
+msgid "You must include at least one keyword to match in the content, and punctuation is ignored."
+msgid_plural "You must include at least one keyword to match in the content. Keywords must be at least @count characters, and punctuation is ignored."
+msgstr[0] "Es muss mindestens ein Schlüsselwort enthalten sein, das zum Inhalt passt, und Satzzeichen werden ignoriert."
+msgstr[1] "Es muss mindestens ein Schlüsselwort enthalten sein, das zum Inhalt passt. Schlüsselwörter müssen mindestens @count Zeichen lang sein, und Satzzeichen werden ignoriert."
+
+#: src/Plugin/migrate/D6NodeDeriver.php:92 src/Plugin/migrate/D7NodeDeriver.php:92
+msgid "@label (@type)"
+msgstr "@label (@type)"
+
+#: src/Plugin/migrate/source/d6/Node.php:136 src/Plugin/migrate/source/d7/Node.php:150
+msgid "Type"
+msgstr "Typ"
+
+#: src/Plugin/migrate/source/d6/Node.php:139
+msgid "Format"
+msgstr "Format"
+
+#: src/Plugin/migrate/source/d6/Node.php:140 config/install/core.entity_view_mode.node.teaser.yml:0
+msgid "Teaser"
+msgstr "Anrisstext"
+
+#: src/Plugin/migrate/source/d6/Node.php:141 src/Plugin/migrate/source/d7/Node.php:152
+msgid "Node authored by (uid)"
+msgstr "Beitrag erstellt von (uid)"
+
+#: src/Plugin/migrate/source/d6/Node.php:142 src/Plugin/migrate/source/d7/Node.php:153 src/Plugin/migrate/source/d7/NodeEntityTranslation.php:98
+msgid "Revision authored by (uid)"
+msgstr "Revision erstellt von (uid)"
+
+#: src/Plugin/migrate/source/d6/Node.php:143 src/Plugin/migrate/source/d7/Node.php:154
+msgid "Created timestamp"
+msgstr "Erstellungszeitpunkt"
+
+#: src/Plugin/migrate/source/d6/Node.php:144 src/Plugin/migrate/source/d7/Node.php:155
+msgid "Modified timestamp"
+msgstr "Angepasste Zeitangabe"
+
+#: src/Plugin/migrate/source/d6/Node.php:149 src/Plugin/migrate/source/d7/Node.php:160
+msgid "Language (fr, en, ...)"
+msgstr "Sprache (fr, en, ...)"
+
+#: src/Plugin/migrate/source/d6/Node.php:150 src/Plugin/migrate/source/d7/Node.php:161
+msgid "The translation set id for this node"
+msgstr "Die ID des Übersetzungssatzes für diesen Inhalt"
+
+#: src/Plugin/migrate/source/d6/Node.php:151 src/Plugin/migrate/source/d7/Node.php:162 src/Plugin/migrate/source/d7/NodeEntityTranslation.php:97
+msgid "The timestamp the latest revision of this node was created."
+msgstr "Zeitstempel, an dem die neueste Revision dieses Beitrags erstellt wurde."
+
+#: src/Plugin/migrate/source/d6/NodeRevision.php:28 src/Plugin/migrate/source/d7/NodeRevision.php:26
+msgid "The primary identifier for this version."
+msgstr "Die primäre ID dieser Version."
+
+#: src/Plugin/migrate/source/d6/NodeRevision.php:29 src/Plugin/migrate/source/d7/NodeRevision.php:27
+msgid "Revision Log message"
+msgstr "Revisions-Protokollnachricht"
+
+#: src/Plugin/migrate/source/d6/NodeRevision.php:30 src/Plugin/migrate/source/d7/NodeRevision.php:28
+msgid "Revision timestamp"
+msgstr "Datum der Revision"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:67 src/Plugin/migrate/source/d7/NodeType.php:44
+msgid "Machine name of the node type."
+msgstr "Systemname des Inhaltstyps."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:68 src/Plugin/migrate/source/d7/NodeType.php:45
+msgid "Human name of the node type."
+msgstr "Menschenlesbarer Name des Inhaltstyps."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:69
+msgid "The module providing the node type."
+msgstr "Das Modul, das den Inhaltstyp zur Verfügung stellt."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:70 src/Plugin/migrate/source/d7/NodeType.php:46
+msgid "Description of the node type."
+msgstr "Beschreibung des Inhaltstyps."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:71 src/Plugin/migrate/source/d7/NodeType.php:47
+msgid "Help text for the node type."
+msgstr "Hilfetext für den Inhaltstyp."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:72 src/Plugin/migrate/source/d7/NodeType.php:48
+msgid "Title label."
+msgstr "Titelbeschriftung."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:73
+msgid "Flag indicating the node type has a body field."
+msgstr "Ein Kennzeichnung, die angibt, ob der Inhaltstyp ein Textkörperfeld besitzt."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:74
+msgid "Body label."
+msgstr "Textkörperbeschriftung."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:75
+msgid "Minimum word count for the body field."
+msgstr "Mindestanzahl der Wörter im Textkörper."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:76;77;78 src/Plugin/migrate/source/d7/NodeType.php:51;52;53
+msgid "Flag."
+msgstr "Kennzeichnen."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:79 src/Plugin/migrate/source/d7/NodeType.php:54
+msgid "The original type."
+msgstr "Der Originaltyp."
+
+#: src/Plugin/migrate/source/d6/NodeType.php:80 src/Plugin/migrate/source/d7/NodeType.php:55
+msgid "Teaser length"
+msgstr "Anrisstext-Länge"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:96 src/Plugin/migrate/source/d7/NodeType.php:71
+msgid "Default comment setting"
+msgstr "Standard Kommentar-Einstellungen"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:97 src/Plugin/migrate/source/d7/NodeType.php:72
+msgid "Default display mode"
+msgstr "Standard-Anzeigemodus"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:98 src/Plugin/migrate/source/d7/NodeType.php:73
+msgid "Default comments per page"
+msgstr "Anzahl Kommentare pro Seite"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:99 src/Plugin/migrate/source/d7/NodeType.php:74
+msgid "Anonymous commenting"
+msgstr "Gastkommentare"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:100 src/Plugin/migrate/source/d7/NodeType.php:75
+msgid "Comment subject field"
+msgstr "Eingabefeld für den Betreff des Kommentars"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:101 src/Plugin/migrate/source/d7/NodeType.php:76
+msgid "Preview comment"
+msgstr "Vorschau des Kommentars"
+
+#: src/Plugin/migrate/source/d6/NodeType.php:102 src/Plugin/migrate/source/d7/NodeType.php:77
+msgid "Location of comment submission form"
+msgstr "Platzierung des Kommentar-Formulars"
+
+#: src/Plugin/migrate/source/d6/ViewMode.php:56
+msgid "Serialize data with display settings."
+msgstr "Daten mit Anzeigeeinstellungen serialisieren."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:82
+msgid "The entity type this translation relates to"
+msgstr "Der Entitätstyp, auf den sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:83
+msgid "The entity ID this translation relates to"
+msgstr "Die Entitäts-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:84
+msgid "The entity revision ID this translation relates to"
+msgstr "Die Entitätsrevisions-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:85
+msgid "The target language for this translation."
+msgstr "Die Zielsprache für diese Übersetzung."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:86
+msgid "The source language from which this translation was created."
+msgstr "Die Ausgangssprache, auf deren Basis diese Übersetzung erstellt wurde."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:87
+msgid "The author of this translation."
+msgstr "Der Autor dieser Übersetzung."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:88
+msgid "Boolean indicating whether the translation is published (visible to non-administrators)."
+msgstr "Boolescher Wert, der angibt, ob die Übersetzung veröffentlicht ist (sichtbar für Nicht-Administratoren)."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:89
+msgid "A boolean indicating whether this translation needs to be updated."
+msgstr "Ein Boolescher Wert, der angibt, ob die Übersetzung aktualisiert werden muss oder nicht."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:90
+msgid "The Unix timestamp when the translation was created."
+msgstr "Der Zeitpunkt zu dem die Übersetzung erstellt wurde (Unix Zeitstempel)."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:91
+msgid "The Unix timestamp when the translation was most recently saved."
+msgstr "Das Datum der letzten Speicherung der Übersetzung (Unix Zeitstempel)."
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:92
+msgid "Node title"
+msgstr "Beitragtitel"
+
+#: src/Plugin/migrate/source/d7/NodeEntityTranslation.php:96
+msgid "Revision log"
+msgstr "Revisionsprotokoll"
+
+#: src/Plugin/migrate/source/d7/NodeType.php:49
+msgid "Flag indicating the node type is enable"
+msgstr "Eine Kennzeichnung, die anzeigt, dass der Inhaltstyp aktiviert ist."
+
+#: src/Plugin/migrate/source/d7/NodeType.php:50
+msgid "base node."
+msgstr "Basisinhalt."
+
+#: src/Plugin/views/argument/Type.php:72
+msgid "Unknown content type"
+msgstr "Unbekannter Inhaltstyp"
+
+#: src/Plugin/views/argument_default/Node.php:12
+msgid "Content ID from URL"
+msgstr "Beitrags-ID aus der URL"
+
+#: src/Plugin/views/field/Node.php:50
+msgid "Enable to override this field's links."
+msgstr "Aktivieren, um die Verknüpfungen dieses Felds zu überschreiben."
+
+#: src/Plugin/views/field/NodeBulkForm.php:18
+msgid "No content selected."
+msgstr "Kein Inhalt ausgewählt."
+
+#: src/Plugin/views/field/Path.php:54
+msgid "Enable this option to output an absolute link. Required if you want to use the path as a link destination (as in \"output this field as a link\" above)."
+msgstr "Wird diese Option aktiviert, wird ein Link mit absoluter Pfadangabe ausgegeben. Dies ist erforderlich, falls der Pfad als Linkziel (Genau wie bei der Option \"Dieses Feld als Link ausgeben\", die weiter oben zu finden ist.) ausgegeben werden soll."
+
+#: src/Plugin/views/row/Rss.php:69
+msgid "Title only"
+msgstr "Nur Titel"
+
+#: src/Plugin/views/row/Rss.php:70
+msgid "Use site default RSS settings"
+msgstr "Standard RSS-Einstellungen der Site verwenden."
+
+#: src/Plugin/views/row/Rss.php:9
+msgid "Display the content with standard node view."
+msgstr "Den Inhalt mit der Standardbeitragsansicht anzeigen."
+
+#: src/Plugin/views/wizard/Node.php:49
+msgid "teasers"
+msgstr "Anrisstexte"
+
+#: src/Plugin/views/wizard/Node.php:50
+msgid "full posts"
+msgstr "vollständige Beiträge"
+
+#: src/Plugin/views/wizard/Node.php:51
+msgid "titles"
+msgstr "Titel"
+
+#: src/Plugin/views/wizard/Node.php:52
+msgid "titles (linked)"
+msgstr "Titel (verlinkt)"
+
+#: src/Plugin/views/wizard/Node.php:53
+msgid "fields"
+msgstr "Felder"
+
+#: src/Plugin/views/wizard/Node.php:246
+msgid "tagged with"
+msgstr "markiert mit"
+
+#: src/Plugin/views/wizard/NodeRevision.php:12
+msgid "Content revisions"
+msgstr "Inhaltsrevisionen"
+
+#: templates/node-add-list.html.twig:28
+msgid "You have not created any content types yet. Go to the <a href=\"@create_content\">content type creation page</a> to add a new content type."
+msgstr "Es wurden noch keine Inhaltstypen erstellt. Auf der Seite <a href=\"@create_content\">Inhaltstypen</a> können neue Inhaltstypen hinzugefügt werden."
+
+#: templates/node.html.twig:89
+msgid "Submitted by @author_name on @date"
+msgstr "Gespeichert von @author_name am @date"
+
+#: config/install/core.entity_view_mode.node.full.yml:0
+msgid "Full content"
+msgstr "Vollständiger Inhalt"
+
+#: config/install/core.entity_view_mode.node.rss.yml:0
+msgid "RSS"
+msgstr "RSS"
+
+#: config/install/core.entity_view_mode.node.search_index.yml:0
+msgid "Search index"
+msgstr "Suchindex"
+
+#: config/install/core.entity_view_mode.node.search_result.yml:0
+msgid "Search result highlighting input"
+msgstr "Suchbegriff in den Suchergebnissen hervorheben."
+
+#: config/optional/views.view.archive.yml:0
+msgid "Archive"
+msgstr "Archiv"
+
+#: config/optional/views.view.archive.yml:0
+msgid "All content, by month."
+msgstr "Gesamter Inhalt, nach Monaten"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.archive.yml:0
+msgid "Monthly archive"
+msgstr "Monatliches Archiv"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.glossary.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.glossary.yml:0
+msgid "››"
+msgstr "››"
+
+#: config/optional/views.view.archive.yml:0;0
+msgid "{{ arguments.created_year_month }}"
+msgstr "{{ arguments.created_year_month }}"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content_recent.yml:0
+msgid "Block"
+msgstr "Block"
+
+#: config/optional/views.view.archive.yml:0 config/optional/views.view.content.yml:0 config/optional/views.view.frontpage.yml:0 config/optional/views.view.glossary.yml:0
+msgid "Page"
+msgstr "Seite"
+
+#: config/optional/views.view.content.yml:0
+msgid "Find and manage content."
+msgstr "Inhalte finden und verwalten."
+
+#: config/optional/views.view.content.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.frontpage.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.frontpage.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.frontpage.yml:0
+msgid "« First"
+msgstr "« Anfang"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.frontpage.yml:0
+msgid "Last »"
+msgstr "Ende »"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.content.yml:0;0
+msgid "Unpublished"
+msgstr "Nicht veröffentlicht"
+
+#: config/optional/views.view.content.yml:0 config/optional/views.view.content_recent.yml:0
+msgid "No content available."
+msgstr "Kein Inhalt verfügbar."
+
+#: config/optional/views.view.content.yml:0
+msgid "Find and manage content"
+msgstr "Inhalte finden und verwalten"
+
+#: config/optional/views.view.content_recent.yml:0;0
+msgid "Recent content"
+msgstr "Neuester Inhalt"
+
+#: config/optional/views.view.content_recent.yml:0
+msgid "Recent content."
+msgstr "Neuer Inhalt."
+
+#: config/optional/views.view.content_recent.yml:0
+msgid "More"
+msgstr "Zusätzlich"
+
+#: config/optional/views.view.frontpage.yml:0
+msgid "Frontpage"
+msgstr "Startseite"
+
+#: config/optional/views.view.frontpage.yml:0
+msgid "All content promoted to the front page."
+msgstr "Inhalt, der auf der Startseite veröffentlicht ist."
+
+#: config/optional/views.view.frontpage.yml:0
+msgid "No front page content has been created yet.<br/>Follow the <a target=\"_blank\" href=\"https://www.drupal.org/docs/user_guide/en/index.html\">User Guide</a> to start building your site."
+msgstr "Es wurde noch kein Inhalt für die Startseite erstellt.<br>Lesen Sie das <a target=\"_blank\" href=\"https://www.drupal.org/de/docs/user_guide/de/index.html\"> Benutzerhandbuch</a>, um mehr über das Erstellen von Websites mit Drupal zu erfahren."
+
+#: config/optional/views.view.frontpage.yml:0
+msgid "Welcome to [site:name]"
+msgstr "Willkommen bei [site:name]"
+
+#: config/optional/views.view.frontpage.yml:0
+msgid "Feed"
+msgstr "Newsfeed"
+
+#: config/optional/views.view.glossary.yml:0;0
+msgid "Glossary"
+msgstr "Glossar"
+
+#: config/optional/views.view.glossary.yml:0
+msgid "All content, by letter."
+msgstr "Gesamter Inhalt, alphabetisch"
+
+#: config/optional/views.view.glossary.yml:0
+msgid "Last update"
+msgstr "Letzte Aktualisierung"
+
+#: config/optional/views.view.glossary.yml:0
+msgid "Attachment"
+msgstr "Anhang"
+

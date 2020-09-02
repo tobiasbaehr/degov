@@ -1,0 +1,148 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_media_image.post_update.php: n/a
+#  degov_media_image.module: n/a
+#  degov_media_image.info.yml: n/a
+#  templates/media--image--default.html.twig: n/a
+#  templates/media--image--usage.html.twig: n/a
+#  templates/media--image--preview.html.twig: n/a
+#  templates/media--image--preview_wide.html.twig: n/a
+#  templates/media--image--search.html.twig: n/a
+#  config/install/core.entity_view_mode.media.citation_teaser.yml: n/a
+#  config/install/field.field.media.image.field_allow_download.yml: n/a
+#  config/install/field.field.media.image.field_copyright.yml: n/a
+#  config/install/field.field.media.image.field_description.yml: n/a
+#  config/install/field.field.media.image.field_image_caption.yml: n/a
+#  config/install/field.field.media.image.field_image_height.yml: n/a
+#  config/install/field.field.media.image.field_image_mime.yml: n/a
+#  config/install/field.field.media.image.field_image_width.yml: n/a
+#  config/install/field.field.media.image.field_include_search.yml: n/a
+#  config/install/field.field.media.image.field_royalty_free.yml: n/a
+#  config/install/field.field.media.image.field_media_publish_date.yml: n/a
+#  config/install/field.field.media.image.field_subtitle.yml: n/a
+#  config/install/field.field.media.image.field_tags.yml: n/a
+#  config/install/field.field.media.image.field_title.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:58+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_media_image.post_update.php:29
+msgid "@current media @bundle processed."
+msgstr "@current Medien @bundle verarbeitet."
+
+#: degov_media_image.post_update.php:72
+msgid "@current media processed."
+msgstr "@current Medien verarbeitet."
+
+#: degov_media_image.module:136
+msgid "@name field is required."
+msgstr "Das Feld @name ist erforderlich."
+
+#: degov_media_image.info.yml:0
+msgid "deGov - Media image"
+msgstr "deGov - Medium Bild"
+
+#: degov_media_image.info.yml:0
+msgid "This module extends the media type image"
+msgstr "Dieses Modul erweitert den Medientyp Bild"
+
+#: degov_media_image.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: templates/media--image--default.html.twig:32 templates/media--image--usage.html.twig:27
+msgid "&copy;"
+msgstr "&copy;"
+
+#: templates/media--image--preview.html.twig:23 templates/media--image--preview_wide.html.twig:25 templates/media--image--search.html.twig:21
+msgid "Bild"
+msgstr "Bild"
+
+#: templates/media--image--usage.html.twig:38
+msgid "Usage"
+msgstr "Verwendung"
+
+#: config/install/core.entity_view_mode.media.citation_teaser.yml:0
+msgid "Citation Teaser"
+msgstr "Anrisstext Zitat"
+
+#: config/install/field.field.media.image.field_allow_download.yml:0
+msgid "Herunterladen zulassen"
+msgstr "Herunterladen zulassen"
+
+#: config/install/field.field.media.image.field_allow_download.yml:0
+msgid "Erlaubt"
+msgstr "Erlaubt"
+
+#: config/install/field.field.media.image.field_allow_download.yml:0
+msgid "Verboten"
+msgstr "Verboten"
+
+#: config/install/field.field.media.image.field_copyright.yml:0
+msgid "Copyright"
+msgstr "Urheberrecht"
+
+#: config/install/field.field.media.image.field_description.yml:0
+msgid "Beschreibung"
+msgstr "Beschreibung"
+
+#: config/install/field.field.media.image.field_image_caption.yml:0
+msgid "Bildunterschrift"
+msgstr "Bildbeschriftung"
+
+#: config/install/field.field.media.image.field_image_height.yml:0
+msgid "Höhe"
+msgstr "Höhe"
+
+#: config/install/field.field.media.image.field_image_mime.yml:0
+msgid "Mime"
+msgstr "Mime"
+
+#: config/install/field.field.media.image.field_image_width.yml:0
+msgid "Breite"
+msgstr "Breite"
+
+#: config/install/field.field.media.image.field_include_search.yml:0
+msgid "Mediathek"
+msgstr "Mediathek"
+
+#: config/install/field.field.media.image.field_include_search.yml:0 config/install/field.field.media.image.field_royalty_free.yml:0
+msgid "An"
+msgstr "An"
+
+#: config/install/field.field.media.image.field_include_search.yml:0 config/install/field.field.media.image.field_royalty_free.yml:0
+msgid "Aus"
+msgstr "Aus"
+
+#: config/install/field.field.media.image.field_media_publish_date.yml:0
+msgid "Veröffentlichungsdatum"
+msgstr "Veröffentlichungsdatum"
+
+#: config/install/field.field.media.image.field_royalty_free.yml:0
+msgid "Bild ist frei"
+msgstr "Bild ist frei"
+
+#: config/install/field.field.media.image.field_subtitle.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.media.image.field_tags.yml:0
+msgid "Schlagwörter"
+msgstr "Schlagwörter"
+
+#: config/install/field.field.media.image.field_title.yml:0
+msgid "Öffentlicher Titel"
+msgstr "Öffentlicher Titel"

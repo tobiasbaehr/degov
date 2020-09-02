@@ -1,0 +1,804 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  pathauto.tokens.inc: n/a
+#  pathauto.module: n/a
+#  pathauto.install: n/a
+#  pathauto.js: n/a
+#  pathauto.info.yml: n/a
+#  pathauto.links.action.yml: n/a
+#  pathauto.routing.yml: n/a
+#  pathauto.links.task.yml: n/a
+#  pathauto.permissions.yml: n/a
+#  config/schema/pathauto.schema.yml: n/a
+#  src/Form/PathautoSettingsForm.php: n/a
+#  config/optional/system.action.pathauto_update_alias_node.yml: n/a
+#  config/optional/system.action.pathauto_update_alias_user.yml: n/a
+#  config/schema/pathauto_pattern.schema.yml: n/a
+#  src/Form/PatternEditForm.php: n/a
+#  src/PathautoPatternListBuilder.php: n/a
+#  src/AliasCleaner.php: n/a
+#  src/AliasStorageHelper.php: n/a
+#  src/PathautoGenerator.php: n/a
+#  src/PathautoItem.php: n/a
+#  src/PathautoWidget.php: n/a
+#  src/Commands/PathautoCommands.php: n/a
+#  src/Form/PathautoBulkUpdateForm.php: n/a
+#  src/Form/PathautoAdminDelete.php: n/a
+#  src/Entity/PathautoPattern.php: n/a
+#  src/Form/PatternDisableForm.php: n/a
+#  src/Form/PatternEnableForm.php: n/a
+#  src/Plugin/Action/UpdateAction.php: n/a
+#  src/Plugin/Deriver/EntityAliasTypeDeriver.php: n/a
+#  src/Plugin/migrate/source/PathautoPattern.php: n/a
+#  src/Plugin/pathauto/AliasType/Broken.php: n/a
+#  src/Plugin/pathauto/AliasType/EntityAliasTypeBase.php: n/a
+#  src/Plugin/pathauto/AliasType/ForumAliasType.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:42+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: pathauto.tokens.inc:17
+msgid "Joined path"
+msgstr "Verbundener Pfad"
+
+#: pathauto.tokens.inc:18
+msgid "The array values each cleaned by Pathauto and then joined with the slash into a string that resembles an URL."
+msgstr "Die Array-Werte werden jeweils durch Pathauto bereinigt und dann mit einem Schrägstrich verbunden in eine Zeichenkette umgewandelt, die einer URL ähnelt."
+
+#: pathauto.module:49
+msgid "About"
+msgstr "Über"
+
+#: pathauto.module:50
+msgid "The Pathauto module provides a mechanism to automate the creation of <a href=\"path\">path</a> aliases. This makes URLs more readable and helps search engines index content more effectively.  For more information, see the <a href=\":online\">online documentation for Pathauto</a>."
+msgstr "Das Pathauto-Modul bietet einen Mechanismus zum Automatisieren der Erstellung von <a href=\"path\"> Aliasnamen für Pfade</a>. Dies macht URLs lesbarer und hilft Suchmaschinen, Inhalte effektiver zu indexieren. Weitere Informationen sind in der <a href=\":online\"> Online-Dokumentation für Pathauto</a> verfügbar."
+
+#: pathauto.module:52
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: pathauto.module:53
+msgid "Pathauto is accessed from the tabs it adds to the list of <a href=\":aliases\">URL aliases</a>."
+msgstr "Auf Pathauto wird über die Reiter zugegriffen Pathouto fügt URL-Aliase zur <a href=\":aliases\">Liste der URL-Aliase</a> hinzu."
+
+#: pathauto.module:54
+msgid "Creating Pathauto Patterns"
+msgstr "Pathauto-Muster erstellen"
+
+#: pathauto.module:55
+msgid "The <a href=\":pathauto_pattern\">\"Patterns\"</a> page is used to configure automatic path aliasing.  New patterns are created here using the <a href=\":add_form\">Add Pathauto pattern</a> button which presents a form to simplify pattern creation thru the use of <a href=\"token\">available tokens</a>. The patterns page provides a list of all patterns on the site and allows you to edit and reorder them. An alias is generated for the first pattern that applies."
+msgstr "Auf der Seite <a href=\":pathauto_pattern\"> „Muster“</a> kann das automatische Erstellen von Pfaden konfiguriert werden. Hier werden neue Muster über den Button <a href=\":add_form\"> Muster hinzufügen </a> erstellt. Im Formular zum Hinzufügen von Pfad-Alias-Mustern können zur Vereinfachung die <a href=\"token\">auf der Website verfügbaren Token</a> verwendet werden . Die Seite Muster enthält eine Liste aller Muster auf der Website und ermöglicht das Bearbeiten von Mustern und das Ändern ihrer Reihenfolge. Für das erste zutreffende Muster, innerhalb der Reihenfolge, wird ein Alias erzeugt."
+
+#: pathauto.module:56
+msgid "Pathauto Settings"
+msgstr "Pathauto-Einstellungen"
+
+#: pathauto.module:57
+msgid "The <a href=\":settings\">\"Settings\"</a> page is used to customize global Pathauto settings for automated pattern creation."
+msgstr "Auf der Seite <a href=\":settings\">„Einstellungen“</a> können die globalen Pathauto-Einstellungen für die automatische Erzeugung von URL-Aliassen angepasst werden."
+
+#: pathauto.module:58
+msgid "The <strong>maximum alias length</strong> and <strong>maximum component length</strong> values default to 100 and have a limit of @max from Pathauto. You should enter a value that is the length of the \"alias\" column of the url_alias database table minus the length of any strings that might get added to the end of the URL. The recommended and default value is 100."
+msgstr "Die Werte <strong>maximale Aliaslänge</strong> und <strong>maximale Aliaskomponentenlänge</strong> sind standardmäßig auf 100 festgelegt und haben eine Maximallänge von @max. Es sollte ein Wert eingeben werden, der der Länge der Spalte „Alias“ der Datenbanktabelle url_alias abzüglich der Länge aller Zeichenfolgen, die am Ende der URL hinzugefügt werden, entspricht. Der empfohlene Standardwert ist 100."
+
+#: pathauto.module:59
+msgid "Bulk Generation"
+msgstr "Massenerzeugung"
+
+#: pathauto.module:60
+msgid "The <a href=\":pathauto_bulk\">\"Bulk Generate\"</a> page allows you to create URL aliases for items that currently have no aliases. This is typically used when installing Pathauto on a site that has existing un-aliased content that needs to be aliased in bulk."
+msgstr "Die Seite <a href=\":pathauto_bulk\">„Massenerzeugung“</a> ermöglicht Ihnen, URL-Aliasse für Elemente zu erzeugen, die aktuell kein Alias haben. Dies wird normalerweise verwendet, wenn Pathauto auf einer Website installiert wird, deren Inhalte noch keine Aliasse besitzen und Aliasse für eine Vielzahl von Beiträgen erstellt werden sollen."
+
+#: pathauto.module:61
+msgid "Delete Aliases"
+msgstr "Aliasse löschen"
+
+#: pathauto.module:62
+msgid "The <a href=\":pathauto_delete\">\"Delete Aliases\"</a> page allows you to remove URL aliases from items that have previously been assigned aliases using pathauto."
+msgstr "Auf der Seite <a href=\":pathauto_delete\">Aliasse löschen</a> können vorhandene URL-Aliasse von Einträgen entfernt werden."
+
+#: pathauto.module:67
+msgid "This page provides a list of all patterns on the site and allows you to edit and reorder them."
+msgstr "Diese Seite zeigt eine Liste aller Muster der Website und ermöglicht, diese zu bearbeiten und umzusortieren."
+
+#: pathauto.module:71
+msgid "You need to select a pattern type, then a pattern and filter, and a label. Additional types can be enabled on the <a href=\":settings\">Settings</a> page."
+msgstr "Sie müssen eine Musterart, dann ein Muster und einen Filter und anschließend eine Beschriftung auswählen.  Zusätzliche Arten können auf der Seite <a href=\":settings\">Einstellungen</a> aktiviert werden."
+
+#: pathauto.module:75
+msgid "Bulk generation can be used to generate URL aliases for items that currently have no aliases. This is typically used when installing Pathauto on a site that has existing un-aliased content that needs to be aliased in bulk."
+msgstr "Massenerzeugung kann verwendet werden, um URL-Aliasse für Elemente zu erzeugen, die aktuell keine Aliasse haben. Dies wird normalerweise verwendet, wenn Pathauto auf einer Website installiert wird, deren Inhalte noch keine Aliasse besitzen und Aliasse für eine Vielzahl von Beiträgen erstellt werden sollen."
+
+#: pathauto.module:76
+msgid "It can also be used to regenerate URL aliases for items that have an old alias and for which the Pathauto pattern has been changed."
+msgstr "Sie kann auch verwendet werden, um URL-Aliasse für Elemente neu zu erzeugen, die ein altes URL-Alias haben und für die sich das Pathauto-Muster geändert hat."
+
+#: pathauto.module:77
+msgid "Note that this will only affect items which are configured to have their URL alias automatically set. Items whose URL alias is manually set are not affected."
+msgstr "Hinweis: Dies betrifft nur Elemente, deren URL-Aliasse automatisch erstellt werden. Elemente, deren URL-Aliasse manuell festgelegt werden, sind nicht betroffen."
+
+#: pathauto.module:132
+msgid "URL alias"
+msgstr "URL-Alias"
+
+#: pathauto.module:164
+msgid "The %element-title is using the following invalid characters: @invalid-characters."
+msgstr "%element-title verwendet folgende ungültige Zeichen: @invalid-characters."
+
+#: pathauto.module:168
+msgid "The %element-title doesn't allow the patterns ending with whitespace."
+msgstr "%element-title erlaubt keine Pfadangaben, die mit einem Leerzeichen enden."
+
+#: pathauto.install:99
+msgid "Entity of type @type was not processed. It defines the following patterns: @patterns"
+msgstr "Die Entität vom Typ @type wurde nicht verarbeitet. Sie definiert die folgenden Muster: @patterns"
+
+#: pathauto.install:163
+msgid "Unrecognized entity bundle @entity:@bundle was not processed. It defines the following patterns: @patterns"
+msgstr "Nicht erkannter Entitäts-Subtyp @entity:@bundle wurde nicht verarbeitet. Dieser Subtyp definiert die folgenden Muster: @patterns"
+
+#: pathauto.js:0
+msgid "Automatic alias"
+msgstr "Automatisches Alias"
+
+#: pathauto.js:0
+msgid "Alias: @alias"
+msgstr "Alias: @alias"
+
+#: pathauto.js:0
+msgid "No alias"
+msgstr "Kein Alias"
+
+#: pathauto.info.yml:0
+msgid "Pathauto"
+msgstr "Pathauto"
+
+#: pathauto.info.yml:0
+msgid "Provides a mechanism for modules to automatically generate aliases for the content they manage."
+msgstr "Stellt einen Mechanismus für Module zu Verfügung, um automatisch Aliase für von diesen verwalteten Inhalte zu erstellen."
+
+#: pathauto.links.action.yml:0 pathauto.routing.yml:0
+msgid "Add Pathauto pattern"
+msgstr "Pathauto-Muster hinzufügen"
+
+#: pathauto.links.task.yml:0 pathauto.routing.yml:0
+msgid "Patterns"
+msgstr "Muster"
+
+#: pathauto.links.task.yml:0 pathauto.routing.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: pathauto.links.task.yml:0 pathauto.routing.yml:0
+msgid "Bulk generate"
+msgstr "Massenerzeugung"
+
+#: pathauto.links.task.yml:0 pathauto.routing.yml:0
+msgid "Delete aliases"
+msgstr "Aliase löschen"
+
+#: pathauto.permissions.yml:0
+msgid "Administer pathauto"
+msgstr "Pathauto verwalten"
+
+#: pathauto.permissions.yml:0
+msgid "Allows a user to configure patterns for automated aliases and bulk delete URL-aliases."
+msgstr "Erlaubt einem Benutzer, Muster für automatisierte Aliase zu konfigurieren und URL-Aliase massenhaft zu löschen."
+
+#: pathauto.permissions.yml:0
+msgid "Notify of Path Changes"
+msgstr "Benachrichtigen bei Pfadänderungen"
+
+#: pathauto.permissions.yml:0
+msgid "Determines whether or not users are notified."
+msgstr "Legt fest, ob Benutzer benachrichtigt werden oder nicht."
+
+#: pathauto.routing.yml:0
+msgid "Duplicate Pathauto pattern"
+msgstr "Pfadmuster duplizieren"
+
+#: config/schema/pathauto.schema.yml:0 src/Form/PathautoSettingsForm.php:133
+msgid "Enabled entity types"
+msgstr "Aktivierte Entitätstypen"
+
+#: config/schema/pathauto.schema.yml:0
+msgid "Tokens that are safe to use and do not need to be cleaned."
+msgstr "Token, deren Verwendung sicher ist und für die keine Bereinigung durchgeführt werden muss."
+
+#: config/schema/pathauto.schema.yml:0 config/optional/system.action.pathauto_update_alias_node.yml:0 config/optional/system.action.pathauto_update_alias_user.yml:0
+msgid "Update URL alias"
+msgstr "URL-Alias aktualisieren"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Pathauto pattern config"
+msgstr "Pathauto-Musterkonfiguration"
+
+#: config/schema/pathauto_pattern.schema.yml:0 src/Form/PatternEditForm.php:192
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/pathauto_pattern.schema.yml:0 src/PathautoPatternListBuilder.php:31 src/Form/PatternEditForm.php:93
+msgid "Pattern type"
+msgstr "Art des Musters"
+
+#: config/schema/pathauto_pattern.schema.yml:0 src/PathautoPatternListBuilder.php:30
+msgid "Pattern"
+msgstr "Muster"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Selection criteria"
+msgstr "Auswahlkriterien"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Selection condition"
+msgstr "Auswahlbedingung"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Selection logic"
+msgstr "Auswahllogik"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Context definitions"
+msgstr "Kontextdefinitionen"
+
+#: config/schema/pathauto_pattern.schema.yml:0
+msgid "Relationship"
+msgstr "Beziehung"
+
+#: src/AliasCleaner.php:291
+msgid "Double quotation marks"
+msgstr "Doppelte Anführungszeichen"
+
+#: src/AliasCleaner.php:292
+msgid "Single quotation marks (apostrophe)"
+msgstr "Einfache Anführungszeichen (Apostroph)"
+
+#: src/AliasCleaner.php:293
+msgid "Back tick"
+msgstr "Accent Grave (Schwerer-Akzent)"
+
+#: src/AliasCleaner.php:294
+msgid "Comma"
+msgstr "Komma"
+
+#: src/AliasCleaner.php:295
+msgid "Period"
+msgstr "Periode"
+
+#: src/AliasCleaner.php:296
+msgid "Hyphen"
+msgstr "Bindestrich"
+
+#: src/AliasCleaner.php:297
+msgid "Underscore"
+msgstr "Unterstrich"
+
+#: src/AliasCleaner.php:298
+msgid "Colon"
+msgstr "Doppelpunkt"
+
+#: src/AliasCleaner.php:299
+msgid "Semicolon"
+msgstr "Strichpunkt"
+
+#: src/AliasCleaner.php:300
+msgid "Vertical bar (pipe)"
+msgstr "Vertikaler Strich (pipe)"
+
+#: src/AliasCleaner.php:301
+msgid "Left curly bracket"
+msgstr "Linke geschweifte Klammer"
+
+#: src/AliasCleaner.php:302
+msgid "Left square bracket"
+msgstr "Linke eckige Klammer"
+
+#: src/AliasCleaner.php:303
+msgid "Right curly bracket"
+msgstr "Rechte geschweifte Klammer"
+
+#: src/AliasCleaner.php:304
+msgid "Right square bracket"
+msgstr "Rechte eckige Klammer"
+
+#: src/AliasCleaner.php:305
+msgid "Plus sign"
+msgstr "Pluszeichen"
+
+#: src/AliasCleaner.php:306
+msgid "Equal sign"
+msgstr "Gleichheitszeichen"
+
+#: src/AliasCleaner.php:307
+msgid "Asterisk"
+msgstr "Sternchen"
+
+#: src/AliasCleaner.php:308
+msgid "Ampersand"
+msgstr "kaufm. Und"
+
+#: src/AliasCleaner.php:309
+msgid "Percent sign"
+msgstr "Prozentzeichen"
+
+#: src/AliasCleaner.php:310
+msgid "Caret"
+msgstr "Zirkumflex-Akzent"
+
+#: src/AliasCleaner.php:311
+msgid "Dollar sign"
+msgstr "Dollarzeichen"
+
+#: src/AliasCleaner.php:312
+msgid "Number sign (pound sign, hash)"
+msgstr "Rautezeichen (Nummernzeichen)"
+
+#: src/AliasCleaner.php:313
+msgid "At sign"
+msgstr "Klammeraffe"
+
+#: src/AliasCleaner.php:314
+msgid "Exclamation mark"
+msgstr "Ausrufezeichen"
+
+#: src/AliasCleaner.php:315
+msgid "Tilde"
+msgstr "Tilde"
+
+#: src/AliasCleaner.php:316
+msgid "Left parenthesis"
+msgstr "Öffnende Klammer"
+
+#: src/AliasCleaner.php:317
+msgid "Right parenthesis"
+msgstr "Schließende Klammer"
+
+#: src/AliasCleaner.php:318
+msgid "Question mark"
+msgstr "Fragezeichen"
+
+#: src/AliasCleaner.php:319
+msgid "Less-than sign"
+msgstr "Kleinerzeichen"
+
+#: src/AliasCleaner.php:320
+msgid "Greater-than sign"
+msgstr "Größerzeichen"
+
+#: src/AliasCleaner.php:321
+msgid "Slash"
+msgstr "Schrägstrich"
+
+#: src/AliasCleaner.php:322
+msgid "Backslash"
+msgstr "Umgekehrter Schrägstrich"
+
+#: src/AliasStorageHelper.php:93
+msgid "Ignoring alias %alias because it is the same as the internal path."
+msgstr "Alias %alias wird ignoriert, da dieser Pfad bereits intern verwendet wird."
+
+#: src/AliasStorageHelper.php:128
+msgid "Created new alias %alias for %source, replacing %old_alias."
+msgstr "Neuer Alias %alias für %source ersetzt %old_alias."
+
+#: src/AliasStorageHelper.php:139
+msgid "Created new alias %alias for %source."
+msgstr "Neuer Alias %alias für %source erstellt."
+
+#: src/PathautoGenerator.php:255
+msgid "The automatically generated alias %original_alias conflicted with an existing alias. Alias changed to %alias."
+msgstr "Der automatisch erzeugte Alias  %original_alias kollidiert mit einem bestehenden, der Alias wurde geändert auf  %alias."
+
+#: src/PathautoItem.php:20
+msgid "Pathauto state"
+msgstr "Pathauto-Status"
+
+#: src/PathautoItem.php:21
+msgid "Whether an automated alias should be created or not."
+msgstr "Ob ein automatisches Alias erstellt werden soll oder nicht."
+
+#: src/PathautoPatternListBuilder.php:29 src/Form/PatternEditForm.php:183
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/PathautoPatternListBuilder.php:32
+msgid "Conditions"
+msgstr "Bedingungen"
+
+#: src/PathautoPatternListBuilder.php:63
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: src/PathautoWidget.php:52
+msgid "Uncheck this to create a custom alias below. <a href=\"@admin_link\">Configure URL alias patterns.</a>"
+msgstr "Deaktivieren, um ein benutzerdefiniertes Alias zu erstellen. <a href=\"@admin_link\">URL-Alias-Muster konfigurieren.</a>"
+
+#: src/PathautoWidget.php:55
+msgid "Uncheck this to create a custom alias below."
+msgstr "Deaktivieren, um eine benutzerdefinierte URL einzugeben."
+
+#: src/PathautoWidget.php:60
+msgid "Generate automatic URL alias"
+msgstr "Automatischen URL-Alias erzeugen"
+
+#: src/Commands/PathautoCommands.php:91 src/Form/PathautoBulkUpdateForm.php:125
+msgid "Bulk updating URL aliases"
+msgstr "Massen-Aktualisierung der URL-Aliase"
+
+#: src/Commands/PathautoCommands.php:142 src/Form/PathautoAdminDelete.php:127
+msgid "Bulk deleting URL aliases"
+msgstr "Massenlöschung von URL-Aliasen"
+
+#: src/Commands/PathautoCommands.php:156 src/Form/PathautoAdminDelete.php:147
+msgid "All of your path aliases have been deleted."
+msgstr "Alle Pfad-Aliase wurden gelöscht."
+
+#: src/Commands/PathautoCommands.php:163 src/Form/PathautoAdminDelete.php:153
+msgid "All of your %label path aliases have been deleted."
+msgstr "Alle Pfad-Aliasse %label wurden gelöscht."
+
+#: src/Commands/PathautoCommands.php:178
+msgid "Choose the action to perform."
+msgstr "Auszuführende Aktion auswählen."
+
+#: src/Commands/PathautoCommands.php:189
+msgid "Choose the alias type(s). Separate multiple choices with commas, e.g. \"1,2,4\", or choose \"0\" for all types."
+msgstr "Auswählen des Aliastyps/der Aliastypen. Mehrfachauswahlen durch Kommazeichn trennen. Z. B. \"1,2,4\", oder wählen Sie „0\" um alle Typen auszuwählen."
+
+#: src/Commands/PathautoCommands.php:208
+msgid "Invalid action argument \"@invalid_action\". Please use one of: @valid_actions"
+msgstr "Ungültiges Aktionsargument @invalid_action\". Bitte verwenden Sie eines der folgenden Gültigen Argumente: @valid_actions"
+
+#: src/Commands/PathautoCommands.php:242
+msgid "Invalid type argument \"@invalid_types\". Please choose from the following: @valid_types"
+msgstr "Ungültiges Typargument „@invalid_types\". Bitte wählen Sie eines der folgenden Argumente aus: @valid_types"
+
+#: src/Commands/PathautoCommands.php:263
+msgid "Generate a URL alias for un-aliased paths only."
+msgstr "Nur URL-Aliase für Pfade ohne Alias erzeugen."
+
+#: src/Commands/PathautoCommands.php:270
+msgid "Update the URL alias for paths having an old URL alias."
+msgstr "Aliase für Pfadangaben mit alten Aliasen aktualisieren."
+
+#: src/Commands/PathautoCommands.php:271
+msgid "Regenerate URL aliases for all paths."
+msgstr "URL-Aliase für alle Pfade neu generieren."
+
+#: src/Entity/PathautoPattern.php:14
+msgid "Pathauto pattern"
+msgstr "Pathauto-Muster"
+
+#: src/Form/PathautoAdminDelete.php:66
+msgid "Choose aliases to delete"
+msgstr "Zu löschende Aliasse auswählen"
+
+#: src/Form/PathautoAdminDelete.php:74
+msgid "All aliases"
+msgstr "Alle Aliase"
+
+#: src/Form/PathautoAdminDelete.php:76
+msgid "Delete all aliases. Number of aliases which will be deleted: %count."
+msgstr "Alle Aliasse löschen. Die Anzahl der zu löschenden Aliase beträgt: %count."
+
+#: src/Form/PathautoAdminDelete.php:90
+msgid "Delete aliases for all @label. Number of aliases which will be deleted: %count."
+msgstr "Alle Aliasse für @label löschen. Die Anzahl der zu löschenden Aliasse beträgt: %count."
+
+#: src/Form/PathautoAdminDelete.php:96
+msgid "Delete options"
+msgstr "Optionen löschen"
+
+#: src/Form/PathautoAdminDelete.php:103
+msgid "Only delete automatically generated aliases"
+msgstr "Nur automatisch erstellte Aliase löschen"
+
+#: src/Form/PathautoAdminDelete.php:105
+msgid "When checked, aliases which have been manually set are not affected by this mass-deletion."
+msgstr "Wird dieses Kontrollkästchen ausgewählt, werden Aliase, die Manuell eingegeben wurden nicht bei der Massenlöschungen von Aliasen berücksichtigt."
+
+#: src/Form/PathautoAdminDelete.php:109
+msgid "<strong>Note:</strong> there is no confirmation. Be sure of your action before clicking the \"Delete aliases now!\" button.<br />You may want to make a backup of the database and/or the url_alias table prior to using this feature."
+msgstr "<strong>HINWEIS:</strong> Es erfolgt keine Bestätigungsabfrage nach dem Klicken auf „Aliase jetzt löschen!“.<br>Daher sollte sicherheitshalber ein Backup der Datenbank und/oder nur der url_alias Tabelle vor dem Löschen durchgeführt werden."
+
+#: src/Form/PathautoAdminDelete.php:112
+msgid "Delete aliases now!"
+msgstr "Aliase jetzt löschen!"
+
+#: src/Form/PathautoAdminDelete.php:182
+msgid "All of your automatically generated path aliases have been deleted."
+msgstr "Alle automatisch erstellten Aliase wurden gelöscht."
+
+#: src/Form/PathautoAdminDelete.php:187
+msgid "All of your automatically generated %label path aliases have been deleted."
+msgstr "Alle automatisch erstellten Aliase vom typ %label wurden gelöscht."
+
+#: src/Form/PathautoAdminDelete.php:196 src/Form/PathautoBulkUpdateForm.php:178
+msgid "An error occurred while processing @operation with arguments : @args"
+msgstr "﻿Während der Verarbeitung von @operation ist ein Fehler aufgetreten mit den Argumenten: @args"
+
+#: src/Form/PathautoBulkUpdateForm.php:77
+msgid "Select the types of paths for which to generate URL aliases"
+msgstr "Die Arten von Aliasen auswählen, für die URL-Aliase generiert werden sollen."
+
+#: src/Form/PathautoBulkUpdateForm.php:93
+msgid "Select which URL aliases to generate"
+msgstr "Auswählen, welche Pfadaliase generiert werden sollen."
+
+#: src/Form/PathautoBulkUpdateForm.php:94
+msgid "Generate a URL alias for un-aliased paths only"
+msgstr "Einen URL-Alias für Pfadangaben ohne Alias erstellen."
+
+#: src/Form/PathautoBulkUpdateForm.php:103
+msgid "<a href=\":url\">Pathauto settings</a> are set to ignore paths which already have a URL alias. You can only create URL aliases for paths having none."
+msgstr "Die <a href=\":url\">Pathauto-Einstellungen</a> sind so konfiguriert, dass Pfade, für die bereits ein Alias existiert ignoriert werden. Es können nur URL-Aliase für Seite erstellt werden, die noch keine URL-Aliase besitzen."
+
+#: src/Form/PathautoBulkUpdateForm.php:107
+msgid "Update the URL alias for paths having an old URL alias"
+msgstr "URL-Aliase für Pfade, die bereits einen alten Alias besitzen, aktualisieren."
+
+#: src/Form/PathautoBulkUpdateForm.php:108
+msgid "Regenerate URL aliases for all paths"
+msgstr "URL-Aliase für alle Pfade erneut erzeugen"
+
+#: src/Form/PathautoBulkUpdateForm.php:114
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: src/Form/PathautoBulkUpdateForm.php:172
+msgid "No new URL aliases to generate."
+msgstr "Keine neue URL-Aliase zu generieren."
+
+#: src/Form/PathautoBulkUpdateForm.php:168
+msgid "Generated 1 URL alias."
+msgid_plural "Generated @count URL aliases."
+msgstr[0] "Ein URL-Alias erzeugt."
+msgstr[1] "@count URL-Aliase erzeugt."
+
+#: src/Form/PathautoSettingsForm.php:134
+msgid "Enable to add a path field and allow to define alias patterns for the given type. Disabled types already define a path field themselves or currently have a pattern."
+msgstr "Aktivieren um ein Pfad-Feld hinzuzufügen mit dem Aliasmuster für den angegebenen Typ festgelegt werden kann. Deaktivierte Typen dinieren bereits selbst ein Pfad-Feld oder haben bereits ein Pfadmuster."
+
+#: src/Form/PathautoSettingsForm.php:160
+msgid "Verbose"
+msgstr "Ausführlich"
+
+#: src/Form/PathautoSettingsForm.php:162
+msgid "Display alias changes (except during bulk updates)."
+msgstr "Zeige Alias-Änderungen (außer bei Massenänderungen)."
+
+#: src/Form/PathautoSettingsForm.php:167
+msgid "Separator"
+msgstr "Trennzeichen"
+
+#: src/Form/PathautoSettingsForm.php:171
+msgid "Character used to separate words in titles. This will replace any spaces and punctuation characters. Using a space or + character can cause unexpected results."
+msgstr "Zeichen zum Trennen von Wörtern in Titeln. Alle Leer- und Satzzeichen werden durch dieses Zeichen ersetzt. Die Verwendung eines Leerzeichens oder „+“-Zeichens kann zu unerwarteten Ergebnissen führen."
+
+#: src/Form/PathautoSettingsForm.php:176
+msgid "Character case"
+msgstr "Groß-/Kleinschreibung"
+
+#: src/Form/PathautoSettingsForm.php:178
+msgid "Convert token values to lowercase."
+msgstr "Token-Werte in Kleinbuchstaben konvertieren."
+
+#: src/Form/PathautoSettingsForm.php:185
+msgid "See <a href=\":pathauto-help\">Pathauto help</a> for details."
+msgstr "Weitere Informationen sind in der<a href=\":pathauto-help\">Hilfe zu Pathauto</a> verfügbar."
+
+#: src/Form/PathautoSettingsForm.php:190
+msgid "Maximum alias length"
+msgstr "Maximallänge eines Aliases"
+
+#: src/Form/PathautoSettingsForm.php:196
+msgid "Maximum length of aliases to generate. 100 is the recommended length. @max is the maximum possible length."
+msgstr "Maximallänge der zu generierenden Aliasse. 100 ist die empfohlene Länge. @max ist die maximal mögliche Länge."
+
+#: src/Form/PathautoSettingsForm.php:201
+msgid "Maximum component length"
+msgstr "Maximallänge einer Komponente"
+
+#: src/Form/PathautoSettingsForm.php:207
+msgid "Maximum text length of any component in the alias (e.g., [title]). 100 is the recommended length. @max is the maximum possible length."
+msgstr "Maximale Textlänge eines Bestandteils des Alias (z. B. [title]). 100 ist die empfohlene Länge. @max ist die maximal mögliche Länge."
+
+#: src/Form/PathautoSettingsForm.php:210
+msgid "What should Pathauto do when updating an existing content item which already has an alias?"
+msgstr "Was soll Pathauto beim Aktualisieren von vorhandenen Inhalten machen, die schon einen Alias haben?"
+
+#: src/Form/PathautoSettingsForm.php:212
+msgid "The <a href=\":url\">Redirect module settings</a> affect whether a redirect is created when an alias is deleted."
+msgstr "Die <a href=\":url\">Einstellungen des Redirect-Moduls</a> beeinflussen, ob eine Weiterleitung erstellt wird, wenn ein Alias gelöscht wird."
+
+#: src/Form/PathautoSettingsForm.php:215
+msgid "Considering installing the <a href=\":url\">Redirect module</a> to get redirects when your aliases change."
+msgstr "Die Installation des <a href=\":url\">Redirect-Moduls</a> ermöglicht die automatische Einrichtung von von Weiterleitungen, wenn sich die Aliasse der Website ändern."
+
+#: src/Form/PathautoSettingsForm.php:220
+msgid "Update action"
+msgstr "Aktion beim Aktualisieren"
+
+#: src/Form/PathautoSettingsForm.php:223
+msgid "Do nothing. Leave the old alias intact."
+msgstr "Nichts machen und den alten Alias beibehalten."
+
+#: src/Form/PathautoSettingsForm.php:224
+msgid "Create a new alias. Leave the existing alias functioning."
+msgstr "Einen neuen Alias erstellen. Den vorhandenen Alias erhalten."
+
+#: src/Form/PathautoSettingsForm.php:225
+msgid "Create a new alias. Delete the old alias."
+msgstr "Einen neuen Alias erstellen. Den alten Alias löschen."
+
+#: src/Form/PathautoSettingsForm.php:232
+msgid "Transliterate prior to creating alias"
+msgstr "Umcodieren, bevor der Alias erstellt wird"
+
+#: src/Form/PathautoSettingsForm.php:234
+msgid "When a pattern includes certain characters (such as those with accents) should Pathauto attempt to transliterate them into the US-ASCII alphabet?"
+msgstr "Wenn ein Muster bestimmte Zeichen enthält (z. B. solche mit Akzenten), soll Pathauto versuchen, sie in das US-ASCII-Alphabet zu übersetzen?"
+
+#: src/Form/PathautoSettingsForm.php:239
+msgid "Reduce strings to letters and numbers"
+msgstr "Zeichenketten auf Buchstaben und Zahlen reduzieren"
+
+#: src/Form/PathautoSettingsForm.php:241
+msgid "Filters the new alias to only letters and numbers found in the ASCII-96 set."
+msgstr "Einschränken der Zeichen auf den ASCII-96 Zeichensatz"
+
+#: src/Form/PathautoSettingsForm.php:246
+msgid "Strings to Remove"
+msgstr "Zu entfernende Zeichenketten"
+
+#: src/Form/PathautoSettingsForm.php:248
+msgid "Words to strip out of the URL alias, separated by commas. Do not use this to remove punctuation."
+msgstr "Wörter, die aus den URL-Aliasen entfernt werden sollen, getrennt mit Kommas. Nicht verwenden, um Zeichensetzung zu entfernen."
+
+#: src/Form/PathautoSettingsForm.php:253
+msgid "Safe tokens"
+msgstr "Sichere Token"
+
+#: src/Form/PathautoSettingsForm.php:255
+msgid "List of tokens that are safe to use in alias patterns and do not need to be cleaned. For example urls, aliases, machine names. Separated with a comma."
+msgstr "Eine Liste der Token, die ohne Bedenken in Mustern für Alias-Pfadangaben verwendet werden können und für die keine Bereinigung durchgeführt werden muss. Dazu gehören URLs, Alias-Pfadangaben oder Systemnamen. Bitte Einträge jeweils mit einem Komma trennen."
+
+#: src/Form/PathautoSettingsForm.php:260
+msgid "Punctuation"
+msgstr "Zeichensetzung"
+
+#: src/Form/PathautoSettingsForm.php:281
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Form/PathautoSettingsForm.php:282
+msgid "Replace by separator"
+msgstr "Mit Seperator ersetzten"
+
+#: src/Form/PathautoSettingsForm.php:283
+msgid "No action (do not replace)"
+msgstr "Keine Aktion (keine Ersetzungen)"
+
+#: src/Form/PatternDisableForm.php:18
+msgid "Are you sure you want to disable the pattern %label?"
+msgstr "Möchten Sie das Muster %label wirklich deaktivieren?"
+
+#: src/Form/PatternDisableForm.php:32
+msgid "Disable"
+msgstr "Deaktivieren"
+
+#: src/Form/PatternDisableForm.php:39
+msgid "Disabled patterns are ignored when generating aliases."
+msgstr "Deaktivierte Muster werden beim Erzeugen von Aliasen ignoriert."
+
+#: src/Form/PatternDisableForm.php:47
+msgid "Disabled pattern %label."
+msgstr "Muster %label deaktiviert."
+
+#: src/Form/PatternEditForm.php:120
+msgid "Path pattern"
+msgstr "Pfadmuster"
+
+#: src/Form/PatternEditForm.php:161
+msgid "Check to which types this pattern should be applied. Leave empty to allow any."
+msgstr "Auswählen für welche Typen dieses Muster angewendet werden soll. Leer lassen für alle."
+
+#: src/Form/PatternEditForm.php:171
+msgid "Languages"
+msgstr "Sprachen"
+
+#: src/Form/PatternEditForm.php:175
+msgid "Check to which languages this pattern should be applied. Leave empty to allow any."
+msgstr "Bitte auswählen, für welche Sprachen dieses Muster angewendet werden soll. Leer lassen für alle."
+
+#: src/Form/PatternEditForm.php:187
+msgid "A short name to help you identify this pattern in the patterns list."
+msgstr "Ein kurzer Name, der Ihnen dabei hilft, dieses Muster in der Musterliste zu identifizieren."
+
+#: src/Form/PatternEditForm.php:203
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/Form/PatternEditForm.php:259
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Form/PatternEditForm.php:276
+msgid "Pattern %label saved."
+msgstr "Muster %label gespeichert."
+
+#: src/Form/PatternEnableForm.php:18
+msgid "Are you sure you want to enable the pattern %label?"
+msgstr "Möchten Sie das Muster %label wirklich aktivieren?"
+
+#: src/Form/PatternEnableForm.php:32
+msgid "Enable"
+msgstr "Aktivieren"
+
+#: src/Form/PatternEnableForm.php:47
+msgid "Enabled pattern %label."
+msgstr "Muster %label aktiviert."
+
+#: src/Plugin/Action/UpdateAction.php:10
+msgid "Update URL alias of an entity"
+msgstr "URL-Alias einer Entität aktualisieren"
+
+#: src/Plugin/Deriver/EntityAliasTypeDeriver.php:90
+msgid "@label being aliased"
+msgstr "@label wurde mit einem Alias versehen."
+
+#: src/Plugin/migrate/source/PathautoPattern.php:77
+msgid "The name of the pattern's variable."
+msgstr "Der Name der Variable der Pfadangabe."
+
+#: src/Plugin/migrate/source/PathautoPattern.php:78
+msgid "The value of the pattern's variable."
+msgstr "Der Name der Variable der Pfadagabe"
+
+#: src/Plugin/pathauto/AliasType/Broken.php:21
+msgid "Broken type"
+msgstr "Defekter Typ"
+
+#: src/Plugin/pathauto/AliasType/Broken.php:5
+msgid "Broken"
+msgstr "Kaputt"
+
+#: src/Plugin/pathauto/AliasType/Broken.php:5
+msgid "Broken/Missing"
+msgstr "Kaputt/Fehlt"
+
+#: src/Plugin/pathauto/AliasType/Broken.php:5
+msgid "AliasType"
+msgstr "Aliastyp"
+
+#: src/Plugin/pathauto/AliasType/EntityAliasTypeBase.php:193
+msgid "Updated alias for %label @id."
+msgstr "Alias für %label @id aktualisiert."
+
+#: src/Plugin/pathauto/AliasType/EntityAliasTypeBase.php:284
+msgid "Updated 1 %label URL alias."
+msgid_plural "Updated @count %label URL aliases."
+msgstr[0] "Ein %label URL-Alias aktualisiert."
+msgstr[1] "@count %label URL-Aliase aktualisiert."
+
+#: src/Plugin/pathauto/AliasType/ForumAliasType.php:14
+msgid "Forum"
+msgstr "Forum"
+

@@ -1,4 +1,4 @@
-langcode: de
+langcode: en
 status: true
 dependencies:
   enforced:
@@ -11,6 +11,6 @@ third_party_settings:
   lightning_core:
     description: ''
 id: media.header_logo_slogan
-label: 'Header Logo oder Slogan'
+label: 'Header logo or slogan'
 targetEntityType: media
 cache: true

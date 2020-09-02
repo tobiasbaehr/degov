@@ -1,0 +1,289 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  open_readspeaker.module: n/a
+#  open_readspeaker.info.yml: n/a
+#  open_readspeaker.links.menu.yml: n/a
+#  open_readspeaker.routing.yml: n/a
+#  open_readspeaker.permissions.yml: n/a
+#  src/Form/OpenReadSpeakerSettingsForm.php: n/a
+#  src/Plugin/Block/OpenReadspeakerBlock.php: n/a
+#  templates/open_readspeaker_ui.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: open_readspeaker.module:40
+msgid "Account ID can not be empty. Please add in Open readspeaker configuration"
+msgstr "Benutzerkonto-ID darf nicht leer sein. Bitte in Open-ReadSpeaker-Konfiguration hinzufügen."
+
+#: open_readspeaker.info.yml:0
+msgid "Open ReadSpeaker"
+msgstr "Open ReadSpeaker"
+
+#: open_readspeaker.info.yml:0
+msgid "Insert ReadSpeaker Enterprise Highlighting to selected node types."
+msgstr "Bei ausgewählten Beitragstypen ReadSpeaker-Enterprise-Highlighting einfügen."
+
+#: open_readspeaker.info.yml:0
+msgid "Content"
+msgstr "Inhalt"
+
+#: open_readspeaker.links.menu.yml:0 open_readspeaker.routing.yml:0
+msgid "Open ReadSpeaker Settings"
+msgstr "Open ReadSpeaker Einstellungen"
+
+#: open_readspeaker.links.menu.yml:0
+msgid "Configure Open ReadSpeaker service"
+msgstr "Open-ReadSpeaker-Dienst konfigurieren"
+
+#: open_readspeaker.permissions.yml:0
+msgid "Administer Open ReadSpeaker"
+msgstr "Open ReadSpeaker verwalten"
+
+#: open_readspeaker.permissions.yml:0
+msgid "Access the Open ReadSpeaker administration pages."
+msgstr "Auf Open ReadSpeaker Verwaltungsseiten zugreifen."
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:38
+msgid "Select a language"
+msgstr "Sprache wählen"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:39
+msgid "@arabic - Arabic"
+msgstr "@arabic - Arabisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:40
+msgid "Català - Catalan"
+msgstr "Català - Katalanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:41
+msgid "Dansk - Danish"
+msgstr "Dansk - Dänish"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:42
+msgid "Deutsch - German"
+msgstr "Deutsch - Deutsch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:43
+msgid "English (Indian) - English"
+msgstr "English (Indian) - Englisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:44
+msgid "English (US) - English"
+msgstr "English (US) - Englisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:45
+msgid "English (British) - English"
+msgstr "English (British) - Englisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:46
+msgid "English (Australia) - English"
+msgstr "English (Australia) - Englisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:47
+msgid "Español (de Colombia) - Spanish"
+msgstr "Español (de Colombia) - Spanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:48
+msgid "Español (de España) - Spanish"
+msgstr "Español (de España) - Spanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:49
+msgid "Español (de Mexico) - Spanish"
+msgstr "Español (de Mexico) - Spanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:50
+msgid "Euskara - Basque"
+msgstr "Euskara - Baskisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:51
+msgid "Español (de US) - Spanish"
+msgstr "Español (de US) - Spanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:52
+msgid "Ελληνικά - Greek"
+msgstr "Ελληνικά - Griechisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:53
+msgid "Azerbaijani - Faroese"
+msgstr "Azerbaijani - Aserbaidschanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:54
+msgid "Suomi - Finnish"
+msgstr "Suomi - Finnisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:55
+msgid "Français - French"
+msgstr "Français - Französisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:56
+msgid "Frysk - Frisian"
+msgstr "Frysk - Friesisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:57
+msgid "Galego - Galician"
+msgstr "Galego - Galizisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:58
+msgid "@hindi - Hindi"
+msgstr "@hindi - Hindi"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:59
+msgid "Italiano - Italian"
+msgstr "Italiano - Italienisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:60
+msgid "íslenska - Icelandic"
+msgstr "íslenska - Isländisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:61
+msgid "日本語 - Japanese"
+msgstr "日本語 - Japanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:62
+msgid "한국어 - Korean"
+msgstr "한국어 - Koreanisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:63
+msgid "Português (Europeu) - Portuguese"
+msgstr "Português (Europeu) - Portugiesisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:64
+msgid "Nederlands - Dutch"
+msgstr "Nederlands - Niederländisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:65
+msgid "Bokmål - Norwegian"
+msgstr "Bokmål - Norwegisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:66
+msgid "Nynorsk - Norwegian"
+msgstr "Nynorsk - Norwegisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:67
+msgid "Русский - Russian"
+msgstr "Русский - Russisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:68
+msgid "Svenska - Swedish"
+msgstr "Svenska - Schwedisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:69
+msgid "@thai - Thai"
+msgstr "@thai - Thai"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:70
+msgid "Türkçe - Turkish"
+msgstr "Türkçe - Türkisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:71
+msgid "@mandarin - Mandarin Chinese"
+msgstr "@mandarin - Mandarin-Chinesisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:72
+msgid "@traditional - Traditional Chinese"
+msgstr "@traditional - Traditionelles Chinesisch"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:76
+msgid "General settings for ReadSpeaker"
+msgstr "Allgemeine Einstellungen für ReadSpeaker"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:77
+msgid "The ReadSpeaker module requires an own account"
+msgstr "Das ReadSpeaker-Modul benötigt ein eigenes Benutzerkonto"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:82
+msgid "Enter your ReadSpeaker ID"
+msgstr "Geben Sie Ihre ReadSpeaker-ID ein"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:83
+msgid "Enter your ReadSpeaker ID from"
+msgstr "Geben Sie Ihre ReadSpeaker-ID ein über"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:90
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:91
+msgid "Select which language your ReadSpeaker account supports."
+msgstr "Wählen Sie aus, welche Sprache Ihr ReadSpeaker-Konto unterstützt."
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:99
+msgid "Enable development mode"
+msgstr "Entwicklungsmodus aktivieren"
+
+#: src/Form/OpenReadSpeakerSettingsForm.php:100
+msgid "Enable dev mode so it can be testable non-public url site."
+msgstr "Entwicklungsmodus aktivieren, damit Ihre Site mit nicht-öffentlicher URL getestet werden kann."
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:60
+msgid "Class of button"
+msgstr "Klasse des Buttons"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:61
+msgid "Write class name of the button. You can add multiple calsses by space."
+msgstr "Klassenname des Buttons eingeben. Sie können mehrere Klassen mit Leerzeichen getrennt eingeben."
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:67
+msgid "Button text"
+msgstr "Button-Text"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:68
+msgid "Please write button text here."
+msgstr "Button-Text bitte hier eingeben."
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:69;136
+msgid "Listen"
+msgstr "Hören"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:74
+msgid "Reading area ID"
+msgstr "ID des Lesebereichs"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:75
+msgid "Specify content using HTML ID attribute."
+msgstr "Inhalt über HTML-ID-Attribut spezifizieren."
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:81
+msgid "Reading area of classes"
+msgstr "Lesebereich von Klassen"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:82
+msgid "Specify content using HTML Class attribute(s). For multiple classes use format: class1,class2,class3"
+msgstr "Inhalt über HTML-Klassenattribut(e) spezifizieren. Bei mehreren Klassen folgendes Format verwenden: class1,class2,class3"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:94
+msgid "You must specify any Html content attribute"
+msgstr "Sie müssen ein HTML-Inhalts-Attribut angeben"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:121
+msgid "Please go to @link and fill the account id."
+msgstr "Bitte nach @link gehen und Konten-ID eintragen."
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:121
+msgid "manage open ReadSpeaker"
+msgstr "Open ReadSpeaker verwalten"
+
+#: src/Plugin/Block/OpenReadspeakerBlock.php:12
+msgid "Open readspeaker block"
+msgstr "Open ReadSpeaker Block"
+
+#: templates/open_readspeaker_ui.html.twig:20
+msgid "Listen to this page using ReadSpeaker"
+msgstr "Diese Seite mit ReadSpeaker anhören"
+
+msgid "Configure Open ReadSpeaker settings."
+msgstr "Open ReakSpeaker Einstellungen konfigurieren"

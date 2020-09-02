@@ -291,7 +291,7 @@ Feature: deGov - Media creation
     Then I should see HTML content matching "Use selected" after a while
     When I press the "Use selected" button
     And I go back to the main window
-    Then I should see the details container titled "Current selections" with entries after a while
+    Then I should see the details container titled "Aktuelle Auswahlen" with entries after a while
     When I scroll to element with id "edit-submit"
     And I press button with label "Save" via translated text
     Then I should not see "ist erforderlich."

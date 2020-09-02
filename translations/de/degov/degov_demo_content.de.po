@@ -1,0 +1,52 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_demo_content.module: n/a
+#  degov_demo_content.info.yml: n/a
+#  src/Command/DegovDemoContentDrushCommands.php: n/a
+#  config/optional/block.block.headertopmenu.yml: n/a
+#  config/optional/block.block.socialmediasettingsblock_2.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:55+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_demo_content.module:24
+msgid "About"
+msgstr "Über"
+
+#: degov_demo_content.module:25 degov_demo_content.info.yml:0
+msgid "Generates a predefined set of media and node entities for a quick demo setup"
+msgstr "Erzeugt einen vordefinierten Satz von Medien- und Beitragsentitäten für einen schnellen Beispielinhalt"
+
+#: degov_demo_content.info.yml:0
+msgid "deGov - Demo Content"
+msgstr "deGov - Demo-Inhalt"
+
+#: degov_demo_content.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: src/Command/DegovDemoContentDrushCommands.php:76
+msgid "Media items & node items & menu items reset & block items."
+msgstr "Medieneinträge und Beitragseinträge und Menüpunkte Reset und Blockeinträge."
+
+#: config/optional/block.block.headertopmenu.yml:0
+msgid "Header Top Menu"
+msgstr "Kopfzeile oberes Menü"
+
+#: config/optional/block.block.socialmediasettingsblock_2.yml:0
+msgid "Social media settings block"
+msgstr "Social Media Einstellungen Block"
+

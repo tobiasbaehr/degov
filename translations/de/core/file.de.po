@@ -1,0 +1,1333 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  file.field.inc: n/a
+#  src/Plugin/Field/FieldType/FileItem.php: n/a
+#  file.views.inc: n/a
+#  file.module: n/a
+#  src/Entity/File.php: n/a
+#  src/Plugin/views/wizard/File.php: n/a
+#  config/optional/views.view.files.yml: n/a
+#  config/schema/file.views.schema.yml: n/a
+#  src/Plugin/migrate/source/d6/File.php: n/a
+#  src/Plugin/migrate/source/d7/File.php: n/a
+#  src/Plugin/Field/FieldFormatter/FileSize.php: n/a
+#  src/FileViewsData.php: n/a
+#  file.install: n/a
+#  file.es6.js: n/a
+#  file.js: n/a
+#  file.info.yml: n/a
+#  src/Plugin/Field/FieldWidget/FileWidget.php: n/a
+#  file.permissions.yml: n/a
+#  config/schema/file.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/FileVideoFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/DescriptionAwareFileFormatterBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/FileExtensionFormatter.php: n/a
+#  src/Plugin/views/field/File.php: n/a
+#  src/Plugin/Field/FieldFormatter/FilemimeFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/FileUriFormatter.php: n/a
+#  src/Plugin/Field/FieldType/FileUriItem.php: n/a
+#  src/Plugin/Validation/Constraint/FileUriUnique.php: n/a
+#  src/Controller/FileWidgetAjaxController.php: n/a
+#  src/Element/ManagedFile.php: n/a
+#  src/Plugin/EntityReferenceSelection/FileSelection.php: n/a
+#  src/Plugin/Field/FieldFormatter/BaseFieldFileFormatterBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/DefaultFileFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/FileAudioFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/GenericFileFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/RSSEnclosureFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/TableFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/UrlPlainFormatter.php: n/a
+#  src/Plugin/Validation/Constraint/FileValidationConstraint.php: n/a
+#  src/Plugin/migrate/source/d6/Upload.php: n/a
+#  src/Plugin/migrate/source/d6/UploadInstance.php: n/a
+#  src/Plugin/rest/resource/FileUploadResource.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:29+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: file.field.inc:30
+msgid "File information"
+msgstr "Dateiinformation"
+
+#: file.field.inc:33 src/Plugin/Field/FieldType/FileItem.php:99
+msgid "Display"
+msgstr "Anzeige"
+
+#: file.field.inc:37
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: file.field.inc:38
+msgid "Operations"
+msgstr "Aktionen"
+
+#: file.field.inc:154
+msgid "Unlimited number of files can be uploaded to this field."
+msgstr "Mit Hilfe dieses Feldes kann eine unbegrenzte Anzahl von Dateien hochgeladen werden."
+
+#: file.field.inc:161
+msgid "@size limit."
+msgstr "@size Limit."
+
+#: file.field.inc:164
+msgid "Allowed types: @extensions."
+msgstr "Erlaubte Dateitypen: @extensions."
+
+#: file.field.inc:171
+msgid "Images must be exactly <strong>@size</strong> pixels."
+msgstr "Bilder müssen exakt <strong>@size</strong> Pixel groß sein."
+
+#: file.field.inc:174
+msgid "Images must be larger than <strong>@min</strong> pixels. Images larger than <strong>@max</strong> pixels will be resized."
+msgstr "Bilder müssen größer als <strong>@min</strong> Pixel sein. Bilder größer als <strong>@max</strong> Pixel werden verkleinert."
+
+#: file.field.inc:177
+msgid "Images must be larger than <strong>@min</strong> pixels."
+msgstr "Bilder müssen größer als <strong>@min</strong> Pixel sein."
+
+#: file.field.inc:180
+msgid "Images larger than <strong>@max</strong> pixels will be resized."
+msgstr "Bilder größer als <strong>@max</strong> Pixel werden verkleinert."
+
+#: file.field.inc:157
+msgid "One file only."
+msgid_plural "Maximum @count files."
+msgstr[0] "Nur eine Datei."
+msgstr[1] "Maximal @count Dateien."
+
+#: file.views.inc:27
+msgid "file from @field_name"
+msgstr "Datei von @field_name"
+
+#: file.views.inc:51
+msgid "@entity using @field"
+msgstr "Entität @entity, die das Feld @field verwendet"
+
+#: file.views.inc:52
+msgid "@field_name"
+msgstr "@field_name"
+
+#: file.views.inc:54
+msgid "Relate each @entity with a @field set to the file."
+msgstr "Verknüpfe jede Entität @entity mit einem Feld @field, welches auf die Datei gesetzt ist."
+
+#: file.module:40
+msgid "About"
+msgstr "Über"
+
+#: file.module:41
+msgid "The File module allows you to create fields that contain files. See the <a href=\":field\">Field module help</a> and the <a href=\":field_ui\">Field UI help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href=\":file_documentation\">online documentation for the File module</a>."
+msgstr "Das File-Modul erlaubt das Erstellen von Feldern, die Dateien enthalten. Weitere Informationen über das Erstellen und Verwalten von Feldern sind in der the <a href=\":field\">Hilfe des Field-Moduls</a> und der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar. Zusätzliche Informationen können in der a href=\":file_documentation\">Online-Dokumentation des File-Modules</a> nachgelesen werden."
+
+#: file.module:42
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: file.module:44
+msgid "Managing and displaying file fields"
+msgstr "Dateifelder verwalten und anzeigen"
+
+#: file.module:45
+msgid "The <em>settings</em> and the <em>display</em> of the file field can be configured separately. See the <a href=\":field_ui\">Field UI help</a> for more information on how to manage fields and their display."
+msgstr "Die Einstellungen und die Darstellung des Dateifeldes können getrennt voneinander konfiguriert werden. Weitere Informationen über das Verwalten und die Darstellung von Feldern sind in der <a href=\":field_ui\">Field-UI-Hilfe</a> verfügbar."
+
+#: file.module:46
+msgid "Allowing file extensions"
+msgstr "Dateinamenerweiterungen erlauben"
+
+#: file.module:47
+msgid "In the field settings, you can define the allowed file extensions (for example <em>pdf docx psd</em>) for the files that will be uploaded with the file field."
+msgstr "In den Feldeinstellungen können die zugelassenen Dateierweiterungen (z. B. <em> pdf. docx, psd</em>) der Dateien, die über dieses Feld hochgeladen werden dürfen festgelgt werden."
+
+#: file.module:48
+msgid "Storing files"
+msgstr "Speichere Dateien"
+
+#: file.module:49
+msgid "Uploaded files can either be stored as <em>public</em> or <em>private</em>, depending on the <a href=\":file-system\">File system settings</a>. For more information, see the <a href=\":system-help\">System module help page</a>."
+msgstr "Hochgeladene Dateien können abhängig von den <a href=\":file-system\">Einstellungen des Dateisystems</a> entweder <em>öffentlich</em> oder <em>privat</em> abgespeichert werden. Weitere Informationen sind auf der <a href=\":system-help\">Hilfeseite des System-Moduls</a> verfügbar."
+
+#: file.module:50
+msgid "Restricting the maximum file size"
+msgstr "Die maximale Dateigröße begrenzen"
+
+#: file.module:51
+msgid "The maximum file size that users can upload is limited by PHP settings of the server, but you can restrict by entering the desired value as the <em>Maximum upload size</em> setting. The maximum file size is automatically displayed to users in the help text of the file field."
+msgstr "Die maximale Größe, einer Datei, die durch einen Benutzer hochbeladen werden kann, wird durch die PHP-Einstellungen des Webservers begrenzt. Soll die Dateigröße auf einen Wert begrenzt werden, der unter der Angabe in den PHP-Einstellungen liegt, kann eine <em>Maximale Größe für Dateiuploads</em> angegeben werden. Die Maximale Dateigröße wird Benutzern automatisch im Hilfetext des Dateifelds angezeigt."
+
+#: file.module:52
+msgid "Displaying files and descriptions"
+msgstr "Dateien und Beschreibungen anzeigen"
+
+#: file.module:53
+msgid "In the field settings, you can allow users to toggle whether individual files are displayed. In the display settings, you can then choose one of the following formats: <ul><li><em>Generic file</em> displays links to the files and adds icons that symbolize the file extensions. If <em>descriptions</em> are enabled and have been submitted, then the description is displayed instead of the file name.</li><li><em>URL to file</em> displays the full path to the file as plain text.</li><li><em>Table of files</em> lists links to the files and the file sizes in a table.</li><li><em>RSS enclosure</em> only displays the first file, and only in a RSS feed, formatted according to the RSS 2.0 syntax for enclosures.</li></ul> A file can still be linked to directly by its URI even if it is not displayed."
+msgstr "In den Feldeinstellungen kann es Benutzern erlaubt werden zu entscheiden, ob Dateien angezeigt werden oder nicht. In den Darstellungseinstellungen kann anschließend eines der folgenden Formate gewählt werden. <ul><li><em>Allgemeine Datei</em> zeigt einen Link zur Datei und ein Symbol an, das den entsprechenden Dateityp symbolisiert. Wenn <em>Beschreibungen</em> erlaubt sind und eine Beschreibung verfasst wurde wird die Beschreibung anstelle des Dateinamens angezeigt.</li><li><em>URL zur Datei</em> zeigt den vollständigen Pfad zur Datei als Klartext an.</li><li><em>Dateitabelle</em> listet Links zu Dateien und die jeweilige Dateigröße in einer Tabelle auf.</li><li><em>In RSS einschließen</em> zeigt jeweils nur die erste Datei in einer Dateiliste an. Die Anzeige der Datei findet nur in einem RSS-Feed statt, das nach der für Anlagen  gültigen Syntax  der  RSS 2.0-Spezifikation formatiert wurde.</li></ul> Es kann auch dann über die entsprechende URL auf eine Datei verlinkt werden, wenn diese nicht angezeigt wird."
+
+#: file.module:167
+msgid "The specified file %file could not be copied because the destination is invalid. More information is available in the system log."
+msgstr "Die angegebene Datei %file konnte nicht kopiert werden, weil das Ziel ungültig ist. Weitere Informationen hierzu sind im Systemprotokoll verfügbar."
+
+#: file.module:247
+msgid "The specified file %file could not be moved because the destination is invalid. More information is available in the system log."
+msgstr "Die angegebene Datei %file konnte nicht verschoben werden, da das Ziel ungültig ist. Weitere Informationen finden Sie in der Systemprotokolldatei."
+
+#: file.module:340
+msgid "The file's name is empty. Please give a name to the file."
+msgstr "Der Name der Datei ist leer. Bitte geben Sie der Datei einen Namen."
+
+#: file.module:343
+msgid "The file's name exceeds the 240 characters limit. Please rename the file and try again."
+msgstr "Der Dateiname ist länger als 240 Zeichen. Bitte benennen Sie die Datei um und versuchen es erneut."
+
+#: file.module:367
+msgid "Only files with the following extensions are allowed: %files-allowed."
+msgstr "Nur Dateien mit folgenden Erweiterungen sind zulässig: %files-allowed."
+
+#: file.module:395
+msgid "The file is %filesize exceeding the maximum file size of %maxsize."
+msgstr "Die Dateigröße beträgt %filesize und überschreitet damit die maximale Dateigröße von %maxsize."
+
+#: file.module:400
+msgid "The file is %filesize which would exceed your disk quota of %quota."
+msgstr "Die Dateigröße beträgt %filesize und würde damit ihren persönlich verfügbaren Festplattenplatz von %quota überschreiten."
+
+#: file.module:425
+msgid "The image file is invalid or the image type is not allowed. Allowed types: %types"
+msgstr "Entweder ist die Bilddatei ungültig oder der Dateityp des Bildes ist zulässig. Zulässige Dateitypen: %types"
+
+#: file.module:475
+msgid "The image was resized to fit within the maximum allowed dimensions of %dimensions pixels. The new dimensions of the resized image are %new_widthx%new_height pixels."
+msgstr "Das Bild wurde in siener Größe geändert, an die maximal zugelassene Bildgröße von %dimensions Pixeln angepasst. Die neuen Abmessung des Bildes ist:  %new_widthx%new_height Pixel."
+
+#: file.module:483
+msgid "The image was resized to fit within the maximum allowed height of %height pixels. The new dimensions of the resized image are %new_widthx%new_height pixels."
+msgstr "Das Bild wurde in siener Größe geändert, an die maximal zugelassene Bildhöhe von %height angepasst. Die neuen Abmessung des Bildes ist:  %new_widthx%new_height Pixel."
+
+#: file.module:491
+msgid "The image was resized to fit within the maximum allowed width of %width pixels. The new dimensions of the resized image are %new_widthx%new_height pixels."
+msgstr "Das Bild wurde in siener Größe geändert, an die maximal zugelassene Bildbreite von %width angepasst. Die neuen Abmessung des Bildes ist:  %new_widthx%new_height Pixel."
+
+#: file.module:501
+msgid "The image exceeds the maximum allowed dimensions and an attempt to resize it failed."
+msgstr "Die Grafik überschreitet die maximalen Abmessungen und konnte nicht verkleinert werden."
+
+#: file.module:511
+msgid "The resized image is too small. The minimum dimensions are %dimensions pixels and after resizing, the image size will be %widthx%height pixels."
+msgstr "Das Bild dessen Größe geändert wurde ist zu klein. die Mindestgröße ist %dimensions Pixel. Nach dem Ändern der Bildgröße wird das Bild  %widthx%height Pixel groß sein."
+
+#: file.module:519
+msgid "The image is too small. The minimum dimensions are %dimensions pixels and the image size is %widthx%height pixels."
+msgstr "Das Bild ist zu klein. Die Mindestbildgröße ist %dimensions Pixel und die Bildgröße ist %widthx%height Pixel."
+
+#: file.module:566
+msgid "The data could not be saved because the destination is invalid. More information is available in the system log."
+msgstr "Die Daten konnten nicht gespeichert werden. Der Grund dafür ist ein ungültiges Speicherziel. Weitere Informationen sind im Systemprotokoll verfügbar,"
+
+#: file.module:807
+msgid "One or more files could not be uploaded."
+msgstr "Eine oder mehrere Dateien konnten nicht auf den Webserver übertragen werden."
+
+#: file.module:952
+msgid "The file %file could not be saved because it exceeds %maxsize, the maximum allowed size for uploads."
+msgstr "Die Datei %file konnte nicht gespeichert werden da sie die maximal erlaubte Größe für hochgeladene Dateien von %maxsize überschreitet."
+
+#: file.module:957
+msgid "The file %file could not be saved because the upload did not complete."
+msgstr "Die Datei %file konnte nicht gespeichert werden, da das Hochladen nicht abgeschlossen wurde."
+
+#: file.module:969
+msgid "The file %file could not be saved. An unknown error has occurred."
+msgstr "Die Datei %file konnte nicht gespeichert werden. Ein unbekannter Fehler ist aufgetreten."
+
+#: file.module:1023
+msgid "For security reasons, your upload has been renamed to %filename."
+msgstr "Aus Sicherheitsgründen wurde die hochgeladene Datei in %filename umbenannt."
+
+#: file.module:1035
+msgid "The file could not be uploaded because the destination %destination is invalid."
+msgstr "Die Datei konnte nicht hochgeladen werden, weil der Zielpfad %destination ungültig ist."
+
+#: file.module:1050
+msgid "The file %filename could not be uploaded because the name is invalid."
+msgstr "Die Datei %filename konnte nicht hochgeladen werden, da der Dateiname ungültig ist."
+
+#: file.module:1056
+msgid "The file %source could not be uploaded because a file by that name already exists in the destination %directory."
+msgstr "Die Datei %source konnte nicht hochgeladen werden, weil ein Datei mit diesem Namen bereits im Zielverzeichnis %directory vorhanden ist."
+
+#: file.module:1070
+msgid "The specified file %name could not be uploaded."
+msgstr "Die angegebene Datei %name konnte nicht hochgeladen werden."
+
+#: file.module:1086
+msgid "File upload error. Could not move uploaded file."
+msgstr "Fehler beim Hochladen der Datei. Die hochgeladene Datei konnte nicht verschoben werden."
+
+#: file.module:1252 src/Entity/File.php:14 src/Plugin/views/wizard/File.php:7 config/optional/views.view.files.yml:0;0;0
+msgid "Files"
+msgstr "Dateien"
+
+#: file.module:1253
+msgid "Tokens related to uploaded files."
+msgstr "Token mit Bezug auf hochgeladene Dateien"
+
+#: file.module:1259 config/schema/file.views.schema.yml:0 src/Entity/File.php:227 src/Plugin/migrate/source/d6/File.php:81 src/Plugin/migrate/source/d7/File.php:101
+msgid "File ID"
+msgstr "Datei-ID"
+
+#: file.module:1260
+msgid "The unique ID of the uploaded file."
+msgstr "Die eindeutige ID der hochgeladenen Datei."
+
+#: file.module:1263 src/Plugin/migrate/source/d6/File.php:83 src/Plugin/migrate/source/d7/File.php:103
+msgid "File name"
+msgstr "Dateiname"
+
+#: file.module:1264
+msgid "The name of the file on disk."
+msgstr "Der Name der Datei auf der Festplatte."
+
+#: file.module:1267
+msgid "Path"
+msgstr "Pfad"
+
+#: file.module:1268
+msgid "The location of the file relative to Drupal root."
+msgstr "Ablageort der Datei relativ zum Drupal Hauptverzeichnis."
+
+#: file.module:1271 config/optional/views.view.files.yml:0;0
+msgid "MIME type"
+msgstr "MIME-Typ"
+
+#: file.module:1272
+msgid "The MIME type of the file."
+msgstr "Der MIME-Typ der Datei."
+
+#: file.module:1275 src/Entity/File.php:255 src/Plugin/Field/FieldFormatter/FileSize.php:9
+msgid "File size"
+msgstr "Dateigröße"
+
+#: file.module:1276
+msgid "The size of the file."
+msgstr "Die Größe der Datei."
+
+#: file.module:1279
+msgid "URL"
+msgstr "URL"
+
+#: file.module:1280
+msgid "The web-accessible URL for the file."
+msgstr "Über das Internet erreichbare URL für die Datei."
+
+#: file.module:1283 src/Entity/File.php:266
+msgid "Created"
+msgstr "Erstellt"
+
+#: file.module:1284
+msgid "The date the file created."
+msgstr "Das Datum, an dem die Datei erstellt wurde."
+
+#: file.module:1288 src/Entity/File.php:270
+msgid "Changed"
+msgstr "Geändert"
+
+#: file.module:1289
+msgid "The date the file was most recently changed."
+msgstr "Das Datum, an dem diese Datei zuletzt geändert wurde."
+
+#: file.module:1293
+msgid "Owner"
+msgstr "Eigentümer"
+
+#: file.module:1294
+msgid "The user who originally uploaded the file."
+msgstr "Der Benutzer, der diese Datei ursprünglich hochgeladen hat."
+
+#: file.module:1396
+msgid "The file could not be uploaded."
+msgstr "Die Datei konnte nicht hochgeladen werden."
+
+#: file.module:1762 src/FileViewsData.php:60 config/optional/views.view.files.yml:0
+msgid "Temporary"
+msgstr "Temporär"
+
+#: file.module:1763 src/FileViewsData.php:61 config/optional/views.view.files.yml:0
+msgid "Permanent"
+msgstr "Dauerhaft"
+
+#: file.module:1767
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: file.module:744
+msgid "Did not delete temporary file \"%path\" during garbage collection because it is in use by the following modules: %modules."
+msgstr "Die temporäre Datei \"%path\" konnte während der Garbage Collection nicht gelöscht werden, da sie noch von den folgenden Module verwendet wird: %modules."
+
+#: file.module:162
+msgid "File %file (%realpath) could not be copied because the destination %destination is invalid. This is often caused by improper use of file_copy() or a missing stream wrapper."
+msgstr "Die Datei %file (%realpath) konnte nicht kopiert werden, weil das Ziel %destination ungültig ist. Häufig wird das durch eine unangebrachte Verwendung von file_copy() oder einen fehlenden stream wrapper verursacht."
+
+#: file.module:165
+msgid "File %file could not be copied because the destination %destination is invalid. This is often caused by improper use of file_copy() or a missing stream wrapper."
+msgstr "Die Datei %file konnte nicht kopiert werden, weil das Ziel %destination ungültig ist. Häufig wird das durch eine unangebrachte Verwendung von file_copy() oder einen fehlenden stream wrapper verursacht."
+
+#: file.module:242
+msgid "File %file (%realpath) could not be moved because the destination %destination is invalid. This may be caused by improper use of file_move() or a missing stream wrapper."
+msgstr "Die Datei %file (%realpath) konnte nicht verschoben werden, da das Ziel %destination ungültig ist. Dies wird möglicherweise durch die falsche Verwendung von file_move() oder einen fehlenden Datenstrom-Wrapper verursacht."
+
+#: file.module:245
+msgid "File %file could not be moved because the destination %destination is invalid. This may be caused by improper use of file_move() or a missing stream wrapper."
+msgstr "Die Datei %file konnte nicht verschoben werden, da das Ziel %destination ungültig ist. Dies wird möglicherweise durch die falsche Verwendung von file_move() oder einen fehlenden Datenstrom-Wrapper verursacht."
+
+#: file.module:565
+msgid "The data could not be saved because the destination %destination is invalid. This may be caused by improper use of file_save_data() or a missing stream wrapper."
+msgstr "Die Datei konnte nicht gespeichert werden, da das Zielverzeichnis %destination ungültig ist. Dies kann durch falsche Verwendung des Befehls file_save_data() oder eines fehlenden Stream Wrappers verursacht werden."
+
+#: file.module:1087
+msgid "Upload error. Could not move uploaded file %file to destination %destination."
+msgstr "Fehler beim Hochladen. Die hochgeladene Datei %file konnte nicht zum Ziel %destination verschoben werden."
+
+#: file.module:1395
+msgid "The upload directory %directory for the file field %name could not be created or is not accessible. A newly uploaded file could not be saved in this directory as a consequence, and the upload was canceled."
+msgstr "Das Verzeichnis %directory, dass die Dateien für das Feld %name enthalten soll konnte nicht erstellt werden oder der Zugriff auf das Verzeichnis wurde verweigert. Deshalb konnten die Dateien, die auf den Server hochgeladen werden soll nicht gespeichert werden. Der Vorgang wurde abgebrochen."
+
+#: file.module:1405
+msgid "The file upload failed. %upload"
+msgstr "Der Dateiupload ist fehlgeschlagen. %upload"
+
+#: file.module:733
+msgid "Temporary file \"%path\" that was deleted during garbage collection did not exist on the filesystem. This could be caused by a missing stream wrapper."
+msgstr "Die temporäre Datei \"%path\", die während der Speicherbereinigung gelöscht wurde, war auf dem Dateisystem nicht vorhanden. Dies kann durch einen fehlenden Stream-Wrapper verursacht werden.\r\nVerwandte Projekte anzeigen"
+
+#: file.module:736
+msgid "Temporary file \"%path\" that was deleted during garbage collection did not exist on the filesystem."
+msgstr "Die temporäre Datei \"%path\", die während der Speicherbereinigung gelöscht wurde, war auf dem Dateisystem nicht vorhanden."
+
+#: file.install:94;98;102
+msgid "Not enabled"
+msgstr "Nicht aktiviert"
+
+#: file.install:95
+msgid "Your server is not capable of displaying file upload progress. File upload progress requires an Apache server running PHP with mod_php or Nginx with PHP-FPM."
+msgstr "Der Server ist nicht in der Lage eine Fortschrittsanzeige für Dateiuploads darzustellen. Uploadprogress benötigt einen Apache Server, auf dem PHP mit mod_php installiert ist oder einen Nginx mit PHP-FPM."
+
+#: file.install:99
+msgid "Your server is not capable of displaying file upload progress. File upload progress requires PHP be run with mod_php or PHP-FPM and not as FastCGI."
+msgstr "Ihr Server kann den Fortschritt beim Hochladen von Dateien nicht anzeigen. Diese Funktion benötigt eine PHP-Laufzeitumgebuung mit mod_php oder PHP-FPM-Unterstützung. In FastCGI-Umgebungen wird diese Funktion nicht unterstützt."
+
+#: file.install:103
+msgid "Your server is capable of displaying file upload progress, but does not have the required libraries. It is recommended to install the <a href=\"http://pecl.php.net/package/uploadprogress\">PECL uploadprogress library</a>."
+msgstr "Der Server ist in der Lage den Upload-Fortschritt für eine Datei anzuzeigen, es fehlen aber die dafür benötigten Bibliotheken. Es wird empfohlen die <a href=\"http://pecl.php.net/package/uploadprogress\">PECL Upload-Fortschritts-Bibliothek</a> zu installieren."
+
+#: file.install:106
+msgid "Enabled (<a href=\"http://php.net/manual/apcu.configuration.php#ini.apcu.rfc1867\">APC RFC1867</a>)"
+msgstr "Aktiviert (<a href=\"http://php.net/manual/apcu.configuration.php#ini.apcu.rfc1867\">APC RFC1867</a>)"
+
+#: file.install:107
+msgid "Your server is capable of displaying file upload progress using APC RFC1867. Note that only one upload at a time is supported. It is recommended to use the <a href=\"http://pecl.php.net/package/uploadprogress\">PECL uploadprogress library</a> if possible."
+msgstr "﻿Ihr Server kann Datei-Upload-Fortschritt mit APC RFC1867 darstellen. Hinweis: nur ein Upload zu einem Zeitpunkt wird unterstützt. Es wird empfohlen, wenn möglich die <a href=\"http://pecl.php.net/package/uploadprogress\">PECL-Uploadprogress-Bibliothek</a> zu verwenden."
+
+#: file.install:110
+msgid "Enabled (<a href=\"http://pecl.php.net/package/uploadprogress\">PECL uploadprogress</a>)"
+msgstr "Aktiviert (<a href=\"http://pecl.php.net/package/uploadprogress\">PECL uploadprogress</a>)"
+
+#: file.install:113
+msgid "Upload progress"
+msgstr "Upload-Fortschrittsbalken"
+
+#: file.install:131
+msgid "Files that have no remaining usages are no longer deleted by default."
+msgstr "Dateien, die nicht länger verwendet werden, werden nicht länger automatisch gelöscht."
+
+#: file.es6.js:0 file.js:0
+msgid "The selected file %filename cannot be uploaded. Only files with the following extensions are allowed: %extensions."
+msgstr "Die ausgewählte Datei %filename konnte nicht hochgeladen werden. Nur Dateien mit den folgenden Erweiterungen sind zulässig: %extensions."
+
+#: file.info.yml:0 config/schema/file.views.schema.yml:0 src/FileViewsData.php:133;140;141;166;173;174;199;206;207;232;239;240 src/Entity/File.php:14 src/Plugin/Field/FieldType/FileItem.php:17 src/Plugin/Field/FieldWidget/FileWidget.php:19
+msgid "File"
+msgstr "Datei"
+
+#: file.info.yml:0
+msgid "Defines a file field type."
+msgstr "Definiert den Feldtyp einer Datei."
+
+#: file.info.yml:0
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: file.permissions.yml:0
+msgid "Access the Files overview page"
+msgstr "Auf die Übersichtsseite für Dateien zugreifen"
+
+#: config/schema/file.schema.yml:0;0;0
+msgid "File settings"
+msgstr "Dateieinstellungen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:103 src/Plugin/Field/FieldWidget/FileWidget.php:412
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/file.schema.yml:0
+msgid "Type"
+msgstr "Typ"
+
+#: config/schema/file.schema.yml:0
+msgid "Length"
+msgstr "Länge"
+
+#: config/schema/file.schema.yml:0
+msgid "Icon"
+msgstr "Symbol"
+
+#: config/schema/file.schema.yml:0
+msgid "Directory"
+msgstr "Verzeichnis"
+
+#: config/schema/file.schema.yml:0
+msgid "Controls if unused files should be marked temporary"
+msgstr "Legt fest, ob nicht genutzte Datei ans temporäre Dateien gekennzeichnet werden sollen"
+
+#: config/schema/file.schema.yml:0
+msgid "Enable Display field"
+msgstr "Anzeigefeld aktivieren"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:124
+msgid "Files displayed by default"
+msgstr "Dateien standardmäßig anzeigen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:137
+msgid "Upload destination"
+msgstr "Upload-Ziel"
+
+#: config/schema/file.schema.yml:0
+msgid "Default value"
+msgstr "Standardwert"
+
+#: config/schema/file.schema.yml:0
+msgid "Reference method"
+msgstr "Referenzmethode"
+
+#: config/schema/file.schema.yml:0
+msgid "File selection handler settings"
+msgstr "Dateiauswahleinstellungen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:156
+msgid "File directory"
+msgstr "Dateiverzeichnis"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:167
+msgid "Allowed file extensions"
+msgstr "Zulässige Dateiendungen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldType/FileItem.php:180
+msgid "Maximum upload size"
+msgstr "Maximale Dateigröße zum Hochladen"
+
+#: config/schema/file.schema.yml:0
+msgid "Enable Description field"
+msgstr "Beschreibungsfeld aktivieren"
+
+#: config/schema/file.schema.yml:0
+msgid "Media display format settings"
+msgstr "Anzeigeeinstellungen für Medien"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:45
+msgid "Show playback controls"
+msgstr "Steuererlemente für die Wiedergabe anzeigen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:50
+msgid "Autoplay"
+msgstr "Automatisch abspielen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:55
+msgid "Loop"
+msgstr "Schleife"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:60
+msgid "Display of multiple files"
+msgstr "Anzeige für mehrere Dateien"
+
+#: config/schema/file.schema.yml:0
+msgid "Audio file display format settings"
+msgstr "Anzeigeeinstellungen für Audiodateien"
+
+#: config/schema/file.schema.yml:0
+msgid "Video file display format settings"
+msgstr "Anzeigeeinstellungen für Videodateien"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:45
+msgid "Muted"
+msgstr "Stummgeschaltet"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:51
+msgid "Width"
+msgstr "Breite"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:61
+msgid "Height"
+msgstr "Höhe"
+
+#: config/schema/file.schema.yml:0
+msgid "Generic file format settings"
+msgstr "Einstellungen für allgemeine Dateiformate"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldFormatter/DescriptionAwareFileFormatterBase.php:31
+msgid "Replace the file name by its description when available"
+msgstr "Den Namen der Datei durch die Beschreibung der Datei ersetzen, wenn eine Beschreibung zur Verfügung steht."
+
+#: config/schema/file.schema.yml:0
+msgid "RSS enclosure format settings"
+msgstr "Formateinstellungen für RSS-Anhänge"
+
+#: config/schema/file.schema.yml:0
+msgid "Table of files format settings"
+msgstr "Dateiformateinstellungstabelle"
+
+#: config/schema/file.schema.yml:0
+msgid "URL to file format settings"
+msgstr "Einstellungen für die Umformatierung von URL zu Datei"
+
+#: config/schema/file.schema.yml:0
+msgid "File format settings"
+msgstr "Dateiformateinstellungen"
+
+#: config/schema/file.schema.yml:0 src/Plugin/Field/FieldWidget/FileWidget.php:62
+msgid "Progress indicator"
+msgstr "Fortschrittsanzeige"
+
+#: config/schema/file.schema.yml:0
+msgid "Link to file"
+msgstr "Mit Datei verlinken"
+
+#: config/schema/file.schema.yml:0
+msgid "Display download path"
+msgstr "Downloadpfad anzeigen"
+
+#: config/schema/file.schema.yml:0
+msgid "Display the filemime as icon"
+msgstr "Die Dateizuordnung als Symbol anzeigen"
+
+#: config/schema/file.schema.yml:0
+msgid "Detect tar"
+msgstr "TAR ausfindig machen"
+
+#: config/schema/file.views.schema.yml:0 src/Plugin/Field/FieldFormatter/FileExtensionFormatter.php:9
+msgid "File extension"
+msgstr "Dateinamenweiterung"
+
+#: config/schema/file.views.schema.yml:0
+msgid "Detect if tar is part of the extension"
+msgstr "Stelle fest ob tar ein teil der Erweiterung ist"
+
+#: config/schema/file.views.schema.yml:0 src/Plugin/views/field/File.php:45
+msgid "Link this field to download the file"
+msgstr "Dieses Feld auf die herunterladbare Datei verlinken"
+
+#: config/schema/file.views.schema.yml:0 src/Plugin/Field/FieldFormatter/FilemimeFormatter.php:9
+msgid "File MIME"
+msgstr "Datei MIME-Typ"
+
+#: config/schema/file.views.schema.yml:0
+msgid "Display an icon representing the file type, instead of the MIME text (such as \"image/jpeg\")"
+msgstr "Für den Dateityp ein Symbol anstelle des MIME-Textes (wie etwa „image/jpeg“) anzeigen"
+
+#: config/schema/file.views.schema.yml:0 src/Plugin/Field/FieldFormatter/FileUriFormatter.php:9 src/Plugin/Field/FieldType/FileUriItem.php:10
+msgid "File URI"
+msgstr "Datei-URI"
+
+#: src/Plugin/Validation/Constraint/FileUriUnique.php:7
+msgctxt "Validation"
+msgid "File URI"
+msgstr "Datei-URI"
+
+#: config/schema/file.views.schema.yml:0
+msgid "Display download path instead of file storage URI"
+msgstr "Zeige den Downloadpfad anstelle der Adresse der Datei auf dem Server"
+
+#: config/schema/file.views.schema.yml:0
+msgid "File status"
+msgstr "Dateistatus"
+
+#: src/FileViewsData.php:19
+msgid "Files maintained by Drupal and various modules."
+msgstr "Dateien werden von Drupal und unterschiedlichen Modulen verwaltet."
+
+#: src/FileViewsData.php:30;36 config/optional/views.view.files.yml:0;0;0;0;0
+msgid "File usage"
+msgstr "Dateinutzung"
+
+#: src/FileViewsData.php:31
+msgid "Relate file entities to their usage."
+msgstr "Dateientitäten ihrer Nutzung zuordnen."
+
+#: src/FileViewsData.php:44
+msgid "Extension"
+msgstr "Erweiterung"
+
+#: src/FileViewsData.php:45
+msgid "The extension of the file."
+msgstr "Die Erweiterung der Datei."
+
+#: src/FileViewsData.php:65;66
+msgid "User who uploaded"
+msgstr "Benutzer, der hochgeladen hat"
+
+#: src/FileViewsData.php:68
+msgid "File Usage"
+msgstr "Dateiverwendung"
+
+#: src/FileViewsData.php:117;124;125
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/FileViewsData.php:118
+msgid "Content that is associated with this file, usually because this file is in a field on the content."
+msgstr "Inhalt, der dieser Datei zugeordnet ist, normalerweise, weil sich diese Datei in einem Feld dieses Inhalts befindet."
+
+#: src/FileViewsData.php:134
+msgid "A file that is associated with this node, usually because it is in a field on the node."
+msgstr "Mit diesem Beitrag verknüpfte Datei, die sich üblicherweise in einem Feld dieses Beitrages befindet."
+
+#: src/FileViewsData.php:150;157;158
+msgid "User"
+msgstr "Benutzer"
+
+#: src/FileViewsData.php:151
+msgid "A user that is associated with this file, usually because this file is in a field on the user."
+msgstr "Ein Benutzer, der mit dieser Datei verknüpft ist. Normalerweise, weil sich die Datei in einem Feld dieses Benutzers befindet."
+
+#: src/FileViewsData.php:167
+msgid "A file that is associated with this user, usually because it is in a field on the user."
+msgstr "Eine Datei, die mit diesem Benutzer verknüpft ist. Normalerweise, weil sie sich in einem Feld dieses Benutzer befindet."
+
+#: src/FileViewsData.php:183;190;191
+msgid "Comment"
+msgstr "Kommentar"
+
+#: src/FileViewsData.php:184
+msgid "A comment that is associated with this file, usually because this file is in a field on the comment."
+msgstr "Ein Kommentar, der mit dieser Datei verknüpft ist. Normalerweise, weil sich die Datei in einem Feld dieses Kommentars befindet."
+
+#: src/FileViewsData.php:200
+msgid "A file that is associated with this comment, usually because it is in a field on the comment."
+msgstr "Eine Datei, die mit diesem Kommentar verknüpft ist. Normalerweise, weil sie sich in einem Feld dieses Kommentares befindet."
+
+#: src/FileViewsData.php:216;223;224
+msgid "Taxonomy Term"
+msgstr "Taxonomie-Begriff"
+
+#: src/FileViewsData.php:217
+msgid "A taxonomy term that is associated with this file, usually because this file is in a field on the taxonomy term."
+msgstr "Ein Taxonomiebegriff, der mit dieser Datei verknüpft ist. Normalerweise, weil sich die Datei in einem Feld dieses Taxonomiebegriffes befindet."
+
+#: src/FileViewsData.php:233
+msgid "A file that is associated with this taxonomy term, usually because it is in a field on the taxonomy term."
+msgstr "Eine Datei, die mit diesem Taxonomiebegriff verknüpft ist. Normalerweise, weil sie sich in einem Feld dieses Taxonomiebegriffs befindet."
+
+#: src/FileViewsData.php:251
+msgid "Module"
+msgstr "Modul"
+
+#: src/FileViewsData.php:252
+msgid "The module managing this file relationship."
+msgstr "Das Modul ist zuständig für die Verwaltung dieser Datei-Beziehung."
+
+#: src/FileViewsData.php:267 config/optional/views.view.files.yml:0
+msgid "Entity type"
+msgstr "Entitätstyp"
+
+#: src/FileViewsData.php:268
+msgid "The type of entity that is related to the file."
+msgstr "Der Einheitentyp, der mit dieser Datei verknüpft ist."
+
+#: src/FileViewsData.php:283
+msgid "Entity ID"
+msgstr "Entitäts-ID"
+
+#: src/FileViewsData.php:284
+msgid "The ID of the entity that is related to the file."
+msgstr "Die ID der Entität, auf die sich die Datei bezieht."
+
+#: src/FileViewsData.php:299 config/optional/views.view.files.yml:0
+msgid "Use count"
+msgstr "Anzahl der Verwendung"
+
+#: src/FileViewsData.php:300
+msgid "The number of times the file is used by this entity."
+msgstr "Die Anzahl, wie oft die Datei von dieser Einheit verwendet wird."
+
+#: src/FileViewsData.php:312
+msgid "Entity label"
+msgstr "Entitätsbeschriftung"
+
+#: src/FileViewsData.php:313
+msgid "The label of the entity that is related to the file."
+msgstr "Die Beschriftung der Entität, die sich auf diese Datei bezieht."
+
+#: src/Controller/FileWidgetAjaxController.php:23
+msgid "Starting upload..."
+msgstr "Hochladen beginnt..."
+
+#: src/Controller/FileWidgetAjaxController.php:31;38
+msgid "Uploading... (@current of @total)"
+msgstr "Wird hochgeladen... (@current von @total)"
+
+#: src/Element/ManagedFile.php:246
+msgid "Upload"
+msgstr "Hochladen"
+
+#: src/Element/ManagedFile.php:263
+msgid "Remove selected"
+msgstr "Auswahl entfernen"
+
+#: src/Element/ManagedFile.php:263
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Element/ManagedFile.php:324
+msgid "Choose a file"
+msgstr "Datei auswählen"
+
+#: src/Element/ManagedFile.php:443
+msgid "The file used in the @name field may not be referenced."
+msgstr "Die Datei, die im Feld @name verwend wird ist unter Umständen nicht referenziert."
+
+#: src/Element/ManagedFile.php:450
+msgid "The file referenced by the @name field does not exist."
+msgstr "Die Datei, auf die sich das Feld @name bezieht, existiert nicht."
+
+#: src/Element/ManagedFile.php:459
+msgid "@name field is required."
+msgstr "Das Feld @name ist erforderlich."
+
+#: src/Entity/File.php:228
+msgid "The file ID."
+msgstr "Die Datei-ID."
+
+#: src/Entity/File.php:230
+msgid "The file UUID."
+msgstr "Die Datei-UUID."
+
+#: src/Entity/File.php:232
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Entity/File.php:233
+msgid "The file language code."
+msgstr "Das Sprachkürzel der Datei."
+
+#: src/Entity/File.php:236
+msgid "The user ID of the file."
+msgstr "Die Benutzer-ID der Datei."
+
+#: src/Entity/File.php:239 config/optional/views.view.files.yml:0
+msgid "Filename"
+msgstr "Dateiname"
+
+#: src/Entity/File.php:240
+msgid "Name of the file with no path components."
+msgstr "Name der Datei ohne Pfadbestandteile"
+
+#: src/Entity/File.php:243
+msgid "URI"
+msgstr "URI"
+
+#: src/Entity/File.php:244
+msgid "The URI to access the file (either local or remote)."
+msgstr "Die URI über die auf die Datei zugegriffen werden kann (Lokal oder Fernzugriff)"
+
+#: src/Entity/File.php:250
+msgid "File MIME type"
+msgstr "MIME-Typ der Datei"
+
+#: src/Entity/File.php:252
+msgid "The file's MIME type."
+msgstr "MIME-Typ der Datei"
+
+#: src/Entity/File.php:256
+msgid "The size of the file in bytes."
+msgstr "Die Dateigröße in Bytes."
+
+#: src/Entity/File.php:261 config/optional/views.view.files.yml:0;0
+msgid "Status"
+msgstr "Status"
+
+#: src/Entity/File.php:262
+msgid "The status of the file, temporary (FALSE) and permanent (TRUE)."
+msgstr "Der Status der Datei: Temporär (falsch), Permanent (wahr)."
+
+#: src/Entity/File.php:267
+msgid "The timestamp that the file was created."
+msgstr "Der Zeitpunkt zu dem die Datei erstellt wurde."
+
+#: src/Entity/File.php:271
+msgid "The timestamp that the file was last changed."
+msgstr "Der Zeitpunkt an dem die Datei zuletzt verändert wurde."
+
+#: src/Entity/File.php:14
+msgid "file"
+msgstr "Datei"
+
+#: src/Entity/File.php:14
+msgid "files"
+msgstr "Dateien"
+
+#: src/Plugin/EntityReferenceSelection/FileSelection.php:7
+msgid "File selection"
+msgstr "Dateiauswahl"
+
+#: src/Plugin/Field/FieldFormatter/BaseFieldFileFormatterBase.php:33
+msgid "Link this field to the file download URL"
+msgstr "Dieses Feld mit der URL zum Herunterladen der Datei verlinken."
+
+#: src/Plugin/Field/FieldFormatter/DefaultFileFormatter.php:8
+msgid "File link"
+msgstr "Dateilink"
+
+#: src/Plugin/Field/FieldFormatter/DescriptionAwareFileFormatterBase.php:30;46
+msgid "Use description as link text"
+msgstr "Beschreibung als Linktext verwenden"
+
+#: src/Plugin/Field/FieldFormatter/FileAudioFormatter.php:5
+msgid "Audio"
+msgstr "Audio"
+
+#: src/Plugin/Field/FieldFormatter/FileAudioFormatter.php:5
+msgid "Display the file using an HTML5 audio tag."
+msgstr "Die Datei unter Verwendung eines HTML5-Audio-Elements anzeigen."
+
+#: src/Plugin/Field/FieldFormatter/FileExtensionFormatter.php:39
+msgid "Include tar in extension"
+msgstr "Tar in Erweiterung einschließen"
+
+#: src/Plugin/Field/FieldFormatter/FileExtensionFormatter.php:40
+msgid "If the part of the filename just before the extension is '.tar', include this in the extension output."
+msgstr "Wenn ein Teil des Dateinamens vor der Dateierweiterung '.tar' lautet,muss dieser Teil mit in die Dateierweiterung eingeschlossen werden."
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:63
+msgid "Use multiple @tag tags, each with a single source."
+msgstr "Mehrere @tag-Tags verwenden, jedes Tag mit einer Quelle."
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:64
+msgid "Use multiple sources within a single @tag tag."
+msgstr "Mehrere Quellen mit einem einzelnen  @tag-Tag verwenden."
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:97
+msgid "Playback controls: %controls"
+msgstr "Wiedergabesteuerelemente: %controls"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:97
+msgid "visible"
+msgstr "sichtbar"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:97
+msgid "hidden"
+msgstr "ausgeblendet"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:98
+msgid "Autoplay: %autoplay"
+msgstr "Automatisch abspielen: %autoplay"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:98;99 src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:77
+msgid "yes"
+msgstr "Ja"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:98;99 src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:77
+msgid "no"
+msgstr "Nein"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:99
+msgid "Loop: %loop"
+msgstr "Wiederholen: %loop"
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:102
+msgid "Multiple file display: Multiple HTML tags"
+msgstr "Anzeige mehrerer Dateien: Mehrere HTML-Elemente."
+
+#: src/Plugin/Field/FieldFormatter/FileMediaFormatterBase.php:106
+msgid "Multiple file display: One HTML tag with multiple sources"
+msgstr "Anzeige mehrerer Dateien: Ein HTML-Element mit mehreren Quellen."
+
+#: src/Plugin/Field/FieldFormatter/FileUriFormatter.php:40
+msgid "Display the file download URI"
+msgstr "Die URI zum Herunterladen der Datei anzeigen."
+
+#: src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:55;65
+msgid "pixels"
+msgstr "Pixel"
+
+#: src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:77
+msgid "Muted: %muted"
+msgstr "Stummgeschaltet: %muted"
+
+#: src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:78
+msgid "Size: %width x %height pixels"
+msgstr "Größe: %width x %height Pixel"
+
+#: src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:7
+msgid "Video"
+msgstr "Video"
+
+#: src/Plugin/Field/FieldFormatter/FileVideoFormatter.php:7
+msgid "Display the file using an HTML5 video tag."
+msgstr "Die Datei unter Verwendung eines HTML5-Video-Elements anzeigen."
+
+#: src/Plugin/Field/FieldFormatter/FilemimeFormatter.php:47
+msgid "Display an icon"
+msgstr "Ein Symbol anzeigen"
+
+#: src/Plugin/Field/FieldFormatter/FilemimeFormatter.php:48
+msgid "The icon is representing the file type, instead of the MIME text (such as \"image/jpeg\")"
+msgstr "Das Symbol repräsentiert den Dateityp anstelle des MIME-Textes (z. B. „image/jpeg“)"
+
+#: src/Plugin/Field/FieldFormatter/GenericFileFormatter.php:7
+msgid "Generic file"
+msgstr "Allgemeine Datei"
+
+#: src/Plugin/Field/FieldFormatter/RSSEnclosureFormatter.php:7
+msgid "RSS enclosure"
+msgstr "RSS-Anhang"
+
+#: src/Plugin/Field/FieldFormatter/TableFormatter.php:27
+msgid "Attachment"
+msgstr "Anhang"
+
+#: src/Plugin/Field/FieldFormatter/TableFormatter.php:27 config/optional/views.view.files.yml:0
+msgid "Size"
+msgstr "Größe"
+
+#: src/Plugin/Field/FieldFormatter/TableFormatter.php:7
+msgid "Table of files"
+msgstr "Tabelle der Dateien"
+
+#: src/Plugin/Field/FieldFormatter/UrlPlainFormatter.php:8
+msgid "URL to file"
+msgstr "URL zur Datei"
+
+#: src/Plugin/Field/FieldType/FileItem.php:100
+msgid "Flag to control whether this file should be displayed when viewing content"
+msgstr "Markieren, um zu steuern, ob diese Datei bei der Anzeige von Inhalten angezeigt werden soll"
+
+#: src/Plugin/Field/FieldType/FileItem.php:118
+msgid "Enable <em>Display</em> field"
+msgstr "<em>Anzeige</em>-Feld aktivieren"
+
+#: src/Plugin/Field/FieldType/FileItem.php:120
+msgid "The display option allows users to choose if a file should be shown when viewing the content."
+msgstr "Die Anzeigefunktion erlaubt es Benutzern zu entscheiden, ob eine Datei angezeigt werden soll, wenn der Inhalt betrachtet wird."
+
+#: src/Plugin/Field/FieldType/FileItem.php:126
+msgid "This setting only has an effect if the display option is enabled."
+msgstr "Diese Einstellung hat nur eine Auswirkung, wenn die Anzeigeoption aktiviert ist."
+
+#: src/Plugin/Field/FieldType/FileItem.php:140
+msgid "Select where the final files should be stored. Private file storage has significantly more overhead than public files, but allows restricted access to files within this field."
+msgstr "Wählen Sie aus, wo die Dateien abgelegt werden sollen. Der Private Dateispeicher erfordert bedeutend mehr Performance als der Öffentliche Dateispeicher, bietet jedoch einen geschützten Zugang zu Dateien in diesem Feld."
+
+#: src/Plugin/Field/FieldType/FileItem.php:158
+msgid "Optional subdirectory within the upload destination where files will be stored. Do not include preceding or trailing slashes."
+msgstr "Optionales Unterverzeichnis im Zielverzeichnis des Uploads, in dem Dateien gespeichert werden. Keine Schrägstriche voranstellen oder anhängen."
+
+#: src/Plugin/Field/FieldType/FileItem.php:169
+msgid "Separate extensions with a space or comma and do not include the leading dot."
+msgstr "Erweiterungen mit einem Leerzeichen oder Komma trennen und den führenden Punkt nicht einschliessen."
+
+#: src/Plugin/Field/FieldType/FileItem.php:182
+msgid "Enter a value like \"512\" (bytes), \"80 KB\" (kilobytes) or \"50 MB\" (megabytes) in order to restrict the allowed file size. If left empty the file sizes will be limited only by PHP's maximum post and file upload sizes (current limit <strong>%limit</strong>)."
+msgstr "Geben Sie einen Wert wie „512\" (Bytes), „80 KB\" (Kilobytes) oder „50 MB\" (Megabytes) an, um die maximale Dateigröße zu begrenzen. Bei keiner Angabe wird die Dateigröße nur durch das PHP-Upload-Limit begrenzt (aktuelles Limit: <strong>%limit</strong>)."
+
+#: src/Plugin/Field/FieldType/FileItem.php:190
+msgid "Enable <em>Description</em> field"
+msgstr "<em>Beschreibungs</em>-Feld aktivieren"
+
+#: src/Plugin/Field/FieldType/FileItem.php:192
+msgid "The description field allows users to enter a description about the uploaded file."
+msgstr "Das Beschreibungsfeld ermöglicht Benutzern eine Beschreibung zur hochgeladenen Datei anzugeben."
+
+#: src/Plugin/Field/FieldType/FileItem.php:231
+msgid "The list of allowed extensions is not valid, be sure to exclude leading dots and to separate extensions with a comma or space."
+msgstr "Die Liste der erlaubten Dateierweiterungen ist nicht gültig. Bitte achten Sie darauf, dass vorangestellte Punkte weggelassen werden (z. B. „jpg“ statt „.jpg“) und mehrere Erweiterungen durch Kommata oder Leerstellen getrennt werden (z. B. „jpg png gif“)."
+
+#: src/Plugin/Field/FieldType/FileItem.php:250
+msgid "The \"@name\" option must contain a valid value. You may either leave the text field empty or enter a string like \"512\" (bytes), \"80 KB\" (kilobytes) or \"50 MB\" (megabytes)."
+msgstr "Die Option „@name“ muss einen gültigen Wert enthalten. Das Textfeld kann entweder leer gelassen werden oder ein Wert wie „512“ (Bytes), „80 KB“ (Kilobytes) oder „50 MB“ (Megabytes) eingegeben werden."
+
+#: src/Plugin/Field/FieldType/FileItem.php:17
+msgid "This field stores the ID of a file as an integer value."
+msgstr "Dieses Feld speichert die ID einer Datei als einen Zahlenwert."
+
+#: src/Plugin/Field/FieldType/FileItem.php:17
+msgid "Reference"
+msgstr "Referenz"
+
+#: src/Plugin/Field/FieldType/FileUriItem.php:31
+msgid "Root-relative file URL"
+msgstr "URL der Datei relativ zum Hauptverzeichnis"
+
+#: src/Plugin/Field/FieldType/FileUriItem.php:10
+msgid "An entity field containing a file URI, and a computed root-relative file URL."
+msgstr "Ein Entitätsfeld, dass die URI zu einer Datei und eine daraus errechne Pfadangabe enthält, die relativ zum Hauptverzeichnis ist."
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:64
+msgid "Throbber"
+msgstr "Throbber-Symbol"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:65
+msgid "Bar with progress meter"
+msgstr "Balken mit Fortschrittsanzeige"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:68
+msgid "The throbber display does not show the status of uploads but takes up less space. The progress bar is helpful for monitoring progress on large uploads."
+msgstr "Die Aktivitätsanzeige zeigt nicht den Status der hochgeladenen Dateien an, aber benötigt weniger Platz. Die Fortschrittsanzeige ist nützlich, um den Fortschritt großer hochzuladenen Dateien zu beobachten."
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:80
+msgid "Progress indicator: @progress_indicator"
+msgstr "Fortschrittsanzeige: @progress_indicator"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:136
+msgid "Weight for row @number"
+msgstr "Reihenfolge für Zeile @number"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:192
+msgid "Add a new file"
+msgstr "Neue Datei hinzufügen"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:367
+msgid "Field %field can only hold @max values but there were @count uploaded. The following files have been omitted as a result: %list."
+msgstr "Das Feld %field kann nur @max Werte enthalten, aber es wurden @count hochgeladen. Daher wurden die folgenden Dateien ausgeschlossen: %list."
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:390
+msgid "Include file in display"
+msgstr "Datei in Anzeige einbeziehen"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:415
+msgid "The description may be used as the label of the link to the file."
+msgstr "Die Beschreibung kann als Linktext für die Datei verwendet werden."
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:482
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Plugin/Field/FieldWidget/FileWidget.php:482
+msgid "Weight for new file"
+msgstr "Reihenfolge für die neue Datei"
+
+#: src/Plugin/Validation/Constraint/FileValidationConstraint.php:7
+msgctxt "Validation"
+msgid "File Validation"
+msgstr "Dateiprüfung"
+
+#: src/Plugin/migrate/source/d6/File.php:82 src/Plugin/migrate/source/d7/File.php:102
+msgid "The {users}.uid who added the file. If set to 0, this file was added by an anonymous user."
+msgstr "Die {users}.uid des Benutzers, der die Datei hinzugefügt hat. Wenn dieser Wert auf 0 gesetzt ist, wurde die Datei von einem anonymen Benutzer hinzugefügt."
+
+#: src/Plugin/migrate/source/d6/File.php:84 src/Plugin/migrate/source/d7/File.php:104
+msgid "File path"
+msgstr "Dateipfad"
+
+#: src/Plugin/migrate/source/d6/File.php:85 src/Plugin/migrate/source/d7/File.php:105
+msgid "File MIME Type"
+msgstr "Datei MIME Typ"
+
+#: src/Plugin/migrate/source/d6/File.php:86 src/Plugin/migrate/source/d7/File.php:106
+msgid "The published status of a file."
+msgstr "Der Veröffentlichungsstatus einer Datei."
+
+#: src/Plugin/migrate/source/d6/File.php:87 src/Plugin/migrate/source/d7/File.php:107
+msgid "The time that the file was added."
+msgstr "Die Zeit zu der diese Datei hinzugefügt wurde."
+
+#: src/Plugin/migrate/source/d6/File.php:88
+msgid "The Drupal files path."
+msgstr "Der Drupal-Dateipfad."
+
+#: src/Plugin/migrate/source/d6/File.php:89
+msgid "TRUE if the files directory is public otherwise FALSE."
+msgstr "TRUE falls das Dateiverzeichnis öffentlich ist. Falls das Verzeichnis nicht öffentlich ist, wird FALSE zurückgegeben."
+
+#: src/Plugin/migrate/source/d6/Upload.php:54
+msgid "The file Id."
+msgstr "Die Datei-ID."
+
+#: src/Plugin/migrate/source/d6/Upload.php:55
+msgid "The node Id."
+msgstr "Beitrags-ID"
+
+#: src/Plugin/migrate/source/d6/Upload.php:56
+msgid "The version Id."
+msgstr "Die Versions-ID."
+
+#: src/Plugin/migrate/source/d6/Upload.php:57
+msgid "The node type"
+msgstr "Der Inhaltstyp"
+
+#: src/Plugin/migrate/source/d6/Upload.php:58
+msgid "The node language."
+msgstr "Die Sprache des Beitrags."
+
+#: src/Plugin/migrate/source/d6/Upload.php:59
+msgid "The file description."
+msgstr "Die Dateibeschreibung."
+
+#: src/Plugin/migrate/source/d6/Upload.php:60
+msgid "Whether the list should be visible on the node page."
+msgstr "Ob die Liste auf der Beitragsseite sichtbar sein soll."
+
+#: src/Plugin/migrate/source/d6/Upload.php:61
+msgid "The file weight."
+msgstr "Die Dateigewichtung."
+
+#: src/Plugin/migrate/source/d6/UploadInstance.php:72
+msgid "Node type"
+msgstr "Inhaltstyp"
+
+#: src/Plugin/migrate/source/d6/UploadInstance.php:73
+msgid "Max filesize"
+msgstr "Max. Dateigröße"
+
+#: src/Plugin/migrate/source/d6/UploadInstance.php:74
+msgid "File extensions"
+msgstr "Dateierweiterungen"
+
+#: src/Plugin/rest/resource/FileUploadResource.php:312
+msgid "Input data could not be read"
+msgstr "Eingabedaten konnten nicht gelesen werden"
+
+#: src/Plugin/rest/resource/FileUploadResource.php:320
+msgid "Temporary file data for \"%path\" could not be written"
+msgstr "Es konnten keine temporären Dateidaten für „%path“ geschrieben werden."
+
+#: src/Plugin/rest/resource/FileUploadResource.php:332
+msgid "Temporary file \"%path\" could not be opened for file upload"
+msgstr "Die temporäre Datei „%path“ konnte nicht für den Dateiupload geöffnet werden."
+
+#: src/Plugin/rest/resource/FileUploadResource.php:35
+msgid "File Upload"
+msgstr "Dateiupload"
+
+#: src/Plugin/views/field/File.php:46
+msgid "Enable to override this field's links."
+msgstr "Aktivieren, um die Verknüpfungen dieses Felds zu überschreiben."
+
+#: config/optional/views.view.files.yml:0
+msgid "Find and manage files."
+msgstr "Dateien suchen und verwalten."
+
+#: config/optional/views.view.files.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.files.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: config/optional/views.view.files.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.files.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.files.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.files.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.files.yml:0;0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.files.yml:0;0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.files.yml:0;0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.files.yml:0;0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.files.yml:0;0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.files.yml:0
+msgid "Fid"
+msgstr "Fid"
+
+#: config/optional/views.view.files.yml:0
+msgid "Name"
+msgstr "Name"
+
+#: config/optional/views.view.files.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.files.yml:0
+msgid "Upload date"
+msgstr "Upload-Datum"
+
+#: config/optional/views.view.files.yml:0
+msgid "Changed date"
+msgstr "Änderungsdatum"
+
+#: config/optional/views.view.files.yml:0
+msgid "Used in"
+msgstr "Verwendet in"
+
+#: config/optional/views.view.files.yml:0
+msgid "1 place"
+msgid_plural "@count places"
+msgstr[0] "1 Position"
+msgstr[1] "@count Positionen"
+
+#: config/optional/views.view.files.yml:0
+msgid "No files available."
+msgstr "Keine Dateien verfügbar"
+
+#: config/optional/views.view.files.yml:0
+msgid "Files overview"
+msgstr "Dateiübersicht"
+
+#: config/optional/views.view.files.yml:0
+msgid "Entity"
+msgstr "Entität"
+
+#: config/optional/views.view.files.yml:0
+msgid "Registering module"
+msgstr "Registrierendes Modul"
+
+#: config/optional/views.view.files.yml:0
+msgid "1"
+msgid_plural "@count"
+msgstr[0] "1"
+msgstr[1] ""
+
+#: config/optional/views.view.files.yml:0
+msgid "All"
+msgstr "Alle"
+
+#: config/optional/views.view.files.yml:0
+msgid "File usage information for {{ arguments.fid }}"
+msgstr "Dateiverwendungsinformationen für {{ arguments.fid }}"
+

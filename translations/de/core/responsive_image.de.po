@@ -1,0 +1,352 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  responsive_image.module: n/a
+#  config/schema/responsive_image.schema.yml: n/a
+#  src/ResponsiveImageStyleForm.php: n/a
+#  responsive_image.breakpoints.yml: n/a
+#  responsive_image.info.yml: n/a
+#  responsive_image.links.action.yml: n/a
+#  responsive_image.routing.yml: n/a
+#  responsive_image.links.menu.yml: n/a
+#  src/Entity/ResponsiveImageStyle.php: n/a
+#  responsive_image.links.task.yml: n/a
+#  responsive_image.permissions.yml: n/a
+#  src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php: n/a
+#  src/ResponsiveImageStyleListBuilder.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: responsive_image.module:47
+msgid "About"
+msgstr "Über"
+
+#: responsive_image.module:48
+msgid "The Responsive Image module provides an image formatter that allows browsers to select which image file to display based on media queries or which image file types the browser supports, using the HTML 5 picture and source elements and/or the sizes, srcset and type attributes. For more information, see the <a href=\":responsive_image\">online documentation for the Responsive Image module</a>."
+msgstr "Das Responsive Image-Modul stellt ein Anzeigeformat für Bilder bereit, der es Browsern erlaubt auf der Grundlage von Media Queries und den vom Browser unterstützten Bildformaten, zu entscheiden, welche Bilddatei angezeigt werden soll. Dabei werden die HTML-Elemente Picture und Source sowie sizes und scrset beziehungsweise die Type-Attribute verwendet. Weitere Informationen sind in der <a href=\":responsive_image\">Online-Dokumentation des Responsive-Image-Moduls</a> verfügbar."
+
+#: responsive_image.module:49
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: responsive_image.module:51
+msgid "Defining responsive image styles"
+msgstr "Responsive Bildstile definieren"
+
+#: responsive_image.module:52
+msgid "By creating responsive image styles you define which options the browser has in selecting which image file to display. In most cases this means providing different image sizes based on the viewport size. On the <a href=\":responsive_image_style\">Responsive image styles</a> page, click <em>Add responsive image style</em> to create a new style. First choose a label, a fallback image style and a breakpoint group and click Save."
+msgstr "Beim Erstellen von responsiven Bildstilen wird festgelegt, welche Möglichkeiten der Browser bei der Auswahl der Bilddateien hat, die angezeigt werden können. In den meisten Fällen bedeutet dass, das unterschiedliche Bildgrößen auf Grundlage der Größe des zur Verfügung stehenden Anzeigebereiches zur Verfügung gestellt werden. Auf der Seite <a href=\":responsive_image_style\">Responsive Bildstile</a>  werden über den Button, <em>Responsiven Bildstil hinzufügen</em>, neue Bildstile erstellt. Zunächst muss eine Bezeichnung sowie ein Bildstil, der als Aúsfallsicherung bei Darstellungsproblemen von Bildern dient und eine Breakpoint-Gruppe gewählt werden. Danach wird der responsive Bildstil gespeichert."
+
+#: responsive_image.module:54 config/schema/responsive_image.schema.yml:0 src/ResponsiveImageStyleForm.php:197
+msgid "Fallback image style"
+msgstr "Fallback-Bildstil"
+
+#: responsive_image.module:55
+msgid "The fallback image style is typically the smallest size image you expect to appear in this space. Because the responsive images module uses the Picturefill library so that responsive images can work in older browsers, the fallback image should only appear on a site if an error occurs."
+msgstr "Der Bidstil zur Ausfallsicherung bei Darstellungsproblemen von Bildern ist normalerweise das kleinste Bild, das angezeigt werden kann. Dies ist sinnvoll, da das Responsive-Images-Modul die  „picturefill“-Bibliothek nutzt, damit responsive Bilder auch in alten Browsern funktionieren. Das Bild, dass als Ausfallsicherung genutzt wird, sollte nur dann auftauchen, wenn es auf der Website zu einem Fehler kommt."
+
+#: responsive_image.module:56
+msgid "Breakpoint groups: viewport sizing vs art direction"
+msgstr "Breakpoint-Gruppen: Viewport-Größenanpassung vs. Künstlerische Gestaltung"
+
+#: responsive_image.module:57
+msgid "The breakpoint group typically only needs a single breakpoint with an empty media query in order to do <em>viewport sizing.</em> Multiple breakpoints are used for changing the crop or aspect ratio of images at different viewport sizes, which is often referred to as <em>art direction.</em> Once you select a breakpoint group, you can choose which breakpoints to use for the responsive image style. By default, the option <em>do not use this breakpoint</em> is selected for each breakpoint. See the <a href=\":breakpoint_help\">help page of the Breakpoint module</a> for more information."
+msgstr "Die Breakpoint-Gruppe benötigt normalerweise nur einen Breakpoint mit einer leeren Media Query damit die Größenanpassung auf Grund des Anzeigeberiechs (<em>Viewoport Sizing</em>) funktioniert. Mehrere Breakpoints werden verwendet um Bilder zuzuschneiden oder das Seitenverhältnis von Bildern an verschiedene Anzeigebereichsgrößen anzupassen. Dieser Prozess wird auch als <em>Künstlerische Gestaltung</em>  bezeichnet. Wenn eine Breakpoint-Gruppe ausgewählt wurde kann festgelegt werden, welche Bildstile innerhalb der Gruppe für die responsiven Bilder verwendet werden sollen. Standardmäßig ist für jeden Breakpoint die Option <em>Breakpoint nicht verwenden</em> ausgewählt. Weitere Informationen sind auf den <a href=\":breakpoint_help\">Hilfeseiten des Breakpoint-Moduls</a> verfügbar."
+
+#: responsive_image.module:58
+msgid "Breakpoint settings: sizes vs image styles"
+msgstr "Breakpoint-Einstellungen: Größen vs. Bildstile"
+
+#: responsive_image.module:59
+msgid "While you have the option to provide only one image style per breakpoint, the sizes option allows you to provide more options to browsers as to which image file it can display, even when using multiple breakpoints for art direction. Breakpoints are defined in the configuration files of the theme."
+msgstr "Obwohl die Möglichkeit besteht einen Bildstil pro Breakpoint anzubieten, bietet die Option Bildgröße mehr Möglichkeiten Browsern mitzuteilen, welche Bilddatei angezeigt werden soll, selbst dann, wenn der Künstlerischen Gestaltung wegen mehrere Breakpoints verwendet werden. Breakpoints werden in den Konfigurationsdateien des Themes festgelegt."
+
+#: responsive_image.module:60
+msgid "Sizes field"
+msgstr "Größenfeld"
+
+#: responsive_image.module:61
+msgid "Once the sizes option is selected, you can let the browser know the size of this image in relation to the site layout, using the <em>Sizes</em> field. For a hero image that always fills the entire screen, you could simply enter 100vw, which means 100% of the viewport width. For an image that fills 90% of the screen for small viewports, but only fills 40% of the screen when the viewport is larger than 40em (typically 640px), you could enter \"(min-width: 40em) 40vw, 90vw\" in the Sizes field. The last item in the comma-separated list is the smallest viewport size: other items in the comma-separated list should have a media condition paired with an image width. <em>Media conditions</em> are similar to a media query, often a min-width paired with a viewport width using em or px units: e.g. (min-width: 640px) or (min-width: 40em). This is paired with the <em>image width</em> at that viewport size using px, em or vw units. The vw unit is viewport width and is used instead of a percentage because the percentage always refers to the width of the entire viewport."
+msgstr "Wenn die Option Größe gewählt ist, kann dem Browser die Größe des Bildes in Relation zum Layout der Website unter Verwendung des Feldes <em>Bildgröße</em> mitgeteilt werden. Für ein Hero-Image, das immer den gesamten Bildschirm ausfüllt kann einfach 100vw eingegeben werden. Das bedeutet, dass 100% der Breite des Viewports ausgefüllt werden. Wenn ein Bild nur 90% des Viewports auf kleinen Anzeigegeräten ausfüllen soll aber nur 40% des zur Verfügung stehenden Viewports auf einem Anzeigegerät ausfüllt, das größer als 40em ist (das sind normalerweise 640px),  kann im Feld Bildgröße folgendes eingegeben werden: \"(min-width: 40em) 40vw, 90vw\" Der Letzte Wert in der durch Kommata getrennten Liste ist die Größe des kleinsten Viewports. Alle anderen Werte in der Liste sollten eine Medienkondition zusammen mit einer Bildgröße beinhalten. <em>Medienkonditionen</em> sind ähnlich wie Media-Queries oft eine min-with-Angabe zusammen mit einer Größenangebe die den Viewport betrifft, wobei die Angaben entweder in px-, em- oder vw- Einheiten erfolgen. Die Angabe vw ist die Breite des Viewports und wird anstelle einer Prozentangabe verwendet, da die Prozentangabe immer die Größe des gesamten Anzeigebereichs als Grundlage verwendet."
+
+#: responsive_image.module:62
+msgid "Image styles for sizes"
+msgstr "Bildstil für Bildgrößen"
+
+#: responsive_image.module:63
+msgid "Below the Sizes field you can choose multiple image styles so the browser can choose the best image file size to fill the space defined in the Sizes field. Typically you will want to use image styles that resize your image to have options that range from the smallest px width possible for the space the image will appear in to the largest px width possible, with a variety of widths in between. You may want to provide image styles with widths that are 1.5x to 2x the space available in the layout to account for high resolution screens. Image styles can be defined on the <a href=\":image_styles\">Image styles page</a> that is provided by the <a href=\":image_help\">Image module</a>."
+msgstr "Unter dem Feld für die Größe können verschiedene Bildstile auswählt werden, sodass der Browser die Datei mit der Bildgröße wählen kann, die den für das Bild zur Verfügung stehenden Platz am besten ausfüllt. Die Größe, die dem Bild im Layout zur Verfügung steht, wird im Feld Größe definiert. Normalerwiese werden Bildstile dazu verwendet, die Bildgröße zu manipulieren um sicherzustellen, dass das Bild auf jedem Gerät optimal angezeigt werden kann, ganz egal wie Klein oder groß das Bild dazu sein muss und gleichzeitig die kleinstmögliche Dateigröße und die bestmögliche Bildqualität für jede Version des Bildes zu erreichen. Dabei unterscheidet sich die Breite der Bildstile von Bildstil zu  Bildstil Es kann sein, dass Bildstile angeboten werden sollen, die 1,5 mal bzw. 2 mal größer sind als der Platz, der im Layout für das Bild zur Verfügung steht  um auch hochauflösende Anzeigegeräte wie Retina-Displays zu berücksichtigen. Bildstile können auf der Seite <a href=\":image_styles\">Bildstile</a> die vom <a href=\":image_help\">Image-Modul</a> zur Verfügung gestellt wird, definiert werden."
+
+#: responsive_image.module:65
+msgid "Using responsive image styles in Image fields"
+msgstr "Responsive Bildstile in Bildfeldern benutzen"
+
+#: responsive_image.module:66
+msgid "After defining responsive image styles, you can use them in the display settings for your Image fields, so that the site displays responsive images using the HTML5 picture tag. Open the Manage display page for the entity type (content type, taxonomy vocabulary, etc.) that the Image field is attached to. Choose the format <em>Responsive image</em>, click the Edit icon, and select one of the responsive image styles that you have created. For general information on how to manage fields and their display see the <a href=\":field_ui\">Field UI module help page</a>. For background information about entities and fields see the <a href=\":field_help\">Field module help page</a>."
+msgstr "Nachdem responsive Bildstile definiert wurden können diese in den Anzeigeeinstellungen für Felder des Datentyps Bild verwendet werden. Damit ist es der Website möglich responsive Bilder mit Hilfe des HTML5-Elementes Picture anzuzeigen. Auf der Seite Anzeige Verwalten des jeweiligen Entitätstyps (Inhaltstyp, Taxonomie-Begriff Vokabular usw.)  kann anschließend das Format <em>Responsive Bilddarstellung</em> gewählt werden. Nach einem Klick auf das Bearbeitensymbol kann ein zu diesem Zweck erstellter Bildstil gewählt werden. Allgemeine Informationen zur Verwaltung von Feldern und deren Darstellung sind in der <a href=\":field_ui\">Hilfe der Field-UI</a> verfügbar. Hintergrundinformationen über Entitäten und Felder können in der <a href=\":field_help\">Field-Modul</a>-Hilfe nachgelesen werden."
+
+#: responsive_image.module:71
+msgid "A responsive image style associates an image style with each breakpoint defined by your theme."
+msgstr "Ein responsiver Bildstil assoziiert einen Bildstil mit jedem, für dieses Theme definierten, Breakpoint."
+
+#: responsive_image.module:183
+msgid "Failed to load responsive image style: “@style“ while displaying responsive image."
+msgstr "Das Laden des responsiven Bildstils „@style\", beim Anzeigen des responsiven Bildes  fehlgeschlagen."
+
+#: responsive_image.breakpoints.yml:0
+msgid "Viewport Sizing"
+msgstr "Viewport-Größenanpassung"
+
+#: responsive_image.info.yml:0
+msgid "Responsive Image"
+msgstr "Responsives Bild"
+
+#: responsive_image.info.yml:0
+msgid "Provides an image formatter and breakpoint mappings to output responsive images using the HTML5 picture tag."
+msgstr "Ermöglicht die Ausgabe von mit Hilfe des HTML5-Picture-Tags angepassten Bildern und die Zuordnung dieser Bilder zu den auf der Website genutzten Breakpoints."
+
+#: responsive_image.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: responsive_image.links.action.yml:0 responsive_image.routing.yml:0
+msgid "Add responsive image style"
+msgstr "Responsiven Bildstil hinzufügen"
+
+#: responsive_image.links.menu.yml:0 responsive_image.routing.yml:0 src/Entity/ResponsiveImageStyle.php:9
+msgid "Responsive image styles"
+msgstr "Responsive Bildstile"
+
+#: responsive_image.links.menu.yml:0
+msgid "Manage responsive image styles."
+msgstr "Responsive Bildstile verwalten."
+
+#: responsive_image.links.task.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: responsive_image.permissions.yml:0
+msgid "Administer responsive images"
+msgstr "Responsive Bilder verwalten"
+
+#: responsive_image.routing.yml:0
+msgid "Edit responsive image style"
+msgstr "Responsiven Bildstil bearbeiten"
+
+#: responsive_image.routing.yml:0
+msgid "Duplicate responsive image style"
+msgstr "Responsiven Bildstil duplizieren"
+
+#: responsive_image.routing.yml:0
+msgid "Delete"
+msgstr "Löschen"
+
+#: config/schema/responsive_image.schema.yml:0;0 src/Entity/ResponsiveImageStyle.php:9 src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:140
+msgid "Responsive image style"
+msgstr "Responsiver Bildstil"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Machine-readable name"
+msgstr "Systemname"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Image style mappings"
+msgstr "Zuordnungen von Bildformatvorlagen"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Image style mapping"
+msgstr "Zuordnung von Bildformatvorlagen"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Responsive image mapping type"
+msgstr "Zuordnungstyp responsiver Bilder"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Breakpoint ID"
+msgstr "Breakpoint-ID"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Multiplier"
+msgstr "Multiplikator"
+
+#: config/schema/responsive_image.schema.yml:0 src/ResponsiveImageStyleForm.php:97
+msgid "Breakpoint group"
+msgstr "Breakpoint-Gruppe"
+
+#: config/schema/responsive_image.schema.yml:0;0 src/ResponsiveImageStyleForm.php:149
+msgid "Image style"
+msgstr "Bildstil"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Sizes attribute"
+msgstr "„Sizes“-Attribut"
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Image styles to be used when using the 'sizes' attribute"
+msgstr "Bildstile, die verwendet werden, wenn das „sizes“-Attribut  angewandt wird."
+
+#: config/schema/responsive_image.schema.yml:0
+msgid "Responsive image list format settings"
+msgstr "Formateinstellungen für eine Liste von responsiven Bildern"
+
+#: config/schema/responsive_image.schema.yml:0 src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:156
+msgid "Link image to"
+msgstr "Bild verlinken mit"
+
+#: src/ResponsiveImageStyleForm.php:57
+msgid "<em>Duplicate responsive image style</em> @label"
+msgstr "<em>Responsiven Bildstil @label duplizieren</em>"
+
+#: src/ResponsiveImageStyleForm.php:61
+msgid "<em>Edit responsive image style</em> @label"
+msgstr "<em>Responsiven Bildstil @label bearbeiten</em>"
+
+#: src/ResponsiveImageStyleForm.php:68 src/ResponsiveImageStyleListBuilder.php:17
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/ResponsiveImageStyleForm.php:71
+msgid "Example: 'Hero image' or 'Author image'."
+msgstr "Beispiel: 'Bild über die ganze Breite der Seite' oder 'Autor Grafik'."
+
+#: src/ResponsiveImageStyleForm.php:85
+msgid "- None (original image) -"
+msgstr "- Kein Bildstil (Originalbild) -"
+
+#: src/ResponsiveImageStyleForm.php:86
+msgid "- empty image -"
+msgstr "- leeres Bild -"
+
+#: src/ResponsiveImageStyleForm.php:89
+msgid "Select a breakpoint group from the installed themes and modules. Below you can select which breakpoints to use from this group. You can also select which image style or styles to use for each breakpoint you use."
+msgstr "Eine Breakpoint-Gruppe auswählen, die von den installierten Modulen un Designs bereitgestellt wird. Unten kann ausgewählt werden, welche Breakpoints aus dieser Gruppe verwendet werden sollen. Außerdem kann festgelegt werden welcher Bildstil bzw. welche Bildstile für die verwendeten Breakpoints verwendet werden sollen."
+
+#: src/ResponsiveImageStyleForm.php:89
+msgid "Warning: if you change the breakpoint group you lose all your image style selections for each breakpoint."
+msgstr "Warnung: Wenn Sie die Breakpoint-Gruppe Ändern wird die Zuordnung des Bildstils für jeden Breakpoint gelöscht."
+
+#: src/ResponsiveImageStyleForm.php:92
+msgid "Select a breakpoint group from the installed themes and modules."
+msgstr "Es muss eine Breakpoint-Gruppe aus dem installierten Themes bzw. aus den Konfigurationen der installierten Module gewählt werden."
+
+#: src/ResponsiveImageStyleForm.php:131
+msgid "See the <a href=\":responsive_image_help\">Responsive Image help page</a> for information on the sizes attribute."
+msgstr "Siehe <a href=\":responsive_image_help\">Hilfeseite zu Responsiven Bildern</a> für Information zum Sizes-Attribut."
+
+#: src/ResponsiveImageStyleForm.php:134
+msgid "Enable the Help module for more information on the sizes attribute."
+msgstr "Das Help-Modul kann aktiviert werden um weitere Informationen über die Eigenschaft Size zu erhalten."
+
+#: src/ResponsiveImageStyleForm.php:137
+msgid "Type"
+msgstr "Typ"
+
+#: src/ResponsiveImageStyleForm.php:140
+msgid "Select multiple image styles and use the sizes attribute."
+msgstr "Mehrere Bildstile auswählen und das Sizes-Attribut verwenden."
+
+#: src/ResponsiveImageStyleForm.php:141
+msgid "Select a single image style."
+msgstr "Einen einzelnen Bildstil auswählen."
+
+#: src/ResponsiveImageStyleForm.php:142
+msgid "Do not use this breakpoint."
+msgstr "Diesen Breakpoint nicht verwenden."
+
+#: src/ResponsiveImageStyleForm.php:152
+msgid "Select an image style for this breakpoint."
+msgstr "Bildstil für diesen Breakpoint auswählen."
+
+#: src/ResponsiveImageStyleForm.php:161
+msgid "Sizes"
+msgstr "Größen"
+
+#: src/ResponsiveImageStyleForm.php:163
+msgid "Enter the value for the sizes attribute, for example: %example_sizes."
+msgstr "Einen Wert für das Sizes-Attribut eingeben, z. B.: %example_sizes."
+
+#: src/ResponsiveImageStyleForm.php:174
+msgid "Image styles"
+msgstr "Bildstile"
+
+#: src/ResponsiveImageStyleForm.php:177
+msgid "Select image styles with widths that range from the smallest amount of space this image will take up in the layout to the largest, bearing in mind that high resolution screens will need images 1.5x to 2x larger."
+msgstr "Hier sollten Bildstile vom Bildstil mit der geringsten Bildbreite hin zum Bildstil mit der größten Bildbreite angeordnet werden. Behalten Sie dabei im Hinterkopf, dass Bildschirme mit hoher Auflösung Bilder mit einer 1,5 x bzw. 2 x größeren Auflösung benötigen als der Standardbildstil."
+
+#: src/ResponsiveImageStyleForm.php:202
+msgid "Select the smallest image style you expect to appear in this space. The fallback image style should only appear on the site if an error occurs."
+msgstr "Hier sollte der Bildstil mit der geringsten Bildbreite ausgewählt werden. Dieser Bildstil sollte in der Regel nur angezeigt werden, wenn ein Fehler auf der Seite auftritt."
+
+#: src/ResponsiveImageStyleForm.php:280
+msgid "Responsive image style %label saved."
+msgstr "Responsiver Bild-Stil %label gespeichert."
+
+#: src/ResponsiveImageStyleForm.php:279
+msgid "Responsive image style @label saved."
+msgstr "Responsiver Bildstil @label gespeichert."
+
+#: src/ResponsiveImageStyleListBuilder.php:18
+msgid "Machine name"
+msgstr "Systemname"
+
+#: src/ResponsiveImageStyleListBuilder.php:37
+msgid "Duplicate"
+msgstr "Duplizieren"
+
+#: src/Entity/ResponsiveImageStyle.php:9
+msgid "responsive image style"
+msgstr "Responsiver Bildstil"
+
+#: src/Entity/ResponsiveImageStyle.php:9
+msgid "responsive image styles"
+msgstr "Responsive Bildstile"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:146
+msgid "Configure Responsive Image Styles"
+msgstr "Responsive Bildstile konfigurieren"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:152
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:153
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:159
+msgid "Nothing"
+msgstr "Nichts"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:174
+msgid "Responsive image style: @responsive_image_style"
+msgstr "Responsiver Bildstil: @responsive_image_style"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:177
+msgid "Linked to content"
+msgstr "Verlinkt mit Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:178
+msgid "Linked to file"
+msgstr "Verlinkt mit Datei"
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:186
+msgid "Select a responsive image style."
+msgstr "Einen responsiven Bildstil auswählen."
+
+#: src/Plugin/Field/FieldFormatter/ResponsiveImageFormatter.php:19
+msgid "Responsive image"
+msgstr "Responsives Bild"
+

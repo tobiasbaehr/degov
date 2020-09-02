@@ -1,0 +1,2454 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  devel.module: n/a
+#  devel.install: n/a
+#  devel.info.yml: n/a
+#  src/EntityTypeInfo.php: n/a
+#  src/ToolbarHandler.php: n/a
+#  src/Controller/ContainerInfoController.php: n/a
+#  src/Controller/ElementInfoController.php: n/a
+#  src/Controller/EntityTypeInfoController.php: n/a
+#  src/Controller/RouteInfoController.php: n/a
+#  src/Plugin/Derivative/DevelLocalTask.php: n/a
+#  devel_generate/devel_generate.info.yml: n/a
+#  kint/kint.info.yml: n/a
+#  webprofiler/webprofiler.info.yml: n/a
+#  webprofiler/src/DataCollector/DevelDataCollector.php: n/a
+#  devel.links.menu.yml: n/a
+#  devel.routing.yml: n/a
+#  config/schema/devel.schema.yml: n/a
+#  devel.links.task.yml: n/a
+#  webprofiler/src/DataCollector/ServicesDataCollector.php: n/a
+#  webprofiler/templates/Collector/services.html.twig: n/a
+#  devel.permissions.yml: n/a
+#  src/Form/SettingsForm.php: n/a
+#  src/Plugin/Block/SwitchUserBlock.php: n/a
+#  webprofiler/templates/Collector/routing.html.twig: n/a
+#  webprofiler/src/DataCollector/EventsDataCollector.php: n/a
+#  webprofiler/templates/Collector/events.html.twig: n/a
+#  devel_generate/devel_generate.batch.inc: n/a
+#  devel_generate/devel_generate.module: n/a
+#  devel_generate/devel_generate.permissions.yml: n/a
+#  devel_generate/src/Form/DevelGenerateForm.php: n/a
+#  devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php: n/a
+#  devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php: n/a
+#  devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php: n/a
+#  devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php: n/a
+#  devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php: n/a
+#  drush/devel.drush8.inc: n/a
+#  src/Commands/DevelCommands.php: n/a
+#  webprofiler/src/Controller/DashboardController.php: n/a
+#  src/Controller/DevelController.php: n/a
+#  src/Form/ConfigsList.php: n/a
+#  src/Form/DevelReinstall.php: n/a
+#  webprofiler/templates/Collector/extensions.html.twig: n/a
+#  webprofiler/templates/Collector/request.html.twig: n/a
+#  webprofiler/templates/Collector/theme.html.twig: n/a
+#  webprofiler/templates/Collector/user.html.twig: n/a
+#  kint/kint.permissions.yml: n/a
+#  kint/src/Plugin/Devel/Dumper/Kint.php: n/a
+#  src/DevelDumperManager.php: n/a
+#  webprofiler/templates/Collector/blocks.html.twig: n/a
+#  webprofiler/templates/Collector/cache.html.twig: n/a
+#  webprofiler/templates/Collector/mail.html.twig: n/a
+#  src/Controller/EventInfoController.php: n/a
+#  src/Element/ClientSideFilterTable.php: n/a
+#  webprofiler/templates/Collector/translations.html.twig: n/a
+#  webprofiler/templates/Collector/views.html.twig: n/a
+#  src/Controller/LayoutInfoController.php: n/a
+#  webprofiler/templates/Collector/http.html.twig: n/a
+#  src/EventSubscriber/ThemeInfoRebuildSubscriber.php: n/a
+#  src/Form/ConfigEditor.php: n/a
+#  src/Form/SystemStateEdit.php: n/a
+#  webprofiler/src/Form/ProfilesFilterForm.php: n/a
+#  src/Form/RouterRebuildConfirmForm.php: n/a
+#  src/Form/SwitchUserForm.php: n/a
+#  src/Form/ToolbarSettingsForm.php: n/a
+#  src/Plugin/Devel/Dumper/ChromePhp.php: n/a
+#  src/Plugin/Devel/Dumper/FirePhp.php: n/a
+#  src/Plugin/Devel/Dumper/DoctrineDebug.php: n/a
+#  src/Plugin/Devel/Dumper/DrupalVariable.php: n/a
+#  src/Plugin/Devel/Dumper/VarDumper.php: n/a
+#  src/Plugin/Mail/DevelMailLog.php: n/a
+#  webprofiler/webprofiler.install: n/a
+#  webprofiler/webprofiler.links.menu.yml: n/a
+#  webprofiler/webprofiler.links.task.yml: n/a
+#  webprofiler/webprofiler.routing.yml: n/a
+#  webprofiler/webprofiler.permissions.yml: n/a
+#  webprofiler/config/schema/webprofiler.schema.yml: n/a
+#  webprofiler/src/Form/ConfigForm.php: n/a
+#  webprofiler/templates/Collector/database.html.twig: n/a
+#  webprofiler/src/Controller/DatabaseController.php: n/a
+#  webprofiler/src/DataCollector/AssetsDataCollector.php: n/a
+#  webprofiler/templates/Collector/assets.html.twig: n/a
+#  webprofiler/src/DataCollector/ConfigDataCollector.php: n/a
+#  webprofiler/src/DataCollector/MailDataCollector.php: n/a
+#  webprofiler/src/DataCollector/ViewsDataCollector.php: n/a
+#  webprofiler/src/DataCollector/BlocksDataCollector.php: n/a
+#  webprofiler/src/DataCollector/CacheDataCollector.php: n/a
+#  webprofiler/templates/Collector/config.html.twig: n/a
+#  webprofiler/src/DataCollector/DatabaseDataCollector.php: n/a
+#  webprofiler/src/DataCollector/DrupalDataCollector.php: n/a
+#  webprofiler/templates/Collector/drupal.html.twig: n/a
+#  webprofiler/src/DataCollector/ExtensionDataCollector.php: n/a
+#  webprofiler/src/DataCollector/FormsDataCollector.php: n/a
+#  webprofiler/templates/Collector/forms.html.twig: n/a
+#  webprofiler/src/DataCollector/HttpDataCollector.php: n/a
+#  webprofiler/src/DataCollector/PerformanceTimingDataCollector.php: n/a
+#  webprofiler/templates/Collector/performance_timing.html.twig: n/a
+#  webprofiler/src/DataCollector/PhpConfigDataCollector.php: n/a
+#  webprofiler/src/DataCollector/RequestDataCollector.php: n/a
+#  webprofiler/src/DataCollector/RoutingDataCollector.php: n/a
+#  webprofiler/src/DataCollector/StateDataCollector.php: n/a
+#  webprofiler/templates/Collector/state.html.twig: n/a
+#  webprofiler/src/DataCollector/ThemeDataCollector.php: n/a
+#  webprofiler/src/DataCollector/TimeDataCollector.php: n/a
+#  webprofiler/templates/Collector/time.html.twig: n/a
+#  webprofiler/src/DataCollector/TranslationsDataCollector.php: n/a
+#  webprofiler/src/DataCollector/UserDataCollector.php: n/a
+#  webprofiler/src/Profiler/Profiler.php: n/a
+#  webprofiler/templates/Collector/devel.html.twig: n/a
+#  webprofiler/templates/Collector/php_config.html.twig: n/a
+#  webprofiler/templates/Profiler/webprofiler_dashboard.html.twig: n/a
+#  webprofiler/templates/Profiler/webprofiler_toolbar.html.twig: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-12-31 11:36+0100\n"
+"PO-Revision-Date: 2020-01-02 11:08+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: devel.module:37
+msgid "About"
+msgstr "Über"
+
+#: devel.module:38
+msgid "The Devel module provides a suite of modules containing fun for module developers and themers. For more information, see the <a href=\":url\">online documentation for the Devel module</a>."
+msgstr "Das Modul Devel stellt eine Suite an Modulen für Modul- und Theme-Entwickler bereit. Für weitere Informationen, siehe die <a href=\":url\">Online-Dokumentation für das Devel-Module</a>."
+
+#: devel.module:39
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: devel.module:41
+msgid "Inspecting Service Container"
+msgstr "Inspiziere Service-Container"
+
+#: devel.module:42
+msgid "The module allows you to inspect Services and Parameters registered in the Service Container. You can see those informations on <a href=\":url\">Container info</a> page."
+msgstr "Das Modul erlaubt es Ihnen, Services und im Service Container registrierte Parameter zu inspizieren. Sie finden diese Informationen auf der <a href=\":url\">Container-Info-Seite</a>."
+
+#: devel.module:43
+msgid "Inspecting Routes"
+msgstr "Inspiziere Routen"
+
+#: devel.module:44
+msgid "The module allows you to inspect routes information, gathering all routing data from <em>.routing.yml</em> files and from classes which subscribe to the route build/alter events. You can see those informations on <a href=\":url\">Routes info</a> page."
+msgstr "Das Modul erlaubt es Ihnen, Routen-Informationen zu inspizieren, indem es alle Routing-Daten sammelt aus <em>.routing.yml</em> Dateien und aus Klassen, die Route build/alter Events abonnieren. Sie finden diese Informationen auf der <a href=\":url\">Routen-Info-Seite</a>."
+
+#: devel.module:45
+msgid "Inspecting Events"
+msgstr "Inspiziere Events"
+
+#: devel.module:46
+msgid "The module allow you to inspect listeners registered in the event dispatcher. You can see those informations on <a href=\":url\">Events info</a> page."
+msgstr "Das Modul erlaubt es Ihnen, im Event Dispatcher registrierte Listener zu inspizieren. Sie finden diese Informationen auf der <a href=\":url\">Events-Info-Seite</a>."
+
+#: devel.module:53
+msgid "Displays Services and Parameters registered in the Service Container. For more informations on the Service Container, see the <a href=\":url\">Symfony online documentation</a>."
+msgstr "Zeigt Services und im Service Container registrierte Parameter an. Für weitere Informationen zum Service Container, siehe die <a href=\":url\">Symfony Online Dokumentation</a>."
+
+#: devel.module:58
+msgid "Displays registered routes for the site. For a complete overview of the routing system, see the <a href=\":url\">online documentation</a>."
+msgstr "Zeigt für die Seite registrierte Routen an. Für einen vollständigen Überblick des Routing-Systems siehe die <a href=\":url\">Online Dokumentation</a>."
+
+#: devel.module:63
+msgid "Displays events and listeners registered in the event dispatcher. For a complete overview of the event system, see the <a href=\":url\">Symfony online documentation</a>."
+msgstr "Zeigt Events und im Event Dispatcher registrierte Listener an. Für einen vollständigen Überblick des Event Systems, siehe die <a href=\":url\">Symfony Online Dokumentation</a>."
+
+#: devel.module:67
+msgid "<strong>Warning</strong> - will delete your module tables and configuration."
+msgstr "<strong>Warnung</strong> - wird Ihre Modul-Tabellen und Konfigurationen löschen."
+
+#: devel.module:68
+msgid "Uninstall and then install the selected modules. <code>hook_uninstall()</code> and <code>hook_install()</code> will be executed and the schema version number will be set to the most recent update number."
+msgstr "Deinstalliere und installiere die gewählten Module. <code>hook_uninstall()</code> und <code>hook_install()</code> werden ausgeführt und die Schema-Versionsnummer wird auf die neuste Updatenummer gesetzt."
+
+#: devel.module:72
+msgid "Here are the contents of your <code>$_SESSION</code> variable."
+msgstr "Hier sind die Inhalte Ihrer <code>$_SESSION</code> Variable."
+
+#: devel.module:75
+msgid "This is a list of state variables and their values. For more information read online documentation of <a href=\":documentation\">State API in Drupal 8</a>."
+msgstr "Dies ist eine Liste von Status-Variablen und ihren Werten. Für mehr Informatione lesen Sie die Online Dokumentation der <a href=\":documentation\">State API in Drupal 8</a>."
+
+#: devel.module:79
+msgid "Displays layouts available to the site. For a complete overview of the layout system, see the <a href=\":url\">Layout API documentation</a>."
+msgstr "Zeigt auf der Seite verfügbare Layouts. Für einen vollständigen Überblick über das Layout-System, siehe die <a href=\":url\">Layout API Dokumentation</a>."
+
+#: devel.module:255
+msgid "%type: @message in %function (line %line of %file)."
+msgstr "%type: @message in %function (Zeile %line in %file)."
+
+#: devel.module:119
+msgid "Layouts Info"
+msgstr "Layoutinfo"
+
+#: devel.module:121
+msgid "Overview of layouts available to the site."
+msgstr "Übersicht der auf der Seite verfügbaren Layouts."
+
+#: devel.install:18
+msgid "Devel module enabled"
+msgstr "Devel-Modul aktiviert"
+
+#: devel.install:19
+msgid "The Devel module provides access to internal debugging information; therefore it's recommended to disable this module on sites in production."
+msgstr "Das Devel Modul erlaubt den Zugriff auf interne Debugging-Informationen; daher wird empfohlen, das Modul im Produktivbetrieb zu deaktivieren."
+
+#: devel.info.yml:0 src/EntityTypeInfo.php:87;94 src/ToolbarHandler.php:91
+#: src/Controller/ContainerInfoController.php:96;197
+#: src/Controller/ElementInfoController.php:88
+#: src/Controller/EntityTypeInfoController.php:81
+#: src/Controller/RouteInfoController.php:114
+#: src/Plugin/Derivative/DevelLocalTask.php:67
+msgid "Devel"
+msgstr "Devel-Modul"
+
+#: devel.info.yml:0
+msgid "Various blocks, pages, and functions for developers."
+msgstr "Verschiedene Blöcke, Seiten und Funktionen für Entwickler."
+
+#: devel.info.yml:0 devel_generate/devel_generate.info.yml:0
+#: kint/kint.info.yml:0 webprofiler/webprofiler.info.yml:0
+#: webprofiler/src/DataCollector/DevelDataCollector.php:47
+msgid "Development"
+msgstr "Development"
+
+#: devel.links.menu.yml:0;0 devel.routing.yml:0
+#: config/schema/devel.schema.yml:0
+msgid "Devel settings"
+msgstr "Einstellungen für das Devel-Modul"
+
+#: devel.links.menu.yml:0 devel.routing.yml:0
+msgid "Config editor"
+msgstr "Konfigurations-Editor"
+
+#: devel.links.menu.yml:0
+msgid "Reinstall Modules"
+msgstr "Module erneut installieren"
+
+#: devel.links.menu.yml:0
+msgid "Rebuild Menu"
+msgstr "Menü neu aufbauen"
+
+#: devel.links.menu.yml:0 devel.routing.yml:0
+msgid "State editor"
+msgstr "Status-Editor"
+
+#: devel.links.menu.yml:0 devel.routing.yml:0
+msgid "Theme registry"
+msgstr "Theme-Registry"
+
+#: devel.links.menu.yml:0
+msgid "Entity Info"
+msgstr "Entitätsinformation"
+
+#: devel.links.menu.yml:0
+msgid "Field Info"
+msgstr "Feldinfo"
+
+#: devel.links.menu.yml:0
+msgid "PHPinfo()"
+msgstr "PHPinfo()"
+
+#: devel.links.menu.yml:0
+msgid "View Session"
+msgstr "Ansichtssitzung"
+
+#: devel.links.menu.yml:0 devel.routing.yml:0
+msgid "Element Info"
+msgstr "Elementinformation"
+
+#: devel.links.menu.yml:0
+msgid "Cache clear"
+msgstr "Cache löschen"
+
+#: devel.links.menu.yml:0 devel.routing.yml:0
+msgid "Run cron"
+msgstr "Cron ausführen"
+
+#: devel.links.menu.yml:0
+msgid "Container Info"
+msgstr "Container-Info"
+
+#: devel.links.menu.yml:0
+msgid "Routes Info"
+msgstr "Routen-Info"
+
+#: devel.links.menu.yml:0
+msgid "Current route info"
+msgstr "Aktuelle Routen-Info"
+
+#: devel.links.menu.yml:0
+msgid "Events Info"
+msgstr "Events-Info"
+
+#: devel.links.menu.yml:0;0
+msgid "Helper functions, pages, and blocks to assist Drupal developers. The devel blocks can be managed via the block administration page."
+msgstr "Hilfsfunktionen, Seiten und Blöcke zur Unterstützung von Drupal-Entwicklern. Die Devel-Blöcke können über die Blockadministrationsseite verwaltet werden."
+
+#: devel.links.menu.yml:0
+msgid "Edit configuration."
+msgstr "Konfiguration bearbeiten."
+
+#: devel.links.menu.yml:0
+msgid "Edit state system values."
+msgstr "Bearbeiten Sie Zustandswerte des Systems."
+
+#: devel.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: devel.links.task.yml:0
+#: webprofiler/src/DataCollector/ServicesDataCollector.php:115
+#: webprofiler/templates/Collector/services.html.twig:3;4;29
+msgid "Services"
+msgstr "Dienste"
+
+#: devel.links.task.yml:0
+msgid "Parameters"
+msgstr "Parameter"
+
+#: devel.permissions.yml:0
+msgid "View developer output like variable printouts, query log, etc."
+msgstr "Developer-Ausgaben anzeigen, wie Variablen, Abfrage-Logs, etc."
+
+#: devel.permissions.yml:0 src/Form/SettingsForm.php:109
+msgid "Access developer information"
+msgstr "Auf Entwicklerinformationen zugreifen"
+
+#: devel.permissions.yml:0
+msgid "Switch users"
+msgstr "Nutzer wechseln"
+
+#: devel.permissions.yml:0
+msgid "Become any user on the site with just a click."
+msgstr "Mit nur einem Klick zu beliebigem Benutzer auf der Seite werden."
+
+#: devel.routing.yml:0
+msgid "Devel Toolbar Settings"
+msgstr "Devel-Toolbar-Einstellungen"
+
+#: devel.routing.yml:0
+msgid "Reinstall modules"
+msgstr "Module neu installieren"
+
+#: devel.routing.yml:0
+msgid "Rebuild router"
+msgstr "Router neu aufbauen"
+
+#: devel.routing.yml:0
+msgid "Edit configuration object: @config_name"
+msgstr "Konfigurationsobjekt bearbeiten: @config_name"
+
+#: devel.routing.yml:0
+msgid "Edit state variable: @state_name"
+msgstr "Status-Variable bearbeiten: @state_name"
+
+#: devel.routing.yml:0
+msgid "Field info"
+msgstr "Feldinformation"
+
+#: devel.routing.yml:0
+msgid "Session viewer"
+msgstr "Sitzungsansicht"
+
+#: devel.routing.yml:0 src/Plugin/Block/SwitchUserBlock.php:19
+msgid "Switch user"
+msgstr "Benutzer wechseln"
+
+#: devel.routing.yml:0
+msgid "Clear cache"
+msgstr "Cache leeren"
+
+#: devel.routing.yml:0
+msgid "Container services"
+msgstr "Container-Services"
+
+#: devel.routing.yml:0
+msgid "Service @service_id detail"
+msgstr "Service-Detail @service_id"
+
+#: devel.routing.yml:0
+msgid "Container parameters"
+msgstr "Container-Parameter"
+
+#: devel.routing.yml:0
+msgid "Parameter @parameter_name value"
+msgstr "Parameter-Wert @parameter_name"
+
+#: devel.routing.yml:0 webprofiler/templates/Collector/routing.html.twig:13
+msgid "Routes"
+msgstr "Routen"
+
+#: devel.routing.yml:0
+msgid "Route detail"
+msgstr "Routendetails"
+
+#: devel.routing.yml:0
+#: webprofiler/src/DataCollector/EventsDataCollector.php:128
+#: webprofiler/templates/Collector/events.html.twig:3;4;31
+msgid "Events"
+msgstr "Veranstaltungen"
+
+#: devel.routing.yml:0
+msgid "Layouts"
+msgstr "Layouts"
+
+#: devel.routing.yml:0
+msgid "Element @element_name"
+msgstr "Element @element_name"
+
+#: devel.routing.yml:0
+msgid "Entity info"
+msgstr "Informationen zur Entität"
+
+#: devel.routing.yml:0
+msgid "Entity type @entity_type_id"
+msgstr "Entitätstyp @entity_type_id"
+
+#: config/schema/devel.schema.yml:0
+msgid "Page alter"
+msgstr "Seite verändern"
+
+#: config/schema/devel.schema.yml:0
+msgid "Raw names"
+msgstr "Rohe Namen"
+
+#: config/schema/devel.schema.yml:0 src/Form/SettingsForm.php:91
+msgid "Error handlers"
+msgstr "Fehler-Behandlungsroutinen"
+
+#: config/schema/devel.schema.yml:0
+msgid "Rebuild theme information"
+msgstr "Theme-Informationen neu aufbauen"
+
+#: config/schema/devel.schema.yml:0
+msgid "Mail debug file format"
+msgstr "E-Mail-Debug Dateiformat"
+
+#: config/schema/devel.schema.yml:0
+msgid "Mail debug directory"
+msgstr "E-Mail-Debug Verzeichnis"
+
+#: config/schema/devel.schema.yml:0
+msgid "Devel variable dumper"
+msgstr "Devel Variablen-Dumper"
+
+#: config/schema/devel.schema.yml:0
+msgid "Devel Toolbar settings"
+msgstr "Devel-Toolbar-Einstellungen"
+
+#: config/schema/devel.schema.yml:0
+msgid "Toolbar items"
+msgstr "Elemente der Werkzeugleiste"
+
+#: config/schema/devel.schema.yml:0
+msgid "Switch user block"
+msgstr "Benutzer-wechseln-Block"
+
+#: config/schema/devel.schema.yml:0
+msgid "List size"
+msgstr "Listengröße"
+
+#: config/schema/devel.schema.yml:0
+msgid "Include Anonymous user"
+msgstr "Gäste mit einschließen"
+
+#: config/schema/devel.schema.yml:0
+msgid "Show search form"
+msgstr "Suchformular anzeigen"
+
+#: devel_generate/devel_generate.batch.inc:19
+msgid "Finished @num elements created successfully."
+msgstr "@num Elemente erfolgreich erzeugt."
+
+#: devel_generate/devel_generate.batch.inc:22
+msgid "Finished with an error."
+msgstr "Mit einem Fehler beendet."
+
+#: devel_generate/devel_generate.module:19
+msgid "Generate @label"
+msgstr "@label generieren"
+
+#: devel_generate/devel_generate.info.yml:0
+msgid "Devel Generate"
+msgstr "Devel Generate"
+
+#: devel_generate/devel_generate.info.yml:0
+msgid "Generate dummy users, nodes, menus, taxonomy terms..."
+msgstr "Generiere Dummy-Benutzer, Inhalte, Menüs, Taxonomiebegriffe....."
+
+#: devel_generate/devel_generate.permissions.yml:0
+msgid "Administer devel_generate"
+msgstr "devel_generate verwalten"
+
+#: devel_generate/src/Form/DevelGenerateForm.php:83
+msgid "Generate"
+msgstr "Erzeugen"
+
+#: devel_generate/src/Form/DevelGenerateForm.php:109;110
+msgid "Failed to generate elements due to \"%error\"."
+msgstr "Konnte Elemente nicht erzeugen aufgrund von \"%error\"."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:168
+msgid "You do not have any content types that can be generated. <a href=\":create-type\">Go create a new content type</a>"
+msgstr "Sie verfügen über keine Inhaltstypen, die generiert werden können. <a href=\":create-type\">Erstellen Sie einen neuen Inhaltstypen</a>"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:180
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:180
+msgid "Closed"
+msgstr "Geschlossen"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:180
+msgid "Open"
+msgstr "Geöffnet"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:205
+msgid "No comment fields"
+msgstr "Keine Kommentarfelder"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:211
+msgid "Content type"
+msgstr "Inhaltstyp"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:215
+msgid "Comments"
+msgstr "Kommentare"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:228
+msgid "<strong>Delete all content</strong> in these content types before generating new content."
+msgstr "Für diese Inhaltstypen <strong>alle Inhalte löschen</strong>, bevor neue Inhalte erzeugt werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:233
+msgid "How many nodes would you like to generate?"
+msgstr "Wie viele Beiträge sollen generiert werden?"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:239
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:125
+msgid "Now"
+msgstr "Jetzt"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:241
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:127
+msgid "ago"
+msgstr "her"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:245
+msgid "How far back in time should the nodes be dated?"
+msgstr "Wie weit zurück sollten die Beiträge datiert sein?"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:246
+msgid "Node creation dates will be distributed randomly from the current time, back to the selected time."
+msgstr "Die Daten zur Beitrag-Erstellung werden vom aktuellen Zeitpunkt bis zum ausgewählten Zeitpunkt nach dem Zufallsprinzip verteilt."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:253
+msgid "Maximum number of comments per node."
+msgstr "Maximalanzahl Kommentare pro Node."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:254
+msgid "You must also enable comments for the content types you are generating. Note that some nodes will randomly receive zero comments. Some will receive the max."
+msgstr "Sie müssen Kommentare aktivieren für die Inhaltstypen, die Sie erzeugen. Beachten Sie, dass einige Nodes per Zufall null Kommentare erhalten werden, andere das Maximum."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:261
+msgid "Maximum number of words in titles"
+msgstr "Maximale Anzahl von Wörtern in Titeln"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:270
+msgid "Requires path.module"
+msgstr "Erfordert das Path-Modul"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:271
+msgid "Add an url alias for each node."
+msgstr "﻿Fügen Sie einen Url-Alias für jeden Beitrag ein."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:276
+msgid "Add statistics for each node (node_counter table)."
+msgstr "Statstiken für jede Node hinzufügen (node_counter Tabelle)."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:290
+msgid "Set language on nodes"
+msgstr "Sprache für Nodes setzen"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:292
+msgid "Requires locale.module"
+msgstr "locale.module erforderlich"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:309
+msgid "Please select at least one content type"
+msgstr "Bitte mindestens einen Inhaltstyp auswählen"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:375
+msgid "Generating Content"
+msgstr "Inhalt wird generiert"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:474
+msgid "Deleted %count nodes."
+msgstr "%count Beiträge wurden gelöscht."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:343
+msgid "Completed @feedback nodes (@rate nodes/min)"
+msgstr "@feedback Nodes abgeschlossen (@rate Nodes/Min.)"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:438
+msgid "No content types available"
+msgstr "Es sind keine Inhaltstypen vorhanden"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:445
+msgid "Please provide content type (--types) in which you want to delete the content."
+msgstr "Bitte auswählen, für welche(n) Inhaltstyp(en) Inhalt gelöscht werden sollen."
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:450
+msgid "One or more content types have been entered that don't exist on this site"
+msgstr "Es wurden ein oder mehrrere Inhaltstypen angegeben, die auf dieser Seite nicht existieren"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:348
+msgid "1 node created."
+msgid_plural "Finished creating @count nodes"
+msgstr[0] "1 Node erzeugt."
+msgstr[1] "@count Nodes erzeugt"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:21
+msgid "content"
+msgstr "Inhalt"
+
+#: devel_generate/src/Plugin/DevelGenerate/ContentDevelGenerate.php:21
+msgid "Generate a given number of content. Optionally delete current content."
+msgstr "Eine bestimmte Anzahl von Inhalten erzeugen oder vorhandene Inhalte löschen."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:110
+msgid "Create new menu(s)"
+msgstr "Neue Menüs generieren"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:117
+msgid "Generate links for these menus"
+msgstr "Menüpunkte für folgende Menüs generieren"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:125
+msgid "Number of new menus to create"
+msgstr "Anzahl neuer Menüs die generiert werden sollen"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:137
+msgid "Number of links to generate"
+msgstr "Anzahl der zu generierenden Menüpunkte"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:144
+msgid "Maximum number of characters in menu and menu link names"
+msgstr "Maximale Anzahl von Zeichen im Menü und in den Namen der Menü-Links"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:145
+msgid "The minimum length is 2."
+msgstr "Die Mindestlänge beträgt 2."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:153
+msgid "Types of links to generate"
+msgstr "Zu generierende Menüpunkttypen"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:155
+msgid "Nodes"
+msgstr "Beiträge"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:156
+msgid "Front page"
+msgstr "Startseite"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:157
+msgid "External"
+msgstr "Extern"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:164
+msgid "Maximum link depth"
+msgstr "Maximale Verschachtelungstiefe für Menüpunkte"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:172
+msgid "Maximum menu width"
+msgstr "Maximale Menübreite"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:174
+msgid "Limit the width of the generated menu's first level of links to a certain number of items."
+msgstr "Die oberste Verschachtelungsebene der generierten Menüs auf eine angegebene Anzahl von Menüpunkten begrenzen."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:180
+msgid "Delete existing custom generated menus and menu links before generating new ones."
+msgstr "Vorhandene individuell erstellte Menüs und Menüpunkte löschen, bevor neue generiert werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:203
+msgid "Deleted existing menus and links."
+msgstr "Vorhandene Menüs und Links wurden gelöscht."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:209
+msgid "Created the following new menus: @menus"
+msgstr "Folgende neue Menüs erzeugt: @menus"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:218
+msgid "Created @count new menu links."
+msgstr "@count neue Menüeinträge erzeugt."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:309
+msgid "Description of @name"
+msgstr "Beschreibung von @name"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:338
+msgid "Description of @title."
+msgstr "Beschreibung von @title."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:243
+msgid "Invalid number of menus"
+msgstr "Ungültige Anzahl von Menüs"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:246
+msgid "Invalid number of links"
+msgstr "Ungültige Anzahl von Links"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:249
+msgid "Invalid maximum link depth. Use a value between 1 and 9"
+msgstr "Ungültige maximale Link-Tiefe. Nutzen Sie einen Wert zwischen 1 und 9"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:252
+msgid "Invalid maximum menu width. Use a positive numeric value."
+msgstr "Ungültige maximale Menü-Breite. Nutzen Sie einen positiven numerischen Wert."
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:15
+msgid "menus"
+msgstr "Menüs"
+
+#: devel_generate/src/Plugin/DevelGenerate/MenuDevelGenerate.php:15
+msgid "Generate a given number of menus and menu links. Optionally delete current menus."
+msgstr "Generieren einer angegebenen Anzahl von Menüs und Menüpunkten. Aktuell vorhandene Menüs können optional gelöscht werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:88
+msgid "Vocabularies"
+msgstr "Vokabulare"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:92
+msgid "Restrict terms to these vocabularies."
+msgstr "Taxonomiebegriffe auf ausgewählte Vokabulare beschränken."
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:96
+msgid "Number of terms?"
+msgstr "Anzahl der Taxonomiebegriffe?"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:103
+msgid "Maximum number of characters in term names"
+msgstr "Maximale Anzahl von Zeichen in Begriffsnamen"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:111
+msgid "Delete existing terms in specified vocabularies before generating new terms."
+msgstr "Vorhandene Taxonomiebegriffe in den angegebenen Vokabularen löschen, bevor neue Taxonomiebegriffe generiert werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:124
+msgid "Deleted existing terms."
+msgstr "Vorhandene Taxonomiebegriffe wurden gelöscht."
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:130
+msgid "Created the following new terms: @terms"
+msgstr "Die folgenden neuen Begriffe wurden erstellt: @terms"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:239
+msgid "Please provide a vocabulary machine name."
+msgstr "Bitte einen Vokabular-Systemnamen angeben."
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:243
+msgid "Invalid number of terms: @num"
+msgstr "Ungültige Anzahl von Begriffen: @num"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:248
+msgid "Invalid vocabulary name: @name"
+msgstr "Ungültiger Vokabularname: @name"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:12
+msgid "terms"
+msgstr "Begriffe"
+
+#: devel_generate/src/Plugin/DevelGenerate/TermDevelGenerate.php:12
+msgid "Generate a given number of terms. Optionally delete current terms."
+msgstr "Generieren einer vom Benutzer festlegten Anzahl von Begriffen. Optional können vorhandene Begriffe gelöscht werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:96
+msgid "How many users would you like to generate?"
+msgstr "Wie viele Benutzer sollen generiert werden?"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:104
+msgid "Delete all users (except user id 1) before generating new users."
+msgstr "Alle Benutzer löschen, außer dem Benutzer 1 bevor neue Benutzer generiert werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:112
+msgid "Which roles should the users receive?"
+msgstr "Welche Rollen sollen den Benutzer zugewiesen werden?"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:113
+msgid "Users always receive the <em>authenticated user</em> role."
+msgstr "Benutzer erhalten immer die <em>authenticated user</em> Rolle."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:119
+msgid "Password to be set"
+msgstr "Zu setzendes Passwort"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:122
+msgid "Leave this field empty if you do not need to set a password"
+msgstr "Leer lassen, wenn Sie kein Passwort setzen müssen"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:131
+msgid "How old should user accounts be?"
+msgstr "Wie alt dürfen Benutzerkonten sein?"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:132
+msgid "User ages will be distributed randomly from the current time, back to the selected time."
+msgstr "Das Benutzeralter wird vom aktuellen Zeitpunkt bis zum ausgewählten Zeitpunkt nach dem Zufallsprinzip verteilt."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:188
+msgid "@num_users created."
+msgstr "@num_users erstellt."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:157
+msgid "1 user deleted"
+msgid_plural "@count users deleted."
+msgstr[0] "1 Benutzer gelöscht"
+msgstr[1] "@count Benutzer gelöscht."
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:189
+msgid "1 user"
+msgid_plural "@count users"
+msgstr[0] "1 Benutzer"
+msgstr[1] "@count Benutzer"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:15
+msgid "users"
+msgstr "Benutzer"
+
+#: devel_generate/src/Plugin/DevelGenerate/UserDevelGenerate.php:15
+msgid "Generate a given number of users. Optionally delete current users."
+msgstr "Generiert eine bestimmte Anzahl von Benutzern. Optional können die aktuellen Benutzer gelöscht werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:72
+msgid "Number of vocabularies?"
+msgstr "Anzahl der Vokabulare?"
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:79
+msgid "Maximum number of characters in vocabulary names"
+msgstr "Maximale Anzahl von Zeichen in Vokabularnamen"
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:87
+msgid "Delete existing vocabularies before generating new ones."
+msgstr "Vorhandene Vokabulare löschen, bevor neue Vokabulare erzeugt werden."
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:100
+msgid "Deleted existing vocabularies."
+msgstr "Vorhandene Vokabulare wurden gelöscht."
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:105
+msgid "Created the following new vocabularies: @vocs"
+msgstr "Folgende Vokabulare erstellt: @vocs"
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:169
+msgid "Invalid number of vocabularies: @num."
+msgstr "Ungültige Anzahl von Vokabularen: @num."
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:13
+msgid "vocabularies"
+msgstr "Vokabulare"
+
+#: devel_generate/src/Plugin/DevelGenerate/VocabularyDevelGenerate.php:13
+msgid "Generate a given number of vocabularies. Optionally delete current vocabularies."
+msgstr "Generieren Sie eine angegebene Anzahl von Vokabularen. Sie können auch aktuelle Vokabulare löschen."
+
+#: drush/devel.drush8.inc:18
+msgid "Uninstall, and Install a list of projects."
+msgstr "Eine Liste von Projekten deinstallieren und neu installieren."
+
+#: drush/devel.drush8.inc:21
+msgid "A space-separated list of project names."
+msgstr "Eine Leerzeichen-separierte Liste von Projektnamen."
+
+#: drush/devel.drush8.inc:69
+msgid "List available tokens"
+msgstr "Verfügbare Platzhalter auflisten"
+
+#: drush/devel.drush8.inc:137;166 src/Commands/DevelCommands.php:161
+msgid "No implementations."
+msgstr "Keine Implementierungen."
+
+#: drush/devel.drush8.inc:180 src/Commands/DevelCommands.php:218
+msgid "Function not found"
+msgstr "Die Funktion wurde nicht gefunden"
+
+#: drush/devel.drush8.inc:187 src/Commands/DevelCommands.php:225
+msgid "Method not found"
+msgstr "Methode nicht gefunden"
+
+#: drush/devel.drush8.inc:198
+msgid "// file: @file, lines @startline-@endline"
+msgstr "// Datei: @file, Zeilen @startline-@endline"
+
+#: drush/devel.drush8.inc:207
+msgid "Group"
+msgstr "Gruppe"
+
+#: drush/devel.drush8.inc:207
+#: webprofiler/src/Controller/DashboardController.php:207
+msgid "Token"
+msgstr "Token"
+
+#: drush/devel.drush8.inc:207 src/Controller/ContainerInfoController.php:181
+#: src/Controller/DevelController.php:100
+#: src/Controller/ElementInfoController.php:63
+#: src/Controller/EntityTypeInfoController.php:52 src/Form/ConfigsList.php:45
+#: src/Form/DevelReinstall.php:85
+#: webprofiler/templates/Collector/extensions.html.twig:44;72
+#: webprofiler/templates/Collector/request.html.twig:52;72;91;116;135;184;202
+#: webprofiler/templates/Collector/theme.html.twig:17;58
+#: webprofiler/templates/Collector/user.html.twig:45
+msgid "Name"
+msgstr "Name"
+
+#: drush/devel.drush8.inc:270
+msgid "No container was found."
+msgstr "Keinen Container gefunden."
+
+#: drush/devel.drush8.inc:282 src/Commands/DevelCommands.php:258
+msgid "No container services found."
+msgstr "Keine Container-Services gefunden."
+
+#: kint/kint.info.yml:0
+msgid "Devel Kint"
+msgstr "Devel Kint"
+
+#: kint/kint.info.yml:0
+msgid "Wrapper for Kint debugging tool."
+msgstr "Wrapper für das Kint Debugging-Tool."
+
+#: kint/kint.permissions.yml:0
+msgid "View developer debug output."
+msgstr "Entwickler-Debug-Ausgabe anzeigen."
+
+#: kint/kint.permissions.yml:0
+msgid "Access kint information"
+msgstr "Auf Kint-Informationen zugreifen"
+
+#: kint/src/Plugin/Devel/Dumper/Kint.php:7
+msgid "Kint"
+msgstr "Kint"
+
+#: kint/src/Plugin/Devel/Dumper/Kint.php:7
+msgid "Wrapper for <a href='https://github.com/raveren/kint'>Kint</a> debugging tool."
+msgstr "Wrapper für das <a href=\'https://github.com/raveren/kint\'>Kint</a> Debugging-Tool."
+
+#: src/DevelDumperManager.php:109
+msgid "Devel was unable to write to %file."
+msgstr "Devel konnte nicht nach %file schreiben."
+
+#: src/ToolbarHandler.php:94;99
+msgid "Development menu"
+msgstr "Entwicklungsmenü"
+
+#: src/ToolbarHandler.php:113
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: src/Commands/DevelCommands.php:113
+msgid "No implementations"
+msgstr "Keine Implementierungen"
+
+#: src/Controller/ContainerInfoController.php:68
+#: src/Controller/EntityTypeInfoController.php:51
+#: webprofiler/templates/Collector/blocks.html.twig:33;34;70
+#: webprofiler/templates/Collector/cache.html.twig:40
+#: webprofiler/templates/Collector/mail.html.twig:35
+#: webprofiler/templates/Collector/services.html.twig:42;43;79
+msgid "ID"
+msgstr "ID"
+
+#: src/Controller/ContainerInfoController.php:69
+#: src/Controller/ElementInfoController.php:65
+#: src/Controller/EntityTypeInfoController.php:54
+#: webprofiler/templates/Collector/events.html.twig:37
+#: webprofiler/templates/Collector/services.html.twig:46;47;83
+msgid "Class"
+msgstr "Klasse"
+
+#: src/Controller/ContainerInfoController.php:70
+msgid "Alias"
+msgstr "Alias"
+
+#: src/Controller/ContainerInfoController.php:71;182
+#: src/Controller/DevelController.php:105
+#: src/Controller/ElementInfoController.php:66
+#: src/Controller/EntityTypeInfoController.php:55
+#: src/Controller/RouteInfoController.php:79 src/Form/ConfigsList.php:46
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Controller/ContainerInfoController.php:118;219
+#: src/Controller/DevelController.php:135
+#: src/Controller/ElementInfoController.php:109
+#: src/Controller/EntityTypeInfoController.php:102
+#: src/Controller/EventInfoController.php:89
+#: src/Controller/RouteInfoController.php:133
+#: src/Element/ClientSideFilterTable.php:35;36;37
+#: src/Form/DevelReinstall.php:67
+msgid "Search"
+msgstr "Suche"
+
+#: src/Controller/ContainerInfoController.php:119
+msgid "Enter service id, alias or class"
+msgstr "Service-ID, Alias oder Klasse eingeben"
+
+#: src/Controller/ContainerInfoController.php:120
+msgid "Enter a part of the service id, service alias or class to filter by."
+msgstr "Geben Sie eine Service-ID, einen Service-Alias oder eine Klasse zum Filtern ein."
+
+#: src/Controller/ContainerInfoController.php:123
+msgid "No services found."
+msgstr "Keine Dienste gefunden."
+
+#: src/Controller/ContainerInfoController.php:164
+msgid "Computed Definition"
+msgstr "Berechnete Definition"
+
+#: src/Controller/ContainerInfoController.php:168
+msgid "Instance"
+msgstr "Instanz"
+
+#: src/Controller/ContainerInfoController.php:220
+msgid "Enter parameter name"
+msgstr "Parameternamen eingeben"
+
+#: src/Controller/ContainerInfoController.php:221
+msgid "Enter a part of the parameter name to filter by."
+msgstr "Geben Sie einen Parameter-Namen zum Filtern ein."
+
+#: src/Controller/ContainerInfoController.php:224
+msgid "No parameters found."
+msgstr "Keine Parameter gefunden."
+
+#: src/Controller/DevelController.php:46
+msgid "Cache cleared."
+msgstr "Der Cache wurde geleert."
+
+#: src/Controller/DevelController.php:65
+msgid "Fields"
+msgstr "Felder"
+
+#: src/Controller/DevelController.php:69
+msgid "Instances"
+msgstr "Instanzen"
+
+#: src/Controller/DevelController.php:73
+msgid "Bundles"
+msgstr "Subtypen"
+
+#: src/Controller/DevelController.php:77
+msgid "Field types"
+msgstr "Feldtypen"
+
+#: src/Controller/DevelController.php:81
+msgid "Formatter types"
+msgstr "Anzeigeformattypen"
+
+#: src/Controller/DevelController.php:85
+msgid "Widget types"
+msgstr "Steuerelementtypen"
+
+#: src/Controller/DevelController.php:101
+#: webprofiler/templates/Collector/request.html.twig:53;73;92;117;136;185;203
+msgid "Value"
+msgstr "Wert"
+
+#: src/Controller/DevelController.php:124 src/Form/ConfigsList.php:58
+#: webprofiler/templates/Collector/blocks.html.twig:83
+#: webprofiler/templates/Collector/theme.html.twig:59
+#: webprofiler/templates/Collector/translations.html.twig:54;75
+#: webprofiler/templates/Collector/views.html.twig:47
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Controller/DevelController.php:136
+msgid "Enter state name"
+msgstr "Statusnamen eingeben"
+
+#: src/Controller/DevelController.php:137
+msgid "Enter a part of the state name to filter by."
+msgstr "Geben Sie einen Status-Namen zum Filtern ein."
+
+#: src/Controller/DevelController.php:140
+msgid "No state variables found."
+msgstr "Keine Statusvariablen gefunden."
+
+#: src/Controller/DevelController.php:157
+msgid "Here are the contents of your $_SESSION variable."
+msgstr "Hier sind die Inhalte Ihrer $_SESSION-Variable."
+
+#: src/Controller/DevelController.php:161
+msgid "Session name"
+msgstr "Sitzungsname"
+
+#: src/Controller/DevelController.php:161
+msgid "Session ID"
+msgstr "Session-ID"
+
+#: src/Controller/DevelController.php:163
+msgid "No session available."
+msgstr "Keine Session verfügbar."
+
+#: src/Controller/ElementInfoController.php:64
+#: src/Controller/EntityTypeInfoController.php:53
+#: src/Controller/LayoutInfoController.php:53
+#: webprofiler/templates/Collector/blocks.html.twig:45;46;91
+#: webprofiler/templates/Collector/user.html.twig:53
+msgid "Provider"
+msgstr "Anbieter"
+
+#: src/Controller/ElementInfoController.php:110
+msgid "Enter element id, provider or class"
+msgstr "Element-ID, Provider oder Klasse eingeben"
+
+#: src/Controller/ElementInfoController.php:111
+msgid "Enter a part of the element id, provider or class to filter by."
+msgstr "Geben Sie Teile der Element-ID, des Providers oder der Klasse zum Filtern ein."
+
+#: src/Controller/ElementInfoController.php:114
+msgid "No elements found."
+msgstr "Keine Elemente gefunden."
+
+#: src/Controller/EntityTypeInfoController.php:103
+msgid "Enter entity type id, provider or class"
+msgstr "Entitätstyp-ID, Provider oder Klasse eingeben"
+
+#: src/Controller/EntityTypeInfoController.php:104
+msgid "Enter a part of the entity type id, provider or class to filter by."
+msgstr "Geben Sie Teile der Entitätstyp-ID, des Providers oder der Klasse zum Filtern ein."
+
+#: src/Controller/EntityTypeInfoController.php:107
+msgid "No entity types found."
+msgstr "Keine Entitätstypen gefunden."
+
+#: src/Controller/EventInfoController.php:49
+msgid "Event Name"
+msgstr "Veranstaltungsname"
+
+#: src/Controller/EventInfoController.php:52
+msgid "Callable"
+msgstr "Abrufbar"
+
+#: src/Controller/EventInfoController.php:53
+#: webprofiler/templates/Collector/events.html.twig:38;69
+msgid "Priority"
+msgstr "Priorität"
+
+#: src/Controller/EventInfoController.php:90
+msgid "Enter event name"
+msgstr "Ereignisnamen eingeben"
+
+#: src/Controller/EventInfoController.php:91
+msgid "Enter a part of the event name to filter by."
+msgstr "Geben Sie Teile des Event-Namens zum Filtern ein."
+
+#: src/Controller/EventInfoController.php:94
+msgid "No events found."
+msgstr "Keine Ergeignisse gefunden."
+
+#: src/Controller/LayoutInfoController.php:48
+msgid "Icon"
+msgstr "Symbol"
+
+#: src/Controller/LayoutInfoController.php:49
+#: webprofiler/templates/Collector/blocks.html.twig:37;38;73
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Controller/LayoutInfoController.php:50 src/Form/DevelReinstall.php:86
+msgid "Description"
+msgstr "Beschreibung"
+
+#: src/Controller/LayoutInfoController.php:51
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/Controller/LayoutInfoController.php:52
+#: webprofiler/templates/Collector/theme.html.twig:71
+msgid "Regions"
+msgstr "Regionen"
+
+#: src/Controller/LayoutInfoController.php:73
+msgid "No layouts available."
+msgstr "Keine Layouts verfügbar."
+
+#: src/Controller/RouteInfoController.php:76
+msgid "Route Name"
+msgstr "Route-Name"
+
+#: src/Controller/RouteInfoController.php:77
+#: webprofiler/templates/Collector/extensions.html.twig:45;73
+#: webprofiler/templates/Collector/http.html.twig:39
+#: webprofiler/templates/Collector/request.html.twig:161
+#: webprofiler/templates/Collector/theme.html.twig:83
+msgid "Path"
+msgstr "Pfad"
+
+#: src/Controller/RouteInfoController.php:78
+msgid "Allowed Methods"
+msgstr "Zulässige Methoden"
+
+#: src/Controller/RouteInfoController.php:96
+msgid "ANY"
+msgstr "BELIEBIG"
+
+#: src/Controller/RouteInfoController.php:134
+msgid "Enter route name or path"
+msgstr "Routennamen oder Pfad eingeben"
+
+#: src/Controller/RouteInfoController.php:135
+msgid "Enter a part of the route name or path to filter by."
+msgstr "Geben Sie einen Teil des Routennamens oder Pfades ein, nach dem gefiltert werden soll."
+
+#: src/Controller/RouteInfoController.php:138
+msgid "No routes found."
+msgstr "Keine Routen gefunden."
+
+#: src/Controller/RouteInfoController.php:172
+msgid "Unable to load route for url '%url'"
+msgstr "Konnte Route für URL \'%url\' nicht laden"
+
+#: src/Controller/RouteInfoController.php:183
+msgid "Unable to load route '%name'"
+msgstr "Konnte Route \'%name\' nicht laden"
+
+#: src/EventSubscriber/ThemeInfoRebuildSubscriber.php:103
+msgid "The theme information is being rebuilt on every request. Remember to <a href=\":url\">turn off</a> this feature on production websites."
+msgstr "Die Theme-Informationen werden bei jedem Request neu erzeugt. Bitte <a href=\":url\">deaktivieren</a> Sie dieses Feature im produktiven Betrieb."
+
+#: src/Form/ConfigEditor.php:31
+msgid "Config @name does not exist in the system."
+msgstr "Konfiguration @name existiert nicht im System."
+
+#: src/Form/ConfigEditor.php:38
+msgid "Config @name exists but has no data."
+msgstr "Konfiguration @name existiert, enthält aber keine Daten."
+
+#: src/Form/ConfigEditor.php:46 src/Form/SystemStateEdit.php:86
+msgid "Invalid data detected for @name : %error"
+msgstr "Ungültige Daten festgestellt für @name : %error"
+
+#: src/Form/ConfigEditor.php:52
+msgid "Current value for %variable"
+msgstr "Aktueller Wert für %variable"
+
+#: src/Form/ConfigEditor.php:66 src/Form/SystemStateEdit.php:106
+msgid "New value"
+msgstr "Neuer Wert"
+
+#: src/Form/ConfigEditor.php:75 src/Form/SystemStateEdit.php:115
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/ConfigEditor.php:79 src/Form/SystemStateEdit.php:120
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/ConfigEditor.php:100
+msgid "Invalid input"
+msgstr "Ungültige Eingabe"
+
+#: src/Form/ConfigEditor.php:104 src/Form/SystemStateEdit.php:140
+msgid "Invalid input: %error"
+msgstr "Ungültige Eingabe: %error"
+
+#: src/Form/ConfigEditor.php:115;116
+msgid "Configuration variable %variable was successfully saved."
+msgstr "Konfigurationsvariable %variable erfolgreich gespeichert."
+
+#: src/Form/ConfigEditor.php:122
+msgid "Error saving configuration variable %variable : %error."
+msgstr "Fehler beim Speichern der Konfigurationsvariable %variable : %error."
+
+#: src/Form/ConfigsList.php:28
+msgid "Filter variables"
+msgstr "Variablen filtern"
+
+#: src/Form/ConfigsList.php:34
+msgid "Variable name"
+msgstr "Variablenname"
+
+#: src/Form/ConfigsList.php:41 webprofiler/src/Form/ProfilesFilterForm.php:58
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Form/ConfigsList.php:72
+msgid "No variables found"
+msgstr "Keine Variablen gefunden"
+
+#: src/Form/DevelReinstall.php:69
+msgid "Enter module name"
+msgstr "Modulname eingeben"
+
+#: src/Form/DevelReinstall.php:74
+msgid "Enter a part of the module name or description to filter by."
+msgstr "Geben Sie einen Teil des Namens oder der Beschreibung des Moduls ein um danach zu filtern."
+
+#: src/Form/DevelReinstall.php:114
+msgid "No modules are available to uninstall."
+msgstr "Keine Module zum Deinstallieren verfügbar."
+
+#: src/Form/DevelReinstall.php:122
+msgid "Reinstall"
+msgstr "Neuinstallieren"
+
+#: src/Form/DevelReinstall.php:134
+msgid "No modules selected."
+msgstr "Keine Module ausgewählt."
+
+#: src/Form/DevelReinstall.php:147
+msgid "Uninstalled and installed: %names."
+msgstr "Deinstalliert und installiert: %names."
+
+#: src/Form/DevelReinstall.php:149
+msgid "Unable to reinstall modules. Error: %error."
+msgstr "Konnte Module nicht neu installieren. Fehler: %error."
+
+#: src/Form/RouterRebuildConfirmForm.php:53
+msgid "Are you sure you want to rebuild the router?"
+msgstr "Möchten Sie den Router wirklich neu erstelln?"
+
+#: src/Form/RouterRebuildConfirmForm.php:67
+msgid "Rebuilds the routes information gathering all routing data from .routing.yml files and from classes which subscribe to the route build events. This action cannot be undone."
+msgstr "Erzeugt die Routen-Informationen neu, indem alle Routing-Daten gesammelt werden aus den .routing.yml Dateien und Klassen, die Route build Events abonnieren. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/RouterRebuildConfirmForm.php:74
+msgid "Rebuild"
+msgstr "Neu aufbauen"
+
+#: src/Form/RouterRebuildConfirmForm.php:82
+msgid "The router has been rebuilt."
+msgstr "Der Router wurde neu erstellt."
+
+#: src/Form/SettingsForm.php:68
+msgid "Display $page array"
+msgstr "Anzeige $page array"
+
+#: src/Form/SettingsForm.php:70
+msgid "Display $page array from <a href=\"https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_page_attachments_alter/8\">hook_page_attachments_alter()</a> in the messages area of each page."
+msgstr "Zeige das $page array aus <a href=\"https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_page_attachments_alter/8\">hook_page_attachments_alter()</a> im Nachrichten-Bereich jeder Seite."
+
+#: src/Form/SettingsForm.php:74
+msgid "Display machine names of permissions and modules"
+msgstr "Systemnamen von Berechtigungen und Modulen anzeigen"
+
+#: src/Form/SettingsForm.php:76
+msgid "Display the language-independent machine names of the permissions in mouse-over hints on the <a href=\":permissions_url\">Permissions</a> page and the module base file names on the Permissions and <a href=\":modules_url\">Modules</a> pages."
+msgstr "Zeige die sprachunabhängigen Maschinennamen der Berechtigungen in Mouseover-Hinweisen auf der <a href=\":permissions_url\">Berechtigungen-Seite</a> und die Modul-Dateinamen auf den Seiten Berechtigungen und <a href=\":modules_url\">Module</a>."
+
+#: src/Form/SettingsForm.php:83
+msgid "Rebuild the theme registry on every page load"
+msgstr "Theme Registry bei jedem laden der Seite neu erstellen"
+
+#: src/Form/SettingsForm.php:84
+msgid "New templates, theme overrides, and changes to the theme.info.yml need the theme registry to be rebuilt in order to appear on the site."
+msgstr "Neue Templates, Theme Overrides und Änderungen in der theme.info.yml erfordern es, die Theme Registry neu aufzubauen, damit sie angezeigt werden können."
+
+#: src/Form/SettingsForm.php:93
+msgid "None"
+msgstr "Keine"
+
+#: src/Form/SettingsForm.php:94
+msgid "Standard Drupal"
+msgstr "Standard Drupal"
+
+#: src/Form/SettingsForm.php:95
+msgid "Kint backtrace in the message area"
+msgstr "Kint Backtrace im Nachrichtenbereich"
+
+#: src/Form/SettingsForm.php:96
+msgid "Kint backtrace above the rendered page"
+msgstr "Kint Backtrace über der gerenderten Seite"
+
+#: src/Form/SettingsForm.php:102
+msgid "Select the error handler(s) to use, in case you <a href=\":choose\">choose to show errors on screen</a>."
+msgstr "Wählen Sie die zu verwendenden Error Handler aus, wenn Sie <a href=\":choose\">Fehler ausgeben wollen</a>."
+
+#: src/Form/SettingsForm.php:107
+msgid "<em>None</em> is a good option when stepping through the site in your debugger."
+msgstr "<em>Keine</em> ist eine gute Option wenn Sie mit dem Debugger durch die Seite steigen."
+
+#: src/Form/SettingsForm.php:108
+msgid "<em>Standard Drupal</em> does not display all the information that is often needed to resolve an issue."
+msgstr "<em>Standard Drupal</em> zeigt nicht alle Informationen, die üblicherweise für eine Problemlösung benötigt werden."
+
+#: src/Form/SettingsForm.php:109
+msgid "<em>Kint backtrace</em> displays nice debug information when any type of error is noticed, but only to users with the %perm permission."
+msgstr "<em>Kint backtrace</em> zeigt gute Debug-Informationen für jede Art von Fehler an, aber nur für Benutzer mit der %perm Berechtigung."
+
+#: src/Form/SettingsForm.php:113
+msgid "Depending on the situation, the theme, the size of the call stack and the arguments, etc., some handlers may not display their messages, or display them on the subsequent page. Select <em>Standard Drupal</em> <strong>and</strong> <em>Kint backtrace above the rendered page</em> to maximize your chances of not missing any messages."
+msgstr "Abhängig von der Situation, dem Theme, der Größe des Call Stack und den Argumenten, werden manche Handler ihre Nachrichten nicht anzeigen, oder sie auf der Folgeseite anzeigen. Wählen Sie <em>Standard Drupal</em> <strong>and</strong> <em>Kint backtrace above the rendered page</em> um die Chance zu maximieren, keine Nachricht zu verpassen."
+
+#: src/Form/SettingsForm.php:114
+msgid "Demonstrate the current error handler(s):"
+msgstr "Demonstriere den/die aktuellen Error Handler:"
+
+#: src/Form/SettingsForm.php:118
+msgid "The presentation of the @error is determined by PHP."
+msgstr "Die Darstellung von @error wird von PHP festgelegt."
+
+#: src/Form/SettingsForm.php:136
+msgid "Variables Dumper"
+msgstr "Variablen-Dumper"
+
+#: src/Form/SettingsForm.php:139
+msgid "Select the debugging tool used for formatting and displaying the variables inspected through the debug functions of Devel. You can enable the <a href=\":kint_install\">Kint module</a> (shipped with Devel) and select the Kint debugging tool for an improved debugging experience. <strong>NOTE</strong>: Some of these plugins require external libraries for to be enabled. Learn how install external libraries with <a href=\":url\">Composer</a>."
+msgstr "Wählen SIe das Debugging-Tool, das für die Formatierung und Anzeige der über die Devel Debug Funktionen inspizierten Variablen verwendet werden soll. Sie können das <a href=\":kint_install\">Kint module</a> aktivieren (in Devel enthalten) und das Kint Debugging-Tool für eine verbesserte Debugging Erfahrung auswählen. <strong>HINWEIS</strong>: Manche dieser Plugins benötigen externe Bibliotheken. Erfahren Sie, wie Sie externe Bibliotheken mit <a href=\":url\">Composer</a> installieren."
+
+#: src/Form/SettingsForm.php:1
+msgid "<strong>Not available</strong>. You may need to install external dependencies for use this plugin."
+msgstr "<strong>Nicht verfügbar</strong>. Eventuell müssen Sie für dieses Plugin externe Dependencies installieren."
+
+#: src/Form/SwitchUserForm.php:62
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/Form/SwitchUserForm.php:63
+msgid "Enter username"
+msgstr "Benutzernamen eingeben"
+
+#: src/Form/SwitchUserForm.php:78
+msgid "Switch"
+msgstr "Umschalten"
+
+#: src/Form/SwitchUserForm.php:89
+msgid "Username not found"
+msgstr "Benutzername wurde nicht gefunden"
+
+#: src/Form/SystemStateEdit.php:59
+msgid "State @name does not exist in the system."
+msgstr "Status @name existiert nicht im System."
+
+#: src/Form/SystemStateEdit.php:67
+msgid "Only simple structures are allowed to be edited. State @name contains objects."
+msgstr "Nur einfache Strukturen dürfen bearbeitet werden. Status @name enthält Objekte."
+
+#: src/Form/SystemStateEdit.php:74
+msgid "Current value for %name"
+msgstr "Aktueller Wert für %name"
+
+#: src/Form/SystemStateEdit.php:158;159
+msgid "Variable %variable was successfully edited."
+msgstr "Die Variable %variable wurde erfolgreich bearbeitet."
+
+#: src/Form/ToolbarSettingsForm.php:71
+msgid "Menu items always visible"
+msgstr "Menüeinträge dauerhaft sichtbar"
+
+#: src/Form/ToolbarSettingsForm.php:75
+msgid "Select the menu items always visible in devel toolbar tray. All the items not selected in this list will be visible only when the toolbar orientation is vertical."
+msgstr "Wählen Sie die Menüeinträge aus, die immer in der Devel Werkzeugleiste angezeigt werden sollen. Alle nicht ausgewählten Einträge sind nur sichtbar, wenn die Werkzeugleiste vertikal ausgerichtet ist."
+
+#: src/Plugin/Block/SwitchUserBlock.php:115
+msgid "Number of users to display in the list"
+msgstr "Anzahl von Benutzern in der Liste"
+
+#: src/Plugin/Block/SwitchUserBlock.php:122
+msgid "Include %anonymous"
+msgstr "%anonymous mit einschließen"
+
+#: src/Plugin/Block/SwitchUserBlock.php:127
+msgid "Allow entering any user name"
+msgstr "Erlaube die Eingabe eines beliebigen Benutzernamens"
+
+#: src/Plugin/Block/SwitchUserBlock.php:248
+msgid "This user can switch back."
+msgstr "Dieser Benutzer kann zurückwechseln."
+
+#: src/Plugin/Block/SwitchUserBlock.php:248
+msgid "Caution: this user will be unable to switch back."
+msgstr "Vorsicht: Dieser Benutzer kann nicht zurückwechseln."
+
+#: src/Plugin/Derivative/DevelLocalTask.php:74
+msgid "Definition"
+msgstr "Definition"
+
+#: src/Plugin/Derivative/DevelLocalTask.php:83
+msgid "Render"
+msgstr "Formatieren"
+
+#: src/Plugin/Derivative/DevelLocalTask.php:92
+msgid "Load"
+msgstr "Laden"
+
+#: src/Plugin/Devel/Dumper/ChromePhp.php:30
+#: src/Plugin/Devel/Dumper/FirePhp.php:31
+msgid "Dump was redirected to the console."
+msgstr "Dump wurde an die Konsole weitergeleitet."
+
+#: src/Plugin/Devel/Dumper/ChromePhp.php:7
+msgid "ChromePhp"
+msgstr "ChromePhp"
+
+#: src/Plugin/Devel/Dumper/ChromePhp.php:7
+msgid "Wrapper for <a href='https://craig.is/writing/chrome-logger'>ChromePhp</a> debugging tool."
+msgstr "Wrapper für das <a href=\'https://craig.is/writing/chrome-logger\'>ChromePhp</a> Debugging-Tool."
+
+#: src/Plugin/Devel/Dumper/DoctrineDebug.php:47
+#: src/Plugin/Devel/Dumper/DrupalVariable.php:39
+msgid "Variable"
+msgstr "Variable"
+
+#: src/Plugin/Devel/Dumper/DoctrineDebug.php:9
+msgid "Default"
+msgstr "Standard"
+
+#: src/Plugin/Devel/Dumper/DoctrineDebug.php:9
+msgid "Wrapper for <a href='https://www.doctrine-project.org/api/common/latest/Doctrine/Common/Util/Debug.html'>Doctrine</a> debugging tool."
+msgstr "Wrapper für das <a href=\'https://www.doctrine-project.org/api/common/latest/Doctrine/Common/Util/Debug.html\'>Doctrine</a> Debugging-Tool."
+
+#: src/Plugin/Devel/Dumper/DrupalVariable.php:9
+msgid "Drupal variable."
+msgstr "Drupal-Variable."
+
+#: src/Plugin/Devel/Dumper/DrupalVariable.php:9
+msgid "Wrapper for <a href='https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Variable.php/class/Variable/8'>Drupal Variable</a> class."
+msgstr "Wrapper für die <a href=\'https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Component%21Utility%21Variable.php/class/Variable/8\'>Drupal-Variable</a> Klasse."
+
+#: src/Plugin/Devel/Dumper/FirePhp.php:7
+msgid "FirePhp"
+msgstr "FirePhp"
+
+#: src/Plugin/Devel/Dumper/FirePhp.php:7
+msgid "Wrapper for <a href='http://www.firephp.org'>FirePhp</a> debugging tool."
+msgstr "Wrapper für <a href=\'http://www.firephp.org\'>FirePhp</a> Debugging-Tool."
+
+#: src/Plugin/Devel/Dumper/VarDumper.php:10
+msgid "Symfony var-dumper"
+msgstr "Symfony Var-Dumper"
+
+#: src/Plugin/Devel/Dumper/VarDumper.php:10
+msgid "Wrapper for <a href='https://github.com/symfony/var-dumper'>Symfony var-dumper</a> debugging tool."
+msgstr "Wrapper für <a href=\'https://github.com/symfony/var-dumper\'>Symfony Var-Dumper</a> Debugging-Tool."
+
+#: src/Plugin/Mail/DevelMailLog.php:13
+msgid "Devel Logging Mailer"
+msgstr "Devel Logging Mailer"
+
+#: src/Plugin/Mail/DevelMailLog.php:13
+msgid "Outputs the message as a file in the temporary directory."
+msgstr "Schreibt die Nachricht als Datei in das temporäre Verzeichnis."
+
+#: webprofiler/webprofiler.install:94
+msgid "D3.js library"
+msgstr "D3.js-Bibliothek"
+
+#: webprofiler/webprofiler.install:95;109
+#: webprofiler/templates/Collector/blocks.html.twig:100
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: webprofiler/webprofiler.install:95;109
+msgid "Not found"
+msgstr "Nicht gefunden"
+
+#: webprofiler/webprofiler.install:102
+msgid "Webprofiler module requires D3.js library to properly render data. Composer based install recommended, see README.md file for instructions."
+msgstr "Das Modul Webprofiler benötigt die D3.js Bibliothek um Daten zu rendern. Es wird eine Installation mittels Composer empfohlen, siehe README.md."
+
+#: webprofiler/webprofiler.install:108
+msgid "highlight.js library"
+msgstr "highlight.js-Bibliothek"
+
+#: webprofiler/webprofiler.install:116
+msgid "Webprofiler module requires highlight.js library to syntax highlight collected queries. Composer based install recommended, see README.md file for instructions."
+msgstr "Das Modul Webprofiler benötigt die highlight.js Bibliothek für die Syntax-Hervorhebung in gesammelten Abfragen. Es wird eine Installation mittels Composer empfohlen, siehe README.md."
+
+#: webprofiler/webprofiler.info.yml:0
+msgid "Web Profiler"
+msgstr "Web-Profiler"
+
+#: webprofiler/webprofiler.info.yml:0
+msgid "Drupal Web Profiler."
+msgstr "Drupal Web-Profiler."
+
+#: webprofiler/webprofiler.links.menu.yml:0
+#: webprofiler/webprofiler.links.task.yml:0
+#: webprofiler/webprofiler.routing.yml:0;0;0
+msgid "Webprofiler"
+msgstr "Webprofiler"
+
+#: webprofiler/webprofiler.links.menu.yml:0
+msgid "List saved profiles."
+msgstr "List der gespeicherten Profile."
+
+#: webprofiler/webprofiler.links.task.yml:0
+msgid "dashboard"
+msgstr "Dashboard"
+
+#: webprofiler/webprofiler.permissions.yml:0
+msgid "Access webprofiler"
+msgstr "Auf Webprofiler zugreifen"
+
+#: webprofiler/webprofiler.permissions.yml:0
+msgid "Access webprofiler collected data."
+msgstr "Auf gesammelte Webprofiler-Daten zugreifen."
+
+#: webprofiler/webprofiler.permissions.yml:0
+msgid "View webprofiler toolbar"
+msgstr "Webprofiler-Werkzeugleiste anzeigen"
+
+#: webprofiler/webprofiler.permissions.yml:0
+msgid "View webprofiler toolbar."
+msgstr "Webprofiler-Werkzeugleiste anzeigen."
+
+#: webprofiler/webprofiler.routing.yml:0
+msgid "Save performance timing data"
+msgstr "Performance-Timing-Daten speichern"
+
+#: webprofiler/webprofiler.routing.yml:0
+msgid "Query explain"
+msgstr "Abfrage erläutern"
+
+#: webprofiler/webprofiler.routing.yml:0
+msgid "Webprofiler settings"
+msgstr "Webprofiler-Einstellungen"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+msgid "Webprofiler configuration"
+msgstr "Webprofiler-Konfiguration"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+msgid "Purge profiles on cache clear"
+msgstr "Profile beim Cache-Leeren bereinigen"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+msgid "Storage implementation"
+msgstr "Speicher-Implementierungen"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+msgid "Paths to exclude"
+msgstr "Auszuschließende Pfade"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:97
+msgid "Active toolbar items"
+msgstr "Aktive Werkzeugleisteneinträge"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+msgid "Toolbar item"
+msgstr "Werkzeugleisteneintrag"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:111
+msgid "IDE link"
+msgstr "IDE-Link"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:118
+msgid "IDE link remote path"
+msgstr "IDE-Link entfernter Pfad"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:125
+msgid "IDE link local path"
+msgstr "IDE-Link lokaler Pfad"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:145
+msgid "Sort query log"
+msgstr "Abfrageprotokoll sortieren"
+
+#: webprofiler/config/schema/webprofiler.schema.yml:0
+#: webprofiler/src/Form/ConfigForm.php:153
+msgid "Slow query highlighting"
+msgstr "Langsame Abfragen hervorheben"
+
+#: webprofiler/src/Controller/DashboardController.php:181
+msgid "No profiles found"
+msgstr "Keine Profile gefunden"
+
+#: webprofiler/src/Controller/DashboardController.php:196
+msgid "Profiles stored with %storage service."
+msgstr "Profile gespeichert mit %storage Speicher-Dienst."
+
+#: webprofiler/src/Controller/DashboardController.php:209
+msgid "Ip"
+msgstr "IP"
+
+#: webprofiler/src/Controller/DashboardController.php:213
+#: webprofiler/src/Form/ProfilesFilterForm.php:42
+msgid "Method"
+msgstr "Methode"
+
+#: webprofiler/src/Controller/DashboardController.php:216
+#: webprofiler/src/Form/ProfilesFilterForm.php:35
+msgid "Url"
+msgstr "URL"
+
+#: webprofiler/src/Controller/DashboardController.php:218
+#: webprofiler/templates/Collector/database.html.twig:94
+#: webprofiler/templates/Collector/services.html.twig:94
+msgid "Time"
+msgstr "Zeit"
+
+#: webprofiler/src/Controller/DatabaseController.php:84
+msgid "Token @token does not exist."
+msgstr "Der Token @token ist nicht vorhanden."
+
+#: webprofiler/src/DataCollector/AssetsDataCollector.php:91
+#: webprofiler/templates/Collector/assets.html.twig:3;4;29
+msgid "Assets"
+msgstr "Assets"
+
+#: webprofiler/src/DataCollector/AssetsDataCollector.php:98
+#: webprofiler/src/DataCollector/ConfigDataCollector.php:59
+#: webprofiler/src/DataCollector/MailDataCollector.php:90
+#: webprofiler/src/DataCollector/ViewsDataCollector.php:109
+msgid "Total: @count"
+msgstr "Gesamt: @count"
+
+#: webprofiler/src/DataCollector/BlocksDataCollector.php:95
+#: webprofiler/templates/Collector/blocks.html.twig:3;4;29
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: webprofiler/src/DataCollector/BlocksDataCollector.php:102
+msgid "Loaded: @loaded, rendered: @rendered"
+msgstr "Geladen: @loaded, gerendert: @rendered"
+
+#: webprofiler/src/DataCollector/CacheDataCollector.php:153
+#: webprofiler/templates/Collector/cache.html.twig:3;4;28
+msgid "Cache"
+msgstr "Cache"
+
+#: webprofiler/src/DataCollector/CacheDataCollector.php:160
+msgid "Hit: @cache_hit, miss: @cache_miss"
+msgstr "Getroffen: @cache_hit, verpasst: @cache_miss"
+
+#: webprofiler/src/DataCollector/ConfigDataCollector.php:52
+#: webprofiler/templates/Collector/config.html.twig:3;4
+msgid "Config"
+msgstr "Konfiguration"
+
+#: webprofiler/src/DataCollector/DatabaseDataCollector.php:173
+#: webprofiler/templates/Collector/database.html.twig:3;4;36;69;98
+msgid "Database"
+msgstr "Datenbank"
+
+#: webprofiler/src/DataCollector/DatabaseDataCollector.php:180
+msgid "Executed queries: @count"
+msgstr "Abfragen ausgeführt: @count"
+
+#: webprofiler/src/DataCollector/DrupalDataCollector.php:118
+#: webprofiler/templates/Collector/drupal.html.twig:60
+msgid "Drupal"
+msgstr "Drupal"
+
+#: webprofiler/src/DataCollector/EventsDataCollector.php:135
+msgid "Called listeners: @listeners"
+msgstr "Listener aufgerufen: @listeners"
+
+#: webprofiler/src/DataCollector/ExtensionDataCollector.php:109
+#: webprofiler/templates/Collector/extensions.html.twig:4;5;29
+msgid "Extensions"
+msgstr "Erweiterungen"
+
+#: webprofiler/src/DataCollector/ExtensionDataCollector.php:116
+msgid "Total: @extensions"
+msgstr "Gesamt: @extensions"
+
+#: webprofiler/src/DataCollector/FormsDataCollector.php:70
+#: webprofiler/templates/Collector/forms.html.twig:3;4;29
+msgid "Forms"
+msgstr "Formulare"
+
+#: webprofiler/src/DataCollector/FormsDataCollector.php:77
+msgid "Rendered: @forms"
+msgstr "Gerendert: @forms"
+
+#: webprofiler/src/DataCollector/HttpDataCollector.php:154
+#: webprofiler/templates/Collector/http.html.twig:3;4;28
+msgid "Http"
+msgstr "Http"
+
+#: webprofiler/src/DataCollector/HttpDataCollector.php:161
+msgid "Completed @completed, error @error"
+msgstr "Abgeschlossen @completed, Fehler @error"
+
+#: webprofiler/src/DataCollector/MailDataCollector.php:83
+#: webprofiler/templates/Collector/mail.html.twig:3;4
+msgid "Mail"
+msgstr "E-Mail"
+
+#: webprofiler/src/DataCollector/PerformanceTimingDataCollector.php:44
+#: webprofiler/templates/Collector/performance_timing.html.twig:4;5
+msgid "Performance Timing"
+msgstr "Performance-Timing"
+
+#: webprofiler/src/DataCollector/PerformanceTimingDataCollector.php:53
+msgid "TTFB: @ttfb"
+msgstr "TTFB: @ttfb"
+
+#: webprofiler/src/DataCollector/PhpConfigDataCollector.php:140
+msgid "PHP Config"
+msgstr "PHP-Konfiguration"
+
+#: webprofiler/src/DataCollector/PhpConfigDataCollector.php:147
+msgid "PHP: @version"
+msgstr "PHP: @version"
+
+#: webprofiler/src/DataCollector/RequestDataCollector.php:68
+#: webprofiler/templates/Collector/request.html.twig:12;13;45
+msgid "Request"
+msgstr "Anforderung"
+
+#: webprofiler/src/DataCollector/RoutingDataCollector.php:68
+#: webprofiler/templates/Collector/routing.html.twig:3;4;26
+msgid "Routing"
+msgstr "Planung"
+
+#: webprofiler/src/DataCollector/RoutingDataCollector.php:82
+msgid "Defined routes: @route"
+msgstr "Routen definiert: @route"
+
+#: webprofiler/src/DataCollector/ServicesDataCollector.php:122
+msgid "Initialized: @count"
+msgstr "Initialisiert: @count"
+
+#: webprofiler/src/DataCollector/StateDataCollector.php:42
+#: webprofiler/templates/Collector/state.html.twig:3;4;24
+msgid "State"
+msgstr "Status"
+
+#: webprofiler/src/DataCollector/StateDataCollector.php:56
+msgid "Total: @variables"
+msgstr "Gesamt: @variables"
+
+#: webprofiler/src/DataCollector/ThemeDataCollector.php:156
+#: webprofiler/templates/Collector/blocks.html.twig:95
+#: webprofiler/templates/Collector/theme.html.twig:8;9;54
+msgid "Theme"
+msgstr "Theme"
+
+#: webprofiler/src/DataCollector/ThemeDataCollector.php:163
+msgid "Name: @name"
+msgstr "Name: @name"
+
+#: webprofiler/src/DataCollector/TimeDataCollector.php:78
+#: webprofiler/templates/Collector/time.html.twig:6;7;31
+msgid "Timeline"
+msgstr "Zeitleiste"
+
+#: webprofiler/src/DataCollector/TimeDataCollector.php:85
+msgid "Duration: @duration"
+msgstr "Dauer: @duration"
+
+#: webprofiler/src/DataCollector/TranslationsDataCollector.php:80
+#: webprofiler/templates/Collector/translations.html.twig:4;5;29
+msgid "Translations"
+msgstr "Übersetzungen"
+
+#: webprofiler/src/DataCollector/TranslationsDataCollector.php:87
+msgid "Translated: @translated, untranslated: @untranslated"
+msgstr "Übersetzt: @translated, unübersetzt: @untranslated"
+
+#: webprofiler/src/DataCollector/UserDataCollector.php:127
+#: webprofiler/templates/Collector/user.html.twig:4;5;41
+msgid "User"
+msgstr "Benutzer"
+
+#: webprofiler/src/DataCollector/ViewsDataCollector.php:102
+#: webprofiler/templates/Collector/views.html.twig:3;4;12;25
+msgid "Views"
+msgstr "Ansichten"
+
+#: webprofiler/src/Form/ConfigForm.php:73
+msgid "Purge on cache clear"
+msgstr "Bereinigung beim Cache-Leeren"
+
+#: webprofiler/src/Form/ConfigForm.php:74
+msgid "Deletes all profiler files during cache clear."
+msgstr "Löscht alle Profiler-Dateien beim Leeren des Zwischenspeichers."
+
+#: webprofiler/src/Form/ConfigForm.php:82
+msgid "Storage backend"
+msgstr "Speicher-Backend"
+
+#: webprofiler/src/Form/ConfigForm.php:83
+msgid "Choose were to store profiler data."
+msgstr "Wählen Sie den Speicherort für die Profilerdaten."
+
+#: webprofiler/src/Form/ConfigForm.php:90
+msgid "Exclude"
+msgstr "Ausschließen"
+
+#: webprofiler/src/Form/ConfigForm.php:92
+msgid "Paths to exclude for profiling. One path per line."
+msgstr "Vom Profiling auszuschließende Pfade. Ein Pfad pro Zeile."
+
+#: webprofiler/src/Form/ConfigForm.php:99
+msgid "Choose which items to show into the toolbar."
+msgstr "Wählen Sie in der Toolbar anzuzeigende Einträge."
+
+#: webprofiler/src/Form/ConfigForm.php:105
+msgid "IDE settings"
+msgstr "IDE-Einstellungen"
+
+#: webprofiler/src/Form/ConfigForm.php:112
+msgid "IDE link for open files."
+msgstr "IDE-Link für offene Dateien."
+
+#: webprofiler/src/Form/ConfigForm.php:119
+msgid "The path of the remote docroot. Leave blank if the docroot is on the same machine of the IDE. No trailing slash."
+msgstr "Der Pfad des entfernten docroot. Leer lassen, wenn das docroot und die IDE sich auf der selben Maschine befinden. Kein abschließender Schrägstrich."
+
+#: webprofiler/src/Form/ConfigForm.php:126
+msgid "The path of the local docroot. Leave blank if the docroot is on the same machine of IDE. No trailing slash."
+msgstr "Der Pfad des lokalen docroot. Leer lassen, wenn das docroot und die IDE sich auf der selben Maschine befinden. Kein abschließender Schrägstrich."
+
+#: webprofiler/src/Form/ConfigForm.php:132
+msgid "Database settings"
+msgstr "Datenbank-Einstellungen"
+
+#: webprofiler/src/Form/ConfigForm.php:147
+msgid "The query table can be sorted in the order that the queries were executed or by descending duration."
+msgstr "Die Datenbankabfragen können in der Reihenfolge der Ausführung, oder nach der Dauer (absteigend), sortiert werden."
+
+#: webprofiler/src/Form/ConfigForm.php:154
+msgid "Enter an integer in milliseconds. Any query which takes longer than this many milliseconds will be highlighted in the query log. This indicates a possibly inefficient query, or a candidate for caching."
+msgstr "Geben Sie eine ganze Zahl in Millisekunden. Jede Abfrage, die länger dauert wird im Protokoll geloggt. Dies weist auf eine möglicherweise ineffiziente Abfrage oder ein Kandidat für Caching hin."
+
+#: webprofiler/src/Form/ConfigForm.php:164
+msgid "Purge profiles"
+msgstr "Profile bereinigen"
+
+#: webprofiler/src/Form/ConfigForm.php:171
+msgid "Purge"
+msgstr "Aufräumen"
+
+#: webprofiler/src/Form/ConfigForm.php:179
+msgid "Purge %storage profiles."
+msgstr "%storage Profile bereinigen."
+
+#: webprofiler/src/Form/ConfigForm.php:210
+msgid "Profiles purged"
+msgstr "Profile bereinigt"
+
+#: webprofiler/src/Form/ProfilesFilterForm.php:27
+msgid "IP"
+msgstr "IP-Adresse"
+
+#: webprofiler/src/Form/ProfilesFilterForm.php:50
+msgid "Limit"
+msgstr "Begrenzung"
+
+#: webprofiler/src/Profiler/Profiler.php:72
+msgid "Unable to store the profiler information."
+msgstr "Konnte die Profiler-Informationen nicht speichern."
+
+#: webprofiler/templates/Collector/assets.html.twig:55;85;113
+msgid "Data"
+msgstr "Daten"
+
+#: webprofiler/templates/Collector/blocks.html.twig:12
+msgid "Loaded"
+msgstr "Geladen"
+
+#: webprofiler/templates/Collector/blocks.html.twig:16;54
+msgid "Rendered"
+msgstr "Gerendert"
+
+#: webprofiler/templates/Collector/blocks.html.twig:41;42;76
+msgid "Region"
+msgstr "Region"
+
+#: webprofiler/templates/Collector/blocks.html.twig:50
+#: webprofiler/templates/Collector/database.html.twig:45;56;64
+#: webprofiler/templates/Collector/services.html.twig:55
+msgid "Any"
+msgstr "Alle"
+
+#: webprofiler/templates/Collector/blocks.html.twig:51
+#: webprofiler/templates/Collector/database.html.twig:57
+#: webprofiler/templates/Collector/services.html.twig:56;87
+msgid "Yes"
+msgstr "Ja"
+
+#: webprofiler/templates/Collector/blocks.html.twig:52
+#: webprofiler/templates/Collector/database.html.twig:58
+#: webprofiler/templates/Collector/services.html.twig:57;87
+msgid "No"
+msgstr "Nein"
+
+#: webprofiler/templates/Collector/blocks.html.twig:76
+msgid "No region"
+msgstr "Keine Region"
+
+#: webprofiler/templates/Collector/blocks.html.twig:79
+msgid "Not rendered"
+msgstr "Nicht gerendert"
+
+#: webprofiler/templates/Collector/blocks.html.twig:82
+#: webprofiler/templates/Collector/database.html.twig:106
+#: webprofiler/templates/Collector/http.html.twig:45
+#: webprofiler/templates/Collector/mail.html.twig:44
+#: webprofiler/templates/Collector/services.html.twig:99
+msgid "Info"
+msgstr "Info"
+
+#: webprofiler/templates/Collector/blocks.html.twig:99
+#: webprofiler/templates/Collector/http.html.twig:42
+#: webprofiler/templates/Collector/request.html.twig:23
+msgid "Status"
+msgstr "Status"
+
+#: webprofiler/templates/Collector/blocks.html.twig:100
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#: webprofiler/templates/Collector/blocks.html.twig:103
+#: webprofiler/templates/Collector/mail.html.twig:32
+msgid "Plugin"
+msgstr "Plugin"
+
+#: webprofiler/templates/Collector/cache.html.twig:41
+msgid "hit"
+msgstr "Treffer"
+
+#: webprofiler/templates/Collector/cache.html.twig:42
+msgid "miss"
+msgstr "verpasst"
+
+#: webprofiler/templates/Collector/cache.html.twig:59
+#: webprofiler/templates/Collector/forms.html.twig:63
+#: webprofiler/templates/Collector/views.html.twig:53
+msgid "No results"
+msgstr "Keine Ergebnisse"
+
+#: webprofiler/templates/Collector/config.html.twig:11
+msgid "Config get"
+msgstr "Konfiguration abholen"
+
+#: webprofiler/templates/Collector/config.html.twig:24
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: webprofiler/templates/Collector/database.html.twig:14
+msgid "DB Queries"
+msgstr "Datenbank-Abfragen"
+
+#: webprofiler/templates/Collector/database.html.twig:18
+msgid "Query time"
+msgstr "Abfragedauer"
+
+#: webprofiler/templates/Collector/database.html.twig:22
+msgid "Default database"
+msgstr "Standarddatenbank"
+
+#: webprofiler/templates/Collector/database.html.twig:40;41;95
+msgid "Caller"
+msgstr "Aufrufer"
+
+#: webprofiler/templates/Collector/database.html.twig:52
+msgid "Query type"
+msgstr "Abfragetyp"
+
+#: webprofiler/templates/Collector/database.html.twig:60
+msgid "Slow queries"
+msgstr "Abfragen anzeigen"
+
+#: webprofiler/templates/Collector/database.html.twig:72;103
+msgid "Swap Placeholders"
+msgstr "Platzhalter austauschen"
+
+#: webprofiler/templates/Collector/database.html.twig:99
+msgid "Target"
+msgstr "Ziel"
+
+#: webprofiler/templates/Collector/database.html.twig:108
+msgid "Copy Query"
+msgstr "Abfrage kopieren"
+
+#: webprofiler/templates/Collector/database.html.twig:112
+msgid "Explain"
+msgstr "Bitte erläutern"
+
+#: webprofiler/templates/Collector/database.html.twig:131
+msgid "placeholder"
+msgstr "Platzhalter"
+
+#: webprofiler/templates/Collector/database.html.twig:132
+msgid "value"
+msgstr "Wert"
+
+#: webprofiler/templates/Collector/devel.html.twig:3
+msgid "Devel menu"
+msgstr "Devel-Menü"
+
+#: webprofiler/templates/Collector/drupal.html.twig:14
+msgid "Drupal version"
+msgstr "Drupal-Version"
+
+#: webprofiler/templates/Collector/drupal.html.twig:18
+msgid "Installed profile"
+msgstr "Installiertes Profil"
+
+#: webprofiler/templates/Collector/drupal.html.twig:24
+msgid "Git commit"
+msgstr "Git-Commit"
+
+#: webprofiler/templates/Collector/drupal.html.twig:31;31
+msgid "Configure Webprofiler"
+msgstr "Webprofiler konfigurieren"
+
+#: webprofiler/templates/Collector/drupal.html.twig:35;35
+msgid "View latest reports"
+msgstr "Neuste Reports anzeigen"
+
+#: webprofiler/templates/Collector/drupal.html.twig:39
+msgid "Drupal Documentation"
+msgstr "Drupal-Dokumentation"
+
+#: webprofiler/templates/Collector/drupal.html.twig:42
+msgid "Get involved!"
+msgstr "Machen Sie mit!"
+
+#: webprofiler/templates/Collector/events.html.twig:12
+msgid "Called"
+msgstr "Aufgerufen"
+
+#: webprofiler/templates/Collector/events.html.twig:17
+msgid "Not called"
+msgstr "Nicht aufgerufen"
+
+#: webprofiler/templates/Collector/events.html.twig:36
+msgid "Called listeners"
+msgstr "Aufgerufene Listener"
+
+#: webprofiler/templates/Collector/events.html.twig:67
+msgid "Not called listeners"
+msgstr "Nicht aufgerufene wartende Prozesse"
+
+#: webprofiler/templates/Collector/events.html.twig:68
+#: webprofiler/templates/Collector/request.html.twig:162
+msgid "Service"
+msgstr "Dienst"
+
+#: webprofiler/templates/Collector/extensions.html.twig:12
+msgid "Active Modules"
+msgstr "Aktive Module"
+
+#: webprofiler/templates/Collector/extensions.html.twig:16
+msgid "Active Themes"
+msgstr "Aktive Themes"
+
+#: webprofiler/templates/Collector/extensions.html.twig:34
+msgid "Modules"
+msgstr "Module"
+
+#: webprofiler/templates/Collector/extensions.html.twig:35
+msgid "Themes"
+msgstr "Themes"
+
+#: webprofiler/templates/Collector/extensions.html.twig:46;74
+msgid "Info file"
+msgstr "Info-Datei"
+
+#: webprofiler/templates/Collector/forms.html.twig:42
+msgid "form"
+msgstr "Formular"
+
+#: webprofiler/templates/Collector/forms.html.twig:43
+msgid "title"
+msgstr "Titel"
+
+#: webprofiler/templates/Collector/forms.html.twig:44
+msgid "access"
+msgstr "Zugriff"
+
+#: webprofiler/templates/Collector/forms.html.twig:45
+msgid "type"
+msgstr "Typ"
+
+#: webprofiler/templates/Collector/http.html.twig:11
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: webprofiler/templates/Collector/http.html.twig:15
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#: webprofiler/templates/Collector/http.html.twig:36
+msgid "Host"
+msgstr "Host"
+
+#: webprofiler/templates/Collector/http.html.twig:73
+msgid "No external http calls"
+msgstr "Keine externen HTTP-Aufrufe"
+
+#: webprofiler/templates/Collector/mail.html.twig:24
+msgid "Mail dashboard"
+msgstr "E-Mail-Dashboard"
+
+#: webprofiler/templates/Collector/mail.html.twig:38
+msgid "To"
+msgstr "An"
+
+#: webprofiler/templates/Collector/mail.html.twig:41
+msgid "Subject"
+msgstr "Betreff"
+
+#: webprofiler/templates/Collector/mail.html.twig:72
+msgid "No mail sent"
+msgstr "Keine Mail verschickt"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:13
+msgid "DNS lookup"
+msgstr "DNS-Lookup"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:17
+msgid "TCP handshake"
+msgstr "TCP-Handshake"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:25
+msgid "Data download"
+msgstr "Daten-Download"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:29
+msgid "DOM building"
+msgstr "DOM-Building"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:60
+msgid "Performance timing"
+msgstr "Performance-Timing"
+
+#: webprofiler/templates/Collector/performance_timing.html.twig:72
+msgid "No collected data, maybe this profile hasn't been generated by a browser GET o has been generated by an unsupported browser."
+msgstr "Keine Daten gesammelt, eventuell wurde dieses Profil nicht über einen GET-Aufruf oder von einem nicht unterstützten Browser erzeugt."
+
+#: webprofiler/templates/Collector/php_config.html.twig:5;6;40
+msgid "PHP config"
+msgstr "PHP-Konfiguration"
+
+#: webprofiler/templates/Collector/php_config.html.twig:17
+msgid "PHP Extensions"
+msgstr "PHP-Erweiterungen"
+
+#: webprofiler/templates/Collector/php_config.html.twig:22
+msgid "PHP SAPI"
+msgstr "PHP SAPI"
+
+#: webprofiler/templates/Collector/request.html.twig:27
+msgid "Controller"
+msgstr "Controller"
+
+#: webprofiler/templates/Collector/request.html.twig:31
+msgid "Route name"
+msgstr "Route-Name"
+
+#: webprofiler/templates/Collector/routing.html.twig:31
+#: webprofiler/templates/Collector/views.html.twig:31
+msgid "name"
+msgstr "Name"
+
+#: webprofiler/templates/Collector/routing.html.twig:32
+msgid "path"
+msgstr "Pfad"
+
+#: webprofiler/templates/Collector/services.html.twig:11;59;87
+msgid "Initialized"
+msgstr "Initialisiert"
+
+#: webprofiler/templates/Collector/services.html.twig:16
+msgid "Available"
+msgstr "Verfügbar"
+
+#: webprofiler/templates/Collector/services.html.twig:50;51;108
+msgid "Tags"
+msgstr "Tags"
+
+#: webprofiler/templates/Collector/services.html.twig:91
+msgid "Count"
+msgstr "Anzahl"
+
+#: webprofiler/templates/Collector/services.html.twig:112
+msgid "Depends"
+msgstr "Abhängig von"
+
+#: webprofiler/templates/Collector/services.html.twig:128
+msgid "id"
+msgstr "ID"
+
+#: webprofiler/templates/Collector/services.html.twig:129
+msgid "class"
+msgstr "Klasse"
+
+#: webprofiler/templates/Collector/services.html.twig:130
+msgid "priority"
+msgstr "Priorität"
+
+#: webprofiler/templates/Collector/state.html.twig:11
+msgid "State get"
+msgstr "Status-Abruf"
+
+#: webprofiler/templates/Collector/theme.html.twig:21;63
+msgid "Engine"
+msgstr "Speichersubsystem"
+
+#: webprofiler/templates/Collector/theme.html.twig:25;87
+msgid "Negotiator"
+msgstr "Negotiator"
+
+#: webprofiler/templates/Collector/theme.html.twig:29
+msgid "Render Time"
+msgstr "Renderzeit"
+
+#: webprofiler/templates/Collector/theme.html.twig:33;104
+msgid "Template Calls"
+msgstr "Template-Aufrufe"
+
+#: webprofiler/templates/Collector/theme.html.twig:37;108
+msgid "Block Calls"
+msgstr "Block-Aufrufe"
+
+#: webprofiler/templates/Collector/theme.html.twig:41;112
+msgid "Macro Calls"
+msgstr "Makro-Aufrufe"
+
+#: webprofiler/templates/Collector/theme.html.twig:67
+msgid "Base theme"
+msgstr "Basis-Theme"
+
+#: webprofiler/templates/Collector/theme.html.twig:75
+msgid "Libraries"
+msgstr "Bibliotheken"
+
+#: webprofiler/templates/Collector/theme.html.twig:79
+msgid "Style sheets removed"
+msgstr "Stylesheets entfernt"
+
+#: webprofiler/templates/Collector/theme.html.twig:95
+msgid "Twig statistics"
+msgstr "Twig-Statistiken"
+
+#: webprofiler/templates/Collector/theme.html.twig:100
+msgid "Total Render Time"
+msgstr "Vollständige Renderzeit"
+
+#: webprofiler/templates/Collector/theme.html.twig:120
+msgid "Twig rendered templates"
+msgstr "Gerenderte Twig-Templates"
+
+#: webprofiler/templates/Collector/theme.html.twig:126
+msgid "template"
+msgstr "Vorlage"
+
+#: webprofiler/templates/Collector/theme.html.twig:127
+msgid "count"
+msgstr "Anzahl"
+
+#: webprofiler/templates/Collector/theme.html.twig:141
+msgid "Twig callgraph"
+msgstr "Twig-Aufrufsgraph"
+
+#: webprofiler/templates/Collector/time.html.twig:14;36
+msgid "Total time"
+msgstr "﻿Gesamtzeit"
+
+#: webprofiler/templates/Collector/time.html.twig:18
+msgid "Memory"
+msgstr "Arbeitsspeicher"
+
+#: webprofiler/templates/Collector/time.html.twig:39
+msgid "Initialization time"
+msgstr "Initialisierungszeit"
+
+#: webprofiler/templates/Collector/translations.html.twig:12;34
+msgid "Translated"
+msgstr "Übersetzt"
+
+#: webprofiler/templates/Collector/translations.html.twig:16
+msgid "Untranslated"
+msgstr "Nicht übersetzt"
+
+#: webprofiler/templates/Collector/translations.html.twig:35
+msgid "Unranslated"
+msgstr "Nicht übersetzt"
+
+#: webprofiler/templates/Collector/translations.html.twig:44;67
+msgid "Original"
+msgstr "Original"
+
+#: webprofiler/templates/Collector/translations.html.twig:45
+msgid "Tanslation"
+msgstr "Übersetzung"
+
+#: webprofiler/templates/Collector/translations.html.twig:46;68
+#: webprofiler/templates/Collector/views.html.twig:36
+msgid "Action"
+msgstr "Aktion"
+
+#: webprofiler/templates/Collector/user.html.twig:17
+msgid "Logged in as"
+msgstr "Angemeldet als"
+
+#: webprofiler/templates/Collector/user.html.twig:21;57
+msgid "Roles"
+msgstr "Rollen"
+
+#: webprofiler/templates/Collector/user.html.twig:25
+msgid "Authenticated by"
+msgstr "Authentifiziert von"
+
+#: webprofiler/templates/Collector/user.html.twig:49
+msgid "Authenticated"
+msgstr "Authentifiziert"
+
+#: webprofiler/templates/Collector/views.html.twig:32
+msgid "display"
+msgstr "anzeigen"
+
+#: webprofiler/templates/Collector/views.html.twig:33
+msgid "build time"
+msgstr "Build-Zeit"
+
+#: webprofiler/templates/Collector/views.html.twig:34
+msgid "execute time"
+msgstr "Ausführungszeit"
+
+#: webprofiler/templates/Collector/views.html.twig:35
+msgid "render time"
+msgstr "Renderzeit"
+
+#: webprofiler/templates/Profiler/webprofiler_dashboard.html.twig:16
+msgid "View latest"
+msgstr "Neueste anzeigen"
+
+#: webprofiler/templates/Profiler/webprofiler_toolbar.html.twig:2
+msgid "Show Drupal toolbar"
+msgstr "Drupal-Werkzeugleiste anzeigen"
+
+#: webprofiler/templates/Profiler/webprofiler_toolbar.html.twig:28
+msgid "Close Toolbar"
+msgstr "Wekrzeugleiste schließen"
+
+msgid "Links related to Devel module."
+msgstr "Mit dem Modul Devel verbundene Links."

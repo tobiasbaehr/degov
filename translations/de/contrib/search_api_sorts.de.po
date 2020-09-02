@@ -1,0 +1,185 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  search_api_sorts.module: n/a
+#  search_api_sorts.links.task.yml: n/a
+#  search_api_sorts.routing.yml: n/a
+#  search_api_sorts.info.yml: n/a
+#  search_api_sorts.links.contextual.yml: n/a
+#  src/Controller/AdminController.php: n/a
+#  config/schema/search_api_sorts.schema.yml: n/a
+#  src/Form/ManageSortFieldsForm.php: n/a
+#  src/Entity/SearchApiSortsField.php: n/a
+#  src/Plugin/Block/SearchApiSortsBlockDeriver.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: search_api_sorts.module:18
+msgid "Select the display you would like to manage sort fields for. A display is one instance where this index can be shown, e.g. a views page using this index."
+msgstr "Wählen Sie die Anzeige, deren Sortierfelder Sie verwalten wollen. Eine Anzeige ist eine Instanz, bei der dieser Index angezeigt werden kann, z. B. eine Ansichtsseite mit diesem Index."
+
+#: search_api_sorts.module:21
+msgid "Select the indexed fields for which you want to enable sorting for this display. Before the sort blocks is actually displayed, you will have to enable and configure it at the <a href=\":url\">block administration page</a>."
+msgstr "Wählen Sie die indizierten Felder, deren Sortierung Sie für diese Anzeige aktivieren wollen. Bevor die sortierten Blöcke angezeigt werden, müssen Sie sie auf der <a href=\":url\">Block-Verwaltungsseite</a> aktivieren und konfigurieren."
+
+#: search_api_sorts.module:43 search_api_sorts.links.task.yml:0;0 search_api_sorts.routing.yml:0
+msgid "Sorts"
+msgstr "Sortierungen"
+
+#: search_api_sorts.info.yml:0
+msgid "Search API sorts"
+msgstr "Such-API-Sortierungen"
+
+#: search_api_sorts.info.yml:0
+msgid "Create sort options for search queries executed via the Search API."
+msgstr "Sortieroptionen für über die Such-API ausgeführte Suchanfragen."
+
+#: search_api_sorts.info.yml:0
+msgid "Search"
+msgstr "Suche"
+
+#: search_api_sorts.links.contextual.yml:0 search_api_sorts.routing.yml:0 src/Controller/AdminController.php:36
+msgid "Manage sort fields"
+msgstr "Sortierfelder verwalten"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "Search API sorts field"
+msgstr "Such-API Sortierfeld"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/search_api_sorts.schema.yml:0 src/Form/ManageSortFieldsForm.php:92
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "Display id"
+msgstr "Anzeige-ID"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "The identifier of the field"
+msgstr "Der Identifikator des Felds"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "status"
+msgstr "Status"
+
+#: config/schema/search_api_sorts.schema.yml:0
+msgid "Is default sort when no sort provided"
+msgstr "Die Standardsortierung, wenn keine Sortierung vorgegeben ist"
+
+#: config/schema/search_api_sorts.schema.yml:0 src/Form/ManageSortFieldsForm.php:95
+msgid "Default order"
+msgstr "Standard-Reihenfolge"
+
+#: src/Controller/AdminController.php:53
+msgid "Display"
+msgstr "Anzeige"
+
+#: src/Controller/AdminController.php:53
+msgid "Description"
+msgstr "Description"
+
+#: src/Controller/AdminController.php:53
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Controller/AdminController.php:54
+msgid "Sorts configuration."
+msgstr "Sortier-Konfiguration."
+
+#: src/Controller/AdminController.php:56
+msgid "You have no search displays defined yet. An example of a display is a views page using this index, or a search api pages page."
+msgstr "Sie haben noch keine Such-Anzeigen definiert. Beispiel für eine Anzeige ist eine Ansichtsseite mit diesem Index oder eine Seite mit Such-API-Seiten."
+
+#: src/Entity/SearchApiSortsField.php:7
+msgid "Search api sorts field"
+msgstr "Such-API Sortierfeld"
+
+#: src/Form/ManageSortFieldsForm.php:78
+msgid "Since the index for this display is at the moment disabled, no sorts can be activated."
+msgstr "Da der Index für diese Anzeige aktuell deaktiviert ist, können keine Sortierungen aktiviert werden."
+
+#: src/Form/ManageSortFieldsForm.php:81
+msgid "Manage sort fields for %label"
+msgstr "Sortierfelder für %label verwalten"
+
+#: src/Form/ManageSortFieldsForm.php:85
+msgid "Select the available sorts"
+msgstr "Verfügbare Sortierungen auswählen"
+
+#: src/Form/ManageSortFieldsForm.php:86
+msgid "<p>Only index single-value strings or numbers can be used as sorts. See the Fields tab to change indexed fields.</p>"
+msgstr "<p>Als Sortierungen können nur Indexzeichenketten mit einem einzelnen Wert oder Zahlen verwendet werden. Siehe Reiter Felder zum Ändern indizierter Felder.</p>"
+
+#: src/Form/ManageSortFieldsForm.php:93
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: src/Form/ManageSortFieldsForm.php:94
+msgid "Default sort"
+msgstr "Standardsortierung"
+
+#: src/Form/ManageSortFieldsForm.php:96
+msgid "Field"
+msgstr "Feld"
+
+#: src/Form/ManageSortFieldsForm.php:97
+msgid "Type"
+msgstr "Typ"
+
+#: src/Form/ManageSortFieldsForm.php:98
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/ManageSortFieldsForm.php:107
+msgid "There are currently no fields for which sorts can be displayed."
+msgstr "Es gibt aktuell keine Felder, für die Sortierungen angezeigt werden können."
+
+#: src/Form/ManageSortFieldsForm.php:142
+msgid "Ascending"
+msgstr "Aufsteigend"
+
+#: src/Form/ManageSortFieldsForm.php:143
+msgid "Descending"
+msgstr "Absteigend"
+
+#: src/Form/ManageSortFieldsForm.php:167
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: src/Form/ManageSortFieldsForm.php:201
+msgid "Relevance"
+msgstr "Relevanz"
+
+#: src/Form/ManageSortFieldsForm.php:258
+msgid "You can't set an empty label."
+msgstr "Sie können keine leere Beschriftung einstellen."
+
+#: src/Form/ManageSortFieldsForm.php:261
+msgid "Labels cannot be longer than 80 characters, but \"@label\" is @count characters long."
+msgstr "Beschriftungen dürfen nicht länger als 80 Zeichen sein. „@label“ ist jedoch @count Zeichen lang."
+
+#: src/Form/ManageSortFieldsForm.php:291
+msgid "The changes were successfully saved."
+msgstr "Die Änderungen wurden erfolgreich gespeichert."
+
+#: src/Plugin/Block/SearchApiSortsBlockDeriver.php:66
+msgid "Sort by (@index)"
+msgstr "Sortieren nach (@index)"
+

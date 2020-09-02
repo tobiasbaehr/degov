@@ -1,0 +1,542 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  geocoder.info.yml: n/a
+#  geocoder.links.menu.yml: n/a
+#  geocoder.routing.yml: n/a
+#  geocoder.permissions.yml: n/a
+#  modules/geocoder_field/src/Plugin/Field/FieldFormatter/GeocodeFormatter.php: n/a
+#  modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php: n/a
+#  config/schema/geocoder.schema.yml: n/a
+#  modules/geocoder_address/geocoder_address.info.yml: n/a
+#  modules/geocoder_address/src/Plugin/Field/FieldFormatter/AddressGeocodeFormatter.php: n/a
+#  modules/geocoder_address/src/Plugin/Geocoder/Field/AddressField.php: n/a
+#  modules/geocoder_field/geocoder_field.module: n/a
+#  modules/geocoder_field/geocoder_field.info.yml: n/a
+#  modules/geocoder_field/config/schema/geocoder_field.schema.yml: n/a
+#  src/ProviderPluginManager.php: n/a
+#  modules/geocoder_field/src/GeocoderFieldPluginManager.php: n/a
+#  modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php: n/a
+#  modules/geocoder_field/src/Plugin/Field/FieldFormatter/FileGeocodeFormatter.php: n/a
+#  modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoPhpGeocodeFormatter.php: n/a
+#  modules/geocoder_geofield/src/Plugin/Geocoder/Field/GeofieldField.php: n/a
+#  modules/geocoder_geofield/geocoder_geofield.info.yml: n/a
+#  modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoJsonFileGeocodeFormatter.php: n/a
+#  modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GpxFileGeocodeFormatter.php: n/a
+#  modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/KmlFileGeocodeFormatter.php: n/a
+#  modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/ReverseGeocodeGeofieldFormatter.php: n/a
+#  src/DumperPluginManager.php: n/a
+#  src/Form/SettingsForm.php: n/a
+#  src/Plugin/GeofieldProximitySource/GeocodeOrigin.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: geocoder.info.yml:0
+msgid "Geocoder"
+msgstr "Geocoder"
+
+#: geocoder.info.yml:0
+msgid "An API to geocode and reverse geocode data into other GIS data types."
+msgstr "Eine API zur Geokodierung und Rückwärtskodierung von Daten in andere GIS-Datentypen."
+
+#: geocoder.links.menu.yml:0 geocoder.routing.yml:0
+msgid "Geocoder configuration"
+msgstr "Geocoder Konfiguration"
+
+#: geocoder.links.menu.yml:0
+msgid "Configure the Geocoder module."
+msgstr "Geocoder-Modul konfigurieren."
+
+#: geocoder.permissions.yml:0
+msgid "Access Geocoder Api Url Enpoints"
+msgstr "URL für Endpunkte zum Geocoder API-Zugriff"
+
+#: geocoder.routing.yml:0 modules/geocoder_field/src/Plugin/Field/FieldFormatter/GeocodeFormatter.php:8 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:178
+msgid "Geocode"
+msgstr "Geokodieren"
+
+#: geocoder.routing.yml:0
+msgid "Reverse Geocode"
+msgstr "Rückwärts geokodieren"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Geocoder settings"
+msgstr "Geocoder Einstellungen"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Geocoder Presave Disabled"
+msgstr "Geocoder Vorspeichern gesperrt"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Should we cache the results ?"
+msgstr "Sollten die Ergebnisse gecached werden?"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Plugins arguments"
+msgstr "Plugin-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The configuration of a plugin"
+msgstr "Die Konfiguration eines Plugins"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "GoogleMaps arguments"
+msgstr "GoogleMaps-Argumente"
+
+#: config/schema/geocoder.schema.yml:0;0;0;0;0;0;0
+msgid "The apikey"
+msgstr "Der API-Schlüssel"
+
+#: config/schema/geocoder.schema.yml:0;0;0;0;0;0;0
+msgid "The locale"
+msgstr "Die Locale"
+
+#: config/schema/geocoder.schema.yml:0;0
+msgid "The region"
+msgstr "Die Region"
+
+#: config/schema/geocoder.schema.yml:0;0;0;0;0
+msgid "Use SSL"
+msgstr "SSL verwenden"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "GoogleMaps for Business arguments"
+msgstr "GoogleMaps-for-Business-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The client ID"
+msgstr "Die Client-ID"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The private key"
+msgstr "Der private Schlüssel"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "ArcGISOnline arguments"
+msgstr "ArcGISOnline-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The source country"
+msgstr "Das Quellland"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Bingmaps arguments"
+msgstr "Bing-Maps-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Geonames arguments"
+msgstr "Geonames-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The username"
+msgstr "Der Benutzername"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "IpInfoDb arguments"
+msgstr "IpInfoDb-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The precision"
+msgstr "Die Genauigkeit"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "MapQuest arguments"
+msgstr "MapQuest-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Is licensed"
+msgstr "Ist lizenziert"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "MaxMind arguments"
+msgstr "MaxMind-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The service"
+msgstr "Der Dienst"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Nominatim arguments"
+msgstr "Nominatim-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "The root URL"
+msgstr "Die Root-URL"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "OpenCage arguments"
+msgstr "OpenCage-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "TomTom arguments"
+msgstr "TomTom-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "File arguments"
+msgstr "Datei-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Freegeoip arguments"
+msgstr "Freegeoip-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "GeoJson arguments"
+msgstr "GeoJson-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Geoip arguments"
+msgstr "Geoip-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Geoplugin arguments"
+msgstr "Geoplugin-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Gpxfile arguments"
+msgstr "GPX-Datei-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Kmlfile arguments"
+msgstr "KML-Datei-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Hostip arguments"
+msgstr "HostIP-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Openstreetmap arguments"
+msgstr "OpenStreetMap-Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Random arguments"
+msgstr "Zufällige Argumente"
+
+#: config/schema/geocoder.schema.yml:0
+msgid "Yandex arguments"
+msgstr "Yandex-Argumente"
+
+#: modules/geocoder_address/geocoder_address.info.yml:0
+msgid "Geocoder Address"
+msgstr "Geocoder-Adresse"
+
+#: modules/geocoder_address/geocoder_address.info.yml:0
+msgid "Provides Geocoder integration with Address module."
+msgstr "Stellt Geocoder-Integration für Adress-Modul bereit."
+
+#: modules/geocoder_address/src/Plugin/Field/FieldFormatter/AddressGeocodeFormatter.php:8
+msgid "Geocode address"
+msgstr "Adresse geokodieren"
+
+#: modules/geocoder_address/src/Plugin/Geocoder/Field/AddressField.php:9
+msgid "Address field plugin"
+msgstr "Adressfeld-Plugin"
+
+#: modules/geocoder_field/geocoder_field.module:215
+msgid "Unable to geocode '@text'."
+msgstr "'@text' kann nicht geokodiert werden."
+
+#: modules/geocoder_field/geocoder_field.module:220
+msgid "Unable to reverse geocode the <em>@field_name</em> value."
+msgstr "Rückwärtsgeokodierung des Werts <em>@field_name</em> nicht möglich."
+
+#: modules/geocoder_field/geocoder_field.info.yml:0
+msgid "Geocoder Field"
+msgstr "Geocoder-Feld"
+
+#: modules/geocoder_field/geocoder_field.info.yml:0
+msgid "Geocodes the content of a field and stores the result in other field and vice-versa."
+msgstr "Geokodiert den Inhalt eines Feld und speichert das Ergebnis in einem anderen Feld und umgekehrt."
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Geocoder Field field settings"
+msgstr "Geocoder-Feld Feldeinstellungen"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:206
+msgid "Geocode method"
+msgstr "Gekodierungsmethode"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:216 src/ProviderPluginManager.php:151
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Field to geocode from"
+msgstr "Feld aus dem geokodiert werden soll"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Field to geocode to"
+msgstr "Feld in das geokodiert werden soll"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Hide field"
+msgstr "Feld ausblenden"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Disable field"
+msgstr "Feld deaktivieren"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Geocoding plugins"
+msgstr "Geokodierungs-Plugins"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:305
+msgid "Output format"
+msgstr "Ausgabeformat"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:313
+msgid "Multi-value input handling"
+msgstr "Handhabung von Eingaben mit mehreren Werten"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Geocoding failure settings"
+msgstr "Einstellungen falls Geokodieren fehlschlägt"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Handling of geocoding failure"
+msgstr "Handhabung, falls Geokodieren fehlschlägt"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Display a status message in case of failure"
+msgstr "Anzeige einer Statusmeldung bei Fehler"
+
+#: modules/geocoder_field/config/schema/geocoder_field.schema.yml:0
+msgid "Log the failure"
+msgstr "Fehler protokollieren"
+
+#: modules/geocoder_field/src/GeocoderFieldPluginManager.php:83
+msgid "@label (@name) [@type]"
+msgstr "@label (@name) [@type]"
+
+#: modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php:182 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:308
+msgid "Set the output format of the value. Ex, for a geofield, the format must be set to WKT."
+msgstr "Ausgabeformat des Werts einstellen. Beispiel: für ein Geofield muss das Format auf WKT gesetzt werden."
+
+#: modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php:202
+msgid "Geocoder plugin(s): @plugin_ids"
+msgstr "Geocoder-Plugin(s): @plugin_ids"
+
+#: modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php:203;207 modules/geocoder_field/src/Plugin/Field/FieldFormatter/FileGeocodeFormatter.php:177 modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoPhpGeocodeFormatter.php:189
+msgid "Not set"
+msgstr "Nicht eingerichtet"
+
+#: modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php:206 modules/geocoder_field/src/Plugin/Field/FieldFormatter/FileGeocodeFormatter.php:176 modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoPhpGeocodeFormatter.php:188
+msgid "Output format: @format"
+msgstr "Ausgabeformat: @format"
+
+#: modules/geocoder_field/src/Plugin/Field/GeocodeFormatterBase.php:267 modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:368
+msgid "The selected Geocode operation needs at least one plugin."
+msgstr "Die ausgewählte Geocode-Operation erfordert mindestens ein Plugin."
+
+#: modules/geocoder_field/src/Plugin/Field/FieldFormatter/FileGeocodeFormatter.php:172 modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoPhpGeocodeFormatter.php:184
+msgid "Geocoder plugin(s): @formatterPlugin"
+msgstr "Geocoder-Plugin(s): @formatterPlugin"
+
+#: modules/geocoder_field/src/Plugin/Field/FieldFormatter/FileGeocodeFormatter.php:18
+msgid "Geocode File/Image Gps Exif"
+msgstr "Geokodieren Datei/Bild GPS EXIF"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:169 src/ProviderPluginManager.php:114
+msgid "Edit options in the Geocoder configuration page</span>"
+msgstr "Optionen auf der Geocoder Konfigurationsseite editieren</span>"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:186
+msgid "<b>The Geocoder and Reverse Geocoding operations are disabled, and won't be processed.</b> (@geocoder_settings_link)"
+msgstr "<b>Die Operationen zum Geokodieren und Rückwärts-Geokodieren sind deaktiviert und werden nicht ausgeführt.</b> (@geocoder_settings_link)"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:208 modules/geocoder_geofield/src/Plugin/Geocoder/Field/GeofieldField.php:30
+msgid "No geocoding"
+msgstr "Keine Geokodierung"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:209 modules/geocoder_geofield/src/Plugin/Geocoder/Field/GeofieldField.php:31
+msgid "<b>Geocode</b> from an existing field"
+msgstr "Aus bestehendem Feld <b>geokodieren</b>"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:217
+msgid "This is the weight order that will be followed for Geocode/Reverse Geocode operations on multiple fields of this entity. Lowest weights will be processed first."
+msgstr "Dies ist die Gewichtungsreihenfolge, die bei Rückwärts-/Geokodier-Operationen mit mehreren Feldern dieser Entität eingehalten wird. Die niedrigste Gewichtung wird zuerst verarbeitet."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:247
+msgid "Geocode from an existing field"
+msgstr "Aus bestehendem Feld geokodieren"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:248
+msgid "Select which field you would like to use as Source Address field."
+msgstr "Auswählen, welches Feld Sie als Quell-Adressfeld verwenden wollen."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:265
+msgid "<b>Reverse Geocode</b> from a Geofield type existing field"
+msgstr "<b>Rückwärts geokodieren</b> aus einem bestehenden Feld des Typs Geofield"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:270
+msgid "Reverse Geocode from an existing field"
+msgstr "Rückwärts geokodieren aus einem bestehenden Feld"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:271
+msgid "Select which field you would like to use as Geographic Source field."
+msgstr "Auswählen, welches Feld Sie als geografisches Quellfeld verwenden wollen."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:283
+msgid "<strong>Hide</strong> this field in the Content Edit Form"
+msgstr "Dieses Feld im Formular zur Inhaltsbearbeitung <strong>ausblenden</strong>"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:284
+msgid "If checked, the Field will be Hidden to the user in the edit form, </br>and totally managed by the Geocode/Reverse Geocode operation chosen"
+msgstr "Falls diese Option aktiviert ist, wird dieses Feld für den Benutzer im Bearbeitungsformular ausgeblendet </br>und vollständig von der gewählten Operation zum Geokodieren/Rückwärtsgeokodieren verwaltet"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:290
+msgid "<strong>Disable</strong> this field in the Content Edit Form"
+msgstr "Dieses Feld im Formular zur Inhaltsbearbeitung <strong>deaktivieren</strong>"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:291
+msgid "If checked, the Field will be Disabled to the user in the edit form, </br>and totally managed by the Geocode/Reverse Geocode operation chosen"
+msgstr "Falls diese Option aktiviert ist, wird dieses Feld für den Benutzer im Bearbeitungsformular deaktiviert </br>und vollständig von der gewählten Operation zum Geokodieren/Rückwärtsgeokodieren verwaltet"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:320
+msgid "Match Multiples (default)"
+msgstr "Vielfache abgleichen (Standard)"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:321
+msgid "Single to Multiple"
+msgstr "Einzel nach Vielfach"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:336
+msgid "What to store if geo-coding fails?"
+msgstr "Was speichern, wenn Geokodierung fehlschlägt?"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:337
+msgid "Is possible that the source field cannot be geo-coded. Choose what to store in this field in such case."
+msgstr "Es kann vorkommen, dass das Quellfeld nicht geokodiert werden kann. Wählen Sie, was dann im Feld gespeichert werden soll."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:339
+msgid "Preserve the existing field value"
+msgstr "Bestehenden Wert im Feld erhalten"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:340
+msgid "Empty the field value"
+msgstr "Feld leeren"
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:347
+msgid "Show a status message warning in case of geo-coding failure."
+msgstr "Statusmeldung anzeigen, die auf Fehler bei der Geokodierung hinweist."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:353
+msgid "Log the geo-coding failure."
+msgstr "Fehler bei der Geokodierung protokollieren."
+
+#: modules/geocoder_field/src/Plugin/Geocoder/Field/DefaultField.php:21
+msgid "Generic geofield field plugin"
+msgstr "Generisches Geofield-Feld-Plugin"
+
+#: modules/geocoder_geofield/geocoder_geofield.info.yml:0
+msgid "Geocoder Geofield"
+msgstr "Geocoder Geofield"
+
+#: modules/geocoder_geofield/geocoder_geofield.info.yml:0
+msgid "Providers Geocoder integration with contrib Geofield module."
+msgstr "Stellt Geocoder-Integration für Geofield-Modul bereit."
+
+#: modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GeoJsonFileGeocodeFormatter.php:5
+msgid "Geocode GeoJson"
+msgstr "Geokodieren GeoJson"
+
+#: modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/GpxFileGeocodeFormatter.php:5
+msgid "Geocode GPX"
+msgstr "Geokodieren GPX"
+
+#: modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/KmlFileGeocodeFormatter.php:5
+msgid "Geocode KML"
+msgstr "Geokodieren KML"
+
+#: modules/geocoder_geofield/src/Plugin/Field/FieldFormatter/ReverseGeocodeGeofieldFormatter.php:8
+msgid "Reverse geocode"
+msgstr "Rückwärts geokodieren"
+
+#: modules/geocoder_geofield/src/Plugin/Geocoder/Field/GeofieldField.php:9
+msgid "Geofield field plugin"
+msgstr "Geofield-Feld-Plugin"
+
+#: src/ProviderPluginManager.php:124
+msgid "Object literals in YAML format. @geocoder_settings_link"
+msgstr "Objekt-Literale im YAML-Format. @geocoder_settings_link"
+
+#: src/ProviderPluginManager.php:138
+msgid "Geocoder plugin(s)"
+msgstr "Geocoder Plugin(s)"
+
+#: src/ProviderPluginManager.php:143
+msgid "Select the Geocoder plugins to use, you can reorder them. The first one to return a valid value will be used."
+msgstr "Wählen Sie die zu verwendenden Geocoder-Plugins. Sie können die Reihenfolge ändern. Es wird das erste benutzt, das einen gültigen Wert zurückgibt."
+
+#: src/ProviderPluginManager.php:150
+msgid "Name"
+msgstr "Name"
+
+#: src/ProviderPluginManager.php:152
+msgid "Options<br>@options_field_description"
+msgstr "Optionen<br>@options_field_description"
+
+#: src/ProviderPluginManager.php:180 src/Form/SettingsForm.php:240
+msgid "This plugin doesn't accept arguments."
+msgstr "Dieses Plugin akzeptiert keine Argumente."
+
+#: src/ProviderPluginManager.php:207
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/SettingsForm.php:144
+msgid "Geocoder Php Library"
+msgstr "Geocoder PHP Bibliothek"
+
+#: src/Form/SettingsForm.php:151
+msgid "Geocoder plugin(s) Options"
+msgstr "Geocoder Plugin(s) Optionen"
+
+#: src/Form/SettingsForm.php:152
+msgid "Set the Options to be used on your plugins. As a good help it is possible to refer to the requirements listed in the @geocoder_php_library_link documentation."
+msgstr "Setzen Sie die Optionen, die mit Ihren Plugins verwendet werden sollen. Beachten Sie als Hilfe die Anforderungen in der Dokumentation @geocoder_php_library_link."
+
+#: src/Form/SettingsForm.php:161
+msgid "Geocoder plugins"
+msgstr "Geocoder Plugins"
+
+#: src/Form/SettingsForm.php:162
+msgid "Options / Arguments"
+msgstr "Optionen / Argumente"
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:139
+msgid "Origin"
+msgstr "﻿Ursprung"
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:141
+msgid "Address, City, Zip-Code, Country, ..."
+msgstr "Anschrift, PLZ, Land ..."
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:222
+msgid "The Geocode Origin option needs at least one geocoder plugin selected."
+msgstr "Die Option Geocode Ursprung erfordert die Auswahl mindestens eines Geocoder-Plugins."
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:13
+msgid "Geocode Origin"
+msgstr "Geocode Ursprung"
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:13
+msgid "Geocodes origin from free text input."
+msgstr "Geokodiert Ursprung aus Freitexteingabe."
+
+#: src/Plugin/GeofieldProximitySource/GeocodeOrigin.php:13
+msgid "Geocode origin from free text input."
+msgstr "Ursprung aus Freitexteingabe gekodieren."
+

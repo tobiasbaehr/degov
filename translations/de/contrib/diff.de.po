@@ -1,0 +1,862 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  diff.views.inc: n/a
+#  diff.module: n/a
+#  diff.install: n/a
+#  diff.info.yml: n/a
+#  diff.links.menu.yml: n/a
+#  diff.links.task.yml: n/a
+#  config/schema/diff.schema.yml: n/a
+#  diff.routing.yml: n/a
+#  src/Form/GeneralSettingsForm.php: n/a
+#  src/Form/FieldsSettingsForm.php: n/a
+#  src/DiffLayoutBase.php: n/a
+#  src/FieldDiffBuilderBase.php: n/a
+#  src/Controller/PluginRevisionController.php: n/a
+#  src/Form/RevisionOverviewForm.php: n/a
+#  src/Plugin/diff/Field/CommentFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/CoreFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/EntityReferenceFieldBuilder.php: n/a
+#  src/Plugin/views/field/DiffFrom.php: n/a
+#  src/Plugin/diff/Field/ListFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/FileFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/ImageFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/LinkFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/TextFieldBuilder.php: n/a
+#  src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php: n/a
+#  src/Plugin/diff/Layout/SplitFieldsDiffLayout.php: n/a
+#  src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php: n/a
+#  src/Plugin/diff/Layout/VisualInlineDiffLayout.php: n/a
+#  src/Plugin/views/field/DiffPluginBase.php: n/a
+#  src/Plugin/views/field/DiffTo.php: n/a
+#  config/install/diff.settings.yml: n/a
+#  config/optional/core.entity_view_mode.node.diff.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: diff.views.inc:21
+msgid "Diff from"
+msgstr "Diff. von"
+
+#: diff.views.inc:28
+msgid "Diff to"
+msgstr "Diff. zu"
+
+#: diff.module:17
+msgid "About"
+msgstr "Über"
+
+#: diff.module:18
+msgid "The Diff module replaces the normal <em>Revisions </em> node tab and enhances the listing of revisions with an option to view the differences between any two content revisions."
+msgstr "Das Diff-Modul ersetzt den normalen <em>Revisionen </em> Beitrags-Reiter und erweitert die Auflistung der Revisionen um eine Option zur Anzeige der Unterschiede zwischen zwei Inhalts-Revisionen."
+
+#: diff.module:19
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: diff.module:21
+msgid "Compare content entity revisions"
+msgstr "Revisionen von Inhaltsentitäten vergleichen"
+
+#: diff.module:22
+msgid "Diff provides the possibility of comparing two node revisions but it also provides support for comparing any two content entities. With minimum effort it can be extended to display differences between any two content entities."
+msgstr "Diff gibt die Möglichkeit, zwei Beitragsrevisionen zu vergleichen, unterstützt aber auch den Vergleich zweier beliebiger Inhaltsentitäten. Lässt sich mit minimalem Aufwand erweitern, um Unterschiede zwischen zwei beliebigen Inhaltsentitäten anzuzeigen."
+
+#: diff.module:23
+msgid "Control field visibility settings"
+msgstr "Sichtbarkeitseinstellungen zum Feld festlegen"
+
+#: diff.module:24
+msgid "Fields visibility can be controlled from view modes for configurable fields and from Diff settings page for entity base fields. Diff field types specific settings can also be configured from Diff settings page"
+msgstr "Die Sichtbarkeit von Feldern kann bei konfigurierbaren Feldern aus den Ansichtsmodi und bei entitätsbasierten Feldern aus der Diff-Einstellungsseite gesteuert werden. Spezifische Einstellungen für Diff-Feldtypen können auch auf der Diff-Einstellungsseite konfiguriert werden"
+
+#: diff.module:25
+msgid "Configure diff field type settings"
+msgstr "Einstellungen für Diff-Feldtyp konfigurieren"
+
+#: diff.module:26
+msgid "Every field type has specific diff settings (display or not the field title, markdown format or other settings). These settings can be configured from Diff settings page"
+msgstr "Jeder Feldtyp hat spezifische Diff-Einstellungen (Feldtitel anzeigen oder ausblenden, Markdown-Format oder andere Einstellungen). Diese Einstellungen können auf der Diff-Einstellungsseite konfiguriert werden"
+
+#: diff.module:31
+msgid "Configurations for the revision comparison functionality and diff layout plugins."
+msgstr "Konfigurationen für die Funktionalität zum Revisionsvergleich und für Diff-Layout-Plugins."
+
+#: diff.module:34
+msgid "Revisions allow you to track differences between multiple versions of your content, and revert to older versions."
+msgstr "Revisionen erlauben es, Unterschiede zwischen mehreren Versionen an Inhalten zu verfolgen und zu älteren Versionen zurückzukehren."
+
+#: diff.module:37
+msgid "This table provides a summary of the field support found on the system. For every field, a diff plugin can be selected and configured. These settings are applied to Unified and Split fields layouts."
+msgstr "Diese Tabelle liefert einen Überblick zur Unterstützung von Feldern im System. Für jedes Feld kann ein Diff-Plugin gewählt und konfiguriert werden. Diese Einstellungen werden auf vereinheitlichte oder getrennte Feld-Layouts angewandt."
+
+#: diff.install:22 diff.info.yml:0 diff.links.menu.yml:0
+msgid "Diff"
+msgstr "Diff"
+
+#: diff.install:23
+msgid "Installed correctly"
+msgstr "Erfolgreich installiert"
+
+#: diff.install:24
+msgid "Diff module has been installed correctly."
+msgstr "Das Diff-Modul wurde erfolgreich installiert."
+
+#: diff.install:28
+msgid "Dependencies not found"
+msgstr "Keine Abhängigkeiten gefunden"
+
+#: diff.install:30
+msgid "The HTML Diff layout requires the HtmlDiffAdvanced library. Please consult README.txt for installation instructions."
+msgstr "Das HTML-Diff-Layout benötigt die Bibliothek HtmlDiffAdvanced. Eine Installationsanleitung hierzu finden Sie in README.txt."
+
+#: diff.install:33
+msgid "Visual inline layout"
+msgstr "Visuelles Inline-Layout"
+
+#: diff.install:35
+msgid "Diff adds a visual rendered display, consult README.txt for installation instructions and enable it in <a href=\":settings\">settings</a>."
+msgstr "Diff fügt eine visuell gerenderte Darstellung hinzu. Beachten Sie die Installationsanleitung in README.txt und aktivieren Sie es in <a href=\":settings\">Einstellungen</a>."
+
+#: diff.info.yml:0
+msgid "Shows changes between content revisions."
+msgstr "Zeigt Änderungen zwischen Revisionen von Inhalten an."
+
+#: diff.links.menu.yml:0
+msgid "Configure how entity fields are compared."
+msgstr "Konfiguration, wie Entitätsfelder verglichen werden."
+
+#: diff.links.task.yml:0 config/schema/diff.schema.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: diff.links.task.yml:0
+msgid "Fields"
+msgstr "Felder"
+
+#: diff.routing.yml:0;0
+msgid "Diff General Settings"
+msgstr "Diff Allgemeine Einstellungen"
+
+#: diff.routing.yml:0
+msgid "Fields Settings"
+msgstr "Feldereinstellungen"
+
+#: config/schema/diff.schema.yml:0
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Radio button behaviour"
+msgstr "Verhalten der Optionsfelder"
+
+#: config/schema/diff.schema.yml:0
+msgid "Number of leading context lines"
+msgstr "Anzahl der führenden Kontextzeilen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Number of trailing context lines"
+msgstr "Anzahl der nachfolgenden Kontextzeilen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Revisions per page to be displayed in diff pager"
+msgstr "Anzahl der im Diff-Pager pro Seite angezeigten Revisionen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Plugins"
+msgstr "Plugins"
+
+#: config/schema/diff.schema.yml:0
+msgid "Layout plugins configuration"
+msgstr "Konfiguration der Layout-Plugins"
+
+#: config/schema/diff.schema.yml:0
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: config/schema/diff.schema.yml:0 src/Form/GeneralSettingsForm.php:98
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/diff.schema.yml:0 src/Form/GeneralSettingsForm.php:190
+msgid "Theme"
+msgstr "Theme"
+
+#: config/schema/diff.schema.yml:0
+msgid "Entities"
+msgstr "Entitäten"
+
+#: config/schema/diff.schema.yml:0
+msgid "Entity ID"
+msgstr "Entitäts-ID"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare base field"
+msgstr "Basisfeld vergleichen"
+
+#: config/schema/diff.schema.yml:0 src/Form/FieldsSettingsForm.php:520
+msgid "Entity Type"
+msgstr "Entitätstyp"
+
+#: config/schema/diff.schema.yml:0 src/Form/FieldsSettingsForm.php:521
+msgid "Field"
+msgstr "Feld"
+
+#: config/schema/diff.schema.yml:0;0
+msgid "Diff configuration for a field type"
+msgstr "Diff-Konfiguration für einen Feldtyp"
+
+#: config/schema/diff.schema.yml:0;0
+msgid "Plugin key"
+msgstr "Plugin-Schlüssel"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for base diff builder plugin"
+msgstr "Einstellungen für das Diff-Builder-Base-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the field title"
+msgstr "Feldtitel vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Mark-down function ID"
+msgstr "Mark-down Funktions-ID"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for file field diff builder plugin"
+msgstr "Einstellungen für Dateifeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the ID of the file"
+msgstr "Die ID der Datei vergleichen"
+
+#: config/schema/diff.schema.yml:0;0
+msgid "Compare the description of the file"
+msgstr "Die Beschreibung der Datei vergleichen"
+
+#: config/schema/diff.schema.yml:0;0
+msgid "Separator between multiple compared properties"
+msgstr "Trennzeichen zwischen mehreren verglichenen Merkmalen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for image field diff builder plugin"
+msgstr "Einstellungen für Bildfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the ID of the image"
+msgstr "Die ID des Bildes vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the alt of the image"
+msgstr "Den „Alt“-Text des Bilds vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the title of the image"
+msgstr "Den Titel des Bildes vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Show the image thumbnail"
+msgstr "Miniaturbild anzeigen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for list field diff builder plugin"
+msgstr "Einstellungen für Listenfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Comparison method key"
+msgstr "Schlüssel für Vergleichsverfahren"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for term reference field diff builder plugin"
+msgstr "Einstellungen für Termreferenzfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the taxonomy term string"
+msgstr "Die Zeichenkette des Taxonomiebegriffs vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the taxonomy term id"
+msgstr "Die ID des Taxonomiebegriffs vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for text field diff builder plugin"
+msgstr "Einstellungen für Textfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0;0
+msgid "Compare the format of the text"
+msgstr "Das Format des Textes vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for text with summary field diff builder plugin"
+msgstr "Einstellungen für Text mit Zusammenfassungsfeld Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the summary of the text"
+msgstr "Die Zusammenfassung des Textes vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for link field diff builder plugin"
+msgstr "Einstellungen für Linkfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the title of the link"
+msgstr "Den Titel des Links vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the URI of the link"
+msgstr "Die URI des Links vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for comment field diff builder plugin"
+msgstr "Einstellungen für Kommentarfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the status key of the comments"
+msgstr "Den Status-Schlüssel der Kommentare vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Compare the status string of the comments"
+msgstr "Die Status-Zeichenkette der Kommentare vergleichen"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for entity reference field diff builder plugin"
+msgstr "Einstellungen für Entitätsreferenzfeld-Diff-Builder-Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Entity reference component to compare"
+msgstr "Zu vergleichende Entitätsreferenzkomponente"
+
+#: config/schema/diff.schema.yml:0 src/Form/FieldsSettingsForm.php:523
+msgid "Plugin"
+msgstr "Plugin"
+
+#: config/schema/diff.schema.yml:0
+msgid "Settings for base diff layout plugin"
+msgstr "Einstellungen für das Base-Diff-Layout-Plugin"
+
+#: src/DiffLayoutBase.php:145
+msgid "Comparing"
+msgstr "Vergleichen"
+
+#: src/DiffLayoutBase.php:231
+msgid "Raw"
+msgstr "Rohdaten"
+
+#: src/DiffLayoutBase.php:241
+msgid "Strip tags"
+msgstr "Tags entfernen"
+
+#: src/FieldDiffBuilderBase.php:79
+msgid "Show field title"
+msgstr "Feldtitel anzeigen"
+
+#: src/FieldDiffBuilderBase.php:85
+msgid "Markdown callback"
+msgstr "Markdown-Callback"
+
+#: src/FieldDiffBuilderBase.php:88
+msgid "Drupal HTML to Text"
+msgstr "Drupal-HTML zu Text"
+
+#: src/FieldDiffBuilderBase.php:89
+msgid "Filter XSS (some tags)"
+msgstr "XSS filtern (einige Tags)"
+
+#: src/FieldDiffBuilderBase.php:90
+msgid "Filter XSS (all tags)"
+msgstr "XSS filtern (alle Tags)"
+
+#: src/FieldDiffBuilderBase.php:92
+msgid "These provide ways to clean markup tags to make comparisons easier to read."
+msgstr "Bieten Möglichkeiten, um Markup-Tags so zu bereinigen, dass die Vergleiche leichter zu lesen sind."
+
+#: src/Controller/PluginRevisionController.php:142
+msgid "Changes to %title"
+msgstr "Änderungen an %title"
+
+#: src/Controller/PluginRevisionController.php:159 src/Form/GeneralSettingsForm.php:98
+msgid "Layout"
+msgstr "Layout"
+
+#: src/Controller/PluginRevisionController.php:248
+msgid "Navigation"
+msgstr "Navigation"
+
+#: src/Controller/PluginRevisionController.php:258
+msgid "Previous change"
+msgstr "Vorherige Änderung"
+
+#: src/Controller/PluginRevisionController.php:273
+msgid "Next change"
+msgstr "Nächste Änderung"
+
+#: src/Form/FieldsSettingsForm.php:114
+msgid "No field types found."
+msgstr "Keine Feldtypen gefunden."
+
+#: src/Form/FieldsSettingsForm.php:150
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/FieldsSettingsForm.php:225
+msgid "You have unsaved changes."
+msgstr "Es sind nicht gespeicherte Änderungen vorhanden."
+
+#: src/Form/FieldsSettingsForm.php:234
+msgid "- Don't compare -"
+msgstr "- Nicht vergleichen -"
+
+#: src/Form/FieldsSettingsForm.php:272
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: src/Form/FieldsSettingsForm.php:278
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Form/FieldsSettingsForm.php:297
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Form/FieldsSettingsForm.php:490
+msgid "Your settings have been saved."
+msgstr "Die Einstellungen wurden gespeichert."
+
+#: src/Form/FieldsSettingsForm.php:522
+msgid "Field Type"
+msgstr "Feldtyp"
+
+#: src/Form/GeneralSettingsForm.php:72
+msgid "Diff radio behavior"
+msgstr "Verhalten der Diff-Optionsfelder"
+
+#: src/Form/GeneralSettingsForm.php:75
+msgid "Simple exclusion"
+msgstr "Einfache Ausnahme"
+
+#: src/Form/GeneralSettingsForm.php:76
+msgid "Linear restrictions"
+msgstr "Lineare Beschränkungen"
+
+#: src/Form/GeneralSettingsForm.php:78
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Form/GeneralSettingsForm.php:79
+msgid "<em>Simple exclusion</em> means that users will not be able to select the same revision, <em>Linear restrictions</em> means that users can only select older or newer revisions of the current selections."
+msgstr "<em>Einfache Ausnahme</em> bedeutet, dass die Benutzer nicht dieselbe Revision auswählen können, <em>Lineare Beschränkungen</em> bedeutet, dass die Benutzer nur ältere oder neuere Revisionen der aktuellen Auswahlen auswählen können."
+
+#: src/Form/GeneralSettingsForm.php:98
+msgid "Description"
+msgstr "Description"
+
+#: src/Form/GeneralSettingsForm.php:99
+msgid "There are no items yet. Add an item."
+msgstr "Es gibt noch keine Einträge. Fügen Sie einen Eintrag hinzu."
+
+#: src/Form/GeneralSettingsForm.php:100
+msgid "The layout plugins that are enabled to display the revision comparison."
+msgstr "Die zur Anzeige des Revisionsvergleichs aktivierten Layout-Plugins."
+
+#: src/Form/GeneralSettingsForm.php:129
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/GeneralSettingsForm.php:145
+msgid "Field based layout settings"
+msgstr "Feldbasierte Layout-Einstellungen"
+
+#: src/Form/GeneralSettingsForm.php:159
+msgid "Leading"
+msgstr "Führend"
+
+#: src/Form/GeneralSettingsForm.php:160
+msgid "This governs the number of unchanged <em>leading context \"lines\"</em> to preserve."
+msgstr "Bestimmt die Anzahl der unveränderten <em>führenden Kontext-„Zeilen“</em>, die erhalten bleiben sollen."
+
+#: src/Form/GeneralSettingsForm.php:166
+msgid "Trailing"
+msgstr "Nachfolgend"
+
+#: src/Form/GeneralSettingsForm.php:167
+msgid "This governs the number of unchanged <em>trailing context \"lines\"</em> to preserve."
+msgstr "Bestimmt die Anzahl der unveränderten <em>nachfolgenden Kontext-„Zeilen“</em>, die erhalten bleiben sollen."
+
+#: src/Form/GeneralSettingsForm.php:176
+msgid "Visual layout settings"
+msgstr "Visuelle Layout-Einstellungen"
+
+#: src/Form/GeneralSettingsForm.php:192
+msgid "Default"
+msgstr "Standard"
+
+#: src/Form/GeneralSettingsForm.php:193
+msgid "Admin"
+msgstr "Admin"
+
+#: src/Form/GeneralSettingsForm.php:195
+msgid "Use Default to display the comparison as %default theme, or Admin as %admin theme."
+msgstr "Standardvorgabe zur Anzeige des Vergleichs als %default Theme oder Admin als %admin Theme verwenden."
+
+#: src/Form/GeneralSettingsForm.php:220
+msgid "At least one layout plugin needs to be enabled."
+msgstr "Es muss mindestens ein Layout-Plugin aktiviert werden."
+
+#: src/Form/RevisionOverviewForm.php:161
+msgid "@langname revisions for %title"
+msgstr "@langname Revisionen für %title"
+
+#: src/Form/RevisionOverviewForm.php:164
+msgid "Revisions for %title"
+msgstr "Revisionen für %title"
+
+#: src/Form/RevisionOverviewForm.php:173
+msgid "Revision"
+msgstr "Revision"
+
+#: src/Form/RevisionOverviewForm.php:182
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/RevisionOverviewForm.php:240
+msgid "Current revision"
+msgstr "Aktuelle Revision"
+
+#: src/Form/RevisionOverviewForm.php:259
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: src/Form/RevisionOverviewForm.php:259
+msgid "Set as current revision"
+msgstr "Als aktuelle Revision festlegen"
+
+#: src/Form/RevisionOverviewForm.php:267
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/RevisionOverviewForm.php:297
+msgid "Compare selected revisions"
+msgstr "Ausgewählte Revisionen vergleichen"
+
+#: src/Form/RevisionOverviewForm.php:373
+msgid "Multiple revisions are needed for comparison."
+msgstr "Für den Vergleich sind mehrere Revisionen erforderlich."
+
+#: src/Form/RevisionOverviewForm.php:376
+msgid "Select two revisions to compare."
+msgstr "Zwei Revisionen zum Vergleich auswählen."
+
+#: src/Form/RevisionOverviewForm.php:380
+msgid "Select different revisions to compare."
+msgstr "Es müssen unterschiedliche Versionen für einen Vergleich ausgewählt werden."
+
+#: src/Form/RevisionOverviewForm.php:1
+msgid "@date by @username"
+msgstr "@date von @username"
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:44
+msgid "Comments for this entity are open."
+msgstr "Kommentare für diese Entität sind geöffnet."
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:48
+msgid "Comments for this entity are closed."
+msgstr "Kommentare für diese Entität sind geschlossen."
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:52
+msgid "Comments for this entity are hidden."
+msgstr "Kommentare für diese Entität sind ausgeblendet."
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:69
+msgid "Compare comment status key"
+msgstr "Kommentarstatusschlüssel vergleichen"
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:74
+msgid "Compare comment status string"
+msgstr "Kommentarstatus-Zeichenkette vergleichen"
+
+#: src/Plugin/diff/Field/CommentFieldBuilder.php:10
+msgid "Comment Field Diff"
+msgstr "Kommentar-Feld Diff"
+
+#: src/Plugin/diff/Field/CoreFieldBuilder.php:13
+msgid "Core Field Diff"
+msgstr "Core-Feld Diff"
+
+#: src/Plugin/diff/Field/EntityReferenceFieldBuilder.php:43
+msgid "Entity ID: :id"
+msgstr "Entitäts-ID: :id"
+
+#: src/Plugin/diff/Field/EntityReferenceFieldBuilder.php:60 src/Plugin/views/field/DiffFrom.php:34
+msgid "Compare"
+msgstr "Vergleichen"
+
+#: src/Plugin/diff/Field/EntityReferenceFieldBuilder.php:61
+msgid "ID"
+msgstr "ID"
+
+#: src/Plugin/diff/Field/EntityReferenceFieldBuilder.php:61 src/Plugin/diff/Field/ListFieldBuilder.php:65
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Plugin/diff/Field/EntityReferenceFieldBuilder.php:13
+msgid "Entity Reference Field Diff"
+msgstr "Entitätsreferenzfeld Diff"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:38
+msgid "File: :image"
+msgstr "Datei: :image"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:46
+msgid "File ID: :fid"
+msgstr "Datei-ID: :fid"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:55
+msgid "Description: @description"
+msgstr "Beschreibung: @description"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:65
+msgid "Displayed"
+msgstr "Angezeigt"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:68
+msgid "Hidden"
+msgstr "Ausgeblendet"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:91
+msgid "Show file ID"
+msgstr "Datei-ID anzeigen"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:96
+msgid "Compare description field"
+msgstr "Beschreibungsfeld vergleichen"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:98
+msgid "This is only used if the \"Enable <em>Description</em> field\" is checked in the instance settings."
+msgstr "Dies wird nur verwendet, wenn das „Aktivieren des <em>Beschreibungs</em>-Felds“ in den Instanz-Einstellungen aktiviert wurde."
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:102
+msgid "Compare display state field"
+msgstr "Anzeigezustand-Feld vergleichen"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:104
+msgid "This is only used if the \"Enable <em>Display</em> field\" is checked in the field settings."
+msgstr "Dies wird nur verwendet, wenn das „Aktivieren des <em>Anzeige</em>-Feld“ in den Feld-Einstellungen aktiviert wurde."
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:108 src/Plugin/diff/Field/ImageFieldBuilder.php:118
+msgid "Property separator"
+msgstr "Trennzeichen für Eigenschaften"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:110 src/Plugin/diff/Field/ImageFieldBuilder.php:120
+msgid "Provides the ability to show properties inline or across multiple lines."
+msgstr "Dient dazu, Eigenschaften in einer Zeile oder über mehrere Zeilen anzuzeigen."
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:112 src/Plugin/diff/Field/ImageFieldBuilder.php:122
+msgid "Comma (,)"
+msgstr "Komma (,)"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:113 src/Plugin/diff/Field/ImageFieldBuilder.php:123
+msgid "Semicolon (;)"
+msgstr "Semikolon (;)"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:114 src/Plugin/diff/Field/ImageFieldBuilder.php:124
+msgid "Space"
+msgstr "Leerzeichen"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:115 src/Plugin/diff/Field/ImageFieldBuilder.php:125
+msgid "New line"
+msgstr "Neue Zeile"
+
+#: src/Plugin/diff/Field/FileFieldBuilder.php:9
+msgid "File Field Diff"
+msgstr "Datei-Feld Diff"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:37
+msgid "Image: @image"
+msgstr "Bild: @image"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:45
+msgid "Alt: @alt"
+msgstr "Alt: @alt"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:54
+msgid "Title: @title"
+msgstr "Titel: @title"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:63
+msgid "File ID: @fid"
+msgstr "Datei-ID: @fid"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:101
+msgid "Show image ID"
+msgstr "Bild-ID anzeigen"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:106
+msgid "Compare <em>Alt</em> field"
+msgstr "<em>Alt</em>-Feld vergleichen"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:108
+msgid "This is only used if the \"Enable <em>Alt</em> field\" is checked in the instance settings."
+msgstr "Dies wird nur verwendet, wenn das „Aktivieren des <em>Alt</em>-Feld“ in den Instanz-Einstellungen aktiviert wurde."
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:112
+msgid "Compare <em>Title</em> field"
+msgstr "<em>Titel</em>-Feld vergleichen"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:114
+msgid "This is only used if the \"Enable <em>Title</em> field\" is checked in the instance settings."
+msgstr "Dies wird nur verwendet, wenn das „Aktivieren des <em>Titel</em>-Feld“ in den Instanz-Einstellungen aktiviert wurde."
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:130
+msgid "Show image thumbnail"
+msgstr "Miniaturbild anzeigen"
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:132
+msgid "Displays the image field as thumbnail."
+msgstr "Zeigt das Bildfeld als Miniaturbild."
+
+#: src/Plugin/diff/Field/ImageFieldBuilder.php:9
+msgid "Image Field Diff"
+msgstr "Bild-Feld Diff"
+
+#: src/Plugin/diff/Field/LinkFieldBuilder.php:56
+msgid "Compare link title"
+msgstr "Link-Titel vergleichen"
+
+#: src/Plugin/diff/Field/LinkFieldBuilder.php:61
+msgid "Compare URI"
+msgstr "URI vergleichen"
+
+#: src/Plugin/diff/Field/LinkFieldBuilder.php:9
+msgid "Link Field Diff"
+msgstr "Linkfeld Diff"
+
+#: src/Plugin/diff/Field/ListFieldBuilder.php:63
+msgid "Comparison method"
+msgstr "Vergleichsverfahren"
+
+#: src/Plugin/diff/Field/ListFieldBuilder.php:66
+msgid "Key"
+msgstr "Schlüssel"
+
+#: src/Plugin/diff/Field/ListFieldBuilder.php:67
+msgid "Label (key)"
+msgstr "Beschriftung (Schlüssel)"
+
+#: src/Plugin/diff/Field/ListFieldBuilder.php:9
+msgid "List Field Diff"
+msgstr "Listen-Feld Diff"
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:38 src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:36
+msgid "Format"
+msgstr "Format"
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:43 src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:41
+msgid "Missing format @format"
+msgstr "Fehlendes Format @format"
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:54 src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:64
+msgid "Value"
+msgstr "Wert"
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:74 src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:84
+msgid "Compare format"
+msgstr "Format vergleichen"
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:76 src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:86
+msgid "This is only used if the \"Text processing\" instance settings are set to <em>Filtered text (user selects text format)</em>."
+msgstr "Dies wird nur verwendet, wenn bei der Instanz „Textverarbeitung“ der Wert <em>Gefilterter Text (Benutzer wählt Textformat aus)</em> eingestellt ist."
+
+#: src/Plugin/diff/Field/TextFieldBuilder.php:9
+msgid "Text Field Diff"
+msgstr "Text-Feld Diff"
+
+#: src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:48
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:50
+msgid "Empty"
+msgstr "Leer"
+
+#: src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:90
+msgid "Compare summary separately"
+msgstr "Zusammenfassung getrennt vergleichen"
+
+#: src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:92
+msgid "This is only used if the \"Summary input\" option is checked in the instance settings."
+msgstr "Dies wird nur verwendet, wenn bei den Instanz-Einstellungen die Option „Eingabe der Zusammenfassung“ ausgewählt wurde."
+
+#: src/Plugin/diff/Field/TextWithSummaryFieldBuilder.php:9
+msgid "Text with Summary Field"
+msgstr "Text mit Zusammenfassungsfeld"
+
+#: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php:107 src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php:110
+msgid "Filter"
+msgstr "Filter"
+
+#: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php:245 src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php:237
+msgid "No visible changes"
+msgstr "Keine sichtbaren Unterschiede"
+
+#: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php:16
+msgid "Split fields"
+msgstr "Getrennte Felder"
+
+#: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php:16
+msgid "Field based layout, displays revision comparison side by side."
+msgstr "Feldbasiertes Layout, zeigt Revisionsvergleich nebeneinander an."
+
+#: src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php:17
+msgid "Unified fields"
+msgstr "Vereinheitlichte Felder"
+
+#: src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php:17
+msgid "Field based layout, displays revision comparison line by line."
+msgstr "Feldbasiertes Layout, zeigt Revisionsvergleich zeilenweise an."
+
+#: src/Plugin/diff/Layout/VisualInlineDiffLayout.php:165
+msgid "View mode"
+msgstr "Ansichtsmodus"
+
+#: src/Plugin/diff/Layout/VisualInlineDiffLayout.php:20
+msgid "Visual Inline"
+msgstr "Visuell Inline"
+
+#: src/Plugin/diff/Layout/VisualInlineDiffLayout.php:20
+msgid "Visual layout, displays revision comparison using the entity type view mode."
+msgstr "Visuelles Layout, zeigt Revisionsvergleich im Ansichtsmodus des Entitätstyps an."
+
+#: src/Plugin/views/field/DiffFrom.php:25
+msgid "From"
+msgstr "Von"
+
+#: src/Plugin/views/field/DiffPluginBase.php:85
+msgid "Compare this item"
+msgstr "Diesen Eintrag vergleichen"
+
+#: src/Plugin/views/field/DiffTo.php:18
+msgid "To"
+msgstr "An"
+
+#: config/install/diff.settings.yml:0
+msgid "simple"
+msgstr "einfach"
+
+#: config/optional/core.entity_view_mode.node.diff.yml:0
+msgid "Revision comparison"
+msgstr "Versionsvergleich"
+

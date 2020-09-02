@@ -1,0 +1,201 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_media_video_upload.post_update.php: n/a
+#  degov_media_video_upload.info.yml: n/a
+#  templates/media--video_upload--default.html.twig: n/a
+#  templates/media--video_upload--full.html.twig: n/a
+#  templates/media--video_upload--reference.html.twig: n/a
+#  templates/media--video_upload--preview.html.twig: n/a
+#  templates/media--video_upload--preview_wide.html.twig: n/a
+#  templates/media--video_upload--search.html.twig: n/a
+#  templates/media--video_upload--usage.html.twig: n/a
+#  config/install/field.field.media.video_upload.field_media_transcription.yml: n/a
+#  config/install/core.entity_form_display.media.video_upload.default.yml: n/a
+#  config/install/core.entity_form_display.media.video_upload.media_browser.yml: n/a
+#  config/install/field.field.media.video_upload.field_allow_download.yml: n/a
+#  config/install/field.field.media.video_upload.field_copyright.yml: n/a
+#  config/install/field.field.media.video_upload.field_description.yml: n/a
+#  config/install/field.field.media.video_upload.field_include_search.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_accessibility.yml: n/a
+#  config/optional/field.field.media.video_upload.field_media_accessibility.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_duration.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_generic_8.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_in_library.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_language.yml: n/a
+#  config/optional/field.field.media.video_upload.field_media_language.yml: n/a
+#  config/install/field.field.media.video_upload.field_media_publish_date.yml: n/a
+#  config/install/field.field.media.video_upload.field_subtitle.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_subtitle.yml: n/a
+#  config/install/field.field.media.video_upload.field_tags.yml: n/a
+#  config/install/field.field.media.video_upload.field_title.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_caption.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_mp4.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_ogg.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_preview.yml: n/a
+#  config/install/field.field.media.video_upload.field_video_upload_webm.yml: n/a
+#  config/install/media.type.video_upload.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:00+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_media_video_upload.post_update.php:30;81
+msgid "@current media @bundle processed."
+msgstr "@current Medien @bundle verarbeitet."
+
+#: degov_media_video_upload.info.yml:0
+msgid "deGov - Media video upload"
+msgstr "deGov - Medien hochgeladenes Video"
+
+#: degov_media_video_upload.info.yml:0
+msgid "This media type is used for uploaded videos."
+msgstr "Dieser Medientyp wird für hochgeladene Videos verwendet."
+
+#: degov_media_video_upload.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: templates/media--video_upload--default.html.twig:40 templates/media--video_upload--full.html.twig:40 templates/media--video_upload--reference.html.twig:40
+msgid "I'm sorry; your browser doesn't support HTML5 video in WebM with VP8/VP9 or MP4 with H.264."
+msgstr "Entschuldigung: Der Browser unterstützt kein HTML5-Video in WebM mit VP8/VP9 oder MP4 mit H.264."
+
+#: templates/media--video_upload--default.html.twig:57 templates/media--video_upload--full.html.twig:57 templates/media--video_upload--preview.html.twig:25 templates/media--video_upload--preview_wide.html.twig:26 templates/media--video_upload--search.html.twig:21 templates/media--video_upload--usage.html.twig:29
+msgid "Video"
+msgstr "Video"
+
+#: templates/media--video_upload--default.html.twig:61 templates/media--video_upload--full.html.twig:61 templates/media--video_upload--reference.html.twig:55 templates/media--video_upload--usage.html.twig:40
+msgid "&copy;"
+msgstr "&copy;"
+
+#: templates/media--video_upload--default.html.twig:91 templates/media--video_upload--full.html.twig:91 config/install/field.field.media.video_upload.field_media_transcription.yml:0
+msgid "Transkription"
+msgstr "Transkription"
+
+#: templates/media--video_upload--usage.html.twig:51
+msgid "Usage"
+msgstr "Verwendung"
+
+#: config/install/core.entity_form_display.media.video_upload.default.yml:0 config/install/core.entity_form_display.media.video_upload.media_browser.yml:0
+msgid "Absatz"
+msgstr "Absatz"
+
+#: config/install/core.entity_form_display.media.video_upload.default.yml:0 config/install/core.entity_form_display.media.video_upload.media_browser.yml:0
+msgid "Paragraphs"
+msgstr "Seitenabschnitte"
+
+#: config/install/field.field.media.video_upload.field_allow_download.yml:0
+msgid "Herunterladen zulassen"
+msgstr "Herunterladen zulassen"
+
+#: config/install/field.field.media.video_upload.field_allow_download.yml:0
+msgid "Erlaubt"
+msgstr "Erlaubt"
+
+#: config/install/field.field.media.video_upload.field_allow_download.yml:0
+msgid "Verboten"
+msgstr "Verboten"
+
+#: config/install/field.field.media.video_upload.field_copyright.yml:0
+msgid "Copyright"
+msgstr "Urheberrecht"
+
+#: config/install/field.field.media.video_upload.field_description.yml:0
+msgid "Beschreibung"
+msgstr "Beschreibung"
+
+#: config/install/field.field.media.video_upload.field_include_search.yml:0
+msgid "Mediathek"
+msgstr "Mediathek"
+
+#: config/install/field.field.media.video_upload.field_include_search.yml:0
+msgid "An"
+msgstr "An"
+
+#: config/install/field.field.media.video_upload.field_include_search.yml:0
+msgid "Aus"
+msgstr "Aus"
+
+#: config/install/field.field.media.video_upload.field_media_accessibility.yml:0 config/optional/field.field.media.video_upload.field_media_accessibility.yml:0
+msgid "Barrierefreiheit"
+msgstr "Barrierefreiheit"
+
+#: config/install/field.field.media.video_upload.field_media_duration.yml:0
+msgid "Länge"
+msgstr "Länge"
+
+#: config/install/field.field.media.video_upload.field_media_generic_8.yml:0
+msgid "Generic media"
+msgstr "Allgemeines Medium"
+
+#: config/install/field.field.media.video_upload.field_media_in_library.yml:0
+msgid "Save to my media library"
+msgstr "In meiner Mediathek speichern"
+
+#: config/install/field.field.media.video_upload.field_media_in_library.yml:0
+msgid "Saved to my media library"
+msgstr "In meiner Mediathek gespeichert"
+
+#: config/install/field.field.media.video_upload.field_media_in_library.yml:0
+msgid "Not in my media library"
+msgstr "Nicht in meiner Mediathek"
+
+#: config/install/field.field.media.video_upload.field_media_language.yml:0 config/optional/field.field.media.video_upload.field_media_language.yml:0
+msgid "Sprache"
+msgstr "Sprache"
+
+#: config/install/field.field.media.video_upload.field_media_publish_date.yml:0
+msgid "Veröffentlichungsdatum"
+msgstr "Veröffentlichungsdatum"
+
+#: config/install/field.field.media.video_upload.field_subtitle.yml:0 config/install/field.field.media.video_upload.field_video_upload_subtitle.yml:0
+msgid "Untertitel"
+msgstr "Untertitel"
+
+#: config/install/field.field.media.video_upload.field_tags.yml:0
+msgid "Schlagwörter"
+msgstr "Schlagwörter"
+
+#: config/install/field.field.media.video_upload.field_title.yml:0
+msgid "Öffentlicher Titel"
+msgstr "Öffentlicher Titel"
+
+#: config/install/field.field.media.video_upload.field_video_upload_caption.yml:0
+msgid "Videounterschrift"
+msgstr "Videounterschrift"
+
+#: config/install/field.field.media.video_upload.field_video_upload_mp4.yml:0
+msgid "MP4"
+msgstr "MP4"
+
+#: config/install/field.field.media.video_upload.field_video_upload_ogg.yml:0
+msgid "OGG"
+msgstr "OGG"
+
+#: config/install/field.field.media.video_upload.field_video_upload_preview.yml:0
+msgid "Vorschau"
+msgstr "Vorschau"
+
+#: config/install/field.field.media.video_upload.field_video_upload_webm.yml:0
+msgid "WebM"
+msgstr "WebM"
+
+#: config/install/media.type.video_upload.yml:0
+msgid "Video Upload"
+msgstr "Videos auf der Website speichern"
+
+#: config/install/media.type.video_upload.yml:0
+msgid "Mit diesem Bundle können Video-Dateien hochgeladen werden. Für die Einbindung externe Videos (z.B. Youtube) muss das Video-Bundle benutzt werden."
+msgstr "Mit diesem Subtyp können Video-Dateien hochgeladen werden. Für die Einbindung externer Videos (z. B. Youtube) muss der Video-Subtyp verwendet werden."
+

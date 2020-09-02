@@ -1,0 +1,130 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  viewsreference.info.yml: n/a
+#  js/viewsreference.js: n/a
+#  src/Plugin/Field/FieldFormatter/ViewsReferenceFieldFormatter.php: n/a
+#  src/Plugin/Field/FieldType/ViewsReferenceItem.php: n/a
+#  src/Plugin/Field/FieldWidget/ViewsReferenceSelectWidget.php: n/a
+#  src/Plugin/Field/FieldWidget/ViewsReferenceTrait.php: n/a
+#  src/Plugin/Field/FieldWidget/ViewsReferenceWidget.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: viewsreference.info.yml:0
+msgid "Views Reference Field"
+msgstr "Views Reference Field"
+
+#: viewsreference.info.yml:0
+msgid "Enables Views to be embedded in an entity reference field"
+msgstr "Ermöglicht das Einbetten von Ansichten in ein Entitätsreferenzfeld."
+
+#: viewsreference.info.yml:0
+msgid "Views"
+msgstr "Ansichten"
+
+#: js/viewsreference.js:0
+msgid "There is no Display available.  Please select another view or change the field settings."
+msgstr "Es ist kein Anzeige verfügbar.  Bitte wählen Sie eine andere Ansicht oder ändern Sie die Feldeinstellungen."
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceFieldFormatter.php:48 src/Plugin/Field/FieldType/ViewsReferenceItem.php:158
+msgid "View display plugins to allow"
+msgstr "Ansichts-Anzeigeplugins, die zugelassen sein sollen"
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceFieldFormatter.php:68
+msgid "Allowed plugins: @view"
+msgstr "Erlaubte Plugins: @view"
+
+#: src/Plugin/Field/FieldFormatter/ViewsReferenceFieldFormatter.php:10
+msgid "Views Reference"
+msgstr "Ansichtenreferenz"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:165
+msgid "Preselect View Options"
+msgstr "Voreinstellung der Ansichtsoptionen"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:61
+msgid "Display Id"
+msgstr "Anzeigen-ID"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:62
+msgid "The referenced display Id"
+msgstr "Die referenzierte Anzeigen-ID"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:65
+msgid "Argument"
+msgstr "Aufrufparameter"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:66
+msgid "An optional argument or contextual filter to apply to the View"
+msgstr "Ein optionales Argument oder ein kontextabhängiger Filter, der auf die Ansicht angewendet werden kann"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:69
+msgid "Title"
+msgstr "Titel"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:70
+msgid "Whether or not to include the View or Block title"
+msgstr "Ob der Ansichts- oder Blocktitel enthalten sein soll oder nicht"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:73
+msgid "Data"
+msgstr "Daten"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:74
+msgid "Settings data for advanced use"
+msgstr "Einstellungsdaten für die erweiterte Nutzung"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:15
+msgid "Views reference"
+msgstr "Ansichtenreferenz"
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:15
+msgid "A field reference to a view."
+msgstr "Eine Feldreferenz zu einer Ansicht."
+
+#: src/Plugin/Field/FieldType/ViewsReferenceItem.php:15
+msgid "Reference"
+msgstr "Referenz"
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceSelectWidget.php:39;43
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceSelectWidget.php:9
+msgid "Views Reference Select list"
+msgstr "Ansichtenreferenz-Auswahlliste"
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceSelectWidget.php:9
+msgid "An autocomplete views select list field."
+msgstr "Ein Auswahllistenfeld für Autovervollständigungsansichten."
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceTrait.php:46
+msgid "Getting display Ids..."
+msgstr "Anzeige-IDs werden abgerufen..."
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceTrait.php:93
+msgid "Options"
+msgstr "Optionen"
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceWidget.php:10
+msgid "Views Reference Autocomplete"
+msgstr "Ansichtenreferenz-Autovervollständigung"
+
+#: src/Plugin/Field/FieldWidget/ViewsReferenceWidget.php:10
+msgid "An autocomplete views reference field."
+msgstr "Ein Ansichtenreferenz-Autovervollständigungs-Feld."
+

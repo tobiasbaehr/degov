@@ -1,0 +1,300 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  dropzonejs.module: n/a
+#  dropzonejs.info.yml: n/a
+#  modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php: n/a
+#  dropzonejs.install: n/a
+#  modules/eb_widget/dropzonejs_eb_widget.info.yml: n/a
+#  dropzonejs.permissions.yml: n/a
+#  config/schema/dropzonejs.schema.yml: n/a
+#  modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml: n/a
+#  modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php: n/a
+#  modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php: n/a
+#  src/DropzoneJsUploadSave.php: n/a
+#  src/UploadHandler.php: n/a
+#  src/Element/DropzoneJs.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:38+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: dropzonejs.module:18
+msgid "About"
+msgstr "Über"
+
+#: dropzonejs.module:19 dropzonejs.info.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:19
+msgid "DropzoneJS"
+msgstr "DropzoneJS"
+
+#: dropzonejs.module:57
+msgid "or"
+msgstr "oder"
+
+#: dropzonejs.module:58
+msgid "Select files"
+msgstr "Dateien auswählen"
+
+#: dropzonejs.install:33
+msgid "Dropzone library missing"
+msgstr "Die Dropzone-Bibliothek fehlt"
+
+#: dropzonejs.install:34
+msgid "Dropzonejs requires the dropzone.min.js library.\n        Download it (https://github.com/enyo/dropzone) and place it in the\n        libraries folder (/libraries)"
+msgstr "Dropzonejs erfordert die Bibliothek dropzone.js. Die Bibliothek muss unter  (https://github.com/enyo/dropzone) heruntergeladen und im Verzeichnis  /libraries platziert werden."
+
+#: dropzonejs.info.yml:0
+msgid "dropzonejs"
+msgstr "dropzonejs"
+
+#: dropzonejs.info.yml:0 modules/eb_widget/dropzonejs_eb_widget.info.yml:0
+msgid "Media"
+msgstr "Media"
+
+#: dropzonejs.permissions.yml:0
+msgid "Dropzone upload files"
+msgstr "Dropzone Dateien hochladen"
+
+#: dropzonejs.permissions.yml:0
+msgid "Allow uploading of files via dropzonejs."
+msgstr "Dateiupload via DropzoneJS erlauben"
+
+#: config/schema/dropzonejs.schema.yml:0
+msgid "DropzoneJS settings"
+msgstr "DropzoneJS-Einstellungen"
+
+#: config/schema/dropzonejs.schema.yml:0
+msgid "Upload scheme"
+msgstr "Uploadschema"
+
+#: modules/eb_widget/dropzonejs_eb_widget.info.yml:0
+msgid "DropzoneJS entity browser widget"
+msgstr "DropzoneJS-Entitätsbrowser-Steuerelement"
+
+#: modules/eb_widget/dropzonejs_eb_widget.info.yml:0
+msgid "DropzoneJS Entity browser widget"
+msgstr "DropzoneJS-Entitätsbrowser-Steuerelement"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "DropzoneJS widget configuration"
+msgstr "DropzoneJS-Steuerelement-Konfiguration"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Submit button text"
+msgstr "Text des „Speichern“-Buttons"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Automatically submit selection"
+msgstr "Auswahl automatisch übermitteln"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:350
+msgid "Upload location"
+msgstr "Uploadort"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:356
+msgid "Dropzone drag-n-drop zone text"
+msgstr "Text des Dropzone-Drag-n-Drop-Bereiches"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:365
+msgid "Maximum size of files"
+msgstr "Maximalgröße der Dateien"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:373
+msgid "Allowed file extensions"
+msgstr "Zulässige Dateiendungen"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Use clientside resize"
+msgstr "Clientseitige Bildgrößenveränderung"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Maximum width"
+msgstr "Maximale Breite"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Maximum height"
+msgstr "Maximale Höhe"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:431
+msgid "Resize quality"
+msgstr "Bildqualität beim Verändern der Bildgröße"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Method used for resizing"
+msgstr "Verwendete Methode zum Ändern der Bildgröße"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Method used for generating the thumbnail"
+msgstr "Verwendete Methode zum Erzeugen von Miniaturbildern"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Media Entity DropzoneJS widget configuration"
+msgstr "Medienentität-DropzoneJS-Steuerelementkonfiguration"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:116
+msgid "Media type"
+msgstr "Medientyp"
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0
+msgid "Media Entity DropzoneJS with edit widget configuration"
+msgstr "DropzoneJS-Medienentität mit bearbeitbarer Steuerelementkonfiguration."
+
+#: modules/eb_widget/config/schema/dropzonejs_eb_widget.schema.yml:0 modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php:271
+msgid "Form mode"
+msgstr "Formulardarstellung"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:104
+msgid "Drop files here to upload them"
+msgstr "Dateien auf diese Fläche ziehen, um diese hochzuladen."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:129
+msgid "File upload"
+msgstr "Datei-Upload"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:251
+msgid "Files could not be uploaded because the destination directory %destination is not configured correctly."
+msgstr "Die Dateien konnten nicht auf den Server geladen werden, da das Zielverzeichnis %destination nicht korrekt konfiguriert ist."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:257
+msgid "Some files that you are trying to upload did not pass validation. Requirements are: max file %size, allowed extensions are %extensions"
+msgstr "Einige der Dateien, die auf den Server geladen werden sollen, haben die Gültigkeitsprüfung nicht bestanden. Die Anforderungen sind: Maximale Dateigröße %size, zugelassene Dateierweiterungen: %extensions"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:261
+msgid "At least one valid file should be uploaded."
+msgstr "Mindestens eine gültige Datei sollte hochgeladen werden."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:367
+msgid "MB"
+msgstr "MB"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:374
+msgid "A space separated list of file extensions"
+msgstr "Eine durch Leerzeichen getrennte Liste von Dateierweiterungen"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:383
+msgid "Use client side resizing"
+msgstr "Clientseitige Bildgrößenveränderung verwenden"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:388
+msgid "Requires droopzone version v4.4.0 or higher and the <a href=\"@exif\" target=\"_blank\">exif</a> library."
+msgstr "Erfordert Dropzone Version v4.4.0 oder höher und die Bibliothek <a href=\"@exif\" target=\"_blank\">exif</a>."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:399
+msgid "Max width"
+msgstr "Maximale Breite"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:415
+msgid "Max height"
+msgstr "Maximale Höhe"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:447
+msgid "Resize method"
+msgstr "Bildgrößenänderungsmethode"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:450;467
+msgid "Contain (scale)"
+msgstr "Contain (skalieren)"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:451;468
+msgid "Crop"
+msgstr "Zuschneiden"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:464
+msgid "Thumbnail method"
+msgstr "Miniaturbildmethode"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:499
+msgid "Invalid extension list format."
+msgstr "Fehlerhaftes Erweiterungslistenformat."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/DropzoneJsEbWidget.php:19
+msgid "Adds DropzoneJS upload integration."
+msgstr "DropzoneJS-Uploadintegration hinzufügen."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php:109
+msgid "Missing requirement: in order to use this widget you have to install Inline entity form module first"
+msgstr "Abhängigkeit nicht erfüllt: Damit dieses Steuerelement verwendet werden kann, muss zunächst das Inline-Entity-Form-Modul installiert werden."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php:117
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php:21
+msgid "Media Entity DropzoneJS with edit"
+msgstr "DropzoneJS für Medienentitäten mit Bearbeitungsfunktion"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/InlineEntityFormMediaWidget.php:21
+msgid "Adds DropzoneJS upload integration that saves Media entities and allows to edit them."
+msgstr "Fügt eine DropzoneJs-Integration zum Hochladen von Medienentitäten hinzu, die nach dem Hochladen bearbeitet werden können."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:118
+msgid "The type of media entity to create from the uploaded file(s)."
+msgstr "Der Medienentitätstyp, der aus der hochgeladenen Datei bzw. den hochgeladenen Dateien erstellt werden soll."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:135
+msgid "You must @create_media_type before using this widget."
+msgstr "Es muss zunächst @create_media_type werden, damit dieses Steuerelement verwendet werden kann."
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:136
+msgid "create a media type"
+msgstr "Einen Medientyp erstellen"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:18
+msgid "Media Entity DropzoneJS"
+msgstr "Media Entity DropzoneJS"
+
+#: modules/eb_widget/src/Plugin/EntityBrowser/Widget/MediaEntityDropzoneJsEbWidget.php:18
+msgid "Adds DropzoneJS upload integration that saves Media entities."
+msgstr "Ermöglicht die Integration von DropzoneJS in Drupal zum Speichern von Medienentitäten"
+
+#: src/DropzoneJsUploadSave.php:132
+msgid "For security reasons, your upload has been renamed to %filename."
+msgstr "Aus Sicherheitsgründen wurde die hochgeladene Datei in %filename umbenannt."
+
+#: src/DropzoneJsUploadSave.php:140
+msgid "The specified file %name could not be uploaded."
+msgstr "Die angegebene Datei %name konnte nicht hochgeladen werden."
+
+#: src/DropzoneJsUploadSave.php:153
+msgid "The file could not be uploaded because the destination %destination is invalid."
+msgstr "Die Datei konnte nicht hochgeladen werden, weil der Zielpfad %destination ungültig ist."
+
+#: src/DropzoneJsUploadSave.php:160
+msgid "File upload error. Could not move uploaded file."
+msgstr "Fehler beim Hochladen der Datei. Die hochgeladene Datei konnte nicht verschoben werden."
+
+#: src/DropzoneJsUploadSave.php:161
+msgid "Upload error. Could not move uploaded file %file to destination %destination."
+msgstr "Fehler beim Hochladen. Die hochgeladene Datei %file konnte nicht zum Ziel %destination verschoben werden."
+
+#: src/UploadHandler.php:122
+msgid "The file could not be saved because it exceeds the maximum allowed size for uploads."
+msgstr "Die Datei konnte nicht gespeichert werden, da die maximal erlaubte Dateigröße überschritten wurde."
+
+#: src/UploadHandler.php:127
+msgid "The file could not be saved because the upload did not complete."
+msgstr "Die Datei konnte nicht gespeichert werden, da der Upload nicht abgeschlossen werden konnte."
+
+#: src/UploadHandler.php:132
+msgid "The file could not be saved. An unknown error has occurred."
+msgstr "Die Datei konnte nicht gespeichert werden. Ein unbekannter Fehler ist aufgetreten."
+
+#: src/Element/DropzoneJs.php:197
+msgid "There was a problem while processing the file named @name"
+msgstr "Es ist ein Problem bei der Verarbeitung der Datei @name aufgetreten."
+
+#: src/Element/DropzoneJs.php:110
+msgid "You don't have sufficent permissions to use the DropzoneJS uploader. Contact your system administrator"
+msgstr "Sie haben nicht die Berechtigung DropzoneJs zum Upload von Dateien zu verwenden. Kontaktieren Sie den Systemadministrator."
+

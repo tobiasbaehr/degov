@@ -1,0 +1,210 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mailsystem.module: n/a
+#  mailsystem.info.yml: n/a
+#  mailsystem.links.menu.yml: n/a
+#  mailsystem.permissions.yml: n/a
+#  mailsystem.routing.yml: n/a
+#  config/schema/mailsystem.schema.yml: n/a
+#  src/Form/AdminForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: mailsystem.module:50
+msgid "About"
+msgstr "Über"
+
+#: mailsystem.module:51
+msgid "<a href=\":mailsystem\">Mail System</a> Provides an Administrative UI and Developers API for managing the used mail backend/plugin.</a>"
+msgstr "<a href=\":mailsystem\">Mail System</a> Stellt eine Administrationsoberfläche und eine Entwickler-API zur Verwaltung des verwendeten Mail-Backends/Plugins bereit.</a>"
+
+#: mailsystem.module:57
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: mailsystem.module:58
+msgid "Allows to use different backends for formatting and sending e-mails by default, per module and per mail key. Additionally, a theme can be configured that is used for sent mails."
+msgstr "Erlaubt die Verwendung verschiedener Backends zur Formatierung und zum Senden von E-Mails als Standard per Modul und per Mail-Schlüssel. Zusätzlich kann ein Theme konfiguriert werden, das für gesendete Mails verwendet wird."
+
+#: mailsystem.info.yml:0
+msgid "Mail"
+msgstr "E-Mail"
+
+#: mailsystem.info.yml:0 mailsystem.links.menu.yml:0
+msgid "Mail System"
+msgstr "Mail System"
+
+#: mailsystem.info.yml:0
+msgid "Provides a user interface for per-module and site-wide mail_system selection."
+msgstr "Stellt eine Benutzeroberfläche für die Auswahl des „E-Mail-Systems“ pro Modul und der gesamten Website zu Verfügung."
+
+#: mailsystem.links.menu.yml:0
+msgid "Global Mail System configuration."
+msgstr "Seitenweite Mail-System-Konfiguration"
+
+#: mailsystem.permissions.yml:0
+msgid "Administer Mail System"
+msgstr "Mail-System verwalten"
+
+#: mailsystem.permissions.yml:0
+msgid "Select the default, per-module, and per-mailing MailSystemInterface to use for formatting and sending email messages."
+msgstr "Auswahl der Standard-, modul- und mailspezifischen MailSystem-Schnittstelle für die Formatierung und den Versand von E-Mail-Nachrichten."
+
+#: mailsystem.routing.yml:0
+msgid "Configure the Mail System"
+msgstr "Das Mail-System konfigurieren"
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "Mail System settings"
+msgstr "Mail-System-Einstellungen"
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "Selected theme"
+msgstr "Ausgewähltes Theme"
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "Default settings"
+msgstr "Standardeinstellungen"
+
+#: config/schema/mailsystem.schema.yml:0;0
+msgid "The sender of an email"
+msgstr "Der Absender einer E-Mail"
+
+#: config/schema/mailsystem.schema.yml:0;0
+msgid "The formatter used for emails"
+msgstr "Das Anzeigeformat, das für E-Mails verwendet wird."
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "List of modules"
+msgstr "Auflistung von Modulen"
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "List of keys for a given module"
+msgstr "Liste der Schlüssel für ein bestimmtes Modul"
+
+#: config/schema/mailsystem.schema.yml:0
+msgid "Per module/key setting."
+msgstr "Je Einstellung von Modul/Schlüssel"
+
+#: src/Form/AdminForm.php:98
+msgid "Default Mail System"
+msgstr "Standard-Mail-System"
+
+#: src/Form/AdminForm.php:106;178;201
+msgid "Formatter"
+msgstr "Anzeigeformat"
+
+#: src/Form/AdminForm.php:107
+msgid "Select the standard plugin for formatting an email before sending it. This plugin implements <a href=\":interface\">@interface</a> and in special the <a href=\":format\">@format</a> function."
+msgstr "Das Standard-Plugin auswählen, das die E-Mails vor dem Versand formatiert. Dieses Plugin implementiert <a href=\":interface\">@interface</a> und die Funktion <a href=\":format\">@format</a>."
+
+#: src/Form/AdminForm.php:115;179;209
+msgid "Sender"
+msgstr "Absender"
+
+#: src/Form/AdminForm.php:116
+msgid "Select the standard plugin for sending an email after formatting it. This plugin implements <a href=\":interface\">@interface</a> and in special the <a href=\":mail\">@mail</a> function."
+msgstr "Das Standard-Plugin auswählen, das die E-Mails nach der Formatierung versendet. Dieses Plugin implementiert <a href=\":interface\">@interface</a> und die Funktion <a href=\":mail\">@mail</a>."
+
+#: src/Form/AdminForm.php:124
+msgid "Theme to render the emails"
+msgstr "Theme, mit dem die E-Mails dargestellt werden sollen"
+
+#: src/Form/AdminForm.php:125
+msgid "Select the theme that will be used to render emails which are configured for this. This can be either the current theme, the default theme, the domain theme or any active theme."
+msgstr "Wählen Sie das Theme, das zur Darstellung von E-Mails verwendet werden soll, die dafür konfiguriert sind. Dies kann entweder das aktuelle Theme, das Standardtheme, das Domain-Theme oder ein beliebiges aktiviertes Theme sein."
+
+#: src/Form/AdminForm.php:133
+msgid "Module-specific configuration"
+msgstr "Modul-spezifische Konfiguration"
+
+#: src/Form/AdminForm.php:141;176
+msgid "Module"
+msgstr "Modul"
+
+#: src/Form/AdminForm.php:143
+msgid "- Select -"
+msgstr "- Auswählen -"
+
+#: src/Form/AdminForm.php:147;177
+msgid "Key"
+msgstr "Schlüssel"
+
+#: src/Form/AdminForm.php:148
+msgid "The key is used to identify specific mails if the module sends more than one. Leave empty to use the configuration for all mails sent by the selected module."
+msgstr "Der Schlüssel wird verwendet, um bestimmte E-Mails zu identifizieren, wenn das Modul mehr als eine sendet. Leer lassen, um die Konfiguration für alle E-Mails zu verwenden, die vom ausgewählten Modul gesendet werden."
+
+#: src/Form/AdminForm.php:153
+msgid "Formatter plugin"
+msgstr "Anzeigeformat-Plugin"
+
+#: src/Form/AdminForm.php:155;161;204;212
+msgid "- Default -"
+msgstr "- Standard -"
+
+#: src/Form/AdminForm.php:159
+msgid "Sender plugin"
+msgstr "Absender-Plugin"
+
+#: src/Form/AdminForm.php:166
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: src/Form/AdminForm.php:180
+msgid "Remove"
+msgstr "Entfernen"
+
+#: src/Form/AdminForm.php:182
+msgid "No specific configuration yet."
+msgstr "Noch keine spezifische Konfiguration vorhanden."
+
+#: src/Form/AdminForm.php:196
+msgid "All"
+msgstr "Alle"
+
+#: src/Form/AdminForm.php:232
+msgid "The module is required."
+msgstr "Das Modul ist erforderlich."
+
+#: src/Form/AdminForm.php:238
+msgid "An entry for this combination exists already. Use the form below to update or remove it."
+msgstr "Ein Eintrag mit der gewünschten Konfiguration existiert bereits. Die vorhandenen Einträge können über das unten stehende Formular geändert oder gelöscht werden."
+
+#: src/Form/AdminForm.php:243
+msgid "At least a formatter or sender is required."
+msgstr "Es muss mindestens ein Plugin ausgewählt werden, das ein Anzeigeformat oder eine Versandmethode festlegt."
+
+#: src/Form/AdminForm.php:276
+msgid "The configuration has been added."
+msgstr "Die Konfiguration wurde hinzugefügt."
+
+#: src/Form/AdminForm.php:340
+msgid "Current"
+msgstr "Aktuell"
+
+#: src/Form/AdminForm.php:341
+msgid "Default"
+msgstr "Standard"
+
+#: src/Form/AdminForm.php:344
+msgid "Domain Theme"
+msgstr "Domain Theme"
+
+#: src/Form/AdminForm.php:384
+msgid "Unknown Plugin"
+msgstr "Unbekanntes Plugin"
+

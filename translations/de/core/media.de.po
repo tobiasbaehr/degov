@@ -1,0 +1,1073 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  media.module: n/a
+#  media.install: n/a
+#  media.info.yml: n/a
+#  media.links.task.yml: n/a
+#  src/Entity/Media.php: n/a
+#  src/Plugin/views/wizard/Media.php: n/a
+#  config/optional/views.view.media.yml: n/a
+#  media.links.action.yml: n/a
+#  src/MediaTypeForm.php: n/a
+#  media.links.contextual.yml: n/a
+#  src/Plugin/Derivative/DynamicLocalTasks.php: n/a
+#  src/Form/MediaDeleteMultipleConfirmForm.php: n/a
+#  media.links.menu.yml: n/a
+#  src/Entity/MediaType.php: n/a
+#  media.routing.yml: n/a
+#  config/schema/media.schema.yml: n/a
+#  media.permissions.yml: n/a
+#  src/MediaTypeListBuilder.php: n/a
+#  src/Plugin/Field/FieldFormatter/OEmbedFormatter.php: n/a
+#  js/form.es6.js: n/a
+#  js/form.js: n/a
+#  js/type_form.es6.js: n/a
+#  js/type_form.js: n/a
+#  src/MediaForm.php: n/a
+#  src/MediaListBuilder.php: n/a
+#  src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php: n/a
+#  src/MediaPermissions.php: n/a
+#  src/MediaSourceBase.php: n/a
+#  src/Plugin/media/Source/File.php: n/a
+#  src/Form/MediaSettingsForm.php: n/a
+#  src/Form/MediaTypeDeleteConfirmForm.php: n/a
+#  src/Plugin/EntityReferenceSelection/MediaSelection.php: n/a
+#  src/Plugin/Field/FieldWidget/OEmbedWidget.php: n/a
+#  src/Plugin/QueueWorker/ThumbnailDownloader.php: n/a
+#  src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php: n/a
+#  src/Plugin/media/Source/AudioFile.php: n/a
+#  src/Plugin/media/Source/Image.php: n/a
+#  src/Plugin/media/Source/OEmbed.php: n/a
+#  src/Plugin/media/Source/OEmbedDeriver.php: n/a
+#  src/Plugin/media/Source/VideoFile.php: n/a
+#  src/Plugin/views/wizard/MediaRevision.php: n/a
+#  templates/media-reference-help.html.twig: n/a
+#  config/install/core.entity_view_mode.media.full.yml: n/a
+#  config/optional/system.action.media_delete_action.yml: n/a
+#  config/optional/system.action.media_publish_action.yml: n/a
+#  config/optional/system.action.media_save_action.yml: n/a
+#  config/optional/system.action.media_unpublish_action.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: media.module:27
+msgid "About"
+msgstr "Über"
+
+#: media.module:28
+msgid "The Media module manages the creation, editing, deletion, settings, and display of media. Items are typically images, documents, slideshows, YouTube videos, tweets, Instagram photos, etc. You can reference media items from any other content on your site. For more information, see the <a href=\":media\">online documentation for the Media module</a>."
+msgstr "Das Media-Modul verwaltet die Einstelllungen zum Erstellen, Bearbeiten und Löschen von Medien sowie deren Anzeigeeinstellungen. Medien sind typischerweise Bilder, Dokumente, Diavorträge, YouTube-Videos, Tweets, Instagram-Fotos, usw. Medieninhalte können aus jedem anderen Inhalt auf der Website heraus referenziert werden. Weitere Informationen sind in der <a href=\":media\">Online-Dokumentation des Media-Moduls</a> verfügbar."
+
+#: media.module:29
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: media.module:31
+msgid "Creating media items"
+msgstr "Erstelle Medieneinträge"
+
+#: media.module:32
+msgid "When a new media item is created, the Media module records basic information about it, including the author, date of creation, and the <a href=\":media-type\">media type</a>. It also manages the <em>publishing options</em>, which define whether or not the item is published. Default settings can be configured for each type of media on your site."
+msgstr "Wen ein neuer Medieneintrag erstellt wurde zeichnet das Media-Modul grundlegende Information über das betreffende Medium auf. Es werden der Autor, das Erstellungsdatum und der <a href=\":media-type\">Medientyp</a> aufgezeichnet. Außerdem verwaltet das Media-Modul die <em>Veröffentlichungsoptionen</em>, die angeben, ob das Medium veröffentlicht ist oder nicht. Für alle Medientypen auf der Website können Standardeinstellungen vorgegeben werden."
+
+#: media.module:33
+msgid "Listing media items"
+msgstr "Medien auflisten"
+
+#: media.module:34
+msgid "Media items are listed at the <a href=\":media-collection\">media administration page</a>."
+msgstr "Medien werden im Administrationsbereich auf der Seite <a href=\":media-collection\">Medien</a> aufgelistet."
+
+#: media.module:37
+msgid "Creating custom media types"
+msgstr "Erstelle benutzerdefinierte Medientypen"
+
+#: media.module:38
+msgid "The Media module gives users with the <em>Administer media types</em> permission the ability to <a href=\":media-new\">create new media types</a> in addition to the default ones already configured. Each media type has an associated media source (such as the image source) which support thumbnail generation and metadata extraction. Fields managed by the <a href=\":field\">Field module</a> may be added for storing that metadata, such as width and height, as well as any other associated values."
+msgstr "Das Media-Modul stellt Benutzern die Berechtigung <em>Medientypen verwalten</em> zur Verfügung. Außerdem bietet es die Möglichkeit zu den Bereits vorkonfigurieren Medientypen <a href=\":media-new\">Neue Medientypen erstellen</a> zu können. Jeder Medientyp besitzt eine ihm zugeordnete Medienquelle (wie beispielsweise die Bezugsquelle für ein Bild). Die Bezugsquelle unterstützt das Erstellen von Vorschaubildern und das extrahieren von Metadaten. Zum Soeichern der Metadaten können der Medienquelle Felder hinzugefügt werden, die vom <a href=\":field\">Field-Modul</a> verwaltet werden. Metadaten können zum Beispiel die Größe und die Breite eines Bildes sein, sowie andere zusätzliche Informationen zum jeweiligen Medium."
+
+#: media.module:42
+msgid "Creating revisions"
+msgstr "Revisionen erstellen"
+
+#: media.module:43
+msgid "The Media module also enables you to create multiple versions of any media item, and revert to older versions using the <em>Revision information</em> settings."
+msgstr "Das Media-Modul ermöglicht außerdem das Erstellen verschiedener Versionen ein und des selben Medieneintrags. Die Einträge können mit Hilfe der <em>Revisionsinformationen</em> auch auf älter Versionen zurückgesetzt werden."
+
+#: media.module:44
+msgid "User permissions"
+msgstr "Benutzerberechtigungen"
+
+#: media.module:45
+msgid "The Media module makes a number of permissions available, which can be set by role on the <a href=\":permissions\">permissions page</a>."
+msgstr "Das Media-Modul stellt einige Berechtigungen zur Verfügung, die auf der <a href=\":permissions\">Berechtigungs-Seite</a> für Rollen aktiviert werden können."
+
+#: media.module:48
+msgid "Adding media to other content"
+msgstr "Medien zu anderen Inhalten hinzufügen"
+
+#: media.module:49
+msgid "Users with permission to administer content types can add media support by adding a media reference field to the content type on the content type administration page. (The same is true of block types, taxonomy terms, user profiles, and other content that supports fields.) A media reference field can refer to any configured media type. It is possible to allow multiple media types in the same field."
+msgstr "Benutzer mit der Berechtigung Inhaltstypen verwalten können Unterstützung für Medien zu einem Inhaltstyp hinzufügen, indem Sie ein Entitätsreferenzfeld für Medien zum entsprechenden Inhaltstyp, auf der entsprechenden Seite des Verwaltungsbereichs, hinzufügen (Dies gilt auch für Block-Vorlagen, Taxonomiebegriffe, Benutzerprofile und andere Inhalte, die Felder unterstützen). Ein Medienreferenzfeld kann auf jeden Medientyp verweisen, der in den Einstellungen des Feldes Voreingestellt wurde. Es ist möglich im selben Feld auf mehrere Meidientypen zu verweisen."
+
+#: media.module:51
+msgid "Differences between Media, File, and Image reference fields"
+msgstr "Unterschiede zwischen Datei-, Medien- , Bild- Referenzierungsfeldern"
+
+#: media.module:52
+msgid "<em>Media</em> reference fields offer several advantages over basic <em>File</em> and <em>Image</em> references:"
+msgstr "<em>Medien</em>-Referenzierungsfelder bieten einige Vorteile gegenüber normalen <em>Datei-</em> und <em>Bild</em>-Referenzierungen:"
+
+#: media.module:54
+msgid "Media reference fields can reference multiple media types in the same field."
+msgstr "Medienreferenzierungsfelder können mehrere Medientypen im selben Feld refgerenzieren."
+
+#: media.module:55
+msgid "Fields can also be added to media types themselves, which means that custom metadata like descriptions and taxonomy tags can be added for the referenced media. (Basic file and image fields do not support this.)"
+msgstr "Felder können auch zu Medientypen selbst hinzugefügt werden. Das bedeutet, dass die benutzerdefinierten Metadaten wie Beschreibungstexte und Taxonomie-Tags für das referenzierte Medieum hinzugefügt werden können (normale Datei- und Bildfelder unterstützen dies nicht)."
+
+#: media.module:56
+msgid "Media types for audio and video files are provided by default, so there is no need for additional configuration to upload these media."
+msgstr "Medientypen für Audio- und Videodateien werden standardmäßig angeboten. Zum Hochladen dieser Dateien muss keine zusätzliche Konfiguration vorgenommen werden."
+
+#: media.module:57
+msgid "Contributed or custom projects can provide additional media sources (such as third-party websites, Twitter, etc.)."
+msgstr "Von der Community bereitgestellte oder benutzerdefinierte Module können zusätzliche Medienquellen (wie beispielsweise Websites von Drittanbietern, Twitter, usw.) bereitstellen."
+
+#: media.module:58
+msgid "Existing media items can be reused on any other content items with a media reference field."
+msgstr "Vorhandene Medien können, mit Hilfe von Medienreferenzierungsfeldern, in allen anderen Inhalten wiederverwendet werden."
+
+#: media.module:60;187
+msgid "Use <em>Media</em> reference fields for most files, images, audio, videos, and remote media. Use <em>File</em> or <em>Image</em> reference fields when creating your own media types, or for legacy files and images created before enabling the Media module."
+msgstr "Verwenden Sie <em>Media</em> Referenzfelder für die meisten Dateien, Bilder, Audio, Videos und Remote-Medien. Verwenden Sie <em>Datei</em> oder <em>Bild</em> Referenzfelder, wenn Sie Ihre eigenen Medientypen erstellen, oder für alte Dateien und Bilder, welche vor der Aktivierung des Media-Moduls erstellt wurden."
+
+#: media.module:189
+msgid "For more information, see the <a href=\"@help_url\">Media help page</a>."
+msgstr "Weitere Informationen sind auf der <a href=\"@help_url\">Hilfeseite zum Thema Medien</a> verfügbar."
+
+#: media.module:250
+msgid "Create your media on the <a href=\":add_page\" target=\"_blank\">media add page</a> (opens a new window), then add it by name to the field below."
+msgstr "Medien können auf der Seite <a href=\":add_page\" target=\"_blank\">Medien hinzufügen</a> (wird als neues Fenster geöffnet) hochgeladen und anschließend hier ausgewählt werden, indem der Name eines Mediums in das Feld unten eingegeben wird."
+
+#: media.module:269
+msgid "Use existing media"
+msgstr "Vorhandene Medien verwenden"
+
+#: media.module:284
+msgid "Type part of the media name."
+msgstr "Einen Teil des Namens des Mediums eingeben."
+
+#: media.module:288
+msgid "See the <a href=\":list_url\" target=\"_blank\">media list</a> (opens a new window) to help locate media."
+msgstr "Siehe <a href=\":list_url\" target=\"_blank\">Medienübersicht</a> \r\n (öffnet sich in einem neuen Fenster), um Medien zu finden."
+
+#: media.module:294
+msgid "Allowed media types: %types"
+msgstr "Zugelassene Medientypen: %types"
+
+#: media.install:65
+msgid "The directory %directory does not exist."
+msgstr "Das Verzeichnis %directory ist nicht vorhanden."
+
+#: media.install:68
+msgid "The directory %directory is not writable."
+msgstr "Das Verzeichnis %directory ist nicht beschreibbar."
+
+#: media.install:70
+msgid "An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=\":handbook_url\">online handbook</a>."
+msgstr "Ein Versuch das Verzeichnis automatisch zu erstellen schlug fehl. Eventuell geschah das wegen eines Problems mit den Schreib- und Leseberechtigungen im Dateisystem des Servers. Um mit der Installation fortzufahren, stellen Sie sicher, dass das Installationsskript die Berechtigung hat Verzeichnisse zu erstellen oder erstellen Sie das Verzeichnis manuell und passen Sie die Schreib- und Leseberechtigungen des Verzeichnisses manuell an. Weitere Informationen sind in der INSTALL.txt oder in der <a href=\":handbook_url\">Online-Dokumentation</a> verfügbar."
+
+#: media.install:83;113 media.info.yml:0 media.links.task.yml:0 src/Entity/Media.php:15 src/Plugin/views/wizard/Media.php:7 config/optional/views.view.media.yml:0;0;0;0
+msgid "Media"
+msgstr "Media"
+
+#: media.install:84
+msgid "The Media module is not compatible with contrib <a href=\":url\">Media Entity</a> 1.x branch. Please check the 2.x branch of that module for an upgrade path."
+msgstr "Das Media-Modul ist mit dem Zusatzmodul  <a href=\":url\">Media Entity</a>in Version 1.x nicht kompatibel. Stattdessen kann das Modul in der Version 2.x zur Aktualisierung der Komponente verwendet werden."
+
+#: media.install:114
+msgid "It is potentially insecure to display oEmbed content in a frame that is served from the same domain as your main Drupal site, as this may allow execution of third-party code. <a href=\":url\">You can specify a different domain for serving oEmbed content here</a>."
+msgstr "Das Anzeigen von oEmbed-Inhalten in einem Frame, der von der selben Domain wie die Haupt-Drupal-Website bereitgestellt wird, kann ein Sicherheitsrisiko darstellen, weil dies möglicherweise das Ausführen von Drittanbietercode erlaubt. <a href=\":url\">Hier kann eine andere Domain für das Bereitstellen von oEmbed-Inhalten ausgewählt werden</a>."
+
+#: media.info.yml:0
+msgid "Manages the creation, configuration, and display of media items."
+msgstr "Verwaltet das Erstellen, die Konfiguration und die Anzeige von Medienelementen."
+
+#: media.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: media.links.action.yml:0 src/MediaTypeForm.php:81
+msgid "Add media type"
+msgstr "Medientyp hinzufügen"
+
+#: media.links.action.yml:0
+msgid "Add media"
+msgstr "Medien hinzufügen"
+
+#: media.links.contextual.yml:0 media.links.task.yml:0 src/Plugin/Derivative/DynamicLocalTasks.php:68;78
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: media.links.contextual.yml:0 src/MediaTypeForm.php:319 src/Form/MediaDeleteMultipleConfirmForm.php:98 src/Plugin/Derivative/DynamicLocalTasks.php:86
+msgid "Delete"
+msgstr "Löschen"
+
+#: media.links.menu.yml:0 src/Entity/MediaType.php:10
+msgid "Media types"
+msgstr "Medientypen"
+
+#: media.links.menu.yml:0 media.routing.yml:0 config/schema/media.schema.yml:0
+msgid "Media settings"
+msgstr "Einstellungen für Medien"
+
+#: media.links.menu.yml:0
+msgid "Manage media types."
+msgstr "Medientypen verwalten"
+
+#: media.links.menu.yml:0
+msgid "Manage media settings."
+msgstr "Medieneinstellungen verwalten"
+
+#: media.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: media.permissions.yml:0
+msgid "Administer media"
+msgstr "Medien verwalten"
+
+#: media.permissions.yml:0
+msgid "Administer media types"
+msgstr "Medientypen verwalten"
+
+#: media.permissions.yml:0
+msgid "View media"
+msgstr "Medien anzeigen"
+
+#: media.permissions.yml:0
+msgid "Update own media"
+msgstr "Eigene Medien aktualisieren"
+
+#: media.permissions.yml:0
+msgid "Update any media"
+msgstr "Beliebige Medien aktualisieren"
+
+#: media.permissions.yml:0
+msgid "Delete own media"
+msgstr "Eigene Medien löschen"
+
+#: media.permissions.yml:0
+msgid "Delete any media"
+msgstr "Beliebige Medien löschen"
+
+#: media.permissions.yml:0
+msgid "Create media"
+msgstr "Medium erstellen"
+
+#: media.permissions.yml:0
+msgid "View all media revisions"
+msgstr "Alle Medienrevisionen betrachten"
+
+#: media.permissions.yml:0
+msgid "To view a revision, you also need permission to view the media item."
+msgstr "Um eine Revision betrachten zu können wird außerdem die Berechtigung zum Anzeigen des darin verwendeten Mediums benötigt."
+
+#: media.permissions.yml:0
+msgid "Access media overview"
+msgstr "Auf Medienübersicht zugreifen"
+
+#: media.permissions.yml:0
+msgid "Users with this permission can access the media overview page."
+msgstr "Benutzer mit dieser Berechtigung können auf die Seite Medienübersicht zugreifen"
+
+#: media.permissions.yml:0
+msgid "View own unpublished media"
+msgstr "Eigene nicht veröffentlichte Medien anzeigen"
+
+#: config/schema/media.schema.yml:0
+msgid "Full URI to a folder where the media icons will be installed"
+msgstr "Vollständige URI zum Ordner, in dem die Icons der Medien installiert werden sollen."
+
+#: config/schema/media.schema.yml:0
+msgid "Domain from which to serve oEmbed content in an iframe"
+msgstr "Die Domain, von der aus der oEmbed-Inhalt in einem IFrame ausgeliefert wird."
+
+#: config/schema/media.schema.yml:0
+msgid "The URL of the oEmbed providers database in JSON format"
+msgstr "Der URL der Datenbank des oEmbed-Anbieters im JSON-Format"
+
+#: config/schema/media.schema.yml:0
+msgid "Allow media items to be viewed standalone at /media/{id}"
+msgstr "Ermöglicht die eigenständige Anzeige von Medienelementen unter /media/{id}"
+
+#: config/schema/media.schema.yml:0 src/Entity/Media.php:15 src/Entity/MediaType.php:10
+msgid "Media type"
+msgstr "Medientyp"
+
+#: config/schema/media.schema.yml:0
+msgid "Machine name"
+msgstr "Systemname"
+
+#: config/schema/media.schema.yml:0 src/MediaTypeForm.php:105 src/MediaTypeListBuilder.php:20
+msgid "Description"
+msgstr "Description"
+
+#: config/schema/media.schema.yml:0
+msgid "Source"
+msgstr "Quelle"
+
+#: config/schema/media.schema.yml:0
+msgid "Whether the thumbnail downloads should be queued"
+msgstr "Ob die Downloads der Vorschaubilder in einer Warteschleife eingereiht werden sollen"
+
+#: config/schema/media.schema.yml:0
+msgid "Whether a new revision should be created by default"
+msgstr "Ob eine neue Revision standardmäßig erstellt werden soll"
+
+#: config/schema/media.schema.yml:0
+msgid "Field map"
+msgstr "Feld-Zuordnungen"
+
+#: config/schema/media.schema.yml:0
+msgid "Media thumbnail field display format settings"
+msgstr "Anzeigeformateinstellungen des Miniaturbildfeldes"
+
+#: config/schema/media.schema.yml:0
+msgid "oEmbed display format settings"
+msgstr "oEmbed-Anzeigeformateinstellungen"
+
+#: config/schema/media.schema.yml:0 src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:254
+msgid "Maximum width"
+msgstr "Maximale Breite"
+
+#: config/schema/media.schema.yml:0 src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:263
+msgid "Maximum height"
+msgstr "Maximale Höhe"
+
+#: config/schema/media.schema.yml:0
+msgid "oEmbed widget format settings"
+msgstr "oEmbed-Steuerelementformateinstellungen"
+
+#: config/schema/media.schema.yml:0
+msgid "Media source settings"
+msgstr "Medienquelleneinstellungen"
+
+#: config/schema/media.schema.yml:0
+msgid "\"File\" media source configuration"
+msgstr "Konfiguration der Medienquelle Datei"
+
+#: config/schema/media.schema.yml:0
+msgid "\"Image\" media source configuration"
+msgstr "Konfiguration der Medienquelle Bild"
+
+#: config/schema/media.schema.yml:0
+msgid "\"Audio\" media source configuration"
+msgstr "„Audio“-Medienquellenkonfiguration"
+
+#: config/schema/media.schema.yml:0
+msgid "\"Video\" media source configuration"
+msgstr "„Video-Medienquellenkonfiguration"
+
+#: config/schema/media.schema.yml:0
+msgid "oEmbed media source configuration"
+msgstr "oEmbed-Medienquellenkonfiguration"
+
+#: config/schema/media.schema.yml:0
+msgid "URI of thumbnail storage directory"
+msgstr "URI des Verzeichnisses, in dem die Vorschaubilder gespeichert werden"
+
+#: config/schema/media.schema.yml:0
+msgid "Allowed oEmbed providers"
+msgstr "Erlaubte oEmbed-Dienstanbieter"
+
+#: config/schema/media.schema.yml:0
+msgid "Provider name"
+msgstr "Name des Anbieters"
+
+#: config/schema/media.schema.yml:0
+msgid "Source field"
+msgstr "Ursprungsfeld"
+
+#: js/form.es6.js:0 js/form.js:0
+msgid "By @name on @date"
+msgstr "Von @name am @date"
+
+#: js/form.es6.js:0 js/form.js:0
+msgid "By @name"
+msgstr "Von @name"
+
+#: js/form.es6.js:0 js/form.js:0
+msgid "Authored on @date"
+msgstr "Bearbeitet am @date"
+
+#: js/type_form.es6.js:0 js/type_form.js:0
+msgid "Not published"
+msgstr "Nicht veröffentlicht"
+
+#: src/MediaForm.php:24
+msgid "Edit %type_label @label"
+msgstr "%type_label @label bearbeiten"
+
+#: src/MediaForm.php:34
+msgid "Authoring information"
+msgstr "Informationen zum Autor"
+
+#: src/MediaForm.php:62 src/Plugin/Derivative/DynamicLocalTasks.php:74
+msgid "View"
+msgstr "Ansicht"
+
+#: src/MediaForm.php:68
+msgid "@type %label has been created."
+msgstr "@type %label wurde erstellt."
+
+#: src/MediaForm.php:72
+msgid "@type %label has been updated."
+msgstr "@type %label wurde aktualisiert."
+
+#: src/MediaForm.php:67
+msgid "@type: added %label."
+msgstr "@type: %label hinzugefügt."
+
+#: src/MediaForm.php:71
+msgid "@type: updated %label."
+msgstr "@type: %label aktualisiert."
+
+#: src/MediaListBuilder.php:82 src/Entity/Media.php:437 src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php:17 config/optional/views.view.media.yml:0
+msgid "Thumbnail"
+msgstr "Miniaturbild"
+
+#: src/MediaListBuilder.php:87
+msgid "Media Name"
+msgstr "Medienname"
+
+#: src/MediaListBuilder.php:89 config/optional/views.view.media.yml:0;0
+msgid "Type"
+msgstr "Typ"
+
+#: src/MediaListBuilder.php:93 config/optional/views.view.media.yml:0
+msgid "Author"
+msgstr "Autor"
+
+#: src/MediaListBuilder.php:96 config/optional/views.view.media.yml:0
+msgid "Status"
+msgstr "Status"
+
+#: src/MediaListBuilder.php:98 config/optional/views.view.media.yml:0
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: src/MediaListBuilder.php:105 config/optional/views.view.media.yml:0
+msgid "Language"
+msgstr "Sprache"
+
+#: src/MediaListBuilder.php:138 src/MediaTypeForm.php:202 config/optional/views.view.media.yml:0;0
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: src/MediaListBuilder.php:138 config/optional/views.view.media.yml:0;0
+msgid "Unpublished"
+msgstr "Nicht veröffentlicht"
+
+#: src/MediaPermissions.php:75
+msgid "%type_name: Create new media"
+msgstr "%type_name: Neues Medium erstellen"
+
+#: src/MediaPermissions.php:78
+msgid "%type_name: Edit own media"
+msgstr "%type_name: Eigene Medien bearbeiten"
+
+#: src/MediaPermissions.php:81
+msgid "%type_name: Edit any media"
+msgstr "%type_name: Alle Medien bearbeiten"
+
+#: src/MediaPermissions.php:84
+msgid "%type_name: Delete own media"
+msgstr "%type_name: Eigene Medien löschen"
+
+#: src/MediaPermissions.php:87
+msgid "%type_name: Delete any media"
+msgstr "%type_name: Alle Medien löschen"
+
+#: src/MediaSourceBase.php:178
+msgid "Field with source information"
+msgstr "Feld mit Quellangaben"
+
+#: src/MediaSourceBase.php:180
+msgid "- Create -"
+msgstr "- Erstellen -"
+
+#: src/MediaSourceBase.php:182
+msgid "Select the field that will store essential information about the media item. If \"Create\" is selected a new field will be automatically created."
+msgstr "Ein Feld auswählen, das essentielle Informationen über das Medium speichert. Wird \"Erstellen\" ausgewählt, wird automatisch ein neues Feld zu diesem Zweck erstellt."
+
+#: src/MediaSourceBase.php:189
+msgid "%field_type field will be automatically created on this type to store the essential information about the media item."
+msgstr "Das Feld %field_type wird automatisch für diesen Medientyp erstellt, um grundlegende Informationen zu diesem Medium zu speichern."
+
+#: src/MediaSourceBase.php:198
+msgid "%field_name field is used to store the essential information about the media item."
+msgstr "Das Feld %field_name wird genutzt, um die grundlegenden Informationen zu diesem Medienelement zu speichern."
+
+#: src/MediaTypeForm.php:85 src/MediaTypeListBuilder.php:18 src/Entity/Media.php:423 src/Plugin/media/Source/File.php:51
+msgid "Name"
+msgstr "Name"
+
+#: src/MediaTypeForm.php:88
+msgid "The human-readable name of this media type."
+msgstr "Der menschenlesbare Name des Medientyps."
+
+#: src/MediaTypeForm.php:101
+msgid "A unique machine-readable name for this media type."
+msgstr "Ein eindeutiger Systemname für diesen Medientyp."
+
+#: src/MediaTypeForm.php:108
+msgid "Describe this media type. The text will be displayed on the <em>Add new media</em> page."
+msgstr "Beschreiben Sie diesen Medientyp. Der Text wird auf der Seite <em>Neue Medien hinzufügen</em> angezeigt."
+
+#: src/MediaTypeForm.php:123
+msgid "<em>The media source cannot be changed after the media type is created.</em>"
+msgstr "<em>Die Medienquelle kann nicht geändert werden, nachdem der Medientyp erstellt wurde.</em>"
+
+#: src/MediaTypeForm.php:126
+msgid "Media source that is responsible for additional logic related to this media type."
+msgstr "Die Medienquelle, die die zusätzliche Logik für diesen Medientyp enthält."
+
+#: src/MediaTypeForm.php:130
+msgid "Media source"
+msgstr "Medienquelle"
+
+#: src/MediaTypeForm.php:145
+msgid "Media source configuration"
+msgstr "Medienquellenkonfiguration"
+
+#: src/MediaTypeForm.php:155
+msgid "Field mapping"
+msgstr "Feld-Zuordnungen"
+
+#: src/MediaTypeForm.php:158
+msgid "Media sources can provide metadata fields such as title, caption, size information, credits, etc. Media can automatically save this metadata information to entity fields, which can be configured below. Information will only be mapped if the entity field is empty."
+msgstr "Medienqellen können Felder wie Titel, Elementbeschriftungen, Größenangaben sowie Angaben zum Urheberrecht, usw enthalten. Das Media-Modul kann diese Informationen automatisch in Entitätsfeldern abspeichern, die weiter unten konfiguriert werden können. In einem Medium bereits vorhandene Metadaten werden nur dann übernommen, wenn ein Feld leer gelassen wird."
+
+#: src/MediaTypeForm.php:166
+msgid "- Skip field -"
+msgstr "- Feld überspringen -"
+
+#: src/MediaTypeForm.php:193
+msgid "Publishing options"
+msgstr "Veröffentlichungseinstellungen"
+
+#: src/MediaTypeForm.php:199
+msgid "Default options"
+msgstr "Standardeinstellungen"
+
+#: src/MediaTypeForm.php:203
+msgid "Create new revision"
+msgstr "Neue Revision erstellen"
+
+#: src/MediaTypeForm.php:204
+msgid "Queue thumbnail downloads"
+msgstr "Miniaturbild-Downloads in eine Warteschlange einreihen"
+
+#: src/MediaTypeForm.php:208
+msgid "Media will be automatically published when created."
+msgstr "Medien werden beim Erstellen automatisch veröffentlicht."
+
+#: src/MediaTypeForm.php:209
+msgid "Automatically create new revisions. Users with the \"Administer media\" permission will be able to override this option."
+msgstr "Neue Revisionen automatisch erstellen. Benutzer, die über die Berechtigung „Medien Verwalten“ verfügen können diese Option übersteuern."
+
+#: src/MediaTypeForm.php:210
+msgid "Download thumbnails via a queue. When using remote media sources, the thumbnail generation could be a slow process. Using a queue allows for this process to be handled in the background."
+msgstr "Lädt Vorschaubilder über ein Warteschleife herunter.  Wenn Medienquellen aus dem Internet verwendet werden kann es lange dauern, bis Vorschaubilder für ein Medium erzeugt werden. Das verwenden eine Warteschlange erlaubt es diesen Prozess im Hintergrund ablaufen zu lassen."
+
+#: src/MediaTypeForm.php:215
+msgid "Language settings"
+msgstr "Spracheinstellungen"
+
+#: src/MediaTypeForm.php:318
+msgid "Save"
+msgstr "Speichern"
+
+#: src/MediaTypeForm.php:365
+msgid "The media type %name has been updated."
+msgstr "Der Medientyp %name wurde aktualisiert."
+
+#: src/MediaTypeForm.php:368
+msgid "The media type %name has been added."
+msgstr "Der Medientyp %name wurde hinzugefügt."
+
+#: src/MediaTypeForm.php:369
+msgid "Added media type %name."
+msgstr "Medientyp %name hinzugefügt."
+
+#: src/MediaTypeListBuilder.php:43
+msgid "No media types available. <a href=\":url\">Add media type</a>."
+msgstr "Es sind keine Medientypen verfügbar. <a href=\":url\">Medientyp hinzufügen</a>."
+
+#: src/Entity/Media.php:438
+msgid "The thumbnail of the media item."
+msgstr "Das Miniaturbild des Mediums."
+
+#: src/Entity/Media.php:453
+msgid "Authored by"
+msgstr "Geschrieben von"
+
+#: src/Entity/Media.php:454
+msgid "The user ID of the author."
+msgstr "Die Benutzer-ID des Autors"
+
+#: src/Entity/Media.php:485
+msgid "Authored on"
+msgstr "Geschrieben am"
+
+#: src/Entity/Media.php:486
+msgid "The time the media item was created."
+msgstr "Der Zeitpunkt, zu dem das Medium erstellt wurde."
+
+#: src/Entity/Media.php:503
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/Media.php:504
+msgid "The time the media item was last edited."
+msgstr "Der Zeitpunkt, zu dem der Medieneintrag zuletzt bearbeitet wurde."
+
+#: src/Entity/Media.php:15
+msgid "media item"
+msgstr "Medieneintrag"
+
+#: src/Entity/Media.php:15
+msgid "media items"
+msgstr "Medieneinträge"
+
+#: src/Entity/MediaType.php:10
+msgid "media type"
+msgstr "Medientyp"
+
+#: src/Entity/MediaType.php:10
+msgid "media types"
+msgstr "Medientypen"
+
+#: src/Form/MediaDeleteMultipleConfirmForm.php:133
+msgid "@label (Original translation) - <em>The following translations will be deleted:</em>"
+msgstr "@label (Originalübersetzung) - <em>folgende Übersetzungen werden gelöscht:</em>"
+
+#: src/Form/MediaDeleteMultipleConfirmForm.php:185
+msgid "Deleted @count media items."
+msgstr "@count Medieneinträge gelöscht"
+
+#: src/Form/MediaDeleteMultipleConfirmForm.php:200
+msgid "Deleted @count media translations."
+msgstr "@count Medien-Übersetzungen gelöscht."
+
+#: src/Form/MediaDeleteMultipleConfirmForm.php:82
+msgid "Are you sure you want to delete this item?"
+msgid_plural "Are you sure you want to delete these items?"
+msgstr[0] "Möchten Sie diesen Eintrag wirklich löschen?"
+msgstr[1] "Möchten Sie diese Einträge wirklich löschen?"
+
+#: src/Form/MediaDeleteMultipleConfirmForm.php:205
+msgid "Deleted 1 media item."
+msgid_plural "Deleted @count media items."
+msgstr[0] "1 Medieneintrag gelöscht."
+msgstr[1] "@count Medieneinträge gelöscht."
+
+#: src/Form/MediaSettingsForm.php:81
+msgid "It is potentially insecure to display oEmbed content in a frame that is served from the same domain as your main Drupal site, as this may allow execution of third-party code. <a href=\"https://oembed.com/#section3\" target=\"_blank\">Take a look here for more information</a>."
+msgstr "Das Anzeigen von oEmbed-Inhalten in einem Frame, der von der selben Domain wie die Haupt-Drupal-Website bereitgestellt wird, kann ein Sicherheitsrisiko darstellen, weil dies möglicherweise das Ausführen von Drittanbietercode erlaubt. <a href=\"https://oembed.com/#section3\" target=\"_blank\">Weitere Informationen sind hier verfügbar</a>."
+
+#: src/Form/MediaSettingsForm.php:85
+msgid "Displaying media assets from third-party services, such as YouTube or Twitter, can be risky. This is because many of these services return arbitrary HTML to represent those assets, and that HTML may contain executable JavaScript code. If handled improperly, this can increase the risk of your site being compromised."
+msgstr "Das Einbinden von Medienelementen von Drittanbietern wie YouTube oder Twitter kann riskant sein. Der Grund dafür ist, dass viele der Anbieter beliebiges HTML, das diese Medienelemente repräsentiert, zurücksenden und dieses HTML ausführbaren JavaScript-Code beinhalten kann. Wenn dies unsachgemäß gehandhabt wird, erhöht sich so das Sicherheitsrisiko der Website."
+
+#: src/Form/MediaSettingsForm.php:86
+msgid "In order to mitigate the risks, third-party assets are displayed in an iFrame, which effectively sandboxes any executable code running inside it. For even more security, the iFrame can be served from an alternate domain (that also points to your Drupal site), which you can configure on this page. This helps safeguard cookies and other sensitive information."
+msgstr "Um diese Risiken zu verminderen, werden Elemente von Drittanbietern in einem iFrame dargestellt, was effektiv jeglichen ausführbaren Code, der darin läuft, abkapselt. Für noch mehr Sicherheit kann der iFrame von einer alternativen Domain, die ebenfalls auf die Drupal-Website  zeigt, bereitgestellt werden, was sich auf dieser Seite konfigurieren lässt. Dadurch können Cookies und andere sensible Informationen geschützt werden."
+
+#: src/Form/MediaSettingsForm.php:90
+msgid "Security"
+msgstr "Sicherheit"
+
+#: src/Form/MediaSettingsForm.php:99
+msgid "iFrame domain"
+msgstr "iFrame-Domain"
+
+#: src/Form/MediaSettingsForm.php:103
+msgid "Enter a different domain from which to serve oEmbed content, including the <em>http://</em> or <em>https://</em> prefix. This domain needs to point back to this site, or existing oEmbed content may not display correctly, or at all."
+msgstr "Bitte eine andere Domain eingeben, von der oEmbed-Inhalte bereitgestellt werden sollen, inklusive des <em>http://</em> oder <em>https://</em> Präfixes. Die angegebene Domain muss auf die Website zeigen, ansonsten werden vorhandene oEmbed-Inhalte möglicherweise nicht korrekt oder gar nicht angezeigt."
+
+#: src/Form/MediaSettingsForm.php:109
+msgid "Standalone media URL"
+msgstr "Eigenständige Medien-URL"
+
+#: src/Form/MediaSettingsForm.php:111
+msgid "Allow users to access @media-entities at /media/{id}."
+msgstr "Ermöglicht Benutzern den Zugriff auf @media-entities unter /media/{id}."
+
+#: src/Form/MediaTypeDeleteConfirmForm.php:57
+msgid "%type is used by @count media item on your site. You can not remove this media type until you have removed all of the %type media items."
+msgid_plural "%type is used by @count media items on your site. You can not remove this media type until you have removed all of the %type media items."
+msgstr[0] "%type wird von @count Medieneintrag auf der Website verwendet. Der Medientyp kann nicht entfernt werden, bis alle Medien des Typs %type entfernt wurden."
+msgstr[1] "%type wird von @count Medieneinträge auf der Website verwendet. Der Medientyp kann nicht entfernt werden, bis alle Medien des Typs %type entfernt wurden."
+
+#: src/Plugin/EntityReferenceSelection/MediaSelection.php:7
+msgid "Media selection"
+msgstr "Medienauswahl"
+
+#: src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php:102
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php:103
+msgid "Media item"
+msgstr "Medium"
+
+#: src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php:117
+msgid "Linked to content"
+msgstr "Verlinkt mit Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/MediaThumbnailFormatter.php:118
+msgid "Linked to media item"
+msgstr "Auf Medium verlinkt"
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:258;267
+msgid "pixels"
+msgstr "Pixel"
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:279
+msgid "Maximum size: %max_width x %max_height pixels"
+msgstr "Maximale Größe: %max_width x %max_height Pixel"
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:285
+msgid "Maximum width: %max_width pixels"
+msgstr "Maximale Breite: %max_width Pixel"
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:290
+msgid "Maximum height: %max_height pixels"
+msgstr "Maximale Höhe: %max_height Pixel"
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:177
+msgid "Could not retrieve the remote URL (@url)."
+msgstr "Die externe URL (@url) konnte nicht gefunden werden."
+
+#: src/Plugin/Field/FieldFormatter/OEmbedFormatter.php:24
+msgid "oEmbed content"
+msgstr "oEmbed-Inhalt"
+
+#: src/Plugin/Field/FieldWidget/OEmbedWidget.php:37
+msgid "You can link to media from the following services: @providers"
+msgstr "Folgende Dienste können zum Media-Modul verlinken: @providers"
+
+#: src/Plugin/Field/FieldWidget/OEmbedWidget.php:12
+msgid "oEmbed URL"
+msgstr "oEmbed-URL"
+
+#: src/Plugin/QueueWorker/ThumbnailDownloader.php:10
+msgid "Thumbnail downloader"
+msgstr "Miniaturbild-Download"
+
+#: src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php:7
+msgctxt "Validation"
+msgid "oEmbed resource"
+msgstr "oEmbed-Ressource"
+
+#: src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php:27
+msgid "The given URL does not match any known oEmbed providers."
+msgstr "Die angegebene URL stimmt mit keinem der bekannten oEmbed-Anbieter überein."
+
+#: src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php:34
+msgid "Sorry, the @name provider is not allowed."
+msgstr "Entschuldigung, der Anbieter @name ist nicht erlaubt."
+
+#: src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php:41
+msgid "The provided URL does not represent a valid oEmbed resource."
+msgstr "Die bereitgestellte URL stellt keine gültige oEmbed-Ressource dar."
+
+#: src/Plugin/Validation/Constraint/OEmbedResourceConstraint.php:48
+msgid "An error occurred while trying to retrieve the oEmbed provider database."
+msgstr "Ein Fehler ist aufgetreten bei dem Versuch die oEmbed-Anbieterdatenbank abzufragen."
+
+#: src/Plugin/media/Source/AudioFile.php:8
+msgid "Audio file"
+msgstr "Audiodatei"
+
+#: src/Plugin/media/Source/AudioFile.php:8
+msgid "Use audio files for reusable media."
+msgstr "Audiodateien als wiederverwendbare Medien einsetzen."
+
+#: src/Plugin/media/Source/File.php:52
+msgid "MIME type"
+msgstr "MIME-Typ"
+
+#: src/Plugin/media/Source/File.php:53
+msgid "File size"
+msgstr "Dateigröße"
+
+#: src/Plugin/media/Source/File.php:10
+msgid "File"
+msgstr "Datei"
+
+#: src/Plugin/media/Source/File.php:10
+msgid "Use local files for reusable media."
+msgstr "Lokale Dateien für wiederverwendbare Medien verwenden."
+
+#: src/Plugin/media/Source/Image.php:112
+msgid "Width"
+msgstr "Breite"
+
+#: src/Plugin/media/Source/Image.php:113
+msgid "Height"
+msgstr "Höhe"
+
+#: src/Plugin/media/Source/Image.php:15
+msgid "Image"
+msgstr "Bild"
+
+#: src/Plugin/media/Source/Image.php:15
+msgid "Use local images for reusable media."
+msgstr "Lokale Bilder für wiederverwendbare Medien verwenden."
+
+#: src/Plugin/media/Source/OEmbed.php:200
+msgid "Resource type"
+msgstr "Ressourcentyp"
+
+#: src/Plugin/media/Source/OEmbed.php:201
+msgid "Resource title"
+msgstr "Titel der Ressource"
+
+#: src/Plugin/media/Source/OEmbed.php:202
+msgid "The name of the author/owner"
+msgstr "Name des Autors/Besitzers"
+
+#: src/Plugin/media/Source/OEmbed.php:203
+msgid "The URL of the author/owner"
+msgstr "URL des Autors/Besitzers"
+
+#: src/Plugin/media/Source/OEmbed.php:204
+msgid "The name of the provider"
+msgstr "Der Name des Anbieters"
+
+#: src/Plugin/media/Source/OEmbed.php:205
+msgid "The URL of the provider"
+msgstr "Die URL des Anbieters"
+
+#: src/Plugin/media/Source/OEmbed.php:206
+msgid "Suggested cache lifetime"
+msgstr "Vorgeschlagene Lebensdauer des Cache"
+
+#: src/Plugin/media/Source/OEmbed.php:207
+msgid "Default name of the media item"
+msgstr "Standardname des Mediums"
+
+#: src/Plugin/media/Source/OEmbed.php:208
+msgid "Local URI of the thumbnail"
+msgstr "Lokale URI der Miniaturansicht"
+
+#: src/Plugin/media/Source/OEmbed.php:209
+msgid "Thumbnail width"
+msgstr "Miniaturbildbreite"
+
+#: src/Plugin/media/Source/OEmbed.php:210
+msgid "Thumbnail height"
+msgstr "Miniaturansichtshöhe"
+
+#: src/Plugin/media/Source/OEmbed.php:211
+msgid "The source URL of the resource"
+msgstr "Die Quell-URL der Ressource"
+
+#: src/Plugin/media/Source/OEmbed.php:212
+msgid "The width of the resource"
+msgstr "Die Breite der Ressource"
+
+#: src/Plugin/media/Source/OEmbed.php:213
+msgid "The height of the resource"
+msgstr "Die Höhe der Ressource"
+
+#: src/Plugin/media/Source/OEmbed.php:214
+msgid "The HTML representation of the resource"
+msgstr "Die HTML-Darstellung der Ressource"
+
+#: src/Plugin/media/Source/OEmbed.php:303
+msgid "It is potentially insecure to display oEmbed content in a frame that is served from the same domain as your main Drupal site, as this may allow execution of third-party code. <a href=\":url\" target=\"_blank\">You can specify a different domain for serving oEmbed content here</a> (opens in a new window)."
+msgstr "Das Anzeigen von oEmbed-Inhalten in einem Frame, der von der selben Domain wie die Haupt-Drupal-Website bereitgestellt wird, kann ein Sicherheitsrisiko darstellen, weil dies möglicherweise das Ausführen von Drittanbietercode erlaubt. <a href=\":url\" target=\"_blank\">Eine andere Domain für das Bereitstellen von oEmbed-Inhalten kann hier angegeben werden</a> (öffnet sich in einem neuen Fenster)."
+
+#: src/Plugin/media/Source/OEmbed.php:311
+msgid "Thumbnails location"
+msgstr "Ort der Miniaturansichten"
+
+#: src/Plugin/media/Source/OEmbed.php:313
+msgid "Thumbnails will be fetched from the provider for local usage. This is the URI of the directory where they will be placed."
+msgstr "Vorschaubilder werden vom Anbieter abgerufen, damit diese lokal verwendet werden können. Dies ist die URI des Verzeichnisses, in dem die Vorschaubilder gespeichert werden."
+
+#: src/Plugin/media/Source/OEmbed.php:322
+msgid "Allowed providers"
+msgstr "Erlaubte Anbieter"
+
+#: src/Plugin/media/Source/OEmbed.php:325
+msgid "Optionally select the allowed oEmbed providers for this media type. If left blank, all providers will be allowed."
+msgstr "Optional können die erlaubten oEmbed-Anbieter für diesen Medientyp ausgewählt werden. Wird diese Option nicht genutzt, sind alle Anbieter erlaubt."
+
+#: src/Plugin/media/Source/OEmbed.php:346
+msgid "@path is not a valid path."
+msgstr "@path ist kein gültiger Pfad."
+
+#: src/Plugin/media/Source/OEmbed.php:472
+msgid "@type URL"
+msgstr "@type URL"
+
+#: src/Plugin/media/Source/OEmbed.php:402
+msgid "Could not prepare thumbnail destination directory @dir for oEmbed media."
+msgstr "Das Miniaturansichtszielverzeichnis @dir konnte nicht für oEmbed-Medien eingerichtet werden."
+
+#: src/Plugin/media/Source/OEmbed.php:419
+msgid "Could not download remote thumbnail from {url}."
+msgstr "Das entfernte Miniaturbild konnte nicht von {url} heruntergeladen werden."
+
+#: src/Plugin/media/Source/OEmbed.php:30
+msgid "oEmbed source"
+msgstr "oEmbed-Quelle"
+
+#: src/Plugin/media/Source/OEmbed.php:30
+msgid "Use oEmbed URL for reusable media."
+msgstr "Eine oEmbed-URL für wiederverwendbare Medien benutzen."
+
+#: src/Plugin/media/Source/OEmbedDeriver.php:23
+msgid "Remote video"
+msgstr "Extern gehostetes Video"
+
+#: src/Plugin/media/Source/OEmbedDeriver.php:24
+msgid "Use remote video URL for reusable media."
+msgstr "Eine externe Video-URL für wiederverwendbare Medien benutzen."
+
+#: src/Plugin/media/Source/VideoFile.php:8
+msgid "Video file"
+msgstr "Video-Datei"
+
+#: src/Plugin/media/Source/VideoFile.php:8
+msgid "Use video files for reusable media."
+msgstr "Videodateien als wiederverwendbare Medien einsetzen."
+
+#: src/Plugin/views/wizard/Media.php:30 config/optional/views.view.media.yml:0;0
+msgid "Media name"
+msgstr "Medienname"
+
+#: src/Plugin/views/wizard/MediaRevision.php:7
+msgid "Media revisions"
+msgstr "Medienrevisionen"
+
+#: templates/media-reference-help.html.twig:34
+msgid "Create new media"
+msgstr "Neues Medium erstellen"
+
+#: config/install/core.entity_view_mode.media.full.yml:0
+msgid "Full content"
+msgstr "Vollständiger Inhalt"
+
+#: config/optional/system.action.media_delete_action.yml:0
+msgid "Delete media"
+msgstr "Medium löschen"
+
+#: config/optional/system.action.media_publish_action.yml:0
+msgid "Publish media"
+msgstr "Medien veröffentlichen"
+
+#: config/optional/system.action.media_save_action.yml:0
+msgid "Save media"
+msgstr "Medium speichern"
+
+#: config/optional/system.action.media_unpublish_action.yml:0
+msgid "Unpublish media"
+msgstr "Veröffentlichung von Medien zurücknehmen"
+
+#: config/optional/views.view.media.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.media.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: config/optional/views.view.media.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.media.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.media.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.media.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.media.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.media.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.media.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.media.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.media.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.media.yml:0
+msgid "« First"
+msgstr "« Anfang"
+
+#: config/optional/views.view.media.yml:0
+msgid "Last »"
+msgstr "Ende »"
+
+#: config/optional/views.view.media.yml:0
+msgid "Action"
+msgstr "Aktion"
+
+#: config/optional/views.view.media.yml:0;0;0;0;0;0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.media.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: config/optional/views.view.media.yml:0
+msgid "True"
+msgstr "Wahr"
+
+#: config/optional/views.view.media.yml:0
+msgid "Published status"
+msgstr "Status veröffentlicht"
+
+#: config/optional/views.view.media.yml:0
+msgid "No media available."
+msgstr "Keine Medien verfügbar."
+

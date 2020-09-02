@@ -1,0 +1,85 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  breakpoint.module: n/a
+#  breakpoint.info.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: breakpoint.module:17
+msgid "About"
+msgstr "Über"
+
+#: breakpoint.module:18
+msgid "The Breakpoint module keeps track of the height, width, and resolution breakpoints where a responsive design needs to change in order to respond to different devices being used to view the site. This module does not have a user interface. For more information, see the <a href=\":docs\">online documentation for the Breakpoint module</a>."
+msgstr "Das Breakpoint-Modul überwacht die verschiedenen Breakpoints (Breite, Höhe und Auflösung) zur Anpassung des Responsive Designs für unterschiedliche Screengrößen. Dieses Modul hat keine Administrationsoberfläche. Weitere Informationen finden Sie in der <a href=\":docs\">Online-Dokumentation für das Breakpoint-Modul</a>."
+
+#: breakpoint.module:19
+msgid "Terminology"
+msgstr "Terminologie"
+
+#: breakpoint.module:21 breakpoint.info.yml:0
+msgid "Breakpoint"
+msgstr "Breakpoint"
+
+#: breakpoint.module:22
+msgid "A breakpoint separates the height or width of viewports (screens, printers, and other media output types) into steps. For instance, a width breakpoint of 40em creates two steps: one for widths up to 40em and one for widths above 40em. Breakpoints can be used to define when layouts should shift from one form to another, when images should be resized, and other changes that need to respond to changes in viewport height or width."
+msgstr "Ein Breakpoint unterteilt die Höhe oder Breite des Viewports (Bildschirm, Drucker oder andere Ausgabeformate) für verschiedene Auflösungen und Gerätetypen. Beispielsweise erstellt ein Breakpoint von 40em zwei Darstellungsoptionen: eine für Breiten bis 40em und eine für Breiten über 40em. Für diese beiden Darstellungsoptionen können unterschiedliche Styles festgelegt (z. B. unterschiedliche Bildskalierung) und damit auch auf Änderungen der Viewport-Größe reagiert werden."
+
+#: breakpoint.module:23
+msgid "Media query"
+msgstr "Media Query"
+
+#: breakpoint.module:24
+msgid "<a href=\":w3\">Media  queries</a> are a formal way to encode breakpoints. For instance, a width breakpoint at 40em would be written as the media query \"(min-width: 40em)\". Breakpoints are really just media queries with some additional meta-data, such as a name and multiplier information."
+msgstr "<a href=\":w3\">Media Queries</a> sind ein definierter Weg um Breakpoints festzulegen. Beispielsweise wird ein Breakpoint von 40em mittels \"(min-width: 40em)\" festgelegt. Breakpoints sind Media Queries mit zusätzlichen Metainformationen, wie Name oder Multiplikator."
+
+#: breakpoint.module:25
+msgid "Resolution multiplier"
+msgstr "Auflösungsmultiplikator"
+
+#: breakpoint.module:26
+msgid "Resolution multipliers are a measure of the viewport's device resolution, defined to be the ratio between the physical pixel size of the active device and the <a href=\"http://en.wikipedia.org/wiki/Device_independent_pixel\">device-independent pixel</a> size. The Breakpoint module defines multipliers of 1, 1.5, and 2; when defining breakpoints, modules and themes can define which multipliers apply to each breakpoint."
+msgstr "Auflösungs-Multiplikatoren sind ein Maß, welches das Verhältnis zwischen physischer Pixelgröße des aktiven Endgeräts und der Endgeräte-unabhängigen Pixelgröße angibt. Das Breakpoint-Modul definiert Multiplikatoren von 1, 1.5 und 2. Für festgelegte Breakpoints können Module und Themes definieren, welche Multiplikatoren für die einzelnen Breakpoints anzuwenden sind."
+
+#: breakpoint.module:27
+msgid "Breakpoint group"
+msgstr "Breakpoint-Gruppe"
+
+#: breakpoint.module:28
+msgid "Breakpoints can be organized into groups. Modules and themes should use groups to separate out breakpoints that are meant to be used for different purposes, such as breakpoints for layouts or breakpoints for image sizing."
+msgstr "Breakpoints können in Gruppen organisiert werden. Module und Themes sollten Gruppen benutzen, um Breakpoints zu trennen, die unterschiedlichen Zwecken dienen, zum Beispiel Breakpoints für Layouts oder Breakpoints für die Bildskalierung."
+
+#: breakpoint.module:30
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: breakpoint.module:32
+msgid "Defining breakpoints and breakpoint groups"
+msgstr "Definiert Breakpoints und Breakpoint-Gruppen"
+
+#: breakpoint.module:33
+msgid "Modules and themes can use the API provided by the Breakpoint module to define breakpoints and breakpoint groups, and to assign resolution multipliers to breakpoints."
+msgstr "Module und Themes können die API des Breakpoint-Moduls nutzen, um Breakpoints und Breakpoint-Gruppen zu definieren und die Multiplikatoren für Auflösungen den einzelnen Breakpoints zuzuweisen."
+
+#: breakpoint.info.yml:0
+msgid "Manage breakpoints and breakpoint groups for responsive designs."
+msgstr "Ermöglicht das Verwalten von Breakpoints und Breakpoint-Gruppen für Responsive-Designs."
+
+#: breakpoint.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+

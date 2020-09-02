@@ -1,0 +1,301 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  workflows.module: n/a
+#  config/schema/workflows.schema.yml: n/a
+#  src/WorkflowListBuilder.php: n/a
+#  src/Entity/Workflow.php: n/a
+#  src/Form/WorkflowEditForm.php: n/a
+#  src/Form/WorkflowStateEditForm.php: n/a
+#  workflows.info.yml: n/a
+#  workflows.links.menu.yml: n/a
+#  workflows.links.action.yml: n/a
+#  workflows.permissions.yml: n/a
+#  workflows.routing.yml: n/a
+#  src/Form/WorkflowAddForm.php: n/a
+#  src/Form/WorkflowDeleteForm.php: n/a
+#  src/Form/WorkflowStateDeleteForm.php: n/a
+#  src/Form/WorkflowTransitionDeleteForm.php: n/a
+#  src/Form/WorkflowTransitionEditForm.php: n/a
+#  src/Form/WorkflowTransitionAddForm.php: n/a
+#  src/Form/WorkflowStateAddForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: workflows.module:17
+msgid "About"
+msgstr "Über"
+
+#: workflows.module:18
+msgid "The Workflows module provides a UI and an API for creating workflows content. This lets site admins define workflows and their states, and then define transitions between those states. For more information, see the <a href=\":workflow\">online documentation for the Workflows module</a>."
+msgstr "Um Arbeitsabläufe für Inhalte zu erstellen stellt das Workflows-Modul eine Benutzeroberfläche und eine API zur Verfügung. Administratoren können so Arbeitsabläufe und deren verschiedene Statuszustände definieren. Außerdem kann festgelegt werden, welche Status-Änderungen möglich sein sollen. Weitere Informationen sind in der <a href=\":workflow\">Online Dokumentation des Workflow-Moduls</a> verfügbar."
+
+#: workflows.module:19 config/schema/workflows.schema.yml:0 src/WorkflowListBuilder.php:61 src/Entity/Workflow.php:12
+msgid "Workflow"
+msgstr "Arbeitsablauf"
+
+#: workflows.module:20
+msgid "A collection of states and transitions between those states."
+msgstr "Eine Sammlung von Statuszuständen und Änderungsvorgängen, die zwischen den verschiedenen Startzuständen stattfinden."
+
+#: workflows.module:21 src/Form/WorkflowEditForm.php:78
+msgid "State"
+msgstr "Status"
+
+#: workflows.module:22
+msgid "A particular condition that something is in at a specific time. The usage of the state is determined by a module that harnesses the Workflows module. For example, Content Moderation allows a state to be used for moderation of content by assigning a given state to a content item."
+msgstr "Eine bestimmte Bedingung die besagt, das etwas zu einer bestimmten Zeit geschieht. Der Verwendungszweck des Status wird von einem Modul festgelegt, das die Funktionalität des Workflow-Moduls beeinflusst. Ein Beispiel: Das Content-Moderation-Modul ermöglicht die Zuweisung eines Status zu einem bestimmten Inhalt. Über den jeweils zugewiesenen Status können Inhalte moderiert werden."
+
+#: workflows.module:23 src/Form/WorkflowStateEditForm.php:110
+msgid "Transition"
+msgstr "Änderungsvorgang"
+
+#: workflows.module:24
+msgid "The process of changing from one state to another. A transition can occur from multiple states, but only to one state."
+msgstr "Der Prozess des Wechsels von einem Status zu einem anderen wird auch Änderungsvorgang genannt. Dieser kann von mehren Statuszuständen aus angestoßen werden, kann jedoch immer nur einen Status zum Ergebnis haben."
+
+#: workflows.info.yml:0 workflows.links.menu.yml:0 src/Entity/Workflow.php:12
+msgid "Workflows"
+msgstr "Arbeitsabläufe"
+
+#: workflows.info.yml:0
+msgid "Provides UI and API for managing workflows. This module can be used with the Content moderation module to add highly customizable workflows to content."
+msgstr "Ermöglicht das Verwalten von Arbeitsabläufen über die Benutzeroberfläche. Dieses Modul kann zusammen mit dem Content-Moderation-Modul verwendet werden, um komplexe Arbeitsabläufe abzubilden."
+
+#: workflows.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: workflows.links.action.yml:0
+msgid "Add workflow"
+msgstr "Arbeitsablauf hinzufügen"
+
+#: workflows.links.menu.yml:0
+msgid "Configure workflows."
+msgstr "Arbeitsabläufe konfigurieren."
+
+#: workflows.permissions.yml:0
+msgid "Administer workflows"
+msgstr "Arbeitsabläufe verwalten"
+
+#: workflows.permissions.yml:0
+msgid "Create and edit workflows."
+msgstr "Arbeitsabläufe erstellen und bearbeiten."
+
+#: workflows.routing.yml:0
+msgid "Add state"
+msgstr "Status hinzufügen"
+
+#: workflows.routing.yml:0
+msgid "Edit state"
+msgstr "Status bearbeiten"
+
+#: workflows.routing.yml:0
+msgid "Delete state"
+msgstr "Status löschen"
+
+#: workflows.routing.yml:0
+msgid "Add transition"
+msgstr "Änderungsvorgang hinzufügen"
+
+#: workflows.routing.yml:0
+msgid "Edit transition"
+msgstr "Änderungsvorgang bearbeiten"
+
+#: workflows.routing.yml:0
+msgid "Delete transition"
+msgstr "Änderungsvorgang löschen"
+
+#: config/schema/workflows.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/workflows.schema.yml:0 src/Form/WorkflowAddForm.php:73
+msgid "Workflow type"
+msgstr "Arbeitsablaufstyp"
+
+#: config/schema/workflows.schema.yml:0;0 src/Form/WorkflowEditForm.php:79;154
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/workflows.schema.yml:0
+msgid "From state IDs"
+msgstr "IDs des momentatnen Status"
+
+#: config/schema/workflows.schema.yml:0
+msgid "From state ID"
+msgstr "ID des momentanen Status"
+
+#: config/schema/workflows.schema.yml:0
+msgid "To state ID"
+msgstr "ID des zukünftigen Status"
+
+#: src/WorkflowListBuilder.php:62
+msgid "Type"
+msgstr "Typ"
+
+#: src/WorkflowListBuilder.php:63 src/Form/WorkflowEditForm.php:84;90
+msgid "States"
+msgstr "Status"
+
+#: src/WorkflowListBuilder.php:96
+msgid "There are no workflow types available. In order to create workflows you need to install a module that provides a workflow type. For example, the <a href=\":content-moderation\">Content Moderation</a> module provides a workflow type that enables workflows for content entities."
+msgstr "Es gibt noch keine Arbeitsablauftypen. Damit Arbeitsabläufe erstellt werden können, muss zunächst ein Modul installiert werden, das Arbeitsablauftypen bereitstellt. Das Modul <a href=\":content-moderation\">Content Moderation</a> stellt beispielsweise einen Arbeitsablauftyp bereit, der es ermöglicht Arbeitsabläufe für Inhaltsentitäten zu erstellen."
+
+#: src/Entity/Workflow.php:12
+msgid "workflow"
+msgstr "Arbeitsablauf"
+
+#: src/Entity/Workflow.php:12
+msgid "workflows"
+msgstr "Arbeitsabläufe"
+
+#: src/Form/WorkflowAddForm.php:55 src/Form/WorkflowEditForm.php:62;153
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/WorkflowAddForm.php:89
+msgid "Created the %label Workflow. In order for the workflow to be enabled there needs to be at least one state."
+msgstr "Der Arbeitsablauf %label wurde erstellt. Damit der Arbeitsablauf aktiviert werden kann, muss mindestens ein Status hinzugefügt werden."
+
+#: src/Form/WorkflowAddForm.php:95
+msgid "Created the %label Workflow."
+msgstr "Arbeitsablauf %label erstellt."
+
+#: src/Form/WorkflowDeleteForm.php:22
+msgid "This workflow is in use. You cannot remove this workflow until you have removed all content using it."
+msgstr "Dieser Arbeitsablauf wird verwendet. Der Arbeitsablauf kann nicht entfernt werden, bevor alle Inhalte, die den Arbeitsablauf verwenden, entfernt worden sind."
+
+#: src/Form/WorkflowDeleteForm.php:33
+msgid "Are you sure you want to delete %name?"
+msgstr "Möchten Sie %name wirklich löschen?"
+
+#: src/Form/WorkflowDeleteForm.php:47 src/Form/WorkflowEditForm.php:123;186 src/Form/WorkflowStateDeleteForm.php:56 src/Form/WorkflowStateEditForm.php:128;226 src/Form/WorkflowTransitionDeleteForm.php:63 src/Form/WorkflowTransitionEditForm.php:219
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Form/WorkflowDeleteForm.php:56
+msgid "Workflow %label deleted."
+msgstr "Arbeitsablauf %label gelöscht."
+
+#: src/Form/WorkflowEditForm.php:58
+msgid "Edit %label workflow"
+msgstr "Arbeitsablauf %label bearbeiten"
+
+#: src/Form/WorkflowEditForm.php:80;157 src/Form/WorkflowStateEditForm.php:112
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/WorkflowEditForm.php:91
+msgid "There are no states yet."
+msgstr "Es gibt noch keine Status."
+
+#: src/Form/WorkflowEditForm.php:106
+msgid "This workflow has no states and will be disabled until there is at least one, <a href=\":add-state\">add a new state.</a>"
+msgstr "Für diesen Arbeitsablauf wurden noch keine Schritte definiert. Der Arbeitsablauf wird deshalb so lange deaktiviert, bis mindestens ein <a href=\":add-state\">neuer Status </a> hinzugefügt wurde."
+
+#: src/Form/WorkflowEditForm.php:117;182 src/Form/WorkflowStateEditForm.php:121
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/Form/WorkflowEditForm.php:136;195
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/WorkflowEditForm.php:149
+msgid "Add a new state"
+msgstr "Neuen Status hinzufügen"
+
+#: src/Form/WorkflowEditForm.php:155 src/Form/WorkflowTransitionAddForm.php:84 src/Form/WorkflowTransitionEditForm.php:99
+msgid "From"
+msgstr "Von"
+
+#: src/Form/WorkflowEditForm.php:156 src/Form/WorkflowStateEditForm.php:111 src/Form/WorkflowTransitionAddForm.php:91 src/Form/WorkflowTransitionEditForm.php:106
+msgid "To"
+msgstr "An"
+
+#: src/Form/WorkflowEditForm.php:161;167
+msgid "Transitions"
+msgstr "Übergänge"
+
+#: src/Form/WorkflowEditForm.php:168
+msgid "There are no transitions yet."
+msgstr "Noch keine Änderungsvorgänge vorhanden."
+
+#: src/Form/WorkflowEditForm.php:214
+msgid "Add a new transition"
+msgstr "Neuen Änderungsvorgang hinzufügen"
+
+#: src/Form/WorkflowEditForm.php:262
+msgid "Saved the %label Workflow."
+msgstr "Arbeitsablauf %label gespeichert."
+
+#: src/Form/WorkflowStateAddForm.php:65 src/Form/WorkflowStateEditForm.php:82
+msgid "State label"
+msgstr "Statusbeschriftung"
+
+#: src/Form/WorkflowStateAddForm.php:163
+msgid "Created %label state."
+msgstr "Status %label erstellt."
+
+#: src/Form/WorkflowStateAddForm.php:175 src/Form/WorkflowStateEditForm.php:220 src/Form/WorkflowTransitionAddForm.php:203 src/Form/WorkflowTransitionEditForm.php:213
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/WorkflowStateDeleteForm.php:42
+msgid "Are you sure you want to delete %state from %workflow?"
+msgstr "Möchten Sie %state wirklich aus %workflow entfernen?"
+
+#: src/Form/WorkflowStateDeleteForm.php:83
+msgid "This workflow state is in use. You cannot remove this workflow state until you have removed all content using it."
+msgstr "Dieser Arbeitsablaufstatus wird derzeit verwendet. Der Arbeitsablaufstatus kann nicht entfernt werden, bis alle Inhalte entfernt wurden, die den Status verwenden."
+
+#: src/Form/WorkflowStateDeleteForm.php:101
+msgid "State %label deleted."
+msgstr "Status %label gelöscht."
+
+#: src/Form/WorkflowStateEditForm.php:117
+msgid "There are no transitions to or from this state yet."
+msgstr "Für diesen Status gibt es noch keine Änderungsvorgänge."
+
+#: src/Form/WorkflowStateEditForm.php:208
+msgid "Saved %label state."
+msgstr "Status %label wurde gespeichert."
+
+#: src/Form/WorkflowTransitionAddForm.php:66 src/Form/WorkflowTransitionEditForm.php:83
+msgid "Transition label"
+msgstr "Änderungsbeschriftung"
+
+#: src/Form/WorkflowTransitionAddForm.php:158 src/Form/WorkflowTransitionEditForm.php:142
+msgid "The transition from %from to %to already exists."
+msgstr "Der Änderungsvorgang von %from nach %to ist bereits vorhanden."
+
+#: src/Form/WorkflowTransitionAddForm.php:191
+msgid "Created %label transition."
+msgstr "Änderungsvorgang %label erstellt."
+
+#: src/Form/WorkflowTransitionDeleteForm.php:49
+msgid "Are you sure you want to delete %transition from %workflow?"
+msgstr "Möchten Sie den Änderungsvorgang %transition wirklich aus dem Arbeitsablauf %workflow gelöscht werden?"
+
+#: src/Form/WorkflowTransitionDeleteForm.php:101
+msgid "%transition transition deleted."
+msgstr "Änderungsvorgang %transition gelöscht."
+
+#: src/Form/WorkflowTransitionEditForm.php:201
+msgid "Saved %label transition."
+msgstr "Änderungsvorgang %label gespeichert."
+

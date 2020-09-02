@@ -1,0 +1,163 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  contextual.views.inc: n/a
+#  contextual.info.yml: n/a
+#  contextual.module: n/a
+#  contextual.permissions.yml: n/a
+#  config/schema/contextual.views.schema.yml: n/a
+#  src/Plugin/views/field/ContextualLinks.php: n/a
+#  js/contextual.es6.js: n/a
+#  js/contextual.js: n/a
+#  js/contextual.toolbar.es6.js: n/a
+#  js/contextual.toolbar.js: n/a
+#  js/toolbar/views/AuralView.js: n/a
+#  js/views/AuralView.es6.js: n/a
+#  js/views/AuralView.js: n/a
+#  src/ContextualController.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:28+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: contextual.views.inc:13 contextual.info.yml:0
+msgid "Contextual Links"
+msgstr "Kontextlinks"
+
+#: contextual.views.inc:14
+msgid "Display fields in a contextual links menu."
+msgstr "Felder in einem Kontextlinkmenü anzeigen."
+
+#: contextual.module:36
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: contextual.module:79
+msgid "About"
+msgstr "Über"
+
+#: contextual.module:80
+msgid "The Contextual links module gives users with the <em>Use contextual links</em> permission quick access to tasks associated with certain areas of pages on your site. For example, a menu displayed as a block has links to edit the menu and configure the block. For more information, see the <a href=\":contextual\">online documentation for the Contextual Links module</a>."
+msgstr "Das Contextual-Links-Modul stellt Benutzern, die über die Berechtigung <em> Kontextlinks verwenden</em> verfügen ein Menü mit Schnellzugriffsoptionen zur Verfügung, die mit verschiedenen Aufgaben verbunden sind. Die Menüs sind je nachdem, in Welchem Bereich der Seite sie geöffnet werden mit unterschiedlichen Aufgaben ausgestattet.  Ein Menü, das zu einem Block gehört, enthält beispielsweise Links um den Blok zu bearbeiten und zu konfigurieren. Weitere Informationen sind in der <a href=\":contextual\">Online-Dokumentation des Contextual-Links-Moduls</a> verfügbsr."
+
+#: contextual.module:81
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: contextual.module:83
+msgid "Displaying contextual links"
+msgstr "Kontextabhängige Links anzeigen"
+
+#: contextual.module:85
+msgid "Contextual links for an area on a page are displayed using a contextual links button. There are two ways to make the contextual links button visible:"
+msgstr "Kontextlinks für einen Bereich auf der Seite werden über einen Kontextmenübutton angezeigt. Es gibt zwei Wege,  um den Kontextmenübutton sichtbar zu macen:"
+
+#: contextual.module:90
+msgid "contextual links button"
+msgstr "Kontextlinks-Button"
+
+#: contextual.module:93
+msgid "Hovering over the area of interest will temporarily make the contextual links button visible (which looks like a pencil in most themes, and is normally displayed in the upper right corner of the area). The icon typically looks like this: @picture"
+msgstr "Wird mit dem Mauszeiger über den gewünschten Bereich auf der Seite gefahren, wird der Kontextmenübutton kurzzeitig sichtbar. (Der Button sieht in den meisten Themes wie ein Stift aus und befindet sich in der oberen rechten Ecke eines Bereichs). Das Symbol sieht normalerweise so aus: @picture"
+
+#: contextual.module:94
+msgid "If you have the <a href=\":toolbar\">Toolbar module</a> enabled, clicking the contextual links button in the toolbar (which looks like a pencil) will make all contextual links buttons on the page visible. Clicking this button again will toggle them to invisible."
+msgstr "Wenn das <a href=\":toolbar\">Toolbar-Modul</a> aktiviert ist, können mit einem Klick auf den Kontextmenübutton in der Toolbar (der wie ein Stift aussieht) alle verfügbaren Kontextbutton auf der Seite angezeigt werden. Wird die Schaltfläche erneut angeklickt werden die Buttons wieder ausgeblendet."
+
+#: contextual.module:96
+msgid "Once the contextual links button for the area of interest is visible, click the button to display the links."
+msgstr "Sobald der Kontextlink für den betreffenden Bereich sichtbar ist, klicken Sie darauf, um die dazugehörigen Links anzuzeigen."
+
+#: contextual.info.yml:0
+msgid "Provides contextual links to perform actions related to elements on a page."
+msgstr "Ermöglicht das Ausführen passende Aktionen zu einem Element auf der Seite über kontextbasierte Links."
+
+#: contextual.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: contextual.permissions.yml:0
+msgid "Use contextual links"
+msgstr "Kontextabhängige Links verwenden"
+
+#: config/schema/contextual.views.schema.yml:0
+msgid "Contextual link"
+msgstr "Kontextlink"
+
+#: config/schema/contextual.views.schema.yml:0 src/Plugin/views/field/ContextualLinks.php:53
+msgid "Fields"
+msgstr "Felder"
+
+#: config/schema/contextual.views.schema.yml:0
+msgid "Link"
+msgstr "Link"
+
+#: config/schema/contextual.views.schema.yml:0 src/Plugin/views/field/ContextualLinks.php:60
+msgid "Include destination"
+msgstr "Ziel mit einbeziehen"
+
+#: js/contextual.es6.js:0 js/contextual.js:0
+msgid "Open"
+msgstr "Geöffnet"
+
+#: js/contextual.es6.js:0 js/contextual.js:0
+msgid "Close"
+msgstr "Schließen"
+
+#: js/contextual.toolbar.es6.js:0 js/contextual.toolbar.js:0
+msgid "Press the esc key to exit."
+msgstr "Zum Beenden die Escape-Taste drücken."
+
+#: js/contextual.toolbar.js:0
+msgid "Tabbing is no longer constrained by the Contextual module."
+msgstr "Das Verwenden der Tabulatortaste wird nicht länger vom Contextual-Modul eingeschränkt."
+
+#: js/contextual.toolbar.js:0
+msgid "Tabbing is constrained to a set of @contextualsCount and the edit mode toggle."
+msgstr "Tabulatornavigation ist auf eine Gruppe von @contextualsCount und den Bearbeitungsmodusumschalter beschränkt."
+
+#: js/toolbar/views/AuralView.js:0
+msgid "@count contextual link"
+msgid_plural "@count contextual links"
+msgstr[0] "@count Kontextlink"
+msgstr[1] "@count Kontextlinks"
+
+#: js/views/AuralView.es6.js:0 js/views/AuralView.js:0
+msgid "@action @title configuration options"
+msgstr "@action @title Konfigurationseinstellungen"
+
+#: src/ContextualController.php:65
+msgid "No contextual ids specified."
+msgstr "Keine Kontext-IDs angegeben."
+
+#: src/ContextualController.php:70
+msgid "No contextual ID tokens specified."
+msgstr "Keine Token für Kontext-IDs angegeben."
+
+#: src/Plugin/views/field/ContextualLinks.php:54
+msgid "Fields to be included as contextual links."
+msgstr "Felder, die als kontextbezogene Links verwendet werden sollen."
+
+#: src/Plugin/views/field/ContextualLinks.php:61
+msgid "Include a \"destination\" parameter in the link to return the user to the original view upon completing the contextual action."
+msgstr "Einen „Ziel“-Parameter zum Link hinzufügen, um den Benutzer zu der Original-Ansicht zurückzuleiten, sobald die kontextbezogene Aktion abgeschlossen ist."
+
+#: src/Plugin/views/field/ContextualLinks.php:63
+msgid "No"
+msgstr "Nein"
+
+#: src/Plugin/views/field/ContextualLinks.php:64
+msgid "Yes"
+msgstr "Ja"
+

@@ -1,0 +1,923 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  language.admin.inc: n/a
+#  config/schema/language.schema.yml: n/a
+#  src/Form/NegotiationBrowserForm.php: n/a
+#  language.module: n/a
+#  config/optional/tour.tour.language-add.yml: n/a
+#  config/optional/tour.tour.language.yml: n/a
+#  src/Element/LanguageConfiguration.php: n/a
+#  language.info.yml: n/a
+#  src/Entity/ConfigurableLanguage.php: n/a
+#  src/Form/NegotiationSelectedForm.php: n/a
+#  src/Plugin/Condition/Language.php: n/a
+#  language.links.action.yml: n/a
+#  language.routing.yml: n/a
+#  src/Form/LanguageAddForm.php: n/a
+#  language.links.menu.yml: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationContentEntity.php: n/a
+#  language.links.task.yml: n/a
+#  language.permissions.yml: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationSession.php: n/a
+#  src/Form/NegotiationSessionForm.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationUrl.php: n/a
+#  src/Form/NegotiationUrlForm.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationSelected.php: n/a
+#  src/Form/LanguageFormBase.php: n/a
+#  src/Entity/ContentLanguageSettings.php: n/a
+#  src/LanguageListBuilder.php: n/a
+#  src/Form/ContentLanguageSettingsForm.php: n/a
+#  config/optional/tour.tour.language-edit.yml: n/a
+#  src/Form/LanguageDeleteForm.php: n/a
+#  src/Form/LanguageEditForm.php: n/a
+#  src/Form/NegotiationBrowserDeleteForm.php: n/a
+#  src/Form/NegotiationConfigureForm.php: n/a
+#  src/Plugin/Block/LanguageBlock.php: n/a
+#  src/Plugin/Derivative/LanguageBlock.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationBrowser.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationUI.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationUrlFallback.php: n/a
+#  src/Plugin/migrate/source/Language.php: n/a
+#  src/Plugin/migrate/source/d6/LanguageContentSettings.php: n/a
+#  src/Plugin/migrate/source/d7/LanguageContentSettings.php: n/a
+#  src/Plugin/migrate/source/d6/LanguageContentSettingsTaxonomyVocabulary.php: n/a
+#  config/install/language.entity.en.yml: n/a
+#  config/install/language.entity.und.yml: n/a
+#  config/install/language.entity.zxx.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:30+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: language.admin.inc:26
+msgid "Detection method"
+msgstr "Erkennungsmethode"
+
+#: language.admin.inc:27
+msgid "Description"
+msgstr "Description"
+
+#: language.admin.inc:28
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: language.admin.inc:29 config/schema/language.schema.yml:0;0;0
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: language.admin.inc:34 src/Form/NegotiationBrowserForm.php:90
+msgid "Operations"
+msgstr "Aktionen"
+
+#: language.admin.inc:116
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: language.module:31
+msgid "About"
+msgstr "Über"
+
+#: language.module:32
+msgid "The Language module allows you to configure the languages used on your site, and provides information for the <a href=\":content\">Content Translation</a>, <a href=\":interface\">Interface Translation</a>, and <a href=\":configuration\">Configuration Translation</a> modules, if they are enabled. For more information, see the <a href=\":doc_url\">online documentation for the Language module</a>."
+msgstr "Das Language-Modul erlaubt es Sprachen, die auf der Website verwendet  warden zu konfigurieren. Außerdem stellt es Informationen für die Module <a href=\":content\">Content Translation</a>, <a href=\":interface\">Interface Translation</a>, and <a href=\":configuration\">Configuration Translation</a> bereit, wenn diese aktiviert sind. Weitere Informationen sind in der <a href=\":doc_url\">Online-Dokumentation des Language-Moduls </a> verfügbar."
+
+#: language.module:33
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: language.module:35 config/optional/tour.tour.language-add.yml:0;0 config/optional/tour.tour.language.yml:0
+msgid "Adding languages"
+msgstr "Sprachen hinzufügen"
+
+#: language.module:36
+msgid "You can add languages on the <a href=\":language_list\">Languages</a> page by selecting <em>Add language</em> and choosing a language from the drop-down menu. This language is then displayed in the languages list, where it can be configured further. If the <a href=\":interface\">Interface translation module</a> is enabled, and the <em>translation server</em> is set as a translation source, then the interface translation for this language is automatically downloaded as well."
+msgstr "Auf der Seite <a href=\":language_list\">Sprachen</a> können Sprachen hinzugefügt werden, indem <em>Sprache hinzufügen</em> sowie eine Sprache aus dem Drop-down-Menü ausgewählt wird. Diese Sprache wird danach in der Sprachenliste angezeigt und kann weiter konfiguriert werden. Wenn das Modul <a href=\":interface\">Interface Translation</a> aktiviert ist und der <em>Übersetzungsserver</em> als Übersetzungsquelle festgelegt ist, werden Oberflächenübersetzungen für diese Sprache ebenfalls heruntergeladen."
+
+#: language.module:37
+msgid "Adding custom languages"
+msgstr "Benutzerdefinierte Sprachen hinzufügen"
+
+#: language.module:38
+msgid "You can add a language that is not provided in the drop-down list by choosing <em>Custom language</em> at the end of the list. You then have to configure its language code, name, and direction in the form provided."
+msgstr "Sie können eine nicht zur Auswahl stehende Sprache hinzufügen, indem Sie <em>Benutzerdefinierte Sprache</em> am Ende der Liste auswählen. Sie müssen im bereitgestellten Formular dann Sprachkürzel, Name und Sprachrichtung konfigurieren."
+
+#: language.module:39
+msgid "Configuring content languages"
+msgstr "Inhaltssprachen konfigurieren"
+
+#: language.module:40
+msgid "By default, content is created in the site's default language and no language selector is displayed on content creation pages. On the <a href=\":content_language\">Content language</a> page you can customize the language configuration for any supported content entity on your site (for example for content types or menu links). After choosing an entity, you are provided with a drop-down menu to set the default language and a check-box to display language selectors."
+msgstr "Werden die Standardeinstellungen verwendet, werden Inhalte in der Standardsprache der Website erstellt. Dabei wird beim Erstellen der Inhalte keine  Möglichkeit angeboten, die Sprache der Inhalte auszuwählen. Auf der Seite <a href=\":content_language\">Inhaltssprache</a> kann die Sprachkonfiguration für jede alle Arten von Entitäten( wie beispielsweise für Inhaltstypen oder Menülinks), die von der Website unterstützt werden, angepasst werden. Nachdem eine Entität ausgewählt wurde wird ein Drop-Down-Menü angezeigt, in den die Standardsprache für diese Entität ausgewählt werden kann. Zusätzlich wird ein Kontrollkästchen angezeigt, mit dem bestimmt werden kann, ob für die jeweilige Entität eine Sprachauswahl zugelassen ist oder nicht."
+
+#: language.module:41
+msgid "Adding a language switcher block"
+msgstr "Block zum Wechseln der Anzeigesprache hinzufügen."
+
+#: language.module:42
+msgid "If the Block module is enabled, then you can add a language switcher block on the <a href=\":blocks\">Block layout</a> page to allow users to switch between languages."
+msgstr "Wenn das Blockmodul aktiviert ist, kann der Sprachumschalter auf der Seite <a href=\":blocks\">Blocklayout</a> hinzugefügt werden. Dieser ermöglicht den Benutzern, zwischen den Sprachen zu wechseln."
+
+#: language.module:43
+msgid "Making a block visible per language"
+msgstr "Einen Block je nach Sprache sichtbar machen"
+
+#: language.module:44
+msgid "If the Block module is enabled, then the Language module allows you to set the visibility of a block based on selected languages on the <a href=\":blocks\">Block layout</a> page."
+msgstr "Wenn das Block-Modul aktiviert ist kann auf der Seite <a href=\":blocks\">Blocklayout</a>  eine Block plaziert werden, mit dem Benutzer die Anzeigesprache der Websseite und der Inhalte auswähelnm können. Diese Block ist Teil des Language-Modul."
+
+#: language.module:45
+msgid "Choosing user languages"
+msgstr "Benutzersprachen auswählen"
+
+#: language.module:46
+msgid "Users can choose a <em>Site language</em> on their profile page. This language is used for email messages, and can be used by modules to determine a user's language. It can also be used for interface text, if the <em>User</em> method is enabled as a <em>Detection and selection</em> method (see below). Administrative users can choose a separate <em>Administration pages language</em> for the interface text on administration pages. This configuration is only available on the user's profile page if the <em>Account administration pages</em> method is enabled (see below)."
+msgstr "Benutzer können eine <em>Website-Sprache</em> auf ihrer Profilseite einstellen. Diese Sprache wird für E-Mail-Nachrichten verwendet und kann von Modulen verwendet werden um die Sprache eines Benutzers festzustellen. Sie kann auch für Oberflächentext verwendet werden, wenn die Methode <em>Benutzer</em> als Methode für die  <em>Erkennung und Auswahl</em> aktiviert ist (siehe unten). Administrative Benutzer können eine gesonderte <em>Sprache für Verwaltungsseiten</em> für Oberflächentext auf Verwaltungsseiten einstellen. Diese Konfiguration ist auf der Profilseite des Benutzers nur verfügbar, wenn die Methode <em>Benutzerverwaltungsseiten</em> aktiviert ist (siehe unten)."
+
+#: language.module:47
+msgid "Language detection and selection"
+msgstr "Spracherkennung und -auswahl"
+
+#: language.module:48
+msgid "The <a href=\":detection\">Detection and selection</a> page provides several methods for deciding which language is used for displaying interface text. When a method detects and selects an interface language, then the following methods in the list are not applied. You can order them by importance, with your preferred method at the top of the list, followed by one or several fall-back methods."
+msgstr "Die Seite <a href=\":detection\">Auswahl und Erkennung</a> stellt vershiedene Methoden zum festlegen der Anzeigesprache für die Benutzeroberfläche von Drupal zur Verfügung. Wenn eine Methode eine Sprache feststellt und festlegt, werden folgende Methoden in der Liste nicht angewandt, um die Anzeigesprache zu bestimmen. Die Auswahlmethoden können nach Wichtigkeit geordnet werden. Die Bevorzugte Methode steht dabei ganz oben in der Lsite. Danach folgen diverse Methoden, die angewendet werden sollen, falls die bevorzugte Methode zum Erkennen und Auswählen der Anzeigesprache nicht funktioniert."
+
+#: language.module:49
+msgid "<em>URL</em> sets the interface language based on a path prefix or domain (for example specifying <em>de</em> for German would result in URLs like <em>example.com/de/contact</em>). The default language does not require a path prefix, but can have one assigned as well. If the language detection is done by domain name, a domain needs to be specified for each language."
+msgstr "<em>URL</em> setzt die Sprache der Benutzeroberfläche nach Pfadpräfix oder Domain (die Angabe von <em>de</em> würde z. B. URLs wie <em>example.com/de/contact</em> ergeben). Die Standardsprache benötigt keinen Pfadpräfix, es kann jedoch einer zugewiesen werden. Wenn die Spracherkennung über die Domain erfolgt, muss für jede Sprache eine Domain angegeben werden."
+
+#: language.module:50
+msgid "<em>Session</em> determines the interface language from a request or session parameter (for example <em>example.com?language=de</em> would set the interface language to German based on the use of <em>de</em> as the <em>language</em> parameter)."
+msgstr "<em>Session</em> bestimmt die Sprache der Benutzeroberfläche aus einem Request- oder Sitzungsparameter (<em>example.com?language=de</em> würde die Sprache der Benutzeroberfläche z. B. auf Deutsch setzen, basierend auf der Verwendung von <em>de</em> als Parameter für die <em>Sprache</em>)."
+
+#: language.module:51
+msgid "<em>User</em> follows the language configuration set on the user's profile page."
+msgstr "<em>Benutzer</em> folgt der auf der Profilseite des Benutzers festgelegten Sprachkonfiguration."
+
+#: language.module:52
+msgid "<em>Browser</em> sets the interface language based on the browser's language settings. Since browsers use different language codes to refer to the same languages, you can add and edit languages codes to map the browser language codes to the <a href=\":language_list\">language codes</a> used on your site."
+msgstr "<em>Browser</em> setzt die Sprache der Benutzeroberfläche auf die Einstellung des Browsers. Da Browser zum Teil unterschiedliche Sprachkürzel für eine Sprache verwenden kann man beliebige Sprachkürzel mit auf der Seite verwendete <a href=\":language_list\">Sprachkürzel</a> gleichsetzen."
+
+#: language.module:53
+msgid "<em>Account administration pages</em> follows the configuration set as <em>Administration pages language</em> on the profile page of an administrative user. This method is similar to the <em>User</em> method, but only sets the interface text language on administration pages, independent of the interface text language on other pages."
+msgstr "<em>Benutzerverwaltungsseiten</em> folgt der Konfiguration <em>Sprache für Verwaltungsseiten</em> auf der Profilseite eines administrativen Benutzers. Diese Methode ähnelt der Methode <em>Benutzer</em>, setzt aber nur die Sprache für Oberflächentext auf Verwaltungsseiten, unabhängig von der Sprache von Oberflächentext auf anderen Seiten."
+
+#: language.module:54
+msgid "<em>Selected language</em> allows you to specify the site's default language or a specific language as the fall-back language. This method should be listed last."
+msgstr "<em>Ausgewählte Sprache</em> ermöglicht es, die Standardsprache der Website oder eine bestimmte Sprache als Rückfallsprache anzugeben. Diese Methode sollte als letztes aufgeführt sein."
+
+#: language.module:59
+msgid "Reorder the configured languages to set their order in the language switcher block and, when editing content, in the list of selectable languages. This ordering does not impact <a href=\":detection\">detection and selection</a>."
+msgstr "Stellt Reihenfolge der eingerichteten Sprachen um, dies ist die festgelegte Reihenfolge für den Sprachumschalter-Block sowie wenn Inhalte in der Liste auswählbarer Sprachen bearbeitet werden. Diese Reihenfolge beeinflusst <a href=\":detection\">Erkennung und Auswahl</a> nicht."
+
+#: language.module:60
+msgid "The site default language can also be set. It is not recommended to change the default language on a working site. <a href=\":language-detection\">Configure the Selected language</a> setting on the detection and selection page to change the fallback language for language selection."
+msgstr "Die Standardsprache der Website kann ebenso umgestellt werden. Es ist nicht zu empfehlen die Standardsprache bei einer laufenden Website zu ändern. Konfiguriere die Erkennungsmethode <a href=\":language-detection\">Ausgewählte Sprache</a> auf der Erkennung und Auswahl Seite um die Ausweichlösung für die aktuelle Sprachauswahl festzulegen."
+
+#: language.module:64
+msgid "Add a language to be supported by your site. If your desired language is not available, pick <em>Custom language...</em> at the end and provide a language code and other details manually."
+msgstr "Eine Sprache hinzufügen, die von Ihrer Website unterstützt werden soll. Wenn die gewünschte Sprache nicht verfügbar ist, <em>Benutzerdefinierte Sprache...</em> auswählen und ein Sprachkürzel sowie weitere Angaben eingeben."
+
+#: language.module:67
+msgid "Define how to decide which language is used to display page elements (primarily text provided by modules, such as field labels and help text). This decision is made by evaluating a series of detection methods for languages; the first detection method that gets a result will determine which language is used for that type of text. Be aware that some language detection methods are unreliable under certain conditions, such as browser detection when page-caching is enabled and a user is not currently logged in. Define the order of evaluation of language detection methods on this page. The default language can be changed in the <a href=\":admin-change-language\">list of languages</a>."
+msgstr "Legt Fest,  wie entscheiden wird, welche Sprache zum Anzeigen der Elemente auf der Website verwendet wird. (hauptsächlich Text, der von Modulen bereitgestellt wird). Diese Entscheidung wird getroffen, indem eine Reihe von Methoden angewandt wird, die entscheiden, welche Sprache als Anzeigesprache verwendet wird. Zu beachten sit, dass einige Methoden zum Felstlegen der Anzeigesprache unter bestimmten Bedingungen unwirksam sind. So ist zum Biespiel das Feststellen der Anzeigesprache des Browsers, der von einem Seitenbesucher verwendet wid nicht möchglich, wenn Caching auf der Website eingeschaltet ist und der Benutzer nicht angemeldet ist. Auf dieser Seite wird die Reiehenfolge festgelegt, in der die verfügbaren Methoden angewendet werden. Die Standardanzeigesprache kan auf der Seite <a href=\":admin-change-language\">Liste der verfügbaren Sprachen</a> festgelegt werden."
+
+#: language.module:71
+msgid "Determine the language from a request/session parameter. Example: \"http://example.com?language=de\" sets language to German based on the use of \"de\" within the \"language\" parameter."
+msgstr "Bestimmen Sie die Sprache aus einer Anfrage / Session-Parameter. Beispiel: „http://example.com?language=de“ setzt die Sprache auf Deutsch auf der Grundlage der Verwendung von „de“ als Wert für den Parameter „language“."
+
+#: language.module:75
+msgid "Browsers use different language codes to refer to the same languages. Internally, a best effort is made to determine the correct language based on the code that the browser sends. You can add and edit additional mappings from browser language codes to <a href=\":configure-languages\">site languages</a>."
+msgstr "Browser nutzen zum Teil unterschiedliche Sprachkürzel für die selben Sprachen. Es können zusätzliche Zuordnungen von Sprachkürzel unter <a href=\":configure-languages\">Sprachen der Webseite</a> hinzugefügt oder bearbeitet werden."
+
+#: language.module:79
+msgid "Changing the selected language here (and leaving this option as the last among the detection and selection options) is the easiest way to change the fallback language for the website, if you need to change how your site works by default (e.g., when using an empty path prefix or using the default domain). <a href=\":admin-change-language\">Changing the site's default language</a> itself might have other undesired side effects."
+msgstr "Belässt man die Option „Ausgewählte Sprache“ in „Erkennung und Auswahl“ an letzter Stelle, so ist dies der einfachste Weg, die Ausweichlösung für die Sprache der Website, durch die Anpassung der Sprachauswahl hier, festzulegen. Dies ist für den Fall, dass das standardmäßige Verhalten der Website geändert werden soll, wenn z. B. ein leeres Pfadpräfix oder die Standard-Domain verwendet wird. <a href=\":admin-change-language\">Das direkte Ändern der Standardsprache der Website</a> könnte ungewollte Nebeneffekte haben."
+
+#: language.module:84;90
+msgid "With multiple languages configured, registered users can select their preferred language and authors can assign a specific language to content."
+msgstr "Wenn mehrere Sprachen konfiguriert sind können registrierte Benutzer ihre bevorzugte Sprache auswählen und Autoren können Inhalt eine bestimmte Sprache zuweisen."
+
+#: language.module:95
+msgid "Change language settings for <em>content types</em>, <em>taxonomy vocabularies</em>, <em>user profiles</em>, or any other supported element on your site. By default, language settings hide the language selector and the language is the site's default language."
+msgstr "Die Spracheinstellungen für <em>Inhaltstypen</em>, <em>Taxonomie Vokabulare</em>, <em>Benutzerprofile</em> oder jedes andere unterstützte Element auf der Website ändern. Standardmäßig wird die Sprachauswahl durch die Spracheinstellungen ausgeblendet und es wird die Standardsprache der Website verwendet."
+
+#: language.module:158 src/Element/LanguageConfiguration.php:101
+msgid "- @name -"
+msgstr "- @name -"
+
+#: language.module:428
+msgid "This page also provides an overview of how much of the site's interface has been translated for each configured language."
+msgstr "Diese Seite bietet zudem einen Überblick in welchem Umfang die Benutzeroberfläche für jede der eingerichteten Sprachen übersetzt wurde."
+
+#: language.module:431
+msgid "If the Interface Translation module is enabled, this page will provide an overview of how much of the site's interface has been translated for each configured language."
+msgstr "Wenn das Interface-Translation-Modul aktiviert ist, biete diese Seite einen Überblick darüber wie vollständig die Übersetzungen der auf der Seite verwendeten Sprachen sind."
+
+#: language.module:445
+msgid "Depending on your site features, additional modules that you might want to enable are:"
+msgstr "Abhängig von der Funktionalität der Seite sollen eventuell zusätzlich noch folgende Module aktiviert werden:"
+
+#: language.info.yml:0 config/schema/language.schema.yml:0;0 src/Entity/ConfigurableLanguage.php:13 src/Form/NegotiationSelectedForm.php:37 src/Plugin/Condition/Language.php:12;12 config/optional/tour.tour.language.yml:0
+msgid "Language"
+msgstr "Sprache"
+
+#: language.info.yml:0
+msgid "Allows users to configure languages and apply them to content."
+msgstr "Ermöglicht  Benutzern die Konfiguration von Sprachen, die auf der Website verwendet  werden."
+
+#: language.info.yml:0
+msgid "Multilingual"
+msgstr "Mehrsprachenunterstützung"
+
+#: language.links.action.yml:0 language.routing.yml:0 src/Form/LanguageAddForm.php:29;43
+msgid "Add language"
+msgstr "Sprache hinzufügen"
+
+#: language.links.menu.yml:0 language.routing.yml:0 src/Entity/ConfigurableLanguage.php:13 config/optional/tour.tour.language.yml:0
+msgid "Languages"
+msgstr "Sprachen"
+
+#: language.links.menu.yml:0 language.routing.yml:0 src/Plugin/LanguageNegotiation/LanguageNegotiationContentEntity.php:18
+msgid "Content language"
+msgstr "Inhaltssprache"
+
+#: language.links.menu.yml:0
+msgid "Configure languages for content, interface, and configuration."
+msgstr "Konfigurieren der Spracheinstellungen, die für die Darstellung von Inhalten sowie die Darstellung der Benutzeroberfläche der Website als auch auf die entsprechenden Konfigurationseinstellungen angewendet werden."
+
+#: language.links.menu.yml:0
+msgid "Configure language support for content."
+msgstr "Konfigurieren von benutzerdefinierten Spracheinstellungen für verschiedene Elemente des Inhalts der Webseite."
+
+#: language.links.task.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: language.links.task.yml:0 language.routing.yml:0
+msgid "Detection and selection"
+msgstr "Erkennung und Auswahl"
+
+#: language.links.task.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: language.permissions.yml:0
+msgid "Administer languages"
+msgstr "Sprachen verwalten"
+
+#: language.routing.yml:0
+msgid "URL language detection configuration"
+msgstr "URL Spracherkennungs-Konfiguration"
+
+#: language.routing.yml:0
+msgid "Session language detection configuration"
+msgstr "Einstellungen zum Feststellen der Sitzungssprache"
+
+#: language.routing.yml:0
+msgid "Selected language configuration"
+msgstr "Konfiguration der ausgewählten Sprache"
+
+#: language.routing.yml:0
+msgid "Edit language"
+msgstr "Sprache bearbeiten"
+
+#: language.routing.yml:0
+msgid "Delete language"
+msgstr "Sprache löschen"
+
+#: language.routing.yml:0
+msgid "Browser language detection configuration"
+msgstr "Konfiguration der Browser-Spracherkennung"
+
+#: language.routing.yml:0 src/Form/NegotiationBrowserForm.php:122
+msgid "Delete"
+msgstr "Löschen"
+
+#: config/schema/language.schema.yml:0;0
+msgid "Language negotiation per type setting"
+msgstr "Sprachnegierungseinstellungen pro Typ"
+
+#: config/schema/language.schema.yml:0
+msgid "Enabled negotiators"
+msgstr "Aktivierte Negierungen"
+
+#: config/schema/language.schema.yml:0
+msgid "Negotiator weights"
+msgstr "Negierungsgewichtungen"
+
+#: config/schema/language.schema.yml:0
+msgid "Language types"
+msgstr "Sprachtypen"
+
+#: config/schema/language.schema.yml:0
+msgid "All language types"
+msgstr "Alle Sprachtypen"
+
+#: config/schema/language.schema.yml:0;0
+msgid "Language type"
+msgstr "Sprachtyp"
+
+#: config/schema/language.schema.yml:0
+msgid "Configurable language types"
+msgstr "Konfigurierbare Sprachtypen"
+
+#: config/schema/language.schema.yml:0
+msgid "Language negotiation per type settings"
+msgstr "Sprachnegierungseintsllung pro Typ"
+
+#: config/schema/language.schema.yml:0
+msgid "Language detection methods"
+msgstr "Spracherkennungsmethoden"
+
+#: config/schema/language.schema.yml:0 src/Plugin/LanguageNegotiation/LanguageNegotiationSession.php:13
+msgid "Session"
+msgstr "Session"
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationSessionForm.php:35
+msgid "Request/session parameter"
+msgstr "Anfrage- und Sitzungsparameter"
+
+#: config/schema/language.schema.yml:0 src/Plugin/LanguageNegotiation/LanguageNegotiationUrl.php:14
+msgid "Language from the URL (Path prefix or domain)."
+msgstr "Sprache aus der URL (Pfadpräfix oder Domäne)."
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationUrlForm.php:72
+msgid "Part of the URL that determines language"
+msgstr "Teil der URL, der die Sprache festlegt"
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationUrlForm.php:84
+msgid "Path prefix configuration"
+msgstr "Pfadpräfix-Konfiguration"
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationUrlForm.php:75
+msgid "Path prefix"
+msgstr "Pfadpräfix"
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationUrlForm.php:98
+msgid "Domain configuration"
+msgstr "Domain-Konfiguration"
+
+#: config/schema/language.schema.yml:0 src/Form/NegotiationUrlForm.php:76
+msgid "Domain"
+msgstr "Domäne"
+
+#: config/schema/language.schema.yml:0 src/Plugin/LanguageNegotiation/LanguageNegotiationSelected.php:8
+msgid "Selected language"
+msgstr "Ausgewählte Sprache"
+
+#: config/schema/language.schema.yml:0
+msgid "Language mapping"
+msgstr "Sprachzuordnung"
+
+#: config/schema/language.schema.yml:0;0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/language.schema.yml:0 src/Form/LanguageFormBase.php:80
+msgid "Direction"
+msgstr "Richtung"
+
+#: config/schema/language.schema.yml:0
+msgid "Locked"
+msgstr "Gesperrt"
+
+#: config/schema/language.schema.yml:0 src/Entity/ContentLanguageSettings.php:11;11
+msgid "Content Language Settings"
+msgstr "Inhaltsspracheinstellungen"
+
+#: config/schema/language.schema.yml:0
+msgid "Entity Type ID"
+msgstr "Entitätstyp-ID"
+
+#: config/schema/language.schema.yml:0
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: config/schema/language.schema.yml:0 src/Element/LanguageConfiguration.php:43
+msgid "Default language"
+msgstr "Standardsprache"
+
+#: config/schema/language.schema.yml:0
+msgid "Allow to alter the language"
+msgstr "Ändern der Sprache erlauben"
+
+#: config/schema/language.schema.yml:0
+msgid "Language format settings"
+msgstr "Sprachformateinstellungen"
+
+#: config/schema/language.schema.yml:0
+msgid "Include locked languages"
+msgstr "Gesperrte Sprachen mit einschließen"
+
+#: src/LanguageListBuilder.php:106
+msgid "Name"
+msgstr "Name"
+
+#: src/LanguageListBuilder.php:107
+msgid "Default"
+msgstr "Standard"
+
+#: src/LanguageListBuilder.php:120
+msgid "Set @title as default"
+msgstr "@title als Standard einstellen"
+
+#: src/LanguageListBuilder.php:139 src/Form/ContentLanguageSettingsForm.php:167
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: src/LanguageListBuilder.php:148
+msgid "Selected default language no longer exists."
+msgstr "Die ausgewählte Standardsprache exisitiert nicht mehr."
+
+#: src/LanguageListBuilder.php:169
+msgid "Configuration saved."
+msgstr "Die Konfiguration wurde gespeichert."
+
+#: src/Element/LanguageConfiguration.php:45
+msgid "Explanation of the language options is found on the <a href=\":languages_list_page\">languages list page</a>."
+msgstr "Erklärungen zu den Sprachoptionen finden sich in der <a href=\":languages_list_page\">Liste der Sprachen</a>."
+
+#: src/Element/LanguageConfiguration.php:51
+msgid "Show language selector on create and edit pages"
+msgstr "Sprachauswahl beim Erstellen und Bearbeiten von Seiten anzeigen"
+
+#: src/Element/LanguageConfiguration.php:94
+msgid "Site's default language (@language)"
+msgstr "Standardsprache der Website (@language)"
+
+#: src/Element/LanguageConfiguration.php:95
+msgid "Interface text language selected for page"
+msgstr "Sprache der Benutzeroberflächentexte die für die Seite gewählt wurde:"
+
+#: src/Element/LanguageConfiguration.php:96
+msgid "Author's preferred language"
+msgstr "Bevorzugte Sprache des Autors"
+
+#: src/Entity/ConfigurableLanguage.php:13
+msgid "language"
+msgstr "Sprache"
+
+#: src/Entity/ConfigurableLanguage.php:13
+msgid "languages"
+msgstr "Sprachen"
+
+#: src/Entity/ContentLanguageSettings.php:11
+msgid "content language setting"
+msgstr "Inhaltsspracheneinstellung"
+
+#: src/Entity/ContentLanguageSettings.php:11
+msgid "content languages settings"
+msgstr "Inhaltsspracheneinstellungen"
+
+#: src/Form/ContentLanguageSettingsForm.php:124
+msgid "Custom language settings"
+msgstr "Benutzerdefinierte Spracheinstellungen"
+
+#: src/Form/ContentLanguageSettingsForm.php:190
+msgid "Settings successfully updated."
+msgstr "Einstellungen erfolgreich aktualisiert."
+
+#: src/Form/LanguageAddForm.php:33
+msgid "Custom language..."
+msgstr "Benutzerdefinierte Sprache..."
+
+#: src/Form/LanguageAddForm.php:37 src/Form/LanguageFormBase.php:73 config/optional/tour.tour.language-edit.yml:0
+msgid "Language name"
+msgstr "Sprachname"
+
+#: src/Form/LanguageAddForm.php:74
+msgid "Add custom language"
+msgstr "Benutzerdefinierte Sprache hinzufügen"
+
+#: src/Form/LanguageAddForm.php:91
+msgid "The language %language has been created and can now be used."
+msgstr "Die Sprache %language wurde erstellt und kann jetzt verwendet werden."
+
+#: src/Form/LanguageAddForm.php:96
+msgid "Use one of the language switcher blocks to allow site visitors to switch between languages. You can enable these blocks on the <a href=\":block-admin\">block administration page</a>."
+msgstr "Verwenden Sie einen der Blocks zum Wechseln der Anzeigesprache um Besuchern das Auswählen der Anzeigesprache Ihrer Website zu ermöglichen. Sie können diese Blöcke auf der <a href=\":block-admin\">Verwaltungsseite für Blöcke</a> aktivieren."
+
+#: src/Form/LanguageAddForm.php:119;137
+msgid "The language %language (%langcode) already exists."
+msgstr "Die Sprache %language (%langcode) existiert bereits."
+
+#: src/Form/LanguageAddForm.php:123
+msgid "Use the <em>Add language</em> button to save a predefined language."
+msgstr "Verwenden Sie den Button <em>Sprache hinzufügen</em>, um eine vordefinierte Sprache zu speichern."
+
+#: src/Form/LanguageAddForm.php:133
+msgid "Fill in the language details and save the language with <em>Add custom language</em>."
+msgstr "Geben Sie die Einzelheiten zur Sprache ein und <em>Fügen Sie die Sprache hinzu</em>"
+
+#: src/Form/LanguageAddForm.php:90
+msgid "The %language (%langcode) language has been created."
+msgstr "Die Sprache %language (%langcode) wurde erstellt."
+
+#: src/Form/LanguageDeleteForm.php:18
+msgid "Deleting a language will remove all interface translations associated with it, and content in this language will be set to be language neutral. This action cannot be undone."
+msgstr "Das Löschen einer Sprache entfernt alle damit verbundenen Übersetzungen der Benutzeroberfläche. Inhalte in dieser Sprache werden auf den wert Sprachneutral eingestellt. Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/LanguageDeleteForm.php:32;39
+msgid "The %language (%langcode) language has been removed."
+msgstr "Die Sprache %language (%langcode) wurde entfernt."
+
+#: src/Form/LanguageEditForm.php:36
+msgid "Save language"
+msgstr "Sprache speichern"
+
+#: src/Form/LanguageEditForm.php:49
+msgid "The %language (%langcode) language has been updated."
+msgstr "Die Sprache %language (%langcode) wurde aktualisiert."
+
+#: src/Form/LanguageFormBase.php:52;63 config/optional/tour.tour.language-edit.yml:0
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Form/LanguageFormBase.php:68 src/Form/NegotiationBrowserForm.php:136
+msgid "Use language codes as <a href=\":w3ctags\">defined by the W3C</a> for interoperability. <em>Examples: \"en\", \"en-gb\" and \"zh-hant\".</em>"
+msgstr "Es sollten<a href=\":w3ctags\">W3C-Standards für Sprachkürzel</a> verwendet werden. <em>Beispiele: \"de\", \"de-DE\" oder \"zh-hant\".</em>"
+
+#: src/Form/LanguageFormBase.php:82
+msgid "Direction that text in this language is presented."
+msgstr "Die Textrichtung, in der diese Sprache angezeigt wird."
+
+#: src/Form/LanguageFormBase.php:85
+msgid "Left to right"
+msgstr "Links nach rechts"
+
+#: src/Form/LanguageFormBase.php:86
+msgid "Right to left"
+msgstr "Rechts nach links"
+
+#: src/Form/LanguageFormBase.php:99
+msgid "%field must be a valid language tag as <a href=\":url\">defined by the W3C</a>."
+msgstr "Das Feld %field muss ein <a href=\":url\">vom W3C festgelegter</a> gültiger Sprachcode sein."
+
+#: src/Form/LanguageFormBase.php:105
+msgid "%field cannot contain any markup."
+msgstr "%field darf kein Markup enthalten."
+
+#: src/Form/NegotiationBrowserDeleteForm.php:36
+msgid "Are you sure you want to delete %browser_langcode?"
+msgstr "Möchten Sie %browser_langcode wirklich löschen?"
+
+#: src/Form/NegotiationBrowserDeleteForm.php:78
+msgid "The mapping for the %browser browser language code has been deleted."
+msgstr "Die Zuordnung für das Sprachkürzel des Browsers %browser wurde gelöscht."
+
+#: src/Form/NegotiationBrowserDeleteForm.php:76
+msgid "The browser language detection mapping for the %browser browser language code has been deleted."
+msgstr "Die Browser-Spracherkennungs-Zuordnung für das Sprachkürzel des Browsers %browser wurde gelöscht."
+
+#: src/Form/NegotiationBrowserForm.php:80
+msgid "Existing languages"
+msgstr "Vorhandene Sprachen"
+
+#: src/Form/NegotiationBrowserForm.php:81
+msgid "Languages not yet added"
+msgstr "Noch nicht hinzugefügte Sprachen"
+
+#: src/Form/NegotiationBrowserForm.php:88;100;135
+msgid "Browser language code"
+msgstr "Sprachkürzel des Browsers"
+
+#: src/Form/NegotiationBrowserForm.php:89;108;141
+msgid "Site language"
+msgstr "Sprache der Website"
+
+#: src/Form/NegotiationBrowserForm.php:93
+msgid "No browser language mappings available."
+msgstr "Keine Browser-Sprachzuordnungen verfügbar."
+
+#: src/Form/NegotiationBrowserForm.php:130
+msgid "Add a new mapping"
+msgstr "Neue Zuordnung hinzufügen"
+
+#: src/Form/NegotiationBrowserForm.php:161;175
+msgid "Browser language codes must be unique."
+msgstr "Browser-Sprachkürzel müssen eindeutig sein."
+
+#: src/Form/NegotiationBrowserForm.php:164;178
+msgid "Browser language codes can only contain lowercase letters and a hyphen(-)."
+msgstr "Browser-Sprachkürzel dürfen nur Kleinbuchstaben und einen Bindestrich (-) enthalten."
+
+#: src/Form/NegotiationConfigureForm.php:150
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+#: src/Form/NegotiationConfigureForm.php:206
+msgid "Language detection configuration saved."
+msgstr "Konfiguration zur Spracherkennung gespeichert."
+
+#: src/Form/NegotiationConfigureForm.php:221
+msgid "@type language detection"
+msgstr "Spracherkennung für @type"
+
+#: src/Form/NegotiationConfigureForm.php:233
+msgid "Customize %language_name language detection to differ from Interface text language detection settings"
+msgstr "Spracherkennung der Sprache  %language_name anpassen um diese anders zu gestalten als die Erkennungseinstellungen für die Sprache der Benutzeroberfläche."
+
+#: src/Form/NegotiationConfigureForm.php:278
+msgid "Weight for @title language detection method"
+msgstr "Gewichtung für die @title Spracherkennungsmethode"
+
+#: src/Form/NegotiationConfigureForm.php:289
+msgid "Enable @title language detection method"
+msgstr "@title Sprachauswahlmethode aktivieren."
+
+#: src/Form/NegotiationConfigureForm.php:303
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: src/Form/NegotiationSessionForm.php:38
+msgid "Name of the request/session parameter used to determine the desired language."
+msgstr "Name des Anfrage-/Sitzungs-Parameters, um die gewünschte Sprache zu bestimmen."
+
+#: src/Form/NegotiationUrlForm.php:86
+msgid "Language codes or other custom text to use as a path prefix for URL language detection. For the selected fallback language, this value may be left blank. <strong>Modifying this value may break existing URLs. Use with caution in a production environment.</strong> Example: Specifying \"deutsch\" as the path prefix code for German results in URLs like \"example.com/deutsch/contact\"."
+msgstr "Als Pfadpräfix verwendete Sprachkürzel oder andere benutzerdefinierte Texte werden für die URL-Spracherkennung verwendet. Für die ausgewählte Ausweichlösung der Sprache kann der Wert leer gelassen werden. <strong>Das Ändern dieses Wertes kann existierende URLs unbrauchbar machen. In einer Produktionsumgebung nur mit Bedacht einsetzen.</strong> Beispiel: „deutsch“ als Pfadpräfix für deutsch anzugeben führt zu URLs wie  „example.com/deutsch/contact“."
+
+#: src/Form/NegotiationUrlForm.php:100
+msgid "The domain names to use for these languages. <strong>Modifying this value may break existing URLs. Use with caution in a production environment.</strong> Example: Specifying \"de.example.com\" as language domain for German will result in a URL like \"http://de.example.com/contact\"."
+msgstr "Die Domainnamen, die für diese Sprachen veerwendet werden. <strong>Das Verändern dieses Werte kann vorhandene URLs unbrauchbar machen. Diese Einstellung ist auf Produktivseiten deshalb mit großer vorscht einzusetzen</strong>. Beispiel: Die Angabe „de.beispiel.de“ als Sprachdomain für Deutsch ergibt einen URL wie „de.beispiel.de/kontakt“."
+
+#: src/Form/NegotiationUrlForm.php:117
+msgid "%language (%langcode) path prefix (Default language)"
+msgstr "Pfadpräfix für %language (%langcode) (Standardsprache)"
+
+#: src/Form/NegotiationUrlForm.php:117
+msgid "%language (%langcode) path prefix"
+msgstr "Pfadpräfix für %language (%langcode)"
+
+#: src/Form/NegotiationUrlForm.php:124
+msgid "%language (%langcode) domain"
+msgstr "Domain für %language (%langcode)"
+
+#: src/Form/NegotiationUrlForm.php:153
+msgid "The prefix may only be left blank for the <a href=\":url\">selected detection fallback language.</a>"
+msgstr "Das Prefix darf nur für die <a href=\":url\">ausgewählte Standardsprache.</a> frei gelassen werden."
+
+#: src/Form/NegotiationUrlForm.php:161
+msgid "The prefix may not contain a slash."
+msgstr "Das Prefix darf keine Schrägstrich einhalten."
+
+#: src/Form/NegotiationUrlForm.php:166
+msgid "The prefix for %language, %value, is not unique."
+msgstr "Der Präfix-Code %value für %language ist nicht eindeutig."
+
+#: src/Form/NegotiationUrlForm.php:179
+msgid "The domain may not be left blank for %language."
+msgstr "Die Domain darf für %language nicht leer gelassen werden."
+
+#: src/Form/NegotiationUrlForm.php:185
+msgid "The domain for %language, %value, is not unique."
+msgstr "Der Domain-Code %value für %language ist nicht eindeutig."
+
+#: src/Form/NegotiationUrlForm.php:196
+msgid "The domain for %language may only contain the domain name, not a trailing slash, protocol and/or port."
+msgstr "die Domain für %language darf nur den Domainnamen enthalten. keinen anführenden oder abschließenden Schrägstrich, kein Protokll und keinen Port."
+
+#: src/Plugin/Block/LanguageBlock.php:14 src/Plugin/Derivative/LanguageBlock.php:29
+msgid "Language switcher"
+msgstr "Sprachumschalter"
+
+#: src/Plugin/Block/LanguageBlock.php:14
+msgid "System"
+msgstr "System"
+
+#: src/Plugin/Condition/Language.php:77
+msgid "Language selection"
+msgstr "Sprachauswahl"
+
+#: src/Plugin/Condition/Language.php:80
+msgid "Select languages to enforce. If none are selected, all languages will be allowed."
+msgstr "Bevorzugte Sprachen müssen gewählt werden. Wenn keine bestimmten Sprachen festgelegt werden, sind alle Sprachen erlaubt."
+
+#: src/Plugin/Condition/Language.php:125
+msgid "The language is not @languages."
+msgstr "Die Sprache ist nicht @languages."
+
+#: src/Plugin/Condition/Language.php:127
+msgid "The language is @languages."
+msgstr "Die Sprache ist @languages."
+
+#: src/Plugin/Derivative/LanguageBlock.php:24
+msgid "Language switcher (@type)"
+msgstr "Sprachumschalter (@type)"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationBrowser.php:9
+msgid "Browser"
+msgstr "Internet-Browser"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationBrowser.php:9
+msgid "Language from the browser's language settings."
+msgstr "Sprache aus den Spracheinstellungen des Browsers."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationContentEntity.php:18
+msgid "Determines the content language from a request parameter."
+msgstr "Bestimmt die Inhaltssprache über eine Abfrageparameter."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationSelected.php:8
+msgid "Language based on a selected language."
+msgstr "Sprache auf Basis einer ausgewählten Sprache."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationSession.php:13
+msgid "Language from a request/session parameter."
+msgstr "Sprache aus einem Anfrage-/Sitzungsparameter."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUI.php:8
+msgid "Interface"
+msgstr "Benutzeroberfläche"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUI.php:8
+msgid "Use the detected interface language."
+msgstr "Verwenden Sie die erkannte Sprache der Benutzeroberfläche."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUrl.php:14
+msgid "URL"
+msgstr "URL"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUrlFallback.php:8
+msgid "URL fallback"
+msgstr "Ersatz-URL"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUrlFallback.php:8
+msgid "Use an already detected language for URLs if none is found."
+msgstr "Verwenden Sie eine bereits erfasste Sprache für URLs, wenn keine gefunden wird."
+
+#: src/Plugin/migrate/source/Language.php:21
+msgid "The language code."
+msgstr "Das Sprachkürzel."
+
+#: src/Plugin/migrate/source/Language.php:22
+msgid "The English name of the language."
+msgstr "Der englische Name der Sprache."
+
+#: src/Plugin/migrate/source/Language.php:23
+msgid "The native name of the language."
+msgstr "Die Bezeichnung der Sprache in der Landessprache."
+
+#: src/Plugin/migrate/source/Language.php:24
+msgid "The language direction. (0 = LTR, 1 = RTL)"
+msgstr "Die Schreib- bzw Leserichtung der Sprache (0=von links nach rechts 1=von rehts nach links)"
+
+#: src/Plugin/migrate/source/Language.php:25
+msgid "Whether the language is enabled."
+msgstr "Ob die Sprache aktiviert ist."
+
+#: src/Plugin/migrate/source/Language.php:26
+msgid "Number of plural indexes in this language."
+msgstr "Anzahl von Pluralindexen in dieser Sprache."
+
+#: src/Plugin/migrate/source/Language.php:27
+msgid "PHP formula to get plural indexes."
+msgstr "PHP-Ausdruck um die Pluralindexe zu berechnen."
+
+#: src/Plugin/migrate/source/Language.php:28
+msgid "Domain to use for this language."
+msgstr "Die Domain, die für diese Sprache verwendet werden soll."
+
+#: src/Plugin/migrate/source/Language.php:29
+msgid "Path prefix used for this language."
+msgstr "Das für diese Sprache verwendete Pfadpräfix."
+
+#: src/Plugin/migrate/source/Language.php:30
+msgid "The language weight when listed."
+msgstr "Die Gewichtung der Sprache in einer Liste."
+
+#: src/Plugin/migrate/source/Language.php:31
+msgid "Location of the JavaScript translation file."
+msgstr "Speicherort der JavaScript-Übersetzungsdatei"
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettings.php:33 src/Plugin/migrate/source/d7/LanguageContentSettings.php:33
+msgid "Type"
+msgstr "Typ"
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettings.php:34 src/Plugin/migrate/source/d7/LanguageContentSettings.php:34
+msgid "Multilingual support."
+msgstr "Unterstützung von Mehrsprachigkeit"
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettings.php:35 src/Plugin/migrate/source/d7/LanguageContentSettings.php:35
+msgid "Lock language."
+msgstr "Sprache sperren."
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettingsTaxonomyVocabulary.php:31
+msgid "The vocabulary ID."
+msgstr "Die Vokabular-ID."
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettingsTaxonomyVocabulary.php:32
+msgid "The default language for new terms."
+msgstr "Die Standardsprache für neue Begriffe."
+
+#: src/Plugin/migrate/source/d6/LanguageContentSettingsTaxonomyVocabulary.php:33
+msgid "The i18n taxonomy translation setting."
+msgstr "Die i18n-Taxonomieübersetzungseinstellung."
+
+#: config/install/language.entity.en.yml:0
+msgid "English"
+msgstr "Englisch"
+
+#: config/install/language.entity.und.yml:0
+msgid "Not specified"
+msgstr "Nicht angegeben"
+
+#: config/install/language.entity.zxx.yml:0
+msgid "Not applicable"
+msgstr "Nicht zutreffend"
+
+#: config/optional/tour.tour.language-add.yml:0
+msgid "<p>This page provides the ability to add common languages to your site.</p><p>If the desired language is not available, you can add a custom language.</p>"
+msgstr "<p>Diese Seite bietet die Möglichkeit verbreitete Sprachen zur Website hinzuzufügen.</p><p>Falls die gewünschte Sprache nicht verfügbar ist, kann eine benutzerdefinierte Sprache hinzugefügt werden.</p>"
+
+#: config/optional/tour.tour.language-add.yml:0
+msgid "Select language"
+msgstr "Sprache auswählen"
+
+#: config/optional/tour.tour.language-add.yml:0
+msgid "<p>Choose a language from the list, or choose \"Custom language...\" at the end of the list.</p><p>Click the \"Add language\" button when you are done choosing your language.</p><p>When adding a custom language, you will get an additional form where you can provide the name, code, and direction of the language.</p>"
+msgstr "<p>Eine Sprache aus der Liste oder „Benutzerdefinierte Sprache...“ am Ende der selben auswählen.</p><p>Wenn die Sprache ausgewählt wurde, den „Sprache hinzufügen“-Button klicken.</p><p>Beim Hinzufügen einer benutzerdefinierten Sprache, wird ein zusätzliches Formular angezeigt. In diesem kann der Name, das Sprachkürzel sowie die Leserichtung der Sprache angeben werden.</p>"
+
+#: config/optional/tour.tour.language-add.yml:0 config/optional/tour.tour.language-edit.yml:0 config/optional/tour.tour.language.yml:0
+msgid "Continuing on"
+msgstr "Übersetzungen wiederverwenden"
+
+#: config/optional/tour.tour.language-add.yml:0
+msgid "<p>Now that you have an overview of the \"Add languages\" feature, you can continue by:<ul><li>Adding a language</li><li>Adding a custom language</li><li><a href=\"[site:url]admin/config/regional/language\">Viewing configured languages</a></li></ul></p>"
+msgstr "<p>Jetzt, da Sie einen Überblick über die Funktion „Sprachen hinzufügen“ haben, können Sie fortfahren mit:<ul><li>Eine Sprache hinzufügen</li><li>Eine benutzerdefinierte Sprache hinzufügen</li><li><a href=\"[site:url]admin/config/regional/language\">Eingerichtete Sprachen anzeigen</a></li></ul></p>"
+
+#: config/optional/tour.tour.language-edit.yml:0;0
+msgid "Editing languages"
+msgstr "Sprachen bearbeiten"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "<p>This page provides the ability to edit a language on your site, including custom languages.</p>"
+msgstr "<p>Diese Seite bietet die Möglichkeit, eine Sprache auf Ihrer Website zu bearbeiten, einschließlich benutzerdefinierter Sprachen.</p>"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "<p>You cannot change the code of a language on the site, since it is used by the system to keep track of the language.</p>"
+msgstr "<p>Das Sprachkürzel einer Sprache kann auf der Website nicht geändert werde, da es vom System zum Identifizieren der Sprache genutzt wird.</p>"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "<p>The language name is used throughout the site for all users and is written in English. Names of built-in languages can be translated using the Interface Translation module, and names of both built-in and custom languages can be translated using the Configuration Translation module.</p>"
+msgstr "<p>Der Name der Sprache wird für alle Benutzer der Website in Englisch angezeigt. Die Namen von mitgelieferten Sprachen können mit dem Interface-Translation-Modul und Namen von mitgelieferten sowie benutzerdefinierten Sprache können mit dem Configuration-Translation-Modul übersetzt werden.</p>"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "Language direction"
+msgstr "Sprachlaufrichtung"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "<p>Choose if the language is a \"Left to right\" or \"Right to left\" language.</p><p>Note that not all themes support \"Right to left\" layouts, so test your theme if you are using \"Right to left\".</p>"
+msgstr "<p>Auswählen ob es sich um eine „Links-nach-rechts“ oder „Rechts-nach-links“ Sprache handelt.</p><p>Bitte beachten, dass nicht alle Themes „Rechts-nach-links“-Layouts unterstützen. Sollte „Rechts-nach-links“ ausgewählt sein, sollte das verwendete Theme im Hinblick darauf getestet werden.</p>"
+
+#: config/optional/tour.tour.language-edit.yml:0
+msgid "<p>Now that you have an overview of the \"Edit language\" feature, you can continue by:<ul><li>Editing a language</li><li><a href=\"[site:url]admin/config/regional/language\">Viewing configured languages</a></li></ul></p>"
+msgstr "<p>Jetzt, da Sie einen Überblick über die Funktion „Sprache bearbeiten“ haben, können Sie fortfahren mit:<ul><li>Eine Sprache bearbeiten</li><li><a href=\"[site:url]admin/config/regional/language\">Eingerichtete Sprachen anzeigen</a></li></ul></p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>The \"Languages\" page allows you to add, edit, delete, and reorder languages for the site.</p>"
+msgstr "<p>Die Seite „Sprachen“ erlaubt es, Sprachen zur Website hinzuzufügen, zu bearbeiten, zu löschen und neu zu ordnen.</p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>To add more languages to your site, click the \"Add language\" button.</p><p>Added languages will be displayed in the language list and can then be edited or deleted.</p>"
+msgstr "<p>Um weitere Sprachen zu dieser Website hinzuzufügen, den <em>Sprache hinzufügen</em> Button klicken.</p><p>Hinzugefügte Sprachen werden in der nachfolgenden Liste angezeigt und können dort bearbeitet oder gelöscht werden.</p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "Reordering languages"
+msgstr "Sprachen neu anordnen"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>To reorder the languages on your site, use the drag icons next to each language.</p><p>The order shown here is the display order for language lists on the site such as in the language switcher blocks provided by the Interface Translation and Content Translation modules.</p><p>When you are done with reordering the languages, click the \"Save configuration\" button for the changes to take effect.</p>"
+msgstr "<p>Um die Priorität der Sprachen auf der Website neu festzulegen nutzen Sie das Symbol neben der jeweiligen Sprache um diese an die gewünschte Position zu ziehen.</p><p>Die hier angegebene Reihenfolge ist die Vorgabe für alle Sprachbezogenen Listen auf der Seite wie beispielsweise die Sprachblöcke, die vom Modul zum Übersetzen der Benutzeroberfläche und vom Modul zur Übersetzung der Inhalte der Website bereitgestellt werden.</p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "Set a language as default"
+msgstr "Eine Sprache als Standard setzen"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>You can change the default language of the site by choosing one of your configured languages as default. The site will use the default language in situations where no choice is made but a language should be set, for example as the language of the displayed interface.</p>"
+msgstr "<p>Die Standardsprache der Website kann durch die Auswahl einer der eingerichteten Sprachen als neuen Standard geändert werden. Die Website verwendet die Standardsprache im Fall, dass keine Auswahl getroffen wurde, aber eine Sprache angegeben sein sollte, zum Beispiel die Sprache der angezeigten Benutzeroberfläche.</p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "Modifying languages"
+msgstr "Sprachen anpassen"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>Operations are provided for editing and deleting your languages.</p><p>You can edit the name and the direction of the language.</p><p>Deleted languages can be added back at a later time. Deleting a language will remove all interface translations associated with it, and content in this language will be set to be language neutral. Note that you cannot delete the default language of the site.</p>"
+msgstr "<p>Es werden Manipulationen für das Bearbeiten und Löschen einer Sprache bereit gestellt.</p><p>Der Name und die Schreibrichtung der Sprache kann bearbeitet werden.</p><p>Gelöschte Sprachen können zu einem späteren Zeitpunkt wieder hinzugefügt werden. Beim Löschen einer Sprache werden sämtliche Übersetzungen der Benutzeroberfläche entfernt und Inhalte in dieser Sprache werden auf eine neutrale Sprache zurückgesetzt. Bitte beachten, dass sich die Standardsprache einer Website nicht löschen lässt.</p>"
+
+#: config/optional/tour.tour.language.yml:0
+msgid "<p>Now that you have an overview of the \"Languages\" page, you can continue by:<ul><li><a href=\"[site:url]admin/config/regional/language/add\">Adding a language</a></li><li>Reordering languages</li><li>Editing a language</li><li>Deleting a language</li></ul></p>"
+msgstr "Nun, da Sie einen Überblick über die Seite Sprachen haben, können Sie fortfahren, indem Sie <ul><li><a href=\"[site:url]admin/config/regional/language/add\">Eine Sprache hinzufügen</a></li><li>Sprachen neu anordnen</li><li>Eine Sprache bearbeiten</li><li>Eine Sprache löschen</li></ul></p>"
+

@@ -1,0 +1,354 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  workbench.module: n/a
+#  workbench.info.yml: n/a
+#  workbench.links.menu.yml: n/a
+#  workbench.routing.yml: n/a
+#  workbench.permissions.yml: n/a
+#  config/schema/workbench.schema.yml: n/a
+#  src/Controller/WorkbenchContentController.php: n/a
+#  src/Form/WorkbenchSettingsForm.php: n/a
+#  src/Plugin/Block/WorkbenchBlock.php: n/a
+#  config/install/workbench.settings.yml: n/a
+#  config/optional/views.view.workbench_current_user.yml: n/a
+#  config/optional/views.view.workbench_edited.yml: n/a
+#  config/optional/views.view.workbench_recent_content.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:42+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: workbench.module:46 workbench.info.yml:0;0 workbench.links.menu.yml:0
+msgid "Workbench"
+msgstr "Workbench"
+
+#: workbench.module:49
+msgid "My personal editorial workspace"
+msgstr "Mein persönlicher redaktioneller Arbeitsbereich"
+
+#: workbench.module:54
+msgid "Your Workbench"
+msgstr "Ihr Arbeitsbereich"
+
+#: workbench.info.yml:0
+msgid "Provides convenient dashboards and shortcuts for editors."
+msgstr "Stellt praktische Dashboards und Tastaturkürzel für Redakteure bereit."
+
+#: workbench.links.menu.yml:0 workbench.routing.yml:0
+msgid "My Workbench"
+msgstr "Mein Arbeitsbereich"
+
+#: workbench.links.menu.yml:0
+msgid "Create content"
+msgstr "Inhalt erstellen"
+
+#: workbench.links.menu.yml:0 workbench.routing.yml:0
+msgid "My edits"
+msgstr "Meine Änderungen"
+
+#: workbench.links.menu.yml:0 workbench.routing.yml:0
+msgid "All recent content"
+msgstr "Aller neuester Inhalt"
+
+#: workbench.links.menu.yml:0
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: workbench.links.menu.yml:0;0
+msgid "Workbench configuration"
+msgstr "Arbeitsbereichkonfiguration"
+
+#: workbench.permissions.yml:0
+msgid "Access My Workbench"
+msgstr "Zugriff auf „Mein Arbeitsbereich”"
+
+#: workbench.permissions.yml:0
+msgid "Administer Workbench content settings"
+msgstr "Inhaltseinstellungen für den Arbeitsbereich verwalten"
+
+#: workbench.routing.yml:0 config/schema/workbench.schema.yml:0
+msgid "Workbench settings"
+msgstr "Einstellungen zum Arbeitsbereich"
+
+#: workbench.routing.yml:0
+msgid "Add content"
+msgstr "Inhalt hinzufügen"
+
+#: config/schema/workbench.schema.yml:0
+msgid "Overview block left."
+msgstr "Linker Übersichtsblock."
+
+#: config/schema/workbench.schema.yml:0
+msgid "Overview block right."
+msgstr "Rechter Übersichtsblock."
+
+#: config/schema/workbench.schema.yml:0
+msgid "Overview block main."
+msgstr "Haupt-Übersichtsblock."
+
+#: config/schema/workbench.schema.yml:0
+msgid "My edits main."
+msgstr "Meine Änderungen Haupt."
+
+#: config/schema/workbench.schema.yml:0
+msgid "All content main."
+msgstr "Alle Inhalte Haupt."
+
+#: src/Controller/WorkbenchContentController.php:178 src/Form/WorkbenchSettingsForm.php:67
+msgid "Overview block left"
+msgstr "Linker Übersichtsblock"
+
+#: src/Controller/WorkbenchContentController.php:179 src/Form/WorkbenchSettingsForm.php:68
+msgid "Overview block right"
+msgstr "Rechter Übersichtsblock"
+
+#: src/Controller/WorkbenchContentController.php:180 src/Form/WorkbenchSettingsForm.php:69
+msgid "Overview block main"
+msgstr "Haupt-Übersichtsblock"
+
+#: src/Controller/WorkbenchContentController.php:181 src/Form/WorkbenchSettingsForm.php:70
+msgid "My edits main"
+msgstr "Meine Änderungen Haupt"
+
+#: src/Controller/WorkbenchContentController.php:182 src/Form/WorkbenchSettingsForm.php:71
+msgid "All content main"
+msgstr "Alle Inhalte Haupt"
+
+#: src/Form/WorkbenchSettingsForm.php:35
+msgid "Workbench provides three pages that can be configured. The overview \"My Workbench\" page has three content sections, while the \"My edits\" and \"All recent content\" pages have one. Select the View and display that you wish to use."
+msgstr "Der Arbeitsbereich stellt drei konfigurierbare Seiten bereit. Die Übersichtsseite „Mein Arbeitsbereich“ hat drei Inhaltsabschnitte, während die Seiten „Meine Änderungen“ und „Alle neusten Inhalte“ jeweils einen haben. Wählen Sie die Ansicht und die Darstellung, die Sie verwenden wollen."
+
+#: src/Plugin/Block/WorkbenchBlock.php:9
+msgid "Workbench information"
+msgstr "Arbeitsbereichinformationen"
+
+#: config/install/workbench.settings.yml:0
+msgid "workbench_current_user:block_1"
+msgstr "workbench_current_user:block_1"
+
+#: config/install/workbench.settings.yml:0
+msgid "workbench_edited:block_1"
+msgstr "workbench_edited:block_1"
+
+#: config/install/workbench.settings.yml:0
+msgid "workbench_recent_content:block_1"
+msgstr "workbench_recent_content:block_1"
+
+#: config/install/workbench.settings.yml:0
+msgid "workbench_edited:embed_1"
+msgstr "workbench_edited:embed_1"
+
+#: config/install/workbench.settings.yml:0
+msgid "workbench_recent_content:embed_1"
+msgstr "workbench_recent_content:embed_1"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Workbench: Current user"
+msgstr "Arbeitsbereich: Aktueller Benutzer"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Information about the current user."
+msgstr "Informationen über den aktuellen Benutzer."
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.workbench_current_user.yml:0;0;0;0 config/optional/views.view.workbench_edited.yml:0;0;0;0;0 config/optional/views.view.workbench_recent_content.yml:0;0;0;0;0;0;0;0;0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Edit my profile"
+msgstr "Mein Profil bearbeiten"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Last visit"
+msgstr "Letzter Besuch"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Assigned roles"
+msgstr "Zugewiesene Rollen"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "<h3>{{ name }}'s profile</h3>"
+msgstr "<h3>Profil von {{ name }}</h3>"
+
+#: config/optional/views.view.workbench_current_user.yml:0 config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Overview block"
+msgstr "Übersichtsblock"
+
+#: config/optional/views.view.workbench_current_user.yml:0
+msgid "Displays information about the current user."
+msgstr "Zeigt Informationen über den aktuellen Benutzer."
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "Workbench: Edits by user"
+msgstr "Arbeitsbereich: Änderungen durch Benutzer"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "Lists content edited by the user."
+msgstr "Vom Benutzer geänderte Inhalte anzeigen."
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "« First"
+msgstr "« Anfang"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Last »"
+msgstr "Ende »"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0;0
+msgid "Title"
+msgstr "Titel"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0;0
+msgid "Type"
+msgstr "Typ"
+
+#: config/optional/views.view.workbench_edited.yml:0;0 config/optional/views.view.workbench_recent_content.yml:0;0;0
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Last updated"
+msgstr "Zuletzt aktualisiert"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "My Edits"
+msgstr "Meine Änderungen"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "Edited something recently and it's not in this list? If a content type isn't revisioned and you didn't create it, it will not show up in this list when you edit it. You can find it in the 'Content I Can Edit' tab."
+msgstr "Sie haben unlängst etwas geändert und es ist nicht in der Liste? Wenn ein Inhaltstyp keine Revision hat und Sie ihn nicht erstellt haben, erscheint er nicht in dieser Liste, wenn Sie ihn ändern. Sie finden ihn unter dem Reiter ‚Inhalt | Editierbar‘."
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "You haven't created or edited any content."
+msgstr "Sie haben noch keinen Inhalt erstellt oder bearbeitet."
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "User"
+msgstr "Benutzer"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "Get the actual content from a content revision."
+msgstr "Den aktuellen Inhalt einer Version laden."
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "‹‹"
+msgstr "‹‹"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "››"
+msgstr "››"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "<h3>Your most recent edits</h3>"
+msgstr "<h3>Kürzlich bearbeitete Inhalte</h3>"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "view all"
+msgstr "Alle anzeigen"
+
+#: config/optional/views.view.workbench_edited.yml:0
+msgid "The five most recent edits by this user"
+msgstr "Die fünf letzten Bearbeitungen durch diesen Benutzer"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "Page Embed"
+msgstr "Seite einbetten"
+
+#: config/optional/views.view.workbench_edited.yml:0 config/optional/views.view.workbench_recent_content.yml:0
+msgid "The embedded view for use on a landing page"
+msgstr "Die eingebettete Ansicht zur Verwendung auf einer Einstiegsseite"
+
+#: config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Workbench: Recent content"
+msgstr "Arbeitsbereich: Neuester Inhalt"
+
+#: config/optional/views.view.workbench_recent_content.yml:0
+msgid "Content overview page for Workbench."
+msgstr "Inhalt-Übersichtsseite für Arbeitsbereich."
+
+#: config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Author"
+msgstr "Autor"
+
+#: config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "Actions"
+msgstr "Aktionen"
+
+#: config/optional/views.view.workbench_recent_content.yml:0;0
+msgid "edit"
+msgstr "Bearbeiten"
+
+#: config/optional/views.view.workbench_recent_content.yml:0
+msgid "There is no content available for you to edit."
+msgstr "Es gibt für Sie noch keinen zu bearbeitenden Inhalt."
+
+#: config/optional/views.view.workbench_recent_content.yml:0
+msgid "author"
+msgstr "Autor"
+
+#: config/optional/views.view.workbench_recent_content.yml:0
+msgid "The ten most recent posts to the site"
+msgstr "Die zehn letzten Beiträge zur Site"
+
+#: config/optional/views.view.workbench_recent_content.yml:0
+msgid "<h3>Recent content</h3>"
+msgstr "<h3>Neuester Inhalt</h3>"
+
+msgid "The editorial workbench."
+msgstr "Der redaktionelle Arbeitsbereich."

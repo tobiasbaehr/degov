@@ -1,0 +1,93 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  paragraphs_edit.info.yml: n/a
+#  paragraphs_edit.links.contextual.yml: n/a
+#  src/ParagraphLineageInspector.php: n/a
+#  src/Form/ParagraphCloneForm.php: n/a
+#  src/Form/ParagraphDeleteForm.php: n/a
+#  src/Form/ParagraphEditForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:40+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: paragraphs_edit.info.yml:0
+msgid "Paragraphs Edit"
+msgstr "Seitenabschnitte bearbeiten"
+
+#: paragraphs_edit.info.yml:0
+msgid "Allows users to edit paragraphs."
+msgstr "Erlaubt Benutzern das Bearbeiten von Seitenabschnitten."
+
+#: paragraphs_edit.info.yml:0
+msgid "Paragraphs"
+msgstr "Paragraphs"
+
+#: paragraphs_edit.links.contextual.yml:0
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: paragraphs_edit.links.contextual.yml:0
+msgid "Clone"
+msgstr "Klonen"
+
+#: paragraphs_edit.links.contextual.yml:0
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/ParagraphLineageInspector.php:114
+msgid "Orphan paragraph"
+msgstr "Verwaister Seitenabschnitt"
+
+#: src/Form/ParagraphCloneForm.php:46
+msgid "Clone to"
+msgstr "Klonen nach"
+
+#: src/Form/ParagraphCloneForm.php:58
+msgid "Type"
+msgstr "Typ"
+
+#: src/Form/ParagraphCloneForm.php:75
+msgid "Bundle"
+msgstr "Subtyp"
+
+#: src/Form/ParagraphCloneForm.php:97
+msgid "Parent"
+msgstr "Übergeordnet"
+
+#: src/Form/ParagraphCloneForm.php:107
+msgid "Field"
+msgstr "Feld"
+
+#: src/Form/ParagraphCloneForm.php:119
+msgid "Clone @lineage"
+msgstr "@lineage klonen"
+
+#: src/Form/ParagraphCloneForm.php:204
+msgid "Cloned @source_lineage to %destination_lineage"
+msgstr "@source_lineage nach %destination_lineage geklont"
+
+#: src/Form/ParagraphDeleteForm.php:19
+msgid "Are you sure you want to delete @lineage?"
+msgstr "Möchten Sie @lineage wirklich löschen?"
+
+#: src/Form/ParagraphDeleteForm.php:28
+msgid "@lineage has been deleted."
+msgstr "@lineage wurde gelöscht."
+
+#: src/Form/ParagraphEditForm.php:48
+msgid "Edit @lineage"
+msgstr "@lineage bearbeiten"
+

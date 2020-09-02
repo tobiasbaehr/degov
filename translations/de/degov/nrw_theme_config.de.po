@@ -1,0 +1,37 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  nrw_theme_config.module: n/a
+#  nrw_theme_config.info.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:59+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: nrw_theme_config.module:24
+msgid "You might want install Color Schema UI module. NRW base theme is optimized \n      for it and allows theme color setting from web ui. Also it's recommended to install the deGov demo content\n      module for easy content previews."
+msgstr "Vielleicht wollen Sie das Color-Schema-UI-Modul installieren. Das NRW Basis-Theme ist hierfür optimiert und lässt Theme-Farbeinstellungen aus der Web-UI zu. Es wird auch empfohlen, das deGov-Demo-Content-Modul für einfache Vorschauen von Inhalten zu installieren."
+
+#: nrw_theme_config.info.yml:0
+msgid "NRW - Theme Config"
+msgstr "NRW - Theme Konfig."
+
+#: nrw_theme_config.info.yml:0
+msgid "Config for the NRWGov base theme."
+msgstr "Konfig. für das NRWGov Basis-Theme."
+
+#: nrw_theme_config.info.yml:0
+msgid "NRW"
+msgstr "NRW"
+

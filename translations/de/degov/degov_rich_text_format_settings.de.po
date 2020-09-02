@@ -1,0 +1,42 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_rich_text_format_settings.info.yml: n/a
+#  config/install/filter.format.rich_html.yml: n/a
+#  config/install/linkit.linkit_profile.full_text.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 13:03+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_rich_text_format_settings.info.yml:0
+msgid "deGov - Rich Text Format - Settings"
+msgstr "deGov - Rich Text Format - Einstellungen"
+
+#: degov_rich_text_format_settings.info.yml:0
+msgid "Activates Spamspan obfuscation of the E-Mail addresses for the Richt Text Format"
+msgstr "Aktiviert die Spamspan-Verschleierung der E-Mail-Adressen für das Rich Text Format"
+
+#: degov_rich_text_format_settings.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: config/install/filter.format.rich_html.yml:0
+msgid "Rich HTML"
+msgstr "Rich-HTML"
+
+#: config/install/linkit.linkit_profile.full_text.yml:0
+msgid "Full text"
+msgstr "Gesamter Text"
+

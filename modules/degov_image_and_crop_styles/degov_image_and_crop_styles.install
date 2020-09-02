@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Config\Config;
+use Drupal\degov\TranslationImporter;
 use Symfony\Component\Yaml\Yaml;
 
 function _degov_image_and_crop_styles_set_enforced_and_uuid(Config $getEditable) {
@@ -186,4 +187,13 @@ function degov_image_and_crop_styles_update_880106() {
     $configObject = \Drupal::configFactory()->getEditable($configKey);
     $configObject->setData(Yaml::parseFile($pathToConfigFile))->save(TRUE);
   }
+}
+
+/**
+ * deGov 8.5.0 - Import config translations.
+ */
+function degov_image_and_crop_styles_update_880500() {
+  TranslationImporter::importConfigTranslationsFromDirectory('de', \Drupal::service('extension.list.module')
+    ->get('degov_image_and_crop_styles')
+    ->getPath() . '/config/install/language/de');
 }

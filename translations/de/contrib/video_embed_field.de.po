@@ -1,0 +1,359 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  video_embed_field.module: n/a
+#  video_embed_field.info.yml: n/a
+#  modules/video_embed_media/video_embed_media.info.yml: n/a
+#  modules/video_embed_media/modules/vem_migrate_oembed/vem_migrate_oembed.info.yml: n/a
+#  modules/video_embed_wysiwyg/video_embed_wysiwyg.info.yml: n/a
+#  video_embed_field.permissions.yml: n/a
+#  config/schema/video_embed_field.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/Thumbnail.php: n/a
+#  modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml: n/a
+#  src/Plugin/Field/FieldFormatter/Video.php: n/a
+#  src/Plugin/Field/FieldType/VideoEmbedField.php: n/a
+#  modules/video_embed_wysiwyg/src/Form/VideoEmbedDialog.php: n/a
+#  modules/video_embed_media/config/schema/video_embed_media.schema.yml: n/a
+#  modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php: n/a
+#  modules/video_embed_wysiwyg/video_embed_wysiwyg.module: n/a
+#  modules/video_embed_wysiwyg/src/Plugin/CKEditorPlugin/VideoEmbedWysiwyg.php: n/a
+#  modules/video_embed_wysiwyg/src/Plugin/Filter/VideoEmbedWysiwyg.php: n/a
+#  modules/video_embed_wysiwyg/video_embed_wysiwyg.routing.yml: n/a
+#  modules/video_embed_wysiwyg/plugin/plugin.js: n/a
+#  src/Plugin/Validation/Constraint/VideoEmbedConstraint.php: n/a
+#  src/ProviderPluginBase.php: n/a
+#  src/Plugin/Field/FieldFormatter/Colorbox.php: n/a
+#  src/Plugin/Field/FieldFormatter/LazyLoad.php: n/a
+#  src/Plugin/Field/FieldWidget/VideoTextfield.php: n/a
+#  src/Plugin/video_embed_field/Provider/Vimeo.php: n/a
+#  src/Plugin/video_embed_field/Provider/YouTube.php: n/a
+#  src/Plugin/video_embed_field/Provider/YouTubePlaylist.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: video_embed_field.module:44
+msgid "About"
+msgstr "Über"
+
+#: video_embed_field.module:45
+msgid "The Video Embed Field module provides a simple field type you can use to embed videos and their preview thumbnails from YouTube, Vimeo and other providers. See the <a href=\":field_help\">Field module help</a> and the <a href=\":field_ui_help\">Field UI help</a> pages for general information on fields and how to create and manage them. For more Video Embed Field help, see the <a href=\":video_embed_field_docs\">online community documentation</a> or the <a href=\":project_page\">module project page</a>."
+msgstr "Das Video-Embed-Field-Modul stellt ein einfaches Feld zur Verfügung, das dazu verwendet werden kann, Videos und die dazugehörigen Vorschaubilder von YouTube, Vimeo und anderen Anbietern in die Website einzubinden. Allgemeine Informationen über Felder sowie das Erstellen und Verwalten von Feldern sind in der <a href=\":field_help\">Hilfe des Field-Moduls</a>  sowie der <a href=\":field_ui_help\">Field-UI-Hilfe</a> verfügbar. Weitere Informationen zum Video-Embed-Field-Modul sind in der <a href=\":video_embed_field_docs\">Online-Dokumentation</a> beziehungsweise auf der <a href=\":project_page\">Projektseite des Moduls</a> verfügbar."
+
+#: video_embed_field.info.yml:0;0 modules/video_embed_media/video_embed_media.info.yml:0 modules/video_embed_media/modules/vem_migrate_oembed/vem_migrate_oembed.info.yml:0 modules/video_embed_wysiwyg/video_embed_wysiwyg.info.yml:0
+msgid "Video Embed Field"
+msgstr "Video Embed Field"
+
+#: video_embed_field.info.yml:0
+msgid "Provides a field type for displaying videos from 3rd party providers such as YouTube and Vimeo."
+msgstr "Stellt einen Feldtyp für die Anzeige von Videos zur Verfügung, die von Drittanbietern wie YouTube oder Vimeo gehostet werden."
+
+#: video_embed_field.permissions.yml:0
+msgid "Never autoplay videos"
+msgstr "Videos nie automatisch abspielen"
+
+#: video_embed_field.permissions.yml:0
+msgid "Disables autoplay for every video viewed by users with the given role."
+msgstr "Deaktiviert die automatische Wiedergabe aller Videos für Mitglieder einer bestimmten Rolle."
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Thumbnail formatter settings."
+msgstr "Anzeigeformat für Miniaturbilder."
+
+#: config/schema/video_embed_field.schema.yml:0;0 src/Plugin/Field/FieldFormatter/Thumbnail.php:139
+msgid "Image Style"
+msgstr "Bildstil"
+
+#: config/schema/video_embed_field.schema.yml:0;0 src/Plugin/Field/FieldFormatter/Thumbnail.php:146
+msgid "Link image to"
+msgstr "Bild verlinken mit"
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Video formatter settings."
+msgstr "Einstellungen des Anzeigeformats Video."
+
+#: config/schema/video_embed_field.schema.yml:0;0 modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0 src/Plugin/Field/FieldFormatter/Video.php:139
+msgid "Autoplay"
+msgstr "Automatisch abspielen"
+
+#: config/schema/video_embed_field.schema.yml:0;0 modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0 src/Plugin/Field/FieldFormatter/Video.php:184
+msgid "Responsive"
+msgstr "Responsiv"
+
+#: config/schema/video_embed_field.schema.yml:0;0 modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0 src/Plugin/Field/FieldFormatter/Video.php:160
+msgid "Width"
+msgstr "Breite"
+
+#: config/schema/video_embed_field.schema.yml:0;0 modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0 src/Plugin/Field/FieldFormatter/Video.php:169
+msgid "Height"
+msgstr "Höhe"
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Colorbox hybrid formatter settings."
+msgstr "Einstellungen des Colorbox-Hybridanzeigeformats."
+
+#: config/schema/video_embed_field.schema.yml:0;0
+msgid "Modal max width"
+msgstr "Modal maximale Breite"
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Lazy load formatter settings."
+msgstr "Lazy-Load-Anzeigeformateinstellungen"
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Colorbox formatter settings."
+msgstr "Colorbox-Anzeigeformateinstellungen"
+
+#: config/schema/video_embed_field.schema.yml:0
+msgid "Video field settings."
+msgstr "Einstellungen des Video-Feldes."
+
+#: config/schema/video_embed_field.schema.yml:0 src/Plugin/Field/FieldType/VideoEmbedField.php:87
+msgid "Allowed Providers"
+msgstr "Erlaubte Anbieter"
+
+#: config/schema/video_embed_field.schema.yml:0 modules/video_embed_wysiwyg/src/Form/VideoEmbedDialog.php:73
+msgid "Video URL"
+msgstr "Video-URL"
+
+#: modules/video_embed_media/video_embed_media.info.yml:0
+msgid "Video Embed Media"
+msgstr "Eingebettetes Videomedium"
+
+#: modules/video_embed_media/video_embed_media.info.yml:0
+msgid "Integrates video_embed_field with the Media module, creating a new media type tailored to display embedded videos. Useful for websites which are using the media suite of modules."
+msgstr "Integriert video_embed_field in das Media-Modul und erstellt einen neuen Medientyp, der zur Anzeige von eingebetteten Videos gedacht ist. Nützlich für Websites, die die Media-Module verwenden."
+
+#: modules/video_embed_media/config/schema/video_embed_media.schema.yml:0
+msgid "\"Video Embed Field\" media source configuration"
+msgstr "„Video Embed Field“ Medienquellenkonfiguration"
+
+#: modules/video_embed_media/modules/vem_migrate_oembed/vem_migrate_oembed.info.yml:0
+msgid "Video Embed Media - Migrate to core oEmbed"
+msgstr "Eingebettetes Videomedium - Zu oEmbed des Kernsystems migrieren"
+
+#: modules/video_embed_media/modules/vem_migrate_oembed/vem_migrate_oembed.info.yml:0
+msgid "Provides a drush command to migrate to cores oEmbed"
+msgstr "Ermöglicht die Migration des oEmbed-Kernsystems mittels DruSh-Befehl."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:147
+msgid "Video ID."
+msgstr "Video-ID."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:148
+msgid "Video source machine name."
+msgstr "Systemname der Videoquelle."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:149
+msgid "Video source human name."
+msgstr "Menschenlesbarer Name der Videoquelle."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:150
+msgid "Copies thumbnail image to the local filesystem and returns the URI."
+msgstr "Kopiert das Miniaturbild eines Videos in das lokale Dateisystem und gibt die lokale URI zurück."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:151
+msgid "Gets URI of the locally saved image."
+msgstr "Ruft die URI des lokal gespeicherten Bildes ab."
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:15
+msgid "Video embed field"
+msgstr "Video embed field"
+
+#: modules/video_embed_media/src/Plugin/media/Source/VideoEmbedField.php:15
+msgid "Enables video_embed_field integration with media."
+msgstr "Aktiviert die Integration des Video-Embed-Field-Moduls in  das Media-Modul."
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.module:50
+msgid "To embed videos, make sure you have enabled the \"Video Embed WYSIWYG\" filter and dragged the video icon into the WYSIWYG toolbar. For more information <a href=\"@url\">read the documentation</a>."
+msgstr "Damit Videos eingebunden werden können, muss sichergestellt sein, dass der „Video-Embed-WYSIWYG“-Filter aktiviert ist und sich das Videosymbol in der Werkzeugleiste des Editors befindet. Weitere Informationen sind in der <a href=\"@url\">Dokumentation</a> verfügbar."
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.module:69
+msgid "The \"Video Embed WYSIWYG\" filter must run before the \"Convert URLs into links\" filter to function correctly. For more information <a href=\"@url\">read the documentation</a>."
+msgstr "Der „Video-Embed-WYSIWYG“-Filter muss vor dem Filter „URLs in Links umwandeln“ ausgeführt werden um richtig zu funktionieren. Weitere Informationen sind in der <a href=\"@url\">Dokumentation</a> verfügbar."
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.module:76
+msgid "The \"Video Embed WYSIWYG\" filter must run after the \"Limit allowed HTML tags\" filter to function correctly. For more information <a href=\"@url\">read the documentation</a>."
+msgstr "Der „Video-Embed WYSIWYG“-Filter muss nach dem Filter „Erlaubte HTML-Tags begrenzen“ ausgeführt werden, um korrekt zu funktionieren. Weitere Informationen sind in der <a href=\"@url\">Dokumentation</a> verfügbar."
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.info.yml:0 modules/video_embed_wysiwyg/src/Plugin/CKEditorPlugin/VideoEmbedWysiwyg.php:13 modules/video_embed_wysiwyg/src/Plugin/Filter/VideoEmbedWysiwyg.php:15
+msgid "Video Embed WYSIWYG"
+msgstr "Video Embed WYSIWYG"
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.info.yml:0
+msgid "Integrates video_embed_field directly into ckeditor. Useful for websites not using the media suite of modules that need WYSIWYG support."
+msgstr "Integriert Video Embed Field direkt in den CKEditor. Diese Funktion ist für Webseiten hilfreich, die die Media Suite nicht verwenden, aber über Module verfügen, die WYSIWYG-Unterstützung benötigen."
+
+#: modules/video_embed_wysiwyg/video_embed_wysiwyg.routing.yml:0
+msgid "Video Form"
+msgstr "Videoformular"
+
+#: modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0 modules/video_embed_wysiwyg/plugin/plugin.js:0;0 modules/video_embed_wysiwyg/src/Plugin/CKEditorPlugin/VideoEmbedWysiwyg.php:36 src/Plugin/Field/FieldType/VideoEmbedField.php:11
+msgid "Video Embed"
+msgstr "Video Embed"
+
+#: modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0
+msgid "Defaults"
+msgstr "Standards"
+
+#: modules/video_embed_wysiwyg/config/schema/video_embed_wysiwyg.schema.yml:0
+msgid "Children"
+msgstr "Untergeordnet"
+
+#: modules/video_embed_wysiwyg/src/Form/VideoEmbedDialog.php:95
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: modules/video_embed_wysiwyg/src/Form/VideoEmbedDialog.php:102
+msgid "Save"
+msgstr "Speichern"
+
+#: modules/video_embed_wysiwyg/src/Form/VideoEmbedDialog.php:165 src/Plugin/Validation/Constraint/VideoEmbedConstraint.php:22
+msgid "Could not find a video provider to handle the given URL."
+msgstr "Es konnte kein Video-Anbieter gefunden werden, der die angegebene URL verarbeiten kann."
+
+#: modules/video_embed_wysiwyg/src/Plugin/CKEditorPlugin/VideoEmbedWysiwyg.php:63
+msgid "Default Settings"
+msgstr "Standardeinstellungen"
+
+#: modules/video_embed_wysiwyg/src/Plugin/Filter/VideoEmbedWysiwyg.php:15
+msgid "Enables the use of video_embed_wysiwyg."
+msgstr "WYSIWYG-Funktion für Video-Embed-Felder aktivieren."
+
+#: src/ProviderPluginBase.php:172
+msgid "@provider Video (@id)"
+msgstr "@provider Video (@id)"
+
+#: src/Plugin/Field/FieldFormatter/Colorbox.php:163
+msgid "Maximum Width"
+msgstr "Maximale Breite"
+
+#: src/Plugin/Field/FieldFormatter/Colorbox.php:165
+msgid "The maximum size of the video opened in the Colorbox window in pixels. For smaller screen sizes, the video will scale."
+msgstr "Die maximale Größe in Pixeln für Videos, die in einem Colorbox-Fenster geöffnet werden. Auf kleineren Bildschirmen wird die Video-Größe angepasst."
+
+#: src/Plugin/Field/FieldFormatter/Colorbox.php:179
+msgid "Thumbnail that launches a modal window."
+msgstr "Ein Miniaturbild, das ein Modal-Fenster aufruft."
+
+#: src/Plugin/Field/FieldFormatter/Colorbox.php:14
+msgid "Colorbox Modal"
+msgstr "Colorbox-Modal"
+
+#: src/Plugin/Field/FieldFormatter/LazyLoad.php:158
+msgid "Thumbnail that lazy loads video embed code."
+msgstr "Das Miniaturbild, das beim Laden des eingebundenen Videos per Lazyload angezeigt wird."
+
+#: src/Plugin/Field/FieldFormatter/LazyLoad.php:14
+msgid "Video (lazy load)"
+msgstr "Video (lazy load)"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:148
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:151
+msgid "Content"
+msgstr "Inhalt"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:152
+msgid "Provider URL"
+msgstr "Anbieter-URL"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:164
+msgid ", linked to content"
+msgstr ",  zu Inhalt verlinkt"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:164
+msgid ", linked to provider"
+msgstr ", zu Anbieter verlinkt"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:166
+msgid "Video thumbnail (@style@linked)."
+msgstr "Video-Miniaturbild (@style@linked)."
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:167
+msgid "no image style"
+msgstr "kein Bildstil"
+
+#: src/Plugin/Field/FieldFormatter/Thumbnail.php:16
+msgid "Thumbnail"
+msgstr "Miniaturbild"
+
+#: src/Plugin/Field/FieldFormatter/Video.php:141
+msgid "Autoplay the videos for users without the \"never autoplay videos\" permission. Roles with this permission will bypass this setting."
+msgstr "Videos für Benutzer, die nicht über die Berechtigung „Videos nicht automatisch abspielen“ verfügen, automatisch starten. Für Benutzerrollen, die über die Berechtigung verfügen, wird diese Einstellung nicht angewandt."
+
+#: src/Plugin/Field/FieldFormatter/Video.php:145
+msgid "Responsive Video"
+msgstr "Responsives Video"
+
+#: src/Plugin/Field/FieldFormatter/Video.php:147
+msgid "Make the video fill the width of it's container, adjusting to the size of the user's screen."
+msgstr "Das Video an die Breite des Containers anpassen, der das Video beinhaltet, indem das Video an die Bildschirmgröße des Benutzers angepasst wird."
+
+#: src/Plugin/Field/FieldFormatter/Video.php:184
+msgid "@widthx@height"
+msgstr "@widthx@height"
+
+#: src/Plugin/Field/FieldFormatter/Video.php:185
+msgid "Embedded Video (@dimensions@autoplay)."
+msgstr "Eingebettetes Video (@dimensions@autoplay)."
+
+#: src/Plugin/Field/FieldFormatter/Video.php:187
+msgid ", autoplaying"
+msgstr ", automatisch abspielen"
+
+#: src/Plugin/Field/FieldFormatter/Video.php:16
+msgid "Video"
+msgstr "Video"
+
+#: src/Plugin/Field/FieldType/VideoEmbedField.php:68
+msgid "Video url"
+msgstr "Video-URL"
+
+#: src/Plugin/Field/FieldType/VideoEmbedField.php:88
+msgid "Restrict users from entering information from the following providers. If none are selected any video provider can be used."
+msgstr "Die Verwendung folgender Anbieter durch Benutzer verbieten. Wenn kein Anbieter ausgewählt wird können alle Anbieter verwendet werden."
+
+#: src/Plugin/Field/FieldType/VideoEmbedField.php:11
+msgid "Stores a video and then outputs some embed code."
+msgstr "Speichert ein Video ab und gibt anschließend den Code zum Einbetten des Videos aus."
+
+#: src/Plugin/Field/FieldType/VideoEmbedField.php:11
+msgid "Media"
+msgstr "Media"
+
+#: src/Plugin/Field/FieldWidget/VideoTextfield.php:9
+msgid "Video Textfield"
+msgstr "Video-Textfeld"
+
+#: src/Plugin/Validation/Constraint/VideoEmbedConstraint.php:7
+msgctxt "Validation"
+msgid "VideoEmbed provider constraint"
+msgstr "Video-Embed-Anbieterbeschränkung"
+
+#: src/Plugin/video_embed_field/Provider/Vimeo.php:7
+msgid "Vimeo"
+msgstr "Vimeo"
+
+#: src/Plugin/video_embed_field/Provider/YouTube.php:7
+msgid "YouTube"
+msgstr "YouTube"
+
+#: src/Plugin/video_embed_field/Provider/YouTubePlaylist.php:7
+msgid "YouTube Playlist"
+msgstr "YouTube-Playliste"
+

@@ -1,0 +1,2256 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  user.tokens.inc: n/a
+#  src/Entity/User.php: n/a
+#  src/Plugin/Search/UserSearch.php: n/a
+#  src/Plugin/views/wizard/Users.php: n/a
+#  config/optional/search.page.user_search.yml: n/a
+#  config/schema/user.views.schema.yml: n/a
+#  src/ContextProvider/CurrentUserContext.php: n/a
+#  user.views.inc: n/a
+#  src/EntityOwnerTrait.php: n/a
+#  src/Plugin/migrate/source/d6/User.php: n/a
+#  src/Plugin/migrate/source/d7/User.php: n/a
+#  src/UserListBuilder.php: n/a
+#  user.module: n/a
+#  src/AccountForm.php: n/a
+#  src/AccountSettingsForm.php: n/a
+#  config/optional/views.view.user_admin_people.yml: n/a
+#  user.links.menu.yml: n/a
+#  user.routing.yml: n/a
+#  user.links.task.yml: n/a
+#  src/Form/UserLoginForm.php: n/a
+#  src/Form/UserPasswordResetForm.php: n/a
+#  src/Plugin/Menu/LoginLogoutMenuLink.php: n/a
+#  user.permissions.js: n/a
+#  user.info.yml: n/a
+#  src/Plugin/Condition/UserRole.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationUser.php: n/a
+#  config/optional/views.view.who_s_new.yml: n/a
+#  user.links.action.yml: n/a
+#  user.links.contextual.yml: n/a
+#  src/RegisterForm.php: n/a
+#  src/RoleForm.php: n/a
+#  src/Plugin/Block/UserLoginBlock.php: n/a
+#  config/schema/user.schema.yml: n/a
+#  src/Entity/Role.php: n/a
+#  user.permissions.yml: n/a
+#  src/RoleListBuilder.php: n/a
+#  src/Plugin/views/field/UserData.php: n/a
+#  src/UserViewsData.php: n/a
+#  src/Form/UserPermissionsForm.php: n/a
+#  src/Plugin/views/access/Permission.php: n/a
+#  src/Plugin/EntityReferenceSelection/UserSelection.php: n/a
+#  src/Plugin/views/argument_validator/User.php: n/a
+#  src/Plugin/Action/ChangeUserRoleBase.php: n/a
+#  src/Plugin/views/access/Role.php: n/a
+#  src/Plugin/Field/FieldFormatter/UserNameFormatter.php: n/a
+#  src/Plugin/views/argument_default/User.php: n/a
+#  src/Plugin/views/argument_validator/UserName.php: n/a
+#  src/Plugin/Validation/Constraint/UserNameConstraint.php: n/a
+#  src/Form/UserCancelForm.php: n/a
+#  src/Form/UserMultipleCancelConfirm.php: n/a
+#  src/ProfileForm.php: n/a
+#  src/ToolbarLinkBuilder.php: n/a
+#  config/install/core.entity_view_mode.user.full.yml: n/a
+#  config/optional/views.view.who_s_online.yml: n/a
+#  src/Controller/UserAuthenticationController.php: n/a
+#  src/Form/UserPasswordForm.php: n/a
+#  src/Controller/UserController.php: n/a
+#  src/Plugin/Action/AddRoleUser.php: n/a
+#  src/Plugin/Action/BlockUser.php: n/a
+#  src/Plugin/Action/CancelUser.php: n/a
+#  src/Plugin/Action/RemoveRoleUser.php: n/a
+#  src/Plugin/Action/UnblockUser.php: n/a
+#  src/Plugin/Field/FieldFormatter/AuthorFormatter.php: n/a
+#  src/Plugin/LanguageNegotiation/LanguageNegotiationUserAdmin.php: n/a
+#  src/Plugin/Validation/Constraint/ProtectedUserFieldConstraint.php: n/a
+#  src/Plugin/Validation/Constraint/UserMailRequired.php: n/a
+#  src/Plugin/Validation/Constraint/UserMailUnique.php: n/a
+#  src/Plugin/Validation/Constraint/UserNameUnique.php: n/a
+#  src/Plugin/migrate/source/ProfileField.php: n/a
+#  src/Plugin/migrate/source/d6/ProfileFieldOptionTranslation.php: n/a
+#  src/Plugin/migrate/source/d6/ProfileFieldValues.php: n/a
+#  src/Plugin/migrate/source/d6/Role.php: n/a
+#  src/Plugin/migrate/source/d7/Role.php: n/a
+#  src/Plugin/migrate/source/d7/UserEntityTranslation.php: n/a
+#  src/Plugin/rest/resource/UserRegistrationResource.php: n/a
+#  src/Plugin/views/argument_default/CurrentUser.php: n/a
+#  src/Plugin/views/field/Roles.php: n/a
+#  src/Plugin/views/field/UserBulkForm.php: n/a
+#  src/Plugin/views/filter/Current.php: n/a
+#  src/Plugin/views/filter/Name.php: n/a
+#  src/Plugin/views/filter/Roles.php: n/a
+#  config/install/core.entity_form_mode.user.register.yml: n/a
+#  config/install/core.entity_view_mode.user.compact.yml: n/a
+#  config/install/system.action.user_block_user_action.yml: n/a
+#  config/install/system.action.user_cancel_user_action.yml: n/a
+#  config/install/system.action.user_unblock_user_action.yml: n/a
+#  config/install/user.mail.yml: n/a
+#  config/install/user.role.anonymous.yml: n/a
+#  config/install/user.role.authenticated.yml: n/a
+#  config/install/user.settings.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: user.tokens.inc:17 src/Entity/User.php:16 src/Plugin/Search/UserSearch.php:14 src/Plugin/views/wizard/Users.php:11 config/optional/search.page.user_search.yml:0
+msgid "Users"
+msgstr "Benutzer"
+
+#: user.tokens.inc:18
+msgid "Tokens related to individual user accounts."
+msgstr "Token mit Bezug auf einzelne Benutzerkonten."
+
+#: user.tokens.inc:22 config/schema/user.views.schema.yml:0;0 src/ContextProvider/CurrentUserContext.php:57;61
+msgid "Current user"
+msgstr "Aktueller Benutzer"
+
+#: user.tokens.inc:23
+msgid "Tokens related to the currently logged in user."
+msgstr "Token mit Bezug zum momentan angemeldeten Benutzer."
+
+#: user.tokens.inc:28 user.views.inc:12 config/schema/user.views.schema.yml:0 src/EntityOwnerTrait.php:38 src/Entity/User.php:445 src/Plugin/migrate/source/d6/User.php:92 src/Plugin/migrate/source/d7/User.php:32
+msgid "User ID"
+msgstr "Benutzer-ID"
+
+#: user.tokens.inc:29
+msgid "The unique ID of the user account."
+msgstr "Die eindeutige ID des Benutzerkontos."
+
+#: user.tokens.inc:32
+msgid "Deprecated: User Name"
+msgstr "Veraltet: Benutzername"
+
+#: user.tokens.inc:33
+msgid "Deprecated: Use account-name or display-name instead."
+msgstr "Überholt: Benutzername oder Anzeigename"
+
+#: user.tokens.inc:36
+msgid "Account Name"
+msgstr "Kontoname"
+
+#: user.tokens.inc:37
+msgid "The login name of the user account."
+msgstr "Der Anmeldenname des Benutzerkontos."
+
+#: user.tokens.inc:40
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#: user.tokens.inc:41
+msgid "The display name of the user account."
+msgstr "Der Anzeigename des Benutzerkontos"
+
+#: user.tokens.inc:44 src/Entity/User.php:496
+msgid "Email"
+msgstr "E-Mail"
+
+#: user.tokens.inc:45
+msgid "The email address of the user account."
+msgstr "Die E-Mail-Adresse des Benutzerkontos."
+
+#: user.tokens.inc:48
+msgid "URL"
+msgstr "URL"
+
+#: user.tokens.inc:49
+msgid "The URL of the account profile page."
+msgstr "Die URL der Benutzerprofilseite."
+
+#: user.tokens.inc:52
+msgid "Edit URL"
+msgstr "URL bearbeiten"
+
+#: user.tokens.inc:53
+msgid "The URL of the account edit page."
+msgstr "Die URL der Benutzerkontobearbeitungsseite."
+
+#: user.tokens.inc:57 src/Entity/User.php:535
+msgid "Last login"
+msgstr "Letzte Anmeldung"
+
+#: user.tokens.inc:58
+msgid "The date the user last logged in to the site."
+msgstr "Das Datum, an dem sich der Benutzer zuletzt bei der Website angemeldet hat."
+
+#: user.tokens.inc:62 src/Entity/User.php:521
+msgid "Created"
+msgstr "Erstellt"
+
+#: user.tokens.inc:63
+msgid "The date the user account was created."
+msgstr "Das Datum, an dem das Benutzerkonto erstellt wurde."
+
+#: user.tokens.inc:97;121;125
+msgid "not yet assigned"
+msgstr "noch nicht zugeordnet"
+
+#: user.tokens.inc:132 src/UserListBuilder.php:149
+msgid "never"
+msgstr "nie"
+
+#: user.tokens.inc:139
+msgid "not yet created"
+msgstr "noch nicht erzeugt"
+
+#: user.module:78
+msgid "About"
+msgstr "Über"
+
+#: user.module:79
+msgid "The User module allows users to register, log in, and log out. It also allows users with proper permissions to manage user roles and permissions. For more information, see the <a href=\":user_docs\">online documentation for the User module</a>."
+msgstr "Das User-Modul erlaubt Benutzern die Registrierung sowie das An-/und Abmelden an der Webseite. Weitere Informationen sind in der <a href=\":user_docs\">Online-Dokumentation des User-Moduls</a> verfügbar."
+
+#: user.module:80
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: user.module:82
+msgid "Creating and managing users"
+msgstr "Benutzer erstellen und verwalten"
+
+#: user.module:83
+msgid "Through the <a href=\":people\">People administration page</a> you can add and cancel user accounts and assign users to roles. By editing one particular user you can change their username, email address, password, and information in other fields."
+msgstr "Auf der Seite <a href=\":people\">Benutzer</a> können Benutzerkonten hinzugefügt und gelöscht sowie Benutzern bestimmte Rollen zugewiesen werden. Durch Bearbeiten eines bestimmten Benutzers können der Name des Benutzers, die E-Mail-Adresse, das Passwort und die Informationen in weiteren Feldern geändert werden."
+
+#: user.module:84
+msgid "Configuring user roles"
+msgstr "Benutzerrollen konfigurieren"
+
+#: user.module:85
+msgid "<em>Roles</em> are used to group and classify users; each user can be assigned one or more roles. Typically there are two pre-defined roles: <em>Anonymous user</em> (users that are not logged in), and <em>Authenticated user</em> (users that are registered and logged in). Depending on how your site was set up, an <em>Administrator</em> role may also be available: users with this role will automatically be assigned any new permissions whenever a module is enabled. You can create additional roles on the <a href=\":roles\">Roles administration page</a>."
+msgstr "<em> Rollen</em> werden verwendet, um Benutzer in bestimmte Gruppen einzuteilen und diese zu Klassifizieren. Jedem Benutzer können eine oder mehrere Rollen zugewiesen werden. Typischer weise gibt es zwei bereits definierte Rollen. <em>Anonyme Benutzer</em> (Benutzter, die nicht an der Website angemeldet sind) und <em>Angemeldete Benutzer</em> (Benutzer, die sich an der Website angemeldet und eingeloggt haben). Abhängig vom Aufbau der Website ist außerdem eine <em>Rolle für Administratoren</em> verfügbar. Benutzer, denen diese Rolle zugewiesen worden ist, erhalten automatische alle neuen Berechtigungen, sobald ein neues Modul aktiviert wird. Auf der Seite <a href=\":roles\">Rollen</a> können bei Bedarf weiterer Rollenangelegt werden."
+
+#: user.module:86
+msgid "Setting permissions"
+msgstr "Berechtigungen setzen"
+
+#: user.module:87
+msgid "After creating roles, you can set permissions for each role on the <a href=\":permissions_user\">Permissions page</a>. Granting a permission allows users who have been assigned a particular role to perform an action on the site, such as viewing content, editing or creating  a particular type of content, administering settings for a particular module, or using a particular function of the site (such as search)."
+msgstr "Nachdem Benutzerrollen erstellt wurden, Können die Berechtigungen für jede Rolle auf der Seite <a href=\":permissions_user\">Berechtigungen</a> festgelegt werden. Die Vergabe einer Berechtigung erlaubt Benutzern, denen eine bestimmte Benutzerrolle zugewiesen wurde eine oder mehrere Aktionen auf der Seite durchzuführen, die zuvor der Benutzerrolle zugeordnet wurden. Einige Aktionen sind beispielsweise: Inhalte anzeigen, Inhalt eines bestimmten Inhaltstyps erstellen oder bearbeiten Die Einstellungen eines bestimmten Moduls anpassen oder auch das Verwenden einer bestimmten Funktion der Seite, wie  beispielsweise der Suchfunktion."
+
+#: user.module:88
+msgid "Managing account settings"
+msgstr "Verwaltung der Kontoeinstellungen"
+
+#: user.module:89
+msgid "The <a href=\":accounts\">Account settings page</a> allows you to manage settings for the displayed name of the Anonymous user role, personal contact forms, user registration settings, and account cancellation settings. On this page you can also manage settings for account personalization, and adapt the text for the email messages that users receive when they register or request a password recovery. You may also set which role is automatically assigned new permissions whenever a module is enabled (the Administrator role)."
+msgstr "Die Seite <a href=\":accounts\">Benutzerkonteneinstellungen</a> ermöglicht das bearbeiten des Anzeigenamens für Anonyme Benutzer, das Konfigurieren persönlicher Kontaktformularte, sowie das Bearbeiten der Einstellungen für die Registrierung auf der Webseite. Außerdem können Einstellungen zur Personalisierung von Benutzerkonten sowie zum Verhalten von Drupal beim Löschen von Benutzerkonten und die Texte für die E-Mail-Benachrichtigungen, die an Benutzer versendet werden, wenn diese sich registrieren oder ihr Passwort zurücksetzen können festgelegt werden. Auch eine Rolle, der automatisch alle neuen Berechtigungen zugewiesen werden, wenn ein neues Modul aktiviert wird, kann hier festgelegt werden."
+
+#: user.module:90
+msgid "Managing user account fields"
+msgstr "Benutzerkontofelder verwalten"
+
+#: user.module:91
+msgid "Because User accounts are an entity type, you can extend them by adding fields through the Manage fields tab on the <a href=\":accounts\">Account settings page</a>. By adding fields for e.g., a picture, a biography, or address, you can a create a custom profile for the users of the website. For background information on entities and fields, see the <a href=\":field_help\">Field module help page</a>."
+msgstr "Weil es sich bei Benutzerkonten um einen Entitätstyp handelt können diese, über den Reiter Felder auf der Seite <a href=\":accounts\">Benutzerkonten</a> verwaltet und um neue Felder erweitert werden, indem zusätzliche Felder angelegt werden. Indem zum Beispiel Felder für ein Bild eine Biographie oder eine Adresse hinzufügt werden, kann ein benutzerdefiniertes Benutzerprofil für die registrierten Benutzer der Website erstellt werden. Weitere Informationen über Entitäten und Felder sind in der <a href=\":field_help\">Field-Modul-Hilfe</a> verfügbar."
+
+#: user.module:96
+msgid "This web page allows administrators to register new users. Users' email addresses and usernames must be unique."
+msgstr "Diese Website ermöglicht Administratoren die Registrierung von neuen Benutzern. Die E-Mail-Adressen und Benutzernamen der Benutzer müssen eindeutig sein."
+
+#: user.module:99
+msgid "Permissions let you control what users can do and see on your site. You can define a specific set of permissions for each role. (See the <a href=\":role\">Roles</a> page to create a role.) Any permissions granted to the Authenticated user role will be given to any user who is logged in to your site. From the <a href=\":settings\">Account settings</a> page, you can make any role into an Administrator role for the site, meaning that role will be granted all new permissions automatically. You should be careful to ensure that only trusted users are given this access and level of control of your site."
+msgstr "Mit Hilfe von Berechtigungen kann kontrolliert werden was Benutzer auf der Website sehen und machen dürfen. Es kann ein eigener Satz an Berechtigungen für jede Rolle definiert werden. Wie eine Rolle erstellt wird ist auf der Seite <a href=\":role\">Rollen</a> zu sehen. Jede Berechtigung, die der Rolle ‘Angemeldeter Benutzer‘ gewährt wird, besitzt jeder Benutzer, der auf der Website angemeldet ist. Auf der Seite <a href=\":settings\">Kontoeinstellungen</a> kann jede Rolle in eine Administratorenrolle für die Website umgewandelt werden, was bedeutet, dieser Rolle werden automatisch alle neuen Berechtigungen gewährt. Man sollte somit vorsichtig sein und nur vertrauenswürdigen Benutzern in dem Umfang Zugriff und Kontrolle auf die Website gewähren."
+
+#: user.module:102
+msgid "A role defines a group of users that have certain privileges. These privileges are defined on the <a href=\":permissions\">Permissions page</a>. Here, you can define the names and the display sort order of the roles on your site. It is recommended to order roles from least permissive (for example, Anonymous user) to most permissive (for example, Administrator user). Users who are not logged in have the Anonymous user role. Users who are logged in have the Authenticated user role, plus any other roles granted to their user account."
+msgstr "Eine Rolle definiert eine Gruppe von Benutzern die bestimmte Rechte hat. Diese Rechte sind auf der Seite <a href=\":permissions\">Berechtigungen</a> definiert. Hier können die Namen und die Reihenfolge wie die Rollen auf der Website angezeigt werden festgelegt werden. Es wird empfohlen die Rollen mit der geringsten Befugnissen (z. B. Gäste) bis hin zu den Rollen mit den meisten Befugnissen (z. B. Administratoren) zu ordnen. Benutzer die nicht angemeldet sind haben die Rolle ‘Gast‘. Benutzer die angemeldet sind haben die Rolle ‘Angemeldeter Benutzer‘ sowie jede weitere Rolle die ihnen gewährt wird."
+
+#: user.module:105
+msgid "This form lets administrators add and edit fields for storing user data."
+msgstr "Mit diesem Formular können Administratoren Felder zum Erfassen von Benutzerdaten hinzufügen und bearbeiten."
+
+#: user.module:108
+msgid "This form lets administrators configure how form fields should be displayed when editing a user profile."
+msgstr "Mit diesem Formular können Administratoren die Felddarstellung im Bearbeitungsformular für Benutzerprofile festlegen."
+
+#: user.module:111
+msgid "This form lets administrators configure how fields should be displayed when rendering a user profile page."
+msgstr "Dieses Formular lässt Administratoren konfigurieren, wie Felder beim Darstellen einer Benutzerprofilseite angezeigt werden sollen."
+
+#: user.module:161
+msgid "User name and password"
+msgstr "Benutzername und Passwort"
+
+#: user.module:162
+msgid "User module account form elements."
+msgstr "Benutzermodul-Kontoformularelemente."
+
+#: user.module:166 src/AccountForm.php:232 src/AccountSettingsForm.php:135
+msgid "Language settings"
+msgstr "Spracheinstellungen"
+
+#: user.module:167
+msgid "User module form element."
+msgstr "Formularelement des User-Moduls."
+
+#: user.module:172 src/Entity/User.php:504 src/Plugin/migrate/source/d6/User.php:103 src/Plugin/migrate/source/d7/User.php:42
+msgid "Timezone"
+msgstr "Zeitzone"
+
+#: user.module:173
+msgid "System module form element."
+msgstr "Formularelement des System-Moduls."
+
+#: user.module:179;395 src/UserListBuilder.php:99 config/optional/views.view.user_admin_people.yml:0
+msgid "Member for"
+msgstr "Mitglied seit"
+
+#: user.module:180
+msgid "User module 'member for' view element."
+msgstr "User-Modul 'Mitglied in'-Ansichtselement"
+
+#: user.module:484
+msgid "not verified"
+msgstr "nicht überprüft"
+
+#: user.module:514
+msgid "View user profile."
+msgstr "Benutzerprofil anzeigen."
+
+#: user.module:697
+msgid "The user account %id does not exist."
+msgstr "Das Benutzerkonto %id ist nicht vorhanden."
+
+#: user.module:704
+msgid "Cancelling account"
+msgstr "Benutzerkonto löschen"
+
+#: user.module:720
+msgid "Cancelling user account"
+msgstr "Benutzerkonto löschen"
+
+#: user.module:768
+msgid "%name has been disabled."
+msgstr "%name wurde deaktiviert."
+
+#: user.module:779
+msgid "%name has been deleted."
+msgstr "%name wurde gelöscht."
+
+#: user.module:822
+msgid "Disable the account and keep its content."
+msgstr "Das Benutzerkonto deaktivieren und damit erstellten Inhalt behalten."
+
+#: user.module:823
+msgid "Your account will be blocked and you will no longer be able to log in. All of your content will remain attributed to your username."
+msgstr "Ihr Konto wird gesperrt und sie können sich nicht mehr anmelden. Ihr gesamter Inhalt bleibt mit Ihrem Benutzernamen versehen."
+
+#: user.module:826
+msgid "Disable the account and unpublish its content."
+msgstr "Das Benutzerkonto deaktivieren und die Veröffentlichung des damit erstellen Inhalts zurücknehmen."
+
+#: user.module:827
+msgid "Your account will be blocked and you will no longer be able to log in. All of your content will be hidden from everyone but administrators."
+msgstr "Ihr Konto wird gesperrt und Sie können sich nicht mehr anmelden. Ihre gesamten Inhalte werden vor allen außer Administratoren ausgeblendet."
+
+#: user.module:830
+msgid "Delete the account and make its content belong to the %anonymous-name user."
+msgstr "Das Benutzerkonto löschen und dessen Inhalt dem Benutzer %anonymous-name zuordnen."
+
+#: user.module:831
+msgid "Your account will be removed and all account information deleted. All of your content will be assigned to the %anonymous-name user."
+msgstr "Ihr Benutzerkonto und alle Kontoinformationen werden gelöscht. Bei Ihren Inhalte wird der Benutzer %anonymous-name als Autor eingetragen."
+
+#: user.module:834
+msgid "Delete the account and its content."
+msgstr "Das Benutzerkonto und dessen erstellten Inhalt löschen."
+
+#: user.module:835
+msgid "Your account will be removed and all account information deleted. All of your content will also be deleted."
+msgstr "Ihr Benutzerkonto und alle Kontoinformationen werden gelöscht. All Ihre Inhalte werden gelöscht."
+
+#: user.module:1016
+msgid "Add the @label role to the selected user(s)"
+msgstr "Den ausgewählten Benutzern die Rolle @label zuweisen"
+
+#: user.module:1029
+msgid "Remove the @label role from the selected user(s)"
+msgstr "Den ausgewählten Benutzern die Rolle @label entziehen"
+
+#: user.module:1265
+msgid "Passwords match:"
+msgstr "Passwörter stimmen überein:"
+
+#: user.module:1266
+msgid "yes"
+msgstr "Ja"
+
+#: user.module:1267
+msgid "no"
+msgstr "Nein"
+
+#: user.module:1274
+msgid "Password strength:"
+msgstr "Passwortstärke:"
+
+#: user.module:1275
+msgid "Recommendations to make your password stronger:"
+msgstr "Vorschläge, die Ihnen helfen, Ihr Passwort sicherer zu machen:"
+
+#: user.module:1276
+msgid "Make it at least 12 characters"
+msgstr "Es sollte mindestens 12 Zeichen lang sein"
+
+#: user.module:1277
+msgid "Add lowercase letters"
+msgstr "Verwenden Sie Kleinbuchstaben"
+
+#: user.module:1278
+msgid "Add uppercase letters"
+msgstr "Großbuchstaben verwenden"
+
+#: user.module:1279
+msgid "Add numbers"
+msgstr "Verwenden Sie Zahlen"
+
+#: user.module:1280
+msgid "Add punctuation"
+msgstr "Verwenden Sie Satzzeichen"
+
+#: user.module:1281
+msgid "Make it different from your username"
+msgstr "Verwenden Sie nicht Ihren Benutzernamen"
+
+#: user.module:1282
+msgid "Weak"
+msgstr "Schwach"
+
+#: user.module:1283
+msgid "Fair"
+msgstr "Mittel"
+
+#: user.module:1284
+msgid "Good"
+msgstr "Gut"
+
+#: user.module:1285
+msgid "Strong"
+msgstr "Stark"
+
+#: user.module:1340 user.links.menu.yml:0 user.routing.yml:0
+msgid "My account"
+msgstr "Mein Konto"
+
+#: user.module:1349
+msgid "User account actions"
+msgstr "Benutzerkonto-Aktionen"
+
+#: user.module:1362 user.links.task.yml:0 user.routing.yml:0 src/Form/UserLoginForm.php:118 src/Form/UserPasswordResetForm.php:58 src/Plugin/Menu/LoginLogoutMenuLink.php:63
+msgid "Log in"
+msgstr "Anmelden"
+
+#: user.module:556
+msgid "Session opened for %name."
+msgstr "Die Sitzung für %name wurde eröffnet."
+
+#: user.module:769
+msgid "Blocked user: %name %email."
+msgstr "Gesperrter Benutzer: %name %email."
+
+#: user.module:780
+msgid "Deleted user: %name %email."
+msgstr "Benutzer gelöscht: %name (%email)."
+
+#: user.module:1394
+msgid "Session closed for %name."
+msgstr "Die Sitzung für %name wurde beendet."
+
+#: user.module:698
+msgid "Attempted to cancel non-existing user account: %id."
+msgstr "Es wurde versucht, das nicht vorhandene Benutzerkonto zu löschen: %id."
+
+#: user.permissions.js:0
+msgid "This permission is inherited from the authenticated user role."
+msgstr "Diese Berechtigung wird von der Rolle ‚Authentifizierte Benutzer‘ ererbt."
+
+#: user.info.yml:0 config/schema/user.views.schema.yml:0;0 src/Entity/User.php:16 src/Plugin/Condition/UserRole.php:8 src/Plugin/LanguageNegotiation/LanguageNegotiationUser.php:8 config/optional/views.view.who_s_new.yml:0
+msgid "User"
+msgstr "Benutzer"
+
+#: user.info.yml:0
+msgid "Manages the user registration and login system."
+msgstr "Ermöglicht das Registrieren und Anmelden auf der Webseite."
+
+#: user.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: user.links.action.yml:0 user.routing.yml:0
+msgid "Add user"
+msgstr "Benutzer hinzufügen"
+
+#: user.links.action.yml:0 user.routing.yml:0
+msgid "Add role"
+msgstr "Rolle hinzufügen"
+
+#: user.links.contextual.yml:0 user.routing.yml:0
+msgid "Delete role"
+msgstr "Rolle löschen"
+
+#: user.links.menu.yml:0;0 user.routing.yml:0;0 config/optional/views.view.user_admin_people.yml:0;0;0
+msgid "People"
+msgstr "Benutzer"
+
+#: user.links.menu.yml:0 user.routing.yml:0
+msgid "Account settings"
+msgstr "Kontoeinstellungen"
+
+#: user.links.menu.yml:0 config/optional/views.view.user_admin_people.yml:0
+msgid "Manage user accounts, roles, and permissions."
+msgstr "Verwalten von Benutzerkonten, Rollen und Zugriffsrechten."
+
+#: user.links.menu.yml:0
+msgid "Configure user accounts."
+msgstr "Benutzerkonten konfigurieren."
+
+#: user.links.menu.yml:0
+msgid "Configure default user account settings, including fields, registration requirements, and email messages."
+msgstr "Konfiguration der Standardeinstellungen für Benutzerkonten, einschließlich Felder, Voraussetzungen der Registrierung, sowie   E-Mail-Nachrichten."
+
+#: user.links.task.yml:0;0 src/RegisterForm.php:106 src/RoleForm.php:58
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: user.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: user.links.task.yml:0 user.routing.yml:0 src/RegisterForm.php:64 src/Plugin/Block/UserLoginBlock.php:118
+msgid "Create new account"
+msgstr "Neues Benutzerkonto erstellen"
+
+#: user.links.task.yml:0 user.routing.yml:0 src/Plugin/Block/UserLoginBlock.php:129
+msgid "Reset your password"
+msgstr "Passwort zurücksetzen"
+
+#: user.links.task.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: user.links.task.yml:0 config/optional/views.view.user_admin_people.yml:0
+msgid "List"
+msgstr "Liste"
+
+#: user.links.task.yml:0 user.routing.yml:0 config/schema/user.schema.yml:0
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: user.links.task.yml:0 user.routing.yml:0 config/schema/user.views.schema.yml:0 src/AccountForm.php:202 src/UserListBuilder.php:95 src/Entity/Role.php:9 src/Entity/User.php:545 src/Plugin/migrate/source/d6/User.php:34 src/Plugin/migrate/source/d7/User.php:47 config/optional/views.view.user_admin_people.yml:0
+msgid "Roles"
+msgstr "Rollen"
+
+#: user.permissions.yml:0
+msgid "Administer permissions"
+msgstr "Berechtigungen verwalten"
+
+#: user.permissions.yml:0
+msgid "Administer account settings"
+msgstr "Einstellungen des Benutzerkontos verwalten"
+
+#: user.permissions.yml:0
+msgid "Configure site-wide settings and behavior for user accounts and registration. This includes account cancellation methods, the content of user emails and fields attached to users."
+msgstr "Einstellungen für das Verhalten von Benutzerkonten und die Registrierung werden für die ganze Website konfiguriert. Dies beinhaltet Methoden zum Löschen von Benutzerkonten, die Inhalt der E-Mails an Benutzer sowie die Felder die Benutzern zugeordnet wurden."
+
+#: user.permissions.yml:0 src/AccountSettingsForm.php:174
+msgid "Administer users"
+msgstr "Benutzer verwalten"
+
+#: user.permissions.yml:0
+msgid "Manage all user accounts. This includes editing all user information, changes of email addresses and passwords, issuing emails to users and blocking and deleting user accounts."
+msgstr "Alle Benutzerkonten verwalten. Dies beinhaltet das Bearbeiten aller Benutzerinformationen, das Ändern von E-Mail-Adressen und Passwörtern, das Versenden von E-Mails an Benutzer sowie das Sperren und Löschen von Benutzerkonten."
+
+#: user.permissions.yml:0
+msgid "View user information"
+msgstr "Benutzerinformationen anzeigen"
+
+#: user.permissions.yml:0
+msgid "Change own username"
+msgstr "Eigenen Benutzernamen ändern"
+
+#: user.permissions.yml:0 src/AccountSettingsForm.php:174
+msgid "Select method for cancelling account"
+msgstr "Auswahl der Methode zum Löschen von Benutzerkonten"
+
+#: user.permissions.yml:0
+msgid "Cancel own user account"
+msgstr "Eigenes Benutzerkonto löschen"
+
+#: user.permissions.yml:0
+msgid "Note: content may be kept, unpublished, deleted or transferred to the anonymous user depending on the configured user settings."
+msgstr "Hinweis: Inhalte können behalten, von der Veröffentlichung zurückgezogen, gelöscht oder auf einen Gast übertragen werden, abhängig von den Einstellungen, die auf der Seite Kontrasteinstellungen vorgenommen worden sind."
+
+#: user.routing.yml:0;0
+msgid "Edit role"
+msgstr "Rolle bearbeiten"
+
+#: user.routing.yml:0
+msgid "Cancel user"
+msgstr "Benutzerkonto stilllegen"
+
+#: user.routing.yml:0
+msgid "Confirm account cancellation"
+msgstr "Kontolöschung bestätigen"
+
+#: user.routing.yml:0;0;0 src/Form/UserPasswordResetForm.php:46
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+#: config/schema/user.schema.yml:0
+msgid "User settings"
+msgstr "Benutzereinstellungen"
+
+#: config/schema/user.schema.yml:0 config/schema/user.views.schema.yml:0 src/AccountSettingsForm.php:97 src/RoleListBuilder.php:66 src/Entity/User.php:479 src/Plugin/views/field/UserData.php:87
+msgid "Name"
+msgstr "Name"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:161
+msgid "Require email verification when a visitor creates an account"
+msgstr "Bestätigung per E-Mail verlangen, wenn ein Besucher ein Benutzerkonto anlegt"
+
+#: config/schema/user.schema.yml:0
+msgid "Notify user"
+msgstr "Benutzer benachrichtigen"
+
+#: config/schema/user.schema.yml:0;0 src/AccountSettingsForm.php:371
+msgid "Account cancellation confirmation"
+msgstr "Bestätigung zum Löschen des Benutzerkontos"
+
+#: config/schema/user.schema.yml:0
+msgid "Notify user when password reset"
+msgstr "Benutzer benachrichtigen, wenn Passwort zurückgesetzt"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:311
+msgid "Notify user when account is activated"
+msgstr "Benutzer benachrichtigen, wenn das Konto aktiviert wurde"
+
+#: config/schema/user.schema.yml:0;0 src/AccountSettingsForm.php:338
+msgid "Account blocked"
+msgstr "Konto gesperrt"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:390
+msgid "Account canceled"
+msgstr "Benutzerkonto wurde gelöscht"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:205
+msgid "Welcome (new user created by administrator)"
+msgstr "Willkommen (Neuer, von einem Administrator erstellter Benutzer)"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:265
+msgid "Welcome (no approval required)"
+msgstr "Willkommen (keine Bestätigung nötig)"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:225
+msgid "Welcome (awaiting approval)"
+msgstr "Willkommen (Bestätigung erwartet)"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:151
+msgid "Who can register accounts?"
+msgstr "Wer kann Konten registrieren?"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:172
+msgid "When cancelling a user account"
+msgstr "Beim Löschen eines Benutzerkontos"
+
+#: config/schema/user.schema.yml:0
+msgid "Password reset timeout"
+msgstr "Zeitüberschreitung beim Zurücksetzen des Passworts"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:167
+msgid "Enable password strength indicator"
+msgstr "Anzeige der Passwortstärke aktivieren"
+
+#: config/schema/user.schema.yml:0
+msgid "Email settings"
+msgstr "E-Mail-Einstellungen"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:285
+msgid "Password recovery"
+msgstr "Passwort-Wiederherstellung"
+
+#: config/schema/user.schema.yml:0
+msgid "Account created by administrator"
+msgstr "Konto vom Administrator erstellt"
+
+#: config/schema/user.schema.yml:0
+msgid "Registration confirmation (No approval required)"
+msgstr "Bestätigung der Registrierung (Keine Freigabe erforderlich)"
+
+#: config/schema/user.schema.yml:0
+msgid "Registration confirmation (Pending approval)"
+msgstr "Registrierungsbestätigung (Genehmigung steht aus)"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:245
+msgid "Admin (user awaiting approval)"
+msgstr "Administator (Benutzer erwartet Bestätigung)"
+
+#: config/schema/user.schema.yml:0 src/AccountSettingsForm.php:305
+msgid "Account activation"
+msgstr "Benutzerkonto-Aktivierung"
+
+#: config/schema/user.schema.yml:0
+msgid "Account cancelled"
+msgstr "Benutzerkonto gelöscht"
+
+#: config/schema/user.schema.yml:0
+msgid "User flood settings"
+msgstr "Einstellungen des Missbrauchsschutzes für Formulare"
+
+#: config/schema/user.schema.yml:0
+msgid "UID only identifier"
+msgstr "Bezeichner (nur UID)"
+
+#: config/schema/user.schema.yml:0
+msgid "IP limit"
+msgstr "Zugelassene Anmeldeversuche pro IP"
+
+#: config/schema/user.schema.yml:0
+msgid "IP window"
+msgstr "Wartezeit vom Beginn der Sperre bis zum erneuten Zulassen der Anmeldung über die IP-Adresse."
+
+#: config/schema/user.schema.yml:0
+msgid "User limit"
+msgstr "Benutzer-Obergrenze"
+
+#: config/schema/user.schema.yml:0
+msgid "User window"
+msgstr "Wartezeit vom Beginn der Sperre wegen übertrieben häufiger Eingabe eines Benutzernamens bis zum erneuten Zulassen der Anmeldung mit diesem Benutzernamen."
+
+#: config/schema/user.schema.yml:0
+msgid "User role settings"
+msgstr "Benutzerrolleneinstellungen"
+
+#: config/schema/user.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/user.schema.yml:0
+msgid "User role weight"
+msgstr "Benutzerrollengewichtung"
+
+#: config/schema/user.schema.yml:0
+msgid "User is admin"
+msgstr "Benutzer ist Administrator"
+
+#: config/schema/user.schema.yml:0 config/schema/user.views.schema.yml:0;0;0 src/UserViewsData.php:240 src/Form/UserPermissionsForm.php:114 src/Plugin/views/access/Permission.php:124;15 config/optional/views.view.user_admin_people.yml:0
+msgid "Permission"
+msgstr "Berechtigung"
+
+#: config/schema/user.schema.yml:0
+msgid "Configuration for the add role action"
+msgstr "Konfiguration für die Aktion Rolle hinzufügen"
+
+#: config/schema/user.schema.yml:0
+msgid "The ID of the role to add"
+msgstr "Die ID der hinzuzufügenden Rolle"
+
+#: config/schema/user.schema.yml:0
+msgid "Block the selected users configuration"
+msgstr "Konfiguration der ausgewählten Benutzer sperren"
+
+#: config/schema/user.schema.yml:0
+msgid "Cancel the selected user accounts configuration"
+msgstr "Konfiguration der ausgewählten Benutzerkonten löschen"
+
+#: config/schema/user.schema.yml:0
+msgid "Configuration for the remove role action"
+msgstr "Konfiguration für die Aktion Rolle entfernen"
+
+#: config/schema/user.schema.yml:0
+msgid "The ID of the role to remove"
+msgstr "Die ID der zu entfernenden Rolle"
+
+#: config/schema/user.schema.yml:0
+msgid "Unblock the selected users configuration"
+msgstr "Konfiguration der ausgewählten Benutzer entsperren"
+
+#: config/schema/user.schema.yml:0
+msgid "User search"
+msgstr "Suche nach Benutzern"
+
+#: config/schema/user.schema.yml:0
+msgid "User selection handler settings"
+msgstr "Einstellungen der Benutzerauswahl"
+
+#: config/schema/user.schema.yml:0
+msgid "Filter settings"
+msgstr "Filter-Einstellungen"
+
+#: config/schema/user.schema.yml:0 src/Plugin/EntityReferenceSelection/UserSelection.php:115
+msgid "Filter by"
+msgstr "Filtern nach"
+
+#: config/schema/user.schema.yml:0 config/schema/user.views.schema.yml:0 src/Plugin/EntityReferenceSelection/UserSelection.php:134 src/Plugin/views/argument_validator/User.php:63
+msgid "Restrict to the selected roles"
+msgstr "Auf die ausgewählten Rollen begrenzen"
+
+#: config/schema/user.schema.yml:0 config/schema/user.views.schema.yml:0;0;0 src/Entity/Role.php:9 src/Plugin/Action/ChangeUserRoleBase.php:65 src/Plugin/views/access/Role.php:110;14 config/optional/views.view.user_admin_people.yml:0
+msgid "Role"
+msgstr "Rolle"
+
+#: config/schema/user.schema.yml:0
+msgid "Include the anonymous user in the matched entities."
+msgstr "Gäste (anonyme Beutzer) in die zurückgegebenen Entitäten einschließen."
+
+#: config/schema/user.schema.yml:0 src/Plugin/Field/FieldFormatter/UserNameFormatter.php:42
+msgid "Link to the user"
+msgstr "Auf den Benutzer verlinken"
+
+#: config/schema/user.views.schema.yml:0;0
+msgid "List of roles"
+msgstr "Liste der Rollen"
+
+#: config/schema/user.views.schema.yml:0
+msgid "Role ID"
+msgstr "Rollen-ID"
+
+#: config/schema/user.views.schema.yml:0 src/Plugin/views/argument_validator/User.php:57
+msgid "Restrict user based on role"
+msgstr "Benutzer begrenzen, basierend auf der Rolle"
+
+#: config/schema/user.views.schema.yml:0
+msgid "User ID from URL"
+msgstr "Benutzer-ID aus der URL"
+
+#: config/schema/user.views.schema.yml:0 src/Plugin/views/argument_default/User.php:78
+msgid "Also look for a node and use the node author"
+msgstr "Zusätzlich nach einem Beitrag schauen und den Autor des Beitrags verwenden."
+
+#: config/schema/user.views.schema.yml:0
+msgid "Link this field to its user"
+msgstr "Dieses Feld mit seinem Benutzer verlinken"
+
+#: config/schema/user.views.schema.yml:0
+msgid "List of permission"
+msgstr "Bereichtigungsliste"
+
+#: config/schema/user.views.schema.yml:0
+msgid "User operations bulk form"
+msgstr "Benutzer Massenbearbeitung Formular"
+
+#: config/schema/user.views.schema.yml:0
+msgid "User data field"
+msgstr "Benutzerdatenfeld"
+
+#: config/schema/user.views.schema.yml:0 src/Plugin/views/field/UserData.php:79
+msgid "Module name"
+msgstr "Modulname"
+
+#: config/schema/user.views.schema.yml:0 src/Plugin/Field/FieldFormatter/UserNameFormatter.php:10 src/Plugin/views/argument_validator/UserName.php:7
+msgid "User name"
+msgstr "Benutzername"
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:7
+msgctxt "Validation"
+msgid "User name"
+msgstr "Benutzername"
+
+#: src/AccountForm.php:97 src/Plugin/migrate/source/d6/User.php:95 src/Plugin/migrate/source/d7/User.php:35
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: src/AccountForm.php:98
+msgid "A valid email address. All emails from the system will be sent to this address. The email address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by email."
+msgstr "Eine gültige E-Mail-Adresse. Alle E-Mails der Website werden an diese Adresse geschickt. Die Adresse wird nicht veröffentlicht und wird nur verwendet, wenn Sie ein neues Passwort anfordern oder wenn Sie einstellen, bestimmte Informationen oder Benachrichtigungen per E-Mail zu erhalten."
+
+#: src/AccountForm.php:106 src/UserListBuilder.php:84 src/Form/UserLoginForm.php:96 src/Plugin/migrate/source/d6/User.php:93 src/Plugin/migrate/source/d7/User.php:33 config/optional/views.view.user_admin_people.yml:0
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/AccountForm.php:108
+msgid "Several special characters are allowed, including space, period (.), hyphen (-), apostrophe ('), underscore (_), and the @ sign."
+msgstr "Einige Sonderzeichen sind erlaubt, z. B. Leerzeichen, Punkt (.), Bindestrich (-), Apostroph ('), Unterstrich(_) und das @ Zeichen."
+
+#: src/AccountForm.php:126
+msgid "To change the current user password, enter the new password in both fields."
+msgstr "Nur wenn in beiden Feldern ein neues Passwort eingegeben wird, wird es geändert."
+
+#: src/AccountForm.php:142
+msgid "Current password"
+msgstr "Aktuelles Passwort"
+
+#: src/AccountForm.php:156
+msgid "Required if you want to change the %mail or %pass below. <a href=\":request_new_url\" title=\"Send password reset instructions via email.\">Reset your password</a>."
+msgstr "Erforderlich, falls Sie Ihre E-Mailadresse oder Ihr %pass unten ändern wollen. <a href=\":request_new_url\" title=\"Anweisungen zum Zurücksetzen des Passwortes per E-Mail zusenden.\">Ihr Passwort zurücksetzen</a>."
+
+#: src/AccountForm.php:158 src/Entity/User.php:491 src/Form/UserLoginForm.php:111 src/Plugin/migrate/source/d6/User.php:94 src/Plugin/migrate/source/d7/User.php:34
+msgid "Password"
+msgstr "Passwort"
+
+#: src/AccountForm.php:168
+msgid "Provide a password for the new account in both fields."
+msgstr "Geben Sie das Passwort für das neue Konto in beide Felder ein."
+
+#: src/AccountForm.php:192 src/UserListBuilder.php:89 src/Plugin/migrate/source/d6/User.php:102 src/Plugin/migrate/source/d7/User.php:41 config/optional/views.view.user_admin_people.yml:0;0
+msgid "Status"
+msgstr "Status"
+
+#: src/AccountForm.php:194 config/optional/views.view.user_admin_people.yml:0;0
+msgid "Blocked"
+msgstr "Gesperrt"
+
+#: src/AccountForm.php:194 src/UserViewsData.php:147 config/optional/views.view.user_admin_people.yml:0;0
+msgid "Active"
+msgstr "Aktiv"
+
+#: src/AccountForm.php:216
+msgid "Notify user of new account"
+msgstr "Benutzer über neues Konto benachrichtigen"
+
+#: src/AccountForm.php:241
+msgid "Site language"
+msgstr "Sprache der Website"
+
+#: src/AccountForm.php:244
+msgid "This account's preferred language for emails and site presentation."
+msgstr "Die bevorzugte Sprache dieses Benutzerkontos für E-Mails und die Darstellung der Website."
+
+#: src/AccountForm.php:244
+msgid "This account's preferred language for emails."
+msgstr "Die bevorzugte Sprache dieses Benutzerkontos für E-Mails."
+
+#: src/AccountForm.php:260
+msgid "Administration pages language"
+msgstr "Sprache der Verwaltungsseiten"
+
+#: src/AccountForm.php:264
+msgid "- No preference -"
+msgstr "- Keine Vorgabe -"
+
+#: src/AccountForm.php:292
+msgid "This is also assumed to be the primary language of this account's profile information."
+msgstr "Diese Sprache wird gleichzeitig als primäre Sprache für Profilinformationen des Benutzerkontos verwendet."
+
+#: src/AccountSettingsForm.php:92
+msgid "Anonymous users"
+msgstr "Gäste"
+
+#: src/AccountSettingsForm.php:99
+msgid "The name used to indicate anonymous users."
+msgstr "Die Bezeichnung für nicht angemeldete Benutzer."
+
+#: src/AccountSettingsForm.php:106;121
+msgid "Administrator role"
+msgstr "Administrator-Rolle"
+
+#: src/AccountSettingsForm.php:125
+msgid "This role will be automatically assigned new permissions whenever a module is enabled. Changing this setting will not affect existing permissions."
+msgstr "Dieser Rolle werden immer automatisch alle neuen Berechtigungen zugewiesen, wenn ein Modul aktiviert wird. Das Ändern der Einstellung hat keine Auswirkung auf bestehende Berechtigungen."
+
+#: src/AccountSettingsForm.php:146
+msgid "Registration and cancellation"
+msgstr "An- und Abmeldung"
+
+#: src/AccountSettingsForm.php:154
+msgid "Administrators only"
+msgstr "Nur Administratoren"
+
+#: src/AccountSettingsForm.php:155
+msgid "Visitors"
+msgstr "Besucher"
+
+#: src/AccountSettingsForm.php:156
+msgid "Visitors, but administrator approval is required"
+msgstr "Besucher dürfen Konten anlegen, diese müssen aber abschließend durch einen Administrator freigeschaltet werden."
+
+#: src/AccountSettingsForm.php:163
+msgid "New users will be required to validate their email address prior to logging into the site, and will be assigned a system-generated password. With this setting disabled, users will be logged in immediately upon registering, and may select their own passwords during registration."
+msgstr "Neue Benutzer müssen ihre E-Mail-Adresse vor der Anmeldung an der Website validieren. Ihnen wird ein systemgeneriertes Kennwort zugewiesen. Wenn diese Einstellung inaktiviert ist, werden Benutzer unmittelbar nach der Registrierung angemeldet und können ihr eigenes Kennwort während der Registrierung auswählen."
+
+#: src/AccountSettingsForm.php:174
+msgid "Users with the %select-cancel-method or %administer-users <a href=\":permissions-url\">permissions</a> can override this default method."
+msgstr "Benutzer mit den <a href=\":permissions-url\">Berechtigungen</a> %select-cancel-method oder %administer-users können diese Standard-Methode überschreiben."
+
+#: src/AccountSettingsForm.php:189
+msgid "Notification email address"
+msgstr "E-Mail-Adresse für Benachrichtigungen"
+
+#: src/AccountSettingsForm.php:191
+msgid "The email address to be used as the 'from' address for all account notifications listed below. If <em>'Visitors, but administrator approval is required'</em> is selected above, a notification email will also be sent to this address for any new registrations. Leave empty to use the default system email address <em>(%site-email).</em>"
+msgstr "Die E-Mail-Adresse, die als Absenderadresse für alle Benachrichtigungs-E-Mails bezüglich eines Benutzerkontos an Benutzer der Website versendet werden, verwendet wird. Wenn <em>„Besucher, aber die Freigabe durch einen Administrator ist erforderlich“</em> oben ausgewählt ist wird außerdem eine Benachrichtigungs-E-Mail an diese E-Mail-Adresse gesendet, wenn sich ein neuer Benutzer auf der Website registriert. Wird dieses Feld nicht ausgefüllt, wird die Standard-E-Mail-Adresse der Website <em>(%site-email) verwendet</em>."
+
+#: src/AccountSettingsForm.php:197
+msgid "Emails"
+msgstr "E-Mails"
+
+#: src/AccountSettingsForm.php:201
+msgid "Available variables are: [site:name], [site:url], [user:display-name], [user:account-name], [user:mail], [site:login-url], [site:url-brief], [user:edit-url], [user:one-time-login-url], [user:cancel-url]."
+msgstr "Verfügbare Tokens: [site:name], [site:url], [user:display-name], [user:account-name], [user:mail], [site:login-url], [site:url-brief], [user:edit-url], [user:one-time-login-url], [user:cancel-url]."
+
+#: src/AccountSettingsForm.php:207
+msgid "Edit the welcome email messages sent to new member accounts created by an administrator."
+msgstr "Hier kann die Willkommensnachricht bearbeitet werden, die an neue Benutzer versendet wird, wenn deren Benutzerkonten von einem Administrator und nicht vom Benutzer selbst erstellt werden."
+
+#: src/AccountSettingsForm.php:212;232;252;272;292;325;358;377;410
+msgid "Subject"
+msgstr "Betreff"
+
+#: src/AccountSettingsForm.php:218;238;258;278;298;331;364;383;416
+msgid "Body"
+msgstr "Textkörper"
+
+#: src/AccountSettingsForm.php:227
+msgid "Edit the welcome email messages sent to new members upon registering, when administrative approval is required."
+msgstr "Hier kann die Nachricht bearbeitet werden, die an Benutzer versendet wird, wenn die Freischaltung eines Benutzerkontos durch einen Administrator erforderlich ist."
+
+#: src/AccountSettingsForm.php:247
+msgid "Edit the email notifying the site administrator that there are new members awaiting administrative approval."
+msgstr "Hier kann die Nachricht bearbeitet werden, die Administratoren erhalten, wenn neue Benutzerkonten freigegeben werden müssen."
+
+#: src/AccountSettingsForm.php:267
+msgid "Edit the welcome email messages sent to new members upon registering, when no administrator approval is required."
+msgstr "Bearbeiten der E-Mail-Nachricht, die Benutzer nach der Registrierung erhalten, wenn Benutzerkonten nicht durch Administratoren freigegeben werden müssen."
+
+#: src/AccountSettingsForm.php:286
+msgid "Edit the email messages sent to users who request a new password."
+msgstr "Bearbeiten der E-Mail-Nachricht für Benutzer, die ein neues Passwort anfordern."
+
+#: src/AccountSettingsForm.php:306
+msgid "Enable and edit email messages sent to users upon account activation (when an administrator activates an account of a user who has already registered, on a site where administrative approval is required)."
+msgstr "Aktivieren und bearbeiten der E-Mail-Nachricht an Benutzer bei Freischaltung des Benutzerkontos (wenn ein Administrator ein Benutzerkonto eines bereits registrierten Benutzers auf einer Website aktiviert, auf der eine Freigabe durch den Administrator benötigt wird)."
+
+#: src/AccountSettingsForm.php:339
+msgid "Enable and edit email messages sent to users when their accounts are blocked."
+msgstr "Aktivieren und bearbeiten der E-Mail-Nachrichten für Benutzer, deren Benutzerkonten gesperrt werden."
+
+#: src/AccountSettingsForm.php:344
+msgid "Notify user when account is blocked"
+msgstr "Benutzer benachrichtigen, wenn das Konto gesperrt wurde"
+
+#: src/AccountSettingsForm.php:372
+msgid "Edit the email messages sent to users when they attempt to cancel their accounts."
+msgstr "Bearbeiten der E-Mail-Nachrichten für Benutzer, die versuchen, ihr Benutzerkonto zu löschen."
+
+#: src/AccountSettingsForm.php:391
+msgid "Enable and edit email messages sent to users when their accounts are canceled."
+msgstr "Aktivieren und bearbeiten der E-Mail-Nachrichten für Benutzer, deren Benutzerkonten gelöscht werden."
+
+#: src/AccountSettingsForm.php:396 src/Form/UserCancelForm.php:114 src/Form/UserMultipleCancelConfirm.php:177
+msgid "Notify user when account is canceled"
+msgstr "Den Benutzer benachrichtigen, wenn das Benutzerkonto gelöscht wurde."
+
+#: src/ProfileForm.php:24 src/Form/UserCancelForm.php:79
+msgid "Cancel account"
+msgstr "Benutzerkonto löschen"
+
+#: src/ProfileForm.php:39 src/Form/UserPermissionsForm.php:219
+msgid "The changes have been saved."
+msgstr "Die Änderungen wurden gespeichert."
+
+#: src/RegisterForm.php:113
+msgid "Created a new user account for <a href=\":url\">%name</a>. No email has been sent."
+msgstr "Ein neues Benutzerkonto für <a href=\":url\">%name</a> wurde erstellt. Es wurde keine E-Mail versandt."
+
+#: src/RegisterForm.php:119
+msgid "Registration successful. You are now logged in."
+msgstr "Die Registrierung war erfolgreich. Sie sind jetzt angemeldet."
+
+#: src/RegisterForm.php:125
+msgid "The new user <a href=\":url\">%name</a> was created without an email address, so no welcome message was sent."
+msgstr "Der neue Benutzer <a href=\":url\">%name</a> wurde ohne eine E-Mail-Adresse angelegt, somit wurde keine Willkommensnachricht versendet."
+
+#: src/RegisterForm.php:131
+msgid "A welcome message with further instructions has been emailed to the new user <a href=\":url\">%name</a>."
+msgstr "Es wurde eine Willkommensnachricht mit weiteren Anweisungen per E-Mail an den neue Benutzer <a href=\":url\">%name</a> versandt."
+
+#: src/RegisterForm.php:134
+msgid "A welcome message with further instructions has been sent to your email address."
+msgstr "Es wurde eine Willkommensnachricht mit weiteren Anweisungen an Ihre E-Mail-Adresse versandt."
+
+#: src/RegisterForm.php:143
+msgid "Thank you for applying for an account. Your account is currently pending approval by the site administrator.<br />In the meantime, a welcome message with further instructions has been sent to your email address."
+msgstr "Danke für Ihren Antrag auf ein Benutzerkonto. Ihr Konto wartet derzeit auf Genehmigung durch den Website-Administrator.<br />In der Zwischenzeit wurde eine Willkommensnachricht mit weiteren Hinweisen an Ihre E-Mail-Adresse gesendet."
+
+#: src/RegisterForm.php:106
+msgid "New user: %name %email."
+msgstr "Neuer Benutzer: %name %email."
+
+#: src/RoleForm.php:22
+msgid "Role name"
+msgstr "Name der Rolle"
+
+#: src/RoleForm.php:27
+msgid "The name for this role. Example: \"Moderator\", \"Editorial board\", \"Site architect\"."
+msgstr "Der Name für diese Rolle. Beispiel: „Moderator“, „Redaktion“, „Architekt der Website“."
+
+#: src/RoleForm.php:60;61
+msgid "Role %label has been updated."
+msgstr "Rolle %label wurde aktualisiert."
+
+#: src/RoleForm.php:64;65
+msgid "Role %label has been added."
+msgstr "Rolle %label wurde hinzugefügt."
+
+#: src/RoleListBuilder.php:86
+msgid "Edit permissions"
+msgstr "Berechtigungen bearbeiten"
+
+#: src/RoleListBuilder.php:100
+msgid "The role settings have been updated."
+msgstr "Die Einstellungen für die Rollen wurden aktualisiert."
+
+#: src/ToolbarLinkBuilder.php:42
+msgid "View profile"
+msgstr "Profil anzeigen"
+
+#: src/ToolbarLinkBuilder.php:45 config/install/core.entity_view_mode.user.full.yml:0
+msgid "User account"
+msgstr "Benutzerkonto"
+
+#: src/ToolbarLinkBuilder.php:49
+msgid "Edit profile"
+msgstr "Profil bearbeiten"
+
+#: src/ToolbarLinkBuilder.php:52
+msgid "Edit user account"
+msgstr "Benutzerkonto bearbeiten"
+
+#: src/ToolbarLinkBuilder.php:56 src/Plugin/Menu/LoginLogoutMenuLink.php:60
+msgid "Log out"
+msgstr "Abmelden"
+
+#: src/UserListBuilder.php:106 src/Entity/User.php:530 config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Last access"
+msgstr "Letzter Zugriff"
+
+#: src/UserListBuilder.php:123
+msgid "active"
+msgstr "aktiv"
+
+#: src/UserListBuilder.php:123
+msgid "blocked"
+msgstr "Gesperrt"
+
+#: src/UserListBuilder.php:171 config/optional/views.view.user_admin_people.yml:0
+msgid "No people available."
+msgstr "Keine Personen verfügbar."
+
+#: src/UserViewsData.php:18
+msgid "Users who have created accounts on your site."
+msgstr "Benutzer, die Konten auf der Website erstellt haben."
+
+#: src/UserViewsData.php:30
+msgid "Name (autocomplete)"
+msgstr "Name (Autovervollständigung)"
+
+#: src/UserViewsData.php:31
+msgid "The user or author name. Uses an autocomplete widget to find a user name, the actual filter uses the resulting user ID."
+msgstr "Der Name des Benutzers oder Autors. Verwendet eine Autovervollständigungsfunktion, um einen Benutzernamen zu finden. Der tatsächliche Filter verwendet die ID eines Benutzers."
+
+#: src/UserViewsData.php:33
+msgid "Content authored"
+msgstr "Inhalt geschrieben"
+
+#: src/UserViewsData.php:34
+msgid "Relate content to the user who created it. This relationship will create one record for each content item created by the user."
+msgstr "Beziehung zwischen Inhalten und dem Benutzer, der diese erstellt hat. Diese Beziehung erstellt einen Datensatz für jedes Inhaltselement, das vom Benutzer erstellt wurde."
+
+#: src/UserViewsData.php:39
+msgid "nodes"
+msgstr "Beiträge"
+
+#: src/UserViewsData.php:43
+msgid "The raw numeric user ID."
+msgstr "Die ungefilterte numerische Benutzer-ID."
+
+#: src/UserViewsData.php:46
+msgid "The user ID"
+msgstr "Benutzer-ID"
+
+#: src/UserViewsData.php:53;54
+msgid "Representative node"
+msgstr "Repräsentativer Beitrag"
+
+#: src/UserViewsData.php:55
+msgid "Obtains a single representative node for each user, according to a chosen sort criterion."
+msgstr "Ruft entsprechend einem ausgewählten Sortierkriterium einen einzelnen repräsentativen Inhalt für jeden Benutzer ab."
+
+#: src/UserViewsData.php:69
+msgid "Current"
+msgstr "Aktuell"
+
+#: src/UserViewsData.php:70
+msgid "Filter the view to the currently logged in user."
+msgstr "Die Ansicht nach dem gerade angemeldeten Benutzer filtern."
+
+#: src/UserViewsData.php:77
+msgid "The user or author name."
+msgstr "Der Benutzer oder Name des Autors."
+
+#: src/UserViewsData.php:79
+msgid "Name (raw)"
+msgstr "Name (unformatiert)"
+
+#: src/UserViewsData.php:80
+msgid "The user or author name. This filter does not check if the user exists and allows partial matching. Does not use autocomplete."
+msgstr "Der Name des Benutzers oder Autors. Dieser Filter überprüft nicht, ob der Benutzer existiert und erlaubt eine teilweise Übereinstimmung. Die Autovervollständigung wird nicht verwendet."
+
+#: src/UserViewsData.php:83
+msgid "Email address for a given user. This field is normally not shown to users, so be cautious when using it."
+msgstr "Die E-Mail-Adresse für einen bestimmten Benutzer. Dieses Feld wird Benutzern normalerweise nicht angezeigt und sollte nur unter Vorsicht verwendet werden."
+
+#: src/UserViewsData.php:85
+msgid "Original language of the user information"
+msgstr "Originalsprache der Benutzerinformationen"
+
+#: src/UserViewsData.php:86
+msgid "Language of the translation of user information"
+msgstr "Sprache der Übersetzung der Benutzerinformationen"
+
+#: src/UserViewsData.php:88
+msgid "Preferred language"
+msgstr "Bevorzugte Sprache"
+
+#: src/UserViewsData.php:89
+msgid "Preferred language of the user"
+msgstr "Bevorzugte Sprache des Benutzers"
+
+#: src/UserViewsData.php:90
+msgid "Preferred admin language"
+msgstr "Bevorzugte Sprache des Administrationsbereichs"
+
+#: src/UserViewsData.php:91
+msgid "Preferred administrative language of the user"
+msgstr "Die Sprache in der dem Benutzer die Benutzeroberfläche des Administrationsbereichs angezeigt werden soll"
+
+#: src/UserViewsData.php:94
+msgid "Created date"
+msgstr "Erstellungsdatum"
+
+#: src/UserViewsData.php:95;154
+msgid "Date in the form of CCYYMMDD."
+msgstr "Datum im Format JJJJMMTT."
+
+#: src/UserViewsData.php:103
+msgid "Created year + month"
+msgstr "Jahr + Monat wurde erstellt"
+
+#: src/UserViewsData.php:104;163
+msgid "Date in the form of YYYYMM."
+msgstr "Datum im Format JJJJMM."
+
+#: src/UserViewsData.php:112
+msgid "Created year"
+msgstr "Erstellungsjahr"
+
+#: src/UserViewsData.php:113;172
+msgid "Date in the form of YYYY."
+msgstr "Datum im Format JJJJ."
+
+#: src/UserViewsData.php:121
+msgid "Created month"
+msgstr "Erstellungsmonat"
+
+#: src/UserViewsData.php:122;181
+msgid "Date in the form of MM (01 - 12)."
+msgstr "Datum im Format MM (01 - 12)."
+
+#: src/UserViewsData.php:130
+msgid "Created day"
+msgstr "Erstellungstag"
+
+#: src/UserViewsData.php:131;190
+msgid "Date in the form of DD (01 - 31)."
+msgstr "Datum im Format TT (01 - 31)."
+
+#: src/UserViewsData.php:139
+msgid "Created week"
+msgstr "Erstellungswoche"
+
+#: src/UserViewsData.php:140;199
+msgid "Date in the form of WW (01 - 53)."
+msgstr "Datum im Format WW (01 - 53)."
+
+#: src/UserViewsData.php:150;153
+msgid "Updated date"
+msgstr "Aktualisierungszeitpunkt"
+
+#: src/UserViewsData.php:162
+msgid "Updated year + month"
+msgstr "Das Jahr + Monat wurde aktualisiert"
+
+#: src/UserViewsData.php:171
+msgid "Updated year"
+msgstr "Das Jahr wurde aktualisiert"
+
+#: src/UserViewsData.php:180
+msgid "Updated month"
+msgstr "Der Monat wurde aktualisiert"
+
+#: src/UserViewsData.php:189
+msgid "Updated day"
+msgstr "Der Tag wurde aktualisiert"
+
+#: src/UserViewsData.php:198
+msgid "Updated week"
+msgstr "Die Woche wurde aktualisiert"
+
+#: src/UserViewsData.php:207
+msgid "Data"
+msgstr "Daten"
+
+#: src/UserViewsData.php:208
+msgid "Provides access to the user data service."
+msgstr "Stellt den Zugriff auf den Nutzerdatendienst bereit."
+
+#: src/UserViewsData.php:216 config/optional/views.view.user_admin_people.yml:0
+msgid "Bulk update"
+msgstr "Massenaktualisierung"
+
+#: src/UserViewsData.php:217
+msgid "Add a form element that lets you run operations on multiple users."
+msgstr "Fügt ein Formularelement hinzu, das es Ihnen ermöglicht Aktionen für mehrere Benutzer gleichzeitig auszuführen."
+
+#: src/UserViewsData.php:234
+msgid "No role"
+msgstr "Keine Rolle"
+
+#: src/UserViewsData.php:241
+msgid "The user permissions."
+msgstr "Die Benutzerberechtigungen."
+
+#: src/Controller/UserAuthenticationController.php:263 src/Form/UserPasswordForm.php:145
+msgid "Password reset instructions mailed to %name at %email."
+msgstr "Ein neues Passwort für %name wurde an %email versendet."
+
+#: src/Controller/UserController.php:124
+msgid "Another user (%other_user) is already logged into the site on this computer, but you tried to use a one-time link for user %resetting_user. Please <a href=\":logout\">log out</a> and try using the link again."
+msgstr "Ein anderer Benutzer (%other_user) ist bereits auf der Website auf diesem Computer eingeloggt, doch Sie haben einen einmalig gültigen Link für den Benutzer %resetting_user zu verwenden versucht. Bitte <a href=\":logout\">ausloggen</a> und den Link erneut benutzen."
+
+#: src/Controller/UserController.php:133
+msgid "The one-time login link you clicked is invalid."
+msgstr "Das angeklickte Link zum einmaligen Anmelden ist ungültig."
+
+#: src/Controller/UserController.php:226
+msgid "You have tried to use a one-time login link that has expired. Please request a new one using the form below."
+msgstr "Sie haben versucht, einen abgelaufenen Link zur einmaligen Anmeldung zu verwenden. Es muss mit dem Formular unten ein neuer angefordert werden."
+
+#: src/Controller/UserController.php:232
+msgid "You have just used your one-time login link. It is no longer necessary to use this link to log in. Please change your password."
+msgstr "Sie haben soeben Ihren Link zum einmaligen Anmelden verwendet. Bitte ändern Sie Ihr Passwort."
+
+#: src/Controller/UserController.php:247
+msgid "You have tried to use a one-time login link that has either been used or is no longer valid. Please request a new one using the form below."
+msgstr "Sie haben versucht einen Link zur einmaligen Anmeldung zu verwenden, der entweder bereits verwendet wurde oder der nicht mehr gültig ist. Bitte fordern Sie sich mit dem unten stehenden Formular einen neuen an."
+
+#: src/Controller/UserController.php:323
+msgid "You have tried to use an account cancellation link that has expired. Please request a new one using the form below."
+msgstr "Sie haben einen Link zum Löschen eines Benutzerkontos verwendet, der abgelaufen ist. Es muss ein neuer über das Formular unten angefragt werden."
+
+#: src/Controller/UserController.php:231
+msgid "User %name used one-time login link at time %timestamp."
+msgstr "Benutzer %name hat am/um %timestamp einen Link zur einmaligen Anmeldung verwendet."
+
+#: src/Entity/Role.php:9
+msgid "role"
+msgstr "Rolle"
+
+#: src/Entity/Role.php:9
+msgid "roles"
+msgstr "Rollen"
+
+#: src/Entity/User.php:446
+msgid "The user ID."
+msgstr "Die Benutzer-ID."
+
+#: src/Entity/User.php:448
+msgid "The user UUID."
+msgstr "Die Benutzer-UUID."
+
+#: src/Entity/User.php:450
+msgid "Language code"
+msgstr "Sprachkürzel"
+
+#: src/Entity/User.php:451
+msgid "The user language code."
+msgstr "Das Sprachkürzel der Benutzer-Sprache."
+
+#: src/Entity/User.php:455
+msgid "Preferred language code"
+msgstr "Bevorzugtes Sprachkürzel"
+
+#: src/Entity/User.php:456
+msgid "The user's preferred language code for receiving emails and viewing the site."
+msgstr "Das bevorzugte Sprachkürzel des Benutzers für das Empfangen von E-Mails und die Anzeige der Website."
+
+#: src/Entity/User.php:464
+msgid "Preferred admin language code"
+msgstr "Bevorzugtes Sprachkürzel für den Administrator"
+
+#: src/Entity/User.php:465
+msgid "The user's preferred language code for viewing administration pages."
+msgstr "Das bevorzugte Sprachkürzel für den Verwaltungsbereich"
+
+#: src/Entity/User.php:480
+msgid "The name of this user."
+msgstr "Der Name dieses Benutzers."
+
+#: src/Entity/User.php:492
+msgid "The password of this user (hashed)."
+msgstr "Das Passwort dieses Benutzers (gehasht)."
+
+#: src/Entity/User.php:497
+msgid "The email of this user."
+msgstr "Die E-Mail-Adresse dieses Benutzers."
+
+#: src/Entity/User.php:505
+msgid "The timezone of this user."
+msgstr "Die Zeitzone dieses Benutzers."
+
+#: src/Entity/User.php:515
+msgid "User status"
+msgstr "Benutzerstatus"
+
+#: src/Entity/User.php:516
+msgid "Whether the user is active or blocked."
+msgstr "Ob der Benutzer aktiv oder gesperrt ist."
+
+#: src/Entity/User.php:522
+msgid "The time that the user was created."
+msgstr "Der Zeitpunkt, zu dem das Benutzerkonto erstellt wurde."
+
+#: src/Entity/User.php:525
+msgid "Changed"
+msgstr "Geändert"
+
+#: src/Entity/User.php:526
+msgid "The time that the user was last edited."
+msgstr "Der Zeitpunkt, zu dem der Benutzer zuletzt bearbeitet wurde."
+
+#: src/Entity/User.php:531
+msgid "The time that the user last accessed the site."
+msgstr "Der Zeitpunkt, zu dem der Benutzer zuletzt auf die Website zugegriffen hat."
+
+#: src/Entity/User.php:536
+msgid "The time that the user last logged in."
+msgstr "Die Zeit zu der sich der Benutzer zuletzt angemeldet hat."
+
+#: src/Entity/User.php:540
+msgid "Initial email"
+msgstr "Initiale E-Mail"
+
+#: src/Entity/User.php:541
+msgid "The email address used for initial account creation."
+msgstr "Die E-Mail-Adresse, die zum Erstellen des Benutzerkontos verwendet wurde."
+
+#: src/Entity/User.php:547
+msgid "The roles the user has."
+msgstr "Die Rollen die der Benutzer hat."
+
+#: src/Entity/User.php:16
+msgid "user"
+msgstr "Benutzer"
+
+#: src/Entity/User.php:16
+msgid "users"
+msgstr "Benutzer"
+
+#: src/Form/UserCancelForm.php:41
+msgid "Are you sure you want to cancel your account?"
+msgstr "Möchten Sie Ihr Benutzerkonto wirklich löschen?"
+
+#: src/Form/UserCancelForm.php:43
+msgid "Are you sure you want to cancel the account %name?"
+msgstr "Möchten Sie das Benutzerkonto %name wirklich löschen?"
+
+#: src/Form/UserCancelForm.php:61
+msgid "Select the method to cancel the account above."
+msgstr "Wählen Sie die Art zum Löschen des obigen Benutzerkontos aus."
+
+#: src/Form/UserCancelForm.php:72
+msgid "This action cannot be undone."
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+#: src/Form/UserCancelForm.php:95
+msgid "When cancelling your account"
+msgstr "Beim Löschen Ihres Benutzerkontos"
+
+#: src/Form/UserCancelForm.php:95
+msgid "When cancelling the account"
+msgstr "Beim Löschen des Benutzerkontos"
+
+#: src/Form/UserCancelForm.php:105 src/Form/UserMultipleCancelConfirm.php:170
+msgid "Require email confirmation to cancel account"
+msgstr "Eine Bestätigung der Löschung eines Benutzerkontos ist erforderlich."
+
+#: src/Form/UserCancelForm.php:108 src/Form/UserMultipleCancelConfirm.php:172
+msgid "When enabled, the user must confirm the account cancellation via email."
+msgstr "Wenn aktiviert, muss der Benutzer das Löschen des Benutzerkontos per E-Mail bestätigen."
+
+#: src/Form/UserCancelForm.php:117 src/Form/UserMultipleCancelConfirm.php:180
+msgid "When enabled, the user will receive an email notification after the account has been canceled."
+msgstr "Wenn aktiviert, erhält der Benutzer eine E-Mail-Benachrichtigung, nachdem der Account gelöscht wurde."
+
+#: src/Form/UserCancelForm.php:155
+msgid "A confirmation request to cancel your account has been sent to your email address."
+msgstr "Eine E-Mail, mit der Sie das Löschen Ihres Benutzerkontos bestätigen können, wurde an Ihr E-Mail-Adresse versendet."
+
+#: src/Form/UserCancelForm.php:156
+msgid "Sent account cancellation request to %name %email."
+msgstr "Anfrage zur Kontenlöschung wurde an %name %email gesandt."
+
+#: src/Form/UserLoginForm.php:99
+msgid "Enter your @s username."
+msgstr "Geben Sie Ihren @s-Benutzernamen ein."
+
+#: src/Form/UserLoginForm.php:113
+msgid "Enter the password that accompanies your username."
+msgstr "Geben Sie hier das zugehörige Passwort an."
+
+#: src/Form/UserLoginForm.php:155
+msgid "The username %name has not been activated or is blocked."
+msgstr "Der Benutzername %name wurde nicht aktiviert oder ist gesperrt."
+
+#: src/Form/UserLoginForm.php:228
+msgid "Too many failed login attempts from your IP address. This IP address is temporarily blocked. Try again later or <a href=\":url\">request a new password</a>."
+msgstr "Von Ihrer IP-Adresse aus wurden zu viele Anmeldung durchgeführt, die fehlgeschlagen sind. Daher können Sie sich für eine gewisse Zeit nicht mehr anmelden. Versuchen sie es später erneut oder <a href=\":url\">forden Sie ein neues Passwort an</a>."
+
+#: src/Form/UserLoginForm.php:238
+msgid "Unrecognized username or password. <a href=\":password\">Forgot your password?</a>"
+msgstr "Der Benutzername oder das Passwort sind nicht korrekt.  <a href=\":password\">Haben Sie Ihr Passwort vergessen?</a>"
+
+#: src/Form/UserLoginForm.php:241
+msgid "Login attempt failed for %user."
+msgstr "Anmeldung für %user fehlgeschlagen."
+
+#: src/Form/UserLoginForm.php:246
+msgid "Login attempt failed from %ip."
+msgstr "Anmeldeversuch fehlgeschlagen von %ip."
+
+#: src/Form/UserLoginForm.php:224
+msgid "There has been more than one failed login attempt for this account. It is temporarily blocked. Try again later or <a href=\":url\">request a new password</a>."
+msgid_plural "There have been more than @count failed login attempts for this account. It is temporarily blocked. Try again later or <a href=\":url\">request a new password</a>."
+msgstr[0] "Es hat mehr als einen fehlerhaften Anmeldeversuch für dieses Benutzerkonto gegeben. Es ist vorübergehend gesperrt. Versuchen Sie es später erneut oder <a href=\":url\">fordern Sie ein neues Passwort an</a>."
+msgstr[1] "Es hat mehr als @count fehlerhafte Anmeldeversuche für dieses Benutzerkonto gegeben. Es ist vorübergehend gesperrt. Versuchen Sie es später erneut oder <a href=\":url\">fordern Sie ein neues Passwort an</a>."
+
+#: src/Form/UserMultipleCancelConfirm.php:80
+msgid "Are you sure you want to cancel these user accounts?"
+msgstr "Möchten Sie diese Benutzerkonten wirklich löschen?"
+
+#: src/Form/UserMultipleCancelConfirm.php:94
+msgid "Cancel accounts"
+msgstr "Benutzerkonten löschen"
+
+#: src/Form/UserMultipleCancelConfirm.php:135
+msgid "The user account %name cannot be canceled."
+msgstr "Das Benutzerkonto %name kann nicht geschlossen werden."
+
+#: src/Form/UserMultipleCancelConfirm.php:151;162
+msgid "When cancelling these accounts"
+msgstr "Beim Schließen dieser Benutzerkonten"
+
+#: src/Form/UserPasswordForm.php:72
+msgid "Username or email address"
+msgstr "Benutzername oder E-Mail-Adresse"
+
+#: src/Form/UserPasswordForm.php:90
+msgid "Password reset instructions will be mailed to %email. You must log out to use the password reset link in the email."
+msgstr "Anweisungen zum Zurücksetzen des Kennworts werden an %email gesendet. Sie müssen sich abmelden, um den Link zum Zurücksetzen des Kennworts in der E-Mail verwenden zu können."
+
+#: src/Form/UserPasswordForm.php:97
+msgid "Password reset instructions will be sent to your registered email address."
+msgstr "Anweisungen zum Zurücksetzen Ihres Passworts werden an die E-Mail-Adresse gesendet, die Sie in Ihrem Benutzerkonto hinterlegt haben."
+
+#: src/Form/UserPasswordForm.php:103
+msgid "Submit"
+msgstr "Absenden"
+
+#: src/Form/UserPasswordForm.php:124
+msgid "%name is blocked or has not been activated yet."
+msgstr "%name ist gesperrt oder wurde noch nicht aktiviert."
+
+#: src/Form/UserPasswordForm.php:131
+msgid "%name is not recognized as a username or an email address."
+msgstr "%name wird nicht als Benutzername oder E-Mail-Adresse erkannt."
+
+#: src/Form/UserPasswordForm.php:146
+msgid "Further instructions have been sent to your email address."
+msgstr "Weitere Anweisungen wurden an Ihre E-Mail-Adresse versandt."
+
+#: src/Form/UserPasswordResetForm.php:45
+msgid "<p>This is a one-time login for %user_name and will expire on %expiration_date.</p><p>Click on this button to log in to the site and change your password.</p>"
+msgstr "<p>Dies ist eine einmalige Anmeldung für %user_name und läuft am %expiration_date ab.</p><p>Klicken Sie diese Schaltfläche an, um sich an der Website anzumelden und Ihr Passwort zu ändern.</p>"
+
+#: src/Form/UserPasswordResetForm.php:50
+msgid "<p>This is a one-time login for %user_name.</p><p>Click on this button to log in to the site and change your password.</p>"
+msgstr "<p>Dies ist ein einmal gültiger Link für die Anmeldung als %user_name.</p><p>Klicken Sie auf diesen Button um sich an der Seite anzumelden und Ihr Passwort zu ändern.</p>"
+
+#: src/Form/UserPasswordResetForm.php:51
+msgid "Set password"
+msgstr "Passwort festlegen"
+
+#: src/Form/UserPasswordResetForm.php:54
+msgid "This login can be used only once."
+msgstr "Diese Anmeldung kann nur einmal verwendet werden."
+
+#: src/Form/UserPermissionsForm.php:164
+msgid "Warning: Give to trusted roles only; this permission has security implications."
+msgstr "Warnung: Sollte nur vertrauenswürdigen Rollen gewährt werden; diese Berechtigung hat Auswirkungen auf die Sicherheit."
+
+#: src/Form/UserPermissionsForm.php:202
+msgid "Save permissions"
+msgstr "Berechtigungen speichern"
+
+#: src/Plugin/Action/AddRoleUser.php:5
+msgid "Add a role to the selected users"
+msgstr "Ausgewählten Benutzern eine Rolle zuweisen"
+
+#: src/Plugin/Action/BlockUser.php:8
+msgid "Block the selected users"
+msgstr "Ausgewählte Benutzer blockieren"
+
+#: src/Plugin/Action/CancelUser.php:11
+msgid "Cancel the selected user accounts"
+msgstr "Ausgewählte Benutzerkonten löschen"
+
+#: src/Plugin/Action/RemoveRoleUser.php:5
+msgid "Remove a role from the selected users"
+msgstr "Ausgewählten Benutzern eine Rolle entziehen"
+
+#: src/Plugin/Action/UnblockUser.php:8
+msgid "Unblock the selected users"
+msgstr "Ausgewählte Benutzer entsperren"
+
+#: src/Plugin/Block/UserLoginBlock.php:121
+msgid "Create a new user account."
+msgstr "Ein neues Benutzerkonto erstellen."
+
+#: src/Plugin/Block/UserLoginBlock.php:132
+msgid "Send password reset instructions via email."
+msgstr "Anweisungen zum Zurücksetzen des Passwortes per E-Mail zusenden."
+
+#: src/Plugin/Block/UserLoginBlock.php:15
+msgid "User login"
+msgstr "Benutzeranmeldung"
+
+#: src/Plugin/Block/UserLoginBlock.php:15
+msgid "Forms"
+msgstr "Formulare"
+
+#: src/Plugin/Condition/UserRole.php:27
+msgid "When the user has the following roles"
+msgstr "Wenn der Benutzer folgende Rollen hat"
+
+#: src/Plugin/Condition/UserRole.php:30
+msgid "If you select no roles, the condition will evaluate to TRUE for all users."
+msgstr "Wenn keine Rollen ausgewählt werden, wird angenommen, dass die Bedingung für alle Benutzer als WAHR (TRUE) gelten soll."
+
+#: src/Plugin/Condition/UserRole.php:65
+msgid "The user is not a member of @roles"
+msgstr "Der Benutzer ist kein Mitglied von @roles"
+
+#: src/Plugin/Condition/UserRole.php:68
+msgid "The user is a member of @roles"
+msgstr "Der Benutzer ist Mitglied von @roles"
+
+#: src/Plugin/Condition/UserRole.php:8
+msgid "User Role"
+msgstr "Benutzerrolle"
+
+#: src/Plugin/EntityReferenceSelection/UserSelection.php:108
+msgid "Include the anonymous user."
+msgstr "Inklusive Gast."
+
+#: src/Plugin/EntityReferenceSelection/UserSelection.php:117
+msgid "- None -"
+msgstr "- Nicht festgelegt/ausgewählt -"
+
+#: src/Plugin/EntityReferenceSelection/UserSelection.php:118
+msgid "User role"
+msgstr "Benutzerrolle"
+
+#: src/Plugin/EntityReferenceSelection/UserSelection.php:19
+msgid "User selection"
+msgstr "Benutzerauswahl"
+
+#: src/Plugin/Field/FieldFormatter/AuthorFormatter.php:10
+msgid "Author"
+msgstr "Autor"
+
+#: src/Plugin/Field/FieldFormatter/AuthorFormatter.php:10
+msgid "Display the referenced author user entity."
+msgstr "Zeigt den referenzierten Autor als Entität an"
+
+#: src/Plugin/Field/FieldFormatter/UserNameFormatter.php:10
+msgid "Display the user or author name."
+msgstr "Den Namen des Benutzers bzw. Autors anzeigen."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUser.php:8
+msgid "Follow the user's language preference."
+msgstr "Bevorzugte Sprache des Benutzers folgen."
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUserAdmin.php:17
+msgid "Account administration pages"
+msgstr "Benutzerkontenverwaltung"
+
+#: src/Plugin/LanguageNegotiation/LanguageNegotiationUserAdmin.php:17
+msgid "Account administration pages language setting."
+msgstr "Spracheinstellungen für die Verwaltungsseiten des Benutzerkontos."
+
+#: src/Plugin/Search/UserSearch.php:169
+msgid "User search looks for user names and partial user names. Example: mar would match usernames mar, delmar, and maryjane."
+msgstr "Die Benutzersuche sucht nach Benutzernamen und Teilen von Benutzernamen. Zum Beispiel: Die Suche nach mar würde mit den Benutzernamen mar, delmar und maryjane übereinstimmen."
+
+#: src/Plugin/Search/UserSearch.php:170
+msgid "You can use * as a wildcard within your keyword. Example: m*r would match user names mar, delmar, and elementary."
+msgstr "Als Platzhalter im Schlüsselwort kann * verwendet werden. Beispiel: m*l entspricht den Benutzernamen michael, micael und michl."
+
+#: src/Plugin/Validation/Constraint/ProtectedUserFieldConstraint.php:7
+msgctxt "Validation"
+msgid "Password required for protected field change"
+msgstr "Ein Passwort wird benötigt um Änderungen am Feld zu verhindern"
+
+#: src/Plugin/Validation/Constraint/ProtectedUserFieldConstraint.php:22
+msgid "Your current password is missing or incorrect; it's required to change the %name."
+msgstr "Das aktuelle Passwort fehlt oder ist falsch. Dieses ist erforderlich, um %name zu ändern."
+
+#: src/Plugin/Validation/Constraint/UserMailRequired.php:7
+msgctxt "Validation"
+msgid "User email required"
+msgstr "Eine E-Mail-Adresse ist erforderlich."
+
+#: src/Plugin/Validation/Constraint/UserMailUnique.php:7
+msgctxt "Validation"
+msgid "User email unique"
+msgstr "Eindeutige E-Mail-Adresse des Benutzers"
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:17
+msgid "You must enter a username."
+msgstr "Es muss ein Benutzername eingegeben werden."
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:18
+msgid "The username cannot begin with a space."
+msgstr "Der Benutzername darf nicht mit einem Leerzeichen beginnen."
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:19
+msgid "The username cannot end with a space."
+msgstr "Der Benutzername darf nicht mit einem Leerzeichen enden."
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:20
+msgid "The username cannot contain multiple spaces in a row."
+msgstr "Der Benutzername darf nicht mehrere aufeinander folgende Leerzeichen enthalten."
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:21
+msgid "The username contains an illegal character."
+msgstr "Der Benutzername enthält unzulässige Zeichen."
+
+#: src/Plugin/Validation/Constraint/UserNameConstraint.php:22
+msgid "The username %name is too long: it must be %max characters or less."
+msgstr "Der Benutzername %name ist zu lang. Er darf aus höchstens %max Zeichen bestehen."
+
+#: src/Plugin/Validation/Constraint/UserNameUnique.php:7
+msgctxt "Validation"
+msgid "User name unique"
+msgstr "Eindeutiger Benutzername"
+
+#: src/Plugin/migrate/source/ProfileField.php:76
+msgid "Primary Key: Unique profile field ID."
+msgstr "Primärer Schlüssel: Eindeutige Profil-ID."
+
+#: src/Plugin/migrate/source/ProfileField.php:77
+msgid "Title of the field shown to the end user."
+msgstr "Der Titel des Felds, wie er dem Endbenutzer angezeigt wird."
+
+#: src/Plugin/migrate/source/ProfileField.php:78
+msgid "Internal name of the field used in the form HTML and URLs."
+msgstr "Der interne Name des Feldes wird im HTML des Formulars sowie in der URL verwendet."
+
+#: src/Plugin/migrate/source/ProfileField.php:79
+msgid "Explanation of the field to end users."
+msgstr "Beschreibung des Felds für den Endbenutzer."
+
+#: src/Plugin/migrate/source/ProfileField.php:80
+msgid "Profile category that the field will be grouped under."
+msgstr "Profilkategorie, in welcher das Feld gruppiert wird."
+
+#: src/Plugin/migrate/source/ProfileField.php:81
+msgid "Title of page used for browsing by the field's value"
+msgstr "Titel der Seite, welche für das Durchsuchen nach dem Wert des Feldes verwendet wird."
+
+#: src/Plugin/migrate/source/ProfileField.php:82
+msgid "Type of form field."
+msgstr "Typ des Formularfelds."
+
+#: src/Plugin/migrate/source/ProfileField.php:83
+msgid "Weight of field in relation to other profile fields."
+msgstr "Gewichtung des Felds in Relation zu anderen Profil-Feldern."
+
+#: src/Plugin/migrate/source/ProfileField.php:84
+msgid "Whether the user is required to enter a value. (0 = no, 1 = yes)"
+msgstr "Ob der Benutzer einen Wert eingeben muss. (0 = ja, 1 = nein)"
+
+#: src/Plugin/migrate/source/ProfileField.php:85
+msgid "Whether the field is visible in the user registration form. (1 = yes, 0 = no)"
+msgstr "Ob das Feld auf dem Registrierungsformular sichtbar ist oder nicht. (1 = JA, 0 = Nein)"
+
+#: src/Plugin/migrate/source/ProfileField.php:86
+msgid "The level of visibility for the field. (0 = hidden, 1 = private, 2 = public on profile but not member list pages, 3 = public on profile and list pages)"
+msgstr "Die Sichtbarkeitsstufe für das Feld (0 = ausgeblendet, 1 = privat, 2 = Öffentlich im Profil aber nicht auf Seiten, die Benutzerlisten generieren 3 = auf allen Seiten öffentlich."
+
+#: src/Plugin/migrate/source/ProfileField.php:87
+msgid "Whether form auto-completion is enabled. (0 = disabled, 1 = enabled)"
+msgstr "Ob die Autovervollständigung des Formulars aktiviert ist. (0 = deaktiviert, 1 = aktiviert)"
+
+#: src/Plugin/migrate/source/ProfileField.php:88
+msgid "List of options to be used in a list selection field."
+msgstr "Die Optionen in dieser Liste werden in einem Auswahlformularfeld verwendet."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldOptionTranslation.php:40
+msgid "Option ID."
+msgstr "Options-ID."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldOptionTranslation.php:41
+msgid "Field name"
+msgstr "Feldname"
+
+#: src/Plugin/migrate/source/d6/ProfileFieldOptionTranslation.php:42
+msgid "Language for this field."
+msgstr "Sprache für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldOptionTranslation.php:43
+msgid "Translation of either the title or explanation."
+msgstr "Übersetzung des Titels oder der Beschreibung."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldValues.php:65
+msgid "Unique profile field ID."
+msgstr "Eindeutige Profil-Feld-ID."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldValues.php:66
+msgid "The user Id."
+msgstr "Die Benutzer-ID."
+
+#: src/Plugin/migrate/source/d6/ProfileFieldValues.php:67
+msgid "The value for this field."
+msgstr "Der Wert für dieses Feld."
+
+#: src/Plugin/migrate/source/d6/Role.php:40 src/Plugin/migrate/source/d7/Role.php:30
+msgid "Role ID."
+msgstr "Rollen-ID"
+
+#: src/Plugin/migrate/source/d6/Role.php:41 src/Plugin/migrate/source/d7/Role.php:31
+msgid "The name of the user role."
+msgstr "Der Name der Benutzerrolle."
+
+#: src/Plugin/migrate/source/d6/User.php:96
+msgid "Theme"
+msgstr "Theme"
+
+#: src/Plugin/migrate/source/d6/User.php:97 src/Plugin/migrate/source/d7/User.php:36
+msgid "Signature"
+msgstr "Signatur"
+
+#: src/Plugin/migrate/source/d6/User.php:98 src/Plugin/migrate/source/d7/User.php:37
+msgid "Signature format"
+msgstr "Signaturformat"
+
+#: src/Plugin/migrate/source/d6/User.php:99 src/Plugin/migrate/source/d7/User.php:38
+msgid "Registered timestamp"
+msgstr "Zeitstempel der Registrierung."
+
+#: src/Plugin/migrate/source/d6/User.php:100 src/Plugin/migrate/source/d7/User.php:39
+msgid "Last access timestamp"
+msgstr "Zeitstempel des letzten Zugriffs."
+
+#: src/Plugin/migrate/source/d6/User.php:101 src/Plugin/migrate/source/d7/User.php:40
+msgid "Last login timestamp"
+msgstr "Zeitstempel des letzten Logins."
+
+#: src/Plugin/migrate/source/d6/User.php:104 src/Plugin/migrate/source/d7/User.php:43
+msgid "Language"
+msgstr "Sprache"
+
+#: src/Plugin/migrate/source/d6/User.php:105 src/Plugin/migrate/source/d7/User.php:44
+msgid "Picture"
+msgstr "Bild"
+
+#: src/Plugin/migrate/source/d6/User.php:106 src/Plugin/migrate/source/d7/User.php:45
+msgid "Init"
+msgstr "Init"
+
+#: src/Plugin/migrate/source/d6/User.php:107 src/Plugin/migrate/source/d7/User.php:46
+msgid "User data"
+msgstr "Benutzerdaten"
+
+#: src/Plugin/migrate/source/d6/User.php:113
+msgid "Timezone (Date)"
+msgstr "Zeitzone (Datum)"
+
+#: src/Plugin/migrate/source/d6/User.php:119
+msgid "Timezone (Event)"
+msgstr "Zeitzone (Ereignis)"
+
+#: src/Plugin/migrate/source/d7/Role.php:32
+msgid "The weight of the role."
+msgstr "Die Gewichtung der Rolle."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:52
+msgid "The entity type this translation relates to"
+msgstr "Der Entitätstyp, auf den sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:53
+msgid "The entity id this translation relates to"
+msgstr "Die Entitäts-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:54
+msgid "The entity revision id this translation relates to"
+msgstr "Die Entitäts-Revisions-ID, auf die sich diese Übersetzung bezieht"
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:55
+msgid "The target language for this translation."
+msgstr "Die Zielsprache für diese Übersetzung."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:56
+msgid "The source language from which this translation was created."
+msgstr "Die Ausgangssprache, auf deren Basis diese Übersetzung erstellt wurde."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:57
+msgid "The author of this translation."
+msgstr "Der Autor dieser Übersetzung."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:58
+msgid "Boolean indicating whether the translation is published (visible to non-administrators)."
+msgstr "Boolescher Wert, der angibt, ob die Übersetzung veröffentlicht ist (sichtbar für Nicht-Administratoren)."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:59
+msgid "A boolean indicating whether this translation needs to be updated."
+msgstr "Ein Boolescher Wert, der angibt, ob die Übersetzung aktualisiert werden muss oder nicht."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:60
+msgid "The Unix timestamp when the translation was created."
+msgstr "Der Zeitpunkt zu dem die Übersetzung erstellt wurde (Unix Zeitstempel)."
+
+#: src/Plugin/migrate/source/d7/UserEntityTranslation.php:61
+msgid "The Unix timestamp when the translation was most recently saved."
+msgstr "Das Datum der letzten Speicherung der Übersetzung (Unix Zeitstempel)."
+
+#: src/Plugin/rest/resource/UserRegistrationResource.php:18
+msgid "User registration"
+msgstr "Benutzerregistrierung"
+
+#: src/Plugin/views/access/Permission.php:126
+msgid "Only users with the selected permission flag will be able to access this display."
+msgstr "Nur Benutzer mit der entsprechenden Berechtigung können auf diese Anzeige zugreifen."
+
+#: src/Plugin/views/access/Permission.php:15
+msgid "Access will be granted to users with the specified permission string."
+msgstr "Der Zugriff wird Benutzern mit der angegebenen Berechtigung gewährt."
+
+#: src/Plugin/views/access/Role.php:87
+msgid "No role(s) selected"
+msgstr "Keine Rolle(n) ausgewählt"
+
+#: src/Plugin/views/access/Role.php:90
+msgid "Multiple roles"
+msgstr "Mehrere Rollen"
+
+#: src/Plugin/views/access/Role.php:113
+msgid "Only the checked roles will be able to access this display."
+msgstr "Nur die ausgewählte Rolle hat Zugriff auf die diese Anzeige."
+
+#: src/Plugin/views/access/Role.php:122
+msgid "You must select at least one role if type is \"by role\""
+msgstr "Beim Typ „nach Rolle“ muss mindestens eine Rolle ausgewählt sein."
+
+#: src/Plugin/views/access/Role.php:14
+msgid "Access will be granted to users with any of the specified roles."
+msgstr "Der Zugriff wird dem Benutzer mit einer der angegebenen Rollen gewährt."
+
+#: src/Plugin/views/argument_default/CurrentUser.php:9
+msgid "User ID from logged in user"
+msgstr "Benutzer-ID des angemeldeten Benutzers"
+
+#: src/Plugin/views/argument_default/User.php:14
+msgid "User ID from route context"
+msgstr "Benutzer-ID aus Route-Kontext"
+
+#: src/Plugin/views/argument_validator/User.php:66
+msgid "If no roles are selected, users from any role will be allowed."
+msgstr "Wenn keine Rollen ausgewählt sind, wird es für Benutzer jeder Rolle erlaubt sein."
+
+#: src/Plugin/views/argument_validator/UserName.php:27
+msgid "Single name"
+msgstr "Einzelner Name"
+
+#: src/Plugin/views/argument_validator/UserName.php:28
+msgid "One or more names separated by , or +"
+msgstr "Ein Name oder mehrere Namen, getrennt durch , oder +"
+
+#: src/Plugin/views/field/Roles.php:98
+msgid "The name of the role."
+msgstr "Der Name der Rolle."
+
+#: src/Plugin/views/field/Roles.php:99
+msgid "The role machine-name of the role."
+msgstr "Systemname der Rolle."
+
+#: src/Plugin/views/field/UserBulkForm.php:28
+msgid "Update the user %name"
+msgstr "Den Benutzer %name aktualisieren"
+
+#: src/Plugin/views/field/UserBulkForm.php:38
+msgid "No users selected."
+msgstr "Keine Benutzer ausgewählt."
+
+#: src/Plugin/views/field/UserData.php:81
+msgid "The module which sets this user data."
+msgstr "Das Modul, das diese Benutzerdaten festlegt."
+
+#: src/Plugin/views/field/UserData.php:89
+msgid "The name of the data key."
+msgstr "Der Name des Datenschlüssels."
+
+#: src/Plugin/views/filter/Current.php:25
+msgid "Is the logged in user"
+msgstr "Ist der angemeldete Benutzer"
+
+#: src/Plugin/views/filter/Name.php:26
+msgid "Usernames"
+msgstr "Benutzernamen"
+
+#: src/Plugin/views/filter/Name.php:27
+msgid "Enter a comma separated list of user names."
+msgstr "Eine kommagetrennte Liste von Benutzernamen."
+
+#: src/Plugin/views/filter/Roles.php:67
+msgid "Only has the 'authenticated user' role"
+msgstr "Besitzt nur die Rolle ‘Angemeldeter Benutzer‘"
+
+#: src/Plugin/views/filter/Roles.php:68
+msgid "Has roles in addition to 'authenticated user'"
+msgstr "Hat neben ‘Angemeldeter Benutzer‘ noch weitere Rollen"
+
+#: config/install/core.entity_form_mode.user.register.yml:0
+msgid "Register"
+msgstr "Registrieren"
+
+#: config/install/core.entity_view_mode.user.compact.yml:0
+msgid "Compact"
+msgstr "Kompakt"
+
+#: config/install/system.action.user_block_user_action.yml:0
+msgid "Block the selected user(s)"
+msgstr "Ausgewählte Benutzer sperren"
+
+#: config/install/system.action.user_cancel_user_action.yml:0
+msgid "Cancel the selected user account(s)"
+msgstr "Die ausgewählten Benutzerkonten löschen"
+
+#: config/install/system.action.user_unblock_user_action.yml:0
+msgid "Unblock the selected user(s)"
+msgstr "Die ausgewählt Benutzer entsperren"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nA request to cancel your account has been made at [site:name].\n\nYou may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:\n\n[user:cancel-url]\n\nNOTE: The cancellation of your account is not reversible.\n\nThis link expires in one day and nothing will happen if it is not used.\n\n--  [site:name] team"
+msgstr "[user:display-name],\n\nEine Anfrage zur Löschung Ihres Benutzerkontos auf [site:name] wurde gestellt.\n\nSie können Ihr Konto auf [site:url-brief] jetzt durch Klick auf den folgenden Link löschen oder diesen alternativ in Ihren Browser kopieren:\n\n[user:cancel-url]\n\nHINWEIS: Die Löschung Ihres Benutzerkontos kann nicht rückgängig gemacht werden und ist endgültig.\n\nDer Link ist einen Tag lang gültig und läuft automatisch aus, falls Sie ihn nicht verwenden.\n\nViele Grüße\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "Account cancellation request for [user:display-name] at [site:name]"
+msgstr "Antrag auf Löschung von Benutzerkonto [user:display-name] auf [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nA request to reset the password for your account has been made at [site:name].\n\nYou may now log in by clicking this link or copying and pasting it into your browser:\n\n[user:one-time-login-url]\n\nThis link can only be used once to log in and will lead you to a page where you can set your password. It expires after one day and nothing will happen if it's not used.\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\neine Anfrage zum Zurücksetzen des Passworts für Ihr Benutzerkonto auf [site:name] wurde gestellt.\r\n\r\nSie können sich jetzt mit einem Klick auf folgenden Link anmelden oder diesen alternativ in Ihren Browser kopieren:\r\n\r\n[user:one-time-login-url]\r\n\r\nDieser Link kann nur einmal verwendet werden und leitet Sie zu einer Seite, auf der Sie ein neues Passwort festlegen können. Er ist einen Tag lang gültig und läuft automatisch aus, falls Sie ihn nicht verwenden.\r\n\r\nViele Grüße\r\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "Replacement login information for [user:display-name] at [site:name]"
+msgstr "Neue Anmeldungsdaten für Benutzerkonto [user:display-name] auf [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nA site administrator at [site:name] has created an account for you. You may now log in by clicking this link or copying and pasting it into your browser:\n\n[user:one-time-login-url]\n\nThis link can only be used once to log in and will lead you to a page where you can set your password.\n\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\n\nusername: [user:name]\npassword: Your password\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nEin Administrator der Website [site:name] hat für Sie ein Benutzerkonto angelegt. Sie können sich jetzt mit einem Klick auf den folgenden Link anmelden oder diesen alternativ in Ihren Browser kopieren:\r\n\r\n[user:one-time-login-url]\r\n\r\nDieser Link kann nur einmal verwendet werden und leitet Sie zu einer Seite, auf der Sie ein neues Passwort vergeben können.\r\n\r\nNachdem Sie Ihr Passwort festgelegt haben, können Sie sich zukünftig auf [site:login-url] mit den folgenden Zugangsdaten anmelden:\r\n\r\nBenutzername: [user:name]\r\nPasswort: Ihr Passwort\r\n\r\nViele Grüße\r\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "An administrator created an account for you at [site:name]"
+msgstr "Ein Administrator hat für Sie auf [site:name] ein Benutzerkonto angelegt"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nThank you for registering at [site:name]. You may now log in by clicking this link or copying and pasting it into your browser:\n\n[user:one-time-login-url]\n\nThis link can only be used once to log in and will lead you to a page where you can set your password.\n\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\n\nusername: [user:name]\npassword: Your password\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nvielen Dank für die Registrierung auf [site:name]. Sie können sich jetzt mit einem Klick auf den folgenden Link anmelden oder diesen alternativ in Ihren Browser kopieren:\r\n\r\n[user:one-time-login-url]\r\n\r\nDieser Link kann nur einmal verwendet werden und leitet Sie auf eine Seite, auf der Sie Ihr Passwort festlegen können.\r\n\r\nNachdem Sie Ihr Passwort festgelegt haben, können Sie sich zukünftig mit folgenden Zugangsdaten bei [site:login-url] anmelden:\r\n\r\nBenutzername: [user:name]\r\nPasswort: Ihr Passwort\r\n\r\nViele Grüße\r\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "Account details for [user:display-name] at [site:name]"
+msgstr "Kontodetails für [user:display-name] auf [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nThank you for registering at [site:name]. Your application for an account is currently pending approval. Once it has been approved, you will receive another email containing information about how to log in, set your password, and other details.\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nVielen Dank, dass Sie ein Benutzerkonto auf der Website [site:name] erstellt haben. Ihre Anmeldung wird momentan überprüft. Sobald die Überprüfung abgeschlossen ist, erhalten Sie eine weitere E-Mail, die Informationen darüber enthält, wie Sie sich auf der Website einloggen, Ihr Passwort festlegen und weitere Angaben in Ihrem Benutzerkonto machen können.\r\n\r\n--  Ihr Team von [site:name]."
+
+#: config/install/user.mail.yml:0;0
+msgid "Account details for [user:display-name] at [site:name] (pending admin approval)"
+msgstr "Kontendetails für [user:display-name] auf [site:name] (Genehmigung ausstehend)"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name] has applied for an account.\n\n[user:edit-url]"
+msgstr "[user:display-name] hat einen Antrag auf ein Benutzerkonto gestellt.\r\n\r\n[user:edit-url]"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nYour account at [site:name] has been activated.\n\nYou may now log in by clicking this link or copying and pasting it into your browser:\n\n[user:one-time-login-url]\n\nThis link can only be used once to log in and will lead you to a page where you can set your password.\n\nAfter setting your password, you will be able to log in at [site:login-url] in the future using:\n\nusername: [user:account-name]\npassword: Your password\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nIhr Benutzerkonto auf der Website [site:name] wurde aktiviert. \r\n\r\nSie können sich jetzt mit einem Klick auf den folgenden Link anmelden oder diesen alternativ in Ihren Browser kopieren:\r\n\r\n[user:one-time-login-url]\r\n\r\nDieser Link kann nur einmal verwendet werden und leitet Sie zu einer Seite, auf der Sie ein neues Passwort vergeben können.\r\n\r\nNachdem Sie Ihr Passwort festgelegt haben, können Sie sich zukünftig auf [site:login-url] mit den folgenden Zugangsdaten anmelden:\r\n\r\nBenutzername: [user:name]\r\nPasswort: Ihr Passwort\r\n\r\nViele Grüße\r\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "Account details for [user:display-name] at [site:name] (approved)"
+msgstr "Kontodetails für [user:display-name] auf [site:name] (freigegeben)"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nYour account on [site:name] has been blocked.\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nIhr Benutzerkonto auf [site:name] wurde gesperrt.\r\n\r\n--  [site:name]-Team"
+
+#: config/install/user.mail.yml:0
+msgid "Account details for [user:display-name] at [site:name] (blocked)"
+msgstr "Details für Benutzerkonto [user:display-name] auf [site:name] (gesperrt)"
+
+#: config/install/user.mail.yml:0
+msgid "[user:display-name],\n\nYour account on [site:name] has been canceled.\n\n--  [site:name] team"
+msgstr "[user:display-name],\r\n\r\nIhr Benutzerkonto auf [site:name] wurde gelöscht.\r\n\r\nViele Grüße\r\nDas Team von [site:name]"
+
+#: config/install/user.mail.yml:0
+msgid "Account details for [user:display-name] at [site:name] (canceled)"
+msgstr "Details für Benutzerkonto [user:display-name] auf [site:name] (abgebrochen)"
+
+#: config/install/user.role.anonymous.yml:0
+msgid "Anonymous user"
+msgstr "Gast"
+
+#: config/install/user.role.authenticated.yml:0
+msgid "Authenticated user"
+msgstr "Angemeldeter Benutzer"
+
+#: config/install/user.settings.yml:0
+msgid "Anonymous"
+msgstr "Gast"
+
+#: config/optional/views.view.user_admin_people.yml:0;0
+msgid "Find and manage people interacting with your site."
+msgstr "Menschen finden und verwalten, die mit Ihrer Website interagieren."
+
+#: config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Master"
+msgstr "Master"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Filter"
+msgstr "Filter"
+
+#: config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Asc"
+msgstr "Aufsteigend"
+
+#: config/optional/views.view.user_admin_people.yml:0 config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Desc"
+msgstr "Absteigend"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "‹ Previous"
+msgstr "‹ Vorherige Seite"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Next ›"
+msgstr "Nächste Seite ›"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Items per page"
+msgstr "Elemente pro Seite"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "- All -"
+msgstr "- Alle -"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Offset"
+msgstr "Versatz"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "« First"
+msgstr "« Anfang"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Last »"
+msgstr "Ende »"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Operations"
+msgstr "Aktionen"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid ", "
+msgstr ", "
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Name or email contains"
+msgstr "Name oder E-Mail-Adresse enthält"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "more"
+msgstr "mehr"
+
+#: config/optional/views.view.user_admin_people.yml:0
+msgid "Page"
+msgstr "Seite"
+
+#: config/optional/views.view.who_s_new.yml:0;0;0;0
+msgid "Who's new"
+msgstr "Neue Benutzer"
+
+#: config/optional/views.view.who_s_new.yml:0
+msgid "Shows a list of the newest user accounts on the site."
+msgstr "Zeigt eine Liste der neuesten Benutzerkonten der Website."
+
+#: config/optional/views.view.who_s_new.yml:0 config/optional/views.view.who_s_online.yml:0
+msgid "Apply"
+msgstr "Anwenden"
+
+#: config/optional/views.view.who_s_new.yml:0
+msgid "A list of new users"
+msgstr "A list of new users"
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "Who's online block"
+msgstr "Wer ist online Block"
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "Shows the user names of the most recently active users, and the total number of active users."
+msgstr "Zeigt die Benutzernamen der zuletzt aktiven Benutzer und die Gesamtzahl der aktiven Benutzer."
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "A user is considered online for this long after they have last viewed a page."
+msgstr "Ein Benutzer gilt für diesen Zeitraum als „online“, nachdem er das letzte Mal eine Seite betrachtet hat."
+
+#: config/optional/views.view.who_s_online.yml:0;0;0
+msgid "Who's online"
+msgstr "Wer ist online"
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "There are currently @total users online."
+msgstr "Momentan sind @total Benutzer online."
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "There are currently 0 users online."
+msgstr "Momentan sind keine Benutzer online."
+
+#: config/optional/views.view.who_s_online.yml:0
+msgid "A list of users that are currently logged in."
+msgstr "Eine Liste der derzeit angemeldeten Benutzer."
+

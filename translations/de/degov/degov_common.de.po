@@ -1,0 +1,282 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  degov_common.module: n/a
+#  degov_common.install: n/a
+#  degov_common.info.yml: n/a
+#  modules/degov_contrib_translation_test/degov_contrib_translation_test.info.yml: n/a
+#  modules/degov_custom_translation_test/degov_custom_translation_test.info.yml: n/a
+#  degov_common.links.menu.yml: n/a
+#  degov_common.permissions.yml: n/a
+#  degov_common.routing.yml: n/a
+#  src/Common.php: n/a
+#  src/DegovConfigManagerBase.php: n/a
+#  src/VideoUtils.php: n/a
+#  src/Controller/FileController.php: n/a
+#  src/Form/DegovSettingsForm.php: n/a
+#  src/Plugin/Block/SidebarParagraphs.php: n/a
+#  src/Plugin/Block/UserProfileLink.php: n/a
+#  src/Plugin/EntityBrowser/SelectionDisplay/DegovSelection.php: n/a
+#  src/Plugin/Field/FieldFormatter/DurationFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php: n/a
+#  src/Plugin/Field/FieldFormatter/deGovPreviewImage.php: n/a
+#  src/Plugin/views/argument_default/CalendarDate.php: n/a
+#  src/Plugin/views/argument_default/CalendarDefault.php: n/a
+#  templates/degov-user-profile-link.html.twig: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-19 12:54+0100\n"
+"PO-Revision-Date: 2019-12-10 12:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: degov_common.module:25
+msgid "Media Usage"
+msgstr "Medienverwendung"
+
+#: degov_common.module:27
+msgid "Usage"
+msgstr "Verwendung"
+
+#: degov_common.module:28
+msgid "Shows the list of media usage."
+msgstr "Zeigt die Liste der Medienverwendung an."
+
+#: degov_common.module:105
+msgid "Download"
+msgstr "Herunterladen"
+
+#: degov_common.module:208
+msgid "Selected Items"
+msgstr "Ausgewählte Elemente"
+
+#: degov_common.module:210
+msgid "Select"
+msgstr "Auswählen"
+
+#: degov_common.module:221
+msgid "Click on this field and use the icon picker to select the Font Awesome icon css class for this menu item (first level items only)."
+msgstr "Klicken Sie in dieses Feld und verwenden Sie den Icon-Picker, um die Font Awesome Icon CSS-Klasse für diesen Menüpunkt auszuwählen (nur Einträge der ersten Ebene)."
+
+#: degov_common.install:284;292
+msgid "Content access issue"
+msgstr "Problem beim Inhaltszugriff"
+
+#: degov_common.install:285
+msgid "The Workbench Access module is being used in this Drupal instance. It's discouraged to use the Workbench Access module. The preferred module is Permissions by Term. Uninstall the Workbench Access and deGov Workbench Access modules. Add your settings into the Permissions by Term configuration."
+msgstr "Diese Drupal-Instanz verwendet das Workbench-Access-Modul. Von der Verwendung des Workbench-Access-Modul wird abgeraten. Vorzugsweise sollte das Permissions-Modul von Term eingesetzt werden. Deinstallieren Sie das Workbench-Access- und das deGov Workbench-Access-Modul. Tragen Sie Ihre Einstellungen in der Konfiguration von Permissions von Term ein."
+
+#: degov_common.install:287
+msgid "Usage of module without a stable release, which is deprecated in deGov"
+msgstr "Verwendung von Modulen ohne stabile Version, die in deGov nicht mehr unterstützt werden"
+
+#: degov_common.install:293
+msgid "The Workbench Access module AND the Permissions by Term module are installed. They do pretty much the same thing and can interfere. It's recommended to use the Permissions by Term module only."
+msgstr "Es sind sowohl das Workbench-Access-Modul als auch das Permissions-Modul von Term installiert. Ihre Funktionen sind nahezu identisch und können sich gegenseitig stören. Es wird empfohlen, nur das Modul Permissions von Term zu verwenden."
+
+#: degov_common.install:295
+msgid "Duplication of content access modules"
+msgstr "Mehrere Inhaltszugriffmodule"
+
+#: degov_common.info.yml:0
+msgid "deGov - Common"
+msgstr "deGov - Common"
+
+#: degov_common.info.yml:0
+msgid "This module contains base functionality for the deGov distribution."
+msgstr "Dieses Modul enthält Basisfunktionalitäten für die deGov Distribtuion"
+
+#: degov_common.info.yml:0 modules/degov_contrib_translation_test/degov_contrib_translation_test.info.yml:0 modules/degov_custom_translation_test/degov_custom_translation_test.info.yml:0
+msgid "deGov"
+msgstr "deGov"
+
+#: degov_common.links.menu.yml:0
+msgid "deGov Settings"
+msgstr "deGov-Einstellungen"
+
+#: degov_common.links.menu.yml:0
+msgid "Administer deGov."
+msgstr "deGov verwalten"
+
+#: degov_common.permissions.yml:0
+msgid "Administer deGov destribution settings"
+msgstr "Verwalten der Einstellungen zur deGov-Distribution"
+
+msgid "Administer deGov distribution"
+msgstr "Verwalten der deGov-Distribution"
+
+#: degov_common.routing.yml:0
+msgid "deGov distribution settings"
+msgstr "Einstellungen zur deGov-Distribution"
+
+#: degov_common.routing.yml:0
+msgid "Download file"
+msgstr "Datei herunterladen"
+
+#: modules/degov_contrib_translation_test/degov_contrib_translation_test.info.yml:0
+msgid "degov_contrib_translation_test"
+msgstr "degov_contrib_translation_test"
+
+#: modules/degov_contrib_translation_test/degov_contrib_translation_test.info.yml:0 modules/degov_custom_translation_test/degov_custom_translation_test.info.yml:0
+msgid "Test module to test the service degov_common.translation_import."
+msgstr "Test-Modul zum Testen des Diensts degov_common.translation_import."
+
+#: modules/degov_custom_translation_test/degov_custom_translation_test.info.yml:0
+msgid "degov_custom_translation_test"
+msgstr "degov_custom_translation_test"
+
+#: src/Common.php:80
+msgid "Removing all content of type @type"
+msgstr "Entfernen aller Inhalt vom Typ @type"
+
+#: src/DegovConfigManagerBase.php:130
+msgid "There are no changes to import."
+msgstr "Es sind keine zu importierenden Änderungen vorhanden."
+
+#: src/DegovConfigManagerBase.php:146
+msgid "Another request may be importing configuration already."
+msgstr "Es ist möglich, dass bereits ein anderer Konfigurationsimport aktiv ist."
+
+#: src/DegovConfigManagerBase.php:162
+msgid "The configuration was imported successfully."
+msgstr "Die Konfiguration wurde erfolgreich importiert."
+
+#: src/VideoUtils.php:105;166;198
+msgid "There was a problem getting the video duration. Please check site logs."
+msgstr "Die Länge des Videos konnte nicht ermittelt werden. Bitte Protokollnachrichten überprüfen"
+
+#: src/VideoUtils.php:129
+msgid "There was a problem getting the audio duration. Please check site logs."
+msgstr "Die Länge der Audiodatei konnte nicht ermittelt werden. Bitte Protokollnachrichten überprüfen"
+
+#: src/VideoUtils.php:106;130
+msgid "Error at reading audio properties from @uri with GetId3: @error."
+msgstr "Fehler beim Lesen der Audioeigenschaften aus @uri mit GetId3: @error."
+
+#: src/VideoUtils.php:167
+msgid "Youtube access failure with status: @trace"
+msgstr "Fehler beim Zugriff auf YouTube mit Status: @trace"
+
+#: src/VideoUtils.php:199
+msgid "Vimeo access failure with status: @trace"
+msgstr "Fehler beim Zugriff auf Vimeo mit Status: @trace"
+
+#: src/Controller/FileController.php:48
+msgid "File @uri not found"
+msgstr "Datei @uri wurde nicht gefunden."
+
+#: src/Form/DegovSettingsForm.php:46
+msgid "This is configuration section of deGov distribution"
+msgstr "Dies ist der Konfigurationsabschnitt der deGov-Distribution"
+
+#: src/Form/DegovSettingsForm.php:50
+msgid "Privacy URL Path"
+msgstr "URL-Pfad zur Datenschutzerklärung"
+
+#: src/Form/DegovSettingsForm.php:51
+msgid "The path at which the privacy terms can be found."
+msgstr "Der Pfad, unter dem die Datenschutzerklärung abgerufen werden kann."
+
+#: src/Form/DegovSettingsForm.php:57
+msgid "Netiquette URL Path"
+msgstr "URL-Pfad zur Netiquette"
+
+#: src/Form/DegovSettingsForm.php:58
+msgid "The path at which the netiquette can be found."
+msgstr "Der Pfad unter dem die Netikette abgerufen werden kann."
+
+#: src/Form/DegovSettingsForm.php:64
+msgid "Youtube API Key"
+msgstr "API-Key für Youtube"
+
+#: src/Form/DegovSettingsForm.php:65
+msgid "Obtain a Youtube API key at <a href=\"@link\">@link</a>"
+msgstr "Fordern Sie einen YouTube-API-Key unter <a href=\"@link\">@link</a> an"
+
+#: src/Plugin/Block/SidebarParagraphs.php:12
+msgid "Sidebar paragraphs from Node entity"
+msgstr "Abschnitte der Seitenleiste aus Beitragsentität"
+
+#: src/Plugin/Block/SidebarParagraphs.php:12 src/Plugin/Block/UserProfileLink.php:8
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: src/Plugin/Block/UserProfileLink.php:8
+msgid "Login / Profile link"
+msgstr "Link zum Login/Profil"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/DegovSelection.php:9
+msgid "Multi step selection display for multi valued fields"
+msgstr "Mehrschrittauswahlanzeige für Felder mit mehreren Werten"
+
+#: src/Plugin/EntityBrowser/SelectionDisplay/DegovSelection.php:9
+msgid "Shows the current selection display, allowing to mix elements selected through different widgets in several steps."
+msgstr "Zeigt den aktuellen Auswahldialog mit der Möglichkeit verschiedene Elemente in mehreren Schritten, die aus verschiedenen Steuerelementen bestehen zu kombinieren."
+
+#: src/Plugin/Field/FieldFormatter/DurationFormatter.php:44
+msgid "Hours"
+msgstr "Stunden"
+
+#: src/Plugin/Field/FieldFormatter/DurationFormatter.php:47
+msgid "Minutes"
+msgstr "Minuten"
+
+#: src/Plugin/Field/FieldFormatter/DurationFormatter.php:15
+msgid "Duration formatter"
+msgstr "Format für die Dauer"
+
+#: src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php:120
+msgid "Search route name"
+msgstr "Route-Namen suchen"
+
+#: src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php:121
+msgid "The route name of the search page the term should link to, e.g. %route_name"
+msgstr "Der Route-Name der Suchseite, auf die der Begriff verweisen sollte, z. B. %route_name"
+
+#: src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php:137
+msgid "Search route name: %route_name"
+msgstr "Route-Namen suchen: %route_name"
+
+#: src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php:16
+msgid "Link to search page"
+msgstr "Link zur Suchseite"
+
+#: src/Plugin/Field/FieldFormatter/TaxonomyTermSearchFormatter.php:16
+msgid "A facet with the term's bundle machine name as the facet url alias should exist."
+msgstr "Es sollte eine Facette mit dem Bundle-Maschinennamen des Begriffs als Alias für die Facetten-URL existieren."
+
+#: src/Plugin/Field/FieldFormatter/deGovPreviewImage.php:11
+msgid "Rendered entity or substitution"
+msgstr "Dargestellte Entität oder Ersetzung"
+
+#: src/Plugin/Field/FieldFormatter/deGovPreviewImage.php:11
+msgid "Display the referenced entities rendered by entity_view()."
+msgstr "Zeige die referenzierten Entitäten dargestellt durch entity_view()."
+
+#: src/Plugin/views/argument_default/CalendarDate.php:12
+msgid "Raw value from URL or current date"
+msgstr "Ungefilterter Wert aus der URL oder aktuelles Datum"
+
+#: src/Plugin/views/argument_default/CalendarDefault.php:10
+msgid "Current month of the year (exposed excluded)"
+msgstr "Aktueller Monat des Jahrs (hervorgehobenes ausgeschlossen)"
+
+#: templates/degov-user-profile-link.html.twig:4;4
+msgid "User"
+msgstr "Benutzer"
+
+#: templates/degov-user-profile-link.html.twig:8;8
+msgid "Log in / Sign up"
+msgstr "Anmelden / Registrieren"
+
+msgid "/netiquette"
+msgstr "/netiquette"

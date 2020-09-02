@@ -1,0 +1,386 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  sitemap.theme.inc: n/a
+#  sitemap.module: n/a
+#  src/Form/SitemapSettingsForm.php: n/a
+#  config/schema/sitemap.schema.yml: n/a
+#  sitemap.info.yml: n/a
+#  sitemap.links.menu.yml: n/a
+#  sitemap.routing.yml: n/a
+#  src/Plugin/Block/SitemapBlock.php: n/a
+#  config/install/sitemap.settings.yml: n/a
+#  sitemap.links.task.yml: n/a
+#  sitemap.permissions.yml: n/a
+#  src/SitemapHelper.php: n/a
+#  src/Plugin/Block/SitemapSyndicateBlock.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:41+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: sitemap.theme.inc:29;30
+msgid "Syndicated feed icon"
+msgstr "Icon für syndizierten Feed"
+
+#: sitemap.theme.inc:40
+msgid "Syndicated feed for @feed_name"
+msgstr "Syndizierter Feed für @feed_name"
+
+#: sitemap.module:58 src/Form/SitemapSettingsForm.php:113
+msgid "Front page"
+msgstr "Startseite"
+
+#: sitemap.module:59
+msgid "Front page of %sn"
+msgstr "Startseite von %sn"
+
+#: sitemap.module:108
+msgid "Books"
+msgstr "Bücher"
+
+#: sitemap.module:109
+msgid "Books at %sn."
+msgstr "Bücher auf %sn."
+
+#: sitemap.module:249 config/schema/sitemap.schema.yml:0
+msgid "Sitemap display name"
+msgstr "Anzeigename der Sitemap"
+
+#: sitemap.module:250
+msgid "A user-friendly name for the menu that will display on the sitemap."
+msgstr "Ein benutzerfreundlicher Name für das Menü, das auf der Sitemap angezeigt wird."
+
+#: sitemap.info.yml:0 sitemap.links.menu.yml:0;0 sitemap.routing.yml:0 src/Plugin/Block/SitemapBlock.php:10;10 config/install/sitemap.settings.yml:0
+msgid "Sitemap"
+msgstr "Sitemap"
+
+#: sitemap.info.yml:0
+msgid "Display a sitemap."
+msgstr "Eine Sitemap anzeigen."
+
+#: sitemap.links.menu.yml:0
+msgid "Control what should be displayed on the sitemap."
+msgstr "Bestimmen, was auf der Sitemap angezeigt werden soll."
+
+#: sitemap.links.task.yml:0
+msgid "View"
+msgstr "Ansicht"
+
+#: sitemap.links.task.yml:0
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: sitemap.permissions.yml:0
+msgid "View published sitemap"
+msgstr "Veröffentlichte Sitemap anzeigen"
+
+#: sitemap.permissions.yml:0
+msgid "Administer sitemap"
+msgstr "Sitemap verwalten"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:221
+msgid "Sitemap settings"
+msgstr "Sitemap-Einstellungen"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:87
+msgid "Page title"
+msgstr "Seitentitel"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:96
+msgid "Sitemap message"
+msgstr "Sitemap-Nachricht"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Show front flag"
+msgstr "Front-Kennzeichnung anzeigen"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Show titles flag"
+msgstr "Titel-Kennzeichnung anzeigen"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Books to display"
+msgstr "Anzuzeigende Bücher"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Book id"
+msgstr "Buch-ID"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Books expanded flag"
+msgstr "Kennzeichnung Bücher-Darstellung geöffnet"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Menus to display"
+msgstr "Anzuzeigende Menüs"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Menu id"
+msgstr "Menü -ID"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Show disabled menu items flag"
+msgstr "Kennzeichnung für deaktivierte Menüpunkte anzeigen"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Vocabularies to display"
+msgstr "Anzuzeigende Vokabulare"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Vocabulary id"
+msgstr "Vokabular-ID"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Show vocabulary description flag"
+msgstr "Kennzeichnung für Vokabular-Beschreibung anzeigen"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Show node count by taxonomy term flag"
+msgstr "Kennzeichnung für Beitragszähler nach Taxonomiebegriffen anzeigen"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:326
+msgid "Show links for taxonomy terms even if they don't contain any nodes"
+msgstr "Links für Taxonomiebegriffe selbst dann anzeigen, wenn sie keine Beiträge enthalten"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:332
+msgid "Vocabulary depth"
+msgstr "Vokabulartiefe"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:340
+msgid "Term count threshold"
+msgstr "Schwellenwert für die Anzahl der Begriffe"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:289
+msgid "Forum count threshold"
+msgstr "Schwellenwert für die Anzahl von Foren"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "RSS front"
+msgstr "RSS-Front"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Position of RSS links"
+msgstr "Position der RSS-Links"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "RSS depth"
+msgstr "RSS-Tiefe"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Include css file flag"
+msgstr "Kennzeichnung für CSS-Datei einschließen"
+
+#: config/schema/sitemap.schema.yml:0 src/Form/SitemapSettingsForm.php:167
+msgid "Sitemap order"
+msgstr "Sitemap-Reihenfolge"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/sitemap.schema.yml:0
+msgid "Menu customizations"
+msgstr "Menüanpassungen"
+
+#: src/SitemapHelper.php:194
+msgid "1 item has this term"
+msgid_plural "@count items have this term"
+msgstr[0] "1 Element enthält diesen Begriff"
+msgstr[1] "@count Elemente enthalten diese Begriff"
+
+#: src/Form/SitemapSettingsForm.php:89
+msgid "Page title that will be used on the @sitemap_page."
+msgstr "Seitentitel, der auf @sitemap_page verwendet wird."
+
+#: src/Form/SitemapSettingsForm.php:89
+msgid "sitemap page"
+msgstr "Sitemap-Seite"
+
+#: src/Form/SitemapSettingsForm.php:98
+msgid "Define a message to be displayed above the sitemap."
+msgstr "Eine Nachricht definieren, die oberhalb der Sitemap angezeigt werden soll."
+
+#: src/Form/SitemapSettingsForm.php:103
+msgid "Sitemap content"
+msgstr "Sitemap-Inhalt"
+
+#: src/Form/SitemapSettingsForm.php:109
+msgid "Show front page"
+msgstr "Startseite anzeigen"
+
+#: src/Form/SitemapSettingsForm.php:111
+msgid "When enabled, this option will include the front page in the sitemap."
+msgstr "Diese Option nimmt, wenn sie aktiviert ist, die Startseite in die Sitemap auf."
+
+#: src/Form/SitemapSettingsForm.php:124
+msgid "Books to include in the sitemap"
+msgstr "In die Sitemap aufzunehmende Bücher"
+
+#: src/Form/SitemapSettingsForm.php:140
+msgid "Menus to include in the sitemap"
+msgstr "In die Sitemap aufzunehmende Menüs"
+
+#: src/Form/SitemapSettingsForm.php:156
+msgid "Vocabularies to include in the sitemap"
+msgstr "In die Sitemap aufzunehmende Vokabulare"
+
+#: src/Form/SitemapSettingsForm.php:187
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/SitemapSettingsForm.php:225
+msgid "Show titles"
+msgstr "Titel anzeigen"
+
+#: src/Form/SitemapSettingsForm.php:227
+msgid "When enabled, this option will show titles. Disable to not show section titles."
+msgstr "Diese Option zeigt, wenn sie aktiviert ist, die Titel. Deaktivieren, wenn Abschnittstitel nicht angezeigt werden sollen."
+
+#: src/Form/SitemapSettingsForm.php:231
+msgid "RSS settings"
+msgstr "RSS Einstellungen"
+
+#: src/Form/SitemapSettingsForm.php:235
+msgid "RSS feed for front page"
+msgstr "RSS-Feed für Startseite"
+
+#: src/Form/SitemapSettingsForm.php:237
+msgid "The RSS feed for the front page, default is rss.xml."
+msgstr "Der RSS-Feed für die Startseite, Standard ist rss.xml."
+
+#: src/Form/SitemapSettingsForm.php:241
+msgid "Include RSS links"
+msgstr "RSS Verweise aufnehmen"
+
+#: src/Form/SitemapSettingsForm.php:244
+msgid "None"
+msgstr "Keine"
+
+#: src/Form/SitemapSettingsForm.php:245
+msgid "Include on the right side"
+msgstr "Auf der rechten Seite einschließen"
+
+#: src/Form/SitemapSettingsForm.php:246
+msgid "Include on the left side"
+msgstr "Auf der linken Seite einschließen"
+
+#: src/Form/SitemapSettingsForm.php:248
+msgid "When enabled, this option will show links to the RSS feeds for the front page and taxonomy terms, if enabled."
+msgstr "Diese Option zeigt, wenn sie aktiviert ist, Links zu den RSS-Feeds für die Startseite und, falls aktiviert, Taxonomiebegriffe an."
+
+#: src/Form/SitemapSettingsForm.php:252
+msgid "RSS depth for vocabularies"
+msgstr "RSS-Tiefe für Vokabulare"
+
+#: src/Form/SitemapSettingsForm.php:256
+msgid "Specify how many RSS feed links should be displayed with taxonomy terms. Enter \"-1\" to include with all terms, \"0\" not to include with any terms, or \"1\" to show only for top-level taxonomy terms."
+msgstr "Spezifizieren Sie, wie viele RSS-Feed-Links bei Taxonomiebegriffen angezeigt werden sollen. Geben Sie „-1“ ein, um sie bei allen Begriffen anzuzeigen, „0“, um sie bei keinen Begriffen anzuzeigen oder „1“, um sie nur bei Taxonomiebegriffen auf der obersten Ebene anzuzeigen."
+
+#: src/Form/SitemapSettingsForm.php:260
+msgid "CSS settings"
+msgstr "CSS-Einstellungen"
+
+#: src/Form/SitemapSettingsForm.php:264
+msgid "Include sitemap CSS file"
+msgstr "CSS-Datei der Sitemap einschließen"
+
+#: src/Form/SitemapSettingsForm.php:266
+msgid "Select this box if you wish to load the CSS file included with the module. To learn how to override or specify the CSS at the theme level, visit the @documentation_page."
+msgstr "Wählen Sie diese Option, wenn die CSS-Datei zum Modul geladen werden soll. Informationen dazu, wie Sie CSS auf der Theme-Ebene übersteuern oder spezifizieren können, enthält die @documentation_page."
+
+#: src/Form/SitemapSettingsForm.php:266
+msgid "documentation page"
+msgstr "Dokumentationsseite"
+
+#: src/Form/SitemapSettingsForm.php:272
+msgid "Book settings"
+msgstr "Bucheinstellungen"
+
+#: src/Form/SitemapSettingsForm.php:276
+msgid "Show books expanded"
+msgstr "Bücher geöffnet darstellen"
+
+#: src/Form/SitemapSettingsForm.php:278
+msgid "When enabled, this option will show all children pages for each book."
+msgstr "Sobald diese Einstellung aktiviert ist, werden alle Unterseiten von Büchern angezeigt."
+
+#: src/Form/SitemapSettingsForm.php:285
+msgid "Forum settings"
+msgstr "Forum-Einstellungen"
+
+#: src/Form/SitemapSettingsForm.php:292
+msgid "Only show forums whose node counts are greater than this threshold. Set to -1 to disable."
+msgstr "Nur Foren anzeigen, denen mehr Beiträge zugeordnet sind, als der Schwellenwert angibt, -1 für alle Kategorien."
+
+#: src/Form/SitemapSettingsForm.php:298
+msgid "Menu settings"
+msgstr "Menüeinstellungen"
+
+#: src/Form/SitemapSettingsForm.php:302
+msgid "Show disabled menu items"
+msgstr "Deaktivierte Menüelemente anzeigen"
+
+#: src/Form/SitemapSettingsForm.php:304
+msgid "When enabled, hidden menu links will also be shown."
+msgstr "Sofern aktiviert, werden auch ausgeblendete Menülinks angezeigt."
+
+#: src/Form/SitemapSettingsForm.php:310
+msgid "Taxonomy settings"
+msgstr "Kategorie-Einstellungen"
+
+#: src/Form/SitemapSettingsForm.php:314
+msgid "Show vocabulary description"
+msgstr "Vokabular Beschreibung anzeigen"
+
+#: src/Form/SitemapSettingsForm.php:316
+msgid "When enabled, this option will show the vocabulary description."
+msgstr "Diese Option zeigt, wenn sie aktiviert ist, die Vokabularbeschreibung."
+
+#: src/Form/SitemapSettingsForm.php:320
+msgid "Show node counts by taxonomy terms"
+msgstr "Beitragszähler bei Taxonomiebegriffen anzeigen"
+
+#: src/Form/SitemapSettingsForm.php:322
+msgid "When enabled, this option will show the number of nodes in each taxonomy term."
+msgstr "Sobald diese Einstellung aktiviert ist, wird die Anzahl der Beiträge zu jedem Taxonomiebegriff angezeigt."
+
+#: src/Form/SitemapSettingsForm.php:328
+msgid "When enabled, this option will turn every taxonomy term into a link."
+msgstr "Diese Option macht, wenn sie aktiviert ist, aus jedem Taxonomiebegriff einen Link."
+
+#: src/Form/SitemapSettingsForm.php:336
+msgid "Specify how many levels taxonomy terms should be included. Enter \"-1\" to include all terms, \"0\" not to include terms at all, or \"1\" to only include top-level terms."
+msgstr "Spezifizieren Sie, wie viele Ebenen von Taxonomiebegriffen angezeigt werden sollen. Geben Sie „-1“ ein, um alle Begriffe anzuzeigen, „0“, um keine Begriffe anzuzeigen oder „1“, um sie nur Begriffe auf der obersten Ebene anzuzeigen."
+
+#: src/Form/SitemapSettingsForm.php:343
+msgid "Only show taxonomy terms whose node counts are greater than this threshold. Set to -1 to disable."
+msgstr "Nur Taxonomiebegriffe anzeigen, deren Beitragszähler größer als dieser Wert ist. Zum Deaktivieren „-1“ eintragen."
+
+#: src/Plugin/Block/SitemapSyndicateBlock.php:63;11
+msgid "Syndicate"
+msgstr "Newsfeeds"
+
+#: src/Plugin/Block/SitemapSyndicateBlock.php:70
+msgid "View the sitemap to see more RSS feeds."
+msgstr "Sitemap anzeigen, um weitere RSS-Feeds zu sehen."
+
+#: src/Plugin/Block/SitemapSyndicateBlock.php:11
+msgid "Syndicate (sitemap)"
+msgstr "Newsfeeds (Sitemap)"
+
+#: config/install/sitemap.settings.yml:0
+msgid "rss.xml"
+msgstr "rss.xml"
+

@@ -1,0 +1,225 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  menu_breadcrumb.info.yml: n/a
+#  menu_breadcrumb.links.menu.yml: n/a
+#  menu_breadcrumb.routing.yml: n/a
+#  config/schema/menu_breadcrumb.schema.yml: n/a
+#  src/Form/SettingsForm.php: n/a
+#  src/MenuBasedBreadcrumbBuilder.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:39+0100\n"
+"PO-Revision-Date: 2019-12-17 15:58+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: menu_breadcrumb.info.yml:0 menu_breadcrumb.links.menu.yml:0 menu_breadcrumb.routing.yml:0
+msgid "Menu Breadcrumb"
+msgstr "Menu Breadcrumb"
+
+#: menu_breadcrumb.info.yml:0
+msgid "Create breadcrumbs from nested menu titles and/or taxonomy membership."
+msgstr "Breadcrumbs aus verschachtelten Menütiteln bzw. Taxonomie-Zugehörigkeit erzeugen."
+
+#: menu_breadcrumb.links.menu.yml:0
+msgid "Configure Menu Breadcrumb settings"
+msgstr "Einstellung für Menü Breadcrumb konfigurieren"
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Menu Breadcrumb Settings"
+msgstr "Menü Breadcrumb Einstellungen"
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Use menu the page belongs to, or the page for the taxonomy of which it is a member, for the breadcrumb."
+msgstr "Für das Breadcrumb zur Seite gehörendes Menü oder die Seite für die Taxonomie, zu der es gehört, verwenden."
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:74
+msgid "Do not build menu-based breadcrumbs for admin pages."
+msgstr "Keine menübasierten Breadcrumbs für Admin-Seiten erstellen."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Include the current page in the breadcrumb trail if it is in the menu."
+msgstr "Aktuelle Seite im Breadcrumb-Trail einschließen, wenn sie sich im Menü befindet."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "If the current page in the breadcrumb trail should be a link."
+msgstr "Falls die aktuelle Seite im Breadcrumb-Trail ein Link sein soll."
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:100
+msgid "End the breadcrumb trail when the first matching found in the menu."
+msgstr "Breadcrumb-Trail bei der ersten gefundenen Übereinstimmung im Menü beenden."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "This option affects breadcrumb display when the current page is a member of a taxonomy whose term is on a menu with \"Taxonomy Attachment\" selected."
+msgstr "Diese Option beeinflusst die Breadcrumb-Anzeige, wenn die aktuelle Seite zu einer Taxonomie gehört, deren Begriff sich in einem Menü befindet, bei dem „Taxonomie-Anhang“ ausgewählt ist."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Set TRUE to show the attached final breadcrumb as a link."
+msgstr "Auf TRUE setzen, um das angehängte letzte Breadcrumb als Link anzuzeigen."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Remove the home link."
+msgstr "Startseiten-Link entfernen."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Choose how to show home title in breadcrumb"
+msgstr "Auswählen, wie der Titel der Startseite im Breadcrumb erscheinen soll"
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Exclude menu items with empty URLs."
+msgstr "Menüpunkt mit leeren URLs ausschließen."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Derive MenuActiveTrail from RouteMatch."
+msgstr "MenuActiveTrail aus RouteMatch herleiten."
+
+#: config/schema/menu_breadcrumb.schema.yml:0
+msgid "Menu Breadcrumb Menu Configurations"
+msgstr "Menü-Konfigurationen zum Menü Breadcrumb"
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:176
+msgid "Enabled"
+msgstr "Aktiviert"
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:179
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:177
+msgid "Taxonomy Attachment"
+msgstr "Taxonomie-Anhang"
+
+#: config/schema/menu_breadcrumb.schema.yml:0 src/Form/SettingsForm.php:178
+msgid "Language Handling"
+msgstr "Sprach-Handhabung"
+
+#: src/MenuBasedBreadcrumbBuilder.php:338
+msgid "Home"
+msgstr "Startseite"
+
+#: src/Form/SettingsForm.php:64
+msgid "Enable the Menu Breadcrumb module"
+msgstr "Menu-Breadcrumb-Modul freigeben"
+
+#: src/Form/SettingsForm.php:65
+msgid "Use menu the page belongs to, or the page for the taxonomy of which it is a member, for the breadcrumb. If unset, no breadcrumbs are generated or cached by this module and all settings below are ignored."
+msgstr "Für das Breadcrumb das zur Seite gehörende Menü oder die Seite für die Taxonomie, zu der es gehört, verwenden. Falls nicht gesetzt, werden von diesem Modul keine Breadcrumbs erzeugt oder im Cache gespeichert, und alle nachstehenden Einstellungen werden ignoriert."
+
+#: src/Form/SettingsForm.php:73
+msgid "Disable for admin pages"
+msgstr "Für Admin-Seiten deaktivieren"
+
+#: src/Form/SettingsForm.php:80
+msgid "Append current page to breadcrumb"
+msgstr "Aktuelle Seite an Breadcrumb anhängen"
+
+#: src/Form/SettingsForm.php:81
+msgid "If current page is on a menu, include it in the breadcrumb trail."
+msgstr "Aktuelle Seite im Breadcrumb-Trail einschließen, wenn sie in einem Menü erscheint."
+
+#: src/Form/SettingsForm.php:87
+msgid "Show current page as link"
+msgstr "Aktuelle Seite als Link anzeigen"
+
+#: src/Form/SettingsForm.php:88
+msgid "Set TRUE if the current page in the breadcrumb trail should be a link (otherwise it will be plain text)."
+msgstr "Auf TRUE setzen, falls die aktuelle Seite im Breadcrumb-Trail ein Link sein soll (wird andernfalls als unformatierter Text angezeigt)."
+
+#: src/Form/SettingsForm.php:99
+msgid "Stop on the first matching"
+msgstr "Stopp bei der ersten Übereinstimmung"
+
+#: src/Form/SettingsForm.php:106
+msgid "Attach taxonomy member page to breadcrumb"
+msgstr "Zugehörige Taxonomie-Seite an Breadcrumb anhängen"
+
+#: src/Form/SettingsForm.php:107
+msgid "This option affects breadcrumb display when the current page is a member of a taxonomy whose term is on a menu with \"Taxonomy Attachment\" selected, when it \"attaches\" to the menu-based breadcrumbs of that taxonomy term. In this case that term's menu title will show as a link regardless of the \"current page\" options above. Set this option TRUE to also show the current (\"attached\") <i>page</i> title as the final breadcrumb."
+msgstr "Diese Option beeinflusst die Breadcrumb-Anzeige, wenn die aktuelle Seite zu einer Taxonomie gehört, deren Begriff sich in einem Menü befindet, bei dem „Taxonomie-Anhang“ ausgewählt ist, wenn sie an die menübasierten Breadcrumbs dieses Taxonomiebegriffs „angehängt“ wird. In diesem Fall erscheint der Menütitel dieses Begriffs unabhängig von den Optionen oben unter „aktuelle Seite“ als Link. Setzen Sie diese Option auf TRUE, um auch den Titel der aktuellen („angehängten“) <i>Seite</i> als letzten Breadcrumb anzuzeigen."
+
+#: src/Form/SettingsForm.php:113
+msgid "Show attached current page as link"
+msgstr "Angehängte aktuelle Seite als Link anzeigen"
+
+#: src/Form/SettingsForm.php:114
+msgid "Set TRUE to show the attached final breadcrumb as a link (otherwise it will be plain text)."
+msgstr "Auf TRUE setzen, um das angehängte letzte Breadcrumb als Link anzuzeigen (andernfalls wird unformatierter Text angezeigt)."
+
+#: src/Form/SettingsForm.php:125
+msgid "Remove \"Home\" link"
+msgstr "Startseiten-Link entfernen"
+
+#: src/Form/SettingsForm.php:127
+msgid "Regardless of option settings, this module always checks if the first breadcrumb is also the &lt;front&gt; page. Without this option set, it will always replace the link for that node- or view- based path of the &lt;front&gt; page (e.g., /node/1 or /node) with a link to the site home. Set this option TRUE to <i>delete</i> the &lt;front&gt; breadcrumb rather than replacing it."
+msgstr "Dieses Modul prüft unabhängig von den Einstellungen der Optionen immer, ob das erste Breadcrumb auch die &lt;Startseite&gt; ist. Wenn diese Option nicht gesetzt ist, ersetzt es immer den Link für diesen beitrags- oder ansichtsbasierten Pfad der &lt;Start-&gt;Seite (z. B. /node/1 oder /node) durch einen Link auf die Startseite der Website. Setzen Sie diese Option auf TRUE, um das &lt;erste&gt; Breadcrumb zu<i>löschen</i>, statt es zu ersetzen."
+
+#: src/Form/SettingsForm.php:132
+msgid "Add \"Home\" link"
+msgstr "Link zur „Startseite“ hinzufügen"
+
+#: src/Form/SettingsForm.php:134
+msgid "If TRUE will add a link to the &lt;front&gt; page if it doesn't already begin the breadcrumb trail: ensuring that the first breadcrumb of every page is the site home. If both \"add\" and \"remove\" are set, when displaying the &lt;front&gt; page and its menu children the \"remove\" option will take precedence."
+msgstr "Fügt bei TRUE einen Link zur &lt;Start&gt;-Seite hinzu, wenn er nicht bereits am Beginn des Breadcrumb-Trails steht: so wird gewährleistet, dass das erste Breadcrumb auf jeder Seite die Startseite der Website ist. Wenn sowohl „hinzufügen“ als auch „entfernen“ gesetzt sind, hat die Option „entfernen“ bei der Anzeige der &lt;Start&gt;-Seite und ihrer Menüunterobjekte Vorrang."
+
+#: src/Form/SettingsForm.php:139
+msgid "Home title"
+msgstr "Startseite Titel"
+
+#: src/Form/SettingsForm.php:142
+msgid "Use \"Home\" as title"
+msgstr "„Startseite“ als Titel verwenden"
+
+#: src/Form/SettingsForm.php:143
+msgid "Uses the site name from the configuration settings: if this option is not set, a translated value for \"Home\" will be used."
+msgstr "Verwendet den Site-Namen aus den Konfigurationseinstellungen: Wenn diese Option nicht gesetzt ist, wird ein übersetzter Wert für „Home“ verwendet."
+
+#: src/Form/SettingsForm.php:144
+msgid "Use title menu parent"
+msgstr "Verwende Titel des übergeordneten Menüelements"
+
+#: src/Form/SettingsForm.php:150
+msgid "Exclude menu items with empty URLs"
+msgstr "Menüpunkt mit leeren URLs ausschließen"
+
+#: src/Form/SettingsForm.php:151
+msgid "If TRUE, menu items whose Link fields resolves to an empty string (like in the case \"&lt;none&gt;\" was used) will not be included in the breadcrumb trail."
+msgstr "Falls TRUE gesetzt ist, werden Menüpunkte, deren Linkfelder eine leere Zeichenkette zurückgeben (z. B. wenn „&lt;keine&gt;“ verwendet wurde), nicht in den Breadcrumb-Trail aufgenommen."
+
+#: src/Form/SettingsForm.php:157
+msgid "Derive MenuActiveTrail from RouteMatch"
+msgstr "MenuActiveTrail aus RouteMatch herleiten"
+
+#: src/Form/SettingsForm.php:158
+msgid "If FALSE, the injected @menu.active_trail service will be used."
+msgstr "Bei FALSE wird der Dienst @menu.active_trail verwendet."
+
+#: src/Form/SettingsForm.php:164
+msgid "Enable / Disable Menus"
+msgstr "Menüs aktivieren / deaktivieren"
+
+#: src/Form/SettingsForm.php:165
+msgid "<b>Order of operation:</b> The breadcrumb will be generated from the first match it finds: \"Enabled\" to look for the current item on the menu, then \"Taxonomy Attachment\" to look for its taxonomy term. Re-order the list to change the priority of each menu.<br><b>Language Handling:</b> If set, skip this menu when the defined menu language does not match the current content language: recommended setting when you use a separate menu per language. This has no effect on taxonomy attachment."
+msgstr "<b>Verarbeitungsreihenfolge:</b> Das Breadcrumb wird aus der ersten gefundenen Übereinstimmung erzeugt: Zuerst „aktiviert“, um nach dem ersten aktuellen Eintrag im Menü zu suchen, danach „Taxonomie-Anhang“, um nach dem Taxonomiebegriff zu suchen. Reihenfolge der Liste ändern, um bei einem Menü die Priorität zu verändern.<br><b>Sprach-Handhabung:</b> Falls gesetzt, dieses Menü überspringen, wenn die definierte Menüsprache nicht mit der aktuellen Sprache des Inhalts übereinstimmt: Empfohlene Einstellung, wenn Sie pro Sprache ein Menü verwenden. Hat keine Auswirkung auf den Taxonomie-Anhang."
+
+#: src/Form/SettingsForm.php:168
+msgid "Note: If none of the selected menus contain an item for a given page, Drupal will look in the 'Navigation' menu by default, even if it is 'disabled' here."
+msgstr "Hinweis: Wenn keines der ausgewählten Menüs einen Eintrag für eine gegebene Seite enthält, sucht Drupal standardmäßig Menü ‚Navigation‘, selbst wenn es hier ‚deaktiviert‘ ist."
+
+#: src/Form/SettingsForm.php:175
+msgid "Menu"
+msgstr "Menü"
+
+#: src/Form/SettingsForm.php:181
+msgid "There are no menus yet."
+msgstr "Es gibt noch keine Menüs."
+

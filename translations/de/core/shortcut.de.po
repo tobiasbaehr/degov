@@ -1,0 +1,440 @@
+# $Id$
+#
+# German translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  shortcut.module: n/a
+#  shortcut.links.menu.yml: n/a
+#  shortcut.links.task.yml: n/a
+#  shortcut.routing.yml: n/a
+#  src/Plugin/Block/ShortcutsBlock.php: n/a
+#  shortcut.info.yml: n/a
+#  shortcut.links.action.yml: n/a
+#  src/ShortcutSetListBuilder.php: n/a
+#  src/Form/SetCustomize.php: n/a
+#  shortcut.permissions.yml: n/a
+#  config/schema/shortcut.schema.yml: n/a
+#  src/ShortcutForm.php: n/a
+#  src/Controller/ShortcutSetController.php: n/a
+#  src/ShortcutSetForm.php: n/a
+#  src/Form/SwitchShortcutSet.php: n/a
+#  src/Entity/Shortcut.php: n/a
+#  src/Controller/ShortcutController.php: n/a
+#  src/Entity/ShortcutSet.php: n/a
+#  src/Form/ShortcutSetDeleteForm.php: n/a
+#  src/Plugin/migrate/source/d7/Shortcut.php: n/a
+#  src/Plugin/migrate/source/d7/ShortcutSet.php: n/a
+#  src/Plugin/migrate/source/d7/ShortcutSetUsers.php: n/a
+#  config/install/shortcut.set.default.yml: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2019-11-25 09:31+0100\n"
+"PO-Revision-Date: 2019-12-10 12:56+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: shortcut.module:22
+msgid "About"
+msgstr "Über"
+
+#: shortcut.module:23
+msgid "The Shortcut module allows users to create sets of <em>shortcut</em> links to commonly-visited pages of the site. Shortcuts are contained within <em>sets</em>. Each user with <em>Select any shortcut set</em> permission can select a shortcut set created by anyone at the site. For more information, see the <a href=\":shortcut\">online documentation for the Shortcut module</a>."
+msgstr "Das Shortcut-Modul ermöglicht Benutzern das Erstellen von <em>Verknüpfungen</em>, Links zu den oft besuchten Seiten der Website, zu erstellen. Verknüpfungen werden in Sammlungen gespeichert, die man auch <em>Verknüpfungssätze</em> nennt. Jeder Benutzer, der über die Berechtigung. <em>Beliebigen Verknüpfungssatz auswählen</em> verfügt, kann einen Verknüpfungssatz auswählen, den jemand auf der Website erstellt hat. Weitere Informationen sind in der <a href=\":shortcut\">Online-Dokumentation des Shortcut-Moduls</a> verfügbar."
+
+#: shortcut.module:24
+msgid "Uses"
+msgstr "Verwendungszwecke"
+
+#: shortcut.module:25
+msgid "Administering shortcuts"
+msgstr "Verwalten von Verknüpfungen"
+
+#: shortcut.module:26
+msgid "Users with the <em>Administer shortcuts</em> permission can manage shortcut sets and edit the shortcuts within sets from the <a href=\":shortcuts\">Shortcuts administration page</a>."
+msgstr "Benutzer mit der Berechtigung <em> Verknüpfungen verwalten</em> können Verknüpfungsgruppen erstellen und die in einer Gruppe vorhandenen Verknüpfungen über die Seite <a href=\":shortcuts\">Verknüpfungen verwalten</a> bearbeiten."
+
+#: shortcut.module:27
+msgid "Choosing shortcut sets"
+msgstr "Auswählen von Verknüpfungsgruppen"
+
+#: shortcut.module:28
+msgid "Users with permission to switch shortcut sets can choose a shortcut set to use from the Shortcuts tab of their user account page."
+msgstr "Benutzer mit der Berechtigung Verknüpfungen umzuschalten können die zu verwendende Verknüpfungsgruppe auf ihrer Benutzerkontoseite auswählen."
+
+#: shortcut.module:29
+msgid "Adding and removing shortcuts"
+msgstr "Hinzufügen und Entfernen von Verknüpfungen"
+
+#: shortcut.module:30
+msgid "The Shortcut module creates an add/remove link for each page on your site; the link lets you add or remove the current page from the currently-enabled set of shortcuts (if your theme displays it and you have permission to edit your shortcut set). The core Seven administration theme displays this link next to the page title, as a grey or yellow star. If you click on the grey star, you will add that page to your preferred set of shortcuts. If the page is already part of your shortcut set, the link will be a yellow star, and will allow you to remove the current page from your shortcut set."
+msgstr "Das Shortcut-Modul fügt einen Hinzufügen/Entfernen-Link für jede Seite der Website hinzu. Mit dem Link lässt sich die aktuelle Seite von der aktiven Verknüpfungsgruppe entfernen oder dieser hinzufügen (falls das ausgewählte Theme diese Funktion unterstützt und Sie über die Berechtigung verfügen diese Verknüpfungsgruppe zu bearbeiten). Das Seven-Verwaltungstheme des Kernsystems zeigt diesen Link neben dem Seitentitel als grauen oder gelben Stern an. Bei einem Klick auf den grauen Stern wird die aktuelle Seite zur bevorzugten Verknüpfungsgruppe hinzugefügt. Falls die Seite bereits Teil der bevorzugten Verknüpfungsgruppe ist, wird ein gelber Stern angezeigt, der es erlaubt die aktuelle Seite aus der Verknüpfungsgruppe zu entfernen."
+
+#: shortcut.module:31
+msgid "Displaying shortcuts"
+msgstr "Anzeigen von Verknüpfungen"
+
+#: shortcut.module:32
+msgid "You can display your shortcuts by enabling the <em>Shortcuts</em> block on the <a href=\":blocks\">Blocks administration page</a>. Certain administrative modules also display your shortcuts; for example, the core <a href=\":toolbar-help\">Toolbar module</a> provides a corresponding menu item."
+msgstr "Sie können Ihre Verknüpfungen anzeigen lassen, indem Sie den Block <em>Verknüpfungen</em> auf der Seite <a href=\":blocks\">Blöcke</a> aktivieren. Einige Module, die zur Verwaltung von Drupal verwendet werden, zeigen den Verknüpfungsblock ebenfalls an. Das Core-Modul <a href=\":toolbar-help\"> Toolbar </a> bietet beispielsweise einen entsprechenden Menüeintrag  an."
+
+#: shortcut.module:41
+msgid "Define which shortcut set you are using on the <a href=\":shortcut-link\">Shortcuts tab</a> of your account page."
+msgstr "Festlegen welche Gruppe an Verknüpfungen im <a href=\":shortcut-link\">Verknüpfungen-Reiter</a> auf der Seite des Benutzerkontos verwendet werden soll."
+
+#: shortcut.module:339
+msgid "Add to %shortcut_set shortcuts"
+msgstr "Zu %shortcut_set-Verknüpfungen hinzufügen"
+
+#: shortcut.module:339
+msgid "Add to shortcuts"
+msgstr "Zu Verknüpfungen hinzufügen"
+
+#: shortcut.module:345
+msgid "Remove from %shortcut_set shortcuts"
+msgstr "Aus %shortcut_set-Verknüpfungen entfernen"
+
+#: shortcut.module:345
+msgid "Remove from shortcuts"
+msgstr "Aus Verknüpfungen entfernen"
+
+#: shortcut.module:399
+msgid "Edit shortcuts"
+msgstr "Verknüpfungen bearbeiten"
+
+#: shortcut.module:409;412 shortcut.links.menu.yml:0 shortcut.links.task.yml:0 shortcut.routing.yml:0;0 src/Plugin/Block/ShortcutsBlock.php:9
+msgid "Shortcuts"
+msgstr "Verknüpfungen"
+
+#: shortcut.module:417
+msgid "User-defined shortcuts"
+msgstr "Benutzerdefinierte Verknüpfungen"
+
+#: shortcut.info.yml:0
+msgid "Shortcut"
+msgstr "Verknüpfung"
+
+#: shortcut.info.yml:0
+msgid "Allows users to manage customizable lists of shortcut links."
+msgstr "Ermöglicht Benutzern, anpassbare Listen mit Shortcut-Links zu verwalten"
+
+#: shortcut.info.yml:0
+msgid "Core"
+msgstr "Kernsystem"
+
+#: shortcut.links.action.yml:0 shortcut.routing.yml:0
+msgid "Add shortcut set"
+msgstr "Verknüpfungsgruppe hinzufügen"
+
+#: shortcut.links.action.yml:0
+msgid "Add shortcut"
+msgstr "Verknüpfungen hinzufügen"
+
+#: shortcut.links.menu.yml:0
+msgid "Add and modify shortcut sets."
+msgstr "Verknüpfungsgruppen hinzufügen und ändern."
+
+#: shortcut.links.task.yml:0 shortcut.routing.yml:0 src/ShortcutSetListBuilder.php:34
+msgid "List links"
+msgstr "Links auflisten"
+
+#: shortcut.links.task.yml:0
+msgid "Edit set name"
+msgstr "Gruppen-Name bearbeiten"
+
+#: shortcut.links.task.yml:0 shortcut.routing.yml:0;0 src/Form/SetCustomize.php:69
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: shortcut.permissions.yml:0
+msgid "Administer shortcuts"
+msgstr "Verknüpfungen verwalten"
+
+#: shortcut.permissions.yml:0
+msgid "Edit current shortcut set"
+msgstr "Aktuelle Verknüpfungsgruppe bearbeiten"
+
+#: shortcut.permissions.yml:0
+msgid "Editing the current shortcut set will affect other users if that set has been assigned to or selected by other users. Granting \"Select any shortcut set\" permission along with this permission will grant permission to edit any shortcut set."
+msgstr "Das Bearbeiten der aktuellen Verknüpfungsgruppe betrifft auch andere Benutzer, wenn diese anderen Benutzern zugewiesen oder von ihnen ausgewählt wurde. Das Gewähren der Berechtigung „Beliebige Verknüpfungsgruppe auswählen“ gewährt zusammen mit dieser Berechtigung die Berechtigung alle Verknüpfungsgruppen zu bearbeiten."
+
+#: shortcut.permissions.yml:0
+msgid "Select any shortcut set"
+msgstr "Beliebige Verknüpfungsgruppe auswählen"
+
+#: shortcut.permissions.yml:0
+msgid "From all shortcut sets, select one to be own active set. Without this permission, an administrator selects shortcut sets for users."
+msgstr "Von allen Verknüpfungsgruppen kann eine eigene aktive Gruppe ausgewählt werden. Ohne diese Berechtigung wählt ein Administrator die Verknüpfungsgruppen für Benutzer aus."
+
+#: shortcut.permissions.yml:0
+msgid "Use shortcuts"
+msgstr "Verknüpfungen verwenden"
+
+#: shortcut.routing.yml:0
+msgid "Delete shortcut set"
+msgstr "Verknüpfungsgruppe löschen"
+
+#: shortcut.routing.yml:0 src/ShortcutSetListBuilder.php:30
+msgid "Edit shortcut set"
+msgstr "Verknüpfungsgruppe bearbeiten"
+
+#: shortcut.routing.yml:0
+msgid "Add link"
+msgstr "Link hinzufügen"
+
+#: shortcut.routing.yml:0 src/Form/SetCustomize.php:73
+msgid "Delete"
+msgstr "Löschen"
+
+#: config/schema/shortcut.schema.yml:0;0
+msgid "Shortcut settings"
+msgstr "Einstellungen von Verknüpfungen"
+
+#: config/schema/shortcut.schema.yml:0
+msgid "ID"
+msgstr "ID"
+
+#: config/schema/shortcut.schema.yml:0
+msgid "Add shortcut link"
+msgstr "Verknüpfung hinzufügen"
+
+#: src/ShortcutForm.php:50
+msgid "The shortcut %link has been updated."
+msgstr "Die Verknüpfung %link wurde aktualisiert."
+
+#: src/ShortcutForm.php:53 src/Controller/ShortcutSetController.php:68
+msgid "Added a shortcut for %title."
+msgstr "Eine Verknüpfung für %title wurde hinzugefügt."
+
+#: src/ShortcutSetForm.php:24
+msgid "Set name"
+msgstr "Verknüpfungsgruppenname"
+
+#: src/ShortcutSetForm.php:25 src/Form/SwitchShortcutSet.php:92
+msgid "The new set is created by copying items from your default shortcut set."
+msgstr "Die neue Gruppe wird durch Kopieren der Verknüpfungen aus der Standard-Verknüpfungsgruppe erstellt."
+
+#: src/ShortcutSetForm.php:42
+msgid "Create new set"
+msgstr "Neue Gruppe erstellen"
+
+#: src/ShortcutSetForm.php:56
+msgid "The %set_name shortcut set has been created. You can edit it from this page."
+msgstr "Die Verknüpfungsgruppe %set_name wurde erstellt. Diese kann von dieser Seite aus bearbeitet werden."
+
+#: src/ShortcutSetForm.php:59
+msgid "Updated set name to %set-name."
+msgstr "Gruppen-Name wurde auf %set-name geändert."
+
+#: src/ShortcutSetListBuilder.php:19 src/Entity/Shortcut.php:129 src/Form/SetCustomize.php:35
+msgid "Name"
+msgstr "Name"
+
+#: src/Controller/ShortcutController.php:43
+msgid "The shortcut %title has been deleted."
+msgstr "Die Verknüpfung %title wurde gelöscht."
+
+#: src/Controller/ShortcutController.php:46
+msgid "Unable to delete the shortcut for %title."
+msgstr "Die Verknüpfung für %title konnte nicht gelöscht werden."
+
+#: src/Controller/ShortcutSetController.php:71
+msgid "Unable to add a shortcut for %title."
+msgstr "Die Verknüpfung für %title kann nicht hinzugefügt werden."
+
+#: src/Entity/Shortcut.php:119
+msgid "The ID of the shortcut."
+msgstr "Die ID der Verknüpfung."
+
+#: src/Entity/Shortcut.php:121
+msgid "The UUID of the shortcut."
+msgstr "Die UUID der Verknüpfiung"
+
+#: src/Entity/Shortcut.php:123;13 src/Entity/ShortcutSet.php:9
+msgid "Shortcut set"
+msgstr "Verknüpfungsgruppe"
+
+#: src/Entity/Shortcut.php:124
+msgid "The bundle of the shortcut."
+msgstr "Der Subtyp der Verknüpfung."
+
+#: src/Entity/Shortcut.php:126
+msgid "The language code of the shortcut."
+msgstr "Das Sprachkürzel der Verknüpfung."
+
+#: src/Entity/Shortcut.php:130
+msgid "The name of the shortcut."
+msgstr "Der Name der Verknüpfung."
+
+#: src/Entity/Shortcut.php:143 src/Form/SetCustomize.php:35
+msgid "Weight"
+msgstr "Gewichtung"
+
+#: src/Entity/Shortcut.php:144
+msgid "Weight among shortcuts in the same shortcut set."
+msgstr "Reihenfolge der einzelnen Verknüpfung innerhalb einer Verknüpfungsgruppe."
+
+#: src/Entity/Shortcut.php:147
+msgid "Path"
+msgstr "Pfad"
+
+#: src/Entity/Shortcut.php:148
+msgid "The location this shortcut points to."
+msgstr "Das Ziel auf das diese Verknüpfung zeigt."
+
+#: src/Entity/Shortcut.php:13
+msgid "Shortcut link"
+msgstr "Verknüpfungslink"
+
+#: src/Entity/Shortcut.php:13
+msgid "Shortcut links"
+msgstr "Verknüpfungslinks"
+
+#: src/Entity/Shortcut.php:13
+msgid "shortcut link"
+msgstr "Verknüpfungslink"
+
+#: src/Entity/Shortcut.php:13
+msgid "shortcut links"
+msgstr "Verknüpfungslinks"
+
+#: src/Entity/ShortcutSet.php:9
+msgid "Shortcut sets"
+msgstr "Verknüpfungsgruppen"
+
+#: src/Entity/ShortcutSet.php:9
+msgid "shortcut set"
+msgstr "Verknüpfungsgruppe"
+
+#: src/Entity/ShortcutSet.php:9
+msgid "shortcut sets"
+msgstr "Verknüpfungsgruppen"
+
+#: src/Form/SetCustomize.php:35
+msgid "Operations"
+msgstr "Aktionen"
+
+#: src/Form/SetCustomize.php:36
+msgid "No shortcuts available. <a href=\":link\">Add a shortcut</a>"
+msgstr "Es gibt noch keine Verknüpfungen.  <a href=\":link\">Fügen Sie eine  Verknüpfung hinzu.</a>"
+
+#: src/Form/SetCustomize.php:62
+msgid "Weight for @title"
+msgstr "Gewichtung für @title"
+
+#: src/Form/SetCustomize.php:93
+msgid "Save"
+msgstr "Speichern"
+
+#: src/Form/SetCustomize.php:109
+msgid "The shortcut set has been updated."
+msgstr "Die Verknüpfungsgruppe wurde aktualisiert."
+
+#: src/Form/ShortcutSetDeleteForm.php:67
+msgid "If you have chosen this shortcut set as the default for some or all users, they may also be affected by deleting it."
+msgstr "Wenn diese Verknüpfungsgruppe als Standard für manche oder alle Benutzer ausgewählt wird, sind diese Benutzer auch beim Löschen der Verknüpfungsgruppes betroffen."
+
+#: src/Form/ShortcutSetDeleteForm.php:59
+msgid "1 user has chosen or been assigned to this shortcut set."
+msgid_plural "@count users have chosen or been assigned to this shortcut set."
+msgstr[0] "1 Benutzer hat diese Verknüpfungsgruppe ausgewählt oder sie wurde ihm zugewiesen."
+msgstr[1] "@count Benutzer haben diese Verknüpfungsgruppe ausgewählt oder sie wurde ihnen zugewiesen."
+
+#: src/Form/SwitchShortcutSet.php:77
+msgid "New set"
+msgstr "Neue Gruppe"
+
+#: src/Form/SwitchShortcutSet.php:84
+msgid "Choose a set of shortcuts to use"
+msgstr "Wählen Sie eine Gruppe von zu verwendenden Verknüpfungen aus"
+
+#: src/Form/SwitchShortcutSet.php:84
+msgid "Choose a set of shortcuts for this user"
+msgstr "Wählen Sie eine Gruppe von Verknüpfungen für diesen Benutzer aus"
+
+#: src/Form/SwitchShortcutSet.php:91
+msgid "Label"
+msgstr "Beschriftung"
+
+#: src/Form/SwitchShortcutSet.php:122
+msgid "The new set is created by copying items from the %default set."
+msgstr "Der neue Satz wird durch das Kopieren vom Satz %default angelegt."
+
+#: src/Form/SwitchShortcutSet.php:128
+msgid "Change set"
+msgstr "Gruppe ändern"
+
+#: src/Form/SwitchShortcutSet.php:134
+msgid "You are currently using the %set-name shortcut set."
+msgstr "Sie verwenden gerade die %set-name-Verknüpfungsgruppe."
+
+#: src/Form/SwitchShortcutSet.php:163
+msgid "The new set label is required."
+msgstr "Die Bezeichnung für das neue Set ist erforderlich."
+
+#: src/Form/SwitchShortcutSet.php:191
+msgid "You are now using the new %set_name shortcut set. You can edit it from this page or <a href=\":switch-url\">switch back to a different one.</a>"
+msgstr "Aktuell wird die Verknüpfungsgruppe %set_name shortcut verwendet. Diese kann direkt hier bearbeitet werden. <a href=\":switch-url\"> Es kann auch eine andere Verknüpfungsgruppe verwendet werden.</a>."
+
+#: src/Form/SwitchShortcutSet.php:194
+msgid "%user is now using a new shortcut set called %set_name. You can edit it from this page."
+msgstr "%user verwendet jetzt eine neue Verknüpfungsgruppe %set_name. Diese kann auf dieser Seite bearbeitet werden."
+
+#: src/Form/SwitchShortcutSet.php:209
+msgid "You are now using the %set_name shortcut set."
+msgstr "Sie verwenden jetzt die Verknüpfungsgruppe %set_name."
+
+#: src/Form/SwitchShortcutSet.php:209
+msgid "%user is now using the %set_name shortcut set."
+msgstr "%user verwendet jetzt die Verknüpfungsgruppe %set_name."
+
+#: src/Plugin/Block/ShortcutsBlock.php:9
+msgid "Menus"
+msgstr "Menüs"
+
+#: src/Plugin/migrate/source/d7/Shortcut.php:33
+msgid "The menu.mlid primary key for this menu item (= shortcut link)."
+msgstr "Der primäre Schlüssel ( menu.mlid ) für diesen Menüeintrag ( diese Verknüpfung."
+
+#: src/Plugin/migrate/source/d7/Shortcut.php:34
+msgid "The menu_name (= set name) for this shortcut link."
+msgstr "Der menu_name ( = set name ) für diese Verknüpfung."
+
+#: src/Plugin/migrate/source/d7/Shortcut.php:35
+msgid "The link for this shortcut."
+msgstr "Der Link dieser Verknüpfung."
+
+#: src/Plugin/migrate/source/d7/Shortcut.php:36
+msgid "The title for this shortcut."
+msgstr "Der Titel dieser Verknüpfung"
+
+#: src/Plugin/migrate/source/d7/Shortcut.php:37
+msgid "The weight for this shortcut"
+msgstr "Die Poition dieser Verknüpfung"
+
+#: src/Plugin/migrate/source/d7/ShortcutSet.php:29
+msgid "The name under which the set's links are stored."
+msgstr "Der Name der Gruppe von Verknüpfungen, zu der der Link gehört."
+
+#: src/Plugin/migrate/source/d7/ShortcutSet.php:30
+msgid "The title of the set."
+msgstr "Der Titel der Sammlung"
+
+#: src/Plugin/migrate/source/d7/ShortcutSetUsers.php:29
+msgid "The users.uid for this set."
+msgstr "Die UID des Benutzers dieser Sammlung"
+
+#: src/Plugin/migrate/source/d7/ShortcutSetUsers.php:30
+msgid "The shortcut_set.set_name that will be displayed for this user."
+msgstr "Der Anzeigename der Verknüpfungsgruppe."
+
+#: config/install/shortcut.set.default.yml:0
+msgid "Default"
+msgstr "Standard"
+
