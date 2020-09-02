@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\lightning_media;
 
+use Drupal\Core\File\Exception\FileException;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\file\FileInterface;
@@ -140,7 +143,7 @@ class MediaHelper {
    *
    * @param \Drupal\media\MediaInterface $entity
    *   The media entity.
-   * @param \Drupal\file\FileInterface $file
+   * @param \Drupal\file\FileInterface $source
    *   The file entity.
    * @param int $replace
    *   (optional) What to do if the file already exists. Can be any of the
@@ -149,31 +152,36 @@ class MediaHelper {
    * @return \Drupal\file\FileInterface|false
    *   The final file entity (unsaved), or FALSE if an error occurred.
    */
-  public static function useFile(MediaInterface $entity, FileInterface $file, $replace = FileSystemInterface::EXISTS_RENAME) {
+  public static function useFile(MediaInterface $entity, FileInterface $source, $replace = FileSystemInterface::EXISTS_RENAME) {
     $field = static::getSourceField($entity);
-    $field->setValue($file);
+    $field->setValue($source);
 
     $destination = '';
     $destination .= static::prepareFileDestination($entity);
     if (substr($destination, -1) !== '/') {
       $destination .= '/';
     }
-    $destination .= $file->getFilename();
+    $destination .= $source->getFilename();
 
-    if ($destination == $file->getFileUri()) {
-      return $file;
+    if ($destination == $source->getFileUri()) {
+      return $source;
     }
 
     /** @var \Drupal\Core\File\FileSystemInterface $file_system */
-    $fileSystem = \Drupal::service('file_system');
-    $file = $fileSystem->move($file, $destination, $replace);
-
-    if ($file) {
-      $field->setValue($file);
-      return $file;
+    $file_system = \Drupal::service('file_system');
+    try {
+      $uri = $file_system->move($source->getFileUri(), $destination, $replace);
+      $file = clone $source;
+      $file->setFileUri($uri);
+      if ($file) {
+        $field->setValue($file);
+        return $file;
+      }
+      return FALSE;
     }
-
-    return FALSE;
+    catch (FileException $e) {
+      return FALSE;
+    }
   }
 
   /**
@@ -188,12 +196,14 @@ class MediaHelper {
    * @throws \RuntimeException
    *   If the destination directory is not writable.
    */
-  public static function prepareFileDestination(MediaInterface $entity) {
+  public static function prepareFileDestination(MediaInterface $entity): string {
     /** @var \Drupal\file\Plugin\Field\FieldType\FileItem $item */
     $item = static::getSourceField($entity)->first();
 
     $dir = $item->getUploadLocation();
-    $is_ready = \Drupal::service('file_system')->prepareDirectory($dir, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
+    /** @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $file_system = \Drupal::service('file_system');
+    $is_ready = $file_system->prepareDirectory($dir, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
 
     if ($is_ready) {
       return $dir;
