@@ -12,6 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
+use Drupal\media_file_links\Plugin\Filter\LinkitFilterExtended;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
@@ -211,4 +212,13 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
   }
 
   return NULL;
+}
+
+/**
+ * Implements hook_filter_info_alter().
+ */
+function media_file_links_filter_info_alter(&$info) {
+  if (array_key_exists('linkit', $info)) {
+    $info['linkit']['class'] = LinkitFilterExtended::class;
+  }
 }

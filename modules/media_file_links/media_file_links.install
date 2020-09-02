@@ -54,7 +54,6 @@ function media_file_links_install(): void {
       }
     }
   }
-  _media_file_links_disable_linkit_filter();
 }
 
 /**
@@ -134,32 +133,4 @@ function media_file_links_uninstall(): void {
     }
     $config->set('matchers', $matchers)->save();
   }
-}
-
-/**
- * Implements hook_update_dependencies().
- */
-function media_file_links_update_dependencies() {
-  $dependencies['media_file_links'][890500] = [
-    'linkit' => 8503,
-  ];
-  return $dependencies;
-}
-
-function _media_file_links_disable_linkit_filter() {
-  $config_factory = \Drupal::configFactory();
-  foreach ($config_factory->listAll('filter.format.') as $id) {
-    $filter = $config_factory->getEditable($id);
-    if ($filter->get('filters.linkit') && $filter->get('filters.filter_mediafilelinks')) {
-      $filter->clear('filters.linkit');
-      $filter->save(TRUE);
-    }
-  }
-}
-
-/**
- * Disable linkit filter.
- */
-function media_file_links_update_890500() {
-  _media_file_links_disable_linkit_filter();
 }

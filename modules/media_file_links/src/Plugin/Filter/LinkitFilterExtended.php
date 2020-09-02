@@ -1,25 +1,30 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Drupal\media_file_links\Plugin\Filter;
 
+
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\filter\FilterProcessResult;
-use Drupal\filter\Plugin\FilterBase;
+use Drupal\linkit\Plugin\Filter\LinkitFilter;
+use Drupal\linkit\SubstitutionManagerInterface;
 use Drupal\media_file_links\Service\MediaFileLinkPlaceholderHandler;
 use Drupal\media_file_links\Service\MediaFileLinkResolver;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Transforms placeholders with Media IDs to the corresponding file links.
+ * Provides a Linkit filter.
  *
  * @Filter(
- *   id = "filter_mediafilelinks",
- *   title = @Translation("Resolve links to media files"),
- *   type = Drupal\filter\Plugin\FilterInterface::TYPE_MARKUP_LANGUAGE,
+ *   id = "linkit",
+ *   title = @Translation("Linkit URL converter"),
+ *   description = @Translation("Updates links inserted by Linkit to point to entity URL aliases."),
+ *   settings = {
+ *     "title" = TRUE,
+ *   },
+ *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_REVERSIBLE
  * )
  */
-final class FilterMediaFileLinks extends FilterBase implements ContainerFactoryPluginInterface {
+final class LinkitFilterExtended extends LinkitFilter {
 
   /**
    * @var \Drupal\media_file_links\Service\MediaFileLinkResolver
@@ -46,24 +51,49 @@ final class FilterMediaFileLinks extends FilterBase implements ContainerFactoryP
   }
 
   /**
-   * {@inheritdoc}
+   * {@inheritDoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
-    $instance = new static($configuration, $plugin_id, $plugin_definition);
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
     $instance->setFileLinkResolver($container->get('media_file_links.file_link_resolver'));
     $instance->setPlaceholderHandler($container->get('media_file_links.placeholder_handler'));
     return $instance;
   }
 
+
   /**
-   * {@inheritdoc}
+   * {@inheritDoc}
    */
   public function process($text, $langcode): FilterProcessResult {
+    $has_media_media_links = FALSE;
     while (($mediaId = $this->placeholderHandler->getMediaIdFromPlaceholder($text)) !== NULL) {
       $fileUrl = $this->fileLinkResolver->getFileUrlString($mediaId);
       $text = str_replace($this->placeholderHandler->getPlaceholderForMediaId($mediaId), $fileUrl, $text);
+      $has_media_media_links = TRUE;
     }
-    return new FilterProcessResult($text);
+
+    if ($has_media_media_links && strpos($text, 'data-entity-type') !== FALSE) {
+      $dom = Html::load($text);
+      $xpath = new \DOMXPath($dom);
+
+      foreach ($xpath->query('//a[@data-entity-type]') as $element) {
+        /** @var \DOMElement $element */
+        try {
+          if ($element->getAttribute('data-entity-type') === 'media') {
+            $element->removeAttribute('data-entity-type');
+          }
+
+        }
+        catch (\Exception $e) {
+          watchdog_exception('media_file_links', $e);
+        }
+      }
+
+      $text = Html::serialize($dom);
+    }
+
+    return parent::process($text, $langcode);
   }
+
 
 }

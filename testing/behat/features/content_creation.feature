@@ -238,6 +238,32 @@ Feature: deGov - Content creation
     When I open medias delete url by title "A document with a PDF"
     Then I should not see the element with css selector "div.messages.messages--warning"
 
+  Scenario: I verify that I can use linkit to set links for internal pages
+    Given I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    When I am on "/node/add/normal_page"
+    And I fill in "Titel" with "linkit"
+    Then I should see 1 ".cke" elements via jQuery after a while
+    When I click by selector ".cke_button__drupallink_icon" via JavaScript
+    Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
+    When I fill in "URL" with "blog"
+    And I trigger the "keydown" event on ".form-linkit-autocomplete"
+    Then I should see HTML content matching "linkit-result-line" after a while
+    When I click by selector ".linkit-result-line" via JavaScript
+    And I click by selector ".ui-dialog-buttonpane .button" via JavaScript
+    And I select "draft" by name "moderation_state[0][state]"
+    And I scroll to bottom
+    And I click by selector "#edit-submit" via JavaScript
+    Then I should see text matching "Inhaltsseite linkit wurde erstellt." after a while
+    And I should be on "/linkit"
+    And I should see 1 'a[href$="/degov-demo-content/blog-post"]' elements via jQuery after a while
+    And I should see 1 'a[title="A blog post"]' elements via jQuery after a while
+    When I open node delete form by node title "linkit"
+    And I press button with label "Delete" via translated text
+    Then I should be on the homepage
+    And I should see text matching "Der Inhaltsseite linkit wurde gelöscht." after a while
+
+
   Scenario: I verify that the selected views reference values are preserved in the form
     Given I reset the demo content
     And I have dismissed the cookie banner if necessary
