@@ -12,6 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\link\LinkItemInterface;
 use Drupal\media\MediaInterface;
+use Drupal\media_file_links\Plugin\Filter\LinkitFilterExtended;
 use Drupal\menu_link_content\MenuLinkContentInterface;
 use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
@@ -62,8 +63,19 @@ function media_file_links_form_menu_link_content_menu_link_content_form_alter(&$
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function media_file_links_form_linkit_editor_dialog_form_alter(&$form, FormStateInterface $form_state) {
+function media_file_links_form_editor_link_dialog_alter(&$form, FormStateInterface $form_state) {
   $form['#attached']['library'][] = 'media_file_links/fontawesome';
+  if (!empty($form['attributes']['href']['#description'])) {
+    $descriptionOld = $form['attributes']['href']['#description'];
+    $form['attributes']['href']['#description'] = [
+      '#theme' => 'item_list',
+      '#items' => [
+        $descriptionOld,
+        new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.'),
+      ],
+    ];
+  }
+
 }
 
 /**
@@ -131,17 +143,6 @@ function media_file_links_form_alter(&$form, FormStateInterface $form_state, $fo
       }
     }
   }
-
-  if ($form_id === 'linkit_editor_dialog_form' && !empty($form['attributes']['href']['#description'])) {
-    $descriptionOld = $form['attributes']['href']['#description'];
-    $form['attributes']['href']['#description'] = [
-      '#theme' => 'item_list',
-      '#items' => [
-        $descriptionOld,
-        new TranslatableMarkup('Suggestions may also include files from Media entities you can link to. These will be prefixed with an icon appropriate to their file type.'),
-      ],
-    ];
-  }
 }
 
 /**
@@ -161,7 +162,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof NodeInterface:
       return new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the node <i>:referencingNodeTitle</i> in field <i>:referencingFieldName</i>. <a href="/node/:referencingNodeId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
         [
@@ -172,7 +172,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof MenuLinkContentInterface:
       return new TranslatableMarkup('The media <i>:mediaName</i> is used in a file link reference in the menu entry <i>:referencingMenuLinkTitle</i>. <a href="/admin/structure/menu/item/:referencingMenuLinkId/edit" target="_blank">Edit the reference</a> first to avoid dead links.',
         [
@@ -182,7 +181,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
         ]
       );
 
-    break;
     case $mediaUsage['referencing_entity'] instanceof ParagraphInterface:
       do {
         $parentEntity = $mediaUsage['referencing_entity']->getParentEntity();
@@ -200,7 +198,6 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
             ]
           );
 
-        break;
         case $parentEntity instanceof NodeInterface:
           return new TranslatableMarkup(
             'The media <i>:mediaName</i> is used in a file link reference in a paragraph in the node <i>:parentNodeName</i>. <a href="/paragraphs_edit/node/:parentNodeId/paragraphs/:referencingParagraphId/edit?destination=/node/:parentNodeId" target="_blank">Edit the reference</a> first to avoid dead links.',
@@ -211,12 +208,17 @@ function _media_file_links_get_usage_message($mediaUsage): ?TranslatableMarkup {
               ':referencingParagraphId' => $mediaUsage['referencing_entity']->id(),
             ]
           );
-
-        break;
       }
-
-      break;
   }
 
   return NULL;
+}
+
+/**
+ * Implements hook_filter_info_alter().
+ */
+function media_file_links_filter_info_alter(&$info) {
+  if (array_key_exists('linkit', $info)) {
+    $info['linkit']['class'] = LinkitFilterExtended::class;
+  }
 }

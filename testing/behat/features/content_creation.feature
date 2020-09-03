@@ -1,4 +1,4 @@
-@api @drupal @content_creation
+@api @drupal @content_creation @javascript
 Feature: deGov - Content creation
 
   Background:
@@ -209,41 +209,59 @@ Feature: deGov - Content creation
     And I press button with label "Save" via translated text
     And I should not see text matching "BehatFont"
 
-  Scenario: I verify that Media file link placeholders in text get transformed into actual links
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    Then I am on "/degov-demo-content/page-text-paragraph"
-    And I should not see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf"
-    Then I open node edit form by node title "Page with text paragraph"
-    And I should see HTML content matching "node-normal-page-edit-form" after a while
-    And I should see 1 ".cke_top.cke_reset_all" elements via jQuery after a while
-    And I enter the placeholder for a "document" media file in textarea
-    And I scroll to the "#edit-submit" element
-    And I press button with label "Save" via translated text
-    Then I am on "/degov-demo-content/page-text-paragraph"
-    Then I should see HTML content matching "/sites/default/files/degov_demo_content/dummy.pdf" after a while
-
   Scenario: I verify that I can enter Media file links using linkit
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    Then I am on "/node/add/normal_page"
-    And I wait 3 seconds
-    And I should see 1 ".cke" elements via jQuery
-    And I click by selector ".cke_button__linkit" via JavaScript
+    Given I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    When I am on "/node/add/normal_page"
+    And I fill in "Titel" with "media_file_link"
+    Then I should see 1 ".cke" elements via jQuery after a while
+    When I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
-    And I fill in "Link" with "dummy"
+    When I fill in "URL" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
-    Then I should see HTML content matching "linkit-result" after a while
-    And I click by selector ".linkit-result" via JavaScript
+    Then I should see HTML content matching "linkit-result-line" after a while
+    When I click by selector ".linkit-result-line" via JavaScript
     Then I verify that field value of ".form-linkit-autocomplete" matches "\[media\/file\/[\d]+\]"
-
-  Scenario: I verify that trying to delete a referenced Media item will cause warning messages
-    Given I have dismissed the cookie banner if necessary
-    And I am logged in as a user with the "administrator" role
-    And I open media edit form by media name "A document with a PDF"
+    When I click by selector ".ui-dialog-buttonpane .button" via JavaScript
+    And I select "draft" by name "moderation_state[0][state]"
     And I scroll to bottom
-    And I click by selector "#edit-delete" via JavaScript
-    Then I should see HTML content matching "messages--warning" after a while
+    And I click by selector "#edit-submit" via JavaScript
+    Then I should see text matching "Inhaltsseite media_file_link wurde erstellt." after a while
+    And I should be on "/mediafilelink"
+    And I should see 1 'a[href$="/sites/default/files/degov_demo_content/dummy.pdf"]' elements via jQuery after a while
+    When I open medias delete url by title "A document with a PDF"
+    Then I should see the element with css selector "div.messages.messages--warning"
+    When I open node delete form by node title "media_file_link"
+    And I press button with label "Delete" via translated text
+    Then I should be on the homepage
+    And I should see text matching "Der Inhaltsseite media_file_link wurde gelöscht." after a while
+    When I open medias delete url by title "A document with a PDF"
+    Then I should not see the element with css selector "div.messages.messages--warning"
+
+  Scenario: I verify that I can use linkit to set links for internal pages
+    Given I am logged in as a user with the "administrator" role
+    And I have dismissed the cookie banner if necessary
+    When I am on "/node/add/normal_page"
+    And I fill in "Titel" with "linkit"
+    Then I should see 1 ".cke" elements via jQuery after a while
+    When I click by selector ".cke_button__drupallink_icon" via JavaScript
+    Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
+    When I fill in "URL" with "blog"
+    And I trigger the "keydown" event on ".form-linkit-autocomplete"
+    Then I should see HTML content matching "linkit-result-line" after a while
+    When I click by selector ".linkit-result-line" via JavaScript
+    And I click by selector ".ui-dialog-buttonpane .button" via JavaScript
+    And I select "draft" by name "moderation_state[0][state]"
+    And I scroll to bottom
+    And I click by selector "#edit-submit" via JavaScript
+    Then I should see text matching "Inhaltsseite linkit wurde erstellt." after a while
+    And I should be on "/linkit"
+    And I should see 1 '.normal-page__teaser-text a[href$="/degov-demo-content/blog-post"]' elements via jQuery after a while
+    When I open node delete form by node title "linkit"
+    And I press button with label "Delete" via translated text
+    Then I should be on the homepage
+    And I should see text matching "Der Inhaltsseite linkit wurde gelöscht." after a while
+
 
   Scenario: I verify that the selected views reference values are preserved in the form
     Given I reset the demo content

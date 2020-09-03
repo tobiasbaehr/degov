@@ -28,7 +28,7 @@ settings:
         -
           name: Linking
           items:
-            - Linkit
+            - DrupalLink
             - DrupalUnlink
         -
           name: Lists
@@ -66,12 +66,13 @@ settings:
             - Undo
             - Redo
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
-    linkit:
+    drupallink:
+      linkit_enabled: true
       linkit_profile: full_text
+    language:
+      language_list: un
 image_upload:
   status: false
   scheme: public

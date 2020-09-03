@@ -4,12 +4,13 @@ type: module
 package: deGov
 core: 8.x
 dependencies:
-  - ckeditor
-  - editor
-  - embed
-  - entity_embed
-  - filter
-  - linkit
-  - media
-  - node
-  - spamspan
+  - drupal:filter
+  - drupal:editor
+  - drupal:ckeditor
+  - drupal:linkit
+  - drupal:node
+  - drupal:media
+  - entity_embed:entity_embed
+  - spamspan:spamspan
+  - embed:embed
+  - editor_advanced_link:editor_advanced_link

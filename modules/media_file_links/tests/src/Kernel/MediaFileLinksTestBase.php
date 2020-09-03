@@ -36,6 +36,7 @@ class MediaFileLinksTestBase extends KernelTestBase {
     'node',
     'filter',
     'filter_test',
+    'linkit'
   ];
 
   /**

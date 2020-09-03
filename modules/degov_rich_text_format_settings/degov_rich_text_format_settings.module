@@ -2,14 +2,17 @@
 
 /**
  * @file
+ * Drupal hooks implementations for the degov_rich_text_format_settings module.
  */
+
+declare(strict_types=1);
 
 use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function degov_rich_text_format_settings_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id) {
+function degov_rich_text_format_settings_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state, $form_id): void {
   // Add autocompletion to the link url field of the entity embed dialog. This
   // requires the patch added to this module's composer.json and the Linkit
   // module, which is a dependency of this module.

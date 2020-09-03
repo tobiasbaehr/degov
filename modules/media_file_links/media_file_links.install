@@ -5,6 +5,8 @@
  * Install, update and uninstall hooks for the media_file_links module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Url;
 use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Symfony\Component\Yaml\Yaml;
@@ -12,7 +14,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Implements hook_install().
  */
-function media_file_links_install() {
+function media_file_links_install(): void {
   $configsToUpdate = ['filter.format.rich_html', 'filter.format.rich_text'];
 
   foreach ($configsToUpdate as $configToUpdate) {
@@ -105,7 +107,7 @@ function media_file_links_schema(): array {
 /**
  * Implements hook_uninstall().
  */
-function media_file_links_uninstall() {
+function media_file_links_uninstall(): void {
   // Set existing menu items to point to the system 404 page.
   $mediaFileMenuLinksIds = \Drupal::entityQuery('menu_link_content')
     ->execute();

@@ -126,6 +126,22 @@ class DrupalContext extends RawDrupalContext {
   }
 
   /**
+   * Open node delete form by title.
+   *
+   * @param string $title
+   *   Title.
+   *
+   * @Then /^I open node delete form by node title "([^"]*)"$/
+   */
+  public function openNodeDeleteFormByTitle($title) {
+    $query = \Drupal::service('database')->select('node_field_data', 'nfd')
+      ->fields('nfd', ['nid'])
+      ->condition('nfd.title', $title);
+
+    $this->visitPath('/node/' . $query->execute()->fetchField() . '/delete');
+  }
+
+  /**
    * Open node edit form by title and vertical tab ID.
    *
    * @param string $title
@@ -542,7 +558,7 @@ class DrupalContext extends RawDrupalContext {
    * @Given /^(?:|I )created a content page named "([^"]*)" with a media "(address|audio|citation|contact|document|gallery|image|instagram|person|some_embed|tweet|video|video_upload)"$/
    */
   public function iCreatedPageWithMedia($pageName, $mediaType) {
-    self::iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
+    $this->iCreatedTypePageWithMedia('normal_page', $pageName, $mediaType);
   }
 
   /**
