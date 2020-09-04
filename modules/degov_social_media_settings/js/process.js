@@ -219,41 +219,67 @@
   initializeSettings();
 
   function initSoMeSlider(source) {
-    var selector = (source === 'twitter') ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview');
+    var slider = (source === 'twitter') ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview'),
+        sliderWrap = slider.parent(),
+        defaultSettings = {
+          dots: true,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          arrows: true,
+          appendArrows: $('.l-slick-navi', slider.parent()),
+          appendDots: $('.l-slick-navi', slider.parent()),
+          mobileFirst: true,
+          adaptiveHeight: true,
 
-    if (selector.length) {
-      selector.parent().find(".slick-controls").show();
-      selector.slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 2,
-        autoplay: true,
-        arrows: true,
-        appendArrows: $('.l-slick-navi', selector.parent()),
-        appendDots: $('.l-slick-navi', selector.parent()),
+          responsive: [
+            {
+              breakpoint: 720,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            }
+          ]
+        };
+
+    // Responsive override.
+    if (source === 'youtube') {
+      defaultSettings = mergeOptions(defaultSettings, {
         responsive: [
           {
-            breakpoint: 992,
+            breakpoint: 420,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 840,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
             }
           }
         ]
-      });
+      })
+    }
 
+    if (slider.length) {
+      var slickControlls = sliderWrap.find('.slick-controls');
 
-      var slickControlls = selector.parent().find('.slick-controls');
+      slickControlls.show();
+      slider.slick(defaultSettings);
       slickControlls.find('.slick__pause').click(function () {
-        selector.slick('slickPause');
+        slider.slick('slickPause');
         $(this).hide().siblings('.slick__play').show();
       });
       var slickPlay = slickControlls.find('.slick__play');
       slickPlay.hide(); // Initial hide.
       slickPlay.on('click', function () {
-        selector.slick('slickPlay').slick('setOption', 'autoplay', true);
+        slider.slick('slickNext').slick('slickPlay');
         $(this).hide().siblings('.slick__pause').show();
       });
     }
@@ -262,7 +288,19 @@
   // Parameter to open the social media settings overlay on page load for testing purposes.
   if (window.location.search === '?_debugDisplaySocialMediaSettings') {
     $('.js-social-media-settings-open').trigger('click');
-    $('#social-media-settings').css('position', 'relative');
+  }
+
+  /**
+   * Overwrites obj1's values with obj2's and adds obj2's if non existent in obj1
+   * @param obj1
+   * @param obj2
+   * @returns obj3 a new object based on obj1 and obj2
+   */
+    function mergeOptions(obj1,obj2){
+    var obj3 = {};
+    for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+    for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }
+    return obj3;
   }
 
 })(jQuery, Drupal, drupalSettings);

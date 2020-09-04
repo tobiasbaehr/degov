@@ -3,25 +3,22 @@
   caption: @string - The caption for the psots
 
 #}
-<div class="row">
-  <div class="slick-slide">
-    <a href="https://youtube.com/watch?v={{ videoID }}">
-      <img src="{{ thumbnail }}" title="{{ title }}" alt="{{ title }}"/>
-
-      <div class="info">
-        {% if views %}
-          <span class="views">{{ views }}</span>
-        {% endif %}
-        <span class="likes">{{ likes }}</span>
-        <span class="comments">{{ comments }}</span>
-      </div>
-    </a>
+<div class="social-media-youtube l-slide">
+  <a href="https://youtube.com/watch?v={{ videoID }}">
+    <span class="image">
+      <img  src="{{ thumbnail }}" title="{{ title }}" alt="{{ title }}"/>
+    </span>
     <span class="caption">{{ title }}</span>
-    <a href="https://youtube.com/watch?v={{ videoID }}">
-      <span class="link">{{ link_display }}</span>
-    </a>
-    <div class="date">{{ date }}</div>
-  </div>
+    <span class="link">{{ link_display }}</span>
+    <span class="info">
+      {% if views %}
+        <span class="views">{{ views }}</span>
+      {% endif %}
+      <span class="likes">{{ likes }}</span>
+      <span class="comments">{{ comments }}</span>
+    </span>
+    {% if date %}
+    <span class="date">{{ date }}</span>
+    {% endif %}
+  </a>
 </div>
-
-

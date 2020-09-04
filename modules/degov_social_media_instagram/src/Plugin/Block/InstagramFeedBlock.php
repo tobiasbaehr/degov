@@ -130,7 +130,7 @@ class InstagramFeedBlock extends BlockBase implements ContainerFactoryPluginInte
           '#instagramUser' => $this->instagram->getAccount($user)
             ->getFullName(),
           '#link' => $media->getLink(),
-          '#link_display' => $this->shortDescription($media->getLink(), 32, '...'),
+          '#link_display' => $media->getLink(),
           '#type' => $media->getType(),
           '#caption' => $this->shortDescription($media->getCaption(), $maxLength, "..."),
           '#views' => $media->getVideoViews(),

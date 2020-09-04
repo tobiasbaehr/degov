@@ -130,7 +130,7 @@ final class YoutubeFeedBlock extends BlockBase implements ContainerFactoryPlugin
           '#comments' => (property_exists($info->statistics, 'commentCount')) ? $info->statistics->commentCount : NULL,
           '#videoID' => $video->id->videoId,
           '#thumbnail' => $video->snippet->thumbnails->high->url,
-          '#link_display' => Unicode::truncate("https://youtube.com/watch?q=" . $video->id->videoId, 32, FALSE, TRUE),
+          '#link_display' => "https://youtube.com/watch?q=" . $video->id->videoId,
           '#cache' => [
             'max-age' => (60 * 60),
           ],

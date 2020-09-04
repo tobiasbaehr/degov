@@ -3,25 +3,20 @@
   caption: @string - The caption for the psots
 
 #}
-<div class="row">
-  <div class="slick-slide">
-    <a href="{{ link }}">
+<div class="social-media-instagram l-slide">
+  <a href="{{ link }}">
+    <span class="image">
       <img src="{{ imageUrl }}" title="{{ caption }}" alt="{{ caption }}"/>
-
-      <div class="info">
-        {% if views %}
-          <span class="views">{{ views }}</span>
-        {% endif %}
-        <span class="likes">{{ likes }}</span>
-        <span class="comments">{{ comments }}</span>
-      </div>
-    </a>
+    </span>
     <span class="caption">{{ caption }}</span>
-    <a href="{{ link }}">
-      <span class="link">{{ link_display }}</span>
-    </a>
+    <span class="link">{{ link_display }}</span>
+    <div class="info">
+      {% if views %}
+        <span class="views">{{ views }}</span>
+      {% endif %}
+      <span class="likes">{{ likes }}</span>
+      <span class="comments">{{ comments }}</span>
+    </div>
     <div class="date">{{ date }}</div>
-  </div>
+  </a>
 </div>
-
-
