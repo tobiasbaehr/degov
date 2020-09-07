@@ -42,7 +42,7 @@ _drush_watchdog() {
 
 _backstopjs() {
   (cd $TEST_DIR && \
-  docker run --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$(pwd)/backstopjs":/src -v "$(pwd)/lfs_data":/lfs_data backstopjs/backstopjs "$@")
+  docker run --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$(pwd)/backstopjs":/src -v "$(pwd)/lfs_data":/lfs_data backstopjs/backstopjs:5.0.2 "$@")
 }
 
 _behat() {
