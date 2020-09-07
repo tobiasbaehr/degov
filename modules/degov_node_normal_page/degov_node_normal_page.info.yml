@@ -1,8 +1,8 @@
 name: 'deGov - Node normal page'
-description: 'This module ships the content type \"node normal page\" and relating configuration.'
-package: deGov
 type: module
-core: 8.x
+description: 'This module ships the content type "node normal page" and relating configuration.'
+package: deGov
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - degov_content_types_shared_fields
   - degov_taxonomy_term_section

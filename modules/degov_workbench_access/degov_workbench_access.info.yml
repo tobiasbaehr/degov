@@ -1,8 +1,8 @@
 name: 'deGov - Workbench Access'
+type: module
 description: 'Contains configuration for the Workbench Access module.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - degov_common
   - degov_taxonomy_term_section

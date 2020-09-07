@@ -1,11 +1,10 @@
 name: 'deGov - Email Login'
-description: 'This module enables the login by email address.'
 type: module
+description: 'This module enables the login by email address.'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - drupal:locale
-  - mail_login:mail_login
-
-interface translation project: degov_email_login
-interface translation server pattern: profiles/contrib/degov/modules/degov_email_login/translations/de-de.po
+  - 'drupal:locale'
+  - 'mail_login:mail_login'
+'interface translation project': degov_email_login
+'interface translation server pattern': profiles/contrib/degov/modules/degov_email_login/translations/de-de.po

@@ -2,6 +2,6 @@ name: 'Degov Paragraph Downloads test'
 type: module
 description: 'Support module for degov_paragraph_downloads module testing.'
 package: Testing
+core_version_requirement: '^8.8 || ^9'
 version: '1.2'
-core: 8.x
 hidden: false

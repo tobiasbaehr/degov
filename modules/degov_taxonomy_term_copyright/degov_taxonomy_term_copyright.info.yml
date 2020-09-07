@@ -1,7 +1,7 @@
 name: 'deGov - Taxonomie Copyright'
+type: module
 description: 'Enthält Copyright Informationen für Media Bundles'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - taxonomy

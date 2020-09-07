@@ -1,7 +1,7 @@
 name: 'deGov - Copyright block'
+type: module
 description: 'Provides a block with the copyright, containing the current year and the site name or a custom string.'
 package: deGov
-core: 8.x
-type: module
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - block

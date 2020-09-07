@@ -1,8 +1,8 @@
 name: 'Lightning Media'
-core: 8.x
 type: module
 description: 'Slick media handling for Lightning. So cool you''ll make the A/C jealous.'
 package: Lightning
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - ckeditor
   - entity_browser

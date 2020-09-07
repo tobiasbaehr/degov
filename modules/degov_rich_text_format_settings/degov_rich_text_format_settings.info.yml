@@ -1,16 +1,16 @@
 name: 'deGov - Rich Text Format - Settings'
-description: 'Activates Spamspan obfuscation of the E-Mail addresses for the Richt Text Format'
 type: module
+description: 'Activates Spamspan obfuscation of the E-Mail addresses for the Richt Text Format'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - drupal:filter
-  - drupal:editor
-  - drupal:ckeditor
-  - drupal:linkit
-  - drupal:node
-  - drupal:media
-  - entity_embed:entity_embed
-  - spamspan:spamspan
-  - embed:embed
-  - editor_advanced_link:editor_advanced_link
+  - 'drupal:filter'
+  - 'drupal:editor'
+  - 'drupal:ckeditor'
+  - 'drupal:linkit'
+  - 'drupal:node'
+  - 'drupal:media'
+  - 'entity_embed:entity_embed'
+  - 'spamspan:spamspan'
+  - 'embed:embed'
+  - 'editor_advanced_link:editor_advanced_link'

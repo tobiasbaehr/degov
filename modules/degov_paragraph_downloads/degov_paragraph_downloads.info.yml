@@ -1,8 +1,8 @@
 name: 'deGov - Paragraph downloads'
+type: module
 description: 'This paragraph displays a list of downloads.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - degov_content_types_shared_fields
   - degov_media_document

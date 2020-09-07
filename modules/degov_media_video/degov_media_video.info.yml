@@ -1,8 +1,8 @@
 name: 'deGov - Media video'
+type: module
 description: 'Extension of the media video type.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - config_replace
   - degov_content_types_shared_fields

@@ -1,8 +1,8 @@
 name: 'deGov - Scheduled Updates'
-description: "This module contains configuration for the scheduled module."
-package: deGov
 type: module
-core: 8.x
+description: 'This module contains configuration for the scheduled module.'
+package: deGov
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - scheduled_publish
   - degov_node_blog

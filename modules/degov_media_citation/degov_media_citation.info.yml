@@ -1,8 +1,8 @@
 name: 'deGov - Media citation'
-description: 'Contains the citation media type with optional image.'
 type: module
-core: 8.x
+description: 'Contains the citation media type with optional image.'
 package: deGov
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - datetime
   - degov_common

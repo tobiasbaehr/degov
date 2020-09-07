@@ -1,15 +1,16 @@
-name: 'deGov'
+name: deGov
 type: profile
+description: 'deGov - Drupal 8 for Government'
+package: deGov
+core_version_requirement: '^8.8 || ^9'
 distribution:
   name: deGov
   install:
     theme: degov_theme
-description: 'deGov - Drupal 8 for Government'
 version: 8.x-8.5.x-dev
-core: '8.x'
 project: degov
-php version conflicts:
-  - "< 7.2"
+'php version conflicts':
+  - '< 7.2'
 dependencies:
   - locale
 install:
@@ -78,7 +79,6 @@ install:
   - degov_email_login
   - block_permissions
   - advagg
-
 themes:
   - degov_theme
   - seven

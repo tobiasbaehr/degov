@@ -1,8 +1,8 @@
 name: 'deGov - Media Manager'
+type: module
 description: 'Extends the media library.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - block
   - degov_search_media

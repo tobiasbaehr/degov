@@ -1,13 +1,12 @@
 name: 'deGov - Social Media Settings'
+type: module
 description: 'Mit diesem Modul können Besucher steuern, welche Social Media Inhalte ihnen angezeigt werden.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - config_replace:config_replace
-  - degov:degov_eu_cookie_compliance
-  - degov:degov_media_social_media_embed
-  - degov:degov_media_video
-
+  - 'config_replace:config_replace'
+  - 'degov:degov_eu_cookie_compliance'
+  - 'degov:degov_media_social_media_embed'
+  - 'degov:degov_media_video'
 libraries:
   - degov_social_media_settings/process

@@ -1,8 +1,8 @@
 name: 'deGov - Paragraph text'
-description: 'A paragraph for formatted texts without character limit'
 type: module
+description: 'A paragraph for formatted texts without character limit'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - degov_content_types_shared_fields
   - field

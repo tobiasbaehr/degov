@@ -1,8 +1,8 @@
 name: 'deGov - Media instagram'
+type: module
 description: 'This module extends the media type instagram.'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - config_replace
   - degov_common

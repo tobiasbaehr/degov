@@ -1,9 +1,8 @@
 name: 'deGov - Media Usage for Paragraphs'
 type: module
-description: Provide information about paragraphs that references media entities
+description: 'Provide information about paragraphs that references media entities'
 package: deGov
-core: 8.x
-
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - paragraphs:paragraphs
-  - degov:degov_media_usage
+  - 'paragraphs:paragraphs'
+  - 'degov:degov_media_usage'

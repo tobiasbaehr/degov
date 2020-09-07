@@ -1,7 +1,7 @@
 name: 'Lightning Roles'
-core: 8.x
 type: module
-package: Lightning
 description: 'Automatically manages user roles and permissions.'
+package: Lightning
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - node

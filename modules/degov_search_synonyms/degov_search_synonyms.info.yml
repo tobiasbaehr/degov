@@ -1,7 +1,7 @@
 name: 'deGov - Search Synonyms'
-package: deGov
-description: 'Enable searching by synonyms.'
 type: module
-core: 8.x
+description: 'Enable searching by synonyms.'
+package: deGov
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - degov:degov_taxonomy_term_synonyms
+  - 'degov:degov_taxonomy_term_synonyms'

@@ -1,8 +1,8 @@
 name: 'deGov social media - Instagram-feed block'
 type: module
 description: 'This module allows you to show you the latest posts of a user'
-core: 8.x
 package: 'deGov - Social Media'
+core_version_requirement: '^8.8 || ^9'
 configure: degov_social_media_instagram.admin_settings
 dependencies:
-  - degov:degov_common
+  - 'degov:degov_common'

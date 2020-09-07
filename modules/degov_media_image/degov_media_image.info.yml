@@ -1,8 +1,8 @@
 name: 'deGov - Media image'
-description: 'This module extends the media type image'
 type: module
+description: 'This module extends the media type image'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - degov_common
   - degov_media

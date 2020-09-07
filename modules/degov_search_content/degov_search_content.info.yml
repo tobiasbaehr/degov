@@ -1,8 +1,8 @@
 name: 'deGov - Inhaltssuche'
-description: 'Allgemeine Konfiguration für die Suche.'
 type: module
-core: 8.x
+description: 'Allgemeine Konfiguration für die Suche.'
 package: deGov
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - block
   - degov_search_base

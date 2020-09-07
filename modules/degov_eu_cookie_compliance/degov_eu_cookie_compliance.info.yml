@@ -1,7 +1,7 @@
 name: 'deGov - EU Cookie Compliance Settings'
+type: module
 description: 'Contains german settings for the "EU Cookie compliance" module'
 package: deGov
-type: module
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
-  - eu_cookie_compliance:eu_cookie_compliance
+  - 'eu_cookie_compliance:eu_cookie_compliance'

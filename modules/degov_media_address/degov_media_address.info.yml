@@ -1,8 +1,8 @@
 name: 'deGov - media address'
-description: 'Contains the media address media type.'
 type: module
+description: 'Contains the media address media type.'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - address
   - degov_common

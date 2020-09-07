@@ -1,7 +1,7 @@
 name: 'deGov - Workbench Rewrite'
-description: 'Config replacements for the workbench module.'
 type: module
+description: 'Config replacements for the workbench module.'
 package: deGov
-core: 8.x
+core_version_requirement: '^8.8 || ^9'
 dependencies:
   - workbench
