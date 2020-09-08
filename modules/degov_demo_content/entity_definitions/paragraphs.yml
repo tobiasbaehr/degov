@@ -500,6 +500,12 @@ media_reference_image_viewmode_default:
   field_sub_title: 'In View Mode `default`'
   field_media_reference_view_mode: 'default'
   field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
+media_reference_image_opinion:
+  type: 'media_reference'
+  field_title: 'Vorschau eines Bild-Mediums'
+  field_sub_title: 'In View Mode `Teaser opinion 4:1`'
+  field_media_reference_view_mode: 'teaser_opinion_4_1'
+  field_media_reference_media: '{{MEDIA_ID_IMAGE-image_1}}'
 block_reference_degov_social_media_instagram:
   type: 'block_reference'
   field_title: 'Demo Instagram Feed'
