@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_honeypot module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function degov_honeypot_install() {
+  $honeypotConfig = \Drupal::configFactory()->getEditable('honeypot.settings');
+  if (!$honeypotConfig->isNew()) {
+    $honeypotConfig
+      ->set('form_settings.user_register_form', TRUE)
+      ->set('form_settings.user_pass', TRUE)
+      ->save(TRUE);
+  }
+
+  $webformConfig = \Drupal::configFactory()
+    ->getEditable('webform.webform.contact');
+  if (!$webformConfig->isNew()) {
+    $webformConfig
+      ->set('third_party_settings.honeypot', [
+        'honeypot'         => TRUE,
+        'time_restriction' => TRUE,
+      ])
+      ->save(TRUE);
+  }
+}

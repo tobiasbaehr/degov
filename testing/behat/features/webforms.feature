@@ -2,8 +2,10 @@
 Feature: deGov - Webforms
 
   Background:
+    Given I am installing the "degov_honeypot" module
     Given I proof that the following Drupal modules are installed:
-      | webform |
+      | webform  |
+      | honeypot |
 
   Scenario: Verify that no Webform warnings are shown on the status page
     Given I have dismissed the cookie banner if necessary
@@ -20,3 +22,9 @@ Feature: deGov - Webforms
     And I should not see text matching "Webform: Translate" via translated text in "css" selector ".system-status-report__entry--warning summary"
     And I should not see text matching "Webform: Contribute" via translated text in "css" selector ".system-status-report__entry--warning summary"
     And I should not see text matching "Webform: Source entity" via translated text in "css" selector ".system-status-report__entry--warning summary"
+
+  Scenario: Verify that the default contact form has a honeypot installed
+    Given I have dismissed the cookie banner if necessary
+    And I am on "/form/contact"
+    Then I should see 1 "#edit-url" elements
+    And I should see 1 "[name=honeypot_time]" elements

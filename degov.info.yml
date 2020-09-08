@@ -79,6 +79,7 @@ install:
   - degov_email_login
   - block_permissions
   - advagg
+  - honeypot
 themes:
   - degov_theme
   - seven

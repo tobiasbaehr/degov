@@ -38,6 +38,7 @@
         "drupal/field_group": "^3.0",
         "drupal/geocoder": "^2.0-alpha5",
         "drupal/geofield": "^1.6",
+        "drupal/honeypot": "^2.0.0",
         "drupal/image_widget_crop": "^2.1",
         "drupal/imagick": "^1.0",
         "drupal/inline_entity_form": "^1.0",
