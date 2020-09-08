@@ -122,7 +122,8 @@
                 "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
                 "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-12-05/w3c-rel-validation-node-view-controller-with-updated-tests-8.8.0.patch",
                 "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-07-01/drupal-3101714-18.patch",
-                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-06-18/3072231-26-core-8-9-x-.patch"
+                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-06-18/3072231-26-core-8-9-x-.patch",
+                "2879293 - Make Link URI required if there is Link Text input": "https://www.drupal.org/files/issues/2020-09-08/require_uri_if_link_text-2879293-15.patch"
             },
             "drupal/eu_cookie_compliance": {
                 "3099022 - Add missing translations in config form": "https://www.drupal.org/files/issues/2019-12-27/eu_cookie_compliance-3099022-3.patch"
