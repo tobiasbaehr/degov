@@ -55,3 +55,18 @@ function degov_social_media_settings_update_870200() {
   $updater = \Drupal::service('degov_config.module_updater');
   $updater->applyUpdates('degov_social_media_settings', '870200');
 }
+
+/**
+ * Remove Google+.
+ */
+function degov_social_media_settings_update_880500() {
+  $config = \Drupal::configFactory()
+    ->getEditable('degov_social_media_settings.default');
+  if (!$config->isNew()) {
+    $sources = $config->get('sources');
+    if (isset($sources['googleplus'])) {
+      unset($sources['googleplus']);
+      $config->set('sources', $sources)->save(TRUE);
+    }
+  }
+}
