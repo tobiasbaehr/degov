@@ -20,6 +20,7 @@ _info() {
 }
 
 _composer() {
+  export COMPOSER_ALLOW_SUPERUSER
   composer --ansi --profile "$@"
 }
 

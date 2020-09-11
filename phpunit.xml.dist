@@ -28,6 +28,7 @@
     </testsuite>
     <testsuite name="deGov">
       <directory>./modules/</directory>
+      <exclude>./modules/forks/</exclude>
     </testsuite>
     <testsuite name="behat">
       <directory>./testing/behat/context/Tests/</directory>

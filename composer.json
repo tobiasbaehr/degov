@@ -156,5 +156,8 @@
     "conflict": {
         "symfony/http-foundation": "3.4.24",
         "twig/twig": "1.40.0"
+    },
+    "replace": {
+        "drupal/restrict_ip": "*"
     }
 }

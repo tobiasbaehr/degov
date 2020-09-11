@@ -94,5 +94,6 @@ _run_npm_audit() {
 }
 
 _composer() {
+  export COMPOSER_ALLOW_SUPERUSER
   composer --ansi --profile "$@"
 }

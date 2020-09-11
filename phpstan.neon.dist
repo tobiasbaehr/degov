@@ -3,9 +3,10 @@ includes:
 
 parameters:
   level: 0
-  autoload_files:
+  scanFiles:
     - docroot/core/modules/locale/locale.fetch.inc
     - docroot/core/modules/locale/locale.bulk.inc
+    - docroot/core/modules/locale/locale.translation.inc
   paths:
     - docroot/profiles/contrib/degov
     - docroot/modules/contrib/scheduled_publish
@@ -13,3 +14,4 @@ parameters:
   excludes_analyse:
     - docroot/profiles/contrib/degov/modules/lightning_media/tests/contexts/
     - docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/
+    - docroot/profiles/contrib/degov/modules/forks/
