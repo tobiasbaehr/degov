@@ -17,28 +17,32 @@ msgid "deGov - Social Media Settings"
 msgstr ""
 
 #: degov_social_media_settings.info.yml:0
-msgid "Mit diesem Modul können Besucher steuern, welche Social Media Inhalte ihnen angezeigt werden."
-msgstr ""
+msgid "With this module visitors can decide which social media sources they want to see."
+msgstr "Mit diesem Modul können Besucher steuern, welche \"Social Media\"-Inhalte ihnen angezeigt werden."
 
 #: degov_social_media_settings.info.yml:0
 msgid "deGov"
 msgstr "deGov"
 
-#: src/Plugin/Block/SocialMediaSettingsBlock.php:28
-msgid "This social media source is disabled. You can enable it in the <a role=\"button\" href=\"#\" data-toggle=\"modal\" data-target=\"#social-media-settings\" class=\"js-social-media-settings-open social-media-settings--menu-item\">social media settings</a>."
-msgstr "Diese \"Social-Media\" Quelle ist deaktiviert. Sie können sie in den <a role=\"button\" href=\"#\" data-toggle=\"modal\" data-target=\"#social-media-settings\" class=\"js-social-media-settings-open social-media-settings--menu-item\">\"Social-Media\" Einstellungen aktivieren</a>."
+#: src/Plugin/Block/SocialMediaSettingsBlock.php:57
+msgid "Social media source @name is disabled."
+msgstr "Die \"Social Media\"-Quelle @name ist deaktiviert."
 
-#: src/Plugin/Block/SocialMediaSettingsBlock.php:29
-msgid "This social media source is disabled. After accepting our cookie policy, you can enable it."
-msgstr "Diese \"Social-Media\" Quelle ist deaktiviert. Stimmen Sie bitte zuerst unseren Cookie-Richtlinien zu."
+#: src/Plugin/Block/SocialMediaSettingsBlock.php:61
+msgid "You can enable it in the <a role=\"button\" href=\"#\" data-toggle=\"modal\" data-target=\"#social-media-settings\" class=\"js-social-media-settings-open social-media-settings--menu-item\">social media settings</a>."
+msgstr "Sie können sie in den <a role=\"button\" href=\"#\" data-toggle=\"modal\" data-target=\"#social-media-settings\" class=\"js-social-media-settings-open social-media-settings--menu-item\">\"Social Media\"-Einstellungen aktivieren</a>."
+
+#: src/Plugin/Block/SocialMediaSettingsBlock.php:64
+msgid "After accepting our cookie policy, you can enable it."
+msgstr "Stimmen Sie bitte zuerst unseren Cookie-Richtlinien zu."
 
 #: src/Plugin/Block/SocialMediaSettingsBlock.php:7
 msgid "Social media settings block"
-msgstr "Social Media Einstellungen Block"
+msgstr "\"Social Media\"-Einstellungen-Block"
 
 #: templates/degov-social-media-settings-block.html.twig:16;34
 msgid "Social Media Settings"
-msgstr "Social Media Einstellungen"
+msgstr "\"Social Media\"-Einstellungen"
 
 #: templates/degov-social-media-settings-block.html.twig:30
 msgid "Close"

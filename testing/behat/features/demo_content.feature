@@ -64,12 +64,17 @@ Feature: deGov - Demo Content
 
   Scenario: I want to verify the embed functionality of the instagram media entity
     Given I have dismissed the cookie banner if necessary
-    Then I click by selector ".social-media-settings--menu-item" via JavaScript
+    And I am on the homepage
+    Then I should not see the element with css selector "#social-media-settings"
+    When I click by selector ".social-media-settings--menu-item" via JavaScript
+    Then I should see "#social-media-settings" element visible on the page
+    Then I should see 0 "#checkbox-instagram:checked" elements via JavaScript
     And I check checkbox by value "instagram" via JavaScript
-    And I click by selector ".social-media-settings__save" via JavaScript
+    Then I should see 1 "#checkbox-instagram:checked" elements via JavaScript
+    When I click by selector ".social-media-settings__save" via JavaScript
     And I am on "/degov-demo-content/page-references-all-types-media"
-    Then I should see text matching "Vorschau eines Instagram-Mediums" after a while
-    And I switch to the "instagram-embed-0" frame
+    Then I should see HTML content matching "Vorschau eines Instagram-Mediums" after a while
+    When I switch to the "instagram-embed-0" frame
     Then I should see 1 ".Header" elements
     And I should see 1 ".Header .AvatarContainer" elements
     And I should see 1 ".Content.EmbedFrame" elements

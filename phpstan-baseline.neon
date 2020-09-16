@@ -82,7 +82,7 @@ parameters:
 
 		-
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
-			count: 28
+			count: 29
 			path: docroot/profiles/contrib/degov/testing/behat/context/DrupalContext.php
 
 		-
@@ -124,4 +124,9 @@ parameters:
 			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
 			count: 2
 			path: docroot/profiles/contrib/degov/testing/behat/context/SmokeTestContext.php
+
+		-
+			message: "#^\\\\Drupal calls should be avoided in classes, use dependency injection instead$#"
+			count: 2
+			path: docroot/profiles/contrib/degov/testing/behat/context/SocialMediaFeedsContext.php
 

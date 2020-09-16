@@ -130,8 +130,6 @@ menu_item_1:
           node_title: 'Page with overridden Media caption'
         - menu_name: main
           node_title: 'Page with responsive video'
-        - menu_name: main
-          node_title: 'Page with block reference'
     - menu_name: main
       node_title: 'Page with type 1 slideshow'
       menu_title: 'Page with Slideshow'

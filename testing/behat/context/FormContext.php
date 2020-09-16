@@ -6,6 +6,7 @@ use Behat\Gherkin\Node\TableNode;
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
+use Drupal\degov\Behat\Context\Traits\DurationTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 
 /**
@@ -16,6 +17,8 @@ class FormContext extends RawMinkContext {
   use TranslationTrait;
 
   use DebugOutputTrait;
+
+  use DurationTrait;
 
   /**
    * Check checkbox with js.
@@ -74,11 +77,12 @@ class FormContext extends RawMinkContext {
    * @Then /^I check checkbox by value "([^"]*)" via JavaScript$/
    */
   public function checkCheckboxByValue(string $value) {
-    $this->getSession()->executeScript(
-      "
-                document.querySelector('input[value=" . $value . "]').checked = true;
-            "
-    );
+    $this->getSession()->executeScript("document.querySelector('input[value=" . $value . "]').checked = true;");
+    do {
+      if ($this->getSession()->evaluateScript("document.querySelector('input[value=" . $value . "]').checked")) {
+        break;
+      }
+    } while (self::maxDurationNotElapsed(5));
   }
 
   /**

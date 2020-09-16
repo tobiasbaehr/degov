@@ -4,6 +4,8 @@ namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Exception\ElementNotFoundException;
 use Behat\Mink\Exception\ResponseTextException;
+use Drupal\degov\Behat\Context\Exception\PageCouldNotBeFullyLoadedException;
+use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use Drupal\Driver\DrupalDriver;
@@ -874,9 +876,7 @@ class DrupalContext extends RawDrupalContext {
    *
    * @Given I have dismissed the cookie banner if necessary
    */
-  public function iHaveDismissedTheCookieBannerIfNecessary() {
-
-    $this->getSession()->visit($this->locatePath('/'));
+  public function iHaveDismissedTheCookieBannerIfNecessary(): void {
     if ($this->getSession()->getPage()->has('css', '.eu-cookie-compliance-buttons .agree-button')) {
       $this->getSession()->getPage()->find('css', '.eu-cookie-compliance-buttons .agree-button')->click();
     }
@@ -1498,15 +1498,8 @@ class DrupalContext extends RawDrupalContext {
     $elements = $this->getSession()->getPage()->findAll('css', $selector);
     foreach ($elements as $element) {
       if ($element->isVisible()) {
-
-        try {
-          throw new \Exception("The element with selector \"$selector\" is visible.");
-        }
-        catch (\Exception $exception) {
-          $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
-          throw $exception;
-        }
-
+        $this->generateCurrentBrowserViewDebuggingOutput(__METHOD__);
+        throw new \Exception("The element with selector \"$selector\" is visible.");
       }
     }
   }
@@ -1629,6 +1622,20 @@ class DrupalContext extends RawDrupalContext {
       ->getEditable('degov_devel.settings')
       ->set('dev_mode', TRUE)
       ->save();
+  }
+
+  /**
+   * @Then /^I prove that the development mode is enabled$/
+   */
+  public function proveDevModeEnabled() {
+    $devModeEnabled = \Drupal::configFactory()
+      ->get('degov_devel.settings')
+      ->get('dev_mode');
+
+    if ($devModeEnabled !== TRUE) {
+      throw new \Exception('The development mode is not enabled, but it should be.');
+    }
+
   }
 
 }

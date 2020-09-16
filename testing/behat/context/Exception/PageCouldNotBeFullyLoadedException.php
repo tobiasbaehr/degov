@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov\Behat\Context\Exception;
 
 use Behat\Mink\Driver\DriverInterface;
@@ -8,7 +10,13 @@ use Behat\Mink\Session;
 /**
  * Class TextNotFoundException.
  */
-class TextNotFoundException extends \Exception {
+class PageCouldNotBeFullyLoadedException extends \Exception {
+
+  /**
+   * @var string
+   *   The error message
+   */
+  protected $message = 'The page could not be fully loaded.';
 
   /**
    * Session.
@@ -27,14 +35,15 @@ class TextNotFoundException extends \Exception {
   /**
    * Initializes exception.
    *
-   * @param string $message
-   *   Optional message.
+   * @param int $durationInSeconds
+   *   Duration in seconds.
    * @param \Behat\Mink\Driver\DriverInterface|Session $driver
    *   Driver instance (or session for BC)
    * @param \Exception|null $previous
    *   Expectation exception.
    */
-  public function __construct(string $message, $driver, \Exception $previous = NULL) {
+  public function __construct($driver, \Exception $previous = NULL) {
+
     if ($driver instanceof Session) {
       @trigger_error('Passing a Session object to the ExpectationException constructor is deprecated as of Mink 1.7. Pass the driver instead.', E_USER_DEPRECATED);
 
@@ -48,7 +57,8 @@ class TextNotFoundException extends \Exception {
     else {
       $this->driver = $driver;
     }
-    parent::__construct($message, 0, $previous);
+
+    parent::__construct($this->message, 0, $previous);
     $this->message = parent::getMessage() . PHP_EOL;
     $this->message .= ($previous !== NULL) ? $previous->getMessage() : '';
   }

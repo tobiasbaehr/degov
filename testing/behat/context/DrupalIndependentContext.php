@@ -1,12 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov\Behat\Context;
 
 use Behat\Mink\Element\NodeElement;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Testwork\Hook\HookDispatcher;
+use Drupal\degov\Behat\Context\Exception\MaxDurationElapsedException;
+use Drupal\degov\Behat\Context\Exception\PageCouldNotBeFullyLoadedException;
 use Drupal\degov\Behat\Context\Exception\TextNotFoundException;
 use Drupal\degov\Behat\Context\Traits\DebugOutputTrait;
+use Drupal\degov\Behat\Context\Traits\DurationTrait;
 use Drupal\degov\Behat\Context\Traits\TranslationTrait;
 use WebDriver\Exception\StaleElementReference;
 
@@ -18,6 +23,8 @@ class DrupalIndependentContext extends RawMinkContext {
   use TranslationTrait;
 
   use DebugOutputTrait;
+
+  use DurationTrait;
 
   private const MAX_DURATION_SECONDS = 120;
   private const MAX_SHORT_DURATION_SECONDS = 10;
@@ -41,8 +48,19 @@ class DrupalIndependentContext extends RawMinkContext {
    *
    * @BeforeScenario
    */
-  public function beforeScenario() {
+  public function beforeScenario(): void {
     $this->iSetWindowSizeWidthHeight();
+  }
+
+  /**
+   * Before step.
+   *
+   * @BeforeStep
+   */
+  public function beforeStep(): void {
+    if ($this->isPageHavingContent()) {
+      $this->ensurePageIsFullyLoaded();
+    }
   }
 
   /**
@@ -493,7 +511,7 @@ class DrupalIndependentContext extends RawMinkContext {
    * @Then /^(?:|I )should not see (?P<num>\d+) "(?P<element>[^"]*)" elements? after a while$/
    */
   public function iShouldNotSeeNumberOfElementsAfterWhile(int $expectedNumberOfElements, string $selector): void {
-    self::iShouldSeeNumberOfElementsAfterWhile($expectedNumberOfElements, $selector, TRUE);
+    $this->iShouldSeeNumberOfElementsAfterWhile($expectedNumberOfElements, $selector, TRUE);
   }
 
   /**
@@ -534,7 +552,7 @@ class DrupalIndependentContext extends RawMinkContext {
    *
    * @Then I trigger the PHP function :functionName
    */
-  public function triggerPhpFunction($functionName): void {
+  public function triggerPhpFunction(string $functionName): void {
     if (\function_exists($functionName)) {
       $functionName();
     }
@@ -544,9 +562,40 @@ class DrupalIndependentContext extends RawMinkContext {
   }
 
   /**
+   * @Then I reload the current page
+   */
+  public function iReloadTheCurrentPage(): void {
+    $this->getSession()->reload();
+  }
+
+  private function isPageHavingContent(): bool {
+    if (empty(strip_tags($this->getSession()->getPage()->getContent()))) {
+      return FALSE;
+    }
+
+    return TRUE;
+  }
+
+  private function ensurePageIsFullyLoaded(): void {
+    try {
+      do {
+        if ($this->getSession()->evaluateScript('document.readyState') === 'complete') {
+          break;
+        }
+      } while (self::maxDurationNotElapsed(self::MAX_SHORT_DURATION_SECONDS));
+    }
+    catch (MaxDurationElapsedException $maxDurationElapsedException) {
+      throw new PageCouldNotBeFullyLoadedException(
+        $this->getSession(),
+        $maxDurationElapsedException
+      );
+    }
+  }
+
+  /**
    * @Then /^I (?:am|should be) redirected to "([^"]*)"$/
    */
-  public function iAmRedirectedTo($actualPath) {
+  public function iAmRedirectedTo($actualPath): void {
     // Ignoring trailing slashes.
     $actualPath = rtrim($actualPath, '/');
     $pageUrl = rtrim($this->getSession()->getCurrentUrl(), '/');

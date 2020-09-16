@@ -1,0 +1,26 @@
+[
+  {
+    "domain": ".host.docker.internal",
+    "path": "/",
+    "name": "cookie-agreed",
+    "value": "2",
+    "expirationDate": 1798790400,
+    "hostOnly": false,
+    "httpOnly": false,
+    "secure": false,
+    "session": false,
+    "sameSite": "no_restriction"
+  },
+  {
+    "domain": ".host.docker.internal",
+    "path": "/",
+    "name": "degov_social_media_settings",
+    "value": "%7B%22facebook%22%3Afalse%2C%22twitter%22%3Afalse%2C%22youtube%22%3Afalse%2C%22googleplus%22%3Afalse%2C%22pinterest%22%3Afalse%2C%22flickr%22%3Afalse%2C%22vimeo%22%3Afalse%2C%22instagram%22%3Afalse%2C%22other%22%3Afalse%7D",
+    "expirationDate": 1798790400,
+    "hostOnly": false,
+    "httpOnly": false,
+    "secure": false,
+    "session": false,
+    "sameSite": "no_restriction"
+  }
+]

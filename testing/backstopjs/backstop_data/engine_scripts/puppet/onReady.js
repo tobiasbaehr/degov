@@ -3,8 +3,9 @@
  */
 
 module.exports = async(page, scenario, vp) => {
-  console.log('SCENARIO > ' + scenario.label);
-  await require('./clickAndHoverHelper')(page, scenario);
-
-  // Add more ready handlers here...
+  await require('./onReadyWaitForFrames')(page, scenario, vp);
+  await require('./onReadyWaitForImages')(page, scenario, vp);
+  await require('./clickAndHoverHelper')(page, scenario, vp);
+  await require('./onReadyInfo')(page, scenario, vp);
+  await require('./performanceLog')(page, scenario, vp);
 };

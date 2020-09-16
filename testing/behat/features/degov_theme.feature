@@ -14,12 +14,12 @@ Feature: deGov - deGov Theme
     When I click by selector ".top-header-wrapper nav .search-form-icon button" via JavaScript
     Then I should not see the element with css selector ".search-form-wrapper"
 
-  Scenario: Verify that "Teaser social media" blocks are exist in the Content region
-    Given I am installing the following Drupal modules:
-      | degov_devel |
-    Then I turn on development mode
+  Scenario: Verify that "Teaser social media" blocks are existing in the content region
+    Given I am installing the "degov_devel" module
+    Then I prove that the development mode is enabled
+    And I should see text matching "Anmelden" after a while
     And I have dismissed the cookie banner if necessary
-    And I should see ".top-header-wrapper .navbar a.js-social-media-settings-open" element visible on the page
+    And I should see "a.js-social-media-settings-open" element visible on the page
 
     Then I should not see ".block--degov-social-media-instagram" in the "main" element
     Then I should not see ".block--degov-social-media-twitter" in the "main" element
@@ -27,24 +27,32 @@ Feature: deGov - deGov Theme
 
     Then I click by CSS class "js-social-media-settings-open"
     Then I should see "div#social-media-settings" element visible on the page
-
+    And wait 2 seconds
     And I check checkbox by value "twitter" via JavaScript
     And I check checkbox by value "youtube" via JavaScript
     And I check checkbox by value "instagram" via JavaScript
-    And I click by CSS class "js-social-media-settings-save"
-
+    And I click by selector ".social-media-settings__save" via JavaScript
+    And I wait until the following social media feeds are enabled as cookie values:
+      | twitter   |
+      | youtube   |
+      | instagram |
+    And I reload the current page
+    And I should see HTML content matching "block block-degov-social-media-instagram" after a while
+    And I scroll to element with id "block-instagramfeedblock"
     Then I should see 1 "main .block--degov-social-media-instagram" element
     And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-instagram .paragraph__header h2"
     And I should see text matching "Instagram Teaser" in "css" selector ".block--degov-social-media-instagram .paragraph__header h3.sub-title"
     And I should see 4 ".block--degov-social-media-instagram .paragraph__content article" elements
     And I should see the "img" in ".block--degov-social-media-instagram .paragraph__content article a.img-top"
 
+    And I scroll to element with id "block-twitterblock"
     Then I should see 1 "main .block--degov-social-media-twitter" element
     And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-twitter .paragraph__header h2"
     And I should see text matching "Twitter Teaser" in "css" selector ".block--degov-social-media-twitter .paragraph__header h3.sub-title"
     And I should see 4 ".block--degov-social-media-twitter .paragraph__content div.tweet" elements
     And I should see the "img" in ".block--degov-social-media-twitter .paragraph__content .tweet .tweet__avatar a"
 
+    And I scroll to element with id "block-youtubefeedblock"
     Then I should see 1 "main .block--degov-social-media-youtube" element
     And I should see text matching "Teaser Social-Media" in "css" selector ".block--degov-social-media-youtube .paragraph__header h2"
     And I should see text matching "YouTube Teaser" in "css" selector ".block--degov-social-media-youtube .paragraph__header h3.sub-title"

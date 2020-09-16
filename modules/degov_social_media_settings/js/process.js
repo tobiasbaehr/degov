@@ -6,158 +6,156 @@
  */
 
 (function ($, Drupal, drupalSettings) {
-
   'use strict';
 
+  var
+    modal = $('#social-media-settings'),
+    cookieId = 'degov_social_media_settings',
+    sources = {},
+    settings = drupalSettings.degov_social_media_settings;
+
   Drupal.behaviors.degov_social_media_settings = {
-    attach: function (context) {
-      var $socialMediaDialog = $('#social-media-settings', context);
-      // Move the modal outside of the page wrappers, to prevent styling overwrites.
-      if ($('.social-media-settings.modal', context)) {
-        $('.social-media-settings.modal').detach().appendTo('body');
+    attach: function (context, drupalSettings) {
+
+      settings = drupalSettings.degov_social_media_settings;
+      modal.once('social-media-settings-init').each(function () {
+
+        // Move the modal outside of the page wrappers, to prevent styling overwrites.
+        modal.detach().appendTo('body');
+        modal.on({
+          'hidden.bs.modal': function () {
+            modal.attr('aria-hidden', true);
+          },
+          'shown.bs.modal': function () {
+            openModal();
+            modal.attr('aria-hidden', false).find('h2').focus();
+          }
+        });
+
+        // Initialize when cookies are accepted by eu_cookie_compliance module.
+        $('.agree-button').on({
+          click: function () {
+            sources = settings.sources; //
+            initializeAllowedSocialMediaTypes();
+          }
+        });
+      });
+
+      if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
+        // Cookies allowed.
+        sources = cookieExists() ? cookieGetSettings() : settings.sources;
+        initializeAllowedSocialMediaTypes();
       }
-
-      // Initialize when cookies are accepted by eu_cookie_compliance module.
-      $('.agree-button', context).once('social-media-settings').click(function () {
-        initializeSettings();
-        $('.js-social-media-wrapper').each(function () {
-          applySettings($(this));
-        })
-      });
-
-      // Open the modal.
-      var $openSocialMediaSettings = $('.js-social-media-settings-open');
-      $openSocialMediaSettings.click(function (e) {
-        e.preventDefault();
-        openModal();
-      });
-
-      // Save the settings.
-      $('.js-social-media-settings-save', $socialMediaDialog).once('social-media-settings').click(function () {
-        saveSettings();
-      });
-
-      // Apply the settings.
-      $('.js-social-media-wrapper', context).once('social-media-settings').each(function () {
-        applySettings($(this));
-      });
-
-      $('.js-social-media-source-all').once('social-media-settings').click(function () {
-        handleAll($(this));
-      });
-      $socialMediaDialog.on('hidden.bs.modal', function () {
-        $openSocialMediaSettings.focus();
-        $socialMediaDialog.attr('aria-hidden', true);
-      });
-      $socialMediaDialog.on('shown.bs.modal', function () {
-        $socialMediaDialog.attr('aria-hidden', false).find('h2').focus();
-      });
+      else {
+        applySettings();
+      }
     }
   };
 
-  var modal = $('#social-media-settings');
-  var cookie = 'degov_social_media_settings';
-  var settings = drupalSettings.degov_social_media_settings;
-  var code = settings.code;
-  var sources = { };
-
-  // Shows the social media settings link if cookie are allowed and
-  // creates a cookie with default values.
-  function initializeSettings() {
-    if (typeof Drupal.eu_cookie_compliance !== 'undefined' && Drupal.eu_cookie_compliance.hasAgreed()) {
-      $('.js-social-media-settings-open').removeClass('hidden');
-
-      if (cookieExists()) {
-        sources = cookieGetSettings();
-      }
-      else {
-        sources = settings.sources;
-        cookieSaveSettings();
-      }
-    }
-  }
-
-  // Applies the social media settings to a social media wrapper.
-  function applySettings(wrapper) {
-    var source = wrapper.attr('data-social-media-source');
-    var entity = wrapper.attr('data-social-media-entity');
-    var target = $('.js-social-media-code', wrapper);
-
-    // Show the code if source is enabled.
-    if (sources.hasOwnProperty(source) && sources[source] === true && code.hasOwnProperty(entity)) {
-      target.html(code[entity]);
-
-      if (source === 'twitter') {
-        initTwitter(wrapper);
-        initSoMeSlider('twitter');
-      }
-
-      if (source === 'instagram') {
-        initInstagram();
-        initSoMeSlider('instagram');
-      }
-
-      if (source === 'youtube') {
-        initSoMeSlider('youtube');
-      }
-    }
-    else {
-      if (typeof Drupal.eu_cookie_compliance !== 'undefined' && Drupal.eu_cookie_compliance.hasAgreed()) {
-        var link = $('<div class="js-social-media-code__message">' + settings.link + '</div>');
-
-        $('.js-social-media-settings-open', link).click(function (e) {
-          e.preventDefault();
-          openModal();
-        });
-
-        target.html(link);
-        target.parent().find(".slick-controls").hide();
-      }
-      else {
-        target.html('<div class="js-social-media-code__message">' + settings.cookie + '</div>');
-      }
-    }
-  }
-
   // Opens the social media settings modal.
   function openModal() {
+
     // Update checkboxes with settings from cookie.
     $('.js-social-media-source', modal).each(function () {
-      var source = $(this).val();
-
+      var elm = $(this),
+          source = elm.val();
       if (sources.hasOwnProperty(source)) {
-        $(this).prop('checked', sources[source]);
+        elm.prop('checked', sources[source]);
       }
     });
 
+    // Attach save modal settings.
+    $('.js-social-media-settings-save', modal).click(function () {
+      saveSettings();
+    });
+
+    // Attach 'all' checkbox.
+    $('#checkbox-all-keys', modal).on({
+      click: function (e) {
+        var selectAll = $(e.currentTarget);
+        selectAll
+          .parents('.social-media-settings__settings-list')
+          .find('.checkbox-switch')
+          .prop('checked', selectAll.is(':checked'))
+      }
+    });
   }
 
-  // Handle click on 'all' checkbox.
-  function handleAll(all) {
-    $('.js-social-media-source').prop('checked', all.is(':checked'));
+  // Shows social media settings link and init option cookie.
+  function initializeAllowedSocialMediaTypes() {
+    $('.js-social-media-settings-open').removeClass('hidden');
+    applySettings();
+  }
+
+  // Applies the social media settings to a social media wrapper.
+  function applySettings() {
+    var wrappers = document.querySelectorAll('.js-social-media-wrapper');
+    Array.prototype.forEach.call(wrappers, function (el, i) {
+      var elm = $(el),
+        source = elm.attr('data-social-media-source'),
+        entity = elm.attr('data-social-media-entity'),
+        target = $('.js-social-media-code', elm);
+
+      if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
+
+        if (sources.hasOwnProperty(source) && sources[source] === true && settings.code.hasOwnProperty(entity)) {
+          target.html(settings.code[entity]);
+          if (source === 'twitter') {
+            new Promise(function(resolve) {
+              initTwitter(elm);
+              initSoMeSlider('twitter');
+              resolve();
+            });
+          }
+          if (source === 'instagram') {
+            new Promise(function(resolve) {
+              initInstagram();
+              initSoMeSlider('instagram');
+              resolve();
+            });
+          }
+          if (source === 'youtube') {
+            new Promise(function(resolve) {
+              initSoMeSlider('youtube');
+              resolve();
+            });
+          }
+        }
+        else {
+          target.html(Drupal.theme.prototype.socialMediaDisabledMessage(settings.mediaMessages[source], settings.link));
+        }
+      }
+      else {
+        //
+        // TODO
+        //  Shouldn't this  be default in html Template ??
+        //
+        target.html(Drupal.theme.prototype.socialMediaDisabledMessage(settings.mediaMessages[source], settings.cookie));
+      }
+    });
   }
 
   // Saves the social media settings in the cookie and applies the new
   // settings to all social media wrappers.
   function saveSettings() {
     // Update the sources variable.
-    $('.js-social-media-source', modal).each(function () {
-      var source = $(this).val();
 
+    $('.js-social-media-source', modal).each(function () {
+      var elm = $(this),
+          source = $(this).val();
       if (sources.hasOwnProperty(source)) {
-        sources[source] = $(this).is(':checked');
+        sources[source] = elm.is(':checked');
       }
     });
 
     // Save settings in cookie.
     if (Drupal.eu_cookie_compliance.hasAgreed()) {
       cookieSaveSettings();
+      settings.sources = sources;
     }
 
     // Apply new settings.
-    $('.js-social-media-wrapper').each(function () {
-      applySettings($(this));
-    });
+    initializeAllowedSocialMediaTypes();
   }
 
   // Initialize twitter media from media bundle tweet.
@@ -202,21 +200,18 @@
 
   // Checks if the cookie exists.
   function cookieExists() {
-    return typeof $.cookie(cookie) !== 'undefined';
+    return typeof $.cookie(cookieId) !== 'undefined';
   }
 
   // Reads, parses and returns the settings from the cookie.
   function cookieGetSettings() {
-    return JSON.parse($.cookie(cookie));
+    return JSON.parse($.cookie(cookieId));
   }
 
   // Saves the settings in the cookie.
   function cookieSaveSettings() {
-    $.cookie(cookie, JSON.stringify(sources), { path: '/' });
+    $.cookie(cookieId, JSON.stringify(sources), { path: '/'});
   }
-
-  // Initialize.
-  initializeSettings();
 
   function initSoMeSlider(source) {
     var slider = (source === 'twitter') ? $('.tweets-slideshow .tweets') : $('.' + source + '-preview'),
@@ -285,9 +280,8 @@
     }
   }
 
-  // Parameter to open the social media settings overlay on page load for testing purposes.
-  if (window.location.search === '?_debugDisplaySocialMediaSettings') {
-    $('.js-social-media-settings-open').trigger('click');
+  Drupal.theme.prototype.socialMediaDisabledMessage = function (mediaMessages, link) {
+    return '<div class="js-social-media-code__message">' + mediaMessages + ' ' + link + '</div>';
   }
 
   /**
@@ -296,7 +290,7 @@
    * @param obj2
    * @returns obj3 a new object based on obj1 and obj2
    */
-    function mergeOptions(obj1,obj2){
+  function mergeOptions(obj1,obj2){
     var obj3 = {};
     for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
     for (var attrname in obj2) { obj3[attrname] = obj2[attrname]; }

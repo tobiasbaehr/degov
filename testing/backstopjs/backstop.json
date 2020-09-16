@@ -20,6 +20,15 @@
   "onBeforeScript": "puppet/onBefore.js",
   "onReadyScript": "puppet/onReady.js",
   "disableJavascript": false,
+  "referenceUrl": "",
+  "readyEvent": "",
+  "readySelector": "",
+  "hideSelectors": [],
+  "postInteractionWait": 0,
+  "misMatchThreshold" : 5,
+  "requireSameDimensions": false,
+  "selectorExpansion": true,
+  "expect": 0,
   "scenarios": [
     {
       "label": "deGov Frontpage",
@@ -28,71 +37,30 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "#degov-slider .carousel-item:nth-child(2).active",
-      "delay": 3000,
-      "hideSelectors": [],
       "removeSelectors": [
         ".alert-dismissible"
-      ],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "selectors": [
-
-      ],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 5,
-      "requireSameDimensions": false
+      ]
     },
     {
       "label": "deGov video embed, no cookies",
       "url": "http://host.docker.internal:80/degov-demo-content/page-video-header",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": ".js-social-media-code",
-      "delay": 600,
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 5,
-      "requireSameDimensions": false
+      "readySelector": ".js-social-media-code"
     },
     {
       "label": "deGov video embed, cookies accepted, no social media",
       "cookiePath": "backstop_data/engine_scripts/cookies-no-social-media.json",
       "url": "http://host.docker.internal:80/degov-demo-content/page-video-header",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": ".js-social-media-code",
-      "delay": 600,
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "selectors": [],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 5,
-      "requireSameDimensions": false
+      "readySelector": ".js-social-media-code"
     },
     {
       "label": "Social Media Settings popup",
-      "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "http://host.docker.internal:80/?_debugDisplaySocialMediaSettings",
-      "referenceUrl": "",
-      "readyEvent": "",
-      "readySelector": "#social-media-settings",
-      "delay": 1000,
-      "hideSelectors": [],
-      "hoverSelector": "",
-      "clickSelector": "",
-      "selectors": [ "#social-media-settings" ],
-      "selectorExpansion": true,
-      "expect": 0,
-      "misMatchThreshold": 5,
-      "requireSameDimensions": false,
-      "skipValidation": true
+      "_comment": "Show Popup with twitter selected. data-social-media-source must be 'instagram' as twitter is doubled.",
+      "cookiePath": "backstop_data/engine_scripts/cookiesAcceptedNoSocialMedia.json",
+      "url": "http://host.docker.internal:80",
+      "onReadyScript": "./puppet/verifyOverlaySocialMediaSettings.js",
+      "selectors": [
+        ".modal-dialog"
+      ]
     },
     {
       "label": "deGov page-map-paragraph",
@@ -105,8 +73,7 @@
         ".header-wrapper",
         ".footer-wrapper",
         ".eu-cookie-compliance-banner"
-      ],
-      "misMatchThreshold": 5
+      ]
     },
     {
       "label": "Admin Cookie",
@@ -140,7 +107,7 @@
     ],
     "chromeFlags": ["--disable-gpu", "--force-device-scale-factor=1"]
   },
-  "asyncCaptureLimit": 2,
+  "asyncCaptureLimit": 3,
   "asyncCompareLimit": 50,
   "debug": true,
   "debugWindow": false

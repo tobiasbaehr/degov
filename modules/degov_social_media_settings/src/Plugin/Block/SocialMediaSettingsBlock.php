@@ -23,8 +23,6 @@ final class SocialMediaSettingsBlock extends BlockBase implements ContainerFacto
 
   /**
    * SocialMediaSettingsBlock constructor.
-   *
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $configFactory) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -52,11 +50,18 @@ final class SocialMediaSettingsBlock extends BlockBase implements ContainerFacto
     $build['#theme'] = 'degov_social_media_settings_block';
     $build['#social_media_netiquette_url'] = $config->get('netiquette_url');
     $build['#social_media_privacy_url'] = $config->get('privacy_url');
-    $build['#social_media_sources'] = $this->configFactory->get('degov_social_media_settings.default')->get('sources');
     $build['#attached']['library'] = ['degov_social_media_settings/process'];
+
+    $sourceNames = $this->configFactory->get('degov_social_media_settings.default')->get('sources');
+    $build['#social_media_sources'] = $sourceNames;
+    foreach ($sourceNames as $id => $name) {
+      $sourceNames[$id] = $this->t('Social media source @name is disabled.', ['@name' => $name]);
+    }
+
     $degov_social_media_settings = [
-      'link' => $this->t('This social media source is disabled. You can enable it in the <a role="button" href="#" data-toggle="modal" data-target="#social-media-settings" class="js-social-media-settings-open social-media-settings--menu-item">social media settings</a>.'),
-      'cookie' => $this->t('This social media source is disabled. After accepting our cookie policy, you can enable it.')
+      'link' => $this->t('You can enable it in the <a role="button" href="#" data-toggle="modal" data-target="#social-media-settings" class="js-social-media-settings-open social-media-settings--menu-item">social media settings</a>.'),
+      'cookie' => $this->t('After accepting our cookie policy, you can enable it.'),
+      'mediaMessages' => $sourceNames,
     ];
     $sources = [];
     foreach ($build['#social_media_sources'] as $key => $value) {
