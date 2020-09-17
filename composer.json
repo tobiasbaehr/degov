@@ -19,8 +19,6 @@
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "^1.0-alpha3",
         "drupal/config_replace": "^2.0",
-        "drupal/core": "~8.9.3",
-        "drupal/core-composer-scaffold": "~8.9.3",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/date_popup": "^1.0",
         "drupal/degov_simplenews": "^2.0",
