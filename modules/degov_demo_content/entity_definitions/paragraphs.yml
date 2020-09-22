@@ -83,7 +83,7 @@ press_slideshow:
 header_video:
   type: 'video_header'
   field_override_caption: 'Quam Dolor Vehicula'
-  field_header_media: '{{MEDIA_ID_VIDEO}}'
+  field_header_media: '{{MEDIA_ID_VIDEO_video_2}}'
   field_header_text: 'Vivamus sagittis lacus vel augue laoret'
 slide_1:
   type: 'slide'

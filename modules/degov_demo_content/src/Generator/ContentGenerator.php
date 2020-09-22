@@ -272,6 +272,9 @@ abstract class ContentGenerator {
         elseif ($bundleId === 'address' && !empty($mediaProperties['sourceId'])) {
           $value = $this->getMediaBySourceId($mediaProperties['sourceId'])->id();
         }
+        elseif ($bundleId === 'video_' && !empty($mediaProperties['sourceId'])) {
+          $value = $this->getMediaBySourceId($mediaProperties['sourceId'])->id();
+        }
         else {
           $value = $this->getMedia($bundleId)->id();
         }

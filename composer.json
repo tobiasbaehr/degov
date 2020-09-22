@@ -69,7 +69,7 @@
         "drupal/shariff": "^1.0",
         "drupal/simple_sitemap": "^3.3",
         "drupal/simplenews": "^2.0",
-        "drupal/sitemap": "^1.3",
+        "drupal/sitemap": "^2.0-beta1",
         "drupal/spamspan": "^1.1",
         "drupal/swiftmailer": "^2.0-beta1",
         "drupal/token": "^1.0",
@@ -151,6 +151,13 @@
             },
             "drupal/paragraphs_edit": {
               "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
+            },
+            "drupal/sitemap": {
+                "3169473 - Multiple bugs in config schema": "https://www.drupal.org/files/issues/2020-09-08/3169473-10.sitemap.Multiple-bugs-in-config-schema.patch",
+                "3169650 - Code warnings after migrating from 1.x to 2.x version": "https://www.drupal.org/files/issues/2020-09-13/3169650-6.sitemap.Code-warnings-after-migrating-from-1x-to-2x-version.patch",
+                "3153982 - Support a sitemap-specific menu template": "https://www.drupal.org/files/issues/2020-06-22/sitemap-menu-template-2.patch",
+                "2918367 - Sitemap Block is missing": "https://www.drupal.org/files/issues/2918367-sitemap-block.patch",
+                "3171756 - invalid data used for menu creation": "https://www.drupal.org/files/issues/2020-09-18/menu-uses.data-from-wrong-menu-3171756-3.patch"
             }
         }
     },
