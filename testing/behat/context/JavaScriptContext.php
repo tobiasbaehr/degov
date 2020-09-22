@@ -237,7 +237,7 @@ class JavaScriptContext extends RawMinkContext {
   public function iShouldSeeElementsViaJqueryAfterWhile(int $number, string $selector) {
     $startTime = time();
     do {
-      $numberOfElementsFound = (int) $this->getSession()->evaluateScript("jQuery('" . $selector . "').length");
+      $numberOfElementsFound = (int) $this->getSession()->evaluateScript("jQuery('" . addslashes($selector) . "').length");
       if ($numberOfElementsFound === $number) {
         return TRUE;
       }

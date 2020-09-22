@@ -18,14 +18,15 @@ Feature: deGov - Paragraphs
     And I fill in "testblockreferenz" for "Titel"
     And I press the "edit-field-sidebar-right-paragraphs-add-more-add-modal-form-area-add-more" button
     And I trigger the "mousedown" event on ".ui-dialog [name=field_sidebar_right_paragraphs_block_reference_sidebar_add_more]"
-    And I should see text matching "Block Referenz Seitenleiste" after a while
-    Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
-    And I select "simplenews_subscription_block" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
-    And I should see text matching "Newsletter" after a while
-    And I check checkbox by value "default" via JavaScript
+    Then I should see text matching "Block Referenz Seitenleiste" after a while
+    And Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
+    And I should see 3 "select[name='field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]'] option" elements
+    When I select "simplenews_subscription_block" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
+    Then I should see text matching "Newsletter" after a while
+    When I check checkbox by value "default" via JavaScript
     And I select "published" from "edit-moderation-state-0-state"
     And I press button with label "Save" via translated text
-    And I should see HTML content matching "block-simplenews-subscription-block"
+    Then I should see HTML content matching "block-simplenews-subscription-block"
 
   Scenario: Blocks in sidebar block reference have reduced title options
     Given I am logged in as a user with the "administrator" role
@@ -34,11 +35,21 @@ Feature: deGov - Paragraphs
     And I press the "edit-field-sidebar-right-paragraphs-add-more-add-modal-form-area-add-more" button
     And I trigger the "mousedown" event on ".ui-dialog [name=field_sidebar_right_paragraphs_block_reference_sidebar_add_more]"
     And I should see text matching "Block Referenz Seitenleiste" after a while
-    Given Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
-    And I select "views_block:press_latest_content-latest_press" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
-    And I should not see text matching "Titel anzeigen" after a while
-    And I should not see text matching "Titel übersteuern" after a while
-    And I should not see HTML content matching "edit-field-sidebar-right-paragraphs-0-subform-field-block-plugin-0-settings-views-label-fieldset"
+    And Select "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "views_block:press_latest_content-latest_press simplenews_subscription_block"
+    When I select "views_block:press_latest_content-latest_press" from "field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][plugin_id]"
+    Then I should see 1 "select[name='field_sidebar_right_paragraphs[0][subform][field_block_plugin][0][settings][override][items_per_page]']" elements via jQuery after a while
+    # > 1 * elements means degov_paragraph_block_reference_form_alter is broken
+    Then I should see 1 "#field_sidebar_right_paragraphs-0-subform-field_block_plugin-0-settings > *" elements
+
+  Scenario: Paragraph Block reference has only the expected options
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And I choose "Inhalt" from tab menu
+    And I press the "edit-field-content-paragraphs-add-more-add-modal-form-area-add-more" button
+    And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_block_reference_add_more]"
+    Then I should see text matching "Block Referenz" after a while
+    And Select "field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]" has following options "degov_twitter_block degov_social_media_instagram degov_social_media_youtube"
+    And I should see 4 "select[name='field_content_paragraphs[0][subform][field_block_plugin][0][plugin_id]'] option" elements
 
   Scenario: Paragraph Download type has its fields correctly translated
     Given I am logged in as a user with the "administrator" role
