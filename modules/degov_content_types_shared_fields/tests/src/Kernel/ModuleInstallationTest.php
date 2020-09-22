@@ -3,28 +3,31 @@
 namespace Drupal\Tests\degov_content_types_shared_fields\Kernel;
 
 use Drupal\Core\Extension\Extension;
-use Drupal\Tests\field\Kernel\FieldKernelTestBase;
+use Drupal\KernelTests\KernelTestBase;
 
 /**
  * Class ModuleInstallationTest.
  */
-class ModuleInstallationTest extends FieldKernelTestBase {
-
+class ModuleInstallationTest extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
-    'degov_content_types_shared_fields',
+  protected static $modules = [
+    'field',
     'media',
-    'image',
     'node',
-    'lightning_core',
+    'system',
+    'text',
     'link',
     'paragraphs',
     'entity_reference_revisions',
     'taxonomy',
     'views',
+    'user',
+    'image',
+    'lightning_core',
     'views_parity_row',
+    'degov_content_types_shared_fields',
   ];
 
   /**
@@ -32,9 +35,7 @@ class ModuleInstallationTest extends FieldKernelTestBase {
    */
   protected function setUp() {
     parent::setUp();
-    $this->installEntitySchema('media');
-    $this->installEntitySchema('node');
-    $this->installConfig(['degov_content_types_shared_fields']);
+    $this->installConfig(static::$modules);
   }
 
   /**
@@ -43,7 +44,7 @@ class ModuleInstallationTest extends FieldKernelTestBase {
   public function testSetup(): void {
     /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
     $moduleHandler = $this->container->get('module_handler');
-    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule(reset(self::$modules)));
+    self::assertInstanceOf(Extension::class, $moduleHandler->getModule('degov_content_types_shared_fields'));
   }
 
 }

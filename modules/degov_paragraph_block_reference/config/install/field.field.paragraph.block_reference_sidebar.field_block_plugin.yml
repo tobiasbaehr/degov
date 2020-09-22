@@ -20,7 +20,9 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  plugin_ids:
-    'views_block:press_latest_content-latest_press': 'views_block:press_latest_content-latest_press'
-    simplenews_subscription_block: simplenews_subscription_block
+  selection: blocks
+  selection_settings:
+    plugin_ids:
+      'views_block:press_latest_content-latest_press': 'views_block:press_latest_content-latest_press'
+      simplenews_subscription_block: simplenews_subscription_block
 field_type: block_field
