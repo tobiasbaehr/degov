@@ -64,7 +64,7 @@
         "drupal/scheduled_publish": "^3.8",
         "drupal/search_api": "^1.2",
         "drupal/search_api_solr": "~4.1.6",
-        "drupal/search_api_sorts": "^1.0@beta",
+        "drupal/search_api_sorts": "^1.0",
         "drupal/search_api_attachments": "^1.0@beta",
         "drupal/shariff": "^1.0",
         "drupal/simple_sitemap": "^3.3",
