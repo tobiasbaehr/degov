@@ -5,6 +5,7 @@
  * Install, update and uninstall hooks for the degov_media_address module.
  */
 
+use Drupal\Core\Utility\UpdateException;
 use Drupal\degov_common\Common;
 use Drupal\field\Entity\FieldStorageConfig;
 use Symfony\Component\Yaml\Yaml;
@@ -21,29 +22,10 @@ function degov_media_address_uninstall() {
 }
 
 /**
- * Added source field to generic media type 'address'
+ * Implements hook_update_last_removed().
  */
-function degov_media_address_update_8010() {
-  \Drupal::configFactory()->getEditable('media.type.address')
-    ->set('source_configuration.source_field', 'field_media_generic')->save();
-}
-
-/**
- * Set settings for automatic latitude and longitude calculation.
- */
-function degov_media_address_update_8011() {
-
-  /**
-   * @var \Drupal\Core\Config\ConfigFactory $configFactory
-   */
-  $configFactory = \Drupal::service('config.factory');
-  /**
-   * @var Drupal\Core\Config\Config $config
-   */
-  $config = $configFactory->getEditable('field.field.media.address.field_address_location');
-  $config->set('third_party_settings.geocoder_field.geocode_field', 'field_address_address');
-  $config->set('third_party_settings.geocoder_field.plugins', ['openstreetmap']);
-  $config->save();
+function degov_media_address_update_last_removed() {
+  return 8011;
 }
 
 /**
@@ -95,7 +77,7 @@ function degov_media_address_update_870600() {
   $fieldAddressLinkConfig = Yaml::parseFile(drupal_get_path('module', 'degov_media_address') . '/config/install/field.field.media.address.field_address_link.yml');
   $config = $configFactory->getEditable('field.field.media.address.field_address_link');
   if (!$config->isNew()) {
-    throw new \Exception('Storage contains unexpected config.');
+    throw new UpdateException('Storage contains unexpected config.');
   }
   $config->setData($fieldAddressLinkConfig);
   $config->save(TRUE);
@@ -138,14 +120,44 @@ function degov_media_address_update_880300() {
 }
 
 /**
- * Update path to map marker.
+ * deGov Update 8.5.0:
+ * - Update path to map marker.
+ * - Preparation for geocoder upgrade to 8.x-3.x.
  */
 function degov_media_address_update_880500() {
-  $config = \Drupal::configFactory()
+  $configFactory = \Drupal::configFactory();
+
+  $config = $configFactory
     ->getEditable('core.entity_view_display.media.address.default_map');
 
   if (!$config->isNew()) {
     $config->set('content.field_address_location.settings.style.pin', 'profiles/degov/modules/degov_media_address/images/map-icon.png')
       ->save(TRUE);
   }
+
+  // geocoder_post_update_convert_simple_config_to_entities do not add
+  // all default configuration for this plugin on this update.
+  $config_file = Yaml::parseFile(drupal_get_path('module', 'degov_media_address') . '/config/install/geocoder.geocoder_provider.openstreetmap.yml');
+  $config = $configFactory->getEditable('geocoder.geocoder_provider.openstreetmap');
+  $config->setData($config_file);
+  $config->save();
+
+  // Remove the plugins_options openstreetmap, so that geocoder_post_update_convert_simple_config_to_entities
+  // do not add the new geocoder provider, which is already added via above config.
+  $config = $configFactory->getEditable('geocoder.settings');
+  $plugins_options = $config->get('plugins_options');
+  unset($plugins_options['openstreetmap']);
+  $config->set('plugins_options', $plugins_options);
+  $config->save();
+
+  // geocoder_field_post_update_rename_providers_in_third_party_settings
+  // do also just the half of the work.
+  $config = $configFactory->getEditable('field.field.media.address.field_address_location');
+  $geocoder_field = $config->get('third_party_settings.geocoder_field');
+  if ($geocoder_field['method'] !== 'geocode') {
+    $geocoder_field['method'] = 'geocode';
+    $config->set('third_party_settings.geocoder_field', $geocoder_field);
+    $config->save();
+  }
+
 }

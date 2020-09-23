@@ -36,7 +36,7 @@
         "drupal/eu_cookie_compliance": "^1.5",
         "drupal/facets": "^1.5",
         "drupal/field_group": "^3.0",
-        "drupal/geocoder": "^2.0-alpha5",
+        "drupal/geocoder": "^3.11",
         "drupal/geofield": "^1.6",
         "drupal/honeypot": "^2.0.0",
         "drupal/image_widget_crop": "^2.1",
@@ -91,7 +91,9 @@
         "heiseonline/shariff": "^2.0.4",
         "kenwheeler/slick": "^1.7.1",
         "leaflet/leaflet": "^1.1.0",
-        "symfony/filesystem": "^3.4"
+        "symfony/filesystem": "^3.4",
+        "geocoder-php/google-maps-provider": "~4.5.0",
+        "geocoder-php/nominatim-provider": "~5.2.0"
     },
     "autoload": {
         "classmap": [
@@ -147,7 +149,10 @@
                 "2925609 - Update viewsreference_update_8103 fails if table name is too long and shortened by Drupal": "https://www.drupal.org/files/issues/2020-07-23/2925609-13.viewsreference.patch"
             },
             "drupal/paragraphs_edit": {
-                "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
+              "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
+            },
+            "drupal/geocoder": {
+              "3172255 - Install new config entity type via update hook.": "https://www.drupal.org/files/issues/2020-09-21/3172255-5.geocoder.Install-new-config-entity-type-via-update-hook.patch"
             },
             "drupal/sitemap": {
                 "3169473 - Multiple bugs in config schema": "https://www.drupal.org/files/issues/2020-09-08/3169473-10.sitemap.Multiple-bugs-in-config-schema.patch",

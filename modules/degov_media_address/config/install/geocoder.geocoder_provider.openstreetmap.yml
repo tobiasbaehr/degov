@@ -1,0 +1,13 @@
+langcode: de
+status: true
+dependencies: {  }
+id: openstreetmap
+label: OpenStreetMap
+plugin: openstreetmap
+configuration:
+  rootUrl: 'https://nominatim.openstreetmap.org'
+  userAgent: drupal
+  referer: drupal
+  throttle:
+    period: 2
+    limit: 1
