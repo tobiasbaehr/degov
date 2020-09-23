@@ -12,8 +12,6 @@ dependencies:
     - search_api_solr.solr_field_type.text_und_7_0_0
   module:
     - search_api_solr
-_core:
-  default_config_hash: HK5HSdyWnjPqXBxmddpd3OMoK77DKF2RMMNcj5-hTz0
 id: degov
 name: 'Apache Solr deGov core'
 description: ''
@@ -42,3 +40,4 @@ backend_config:
   domain: generic
   optimize: false
   site_hash: false
+  index_single_documents_fallback_count: 10

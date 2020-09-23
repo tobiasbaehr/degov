@@ -6,8 +6,6 @@ dependencies:
     - views.view.search_content
   module:
     - search_api
-_core:
-  default_config_hash: 54pNQyFTR0OZ3t1YjTkGb_XQsGN5s2ZqqBe1jJC1mzw
 id: content_bundles
 name: 'Content bundles'
 url_alias: content_bundles

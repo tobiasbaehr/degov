@@ -15,7 +15,6 @@ description: ''
 tag: ''
 base_table: search_api_index_search_content
 base_field: search_api_id
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -167,14 +166,14 @@ display:
             description: ''
             use_operator: false
             operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: volltext
             required: false
             remember: false
             multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
+            remember_roles: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -229,7 +228,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.search_content'
   page_1:
     display_plugin: page
     id: page_1
@@ -250,4 +251,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.search_content'
