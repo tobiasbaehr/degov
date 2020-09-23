@@ -15,3 +15,6 @@ parameters:
     - docroot/profiles/contrib/degov/modules/lightning_media/tests/contexts/
     - docroot/profiles/contrib/degov/modules/lightning_core/tests/contexts/
     - docroot/profiles/contrib/degov/modules/forks/
+  # Ignore phpstan-drupal extension's rules.
+  ignoreErrors:
+    - '#\Drupal calls should be avoided in classes, use dependency injection instead#'

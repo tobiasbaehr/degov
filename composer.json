@@ -42,7 +42,7 @@
         "drupal/image_widget_crop": "^2.1",
         "drupal/imagick": "^1.0",
         "drupal/inline_entity_form": "^1.0",
-	"drupal/jquery_ui_datepicker": "^1.0",
+        "drupal/jquery_ui_datepicker": "^1.0",
         "drupal/link_attributes": "^1.1",
         "drupal/linkit": "^5.0-beta11",
         "drupal/mail_login": "^1.0",
@@ -74,7 +74,7 @@
         "drupal/swiftmailer": "^2.0-beta1",
         "drupal/token": "^1.0",
         "drupal/twig_field_value": "^2.0",
-        "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/ultimate_cron": "2.x-dev#d21998059ad21ca93262512349b50808726c1f09",
         "drupal/video_embed_field": "^2.0",
         "drupal/views_infinite_scroll": "^1.1",
         "drupal/webform": "^6.0.0-alpha16",
@@ -133,9 +133,6 @@
             "drupal/metatag": {
                 "3104170 - Do not send empty Metatag descriptions through translation": "https://www.drupal.org/files/issues/2020-01-03/metatag-do-not-translate-empty-descriptions.patch"
             },
-            "drupal/ultimate_cron": {
-                "2890428 - Using 'continue' outside of a loop or switch structure": "https://www.drupal.org/files/issues/continue_in_loop-2890428-2.patch"
-            },
             "drupal/search_api": {
                 "2931562 - Notice: Undefined index: total When we enable the module in the installation step": "https://www.drupal.org/files/issues/2019-09-25/2931562-results-php-notice.patch"
             },
@@ -150,7 +147,7 @@
                 "2925609 - Update viewsreference_update_8103 fails if table name is too long and shortened by Drupal": "https://www.drupal.org/files/issues/2020-07-23/2925609-13.viewsreference.patch"
             },
             "drupal/paragraphs_edit": {
-              "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
+                "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
             },
             "drupal/sitemap": {
                 "3169473 - Multiple bugs in config schema": "https://www.drupal.org/files/issues/2020-09-08/3169473-10.sitemap.Multiple-bugs-in-config-schema.patch",
