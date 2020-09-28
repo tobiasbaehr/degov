@@ -172,7 +172,8 @@ class DrupalIndependentContext extends RawMinkContext {
     try {
       $startTime = time();
       do {
-        $content = $this->getSession()->getPage()->getText();
+        $content = preg_replace('~\x{00AD}~u', '', $this->getSession()->getPage()->getText());
+        $content = str_replace(['', '&shy;', '\u00AD'], '', $content);
         if (substr_count($content, $text) > 0) {
           return TRUE;
         }
@@ -287,7 +288,9 @@ class DrupalIndependentContext extends RawMinkContext {
    * @Then /^I should not see HTML content matching '([^']*)'$/
    */
   public function iShouldNotSeeHtmlContentMatching(string $content): ?bool {
-    $html = $this->getSession()->getPage()->getHtml();
+    // Remove soft hyphens.
+    $html = preg_replace('~\x{00AD}~u', '', $this->getSession()->getPage()->getHtml());
+    $html = str_replace(['', '&shy;', '\u00AD'], '', $html);
     if (substr_count($html, $content) === 0) {
       return TRUE;
     }
@@ -314,7 +317,9 @@ class DrupalIndependentContext extends RawMinkContext {
     try {
       $startTime = time();
       do {
-        $content = $this->getSession()->getPage()->getHtml();
+        // Remove soft hyphens.
+        $content = preg_replace('~\x{00AD}~u', '', $this->getSession()->getPage()->getHtml());
+        $content = str_replace(['', '&shy;', '\u00AD'], '', $content);
         if (substr_count($content, $text) > 0) {
           return TRUE;
         }

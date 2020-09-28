@@ -1,0 +1,10 @@
+degov_hyphenopoly.settings:
+  type: config_object
+  label: 'Hyphenopoly config'
+  mapping:
+    hyphenopoly_selectors:
+      type: sequence
+      label: 'Hyphenopoly selectors'
+      sequence:
+        type: string
+        label: 'Selector'

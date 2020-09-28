@@ -120,6 +120,7 @@ function degov_module_setup(&$install_state) {
     'media_file_links'                  => 'media_file_links',
     'entity_reference_timer'            => 'entity_reference_timer',
     'degov_honeypot'                    => 'degov_honeypot',
+    'degov_hyphenopoly'                 => 'degov_hyphenopoly',
   ];
 
   // See issue https://www.drupal.org/project/search_api/issues/2931562

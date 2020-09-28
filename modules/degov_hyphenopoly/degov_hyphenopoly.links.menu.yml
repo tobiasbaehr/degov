@@ -1,0 +1,5 @@
+degov_hyphenopoly.settings:
+  title: deGov Hyphenopoly settings
+  description: 'Configure deGov Hyphenopoly settings'
+  route_name: degov_hyphenopoly.settings
+  parent: degov.default

@@ -74,7 +74,7 @@ function degov_requirements(string $phase) {
       if (\Drupal::moduleHandler()->moduleExists($deprecated_dependency)) {
         $requirements['degov_deprecated_dependency_' . $deprecated_dependency] = [
           'title'       => 'Deprecated dependency',
-          'description' => t('The module <i>:module_name</i> will be removed as a dependency from deGov in the next release. Please add the dependency to your project  composer.json or uninstall it.', [':module_name' => $deprecated_dependency]),
+          'description' => t("The module <i>:module_name</i> will be removed as a dependency from deGov in the next release. Please add the dependency to your project's composer.json or uninstall it.", [':module_name' => $deprecated_dependency]),
           'severity'    => REQUIREMENT_WARNING,
           'value'       => t('The dependency to the module <i>:module_name</i> is deprecated', [':module_name' => $deprecated_dependency]),
         ];
@@ -92,7 +92,7 @@ function degov_update_dependencies() {
     'degov' => 8501,
   ];
   $dependencies['degov'][880000] = [
-    'system' => 8805
+    'system' => 8805,
   ];
   return $dependencies;
 }
@@ -275,7 +275,7 @@ function degov_update_8501() {
 }
 
 /**
- * deGov Update 5.1.0 - Removal of the Workbench Access module.
+ * DeGov Update 5.1.0 - Removal of the Workbench Access module.
  *
  * Installation of deGov Email Login module. Install the Link Attributes module,
  * if it is not already installed.
@@ -348,7 +348,7 @@ function degov_update_860100() {
 }
 
 /**
- * deGov Update 6.2.0 - Install the filter_disallow module.
+ * DeGov Update 6.2.0 - Install the filter_disallow module.
  */
 function degov_update_860200() {
   if (!\Drupal::moduleHandler()->moduleExists('filter_disallow')) {
@@ -357,7 +357,7 @@ function degov_update_860200() {
 }
 
 /**
- * deGov Update 7.1.0 - Enable the deGov copyright module, the icon picker, media file links, install theme blocks
+ * DeGov Update 7.1.0 - Enable the deGov copyright module, the icon picker, media file links, install theme blocks
  */
 function degov_update_870100() {
   $modulesToInstall = [
@@ -386,7 +386,7 @@ function degov_update_870100() {
 }
 
 /**
- * deGov update 7.3.0
+ * DeGov update 7.3.0
  * - Disable SQL Rewrite in the content view. Temporary solution for Issue #2971902: https://www.drupal.org/project/drupal/issues/2971902.
  * - Give the editor and manager roles the permissions to create, edit and delete terms in the section taxonomy vocabulary.
  */
@@ -411,7 +411,7 @@ function degov_update_870300() {
 }
 
 /**
- * deGov 7.5.0 - Install the node_action module and grant related permissions to manager and editor roles.
+ * DeGov 7.5.0 - Install the node_action module and grant related permissions to manager and editor roles.
  */
 function degov_update_870500() {
   if (!\Drupal::moduleHandler()->moduleExists('node_action')) {
@@ -421,7 +421,7 @@ function degov_update_870500() {
      * @var \Drupal\user\Entity\Role[] $roles
      */
     $roles = Role::loadMultiple([
-      'manager'
+      'manager',
     ]);
 
     foreach ($roles as $id => $role) {
@@ -443,7 +443,7 @@ function degov_update_870500() {
 }
 
 /**
- * deGov 7.6.0 - Enable the Entity Reference Date module for scheduled teasers
+ * DeGov 7.6.0 - Enable the Entity Reference Date module for scheduled teasers.
  */
 function degov_update_870600() {
   if (!\Drupal::moduleHandler()->moduleExists('entity_reference_timer')) {
@@ -457,7 +457,7 @@ function degov_update_870600() {
 }
 
 /**
- * deGov 8.0.0
+ * DeGov 8.0.0
  * - Enable the synonym modules
  * - Install the degov_media_usage module with its related submodules
  */
@@ -468,7 +468,7 @@ function degov_update_880000() {
     'degov_search_priority_keywords',
     'degov_media_usage',
     'degov_media_usage_node',
-    'degov_media_usage_paragraphs'
+    'degov_media_usage_paragraphs',
   ];
   foreach ($newModules as $newModule) {
     if (!\Drupal::moduleHandler()->moduleExists($newModule)) {
@@ -478,7 +478,7 @@ function degov_update_880000() {
 }
 
 /**
- * deGov 8.0.5 - Install the degov_password_policy module
+ * DeGov 8.0.5 - Install the degov_password_policy module
  */
 function degov_update_880005() {
   if (!\Drupal::moduleHandler()->moduleExists('degov_password_policy')) {
@@ -487,7 +487,7 @@ function degov_update_880005() {
 }
 
 /**
- * deGov 8.1.8 - Reimport translations
+ * DeGov 8.1.8 - Reimport translations.
  */
 function degov_update_880108() {
   TranslationImporter::importForProfile('degov');
@@ -503,10 +503,19 @@ function degov_update_880300() {
 }
 
 /**
- * deGov 8.3.2 - Reimport translations
+ * DeGov 8.3.2 - Reimport translations.
  */
 function degov_update_880302() {
   TranslationImporter::importForProfile('degov');
+}
+
+/**
+ * DeGov 8.4.0 - Add Hyphenopoly.
+ */
+function degov_update_880400() {
+  if (!\Drupal::moduleHandler()->moduleExists('degov_hyphenopoly')) {
+    \Drupal::service('module_installer')->install(['degov_hyphenopoly']);
+  }
 }
 
 /**
@@ -515,7 +524,6 @@ function degov_update_880302() {
  * - Add new field view_reference_links to paragraph_view_reference.
  */
 function degov_update_880500() {
-
   degov_import_translation_files();
   TranslationImporter::importConfigTranslation('de', 'system.menu.workbench', \Drupal::service('extension.list.profile')
     ->get('degov')

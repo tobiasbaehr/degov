@@ -653,7 +653,10 @@ class DrupalContext extends RawDrupalContext {
     $resultset = $this->getSession()->getPage()->findAll($selectorType, $selector);
     if (!empty($resultset)) {
       foreach ($resultset as $match) {
-        if (is_numeric(strpos($match->getText(), $text))) {
+        // Remove soft hyphens.
+        $content = preg_replace('~\x{00AD}~u', '', $match->getText());
+        $content = str_replace(['', '&shy;', '\u00AD'], '', $content);
+        if (is_numeric(strpos($content, $text))) {
           return TRUE;
         }
       }

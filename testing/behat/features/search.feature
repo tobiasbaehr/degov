@@ -79,6 +79,7 @@ Feature: deGov - Search
     And I execute the following console command: "drush pm:uninstall degov_demo_content -y"
     And I am logged in as a user with the "administrator" role
     And I am on "/node/add/normal_page"
+    And I wait 1 seconds
     And I should see "Titel"
     And I should see "Vorschau Text"
     And I fill in "Titel" with "Test1234"
@@ -86,11 +87,12 @@ Feature: deGov - Search
     And I select "Veröffentlicht" by name "moderation_state[0][state]"
     And I scroll to bottom
     And I press button with label "Save" via translated text
-    And I should see text matching "Test1234"
-    And I should see text matching "Text with a link to the Homepage of Drupal."
-    And I should see HTML content matching 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.'
+    And I wait 1 seconds
+    And I should see HTML content matching "Test1234" after a while
+    And I should see HTML content matching 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.' after a while
     And I rebuild the "search_content" index
     Then I am on "/suche"
-    And I should see text matching "Test1234"
-    And I should see text matching "Text with a link to the Homepage of Drupal."
+    And I wait 2 seconds
+    And I should see HTML content matching "Test1234" after a while
+    And I should see HTML content matching "Text with a link to the Homepage of Drupal." after a while
     And I should not see HTML content matching 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.'

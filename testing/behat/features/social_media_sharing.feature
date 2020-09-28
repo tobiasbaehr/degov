@@ -10,6 +10,7 @@ Feature: deGov Social Media Sharing
 
   Scenario: Confirm that "Social media settings" block is in place
     Given I am on homepage
+    And I wait 1 seconds
     Then I have dismissed the cookie banner if necessary
     And I should see ".top-header-wrapper .navbar a.js-social-media-settings-open" element visible on the page
     Then I click by CSS class "js-social-media-settings-open"

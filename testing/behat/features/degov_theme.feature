@@ -20,11 +20,9 @@ Feature: deGov - deGov Theme
     And I should see text matching "Anmelden" after a while
     And I have dismissed the cookie banner if necessary
     And I should see "a.js-social-media-settings-open" element visible on the page
-
     Then I should not see ".block--degov-social-media-instagram" in the "main" element
     Then I should not see ".block--degov-social-media-twitter" in the "main" element
     Then I should not see ".block--degov-social-media-youtube" in the "main" element
-
     Then I click by CSS class "js-social-media-settings-open"
     Then I should see "div#social-media-settings" element visible on the page
     And wait 2 seconds

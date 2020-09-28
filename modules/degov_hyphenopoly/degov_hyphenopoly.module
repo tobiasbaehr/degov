@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file
+ * This module globally attaches hyphenation library.
+ */
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function degov_hyphenopoly_page_attachments_alter(array &$attachments) {
+  $admin_context = \Drupal::service('router.admin_context');
+  if (!$admin_context->isAdminRoute()) {
+    $conf = \Drupal::config('degov_hyphenopoly.settings');
+    $selectors = $conf->get('hyphenopoly_selectors');
+
+    if (isset($selectors) && count($selectors)) {
+      $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $library_path = DRUPAL_ROOT . '/libraries/hyphenopoly';
+      if (!is_dir($library_path)) {
+        \Drupal::logger('degov_hyphenopoly')
+          ->error('Missing Library hyphenopoly at @path. Please check module readme for instructions.', [
+            '@path' => $library_path,
+          ]
+        );
+      }
+      $library_language_path = $library_path . '/lang/' . $lang_code;
+      if (!is_dir($library_language_path)) {
+        \Drupal::logger('degov_hyphenopoly')
+          ->error('Missing hyphenopoly language file for current language @lang at @path', [
+            '@path' => $library_language_path,
+            '@lang' => $lang_code,
+          ]
+          );
+      }
+
+      // Javascript inline template.
+      $languageJs = '"' . $lang_code . '": "FORCEHYPHENOPOLY"';
+      $selectorJs = '';
+      foreach ($selectors as $s) {
+        $selectorJs .= '      "' . $s . '": { hyphen: "\u00AD" },' . "\n";
+      }
+      // Remove trailing comma.
+      $selectorJs = substr($selectorJs, 0, -1);
+      $javascript = <<<EOF
+var Hyphenopoly = {
+  require: {
+    {$languageJs}
+  },
+  paths: {
+      maindir: "/libraries/hyphenopoly/",
+      patterndir: "/libraries/hyphenopoly/patterns/"
+  },
+  setup: {
+    hide: "text",
+    selectors: {
+{$selectorJs}
+    },
+  }
+};
+EOF;
+
+      if (\Drupal::config('system.performance')->get('js.preprocess')) {
+        // Compact view when aggregated.
+        $javascript = preg_replace('!\s+!', ' ', $javascript);
+      }
+
+      $attachments['#attached']['html_head'][] = [
+        [
+          '#theme' => 'degov_hyphenopoly_inline_js',
+          '#script_source' => $javascript,
+          '#tag' => 'script',
+          '#post_render' => [
+            'degov_hyphenopoly_strip_debug',
+          ],
+          '#cache' => [
+            'tags' => $conf->getCacheTags(),
+          ],
+        ],
+        'degov_hyphenopoly_inline_js',
+      ];
+      // Attach Library.
+      $attachments['#attached']['library'][] = 'degov_hyphenopoly/degov_hyphenopoly';
+    }
+  }
+}
+
+/**
+ * Remove twig debug output.
+ *
+ * @param \Drupal\Core\Render\Markup $elm
+ *   Markup Element (may contain debug output twig.config.debug).
+ *
+ * @return \Drupal\Component\Render\MarkupInterface
+ *   Any markup stripped debug output stripped.
+ */
+function degov_hyphenopoly_strip_debug(Markup $elm, $pre_render) {
+  return Markup::create(trim(strip_tags($elm->__toString())));
+}
+
+/**
+ * Implements hook_theme().
+ */
+function degov_hyphenopoly_theme($existing, $type, $theme, $path) {
+  return [
+    'degov_hyphenopoly_inline_js' => [
+      'variables' => [
+        'script_source' => NULL,
+      ],
+    ],
+    'degov_hyphenopoly_css' => [
+      'variables' => [
+        'css_selectors' => NULL,
+      ],
+    ],
+  ];
+}

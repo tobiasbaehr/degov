@@ -81,6 +81,7 @@
         "drupal/workbench": "^1.0",
         "james-heinrich/getid3": "^2.0",
         "madcoda/php-youtube-api": "^1.2",
+        "mnater/hyphenopoly": "^4.7",
         "php-coord/php-coord": "^2.1",
         "phpdocumentor/reflection-docblock": "^3.0|^4.0",
         "raiym/instagram-php-scraper": "^0.8.22",

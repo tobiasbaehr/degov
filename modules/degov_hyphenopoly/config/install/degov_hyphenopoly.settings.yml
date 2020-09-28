@@ -1,0 +1,4 @@
+hyphenopoly_selectors:
+  - .teaser-title
+  - .paragraph__header
+  - .normal-page__teaser-text

@@ -10,6 +10,7 @@ Feature: deGov - Views
   Scenario: I verify that the latest events view only displays current events
     Given I have dismissed the cookie banner if necessary
     And I am on "/degov-demo-content/page-events-views-reference"
+    And I wait 5 seconds
     Then I should see 4 ".view-latest-events .event" elements
     And I should see text matching "An event in the future" after a while
     And I should see text matching "Another event in the future" after a while

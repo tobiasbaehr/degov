@@ -1,0 +1,14 @@
+degov_hyphenopoly.settings:
+  path: '/admin/config/degov/hyphenopoly'
+  defaults:
+    _form: '\Drupal\degov_hyphenopoly\Form\HyphenopolySettingsForm'
+    _title: 'Manage hyphenation'
+  requirements:
+    _permission: 'administer site configuration'
+degov_hyphenopoly.css:
+  path: '/hyphenopoly/styles.css'
+  defaults:
+    _controller: '\Drupal\degov_hyphenopoly\Controller\HyphenopolyController::cssContent'
+    _title: 'Get css code'
+  requirements:
+    _permission: 'access content'

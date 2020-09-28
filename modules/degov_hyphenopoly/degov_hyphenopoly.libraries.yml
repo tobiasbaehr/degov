@@ -1,0 +1,12 @@
+degov_hyphenopoly:
+  version: 1.0
+  css:
+    component:
+      /hyphenopoly/styles.css: {}
+  dependencies:
+    - degov_hyphenopoly/hyphenopoly
+hyphenopoly:
+  version: 4.7.0
+  header: true
+  js:
+    /libraries/hyphenopoly/Hyphenopoly_Loader.js: {type: external, preprocess: false}

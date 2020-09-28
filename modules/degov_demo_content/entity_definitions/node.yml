@@ -18,8 +18,8 @@ page_with_text_paragraph:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'Page with text paragraph'
-  field_teaser_sub_title: 'Egestas Risus Bibendum Parturient'
+  field_teaser_title: 'Hyphenopoly - Bindestriche für Bundesausbildungsförderungsgesetz oder Behindertengleichstellungsgesetz'
+  field_teaser_sub_title: 'Page with text paragraph'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
     - text_1
@@ -195,7 +195,7 @@ press_release_1:
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
   field_press_date: '2020-02-01'
-  field_teaser_title: 'A press release'
+  field_teaser_title: 'A press release Silbentrennungstestbegriff'
   field_teaser_sub_title: 'Inceptos Sollicitudin'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
@@ -302,7 +302,7 @@ blog_post_1:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'A blog post'
+  field_teaser_title: 'A blog post Silbentrennungstestbegriff'
   field_teaser_sub_title: 'Risus Quam Condimentum Lorem Fusce'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_1}}'
   field_content_paragraphs:
@@ -376,7 +376,7 @@ event_1:
     value: '{{TEXT}}'
     format: 'rich_html'
   field_tags: '{{DEMOTAG}}'
-  field_teaser_title: 'An event in the past'
+  field_teaser_title: 'An event in the past Silbentrennungstestbegriff'
   field_teaser_sub_title: 'Sollicitudin Venenatis Mattis Pharetra'
   field_teaser_image: '{{MEDIA_ID_IMAGE-image_4}}'
   field_content_paragraphs:
