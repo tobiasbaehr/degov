@@ -157,6 +157,9 @@ function degov_media_copyright_form_alter(&$form, FormStateInterface $form_state
       }
       if ($unsetCopyright) {
         unset($form['fields']['field_media_copyright']);
+        if (($key = array_search('field_media_copyright', $form['#fields'])) !== FALSE) {
+          unset($form['#fields'][$key]);
+        }
       }
     }
   }
