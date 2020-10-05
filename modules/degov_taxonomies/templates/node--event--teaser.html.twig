@@ -87,12 +87,8 @@
   {%  set class_content = 'col-sm-12' %}
   {%  set class_teaser_text = 'row' %}
 {% endif %}
-
-
 <article{{ attributes.addClass(classes)|without('role') }}>
   {{ title_suffix }}
-
-  <!-- teaser image -->
   <div class="event__teaser-date-left teaser-date col-xs-5 col-sm-4 col-md-3 arrow">
     <div class="event__teaser__day">{% if start_date_timestamp is not empty %}{{ start_date_timestamp|format_date('custom', 'd') }}{% endif %}</div>
     <div class="event__teaser__location">{{ content.field_event_location.0.locality}}</div>
@@ -100,30 +96,28 @@
   </div>
 
   <div class="event__teaser-content teaser-content col-xs-7 col-sm-8 col-md-9"> <!-- from medium screen up, show on the right sidebar -->
-    <!-- teaser date -->
-    {% if content.field_tags %}
-      {% spaceless %}{{ content.field_tags }}{% endspaceless %}
-    {% endif %}
     {% if content.field_event_date %}
-      <div class="event__teaser__month"{{ content.field_event_date|quickedit_attr }}>
-        {{ content.field_event_date|field_value }}
-      </div>
+      <div class="event__latest__month">{{ start_date_timestamp|format_date('custom', 'F') }} {{ start_date_timestamp|format_date('custom', 'Y') }}</div>
     {% endif %}
     {% if content.field_content_type %}
       <div class="event__teaser-content-type">
         <span{{ content.field_content_type|quickedit_attr }}>{{ content.field_content_type }}</span>
       </div>
     {% endif %}
-    <!-- teaser title -->
-    {% if content.field_teaser_title %}
-      <a href="{{ url }}" rel="bookmark">
+    <a href="{{ url }}" rel="bookmark">
         <div class="event__teaser-title teaser-title">
-        <h3{{ content.field_teaser_title|quickedit_attr }}>
-            {{ content.field_teaser_title|field_value }}
+          {% if elements['#node'].field_teaser_title.value is not empty %}
+          <h3{{ content.field_teaser_title|quickedit_attr }}>
+            {{ elements['#node'].field_teaser_title.value }}
           </h3>
+          {% else %}
+          <h3>
+            {{ elements['#node'].title.value }}
+          </h3>
+          {% endif %}
         </div>
-      </a>
-    {% endif %}
+    </a>
+
     <div class="{{ class_teaser_text }}">
       {% if content.field_teaser_image %}
         <div class="event__teaser__img {{ class_sidebar }}"{{ content.field_teaser_image|quickedit_attr }}>
@@ -132,11 +126,15 @@
           </a>
         </div>
       {% endif %}
-      <!-- Teaser text -->
-      {% if content.field_teaser_text %}
+      {% if content.field_teaser_text or content.field_teaser_sub_title is not empty%}
         <a href="{{ url }}" rel="bookmark">
           <div class="event__teaser-text {{ class_content }}"{{ content.field_teaser_text|quickedit_attr }}>
             {% autoescape false %}
+              {% if content.field_teaser_sub_title is not empty %}
+                <div class="teaser-sub-title">
+                  {{ content.field_teaser_sub_title }}
+                </div>
+              {% endif %}
               {% set text = node.field_teaser_text.value|striptags %}
               {{ text|length > 440 ? text|slice(0, 440) ~ '...' : text }}
             {% endautoescape %}

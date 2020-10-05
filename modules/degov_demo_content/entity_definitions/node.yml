@@ -384,8 +384,8 @@ event_1:
   - text_2
   field_header_paragraphs:
   - header_slideshow_all_slides_type_1
-  field_event_date: '2018-01-01 09:00:00'
-  field_event_date_end: '2018-01-01 16:00:00'
+  field_event_date: '2018-01-01T09:00:00'
+  field_event_date_end: '2018-01-01T16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'
@@ -410,8 +410,8 @@ event_2:
   - text_2
   field_header_paragraphs:
   - header_slideshow_all_slides_type_2
-  field_event_date: '2028-01-06 09:00:00'
-  field_event_date_end: '2028-01-06 16:00:00'
+  field_event_date: '2028-01-06T09:00:00'
+  field_event_date_end: '2028-01-06T16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'
@@ -436,8 +436,8 @@ event_3:
     - text_2
   field_header_paragraphs:
   - header_banner
-  field_event_date: '2028-01-05 09:00:00'
-  field_event_date_end: '2028-01-05 16:00:00'
+  field_event_date: '2028-01-05T09:00:00'
+  field_event_date_end: '2028-01-05T16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'
@@ -460,8 +460,8 @@ event_4:
   field_content_paragraphs:
     - text_1
     - text_2
-  field_event_date: '2028-01-04 09:00:00'
-  field_event_date_end: '2028-01-04 16:00:00'
+  field_event_date: '2028-01-04T09:00:00'
+  field_event_date_end: '2028-01-04T16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'
@@ -484,8 +484,8 @@ event_5:
   field_content_paragraphs:
     - text_1
     - text_2
-  field_event_date: '2028-01-03 09:00:00'
-  field_event_date_end: '2028-01-03 16:00:00'
+  field_event_date: '2028-01-03T09:00:00'
+  field_event_date_end: '2028-01-03T16:00:00'
   field_event_location:
     country_code: 'DE'
     organization: 'publicplan'

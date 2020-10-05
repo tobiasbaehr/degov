@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Node type Event.
  */
 
 use Drupal\Core\Datetime\DrupalDateTime;
