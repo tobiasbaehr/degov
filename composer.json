@@ -161,6 +161,9 @@
                 "3153982 - Support a sitemap-specific menu template": "https://www.drupal.org/files/issues/2020-06-22/sitemap-menu-template-2.patch",
                 "2918367 - Sitemap Block is missing": "https://www.drupal.org/files/issues/2918367-sitemap-block.patch",
                 "3171756 - invalid data used for menu creation": "https://www.drupal.org/files/issues/2020-09-18/menu-uses.data-from-wrong-menu-3171756-3.patch"
+            },
+            "drupal/search_api_sorts": {
+                "3174639 - Do not delete the dummy field search_api_relevance" : "https://www.drupal.org/files/issues/2020-10-03/3174639-3.search_api_sorts.Do-not-cleanup-searchapirelevance-field.patch"
             }
         }
     },

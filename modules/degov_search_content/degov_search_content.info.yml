@@ -10,5 +10,4 @@ dependencies:
   - node
   - search_api
   - search_api_sorts
-  - system
   - views
