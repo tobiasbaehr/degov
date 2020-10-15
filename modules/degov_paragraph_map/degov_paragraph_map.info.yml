@@ -2,7 +2,7 @@ name: 'deGov - Paragraph map'
 type: module
 description: 'This paragraph can show you a map for an address.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_content_types_shared_fields
   - degov_media_address

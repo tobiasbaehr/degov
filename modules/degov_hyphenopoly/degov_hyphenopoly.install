@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall hooks for the degov_hyphenopoly module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function degov_hyphenopoly_requirements(string $phase) {
+  $requirements = [];
+  if ($phase === 'runtime') {
+    /** @var \Drupal\Core\Asset\LibrariesDirectoryFileFinder $library_file_finder */
+    $library_file_finder = \Drupal::service('library.libraries_directory_file_finder');
+    $library_path = $library_file_finder->find('hyphenopoly');
+    if ($library_path === FALSE) {
+      $requirements['degov_hyphenopoly'] = [
+        'title' => t('deGov - Hyphenopoly'),
+        'value' => t('Missing'),
+        'description' => t('deGov - Hyphenopoly requires the Hyphenopoly library.') . t('Please check module README for instructions.'),
+        'severity' => REQUIREMENT_ERROR,
+      ];
+    }
+    else {
+      $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $library_language_path = $library_path . '/lang/' . $lang_code;
+      if (!is_dir($library_language_path)) {
+        $requirements['degov_hyphenopoly'] = [
+          'title' => t('deGov - Hyphenopoly'),
+          'value' => t('Missing'),
+          'description' => t('Missing hyphenopoly language file for current language @lang at @path.', [
+            '@path' => $library_language_path,
+            '@lang' => $lang_code,
+          ]) . t('Please check module README for instructions.'),
+          'severity' => REQUIREMENT_ERROR,
+        ];
+      }
+    }
+  }
+  return $requirements;
+}

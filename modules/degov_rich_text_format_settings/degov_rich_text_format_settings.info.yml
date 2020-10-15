@@ -2,7 +2,7 @@ name: 'deGov - Rich Text Format - Settings'
 type: module
 description: 'Activates Spamspan obfuscation of the E-Mail addresses for the Richt Text Format'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:filter'
   - 'drupal:editor'

@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_common;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\media\MediaInterface;
 use function GuzzleHttp\Psr7\str;
-use DateInterval;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\video_embed_field\ProviderManager;
@@ -181,7 +182,7 @@ class VideoUtils {
       $details = $result->decode($response->getBody(), 'json');
       if (!empty($details['items'][0]['contentDetails'])) {
         $vinfo = $details['items'][0]['contentDetails'];
-        $interval = new DateInterval($vinfo['duration']);
+        $interval = new \DateInterval($vinfo['duration']);
         return $interval->h * 3600 + $interval->i * 60 + $interval->s;
       }
     }

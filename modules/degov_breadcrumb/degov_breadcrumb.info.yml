@@ -2,7 +2,7 @@ name: 'deGov - Breadcrumb'
 type: module
 description: 'Contains default settings for the breadcrumb.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - easy_breadcrumb
   - config_replace

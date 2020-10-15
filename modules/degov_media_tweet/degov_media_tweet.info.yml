@@ -2,7 +2,7 @@ name: 'deGov - Media Tweet'
 type: module
 description: 'This bundle is an extention of the tweet media bundle.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - config_replace
   - degov_common

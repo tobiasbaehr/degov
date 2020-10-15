@@ -2,7 +2,7 @@ name: 'Media file links'
 type: module
 description: 'Link to files contained in Media entities from the editor and menu entries.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:media'
   - 'degov:degov_rich_text_format_settings'

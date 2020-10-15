@@ -2,7 +2,7 @@ name: deGov
 type: profile
 description: 'deGov - Drupal 8 for Government'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 distribution:
   name: deGov
   install:
@@ -23,7 +23,6 @@ install:
   - datetime
   - quickedit
   - editor
-  - entity_reference
   - help
   - history
   - menu_ui

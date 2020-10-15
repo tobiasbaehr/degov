@@ -3206,3 +3206,6 @@ msgstr "Systeminformationen"
 
 msgid "System maintenance"
 msgstr "Systemwartung"
+
+msgid "MySQL, Percona Server, or equivalent"
+msgstr "MySQL, Percona Server, oder gleichwertig"

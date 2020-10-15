@@ -2,7 +2,7 @@ name: 'deGov - Simplenews References'
 type: module
 description: 'Contains fields to link Simplenews issues to other content'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - simplenews
   - degov_simplenews

@@ -24,12 +24,13 @@ Feature: deGov - Synonyms for tags
     And I press button with label "Save" via translated text
     Then I am at "/node/add/normal_page"
     And I fill in "Titel" with "Synonyms for tags test page"
+    And I choose "Allgemein" from tab menu
     And I fill in the autocomplete 'input[name="field_tags[0][target_id]"]' with "Synonyms for tags test synonym" via javascript
     And I wait for AJAX to finish
     And I scroll to bottom
     And I press button with label "Save" via translated text
     And I open node edit form by node title "Synonyms for tags test page"
-    And I choose "General" via translation from tab menu
+    And I choose "Allgemein" from tab menu
     Then I verify that field value of 'input[name="field_tags[0][target_id]"]' matches "Synonyms for tags test tag"
     And I should see text matching "Synonyms for tags test synonym" in "css" selector "#field-tags-tag-synonym-wrapper"
 
@@ -51,6 +52,7 @@ Feature: deGov - Synonyms for tags
     When I am at "/suche?volltext=SynonymsForTagsTestPageWithUniqueName+degov_demo_content_synonym"
     Then I should not see text matching "SynonymsForTagsTestPageWithUniqueName" via translated text in "css" selector "article"
     And I open node edit form by node title "SynonymsForTagsTestPageWithUniqueName"
+    And I choose "Allgemein" from tab menu
     And I fill in the autocomplete 'input[name="field_tags[0][target_id]"]' with "degov_demo_content" via javascript
     And I wait for AJAX to finish
     And I press button with label "Save" via translated text
@@ -72,6 +74,7 @@ Feature: deGov - Synonyms for tags
     Then I am at "/node/add/normal_page"
     And I fill in "Titel" with "SynonymAddedAsTag"
     And I fill in "Vorschau Titel" with "SynonymAddedAsTag"
+    And I choose "Allgemein" from tab menu
     And I fill in the autocomplete 'input[name="field_tags[0][target_id]"]' with "SynonymsForTagsTestSynonym" via javascript
     And I select "published" by name "moderation_state[0][state]"
     And I press button with label "Save" via translated text

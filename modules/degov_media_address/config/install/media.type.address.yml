@@ -4,6 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_address
+  module:
+    - media_entity_generic
 id: address
 label: Adresse
 description: 'Ein Media-Bundle für Adressen.'

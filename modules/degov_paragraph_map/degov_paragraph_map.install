@@ -6,7 +6,6 @@
  */
 
 use Drupal\degov_common\Common;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_uninstall().
@@ -20,13 +19,8 @@ function degov_paragraph_map_uninstall() {
 }
 
 /**
- * Switch map display via new paragraph based "map_paragraph_field_formatter".
+ * Implements hook_update_last_removed().
  */
-function degov_paragraph_map_update_880300() {
-  $paragraphViewDisplayConfig = \Drupal::configFactory()->getEditable('core.entity_view_display.paragraph.map.default');
-
-  if (!$paragraphViewDisplayConfig->isNew() && !\Drupal::moduleHandler()->moduleExists('nrwgov')) {
-    $replace = Yaml::parse(file_get_contents(drupal_get_path('module', 'degov_paragraph_map') . '/config/partial/core.entity_view_display.paragraph.map.default.yml'));
-    $paragraphViewDisplayConfig->setData($replace)->save();
-  }
+function degov_paragraph_map_update_last_removed(): int {
+  return 880300;
 }

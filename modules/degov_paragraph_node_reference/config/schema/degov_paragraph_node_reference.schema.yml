@@ -1,0 +1,9 @@
+degov_paragraph_node_reference.settings:
+  type: config_object
+  mapping:
+    enabled_view_modes:
+      type: sequence
+      label: 'Enabled view modes'
+      sequence:
+        type: string
+        label: 'View mode'

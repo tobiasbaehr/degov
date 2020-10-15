@@ -2,7 +2,7 @@ name: 'deGov - Media Configuration Overrides'
 type: module
 description: 'Overrides media entities.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - field
   - text

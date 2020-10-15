@@ -11,12 +11,12 @@ services:
       - [ setAccessCheck, [ '@?permissions_by_term.access_check' ] ]
   node_action.access_checker.change_moderation_state_action:
     class: Drupal\node_action\AccessChecker\ChangeModerationStateAction
-    autowire: true
+    arguments: [ '@current_user', '@messenger', '@node_action.string_translation_adapter' ]
     calls:
       - [ setAccessCheck, [ '@?permissions_by_term.access_check' ] ]
   node_action.access_checker.change_author_action:
     class: Drupal\node_action\AccessChecker\ChangeAuthorAction
-    autowire: true
+    arguments: [ '@current_user', '@messenger', '@node_action.string_translation_adapter' ]
     calls:
       - [ setAccessCheck, [ '@?permissions_by_term.access_check' ] ]
   node_action.string_translation_adapter:

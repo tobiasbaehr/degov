@@ -4,6 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_audio
+  module:
+    - media_entity_generic
 id: audio
 label: 'Audio'
 description: 'Mit diesem Bundle können Audio-Dateien hochgeladen werden.'

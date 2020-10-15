@@ -2,7 +2,7 @@ name: 'deGov - Paragraph media reference'
 type: module
 description: 'This paragraph is able to show media items.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_content_types_shared_fields
   - entity_browser

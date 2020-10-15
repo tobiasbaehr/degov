@@ -213,7 +213,7 @@ class UpdateManager {
     }
     $style->text("Executing all available updates...");
 
-    $module_info = $this->moduleExtensionList->reset()->getList();;
+    $module_info = $this->moduleExtensionList->reset()->getList();
     $provider = NULL;
     $versions = $this->configFactory->getEditable(static::CONFIG_NAME);
 

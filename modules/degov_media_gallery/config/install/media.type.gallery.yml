@@ -4,6 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_gallery
+  module:
+    - media_entity_generic
 id: gallery
 label: Bildergalerie
 description: 'Ein Media-Bundle zur Erstellung einer Bildergalerie'

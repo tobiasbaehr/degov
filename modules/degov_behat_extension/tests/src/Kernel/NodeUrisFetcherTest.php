@@ -40,6 +40,7 @@ class NodeUrisFetcherTest extends KernelTestBase {
     'field',
     'text',
     'degov_behat_extension',
+    'path_alias',
   ];
 
   /**

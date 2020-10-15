@@ -4,6 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_video_upload
+  module:
+    - media_entity_generic
 id: video_upload
 label: 'Video Upload'
 description: 'Mit diesem Bundle können Video-Dateien hochgeladen werden. Für die Einbindung externe Videos (z.B. Youtube) muss das Video-Bundle benutzt werden.'

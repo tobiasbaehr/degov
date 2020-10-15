@@ -9,4 +9,4 @@ hyphenopoly:
   version: 4.7.0
   header: true
   js:
-    /libraries/hyphenopoly/Hyphenopoly_Loader.js: {type: external, preprocess: false}
+    /libraries/hyphenopoly/Hyphenopoly_Loader.js: {preprocess: false}

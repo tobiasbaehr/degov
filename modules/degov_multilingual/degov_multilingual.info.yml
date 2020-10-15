@@ -2,5 +2,5 @@ name: 'deGov - Multilingual'
 type: module
 description: 'Adds functionality for a multi-lingual front page and template suggestions with language code.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 configure: degov_multilingual.settings

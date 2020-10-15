@@ -2,9 +2,9 @@
 
 namespace Drupal\degov_node_external_teaser\EventSubscriber;
 
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Drupal\Core\Routing\TrustedRedirectResponse;
 
 /**
@@ -29,10 +29,10 @@ class RedirectSubscriber implements EventSubscriberInterface {
   /**
    * Redirect external teaser to url in view_mode full.
    *
-   * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
+   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
    *   Kernel events REQUEST.
    */
-  public function redirectExternalTeaser(GetResponseEvent $event) {
+  public function redirectExternalTeaser(RequestEvent $event) {
     $request = $event->getRequest();
     if ($request->attributes->get('_route') !== 'entity.node.canonical') {
       return;

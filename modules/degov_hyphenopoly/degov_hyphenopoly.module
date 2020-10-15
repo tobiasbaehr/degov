@@ -5,37 +5,42 @@
  * This module globally attaches hyphenation library.
  */
 
-use Drupal\Core\Render\Markup;
+declare(strict_types=1);
 
 /**
- * Implements hook_page_attachments_alter().
+ * Implements hook_library_info_alter().
  */
-function degov_hyphenopoly_page_attachments_alter(array &$attachments) {
+function degov_hyphenopoly_library_info_alter(&$libraries, $extension) {
+  if ($extension === 'degov_hyphenopoly' && array_key_exists('hyphenopoly', $libraries)) {
+    /** @var \Drupal\Core\Asset\LibrariesDirectoryFileFinder $library_file_finder */
+    $library_file_finder = \Drupal::service('library.libraries_directory_file_finder');
+    $library_path = $library_file_finder->find('hyphenopoly');
+    if ($library_path !== FALSE) {
+      $libraries['hyphenopoly']['js'] = ['/' . $library_path . '/Hyphenopoly_Loader.js' => ['preprocess' => FALSE]];
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function degov_hyphenopoly_page_attachments(array &$attachments): void {
+  /** @var \Drupal\Core\Routing\AdminContext $admin_context */
   $admin_context = \Drupal::service('router.admin_context');
   if (!$admin_context->isAdminRoute()) {
     $conf = \Drupal::config('degov_hyphenopoly.settings');
+    /** @var string[]|null $selectors */
     $selectors = $conf->get('hyphenopoly_selectors');
 
-    if (isset($selectors) && count($selectors)) {
+    if (is_array($selectors) && count($selectors) > 0) {
+      /** @var \Drupal\Core\Asset\LibrariesDirectoryFileFinder $library_file_finder */
+      $library_file_finder = \Drupal::service('library.libraries_directory_file_finder');
+      $library_path = $library_file_finder->find('hyphenopoly');
       $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
-      $library_path = DRUPAL_ROOT . '/libraries/hyphenopoly';
-      if (!is_dir($library_path)) {
-        \Drupal::logger('degov_hyphenopoly')
-          ->error('Missing Library hyphenopoly at @path. Please check module readme for instructions.', [
-            '@path' => $library_path,
-          ]
-        );
-      }
       $library_language_path = $library_path . '/lang/' . $lang_code;
       if (!is_dir($library_language_path)) {
-        \Drupal::logger('degov_hyphenopoly')
-          ->error('Missing hyphenopoly language file for current language @lang at @path', [
-            '@path' => $library_language_path,
-            '@lang' => $lang_code,
-          ]
-          );
+        return;
       }
-
       // Javascript inline template.
       $languageJs = '"' . $lang_code . '": "FORCEHYPHENOPOLY"';
       $selectorJs = '';
@@ -50,8 +55,8 @@ var Hyphenopoly = {
     {$languageJs}
   },
   paths: {
-      maindir: "/libraries/hyphenopoly/",
-      patterndir: "/libraries/hyphenopoly/patterns/"
+      maindir: "/$library_path/",
+      patterndir: "/$library_path/patterns/"
   },
   setup: {
     hide: "text",
@@ -73,7 +78,7 @@ EOF;
           '#script_source' => $javascript,
           '#tag' => 'script',
           '#post_render' => [
-            'degov_hyphenopoly_strip_debug',
+            '\Drupal\degov_hyphenopoly\StripDebug::postRenderStripDebug',
           ],
           '#cache' => [
             'tags' => $conf->getCacheTags(),
@@ -88,22 +93,9 @@ EOF;
 }
 
 /**
- * Remove twig debug output.
- *
- * @param \Drupal\Core\Render\Markup $elm
- *   Markup Element (may contain debug output twig.config.debug).
- *
- * @return \Drupal\Component\Render\MarkupInterface
- *   Any markup stripped debug output stripped.
- */
-function degov_hyphenopoly_strip_debug(Markup $elm, $pre_render) {
-  return Markup::create(trim(strip_tags($elm->__toString())));
-}
-
-/**
  * Implements hook_theme().
  */
-function degov_hyphenopoly_theme($existing, $type, $theme, $path) {
+function degov_hyphenopoly_theme(): array {
   return [
     'degov_hyphenopoly_inline_js' => [
       'variables' => [

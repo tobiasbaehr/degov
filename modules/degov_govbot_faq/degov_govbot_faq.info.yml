@@ -2,7 +2,7 @@ name: 'deGov - GovBot FAQ'
 type: module
 description: 'Extends deGov Paragraph FAQ by GovBot related fields and functionality.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'degov:degov_paragraph_faq'
   - 'degov:degov_node_faq'

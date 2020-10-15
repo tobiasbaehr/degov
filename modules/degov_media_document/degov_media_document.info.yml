@@ -2,7 +2,7 @@ name: 'deGov - media document'
 type: module
 description: 'Contains the media type for document uploads'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - config_replace
   - degov_common

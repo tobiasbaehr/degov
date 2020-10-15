@@ -2,4 +2,4 @@ name: 'deGov - Search priority keywords'
 type: module
 description: 'Add high boost value keywords to content.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9

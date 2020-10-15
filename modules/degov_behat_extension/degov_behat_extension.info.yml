@@ -2,6 +2,6 @@ name: 'deGov - Behat Extension'
 type: module
 description: 'deGov specific extensions for Behat.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:path_alias'

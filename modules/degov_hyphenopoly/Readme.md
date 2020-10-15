@@ -8,9 +8,9 @@ The module ensures also given CSS classes have hypenation enabled by adding a co
 
 ### Requirements
 
-You need tio install [mnater/Hyphenopoly](https://github.com/mnater/Hyphenopoly/) as a library at *docroot/libraries/hyphenopoly/*. 
+You need to install [mnater/Hyphenopoly](https://github.com/mnater/Hyphenopoly/) as a library at *docroot/libraries/hyphenopoly/*.
 
-Make sure that all your your enabled site languages (langCode : \Drupal::languageManager()->getCurrentLanguage()->getId()) hase a corresponsing language folder at *docroot/libraries/hyphenopoly/lang/<your language>
+Make sure that all your your enabled site languages (langCode : `\Drupal::languageManager()->getCurrentLanguage()->getId()`) has a corresponsing language folder at *docroot/libraries/hyphenopoly/lang/<your language>
 
 ### Add library using composer
 
@@ -38,7 +38,7 @@ In your root composer.json file add the following to the repositories section
 
 ### Settings
 
-At `/admin/config/degov/hyphenopoly` you can add CSS selectors. Hyphonopoly hypheningwill be applied to all these selectors and their child elmenents.
+At `/admin/config/degov/hyphenopoly` you can add CSS selectors. Hyphonopoly hyphening will be applied to all these selectors and their child elmenents.
 
 ### CSS
 

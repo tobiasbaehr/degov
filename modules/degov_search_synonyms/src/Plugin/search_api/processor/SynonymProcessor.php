@@ -2,7 +2,6 @@
 
 namespace Drupal\degov_search_synonyms\Plugin\search_api\processor;
 
-use Drupal;
 use Drupal\search_api\Processor\ProcessorPluginBase;
 use Drupal\search_api\Query\QueryInterface;
 
@@ -29,7 +28,7 @@ class SynonymProcessor extends ProcessorPluginBase {
    *   Whether or not to ignore synonyms.
    */
   public static function ignoreSynonyms() {
-    return (bool) Drupal::request()->query->get('ignore-synonyms');
+    return (bool) \Drupal::request()->query->get('ignore-synonyms');
   }
 
   /**
@@ -42,7 +41,7 @@ class SynonymProcessor extends ProcessorPluginBase {
    *   The names of the synonyms found and the  terms they are assigned to.
    */
   public static function getSynonymsFromString(string $string) {
-    return Drupal::database()->query("
+    return \Drupal::database()->query("
       SELECT tfd.name, fs.entity_id AS tid
       FROM taxonomy_term_field_data AS tfd
       JOIN taxonomy_term__field_synonyms AS fs ON fs.field_synonyms_target_id = tfd.tid

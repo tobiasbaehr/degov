@@ -38,7 +38,7 @@ main() {
     cd "$BITBUCKET_CLONE_DIR/project"
     # --no-update change only the composer.json
     _composer require --no-progress "$INSTALL_PROJECT:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --no-update
-    # Now downloads install profile + whitelist of dependencies.
+    # Now downloads install profile + list of dependencies.
     _composer update $INSTALL_PROJECT $INSTALL_PROJECT_UPDATE_LIST
     # Re-apply patches in case they was changed.
     _composer install

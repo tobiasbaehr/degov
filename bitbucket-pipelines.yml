@@ -13,7 +13,7 @@ pipelines:
           script:
             - bash ./scripts/pipeline/shared_scripts/create-stable-db-dump.sh
           artifacts:
-            - "*.sql.gz"
+            - "*.sql"
   default:
     - step:
         name: Composer Install
@@ -38,7 +38,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -49,7 +49,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -60,7 +60,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -71,7 +71,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -82,7 +82,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -93,7 +93,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -104,7 +104,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -115,7 +115,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -126,7 +126,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -137,7 +137,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -148,7 +148,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -159,7 +159,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -170,7 +170,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -181,7 +181,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -192,7 +192,7 @@ pipelines:
             - docker
           artifacts:
             - php_error.log
-            - "*.sql.gz"
+            - "*.sql"
             - "*.png"
             - "*.html"
       - step:
@@ -238,7 +238,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -249,7 +249,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -260,7 +260,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -271,7 +271,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -282,7 +282,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -293,7 +293,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -304,7 +304,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -315,7 +315,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -326,7 +326,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -337,7 +337,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -348,7 +348,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -359,7 +359,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -370,7 +370,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:
@@ -381,7 +381,7 @@ pipelines:
                 - docker
               artifacts:
                 - php_error.log
-                - "*.sql.gz"
+                - "*.sql"
                 - "*.png"
                 - "*.html"
           - step:

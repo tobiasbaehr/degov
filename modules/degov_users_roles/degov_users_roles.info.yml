@@ -2,7 +2,7 @@ name: 'deGov - User Permissions / Roles'
 type: module
 description: 'Das Modul setzt Benutzerrollen für die Bearbeitung und Verwaltung von Inhalten und anderen Benutzern.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - role_delegation
   - workbench

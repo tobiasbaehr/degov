@@ -2,7 +2,7 @@ name: 'deGov - Content Types Shared Fields'
 type: module
 description: 'This module contains fields for different configuration modules.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - block
   - degov_common

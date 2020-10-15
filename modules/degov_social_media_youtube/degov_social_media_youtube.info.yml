@@ -2,7 +2,7 @@ name: 'deGov social media - YouTube-feed block'
 type: module
 description: 'This module allows you to show you the newest videos of one youtube channel'
 package: 'deGov - Social Media'
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 configure: degov_social_media_youtube.admin_settings
 dependencies:
   - 'drupal:degov_common'

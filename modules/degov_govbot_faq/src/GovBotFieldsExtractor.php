@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_govbot_faq;
 
 use Drupal\entity_reference_revisions\EntityReferenceRevisionsFieldItemList;
@@ -14,14 +16,14 @@ class GovBotFieldsExtractor {
   /**
    * Paragraphs extractor.
    *
-   * @var \Drupal\paragraphs\Entity\ParagraphsExtractor
+   * @var \Drupal\degov_govbot_faq\ParagraphsExtractorInterface
    */
   private $paragraphsExtractor;
 
   /**
    * GovBotFieldsExtractor constructor.
    */
-  public function __construct(ParagraphsExtractor $paragraphsExtractor) {
+  public function __construct(ParagraphsExtractorInterface $paragraphsExtractor) {
     $this->paragraphsExtractor = $paragraphsExtractor;
   }
 

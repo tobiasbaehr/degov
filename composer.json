@@ -1,13 +1,13 @@
 {
     "name": "degov/degov",
-    "description": "Drupal 8 for Government (Drupal 8 für die öffentliche Verwaltung)",
+    "description": "Drupal for Government (Drupal für die öffentliche Verwaltung)",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2",
         "ext-json": "*",
+        "php": ">=7.3",
         "composer/installers": "^1.0",
         "cweagans/composer-patches": "^1.6.0",
         "mnsami/composer-custom-directory-installer": "^1.0",
@@ -18,9 +18,9 @@
         "drupal/block_field": "^1.0-rc1",
         "drupal/block_permissions": "^1.0",
         "drupal/calendar": "^1.0-alpha3",
-        "drupal/config_replace": "^2.0",
-        "drupal/core": "~8.9.6",
-        "drupal/core-composer-scaffold": "~8.9.6",
+        "drupal/config_replace": "~2.0.2",
+        "drupal/core": "~9.0.6",
+        "drupal/core-composer-scaffold": "~9.0.6",
         "drupal/crop": "^2.0.0-rc1",
         "drupal/date_popup": "^1.0",
         "drupal/degov_simplenews": "^2.0",
@@ -36,7 +36,7 @@
         "drupal/eu_cookie_compliance": "^1.5",
         "drupal/facets": "^1.5",
         "drupal/field_group": "^3.0",
-        "drupal/geocoder": "^3.11",
+        "drupal/geocoder": "^3.12",
         "drupal/geofield": "^1.6",
         "drupal/honeypot": "^2.0.0",
         "drupal/image_widget_crop": "^2.1",
@@ -56,8 +56,8 @@
         "drupal/paragraphs": "^1.3",
         "drupal/paragraphs_edit": "^2.0-alpha8",
         "drupal/pathauto": "^1.6",
-        "drupal/permissions_by_term": "^2.25",
-        "drupal/permissions_by_term_redirect": "^1.0",
+        "drupal/permissions_by_term": "~3.1.1",
+        "drupal/permissions_by_term_redirect": "~3.0.1",
         "drupal/redirect": "^1.0.0",
         "drupal/restrict_ip": "^1.0",
         "drupal/role_delegation": "^1.0.0",
@@ -74,7 +74,7 @@
         "drupal/swiftmailer": "^2.0-beta1",
         "drupal/token": "^1.0",
         "drupal/twig_field_value": "^2.0",
-        "drupal/ultimate_cron": "2.x-dev#d21998059ad21ca93262512349b50808726c1f09",
+        "drupal/ultimate_cron": "^2.0-alpha5",
         "drupal/video_embed_field": "^2.0",
         "drupal/views_infinite_scroll": "^1.1",
         "drupal/webform": "^6.0.0-alpha16",
@@ -84,9 +84,9 @@
         "mnater/hyphenopoly": "^4.7",
         "php-coord/php-coord": "^2.1",
         "phpdocumentor/reflection-docblock": "^3.0|^4.0",
-        "raiym/instagram-php-scraper": "^0.8.22",
+        "raiym/instagram-php-scraper": "~0.9.14",
         "drupal/viewsreference": "^2.0-beta1",
-        "drupal/views_parity_row": "^1.8",
+        "drupal/views_parity_row": "^1.11",
         "enyo/dropzone": "^4.3.0",
         "fengyuanchen/cropper": "^3.1.3",
         "heiseonline/shariff": "^2.0.4",
@@ -107,7 +107,6 @@
         }
     },
     "extra": {
-        "enable-patching": true,
         "patches": {
             "drupal/restrict_ip": {
                 "2905569 - Avoid redirect loop for authenticated users": "https://www.drupal.org/files/issues/2905569_check_user_authentication.patch"
@@ -120,14 +119,13 @@
                 "Issue 3024492 - Add an all themes permission": "https://www.drupal.org/files/issues/2020-06-19/block_permissions-all-themes-permission-3024492-3-8.patch"
             },
             "drupal/core": {
-                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
+                "2869592 - Disabled update module shouldn't produce a status report warning": "https://www.drupal.org/files/issues/2020-02-07/2869592-remove-update-warning-34.patch",
                 "2815221 - Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2019-11-27/2815221-125.patch",
-                "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2019-10-21/1356276-88x-594.patch",
-                "2914389 - Allow profiles to exclude dependencies of their parent": "https://www.drupal.org/files/issues/2019-10-22/2914389-14-do-not-test.patch",
-                "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2018-06-30/date-type-error-2854722-26.patch",
-                "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2019-12-05/w3c-rel-validation-node-view-controller-with-updated-tests-8.8.0.patch",
+                "1356276 - Allow profiles to define a base/parent profile and load them in the correct order": "https://www.drupal.org/files/issues/2020-03-24/1356276-531-9.0.x-9.patch",
+                "2854722 - Date field doesn't allow attributes": "https://www.drupal.org/files/issues/2019-12-23/2854722-45.patch",
+                "2454915 - Entity link annotations in HTML head are not valid HTML":  "https://www.drupal.org/files/issues/2020-08-27/w3c-entity-links-2454915-36.patch",
                 "3101714 - Link field display defaults to trim at 80 chars, breaking longer URLs": "https://www.drupal.org/files/issues/2020-07-01/drupal-3101714-18.patch",
-                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-06-18/3072231-26-core-8-9-x-.patch",
+                "3072231 - Custom blocks break layout builder module - Quick Edit could not associate the rendered entity field markup": "https://www.drupal.org/files/issues/2020-07-17/3072231-31-core-9-1-x.patch",
                 "2879293 - Make Link URI required if there is Link Text input": "https://www.drupal.org/files/issues/2020-09-08/require_uri_if_link_text-2879293-15.patch"
             },
             "drupal/eu_cookie_compliance": {
@@ -152,15 +150,18 @@
             "drupal/paragraphs_edit": {
               "2944653 - Fatal error: Call to a member function getName()": "https://www.drupal.org/files/issues/2020-08-21/2944653-9.patch"
             },
-            "drupal/geocoder": {
-              "3172255 - Install new config entity type via update hook.": "https://www.drupal.org/files/issues/2020-09-21/3172255-5.geocoder.Install-new-config-entity-type-via-update-hook.patch"
-            },
             "drupal/sitemap": {
                 "3169473 - Multiple bugs in config schema": "https://www.drupal.org/files/issues/2020-09-08/3169473-10.sitemap.Multiple-bugs-in-config-schema.patch",
                 "3169650 - Code warnings after migrating from 1.x to 2.x version": "https://www.drupal.org/files/issues/2020-09-13/3169650-6.sitemap.Code-warnings-after-migrating-from-1x-to-2x-version.patch",
                 "3153982 - Support a sitemap-specific menu template": "https://www.drupal.org/files/issues/2020-06-22/sitemap-menu-template-2.patch",
                 "2918367 - Sitemap Block is missing": "https://www.drupal.org/files/issues/2918367-sitemap-block.patch",
                 "3171756 - invalid data used for menu creation": "https://www.drupal.org/files/issues/2020-09-18/menu-uses.data-from-wrong-menu-3171756-3.patch"
+            },
+            "drupal/views_parity_row": {
+                "Drupal 9 - RendererBase - entityManager deprecated service" : "https://www.drupal.org/files/issues/2020-09-21/3172226-3.patch"
+            },
+            "drupal/calendar": {
+                "3173757 - Replace deprecated ViewsData::get() with ViewsData::getAll()": "https://www.drupal.org/files/issues/2020-09-29/3173757-2.calendar.Replace-deprecated-ViewsDataget-with-ViewsDatagetAll.patch"
             },
             "drupal/search_api_sorts": {
                 "3174639 - Do not delete the dummy field search_api_relevance" : "https://www.drupal.org/files/issues/2020-10-03/3174639-3.search_api_sorts.Do-not-cleanup-searchapirelevance-field.patch"
@@ -169,10 +170,6 @@
                 "3176820 - Removed instagram.js still required in libraries": "https://www.drupal.org/files/issues/2020-10-14/3176820-3.patch"
             }
         }
-    },
-    "conflict": {
-        "symfony/http-foundation": "3.4.24",
-        "twig/twig": "1.40.0"
     },
     "replace": {
         "drupal/restrict_ip": "*"

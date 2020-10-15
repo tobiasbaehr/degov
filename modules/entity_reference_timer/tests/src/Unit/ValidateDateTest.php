@@ -18,7 +18,7 @@ class ValidateDateTest extends UnitTestCase {
    * Test no start but exception.
    */
   public function testNoStartButEndException(): void {
-    self::expectException(NoStartButEndException::class);
+    $this->expectException(NoStartButEndException::class);
     $element['publish_timer']['#value'] = 1;
     $element['start_date']['#value']['date'] = NULL;
     $element['start_date']['#value']['time'] = '090909AM';
@@ -32,7 +32,7 @@ class ValidateDateTest extends UnitTestCase {
    * Test start after end exception.
    */
   public function testStartAfterEndException(): void {
-    self::expectException(StartAfterEndException::class);
+    $this->expectException(StartAfterEndException::class);
     $element['publish_timer']['#value'] = 1;
     $element['start_date']['#value']['date'] = '2018-11-12';
     $element['start_date']['#value']['time'] = '090909AM';
@@ -75,7 +75,7 @@ class ValidateDateTest extends UnitTestCase {
    * @doesNotPerformAssertions
    */
   public function testStartDateOnly(): void {
-    self::doesNotPerformAssertions();
+    $this->doesNotPerformAssertions();
     $element['publish_timer']['#value'] = 0;
     $element['start_date']['#value']['date'] = '2018-11-12';
     $element['start_date']['#value']['time'] = '090909AM';

@@ -2,7 +2,7 @@ name: 'deGov - Image And Crop Styles'
 type: module
 description: 'Provides a configuration for breakpoints, responsive images, cropping and image styles'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - config_replace
   - crop

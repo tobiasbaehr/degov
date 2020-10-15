@@ -2,4 +2,4 @@ name: 'Media Caption Helper'
 type: module
 description: 'Override image caption'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9

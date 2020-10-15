@@ -45,7 +45,7 @@ function degov_media_video_mobile_preprocess_media__video_mobile(&$variables) {
   /* @var \Drupal\media\Entity\Media $media */
   $media = $variables['elements']['#media'];
   $variables['#attached']['library'][] = 'degov_media_video_mobile/degov_media_video_mobile';
-  $variables['video_url'] = $media->url();
+  $variables['video_url'] = $media->toUrl();
   $variables['video_attributes'] = new Attribute([
     'id'           => 'video-upload-' . $media->id(),
     'preload'      => 'metadata',

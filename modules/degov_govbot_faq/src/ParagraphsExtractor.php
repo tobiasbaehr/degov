@@ -10,16 +10,10 @@ use Drupal\paragraphs\Entity\Paragraph;
 /**
  * Class ParagraphsExtractor.
  */
-class ParagraphsExtractor {
+class ParagraphsExtractor implements ParagraphsExtractorInterface {
 
   /**
-   * Get faq list paragraphs.
-   *
-   * @param \Drupal\node\NodeInterface $node
-   *   Node to get from.
-   *
-   * @return \Drupal\paragraphs\ParagraphInterface[]
-   *   Referenced paragraphs.
+   * {@inheritdoc}
    */
   public function getFaqListParagraphs(NodeInterface $node): array {
     $referencedParagraphs = [];

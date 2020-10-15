@@ -1,6 +1,6 @@
 name: 'deGov - Hyphenopoly'
+type: module
 description: 'This module provides hyphenation for user configurable fields.'
 package: deGov
-type: module
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9
 configure: degov_hyphenopoly.settings

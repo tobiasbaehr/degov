@@ -2,7 +2,7 @@ name: 'deGov - Media Usage for Nodes'
 type: module
 description: 'Provide information about nodes that references media entities'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:node'
   - 'degov:degov_media_usage'

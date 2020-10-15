@@ -2,7 +2,7 @@ name: 'deGov - Paragraph FAQ accordion'
 type: module
 description: 'This paragraph shows you an FAQ list. This will be displayed as an accordion.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_content_types_shared_fields
   - entity_reference_revisions

@@ -2,7 +2,7 @@ name: 'deGov - RSS Feed'
 type: module
 description: 'RSS Feed aller Inhalte'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - node
   - taxonomy

@@ -2,7 +2,7 @@ name: 'deGov - Search Base Solr'
 type: module
 description: 'Base module for search indexing via Apache Solr.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'facets:facets'
   - search_api

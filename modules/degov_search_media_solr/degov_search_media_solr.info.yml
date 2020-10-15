@@ -2,10 +2,11 @@ name: 'deGov - Media Search Solr'
 type: module
 description: 'Basic configuration for media search via Apache Solr.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:block'
   - 'degov:degov_search_base_solr'
   - 'drupal:media'
   - 'drupal:user'
   - 'drupal:views'
+  - 'degov:degov_search_content_solr'

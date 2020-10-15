@@ -2,7 +2,7 @@ name: 'deGov - Node blog'
 type: module
 description: 'This content type is used for blog entries.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - datetime
   - degov_content_types_shared_fields

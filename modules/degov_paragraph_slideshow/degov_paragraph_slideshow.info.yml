@@ -2,7 +2,7 @@ name: 'deGov - Paragraph Slideshow'
 type: module
 description: 'Slideshow paragraph for the header region.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_common
   - degov_content_types_shared_fields

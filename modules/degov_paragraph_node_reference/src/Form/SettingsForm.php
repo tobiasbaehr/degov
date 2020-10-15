@@ -46,11 +46,7 @@ final class SettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Gets the configuration names that will be editable.
-   *
-   * @return array
-   *   An array of configuration object names that are editable if called in
-   *   conjunction with the trait's config() method.
+   * {@inheritdoc}
    */
   protected function getEditableConfigNames() {
     return [
@@ -59,10 +55,7 @@ final class SettingsForm extends ConfigFormBase {
   }
 
   /**
-   * Returns a unique string identifying the form.
-   *
-   * @return string
-   *   The unique string identifying the form.
+   * {@inheritdoc}
    */
   public function getFormId() {
     return 'degov_paragraph_node_reference_settings';
@@ -102,7 +95,7 @@ final class SettingsForm extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $enabled_view_modes = $form_state->getValue('enabled_view_modes');
-    $this->configFactory()->getEditable('degov_paragraph_node_reference.settings')
+    $this->config('degov_paragraph_node_reference.settings')
       ->set('enabled_view_modes', $enabled_view_modes)
       ->save();
     parent::submitForm($form, $form_state);

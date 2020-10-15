@@ -2,7 +2,7 @@ name: 'deGov - Taxonomy Term'
 type: module
 description: 'Provides configuration for taxonomy terms and vocabularies.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - language
   - taxonomy

@@ -97,3 +97,15 @@ _composer() {
   export COMPOSER_ALLOW_SUPERUSER
   composer --ansi --profile "$@"
 }
+
+_create_db_dump() {
+  _drush sql:dump --extra-dump="--no-tablespaces" --result-file="$BITBUCKET_CLONE_DIR/$CONTRIBNAME.sql"
+}
+
+_copy_assets() {
+  mkdir -p $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic
+  cp -v $BITBUCKET_CLONE_DIR/project/docroot/modules/contrib/media_entity_instagram/images/icons/instagram.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/instagram.png
+  cp -v $BITBUCKET_CLONE_DIR/project/docroot/modules/contrib/media_entity_twitter/images/icons/twitter.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/twitter.png
+  cp -v $BITBUCKET_CLONE_DIR/project/docroot/core/modules/media/images/icons/* $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/
+  cp -v $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/modules/lightning_media/images/star.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/
+}

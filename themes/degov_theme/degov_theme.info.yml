@@ -2,7 +2,7 @@ name: 'deGov Theme'
 type: theme
 description: 'The base theme of the deGov Drupal distribution.'
 package: 'deGov - Theme'
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 logo: images/logo.png
 'base theme': classy
 regions:

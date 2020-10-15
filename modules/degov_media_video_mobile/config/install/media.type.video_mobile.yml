@@ -3,6 +3,8 @@ dependencies:
   enforced:
     module:
       - degov_media_video_mobile
+  module:
+    - media_entity_generic
 id: video_mobile
 label: 'Responsives Video'
 description: 'Mit diesem Bundle können Video-Dateien hochgeladen werden. Für die Einbindung externe Videos (z.B. Youtube) muss das Video-Bundle benutzt werden.'

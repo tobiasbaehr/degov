@@ -2,7 +2,7 @@ name: 'deGov - Paragraph video subtitle'
 type: module
 description: 'This paragraph is used for subtitles of videos.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_content_types_shared_fields
   - field

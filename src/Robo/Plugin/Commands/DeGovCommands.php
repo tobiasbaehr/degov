@@ -79,7 +79,7 @@ class DeGovCommands extends Tasks {
       }
       $new_yaml += ['package' => $yaml['package']];
       unset($yaml['package']);
-      $new_yaml += ['core_version_requirement' => '^8.8 || ^9'];
+      $new_yaml += ['core_version_requirement' => '^9'];
       unset($yaml['core_version_requirement']);
       unset($yaml['core']);
       $new_yaml += $yaml;

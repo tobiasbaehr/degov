@@ -1,8 +1,8 @@
 <?php
 
-namespace degov\Scripts\Robo\Exception;
+declare(strict_types=1);
 
-use Throwable;
+namespace degov\Scripts\Robo\Exception;
 
 /**
  * Class NoInstallationProfileProvided.
@@ -12,7 +12,7 @@ class NoInstallationProfileProvided extends \Exception {
   /**
    * NoInstallationProfileProvided constructor.
    */
-  public function __construct($message = '', $code = 0, Throwable $previous = NULL) {
+  public function __construct(string $message = '', int $code = 0, \Throwable $previous = NULL) {
     if (!$message) {
       $message = 'You must provide an installation profile object.';
     }

@@ -177,7 +177,7 @@ function degov_media_copyright_create_field_value(array $fields): array {
     ->setDisplayConfigurable('form', FALSE)
     ->setDisplayConfigurable('view', TRUE)
     ->setDisplayOptions('view', [
-      'type' => 'hidden',
+      'region' => 'hidden',
       'label' => 'hidden',
       'default_formatter' => 'media-copyright-formatter',
     ]);

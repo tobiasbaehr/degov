@@ -2,5 +2,5 @@ name: 'Lightning Test'
 type: module
 description: 'Contains configuration and support code for running Lightning functional tests.'
 package: Lightning
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 hidden: true

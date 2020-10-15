@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\degov_govbot_faq;
 
 /**
@@ -29,7 +31,7 @@ class GovBotFieldsMerger {
   /**
    * Compute plain.
    */
-  private function computePlain(string $text) {
+  private function computePlain(string $text): string {
     return trim(strip_tags($text));
   }
 

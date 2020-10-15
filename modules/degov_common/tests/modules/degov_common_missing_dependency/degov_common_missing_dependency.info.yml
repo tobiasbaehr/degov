@@ -1,7 +1,7 @@
 name: 'deGov - degov_common_missing_dependency'
 type: module
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_common
 hidden: true

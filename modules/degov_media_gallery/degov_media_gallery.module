@@ -89,10 +89,11 @@ function degov_media_gallery_preprocess_media(&$variables) {
         $slideCount++;
       }
     }
-    $variables['content']['totalImages'] = count($imageDataArray);
-    $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][$mediaGallery->uuid()] = $imageDataArray;
+    $variables['content']['totalImages'] = is_array($imageDataArray) ? count($imageDataArray) : 0;
+    $variables['#attached']['drupalSettings']['degov_media_gallery']['imagesDownloadLinks'][$mediaGallery->uuid()] = is_array($imageDataArray) ? $imageDataArray : [];
+    /* @var \Drupal\media\Entity\Media $media_current */
     $media_current = $variables['elements']['#media'];
-    $variables['gallery_url'] = $media_current->url();
+    $variables['gallery_url'] = $media_current->toUrl();
   }
 }
 

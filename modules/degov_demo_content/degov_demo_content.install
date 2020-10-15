@@ -14,12 +14,16 @@ use Drupal\Core\File\FileSystemInterface;
  */
 function degov_demo_content_install() {
   $files_save_path = ContentGenerator::DEGOV_DEMO_CONTENT_FILES_SAVE_PATH;
-  \Drupal::service('file_system')->prepareDirectory($files_save_path, FileSystemInterface::CREATE_DIRECTORY);
+  /** @var \Drupal\Core\File\FileSystemInterface $file_system */
+  $file_system = \Drupal::service('file_system');
+  $file_system->prepareDirectory($files_save_path, FileSystemInterface::CREATE_DIRECTORY);
+  /** @var \Drupal\taxonomy\TermInterface $tag_term */
   $tag_term = Term::create([
     'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
     'vid'  => DEGOV_DEMO_CONTENT_TAGS_VOCABULARY_NAME,
   ]);
   $tag_term->save();
+  /** @var \Drupal\taxonomy\TermInterface $copyright_term */
   $copyright_term = Term::create([
     'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
     'vid'  => DEGOV_DEMO_CONTENT_COPYRIGHT_VOCABULARY_NAME,
@@ -27,6 +31,7 @@ function degov_demo_content_install() {
   $copyright_term->save();
 
   if (\Drupal::service('module_handler')->moduleExists('degov_taxonomy_term_synonyms')) {
+    /** @var \Drupal\taxonomy\TermInterface $synonym_term */
     $synonym_term = Term::create([
       'name' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_NAME,
       'vid' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_VOCABULARY_NAME,
@@ -40,12 +45,21 @@ function degov_demo_content_install() {
   \Drupal::service('degov_demo_content.node_generator')->generateContent();
   \Drupal::service('degov_demo_content.menu_item_generator')->generateContent();
   \Drupal::service('degov_demo_content.block_content_generator')->generateContent();
+
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install(['degov_demo_content_search_teasers']);
 }
 
 /**
  * Implements hook_uninstall().
  */
 function degov_demo_content_uninstall() {
+
+  /** @var \Drupal\Core\Extension\ModuleInstallerInterface $module_installer */
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->uninstall(['degov_demo_content_search_teasers']);
+
   \Drupal::service('degov_demo_content.node_generator')->deleteContent();
   \Drupal::service('degov_demo_content.media_generator')->deleteContent();
   \Drupal::service('degov_demo_content.menu_item_generator')->deleteContent();
@@ -64,20 +78,21 @@ function degov_demo_content_uninstall() {
     $config = $configFactory->getEditable($configName);
     $config->delete();
   }
-  $terms = \Drupal::entityTypeManager()
-    ->getStorage('taxonomy_term')
+  $taxonomyTermStorage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  /** @var \Drupal\taxonomy\TermInterface[] $terms */
+  $terms = $taxonomyTermStorage
     ->loadByProperties([
       'name' => DEGOV_DEMO_CONTENT_TAG_NAME,
     ]);
 
   if (\Drupal::service('module_handler')->moduleExists('degov_taxonomy_term_synonyms')) {
-    $synonym = \Drupal::entityTypeManager()
-      ->getStorage('taxonomy_term')
+    /** @var \Drupal\taxonomy\TermInterface[] $synonyms */
+    $synonyms = $taxonomyTermStorage
       ->loadByProperties([
         'name' => DEGOV_DEMO_CONTENT_TAG_SYNONYM_NAME,
       ]);
 
-    $terms = array_merge($terms, $synonym);
+    $terms = array_merge($terms, $synonyms);
   }
 
   foreach ($terms as $term) {

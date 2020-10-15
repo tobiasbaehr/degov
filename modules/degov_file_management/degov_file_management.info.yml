@@ -2,7 +2,7 @@ name: 'deGov - File Management'
 type: module
 description: 'Extends Drupal''s file management, for example with delete links.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:file'
   - 'drupal:views'

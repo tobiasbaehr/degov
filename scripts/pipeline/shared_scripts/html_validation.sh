@@ -104,6 +104,7 @@ main() {
   && _fetch_html_content \
   && _run_validation
   local EXIT_CODE=$?
+  _drush_watchdog
   exit $EXIT_CODE;
 }
 

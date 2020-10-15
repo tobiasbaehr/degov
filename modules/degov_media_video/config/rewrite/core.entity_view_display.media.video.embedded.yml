@@ -71,7 +71,6 @@ content:
     label: hidden
     settings:
       image_style: thumbnail
-      image_link: content
       responsive_image_style: teaser_squared
       image_link: content
     third_party_settings: {  }

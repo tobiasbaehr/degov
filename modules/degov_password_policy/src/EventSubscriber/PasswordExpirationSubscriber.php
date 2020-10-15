@@ -14,7 +14,7 @@ use Symfony\Cmf\Component\Routing\RouteObjectInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use function in_array;
 
@@ -98,10 +98,10 @@ final class PasswordExpirationSubscriber implements EventSubscriberInterface {
   /**
    * Check if the user's password is expired, handle the event appropriately.
    *
-   * @param \Symfony\Component\HttpKernel\Event\GetResponseEvent $event
+   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
    *   The current event.
    */
-  public function checkPasswordExpiration(GetResponseEvent $event): void {
+  public function checkPasswordExpiration(RequestEvent $event): void {
     if ($this->currentUser->isAuthenticated()) {
       $user = $this->userStorage->load($this->currentUser->id());
 

@@ -2,7 +2,6 @@ name: 'Styled Google Map'
 type: module
 description: 'Will provide a Geofield field formatter for adding a Styled Google Map'
 package: 'Field formatters'
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'geofield:geofield'
-  - 'degov:degov_media_address'

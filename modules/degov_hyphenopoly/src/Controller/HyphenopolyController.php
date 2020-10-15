@@ -4,9 +4,11 @@ namespace Drupal\degov_hyphenopoly\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\degov_hyphenopoly\Form\HyphenopolySettingsForm;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Provides a config based stylesheet.
@@ -21,9 +23,9 @@ class HyphenopolyController extends ControllerBase {
   protected $renderer;
 
   /**
-   * The config.
+   * A configuration object.
    *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   * @var \Drupal\Core\Config\ImmutableConfig
    */
   protected $config;
 
@@ -32,13 +34,13 @@ class HyphenopolyController extends ControllerBase {
    */
   public function __construct(RendererInterface $renderer, ConfigFactoryInterface $config_factory) {
     $this->renderer = $renderer;
-    $this->config = $config_factory->get('degov_hyphenopoly.settings');
+    $this->config = $config_factory->get(HyphenopolySettingsForm::SETTINGS);
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container) {
+  public static function create(ContainerInterface $container): self {
     return new self(
       $container->get('renderer'),
       $container->get('config.factory')
@@ -51,11 +53,12 @@ class HyphenopolyController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\Response
    *   Returns a CSS file as response
    */
-  public function cssContent() {
-    $selectors = $this->config->get('hyphenopoly_selectors');
+  public function cssContent(): Response {
+    /** @var string[] $selectors */
+    $selectors = $this->config->get('hyphenopoly_selectors') ?? [];
     $response = new Response();
 
-    if (count($selectors)) {
+    if (is_array($selectors) && count($selectors) > 0) {
       $css_selectors = '';
       foreach ($selectors as $s) {
         $css_selectors .= $s . ",\n";
@@ -65,10 +68,8 @@ class HyphenopolyController extends ControllerBase {
       $build = [
         '#theme' => 'degov_hyphenopoly_css',
         '#css_selectors' => $css_selectors,
-        '#cache' => [
-          'tags' => $this->config->getCacheTags(),
-        ],
       ];
+      $this->renderer->addCacheableDependency($build, $this->config);
       $rendered = $this->renderer->renderPlain($build);
       // Removes debug output.
       $clean_css = trim(strip_tags($rendered));
@@ -76,7 +77,7 @@ class HyphenopolyController extends ControllerBase {
       $response->setContent($clean_css);
       return $response;
     }
-    throw $response->createNotFoundException('Module not configured');
+    throw new NotFoundHttpException('Module degov_hyphenopoly not configured.');
   }
 
 }

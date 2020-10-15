@@ -2,7 +2,7 @@ name: 'deGov - media address'
 type: module
 description: 'Contains the media address media type.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - address
   - degov_common
@@ -23,3 +23,4 @@ dependencies:
   - spamspan
   - styled_google_map
   - taxonomy
+  - media_entity_generic

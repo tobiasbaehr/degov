@@ -4,6 +4,8 @@ dependencies:
   enforced:
     module:
       - degov_media_person
+  module:
+    - media_entity_generic
 id: person
 label: Person
 description: 'Dient der Erstellung einer Person/Author.'

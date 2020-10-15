@@ -2,7 +2,7 @@ name: 'deGov - Email Login'
 type: module
 description: 'This module enables the login by email address.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:locale'
   - 'mail_login:mail_login'

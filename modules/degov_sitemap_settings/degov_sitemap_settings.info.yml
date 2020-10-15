@@ -2,7 +2,7 @@ name: 'deGov - Sitemap settings'
 type: module
 description: 'Contains predefined configurations for sitemap and simple_sitemap.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
-  - sitemap:sitemap
-  - simple_sitemap:simple_sitemap
+  - 'sitemap:sitemap'
+  - 'simple_sitemap:simple_sitemap'

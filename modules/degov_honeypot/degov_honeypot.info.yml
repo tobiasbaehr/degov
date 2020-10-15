@@ -2,7 +2,7 @@ name: 'deGov - Honeypot'
 type: module
 description: 'Automatically adds configuration for the Honeypot antispam module to some default forms.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:webform'
   - 'drupal:honeypot'

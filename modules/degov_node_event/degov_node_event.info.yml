@@ -2,7 +2,7 @@ name: 'deGov - Node event'
 type: module
 description: 'Ships the content type "event" it can displayed in a calendar or a view.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - address
   - calendar

@@ -17,14 +17,14 @@ class FAQAccess {
   /**
    * Paragraph extractor.
    *
-   * @var \Drupal\degov_govbot_faq\ParagraphsExtractor
+   * @var \Drupal\degov_govbot_faq\ParagraphsExtractorInterface
    */
   private $paragraphsExtractor;
 
   /**
    * FAQAccess constructor.
    */
-  public function __construct(ParagraphsExtractor $paragraphsExtractor) {
+  public function __construct(ParagraphsExtractorInterface $paragraphsExtractor) {
     $this->paragraphsExtractor = $paragraphsExtractor;
   }
 

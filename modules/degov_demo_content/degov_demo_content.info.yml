@@ -2,9 +2,10 @@ name: 'deGov - Demo Content'
 type: module
 description: 'Generates a predefined set of media and node entities for a quick demo setup'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'pathauto:pathauto'
+  - 'drupal:path_alias'
   - 'degov:degov_auto_crop'
   - 'degov:degov_media_address'
   - 'degov:degov_media_audio'
@@ -40,5 +41,4 @@ dependencies:
   - 'degov:degov_paragraph_view_reference'
   - 'degov:degov_paragraph_slideshow'
   - 'degov:degov_paragraph_text'
-  - 'degov:degov_demo_content_search_teasers'
   - 'degov:degov_sitemap_settings'

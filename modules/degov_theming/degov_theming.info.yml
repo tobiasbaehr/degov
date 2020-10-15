@@ -2,4 +2,4 @@ name: 'deGov - Theming'
 type: module
 description: 'Extends theming functionality.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9

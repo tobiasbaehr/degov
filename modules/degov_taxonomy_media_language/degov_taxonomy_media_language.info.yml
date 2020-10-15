@@ -2,7 +2,7 @@ name: 'deGov - Taxonomie Medien Sprachen'
 type: module
 description: 'Enthält die verschiedenen Medien Sprachen'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - language
   - path

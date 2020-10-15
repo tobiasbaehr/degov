@@ -2,7 +2,7 @@ name: 'deGov - Media video mobile'
 type: module
 description: 'This media type is used for uploaded videos in different sizes.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'degov:degov_common'
   - 'degov:degov_content_types_shared_fields'
@@ -24,3 +24,4 @@ dependencies:
   - 'entity_reference_revisions:entity_reference_revisions'
   - 'field_group:field_group'
   - 'paragraphs:paragraphs'
+  - 'media_entity_generic:media_entity_generic'

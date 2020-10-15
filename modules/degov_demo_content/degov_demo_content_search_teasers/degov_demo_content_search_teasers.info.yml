@@ -2,4 +2,6 @@ name: 'deGov - Demo Content Search teasers'
 type: module
 description: 'Generates a list with all Entities in search indexes in the Search result view mode.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
+
+hidden: true

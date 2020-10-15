@@ -35,7 +35,7 @@ function degov_media_video_preprocess_media__video(&$variables) {
   /* @var \Drupal\media\Entity\Media $media */
   $media = $variables['elements']['#media'];
 
-  $variables['video_url'] = $media->url();
+  $variables['video_url'] = $media->toUrl();
   $variables['created'] = $variables['elements']['#media']->created->value;
 }
 
@@ -44,7 +44,7 @@ function degov_media_video_preprocess_media__video(&$variables) {
  */
 function degov_media_video_media_presave(EntityInterface $entity) {
   $bundle = $entity->bundle();
-  if ($bundle == 'video' && !$entity->get('field_media_video_embed_field')->isEmpty()) {
+  if ($bundle === 'video' && !$entity->get('field_media_video_embed_field')->isEmpty()) {
     // Check if the field for duration is enabled for the media bundle and that it is empty.
     // There is no need to check the duration again and again if it is already set.
     if ($entity->hasField('field_media_duration') && $entity->get('field_media_duration')->isEmpty()) {

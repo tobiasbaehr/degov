@@ -63,6 +63,7 @@ elif [[ "$2" == "db_dump" ]]; then
       echo "### The degov_demo_content module is installed inside the database dump, but it should not."
       exit 1
     fi
+    _copy_assets
     _info "### Delete old watchdog entries from db dump"
     _drush watchdog:delete all
     _info "### Run database updates"
@@ -75,7 +76,7 @@ elif [[ "$2" == "db_dump" ]]; then
     _update_translations
     _drush_watchdog
     # For debugging via db dump
-    _drush sql:dump --gzip > "$BITBUCKET_CLONE_DIR/$CONTRIBNAME.sql.gz"
+    _create_db_dump
 elif [[ "$2" == "cli" ]];then
     _drush si degov --db-url=mysql://testing:testing@127.0.0.1:3306/testing \
     --site-name="CLI INSTALL" \

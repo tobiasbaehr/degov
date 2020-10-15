@@ -32,7 +32,8 @@ class MenuItemGeneratorTest extends KernelTestBase {
     'media',
     'image',
     'field',
-    'file'
+    'file',
+    'path_alias',
   ];
 
   /**

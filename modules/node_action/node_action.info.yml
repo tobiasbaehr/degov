@@ -2,7 +2,7 @@ name: 'Node Action'
 type: module
 description: 'Provides action plugins for nodes.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_scheduled_updates
   - node

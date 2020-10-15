@@ -2,7 +2,7 @@ name: 'deGov - Common'
 type: module
 description: 'This module contains base functionality for the deGov distribution.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 configure: degov_common.settings
 dependencies:
   - 'drupal:locale'

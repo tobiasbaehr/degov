@@ -1,8 +1,8 @@
 name: 'deGov - Social Media Settings'
-description: 'With this module visitors can decide which social media sources they want to see.'
 type: module
+description: 'With this module visitors can decide which social media sources they want to see.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'config_replace:config_replace'
   - 'degov:degov_eu_cookie_compliance'

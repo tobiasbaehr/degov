@@ -2,6 +2,8 @@ name: 'deGov - Configuration Integrity Check'
 type: module
 description: 'Provides tools to check your configuration for missing entries.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - 'drupal:config'
+
+hidden: true

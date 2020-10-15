@@ -5,7 +5,6 @@ namespace Drupal\degov_theme\Preprocess;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Twig_Markup;
 
 /**
  * Class MenuAccount.
@@ -70,7 +69,7 @@ final class MenuAccount implements ContainerInjectionInterface {
             ],
           ];
           $rendered_icon = ' ' . $this->renderer->render($icon);
-          $item['title'] = new Twig_Markup($item['title'] . $rendered_icon, 'utf8');
+          $item['title'] = new \Twig_Markup($item['title'] . $rendered_icon, 'utf8');
         }
       });
     }

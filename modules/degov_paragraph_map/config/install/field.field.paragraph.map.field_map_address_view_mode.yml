@@ -22,5 +22,6 @@ default_value:
     value: osm_map
 default_value_callback: ''
 settings:
-  exclude: { }
+  exclude: {  }
+  negate: 0
 field_type: entity_reference_display

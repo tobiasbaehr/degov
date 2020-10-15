@@ -85,7 +85,6 @@ function degov_module_setup(&$install_state) {
   $modules = [
     'degov_common'                      => 'degov_common',
     'degov_content_types_shared_fields' => 'degov_content_types_shared_fields',
-    'degov_config_integrity'            => 'degov_config_integrity',
     'degov_image_and_crop_styles'       => 'degov_image_and_crop_styles',
     'degov_date_formats'                => 'degov_date_formats',
     'degov_pathauto'                    => 'degov_pathauto',
@@ -199,14 +198,18 @@ function degov_theme_setup(&$install_state) {
 
   // Set the default theme to be deGov.
   $themes = ['degov_theme', 'bartik'];
-  \Drupal::service('theme_handler')->install($themes);
+  /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
+  $theme_installer = \Drupal::service('theme_installer');
+  $theme_installer->install($themes, $dependencies = TRUE);
+
   \Drupal::configFactory()
     ->getEditable('system.theme')
     ->set('default', 'degov_theme')
     ->set('admin', 'claro')
     ->save();
-
-  \Drupal::service('theme.manager')->resetActiveTheme();
+  /** @var \Drupal\Core\Theme\ThemeManagerInterface $theme_manager */
+  $theme_manager = \Drupal::service('theme.manager');
+  $theme_manager->resetActiveTheme();
 }
 
 /**

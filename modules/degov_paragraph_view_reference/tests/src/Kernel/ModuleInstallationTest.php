@@ -55,7 +55,7 @@ class ModuleInstallationTest extends KernelTestBase {
   public function testSetup(): void {
     /** @var \Drupal\Core\Extension\ModuleHandlerInterface $moduleHandler */
     $moduleHandler = $this->container->get('module_handler');
-    $this->assertInstanceOf(Extension::class, $moduleHandler->getModule('degov_paragraph_view_reference'));
+    self::assertInstanceOf(Extension::class, $moduleHandler->getModule('degov_paragraph_view_reference'));
   }
 
 }

@@ -2,7 +2,7 @@ name: 'deGov - media audio'
 type: module
 description: 'Contains the media type for audio uploads'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 dependencies:
   - degov_common
   - degov_media
@@ -23,3 +23,5 @@ dependencies:
   - path
   - taxonomy
   - text
+  - media_entity_generic
+  - degov_taxonomy_media_language

@@ -100,13 +100,14 @@ final class TagSynonymSelection extends TermSelection {
     }
 
     $options = [];
+    /** @var \Drupal\taxonomy\TermInterface[] $entities */
     $entities = $this->entityTypeManager->getStorage($target_type)->loadMultiple($result);
     foreach ($entities as $entity_id => $entity) {
       $bundle = $entity->bundle();
       $synonym = NULL;
 
       // If entity is a synonym, check if it has been referenced by a tag.
-      if ($entity->getVocabularyId() === 'synonyms') {
+      if ($bundle === 'synonyms') {
         $synonym_id = $this->entityTypeManager->getStorage('taxonomy_term')->getQuery()
           ->condition('field_synonyms', $entity->id())
           ->range(0, 1)

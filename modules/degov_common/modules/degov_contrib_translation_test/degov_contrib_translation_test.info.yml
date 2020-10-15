@@ -2,7 +2,7 @@ name: degov_contrib_translation_test
 type: module
 description: 'Test module to test the service degov_common.translation_import.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 hidden: true
 'interface translation project': degov_contrib_translation_test
 'interface translation server pattern': profiles/contrib/degov/modules/degov_common/modules/degov_contrib_translation_test/contribtranslations/de.po

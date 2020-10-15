@@ -2,7 +2,7 @@ name: 'deGov - Paragraph Ansichtsreferenz'
 type: module
 description: 'Mit diesem Paragraphen können an beliebigen Stellen Ansichten (Views) eingeblendet werden.'
 package: deGov
-core_version_requirement: '^8.8 || ^9'
+core_version_requirement: ^9
 configure: degov_paragraph_view_reference.views_helper_settings
 dependencies:
   - 'drupal:field'
