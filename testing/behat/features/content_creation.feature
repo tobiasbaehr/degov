@@ -188,7 +188,8 @@ Feature: deGov - Content creation
     And I wait 2 seconds
     And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_text_add_more]"
     Then I should see text matching "Text format" via translated text after a while
-    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element '[data-drupal-selector="edit-field-content-paragraphs-2-subform-field-text-text-0-format"]' to "rich_html" via JavaScript
+    And I wait 1 seconds
     And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<script>document.write(\'scripttest1234\');</script>" via JavaScript
     And I scroll to bottom
     And I press button with label "Save" via translated text
@@ -203,7 +204,8 @@ Feature: deGov - Content creation
     And I wait 2 seconds
     And I trigger the "mousedown" event on ".ui-dialog [name=field_content_paragraphs_text_add_more]"
     Then I should see text matching "Text format" via translated text after a while
-    And I click by selector "#cke_106" via JavaScript
+    And I set the value of element '[data-drupal-selector="edit-field-content-paragraphs-3-subform-field-text-text-0-format"]' to "rich_html" via JavaScript
+    And I wait 1 seconds
     And I set the value of element ".form-textarea-wrapper:eq(1) .cke_source" to "<font>BehatFont</font>" via JavaScript
     And I scroll to bottom
     And I press button with label "Save" via translated text
@@ -215,7 +217,9 @@ Feature: deGov - Content creation
     When I am on "/node/add/normal_page"
     And I fill in "Titel" with "media_file_link"
     Then I should see 1 ".cke" elements via jQuery after a while
-    When I click by selector ".cke_button__drupallink_icon" via JavaScript
+    When I set value "rich_html" by name "field_teaser_text[0][format]"
+    And I wait 1 seconds
+    And I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
     When I fill in "URL" with "dummy"
     And I trigger the "keydown" event on ".form-linkit-autocomplete"
@@ -244,6 +248,8 @@ Feature: deGov - Content creation
     When I am on "/node/add/normal_page"
     And I fill in "Titel" with "linkit"
     Then I should see 1 ".cke" elements via jQuery after a while
+    And I set value "rich_html" by name "field_teaser_text[0][format]"
+    And I wait 1 seconds
     When I click by selector ".cke_button__drupallink_icon" via JavaScript
     Then I should see 1 ".form-linkit-autocomplete" elements via jQuery after a while
     When I fill in "URL" with "blog"
@@ -356,6 +362,26 @@ Feature: deGov - Content creation
     And I scroll to bottom
     And I press the "edit-preview" button
     Then I should see 1 "#block-sidebarparagraphsfromnodeentity" elements
+
+  Scenario: I verify that content marked for deletion is still accessible
+    Given I am logged in as a user with the "administrator" role
+    And I am on "/node/add/normal_page"
+    And fill in "title[0][value]" with "To be deleted"
+    Then I scroll to bottom
+    And I select "published" by name "moderation_state[0][state]"
+    And I press button with label "Save" via translated text
+    Then I should be on "/be-deleted"
+    Then I am on "/user/logout"
+    And I am on "/be-deleted"
+    And I should see HTML content matching "To be deleted"
+    And I am logged in as a user with the "editor" role
+    And I open node edit form by node title "To be deleted"
+    Then I scroll to bottom
+    And I select "to_be_deleted" by name "moderation_state[0][state]"
+    And I press button with label "Save" via translated text
+    Then I am on "/user/logout"
+    And I am on "/be-deleted"
+    And I should see HTML content matching "To be deleted"
 
   Scenario: I verify that taxonomy term restriction is enabled for the section vocabulary only
     Given I have dismissed the cookie banner if necessary

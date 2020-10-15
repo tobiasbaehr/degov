@@ -1,0 +1,9 @@
+langcode: de
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatierung
+        -
+          name: Werkzeuge

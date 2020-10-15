@@ -7,11 +7,49 @@
 
 declare(strict_types=1);
 
+use Symfony\Component\Yaml\Yaml;
+
 /**
  * Implements hook_update_last_removed().
  */
 function degov_rich_text_format_settings_update_last_removed(): int {
   return 870100;
+}
+
+/**
+ * deGov 8.4.5 - Adds a minimal HTML input filter.
+ */
+function degov_rich_text_format_settings_update_880405() {
+  $configsToInstall = [
+    'editor.editor.minimal_html',
+    'filter.format.minimal_html',
+  ];
+
+  foreach ($configsToInstall as $configName) {
+    $config = \Drupal::configFactory()->getEditable($configName);
+    $config->setData(Yaml::parseFile(\Drupal::moduleHandler()
+      ->getModule('degov_rich_text_format_settings')
+      ->getPath() . '/config/install/' . $configName . '.yml'))->save();
+  }
+
+  $configsToLocalize = [
+    'de' => [
+      'editor.editor.minimal_html',
+      'filter.format.minimal_html',
+    ]
+  ];
+
+  foreach ($configsToLocalize as $langcode => $configs) {
+    foreach ($configs as $configName) {
+      $configOverride = \Drupal::service('language.config_factory_override')
+        ->getOverride($langcode, $configName);
+      $pathToConfigFile = \Drupal::moduleHandler()
+        ->getModule('degov_rich_text_format_settings')
+        ->getPath() . '/config/install/language/' . $langcode . '/' . $configName . '.yml';
+      $configOverride->setData(Yaml::parseFile($pathToConfigFile));
+      $configOverride->save();
+    }
+  }
 }
 
 /**

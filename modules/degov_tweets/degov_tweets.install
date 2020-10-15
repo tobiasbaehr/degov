@@ -7,8 +7,6 @@
 
 declare(strict_types=1);
 
-use Drupal\block\Entity\Block;
-
 /**
  * Add tweets block, set twitter account credentials.
  */
@@ -21,7 +19,7 @@ function degov_tweets_update_870200() {
 /**
  * Re-save blocks with plugin id degov_twitter_block for a proper config schema.
  */
-function degov_tweets_update_890500(): string {
+function degov_tweets_update_880500(): string {
   $block_storage = \Drupal::entityTypeManager()->getStorage('block');
   /** @var \Drupal\block\BlockInterface[] $blocks */
   $blocks = $block_storage->loadMultiple();

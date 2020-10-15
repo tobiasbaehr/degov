@@ -1,12 +1,9 @@
 langcode: de
 status: true
 dependencies:
-  module:
-    - lightning_core
   enforced:
     module:
       - degov_users_roles
-third_party_settings: { }
 id: editor
 label: Redakteur
 weight: 16
@@ -26,6 +23,7 @@ permissions:
   - 'administer menu'
   - 'create blog content'
   - 'create event content'
+  - 'create external_teaser content'
   - 'create faq content'
   - 'create media'
   - 'create normal_page content'
@@ -34,20 +32,16 @@ permissions:
   - 'create url aliases'
   - 'delete any file'
   - 'delete media'
-  - 'delete own blog content'
-  - 'delete own event content'
-  - 'delete own faq content'
-  - 'delete own normal_page content'
-  - 'delete own press content'
-  - 'delete own simplenews_issue content'
   - 'dropzone upload files'
   - 'edit any blog content'
   - 'edit any event content'
+  - 'edit any external_teaser content'
   - 'edit any faq content'
   - 'edit any normal_page content'
   - 'edit any simplenews_issue content'
   - 'edit own blog content'
   - 'edit own event content'
+  - 'edit own external_teaser content'
   - 'edit own faq content'
   - 'edit own normal_page content'
   - 'edit own press content'
@@ -55,6 +49,7 @@ permissions:
   - 'update media'
   - 'update any media'
   - 'use editorial transition create_new_draft'
+  - 'use editorial transition mark_for_deletion'
   - 'use editorial transition needs_review'
   - 'use published_draft transition'
   - 'use text format rich_text'
@@ -62,8 +57,8 @@ permissions:
   - 'view all revisions'
   - 'view blog revisions'
   - 'view event revisions'
+  - 'view external_teaser revisions'
   - 'view faq revisions'
-  - 'view media'
   - 'view normal_page revisions'
   - 'view own unpublished content'
   - 'view press revisions'
@@ -78,3 +73,4 @@ permissions:
   - 'create terms in section'
   - 'delete terms in section'
   - 'edit terms in section'
+  - 'create terms in copyright'

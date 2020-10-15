@@ -191,12 +191,6 @@ tweet_1:
   embed_code: '<blockquote class="twitter-tweet" data-lang="de"><p lang="de" dir="ltr">Beim 3. Anwendertag haben unser GF <a href="https://twitter.com/cknebel79?ref_src=twsrc%5Etfw">@cknebel79</a> und einer unserer <a href="https://twitter.com/hashtag/deGov?src=hash&amp;ref_src=twsrc%5Etfw">#deGov</a> Solution Architects  <a href="https://twitter.com/netzor?ref_src=twsrc%5Etfw">@netzor</a> einen Blick in die Zukunft der <a href="https://twitter.com/hashtag/Open?src=hash&amp;ref_src=twsrc%5Etfw">#Open</a>-Source-Software <a href="https://twitter.com/Drupal_deGov?ref_src=twsrc%5Etfw">@Drupal_deGov</a> für die <a href="https://twitter.com/hashtag/%C3%96ffentlicheVerwaltung?src=hash&amp;ref_src=twsrc%5Etfw">#ÖffentlicheVerwaltung</a> gewagt: <a href="https://t.co/C3c1EMnbr9">https://t.co/C3c1EMnbr9</a> <a href="https://twitter.com/hashtag/drupal?src=hash&amp;ref_src=twsrc%5Etfw">#drupal</a> <a href="https://twitter.com/hashtag/drupal4egov?src=hash&amp;ref_src=twsrc%5Etfw">#drupal4egov</a></p>&mdash; publicplan GmbH (@publicplan_GmbH) <a href="https://twitter.com/publicplan_GmbH/status/1062721818073710600?ref_src=twsrc%5Etfw">14. November 2018</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
   status: 1
   field_include_search: 1
-instagram_1:
-  bundle: 'instagram'
-  name: 'Donec ullamcorper nulla non metus auctor'
-  embed_code: 'https://www.instagram.com/p/BY50w44FBNE/?taken-by=publicplan_gmbh'
-  status: 1
-  field_include_search: 1
 embed_1:
   bundle: 'some_embed'
   name: 'Integer posuere erat a ante venenatis'

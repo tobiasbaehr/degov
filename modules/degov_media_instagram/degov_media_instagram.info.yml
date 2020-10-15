@@ -18,3 +18,4 @@ dependencies:
   - taxonomy
   - text
   - user
+  - lightning_media_instagram

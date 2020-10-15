@@ -4,7 +4,7 @@ dependencies:
   module:
   - content_moderation
 id: editorial
-label: 'Editorial'
+label: Editorial
 type: content_moderation
 type_settings:
   states:
@@ -28,6 +28,11 @@ type_settings:
       default_revision: false
       label: 'Needs review'
       weight: 6
+    to_be_deleted:
+      published: false
+      default_revision: false
+      label: 'To be deleted'
+      weight: 7
   transitions:
     archive:
       label: Archive
@@ -63,10 +68,20 @@ type_settings:
       - draft
       - published
       - needs_review
+    mark_for_deletion:
+      label: 'Mark for deletion'
+      from:
+      - archived
+      - draft
+      - needs_review
+      - published
+      to: to_be_deleted
+      weight: 6
     needs_review:
       label: 'Needs review'
       from:
       - draft
       to: needs_review
       weight: 5
-  entity_types: {  }
+  entity_types: { }
+  default_moderation_state: draft

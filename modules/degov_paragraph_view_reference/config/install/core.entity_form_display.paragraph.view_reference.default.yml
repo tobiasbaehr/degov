@@ -20,16 +20,16 @@ targetEntityType: paragraph
 bundle: view_reference
 mode: default
 content:
-  field_sub_title:
-    weight: 7
+  field_title:
+    weight: 6
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings: { }
     type: string_textfield
     region: content
-  field_title:
-    weight: 6
+  field_sub_title:
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -43,6 +43,12 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_view_reference_view:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: viewsreference_select
     region: content
   field_view_reference_links:
     weight: 10
@@ -58,12 +64,6 @@ content:
         accesskey: false
     third_party_settings: {  }
     type: link_attributes
-    region: content
-  field_view_reference_view:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: viewsreference_select
     region: content
 hidden:
   created: true

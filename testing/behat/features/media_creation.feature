@@ -168,18 +168,6 @@ Feature: deGov - Media creation
     Then I should not see text matching "Es konnte kein Video-Provider gefunden werden, der den angegeben URL verarbeiten kann."
     And I should see "Video Example video public wurde erstellt."
 
-  Scenario: I am creating an Instagram media entity
-    Given I am on "/media/add/instagram"
-    Then I should see text matching "Öffentlicher Titel" after a while
-    When I fill in the following:
-      | Name               | Example Instagram                      |
-      | Öffentlicher Titel | Example Instagram public               |
-      | Instagram post     | https://www.instagram.com/p/JUvux9iFRY |
-    And I scroll to element with id "edit-submit"
-    And I press button with label "Save" via translated text
-    Then I should not see "ist erforderlich."
-    And I should see "Example Instagram wurde erstellt."
-
   Scenario: I am creating an media image entity with copyright
     Given I am on "/media/add/image"
     And I fill in "Name" with "Test1234"
@@ -248,6 +236,7 @@ Feature: deGov - Media creation
 
   Scenario: I try to create an image from the CKEditor entity embed dialog to check if the copyright field is present and can be emptied
     Given I am on "/node/add/faq"
+    And I set value "rich_html" by name "field_faq_description[0][format]"
     Then I should see HTML content matching "cke_button cke_button__media_browser" after a while
     When I click by CSS class "cke_button__media_browser"
     Then I should see HTML content matching "Medieneintrag zum Einbetten auswählen" after a while

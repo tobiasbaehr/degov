@@ -17,6 +17,7 @@ permissions:
   - 'administer users'
   - 'assign editor role'
   - 'assign manager role'
+  - 'assign system_configurator role'
   - 'assign usermanager role'
   - 'assign workbench access'
   - 'bypass password policies'

@@ -94,6 +94,9 @@ function degov_update_dependencies() {
   $dependencies['degov'][880000] = [
     'system' => 8805,
   ];
+  $dependencies['degov'][880500] = [
+    'system' => 8901,
+  ];
   return $dependencies;
 }
 
@@ -519,22 +522,100 @@ function degov_update_880400() {
 }
 
 /**
+ * Copy of media_entity_instagram_post_update_change_source_name() except the config thing.
+ *
+ * We need to run this as normal hook_update_N() and not as post-update-hook
+ * because other hooks triggers the field api and then drupal complains
+ * that plugin instagram does not exists.
+ *
+ * All hooks which use the field api should run after degov_update_880500().
+ *
+ * Rename source from "instagram" to "oembed:instagram".
+ */
+function degov_media_entity_instagram_post_update_change_source_name() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll('media.type.') as $name) {
+    $config = $config_factory->getEditable($name);
+    if ($config->get('source') === 'instagram') {
+      $config->set('source', 'oembed:instagram');
+      $config->save();
+      $source_configuration = $config->get('source_configuration');
+
+      /** @var \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager */
+      $entity_type_manager = \Drupal::service('entity_type.manager');
+
+      /** @var \Drupal\Core\Entity\Display\EntityViewDisplayInterface[] $displays */
+      $displays = $entity_type_manager->getStorage('entity_view_display')
+        ->loadByProperties([
+          'targetEntityType' => 'media',
+          'bundle' => $config->get('id'),
+        ]);
+
+      foreach ($displays as $display) {
+        $source_field = $display->getComponent($source_configuration['source_field']);
+        if ($source_field['type'] === 'instagram_embed') {
+          if (!empty($source_field['settings']['width'])) {
+            $source_field['settings'] = [
+              'max_width' => $source_field['settings']['width'],
+              'max_height' => NULL,
+            ];
+          }
+          $display->setComponent($source_configuration['source_field'], $source_field);
+          $display->save();
+        }
+      }
+
+      $displays = $entity_type_manager->getStorage('entity_form_display')
+        ->loadByProperties([
+          'targetEntityType' => 'media',
+          'bundle' => $config->get('id'),
+        ]);
+
+      foreach ($displays as $display) {
+        $source_field = $display->getComponent($source_configuration['source_field']);
+        if ($source_field['type'] === 'string_textfield') {
+          $source_field['type'] = 'oembed_textfield';
+
+          $display->setComponent($source_configuration['source_field'], $source_field);
+          $display->save();
+        }
+      }
+    }
+  }
+}
+
+/**
  * deGov 8.5.0:
  * - Import config translations.
  * - Add new field view_reference_links to paragraph_view_reference.
  */
 function degov_update_880500() {
-  degov_import_translation_files();
-  TranslationImporter::importConfigTranslation('de', 'system.menu.workbench', \Drupal::service('extension.list.profile')
-    ->get('degov')
-    ->getPath() . '/config/install/language/de/system.menu.workbench.yml');
   if (\Drupal::moduleHandler()->moduleExists('degov_paragraph_view_reference')) {
     /** @var \Drupal\degov_common\DegovModuleUpdater $moduleUpdater */
     $moduleUpdater = \Drupal::service('degov_config.module_updater');
+    // New field field_view_reference_links.
     $moduleUpdater->reImport('field.storage.paragraph.field_view_reference_links', 'degov_paragraph_view_reference', 'install');
     $moduleUpdater->reImport('field.field.paragraph.view_reference.field_view_reference_links', 'degov_paragraph_view_reference', 'install');
-    $moduleUpdater->reImport('core.entity_form_display.paragraph.view_reference.default', 'degov_paragraph_view_reference', 'install');
-    $moduleUpdater->reImport('core.entity_view_display.paragraph.view_reference.default', 'degov_paragraph_view_reference', 'install');
-    $moduleUpdater->reImport('core.entity_view_display.paragraph.view_reference.preview', 'degov_paragraph_view_reference', 'install');
+
+    // Update form/view display so that field_view_reference_links is shown.
+    $config_install = drupal_get_path('module', 'degov_paragraph_view_reference') . '/config/install';
+    $config_names = [
+      'core.entity_form_display.paragraph.view_reference.default',
+      'core.entity_view_display.paragraph.view_reference.default',
+      'core.entity_view_display.paragraph.view_reference.preview'
+    ];
+    foreach ($config_names as $name) {
+      $config = \Drupal::configFactory()->getEditable($name);
+      $raw_fs = Yaml::parseFile("$config_install/$name.yml");
+      $config->merge($raw_fs)->save();
+    }
   }
+  if (\Drupal::moduleHandler()->moduleExists('media_entity_instagram')) {
+    degov_media_entity_instagram_post_update_change_source_name();
+  }
+  degov_import_translation_files();
+  TranslationImporter::importConfigTranslation('de', 'system.menu.workbench',
+    \Drupal::service('extension.list.profile')
+      ->get('degov')
+      ->getPath() . '/config/install/language/de/system.menu.workbench.yml');
 }

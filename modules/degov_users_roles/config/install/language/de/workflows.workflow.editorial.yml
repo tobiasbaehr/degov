@@ -1,0 +1,28 @@
+langcode: de
+type_settings:
+  states:
+    archived:
+      label: 'Archiviert'
+    draft:
+      label: 'Entwurf'
+    needs_review:
+      label: 'Überprüfung notwendig'
+    published:
+      label: 'Veröffentlicht'
+    to_be_deleted:
+      label: 'Zu löschen'
+  transitions:
+    archive:
+      label: 'Archivieren'
+    archived_draft:
+      label: 'Zurücksetzen auf Entwurf'
+    archived_published:
+      label: 'Wiederherstellen'
+    create_new_draft:
+      label: 'Neuen Entwurf erstellen'
+    mark_for_deletion:
+      label: 'Als zu löschen markieren'
+    needs_review:
+      label: 'Überprüfung anfordern'
+    publish:
+      label: 'Veröffentlichen'

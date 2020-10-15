@@ -49,7 +49,6 @@ install:
   - lightning_media_bulk_upload
   - lightning_media_document
   - lightning_media_image
-  - lightning_media_instagram
   - lightning_media_twitter
   - lightning_media_video
   - admin_toolbar

@@ -115,8 +115,16 @@ function degov_node_faq_update_870600() {
 }
 
 /**
- * deGov 8.5.0 - Import config translations.
+ * deGov 8.5.0 - Import config translations, reset weight of FAQ content field.
  */
 function degov_node_faq_update_880500() {
   TranslationImporter::importConfigTranslationOfModule('core.entity_form_display.node.faq.default', 'degov_node_faq');
+
+  // Set the content paragraphs field weight if it is not set.
+  $config = \Drupal::configFactory()
+    ->getEditable('core.entity_form_display.node.faq.default');
+  if ($config->get('content.field_content_paragraphs.weight') === NULL) {
+    $config->set('content.field_content_paragraphs.weight', 8);
+    $config->save();
+  }
 }

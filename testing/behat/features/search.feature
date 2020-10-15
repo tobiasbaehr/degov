@@ -83,6 +83,8 @@ Feature: deGov - Search
     And I should see "Titel"
     And I should see "Vorschau Text"
     And I fill in "Titel" with "Test1234"
+    And I set value "rich_html" by name "field_teaser_text[0][format]"
+    And I wait 1 seconds
     And I put 'Text with a link to the <a href="https://drupal.org">Homepage of Drupal</a>.' into CKEditor
     And I select "Veröffentlicht" by name "moderation_state[0][state]"
     And I scroll to bottom

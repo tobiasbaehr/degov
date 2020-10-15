@@ -49,7 +49,7 @@
         "drupal/mailsystem": "^4.1",
         "drupal/matomo": "^1.10",
         "drupal/media_entity_generic": "^1.1",
-        "drupal/media_entity_instagram": "^2.0",
+        "drupal/media_entity_instagram": "^3.0",
         "drupal/media_entity_twitter": "^2.0",
         "drupal/metatag": "^1.1",
         "drupal/open_readspeaker": "^1.5",
@@ -164,6 +164,9 @@
             },
             "drupal/search_api_sorts": {
                 "3174639 - Do not delete the dummy field search_api_relevance" : "https://www.drupal.org/files/issues/2020-10-03/3174639-3.search_api_sorts.Do-not-cleanup-searchapirelevance-field.patch"
+            },
+            "drupal/media_entity_instagram": {
+                "3176820 - Removed instagram.js still required in libraries": "https://www.drupal.org/files/issues/2020-10-14/3176820-3.patch"
             }
         }
     },

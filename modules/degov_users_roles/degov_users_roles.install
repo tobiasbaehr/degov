@@ -6,7 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
-use Drupal\user\RoleInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Implements hook_install().
@@ -17,9 +17,6 @@ function degov_users_roles_install() {
   $user = User::load(1);
   $user->roles[] = 'administrator';
   $user->save();
-
-  // Allow authenticated users to use shortcuts.
-  user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, ['access shortcuts']);
 }
 
 /**
@@ -192,4 +189,61 @@ function degov_users_roles_update_870500() {
     'view any unpublished content',
   ]);
   $editorRoleConfig->set('permissions', $permissions)->save(TRUE);
+}
+
+/**
+ * deGov 8.4.5 – Apply minimalistic permissions.
+ */
+function degov_users_roles_update_880405() {
+  $authenticatedRoleConfig = \Drupal::configFactory()
+    ->getEditable('user.role.authenticated');
+  $permissions = $authenticatedRoleConfig->get('permissions');
+  if (($key = \array_search('access shortcuts', $permissions, TRUE)) !== FALSE) {
+    unset($permissions[$key]);
+  }
+  $authenticatedRoleConfig->set('permissions', $permissions)->save(TRUE);
+
+  $workflowConfig = \Drupal::configFactory()->getEditable('workflows.workflow.editorial');
+  $pathToConfigFile = \Drupal::moduleHandler()
+    ->getModule('degov_users_roles')
+    ->getPath() . '/config/install/workflows.workflow.editorial.yml';
+  $entityTypes = $workflowConfig->get('type_settings.entity_types');
+  $workflowConfig
+    ->setData(Yaml::parseFile($pathToConfigFile))
+    ->set('type_settings.entity_types', $entityTypes)
+    ->save(TRUE);
+
+  $reimportConfigs = [
+    'user.role.usermanager',
+    'user.role.system_configurator',
+    'user.role.editor',
+    'user.role.manager',
+  ];
+
+  foreach ($reimportConfigs as $reimportConfig) {
+    $roleConfig = \Drupal::configFactory()->getEditable($reimportConfig);
+    $pathToConfigFile = \Drupal::moduleHandler()
+      ->getModule('degov_users_roles')
+      ->getPath() . '/config/install/' . $reimportConfig . '.yml';
+    $dataFromConfigFile = Yaml::parseFile($pathToConfigFile);
+    $roleConfig->setData($dataFromConfigFile)->save(TRUE);
+  }
+
+  $configLanguageOverrides = [
+    'de' => [
+      'workflows.workflow.editorial',
+    ],
+  ];
+
+  foreach ($configLanguageOverrides as $langcode => $configs) {
+    foreach ($configs as $configName) {
+      $configOverride = \Drupal::service('language.config_factory_override')
+        ->getOverride($langcode, $configName);
+      $pathToConfigFile = \Drupal::moduleHandler()
+        ->getModule('degov_users_roles')
+        ->getPath() . '/config/install/language/' . $langcode . '/' . $configName . '.yml';
+      $configOverride->setData(Yaml::parseFile($pathToConfigFile));
+      $configOverride->save();
+    }
+  }
 }

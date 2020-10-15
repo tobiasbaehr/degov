@@ -22,6 +22,16 @@ function degov_simplenews_references_install(): void {
 }
 
 /**
+ * Implements hook_update_dependencies().
+ */
+function degov_simplenews_reference_update_dependencies(): array {
+  $dependencies['degov_simplenews_reference'][880500] = [
+    'degov' => 880500,
+  ];
+  return $dependencies;
+}
+
+/**
  * Delete field_scheduled_publish from simplenews_issue.
  */
 function degov_simplenews_references_update_880500(): string {

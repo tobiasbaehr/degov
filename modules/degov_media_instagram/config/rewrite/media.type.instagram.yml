@@ -1,3 +1,4 @@
+config_rewrite: replace
 langcode: und
 status: true
 dependencies:
@@ -6,7 +7,7 @@ dependencies:
 id: instagram
 label: Instagram
 description: 'Instagram posts.'
-source: instagram
+source: 'oembed:instagram'
 queue_thumbnail_downloads: false
 new_revision: false
 source_configuration:

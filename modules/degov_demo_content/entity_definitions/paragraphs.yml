@@ -463,12 +463,6 @@ media_reference_tweet:
   field_sub_title: 'Cras Fusce del Tweetulum'
   field_media_reference_view_mode: 'preview'
   field_media_reference_media: '{{MEDIA_ID_TWEET}}'
-media_reference_instagram:
-  type: 'media_reference'
-  field_title: 'Vorschau eines Instagram-Mediums'
-  field_sub_title: 'Simplificum instagrammum'
-  field_media_reference_view_mode: 'preview'
-  field_media_reference_media: '{{MEDIA_ID_INSTAGRAM}}'
 media_reference_some_embed:
   type: 'media_reference'
   field_title: 'Vorschau eines Social Media Embed Mediums'

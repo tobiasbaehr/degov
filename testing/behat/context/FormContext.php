@@ -242,6 +242,17 @@ class FormContext extends RawMinkContext {
   }
 
   /**
+   * Set value by name.
+   *
+   * @Then /^I set value "([^"]*)" by name "([^"]*)"$/
+   */
+  public function setValueByName(string $value, string $name): void {
+    $page = $this->getSession()->getPage();
+    $selectElement = $page->find('xpath', '//select[@name = "' . $name . '"]');
+    $selectElement->setValue($value);
+  }
+
+  /**
    * Assert date field reflects current date.
    *
    * @Then /^I assert date field with name attribute value "([^"]*)" contains current date$/
