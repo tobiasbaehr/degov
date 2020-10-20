@@ -207,9 +207,12 @@ function degov_users_roles_update_880405() {
   $pathToConfigFile = \Drupal::moduleHandler()
     ->getModule('degov_users_roles')
     ->getPath() . '/config/install/workflows.workflow.editorial.yml';
+  $configFromInstallFile = Yaml::parseFile($pathToConfigFile);
   $entityTypes = $workflowConfig->get('type_settings.entity_types');
   $workflowConfig
-    ->setData(Yaml::parseFile($pathToConfigFile))
+    ->set('type_settings.states', $configFromInstallFile['type_settings']['states'])
+    ->set('type_settings.transitions', $configFromInstallFile['type_settings']['transitions'])
+    ->set('type_settings.default_moderation_state', $configFromInstallFile['type_settings']['default_moderation_state'])
     ->set('type_settings.entity_types', $entityTypes)
     ->save(TRUE);
 
@@ -226,7 +229,7 @@ function degov_users_roles_update_880405() {
       ->getModule('degov_users_roles')
       ->getPath() . '/config/install/' . $reimportConfig . '.yml';
     $dataFromConfigFile = Yaml::parseFile($pathToConfigFile);
-    $roleConfig->setData($dataFromConfigFile)->save(TRUE);
+    $roleConfig->set('permissions', $dataFromConfigFile['permissions'])->save(TRUE);
   }
 
   $configLanguageOverrides = [
