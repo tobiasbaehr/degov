@@ -8,6 +8,9 @@
 (function ($, Drupal, drupalSettings) {
   'use strict';
 
+  // Polyfill Promise for ie9.
+  window.Promise || document.write('<script src="https://unpkg.com/es6-promise@4.2.8/dist/es6-promise.auto.min.js"><\/script>');
+
   var
     modal = $('#social-media-settings'),
     cookieId = 'degov_social_media_settings',
@@ -35,20 +38,22 @@
         // Initialize when cookies are accepted by eu_cookie_compliance module.
         $('.agree-button').on({
           click: function () {
-            sources = settings.sources; //
+            sources = settings.sources;
             initializeAllowedSocialMediaTypes();
           }
         });
+
+        if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
+          // Cookies allowed.
+          sources = cookieExists() ? cookieGetSettings() : settings.sources;
+          initializeAllowedSocialMediaTypes();
+        }
+        else {
+          applySettings();
+        }
       });
 
-      if (Drupal.eu_cookie_compliance !== undefined && Drupal.eu_cookie_compliance.hasAgreed()) {
-        // Cookies allowed.
-        sources = cookieExists() ? cookieGetSettings() : settings.sources;
-        initializeAllowedSocialMediaTypes();
-      }
-      else {
-        applySettings();
-      }
+
     }
   };
 
@@ -116,8 +121,10 @@
           }
           if (source === 'youtube') {
             new Promise(function(resolve) {
-              initSoMeSlider('youtube');
-              resolve();
+              setTimeout(function () {
+                initSoMeSlider('youtube');
+                resolve();
+              }, 500);
             });
           }
         }
@@ -161,7 +168,11 @@
   // Initialize twitter media from media bundle tweet.
   function initTwitter(wrapper) {
     function _initTwitter() {
-      twttr.widgets.load(wrapper);
+      // Twitter widgets.js is not supported in ie11.
+      if (typeof twttr !== 'undefined') {
+        twttr.widgets.load(wrapper);
+        initSoMeSlider('twitter');
+      }
     }
 
     if (typeof twttr === 'undefined') {
@@ -262,7 +273,7 @@
       })
     }
 
-    if (slider.length) {
+    if (slider.length && !slider.hasClass('slick-initialized')) {
       var slickControlls = sliderWrap.find('.slick-controls');
 
       slickControlls.show();
