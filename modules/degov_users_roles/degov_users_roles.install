@@ -204,17 +204,19 @@ function degov_users_roles_update_880405() {
   $authenticatedRoleConfig->set('permissions', $permissions)->save(TRUE);
 
   $workflowConfig = \Drupal::configFactory()->getEditable('workflows.workflow.editorial');
-  $pathToConfigFile = \Drupal::moduleHandler()
-    ->getModule('degov_users_roles')
-    ->getPath() . '/config/install/workflows.workflow.editorial.yml';
-  $configFromInstallFile = Yaml::parseFile($pathToConfigFile);
-  $entityTypes = $workflowConfig->get('type_settings.entity_types');
-  $workflowConfig
-    ->set('type_settings.states', $configFromInstallFile['type_settings']['states'])
-    ->set('type_settings.transitions', $configFromInstallFile['type_settings']['transitions'])
-    ->set('type_settings.default_moderation_state', $configFromInstallFile['type_settings']['default_moderation_state'])
-    ->set('type_settings.entity_types', $entityTypes)
-    ->save(TRUE);
+  if ($workflowConfig->isNew() === FALSE) {
+    $pathToConfigFile = \Drupal::moduleHandler()
+      ->getModule('degov_users_roles')
+      ->getPath() . '/config/install/workflows.workflow.editorial.yml';
+    $configFromInstallFile = Yaml::parseFile($pathToConfigFile);
+    $entityTypes = $workflowConfig->get('type_settings.entity_types');
+    $workflowConfig
+      ->set('type_settings.states', $configFromInstallFile['type_settings']['states'])
+      ->set('type_settings.transitions', $configFromInstallFile['type_settings']['transitions'])
+      ->set('type_settings.default_moderation_state', $configFromInstallFile['type_settings']['default_moderation_state'])
+      ->set('type_settings.entity_types', $entityTypes)
+      ->save(TRUE);
+  }
 
   $reimportConfigs = [
     'user.role.usermanager',
@@ -225,11 +227,15 @@ function degov_users_roles_update_880405() {
 
   foreach ($reimportConfigs as $reimportConfig) {
     $roleConfig = \Drupal::configFactory()->getEditable($reimportConfig);
-    $pathToConfigFile = \Drupal::moduleHandler()
-      ->getModule('degov_users_roles')
-      ->getPath() . '/config/install/' . $reimportConfig . '.yml';
-    $dataFromConfigFile = Yaml::parseFile($pathToConfigFile);
-    $roleConfig->set('permissions', $dataFromConfigFile['permissions'])->save(TRUE);
+    if ($roleConfig->isNew() === FALSE) {
+      $pathToConfigFile = \Drupal::moduleHandler()
+        ->getModule('degov_users_roles')
+        ->getPath() . '/config/install/' . $reimportConfig . '.yml';
+      $dataFromConfigFile = Yaml::parseFile($pathToConfigFile);
+      $roleConfig
+        ->set('permissions', $dataFromConfigFile['permissions'])
+        ->save(TRUE);
+    }
   }
 
   $configLanguageOverrides = [
