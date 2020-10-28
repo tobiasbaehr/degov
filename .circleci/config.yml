@@ -33,3 +33,7 @@ jobs:
           key: composer-{{ .Branch }}-{{ checksum "composer.json" }}
           paths:
             - ~/.composer
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - project/
