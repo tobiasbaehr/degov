@@ -28,9 +28,12 @@ _composer() {
 }
 
 main() {
+  if [[ ! -d $CI_ROOT_DIR ]]; then
+    echo "$CI_ROOT_DIR is not a directory"
+    exit 1
+  fi
   _info "### Setting up project folder"
   _composer create-project --remove-vcs --no-progress "$PROJECT:dev-$PROJECT_BRANCH" project
-  cd project
   _info "### Install profile"
   cd "$CI_ROOT_DIR"
   git fetch --unshallow
