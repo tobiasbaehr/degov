@@ -4,34 +4,34 @@ set -o nounset
 set -o pipefail
 set -o errexit
 
-if [[ -n "${DEBUG:-}" ]];then
+if [[ -n ${DEBUG:-} ]]; then
   set -o xtrace
 fi
 
-if [[ -n "${CI:-}" ]];then
+if [[ -n ${CI:-} ]]; then
   # shellcheck source=.
-  source "$BITBUCKET_CLONE_DIR/scripts/pipeline/.env"
-  bash "$BITBUCKET_CLONE_DIR/scripts/pipeline/default_setup_ci.sh"
+  source "$CI_ROOT_DIR/scripts/pipeline/.env"
+  bash "$CI_ROOT_DIR/scripts/pipeline/default_setup_ci.sh"
 fi
 
 _info() {
-  local color_info="\\x1b[32m"
-  local color_reset="\\x1b[0m"
+  local color_info='\x1b[32m'
+  local color_reset='\x1b[0m'
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
 
 _err() {
-  local color_error="\\x1b[31m"
-  local color_reset="\\x1b[0m"
+  local color_error='\x1b[31m'
+  local color_reset='\x1b[0m'
   echo -e "$(printf '%s%s%s\n' "$color_error" "$@" "$color_reset")" 1>&2
 }
 
 _drush() {
-  COLUMNS=$(tput cols 2>/dev/null) drush --yes --ansi "$@"
+  COLUMNS=$(tput cols 2> /dev/null) drush --yes --ansi "$@"
 }
 
 _robo() {
-  COLUMNS=$(tput cols 2>/dev/null) robo --ansi "$@"
+  COLUMNS=$(tput cols 2> /dev/null) robo --ansi "$@"
 }
 
 _drush_watchdog() {
@@ -41,15 +41,15 @@ _drush_watchdog() {
 }
 
 _backstopjs() {
-  (cd $TEST_DIR && \
-  docker run --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$(pwd)/backstopjs":/src -v "$(pwd)/lfs_data":/lfs_data backstopjs/backstopjs:5.0.2 "$@")
+  (cd "$TEST_DIR" \
+    && docker run --add-host host.docker.internal:"$BITBUCKET_DOCKER_HOST_INTERNAL" -v "$(pwd)/backstopjs":/src -v "$(pwd)/lfs_data":/lfs_data backstopjs/backstopjs:5.0.2 "$@")
 }
 
 _behat() {
   _info "### Setting up Behat"
-  mv -v $TEST_DIR/behat/behat-no-drupal.dist.yml .
-  mv -v $TEST_DIR/behat/behat.dist.yml .
-  behat --format=pretty --out=std --format=junit --out=$BITBUCKET_CLONE_DIR/test-reports/ --strict --colors "$@"
+  mv -v "$TEST_DIR/behat/behat-no-drupal.dist.yml" .
+  mv -v "$TEST_DIR/behat/behat.dist.yml" .
+  behat --format=pretty --out=std --format=junit --out="$CI_ROOT_DIR/test-reports/" --strict --colors "$@"
 }
 
 _setup_settings_php() {
@@ -64,7 +64,7 @@ _setup_settings_php() {
 }
 
 _setup_local_settings_php() {
-  cp -v $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
+  cp -v "$CI_ROOT_DIR"/project/docroot/profiles/contrib/degov/testing/behat/template/settings.local.php docroot/sites/default/settings.local.php
   sed -i 's/{{ mysql_auth.db }}/testing/g' docroot/sites/default/settings.local.php
   sed -i 's/{{ mysql_auth.user }}/testing/g' docroot/sites/default/settings.local.php
   sed -i 's/{{ mysql_auth.password }}/testing/g' docroot/sites/default/settings.local.php
@@ -84,7 +84,7 @@ _run_npm_audit() {
   _info '# Install nvm'
   set +o errexit
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
   _info '# Install node with nvm'
   set -o errexit
   nvm install --no-progress --latest-npm "$(cat .nvmrc)"
@@ -99,13 +99,13 @@ _composer() {
 }
 
 _create_db_dump() {
-  _drush sql:dump --extra-dump="--no-tablespaces" --result-file="$BITBUCKET_CLONE_DIR/$CONTRIBNAME.sql"
+  _drush sql:dump --extra-dump="--no-tablespaces" --result-file="$CI_ROOT_DIR/$CONTRIBNAME.sql"
 }
 
 _copy_assets() {
-  mkdir -p $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic
-  cp -v $BITBUCKET_CLONE_DIR/project/docroot/modules/contrib/media_entity_instagram/images/icons/instagram.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/instagram.png
-  cp -v $BITBUCKET_CLONE_DIR/project/docroot/modules/contrib/media_entity_twitter/images/icons/twitter.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/twitter.png
-  cp -v $BITBUCKET_CLONE_DIR/project/docroot/core/modules/media/images/icons/* $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/media-icons/generic/
-  cp -v $BITBUCKET_CLONE_DIR/project/docroot/profiles/contrib/degov/modules/lightning_media/images/star.png $BITBUCKET_CLONE_DIR/project/docroot/sites/default/files/
+  mkdir -p "$CI_ROOT_DIR"/project/docroot/sites/default/files/media-icons/generic
+  cp -v "$CI_ROOT_DIR"/project/docroot/modules/contrib/media_entity_instagram/images/icons/instagram.png "$CI_ROOT_DIR"/project/docroot/sites/default/files/media-icons/generic/instagram.png
+  cp -v "$CI_ROOT_DIR"/project/docroot/modules/contrib/media_entity_twitter/images/icons/twitter.png "$CI_ROOT_DIR"/project/docroot/sites/default/files/media-icons/generic/twitter.png
+  cp -v "$CI_ROOT_DIR"/project/docroot/core/modules/media/images/icons/* "$CI_ROOT_DIR"/project/docroot/sites/default/files/media-icons/generic/
+  cp -v "$CI_ROOT_DIR"/project/docroot/profiles/contrib/degov/modules/lightning_media/images/star.png "$CI_ROOT_DIR"/project/docroot/sites/default/files/
 }
