@@ -14,7 +14,10 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: apt install git-lfs
+          command: |
+            sudo apt-get update && \
+            DEBIAN_FRONTEND=noninteractive sudo apt-get install git-lfs && \
+            git lfs install
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV

@@ -17,7 +17,7 @@ if [[ -n ${DEBUG:-} ]]; then
 fi
 
 _info() {
-  local color_info='\x1b[32m'
+  local color_info='\x1b[96m'
   local color_reset='\x1b[0m'
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
@@ -36,7 +36,6 @@ main() {
   _composer create-project --remove-vcs --no-progress "$PROJECT:dev-$PROJECT_BRANCH" project
   cd "$CI_ROOT_DIR"
 
-  _info "### Install profile"
   # shellcheck disable=SC2091
   if $(git rev-parse --is-shallow-repository); then
     git fetch --unshallow
@@ -46,6 +45,7 @@ main() {
 
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
+    _info "### Apply composer.json changes"
     cd "$CI_ROOT_DIR/project"
     # --no-update change only the composer.json
     _composer require --no-progress "$INSTALL_PROJECT:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --no-update
