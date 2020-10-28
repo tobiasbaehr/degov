@@ -37,9 +37,9 @@ jobs:
           paths:
             - ~/.composer
       - persist_to_workspace:
-          root: ~/app
+          root: project
           paths:
-            - project/
+            - .
   tests:
     docker:
       - image: cimg/php:7.3-node
@@ -51,7 +51,7 @@ jobs:
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/app/project
+          at: project
       - run:
           name: Unit/functional tests and static code analysis
           command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
