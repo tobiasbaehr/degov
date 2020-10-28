@@ -29,6 +29,7 @@ main() {
   mkdir "$CI_ROOT_DIR/test-reports"
 
   cd "$CI_ROOT_DIR/project"
+  echo "$PATH"
 
   EXITCODE=0
   set +o errexit
