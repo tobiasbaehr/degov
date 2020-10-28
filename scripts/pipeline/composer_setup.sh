@@ -34,11 +34,16 @@ main() {
   fi
   _info "### Setting up project folder"
   _composer create-project --remove-vcs --no-progress "$PROJECT:dev-$PROJECT_BRANCH" project
-  _info "### Install profile"
   cd "$CI_ROOT_DIR"
-  git fetch --unshallow
-  git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-  git fetch --quiet origin
+
+  _info "### Install profile"
+
+  if git rev-parse --is-shallow-repository > /dev/null; then
+    git fetch --unshallow
+    git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+    git fetch --quiet origin
+  fi
+
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
     cd "$CI_ROOT_DIR/project"
@@ -49,6 +54,7 @@ main() {
     # Re-apply patches in case they was changed.
     _composer install
   fi
+
   cd "$CI_ROOT_DIR/project"
   # Move the lfs_data out of the install profile before we delete it. But lets the pipeline store the data in the project artifact.
   mv -v "$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz" .
