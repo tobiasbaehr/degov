@@ -13,15 +13,20 @@ jobs:
     steps:
       - checkout
       - run:
-            name: "Fix CIRCLE_WORKING_DIRECTORY"
-            command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
+          name: Install dependencies
+          command: apt install git-lfs
+      - run:
+          name: "Fix CIRCLE_WORKING_DIRECTORY"
+          command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - restore_cache:
           keys:
+            - composer-{{ .Branch }}-{{ checksum "composer.json" }}
+            - composer-{{ .Branch }}
             - composer
       - run:
           name: Composer setup
           command: bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
-          key: composer
+          key: composer-{{ .Branch }}-{{ checksum "composer.json" }}
           paths:
             - ~/.composer
