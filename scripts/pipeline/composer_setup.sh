@@ -37,8 +37,8 @@ main() {
   cd "$CI_ROOT_DIR"
 
   _info "### Install profile"
-
-  if git rev-parse --is-shallow-repository > /dev/null; then
+  # shellcheck disable=SC2091
+  if $(git rev-parse --is-shallow-repository); then
     git fetch --unshallow
     git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
     git fetch --quiet origin
