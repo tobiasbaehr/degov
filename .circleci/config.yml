@@ -10,14 +10,14 @@ jobs:
     docker:
       - image: cimg/php:7.3-node
     working_directory: ~/app
-    environment:
-      BITBUCKET_CLONE_DIR: $CIRCLE_WORKING_DIRECTORY
     steps:
       - checkout
       - restore_cache:
           keys:
             - composer
-      - run: bash ./scripts/pipeline/composer_setup.sh
+      - run: BITBUCKET_CLONE_DIR=$CIRCLE_WORKING_DIRECTORY; export BITBUCKET_CLONE_DIR;
+      - run: echo "$BITBUCKET_CLONE_DIR"
+# bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
           key: composer
           paths:
