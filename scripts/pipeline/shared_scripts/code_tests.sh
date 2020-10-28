@@ -26,8 +26,9 @@ main() {
   bash "$__DIR__/../default_setup_ci.sh"
   # shellcheck source=.
   source "$__DIR__/common_functions.sh"
-  cd project
   mkdir "$CI_ROOT_DIR/test-reports"
+
+  cd "$CI_ROOT_DIR/project"
 
   EXITCODE=0
   set +o errexit

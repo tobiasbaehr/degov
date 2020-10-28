@@ -15,7 +15,7 @@ if [[ -n ${CI:-} ]]; then
 fi
 
 _info() {
-  local color_info='\x1b[32m'
+  local color_info='\x1b[96m'
   local color_reset='\x1b[0m'
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
