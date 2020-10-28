@@ -10,5 +10,8 @@ jobs:
     docker:
       - image: circleci/php:7.3-node-browsers
     working_directory: ~/app
+    environment:
+      BITBUCKET_CLONE_DIR: $CIRCLE_WORKING_DIRECTORY
     steps:
       - checkout
+      - run: bash ./scripts/pipeline/shared_scripts/create-stable-db-dump.sh
