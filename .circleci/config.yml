@@ -8,7 +8,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: tobiasb/php-cli:7.3-debian
+      - image: cimg/php:7.3-node
     working_directory: ~/app
     environment:
       BITBUCKET_CLONE_DIR: $CIRCLE_WORKING_DIRECTORY
