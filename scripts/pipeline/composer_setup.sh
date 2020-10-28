@@ -5,17 +5,20 @@ set -o pipefail
 set -o errexit
 
 # shellcheck disable=SC2164
-__DIR__="$(cd "$(dirname "${0}")"; pwd)"
+__DIR__="$(
+  cd "$(dirname "${0}")"
+  pwd
+)"
 
 # shellcheck source=.
 source "$__DIR__/.env"
-if [[ -n "${DEBUG:-}" ]];then
+if [[ -n ${DEBUG:-} ]]; then
   set -o xtrace
 fi
 
 _info() {
-  local color_info="\\x1b[32m"
-  local color_reset="\\x1b[0m"
+  local color_info='\x1b[32m'
+  local color_reset='\x1b[0m'
   echo -e "$(printf '%s%s%s\n' "$color_info" "$@" "$color_reset")"
 }
 
@@ -25,6 +28,8 @@ _composer() {
 }
 
 main() {
+  echo $BITBUCKET_CLONE_DIR
+  exit 0
   _info "### Setting up project folder"
   _composer create-project --remove-vcs --no-progress "$PROJECT:dev-$PROJECT_BRANCH" project
   cd project
@@ -34,7 +39,7 @@ main() {
   git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   git fetch --quiet origin
   # Was the composer.json changed? Then lets composer download the dependencies.
-  if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" >/dev/null;then
+  if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
     cd "$BITBUCKET_CLONE_DIR/project"
     # --no-update change only the composer.json
     _composer require --no-progress "$INSTALL_PROJECT:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --no-update
@@ -49,7 +54,7 @@ main() {
   # Do not store data (as artifact in the pipeline) which is in the git repo itself. (this makes artifact smaller)
   # We restore the profile in default_setup_ci.sh.
   rm -rf "$PROFILE_DIR"
-  find . -type d -name '.git' -print0 -exec rm -rf {} + >/dev/null
+  find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
 }
 
 main "$@"
