@@ -21,7 +21,7 @@ main() {
   if [[ -n ${BITBUCKET_DOCKER_HOST_INTERNAL:-} ]]; then
     echo "$BITBUCKET_DOCKER_HOST_INTERNAL host.docker.internal" >> /etc/hosts
   fi
-  if [[ ! -d $CI_ROOT_DIR ]]; then
+  if [[ ! -d $PROFILE_DIR ]]; then
     # Restore the data which was deleted in composer_setup.sh and is not part of the artifact.
     mkdir "$CI_ROOT_DIR/project/docroot/profiles/contrib"
     mkdir "$CI_ROOT_DIR/testing/lfs_data"
