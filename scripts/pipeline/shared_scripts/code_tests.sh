@@ -28,9 +28,9 @@ main() {
   source "$__DIR__/common_functions.sh"
   mkdir "$CI_ROOT_DIR/test-reports"
 
+  ls -lah
   cd "$CI_ROOT_DIR/project"
-  echo "$PATH"
-
+  ls -lah
   EXITCODE=0
   set +o errexit
   _info "### Check php compatibility"
