@@ -1,8 +1,14 @@
+version: 2
+
+workflows:
+  version: 2
+  composer_setup:
+    jobs:
+      - build
 jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
     working_directory: ~/app
-
     steps:
       - checkout
