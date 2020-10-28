@@ -15,7 +15,7 @@ jobs:
       - restore_cache:
           keys:
             - composer
-      - run: BITBUCKET_CLONE_DIR=$CIRCLE_WORKING_DIRECTORY; export BITBUCKET_CLONE_DIR; bash ./scripts/pipeline/composer_setup.sh
+      - run: bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
           key: composer
           paths:

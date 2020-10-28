@@ -28,19 +28,17 @@ _composer() {
 }
 
 main() {
-  echo $BITBUCKET_CLONE_DIR
-  exit 0
   _info "### Setting up project folder"
   _composer create-project --remove-vcs --no-progress "$PROJECT:dev-$PROJECT_BRANCH" project
   cd project
   _info "### Install profile"
-  cd "$BITBUCKET_CLONE_DIR"
+  cd "$CI_ROOT_DIR"
   git fetch --unshallow
   git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
   git fetch --quiet origin
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
-    cd "$BITBUCKET_CLONE_DIR/project"
+    cd "$CI_ROOT_DIR/project"
     # --no-update change only the composer.json
     _composer require --no-progress "$INSTALL_PROJECT:dev-$BITBUCKET_BRANCH#$BITBUCKET_COMMIT" --no-update
     # Now downloads install profile + list of dependencies.
@@ -48,7 +46,7 @@ main() {
     # Re-apply patches in case they was changed.
     _composer install
   fi
-  cd "$BITBUCKET_CLONE_DIR/project"
+  cd "$CI_ROOT_DIR/project"
   # Move the lfs_data out of the install profile before we delete it. But lets the pipeline store the data in the project artifact.
   mv -v "$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz" .
   # Do not store data (as artifact in the pipeline) which is in the git repo itself. (this makes artifact smaller)
