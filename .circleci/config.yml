@@ -5,7 +5,9 @@ workflows:
   composer_setup:
     jobs:
       - build
-      - tests
+      - tests:
+          requires:
+            - build
 jobs:
   build:
     docker:
@@ -42,8 +44,6 @@ jobs:
     docker:
       - image: cimg/php:7.3-node
     working_directory: ~/app
-    requires:
-      - build
     steps:
       - checkout
       - run:
