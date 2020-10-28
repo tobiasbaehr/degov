@@ -12,10 +12,15 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - run:
+            name: "Fix CIRCLE_WORKING_DIRECTORY"
+            command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - restore_cache:
           keys:
             - composer
-      - run: bash ./scripts/pipeline/composer_setup.sh
+      - run:
+          name: Composer setup
+          command: bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
           key: composer
           paths:
