@@ -104,3 +104,12 @@ _disable_geocoder_presave() {
   _info "### Disable geocoder presave."
   _drush config:set geocoder.settings geocoder_presave_disabled ${1:-1}
 }
+
+_update_translations() {
+  _info "### Update translations"
+  _drush locale:check \
+    && _drush locale:update
+  _drush php-eval 'Drupal\degov\TranslationImporter::importForProfile()'
+  _info "### Clear cache"
+  _drush cr
+}
