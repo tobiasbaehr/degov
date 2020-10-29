@@ -73,7 +73,8 @@ main() {
   # We restore the profile in default_setup_ci.sh.
   rm -rf "$PROFILE_DIR"
   find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
-  git log -n 1 --pretty=format:%H -- composer.json > "$existing_checksum_filename"
+  cd "$CI_ROOT_DIR" \
+    && git log -n 1 --pretty=format:%H -- composer.json > "$existing_checksum_filename"
 }
 
 main
