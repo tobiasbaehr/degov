@@ -11,7 +11,7 @@ workflows:
 jobs:
   build:
     docker:
-      - image: cimg/php:7.3-node
+      - image: tobiasb/php-cli:7.3-debian
     working_directory: ~/app
     steps:
       - run:
@@ -42,7 +42,7 @@ jobs:
             - .
   tests:
     docker:
-      - image: cimg/php:7.3-node
+      - image: tobiasb/php-cli:7.3-debian
     working_directory: ~/app
     steps:
       - run:
