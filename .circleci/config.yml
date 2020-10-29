@@ -67,6 +67,9 @@ jobs:
       - run:
           name: PHPUnit
           command: bash ./scripts/ci/tests--phpunit.sh
+      - run:
+          name: Npm audit
+          command: bash ./scripts/ci/tests--npmaudit.sh
       - store_test_results:
           path: test-reports
   integration_tests_prepare:
@@ -89,4 +92,4 @@ jobs:
           at: project
       - run:
           name: Prepare database
-          command: bash ./scripts/ci/tests-db-import.sh
+          command: bash ./scripts/ci/tests--integration--db-import.sh
