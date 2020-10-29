@@ -8,9 +8,9 @@ workflows:
       - code_tests:
           requires:
             - build
-      # - integration_tests:
-      #     requires:
-      #       - build
+      - integration_tests_prepare:
+          requires:
+            - build
 jobs:
   build:
     docker:
@@ -73,8 +73,8 @@ jobs:
     docker:
       - image: tobiasb/php-cli:7.3-debian
       - image: circleci/mysql:5.7
-          command: mysqld --max_allowed_packet=65011712
-          environment:
+        command: mysqld --max_allowed_packet=65011712
+        environment:
             MYSQL_DATABASE: testing
             MYSQL_USER: testing
             MYSQL_PASSWORD: testing
