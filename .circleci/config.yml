@@ -14,13 +14,13 @@ jobs:
       - image: cimg/php:7.3-node
     working_directory: ~/app
     steps:
-      - checkout
       - run:
           name: Install dependencies
           command: |
             sudo apt-get update && \
             DEBIAN_FRONTEND=noninteractive sudo apt-get install git-lfs && \
             git lfs install
+      - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
@@ -45,6 +45,11 @@ jobs:
       - image: cimg/php:7.3-node
     working_directory: ~/app
     steps:
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update && \
+            DEBIAN_FRONTEND=noninteractive sudo apt-get install rsync
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
