@@ -8,24 +8,22 @@ services:
   - docker
 cache:
   directories:
-    - $HOME/.composer
+    - $HOME/.composer/cache
 before_script:
   - phpenv config-rm xdebug.ini
   - composer selfupdate --1
+  - bash ./scripts/ci/composer--create.sh
+  - bash ./scripts/ci/composer--install.sh
+  - bash ./scripts/ci/composer--postinstall.sh
+  - bash ./scripts/ci/inject_code.sh
 jobs:
   include:
-    - stage: "Setup"
-      name: "Composer setup"
-      script:
-        - bash ./scripts/ci/composer--create.sh
-        - bash ./scripts/ci/composer--install.sh
-        - bash ./scripts/ci/composer--postinstall.sh
-        - bash ./scripts/ci/inject_code.sh
     - stage: "Checks"
       name: "Coding standards"
       script:
         - bash ./scripts/ci/checks--cs.sh
     - script: bash ./scripts/ci/checks--phpstan.sh
       name: "PHPstan"
-    - script: bash ./scripts/ci/tests--phpunit.sh
+    - stage: "Unit Tests"
       name: "PHPUnit"
+      script: bash ./scripts/ci/tests--phpunit.sh
