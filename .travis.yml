@@ -34,4 +34,5 @@ jobs:
       name: "Install"
       script:
         - export CI_MYSQL_USERNAME="travis"; export CI_MYSQL_PASSWORD=""; bash ./scripts/ci/tests--integration--db-import.sh
+        - docker run --name testing -e START_XVFB=false --network host -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-oxygen
         - bash ./scripts/ci/tests--integration.sh content
