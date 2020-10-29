@@ -60,13 +60,13 @@ jobs:
           command: bash ./scripts/pipeline/default_setup_ci.sh
       - run:
           name: Coding standards
-          command: bash ./scripts/ci/checks-cs.sh
+          command: bash ./scripts/ci/checks--cs.sh
       - run:
           name: PHPstan
-          command: bash ./scripts/ci/checks-phpstan.sh
+          command: bash ./scripts/ci/checks--phpstan.sh
       - run:
           name: PHPUnit
-          command: bash ./scripts/ci/tests-phpunit.sh
+          command: bash ./scripts/ci/tests--phpunit.sh
     store_test_results:
       - test-reports
   integration_tests:
