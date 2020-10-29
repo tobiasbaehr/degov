@@ -26,7 +26,7 @@ main() {
       mkdir "$CI_ROOT_DIR/testing/lfs_data"
     fi
     mv -v "$CI_ROOT_DIR/project/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz" "$CI_ROOT_DIR/testing/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz"
-    (cd "$CI_ROOT_DIR" && rsync -az --exclude="project/" . "$PROFILE_DIR")
+    (cd "$CI_ROOT_DIR" && rsync -azv --exclude="project/" . "$PROFILE_DIR")
   fi
 }
 

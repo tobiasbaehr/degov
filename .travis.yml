@@ -27,9 +27,9 @@ jobs:
       name: "PHPstan"
     - script: bash ./scripts/ci/checks--npmaudit.sh
       name: Npm audit
-    - stage: "Unit Tests"
-      name: "PHPUnit"
-      script: bash ./scripts/ci/tests--phpunit.sh
+    # - stage: "Unit Tests"
+    #   name: "PHPUnit"
+    #   script: bash ./scripts/ci/tests--phpunit.sh
     - stage: "Behat tests"
       name: "Install"
       script:

@@ -38,15 +38,7 @@ _unshallow() {
   fi
 }
 
-main() {
-  local checksum
-  local existing_checksum
-  local existing_checksum_filename="$CI_ROOT_DIR/project/checksum_composer.hash"
-
-  _unshallow
-  checksum=$(git log -n 1 --pretty=format:%H -- composer.json)
-
-  _info "### Run post install"
+_apply_composerjson_changes() {
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
     if [[ -f $existing_checksum_filename ]]; then
@@ -66,12 +58,24 @@ main() {
     _composer install --no-progress --optimize-autoloader
   fi
 
+}
+
+main() {
+  local checksum
+  local existing_checksum
+  local existing_checksum_filename="$CI_ROOT_DIR/project/checksum_composer.hash"
+
+  _unshallow
+  checksum=$(git log -n 1 --pretty=format:%H -- composer.json)
+
+  _info "### Run post install"
+  _apply_composerjson_changes
   cd "$CI_ROOT_DIR/project"
   # Move the lfs_data out of the install profile before we delete it. But lets the pipeline store the data in the project artifact.
   mv -v "$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz" .
   # Do not store data (as artifact in the pipeline) which is in the git repo itself. (this makes artifact smaller)
   # We restore the profile in default_setup_ci.sh.
-  rm -rf "$PROFILE_DIR"
+  rm -rfv "$PROFILE_DIR"
   find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
   cd "$CI_ROOT_DIR" \
     && git log -n 1 --pretty=format:%H -- composer.json > "$existing_checksum_filename"
