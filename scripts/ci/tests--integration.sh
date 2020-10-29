@@ -30,6 +30,8 @@ main() {
   _info "### Running Behat features by tags: $1"
   set +e
   _disable_geocoder_presave 0
+  _info "### Start php-server"
+  (cd docroot && screen -dmS php-server php -S 0.0.0.0:80 .ht.router.php)
   _behat -c behat.dist.yml --suite=default --tags="$1"
   EXIT_CODE=$?
   _drush_watchdog

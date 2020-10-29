@@ -57,7 +57,7 @@ default:
   extensions:
     Drupal\MinkExtension:
       files_path: '%paths.base%/docroot/profiles/contrib/degov/modules/degov_demo_content/fixtures'
-      base_url: http://host.docker.internal
+      base_url: http://localhost
       default_session: selenium_chrome
       sessions:
         selenium_chrome:
