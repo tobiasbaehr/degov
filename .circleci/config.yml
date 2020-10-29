@@ -112,7 +112,7 @@ jobs:
             MYSQL_DATABASE: testing
             MYSQL_USER: testing
             MYSQL_PASSWORD: testing
-      - image: circleci/php:7.3-cli-browsers
+      - image: selenium/standalone-chrome:3.141.59-oxygen
     working_directory: ~/app
     steps:
       - checkout
