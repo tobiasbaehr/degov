@@ -75,7 +75,7 @@ main() {
   mv -v "$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz" .
   # Do not store data (as artifact in the pipeline) which is in the git repo itself. (this makes artifact smaller)
   # We restore the profile in default_setup_ci.sh.
-  rm -rfv "$PROFILE_DIR"
+  rm -rf "$PROFILE_DIR"
   find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
   cd "$CI_ROOT_DIR" \
     && git log -n 1 --pretty=format:%H -- composer.json > "$existing_checksum_filename"
