@@ -13,7 +13,7 @@ workflows:
             - build
       - integration_tests_dbimport:
           requires:
-            - build
+            - integration_tests_prepare_dbimport
 jobs:
   build:
     docker:
