@@ -25,10 +25,9 @@ source "$__DIR__/common_functions.sh"
 
 main() {
   cd "$CI_ROOT_DIR/project"
-  ls -lah
 
   _info "### Importing db dump"
-  _drush sql-query --file="$CONTRIBNAME.sql.gz"
+  _drush sql-query --file="$CONTRIBNAME.sql"
 
   _info "### Running Behat features by tags: $1"
   set +e

@@ -45,7 +45,6 @@ main() {
   _update_translations
   _drush_watchdog
   _create_db_dump
-  ls -lah
 }
 
 main
