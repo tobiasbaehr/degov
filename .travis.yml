@@ -14,9 +14,16 @@ before_script:
   - composer selfupdate --1
 jobs:
   include:
-    - stage: "Tests"
+    - stage: "Setup"
       name: "Composer setup"
       script:
         - bash ./scripts/ci/composer--create.sh
         - bash ./scripts/ci/composer--install.sh
         - bash ./scripts/ci/composer--postinstall.sh
+        - bash ./scripts/pipeline/default_setup_ci.sh
+    - stage: "Checks"
+      name: "Coding standards"
+      script:
+        - bash ./scripts/ci/checks--cs.sh
+    - script: bash ./scripts/ci/checks--phpstan.sh
+      name: "PHPstan"
