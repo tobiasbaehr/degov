@@ -28,15 +28,11 @@ _composer() {
 }
 
 main() {
-  if [[ ! -d $CI_ROOT_DIR ]]; then
-    echo "$CI_ROOT_DIR is not a directory"
-    exit 1
-  fi
-  cd "$CI_ROOT_DIR/project"
-  if [[ -d docroot ]]; then
+  if [[ -d $PROFILE_DIR ]]; then
     _info "[SKIPPED] ### Install project"
     exit 0
   fi
+  cd "$CI_ROOT_DIR/project"
   _info "### Install project"
   _composer install --optimize-autoloader
 }

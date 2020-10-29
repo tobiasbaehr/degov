@@ -28,10 +28,6 @@ _composer() {
 }
 
 main() {
-  if [[ ! -d $CI_ROOT_DIR ]]; then
-    echo "$CI_ROOT_DIR is not a directory"
-    exit 1
-  fi
   _info "### Run post install"
   cd "$CI_ROOT_DIR"
 
