@@ -5,9 +5,9 @@ workflows:
   build-and-test:
     jobs:
       - build
-      # - code_tests:
-      #     requires:
-      #       - build
+      - code_tests:
+          requires:
+            - build
       # - integration_tests:
       #     requires:
       #       - build
