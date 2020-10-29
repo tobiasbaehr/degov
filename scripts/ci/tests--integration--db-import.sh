@@ -29,7 +29,6 @@ main() {
   _setup_file_system
   _setup_local_settings_php
   _info "### Importing db dump"
-  _drush sql:create
   _drush sql:query --file="$TEST_DIR/lfs_data/$CONTRIBNAME-stable-$DB_DUMP_VERSION.sql.gz"
   _info "### Clear cache"
   _drush cr
