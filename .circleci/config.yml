@@ -24,17 +24,17 @@ jobs:
       - run:
           name: "Create project"
           command: |
-            bash ./scripts/pipeline/composer--create.sh
+            bash ./scripts/ci/composer--create.sh
             cp ~/app/project/composer.lock /tmp/composer.lock
       - restore_cache:
           keys:
             - composer-{{ checksum "/tmp/composer.lock" }}
       - run:
           name: "Install project"
-          command: bash ./scripts/pipeline/composer--install.sh
+          command: bash ./scripts/ci/composer--install.sh
       - run:
           name: "Run post install"
-          command: bash ./scripts/pipeline/composer--postinstall.sh
+          command: bash ./scripts/ci/composer--postinstall.sh
       - save_cache:
           key: composer-{{ checksum "/tmp/composer.lock" }}
           paths:
@@ -56,8 +56,17 @@ jobs:
       - attach_workspace:
           at: project
       - run:
-          name: Unit/functional tests and static code analysis
-          command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
+          name: Move code
+          command: bash ./scripts/pipeline/default_setup_ci.sh
+      - run:
+          name: Coding standards
+          command: bash ./scripts/ci/checks-cs.sh
+      - run:
+          name: PHPstan
+          command: bash ./scripts/ci/checks-phpstan.sh
+      - run:
+          name: PHPUnit
+          command: bash ./scripts/ci/tests-phpunit.sh
     store_test_results:
       - test-reports
   integration_tests:
