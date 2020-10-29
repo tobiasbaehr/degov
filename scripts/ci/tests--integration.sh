@@ -25,9 +25,6 @@ source "$__DIR__/common_functions.sh"
 
 main() {
   cd "$CI_ROOT_DIR/project"
-  _setup_settings_php
-  _setup_file_system
-  _setup_local_settings_php
   _info "### Importing db dump"
   _drush sql-query --file="$CONTRIBNAME.sql.gz"
 
