@@ -33,5 +33,5 @@ jobs:
     - stage: "Behat tests"
       name: "Install"
       script:
-        - CI_MYSQL_USERNAME=travis; CI_MYSQL_PASSWORD=""; bash ./scripts/ci/tests--integration--db-import.sh
+        - export CI_MYSQL_USERNAME="travis"; export CI_MYSQL_PASSWORD=""; bash ./scripts/ci/tests--integration--db-import.sh
         - bash ./scripts/ci/tests--integration.sh content
