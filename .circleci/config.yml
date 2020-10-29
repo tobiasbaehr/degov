@@ -65,11 +65,11 @@ jobs:
           name: PHPstan
           command: bash ./scripts/ci/checks--phpstan.sh
       - run:
+          name: Npm audit
+          command: bash ./scripts/ci/checks--npmaudit.sh
+      - run:
           name: PHPUnit
           command: bash ./scripts/ci/tests--phpunit.sh
-      - run:
-          name: Npm audit
-          command: bash ./scripts/ci/tests--npmaudit.sh
       - store_test_results:
           path: test-reports
   integration_tests_prepare:
@@ -90,6 +90,9 @@ jobs:
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - attach_workspace:
           at: project
+      - run:
+          name: Move code
+          command: bash ./scripts/pipeline/default_setup_ci.sh
       - run:
           name: Prepare database
           command: bash ./scripts/ci/tests--integration--db-import.sh
