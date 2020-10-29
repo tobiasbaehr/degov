@@ -126,7 +126,7 @@ jobs:
           command: bash ./scripts/pipeline/default_setup_ci.sh
       - run:
           name: Run behat test
-          command: bash ./scripts/ci/tests--integration.sh common
+          command: bash ./scripts/ci/tests--integration.sh content
       - persist_to_workspace:
           root: project
           paths:
