@@ -18,7 +18,6 @@ fi
 
 main() {
   ln -sf "$CI_ROOT_DIR/php_error.log" /tmp/php_error.log
-  mkdir -p "$CI_ROOT_DIR/test-reports/{phpstan,phpcs,phpunit}"
   if [[ -n ${BITBUCKET_DOCKER_HOST_INTERNAL:-} ]]; then
     echo "$BITBUCKET_DOCKER_HOST_INTERNAL host.docker.internal" >> /etc/hosts
   fi

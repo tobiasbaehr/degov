@@ -46,16 +46,16 @@ main() {
   _unshallow
   checksum=$(git log -n 1 --pretty=format:%H -- composer.json)
 
-  if [[ -f $existing_checksum_filename ]]; then
-    existing_checksum=$("cat $existing_checksum_filename")
-    if [[ $checksum == "$existing_checksum" ]]; then
-      _info "### [SKIPPED] Run post install"
-      exit 0
-    fi
-  fi
   _info "### Run post install"
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
+    if [[ -f $existing_checksum_filename ]]; then
+      existing_checksum=$("cat $existing_checksum_filename")
+      if [[ $checksum == "$existing_checksum" ]]; then
+        _info "### [SKIPPED] Apply composer.json changes"
+        exit 0
+      fi
+    fi
     _info "### Apply composer.json changes"
     cd "$CI_ROOT_DIR/project"
     # --no-update change only the composer.json

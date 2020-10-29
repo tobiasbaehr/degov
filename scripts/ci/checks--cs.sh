@@ -27,6 +27,7 @@ _info() {
 }
 
 main() {
+  mkdir -p "$CI_ROOT_DIR/test-reports/phpcs"
   cd "$CI_ROOT_DIR/project"
   _info "### Check php compatibility"
   phpcs -p -s --standard=phpcompatibility.xml
