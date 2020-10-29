@@ -4,12 +4,15 @@ set -o nounset
 set -o pipefail
 set -o errexit
 
-if [[ -n "${DEBUG:-}" ]];then
+if [[ -n ${DEBUG:-} ]]; then
   set -o xtrace
 fi
 
 # shellcheck disable=SC2164
-__DIR__="$(cd "$(dirname "${0}")"; pwd)"
+__DIR__="$(
+  cd "$(dirname "${0}")"
+  pwd
+)"
 
 main() {
   # shellcheck source=.
@@ -26,7 +29,7 @@ main() {
 
   _info "### Start chromedriver"
   # See the following page for info for the Docker image, which is a meta image from the following one: https://github.com/SeleniumHQ/docker-selenium
-  docker run --name testing -e START_XVFB=false --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$BITBUCKET_CLONE_DIR:$BITBUCKET_CLONE_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-oxygen
+  docker run --name testing -e START_XVFB=false --add-host host.docker.internal:$BITBUCKET_DOCKER_HOST_INTERNAL -v "$CI_ROOT_DIR:$CI_ROOT_DIR" -p 4444:4444 --shm-size=2g -d selenium/standalone-chrome:3.141.59-oxygen
   bash "$BITBUCKET_CLONE_DIR/scripts/pipeline/shared_scripts/wait-for-grid.sh"
 
   _info "### Start php-server"

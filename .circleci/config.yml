@@ -8,9 +8,9 @@ workflows:
       # - code_tests:
       #     requires:
       #       - build
-      - integration_tests:
-          requires:
-            - build
+      # - integration_tests:
+      #     requires:
+      #       - build
 jobs:
   build:
     docker:
@@ -21,16 +21,25 @@ jobs:
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
+      - run:
+          name: "Create project"
+          command: |
+            bash ./scripts/pipeline/composer--create.sh
+            cp ~/project/composer.lock /tmp/composer.lock
       - restore_cache:
           keys:
-            - composer-{{ .Branch }}-{{ checksum "scripts/pipeline/.env" }}
+            - composer-{{ checksum "/tmp/composer.lock" }}
       - run:
-          name: Composer setup
-          command: bash ./scripts/pipeline/composer_setup.sh
+          name: "Install project"
+          command: bash ./scripts/pipeline/composer--install.sh
+      - run:
+          name: "Run post install"
+          command: bash ./scripts/pipeline/composer--postinstall.sh
       - save_cache:
-          key: composer-{{ .Branch }}-{{ checksum "scripts/pipeline/.env" }}
+          key: composer-{{ checksum "/tmp/composer.lock" }}
           paths:
             - ~/.composer
+            - ~/app/project
       - persist_to_workspace:
           root: project
           paths:
@@ -57,23 +66,10 @@ jobs:
       - run:
           name: Install docker client
           command: |
-            apt update
-            DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -yq \
-              apt-transport-https \
-              ca-certificates \
-              curl \
-              gnupg-agent \
-              gnupg \
-              software-properties-common
-            curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-            add-apt-repository \
-              "deb [arch=amd64] https://download.docker.com/linux/debian \
-              $(lsb_release -cs) \
-              stable"
-            apt update
-            DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -yq \
-              docker-ce-cli \
-              containerd.io
+            wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.9.tgz
+            tar xzvf docker-19.03.9.tgz
+            cp docker/* /usr/bin/
+
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
