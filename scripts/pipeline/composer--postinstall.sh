@@ -27,19 +27,7 @@ _composer() {
   composer --ansi --profile "$@"
 }
 
-main() {
-  local checksum
-  local existing_checksum
-  local existing_checksum_filename="$CI_ROOT_DIR/project/checksum_composer.md5"
-  checksum=$(md5 -q composer.json)
-
-  if [[ -f $existing_checksum_filename ]]; then
-    existing_checksum=$("cat $existing_checksum_filename")
-    if [[ $checksum == "$existing_checksum" ]]; then
-      _info "### [SKIPPED] Run post install"
-    fi
-  fi
-  _info "### Run post install"
+_unshallow() {
   cd "$CI_ROOT_DIR"
 
   # shellcheck disable=SC2091
@@ -48,7 +36,23 @@ main() {
     git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
     git fetch --quiet origin
   fi
+}
 
+main() {
+  local checksum
+  local existing_checksum
+  local existing_checksum_filename="$CI_ROOT_DIR/project/checksum_composer.hash"
+
+  _unshallow
+  checksum=$(git log -n 1 --pretty=format:%H -- composer.json)
+
+  if [[ -f $existing_checksum_filename ]]; then
+    existing_checksum=$("cat $existing_checksum_filename")
+    if [[ $checksum == "$existing_checksum" ]]; then
+      _info "### [SKIPPED] Run post install"
+    fi
+  fi
+  _info "### Run post install"
   # Was the composer.json changed? Then lets composer download the dependencies.
   if ! git diff --exit-code "origin/$RELEASE_BRANCH" "composer.json" > /dev/null; then
     _info "### Apply composer.json changes"
@@ -68,7 +72,7 @@ main() {
   # We restore the profile in default_setup_ci.sh.
   rm -rf "$PROFILE_DIR"
   find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
-  md5 -q composer.json > "$existing_checksum_filename"
+  git log -n 1 --pretty=format:%H -- composer.json > "$existing_checksum_filename"
 }
 
 main
