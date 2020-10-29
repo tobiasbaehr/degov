@@ -27,7 +27,10 @@ main() {
   _info "### Run npm audit"
   local npm_audit_was_used=0
   if [[ -d "docroot/profiles/contrib/$CONTRIBNAME/themes" ]]; then
-    cd "docroot/profiles/contrib/$CONTRIBNAME/themes/degov_theme" && _run_npm_audit
+    cd "docroot/profiles/contrib/$CONTRIBNAME/themes/degov_theme"
+    _info '# Audit non-dev dependencies'
+    npm install --production
+    npm audit --production
     npm_audit_was_used=1
   fi
   if [[ $npm_audit_was_used -eq 0 ]]; then

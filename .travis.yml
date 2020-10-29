@@ -24,6 +24,8 @@ jobs:
         - bash ./scripts/ci/checks--cs.sh
     - script: bash ./scripts/ci/checks--phpstan.sh
       name: "PHPstan"
+    - script: bash ./scripts/ci/checks--npmaudit.sh
+      name: Npm audit
     - stage: "Unit Tests"
       name: "PHPUnit"
       script: bash ./scripts/ci/tests--phpunit.sh
