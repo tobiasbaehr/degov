@@ -23,12 +23,12 @@ jobs:
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - restore_cache:
           keys:
-            - composer-{{ .Branch }}-{{ checksum "source/pipeline/.env" }}
+            - composer-{{ .Branch }}-{{ checksum "scripts/pipeline/.env" }}
       - run:
           name: Composer setup
           command: bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
-          key: composer-{{ .Branch }}-{{ checksum "source/pipeline/.env" }}
+          key: composer-{{ .Branch }}-{{ checksum "scripts/pipeline/.env" }}
           paths:
             - ~/.composer
       - persist_to_workspace:
@@ -63,6 +63,7 @@ jobs:
               ca-certificates \
               curl \
               gnupg-agent \
+              gnupg \
               software-properties-common
             curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
             add-apt-repository \
