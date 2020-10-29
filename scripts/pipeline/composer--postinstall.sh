@@ -11,7 +11,7 @@ __DIR__="$(
 )"
 
 # shellcheck source=.
-source "$__DIR__/../.env"
+source "$__DIR__/.env"
 if [[ -n ${DEBUG:-} ]]; then
   set -o xtrace
 fi
