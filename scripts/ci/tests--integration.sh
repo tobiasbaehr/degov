@@ -40,4 +40,4 @@ main() {
   exit $EXIT_CODE
 }
 
-main
+main "$@"
