@@ -28,6 +28,17 @@ _composer() {
 }
 
 main() {
+  local checksum
+  local existing_checksum
+  local existing_checksum_filename="$CI_ROOT_DIR/project/checksum_composer.md5"
+  checksum=$(md5 -q composer.json)
+
+  if [[ -f $existing_checksum_filename ]]; then
+    existing_checksum=$("cat $existing_checksum_filename")
+    if [[ $checksum == "$existing_checksum" ]]; then
+      _info "### [SKIPPED] Run post install"
+    fi
+  fi
   _info "### Run post install"
   cd "$CI_ROOT_DIR"
 
@@ -57,6 +68,7 @@ main() {
   # We restore the profile in default_setup_ci.sh.
   rm -rf "$PROFILE_DIR"
   find . -type d -name '.git' -print0 -exec rm -rf {} + > /dev/null
+  md5 -q composer.json > "$existing_checksum_filename"
 }
 
 main
