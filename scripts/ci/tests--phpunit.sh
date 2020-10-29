@@ -27,6 +27,7 @@ _info() {
 }
 
 main() {
+  cd "$CI_ROOT_DIR/project"
   _info "### Running PHPUnit and KernelBase tests"
   (cd "docroot/profiles/contrib/$CONTRIBNAME" && phpunit --colors=auto --log-junit "$CI_ROOT_DIR/test-reports/phpunit/phpunit-junit.xml" --testdox)
 }

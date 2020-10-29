@@ -27,6 +27,7 @@ _info() {
 }
 
 main() {
+  cd "$CI_ROOT_DIR/project"
   _info "### Check php compatibility"
   phpcs -p -s --standard=phpcompatibility.xml
   _info "### Check coding standards"

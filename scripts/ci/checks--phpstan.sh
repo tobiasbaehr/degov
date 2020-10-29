@@ -27,6 +27,7 @@ _info() {
 }
 
 main() {
+  cd "$CI_ROOT_DIR/project"
   _info "### Run static analyse"
   phpstan analyse --ansi --no-progress --error-format=junit > "$CI_ROOT_DIR/test-reports/phpstan/phpstan-junit.xml"
 }
