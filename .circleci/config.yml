@@ -25,7 +25,7 @@ jobs:
           name: "Create project"
           command: |
             bash ./scripts/pipeline/composer--create.sh
-            cp ~/project/composer.lock /tmp/composer.lock
+            cp ~/app/project/composer.lock /tmp/composer.lock
       - restore_cache:
           keys:
             - composer-{{ checksum "/tmp/composer.lock" }}
