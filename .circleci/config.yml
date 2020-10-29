@@ -5,9 +5,9 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - code_tests:
-          requires:
-            - build
+      # - code_tests:
+      #     requires:
+      #       - build
       - integration_tests:
           requires:
             - build
@@ -37,20 +37,20 @@ jobs:
           root: project
           paths:
             - .
-  # code_tests:
-  #   docker:
-  #     - image: tobiasb/php-cli:7.3-debian
-  #   working_directory: ~/app
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: "Fix CIRCLE_WORKING_DIRECTORY"
-  #         command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
-  #     - attach_workspace:
-  #         at: project
-  #     - run:
-  #         name: Unit/functional tests and static code analysis
-  #         command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
+  code_tests:
+    docker:
+      - image: tobiasb/php-cli:7.3-debian
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: "Fix CIRCLE_WORKING_DIRECTORY"
+          command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
+      - attach_workspace:
+          at: project
+      - run:
+          name: Unit/functional tests and static code analysis
+          command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
   integration_tests:
     docker:
       - image: tobiasb/php-cli:7.3-debian
@@ -59,7 +59,7 @@ jobs:
       - run:
           name: Install docker client
           command: |
-            curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+            curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
             add-apt-repository \
               "deb [arch=amd64] https://download.docker.com/linux/debian \
               $(lsb_release -cs) \
