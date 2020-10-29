@@ -34,7 +34,7 @@ main() {
   fi
   cd "$CI_ROOT_DIR/project"
   _info "### Install project"
-  _composer install --optimize-autoloader
+  _composer install --no-progress --optimize-autoloader
 }
 
 main

@@ -47,7 +47,7 @@ main() {
     # Now downloads install profile + list of dependencies.
     _composer update $INSTALL_PROJECT $INSTALL_PROJECT_UPDATE_LIST
     # Re-apply patches in case they was changed.
-    _composer install
+    _composer install --no-progress --optimize-autoloader
   fi
 
   cd "$CI_ROOT_DIR/project"
