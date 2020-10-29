@@ -50,6 +50,7 @@ main() {
     existing_checksum=$("cat $existing_checksum_filename")
     if [[ $checksum == "$existing_checksum" ]]; then
       _info "### [SKIPPED] Run post install"
+      exit 0
     fi
   fi
   _info "### Run post install"
