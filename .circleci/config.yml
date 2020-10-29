@@ -88,5 +88,5 @@ jobs:
       - attach_workspace:
           at: project
       - run:
-        name: Prepare database
+          name: Prepare database
           command: bash ./scripts/ci/tests-db-import.sh
