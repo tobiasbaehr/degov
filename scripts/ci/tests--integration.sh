@@ -25,7 +25,7 @@ source "$__DIR__/common_functions.sh"
 
 main() {
   cd "$CI_ROOT_DIR/project"
-
+  ls -lah
   _info "### Importing db dump"
   _drush sql-query --file="$CONTRIBNAME.sql"
 
