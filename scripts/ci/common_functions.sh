@@ -58,7 +58,7 @@ _setup_settings_php() {
 }
 
 _setup_local_settings_php() {
-  cp -v "$CI_ROOT_DIR"/settings.local.php docroot/sites/default/settings.local.php
+  cp -v "$CI_ROOT_DIR"/ci/settings.local.php docroot/sites/default/settings.local.php
 }
 
 _setup_file_system() {
