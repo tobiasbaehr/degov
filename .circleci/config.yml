@@ -23,14 +23,12 @@ jobs:
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - restore_cache:
           keys:
-            - composer-{{ .Branch }}-{{ checksum "composer.json" }}
-            - composer-{{ .Branch }}
-            - composer
+            - composer-{{ .Branch }}-{{ checksum "source/pipeline/.env" }}
       - run:
           name: Composer setup
           command: bash ./scripts/pipeline/composer_setup.sh
       - save_cache:
-          key: composer-{{ .Branch }}-{{ checksum "composer.json" }}
+          key: composer-{{ .Branch }}-{{ checksum "source/pipeline/.env" }}
           paths:
             - ~/.composer
       - persist_to_workspace:
@@ -60,7 +58,7 @@ jobs:
           name: Install docker client
           command: |
             apt update
-              apt-get install \
+            DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -yq \
               apt-transport-https \
               ca-certificates \
               curl \
@@ -72,7 +70,9 @@ jobs:
               $(lsb_release -cs) \
               stable"
             apt update
-            apt-get install docker-ce-cli containerd.io
+            DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -yq \
+              docker-ce-cli \
+              containerd.io
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
