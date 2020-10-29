@@ -69,25 +69,24 @@ jobs:
           command: bash ./scripts/ci/tests--phpunit.sh
       - store_test_results:
           path: test-reports
-  integration_tests:
+  integration_tests_prepare:
     docker:
       - image: tobiasb/php-cli:7.3-debian
+      - image: circleci/mysql:5.7
+          command: mysqld --max_allowed_packet=65011712
+          environment:
+            MYSQL_DATABASE: testing
+            MYSQL_USER: testing
+            MYSQL_PASSWORD: testing
+
     working_directory: ~/app
     steps:
-      - run:
-          name: Install docker client
-          command: |
-            wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.9.tgz
-            tar xzvf docker-19.03.9.tgz
-            cp docker/* /usr/bin/
-
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - attach_workspace:
           at: project
-      - setup_remote_docker:
       - run:
-          name: Content features
-          command: bash ./scripts/pipeline/acceptance_tests.sh content db_dump
+        name: Prepare database
+          command: bash ./scripts/ci/tests-db-import.sh
