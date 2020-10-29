@@ -67,8 +67,8 @@ jobs:
       - run:
           name: PHPUnit
           command: bash ./scripts/ci/tests--phpunit.sh
-    store_test_results:
-      - test-reports
+      - store_test_results:
+          path: test-reports
   integration_tests:
     docker:
       - image: tobiasb/php-cli:7.3-debian
