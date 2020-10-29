@@ -5,10 +5,13 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - code_tests:
+      # - code_tests:
+      #     requires:
+      #       - build
+      - integration_tests_prepare_dbimport:
           requires:
             - build
-      - integration_tests_prepare:
+      - integration_tests_dbimport:
           requires:
             - build
 jobs:
@@ -72,7 +75,7 @@ jobs:
           command: bash ./scripts/ci/tests--phpunit.sh
       - store_test_results:
           path: test-reports
-  integration_tests_prepare:
+  integration_tests_prepare_dbimport:
     docker:
       - image: tobiasb/php-cli:7.3-debian
       - image: circleci/mysql:5.7
@@ -96,3 +99,35 @@ jobs:
       - run:
           name: Prepare database
           command: bash ./scripts/ci/tests--integration--db-import.sh
+      - persist_to_workspace:
+          root: project
+          paths:
+            - .
+  integration_tests_dbimport:
+    docker:
+      - image: tobiasb/php-cli:7.3-debian
+      - image: circleci/mysql:5.7
+        command: mysqld --max_allowed_packet=65011712
+        environment:
+            MYSQL_DATABASE: testing
+            MYSQL_USER: testing
+            MYSQL_PASSWORD: testing
+
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: "Fix CIRCLE_WORKING_DIRECTORY"
+          command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
+      - attach_workspace:
+          at: project
+      - run:
+          name: Move code
+          command: bash ./scripts/pipeline/default_setup_ci.sh
+      - run:
+          name: Run behat test
+          command: bash ./scripts/ci/tests--integration.sh common
+      - persist_to_workspace:
+          root: project
+          paths:
+            - .
