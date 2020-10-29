@@ -29,8 +29,9 @@ main() {
   if [[ -d "docroot/profiles/contrib/$CONTRIBNAME/themes" ]]; then
     cd "docroot/profiles/contrib/$CONTRIBNAME/themes/degov_theme"
     _info '# Audit non-dev dependencies'
-    npm install --production
-    npm audit --production
+    _run_npm_audit
+    # npm install --production
+    # npm audit --production
     npm_audit_was_used=1
   fi
   if [[ $npm_audit_was_used -eq 0 ]]; then

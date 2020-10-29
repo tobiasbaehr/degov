@@ -6,10 +6,11 @@ php:
   - '7.3'
 services:
   - docker
+  - mysql
 cache:
   directories:
     - $HOME/.composer/cache
-before_script:
+install:
   - phpenv config-rm xdebug.ini
   - composer selfupdate --1
   - bash ./scripts/ci/composer--create.sh
@@ -29,3 +30,8 @@ jobs:
     - stage: "Unit Tests"
       name: "PHPUnit"
       script: bash ./scripts/ci/tests--phpunit.sh
+    - stage: "Behat tests"
+      name: "Install"
+      script:
+        - bash ./scripts/ci/tests--integration--db-import.sh
+        - bash ./scripts/ci/tests--integration.sh content
