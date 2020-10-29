@@ -1,0 +1,9 @@
+git:
+  submodules: false
+language: php
+services:
+  - docker
+before_script:
+  - phpenv config-rm xdebug.ini
+jobs:
+  script: bash ./scripts/ci/composer--create.sh && cp ~/app/project/composer.lock /tmp/composer.lock
