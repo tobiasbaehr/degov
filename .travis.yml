@@ -11,9 +11,12 @@ cache:
     - $HOME/.composer
 before_script:
   - phpenv config-rm xdebug.ini
-  - composer selfupdate --stable --1
+  - composer selfupdate --1
 jobs:
-  script:
-    - bash ./scripts/ci/composer--create.sh
-    - bash ./scripts/ci/composer--install.sh
-    - bash ./scripts/ci/composer--postinstall.sh
+  include:
+    - stage: "Tests"
+      name: "Composer setup"
+      script:
+        - bash ./scripts/ci/composer--create.sh
+        - bash ./scripts/ci/composer--install.sh
+        - bash ./scripts/ci/composer--postinstall.sh
