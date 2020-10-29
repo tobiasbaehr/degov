@@ -58,6 +58,8 @@ jobs:
       - run:
           name: Unit/functional tests and static code analysis
           command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
+    store_test_results:
+      - test-reports
   integration_tests:
     docker:
       - image: tobiasb/php-cli:7.3-debian

@@ -26,7 +26,7 @@ main() {
   bash "$__DIR__/../default_setup_ci.sh"
   # shellcheck source=.
   source "$__DIR__/common_functions.sh"
-  mkdir "$CI_ROOT_DIR/test-reports"
+  mkdir -p "$CI_ROOT_DIR/test-reports/{phpstan,phpcs,phpunit}"
 
   cd "$CI_ROOT_DIR/project"
 
@@ -35,13 +35,13 @@ main() {
   _info "### Check php compatibility"
   phpcs -p -s --standard=phpcompatibility.xml
   _info "### Run static analyse"
-  phpstan analyse --ansi --no-progress --error-format=junit > "$CI_ROOT_DIR/test-reports/phpstan-junit.xml"
+  phpstan analyse --ansi --no-progress --error-format=junit > "$CI_ROOT_DIR/test-reports/phpstan/phpstan-junit.xml"
   __fail
   _info "### Checking coding standards"
-  phpcs --report=junit --report-file="$CI_ROOT_DIR/test-reports/phpcs-junit.xml"
+  phpcs --report=junit --report-file="$CI_ROOT_DIR/test-reports/phpcs/phpcs-junit.xml"
   __fail
   _info "### Running PHPUnit and KernelBase tests"
-  (cd "docroot/profiles/contrib/$CONTRIBNAME" && phpunit --colors=auto --log-junit "$CI_ROOT_DIR/test-reports/phpunit-junit.xml" --testdox)
+  (cd "docroot/profiles/contrib/$CONTRIBNAME" && phpunit --colors=auto --log-junit "$CI_ROOT_DIR/test-reports/phpunit/phpunit-junit.xml" --testdox)
   __fail
   _info "### Run npm audit"
   local npm_audit_was_used=0
