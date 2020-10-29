@@ -5,7 +5,10 @@ workflows:
   build-and-test:
     jobs:
       - build
-      - tests:
+      - code_tests:
+          requires:
+            - build
+      - integration_tests:
           requires:
             - build
 jobs:
@@ -14,12 +17,6 @@ jobs:
       - image: tobiasb/php-cli:7.3-debian
     working_directory: ~/app
     steps:
-      # - run:
-      #     name: Install dependencies
-      #     command: |
-      #       sudo apt-get update && \
-      #       DEBIAN_FRONTEND=noninteractive sudo apt-get install git-lfs && \
-      #       git lfs install
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
@@ -40,23 +37,31 @@ jobs:
           root: project
           paths:
             - .
-  tests:
+  code_tests:
     docker:
       - image: tobiasb/php-cli:7.3-debian
     working_directory: ~/app
     steps:
-      # - run:
-      #     name: Install dependencies
-      #     command: |
-      #       sudo apt-get update && \
-      #       DEBIAN_FRONTEND=noninteractive sudo apt-get install rsync
       - checkout
       - run:
           name: "Fix CIRCLE_WORKING_DIRECTORY"
           command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
       - attach_workspace:
-          # Must be absolute path or relative path from working_directory
           at: project
       - run:
           name: Unit/functional tests and static code analysis
           command: bash ./scripts/pipeline/shared_scripts/code_tests.sh
+  integration_tests:
+    docker:
+      - image: tobiasb/php-cli:7.3-debian
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: "Fix CIRCLE_WORKING_DIRECTORY"
+          command: echo 'CIRCLE_WORKING_DIRECTORY="${CIRCLE_WORKING_DIRECTORY/#\~/$HOME}"' >> $BASH_ENV
+      - attach_workspace:
+          at: project
+      - run:
+          name: Content features
+          command: bash ./scripts/pipeline/acceptance_tests.sh content db_dump
