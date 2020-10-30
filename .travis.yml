@@ -21,14 +21,14 @@ install:
   - bash ./scripts/ci/inject_code.sh
 jobs:
   include:
-    - stage: "Checks"
-      name: "Coding standards"
-      script:
-        - bash ./scripts/ci/checks--cs.sh
-    - script: bash ./scripts/ci/checks--phpstan.sh
-      name: "PHPstan"
-    - script: bash ./scripts/ci/checks--npmaudit.sh
-      name: Npm audit
+    # - stage: "Checks"
+    #   name: "Coding standards"
+    #   script:
+    #     - bash ./scripts/ci/checks--cs.sh
+    # - script: bash ./scripts/ci/checks--phpstan.sh
+    #   name: "PHPstan"
+    # - script: bash ./scripts/ci/checks--npmaudit.sh
+    #   name: Npm audit
     # - stage: "Unit Tests"
     #   name: "PHPUnit"
     #   script: bash ./scripts/ci/tests--phpunit.sh

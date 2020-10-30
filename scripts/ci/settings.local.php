@@ -5,7 +5,7 @@
 $databases['default']['default'] = array(
   'database' => getenv('CI_MYSQL_DATABASE') ?: 'testing',
   'username' => getenv('CI_MYSQL_USERNAME') ?: 'testing',
-  'password' => getenv('CI_MYSQL_PASSWORD') ?: 'testing',
+  'password' => getenv('CI_MYSQL_PASSWORD') ?: '',
   'prefix' => '',
   'host' => getenv('CI_MYSQL_HOST')?: '127.0.0.1',
   'port' => getenv('CI_MYSQL_PORT')?: '3306',
