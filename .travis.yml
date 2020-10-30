@@ -40,7 +40,7 @@ jobs:
       script:
         - if [[ ! -f $HOME/cache/db.sql ]];then export CI_MYSQL_USERNAME="root"; bash ./scripts/ci/tests--integration--db-import.sh; fi
         - if [[ -f /tmp/db.sql ]]; then cp /tmp/db.sql $HOME/cache/db.sql; else $HOME/cache/db.sql /tmp/db.sql; fi
-        #- bash ./scripts/setup_chromedriver.sh
-        #- bash ./scripts/start_chromedriver.sh
-        - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+        - bash ./scripts/ci/setup_chromedriver.sh
+        - bash ./scripts/ci/start_chromedriver.sh
+        #- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
         - bash ./scripts/ci/tests--integration.sh content

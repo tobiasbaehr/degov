@@ -28,7 +28,7 @@ _info() {
 
 main() {
   local chromedriverBin=${1:-/tmp/chromedriver}
-  "$chromedriverBin" --url-base=wd/hub --port=4444 &
+  "$chromedriverBin" --url-base=wd/hub --port=4444 --detach=true
 }
 
 main "$@"
