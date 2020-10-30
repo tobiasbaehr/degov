@@ -7,10 +7,13 @@ php:
 services:
   - docker
   - mysql
+addons:
+  chrome: stable
 cache:
   directories:
     - $HOME/.composer/cache
     - /tmp/chromedriver
+    - /tmp/db.sql
 before_install:
   - mysql -e 'CREATE DATABASE testing;'
 install:
@@ -36,7 +39,8 @@ jobs:
     - stage: "Behat tests"
       name: "Install"
       script:
-        - export CI_MYSQL_USERNAME="root"; export CI_MYSQL_PASSWORD=""; bash ./scripts/ci/tests--integration--db-import.sh
-        - bash ./scripts/setup_chromedriver.sh
-        - bash ./scripts/start_chromedriver.sh
+        - if [[ ! -f /tmp/db.sql ]];then export CI_MYSQL_USERNAME="root"; bash ./scripts/ci/tests--integration--db-import.sh; fi
+        #- bash ./scripts/setup_chromedriver.sh
+        #- bash ./scripts/start_chromedriver.sh
+        - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
         - bash ./scripts/ci/tests--integration.sh content

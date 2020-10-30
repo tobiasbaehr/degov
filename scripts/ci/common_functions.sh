@@ -88,7 +88,7 @@ _composer() {
 }
 
 _create_db_dump() {
-  _drush sql:dump --extra-dump="--no-tablespaces" --result-file="$CI_ROOT_DIR/project/$CONTRIBNAME.sql"
+  _drush sql:dump --extra-dump="--no-tablespaces" --result-file="/tmp/db.sql"
 }
 
 _copy_assets() {

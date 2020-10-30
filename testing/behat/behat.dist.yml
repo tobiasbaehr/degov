@@ -65,6 +65,11 @@ default:
             wd_host: http://localhost:4444/wd/hub
             browser: chrome
             capabilities:
+              chrome:
+                switches:
+                  - "--headless"
+                  - "--disable-gpu"
+                  - "--no-sandbox"
               extra_capabilities:
                 chromeOptions:
                   args:
